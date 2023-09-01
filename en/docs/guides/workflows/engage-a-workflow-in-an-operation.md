@@ -2,7 +2,7 @@
 
 You can engage workflows in certain operations, such as engaging the approval workflow for the operation of adding a user. This section explains the steps to do this.
 
-1. On the Management Console, go to **Manage > Workflow Engagement > Add**.
+1. On the Management Console, go to **Manage > Workflow Engagements > Add**.
 2. Enter the required details under **Association Details** and **Workflow Details** as given below.
 
     ![new-workflow-engagement]({{base_path}}/assets/img/guides/workflows/new-workflow-engagement.png)
