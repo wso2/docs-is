@@ -25,7 +25,7 @@ To add a new workflow:
     !!! note
         Each approval step represents a user approving an account of another user. The user who approves the account can have a specific role or be a specific user. In this scenario, users are assigned a specific user role to approve accounts.
 
-    1. Search for the required Role/s or User/s and click **Add Selected Role** or **Add Selected Role** respectively.
+    1. Search for the required Role/s or User/s and click **Add Selected Users** or **Add Selected Roles** respectively.
 
         !!! note
             You can click **Add Approval Step** again and follow the above step to add another approval step.
