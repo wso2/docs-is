@@ -3,7 +3,7 @@
 Human tasks are the steps that require human interaction to allow the process of the operation to proceed. Follow the steps below to test the workflow.
 
 1. Sign in to WSO2 Identity Server with the admin credentials.
-2. Create a new user. After you successfully create the user, you will be able to see the user details are greyed-ou until a user with the `Manager` role approves adding the user account.
+2. Create a new user. After you successfully create the user, you will be able to see the user details are greyed-out until a user with the `Manager` role approves adding the user account.
 
     ![workflow-pending-status]({{base_path}}/assets/img/guides/workflows/console.png)  
 
