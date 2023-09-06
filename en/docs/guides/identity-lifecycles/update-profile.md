@@ -6,23 +6,19 @@ You can update the information on a user's profile as explained.
 
 Follow the instructions given below to update a user using management console.
 
-1.  On the **Main** > **Identity** tab in the Management Console, click **List** under
-    **Users and Roles**.
-2.  Click **Users**. This link is only visible to users with the Admin
-    role.
-3.  You will see the list of users that are available and you can click
-    **Update Profile** if you want to update the profile of a particular
-    user.  
-    ![update-profile-in-console]({{base_path}}/assets/img/guides/update-profile-in-console.png) 
-4.  There you can update the details of the user and click **Update**.  
-    ![update-userdetails]({{base_path}}/assets/img/guides/update-userdetails.png) 
+1. On the **Main** > **Identity** tab in the Management Console, click **List** under **Users and Roles**.
+2. Click **Users**. This link is only visible to users with the Admin role.
+3. You will see the list of users that are available and you can click **Update Profile** if you want to update the profile of a particular user.
 
-Other than updating user profile details, you can also change the
-password of the user and assign more roles to the user.
+    ![update-profile-in-console]({{base_path}}/assets/img/guides/update-profile-in-console.png)
+
+4. There you can update the details of the user and click **Update**.  
+
+Other than updating user profile details, you can also change the password of the user and assign more roles to the user.
 
 ## Use the SCIM 2.0 REST API
 
-You can update a user profile using a SCIM 2.0 request as shown below. 
+You can update a user profile using a SCIM 2.0 request as shown below.
 
 **Request**
 
@@ -30,7 +26,7 @@ You can update a user profile using a SCIM 2.0 request as shown below.
 curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],"value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[userID]
 ```
 
-Below is a sample request and its corresponding response using SCIM 2.0. 
+Below is a sample request and its corresponding response using SCIM 2.0.
 
 !!! abstract ""
     **Sample Request**
@@ -69,4 +65,3 @@ Below is a sample request and its corresponding response using SCIM 2.0.
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
     - [Guide: Ways of User Onboarding]({{base_path}}/guides/identity-lifecycles/onboard-overview)
     - [Guide: Search/List Users]({{base_path}}/guides/identity-lifecycles/search-users)
-
