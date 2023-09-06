@@ -178,19 +178,15 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
 
 Follow the below instruction to update a user using management console.
 
-1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles**.
-2.  Click **Users**. This link is only visible to users with the Admin
-    role.
-3.  You will see the list of users that are available and you can click
-    **Update Profile** if you want to update the profile of a particular
-    user.  
-    ![update-profile-in-console](../assets/img/using-wso2-identity-server/update-profile-in-console.png) 
-4.  There you can update the details of the user and click **Update**.  
-    ![update-userdetails](../assets/img/using-wso2-identity-server/update-userdetails.png) 
+1. On the **Main** tab in the Management Console, click **List** under **Users and Roles**.
+2. Click **Users**. This link is only visible to users with the Admin role.
+3. You will see the list of users that are available and you can click **Update Profile** if you want to update the profile of a particular user.
 
-Other than updating user profile details, you can also change the
-password of the user and assign more roles to the user.
+    ![update-profile-in-console](../assets/img/using-wso2-identity-server/update-profile-in-console.png)
+
+4. There you can update the details of the user and click **Update**.
+
+Other than updating user profile details, you can also change the password of the user and assign more roles to the user.
 
 #### Update user using SCIM
 
