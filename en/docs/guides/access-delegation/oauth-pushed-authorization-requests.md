@@ -2,9 +2,11 @@
 
 Pushed Authorization Request (PAR) is an OAuth 2.0 specification that secures the way of initiating an authorization flow.
 
-The PAR specification defines the `/par` endpoint in the authorization server, and enables an OAuth client to push the payload of an authorization request directly to this endpoint. The endpoint in response, will return a one-time use `request_uri` which acts as a reference to the registered authorization request.
+The PAR specification defines the `/par` endpoint in the authorization server, and enables an OAuth client to push the payload of an authorization request directly to this endpoint. The endpoint in response, will return `request_uri`, a one-time use code which acts as a reference to the registered authorization request.
 
-When making the authorization request to the authorization endpoint, it is sufficient to send the `request_uri` instead of sending the complete authorization payload thus protecting the payload from being exposed to the user agent via query parameters.
+The client authentication rules defined for token endpoint requests, including the relevant authentication methods, also apply to the `/par` endpoint.
+
+When making the authorization request to the authorization endpoint, it is sufficient to send the `request_uri` instead of sending the complete authorization payload.
 
 Learn more about [Pushed authorization requests]({{base_path}}/references/concepts/authorization/pushed-authorization-requests).
 
@@ -45,11 +47,11 @@ The following example depicts an authorization code flow initiated with PAR:
     curl --location 'https://<IS_HOST>:<IS_PORT>/oauth2/par' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'accept: application/json' \
-    --header 'Authorization: Basic -u <CLIENT_ID>:<CLIENT_SECRET> \
-    --data-urlencode 'client_id=<CLIENT_ID>\
-    --data-urlencode <REDIRECT_URI> \
+    --header 'Authorization: Basic -u <CLIENT_ID>:<CLIENT_SECRET>' \
+    --data-urlencode 'client_id=<CLIENT_ID>'\
+    --data-urlencode 'redirect_uri=<REDIRECT_URI>' \
     --data-urlencode 'response_type=code' \
-    --data-urlencode <SCOPES>
+    --data-urlencode 'scope=<SCOPES>'
     ```
     ---
 
@@ -58,11 +60,11 @@ The following example depicts an authorization code flow initiated with PAR:
     curl --location 'https://localhost:9443/oauth2/par' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'accept: application/json' \
-    --header 'Authorization: Basic -u dZZXliQkdDVmZMeFBtUzB6NjZXTk1mZnlNYTpXWWZ3SFVzYnNFdnd0cW1ETHVheEZfVkNRSndh' \
-    --data-urlencode 'client_id=DUBCMGolTZQNg6mmE9GvfQ3qfq8a\
-    --data-urlencode http://localhost:8080/playground2 \
+    --header 'Authorization: Basic -u YWRtaW46YWRtaW4=' \
+    --data-urlencode 'client_id=DUBCMGolTZQNg6mmE9GvfQ3qfq8a' \
+    --data-urlencode 'redirect_uri=http://localhost:8080/playground2' \
     --data-urlencode 'response_type=code' \
-    --data-urlencode 'openid email'
+    --data-urlencode 'scope=openid email'
     ```
 
 You will receive a response with the request_uri and the time of expiry.
@@ -70,7 +72,7 @@ You will receive a response with the request_uri and the time of expiry.
 ```
 {
 "expires_in": 60,
-"request_uri": "urn:ietf:params:oauth:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f"
+"request_uri": "urn:ietf:params:oauth:par:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f"
 }
 ```
 

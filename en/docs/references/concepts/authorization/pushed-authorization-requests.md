@@ -6,13 +6,13 @@ Generally, when a user logs in to a web application using a user agent, such as 
 
 - Complex authorization requests can sometimes be too large for browsers to process.
 
-PAR defines the `/par` endpoint in an authorization server to elminate these issues. When a user logs in, the back-channel sends the authorization payload directly to the authorization server using the `/par` endpoint.  The `/par` endpoint, in response, returns a `request_uri`.
+PAR defines the `/par` endpoint in an authorization server to mitigate these issues. When a user logs in, the back-channel sends the authorization payload directly to the authorization server using the `/par` endpoint.  The `/par` endpoint, in response, returns a `request_uri`.
 
-Consequently, the conventional authorization request takes place in the user agent with a single difference: instead of the request data, the URL contains the `request_uri` which acts as a reference to the authorization payload.
+Consequently, the conventional authorization request takes place in the user agent with a single difference: instead of the request data, the URL contains the `client_id` and the `request_uri` which acts as a reference to the authorization payload.
 
 Therefore, using PAR with an OAuth authorization request,
 
-- elminates authorization requests being maliciously modified.
+- ensures integrity of the request is protected.
 - ensures confidentiality of the request.
 - enables complex requests to be passed without browser limitations.
 - avoids leakage of query strings to third-party sites and web server logs.
@@ -32,11 +32,11 @@ The diagram below illustrates the PAR authorization flow.
         curl --location 'https://<IS_HOST>:<IS_PORT>/oauth2/par' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --header 'accept: application/json' \
-        --header 'Authorization: Basic -u <CLIENT_ID>:<CLIENT_SECRET> \
-        --data-urlencode 'client_id=<CLIENT_ID>\
-        --data-urlencode <REDIRECT_URI> \
+        --header 'Authorization: Basic -u <CLIENT_ID>:<CLIENT_SECRET>' \
+        --data-urlencode 'client_id=<CLIENT_ID>'\
+        --data-urlencode 'redirect_uri=<REDIRECT_URI>' \
         --data-urlencode 'response_type=code' \
-        --data-urlencode <SCOPES>
+        --data-urlencode 'scope=<SCOPES>'
         ```
         ---
 
@@ -45,11 +45,11 @@ The diagram below illustrates the PAR authorization flow.
         curl --location 'https://localhost:9443/oauth2/par' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --header 'accept: application/json' \
-        --header 'Authorization: Basic -u   dZZXliQkdDVmZMeFBtUzB6NjZXTk1mZnlNYTpXWWZ3SFVzYnNFdnd0cW1ETHVheEZfVkNRSndh' \
-        --data-urlencode 'client_id=DUBCMGolTZQNg6mmE9GvfQ3qfq8a\
-        --data-urlencode http://localhost:8080/playground2 \
+        --header 'Authorization: Basic -u YWRtaW46YWRtaW4=' \
+        --data-urlencode 'client_id=DUBCMGolTZQNg6mmE9GvfQ3qfq8a' \
+        --data-urlencode 'redirect_uri=http://localhost:8080/playground2' \
         --data-urlencode 'response_type=code' \
-        --data-urlencode 'openid email'
+        --data-urlencode 'scope=openid email'
         ```
 
 2. The authorization server authenticates the client.
@@ -62,7 +62,7 @@ The diagram below illustrates the PAR authorization flow.
         ```
         {
         "expires_in": 60,
-        "request_uri": "urn:ietf:params:oauth:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f"
+        "request_uri": "urn:ietf:params:oauth:par:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f"
         }
         ```
 5. The client makes an authorization request to the authorization endpoint with the client id and the request_uri.
@@ -71,8 +71,8 @@ The diagram below illustrates the PAR authorization flow.
 
         **Sample request**
         ```
-        https://localhost:9443/oauth2/authorize?client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa&request_uri=urn%3Aietf%3Aparams%3Aoauth%3Arequest_uri%3Aa0cf571e-fe97-411a-8f33-3c01913c0e5f
+        https://localhost:9443/oauth2/authorize?client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa&request_uri=urn:ietf:params:oauth:par:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f
         ```
 
 6. The `/authorize` endpoint validates the request.
-7. If the validation is successful, the client receives the authorization code (or the access token based on the chosen grant type)
+7. If the validation is successful, the client receives the authorization code (or the access token based on the chosen grant type).
