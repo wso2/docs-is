@@ -203,7 +203,7 @@ paths:
       operationId: deleteUserStore
       description: >
         This API provides the capability to delete a secondary user store
-        matching to the given user store domain id.<br>
+        based on the given user store domain id.<br>
 
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/userstore/config/delete <br>
