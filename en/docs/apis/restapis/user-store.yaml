@@ -67,7 +67,7 @@ paths:
     get:
       tags:
         - User Store
-      summary: Retrieve or list the configured secondary user stores.
+      summary: Retrieve the list of secondary user stores
       operationId: getSecondaryUserStores
       description: >
         This API provides the capability to list the configured secondary userstores.<br>
