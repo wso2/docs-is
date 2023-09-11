@@ -763,6 +763,8 @@ step number.
     information.
 -   `          step.idp         ` :  Gives the identity provider name which was used
     to authenticate this user.
+-   `          step.authenticator         ` :  Gives the authenticator name which was used
+  to authenticate this user. Refer to the table in [core functions section](#core-functions) to find the authenticator names.
 
 #### user object
 
