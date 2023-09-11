@@ -830,37 +830,37 @@ components:
       properties:
         remoteUrl:
           type: string
-          description: "Remote Server URL"
+          description: "Remote Server URL."
           example: "https://test.remote.server.com/api/log"
         connectTimeoutMillis:
           type: string
-          description: "Connect Timeout in Millisecond"
+          description: "Connect Timeout in Millisecond."
           example: "5000"
         verifyHostname:
           type: boolean
-          description: "If this property is set to true, Hostname will be verified"
+          description: "If this property is set to true, the hostname will be verified."
           example: true
           default: true
         username:
           type: string
-          description: "The username to be used for authentication with the remote server"
+          description: "The username to be used for authentication with the remote server."
           example: "admin"
         password:
           type: string
-          description: "The password to be used for authentication with the remote server"
+          description: "The password to be used for authentication with the remote server."
           example: "admin"
         keystoreLocation:
           type: string
-          description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server"
+          description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server."
         keystorePassword:
           type: string
-          description: " The password of the keystore"
+          description: " The password of the keystore."
         truststoreLocation:
           type: string
-          description: " The location of the truststore which contains the certificates of the remote server"
+          description: " The location of the truststore which contains the certificates of the remote server."
         truststorePassword:
           type: string
-          description: " The password of the truststore"
+          description: " The password of the truststore."
     RemoteLoggingConfigListItem:
       type: object
       properties:
@@ -870,11 +870,11 @@ components:
           example: "https://test.remote.server.com/api/log"
         connectTimeoutMillis:
           type: string
-          description: "Connect Timeout in Millisecond"
+          description: "Connect Timeout in Millisecond."
           example: "5000"
         verifyHostname:
           type: boolean
-          description: "If this property is set to true, Hostname will be verified"
+          description: "If this property is set to true, the hostname will be verified."
           example: true
           default: true
         logType:
@@ -885,21 +885,21 @@ components:
           description: "Log Type"
         username:
           type: string
-          description: "The username to be used for authentication with the remote server"
+          description: "The username to be used for authentication with the remote server."
           example: "admin"
         password:
           type: string
-          description: "The password to be used for authentication with the remote server"
+          description: "The password to be used for authentication with the remote server."
           example: "admin"
         keystoreLocation:
           type: string
-          description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server"
+          description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server."
         keystorePassword:
           type: string
-          description: " The password of the keystore"
+          description: " The password of the keystore."
         truststoreLocation:
           type: string
-          description: " The location of the truststore which contains the certificates of the remote server"
+          description: " The location of the truststore which contains the certificates of the remote server."
         truststorePassword:
           type: string
-          description: " The password of the truststore"
+          description: " The password of the truststore."
