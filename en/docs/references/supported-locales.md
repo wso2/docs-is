@@ -1,6 +1,6 @@
 # Supported country locales in WSO2 Identity Server
 
-WSO2 Identity Server supports adding locales as a combination of ISO language code and ISO country code (`language_country`). This table contains the supported locales in the WSO2 Identity Server with their respective language and country.
+WSO2 Identity Server supports adding locales as a combination of ISO language code and ISO country code (`language_COUNTRY`). This table contains the supported locales in the WSO2 Identity Server with their respective language and country.
 
 |Locale name | Language | Country or area   |
 |------------|----------|-------------------|
