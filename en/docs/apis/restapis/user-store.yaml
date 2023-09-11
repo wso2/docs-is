@@ -441,7 +441,7 @@ paths:
         Retrieve the properties of secondary user store of a given user store type.
       operationId: getUserStoreManagerProperties
       description: >
-        This API provides the capability to retrieve the properties of secondary
+        This API provides the capability to retrieve the properties of a secondary
         user store of a given class name.<br>
 
         <b>Permission required:</b> <br>
