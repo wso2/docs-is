@@ -8,6 +8,11 @@ The following topic provides a list of error codes in the WSO2 Identity Server.
 | 17002      | Invalid credentials are provided.                                                                                                                 |
 | 17003      | The [account is locked]({{base_path}}/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts) after multiple incorrect login attempts and the user attempts to log in again. |
 | 17004      | The user account is disabled.                                                                                                                     |
+| 17005      | The user account is not confirmed.                                                                                                                     |
+| 17006      | The admin has forced user to reset password via an email link.                                                                                                                     |
+| 17007      | The admin has forced user to reset password via OTP.                                                                                                                     |
+| 17008      | OTP mismatch in password reset.                                                                                                                     |
+| 17010      | Invalid user credentials.                                                                                                                     |
 | 18001      | Invalid validation code.                                                                                                                                                 |
 | 18002      | The key/confirmation code provided has expired.                                                                                                                          |
 | 18003      | Invalid user (invalid username).                                                                                                                                         |
