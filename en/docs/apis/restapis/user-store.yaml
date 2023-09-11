@@ -147,7 +147,7 @@ paths:
       operationId: getPrimaryUserStore
       description: >
         This API provides the capability to retrieve the configurations of
-        primary user store.<br>
+        the primary user store.<br>
 
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/userstore/config/view <br>
