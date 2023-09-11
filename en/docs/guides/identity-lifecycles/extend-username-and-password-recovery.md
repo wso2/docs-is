@@ -278,8 +278,26 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ``` curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/init"
+        -H "Authorization: Basic YWRtaW46YWRtaW4="
+        -H "accept: application/json"
+        -H "Content-Type: application/json"
+        -d "
+        {
+            "claims":[
+                {
+                    "uri":"http://wso2.org/claims/givenname",
+                    "value":"user1"
+                }
+            ],
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
@@ -287,6 +305,7 @@ sms notification templates.
         [
         {
         "mode": "recoverWithNotifications",
+        "flowConfirmationCode": "1234-1234-1234-1234",
         "channelInfo": {
             "recoveryCode": "254d9446-faef-4763-be8a-f71e80c4715b",
             "channels": [
@@ -307,7 +326,7 @@ sms notification templates.
         "links": [
             {
                 "rel": "next", 
-                "href": "/t/carbon.super/api/users/v1/recovery/password/recover",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/recover",
                 "type": "POST"
             }
         ]
@@ -317,7 +336,7 @@ sms notification templates.
         "links": [
             {
             "rel": "next",
-            "href": "/t/carbon.superidentity/recovery/v0.9/security-question?username=sominda2",
+            "href": "/t/carbon.super/api/identity/recovery/v0.9/security-question?username=<username>",
             "type": "GET"
             }
         ]
@@ -333,26 +352,41 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/recover"
+        -H "Authorization: Basic YWRtaW46YWRtaW4="
+        -H "accept: application/json"
+        -H "Content-Type: application/json"
+        -d "
+        {
+            "recoveryCode":"1234-5678-2455-3433",
+            "channelId":"1",
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
         ```curl
         {
-        "code": "PWR-02001",
+        "code": "PWR-02002",
         "message": "Password recovery information sent via user preferred notification channel.",
+        "flowConfirmationCode": "1234-1234-1234-1234",
         "notificationChannel": "EMAIL",
         "resendCode": "8dde8fd4-c58d-4408-a835-a9954ebc278a",
         "links": [
             {
                 "rel": "next",
-                "href": "/t/carbon.super/api/users/v1/recovery/password/confirm",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/confirm",
                 "type": "POST"
             },
             {
                 "rel": "resend",
-                "href": "/t/carbon.super/api/users/v1/recovery/password/resend",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/resend",
                 "type": "POST"
             }
         ]
@@ -363,8 +397,21 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/resend" 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "accept: application/json" 
+        -H "Content-Type: application/json" 
+        -d "
+        {
+            "resendCode":"1234-2ws34-1234",
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
@@ -377,12 +424,12 @@ sms notification templates.
         "links": [
             {
                 "rel": "next",
-                "href": "/t/carbon.super/api/users/v1/recovery/password/confirm",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/confirm",
                 "type": "POST"
             },
             {
                 "rel": "resend",
-                "href": "/t/carbon.super/api/users/v1/recovery/password/resend",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/resend",
                 "type": "POST"
             }
         ]
@@ -393,8 +440,21 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/confirm" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"confirmationCode\":\"1234-2ws34-12345\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/confirm" 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "accept: application/json" 
+        -H "Content-Type: application/json" 
+        -d "
+        {
+            "confirmationCode":"1234-2ws34-12345",
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
@@ -404,7 +464,7 @@ sms notification templates.
             "links": [
                 {
                     "rel": "next",
-                    "href": "/t/carbon.super/api/users/v1/recovery/password/reset",
+                    "href": "/t/carbon.super/api/users/v2/recovery/password/reset",
                     "type": "POST"
                 }
             ]
@@ -415,8 +475,22 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/reset" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resetCode\":\"aefaef12-951e-4a42-b01b-3118798f58c3\",\"password\":\"newPassword\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/reset" 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "accept: application/json" 
+        -H "Content-Type: application/json" 
+        -d "
+        {
+            "resetCode":"aefaef12-951e-4a42-b01b-3118798f58c3",
+            "password":"newPassword",
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
@@ -433,14 +507,33 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/init" 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "accept: application/json" 
+        -H "Content-Type: application/json" 
+        -d "
+        {
+            "claims":[
+                {
+                    "uri":"http://wso2.org/claims/givenname",
+                    "value":"user1"
+                }
+            ],
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
         ```curl
         [{
         "mode": "recoverWithNotifications",
+        "flowConfirmationCode": "1234-1234-1234-1234",
         "channelInfo": {
             "recoveryCode": "9ed0ed58-593a-48d8-90b3-ae745a6d7aae",
             "channels": [
@@ -454,7 +547,7 @@ sms notification templates.
         "links": [
             {
                 "rel": "next",
-                "href": "/t/carbon.super/api/users/v1/recovery/username/recover",
+                "href": "/t/carbon.super/api/users/v2/recovery/username/recover",
                 "type": "POST"
             }
         ]
@@ -468,27 +561,42 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/recover" 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "accept: application/json" 
+        -H "Content-Type: application/json" 
+        -d "
+        {
+            "recoveryCode":"1234-5678-2455-3433",
+            "channelId":"1",
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
         ```curl
         {
-        "code": "PWR-02001",
+        "code": "PWR-02002",
         "message": "Password recovery information sent via user preferred notification channel.",
+        "flowConfirmationCode": "1234-1234-1234-1234",
         "notificationChannel": "EXTERNAL",
         "confirmationCode": "90b9ce11-7642-4f50-aa06-386011b7de66",
         "resendCode": "b24bcfc0-3ee3-4a7d-964c-e3e6e3098c08",
         "links": [
             {
                 "rel": "next",
-                "href": "/t/carbon.super/api/users/v1/recovery/password/confirm",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/confirm",
                 "type": "POST"
             },
             {
                 "rel": "resend",
-                "href": "/t/carbon.super/api/users/v1/recovery/password/resend",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/resend",
                 "type": "POST"
             }
         ]
@@ -499,8 +607,21 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/resend" 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "accept: application/json" 
+        -H "Content-Type: application/json" 
+        -d "
+        {
+            "resendCode":"1234-2ws34-1234",
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
@@ -514,12 +635,12 @@ sms notification templates.
         "links": [
             {
                 "rel": "next",
-                "href": "/t/carbon.super/api/users/v1/recovery/password/confirm",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/confirm",
                 "type": "POST"
             },
             {
                 "rel": "resend",
-                "href": "/t/carbon.super/api/users/v1/recovery/password/resend",
+                "href": "/t/carbon.super/api/users/v2/recovery/password/resend",
                 "type": "POST"
             }
         ]
@@ -530,8 +651,21 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/confirm" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"confirmationCode\":\"1234-2ws34-12345\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/v2/recovery/password/confirm" 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "accept: application/json" 
+        -H "Content-Type: application/json" 
+        -d "
+        {
+            "confirmationCode":"1234-2ws34-12345",
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
@@ -541,7 +675,7 @@ sms notification templates.
             "links": [
                 {
                     "rel": "next",
-                    "href": "/t/carbon.super/api/users/v1/recovery/password/reset",
+                    "href": "/t/carbon.super/api/users/v2/recovery/password/reset",
                     "type": "POST"
                 }
             ]
@@ -552,8 +686,23 @@ sms notification templates.
 
     !!! abstract ""
         **Request Format**
-        ```
-        curl -X POST "https://localhost:9443/api/users/v1/recovery/password/reset" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resetCode\":\"aefaef12-951e-4a42-b01b-3118798f58c3\",\"password\":\"newPassword\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+        ```curl
+        curl -X POST "https://localhost:9443/api/users/2/recovery/password/reset" 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "accept: application/json" 
+        -H "Content-Type: application/json" 
+        -d "
+        {
+            "resetCode":"aefaef12-951e-4a42-b01b-3118798f58c3",
+            "flowConfirmationCode":"string",
+            "password":"newPassword",
+            "properties":[
+                {
+                    "key":"key",
+                    "value":"value"
+                }
+            ]
+        }"
         ```
         ---
         **Sample Request**
