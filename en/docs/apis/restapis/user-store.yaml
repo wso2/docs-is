@@ -442,7 +442,7 @@ paths:
       operationId: getUserStoreManagerProperties
       description: >
         This API provides the capability to retrieve the properties of a secondary
-        user store of a given class name.<br>
+        user store based on a given class name.<br>
 
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/userstore/config/view <br>
