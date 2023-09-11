@@ -637,7 +637,7 @@ paths:
       tags:
         - Identity Providers
       summary: |
-        Create identity provider from an exported XML, YAML or JSON file
+        Create an IdP from an exported XML, YAML, or JSON file
       description: >
         This API provides the capability to import an identity provider from
         the information provided as a file.<br>
