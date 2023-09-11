@@ -175,7 +175,7 @@ paths:
       operationId: getUserStoreByDomainId
       description: >
         This API provides the capability to retrieve the configurations of
-        secondary user store based on its domain id.<br>
+        a secondary user store based on its domain id.<br>
 
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/userstore/config/view <br>
