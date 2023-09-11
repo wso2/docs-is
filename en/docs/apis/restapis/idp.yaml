@@ -577,7 +577,7 @@ paths:
         Update identity provider from an exported YAML, XML or JSON file
       description: >
         This API provides the capability to update an existing identity provider from
-        the information provided as a file. Use LOCAL as the ID to update resident IDP configurations.<br>
+        the information provided as a file. Use `LOCAL` as the ID to update resident IDP configurations.<br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/idpmgt/update <br>
           <b>Scope required:</b> <br>
