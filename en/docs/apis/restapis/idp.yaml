@@ -463,7 +463,7 @@ paths:
       tags:
         - Identity Providers
       summary: |
-        Delete an identity provider by using the identity provider's ID.
+        Delete an IdP by ID
       description: >
         This API provides the capability to delete an identity provider by
         giving its ID. <br>
