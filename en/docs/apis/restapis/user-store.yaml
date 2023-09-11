@@ -313,7 +313,7 @@ paths:
         Export a secondary user store by its domain id
       description: |
         This API provides the capability to retrieve the configurations of a
-        secondary user store based on its domain id as a XML, YAML, or JSON file.<br>
+        secondary user store based on its domain id as an `XML`, `YAML`, or `JSON` file.<br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/userstore/config/view <br>
         <b>Scope required:</b> <br>
