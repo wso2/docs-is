@@ -107,7 +107,7 @@ paths:
         Import a secondary user store from a file
       description: >
         This API provides the capability to import a user store from
-        the configurations provided as a YAML, JSON or XML file.<br>
+        the configurations provided as a `YAML`, `JSON`, or `XML` file.<br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/userstore/config/create <br>
           <b>Scope required:</b> <br>
