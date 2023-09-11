@@ -512,8 +512,7 @@ paths:
       summary: |
         Export identity provider in XML, YAML, or JSON file formats
       description: |
-        This API provides the capability to retrieve the identity provider if the given ID
-        as a XML, YAML, or JSON file. Use LOCAL as the ID to export resident IDP configurations.<br>
+        This API provides the capability to retrieve the identity provider by ID. The identity provider is retrieved as an `XML`, `YAML`, or `JSON` file. Use `LOCAL` as the ID to export resident IdP configurations.<br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/idpmgt/view <br>
           <b>Scope required:</b> <br>
