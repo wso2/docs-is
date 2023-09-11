@@ -274,7 +274,7 @@ paths:
       operationId: patchUserStore
       description: >
         This API provides the capability to update the secondary user store's
-        property using patch request by using its domain id.<br>
+        property by using its domain id.<br>
 
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/userstore/config/update <br>
