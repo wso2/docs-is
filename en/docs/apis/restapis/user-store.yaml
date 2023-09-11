@@ -104,7 +104,7 @@ paths:
       tags:
         - User Store
       summary: |
-        Import a secondary user store from a file.
+        Import a secondary user store from a file
       description: >
         This API provides the capability to import a user store from
         the configurations provided as a YAML, JSON or XML file.<br>
