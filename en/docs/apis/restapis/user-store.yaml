@@ -365,7 +365,7 @@ paths:
       tags:
         - User Store
       summary: |
-        Update an existing userstore by importing user store configurations from a file.
+        Update an existing user store by importing configs from a file
       description: >
         This API provides the capability to update an existing user store by importing
         user store configurations provided as a YAML, JSON or XML file.<br>
