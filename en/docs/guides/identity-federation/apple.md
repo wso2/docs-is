@@ -86,7 +86,7 @@ To configure the WSO2 Identity Server as an identity provider that uses Apple fo
             <tr>
                 <td>Callback URL</td>
                 <td>This is the service provider's URL to which authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. The URL should be specified in the following format: <code>https://:/acs</code></td>
-                <td><code>https://localhost/callback</code></td>
+                <td><code>https://localhost:9443/commonauth</code></td>
             </tr>
             <tr>
                 <td>Userinfo Endpoint URL</td>
