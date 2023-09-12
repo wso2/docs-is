@@ -278,8 +278,8 @@ service provider in the ` service provider IS ` via a file.
             <EnableSingleLogout>true</EnableSingleLogout>
             <SLOResponseURL></SLOResponseURL>
             <SLORequestURL></SLORequestURL>
-            <SAMLDefaultSigningAlgorithmURI>http://www.w3.org/2000/09/xmldsig#rsa-sha1</SAMLDefaultSigningAlgorithmURI>
-            <SAMLDefaultDigestAlgorithmURI>http://www.w3.org/2000/09/xmldsig#sha1</SAMLDefaultDigestAlgorithmURI>
+            <SAMLDefaultSigningAlgorithmURI>http://www.w3.org/2001/04/xmldsig-more#rsa-sha256</SAMLDefaultSigningAlgorithmURI>
+            <SAMLDefaultDigestAlgorithmURI>http://www.w3.org/2001/04/xmlenc#sha256</SAMLDefaultDigestAlgorithmURI>
             <SignResponse>true</SignResponse>
             <ValidateSignatures>false</ValidateSignatures>
             <EncryptAssertion>true</EncryptAssertion>

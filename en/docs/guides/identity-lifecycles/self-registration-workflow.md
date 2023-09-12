@@ -122,7 +122,7 @@ To enable self-registration globally:
     lock_on_creation=true
     enable_recaptcha=true
     verification_email_validity="1440"
-    callback_url="[${carbon.protocol}://${carbon.host}:${carbon.management.port}].*[/authenticationendpoint/login.do]*"
+    callback_url="${carbon.protocol}://${carbon.host}:${carbon.management.port}/.*"
     enable_resend_confirmation_recaptcha=true
 
     [identity_mgt.user_self_registration.notification]

@@ -146,6 +146,7 @@ nav:
             - FIDO Passwordless Authentication: guides/passwordless/fido.md
             - FIDO2 Attestation Validations: guides/passwordless/fido-attestation.md
           - Magic Link: guides/passwordless/magic-link.md
+          - HYPR: guides/passwordless/hypr.md
         - Multi-Factor Authentication:
           - Overview: guides/mfa/mfa-overview.md
           - Username and Password: guides/mfa/username-and-password.md
@@ -268,6 +269,7 @@ nav:
           # - Configure reCAPTCHA for Password Recovery: guides/password-mgt/recaptcha-password-recovery.md
           # - Configure reCAPTCHA on Invalid Challenge Question Attempt: guides/password-mgt/recaptcha-challenge-question-attempts.md
           - Configure Email Masking Pattern for Notification Based Password Recovery: guides/identity-lifecycles/configure-email-masking-pattern.md
+          - Password recovery via user preferred channel: guides/identity-lifecycles/extend-username-and-password-recovery.md
         - Provisioning:
           - Overview: guides/identity-lifecycles/provisioning-overview.md
           - Provisioning Patterns: guides/identity-lifecycles/provisioning-patterns.md
@@ -468,6 +470,7 @@ nav:
         - Set up WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Set up Separate Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
+        - Enable FIPS 140-2-compliant mode: deploy/enable-fips-for-is.md
         - Configure Hazelcast: deploy/configure-hazelcast.md
         - Deployment Checklist: deploy/deployment-checklist.md
         - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
@@ -529,7 +532,7 @@ nav:
               - Authorized apps API V2: apis/authorized-apps-v2-rest-api.md
           - OAuth 2.0 scope management API: apis/oauth2-scope-management-rest-apis.md
           - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
-          - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+          - OIDC Dynamic Client Registration API: apis/use-the-oauth2-dynamic-client-registration-rest-apis.md
           - Script Library management API: apis/script-library-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
       - Server management:
@@ -550,6 +553,9 @@ nav:
       - Server configuration API: apis/configs-rest-api.md
       - Permission management API : apis/permission-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+      - Identity Verification:
+        - Identity verification Provider API: apis/idvp-rest-api.md
+        - Identity verification management API: apis/idv-rest-api.md
       - Admin services:
         - Call admin services: apis/call-admin-services.md
         - One way operations: apis/admin-services-for-one-way-operations.md
@@ -606,6 +612,11 @@ nav:
           - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
           - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
           - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
+      - Identity Verification:
+        - Overview: guides/identity-verification/identity-verification-overview.md
+        - Register an IdVP: guides/identity-verification/add-idvp.md
+        - Manage an IdVP: guides/identity-verification/manage-idvp.md
+        - Onboard the UI of an IdVP: guides/identity-verification/idvp-ui.md
       - Tenants: references/concepts/introduction-to-multitenancy.md
     - WSO2 IS Extensions:
       #- Work with the Source Code: references/extend/work-with-the-source-code.md
@@ -666,9 +677,9 @@ nav:
         - Write a Custom User Store Manager: references/extend/write-a-custom-user-store-manager.md
       - User interfaces (Rebrand):
         - Re-brand WSO2 Identity Server UIs: references/extend/rebranding/rebrand-identity-server-uis.md
-        - Re-brand the Default Login Page: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
-        - Re-brand the SSO Redirection Page: references/extend/rebranding/rebrand-the-sso-redirection-page.md
-        - Customize Login Pages: references/extend/rebranding/customizable-login-portal.md
+        - Customize the Default Login Page: references/extend/rebranding/customize-login-pages-for-service-providers.md
+        - Customize the SSO Redirection Page: references/extend/rebranding/customize-the-sso-redirection-page.md
+        - Customize Login Page Layouts: references/extend/rebranding/customizable-login-portal.md
       - Errors:
         - Error messages: references/extend/errors/customize-authentication-error-messages.md
         - Error Pages: references/extend/errors/customize-error-pages.md
@@ -685,6 +696,7 @@ nav:
     - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
     - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
     - Permissions for Admin Services: references/permissions-required-to-invoke-admin-services.md
+    - Supported country locales: references/supported-locales.md
     - IAM Topics:
       - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
       - Authentication:
@@ -749,6 +761,7 @@ nav:
             - Refresh Tokens: references/concepts/authorization/refresh-token.md
           - Client Authentication: references/concepts/authorization/client-authentication.md
           - Token Introspection: references/concepts/authorization/introspection.md
+          - JARM for OAuth 2.0: references/concepts/authorization/jarm.md
         - User Managed Access (UMA):
           - Introduction to UMA: references/concepts/authorization/user-managed-access.md
           - Resource Registration Endpoint: references/concepts/authorization/uma-resource-registration.md
@@ -770,6 +783,7 @@ nav:
       - GDPR: references/concepts/compliance/gdpr.md
       - eIDAS: references/concepts/compliance/eidas.md
       - CCPA: references/concepts/compliance/ccpa.md
+      - FIPS 140-2: references/concepts/compliance/fips.md
 
   - '': page-not-found.md
 
@@ -1231,7 +1245,7 @@ plugins:
               'develop/configs-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/configs-rest-api/'
               'develop/oauth2-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oauth2-scope-management-rest-apis/'
               'develop/oidc-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oidc-scope-management-rest-apis/'
-              'develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/'
+              'develop/using-the-oauth2-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-oauth2-dynamic-client-registration-rest-apis/'
               'develop/permission-management-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/permission-management-rest-api/'
               'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-self-sign-up-rest-apis/#/User%20Export'
               'develop/scim-1.1-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim-1.1-apis/'
@@ -1266,8 +1280,8 @@ plugins:
               'develop/entitlement-with-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/entitlement-with-rest-apis/'
               'develop/idp-session-extender-endpoint.md': 'https://is.docs.wso2.com/en/6.0.0/apis/idp-session-extender-endpoint/'
               'develop/customizing-identity-server-uis.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/rebrand-identity-server-uis/'
-              'develop/customizing-login-pages-for-service-providers.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/rebrand-login-pages-for-service-providers/'
-              'develop/customizing-the-sso-redirection-page.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/rebrand-the-sso-redirection-page/'
+              'develop/customizing-login-pages-for-service-providers.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/customize-login-pages-for-service-providers/'
+              'develop/customizing-the-sso-redirection-page.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/customize-the-sso-redirection-page/'
               'develop/customizing-the-authentication-endpoint.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/customize-the-authentication-endpoint/'
               'develop/localization-support-in-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/localization-support-in-identity-server/'
               'develop/hosting-authentication-endpoint-on-a-different-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/host-authentication-endpoint-on-a-different-server/'
@@ -1454,7 +1468,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.1.0
-  base_path: https://is.docs.wso2.com/en/6.1.0
+  base_path: https://is.docs.wso2.com/en/next
   #base_path: http://127.0.0.1:8000/en/6.1.0
 
   nav_list:

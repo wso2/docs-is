@@ -612,49 +612,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /applications/{applicationId}/user-registrants:
-    get:
-      tags:
-        - User registrants
-      summary: |
-        Get the list of user registrants configured for the given application.
-      operationId: getConfiguredUserRegistrants
-      parameters:
-        - name: applicationId
-          in: path
-          description: ID of the application.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserRegistrantsList'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
   /applications/resident:
     get:
       tags:
@@ -2658,6 +2615,10 @@ components:
           type: boolean
           example: false
           description: Decides whether user consent needs to be skipped during logout flows.
+        useExternalConsentPage:
+          type: boolean
+          example: false
+          description: Decides whether users should be presented with an external consent page.
         returnAuthenticatedIdpList:
           type: boolean
           example: false
@@ -3539,55 +3500,6 @@ components:
           example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
       required:
         - id
-
-    UserRegistrantsList:
-      type: object
-      properties:
-        totalResults:
-          type: integer
-          description: "Number of user registrants."
-          example: 2
-        userRegistrants:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRegistrant'
-
-    UserRegistrant:
-      type: object
-      properties:
-        id:
-          type: string
-          description : "Unique id for the user registrant based on its name."
-          example: "8we2f4b8-0d22-8234-l4n7-1682a91b12cn"
-        name:
-          type: string
-          description : "Name of the user registrant."
-          example: "BasicAuthAttributeHandler"
-        authAttributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthAttribute'
-
-    AuthAttribute:
-      type: object
-      description: "The authentication attributes required by a user registrant."
-      properties:
-        attribute:
-          type: string
-          description: "Name of the attribute."
-          example: "password"
-        isClaim:
-          type: boolean
-          description: "Defines whether the attribute is a claim."
-          example: true
-        isConfidential:
-          type: boolean
-          description: "Defines whether the attribute contains confidential data."
-          example: true
-        attributeType:
-          type: string
-          description: "Data type of value of the attribute."
-          example: "STRING"
 
     Error:
       type: object

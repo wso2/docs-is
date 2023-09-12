@@ -63,34 +63,32 @@ Supported results are <code>onSuccess</code> and <code>onFail</code>, which can 
 
 The API can be called in either of the following ways:
 
--   With only the `           stepId          ` .
+- With only the `stepId`.
 
     ``` java
     executeStep(1)
     ```
 
--   With only the `           stepId          ` and
-    `           eventCallbacks          ` .
+- With only the `stepId` and `eventCallbacks`.
 
     ``` java
     executeStep(1, {
         onSuccess: function(context) {
-            //Do something on success
+            // Do something on success.
         }
     });
     ```
 
--   With the `           stepId          `,
-    `           options          `, and an empty
-    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` object such as `           authenticationOptions          `, `           authenticatorParams          `. See the following two examples:
+- With the `stepId`, `options`, and an empty `eventCallbacks` array. Different properties can be defined in the `options` object such as `authenticationOptions`, `authenticatorParams`. See the following two examples:
 
     ``` java
-    executeStep(1,{
-        authenticationOptions:[{
+    executeStep(1, {
+        authenticationOptions: [{
             authenticator: 'totp'
         }]},
     });
     ```
+
     ``` java
     executeStep(1, {
         authenticatorParams: {
@@ -99,7 +97,7 @@ The API can be called in either of the following ways:
                     MaxSessionCount: '1'
                 }
                 totp: {
-                enableRetryFromAuthenticator: 'true'
+                    enableRetryFromAuthenticator: 'true'
                 }
             }
         }
@@ -107,10 +105,8 @@ The API can be called in either of the following ways:
     ```
       
     !!! note
-    
-        The API cannot be called with only the `           stepId          `
-        and `           options          ` .
-    
+
+        The API cannot be called with only the `stepId` and `options`.
 
 <a name = "step-filtering"></a>
 **Authentication step filtering**
@@ -172,11 +168,54 @@ You can find the available local authenticators in the table below.
 </tbody>
 </table>
 
+<a name = "idf-username-validation"></a>
+**Username validation for Identifier First handler**
+
+For the Identifier First handler, by default, the username validation will not happen unless the validation is enabled server-wide. You can configure the username validation for your applications by specifying the `ValidateUsername` property in the `authenticatorParams` object.
+
+**Example code**
+
+``` java
+executeStep(1, {
+    authenticatorParams: {
+        common: {
+            "ValidateUsername": "true"
+        }
+    }
+}, {
+    onSuccess: function(context) {
+        // Do something on success.
+    }
+});
+```
+
+!!! note
+
+    Note that these configurations will override the `ValidateUsername` authenticator config in the `deployment.toml` file.
+
 ---
 
 ## Utility functions
 
 The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions).
+
+
+#### isMemberOfAnyOfGroups()
+
+This function returns true if the specified user belongs to at least one of the given groups, and returns false if the user does not. It includes the parameters listed below.
+
+| Parameter | Description                                  |
+|-----------|----------------------------------------------|
+| user      | A user object representing the user details. |
+| group    | A list of strings that contain the groups. Each string is a group name.    |
+
+``` java
+var isMember = isMemberOfAnyOfGroups(user, group);",
+if (isMember) {",
+    Log.info(user.username + ' is a member of one of the groups: ' + group.toString());",
+    executeStep(2);",
+}"
+```
 
 #### hasRole(user, role)
 
@@ -375,7 +414,7 @@ This functions sets a new cookie. It includes the following parameters.
     The size of the value has to be less than the RSA key pair length if 
     `                   encrypt                 ` is enabled (set to
     `true`).
-    
+
 
 ``` java
 setCookie(context.response, "name", "test", {"max-age" : 4000,
@@ -602,6 +641,85 @@ This function prompts user input. It includes the following parameters.
 | tenantDomain| The tenant domain of the local user.      |
 | userStoreDomain | The user store domain of the local user.      |
 
+#### httpGet(endpointURL, headers, eventHandlers)
+This function sends an HTTP GET request to the provided endpoint URL with optional headers.
+
+| Parameter     | Description                                           |
+|---------------|-------------------------------------------------------|
+| endpointURL         | The endpoint URL to which the GET request will be sent. |
+| headers       | An optional map of headers to be included in the request. |
+| eventHandlers | The callback event handlers.                          |
+
+Sending GET request with headers:
+```jsx
+httpGet(endpointURL, {
+    "Accept": "application/json",
+    "Authorization": "Bearer your-token"
+	}, {
+	    onSuccess: function (context, data) {
+	        Log.info('HTTP GET request successful.');
+	    },
+	    onFail: function (context, data) {
+	        Log.error('HTTP GET request failed.');
+	    }
+	});
+```
+
+Sending GET request without headers:
+```jsx
+httpGet(endpointURL, {
+	    onSuccess: function (context, data) {
+	        Log.info('HTTP GET request successful.');
+	    },
+	    onFail: function (context, data) {
+	        Log.error('HTTP GET request failed.');
+	    }
+	});
+```
+
+#### httpPost(endpointURL, payloadData, headers, eventHandlers)
+This function sends an HTTP POST request to the provided endpoint URL with event handlers, payload data, and optional headers.
+
+| Parameter     | Description                                           |
+|---------------|-------------------------------------------------------|
+| endpointURL         | The endpoint URL to which the POST request will be sent. |
+| payloadData   | A map containing the payload data to be included in the request body. |
+| headers       | An optional map of headers to be included in the request.         |
+| eventHandlers | The callback event handlers.                          |
+
+Sending POST request with headers:
+```jsx
+httpPost(endpointURL, {
+    "username": "Marcel",
+    "password": "supersecret"
+	}, {
+	    "Accept": "application/json",
+	    "Authorization": "Bearer your-token"
+	}, {
+	    onSuccess: function (context, data) {
+	        Log.info('HTTP POST request successful.');
+	    },
+	    onFail: function (context, data) {
+	        Log.error('HTTP POST request failed.');
+	    }
+	});
+```
+
+Sending POST request without headers:
+```jsx
+httpPost(endpointURL, {
+    "username": "Marcel",
+    "password": "supersecret"
+	}, {
+    onSuccess: function (context, data) {
+        Log.info('HTTP POST request successful.');
+    },
+    onFail: function (context, data) {
+        Log.error('HTTP POST request failed.');
+    }
+});
+```
+
 ---
 
 ## Object Reference
@@ -645,6 +763,8 @@ step number.
     information.
 -   `          step.idp         ` :  Gives the identity provider name which was used
     to authenticate this user.
+-   `          step.authenticator         ` :  Gives the authenticator name which was used
+  to authenticate this user. Refer to the table in [core functions section](#core-functions) to find the authenticator names.
 
 #### user object
 

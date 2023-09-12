@@ -159,12 +159,12 @@ To configure manually,
 			<tr class="odd">
 				<td>Signature Algorithm</td>
 				<td><p>Specifies the ‘SignatureMethod’ algorithm to be used in the ‘Signature’ element in POST binding and “SigAlg” HTTP Parameter in REDIRECT binding. The expandable Signature Algorithms table below lists the usable algorithms and their respective URIs that will be sent in the actual SAMLRequest.</p></td>
-				<td>Default value: <code>RSA with SHA1</code></td>
+				<td>Default value: <code>RSA with SHA256</code></td>
 			</tr>
 			<tr class="even">
 				<td>Digest Algorithm</td>
 				<td><p>Specifies the ‘DigestMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The Digest Algorithms table below lists the usable algorithms and their respective URIs that will be sent in the actual SAMLRequest.</p></td>
-				<td>Default value: <code>SHA1</code></td>
+				<td>Default value: <code>SHA256</code></td>
 			</tr>
 			<tr class="odd">
 				<td>Attribute Consuming Service Index</td>

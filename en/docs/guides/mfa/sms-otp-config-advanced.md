@@ -16,7 +16,11 @@ RetryEnable = true
 ResendEnable = true
 BackupCode = true
 SMSOTPEnableByUserClaim = true
+usecase = "local"
+secondaryUserstore = "primary"
 SMSOTPMandatory = false
+SendOtpToFederatedMobile = false
+federatedMobileAttributeKey = "mobile"
 CaptureAndUpdateMobileNumber = true
 SendOTPDirectlyToMobile = false
 redirectToMultiOptionPageOnFailure = false
@@ -75,9 +79,66 @@ Define whether to use a backup code instead of the actual SMS code or not.
 
 ----
 
+#### usecase 
+
+This parameter defines how the username is retrieved and this has to be configured if the previous authenticator is not a Local Authenticator (e.g.: **Basic Auth**). You can configure the following possible values:
+
+- **local**: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.
+
+- **subjectUri**: The subject identified that is used as the username of the SMSOTP authenticator. When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the user interface (UI). This is used as the username of the SMSOTP authenticator.
+
+- **userAttribute**: The name of the federated authenticator's user attribute. This is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the `[authentication.authenticator.sms_otp.parameters]` section in the `deployment.toml` file and enter the relevant value, `email`, `screen_name`, and `id`.
+
+    ```toml
+    [authentication.authenticator.sms_otp.parameters]
+    userAttribute = "email"
+    ```
+
+----
+
+#### secondaryUserstore
+
+You can define multiple user stores per tenant as comma separated values.
+
+```tab="Example"
+secondaryUserstore = "jdbc, abc, xyz"
+```
+
+The user store configurations are maintained per tenant.
+
+- If you use a super tenant, set all the parameter values in the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+- If you use a tenant: 
+
+  1. Upload the XML file (`<IS_HOME>/repository/conf/identity/application-authentication.xml`) into a specific registry location (`/_system/governance/SMSOTP`).
+
+  2. Create a collection named "SMSOTP", add the resource, and upload the `application-authentication.xml` file into the registry.
+
+While doing the authentication,the system first checks whether there is an `.xml` file uploaded to the registry. If so, it reads it from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.
+You can use the registry or local file to get the property values.
+
+----
+
 #### SMSOTPMandatory 
 
 If the value is true, the second step will be enabled by the admin. The user cannot be authenticated without SMS OTP authentication. This parameter is used for both super tenant and tenant in the configuration. The value can be *true* or *false*.
+
+----
+
+#### SendOtpToFederatedMobile
+
+- When `SMSOTPMandatory` and this parameter are set to `true` and the user is not found in the active directory, the OTP is sent to the mobile number defined in the federated authenticator claim.
+
+- When `SMSOTPMandatory` is set to `false`, an error page gets displayed.
+
+- When `SMSOTPMandatory` is set to `false` and the user is not found in the active directory, the authentication mechanism gets terminated at the first step of the 2FA/MFA. This parameter is not required in such a scenario.
+
+----
+
+#### federatedMobileAttributeKey
+
+This parameter identifies the mobile attribute of the federated authenticator (e.g., Foursquare).
+Configure this parameter if `SendOtpToFederatedMobile` is set to `true`. Example: `http://wso2.org/foursquare/claims/phone_number`
 
 ----
 

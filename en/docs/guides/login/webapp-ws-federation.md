@@ -81,14 +81,14 @@ To configure additional properties for the sample application:
 6. Click **Update** to save your configurations.
 
 !!! tip
-    Currently, the signing algorithm used for passive STS by default is `rsa-sha1`, and the digest algorithm used is `sha1`. 
+    Currently, the signing algorithm used for passive STS by default is `rsa-sha256`, and the digest algorithm used is `sha256`. 
     To change the default algorithms, add the following configuration in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory.
-    The example given below sets the signing algorithm to `rsa-sha256` and the digest algorithm to `sha256`.
+    The example given below sets the signing algorithm to `rsa-sha512` and the digest algorithm to `sha512`.
 
     ```toml
     [sts]
-    signature_algorithm = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
-    digest_algorithm = "http://www.w3.org/2001/04/xmlenc#sha256"
+    signature_algorithm = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"
+    digest_algorithm = "http://www.w3.org/2001/04/xmlenc#sha512"
     ```
 
 ## Try it out
