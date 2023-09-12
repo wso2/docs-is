@@ -140,6 +140,54 @@ Now, let's configure the Tomcat server.
     client.trustStore=./repository/resources/security/client-truststore.jks
     ```
 
+## Set up WSO2 Identity Server
+
+To integrate the portals to the WSO2 Identity Server, add the following configs to the `IS_HOME/repository/conf/deployment.toml` file.
+
+```toml
+[system_applications]
+read_only_apps = []
+```
+
+```toml
+[authentication.endpoints]
+login_url="https://localhost:8443/authenticationendpoint/login.do"
+retry_url="https://localhost:8443/authenticationendpoint/retry.do"
+request_missing_claims_url="https://localhost:8443/authenticationendpoint/claims.do"
+[oauth.endpoints]
+oauth2_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_authz.do"
+oauth2_error_page= "https://localhost:8443/authenticationendpoint/oauth2_error.do"
+oidc_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_consent.do"
+oidc_logout_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_logout_consent.do"
+oidc_logout_page= "https://localhost:8443/authenticationendpoint/oauth2_logout.do"
+[saml.endpoints]
+logout= "https://localhost:8443/authenticationendpoint/samlsso_logout.do"
+notification= "https://localhost:8443/authenticationendpoint/samlsso_notification.do"
+[passive_sts.endpoints]
+retry= "https://localhost:8443/authenticationendpoint/retry.do"
+[cors]
+allow_generic_http_requests = true
+allow_any_origin = false
+allowed_origins = [
+    "http://localhost:8080","https://localhost:9443"
+]
+allow_subdomains = true
+supported_methods = [
+    "GET",
+    "POST",
+    "HEAD",
+    "OPTIONS"
+]
+support_any_header = true
+supported_headers = []
+exposed_headers = []
+supports_credentials = true
+max_age = 3600
+tag_requests = false
+```
+
+Restart the WSO2 Identity server to apply the changes added the `deployment.toml` file.
+
 ## Start the servers
 
 Start both WSO2 IS and Tomcat servers and access `https://<IS_HOST>:<IS_PORT>/myaccount`. You will now see that the authentication is redirected to the external URL.
