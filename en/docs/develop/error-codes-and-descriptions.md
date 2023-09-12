@@ -9,6 +9,11 @@ Server.
 | 17002      | This error occurs when invalid credentials are provided.                                                                                                                 |
 | 17003      | This error occurs when an [account is locked](../../learn/account-locking-by-failed-login-attempts) after multiple incorrect login attempts and the user attempts to log in again. |
 | 17004      | This error occurs when the user account is disabled.                                                                                                                     |
+| 17005      | The user account is not confirmed.                                                                                                                     |
+| 17006      | The admin has forced user to reset password via an email link.                                                                                                                     |
+| 17007      | The admin has forced user to reset password via OTP.                                                                                                                     |
+| 17008      | OTP mismatch in admin forced password reset.                                                                                                                     |
+| 17010      | Invalid user credentials.                                                                                                                     |
 | 18001      | Invalid validation code.                                                                                                                                                 |
 | 18002      | The key/confirmation code provided has expired.                                                                                                                          |
 | 18003      | Invalid user (invalid username).                                                                                                                                         |
