@@ -11,7 +11,7 @@ The following topic provides a list of error codes in the WSO2 Identity Server.
 | 17005      | The user account is not confirmed.                                                                                                                     |
 | 17006      | The admin has forced user to reset password via an email link.                                                                                                                     |
 | 17007      | The admin has forced user to reset password via OTP.                                                                                                                     |
-| 17008      | OTP mismatch in password reset.                                                                                                                     |
+| 17008      | OTP mismatch in admin forced password reset.                                                                                                                     |
 | 17010      | Invalid user credentials.                                                                                                                     |
 | 18001      | Invalid validation code.                                                                                                                                                 |
 | 18002      | The key/confirmation code provided has expired.                                                                                                                          |
