@@ -29,12 +29,11 @@ First, let's set up the Tomcat server to host the authentication portal in your 
     !!! note "Copy the `authentication endpoint`"
         When the Tomcat Server runs on a separate VM, we can not copy the `authentication endpoint` directly since the IS is in a different machine. So we need to first copy the authentication endpoint to a local directly using the script and then manually copy it to the Tomcat server VM’s webapps location.
 
-        1. Execute then step 3
-        2. When prompted to enter the path to your WSO2 IS installation, enter it as mentioned in the step3
+        1. Execute the step 3.
+        2. When prompted to enter the path to your WSO2 IS installation, enter it as mentioned in the step 3.
         3. When prompted to enter the path to your Tomcat server’s webapps folder, enter a folder location of your local machine.
-        4. After completing the script, the `authentication endpoint` will copy to the given folder location
+        4. After completing the script, the `authentication endpoint` will copy to the given folder location.
         5. Then manually copy the `authentication endpoint` to the Tomcat server VM’s webapps location.
-
 
 This extracts the authentication portal web app from the given WSO2 IS distribution and adds it to the `webapps` folder of your Tomcat server with the libraries needed for it to be externally hosted.
 
