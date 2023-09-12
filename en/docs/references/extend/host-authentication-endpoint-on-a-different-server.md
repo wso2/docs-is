@@ -140,7 +140,7 @@ Now, let's configure the Tomcat server.
     client.trustStore=./repository/resources/security/client-truststore.jks
     ```
 
-## Integrate the portal
+## Integrate the portal with IS
 
 To integrate the portal to the WSO2 Identity Server, add the following configs to the `IS_HOME/repository/conf/deployment.toml` file.
 
