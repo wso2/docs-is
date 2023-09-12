@@ -101,7 +101,7 @@ To configure the WSO2 Identity Server as an identity provider that uses Apple fo
             <tr>
                 <td>Additional Query Parameters</td>
                 <td>These are the additional query parameters that are necessary to authenticate users through Apple Sign In.</td>
-                <td><code>scope=openid email</code></td>
+                <td><code>scope=openid email&response_mode=form_post</code></td>
             </tr>
             <tr>
                 <td>Enable HTTP basic auth for client authentication</td>
