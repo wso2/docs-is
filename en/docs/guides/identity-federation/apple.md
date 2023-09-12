@@ -137,12 +137,12 @@ To configure the client application as a service provider in WSO2 Identity Serve
 
     ![Service Providers screen]({{base_path}}/assets/img/guides/sps-screen.jpeg)
 
-3. Expand **Inbound Authentication Configuration** section and configure based on the authentication protocol that is required for the client application.
+3. Expand the **Inbound Authentication Configuration** section and configure it based on the authentication protocol that is required for the client application.
 
     !!! tip
         If your client application uses OpenID Connect, click **OAuth/OpenID Connect Configuration > Configure**.
 
-        1. Enter the `callback URL` or your Apple application.
+        1. Enter the `callback URL` of your Apple application.
 
         2. Click **Register**. You will be redirected to the Service Providers screen, which displays the `client key` and `client secret`.
 
