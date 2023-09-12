@@ -21,10 +21,10 @@ When a user attempts to log in to a client application through Apple Sign In:
 
 
 ## Prerequisites
-Before adding Apple as a federated authenticator on the WSO2 Identity server, you need to register an application on the Apple Developer Portal and make sure you obtain the following:
+Before adding Apple as a federated authenticator on the WSO2 Identity Server, you need to register an application on the Apple Developer Portal and make sure you obtain the following:
 
 - **Client ID**: This identifies the requests sent from WSO2 Identity Server to the application.
-- **Client secret**: This authenticates the requests sent from WSO2 Identity Server to the application.
+- **Client Secret**: This authenticates the requests sent from WSO2 Identity Server to the application.
 - **Callback URL**: This is the URL to which Apple sends the response after authenticating the user.
 
 Refer to [Apple's official documentation](https://developer.apple.com/documentation/sign_in_with_apple/configuring_your_environment_for_sign_in_with_apple) for more details on registering an application on the Apple Developer portal.
@@ -85,8 +85,8 @@ To configure the WSO2 Identity Server as an identity provider that uses Apple fo
             </tr>
             <tr>
                 <td>Callback URL</td>
-                <td>This is the service provider's URL to which authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. The URL should be specified in the following format: <code>https://:/acs</code></td>
-                <td><code>https://localhost/callback</code></td>
+                <td>This is the URL to which the browser should be redirected after the authentication is successful. This should be the commonauth endpoint of Identity server.</td>
+                <td><code>https://localhost:9443/commonauth</code></td>
             </tr>
             <tr>
                 <td>Userinfo Endpoint URL</td>
@@ -101,7 +101,7 @@ To configure the WSO2 Identity Server as an identity provider that uses Apple fo
             <tr>
                 <td>Additional Query Parameters</td>
                 <td>These are the additional query parameters that are necessary to authenticate users through Apple Sign In.</td>
-                <td><code>scope=openid email</code></td>
+                <td><code>scope=openid email&response_mode=form_post</code></td>
             </tr>
             <tr>
                 <td>Enable HTTP basic auth for client authentication</td>
