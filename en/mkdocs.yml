@@ -696,6 +696,7 @@ nav:
     - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
     - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
     - Permissions for Admin Services: references/permissions-required-to-invoke-admin-services.md
+    - Supported country locales: references/supported-locales.md
     - IAM Topics:
       - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
       - Authentication:
