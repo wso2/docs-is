@@ -197,6 +197,7 @@ nav:
           - Log in with Twitter: guides/identity-federation/twitter.md
           - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
+          - Log in with Apple: guides/identity-federation/apple.md
       - Access Delegation:
         - Overview: guides/access-delegation/access-delegation.md
         - OAuth 2.0 Grant Types:
