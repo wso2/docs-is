@@ -21,7 +21,20 @@ First, let's set up the Tomcat server to host the authentication portal in your 
     sh setup-authentication-endpoint.sh
     ```
 
-4.  When prompted, enter the path to the `webapps` folder of your Tomcat server.
+4. When prompted,
+
+    1. First enter the path to your WSO2-IS installation (`<IS_HOME>`)
+    2. Then enter the path to your Tomcat server’s webapps folder (`<TOMCAT_HOME>/webapps`)
+
+    !!! note "Copy the `authentication endpoint`"
+        When the Tomcat Server runs on a separate VM, we can not copy the `authentication endpoint` directly since the IS is in a different machine. So we need to first copy the authentication endpoint to a local directly using the script, and then manually copy it to the Tomcat server VM’s webapps location.
+
+        1. Execute then step 3
+        2. When prompted to enter the path to your WSO2 IS installation enter it as mentioned in the step3
+        3. When prompted to enter the path to your Tomcat server’s webapps folder, enter a folder location of your local machine.
+        4. After completing the script the `authentication endpoint` will copy to the given folder location
+        5. Then manually copy the `authentication endpoint` to the Tomcat server VM’s webapps location.
+
 
 This extracts the authentication portal web app from the given WSO2 IS distribution and adds it to the `webapps` folder of your Tomcat server with the libraries needed for it to be externally hosted.
 
@@ -100,7 +113,7 @@ Now, let's configure the Tomcat server.
 
         ``` bash
         keytool -export -keystore $WEB_APP_KEYSTORE -alias wso2carbon -file webserver.cer
-        keytool -import -alias <alias> -keystore  $IS_HOME/repository/resources/security/client-trustore.jks -file webserver.cer
+        keytool -import -alias <alias> -keystore  $IS_HOME/repository/resources/security/client-truststore.jks -file webserver.cer
         ```
 
 5.  Open the `<TOMCAT_HOME>/conf/server.xml` file and enable the HTTPS connector on the 8443 port.
@@ -116,28 +129,32 @@ Now, let's configure the Tomcat server.
         clientAuth="want"
         sslProtocol="TLS"
         sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"
-        keystoreFile="$IS_HOME/repository/resources/security/wso2carbon.jks"
+        keystoreFile=$WEB_APP_KEYSTORE
         keystorePass="wso2carbon"
-        truststoreFile="$IS_HOME/repository/resources/security/client-truststore.jks" 
+        truststoreFile=$WEB_APP_TRUSTSTORE 
         truststorePass="wso2carbon"
     />
     ```
 
-6.  Open the `<TOMCAT_HOME>/bin/catalina.sh` file and add the following `JAVA\_OPTS`:
+    To obtain values for the parameter:
+    - $WEB_APP_KEYSTORE: Go to the authenticationendpoint web app deployed in the Tomcat server and get the path to its keystore.
+    - $WEB_APP_TRUSTSTORE: Go to the authenticationendpoint web app deployed in the Tomcat server and get the path to its trustore.
+
+6.  Open the `<TOMCAT_HOME>/bin/catalina.sh` file and add the following `JAVA_OPTS`:
 
     !!! Info
         Be sure to replace `$IS_HOME` with the path to your WSO2 IS distribution.
 
     ``` xml
-    JAVA_OPTS="$JAVA_OPTS --Djavax.net.ssl.keyStore=$IS_HOME/repository/resources/security/wso2carbon.jks -Djavax.net.ssl.keyStorePassword=wso2carbon"
+    JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.keyStore=$IS_HOME/repository/resources/security/wso2carbon.jks -Djavax.net.ssl.keyStorePassword=wso2carbon"
     JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.trustStore=$IS_HOME/repository/resources/security/client-truststore.jks -Djavax.net.ssl.trustStorePassword=wso2carbon"
     ```
 
-7.  Go to the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the configurations pointing to the correct location inside the `$IS_HOME/repository/resources/security` folder.
+7. Go to the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the configurations pointing to the correct location inside the `<TOMCAT_HOME>` folder.
 
     ``` xml
-    client.keyStore=./repository/resources/security/wso2carbon.jks
-    client.trustStore=./repository/resources/security/client-truststore.jks
+    client.keyStore=$WEB_APP_KEYSTORE
+    client.trustStore=$WEB_APP_TRUSTSTORE
     ```
 
 ## Integrate the portal with IS
