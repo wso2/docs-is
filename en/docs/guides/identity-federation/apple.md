@@ -21,7 +21,7 @@ When a user attempts to log in to a client application through Apple Sign In:
 
 
 ## Prerequisites
-Before adding Apple as a federated authenticator on the WSO2 Identity server, you need to register an application on the Apple Developer Portal and make sure you obtain the following:
+Before adding Apple as a federated authenticator on the WSO2 Identity Server, you need to register an application on the Apple Developer Portal and make sure you obtain the following:
 
 - **Client ID**: This identifies the requests sent from WSO2 Identity Server to the application.
 - **Client Secret**: This authenticates the requests sent from WSO2 Identity Server to the application.
