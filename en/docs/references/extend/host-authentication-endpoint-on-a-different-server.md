@@ -190,7 +190,7 @@ To integrate the portal to the WSO2 Identity Server, add the following configs t
     allow_generic_http_requests = true
     allow_any_origin = false
     allowed_origins = [
-        "http://localhost:8080","https://localhost:9443"
+        "https://localhost:8443"
     ]
     allow_subdomains = true
     supported_methods = [
