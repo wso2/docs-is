@@ -8,10 +8,10 @@ The following topics describe how you can host the authentication endpoint on a 
 
 First, let's set up the Tomcat server to host the authentication portal in your WSO2 Identity Server.
 
-1. Download and install WSO2 IS and Apache Tomcat on your local machine.
+1. Download and install WSO2 Identity Server and Apache Tomcat on your local machine.
 
     !!! info
-        Let’s consider the WSO2 IS installation as `<IS_HOME>` and the Tomcat installation as `<TOMCAT_HOME>`.
+        Let’s consider the WSO2 Identity Server installation as `<IS_HOME>` and the Tomcat installation as `<TOMCAT_HOME>`.
 
 2.  Download the [setup-authentication-endpoint.sh](https://github.com/wso2/samples-is/blob/master/host-endpoints-externally/setup-authentication-endpoint.sh) script add it to the folder containing the WSO2 IS distribution.
 
@@ -27,21 +27,21 @@ First, let's set up the Tomcat server to host the authentication portal in your 
     2. Then enter the path to your Tomcat server’s webapps folder (`<TOMCAT_HOME>/webapps`)
 
     !!! note "Copy the `authentication endpoint`"
-        When the Tomcat Server runs on a separate VM, we can not copy the `authentication endpoint` directly since the IS is in a different machine. So we need to first copy the authentication endpoint to a local directly using the script and then manually copy it to the Tomcat server VM’s webapps location.
+        When the Tomcat Server runs on a separate VM, we can not copy the `authentication endpoint` directly since the IS is in a different machine. So we need to first copy the authentication endpoint to a local directory using the script and then manually copy it to the Tomcat server VM’s webapps location.
 
         1. Execute the step 3.
-        2. When prompted to enter the path to your WSO2 IS installation, enter it as mentioned in the step 3.
+        2. When prompted to enter the path to your WSO2 Identity Server installation, enter it as mentioned in the step 3.
         3. When prompted to enter the path to your Tomcat server’s webapps folder, enter a folder location of your local machine.
         4. After completing the script, the `authentication endpoint` will copy to the given folder location.
         5. Then manually copy the `authentication endpoint` to the Tomcat server VM’s webapps location.
 
-This extracts the authentication portal web app from the given WSO2 IS distribution and adds it to the `webapps` folder of your Tomcat server with the libraries needed for it to be externally hosted.
+This extracts the authentication portal web app from the given WSO2 Identity Server distribution and adds it to the `webapps` folder of your Tomcat server with the libraries needed for it to be externally hosted.
 
 ## Configure the Tomcat server
 
 Now, let's configure the Tomcat server.
 
-1. Open the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file, uncomment the following section, and update the configurations with the WSO2 IS URLs.
+1. Open the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file, uncomment the following section, and update the configurations with the WSO2 Identity Server URLs.
 
     ```xml
     <context-param>
@@ -87,14 +87,14 @@ Now, let's configure the Tomcat server.
 4. Configure the keystores.
 
     !!! info
-        The relevant certificates should be added to the corresponding keystores to properly run the authentication portal. In this tutorial, we are hosting the portal on a local server. Therefore, let's use the same keystore and truststore that is in the WSO2 IS instance for this portal.
+        The relevant certificates should be added to the corresponding keystores to properly run the authentication portal. In this tutorial, we are hosting the portal on a local server. Therefore, let's use the same keystore and truststore that is in the WSO2 Identity Server instance for this portal.
 
-    1. Import the public certificate of WSO2 IS to the `javaca certs` (or web-server's truststore) of the JVM where the authentication endpoint is running.
+    1. Import the public certificate of WSO2 Identity Server to the `javaca certs` (or web-server's truststore) of the JVM where the authentication endpoint is running.
 
         !!! Info
             Be sure to replace the following placeholders:
 
-            - `$IS_HOME`: The path to your WSO2 IS distribution.
+            - `$IS_HOME`: The path to your WSO2 Identity Server distribution.
             - `$WEB_APP_TRUSTSTORE`: Go to the **authenticationendpoint** web app deployed in the Tomcat server and get the path to its truststore.
 
         ``` bash
@@ -102,12 +102,12 @@ Now, let's configure the Tomcat server.
         keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
         ```
 
-    2. Import the public certificate of the web server’s keystore to the WSO2 IS truststore.
+    2. Import the public certificate of the web server’s keystore to the WSO2 Identity Server truststore.
 
         !!! Info
             Be sure to replace the following placeholders:
             
-            - `$IS_HOME`: The path to your WSO2 IS distribution.
+            - `$IS_HOME`: The path to your WSO2 Identity Server distribution.
             - `$WEB_APP_KEYSTORE`: Go to the **authenticationendpoint** web app deployed in the Tomcat server and get the path to its keystore.
 
         ``` bash
@@ -142,7 +142,7 @@ Now, let's configure the Tomcat server.
 6. Open the `<TOMCAT_HOME>/bin/catalina.sh` file and add the following `JAVA_OPTS`:
 
     !!! Info
-        Be sure to replace `$IS_HOME` with the path to your WSO2 IS distribution.
+        Be sure to replace `$IS_HOME` with the path to your WSO2 Identity Server distribution.
 
     ``` xml
     JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.keyStore=$IS_HOME/repository/resources/security/wso2carbon.jks -Djavax.net.ssl.keyStorePassword=wso2carbon"
@@ -156,7 +156,7 @@ Now, let's configure the Tomcat server.
     client.trustStore=$WEB_APP_TRUSTSTORE
     ```
 
-## Integrate the portal with IS
+## Integrate the portal with WSO2 Identity Server
 
 To integrate the portal to the WSO2 Identity Server, add the following configs to the `IS_HOME/repository/conf/deployment.toml` file.
 
@@ -211,4 +211,4 @@ Restart the WSO2 Identity server to apply the changes added to the `deployment.t
 
 ## Start the servers
 
-Start both WSO2 IS and Tomcat servers and access `https://<IS_HOST>:<IS_PORT>/myaccount`. You will now see that the authentication is redirected to the external URL.
+Start both WSO2 Identity Server and Tomcat servers and access `https://<IS_HOST>:<IS_PORT>/myaccount`. You will now see that the authentication is redirected to the external URL.
