@@ -1,12 +1,14 @@
 # Pushed Authorization Requests (PAR)
 
-Pushed Authorization Request (PAR) is an OAuth 2.0 specification that secures the way of initiating an authorization flow.
+OAuth 2.0 authorization requests, typically initiated from the front-channel (e.g., a web browser), have inherent issues. These requests can sometimes be too large for browsers to handle, and there is no guarantee that an adversary won't tamper with the request before it reaches the authorization server.
 
-The PAR specification defines the `/par` endpoint in the authorization server, and enables an OAuth client to push the payload of an authorization request directly to this endpoint. The endpoint in response, will return `request_uri`, a one-time use code which acts as a reference to the registered authorization request.
+The OAuth 2.0 specification introduced Pushed Authorization Requests (PAR) to mitigate these issues using the `/par` endpoint of an authorization server.
 
-The client authentication rules defined for token endpoint requests, including the relevant authentication methods, also apply to the `/par` endpoint.
+Using PAR, the authorization payload will be pushed to the `/par` endpoint from the back-channel. In response, the server will return a `request_uri`, a one-time use code which acts as a reference to the payload which can be used when initiating the usual authorization request from the front-channel.
 
-When making the authorization request to the authorization endpoint, it is sufficient to send the `request_uri` and `client_id`, instead of sending the complete authorization payload.
+!!! note
+    The `/par` endpoint inherits the client authentication rules that are defined for the `/token` endpoint requests, including the relevant authentication methods.
+
 
 Learn more about [Pushed authorization requests]({{base_path}}/references/concepts/authorization/pushed-authorization-requests).
 
@@ -30,7 +32,7 @@ Make the following changes to the created service provider.
 3. Click **Add**.
 
     !!! note
-        - Note the generated **OAuth Client Key** and **OAuth Client Secret**.
+        Take note of the generated **OAuth Client Key** and **OAuth Client Secret** for later use.
 
 ## Invoke the PAR endpoint
 
@@ -69,11 +71,19 @@ The following example depicts an authorization code flow initiated with PAR:
 
 You will receive a response with the request_uri and the time of expiry.
 
-```
+```json
 {
 "expires_in": 60,
 "request_uri": "urn:ietf:params:oauth:par:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f"
 }
 ```
 
+!!! note
+    - WSO2 IS uses the prefix, `urn:ietf:params:oauth:par:request_uri:` for the request_uri. The `/authorize` endpoint processes the request as initiated with PAR, only if the request_uri is of this format.
 
+    - By default, the request_uri expires after 60 seconds. You can change the time of expiry (e.g. 90 seconds), by adding the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory.
+
+        ```json
+         [oauth.par]
+         expiry_time=90
+        ```
