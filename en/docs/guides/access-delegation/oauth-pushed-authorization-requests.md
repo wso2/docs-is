@@ -6,7 +6,7 @@ The PAR specification defines the `/par` endpoint in the authorization server, a
 
 The client authentication rules defined for token endpoint requests, including the relevant authentication methods, also apply to the `/par` endpoint.
 
-When making the authorization request to the authorization endpoint, it is sufficient to send the `request_uri` instead of sending the complete authorization payload.
+When making the authorization request to the authorization endpoint, it is sufficient to send the `request_uri` and `client_id`, instead of sending the complete authorization payload.
 
 Learn more about [Pushed authorization requests]({{base_path}}/references/concepts/authorization/pushed-authorization-requests).
 
