@@ -65,7 +65,7 @@ The diagram below illustrates the PAR authorization flow.
         "request_uri": "urn:ietf:params:oauth:par:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f"
         }
         ```
-5. The client makes an authorization request to the authorization endpoint with the client id and the request_uri.
+5. The client makes an authorization request to the authorization endpoint with the client_id and the request_uri.
 
     !!! abstract ""
 
