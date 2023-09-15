@@ -110,7 +110,7 @@ You can use the following CURL command to recover a password using REST API.
 
 #### Send recovery notification
 
-This API is used to send password recovery confirmation over defined channels such as email or SMS.
+This API is used to send password recovery confirmation over Email.
 
 !!! abstract ""
     **Request**
