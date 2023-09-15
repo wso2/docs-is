@@ -91,21 +91,16 @@ You can get the tokens by sending the following token request to the token endpo
 
 **Request Format**
     ```curl
-    curl -i -X POST -u <OAuth Client Key>:<Client Secret> 
-    -k -d 'grant_type=authorization_code
-    &redirect_uri=<redirect_uri>
-    &code=<authorization_code>
-    &code_verifier=<PKCE_code_verifier>' 
-    https://localhost:9443/oauth2/token
+    curl -k -X POST https://localhost:9443/oauth2/token
+    -H 'Content-Type: application/x-www-form-urlencoded'
+    -d 'client_id=<OAuth_Client_Key>&grant_type=authorization_code&redirect_uri=<Callback_Url>&code=<Authorization_Code>&code_verifier=<Code_Verifier>'
     ```
 
 **Sample Request**
     ```curl
-    curl -i -X POST -u YYVdAL3lLcmrubZ2IkflCAuLwk0a:azd39swy3Krt59fLjewYuD_EylIa 
-    -k -d 'grant_type=authorization_code
-    &redirect_uri=https://localhost/callback&code=d827ec7e-1b8e-3d81-a4c0-2f7ff67ce844
-    &code_verifier=aYr1jbrAHhZDC5WBi8wQPdraATAvvKy93S22rkPDkkRTHzzaAMVOJ5MHgRPgoKf8xDBJPE08'
-    https://localhost:9443/oauth2/token
+    curl -k -X POST https://localhost:9443/oauth2/token
+    -H 'Content-Type: application/x-www-form-urlencoded'
+    -d 'client_id=X_evTCx5txiXfpMLdYGs8zj7eTga&grant_type=authorization_code&redirect_uri=https://example-app.com/redirect&code=86d3735e-e744-3864-92e8-665560e6fac4&code_verifier=uy383dWCPy8D5anX9cK42v3fTBCc10CsnvfXrcfENewIFSJvEm1nEczo8C63Mud7QPPkLQ5GVJvzRaxfzVmWi6rqUrPIVhpPQxywRCaxovGzMhDoLjMpZ0ddLRrMrjpY'
     ```
 
 This token request takes the following parameters.
