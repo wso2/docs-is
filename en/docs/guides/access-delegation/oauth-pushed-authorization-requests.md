@@ -4,7 +4,7 @@ OAuth 2.0 authorization requests, typically initiated from the front-channel (e.
 
 The OAuth 2.0 specification introduced Pushed Authorization Requests (PAR) to mitigate these issues using the `/par` endpoint of an authorization server.
 
-Using PAR, the authorization payload will be pushed to the `/par` endpoint from the back-channel. In response, the server will return a `request_uri`, a one-time use code which acts as a reference to the payload which can be used when initiating the usual authorization request from the front-channel.
+Using PAR, the authorization payload will be pushed to the `/par` endpoint from the back-channel. In response, the server will return a `request_uri`, a one-time use identifier which acts as a reference to the payload which can be used when initiating the usual authorization request from the front-channel.
 
 !!! note
     The `/par` endpoint inherits the client authentication rules that are defined for the `/token` endpoint requests, including the relevant authentication methods.
