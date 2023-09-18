@@ -150,8 +150,6 @@ Once this is done, you need to change all `localhost` references. The following 
 - The callback URLs of the default system applications such as My Account and Console.
 
 !!! note
-    By default, both the My Account and the Console Applications use the `localhost:9443` domain within the callback URL. When you change the hostname, the WSO2 Identity Server will not be running on the `localhost:9443` domain, and these values will not automatically change. Hence, you should manually change the callback URLs to use the new hostname.
-
     To edit the default system applications such as My Account and Console, the following configuration should be added to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ```toml
