@@ -133,16 +133,18 @@ The secondary keystore with the new hostname will only be used for Tomcat SSL/TL
 Once this is done, you need to change all `localhost` references. The following points would be where the references should be changed.
 
 - The configurations in the `<IS_HOME>/repository/conf/deployment.toml` file reference localhost.
-- The entity ID that is available in the resident identity provider configurations.
+- Update the **Identity Provider Entity ID**
 
-    - If you have added the proxy port as `443` to the `<IS_HOME>/repository/conf/deployment.toml` using the below configs, use `https://domain/oauth2/token` as the entity ID value.
+    On the Management Console, go to **Identity Provider** > **Resident Identity Provider** > **Inbound Authentication Configuration** > **OAuth2/OpenID Connect Configuration** and update the **Identity Provider Entity ID** with any one of the following values:
+
+    - If you have added the proxy port as `443` to the `<IS_HOME>/repository/conf/deployment.toml` using the below configs, use `https://<DOMAIN>/oauth2/token` as the entity ID value.
 
         ```toml
         [transport.https.properties]
         proxyPort = 443
         ```
 
-    - Else, use `https://domain:<PORT>/oauth2/token` as the entity ID value.
+    - Else, use `https://<DOMAIN>:<PORT>/oauth2/token` as the entity ID value.
 
 - The callback URLs of the federated identity providers.
 - The callback URLs of the default system applications such as My Account and Console.
