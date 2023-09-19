@@ -58,7 +58,7 @@ The parameters used in the authorization request are defined below.
 ## JARM in WSO2 Identity Server
 By default, JARM response modes are enabled in WSO2 Identity Server.
 
-## Disable JARM
+### Disable JARM
 
 To disable JARM response modes, add the following configurations to the `deployment.toml` file of the WSO2 Identity Server.
 
