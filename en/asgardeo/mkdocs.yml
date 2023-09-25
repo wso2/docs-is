@@ -82,8 +82,8 @@ nav:
     - Home: index.md
   - Get Started:
     - Get Started - Overview: get-started/index.md
-    - Create your account: get-started/create-asgardeo-account.md
-    - Try app login with Asgardeo: get-started/try-it-application.md
+    - Create your Asgardeo account: get-started/create-asgardeo-account.md
+    - Try login with Asgardeo: get-started/try-it-application.md
     - Start integrating Asgardeo into apps:
       - Try a sample app:
         - Single Page apps:
@@ -99,7 +99,6 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
-    - Explore use cases: get-started/asgardeo-use-cases.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:

@@ -1,22 +1,28 @@
-# Try app login
+# Try login with Asgardeo
 
-Now that you have [onboarded to Asgardeo](../../get-started/create-asgardeo-account/), let's see how the application login flow with Asgardeo works.
+The following guide explains how you can quickly test login with Asgardeo using the **Try it** application provided by Asgardeo.
+
+!!! note "Before you begin"
+    - Create an account in Asgardeo.
+    - Create a user in Asgardeo (only users can login to applications created in Asgardeo). </b>
+
+    Refer [create your Asgardeo account]({{base_path}}/get-started/create-asgardeo-account/) to learn more.
 
 ## Asgardeo Try It app
 
-We have already set up and configured an application for you, which is the **Asgardeo Try It** app.
+**Try It** is a test application that we have already set up and configured for you to quicky integrate authenticators and see how Asgardeo login works with applications.
 
 Let's try a simple login flow in the Asgardeo Try It application:
 
 1. On the [Asgardeo Console](https://console.asgardeo.io/login), navigate to **Home** and click **Try login with the Try It app**.
-    !!! note
-        You need a user account to try out login. A dialog will appear prompting you to create a user account. Note that this dialog only appears if it is your first time.
 
-        Learn more about various [user accounts in Asgardeo](../../guides/users/).
-
-2. If you don't already have a user created, click the link for creating a user and follow the instructions.
+2. A dialog box appears prompting you to create a user account. Click **Continue** to proceed if you have a user account. If not, click the link for **creating a user** and follow the instructions.
 
    ![Get set](../assets/img/guides/applications/get-set.png)
+
+   !!! note "Create a user"
+
+    The dialog box only appears the first time you are using the Try it application.
 
 3. When you are ready with the user account, click **Continue** to proceed.
 
