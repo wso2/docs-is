@@ -53,6 +53,7 @@ implement a new grant type.
     grant_validator="full qualified class name of grant validator"
     [oauth.custom_grant_type.properties]
     IdTokenAllowed=true
+    PublicClientAllowed=true
     ```
 
     !!! info 
@@ -60,7 +61,10 @@ implement a new grant type.
         `            true           `, provides flexibility to control the
         issuing of IDtoken for each grant, and also allows the OIDC scope
         validator to validate the grant types that should support the openid
-        scope.
+        scope.   
+        Setting the `            <PublicClientAllowed>           ` parameter 
+        to `            true           `, provides the ability for the public
+        clients to use the grant type for public client authentication.
 
     To test this out, follow the instructions below to implement a
     custom-grant type sample.

@@ -46,3 +46,13 @@ supported by WSO2 Identity Server.
     **Note:** By default, issuing ID token for
     `         client_credentials        ` grant type is disabled as it is
     logically invalid.
+
+    By configuring the `         <PublicClientAllowed>        ` property
+    to `        true        ` or `         false        ` along with the
+    above configuration, you can decide whether the grant type can be used
+    by public clients or not. By default, `         PublicClientAllowed        ` 
+    is set to `         true        `, and you can allow it to be used by
+    public clients. By configuring it to `         false        `, you can
+    stop using the grant type by public clients.   
+    **Note:** By default, using `         client_credentials        ` grant 
+    type for public clients is disabled as it is logically invalid.
