@@ -98,6 +98,26 @@ The following diagram shows how the password grant flow works.
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
+## Token exchange grant
+OAuth 2.0 token exchange is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another. This grant type is defined in the [OAuth Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693)
+
+The token txchange grant type is useful in scenarios where an application needs to obtain a different type of access token with a different set of permissions or attributes than the one it currently possesses. It allows an application to act on a user's or another entity's behalf, obtaining a new access token that represents the requested authorization.
+
+!!! note "Important"
+    It is important to note that the token exchange grant type supports JWT tokens only.
+
+The following diagram shows how the token exchange grant flow works.
+
+![How the token exchange grant works]({{base_path}}/assets/img/references/grants/token-exchange-grant.png)
+
+1. The user sends a login request to the client application.
+2. The client application sends an authorization request to the third-party IdP.
+3. The third-party IdP returns the JWT access token for the user to the client application.
+4. The client application makes a token exchange request to the authorization server, specifying the Token Exchange grant type and providing the necessary parameters, such as the original access token.
+5. The authorization server validates the request, performs the token exchange, generates a new access token of the requested type based on the provided parameters and the server's policy, and responds to the client with the new access token.
+6. The client application can now request resources from the resource server by providing the access token.
+7. As the resource server trusts Asgardeo issued tokens, it returns the requested resources to the client application.
+
 ## Organization switch grant
 
 The organization switch grant is a custom grant type in Asgardeo that enables users to switch between different organizations in a hierarchical organization structure.
