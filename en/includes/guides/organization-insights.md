@@ -24,10 +24,10 @@ The example below shows insights related to login events of the organization for
 ![Select the period for the insights to be displayed](../assets/img/guides/organization-insights/insight-period.png)
 
 !!! note
-	The statistics displayed in the graphs are not real-time. </br></br>
+    The statistics displayed in the graphs are not real-time. </br></br>
 
-	Why? </br>
-	There is a latency of up to 20 minutes between the user activity and insights. This delay ensures accurate data processing and allows for a more comprehensive analysis of user logins and login trends.
+    Why? </br>
+    There is a latency of up to 20 minutes between the user activity and insights. This delay ensures accurate data processing and allows for a more comprehensive analysis of user logins and login trends.
 
 
 ## User engagement metrics
@@ -83,9 +83,9 @@ To filter insights,
     </table>
 
     !!! note
-    	All filter values are case sensitive.
-	
-	![Filter insights related to logins](../assets/img/guides/organization-insights/filter-login-insights.png)
+        All filter values are case sensitive.
+
+    ![Filter insights related to logins](../assets/img/guides/organization-insights/filter-login-insights.png){width="500" style="display: block; margin: 0 auto;"}
 
   The table below has detailed information on all the filtering options available for insights of your organization.
 

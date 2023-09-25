@@ -310,6 +310,11 @@ nav:
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - Localization in Asgardeo: references/localization-in-asgardeo.md
+    - Production checklist:
+      - references/production-checklist/index.md
+      - Readiness check: references/production-checklist/readiness-check.md
+      - Security check: references/production-checklist/security-check.md
+      - Best practices: references/production-checklist/best-practices.md
 # Extensions
 # Extensions
 markdown_extensions:

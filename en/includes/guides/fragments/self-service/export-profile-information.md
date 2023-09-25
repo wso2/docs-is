@@ -1,5 +1,4 @@
 <!-- markdownlint-disable-next-line -->
-<!-- markdownlint-disable-next-line -->
 Users can export profile information via the My Account portal as `json` files.
 
 Given below are the steps to follow.
