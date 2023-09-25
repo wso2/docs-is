@@ -1,0 +1,386 @@
+# Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+# WSO2 Inc. licenses this file to you under the Apache License,
+# Version 2.0 (the "License"); you may not use this file except
+# in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# Project information
+site_name: ""
+site_description: Asgardeo Learning Portal
+site_author: WSO2
+site_url: https://wso2.com/asgardeo/docs
+
+
+# Repository
+#repo_name: wso2/docs-choreo-dev
+#repo_url: https://github.com/wso2/docs-choreo-dev/
+#edit_uri: https://github.com/wso2/docs-choreo-dev/edit/dev/en/docs/
+dev_addr: localhost:8000
+
+# Copyright
+copyright: ©2023 WSO2 LLC. 
+
+# Configuration
+theme:
+  name: material
+  custom_dir: theme/material
+  logo: assets/images/asgardeo-logo-dark.svg
+  font:
+    text: Nunito
+  favicon: assets/images/favicon.png
+  toc: false
+  features:
+    # Top navigation
+    - navigation.tabs
+    # Top navigation - sticky
+    - navigation.tabs.sticky
+    # Section index pages
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+  language: 'en'
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  icon:
+    logo: logo
+#Breaks build if there's a warning
+strict: false
+# Navigation
+nav:
+  - Home:
+    - Home: index.md
+  - Get Started:
+    - Get Started - Overview: get-started/index.md
+    - Create your account: get-started/create-asgardeo-account.md
+    - Try app login with Asgardeo: get-started/try-it-application.md
+    - Start integrating Asgardeo into apps:
+      - Try a sample app:
+        - Single Page apps:
+          - React: get-started/try-samples/qsg-spa-react.md
+          - Javascript: get-started/try-samples/qsg-spa-javascript.md
+        - Web apps:
+          - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+          - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+      - Try your own app:
+        - Single Page apps:
+          - React: get-started/try-your-own-app/react.md
+          - Javascript: get-started/try-your-own-app/javascript.md
+        - Web apps:
+          - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
+          - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
+    - Explore use cases: get-started/asgardeo-use-cases.md
+  - Guides: 
+      - Guides: guides/index.md
+      - Applications:
+          - Applications: guides/applications/index.md
+          - Register an SPA: guides/applications/register-single-page-app.md
+          - Register web app with OIDC: guides/applications/register-oidc-web-app.md
+          - Register web app with SAML: guides/applications/register-saml-web-app.md
+          - Register a standard-based app: guides/applications/register-standard-based-app.md
+          - Register a mobile app: guides/applications/register-mobile-app.md
+          - Manage application roles: guides/applications/manage-application-roles.md
+      - Authentication:
+          - Authentication: guides/authentication/index.md
+          - Add login to apps:
+            - guides/authentication/add-login-to-apps.md
+            - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
+            - Add login to a web app: guides/authentication/add-login-to-web-app.md
+            - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
+          - Add passwordless login:
+            - Add passwordless login: guides/authentication/passwordless-login/index.md
+            - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
+            - Add login with FIDO2: guides/authentication/passwordless-login/add-passwordless-login-with-fido.md
+            - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
+            - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
+          - Enable user attributes:
+            - Enable user attributes: guides/authentication/user-attributes/index.md
+            - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
+            - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
+          - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
+          - Add social login:
+            - Add social login: guides/authentication/social-login/index.md
+            - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
+            - Add Github login: guides/authentication/social-login/add-github-login.md
+            - Add Google login: guides/authentication/social-login/add-google-login.md
+            - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
+            - Add Apple login: guides/authentication/social-login/add-apple-login.md
+          - Add decentralized login:
+            - Add decentralized login: guides/authentication/decentralized-login/index.md
+            - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+          - Add standard-based login:
+            - Add standard-based login: guides/authentication/enterprise-login/index.md
+            - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
+            - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+          - Add multi-factor authentication:
+            - Add multi-factor authentication: guides/authentication/mfa/index.md
+            - Add TOTP: guides/authentication/mfa/add-totp-login.md
+            - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
+            - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
+            - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
+          - Add conditional authentication:
+            - Add conditional authentication: guides/authentication/conditional-auth/index.md
+            - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
+            - Add access control:
+              - Add access control: guides/authentication/conditional-auth/access-control.md
+              - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
+              - Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
+            - Add adaptive MFA:
+              - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md
+              - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
+              - MFA based on sign-in option: guides/authentication/conditional-auth/sign-in-option-based-template.md
+              - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
+              - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
+              - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
+            - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
+          - Configure OIDC flows:
+            - Configure OIDC flows: guides/authentication/oidc/index.md
+            - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
+            - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
+            - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
+            - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+            - Request user information: guides/authentication/oidc/request-user-info.md
+            - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
+            - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
+            - Implement logout: guides/authentication/oidc/add-logout.md
+          - Configure SAML flows:
+            - Configure SAML flows: guides/authentication/saml/index.md
+            - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+          - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
+      - API authorization: guides/api-authorization.md
+      - Branding:
+        - Branding: guides/branding/index.md
+        - Configure UI branding: guides/branding/configure-ui-branding.md
+        - Configure custom domains: guides/branding/configure-custom-domains.md
+        - Customize email templates: guides/branding/customize-email-templates.md
+        - Configure the email provider: guides/branding/configure-email-providers.md
+      - User management:
+        - User management: guides/users/index.md
+        - Manage administrators: guides/users/manage-collaborators.md
+        - Manage users: guides/users/manage-customers.md
+        - Manage groups: guides/users/manage-groups.md
+        - Manage active sessions: guides/users/manage-sessions.md
+        - Migrate users to Asgardeo: guides/users/migrate-users.md
+        - Manage attributes and mappings:
+          - Manage attributes and mappings: guides/users/attributes/index.md
+          - User attributes: guides/users/attributes/manage-attributes.md
+          - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
+          - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
+          - OIDC scopes: guides/users/attributes/manage-scopes.md
+        - Manage user stores:
+          - Manage user stores: guides/users/user-stores/index.md
+          - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
+          - Configure high availability: guides/users/user-stores/configure-high-availability.md
+          - Manage remote user stores: guides/users/user-stores/update-user-stores.md
+      - Account management:
+        - Account management: guides/user-accounts/index.md
+        - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
+        - Configure password recovery: guides/user-accounts/password-recovery.md
+        - Configure self-registration: guides/user-accounts/configure-self-registration.md
+        - Manage account security:
+          - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
+          - Configure bot detection: guides/user-accounts/account-security/bot-detection.md
+          - Configure password validation: guides/user-accounts/account-security/password-validation.md
+        - Manage account login:
+          - Configure username validation: guides/user-accounts/account-login/username-validation.md
+      - User self-service:
+        - User self-service: guides/user-self-service/index.md
+        - Self-service portal:
+          - guides/user-self-service/customer-self-service-portal.md
+          - Update profile information: guides/user-self-service/update-profile-info.md
+          - Change password: guides/user-self-service/change-password.md
+          - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
+          - Export profile information: guides/user-self-service/export-profile-information.md
+          - Manage consents: guides/user-self-service/manage-consents.md
+          - Manage login sessions: guides/user-self-service/manage-login-sessions.md
+          - Self-register: guides/user-self-service/self-register.md
+          - Register FIDO2 security key/biometrics: guides/user-self-service/register-security-key.md
+          - Password recovery: guides/user-self-service/customer-password-recovery.md
+          - Enroll TOTP: guides/user-self-service/enable-totp.md
+          - Manage backup codes: guides/user-self-service/manage-backup-codes.md
+          - Discover applications: guides/user-self-service/discover-applications.md
+        - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+      - Organization management:
+        - Organization management: guides/organization-management/index.md
+        - Manage organizations: guides/organization-management/manage-organizations.md
+        - Manage B2B organizations:
+          - Manage B2B organizations: guides/organization-management/manage-b2b-organizations/index.md
+          - Set up sub organizations: guides/organization-management/manage-b2b-organizations/manage-suborganizations.md
+          - Administration of sub organizations: guides/organization-management/manage-b2b-organizations/manage-b2b-administration.md
+          - Share applications: guides/organization-management/manage-b2b-organizations/share-applications.md
+          - Try a B2B use case: guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case.md
+          - API authorization for sub organizations: guides/organization-management/manage-b2b-organizations/api-authorization-for-b2b.md
+        - Manage environments: guides/organization-management/manage-environments.md
+      - Your Asgardeo:
+        - Your Asgardeo: guides/your-asgardeo/index.md
+        - Self-service: guides/your-asgardeo/asgardeo-self-service.md
+        - Recover your password: guides/your-asgardeo/recover-password.md
+        - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
+        - Manage subscriptions: guides/your-asgardeo/manage-subscriptions.md
+      - Asgardeo events: guides/asgardeo-events.md
+      - Organization insights: guides/organization-insights.md
+  - Tutorials:
+    - Tutorials: tutorials/index.md
+    - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
+    - Authenticate users into Flutter applications: tutorials/auth-users-into-flutter-apps.md
+    - Connect Asgardeo as an OIDC attribute provider (with Microsoft Entra Verified ID): tutorials/connect-asgardeo-with-ms-entra.md
+    - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
+  - Integrations:
+    - Integrations: integrations/index.md
+  - APIs:
+    - APIs: apis/index.md
+    - Authentication: apis/authentication.md
+    - Application management API: apis/application-management.md
+    - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
+    - Identity provider API: apis/idp.md
+    - User management (SCIM 2.0) API: apis/scim2.md
+    - Email templates API: apis/email-template.md
+    - Identity governance API: apis/identity-governance.md
+    - User sessions:
+      - Session management API: apis/session.md
+      - Session extension API: apis/extend-sessions.md
+    - Event configuration API: apis/event-configuration.md
+    - Self-service:
+      - TOTP API: apis/register-mfa/totp.md
+      - Backup codes API: apis/register-mfa/backup-code.md
+      - Password recovery API: apis/register-mfa/password-recovery.md
+      - Export user information API: apis/register-mfa/export-user-info.md
+    - Administrators:
+      - Export admin information API: apis/administrators/export-admin-info.md
+    - Consent management API: apis/consent-management.md
+    - Event configuration API: apis/event-configuration.md
+    - Validation API: apis/validation.md
+    - Suborganization APIs:
+      - Suborganization APIs: apis/organization-management/index.md
+      - Get access for suborganization APIs: apis/organization-management/authentication.md
+      - User management - SCIM2 API: apis/organization-management/org-scim2.md
+      - Application management API: apis/organization-management/org-application-management.md
+      - Identity providers API: apis/organization-management/org-idp.md
+      - Organization management API: apis/organization-management/org-management.md
+      - Organization role management API: apis/organization-management/organization-role-management.md
+    - Idle account identification API: apis/idle-account-identification.md
+  - References:  
+    - References: references/index.md
+    - Asgardeo user roles: references/user-management/user-roles.md
+    - App configurations:
+      - App configurations: references/app-settings/index.md
+      - OIDC configurations: references/app-settings/oidc-settings-for-app.md
+      - SAML configurations: references/app-settings/saml-settings-for-app.md
+    - IdP configurations:
+      - IdP configurations: references/idp-settings/index.md
+      - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
+      - SAML configurations: references/idp-settings/saml-settings-for-idp.md
+    - OAuth2 grant types of Asgardeo: references/grant-types-in-asgardeo.md
+    - Conditional auth - API: references/conditional-auth/api-reference.md
+    - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
+    - Authorization policies for apps: references/authorization-policies-for-apps.md
+    - Application logs: references/application-logs.md
+    - Email templates: references/email-templates.md
+    - Accessibility compliance: references/accessibility.md
+    - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
+    - Localization in Asgardeo: references/localization-in-asgardeo.md
+# Extensions
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - admonition
+#  - markdown_include.include:
+#      base_path: ../includes
+  - markdown.extensions.toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      base_path: docs
+  - attr_list
+plugins:
+  - search
+  - glightbox
+  - include-markdown
+  - markdownextradata: {}
+  - redirects:
+      redirect_maps:
+extra_css:
+  # - assets/lib/highlightjs/default.min.css
+  # - assets/css/theme.css
+  # - assets/css/prism.css
+  # - assets/lib/json-formatter/json-formatter.css
+  
+  - assets/lib/highlightjs/styles/vs.min.css
+  - assets/css/blue-palette-alt2.css
+  - assets/css/choreotheme.css
+  - assets/lib/json-formatter/json-formatter.css
+  - assets/css/config-catalog.css
+  - assets/lib/fontawesome-free-6.3.0-web/css/all.min.css
+extra_javascript:
+  - assets/lib/json-formatter/json-formatter.umd.js
+  - assets/lib/highlightjs/highlight.min.js
+ # - assets/js/theme.js
+  #- assets/js/prism-ballerina.js
+  - assets/js/choreotheme.js
+extra:
+  material:
+    jinja2content: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/wso2
+#site_version: 1.0.0
+  base_path: http://localhost:8000/asgardeo/docs
+
+  nav_list:
+    - Get Started
+    - Guides
+    - Tutorials
+    - Integrations
+    - APIs
+    - References
+
+base_path: http://localhost:8000/asgardeo/docs

@@ -1,0 +1,121 @@
+# Add Github login
+
+You can add Github login to your applications using {{ product_name }} and enable users to log in with their Github account.
+
+Follow this guide for instructions.
+
+## Register {{ product_name }} on Github
+
+You need to register {{ product_name }} as an OAuth app on GitHub.
+
+!!! note
+    You can follow the [Github documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) for detailed instructions.
+
+1. Log in to [Github](https://github.com/), click your profile icon, and click **Settings**.
+2. On the left panel of the **Settings** page, click **Developer settings**.
+3. Under **OAuth apps**, click **Register a new application**.
+
+    ![Register oauth2 app in Github](../../../assets/img/guides/idp/github-idp/github-register-app.jpg){: width="600"}
+
+4. Give the application a name and the following URLs:
+    - **Homepage URL**
+      ```bash 
+       https://api.asgardeo.io/t/{organization_name}
+      ```
+    - **Authorization callback URL**
+      ```bash
+      https://api.asgardeo.io/t/<organization_name>/commonauth
+      ```
+
+    ![Enter Github app details](../../../assets/img/guides/idp/github-idp/github-app-info.jpg){: width="600"}
+
+5. Click **Register application**.
+6. Generate a new client secret and take note of the **Client ID** and **Client secret**.
+
+## Register the Github IdP
+
+Now, let's register the Github IdP in {{ product_name }}.
+
+1. On the {{ product_name }} Console, go to **Connections**.
+2. Click **New Connections** and select **Github**.
+3. Enter the following details and click **Finish**:
+
+    ![Add Github IDP in {{ product_name }}](../../../assets/img/guides/idp/github-idp/add-github-idp.png){: width="600"}
+
+    <table>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>A unique name for this Github identity provider.</td>
+      </tr>
+      <tr>
+          <td>Client ID</td>
+          <td>The client ID obtained from Github.</td>
+      </tr>
+      <tr>
+          <td>Client secret</td>
+          <td>The client secret obtained from Github.</td>
+      </tr>
+    </table>
+
+4. If required, you can [disable JIT user provisioning](../../guides/authentication/jit-user-provisioning/).
+
+??? note "Claim syncing for JIT-provisioned users"
+      [JIT user provisioning](../../guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning](../../guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
+
+      When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
+
+      According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
+
+      You can use {{ product_name }}'s [identity provider APIs](../../apis/idp/#/operations/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+
+After the GitHub identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Github has granted permissions.
+
+- **email**: Grants read access to a user's primary email address.
+- **public_profile**: Grants read access to a user's default public profile details.  
+
+!!! note
+    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Github to the app. You can read the [Github Documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps) to learn more.
+
+## Enable GitHub login
+
+!!! note Before you begin
+    You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+
+1. On the {{ product_name }} Console, go to **Applications**.
+2. Open your application from the list and go to the **Sign-in Method** tab.
+3. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
+4. Click **Add Authentication** on the step, select your GitHub identity provider, and click **Add**.
+
+    !!! note Recommendations
+        {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
+
+    ![Add Github login in {{ product_name }}](../../../assets/img/guides/idp/github-idp/add-github-federation-with-basic.png){: width="600"}
+
+## Try it out
+
+Follow the steps given below.
+
+1. Access the application URL.
+
+2. Click **Login** to open the {{ product_name }} login page.
+
+3. On the {{ product_name }} login page, **Sign in with Github**.
+
+    ![Login with Github](../../../assets/img/guides/idp/github-idp/sign-in-with-github.png){: width="300"}
+
+4. Log in to GitHub with an existing user account.
+
+!!! note
+    When a user successfully logs in with Github for the first time, a **user** account is created in the {{ product_name }} Console with the Github username. This new user account will be managed by GitHub.
+
+## Add groups to the connection
+
+{% include "../../fragments/manage-connection/add-groups.md" %}
+
+## Delete a connection
+
+{% include "../../fragments/manage-connection/delete-connection.md" %}

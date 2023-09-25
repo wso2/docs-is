@@ -1,10 +1,42 @@
-# WSO2 Identity Server Documentation
+# WSO2 Identity Server and Asgardeo Documentation
 
-This repository contains the documentation website code and Markdown source files for is.docs.wso2.com.
+This is the WSO2 Identity Server and Asgardeo documentation repository. This repository is open and we welcome your contributions!
 
-|  Branch | Build Status |
-| :------------ |:-------------
-| master      | [![Build Status](https://wso2.org/jenkins/view/Dashboard/job/docs/job/docs-is/badge/icon)](https://wso2.org/jenkins/view/Dashboard/job/docs/job/docs-is/) |
+To see the documentation site, go to:
+WSO2 Identity Server: [https://wso2.com/identity-server/docs/](https://wso2.com/identity-server/docs/)
+Asgardeo: [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
+
+## Contribute to documentation
+
+Before you contribute, read the following guidelines to understand how you can start contributing:
+
+1. Accept the contributor license agreement (CLA)
+
+    You need to accept the contributor license agreement (CLA) when you are prompted via a GitHub email notification on sending your first pull request (PR). Subsequent PRs will not require CLA acceptance.
+
+    If the CLA changes for some (unlikely) reason, you'll have to accept the new CLA text when you send your first PR after the change.
+
+2. Fork this repository, make your changes, and send in a pull request.
+
+   For an overview of the general voice, tone, content style, and text formatting to follow when contributing to Choreo documentation, see [Choreo Documentation Guidelines and Best Practices](https://github.com/wso2/docs-choreo-dev/wiki/Choreo-Documentation-Guidelines-and-Best-Practices)
+
+We look forward to your contributions.
+
+## Run the project locally with Devcontainers
+
+This repository supports the VS Code dev containers feature, which allows you to create a consistent and isolated development environment inside a Docker container. To use this feature, you need to have the following pre requisites:
+
+- VS Code
+- Docker installed on your system
+- [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code
+
+Once you have these installed, you can open the repository in VS Code and follow these steps:
+
+- Press F1 and select the Remote-Containers: Open Folder in Container... command.
+- Select the repository folder and wait for the container to build and start.
+- You can now edit, run, debug, and test your code inside the container.
+
+For more information on how to use VS Code dev containers, please refer to the official documentation: https://code.visualstudio.com/docs/remote/containers
 
 ## Prerequisites
 
@@ -58,16 +90,24 @@ git clone https://github.com/wso2/docs-is.git
 
 **Install the dependencies**
 
-```bash
-cd docs-is && pip3 install -r requirements.txt
-```
+- WSO2 Identity Server
+
+    ```bash
+    cd en/identity-server/{version} && pip3 install -r requirements.txt
+    ```
+
+- Asgardeo
+
+    ```bash
+    cd en/asgardeo && pip3 install -r requirements.txt
+    ```
 
 **Run mkdocs**
 
 Execute the following command from inside the `<Lang folder>`.
 
 ```bash
-cd en && mkdocs serve
+mkdocs serve
 ```
 
 > Note:

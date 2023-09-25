@@ -1,0 +1,3448 @@
+openapi: 3.0.0
+info:
+  description: >
+    This document explains the RESTful API for application management in Asgardeo.
+  version: "v1"
+  title: Asgardeo - Application Management Rest API
+security:
+  - OAuth2: []
+paths:
+  /applications:
+    get:
+      tags:
+        - Applications
+      operationId: getAllApplications
+      summary: |
+        List applications
+      description: "This API provides the capability to retrieve the list of applications.\n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      x-code-samples:
+        - lang: shell
+          label: cURL
+          source: | 
+            curl --request GET \
+            --url https://api.asgardeo.io/t/%7Borganization-name%7D/api/server/v1/applications \
+            --header 'Accept: application/json' \
+            --header 'Authorization: '
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+        - $ref: '#/components/parameters/attributesQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /applications/:  
+    post:
+      tags:
+        - Applications
+      summary: |
+        Add application
+      operationId: createApplication
+      description: "This API provides the capability to store application information provided by users.\n\n <b>Scope required:</b> `internal_application_mgt_create`"
+      parameters:
+        - in: query
+          name: template
+          required: true
+          description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/ApplicationModelOIDC'
+                - $ref: '#/components/schemas/ApplicationModelSAML'
+                - $ref: '#/components/schemas/ApplicationModelPassiveSTS'
+                - $ref: '#/components/schemas/ApplicationModelCustom'
+        description: This represents the application to be created.
+        required: true
+      responses:
+        '201':
+          description: Successful response.
+          headers:
+            Location:
+              description: This denotes the location of the newly-created application.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /applications/import:
+    post:
+      tags:
+        - Applications
+      summary: |
+        Create application from an exported XML file
+      operationId: importApplication
+      description: "This API provides the ability to store the application information as a file. \n\n <b>Scope required:</b> `internal_application_mgt_create`"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUpload'
+        description: This represents the application to be created.
+      responses:
+        '201':
+          description: Successfully created.
+          headers:
+            Location:
+              description: Location of the newly created application.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Applications
+      summary: |
+        Update application from an exported XML file
+      operationId: importApplicationForUpdate
+      description: "This API provides the capability to update an application from information that has been exported as an XML file.<br> \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUpload'
+        description: This represents the application to be updated.
+      responses:
+        '200':
+          description: Successfully Updated.
+          headers:
+            Location:
+              description: Location of the updated application.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  '/applications/{applicationId}':
+    get:
+      tags:
+        - Applications
+      summary: |
+        Retrieve application by ID
+      operationId: getApplication
+      description: "This API provides the capability to retrieve the application information by ID. \n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResponseModel'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    patch:
+      tags:
+        - Applications
+      summary: |
+        Partially update application by ID
+      operationId: patchApplication
+      description: "This API provides the capability to partially update an application by ID.\n\n<b>Scope required:</b> ``internal_application_mgt_update``"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationPatchModel'
+        description: This represents the application details to be updated.
+        required: true
+      responses:
+        '200':
+          description: Successfully Updated
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - Applications
+      summary: |
+        Delete application by ID
+      operationId: deleteApplication
+      description: "This API provides the capability to delete an application by ID. \n\n <b>Scope required:</b> ``internal_application_mgt_delete`"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /applications/{applicationId}/export:
+    get:
+      tags:
+        - Applications
+      operationId: exportApplication
+      summary: |
+        Export application as an XML file
+      description: "This API provides the capability to retrieve the application as an XML file. \n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/exportSecretsQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                example: 'Sample application configuration xml as a string'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+#  /applications/{applicationId}/owner:
+#   put:
+#     tags:
+#       - Applications
+#     operationId: changeApplicationOwner
+#     summary: |
+#       Change application owner
+#     description: "This API provides the capability to change the application owner. \n\n <b>Scope required:</b> ``SYSTEM``"
+#     parameters:
+#       - name: applicationId
+#         in: path
+#         description: ID of the application.
+#         required: true
+#         schema:
+#           type: string
+#     requestBody:
+#       content:
+#         application/json:
+#           schema:
+#             $ref: '#/components/schemas/ApplicationOwner'
+#     responses:
+#       '200':
+#         description: Successfully Updated
+#       '400':
+#         description: Bad Request
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '401':
+#         description: Unauthorized
+#       '403':
+#         description: Forbidden
+#       '404':
+#         description: Not Found
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '500':
+#         description: Server Error
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+  /applications/{applicationId}/authenticators:
+    get:
+      tags:
+        - Authenticators
+      summary: |
+        Get configured authenticators
+      operationId: getConfiguredAuthenticators
+      description: "This API provides the capability to retrieve the configured authenticators. \n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConfiguredAuthenticatorsModal'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /applications/resident:
+    get:
+      tags:
+        - Resident application
+      summary: |
+        Get resident application
+      operationId: getResidentApplication
+      description: "This API provides the capability to retrieve the resident application information.\n\n<b>Scope required:</b>`internal_application_mgt_view`"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResidentApplication'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Resident application
+      summary: |
+        Update resident application
+      operationId: updateResidentApplication
+      description: "This API provides the capability to update the Resident Application Configuration.\n\n <b>Scope required:</b>`internal_application_mgt_update`"
+      responses:
+        '200':
+          description: Successful
+        '201':
+          description: Successful response.
+          headers:
+            Location:
+              description: >-
+                Location of the provisioning configuration of the resident
+                application.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisioningConfiguration'
+        description: >-
+          This represents the provisioning configuration of the resident
+          application.
+        required: true
+  '/applications/{applicationId}/inbound-protocols/':
+    get:
+      tags:
+        - Inbound Protocols
+      summary: |
+        Retrieve inbound protocol configurations of the application
+      operationId: getInboundAuthenticationConfigurations
+      description: "This API provides the capability to retrieve authentication protocol configurations of an application.\n\n<b>Scope required:</b>`internal_application_mgt_view`"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundProtocolsListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  '/applications/{applicationId}/inbound-protocols/saml':
+    get:
+      tags:
+        - Inbound Protocols - SAML
+      summary: |
+        Retrieve SAML2 authentication parameters of app
+      operationId: getInboundSAMLConfiguration
+      description: "This API provides the capability to retrieve SAML2 authentication protocol parameters of an application. \n\n<b>Scope required:</b>`internal_application_mgt_view`"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SAML2ServiceProvider'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    put:
+      tags:
+        - Inbound Protocols - SAML
+      summary: |
+        Update SAML2 authentication parameters of app
+      operationId: updateInboundSAMLConfiguration
+      description: "This API provides the capability to store SAML2 authentication protocol parameters of an application.\n\n<b>Scope required:</b>`internal_application_mgt_update`
+
+        - There are three methods to create/update SAML2 authentication protocol configuration.
+            <ol>
+              <li>Metadata File (by sending the Base64 encoded metadata file content)</li>
+              <li>Metadata URL</li>
+              <li>Manual configuration</li>
+            </ol>"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful
+        '201':
+          description: Successful response.
+          headers:
+            Location:
+              description: Location of the newly created SAML Inbound configuration.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SAML2Configuration'
+        description: This represents the SAML2 protocol attributes of the application.
+        required: true
+    delete:
+      tags:
+        - Inbound Protocols - SAML
+      summary: |
+        Delete SAML2 authentication parameters of app
+      operationId: deleteInboundSAMLConfiguration
+      description: "This API provides the capability to delete SAML2 authentication protocol
+        parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Delete successful
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+  '/applications/{applicationId}/inbound-protocols/oidc':
+    get:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: |
+        Retrieve OIDC authentication parameters of app
+      description: "This API provides the capability to retrieve OIDC authentication protocol parameters of an application. \n\n >Scope required:</b> `internal_application_mgt_view`"
+      operationId: getInboundOAuthConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenIDConnectConfiguration'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: |
+        Update OIDC authentication parameters of app
+      description: "This API provides the capability to store OIDC authentication protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+      operationId: updateInboundOAuthConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful
+        '201':
+          description: Created
+          headers:
+            Location:
+              description: This is the location of the newly created OIDC Authentication Configuration.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenIDConnectConfiguration'
+        description: >-
+          This represents the OIDC authentication protocol parameters of an
+          application.
+        required: true
+    delete:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: |
+        Delete OIDC authentication parameters of app
+      description: "This API provides the capability to delete OIDC authentication protocol
+        parameters of an application. \n\n<b>Scope required:</b> `internal_application_mgt_delete"
+      operationId: deleteInboundOAuthConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Delete Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+  '/applications/{applicationId}/inbound-protocols/oidc/regenerate-secret':
+    post:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: |
+        Regenerate the OAuth2/OIDC client secret of application
+      description: "This API regenerates the OAuth2/OIDC client secret. \n\n <b>Scope required:</b> `nternal_application_mgt_create`"
+      operationId: regenerateOAuthClientSecret
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenIDConnectConfiguration'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  '/applications/{applicationId}/inbound-protocols/oidc/revoke':
+    post:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: |
+        Revoke the OAuth2/OIDC client secret
+      description: "This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated.\n\n <b>Scope required:</b> `internal_application_mgt_create`"
+      operationId: revokeOAuthClient
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Application Revoked
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  '/applications/{applicationId}/inbound-protocols/passive-sts':
+    get:
+      tags:
+        - Inbound Protocols - Passive STS
+      summary: >
+        Retrieve Passive STS authentication parameters of app
+      description: "This API provides the capability to retrieve Passive STS authentication
+        protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+      operationId: getPassiveStsConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PassiveStsConfiguration'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    put:
+      tags:
+        - Inbound Protocols - Passive STS
+      summary: |
+        Update Passive STS authentication parameters of app
+      description: "This API provides the capability to store passive STS authentication
+        protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+      operationId: updatePassiveStsConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful
+        '201':
+          description: Successful response.
+          headers:
+            Location:
+              description: >-
+                Location of the newly created Passive STS Authentication
+                Configuration.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PassiveStsConfiguration'
+        description: >-
+          This represents the Passive STS authentication protocol parameters of
+          an application.
+        required: true
+    delete:
+      tags:
+        - Inbound Protocols - Passive STS
+      summary: |
+        Delete Passive STS authentication parameters of app
+      description: "This API provides the capability to delete Passive STS authentication
+        protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
+      operationId: deletePassiveStsConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Delete Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+# '/applications/{applicationId}/inbound-protocols/ws-trust':
+#   get:
+#     tags:
+#       - Inbound Protocols - WS Trust
+#     summary: |
+#       Retrieve WS Trust authentication parameters of app
+#     description: "This API provides the capability to retrieve Passive STS authentication
+#       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+#     operationId: getWSTrustConfiguration
+#     parameters:
+#       - name: applicationId
+#         in: path
+#         description: ID of the application
+#         required: true
+#         schema:
+#           type: string
+#     responses:
+#       '200':
+#         description: OK
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/WSTrustConfiguration'
+#       '400':
+#         description: Bad Request
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '401':
+#         description: Unauthorized
+#       '403':
+#         description: Forbidden
+#       '404':
+#         description: Not Found
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '500':
+#         description: Server Error
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#
+#   put:
+#     tags:
+#       - Inbound Protocols - WS Trust
+#     summary: |
+#       Update WS Trust authentication parameters of app
+#     description: "This API provides the capability to store WS Trust authentication
+#       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+#     operationId: updateWSTrustConfiguration
+#     parameters:
+#       - name: applicationId
+#         in: path
+#         description: ID of the application.
+#         required: true
+#         schema:
+#           type: string
+#     responses:
+#       '200':
+#         description: Successful
+#       '201':
+#         description: Successful response.
+#         headers:
+#           Location:
+#             description: >-
+#               Location of the newly created WS Trust Authentication
+#               Configuration.
+#             schema:
+#               type: string
+#       '400':
+#         description: Bad Request
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '401':
+#         description: Unauthorized
+#       '403':
+#         description: Forbidden
+#       '404':
+#         description: Not Found
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '409':
+#         description: Conflict
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '500':
+#         description: Server Error
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#
+#     requestBody:
+#       content:
+#         application/json:
+#           schema:
+#             $ref: '#/components/schemas/WSTrustConfiguration'
+#       description: >-
+#         This represents the Passive STS authentication protocol parameters of
+#         an application.
+#       required: true
+#   delete:
+#     tags:
+#       - Inbound Protocols - WS Trust
+#     summary: |
+#       Delete WS Trust authentication parameters of app
+#     description: "This API provides the capability to delete WS Trust authentication
+#       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
+#     operationId: deleteWSTrustConfiguration
+#     parameters:
+#       - name: applicationId
+#         in: path
+#         description: ID of the application.
+#         required: true
+#         schema:
+#           type: string
+#     responses:
+#       '204':
+#         description: Delete Success
+#       '400':
+#         description: Bad Request
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '401':
+#         description: Unauthorized
+#       '403':
+#         description: Forbidden
+#       '404':
+#         description: Not Found
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '500':
+#         description: Server Error
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#
+  '/applications/{applicationId}/inbound-protocols/{inboundProtocolId}':
+    get:
+      tags:
+        - Inbound Protocols - Custom
+      summary: >
+        Retrieve custom Inbound authentication parameters of app
+      description: "This API provides the capability to retrieve custom inbound
+        authentication protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+      operationId: getCustomInboundConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+        - name: inboundProtocolId
+          in: path
+          description: Inbound Authentication Protocol ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Inbound Protocols - Custom
+      summary: |
+        Update custom inbound authentication parameters of app
+      description: "This API provides the capability to store custom inbound authentication protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+      operationId: updateCustomInboundConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+        - name: inboundProtocolId
+          in: path
+          description: Inbound Authentication Protocol ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful
+        '201':
+          description: Successful response.
+          headers:
+            Location:
+              description: >-
+                Location of the newly created Custom Inbound authentication
+                protocol Configuration.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
+        description: >-
+          This represents the Custom Inbound authentication protocol parameters
+          of an application.
+        required: true
+    delete:
+      tags:
+        - Inbound Protocols - Custom
+      summary: >
+        Delete custom inbound authentication parameters of app
+      description: "This API provides the capability to delete custom inbound authentication protocol of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
+      operationId: deleteCustomInboundConfiguration
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+        - name: inboundProtocolId
+          in: path
+          description: Inbound Authentication Protocol ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Delete Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  '/applications/meta/inbound-protocols':
+    get:
+      tags:
+        - Application Metadata
+      summary: |
+        Retrieve the list of inbound authentication protocols available
+      description: "This API provides the capability to retrieve the list of inbound authentication protocols available.
+        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed.
+        \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+      operationId: getInboundProtocols
+      parameters:
+        - $ref: '#/components/parameters/inboundProtocolsCustomOnly'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuthProtocolMetadata'
+                example:
+                  - name: "saml"
+                    displayName: "SAML2 Web SSO Configuration"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  '/applications/meta/inbound-protocols/saml':
+    get:
+      tags:
+        - Application Metadata
+      summary: |
+        Retrieve all the metadata related to the auth protocol SAML
+      description: "This API provides the capability to retrieve all the metadata related to the auth protocol SAML. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+      operationId: getSAMLMetadata
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SAMLMetaData'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  '/applications/meta/inbound-protocols/oidc':
+    get:
+      tags:
+        - Application Metadata
+      summary: |
+        Retrieve all the metadata related to the authentication protocol OAuth / OIDC
+      description: "This API provides the capability to retrieve all the metadata related to the authentication protocol OAuth / OIDC. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+      operationId: getOIDCMetadata
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCMetaData'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+# '/applications/meta/inbound-protocols/ws-trust':
+#   get:
+#     tags:
+#       - Application Metadata
+#     summary: |
+#       Retrieve all the metadata related to the auth protocol WS Trust
+#     description: "This API provides the capability to retrieve all the metadata related to the auth protocol `WS_Trust`. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+#     operationId: getWSTrustMetadata
+#     responses:
+#       '200':
+#         description: OK
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/WSTrustMetaData'
+#       '401':
+#         description: Unauthorized
+#       '403':
+#         description: Forbidden
+#       '404':
+#         description: Not Found
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#       '500':
+#         description: Server Error
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/Error'
+#
+  '/applications/meta/inbound-protocols/{inboundProtocolId}':
+    get:
+      tags:
+        - Application Metadata
+      summary: |
+        Retrieve all the metadata related to the custom auth protocol identified by the inboundProtocolId
+      description: "This API provides the capability to retrieve all the metadata related to the custom auth protocol
+        identified by the `inboundProtocolId`. The URL encoded inbound protocol name is used as `inboundProtocolId`. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+      operationId: getCustomProtocolMetadata
+      parameters:
+        - name: inboundProtocolId
+          in: path
+          description: Inbound Authentication Protocol ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomInboundProtocolMetaData'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  '/applications/meta/adaptive-auth-templates':
+    get:
+      tags:
+        - Application Metadata
+      summary: |
+        Retrieve the sample adaptive authentication templates.
+      description: "This API provides the capability to retrieve the sample adaptive authentication templates. \n\n<b>Scope required:</b> `internal_application_mgt_view`"
+      operationId: getAdaptiveAuthTemplates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdaptiveAuthTemplates'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  parameters:
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
+        type: integer
+        minimum: 1
+        default: 30
+    limitWithoutDefaultQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
+        type: integer
+    offsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: |
+        Number of records to skip for pagination.
+      schema:
+        type: integer
+        default: 0
+    offsetWithoutDefaultQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: |
+        Number of records to skip for pagination.
+      schema:
+        type: integer
+    filterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description: |
+        Condition to filter the retrieval of records.
+        Supports 'sw', 'co', 'ew', and 'eq' operations with 'and', 'or' logical operators.
+        Note that 'and' and 'or' operators in filters follow the general precedence of logical operators.
+        For example, A and B or C and D = (A and B) or (C and D)).
+        Currently supports only filtering based on the 'name', the 'clientId', and the 'issuer' attributes.
+
+        `/applications?filter=name+eq+user_portal`
+        <br>
+        `/applications?filter=name+co+prod+or+clientId+co+123`
+      schema:
+        type: string
+    sortOrderQueryParam:
+      in: query
+      name: sortOrder
+      required: false
+      description: |
+        Define the order in which the retrieved records should be sorted.
+        _This parameter is not supported yet._
+      schema:
+        type: string
+        enum:
+          - ASC
+          - DESC
+    sortByQueryParam:
+      in: query
+      name: sortBy
+      required: false
+      description: |
+        Attribute by which the retrieved records should be sorted.
+        _This parameter is not supported yet._
+      schema:
+        type: string
+    attributesQueryParam:
+      in: query
+      name: attributes
+      required: false
+      description: |
+        Specifies the required parameters in the response.
+        Only `advancedConfigurations`, `templateId`, `clientId`, and `issuer` attributes are supported currently.
+        
+        `/applications?attributes=advancedConfigurations,templateId,clientId,issuer`
+      schema:
+        type: string
+    exportSecretsQueryParam:
+      in: query
+      name: exportSecrets
+      required: false
+      description: |
+        Specifies whether to export secrets when exporting an application.
+      schema:
+        type: boolean
+        default: false
+    inboundProtocolsCustomOnly:
+      in: query
+      name: customOnly
+      required: false
+      description: |
+        Send only the custom inbound protocols.
+      schema:
+        type: boolean
+        example: true
+        default: false
+    templateIdPathParam:
+      in: path
+      name: template-id
+      required: true
+      description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+      schema:
+        type: string
+      example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
+          scopes: {}
+  schemas:
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          example: "applications?offset=10&limit=10"
+          description: This is the address that points to the location of the an application.
+        rel:
+          type: string
+          example: "next"
+          description: Describes the relationship between the current application and the application that is identified by the `href` property.
+
+    ApplicationListResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          description: Number of results that match the listing operation.
+          example: 1
+        startIndex:
+          type: integer
+          description: Index of the first element of the page, which will be equal to offset + 1.
+          example: 1
+        count:
+          type: integer
+          description: Number of elements in the returned page.
+          example: 10
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationListItem'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+
+    ApplicationListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+          description: The ID of your application.
+        name:
+          type: string
+          example: "user-portal"
+          description: The name of the application.
+        description:
+          type: string
+          example: Application representing user portal
+          description: The detailed description about the application.
+        image:
+          type: string
+          example: 'https://example.com/logo/my-logo.png'
+          description: The URL to the logo of your application.
+        accessUrl:
+          type: string
+          example: 'https://example.com/app/login'
+          description: The URL through which the users can access the application.
+        clientId:
+          type: string
+          example: 'SmrrDNXRYf1lMmDlnleeHTuXx_Ea'
+          description: The public identifier of the application.
+        issuer:
+          type: string
+          example: 'http://idp.example.com/metadata.php'
+          description: The Issuer is a unique identifier for the entity that is generating a SAML assertion.
+        access:
+          type: string
+          enum:
+            - READ
+            - WRITE
+          default: READ
+          description: The level of authorization that is granted to the user for accessing a particular application.
+        self:
+          type: string
+          example: "/t/<org_name>/api/server/v1/applications/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+          description: The URL of the current application. 
+        advancedConfigurations:
+          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
+        templateId:
+          description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+          type: string
+          example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+
+    ApplicationModelOIDC:
+      type: object
+      title: Add OIDC application
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          example: "394b8adcce24c64a8a09a0d80abf8c337bd253de"
+          readOnly: true
+          description: The ID of your application.
+        name:
+          type: string
+          example: pickup-dispatch
+          description: The name of the application.
+        description:
+          type: string
+          example: This is the configuration for Pickup-dispatch application.
+          description: The description for your application.
+        imageUrl:
+          type: string
+          example: 'https://example.com/logo/my-logo.png'
+          description: The URL to the logo of your application.
+        accessUrl:
+          type: string
+          example: 'https://example.com/login'
+          description: The URL through which the users can access the application.
+        templateId:
+          description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+          type: string
+          example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        isManagementApp:
+          default: false
+          type: boolean
+          example: false
+          description: Decides whether the application is used to access System APIs.
+        claimConfiguration:
+          $ref: '#/components/schemas/ClaimConfiguration'
+        inboundProtocolConfiguration:
+          type: object
+          properties:
+            oidc:
+              type: object
+              required:
+                - grantTypes
+              properties:
+                clientId:
+                  type: string
+                  example: "rMfbPgCi5oWljNhv8c4Pugfuo8Aa"
+                  description: The public identifier of the application that you create.
+                clientSecret:
+                  type: string
+                  example: "MkHGGiTdAPfTyUKfXLdyOwelMywt"
+                  description: The secret corresponding to the `clientId` of the application. This is confidential and will be used to make requests and authenticate into your application.
+                state:
+                  type: string
+                  enum:
+                    - ACTIVE
+                    - REVOKED
+                  readOnly: true
+                  default: ACTIVE
+                  description: This value describes the state of the access token obtained for the application.
+                grantTypes:
+                  type: array
+                  example:
+                    - authorization_code
+                    - password
+                  items:
+                    type: string
+                  description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
+                  <ul>
+                    <li>authorization_code</li>
+                    <li>client_credentials</li>
+                    <li>refresh_token</li>
+                    <li>implicit</li>
+                    <li>password</li>
+                  </ul>"
+                  minItems: 1
+                callbackURLs:
+                  type: array
+                  description: This is the callback location where the tokens should be sent.
+                  example:
+                    - 'regexp=(https://app.example.com/callback1|https://app.example.com/callback2)'
+                  items:
+                    type: string
+                allowedOrigins:
+                  type: array
+                  description: Authorized JavaScript origins. CORS requests are allowed for these origins.
+                  example:
+                    - 'https://app.example.com'
+                  items:
+                    type: string
+                publicClient:
+                  type: boolean
+                  default: false
+                  description: >-
+                    Enabling this option will allow the client to authenticate without a
+                    client secret.
+                  example: false
+                pkce:
+                  $ref: '#/components/schemas/OAuth2PKCEConfiguration'
+                accessToken:
+                  $ref: '#/components/schemas/AccessTokenConfiguration'
+                refreshToken:
+                  $ref: '#/components/schemas/RefreshTokenConfiguration'
+                idToken:
+                  $ref: '#/components/schemas/IdTokenConfiguration'
+                logout:
+                  $ref: '#/components/schemas/OIDCLogoutConfiguration'
+                validateRequestObjectSignature:
+                  type: boolean
+                  default: false
+                  example: false
+                  description: Specifies whether to validate the signature of the request object in an OpenID Connect authentication request.
+                scopeValidators:
+                  type: array
+                  example:
+                    - Role based scope validator
+                  items:
+                    type: string
+        authenticationSequence:
+          $ref: '#/components/schemas/AuthenticationSequence'
+        advancedConfigurations:
+          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
+#       provisioningConfigurations:
+#         $ref: '#/components/schemas/ProvisioningConfiguration'
+
+    ApplicationModelSAML:
+      type: object
+      title: Add SAML application
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          example: "394b8adcce24c64a8a09a0d80abf8c337bd253de"
+          readOnly: true
+          description: The ID of the application.
+        name:
+          type: string
+          example: pickup-dispatch
+          description: The name of the application.
+        description:
+          type: string
+          example: This is the configuration for Pickup-dispatch application.
+          description: The detailed description for your application.
+        imageUrl:
+          type: string
+          example: 'https://example.com/logo/my-logo.png'
+          description: The URL to the logo of your application.
+        accessUrl:
+          type: string
+          example: 'https://example.com/login'
+          description: The URL through which the users can access the application.
+        templateId:
+          description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+          type: string
+          example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        isManagementApp:
+          default: false
+          type: boolean
+          example: false
+          description: Decides whether the application is used to access System APIs.
+        claimConfiguration:
+          $ref: '#/components/schemas/ClaimConfiguration'
+        inboundProtocolConfiguration:
+          type: object
+          properties:
+            saml:
+              type: object
+              properties:
+                metadataFile:
+                  type: string
+                  example: 'Base64 encoded metadata file content'
+                  description: Base64 encoded XML document that provides information about a SAML entity,
+                metadataURL:
+                  type: string
+                  example: 'https://example.com/samlsso/meta'
+                  description: This URL provides access to a SAML metadata file.
+                manualConfiguration:
+                  $ref: '#/components/schemas/SAML2ServiceProvider'
+        encryption:
+          $ref: '#/components/schemas/AssertionEncryptionConfiguration'
+        authenticationSequence:
+          $ref: '#/components/schemas/AuthenticationSequence'
+        advancedConfigurations:
+          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
+#       provisioningConfigurations:
+#         $ref: '#/components/schemas/ProvisioningConfiguration'
+
+    ApplicationModelPassiveSTS:
+      type: object
+      title: Add PassiveSTS application
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          example: "394b8adcce24c64a8a09a0d80abf8c337bd253de"
+          readOnly: true
+          description: The ID of your application.
+        name:
+          type: string
+          example: pickup-dispatch
+          description: The name of the application.
+        description:
+          type: string
+          example: This is the configuration for Pickup-dispatch application.
+          description: The detailed description for your application.
+        imageUrl:
+          type: string
+          example: 'https://example.com/logo/my-logo.png'
+          description: The URL to the logo of your application.
+        accessUrl:
+          type: string
+          example: 'https://example.com/login'
+          description: The URL through which the users can access the application.
+        templateId:
+          description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+          type: string
+          example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        isManagementApp:
+          default: false
+          type: boolean
+          example: false
+          description: Decides whether the application is used to access System APIs.
+        claimConfiguration:
+          $ref: '#/components/schemas/ClaimConfiguration'
+        inboundProtocolConfiguration:
+          type: object
+          properties:
+            passivests:
+              type: object
+              required:
+                - realm
+                - replyTo
+              properties:
+                realm:
+                  type: string
+                replyTo:
+                  type: string
+        encryption:
+          $ref: '#/components/schemas/AssertionEncryptionConfiguration'
+        authenticationSequence:
+          $ref: '#/components/schemas/AuthenticationSequence'
+        advancedConfigurations:
+          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
+#       provisioningConfigurations:
+#         $ref: '#/components/schemas/ProvisioningConfiguration'
+    ApplicationModelCustom:
+      type: object
+      title: Add custom inbound protocol application
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          example: "394b8adcce24c64a8a09a0d80abf8c337bd253de"
+          readOnly: true
+          description: The ID of your application.
+        name:
+          type: string
+          example: pickup-dispatch
+          description: The name of the application.
+        description:
+          type: string
+          example: This is the configuration for Pickup-dispatch application.
+        imageUrl:
+          type: string
+          example: 'https://example.com/logo/my-logo.png'
+          description: The URL to the logo of your application.
+        accessUrl:
+          type: string
+          example: 'https://example.com/login'
+          description: The URL through which the users can access the application.
+        templateId:
+          description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+          type: string
+          example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        isManagementApp:
+          default: false
+          type: boolean
+          example: false
+          description: Decides whether the application is used to access System APIs.
+        claimConfiguration:
+          $ref: '#/components/schemas/ClaimConfiguration'
+        inboundProtocolConfiguration:
+          type: object
+          properties:
+            custom:
+              type: object
+              required:
+                - name
+                - configName
+              properties:
+                name:
+                  type: string
+                  example: cas
+                configName:
+                  type: string
+                  example: cas
+                properties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PropertyModel'
+        encryption:
+          $ref: '#/components/schemas/AssertionEncryptionConfiguration'
+        authenticationSequence:
+          $ref: '#/components/schemas/AuthenticationSequence'
+        advancedConfigurations:
+          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
+#       provisioningConfigurations:
+#         $ref: '#/components/schemas/ProvisioningConfiguration'
+
+    ApplicationResponseModel:
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          example: "394b8adcce24c64a8a09a0d80abf8c337bd253de"
+          readOnly: true
+          description: The ID of the application.
+        name:
+          type: string
+          example: pickup-dispatch
+          description: The name of the application.
+        description:
+          type: string
+          example: This is the configuration for Pickup-dispatch application.
+          description: The detailed description for your application.
+        imageUrl:
+          type: string
+          example: 'https://example.com/logo/my-logo.png'
+          description: The URL to the logo of your application.
+        accessUrl:
+          type: string
+          example: 'https://example.com/login'
+          description: The URL through which the users can access the application.
+        clientId:
+          type: string
+          example: 'SmrrDNXRYf1lMmDlnleeHTuXx_Ea'
+          description: The public identifier of the application.
+        issuer:
+          type: string
+          example: 'http://idp.example.com/metadata.php'
+          description: The Issuer is a unique identifier for the entity that is generating a SAML assertion.
+        templateId:
+          description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+          type: string
+          example: "adwefi2429asdfdf94444rraf44"
+        isManagementApp:
+          type: boolean
+          example: false
+          description: Decides whether the application is used to access System APIs.
+        claimConfiguration:
+          $ref: '#/components/schemas/ClaimConfiguration'
+        inboundProtocols:
+          $ref: '#/components/schemas/InboundProtocolsListResponse'
+        authenticationSequence:
+          $ref: '#/components/schemas/AuthenticationSequence'
+        advancedConfigurations:
+          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
+#       provisioningConfigurations:
+#         $ref: '#/components/schemas/ProvisioningConfiguration'
+        access:
+          type: string
+          enum:
+            - READ
+            - WRITE
+          default: READ
+          description: The level of authorization that is granted to the user for accessing a particular application.
+
+    ApplicationPatchModel:
+      type: object
+      properties:
+        name:
+          type: string
+          example: pickup
+          description: The name of the application.
+        description:
+          type: string
+          example: This is the configuration for Pickup-dispatch application.
+          description: The detailed description for your application.
+        imageUrl:
+          type: string
+          example: 'https://example.com/logo/my-logo.png'
+          description: The URL to the logo of your application.
+        accessUrl:
+          type: string
+          example: 'https://example.com/login'
+          description: The URL through which the users can access the application.
+        templateId:
+          description: "Pre-defined template to use when creating the application.
+            <br><br>The pre-defined template IDs are as follows:
+            <ul>
+              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
+              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
+              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
+              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
+            </ul>"
+          type: string
+          example: "adwefi2429asdfdf94444rraf44"
+        claimConfiguration:
+          $ref: '#/components/schemas/ClaimConfiguration'
+        authenticationSequence:
+          $ref: '#/components/schemas/AuthenticationSequence'
+        advancedConfigurations:
+          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
+#       provisioningConfigurations:
+#         $ref: '#/components/schemas/ProvisioningConfiguration'
+
+    ResidentApplication:
+      type: object
+      properties:
+        provisioningConfigurations:
+          $ref: '#/components/schemas/ProvisioningConfiguration'
+
+    ProvisioningConfiguration:
+      type: object
+      properties:
+        inboundProvisioning:
+          $ref: '#/components/schemas/InboundSCIMProvisioningConfiguration'
+        outboundProvisioningIdps:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutboundProvisioningConfiguration'
+    InboundSCIMProvisioningConfiguration:
+      type: object
+      properties:
+        proxyMode:
+          type: boolean
+          example: false
+        provisioningUserstoreDomain:
+          type: string
+          example: PRIMARY
+          description: >-
+            This property becomes applicable only if the proxy-mode config is
+            set to false
+    OutboundProvisioningConfiguration:
+      type: object
+      properties:
+        idp:
+          type: string
+          example: Google
+        connector:
+          type: string
+          example: googleapps
+        blocking:
+          type: boolean
+          example: false
+        rules:
+          type: boolean
+          example: false
+        jit:
+          type: boolean
+          example: false
+          description: Specifies whether JIT provisioning is enabled for the IdP.
+    ConfiguredAuthenticatorsModal:
+      type: object
+      properties:
+        stepId:
+          type: integer
+          example: 1
+          description: This is the authentication step number. For example `1` is the first authentication step.
+        localAuthenticators:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfiguredAuthenticator'
+        federatedAuthenticators:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfiguredAuthenticator'
+    ConfiguredAuthenticator:
+      type: object
+      properties:
+        name:
+          type: string
+          example: sampleIdP
+          description: The name of the authenticator.
+        type:
+          type: string
+          example: SampleAuthenticator
+          description: The type of authenticator. This can be obtained from the lsit of configured authenticators.
+    AdvancedApplicationConfiguration:
+      type: object
+      properties:
+        saas:
+          type: boolean
+          example: false
+          description: Decides whether the application is accessible across tenants.
+        discoverableByEndUsers:
+          type: boolean
+          example: false
+          description: Decides whether the application is visible for end users.
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+        skipLoginConsent:
+          type: boolean
+          example: false
+          description: Decides whether user consent needs to be skipped during login flows.
+        skipLogoutConsent:
+          type: boolean
+          example: false
+          description: Decides whether user consent needs to be skipped during logout flows.
+        useExternalConsentPage:
+          type: boolean
+          example: false
+          description: Decides whether user needs to use external consent page.
+        returnAuthenticatedIdpList:
+          type: boolean
+          example: false
+          description: Decides whether the list of authenticated identity providers needs to be returned in the authentication response.
+        enableAuthorization:
+          type: boolean
+          description: Decides whether authorization policies need to be engaged during authentication flows.
+          example: true
+    AdditionalProperties:
+      type: array
+      description: Denotes additional properties of the application. It is only supported by `getApplication` and `getAllApplications` requests.
+      items:
+        $ref: "#/components/schemas/AdditionalSpProperty"
+    AdditionalSpProperty:
+      type: object
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          example: "isInternalApp"
+        value:
+          type: string
+          example: "true"
+        displayName:
+          type: string
+          example: "Internal Application"
+    Certificate:
+      type: object
+      properties:
+        type:
+          type: string
+          description: >-
+            Certificate type. This should be either JWKS or PEM.
+        value:
+          type: string
+          description: >-
+            Certificate value. If the type is `JWKS`, the value should be `jwks` URL. If the
+            type is `PEM`, the value should be the certificate in `PEM` format.
+    InboundProtocols:
+      type: object
+      properties:
+        oidc:
+          $ref: '#/components/schemas/OpenIDConnectConfiguration'
+#       saml:
+#         $ref: '#/components/schemas/SAML2Configuration'
+#       passiveSts:
+#         $ref: '#/components/schemas/PassiveStsConfiguration'
+#       wsTrust:
+#         $ref: '#/components/schemas/WSTrustConfiguration'
+#       custom:
+#         type: array
+#         items:
+#           $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
+
+    InboundProtocolsListResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/InboundProtocolListItem'
+    InboundProtocolListItem:
+      type: object
+      required:
+        - type
+        - name
+        - self
+      properties:
+        type:
+          type: string
+          example: "samlsso"
+          description: The type of the inbound authentication protocol.
+        name:
+          type: string
+          example: "SAML2 Inbound"
+          description: The name of the inbound authentication protocol.
+        self:
+          type: string
+          example: "/t/<org-name>/api/server/v1/applications/29048810-1447-4ea0-a348-30d15ab65fa3/inbound-protocols/saml"
+          description: The URL of the current application. 
+    ClaimConfiguration:
+      type: object
+      properties:
+        dialect:
+          type: string
+          enum:
+            - CUSTOM
+            - LOCAL
+          default: LOCAL
+        claimMappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClaimMappings'
+        requestedClaims:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestedClaimConfiguration'
+        subject:
+          $ref: '#/components/schemas/SubjectConfig'
+        role:
+          $ref: '#/components/schemas/RoleConfig'
+    SubjectConfig:
+      type: object
+      properties:
+        claim:
+          $ref: '#/components/schemas/Claim'
+        includeUserDomain:
+          type: boolean
+          example: false
+          description: Specifies whether to append user's domain in subject attrbute.
+        includeTenantDomain:
+          type: boolean
+          example: false
+          description: Specifies whether to append organization name in subject attrbute.
+        useMappedLocalSubject:
+          type: boolean
+          example: false
+          description: Specifies whether to use the local subject identifier when asserting the identity.
+    RoleConfig:
+      type: object
+      properties:
+        mappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleMapping'
+        includeUserDomain:
+          type: boolean
+          example: true
+          description: Specifies whether to append user's domain to user roles.
+        claim:
+          $ref: '#/components/schemas/Claim'
+    RoleMapping:
+      type: object
+      required:
+        - localRole
+        - applicationRole
+      properties:
+        localRole:
+          type: string
+          example: admin
+          description: The claim URI for local role. 
+        applicationRole:
+          type: string
+          example: Administrator
+          description: The claim URI for application role.
+    RequestedClaimConfiguration:
+      type: object
+      required:
+        - claim
+      description: >-
+        User claims that need to be sent back to the application. If the
+        claim mappings are local, use local claim URIs. If the custom claim
+        mappings are configured, use the mapped application claim URI
+      properties:
+        claim:
+          $ref: '#/components/schemas/Claim'
+        mandatory:
+          type: boolean
+          example: false
+          description: When a user logs in to this service provider, if the identity provider does not provide a value for any of the mandatory claims, the user will be prompted to provide them at the time of login.
+    ClaimMappings:
+      type: object
+      required:
+        - applicationClaim
+        - localClaim
+      properties:
+        applicationClaim:
+          type: string
+          description: Claim URI recieved by the application
+          example: firstname
+        localClaim:
+          $ref: '#/components/schemas/Claim'
+    Claim:
+      type: object
+      required:
+        - uri
+      properties:
+        id:
+          type: string
+          example: aHR0cDovL3dzbzIub3JnL2NsYWltcy91c2VybmFtZQ
+          readOnly: true
+          description: The claim ID.
+        uri:
+          type: string
+          example: 'http://wso2.org/claims/username'
+          description: The unique URI specific to the claim.
+        displayName:
+          type: string
+          example: Username
+          readOnly: true
+          description: the display name of the claim.
+
+    SAML2Configuration:
+      type: object
+      properties:
+#       metadataFile:
+#         type: string
+#         example: 'Base64 encoded metadata file content'
+#       metadataURL:
+#         type: string
+#         example: 'https://example.com/samlsso/meta'
+        manualConfiguration:
+          $ref: '#/components/schemas/SAML2ServiceProvider'
+
+    SingleSignOnProfile:
+      type: object
+      properties:
+        bindings:
+          type: array
+          items:
+            type: string
+            example:
+              - HTTP_POST
+              - HTTP_REDIRECT
+          description: Specifies the mechanisms to transport SAML messages in communication protocols.
+        enableSignatureValidationForArtifactBinding:
+          type: boolean
+          description: Enables Signature validation for SAML artifact binding. Applicable only if SAML artifact binding is enabled through the bindings option.
+          default: false
+
+        attributeConsumingServiceIndex:
+          type: string
+          readOnly: true
+
+        enableIdpInitiatedSingleSignOn:
+          type: boolean
+          default: false
+          description: Specifies whether to initiate Single Sign-On (SSO) from the IdP instead of the application.
+
+        assertion:
+          $ref: '#/components/schemas/SAMLAssertionConfiguration'
+
+    SAMLAttributeProfile:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: false
+          description: Specifies whether to include the user's attributes in the SAML assertions as part of the attribute statement.
+        alwaysIncludeAttributesInResponse:
+          type: boolean
+          default: false
+          description: Specifies whether or not to include user attributes in the SAML response.
+
+    SingleLogoutProfile:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: true
+          description: Specifies whether you want to enable single-logout to your application. 
+        logoutRequestUrl:
+          type: string
+          description: Single logout request accepting endpoint
+          example: https://localhost.com
+        logoutResponseUrl:
+          type: string
+          description: Single logout response accepting endpoint
+          example: https://localhost.com
+        logoutMethod:
+          type: string
+          enum:
+            - BACKCHANNEL
+            - FRONTCHANNEL_HTTP_REDIRECT
+            - FRONTCHANNEL_HTTP_POST
+          description: "Specifies the logout method that is supported by the application. \n Asgardeo supports below logout methods:
+            <ul>
+              <li>Back Channel logout</li>
+              <li>Front Channel HTTP Redirect</li>
+              <li>Front Channel HTTP Post</li>
+            </ul>"
+        idpInitiatedSingleLogout:
+          $ref: '#/components/schemas/IdpInitiatedSingleLogout'
+
+    IdpInitiatedSingleLogout:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: false
+          description: Specifies whether to support IdP initiated logout.
+        returnToUrls:
+          type: array
+          items:
+            type: string
+            example:
+              - 'https://localhost.com'
+          description: Specifies the URLs to which the user should be redirected after the logout.
+
+    SAMLAssertionConfiguration:
+      type: object
+      properties:
+        nameIdFormat:
+          type: string
+          default: 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'
+          example: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
+          description: Specifies the name identifier format that is used to exchange information regarding the user in the SAML assertion.
+
+        audiences:
+          type: array
+          description: Additional audience values to be added to the SAML Assertions.
+          example:
+            - 'https://app.example.com/saml'
+          items:
+            type: string
+
+        recipients:
+          type: array
+          description: Additional recipient values to be added to the SAML Assertions.
+          example:
+            - 'https://app.example.com/saml'
+          items:
+            type: string
+
+        digestAlgorithm:
+          type: string
+          default: "http://www.w3.org/2000/09/xmldsig#sha1"
+          example: "http://www.w3.org/2000/09/xmldsig#sha1"
+          description: The digest algorithm used in authentication response and logout response. 
+        encryption:
+          $ref: '#/components/schemas/AssertionEncryptionConfiguration'
+
+    AssertionEncryptionConfiguration:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: false
+          description: Specifies whether to enable encryption for SAML assertion.
+        assertionEncryptionAlgorithm:
+          type: string
+          default: "http://www.w3.org/2001/04/xmlenc#aes256-cbc"
+          description: The Assertion encryption algorithm you select specifies the symmetric encryption algorithm that is used for encrypting the SAML Assertion.
+        keyEncryptionAlgorithm:
+          type: string
+          default: "http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"
+          description: The key encryption algorithm you select specifies the asymmetric encryption algorithm that is used for encrypting the SAML2 key.
+
+    SAMLRequestValidation:
+      type: object
+      properties:
+        enableSignatureValidation:
+          type: boolean
+          default: true
+          description: Specifies whether Asgardeo must validate the signature of the SAML authentication request and the SAML logout request that are sent by the application.
+        signatureValidationCertAlias:
+          type: string
+          description: Specifies the alias of the certificate that will be used to validate the signature of the SAML assertions.
+
+    SAMLResponseSigning:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: true
+          description: Specifies if response signing is enabled for the application.
+        signingAlgorithm:
+          type: string
+          example: http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160
+          description: The signing algorithm to sign the authentication response and logout response.
+    SAML2ServiceProvider:
+      type: object
+      required:
+        - issuer
+        - assertionConsumerUrls
+
+      properties:
+        issuer:
+          type: string
+          example: travelocity_460
+          description: The issuer is a unique identifier for the entity that is generating a SAML assertion.
+        serviceProviderQualifier:
+          type: string
+          example: "serviceProviderQualifierValue"
+          description: This is the unique identifier of an application entity. You can configure a number of SAML applications with the same issuer and different service provider qualifiers.
+        assertionConsumerUrls:
+          type: array
+          items:
+            type: string
+            example:
+              - 'http://localhost:8080/travelocity_460.com/home.jsp'
+              - 'http://localhost:8080/travelocity_460.com/home1.jsp'
+          minItems: 1
+          description: The Assertion Consumer Service (ACS) URL determines where Asgardeo will send the SAML response.
+        defaultAssertionConsumerUrl:
+          type: string
+          description: If not provided, the first assertion consumer URL on the `assertionConsumerUrls` will be picked as the default assertion consumer URL.
+          example: http://localhost:8080/travelocity_460.com/home1.jsp
+        idpEntityIdAlias:
+          type: string
+          description: Default value is the IdP's entity ID value specified in the resident IdP.
+          example: https://localhost.com
+        singleSignOnProfile:
+          $ref: '#/components/schemas/SingleSignOnProfile'
+
+        attributeProfile:
+          $ref: '#/components/schemas/SAMLAttributeProfile'
+
+        singleLogoutProfile:
+          $ref: '#/components/schemas/SingleLogoutProfile'
+
+        requestValidation:
+          $ref: '#/components/schemas/SAMLRequestValidation'
+
+        responseSigning:
+          $ref: '#/components/schemas/SAMLResponseSigning'
+
+        enableAssertionQueryProfile:
+          type: boolean
+          default: false
+          description: Specifies whether to enable assertion query profile or not.
+
+    OpenIDConnectConfiguration:
+      type: object
+      required:
+        - grantTypes
+      properties:
+        clientId:
+          type: string
+          example: "rMfbPgCi5oWljNhv8c4Pugfuo8Aa"
+          description: The public identifier of the application.
+        clientSecret:
+          type: string
+          example: "MkHGGiTdAPfTyUKfXLdyOwelMywt"
+          description: The secret corresponding to the `clientId` of the application. This is confidential and will be used to make requests and authenticate into your application.
+        state:
+          type: string
+          enum:
+            - ACTIVE
+            - REVOKED
+          readOnly: true
+          default: ACTIVE
+          description: This value describes the state of the access token obtained for the application.
+        grantTypes:
+          type: array
+          example:
+            - authorization_code
+            - password
+          items:
+            type: string
+          minItems: 1
+          description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
+          <ul>
+            <li>authorization_code</li>
+            <li>client_credentials</li>
+            <li>refresh_token</li>
+            <li>implicit</li>
+            <li>password</li>
+          </ul>"
+        callbackURLs:
+          type: array
+          example:
+            - 'regexp=(https://app.example.com/callback1|https://app.example.com/callback2)'
+          items:
+            type: string
+          description: This is the callback location where the tokens should be sent.
+        allowedOrigins:
+          type: array
+          description: Authorized JavaScript origins. CORS requests are allowed for these origins.
+          example:
+            - 'https://app.example.com'
+          items:
+            type: string
+        publicClient:
+          type: boolean
+          default: false
+          description: >-
+            Enabling this option will allow the client to authenticate without a
+            client secret.
+          example: false
+        pkce:
+          $ref: '#/components/schemas/OAuth2PKCEConfiguration'
+        accessToken:
+          $ref: '#/components/schemas/AccessTokenConfiguration'
+        refreshToken:
+          $ref: '#/components/schemas/RefreshTokenConfiguration'
+        idToken:
+          $ref: '#/components/schemas/IdTokenConfiguration'
+        logout:
+          $ref: '#/components/schemas/OIDCLogoutConfiguration'
+        validateRequestObjectSignature:
+          type: boolean
+          default: false
+          example: false
+        scopeValidators:
+          type: array
+          example:
+            - Role based scope validator
+          items:
+            type: string
+    OAuth2PKCEConfiguration:
+      type: object
+      properties:
+        mandatory:
+          type: boolean
+          example: false
+          description: Specifies whether `pkce` is mandatory for the application. It is recommended to use pkce for public applications.
+        supportPlainTransformAlgorithm:
+          type: boolean
+          example: true 
+          description: Specifies whether to support the use of plain (unencrypted) algorithms for transforming subject identities between different identity domains.
+    AccessTokenConfiguration:
+      type: object
+      properties:
+        type:
+          type: string
+          example: JWT
+          description: The access token type used by the application.
+        userAccessTokenExpiryInSeconds:
+          type: integer
+          format: int64
+          example: 3600
+          description: The expiry time of the access token obtained by the user in seconds.
+        applicationAccessTokenExpiryInSeconds:
+          type: integer
+          format: int64
+          example: 3600
+          description: The expiry time of the access token obtained by the application in seconds.
+        bindingType:
+          type: string
+          description: OAuth2 access token and refresh token can be bound to an external attribute during the token generation so that it can be optionally validated during API invocation.
+          default: "None"
+          example: cookie
+        revokeTokensWhenIDPSessionTerminated:
+          type: boolean
+          description: If enabled, when the IDP session is terminated, all the access tokens bound to the session will get revoked.
+        validateTokenBinding:
+          type: boolean
+          description: If enabled, both the access token and the token binding need to be present for a successful API invocation.
+    RefreshTokenConfiguration:
+      type: object
+      properties:
+        expiryInSeconds:
+          type: integer
+          format: int64
+          example: 86400
+          description: The expiry time of the refresh token in seconds.
+        renewRefreshToken:
+          description: Decides whether the refresh token needs to be renewed during refresh grant flow.
+          type: boolean
+          example: true
+    IdTokenConfiguration:
+      type: object
+      properties:
+        expiryInSeconds:
+          type: integer
+          format: int64
+          example: 3600
+          description: Time in seconds until the ID Token expires
+        audience:
+          type: array
+          example:
+            - 'http://idp.xyz.com'
+            - 'http://idp.abc.com'
+          items:
+            type: string
+        encryption:
+          $ref: '#/components/schemas/IdTokenEncryptionConfiguration'
+    IdTokenEncryptionConfiguration:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: false
+          example: false
+          description: Specifies if `id_token` encryption is enabled.
+        algorithm:
+          type: string
+          example: RSA-OAEP
+          description: Specifies the `id_token` encryption algorithm.
+        method:
+          type: string
+          example: A128CBC+HS256
+          description: Specifies the `id_token` encryption method.
+    OIDCLogoutConfiguration:
+      type: object
+      properties:
+        backChannelLogoutUrl:
+          type: string
+          example: 'https://app.example.com/backchannel/callback'
+          description: The URL used for sending logout requests from the IdP to the application in a back-channel manner, without involving the user's browser.
+        frontChannelLogoutUrl:
+          type: string
+          example: 'https://app.example.com/frontchannel/callback'
+          description: The URL endpoint that the identity provider sends the logout request to when the user logs out of the application.
+    PassiveStsConfiguration:
+      type: object
+      required:
+        - realm
+        - replyTo
+      properties:
+        realm:
+          type: string
+          description: The unique identifier that specifies the security realm where the user wants to authenticate.
+        replyTo:
+          type: string
+          description: The address that the response should be sent to after a successful authentication.
+    WSTrustConfiguration:
+      type: object
+      required:
+        - audience
+        - certificateAlias
+      properties:
+        audience:
+          type: string
+          description: Audience value of the trusted service
+          example: https://wstrust.endpoint.com
+        certificateAlias:
+          type: string
+          example: "Asgardeo"
+    CustomInboundProtocolConfiguration:
+      type: object
+      required:
+        - name
+        - configName
+      properties:
+        name:
+          type: string
+          example: cas
+        configName:
+          type: string
+          example: cas
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyModel'
+    PropertyModel:
+      type: object
+      properties:
+        key:
+          type: string
+          example: app-identifier
+        value:
+          type: string
+          example: 'http://app.wso2.com/employeeApp'
+        friendlyName:
+          type: string
+          example: Application Identifier
+    AuthenticationSequence:
+      type: object
+      properties:
+        type:
+          type: string
+          description: "
+          <ul>
+            <li> <b>DEFAULT</b> type indicates that the application will use the default authentication sequence specified at the organization level. When the DEFAULT type is used, the information given in the other fields of the `AuthenticationSequence` will be ignored and overriden with values defined at the organization level.</li>
+            <li> <b>USER_DEFINED</b> type indicates that the application will use a user-defined authentication sequence.</li>
+          </ul>"
+          enum:
+            - DEFAULT
+            - USER_DEFINED
+          default: DEFAULT
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationStepModel'
+        script:
+          type: string
+          description: Specifies the conditional authentication script.
+        subjectStepId:
+          type: integer
+          default: 1
+          example: 1
+          description: Specifies the authentication step used as the user identifier.
+        attributeStepId:
+          type: integer
+          default: 1
+          example: 1
+          description: Specifies the authentication step used to pick attributes for the application.
+
+    AuthenticationStepModel:
+      type: object
+      required:
+        - id
+        - options
+      properties:
+        id:
+          type: integer
+          minimum: 1
+          example: 1
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Authenticator'
+          minItems: 1
+    Authenticator:
+      type: object
+      required:
+        - idp
+        - authenticator
+      properties:
+        idp:
+          type: string
+          example: LOCAL
+          description: Specifies the identity provider for the step.
+        authenticator:
+          type: string
+          example: basic
+          description: Specifies the local authenticator for the step.
+
+    AuthProtocolMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+    MetadataProperty:
+      type: object
+      properties:
+        options:
+          type: array
+          items:
+            type: string
+          example:
+            - 'Option 1'
+            - 'Option 2'
+        defaultValue:
+          type: string
+          example: 'Option 1'
+    GrantTypeMetaData:
+      type: object
+      properties:
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrantType'
+    GrantType:
+      type: object
+      properties:
+        name:
+          type: string
+          example: authorization_code
+          description: The name of the grant type.
+        displayName:
+          type: string
+          example: Code
+          description: The display name of the grant type.
+    SAMLMetaData:
+      type: object
+      properties:
+        defaultNameIdFormat:
+          type: string
+          example: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
+          description: If the `nameIdFormat` is not specified, this will be used as the name identifier format to exchange information regarding the user in the SAML assertion.
+        certificateAlias:
+          $ref: '#/components/schemas/MetadataProperty'
+        responseSigningAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+        responseDigestAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+        assertionEncryptionAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+        keyEncryptionAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+    OIDCMetaData:
+      type: object
+      properties:
+        allowedGrantTypes:
+          $ref: '#/components/schemas/GrantTypeMetaData'
+        defaultUserAccessTokenExpiryTime:
+          type: string
+          example: '3600'
+        defaultApplicationAccessTokenExpiryTime:
+          type: string
+          example: '3600'
+        defaultRefreshTokenExpiryTime:
+          type: string
+          example: '86400'
+        defaultIdTokenExpiryTime:
+          type: string
+          example: '3600'
+        idTokenEncryptionAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+        idTokenEncryptionMethod:
+          $ref: '#/components/schemas/MetadataProperty'
+        scopeValidators:
+          $ref: '#/components/schemas/MetadataProperty'
+        accessTokenType:
+          $ref: '#/components/schemas/MetadataProperty'
+        accessTokenBindingType:
+          $ref: '#/components/schemas/MetadataProperty'
+    WSTrustMetaData:
+      type: object
+      properties:
+        certificateAlias:
+          $ref: '#/components/schemas/MetadataProperty'
+    CustomInboundProtocolMetaData:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: 'My Custom Protocol'
+        configName:
+          type: string
+          example: 'Custom Protocol'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomInboundProtocolProperty'
+    CustomInboundProtocolProperty:
+      type: object
+      properties:
+        name:
+          type: string
+          example: 'encryptionAlgorithm'
+        displayName:
+          type: string
+          example: 'Encryption Algorithm'
+        type:
+          type: string
+          enum:
+            - STRING
+            - BOOLEAN
+            - INTEGER
+          example: STRING
+        required:
+          type: boolean
+          example: true
+        availableValues:
+          type: array
+          items:
+            type: string
+            example:
+              - 'http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p'
+              - 'http://www.w3.org/2001/04/xmlenc#rsa-1_5'
+        defaultValue:
+          type: string
+          example: 'http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p'
+        validationRegex:
+          type: string
+          example: '^[a-b][A-B]*'
+        displayOrder:
+          type: integer
+          example: 1
+        isConfidential:
+          type: boolean
+          default: false
+
+    AdaptiveAuthTemplates:
+      type: object
+      properties:
+        templatesJSON:
+          type: string
+          example: 'Adaptive Auth Templates JSON'
+
+    FileUpload:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+          description: The `.xml` file to upload.
+    ApplicationTemplatesList:
+      type: object
+      properties:
+        templates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationTemplatesListItem'
+
+    ApplicationTemplatesListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+          description: The ID of the application template.
+        name:
+          type: string
+          example: "OIDC Protocol Template"
+        description:
+          type: string
+          example: "Template to be used for Single Page Applications"
+        image:
+          type: string
+          example: "https://example.com/logo/my-logo.png"
+        authenticationProtocol:
+          type: string
+          example: "oidc"
+        types:
+          type: array
+          items:
+            type: string
+            example:
+              - react
+              - angular
+        category:
+          type: string
+          enum: [DEFAULT, VENDOR]
+          example: 'DEFAULT'
+        displayOrder:
+          type: integer
+          example: 2
+        templateGroup:
+          type: string
+          example: "web-application"
+        self:
+          type: string
+          example: "/t/<org_name>/api/server/v1/applications/templates/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+          description: The URL of the current application. 
+
+    ApplicationTemplateModel:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+          description: The ID of the application template.
+        name:
+          type: string
+          example: "OIDC Protocol Template"
+        description:
+          type: string
+          example: "Template to be used for Single Page Applications"
+        image:
+          type: string
+          example: "https://example.com/logo/my-logo.png"
+        authenticationProtocol:
+          type: string
+          example: "oidc"
+        types:
+          type: array
+          items:
+            type: string
+          example:
+            - react
+            - angular
+        category:
+          type: string
+          enum: [DEFAULT, VENDOR]
+          example: 'DEFAULT'
+        templateGroup:
+          type: string
+          example: "web-application"
+        displayOrder:
+          type: integer
+          example: 2
+        application:
+          $ref: '#/components/schemas/ApplicationModelOIDC'
+      required:
+        - name
+        - application
+    ApplicationOwner:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+      required:
+        - id
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some error message.
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'

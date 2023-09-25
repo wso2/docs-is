@@ -1,0 +1,78 @@
+# Manage remote user stores in {{ product_name }}
+This guide walks you through the process of managing your remote user stores via the {{ product_name }} Console.
+
+## Update attribute mappings
+
+To update attribute mappings via the {{ product_name }} Console:
+
+1. On the {{ product_name }} Console, go to **User Stores**
+2. Select your user store from the **User stores** list.
+3. Go to the **Attribute Mappings** tab and update the required information.
+
+    !!! note
+
+        - Update **Custom Attributes** and **Local Attributes** mapped to your user store.
+        - Map {{ product_name }} attributes with the corresponding on-premise user store attributes.
+
+4. Click **Update** to save the configurations.
+
+## Disconnect a user store agent
+
+To disconnect a user store agent:
+
+1. On the {{ product_name }} Console, go to **User Store**
+2. Select your user store from the **User stores** list.
+3. In the **User Store Agent Connection(s)** section, click **Disconnect** on the user store agent that you wish to disconnect.
+4. Select the checkbox to confirm your action and click **Confirm**.
+
+## Regenerate an installation token
+
+An installation token is used to run a user store agent. Once generated, an installation token is displayed only once.
+
+In case you forget or lose this installation token, you can regenerate it.
+
+!!! warning
+    - If you regenerate a token without disconnecting the user store agent, the agent will be disconnected forcefully. You will need to re-run the user store agent with the new installation token.
+
+    - If the token is compromised, it is essential to regenerate an installation token.
+
+To regenerate an installation token:
+
+1. On the {{ product_name }} Console, go to **User Store**
+2. Select your user store from the **User Stores** list and go to the **General** tab.
+3. In the **User Store Agent Connection(s)** section, click **Regenerate Token** on the user store agent that you wish to regenerate the token for.
+
+
+## Disable a user store
+
+!!! warning
+    If you disable a user store, its users will lose access to {{ product_name }} applications and administrators can no longer view users or groups of that user store in the {{ product_name }} Console.
+
+To disable a user store:
+
+1. On the {{ product_name }} Console, go to **User Stores** and select your user store.
+2. Turn on the **Disable User Store** toggle at the bottom of the page to disable the user store.
+
+   ![Disable a user store](../../../assets/img/guides/user-stores/disable-user-store.png)
+
+    !!! note
+        You can re-enable a disabled user store by switching off the toggle.
+
+## Delete a remote user store
+
+A user store can be deleted by an administrator. Once a user store is deleted, the action is irreversible.
+
+!!! note
+    Once you delete the remote user store the user store agents associated with this user store will be forcefully disconnected.
+
+To delete a user store:
+
+1. On the {{ product_name }} Console, go to **User Store** and select your user store.
+2. Click **Delete User Store** at the bottom of the page.
+
+   ![Disable a user store](../../../assets/img/guides/user-stores/delete-user-store.png)
+
+3. On the pop-up window, type the user store name and click **Confirm** to delete the user store.
+
+
+

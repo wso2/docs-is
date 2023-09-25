@@ -1,0 +1,369 @@
+# Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+# WSO2 Inc. licenses this file to you under the Apache License,
+# Version 2.0 (the "License"); you may not use this file except
+# in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# Project information
+site_name: ""
+site_description: Documentation for WSO2 Identity Server
+site_author: WSO2
+site_url: https://is.docs.wso2.com/en/7.0.0/
+
+# Repository
+repo_name: wso2/docs-is
+repo_url: https://github.com/wso2/docs-is
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
+
+# Copyright
+copyright: WSO2 Identity Server - Documentation
+
+# Configuration
+theme:
+  name: material
+  custom_dir: theme/material
+  logo: assets/images/identity-server-docs-logo.svg
+  font:
+    text: Nunito
+  favicon: assets/images/favicon.png
+  toc: false
+  features:
+    # Top navigation
+    - navigation.tabs
+    # Top navigation - sticky
+    - navigation.tabs.sticky
+    # Section index pages
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - content.tabs.link
+    - search.suggest
+    - search.share
+  language: 'en'
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  icon:
+    logo: logo
+#Breaks build if there's a warning
+strict: false
+# Navigation
+nav:
+  - Home:
+    - Home: index.md
+  - Get Started:
+    - WSO2 Identity Server: get-started/index.md
+  - Guides: 
+      - Guides: guides/index.md
+      - Applications:
+          - Applications: guides/applications/index.md
+          - Register an SPA: guides/applications/register-single-page-app.md
+          - Register web app with OIDC: guides/applications/register-oidc-web-app.md
+          - Register web app with SAML: guides/applications/register-saml-web-app.md
+          - Register a standard-based app: guides/applications/register-standard-based-app.md
+          - Register a mobile app: guides/applications/register-mobile-app.md
+      - Authentication:
+          - Authentication: guides/authentication/index.md
+          - Add login to apps:
+            - guides/authentication/add-login-to-apps.md
+            - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
+            - Add login to a web app: guides/authentication/add-login-to-web-app.md
+            - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
+          - Add passwordless login:
+            - Add passwordless login: guides/authentication/passwordless-login/index.md
+            - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
+            - Add login with FIDO2: guides/authentication/passwordless-login/add-passwordless-login-with-fido.md
+            - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
+            - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
+          - Enable user attributes:
+            - Enable user attributes: guides/authentication/user-attributes/index.md
+            - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
+            - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
+          - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
+          - Add social login:
+            - Add social login: guides/authentication/social-login/index.md
+            - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
+            - Add Github login: guides/authentication/social-login/add-github-login.md
+            - Add Google login: guides/authentication/social-login/add-google-login.md
+            - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
+            - Add Apple login: guides/authentication/social-login/add-apple-login.md
+          - Add decentralized login:
+            - Add decentralized login: guides/authentication/decentralized-login/index.md
+            - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+          - Add standard-based login:
+            - Add standard-based login: guides/authentication/enterprise-login/index.md
+            - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
+            - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+          - Add multi-factor authentication:
+            - Add multi-factor authentication: guides/authentication/mfa/index.md
+            - Add TOTP: guides/authentication/mfa/add-totp-login.md
+            - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
+            - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
+            - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
+          - Add conditional authentication:
+            - Add conditional authentication: guides/authentication/conditional-auth/index.md
+            - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
+            - Add access control:
+              - guides/authentication/conditional-auth/access-control.md
+              - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
+              - Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
+            - Add adaptive MFA:
+              - guides/authentication/conditional-auth/adaptive-mfa.md
+              - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
+              - MFA based on sign-in option: guides/authentication/conditional-auth/sign-in-option-based-template.md
+              - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
+              - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
+              - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
+            - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
+          - Configure OIDC flows:
+            - Configure OIDC flows: guides/authentication/oidc/index.md
+            - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
+            - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
+            - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
+            - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+            - Request user information: guides/authentication/oidc/request-user-info.md
+            - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
+            - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
+            - Implement logout: guides/authentication/oidc/add-logout.md
+          - Configure SAML flows:
+            - Configure SAML flows: guides/authentication/saml/index.md
+            - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+          - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
+      - API authorization: guides/api-authorization.md
+      - Branding:
+        - Branding: guides/branding/index.md
+        - Configure UI branding: guides/branding/configure-ui-branding.md
+        - Configure custom domains: guides/branding/configure-custom-domains.md
+        - Customize email templates: guides/branding/customize-email-templates.md
+        - Configure the email provider: guides/branding/configure-email-providers.md
+      - User management:
+        - User management: guides/users/index.md
+        - Manage administrators: guides/users/manage-collaborators.md
+        - Manage users: guides/users/manage-customers.md
+        - Manage groups: guides/users/manage-groups.md
+        - Manage active sessions: guides/users/manage-sessions.md
+        - Migrate users to Asgardeo: guides/users/migrate-users.md
+        - Manage attributes and mappings:
+          - Manage attributes and mappings: guides/users/attributes/index.md
+          - User attributes: guides/users/attributes/manage-attributes.md
+          - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
+          - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
+          - OIDC scopes: guides/users/attributes/manage-scopes.md
+        - Manage user stores:
+          - Manage user stores: guides/users/user-stores/index.md
+          - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
+          - Configure high availability: guides/users/user-stores/configure-high-availability.md
+          - Manage remote user stores: guides/users/user-stores/update-user-stores.md
+      - Account management:
+        - Account management: guides/user-accounts/index.md
+        - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
+        - Configure password recovery: guides/user-accounts/password-recovery.md
+        - Configure self-registration: guides/user-accounts/configure-self-registration.md
+        - Manage account security:
+          - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
+          - Configure bot detection: guides/user-accounts/account-security/bot-detection.md
+          - Configure password validation: guides/user-accounts/account-security/password-validation.md
+        - Manage account login:
+          - Configure username validation: guides/user-accounts/account-login/username-validation.md
+      - User self-service:
+        - User self-service: guides/user-self-service/index.md
+        - Self-service portal:
+          - guides/user-self-service/customer-self-service-portal.md
+          - Update profile information: guides/user-self-service/update-profile-info.md
+          - Change password: guides/user-self-service/change-password.md
+          - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
+          - Export profile information: guides/user-self-service/export-profile-information.md
+          - Manage consents: guides/user-self-service/manage-consents.md
+          - Manage login sessions: guides/user-self-service/manage-login-sessions.md
+          - Self-register: guides/user-self-service/self-register.md
+          - Register FIDO2 security key/biometrics: guides/user-self-service/register-security-key.md
+          - Password recovery: guides/user-self-service/customer-password-recovery.md
+          - Enroll TOTP: guides/user-self-service/enable-totp.md
+          - Manage backup codes: guides/user-self-service/manage-backup-codes.md
+          - Discover applications: guides/user-self-service/discover-applications.md
+        - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+      - Organization management:
+        - Organization management: guides/organization-management/index.md
+        - Manage organizations: guides/organization-management/manage-organizations.md
+        - Manage B2B organizations:
+          - Manage B2B organizations: guides/organization-management/manage-b2b-organizations/index.md
+          - Set up sub organizations: guides/organization-management/manage-b2b-organizations/manage-suborganizations.md
+          - Administration of sub organizations: guides/organization-management/manage-b2b-organizations/manage-b2b-administration.md
+          - Share applications: guides/organization-management/manage-b2b-organizations/share-applications.md
+          - Try a B2B use case: guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case.md
+          - API authorization for sub organizations: guides/organization-management/manage-b2b-organizations/api-authorization-for-b2b.md
+        - Manage environments: guides/organization-management/manage-environments.md
+      - Your Asgardeo:
+        - Your Asgardeo: guides/your-asgardeo/index.md
+        - Self-service: guides/your-asgardeo/asgardeo-self-service.md
+        - Recover your password: guides/your-asgardeo/recover-password.md
+        - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
+        - Manage subscriptions: guides/your-asgardeo/manage-subscriptions.md
+      - Asgardeo events: guides/asgardeo-events.md
+      - Organization insights: guides/organization-insights.md
+  - Tutorials:
+    - Tutorials: tutorials/index.md
+  - Integrations:
+    - Integrations: integrations/index.md
+  - APIs:
+    -  APIs: apis/index.md
+    - Authentication API: apis/use-the-authentication-rest-apis.md
+    - Session management API: apis/session-mgt-rest-api.md
+    - Entitlement management API: apis/entitlement-with-rest-apis.md
+    - User management:
+        - SCIM 1.1 API: apis/scim-1.1-apis.md
+        - SCIM 2.0 API: 
+          - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
+          - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
+          - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
+        - Account recovery API: apis/use-the-account-recovery-rest-apis.md
+        - Associated accounts API: apis/association-rest-api.md
+        - Challenge question API: apis/challenge-questions.md
+        - Challenge answers API: apis/challenge-rest-api.md
+        - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
+    - Identity provider API: apis/idp-rest-api.md
+    - IdP session extension API: apis/idp-session-extender-endpoint.md
+    - Self-service:
+        - FIDO API: apis/fido-rest-api.md
+        - TOTP API: apis/totp-rest-api.md
+        - User discoverable application API: apis/user-discoverable-applications.md
+        - Approvals management API: apis/approvals-rest-api.md
+    - Application management:
+        - Application management API: apis/application-rest-api.md
+        - Authorized apps:
+            - Authorized apps API V1: apis/authorized-apps-rest-api.md
+            - Authorized apps API V2: apis/authorized-apps-v2-rest-api.md
+        - OAuth 2.0 scope management API: apis/oauth2-scope-management-rest-apis.md
+        - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
+        - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+        - Script Library management API: apis/script-library-rest-api.md
+    - Claim management API: apis/claim-management-rest-api.md
+    - Server management:
+        - Configuration management:
+            - Configuration management API: apis/use-the-configuration-management-rest-apis.md
+            - Retrieve Tenant Resources Based on Search Parameters: apis/retrieve-tenant-resources-based-on-search-parameters.md
+        - Identity governance API: apis/identity-governance-rest-api.md
+        - Keystore management API: apis/keystore-rest-api.md
+        - User store management API: apis/user-store-rest-api.md
+        - Tenant management API: apis/tenant-management-rest-api.md
+        - CORS API: apis/cors-rest-api.md
+        - Consent management:
+          - Overview: apis/use-the-consent-management-rest-apis.md
+          - Consent management API: apis/consent-management-api-definition.md
+        - Email templates API: apis/email-templates-rest-api.md
+        - Workflow engine management API: apis/workflow-engine-rest-api.md
+    - Notification sender management API: apis/notification-sender-rest-api.md
+    - Server configuration API: apis/configs-rest-api.md
+    - Permission management API : apis/permission-management-rest-api.md
+    - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+    - Admin services:
+      - Call admin services: apis/call-admin-services.md
+      - One way operations: apis/admin-services-for-one-way-operations.md
+  - References:  
+    - References: references/index.md
+    - Extenstions:
+      - Authentication:
+        - Write a Custom OAuth 2.0 grant: references/extend/write-a-custom-oauth-2.0-grant-type.md
+# Extensions
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown_include.include:
+      base_path: ../docs/includes
+  - admonition
+  - markdown.extensions.toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      base_path: docs
+  - attr_list
+plugins:
+  - search
+  - glightbox
+  - markdownextradata: {}
+  - include-markdown
+  - redirects:
+      redirect_maps:
+extra_css:
+  # - assets/lib/highlightjs/default.min.css
+  # - assets/css/theme.css
+  # - assets/css/prism.css
+  # - assets/lib/json-formatter/json-formatter.css
+  
+  - assets/lib/highlightjs/styles/vs.min.css
+  - assets/css/blue-palette-alt2.css
+  - assets/css/choreotheme.css
+  - assets/lib/json-formatter/json-formatter.css
+  - assets/css/config-catalog.css
+  - assets/lib/fontawesome-free-6.3.0-web/css/all.min.css
+extra_javascript:
+  - assets/lib/json-formatter/json-formatter.umd.js
+  - assets/lib/highlightjs/highlight.min.js
+ # - assets/js/theme.js
+  #- assets/js/prism-ballerina.js
+  - assets/js/choreotheme.js
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/wso2
+#site_version: 1.0.0
+  base_path: http://127.0.0.1:8000/en/7.0.0
+
+  nav_list:
+    - Get Started
+    - Guides
+    - Tutorials
+    - Integrations
+    - APIs
+    - References
+
+base_path: http://localhost:8000/en/6.1.0

@@ -1,0 +1,2 @@
+<!-- markdownlint-disable-next-line -->
+A public client is an application which cannot keep the client credentials in secure way. It is recommended to use authorization code grant type for public clients. In addition to that, [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) should be used along with authorization code to mitigate code interception attacks. A [public client does not need to authenticate]({{base_path}}/guides/authentication/oidc/implement-auth-code/#get-tokens) to {{ product_name }} with `client_secret`.

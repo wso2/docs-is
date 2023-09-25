@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head class="stoplight">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Elements in HTML</title>
+    <link href="https://fonts.googleapis.com/css?family=Redressed:300,400,700|Redressed:300,400,700" rel="stylesheet">
+
+    <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
+    <link rel="stylesheet" href="stoplight.css">
+  </head>
+  <body>
+
+    <elements-api class = "stoplight"
+      apiDescriptionUrl="./scim2.yaml"
+      router="hash"
+    />
+
+  </body>
+  <script>
+    // Listening to URL hash changes in the iframe and sends them to the parent window
+    window.addEventListener('hashchange', function () {
+      window.top.postMessage(JSON.stringify({
+        type: "hashchange",
+        hash: window.location.hash
+      }, '*'))
+    });
+
+    // Listening to incoming messages from the parent window
+    window.onmessage = function (e) {
+      try {
+        const { hash, type } = JSON.parse(e.data)
+
+        if (type == "hashchange" && hash != window.location.hash) {
+          window.location.hash = hash
+        }
+      } catch (e) {
+        return
+      }
+    };
+  </script>
+</html>
