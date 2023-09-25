@@ -5,6 +5,7 @@ To update profile information via My Account, the account owner should follow th
 
 1. Sign in to the My Account portal.
 2. Click **Personal Info** to see the profile information.
-   ![Update user profile from MyAccount]({{base_path}}/assets/img/guides/organization/self-service/myaccount/update-profile-info.png)
+
+    ![Update user profile from MyAccount]({{base_path}}/assets/img/guides/organization/self-service/myaccount/update-profile-info.png){: width="500" style="display: block; margin: 0 auto;"}
 
 3. If required, update the editable information.
