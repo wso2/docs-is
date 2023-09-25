@@ -51,6 +51,7 @@ theme:
     - content.code.copy
     - content.action.edit
     - content.action.view
+    - content.tabs.link
   language: 'en'
   palette:
     # Palette toggle for automatic mode
