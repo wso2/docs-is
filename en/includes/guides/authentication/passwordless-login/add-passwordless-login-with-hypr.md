@@ -16,23 +16,23 @@ Follow the steps below to register your application in the HYPR control center.
     You can follow the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-adv-application-new) for detailed instructions.
 
 1. Go to the HYPR control center and click **Add Application**.
-    <!-- ![Add application in HYPR control center](../../../assets/img/guides/passwordless/hypr/hypr-add-app.png) -->
+    <!-- ![Add application in HYPR control center]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-add-app.png) -->
 
 2. Select **Web** as the channel and click **Next**.
-    <!-- ![Select channel as web](../../../assets/img/guides/passwordless/hypr/hypr-web-channel.png) -->
+    <!-- ![Select channel as web]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-web-channel.png) -->
 
 3. Select **Custom Solution** as the IdP provider and click **Next**.
-    <!-- ![Select IdP](../../../assets/img/guides/passwordless/hypr/hypr-select-idp.png) -->
+    <!-- ![Select IdP]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-select-idp.png) -->
 
 4. Enable push notifications and click **Next**.
-    <!-- ![Enable push notifictions](../../../assets/img/guides/passwordless/hypr/hypr-enable-push-notifications.png) -->
+    <!-- ![Enable push notifictions]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-enable-push-notifications.png) -->
 
 5. Add your Firebase configurations and click **Next**.
 
     !!! note
         To enable push notifications, you need to configure Firebase and obtain a project ID and an API key. To learn how to do this, follow the [guide in HYPR](https://docs.hypr.com/hyprcloud/docs/cc-adv-configuring-push-notifications-firebase).
 
-    <!-- ![Add Firebase configurations](../../../assets/img/guides/passwordless/hypr/hypr-add-firebase-configs.png) -->
+    <!-- ![Add Firebase configurations]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-add-firebase-configs.png) -->
 
 6. Complete the app details form and click **Done** to create the application.
 
@@ -47,12 +47,12 @@ Follow the steps below to obtain an API token.
 1. Go to the HYPR control center and select your application.
 
 2. Under **Advanced Config**, click **Access Tokens**.
-    <!-- ![Select access tokens](../../../assets/img/guides/passwordless/hypr/hypr-access-tokens.png) -->
+    <!-- ![Select access tokens]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-access-tokens.png) -->
 3. Click **Create Token**, provide a unique name for your token, select **API Token** as the token type, and click **Next**.
-    <!-- ![Create an access token](../../../assets/img/guides/passwordless/hypr/hypr-create-token.png) -->
+    <!-- ![Create an access token]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-create-token.png) -->
 
 4. Select **User Management** and **Authentication** as the permission types and click **Next**.
-    <!-- ![Select the permission level for the access token](../../../assets/img/guides/passwordless/hypr/hypr-permissions-api-token.png) -->
+    <!-- ![Select the permission level for the access token]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-permissions-api-token.png) -->
 
 5. Take a note of the API token that you have created.
     
@@ -68,7 +68,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 2. Click **Create Connection** and select **HYPR**.
 
 3. Enter the following details and click **Finish**:
-    <!-- ![Enter details to add HYPR to {{ product_name }}](../../../assets/img/guides/passwordless/hypr/hypr-add-connection.png) -->
+    <!-- ![Enter details to add HYPR to {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-add-connection.png) -->
 
     <table>
       <tr>
@@ -96,7 +96,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 ## Enable HYPR login
 
 !!! note Before you begin
-    You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
@@ -106,7 +106,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
 4. Click **Add Authentication** on the same step and select your HYPR connection.
 
-    ![Add HYPR to the login flow](../../../assets/img/guides/passwordless/hypr/hypr-enable-login.png)
+    ![Add HYPR to the login flow]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-enable-login.png)
 
 5. Enable **Conditional Authentication** and add the following script.
 
@@ -157,7 +157,7 @@ Follow the steps given below:
 
 3. On the {{ product_name }} login page, click **Sign In With HYPR**.
 
-    ![Sign in with HYPR](../../../assets/img/guides/passwordless/hypr/hypr-sign-in-with-hypr.png){: width="300"}
+    ![Sign in with HYPR]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-sign-in-with-hypr.png){: width="300"}
 
 4. Enter the username of an existing HYPR user.
 

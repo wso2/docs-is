@@ -2,7 +2,7 @@
 
 Data residency is the geographical (or regulatory) boundary where your data is stored and processed.
 
-![data residency in Asgardeo](../assets/img/references/asgardeo-data-residency.png)
+![data residency in Asgardeo]({{base_path}}/assets/img/references/asgardeo-data-residency.png)
 
 ## Datacenters
 
@@ -63,7 +63,7 @@ Data from an Asgardeo subscription account is exclusively stored in the US datac
 
 ### Administrator data
 
-Users onboarded to Asgardeo as [organization administrators](../../guides/users/manage-collaborators/) are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) are also exclusively stored in the US datacenter.
+Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guides/users/manage-collaborators/) are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) are also exclusively stored in the US datacenter.
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
 
@@ -80,7 +80,7 @@ Therefore, note that your organization–level logs may include personal informa
 
 ## Data privacy
 
-Learn about Asgardeo’s [privacy policy](../..https://wso2.com/asgardeo/privacy-policy/#:~:text=Asgardeo%20doesn%27t%20store%20any,API%20Services%20User%20Data%20Policy.) to understand how your data privacy is protected.
+Learn about Asgardeo’s [privacy policy]({{base_path}}https://wso2.com/asgardeo/privacy-policy/#:~:text=Asgardeo%20doesn%27t%20store%20any,API%20Services%20User%20Data%20Policy.) to understand how your data privacy is protected.
 
 ## Get support
 

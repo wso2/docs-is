@@ -14,7 +14,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
     To register an App ID:
 
     1. On the [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
-        ![Add Apple identifiers](../../../assets/img/guides/idp/apple-idp/add-apple-identifiers.png)
+        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png)
     2. Click `+` to register an **App ID**.
     3. Select **App IDs** and click **Continue**.
     4. Select **App** as the type and click **Continue**.
@@ -33,7 +33,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
                 <td>A unique identifier for the application. It is usually a string of characters in reverse domain name notation. <br> <b>Example</b>: <code>io.asgardeo.myorg</code></td>
             </tr>
         </table>
-        ![Register an App ID](../../../assets/img/guides/idp/apple-idp/register-an-app-id.png)
+        ![Register an App ID]({{base_path}}/assets/img/guides/idp/apple-idp/register-an-app-id.png)
     6. Under the **Capabilities** tab, select **Sign in with Apple**.
     7. Click **Continue** and then click **Register**.
 
@@ -41,7 +41,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
     To register a services ID:
 
     1. On the [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
-        ![Add Apple identifiers](../../../assets/img/guides/idp/apple-idp/add-apple-identifiers.png)
+        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png)
 
     2. Click `+` and select **Services IDs** and click **Continue**.
     3. Enter values for the following parameters:
@@ -84,7 +84,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
     To register a new key:
 
     1. On [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Keys**.
-        ![Add Apple keys](../../../assets/img/guides/idp/apple-idp/register-a-new-key.png)
+        ![Add Apple keys]({{base_path}}/assets/img/guides/idp/apple-idp/register-a-new-key.png)
     2. Click `+` to register a new key.
     3. Enter a name for the key, enable **Sign in with Apple**, and click **Configure**.
     4. Under **Configure Keys**, select the App ID you created previously and click Save. Then click Continue.
@@ -110,7 +110,7 @@ Now, let's register the Apple IdP in {{ product_name }}.
 2. Click **New Connections** and select **Apple**.
 3. Enter the following details of the Apple identity provider and click **Finish**:
 
-    ![Add Apple IDP in {{ product_name }}](../../../assets/img/guides/idp/apple-idp/add-apple-idp.png)
+    ![Add Apple IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-idp.png)
 
     <table>
       <tr>
@@ -140,13 +140,13 @@ Now, let's register the Apple IdP in {{ product_name }}.
     </table>  
 
 ??? note "Claim syncing for JIT-provisioned users"
-    [JIT user provisioning](../../guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning](../../guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
+    [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
 
     When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
 
     According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
 
-    You can use {{ product_name }}'s [identity provider APIs](../../apis/idp/#/operations/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#/operations/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
 
 After creating the Apple identity provider, go to the **Settings** tab and see the list of **scopes** to which Apple has granted permissions.
 
@@ -168,7 +168,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
 ## Enable Apple login
 
 !!! note Before you begin
-    You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Open your application from the list and go to the **Sign-in Method** tab.
@@ -177,7 +177,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
     !!! note Recommendations
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step as they are used for identifying the user.
 
-    ![Add Apple login in {{ product_name }}](../../../assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png)
+    ![Add Apple login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png)
 
 ## Try it out
 
@@ -189,7 +189,7 @@ Follow the steps given below.
 
 3. On the {{ product_name }} login page, click **Sign in with Apple**.
 
-    ![Login with Apple](../../../assets/img/guides/idp/apple-idp/sign-in-with-apple.png){: width=300"}
+    ![Login with Apple]({{base_path}}/assets/img/guides/idp/apple-idp/sign-in-with-apple.png){: width=300"}
 
 4. Log in to Apple with an existing Apple ID.
 

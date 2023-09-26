@@ -4,7 +4,7 @@
 
 ## Prerequisite
 
-The [Enable Attribute Profile](../../references/app-settings/saml-settings-for-app/#attribute-profile) setting should be enabled for the application in {{ product_name }}.
+The [Enable Attribute Profile]({{base_path}}/references/app-settings/saml-settings-for-app/#attribute-profile) setting should be enabled for the application in {{ product_name }}.
 
 ## Configure user attributes to share
 
@@ -19,10 +19,10 @@ To add user attributes to the app:
 1. On the {{ product_name }}, go to **Applications**.
 2. Select your application and go to the **User Attributes** tab.
 3. Click **Add User Attribute** if you don't have any attributes already added.
-   ![Add user attributes to a SAML app in {{ product_name }}](../../../assets/img/guides/applications/attributes/add-user-attributes.png){: width="600"}
+   ![Add user attributes to a SAML app in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/add-user-attributes.png){: width="600"}
 
 4. Select the required attributes from the list as shown below.
-   ![Add user attributes in {{ product_name }}](../../../assets/img/guides/applications/attributes/select-user-attributes.png){: width="600"}
+   ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/select-user-attributes.png){: width="600"}
 
 5. Click **Save** to return to the **User Attributes** tab and then click **Update**.
 
@@ -36,7 +36,7 @@ To perform mapping:
 
 1. Click **Enable Mapping** in the **User Attributes** section.
 2. Change the **Mapped user attribute** for the selected attribute.
-   ![Eable mapping](../../../assets/img/guides/applications/attributes/saml/enable-mapping.png){: width="600"}
+   ![Eable mapping]({{base_path}}/assets/img/guides/applications/attributes/saml/enable-mapping.png){: width="600"}
 
 This ensures that the application receives attributes based on the name that is configured.
 
@@ -44,7 +44,7 @@ This ensures that the application receives attributes based on the name that is 
 
 {% include "../../fragments/manage-app/manage-user-attributes/select-mandatory-attributes.md" %}
 
-![Add mandatory user attributes in {{ product_name }}](../../../assets/img/guides/applications/attributes/saml/add-mandatory-user-attributes.png){: width="600"}
+![Add mandatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/saml/add-mandatory-user-attributes.png){: width="600"}
 
 ### Select the subject attribute
 
@@ -56,7 +56,7 @@ To define a different attribute as the subject:
 
 1. [Select it as a user attribute](#select-user-attributes).
 2. Go to the **Subject** section under **User Attributes**.
-   ![Select subject attribute in {{ product_name }}](../../../assets/img/guides/applications/attributes/saml/select-sub-attribute.png){: width="600"}
+   ![Select subject attribute in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/saml/select-sub-attribute.png){: width="600"}
 
 3. Select an attribute as the subject from the **Subject attribute** list.
 4. Click **Update**.
@@ -67,7 +67,7 @@ Let's see how this flow works in {{ product_name }}.
 
 Once you have configured the user attributes that are required for your application, {{ product_name }} implements the following process when a user tries to log in to your app.
 
-![Provides consent for attributes in {{ product_name }}](../../../assets/img/guides/applications/attributes/saml/how-it-works.png){: width="800"}
+![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/saml/how-it-works.png){: width="800"}
 
 ### {{ product_name }} checks for mandatory attributes
 
@@ -79,7 +79,7 @@ Once you have configured the user attributes that are required for your applicat
 By default, {{ product_name }} requests the user's consent to share the user attributes with the application.
 
 !!! note
-      Learn more about [managing user consent](../../guides/authentication/manage-consent-for-attributes/).
+      Learn more about [managing user consent]({{base_path}}/guides/authentication/manage-consent-for-attributes/).
 
 ### Shares attributes with the app
 

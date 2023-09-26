@@ -51,14 +51,14 @@ You can check below examples when an application developer wants to send _login_
 Here Asgardeo sends the fixed query param to the external identity provider in the login request.
 - **Sample Query Param:**
     `login_hint=none`
-      ![Add fixed query param in enterprise IDP config](../../assets/img/guides/idp/oidc-enterprise-idp/queryparam/fixed-query-param.png)
+      ![Add fixed query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/queryparam/fixed-query-param.png)
 
 #### Dynamic query params
 
 1. Query param value sent in the application login request
     - **Sample Query Param:**
        `login_hint=${login_hint_value}`
-       ![Add dynamic query param in enterprise IDP config](../../assets/img/guides/idp/oidc-enterprise-idp/queryparam/dynamic_query_param_from_app.png)
+       ![Add dynamic query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/queryparam/dynamic_query_param_from_app.png)
         You can see a sample OIDC request from an application below.
        ```  
         https://api.asgardeo.io/t/bifrost/oauth2/authorize?scope=openid&response_type=code&redirect_uri=<redirect_uri>&client_id=<client_id>&login_hint_value=user@gmail.com
@@ -70,7 +70,7 @@ Here Asgardeo sends the fixed query param to the external identity provider in t
 2. Query param value resolved in a conditional authentication script
    - **Sample Query Param:**
     `login_hint=$authparam{login_hint_value}`
-    ![Add dynamic query param in enterprise IDP config](../../assets/img/guides/idp/oidc-enterprise-idp/queryparam/dyamic_query_param_from_conditional_auth.png)
+    ![Add dynamic query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/queryparam/dyamic_query_param_from_conditional_auth.png)
     Here _login_hint_value_ needs to be resolved from the conditional auth script.
     <br>  
 

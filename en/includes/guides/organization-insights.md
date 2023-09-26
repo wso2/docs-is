@@ -21,7 +21,7 @@ To check insights of your organization:
 
 The example below shows insights related to login events of the organization for the past 7 days.
 
-![Select the period for the insights to be displayed](../assets/img/guides/organization-insights/insight-period.png)
+![Select the period for the insights to be displayed]({{base_path}}/assets/img/guides/organization-insights/insight-period.png)
 
 !!! note
     The statistics displayed in the graphs are not real-time. </br></br>
@@ -36,17 +36,17 @@ This section will help you further understand the statistics shown in the graphs
 ### Active Users
 This graph in login insights, represents the number of unique user logins within the selected duration. You can view each day's count by hovering your mouse over a point on the graph. This metric helps measure the daily engagement of users with the platform.
 
-![Unique active users](../assets/img/guides/organization-insights/active-users-graph.png)
+![Unique active users]({{base_path}}/assets/img/guides/organization-insights/active-users-graph.png)
 
 ### Total Logins
 This graph in login insights, represents the total number of successful user logins within the selected duration. By hovering your mouse over a point on the graph, you can view the specific count of user logins for each day.
 
-![Total user logins](../assets/img/guides/organization-insights/total-logins-graph.png)
+![Total user logins]({{base_path}}/assets/img/guides/organization-insights/total-logins-graph.png)
 
 ### Failed Logins
 This graph in login insights, represents the total number of failed logins within the selected duration. You can view each day's failed login attempt count by hovering your mouse over a point on the graph.
 
-![Failed login attempts](../assets/img/guides/organization-insights/failed-logins-graph.png)
+![Failed login attempts]({{base_path}}/assets/img/guides/organization-insights/failed-logins-graph.png)
 
 !!! note
     The graph does not include data related to failed login attempts made by the organization owner or administrators to either the {{ product_name }} Console or the My Account portal.
@@ -54,7 +54,7 @@ This graph in login insights, represents the total number of failed logins withi
 ### User Signups
 This graph in registration insights, represents the total number of successful user signups within the selected duration. You can view each day's signup count by hovering your mouse over a point on the graph.
 
-![User signups graph](../assets/img/guides/organization-insights/user-signups-graph.png)
+![User signups graph]({{base_path}}/assets/img/guides/organization-insights/user-signups-graph.png)
 
 ## Filter insights
 
@@ -85,7 +85,7 @@ To filter insights,
     !!! note
         All filter values are case sensitive.
 
-    ![Filter insights related to logins](../assets/img/guides/organization-insights/filter-login-insights.png){width="500" style="display: block; margin: 0 auto;"}
+    ![Filter insights related to logins]({{base_path}}/assets/img/guides/organization-insights/filter-login-insights.png){width="500" style="display: block; margin: 0 auto;"}
 
   The table below has detailed information on all the filtering options available for insights of your organization.
 

@@ -12,9 +12,9 @@ There are two types of authenticators that you can use with FIDO2 passwordless a
 
 ## Prerequisites
 
-1. To get started, you need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+1. To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-2. [Application users](../../get-started/create-asgardeo-account/#create-a-user) need to register their security keys/biometrics via the My Account app prior to using passwordless login. Be sure to educate your users on how to [register a security key/biometrics via My Account.](../../guides/user-self-service/register-security-key/)
+2. [Application users]({{base_path}}/get-started/create-asgardeo-account/#create-a-user) need to register their security keys/biometrics via the My Account app prior to using passwordless login. Be sure to educate your users on how to [register a security key/biometrics via My Account.]({{base_path}}/guides/user-self-service/register-security-key/)
 
 ## Enable passwordless login for an app
 
@@ -28,11 +28,11 @@ Follow the steps given below to enable **passwordless** login for your applicati
 
     - If you haven’t already built a login flow for your application, select **FIDO2** to build one.
 
-      ![Configuring fido2 login in {{ product_name }}](../../../assets/img/guides/passwordless/fido2/add-fido-login.png){: width="600"}
+      ![Configuring fido2 login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login.png){: width="600"}
 
     - If you have an already built login flow, you can add FIDO2 as an additional authenticator for the first step.
 
-      ![Customize the login flow](../../../assets/img/guides/passwordless/fido2/fido-login-step.png)
+      ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/fido2/fido-login-step.png)
 
 4. Click **Update** to save your changes.
 
@@ -64,8 +64,8 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 2. Click **Login** to open the {{ product_name }} login page.
 3. On the {{ product_name }} login page, click **Sign In With Security Key**. You will be redirected to the FIDO2 login page.
   
-    ![Sign In With Security Key in {{ product_name }}](../../../assets/img/guides/passwordless/fido2/sign-in-with-security-key.png){: width="300"}
+    ![Sign In With Security Key in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key.png){: width="300"}
 
 4. Follow the instructions given by your browser or device to login.
   
-    ![Sign In With Security Key page in {{ product_name }}](../../../assets/img/guides/passwordless/fido2/sign-in-with-security-key-page.png){: width="300"}
+    ![Sign In With Security Key page in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key-page.png){: width="300"}

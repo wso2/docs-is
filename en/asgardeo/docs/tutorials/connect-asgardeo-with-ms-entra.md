@@ -81,7 +81,7 @@ First, we need to create an Azure key vault instance to store the public and pri
         </tr>
     </table>
 
-    ![create vault key](../assets/img/tutorials/oidc-attribute-provider-ms/img-1.png)
+    ![create vault key]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-1.png)
 
 4. Review the details and click **Create**.
 
@@ -100,7 +100,7 @@ A key vault access policy defines the security principles that can perform opera
     - **Key Management Operations**: Create, Delete
     - **Cryptographic Operations**: Sign
 
-    ![access policies for key vault](../assets/img/tutorials/oidc-attribute-provider-ms/img-2.png)
+    ![access policies for key vault]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-2.png)
 
 4. Click **Next** and then save the changes.
 
@@ -110,7 +110,7 @@ The next step is to create and set up a Verified ID service instance.
 
 1. On the Azure portal, search for “verified ID”, select the listed Verified ID tile, and select **Setup** from the left menu.
 
-    ![set up verified ID](../assets/img/tutorials/oidc-attribute-provider-ms/img-3.png)
+    ![set up verified ID]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-3.png)
 
     Now, you will see three tiles, as shown in the above image.
 
@@ -128,7 +128,7 @@ The next step is to create and set up a Verified ID service instance.
     !!! note
         By default, this is selected as **Web**. As per your preference, you can change this to **ION**.
 
-    ![define organization setting](../assets/img/tutorials/oidc-attribute-provider-ms/img-4.png)
+    ![define organization setting]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-4.png)
 
 5. Save the updates.
 
@@ -147,7 +147,7 @@ In this tutorial, let's use a Microsoft verifiable credentials sample web applic
 
 4. Click **Register** to complete the registration.
 
-    ![register app in Azure](../assets/img/tutorials/oidc-attribute-provider-ms/img-5.png)
+    ![register app in Azure]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-5.png)
 
 Now, we need to grant permissions to the application to access the “Verifiable Credentials Service Request” service principal.
 
@@ -155,12 +155,12 @@ Now, we need to grant permissions to the application to access the “Verifiable
 2. Click **Add a permission** and select **APIs my organization uses**.
 3. Search for “Verifiable Credentials Service Request” and click the listed tile.
 
-    ![verifiable credentials service request](../assets/img/tutorials/oidc-attribute-provider-ms/img-6.png)
+    ![verifiable credentials service request]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-6.png)
 
 4. Choose **Application Permission** and check **VerifiableCredential.Create.All**.
 5. Click **Add permission** and then select **Grant admin consent** for your tenant name.
 
-    ![request API permissions](../assets/img/tutorials/oidc-attribute-provider-ms/img-7.png)
+    ![request API permissions]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-7.png)
 
     !!! note
             You can choose to grant issuance and presentation permissions separately if you prefer to segregate the scopes into different applications.
@@ -170,7 +170,7 @@ Next, we need to create a client secret for the registered application.
 1. From the left menu, select **Certificates & secrets** and click **New client secret**.
 2. Give a description and an expiry time for the secret.
 
-    ![VC app certificates and secrets](../assets/img/tutorials/oidc-attribute-provider-ms/img-8.png)
+    ![VC app certificates and secrets]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-8.png)
 
 Be sure to keep a record of the secret's value. You'll use this value for a configuration in a later step. The secret value won't be displayed again and isn't retrievable by any other means.
 
@@ -182,7 +182,7 @@ Now, you need to complete setting up the Azure Verified ID service. You can skip
 2. Click **Register** under **Register decentralized ID** to register your DID document.
 3. Copy or download the DID document and host the JSON file in the **/.well-known** directory on your web server.
 
-    ![decentralized ID](../assets/img/tutorials/oidc-attribute-provider-ms/img-9.png)
+    ![decentralized ID]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-9.png)
 
 4. After hosting the file, click **Refresh registration status**.
 
@@ -196,7 +196,7 @@ Now, you need to verify domain ownership to establish trust between the DID and 
 1. Click **Verify** under **Verify domain ownership**.
 2. Copy or download the manifest file and host it under the `/.well-known` directory of your web server.
 
-    ![verify domain ownership](../assets/img/tutorials/oidc-attribute-provider-ms/img-10.png)
+    ![verify domain ownership]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-10.png)
 
 3. After hosting the file, click **Refresh verification status**.
 
@@ -205,7 +205,7 @@ Now, you need to verify domain ownership to establish trust between the DID and 
 
 With that, you have completed setting up the Entra Verified ID instance. Now you should be seeing all the tiles with a green tick, as shown below.
 
-![welcome to Entra verified ID](../assets/img/tutorials/oidc-attribute-provider-ms/img-11.png)
+![welcome to Entra verified ID]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-11.png)
 
 ## Step 2: Configure Asgardeo as the OIDC attribute provider
 
@@ -215,11 +215,11 @@ In this step, you will configure the connection between Asgardeo and the Microso
 
 2. Click **New Application** and select **Mobile Application**:
 
-    ![register new app in Asgardeo](../assets/img/tutorials/oidc-attribute-provider-ms/img-12.png)
+    ![register new app in Asgardeo]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-12.png)
 
 3. Enter the following details:
 
-    ![add mobile app configurations](../assets/img/tutorials/oidc-attribute-provider-ms/img-13.png){: width="700"}
+    ![add mobile app configurations]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-13.png){: width="700"}
 
     <table>
         <tr>
@@ -240,7 +240,7 @@ In this step, you will configure the connection between Asgardeo and the Microso
 
 5. Go to the **User Attributes** tab, mark the required attributes as **Mandatory**, and click **Update** to save the changes.
 
-    ![add user attributes to mobile app](../assets/img/tutorials/oidc-attribute-provider-ms/img-14.png)
+    ![add user attributes to mobile app]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-14.png)
 
     !!! tip
             Be sure to copy the scopes displayed on the page.
@@ -256,7 +256,7 @@ In this step, you will configure the connection between Asgardeo and the Microso
     !!! note
         This step is required to ensure you can log in to the application. You need a business user registered in the Asgardeo organization to be able to perform user login.
 
-    ![add new user to organization](../assets/img/tutorials/oidc-attribute-provider-ms/img-15.png)
+    ![add new user to organization]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-15.png)
 
 ## Step 3: Create a verifiable credential for the ID token
 
@@ -538,7 +538,7 @@ Follow the step below to start the application.
 
 3. Open the displayed public URL, and you’ll see the MS verifiable credential sample application.
 
-    ![MS verifiale credential sample](../assets/img/tutorials/oidc-attribute-provider-ms/img-16.png){: width="500"}
+    ![MS verifiale credential sample]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-16.png){: width="500"}
 
     !!! note
         Microsoft Verifiable Credentials use the Microsoft Authenticator app as the digital wallet. Hence, prior to trying out the sample, you need to download and install the Microsoft Authenticator app from the Google Play Store or the Apple App Store.
@@ -552,13 +552,13 @@ To get the KrustyKrab verifiable credential:
     !!! note
         If everything is configured correctly, the website shows you a QR code.
 
-    ![issuance of employee credential](../assets/img/tutorials/oidc-attribute-provider-ms/img-17.png){: width="500"}
+    ![issuance of employee credential]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-17.png){: width="500"}
 
 2. Open your Microsoft Authenticator app and go to the **Verified IDs** tab.
 
     You’ll be able to scan the QR code there.
 
-    ![scan QR code](../assets/img/tutorials/oidc-attribute-provider-ms/img-18.png){: width="500"}
+    ![scan QR code]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-18.png){: width="500"}
 
 3. Scan the QR and you’ll see an option to sign in with Asgardeo.
 
@@ -566,13 +566,13 @@ To get the KrustyKrab verifiable credential:
 
 5. Sign in with the user account you added previously.
 
-    ![sign in](../assets/img/tutorials/oidc-attribute-provider-ms/img-19.png){: width="500"}
+    ![sign in]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-19.png){: width="500"}
 
     After successful authentication, you are redirected to the Microsoft Authenticator app.
 
 6. Click **Add** to add the KrustyKrab credential to your wallet.
 
-    ![add to wallet](../assets/img/tutorials/oidc-attribute-provider-ms/img-20.png){: width="500"}
+    ![add to wallet]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-20.png){: width="500"}
 
 You can view the user details you received from Asgardeo by clicking the verifiable credential card inside the wallet.
 
@@ -582,18 +582,18 @@ Now that you have added the KrustyKrab credential to the wallet, you can use it 
 
 1. Go back to the home page of the sample website and click **Verify Credential**.
 
-    ![presentation of credential type - 1](../assets/img/tutorials/oidc-attribute-provider-ms/img-21.png){: width="500"}
+    ![presentation of credential type - 1]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-21.png){: width="500"}
 
     If everything is configured correctly, the website shows you a QR code.
 
 2. Scan the available QR code using the Microsoft Authenticator app, and it will prompt you to share the KrustyKrab credential.
 
-    ![presentation of credential type -2](../assets/img/tutorials/oidc-attribute-provider-ms/img-22.png){: width="500"}
+    ![presentation of credential type -2]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-22.png){: width="500"}
 
 3. Click **Share**.
 
 The sample website now receives the user details from the KrustyKrab credential.
 
-![credentials received](../assets/img/tutorials/oidc-attribute-provider-ms/img-23.png){: width="500"}
+![credentials received]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-23.png){: width="500"}
 
 Now that you have successfully configured Asgardeo as an OIDC attribute provider for Microsoft Entra verifiable credentials, you can continue to harness the full capabilities that Asgardeo provides by customizing the sign-in flow, enhancing application security, etc.

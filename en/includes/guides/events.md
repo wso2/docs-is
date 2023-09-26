@@ -33,7 +33,7 @@ Follow the steps below to configure event publishing for {{ product_name }}.
     ![{{ product_name }} Console UI for events](../assets/img/guides/asgardeo-events/asgardeo-events-ui.png)
 
     !!! note
-        Alternatively, you can invoke the **Event Configuration Management** API to configure event publishing. See the [API Documentation](../../apis/event-configuration/) to learn more.
+        Alternatively, you can invoke the **Event Configuration Management** API to configure event publishing. See the [API Documentation]({{base_path}}/apis/event-configuration/) to learn more.
 
 ## Implement business use cases for {{ product_name }} events via Choreo
 

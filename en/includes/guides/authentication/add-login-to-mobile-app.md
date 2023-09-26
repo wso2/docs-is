@@ -8,7 +8,7 @@ See the guides given below to add login to your mobile applications with {{ prod
 
 ## Manually add login to your mobile app
 
-- [Implement authorization code flow with PKCE](../../guides/authentication/oidc/implement-auth-code-with-pkce/)
+- [Implement authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/)
 
 ## Add login to your framework-based mobile apps
 
