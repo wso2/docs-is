@@ -1,22 +1,19 @@
-
 # Update profile information
 
-!!! warning
-   The **My Account** portal is in <Badge text="preview " type="warn" vertical="middle" /> mode. We are working on adding more features to enhance the experience of the user.
-
-The user details displayed in a user's profile corresponds to user attributes that are enabled for the organization.
+User profiles in the My Account portal only display user attributes enabled by administrators for the relevant organization.
 
 !!! note
-   - Administrators in the organization can configure the list of attributes that should be available in a user profile. See the instructions on [updating attributes](../../guides/users/attributes/manage-attributes/#update-attributes) for details.
-   - Users onboarded from a **read-only remote user store** do not have the capability of updating their own profiles on the My Account portal.
+    Learn how administrators can [display an attribute in user profiles]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
 
-To update profile information via My Account, the account owner should follow these steps.
+Users can update attributes available in their profiles by following the steps below.
 
 1. Sign in to the My Account portal.
 2. Click **Personal Info** to see the profile information.
-   
-   ![Update user profile from MyAccount](../../assets/img/guides/organization/self-service/myaccount/update-profile-info.png)
 
-3. If required, update the editable information.
+    ![Update user profile from MyAccount]({{base_path}}/assets/img/guides/organization/self-service/myaccount/update-profile-info.png)
 
+3. Update the editable information.
+
+!!! note
+    Users onboarded from a read-only remote user store do not have the capability of updating their profiles through the My Account portal.
 

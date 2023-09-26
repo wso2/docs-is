@@ -6,18 +6,18 @@ To maintain high availability for the remote user store, you need to connect a s
 
 ## Prerequisites
 
-[Configure and connect a remote user store](../../guides/users/user-stores/configure-a-user-store/) in {{ product_name }}.
+[Configure and connect a remote user store]({{base_path}}/guides/users/user-stores/configure-a-user-store/) in {{ product_name }}.
 
 ## Connect a second user store agent
 
 To connect a second user store agent:
 
-1. On the {{ product_name }} Console, go to **User Stores**.
+1. On the {{ product_name }} Console, go to **User Management** > **User Stores**.
 2. Select your user store from the **User stores** list.
 3. In the **General** tab, a second user store agent is listed under **User Store Agent Connection(s)**.
 4. Click **Generate token** on the second user store agent.
 
-    ![Generate isatallation token for second user store agent.](../../../assets/img/guides/user-stores/generate-second-token.png)
+    ![Generate isatallation token for second user store agent.]({{base_path}}/assets/img/guides/user-stores/generate-second-token.png)
 
     !!! note
         An installation token can only be used to connect to one user store agent. You cannot use the same installation token to run a second agent.

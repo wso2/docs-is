@@ -7,4 +7,4 @@ Given below are the steps to follow.
 2. Click **Personal Info > External Logins**.
 3. To remove any of the linked accounts, click **Remove**.
 
-   ![View linked social accounts]({{base_path}}/assets/img/guides/organization/self-service/myaccount/view-linked-accounts.png)
+    ![View linked social accounts]({{base_path}}/assets/img/guides/organization/self-service/myaccount/view-linked-accounts.png){: width="700" style="display: block; margin: 0 auto;"}

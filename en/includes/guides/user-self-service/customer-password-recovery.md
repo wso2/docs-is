@@ -1,44 +1,46 @@
 # Password recovery for users
 
-!!! warning
-   The **My Account** portal is in <Badge text="preview " type="warn" vertical="middle" /> mode. We are working on adding more features to enhance the experience of the user.
-
-[Users](../../guides/users/manage-customers/) can recover a forgotten password by following the instructions on the {{ product_name }} sign-in page.
-
-Alternatively, if the account owner is already signed in to the self-service portal, the password can be updated [using the My Account portal](../../guides/user-self-service/change-password/).
+Users can recover a forgotten password from an application sign-in page by following the steps below.
 
 ## Prerequisites
 
-[Password recovery](../../guides/user-accounts/password-recovery/) should be enabled for business users in the organization.
+Administrators should [enable password recovery]({{base_path}}/guides/user-accounts/password-recovery/) for users in the organization.
 
-## Recover password
+## Recover a forgotten password
 
 !!! note
-   Users onboarded from a **read-only remote user store** do not have the capability of recovering their password on the My Account portal.
+    Users onboarded from a read-only remote user store do not have the capability of recovering their password through the My Account portal.
 
-To reset the password, the account owner should follow these steps.
+To reset the password, the user should follow these steps.
 
-1. Go to the login page via a business application or the [My Account portal](../../guides/user-self-service/customer-self-service-portal/).
+1. Go to a login page via a business application or the [My Account portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
 
-   ![Recover your password](../../assets/img/guides/organization/self-service/customer/recover-your-password.png)
+    ![Recover your password]({{base_path}}/assets/img/guides/organization/self-service/customer/recover-your-password.png){: width="300" style="display: block; margin: 0 auto;"}
 
 2. Click **Forgot password?**
-3. Enter your username and click **Send Reset Link**.
-   ![Forgot your password](../../assets/img/guides/organization/self-service/customer/forgot-your-password.png)
 
-   An email notification is sent to your email address.
+3. Enter your username and click **Send Reset Link**.
+
+    ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/forgot-your-password.png){: width="300" style="display: block; margin: 0 auto;"}
+
+    An email notification is sent to your email address.
 
 4. Open the email you received and click **Reset Password**.
-   ![Reset password email](../../assets/img/guides/organization/self-service/customer/reset-password-email.png)
-5. Enter new password and **Proceed**.
 
-Now you have reset your password and can sign in using your new password.
+    ![Reset password email]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email.png){: width="500" style="display: block; margin: 0 auto;"}
+
+5. Enter a new password and click **Proceed**.
+
+!!! note
+    If the user is already signed in to the My Account portal, the password can be reset from there. Learn how to [change password from the My Account portal]({{base_path}}/guides/user-self-service/change-password).
 
 ## Check password recovery email
-Users can also check the email address to which their password recovery information is sent to.
+Users can also check the email address to which their password recovery information is sent.
 
-1. In the user's MyAccount portal, navigate to **Security > Account Recovery**.
-    ![Account recovery in {{ product_name }} MyAccount](../../assets/img/guides/users/account-recovery.png)
-2. Click the **eye** icon, to check the recovery email address.
-   !!! warning The recovery email address will be the user's email address. This cannot be updated.
+1. In the My Account portal, navigate to **Security > Account Recovery**.
+
+    ![Account recovery in {{ product_name }} MyAccount]({{base_path}}/assets/img/guides/users/account-recovery.png){: width="700" style="display: block; margin: 0 auto;"}
+
+2. Click the eye icon, to check the recovery email address.
+
 3. Click **Done**.

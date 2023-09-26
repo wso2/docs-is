@@ -5,7 +5,7 @@ This guide walks you through the process of managing your remote user stores via
 
 To update attribute mappings via the {{ product_name }} Console:
 
-1. On the {{ product_name }} Console, go to **User Stores**
+1. On the {{ product_name }} Console, go to **User Management** > **User Stores**.
 2. Select your user store from the **User stores** list.
 3. Go to the **Attribute Mappings** tab and update the required information.
 
@@ -20,7 +20,7 @@ To update attribute mappings via the {{ product_name }} Console:
 
 To disconnect a user store agent:
 
-1. On the {{ product_name }} Console, go to **User Store**
+1. On the {{ product_name }} Console, go to **User Management** > **User Stores**.
 2. Select your user store from the **User stores** list.
 3. In the **User Store Agent Connection(s)** section, click **Disconnect** on the user store agent that you wish to disconnect.
 4. Select the checkbox to confirm your action and click **Confirm**.
@@ -38,7 +38,7 @@ In case you forget or lose this installation token, you can regenerate it.
 
 To regenerate an installation token:
 
-1. On the {{ product_name }} Console, go to **User Store**
+1. On the {{ product_name }} Console, go to **User Management** > **User Stores**.
 2. Select your user store from the **User Stores** list and go to the **General** tab.
 3. In the **User Store Agent Connection(s)** section, click **Regenerate Token** on the user store agent that you wish to regenerate the token for.
 
@@ -50,10 +50,10 @@ To regenerate an installation token:
 
 To disable a user store:
 
-1. On the {{ product_name }} Console, go to **User Stores** and select your user store.
+1. On the {{ product_name }} Console, go to **User Management** > **User Stores** and select your user store.
 2. Turn on the **Disable User Store** toggle at the bottom of the page to disable the user store.
 
-   ![Disable a user store](../../../assets/img/guides/user-stores/disable-user-store.png)
+   ![Disable a user store]({{base_path}}/assets/img/guides/user-stores/disable-user-store.png)
 
     !!! note
         You can re-enable a disabled user store by switching off the toggle.
@@ -67,10 +67,10 @@ A user store can be deleted by an administrator. Once a user store is deleted, t
 
 To delete a user store:
 
-1. On the {{ product_name }} Console, go to **User Store** and select your user store.
+1. On the {{ product_name }} Console, go to **User Management** > **User Stores** and select your user store.
 2. Click **Delete User Store** at the bottom of the page.
 
-   ![Disable a user store](../../../assets/img/guides/user-stores/delete-user-store.png)
+   ![Disable a user store]({{base_path}}/assets/img/guides/user-stores/delete-user-store.png)
 
 3. On the pop-up window, type the user store name and click **Confirm** to delete the user store.
 

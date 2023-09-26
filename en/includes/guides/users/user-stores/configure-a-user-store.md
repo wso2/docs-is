@@ -15,7 +15,7 @@ Follow the guide below to set up a remote user store in {{ product_name }}.
 
 ## Prerequisites
 - An organization in {{ product_name }}.
-[Create an organization](../../guides/organization-management/manage-organizations/#create-a-new-organization) if you don’t have one already.
+[Create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-a-new-organization) if you don’t have one already.
 
 
 - An on-premise user store. Currently, {{ product_name }} supports:
@@ -62,10 +62,10 @@ Follow the guide below to set up a remote user store in {{ product_name }}.
 ## Register a remote user store
 To configure a remote user store for your organization:
 
-1. On the {{ product_name }} Console, go to **User Stores**.
+1. On the {{ product_name }} Console, go to **User Management** > **User Stores**.
 2. Click **Connect userstore** to open the following:
 
-   ![Register remote user store to {{ product_name }}](../../../assets/img/guides/user-stores/register-user-store.png)
+   ![Register remote user store to {{ product_name }}]({{base_path}}/assets/img/guides/user-stores/register-user-store.png)
 
 3. Enter the following details about the user store.
 <table>
@@ -96,7 +96,7 @@ To configure a remote user store for your organization:
     !!! warning
         These two attributes need to be mapped correctly for proper authentication.
         
-        - ```Username``` - This attribute is used as the user identifier. Provide an attribute that identifies your user in your on-premise user store. For the best experience, use a username that satisfies validation rules in [Username Validation](../../guides/user-accounts/account-login/username-validation/) section.
+        - ```Username``` - This attribute is used as the user identifier. Provide an attribute that identifies your user in your on-premise user store. For the best experience, use a username that satisfies validation rules in [Username Validation]({{base_path}}/guides/user-accounts/account-login/username-validation/) section.
         - ```User ID``` - This attribute is used to uniquely identify a user entry. Provide an attribute that uniquely identifies a user entry in your user store.
 
 5. Click **Finish** to complete the registration.
@@ -135,16 +135,16 @@ To assemble and configure the user store agent bundle:
         group_id_attribute = "gid"
         membership_attribute = "member"
         ```
-        
+
         !!! note
-            Refer [ remote user store          properties ](../../references/remote-user-store/remote-user-store-properties/) for the complete list of user store configurations.
+            Refer [remote user store properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) for the complete list of user store configurations.
 
 3. Return to the {{ product_name }} Console and, click **Generate Token** to create an installation token. The installation token is essential to run the user store agent.
     !!! warning
 
         - Copy the installation token and save it in a safe location. You won't be able to see it again!
 
-        - This token has no expiry time, but in case you lose or forget it, you can [regenerate an installation token](../../guides/users/user-stores/update-user-stores/#regenerate-the-installation-token).
+        - This token has no expiry time, but in case you lose or forget it, you can [regenerate an installation token]({{base_path}}/guides/users/user-stores/update-user-stores/#regenerate-the-installation-token).
 
 4. To start the user store agent, navigate to its root directory and run one of the following commands based on your operating system:
     - Linux/OSx:
@@ -172,5 +172,5 @@ To assemble and configure the user store agent bundle:
                 ```
 
 ## What's Next
-- [Configure high availability for a remote user store](../../guides/users/user-stores/configure-high-availability/)
-- [Manage remote user stores in {{ product_name }}](../../guides/users/user-stores/update-user-stores/)
+- [Configure high availability for a remote user store]({{base_path}}/guides/users/user-stores/configure-high-availability/)
+- [Manage remote user stores in {{ product_name }}]({{base_path}}/guides/users/user-stores/update-user-stores/)

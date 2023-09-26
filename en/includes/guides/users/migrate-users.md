@@ -33,7 +33,7 @@ These traditional methods come with various challenges as explained below, which
 
 * **Schema matching**
 
-    Schemas of one system might not match the schemas of the other system to which the organization is migrating. In such scenarios, the administrators will experience the overhead of matching the schemas one-to-one.
+    The schemas of one system might not match the schemas of the other system to which the organization is migrating. In such scenarios, the administrators will experience the overhead of matching the schemas one-to-one.
 
 * **End-user experience**
 
@@ -41,7 +41,7 @@ These traditional methods come with various challenges as explained below, which
   * Setting a temporary password for each user.
   * Sending an invitation email with a password reset link.
 
-  The invitation emails may be missed out or ignored by the users and users may even try to use the old password on the new systems. This causes user dissatisfaction with the organization.
+  The invitation emails may be missed out or ignored by the users, and users may even try to use the old password on the new systems. This causes user dissatisfaction with the organization.
 
 !!! note
     All the challenges mentioned above are handled by the {{ product_name }} team during user migration. This reduces the operational overhead on administrators and provides end-users with a better user experience.

@@ -1,7 +1,7 @@
 # SAML settings for apps
 
 You can find the SAML protocol related settings under **protocol** section of the selected SAML application.
-  ![SAML settings](../../assets/img/guides/applications/saml-app/saml-settings.png)
+  ![SAML settings]({{base_path}}/assets/img/guides/applications/saml-app/saml-settings.png)
 
 ## Basic settings
 
@@ -277,24 +277,23 @@ The certificate is used to validate signatures when authentication requests or l
 You can either upload your certificate file or copy the contents. Follow the steps given below.
 
 1. Select <b>Provide Certificate</b> and click <b>New Certificate</b>.
-![Upload app certificate](../../assets/img/guides/applications/saml-app/upload-certificate-of-app.png)
+![Upload app certificate]({{base_path}}/assets/img/guides/applications/saml-app/upload-certificate-of-app.png)
 
 2. Upload the certificate file or copy the certificate contents
 <br>
 
 ??? note If you have certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to convert your certs to PEM format using [OpenSSL](https://www.openssl.org/)
- **Convert CRT to PEM**
- ``` 
- openssl x509 -in cert.crt -out cert.pem
- ```
-**Convert CER to PEM:**
- ``` 
- openssl x509 -in cert.cer -out cert.pem
- ```
-**Convert DER to PEM:**
-  ``` 
-  openssl x509 -in cert.der -out cert.pem
- ```
-:::
+    **Convert CRT to PEM**
+    ```
+    openssl x509 -in cert.crt -out cert.pem
+    ```
+    **Convert CER to PEM:**
+    ```
+    openssl x509 -in cert.cer -out cert.pem
+    ```
+    **Convert DER to PEM:**
+    ```
+    openssl x509 -in cert.der -out cert.pem
+    ```
 
 <br>

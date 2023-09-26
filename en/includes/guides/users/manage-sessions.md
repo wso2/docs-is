@@ -14,14 +14,27 @@ An administrator or an owner can view and terminate the active session(s) of use
 
 ## View active sessions of users
 
-1. On the {{ product_name }} Console, select **Users**.
+To view all active sessions of a user:
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
 2. Select a user and click **Edit**.
 3. Go to **Active Sessions** to view details.
 
-    ![view-active-sessions](../../assets/img/guides/users/view-active-sessions.png)
+    ![view-active-sessions]({{base_path}}/assets/img/guides/users/view-active-sessions.png)
 
+## Terminate active sessions
 
-## Terminate active session/sessions
+You can terminate a specific user session or terminate all active sessions for the user.
 
-4. Click  **Termination Sessions** under the selected session. This terminates the respective session only.
-5. Click **Termination All**. This will terminate all the sessions of that user.
+To terminate a specific active session of a user:
+1. On the Asgardeo Console, go to **User Management** > **Users**.
+2. Select a user and click **Edit**.
+3. Go to **Active Sessions** and expand the required session.
+4. Click  **Terminate** to terminate the respective session only.
+5. Select the checkbox to confirm your action and click **Confirm**.
+
+To terminate all active sessions of a user:
+1. On the Asgardeo Console, go to **User Management** > **Users**.
+2. Select a user and click **Edit**.
+3. Go to **Active Sessions** and click **Terminate All**. This will terminate all the sessions of that user.
+4. Select the checkbox to confirm your action and click **Confirm**.
+

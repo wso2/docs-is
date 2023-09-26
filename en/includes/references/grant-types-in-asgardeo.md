@@ -5,6 +5,7 @@ OAuth 2.0 defines several grant types used to obtain an access token, which is r
 The grant types supported by Asgardeo applications are as follows:
 
 **OAuth 2.0 grants**
+
 - [Authorization code grant](#authorization-code-grant)
 - [Refresh token grant](#refresh-token-grant)
 - [Client credentials grant](#client-credentials-grant)
@@ -12,6 +13,7 @@ The grant types supported by Asgardeo applications are as follows:
 - [Password grant](#password-grant)
 
 **Asgardeo's custom grants**
+
 - [Organization switch grant](#organization-switch-grant)
 
 ## Authorization code grant
@@ -21,7 +23,8 @@ The Authorization code flow provides a secure way for a client application to ob
 This helps to protect the user's credentials and prevents them from being compromised by malicious client applications.
 
 The following diagram shows how the authorization code flow works.
-![How the authorization code grant works](../assets/img/references/grants/authorization-code.png)
+
+![How the authorization code grant works]({{base_path}}/assets/img/references/grants/authorization-code.png)
 
 1. The user visits the client application and requests for login through Asgardeo.
 2. The client application redirects the authorization code request to Asgardeo.
@@ -39,7 +42,8 @@ The refresh token grant provides a secure way for client applications to obtain 
 Refresh tokens typically have a longer lifetime than access tokens, and the user or the authorization server can revoke them at any time.
 
 The following diagram shows how the refresh token flow works.
-![How the refresh token grant works](../assets/img/references/grants/refresh-token.png)
+
+![How the refresh token grant works]({{base_path}}/assets/img/references/grants/refresh-token.png)
 
 1. The client application requests user information from the resource server by providing the access token.
 2. As the access token is expired, the resource server returns an error message.
@@ -53,7 +57,8 @@ The client credentials flow provides a secure way for client applications to obt
 However, it is important to ensure that the client credentials are kept secure, as any party that posses these credentials can obtain access tokens and access the client's resources.
 
 The following diagram shows how the client credentials grant flow works.
-![How the client credentials grant works](../assets/img/references/grants/client-credentials.png)
+
+![How the client credentials grant works]({{base_path}}/assets/img/references/grants/client-credentials.png)
 
 1. The client application sends its credentials (`client_id` and `client_secret`) to Asgardeo and requests an access token.
 2. Asgardeo sends the access token to the client application.
@@ -71,7 +76,7 @@ However, it is important to note that the access token is exposed in the browser
 
 The following diagram shows how the implicit grant flow works.
 
-![How the implicit grant works](../assets/img/references/grants/implicit-grant.png)
+![How the implicit grant works]({{base_path}}/assets/img/references/grants/implicit-grant.png)
 
 1. The user visits the client application and requests for login through Asgardeo.
 2. The client application redirects the authorization request to Asgardeo.
@@ -88,7 +93,7 @@ The password grant is primarily used in scenarios where the client application i
 
 The following diagram shows how the password grant flow works.
 
-![How the password grant works](../assets/img/references/grants/password-grant.png)
+![How the password grant works]({{base_path}}/assets/img/references/grants/password-grant.png)
 
 1. The user visits the client application and requests for login through Asgardeo.
 2. The client application requests the user's credentials.
@@ -98,6 +103,31 @@ The following diagram shows how the password grant flow works.
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
+## Token exchange grant
+OAuth 2.0 token exchange is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another. This grant type is defined in the [OAuth Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693)
+
+The token exchange grant type is useful in scenarios where an application needs to obtain a different type of access token with a different set of permissions or attributes than the one it currently possesses. It allows an application to act on a user's or another entity's behalf, obtaining a new access token that represents the requested authorization.
+
+!!! note "Important"
+    Currently, Asgardeo supports the following capabilities of the OAuth 2.0 Token Exchange specification:
+
+    - Impersonation semantics of the OAuth 2.0 token exchange grant type.
+    - Exchanging JWT security tokens in the token exchange flow.
+
+The following diagram shows how the token exchange grant flow works.
+
+![How the token exchange grant works]({{base_path}}/assets/img/references/grants/token-exchange-grant.png)
+
+1. The user sends a login request to the client application.
+2. The client application sends an authorization request to the third-party IdP.
+3. The third-party IdP returns the JWT access token for the user to the client application.
+4. The client application makes a token exchange request to the authorization server, specifying the Token Exchange grant type and providing the necessary parameters, such as the original access token.
+5. The authorization server validates the request, performs the token exchange, generates a new access token of the requested type based on the provided parameters and the server's policy, and responds to the client with the new access token.
+6. The client application can now request resources from the resource server by providing the access token.
+7. As the resource server trusts Asgardeo issued tokens, it returns the requested resources to the client application.
+
+See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-the-token-exchange-flow) for more details.
+
 ## Organization switch grant
 
 The organization switch grant is a custom grant type in Asgardeo that enables users to switch between different organizations in a hierarchical organization structure.
@@ -106,7 +136,7 @@ Client applications should always use one of the traditional grant types to auth
 
 The following diagram illustrates this flow.
 
-![How the organizatoin switch grant works](../assets/img/references/grants/organization-switch.png)
+![How the organizatoin switch grant works]({{base_path}}/assets/img/references/grants/organization-switch.png)
 
 1. The user visits the client application and requests login through the root organization.
 2. The client application redirects the authorization code request to the root organization.

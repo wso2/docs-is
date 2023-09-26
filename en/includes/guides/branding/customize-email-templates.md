@@ -4,7 +4,7 @@ The following topics explain how you can customize email notifications that are 
 
 ## Customize email branding
 
-Once you publish your [branding preferences](../../guides/branding/configure-ui-branding/#general-preferences) on {{ product_name }}, the branding preferences are automatically applied to emails sent to the users of your organization.
+Once you publish your [branding preferences]({{base_path}}/guides/branding/configure-ui-branding/#general-preferences) on {{ product_name }}, the branding preferences are automatically applied to emails sent to the users of your organization.
 
 !!! note
     This feature was onboarded on 20th September 2022. Email template branding will not be applied to email templates of organizations created before this date.
@@ -15,9 +15,9 @@ Once you publish your [branding preferences](../../guides/branding/configure-ui-
 The branding variables that affect the email templates are as follows:
 
 !!! note Email branding for B2B applications
-    If you have [ suborganizations ](../../guides/organization-management/manage-b2b-organizations/manage-suborganizations/) configured, note that the email branding you configure for your root organization also applies to your suborganizations.
+    If you have [suborganizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/) configured, note that the email branding you configure for your root organization also applies to your suborganizations.
 
-![Branding email templates](../../assets/img/guides/branding/email-branding.png)
+![Branding email templates]({{base_path}}/assets/img/guides/branding/email-branding.png)
 
 <table>
     <tr>
@@ -81,18 +81,19 @@ The branding variables that affect the email templates are as follows:
 
 You can tailor the **subject**, **body**, and **footer** of email notifications to your preferences by following the steps below.
 
-1. On the {{ product_name }}, go to **Develop** > **Email Templates**.
+1. On the {{ product_name }}, go to **Customization** > **Email Templates**.
 2. Select the email template and the relevant locale that you wish to modify.
-    ![Select email template](../../assets/img/guides/branding/select-email-template.png)
+
+    ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png)
 
 3. Make your modifications in the **Content** tab and use the **Preview** tab for a real-time preview.
 
 4. Click **Save** to publish your changes.
 
-Alternatively, you can customize the content of email templates using the [Email Templates API](../../apis/email-template/) provided by {{ product_name }}.
+Alternatively, you can customize the content of email templates using the [Email Templates API]({{base_path}}/apis/email-template/) provided by {{ product_name }}.
 
 !!! note
-    Learn more about email templates and the available email literals in the [Email templates](../../references/email-templates/) documentation.
+    Learn more about email templates and the available email literals in the [Email templates]({{base_path}}/references/email-templates/) documentation.
 
 ## Customize email settings
 

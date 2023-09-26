@@ -44,7 +44,7 @@ Follow the steps below to register the **Sign-In With Ethereum** IdP in {{ produ
 2. Click **Create Connection** and select **Sign-In With Ethereum**.
 3. Enter the following details of the Sign-In With Ethereum identity provider and click **Finish**:
 
-    ![Add Sign-In With Ethereum IDP in {{ product_name }}](../../../assets/img/guides/idp/siwe-idp/add-siwe-idp.png)
+    ![Add Sign-In With Ethereum IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-idp.png)
 
     <table>
       <tr>
@@ -65,7 +65,7 @@ Follow the steps below to register the **Sign-In With Ethereum** IdP in {{ produ
       </tr>
     </table>  
 
-4. If required, [enable JIT provisioning](../../guides/authentication/jit-user-provisioning/#enable-jit-user-provisioning).
+4. If required, [enable JIT provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#enable-jit-user-provisioning).
 
     !!! note
         If JIT provisioning is enabled, when a user successfully logs in with Sign-In With Ethereum for the first time, a user account is created in the {{ product_name }} Console with the wallet ID. This new user account will be managed by Ethereum. Note that JIT provisioning is disabled by default.
@@ -83,7 +83,7 @@ Follow the steps below to register the **Sign-In With Ethereum** IdP in {{ produ
 The following guide shows you how to enable **Sign-In With Ethereum** in an application.
 
 !!! note Before you begin
-    You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
@@ -94,7 +94,7 @@ The following guide shows you how to enable **Sign-In With Ethereum** in an appl
 4. Click **Add Authentication** in the same step as the default configuration.
 
 5. From the list of connections that appear, select the **Sign-In With Ethereum** connection that you created and click **Add**.
-    ![Add Sign-In With Ethereum login in {{ product_name }}](../../../assets/img/guides/idp/siwe-idp/add-siwe-federation-with-basic.png)
+    ![Add Sign-In With Ethereum login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-federation-with-basic.png)
 
 6. Click **Update** to save the changes.
 
@@ -109,19 +109,19 @@ Follow the steps given below.
     !!! note
         You will be redirected to the login interface of **Sign-In With Ethereum**.
 
-    ![Sign-In With Ethereum on {{ product_name }}](../../../assets/img/guides/idp/siwe-idp/siwe-option.png){: width=300"}
+    ![Sign-In With Ethereum on {{ product_name }}]({{base_path}}/assets/img/guides/idp/siwe-idp/siwe-option.png){: width=300"}
 
 4. Click **Sign-In With Ethereum** again to log in.
 
-    ![Sign-In With Ethereum's Login Interface](../../../assets/img/guides/idp/siwe-idp/siwe-login-interface.png){: width=500"}
+    ![Sign-In With Ethereum's Login Interface]({{base_path}}/assets/img/guides/idp/siwe-idp/siwe-login-interface.png){: width=500"}
 
 5. Select a preferred Ethereum wallet.
 
-    ![Sign-In With Ethereum wallet selection](../../../assets/img/guides/idp/siwe-idp/siwe-wallet-selection.png){: width=500"}
+    ![Sign-In With Ethereum wallet selection]({{base_path}}/assets/img/guides/idp/siwe-idp/siwe-wallet-selection.png){: width=500"}
 
 6. Sign the login request to log in to the application.
 
-    ![Sign-In With Ethereum request signing](../../../assets/img/guides/idp/siwe-idp/siwe-request-signing.png){: width=300"}
+    ![Sign-In With Ethereum request signing]({{base_path}}/assets/img/guides/idp/siwe-idp/siwe-request-signing.png){: width=300"}
 
 ## Add groups to the connection
 

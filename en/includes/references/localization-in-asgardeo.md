@@ -8,7 +8,7 @@ Asgardeo enables a language picker on the following interfaces exposed to busine
 The **default language** on these interfaces is configured as explained in the [language settings](#language-settings) section.
 
 !!! note Important
-    When [user attributes](../../guides/users/attributes/manage-attributes/) configured on Asgardeo are displayed to users (during user sign-up and consent management flows), only the default user attributes get translated.
+    When [user attributes]({{base_path}}/guides/users/attributes/manage-attributes/) configured on Asgardeo are displayed to users (during user sign-up and consent management flows), only the default user attributes get translated.
 
 These interfaces are i18n-supported, which allows Asgardeo to update the text content from i18n resource files. This feature allows your business users to experience these use cases in their preferred language. The languages that Asgardeo currently supports are listed below.
 
@@ -130,4 +130,4 @@ The following examples demonstrate how to set the `ui_locales` parameter in your
   ```
 
 !!! note Privacy policy and Terms of conditions URLs
-    The privacy policy and terms of conditions URLs are specified in your [branding configurations](../../guides/branding/configure-ui-branding/#advanced-preferences). The `ui_locales={ locales list }` parameter is appended to these URLs, which allows you to show the translated content for the user from your end.
+    The privacy policy and terms of conditions URLs are specified in your [branding configurations]({{base_path}}/guides/branding/configure-ui-branding/#advanced-preferences). The `ui_locales={ locales list }` parameter is appended to these URLs, which allows you to show the translated content for the user from your end.

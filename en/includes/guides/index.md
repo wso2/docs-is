@@ -8,17 +8,17 @@ If you are an application developer, you can integrate your applications with {{
 
 See the following sections for details:
 
-- [Applications](../guides/applications/)
-- [Authentication](../guides/authentication/)
+- [Applications]({{base_path}}/guides/applications/)
+- [Authentication]({{base_path}}/guides/authentication/)
 
 ## Administration guide
 
 The adminstration guides cover the topics related to managing the users in your organizations and other organization settings.
 
-- [User Management](../guides/users/)
-- [User Account Management](../guides/user-accounts/)
-- [User Self-Service](../guides/user-self-service/)
+- [User Management]({{base_path}}/guides/users/)
+- [User Account Management]({{base_path}}/guides/user-accounts/)
+- [User Self-Service]({{base_path}}/guides/user-self-service/)
 
 ## Your {{ product_name }} guide
 
-Manage your {{ product_name }} organization and your administration user account. See the topics in the [Your {{ product_name }}](../guides/your-asgardeo/) section for details.
+Manage your {{ product_name }} organization and your administration user account. See the topics in the [Your {{ product_name }}]({{base_path}}/guides/your-asgardeo/) section for details.

@@ -23,6 +23,7 @@ Administrators in an organization can use **user stores** to store information a
 </table>
 
 ## What's Next
-- [Connect a remote user store](../../guides/users/user-stores/configure-a-user-store/)
-- [Configure high availability for a remote user store](../../guides/users/user-stores/configure-high-availability/)
-- [Update the configurations of a remote user store](../../guides/users/user-stores/update-user-stores/)
+
+- [Connect a remote user store]({{base_path}}/guides/users/user-stores/configure-a-user-store/)
+- [Configure high availability for a remote user store]({{base_path}}/guides/users/user-stores/configure-high-availability/)
+- [Update the configurations of a remote user store]({{base_path}}/guides/users/user-stores/update-user-stores/)

@@ -8,14 +8,14 @@ See the guides given below to add login to your SPAs with {{ product_name }}.
 
 ## Try out samples
 
-- [React SPA Sample](../../get-started/try-samples/qsg-spa-react/)
-- [JavaScript SPA Sample](../../get-started/try-samples/qsg-spa-javascript/)
+- [React SPA Sample]({{base_path}}/get-started/try-samples/qsg-spa-react/)
+- [JavaScript SPA Sample]({{base_path}}/get-started/try-samples/qsg-spa-javascript/)
 
 ## Use an SDK to add login to your SPA
 
-- [React SDK](../../get-started/try-your-own-app/react/)
-- [Javascript SDK](../../get-started/try-your-own-app/javascript/)
+- [React SDK]({{base_path}}/get-started/try-your-own-app/react/)
+- [Javascript SDK]({{base_path}}/get-started/try-your-own-app/javascript/)
 
 ## Manually add login to your SPA
 
-- [Implement authorization code flow with PKCE](../../guides/authentication/oidc/implement-auth-code-with-pkce/)
+- [Implement authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/)

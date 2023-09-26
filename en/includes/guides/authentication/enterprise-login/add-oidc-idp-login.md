@@ -32,7 +32,7 @@ Now, let's register the OIDC IdP in {{ product_name }}.
 1. On the {{ product_name }} Console, click **Connections**.
 2. Click **Create Connection** and select **Standard-Based IdP**.
 3. Provide a unique **identity provider name**, select **OpenID Connect**, and click **Next**.
-   ![Create OIDC Enterprise IDP in {{ product_name }}](../../../assets/img/guides/idp/oidc-enterprise-idp/create-oidc-enterprise-idp-wizard.png){: width=600"}
+   ![Create OIDC Enterprise IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/create-oidc-enterprise-idp-wizard.png){: width=600"}
 
 4. Enter the following details of the external OIDC identity provider and click **Next**:
 
@@ -67,31 +67,33 @@ Now, let's register the OIDC IdP in {{ product_name }}.
     - **JWKS endpoint**: The JWKS endpoint of the external identity provider.
     - **Use PEM certificate**: Upload or paste the public certificate of the external identity provider. The certificate should be in PEM format.
 
-        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der` expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/)
+        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/)"
             **Convert CRT to PEM**
-            ```bash 
+            ```bash
             openssl x509 -in cert.crt -out cert.pem
+
             ```
             **Convert CER to PEM:**
-            ```bash 
+            ```bash
             openssl x509 -in cert.cer -out cert.pem
             ```  
+
             **Convert DER to PEM:**
-            ```bash 
+            ```bash
             openssl x509 -in cert.der -out cert.pem
             ```
 
 6. Click **Finish** to complete the registration.
 
 !!! note
-    Once the OIDC identity provider is created, you can configure [additional OIDC settings](../../references/idp-settings/oidc-settings-for-idp/#additional-settings) from the **Settings** tab.
+    Once the OIDC identity provider is created, you can configure [additional OIDC settings]({{base_path}}/references/idp-settings/oidc-settings-for-idp/#additional-settings) from the **Settings** tab.
 
 {{ product_name }} requests for the **openid** scope from the external identity provider. If you need more attributes from the external identity provider, you can configure scopes from the **Settings** tab.
 
 ## Enable the OIDC IdP for login
 
 !!! note Before you begin
-    You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, click **Applications**.
 
@@ -104,13 +106,13 @@ Now, let's register the OIDC IdP in {{ product_name }}.
     !!! note Recommendations
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
 
-    ![Add OIDC identity provider login in {{ product_name }}](../../../assets/img/guides/idp/oidc-enterprise-idp/enable-oidc-enterprise-login-with-basic.png){: width=700"}
+    ![Add OIDC identity provider login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/enable-oidc-enterprise-login-with-basic.png){: width=700"}
 
 ## How it works
 
 To provide this login capability, {{ product_name }} uses the standard OpenID Connect with authorization code flow <!-- [OpenID Connect with authorization code flow](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)--> underneath. For an application, this flow works as follows:
 
-![Add OIDC enterprise login in {{ product_name }}](../../../assets/img/guides/idp/oidc-enterprise-idp/oidc-enterprise-login-flow.png){: width=700"}
+![Add OIDC enterprise login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/oidc-enterprise-login-flow.png){: width=700"}
 
 ## Add groups to the connection
 
@@ -122,5 +124,5 @@ To provide this login capability, {{ product_name }} uses the standard OpenID Co
 )
 ## Related links
 
-- [Configure JIT user provisioning](../../guides/authentication/jit-user-provisioning/)
-- [Configure OIDC IdP settings](../../references/idp-settings/oidc-settings-for-idp/)
+- [Configure JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/)
+- [Configure OIDC IdP settings]({{base_path}}/references/idp-settings/oidc-settings-for-idp/)

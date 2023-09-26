@@ -10,10 +10,10 @@ When configuring SAML based sign in with {{ product_name }}, you need to know:
 2. Issuer of {{ product_name }}
 3. The public certificate of {{ product_name }}
 
- ![Integrate SAML app](../../../assets/img/guides/applications/saml-app/saml-integration.png)
+ ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png)
 
 ## Prerequisite
-To get started, you need to have an application registered in {{ product_name }}. If you don't have an app registered, go to {{ product_name }} to [register a SAML application](../../guides/applications/register-saml-web-app/).
+To get started, you need to have an application registered in {{ product_name }}. If you don't have an app registered, go to {{ product_name }} to [register a SAML application]({{base_path}}/guides/applications/register-saml-web-app/).
 
 ## Get SAML configs
 You need to know the SAML IdP configurations of {{ product_name }} if you want to add SAML login to your application.
@@ -95,7 +95,7 @@ To download the SAML metadata file of your organization in {{ product_name }},
 3. Go to the **Info** section.
 
 4. Click **Download IdP Metadata** to download the metadata xml file.
-    ![Get SAML metadata](../../../assets/img/guides/applications/saml-app/download-idp-metadata.png)
+    ![Get SAML metadata]({{base_path}}/assets/img/guides/applications/saml-app/download-idp-metadata.png)
 
 #### Use URL Based Metadata
 
@@ -128,7 +128,7 @@ You can login to {{ product_name }} and get endpoints of {{ product_name }}.
     - **Single Sign-On** : Sign-on URL of {{ product_name }}
     - **Single Logout** : Logout URL of {{ product_name }}
     - **IdP certificate** : Public certificate of {{ product_name }}
-   ![Get SAML endpoints](../../../assets/img/guides/applications/saml-app/idp-endpoints.png)
+   ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png)
 
 4. You can download the certificate of {{ product_name }} from **IdP certificate**.
 
@@ -136,4 +136,4 @@ You can login to {{ product_name }} and get endpoints of {{ product_name }}.
 
 ## What's next?
 Now you've integrated your SAML web application. You also can:
-- [Configure SAML settings](../../references/app-settings/saml-settings-for-app/)
+- [Configure SAML settings]({{base_path}}/references/app-settings/saml-settings-for-app/)

@@ -1,6 +1,6 @@
 # Manage OIDC Scopes
 
-In {{ product_name }}, each piece of user information is mapped to a [user attribute](../../guides/users/attributes/manage-attributes/).
+In {{ product_name }}, each piece of user information is mapped to a [user attribute]({{base_path}}/guides/users/attributes/manage-attributes/).
 
 [OpenID Connect (OIDC) Scopes](https://openid.net/specs/) are a convenient way of grouping such user attributes. Applications can use scopes to request access to the user attributes corresponding to them. Access to other attributes that do not belong to the requested scopes is restricted.
 
@@ -85,7 +85,7 @@ To add new scopes to your organization:
 1. In the {{ product_name }} Console, go to **Scopes**
 2. Click **New OIDC Scope** to open the **Create OpenID Connect Scope** dialog box.
   
-   ![Create OpenID Connect scopes](../../../assets/img/guides/organization/scopes/create-scopes.png)
+   ![Create OpenID Connect scopes]({{base_path}}/assets/img/guides/organization/scopes/create-scopes.png)
 
 3. Enter values for the required properties and click **Next**:
     <table>
@@ -106,7 +106,7 @@ To add new scopes to your organization:
         </table>
 4. Select the attributes that should correspond to the scope and click **Finish**.
 
-    ![Select attributes corresponding to scope](../../../assets/img/guides/organization/scopes/select-attributes.png)
+    ![Select attributes corresponding to scope]({{base_path}}/assets/img/guides/organization/scopes/select-attributes.png)
 
 ## Edit Scopes
 
@@ -124,11 +124,11 @@ You can add or delete attributes to scopes based on your requirement.
 
 As an application developer, you can follow the steps given below to configure your applications to request user attributes using scopes.
 
-1. First, go to the {{ product_name }} Console and see that your application has the [required attributes enabled](../../guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-user-attributes).
+1. First, go to the {{ product_name }} Console and see that your application has the [required attributes enabled]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-user-attributes).
 
 2. Copy the scopes listed at the end of the **User Attributes** section. You may have [default OIDC scopes](#default-oidc-scopes) or [custom scopes](#create-custom-scopes) listed.
 
-    ![Selected Scopes](../../../assets/img/guides/organization/scopes/selected-scopes.png)
+    ![Selected Scopes]({{base_path}}/assets/img/guides/organization/scopes/selected-scopes.png)
 
 3. When configuring the authentication request in your client app, append the **scope** parameter with the scopes that you need:
 
@@ -145,7 +145,7 @@ As an application developer, you can follow the steps given below to configure y
       ```
       
       !!! note
-        Find out more about [configuring applications](../../get-started/start-integrating-apps/).
+        Find out more about [configuring applications]({{base_path}}/get-started/start-integrating-apps/).
 
     - For client apps using direct API calls to authenticate:
 

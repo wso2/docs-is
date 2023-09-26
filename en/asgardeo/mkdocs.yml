@@ -51,6 +51,7 @@ theme:
     - content.code.copy
     - content.action.edit
     - content.action.view
+    - content.tabs.link
   language: 'en'
   palette:
     # Palette toggle for automatic mode
@@ -178,6 +179,7 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
+          - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
       - API authorization: guides/api-authorization.md
       - Branding:
         - Branding: guides/branding/index.md
@@ -237,6 +239,7 @@ nav:
         - Manage B2B organizations:
           - Manage B2B organizations: guides/organization-management/manage-b2b-organizations/index.md
           - Set up sub organizations: guides/organization-management/manage-b2b-organizations/manage-suborganizations.md
+          - Onboard sub organization admins: guides/organization-management/manage-b2b-organizations/onboard-sub-org-admins.md
           - Administration of sub organizations: guides/organization-management/manage-b2b-organizations/manage-b2b-administration.md
           - Share applications: guides/organization-management/manage-b2b-organizations/share-applications.md
           - Try a B2B use case: guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case.md
@@ -256,6 +259,7 @@ nav:
     - Authenticate users into Flutter applications: tutorials/auth-users-into-flutter-apps.md
     - Connect Asgardeo as an OIDC attribute provider (with Microsoft Entra Verified ID): tutorials/connect-asgardeo-with-ms-entra.md
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
+    - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
   - Integrations:
     - Integrations: integrations/index.md
   - APIs:
@@ -285,6 +289,7 @@ nav:
       - Suborganization APIs: apis/organization-management/index.md
       - Get access for suborganization APIs: apis/organization-management/authentication.md
       - User management - SCIM2 API: apis/organization-management/org-scim2.md
+      - B2B self service management API: apis/organization-management/onboard-admins-self-service.md
       - Application management API: apis/organization-management/org-application-management.md
       - Identity providers API: apis/organization-management/org-idp.md
       - Organization management API: apis/organization-management/org-management.md
@@ -310,6 +315,11 @@ nav:
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - Localization in Asgardeo: references/localization-in-asgardeo.md
+    - Production checklist:
+      - references/production-checklist/index.md
+      - Readiness check: references/production-checklist/readiness-check.md
+      - Security check: references/production-checklist/security-check.md
+      - Best practices: references/production-checklist/best-practices.md
 # Extensions
 # Extensions
 markdown_extensions:
@@ -335,6 +345,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

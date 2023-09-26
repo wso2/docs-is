@@ -1,7 +1,7 @@
 # OIDC settings for apps
 
 You can find the OpenID Connect protocol related settings under **protocol** section of the selected application.
-  ![OIDC settings](../../assets/img/guides/applications/app-protocol-settings.png)
+  ![OIDC settings]({{base_path}}/assets/img/guides/applications/app-protocol-settings.png)
 
 ## Basic settings
 
@@ -9,7 +9,7 @@ You can find the OpenID Connect protocol related settings under **protocol** sec
 
 When your application is registered in Asgardeo, a client ID is generated as the identifier of the application. If you register a traditional web application, a client secret is generated in addition to the client ID as shown below.
 
-![Get client ID and secret of webapp](../../assets/img/guides/applications/get-client-id-and-secret.png)
+![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png)
 
 ### Allowed grant types
 This will determine how the application communicates with the token service. Web application template supports following grant types:
@@ -63,7 +63,7 @@ It is recommended to use code grant for public clients. For single-page applicat
 You can enable refresh token grant to get refresh tokens.
 However, [implicit grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.1.2) and [password](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.4) grants are not recommended due to security reasons.
 
-See [grant types of Asgardeo](../../references/grant-types-in-asgardeo/) for more details.
+See [grant types of Asgardeo]({{base_path}}/references/grant-types-in-asgardeo/) for more details.
 
 ### Public client
 
@@ -74,7 +74,7 @@ Authorized redirect URLs are not required for `Client Credentials` and `Password
 
 <CommonGuide guide='guides/fragments/manage-app/oidc-settings/authorized-urls.md'/>
 
-The `redirect_uri` sent in the [login](../../guides/authentication/oidc/implement-auth-code/#get-authorization-code) request and the `post_logout_redirect_uri` sent in the [logout request](../../guides/authentication/oidc/add-logout/) should match with one of the registered authorized redirect URLs.
+The `redirect_uri` sent in the [login]({{base_path}}/guides/authentication/oidc/implement-auth-code/#get-authorization-code) request and the `post_logout_redirect_uri` sent in the [logout request]({{base_path}}/guides/authentication/oidc/add-logout/) should match with one of the registered authorized redirect URLs.
 
 
 ### Allowed origins
@@ -106,7 +106,7 @@ You can either <b>Provide Certificate</b> or <b>Use JWKS endpoint</b> to add a c
 Follow the steps given below to Provide Certificate.
 
 1. Select <b>Provide Certificate</b> and click <b>New Certificate</b>.
-![Upload app certificate](../../assets/img/guides/applications/oidc/upload-certificate-of-app.png)
+![Upload app certificate]({{base_path}}/assets/img/guides/applications/oidc/upload-certificate-of-app.png)
 
 2. Upload the certificate file or copy the certificate contents.
 <br>

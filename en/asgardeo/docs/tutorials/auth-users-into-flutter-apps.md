@@ -34,7 +34,7 @@ The following steps explain the high-level authentication flow:
 
 ### OIDC authentication method
 
-The Flutter application integrates with Asgardeo using the [OIDC](https://openid.net/connect/) protocol, which is a standard way of supporting secure authentication and identity and access management. OIDC supports several grant types, and here the [Authorization Code flow](../guides/authentication/oidc/implement-auth-code.md) is used.
+The Flutter application integrates with Asgardeo using the [OIDC](https://openid.net/connect/) protocol, which is a standard way of supporting secure authentication and identity and access management. OIDC supports several grant types, and here the [Authorization Code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code.md) is used.
 
 ### SDKs
 
@@ -66,19 +66,19 @@ In this tutorial, we will walk you through the process of adding authentication 
 
 ## Step 2: Register your application in Asgardeo
 
-To integrate Asgardeo as your CIAM provider, you need to register your application as a Mobile Application in Asgardeo. Since you have chosen iOS as your development platform, you will register it as a mobile application. See the instructions on [registering a mobile application](../guides/applications/register-mobile-app.md).
+To integrate Asgardeo as your CIAM provider, you need to register your application as a Mobile Application in Asgardeo. Since you have chosen iOS as your development platform, you will register it as a mobile application. See the instructions on [registering a mobile application]({{base_path}}/guides/applications/register-mobile-app.md).
 
 !!! note
     When registering the mobile application, be sure to add `wso2.asgardeo.sampleflutterapp://login-callback` as the authorized redirect URI. This is the same callback URL you will add when setting up the application.
 
-After registering your application with Asgardeo, you can enable [user attributes for the app](../guides/authentication/user-attributes/enable-attributes-for-oidc-app.md). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
+After registering your application with Asgardeo, you can enable [user attributes for the app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app.md). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
 
 !!! note
-  If you need additional attributes that are not listed in the user’s profile section by default, you can [configure new attributes](../guides/users/attributes/manage-attributes.md) and retrieve them through the `profile` scope.
+  If you need additional attributes that are not listed in the user’s profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes.md) and retrieve them through the `profile` scope.
 
 In this tutorial, you will retrieve the First Name, Last Name, Mobile, Country, Birth Date, and Photo URL as profile information.
 
-Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo](../guides/users/manage-customers/#onboard-a-user).
+Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-customers/#onboard-a-user).
 
 ## Step 3: Install dependencies
 
@@ -363,29 +363,29 @@ Let's walk through the end-to-end flow of the application we built in this tutor
 
 2. Click **Sign In** to start the authentication process.
 
-    ![sign-in page of the Flutter app](../assets/img/tutorials/flutter-app/sign-in-flutter.png){: width="300"}
+    ![sign-in page of the Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/sign-in-flutter.png){: width="300"}
 
     You will be redirected to Asgardeo's login page, where you will enter valid user credentials.
 
 3. Use the credentials of the user created when you registered the application in Asgardeo.
 
-    ![sign in to Flutter app](../assets/img/tutorials/flutter-app/asgardeo-sign-in.png){: width="300"}
+    ![sign in to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/asgardeo-sign-in.png){: width="300"}
 
     Upon the first login attempt, Asgardeo prompts for consent to share the configured attributes with the Flutter application.
 
 4. Give your consent accordingly, allowing the application to access your profile information.
 
-    ![give consent to Flutter app](../assets/img/tutorials/flutter-app/asgardeo-consent.png){: width="300"}
+    ![give consent to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/asgardeo-consent.png){: width="300"}
 
 5. Once logged in, you will see a home page with the **View profile** and **Sign out** options.
 
-    ![home page to Flutter app](../assets/img/tutorials/flutter-app/flutter-home-page.png){: width="300"}
+    ![home page to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/flutter-home-page.png){: width="300"}
 
 6. Go to the **Profile Information** section by clicking **View profile**.
 
     You can now view the logged-in user's profile information. You can click **Back to home** to navigate back to the home page.
 
-    ![home page to Flutter app](../assets/img/tutorials/flutter-app/flutter-view-profile.png){: width="300"}
+    ![home page to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/flutter-view-profile.png){: width="300"}
 
 7. Log out from the application by clicking **Sign out**.
 

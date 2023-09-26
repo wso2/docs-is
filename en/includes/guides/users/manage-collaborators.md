@@ -3,7 +3,7 @@
 This guide walks you through the steps of managing an administrator account. If you are the owner or an existing administrator in the organization, you can onboard new administrators or delete existing administrator accounts.
 
 !!! note
-    You cannot manage the user profiles of other administrators or update their passwords from the {{ product_name }} Console. Administrators must [manage their own profiles and passwords](../../guides/your-asgardeo/asgardeo-self-service/#change-password) using the **My Account** portal.
+    You cannot manage the user profiles of other administrators or update their passwords from the {{ product_name }} Console. Administrators must [manage their own profiles and passwords]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#change-password) using the **My Account** portal.
 
 ## Onboard an administrator
 
@@ -16,18 +16,18 @@ Let's look at how administrators can onboard another administrator by sending an
 
 To onboard an administrator:
 
-1. On the {{ product_name }} Console, go to **Administrators**.
+1. On the {{ product_name }} Console, go to **Organizational Settings** > **Administrators**.
 
 2. Click **Add Administrator** and provide the required details.
 
     !!! note
         Note that if your organization allows you to [assign admin privileges to business users](#assign-admin-privileges-to-users), you will see the following options when you click **Add Administrator**.
 
-        ![Add administrator dropdown](../../assets/img/guides/users/add-administrator-dropdown.png)
+        ![Add administrator dropdown]({{base_path}}/assets/img/guides/users/add-administrator-dropdown.png)
 
         You need to select **Invite admins to {{ product_name }}** from this list to proceed with inviting an external admin.
 
-    ![Add administrator user](../../assets/img/guides/users/add-administrator.png)
+    ![Add administrator user]({{base_path}}/assets/img/guides/users/add-administrator.png)
 
     <table>
         <tr>
@@ -40,7 +40,7 @@ To onboard an administrator:
         </tr>
         <tr>
             <th>Role</th>
-            <td>The <b>Administrator</b> role is assigned by default. <br>For details on the available user roles and the permissions assigned to them, see [{{ product_name }} User Roles](../../references/user-management/user-roles/).</td>
+            <td>The <b>Administrator</b> role is assigned by default. <br>For details on the available user roles and the permissions assigned to them, see [{{ product_name }} User Roles]({{base_path}}/references/user-management/user-roles/).</td>
         </tr>
     </table>
 
@@ -55,17 +55,17 @@ You can assign admin privileges to existing business users only if it is allowed
 
 First, configure administrator settings for the organization:
 
-1. On the {{ product_name }} Console, go to **Administrators**.
+1. On the {{ product_name }} Console, go to **Organizational Settings** > **Administrators**.
 
 2. Click the settings icon next to **+ Add Administrator** to open the **Administrator Settings** page.
 
 3. Switch on the **Enable users to manage the organization** toggle.
 
-    ![Assign an existing user as an admin](../../assets/img/guides/users/enable-users-to-manage-organizations.png)
+    ![Assign an existing user as an admin]({{base_path}}/assets/img/guides/users/enable-users-to-manage-organizations.png)
 
 4. Go back to the **Administrators** page and see that the **+ Add Administrator** list is updated as follows:
 
-    ![Add administrator dropdown](../../assets/img/guides/users/add-administrator-dropdown.png)
+    ![Add administrator dropdown]({{base_path}}/assets/img/guides/users/add-administrator-dropdown.png)
 
 Now, let's assign admin privileges to a user:
 
@@ -87,7 +87,7 @@ https://console.asgardeo.io/t/{org_name}
 ## View administrators
 To view the administrators of your organization:
 
-On the {{ product_name }} Console, go to **Administrators**. You will see the list of administrators presented in two tabs as follow.
+On the {{ product_name }} Console, go to **Organizational Settings** > **Administrators**. You will see the list of administrators presented in two tabs as follow.
 
 <table>
     <tr>
@@ -110,7 +110,7 @@ On the {{ product_name }} Console, go to **Administrators**. You will see the li
 
 To delete an administrator:
 
-1. On the {{ product_name }} Console, click **Administrators**.
+1. On the {{ product_name }} Console, click **Organizational Settings** > **Administrators**.
 2. Click **Delete** for the administrator you want to remove.
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.
