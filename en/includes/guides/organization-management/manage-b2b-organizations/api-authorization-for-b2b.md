@@ -1,23 +1,23 @@
 # API authorization for sub organizations
-{{ product_name }} allows organizations to authorize user access to an application's API resources based on the API permissions, application roles, and groups assigned to the users. See [API authorization](../../guides/api-authorization/) for more information.
+{{ product_name }} allows organizations to authorize user access to an application's API resources based on the API permissions, application roles, and groups assigned to the users. See [API authorization]({{base_path}}/guides/api-authorization/) for more information.
 
 API resources are created and authorized for applications on the root organization. If the application consuming the API resources is shared with the sub organization, all application-specific configurations of API resources are inherited by the sub organization.
 
-![The relationship between terms](../../../assets/img/guides/api-authorization/b2b-api-authorization.png)
+![The relationship between terms]({{base_path}}/assets/img/guides/api-authorization/b2b-api-authorization.png){: width="700" style="display: block; margin: 0 auto;"}
 
 ## Prerequisites
 You need to configure your API resources on the root organization
 
-1. [Register an API resource](../../guides/api-authorization/#register-an-api-resource)
-2. [Authorize the API resource to an app](../../guides/api-authorization/#authorize-the-api-resources-for-an-app)
-3. [Create application roles](../../guides/api-authorization/#create-application-roles)
+1. [Register an API resource]({{base_path}}/guides/api-authorization/#register-an-api-resource)
+2. [Authorize the API resource to an app]({{base_path}}/guides/api-authorization/#authorize-the-api-resources-for-an-app)
+3. [Create application roles]({{base_path}}/guides/api-authorization/#create-application-roles)
 
 ## Assign sub organization user groups to application roles
 
 !!! note Application roles of a sub organization
     The shared application will inherit the permission to role assignments from the application of the root organization.
 
-    ![Application roles inherited from the root organization](../../../assets/img/guides/api-authorization/b2b-inherited-application-roles.png)
+    ![Application roles inherited from the root organization]({{base_path}}/assets/img/guides/api-authorization/b2b-inherited-application-roles.png)
 
     Role-to-group assigning should be done separately for the sub organization, as the sub organization does not inherit the groups from the root organization.
 
@@ -33,7 +33,7 @@ sub organizations maintain the following three types of groups, and you can assi
 ### Assign user groups to application roles
 To assign application roles to user groups of the sub organization:
 
-1. On the {{ product_name }} Console, [switch to the sub organization](../../guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
+1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
 2. Go to **Roles** > **Application Roles** and click **Configure**.
 3. Expand the shared application and click `+` on the application role you wish to assign to a group.
 4. Go to Groups and click **+ Assign Groups**.
@@ -47,7 +47,8 @@ To assign application roles to External Groups:
 
 !!! note Before you begin
     To get started,
-    - You should [register, configure, and create groups for a connection](../../guides/authentication/#manage-connections) in your sub organization.
+
+    - You should [register, configure, and create groups for a connection]({{base_path}}/guides/authentication/#manage-connections) in your sub organization.
     - You should add this connection to the sign-in flow of the application to which the application roles belong.
 
 1. On the {{ product_name }} Console, [switch to the sub organization](../../guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
@@ -63,8 +64,8 @@ To assign application roles to External Groups:
 
 To invite a root organization's user group and assign it to a role:
 
-1. [Create a group in the root organization](../../guides/users/manage-groups/#onboard-a-group) and [assign the users](../../guides/users/manage-groups/#assign-users-to-groups) that should be invited.
-2. [Get the required access tokens](../../apis/organization-management/authentication/) to call the API.
+1. [Create a group in the root organization]({{base_path}}/guides/users/manage-groups/#onboard-a-group) and [assign the users]({{base_path}}/guides/users/manage-groups/#assign-users-to-groups) that should be invited.
+2. [Get the required access tokens]({{base_path}}/apis/organization-management/authentication/) to call the API.
 3. Use the access token and the sub organization ID obtained after executing step 2 and execute the following cURL:
     ``` bash
     curl --location --request PATCH 'https://api.authz-dv.cloudservices.wso2.com/o/<sub-org-id>/applications/<shared-app-id>/roles/<role-name>/cross-org-group-mapping' \
@@ -122,7 +123,7 @@ Once the above cURL is executed successfully, the application role of the sub or
 
 To view the group-to-role assignment:
 
-1. On the {{ product_name }} Console, [switch to the sub organization](../../guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
+1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
 2. Go to **Roles** > **Application Roles** and click **Configure**.
 3. Expand the shared application and click `+` on the application role to which you assigned the invited user group.
 4. Go to the **Invited User Groups** tab. You will now see the invited user group assigned to the application role.
@@ -132,7 +133,7 @@ To view the group-to-role assignment:
 Follow the steps given below to try out the RBAC flow:
 
 !!! note
-    Note that we are using {{ product_name }}'s [B2B Guardio insurance application](../../guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case/) for this scenario.
+    Note that we are using {{ product_name }}'s [B2B Guardio insurance application]({{base_path}}/guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case/) for this scenario.
 
 To request scopes for the user:
 
@@ -144,7 +145,7 @@ To request scopes for the user:
     2. Go to **Applications** and select your application.
     3. Copy the scopes listed at the end of the **API Authorization** section
 
-        ![Additional scopes to access the API resource](../../../assets/img/guides/api-authorization/additional-scopes.png)
+        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/api-authorization/additional-scopes.png)
 
     !!! tip
             When you add scopes to the configuration file, add them as comma-separated values.
