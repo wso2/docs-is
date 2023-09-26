@@ -14,7 +14,7 @@ To view the SCIM 2 attributes mapped to user attributes in your organization:
 1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
 2. Click **SCIM 2.0**.
 
-   ![View SCIM2 attributes](../../../assets/img/guides/organization/attributes/attribute-mappings/view-scim2-attributes.png)
+   ![View SCIM2 attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/view-scim2-attributes.png)
 
 ## Add a SCIM 2.0 custom schema attribute
 You can add new SCIM 2.0 custom schema attributes as follows:
@@ -23,7 +23,7 @@ You can add new SCIM 2.0 custom schema attributes as follows:
 2. Click **SCIM 2.0** and click **New Attribute**.
 3. Enter values for the following properties:
 
-   ![Add OpenID Connect attributes](../../../assets/img/guides/organization/attributes/attribute-mappings/add-scim2-attribute-mapping.png)
+   ![Add OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/add-scim2-attribute-mapping.png)
 
    <table>
          <tbody>

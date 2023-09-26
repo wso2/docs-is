@@ -6,15 +6,15 @@ To control access to your application based on the user's group, you can apply t
 
 Consider a scenario with two user groups, `manager` and `employee`. Login should be allowed to users assigned to these groups.
 
-![Group-based access control](../../../assets/img/guides/conditional-auth/group-based-access-control.png)
+![Group-based access control]({{base_path}}/assets/img/guides/conditional-auth/group-based-access-control.png)
 
 ## Prerequisites
 
-- You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+- You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 - Create two user groups named `manager` and `employee` and assign user accounts to them. For instructions, see the following:
-      - [Managing groups](../../guides/users/manage-groups/)
-      - [Managing users](../../guides/users/manage-groups/)
+      - [Managing groups]({{base_path}}/guides/users/manage-groups/)
+      - [Managing users]({{base_path}}/guides/users/manage-groups/)
 
 ## Configure the login flow
 
@@ -86,7 +86,7 @@ Let's look at how this script works.
 4. If the user belongs to any of the configured groups, the user will be able to log in successfully.
 
 !!! note
-      Find out more about the scripting language in the [Conditional Authentication API Reference](../../references/conditional-auth/api-reference/).
+      Find out more about the scripting language in the [Conditional Authentication API Reference]({{base_path}}/references/conditional-auth/api-reference/).
 
 ## Try it out
 
@@ -96,5 +96,5 @@ Follow the steps given below.
 2. Try to log in as a user who belongs to the specified groups. This user will successfully log in to the application.
 3. Log out of the application.
 4. Log in again as a user who does not belong to the specified groups. The user will see the following error.
-    ![authentication failed](../../../assets/img/guides/conditional-auth/auth-failure.png)
+    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png)
 

@@ -11,11 +11,11 @@ Consider a scenario where the internal IPs of an organization are as follows: `1
 
 Users who log in from the internal network should be allowed to simply log in with their username and password.
 
-![IP address based adaptive authentication](../../../assets/img/guides/conditional-auth/ip-based-adaptive-auth.png)
+![IP address based adaptive authentication]({{base_path}}/assets/img/guides/conditional-auth/ip-based-adaptive-auth.png)
 
 ## Prerequisites
 
-You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 ## Configure the login flow
 
@@ -134,7 +134,7 @@ configured IP address range.
 executed.
 
 !!! note
-    Find out more about the scripting language in the [Conditional Authentication API Reference](../../references/conditional-auth/api-reference/).
+    Find out more about the scripting language in the [Conditional Authentication API Reference]({{base_path}}/references/conditional-auth/api-reference/).
 
 ## Try it out
 
@@ -148,4 +148,4 @@ Follow the steps given below.
 
 4. Log in with a user who does not belong to the configured IP address range. TOTP authentication is prompted.
 
-    ![ip-based-2fa-conditional-auth-totp-page](../../../assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}
+    ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}

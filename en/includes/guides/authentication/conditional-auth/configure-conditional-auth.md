@@ -11,8 +11,8 @@ Given below are the high-level steps for enabling [conditional authentication](.
 
 There are two ways to add a conditional authentication script:
 
-- Use a [predefined template](../../guides/authentication/conditional-auth/#script-templates).
-- Write a [new conditional auth script](../../guides/authentication/conditional-auth/write-your-first-script/).
+- Use a [predefined template]({{base_path}}/guides/authentication/conditional-auth/#script-templates).
+- Write a [new conditional auth script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 
 ## Add a secret to the script
 Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process. You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for conditional authentication.
@@ -21,13 +21,13 @@ Secrets securely store values associated with external APIs. These secret values
 
 1. Enable conditional authentication and click the key icon above the script to create a new secret.
 
-    ![Add secret to script](../../../assets/img/guides/secret/add-secret-to-script.png)
+    ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png)
 
 2. Click **Create new secret** from the drop-down menu.
 
 3. Enter the following details:
 
-    ![Create secret in {{ product_name }}](../../../assets/img/guides/secret/create-a-secret.png){: width="600"}
+    ![Create secret in {{ product_name }}]({{base_path}}/assets/img/guides/secret/create-a-secret.png){: width="600"}
 
     <table>
         <tr>
@@ -52,7 +52,7 @@ Secrets securely store values associated with external APIs. These secret values
 
 ### Delete an existing secret
 
-1. Enable conditional authentication and click the key icon above the script to delete a secret. ![Add secret to script](../../../assets/img/guides/secret/add-secret-to-script.png)
+1. Enable conditional authentication and click the key icon above the script to delete a secret. ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png)
 
 2. Click the trash icon next to the secret you wish to delete.
 

@@ -208,7 +208,7 @@ To assign roles to groups:
 Follow the steps given below to try out the RBAC flow:
 
 !!! note
-    Note that we are using {{ product_name }}'s [React sample application](../../get-started/try-samples/qsg-spa-react/) for this scenario.
+    Note that we are using {{ product_name }}'s [React sample application]({{base_path}}/get-started/try-samples/qsg-spa-react/) for this scenario.
 
 ### Request scopes for the user
 

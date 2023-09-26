@@ -1,6 +1,6 @@
 # Manage OpenID Connect attribute mappings
 
-You can map OpenID Connect attributes to [default attributes](../../guides/users/attributes/manage-attributes/) in the organization. This allows applications that implement OpenID Connect login to receive user information in the ID token.
+You can map OpenID Connect attributes to [default attributes]({{base_path}}/guides/users/attributes/manage-attributes/) in the organization. This allows applications that implement OpenID Connect login to receive user information in the ID token.
 
 ## View OpenID Connect attributes
 To view the OpenID Connect attributes available for your organization:
@@ -8,7 +8,7 @@ To view the OpenID Connect attributes available for your organization:
 1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
 2. Click **OpenID Connect**.
 
-   ![View OpenID Connect attributes](../../../assets/img/guides/organization/attributes/attribute-mappings/view-oidc-attributes.png)
+   ![View OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/view-oidc-attributes.png)
 
 You can find the mapped OpenID Connect attributes.
 
@@ -19,7 +19,7 @@ You can find the mapped OpenID Connect attributes.
 2. Click **OpenID Connect** > **New Attribute**.
 4. Enter values for the following properties:
 
-   ![Add OpenID Connect attributes](../../../assets/img/guides/organization/attributes/attribute-mappings/add-oidc-attribute-mapping.png)
+   ![Add OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/add-oidc-attribute-mapping.png)
 
    <table>
          <tbody>
@@ -51,7 +51,7 @@ For example, shown below is an OpenID Connect attribute mapped to a user attribu
       </tbody>
     </table>
 
-You need to enable `email_home` as a [requested attribute](../../guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-user-attributes) for your application and also add it to an OIDC scope. You can then configure your application to receive this user information when a user signs in.
+You need to enable `email_home` as a [requested attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-user-attributes) for your application and also add it to an OIDC scope. You can then configure your application to receive this user information when a user signs in.
 
 After user authentication, you can find the `email_home` claim in the ID token, as shown below.
 

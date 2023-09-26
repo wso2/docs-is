@@ -6,11 +6,11 @@ Consider a scenario where the login flow of the application should be stepped up
 
 Let's consider an API hosted on Choreo that reads an IP address from the request body, retrieves geolocation from the IP address, evaluates the risk of the login attempt, and sends back the result in the `hasRisk` parameter in the response. And the second authentication step should be prompted if the `hasRisk` is `true`.
 
-![API calls based adaptive authentication](../../../assets/img/guides/conditional-auth/api-calls-callchoreo.png)
+![API calls based adaptive authentication]({{base_path}}/assets/img/guides/conditional-auth/api-calls-callchoreo.png)
 
 ## Prerequisites
 
-- You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+- You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 - Get an API key from [ipgeolocation](https://ipgeolocation.io/). For more information, refer to [ipgeolocation documentation](https://ipgeolocation.io/documentation.html).
 
@@ -114,7 +114,7 @@ Follow the steps given below.
 
 4. Turn on **Conditional Authentication** by switching the toggle.
 
-   ![Enable conditional auth in {{ product_name }}](../../../assets/img/guides/conditional-auth/enable-conditional-auth.png)
+   ![Enable conditional auth in {{ product_name }}]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png)
 
    You can now define your conditional authentication script.
 
@@ -197,10 +197,10 @@ Follow the steps given below.
                - **Add a stored `consumer key` and `consumer secret` to the script.**
 
                     Select the location in the script where the secret should be inserted, click the key icon above the script, and use one of the following options:
-                    ![Add secret to script](../../../assets/img/guides/secret/add-secret-to-script.png)
+                    ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png)
 
                     - If you are adding an existing secret, click "+" next to the secret in the drop-down menu.
-                    - If you need a new secret, you can first [create a new secret](../../guides/authentication/conditional-auth/configure-conditional-auth/#create-a-new-secret-on-the-console).
+                    - If you need a new secret, you can first [create a new secret]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#create-a-new-secret-on-the-console).
                          Now the new secret will be listed when you click the key icon. You can click "+" to add it to the script.
 
 7. Click **Update** to save the configurations.
@@ -232,4 +232,4 @@ Follow the steps given below.
 
 4. Login from an IP address outside the allowed geolocation. TOTP authentication is prompted.
 
-     ![ip-based-2fa-conditional-auth-totp-page](../../../assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}
+     ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}

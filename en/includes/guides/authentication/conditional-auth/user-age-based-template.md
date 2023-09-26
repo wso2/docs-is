@@ -6,13 +6,13 @@ To control access to your application based on the user's age, you can apply the
 
 Consider a scenario where users who are younger than 18 years should be prevented from signing in to an application and redirected to an error message.
 
-![Age based access control](../../../assets/img/guides/conditional-auth/age-based-access-control.png)
+![Age based access control]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control.png)
 
 ## Prerequisites
 
-- You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+- You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- Go to the user's profile and update the birth date so that the current age is below 18 years. For instructions, see [Manage user profiles](../../guides/applications/register-single-page-app/).
+- Go to the user's profile and update the birth date so that the current age is below 18 years. For instructions, see [Manage user profiles]({{base_path}}/guides/applications/register-single-page-app/).
 
 ## Configure the login flow
 
@@ -118,7 +118,7 @@ age of the user is above the configured age limit.
 configured error page.
 
 !!! note
-    Find out more about the scripting language in the [Conditional Authentication API Reference](../../references/conditional-auth/api-reference/).
+    Find out more about the scripting language in the [Conditional Authentication API Reference]({{base_path}}/references/conditional-auth/api-reference/).
 
 ## Try it out
 
@@ -128,4 +128,4 @@ Follow the steps given below.
 2. Try to log in as a user who is above 18 years of age. This user will successfully log in to the application.
 3. Log out of the application.
 4. Log in again with a user who is below 18 years. The user will see the following error.
-    ![authentication failed](../../../assets/img/guides/conditional-auth/auth-failure.png)
+    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png)

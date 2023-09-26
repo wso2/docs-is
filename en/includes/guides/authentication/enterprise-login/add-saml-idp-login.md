@@ -2,7 +2,7 @@
 
 You can add standard [SAML login](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf) to your applications using an external SAML identity provider (IdP) and enable users to log in to your applications while maintaining their accounts in the external identity providers.
 
-![Configure SAML Enterprise IDP login in {{ product_name }}](../../../assets/img/guides/idp/saml-enterprise-idp/configure-login.png){: width=600"}
+![Configure SAML Enterprise IDP login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/configure-login.png){: width=600"}
 
 Follow this guide to register a SAML IdP in {{ product_name }} and add it to the login flow of your application.
 
@@ -33,7 +33,7 @@ Now, let's register the SAML IdP in {{ product_name }}.
 1. On the {{ product_name }} Console, click **Connections**.
 2. Click **New Connections** and select **Standard-Based IdP**.
 3. Provide a unique **identity provider name**, select **SAML**, and click **Next**.
-   ![Create SAML Enterprise IDP in {{ product_name }}](../../../assets/img/guides/idp/saml-enterprise-idp/register-saml-idp.png){: width=600"}
+   ![Create SAML Enterprise IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp.png){: width=600"}
 
 4. Select one of the following methods and add the SAML configurations:
 
@@ -54,7 +54,7 @@ If you selected **Manual Configuration** in the previous step, follow the steps 
 
 1. Enter the following details and click **Next**.
 
-    ![Create SAML Enterprise IDP with manual configurations](../../../assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-manual-config.png){: width=600"}
+    ![Create SAML Enterprise IDP with manual configurations]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-manual-config.png){: width=600"}
 
     <table>
         <tr>
@@ -95,18 +95,18 @@ If you selected **File Based Configuration** in the previous step, follow the st
 
 2. Upload the IdP metadata file and click **Next**.
 
-    ![Create SAML Enterprise IDP with Metadata file](../../../assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-metafile.png){: width=600"}
+    ![Create SAML Enterprise IDP with Metadata file]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-metafile.png){: width=600"}
 
 3. (Optional) Upload the public certificate of the identity provider.
 4. Click **Finish** to complete the registration.
 
 !!! note
-    Once the SAML identity provider is created, you can configure [additional SAML settings](../../references/idp-settings/saml-settings-for-idp/) from the **Protocol** tab.
+    Once the SAML identity provider is created, you can configure [additional SAML settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/) from the **Protocol** tab.
   
 ## Enable the SAML IdP for login
 
 !!! note Before you begin
-    You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, click **Applications**.
 2. Open your application from the list and go to the **Sign-in Method** tab.
@@ -116,7 +116,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
     !!! note Recommendations
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
 
-    ![Add SAML IdP login in {{ product_name }}](../../../assets/img/guides/idp/saml-enterprise-idp/enable-saml-enterprise-login-with-basic.png){: width=600"}
+    ![Add SAML IdP login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/enable-saml-enterprise-login-with-basic.png){: width=600"}
 
 ## Configure user attributes
 
@@ -126,10 +126,10 @@ This is done so that {{ product_name }} can identify the user attributes in the 
 1. On the {{ product_name }} Console, click **Connections**.
 2. Select the SAML IdP connection from the list and click **Set up**.
 3. Go to the **Attributes** tab and click **Add IdP Attributes**.
-    ![Go to attributes section in SAML IdP](../../../assets/img/guides/idp/saml-enterprise-idp/go-to-user-attribute-page.png){: width=600"}
+    ![Go to attributes section in SAML IdP]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/go-to-user-attribute-page.png){: width=600"}
 4. Provide the following values and click **Add Attribute Mapping**.
 
-    ![Map SAML IdP attributes](../../../assets/img/guides/idp/saml-enterprise-idp/map-saml-idp-attributes.png){: width=600"}
+    ![Map SAML IdP attributes]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/map-saml-idp-attributes.png){: width=600"}
 
     <table>
         <tr>
@@ -148,7 +148,7 @@ This is done so that {{ product_name }} can identify the user attributes in the 
 
 5. Select one of the mapped attributes as the **subject attribute** for your application and click **Update**.
 
-    ![select a subject attribute](../../../assets/img/guides/idp/saml-enterprise-idp/select-subject-attributes.png){: width=600"}
+    ![select a subject attribute]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/select-subject-attributes.png){: width=600"}
 
     !!! note
         By default, {{ product_name }} uses the subject attribute sent by the external SAML IdP as the subject identifier. To configure a different attribute as the subject, enable the **Find user ID from requests** from the **Settings** tab of the SAML IdP.
@@ -164,7 +164,7 @@ You may want to convert them to the local attribute URI so that the application 
 
 **A sample IdP attribute mapping done from the {{ product_name }} Console**:
 
-![Sample IdP attribute mapping](../../../assets/img/guides/idp/saml-enterprise-idp/sample-attribute-mapping.png){: width=600"}
+![Sample IdP attribute mapping]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/sample-attribute-mapping.png){: width=600"}
 
 **Sample attributes in the SAML assertion of the integrated SAML app**:
 
@@ -209,5 +209,5 @@ You may want to convert them to the local attribute URI so that the application 
 {% include "../../fragments/manage-connection/delete-connection.md" %}
 
 ## Related links
-- [Configure JIT user provisioning](../../guides/authentication/jit-user-provisioning/)
-- [Configure SAML IdP settings](../../references/idp-settings/saml-settings-for-idp/)
+- [Configure JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/)
+- [Configure SAML IdP settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/)

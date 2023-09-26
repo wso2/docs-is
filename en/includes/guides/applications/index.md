@@ -33,8 +33,8 @@ Mobile applications are apps that run on mobile devices. Android and iOS are som
 
 Standard-based applications allow users to configure the application protocol settings (OIDC or SAML) from scratch.
 
-- [Register a standard-based application](../applications/register-standard-based-app.md)
+- [Register a standard-based application]({{base_path}}/applications/register-standard-based-app.md)
 
 ## Self-Service (My Account) portal
 
-Application users can access the My Account portal for self-service needs. Learn more about the [Self-Service portal](../../guides/user-self-service/).
+Application users can access the My Account portal for self-service needs. Learn more about the [Self-Service portal]({{base_path}}/guides/user-self-service/).

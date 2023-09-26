@@ -15,7 +15,7 @@ An email should also be sent to the user with details of the login attempt.
 
 ## Prerequisites
 
-You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 ## Configure the login flow
 
@@ -125,20 +125,20 @@ var validateCookie = function(context, subject) {
 
 Let's look at how this script works.
 
-1. The **validateCookie** function verifies whether the user has a valid cookie for the logged-in user. This function calls the [getCookieValue(request, name, properties)](../../../references/conditional-auth/api-reference/#get-cookie-value) function. The cookie name is configured with the **cookieName** parameter.
+1. The **validateCookie** function verifies whether the user has a valid cookie for the logged-in user. This function calls the [getCookieValue(request, name, properties)]({{base_path}}/references/conditional-auth/api-reference/#get-cookie-value) function. The cookie name is configured with the **cookieName** parameter.
 
 2. When step 1 of the authentication flow is complete, the **onLoginRequest** function validates the **deviceAuth** cookie.
 
 3. If there is no valid cookie found, the function checks whether the **sendNotification** and **stepUpAuthentication** parameters are enabled.
 
-4. If the **sendNotification** property is enabled, the [sendEmail(user, templateId, placeholderParameters)](../../../references/conditional-auth/api-reference/#send-email) function is called to send the notification email with the login timestamp. The email template is set as **UnseenDeviceLogin** in the **emailTemplate** variable.
+4. If the **sendNotification** property is enabled, the [sendEmail(user, templateId, placeholderParameters)]({{base_path}}/references/conditional-auth/api-reference/#send-email) function is called to send the notification email with the login timestamp. The email template is set as **UnseenDeviceLogin** in the **emailTemplate** variable.
 
 5. If the **stepUpAuthentication** parameter is enabled, step 2 of the authentication flow is executed.
 
-6. On the successful execution of step 2 of the authentication flow, the [setCookie(response, name, value, properties)](../../../references/conditional-auth/api-reference/#set-cookie) function is called to set a **deviceAuth** cookie.
+6. On the successful execution of step 2 of the authentication flow, the [setCookie(response, name, value, properties)]({{base_path}}/references/conditional-auth/api-reference/#set-cookie) function is called to set a **deviceAuth** cookie.
 
 !!! note
-    Find out more about the scripting language in the [Conditional Authentication API Reference](../../references/conditional-auth/api-reference/).
+    Find out more about the scripting language in the [Conditional Authentication API Reference]({{base_path}}/references/conditional-auth/api-reference/).
 
 ## Try it out
 
@@ -148,7 +148,7 @@ Follow the steps given below.
 
 2. Try to log in to the application. TOTP authentication is prompted and the configured email of the user receives the email notification.
 
-    ![new-device-email-notification-sample](../../../assets/img/guides/conditional-auth/new-device-email-notification.png)
+    ![new-device-email-notification-sample]({{base_path}}/assets/img/guides/conditional-auth/new-device-email-notification.png)
 
 3. Log out of the application.
 

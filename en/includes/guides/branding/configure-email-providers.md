@@ -6,7 +6,7 @@ By configuring a custom email provider with your organization domain, users will
 
 ## Prerequisites
 
-- You need to have an organization in {{ product_name }}. [Create an organization](../../get-started/create-asgardeo-account/) if you don’t have one.
+- You need to have an organization in {{ product_name }}. [Create an organization]({{base_path}}/get-started/create-asgardeo-account/) if you don’t have one.
 
 - You need to have a **custom email provider (SMTP server)**, which you have control over and can use to send emails to your users.
 
@@ -16,7 +16,7 @@ Follow the steps given below to configure the email provider for your organizati
 
 1. On the {{ product_name }}, go to **Organizational Settings** > **Email Provider**.
 
-    ![{{ product_name }} Console - Email Provider UI](../../assets/img/guides/branding/email-provider-console-ui.png)
+    ![{{ product_name }} Console - Email Provider UI]({{base_path}}/assets/img/guides/branding/email-provider-console-ui.png)
 
 2. Update the following fields with the configuration information provided by your email provider.
 
@@ -79,6 +79,6 @@ To revert your email provider configurations,
 2. Select the checkbox to confirm your action.
 3. Click **Confirm**.
 
-![{{ product_name }} Console - Email Provider Danger Zone](../../assets/img/guides/branding/email-provider-danger-zone.png)
+![{{ product_name }} Console - Email Provider Danger Zone]({{base_path}}/assets/img/guides/branding/email-provider-danger-zone.png)
 
 The email provider configurations will now be restored to {{ product_name }}'s default configurations.

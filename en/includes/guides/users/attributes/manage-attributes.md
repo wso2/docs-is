@@ -14,7 +14,7 @@ To view the attributes available for your organization:
 1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes**.
 2. Click **Attributes** again under the **Manage Attributes** section.
 
-   ![View attributes](../../../assets/img/guides/organization/attributes/view-attributes.png)
+   ![View attributes]({{base_path}}/assets/img/guides/organization/attributes/view-attributes.png)
 
 You can now see the complete list of attributes along with **Attribute Display Name** and **Attribute** name.
 
@@ -26,7 +26,7 @@ To add a custom attribute:
 2. Click **Attributes** to see the list of attributes.
 3. Click **New Attribute** and enter values for the following properties:
 
-   ![Custom attribute](../../../assets/img/guides/organization/attributes/new-custom-attribute.png)
+   ![Custom attribute]({{base_path}}/assets/img/guides/organization/attributes/new-custom-attribute.png)
 
    <table>
       <tbody>
@@ -54,7 +54,7 @@ To update the properties of a user attribute:
 2. Click **Attributes** to see the list of attributes.
 3. Click **Edit** for the attribute you want to update.
 
-   ![Edit attributes](../../../assets/img/guides/organization/attributes/edit-attributes.png)
+   ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes.png)
 
    !!! note
      The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.

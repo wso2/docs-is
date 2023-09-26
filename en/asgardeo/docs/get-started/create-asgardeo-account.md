@@ -33,7 +33,7 @@ Let's start by adding the first user to your organization.
 
 6. Click **Next** and **Finish**.
 
-You can now manage this user account from the Asgardeo Console. The user can also self-manage the account. Learn more about [user self-service](../../guides/user-self-service/).
+You can now manage this user account from the Asgardeo Console. The user can also self-manage the account. Learn more about [user self-service]({{base_path}}/guides/user-self-service/).
 
 This user can start using the applications you register in this organization.
 
@@ -41,7 +41,7 @@ This user can start using the applications you register in this organization.
 
 Now that you've set up your own organization and created your first user, you can:
 
-1. [Register your applications with asgardeo](../../guides/applications/)
-2. [Start integrating your apps](../../get-started/start-integrating-apps/)
+1. [Register your applications with asgardeo]({{base_path}}/guides/applications/)
+2. [Start integrating your apps]({{base_path}}/get-started/start-integrating-apps/)
 
-See the [guides](../../guides/) to learn more.
+See the [guides]({{base_path}}/guides/) to learn more.

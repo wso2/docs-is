@@ -7,11 +7,11 @@ You can enable a more secure sign-in flow (based on the user's sign-in method) b
 Consider a scenario where your application has multiple authentication methods configured as the first authentication step. You need to secure the sign-in flow for users signing in through a selected method of authentication (ex: basic authentication). If the user sign-in with the specified authentication method, the second authentication step is prompted.
 Users signing in from an authentication method which is not specified in the script can simply sign in using only the first step.
 
-![Sign-in based adaptive authentication](../../../assets/img/guides/conditional-auth/signin-based-adaptive-auth.png)
+![Sign-in based adaptive authentication]({{base_path}}/assets/img/guides/conditional-auth/signin-based-adaptive-auth.png)
 
 ## Prerequisites
 
-You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 ## Configure the sign-in flow
 
@@ -27,7 +27,7 @@ Follow the steps given below.
 
 5. Turn on **Conditional Authentication** by switching the toggle.
 
-   ![Enable conditional auth in {{ product_name }}](../../../assets/img/guides/conditional-auth/enable-conditional-auth.png)
+   ![Enable conditional auth in {{ product_name }}]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png)
 
    You can now define your conditional authentication script.
 
@@ -93,4 +93,4 @@ Follow the steps given below.
 3. Log out of the application.
 4. Sign in with the authenticator specified in the script. TOTP authentication is prompted.
 
-    ![ip-based-2fa-conditional-auth-totp-page](../../../assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}
+    ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}

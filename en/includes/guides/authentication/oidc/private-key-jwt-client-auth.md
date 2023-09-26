@@ -26,12 +26,12 @@ Register the client application in {{ product_name }} as follows:
 
 1. Create an OIDC application:
 
-   - [Standard-based OIDC application](../../guides/applications/register-standard-based-app/)
-   - [OIDC web application](../../guides/applications/register-oidc-web-app/)
+   - [Standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/)
+   - [OIDC web application]({{base_path}}/guides/applications/register-oidc-web-app/)
 
 2. Go to the **Protocol** tab of the new application and configure the required grant type.
 
-   ![oidc protocols](../../../assets/img/guides/applications/oidc/oidc_protocols.png)
+   ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png)
 
 ## Prepare the private key and public key
 
@@ -80,7 +80,7 @@ Generate a public key and private key for the client application. Follow the ste
 Go to the Certificate section in the **Protocol** tab of your application registered in {{ product_name }} and add the public key certificate of your client application.
 
 !!! note
-    See the instructions on [adding certificates to applications](../../references/app-settings/oidc-settings-for-app/#certificate).
+    See the instructions on [adding certificates to applications]({{base_path}}/references/app-settings/oidc-settings-for-app/#certificate).
 
 ## Prepare the JWT payload
 
@@ -220,4 +220,4 @@ To enable token reuse in {{ product_name }}.
 1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Security > Private Key JWT Client Authentication for OIDC**.
 2. Click **Configure** and use the toggle to enable token reuse.
   
-   ![configure JWT reuse](../../../assets/img/guides/applications/oidc/private-key-jwt-config.png)
+   ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png)

@@ -51,7 +51,7 @@ To assign application roles to External Groups:
     - You should [register, configure, and create groups for a connection]({{base_path}}/guides/authentication/#manage-connections) in your sub organization.
     - You should add this connection to the sign-in flow of the application to which the application roles belong.
 
-1. On the {{ product_name }} Console, [switch to the sub organization](../../guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
+1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
 2. Go to **User Management** > **Roles** > **Application Roles** and click **Configure**.
 3. Expand the fragmented application and click `+` on the application role you wish to assign to a group.
 4. Go to the **External groups** tab and expand the connection from which you select groups.
