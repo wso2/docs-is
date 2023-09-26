@@ -87,16 +87,32 @@ The following guide shows you how to enable **Sign-In With Ethereum** in an appl
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select your application and go to its **Sign-in Method** tab.
+2. Select your application, go to the **Sign-in Method** tab and enable **Sign-In With Ethereum** using your preferred editor:
 
-3. If you haven't defined a sign-in flow for the application, click **Start with Default configuration** to define a login flow with a username and a password.
+    ---
+    === "Classic Editor"
+        To add enable **Sign-In With Ethereum** using the Classic Editor:
 
-4. Click **Add Authentication** in the same step as the default configuration.
+        1. If you haven't defined a sign-in flow for the application, click **Start with Default configuration** to define a login flow with a username and a password.
+        
+        2. Click **Add Authentication** in the same step as the default configuration.
+        
+        3. From the list of connections that appear, select the **Sign-In With Ethereum** connection that you created and click **Add**.
 
-5. From the list of connections that appear, select the **Sign-In With Ethereum** connection that you created and click **Add**.
-    ![Add Sign-In With Ethereum login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-federation-with-basic.png)
+            ![Add Sign-In With Ethereum login in Asgardeo]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-federation-with-basic.png)
 
-6. Click **Update** to save the changes.
+    === "Visual Editor"
+        To add enable **Sign-In With Ethereum** using the Visual Editor:
+  
+        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
+
+        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select the **Sign-In With Ethereum** connection that you created
+
+            ![Enable sign-in with Ethereum in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-with-visual-editor.png){: width="450" style="display: block; margin: 0 auto;"}
+
+    ---
+
+3. Click **Update** to save the changes.
 
 ## Try it out
 

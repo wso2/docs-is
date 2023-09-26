@@ -4,8 +4,10 @@ Given below are the high-level steps for enabling [conditional authentication]({
 
 ## Enable conditional authentication
 
-<CommonGuide guide='guides/fragments/manage-app/conditional-auth/configure-conditional-auth.md'/>
 {% include "../../fragments/manage-app/conditional-auth/configure-conditional-auth.md" %}
+
+!!! note "Enable conditional authentication using the Visual Editor"
+    Conditional authentication is enabled by default in the Visual Editor.
 
 ## Add conditional authentication script
 
@@ -19,15 +21,32 @@ Secrets securely store values associated with external APIs. These secret values
 
 ### Create a new secret
 
-1. Enable conditional authentication and click the key icon above the script to create a new secret.
+To add a new secret:
 
-    ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png)
+1. On the Asgardeo Console, go to **Applications**.
+
+2. Select your application and go to the **Sign-in Method** tab .
+
+3. Add a new secret from your preferred editor:
+
+    ---
+    === "Classic Editor"
+        Enable conditional authentication and click the key icon above the script to create a new secret.
+
+        ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png){: style="display: block; margin: 0 auto;"}
+
+    === "Visual Editor"
+        Switch to the **Visual Editor** tab, expand the **Script Editor** and click **Add Secret**.
+
+        ![Add secret to script using the visual editor]({{base_path}}//assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
+
+    ---
 
 2. Click **Create new secret** from the drop-down menu.
 
 3. Enter the following details:
 
-    ![Create secret in {{ product_name }}]({{base_path}}/assets/img/guides/secret/create-a-secret.png){: width="600"}
+    ![Create secret in {{ product_name }}]({{base_path}}/assets/img/guides/secret/create-a-secret.png){: width="450" style="display: block; margin: 0 auto;"}
 
     <table>
         <tr>
@@ -52,8 +71,27 @@ Secrets securely store values associated with external APIs. These secret values
 
 ### Delete an existing secret
 
-1. Enable conditional authentication and click the key icon above the script to delete a secret. ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png)
+To delete an existing secret:
 
-2. Click the trash icon next to the secret you wish to delete.
+1. On the Asgardeo Console, go to **Applications**.
 
-3. Select the checkbox and confirm your action.
+2. Select your application and go to the **Sign-in Method** tab .
+
+3. Delete the secret by using your preferred editor:
+
+    ---
+    === "Classic Editor"
+        Enable conditional authentication and click the key icon above the script to delete a secret.
+
+        ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png)
+
+    === "Visual Editor"
+        Switch to the **Visual Editor** tab, expand the **Script Editor** and click **Add Secret**.
+
+        ![Add secret to script using the visual editor]({{base_path}}/assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
+
+    ---
+
+4. Click the trash icon next to the secret you wish to delete.
+
+5. Select the checkbox and confirm your action.

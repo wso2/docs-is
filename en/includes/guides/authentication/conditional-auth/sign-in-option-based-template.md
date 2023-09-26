@@ -18,24 +18,41 @@ You need to [register an application with {{ product_name }}]({{base_path}}/guid
 Follow the steps given below.
 
 1. On the {{ product_name }} Console, click **Applications**.
-2. Select the application for which you wish to apply a conditional login flow and go to its **Sign-in Method** tab.
-3. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
-4. Add other authenticators alongside **username and password** for step one in the sign-in flow.
+2. Select the relevant application and go to its **Sign-in Method** tab.
+3. Add sign-in option based adaptive MFA using your preferred editor:
 
-     !!! tip "Example"
-        For example:  `username and password` + `Google` + `Facebook`
 
-5. Turn on **Conditional Authentication** by switching the toggle.
+    ---
+    === "Classic Editor"
+        To add sign-in-option-based adaptive MFA using the classic editor:
 
-   ![Enable conditional auth in {{ product_name }}]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png)
+        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
 
-   You can now define your conditional authentication script.
+        2. Add other authenticators alongside **username and password** for step one in the sign-in flow.
 
-   !!! warning
-       As a security measure, {{ product_name }} does not allow the usage of two consecutive full stops (`..`) in authentication scripts.
+            !!! tip "Example"
+                For example:  `username and password` + `Google` + `Facebook`
 
-6. Select the **Adaptive MFA > Sign-In-Option-Based** template.
-7. Update the following parameter in the script.
+        3. Turn on **Conditional Authentication** by switching the toggle and select the **Adaptive MFA > Sign-In-Option-Based** template.
+
+    === "Visual Editor"
+        To add sign-in-option-based adaptive MFA using the visual editor:
+
+        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Adaptive MFA**.
+
+        2. Click **+ ADD** next to **Sign-In-Option-Based** to add the IP-based adaptive MFA script.
+
+            ![Sign-In-option-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/sign-in-option-based-adaptive-mfa-with-visual-editor.png)
+
+        3. Click **Confirm** to replace any existing script with the selected predefined script.
+
+    ---
+
+    !!! warning "Important"
+        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+
+
+4. Update the following parameter in the script.
 
     <table>
         <thead>
@@ -56,6 +73,8 @@ Follow the steps given below.
             </tr>
         </tbody>
     </table>
+
+5. Click **Update** to save the changes.
 
 ## How it works
 

@@ -16,10 +16,37 @@ Consider a scenario where users who are younger than 18 years should be prevente
 
 ## Configure the login flow
 
-{% include "../../fragments/manage-app/conditional-auth/configure-conditional-auth.md" %}
+1. On the {{ product_name }} Console, click **Applications**.
+2. Select the relevant application and go to its **Sign-in Method** tab.
+3. Add user-age-based access control using your preferred editor:
 
-5. Select the **Access Control > Age-Based** template.
-6. Update the following parameter in the script.
+    ---
+    === "Classic Editor"
+        To add user-age-based access control using the classic editor:
+
+        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
+
+        2. Turn on **Conditional Authentication** by switching the toggle on.
+
+        3. Select the **Access Control > Age-Based** template.
+
+    === "Visual Editor"
+        To add age-based access control using the visual editor:
+
+        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Access Control**.
+
+        2. Click **+ ADD** next to **User-Age-Based** to add the user-age-based access control script.
+
+            ![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png)
+
+        3. Click **Confirm** to replace any existing script with the selected predefined script.
+
+    ---
+
+    !!! warning "Important"
+        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+
+4. Update the following parameter in the script.
 
     <table>
         <thead>
@@ -44,7 +71,7 @@ Consider a scenario where users who are younger than 18 years should be prevente
         </tbody>
     </table>
 
-7. Click **Update** to confirm.
+5. Click **Update** to confirm.
 
 ## How it works
 

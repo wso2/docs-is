@@ -100,46 +100,88 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Open your application from the list and go to the **Sign-in Method** tab.
+2. Go to the **Sign-in Method** tab of the application and add Magic link login from your preferred editor:
 
-3. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
+    ---
+    === "Classic Editor"
+        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
 
-4. Click **Add Authentication** on the same step and select your HYPR connection.
+        2. Click **Add Authentication** on the same step and select your HYPR connection.
 
-    ![Add HYPR to the login flow]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-enable-login.png)
+            ![Add HYPR to the login flow]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-enable-login.png)
+        
+        3. Enable **Conditional Authentication** and add the following script.
 
-5. Enable **Conditional Authentication** and add the following script.
+            ``` js
+            var onLoginRequest = function onLoginRequest(context) {
 
-    ``` js
-    var onLoginRequest = function onLoginRequest(context) {
+            var fedUser;
+            executeStep(1,
+                {
+                    onSuccess: function (context) {
+                        var idpName = context.steps[1].idp;
 
-        var fedUser;
-        executeStep(1,
-            {
-                onSuccess: function (context) {
-                    var idpName = context.steps[1].idp;
-    
-                    if (idpName === "HYPR") {
-                        fedUser = context.currentKnownSubject;
-    
-                        var associatedUser = getAssociatedLocalUser(fedUser);
-                        if (associatedUser == null) {
-                            var claimMap = {};
-                            claimMap["http://wso2.org/claims/username"] = fedUser.username;
-                            var storedLocalUser = getUniqueUserWithClaimValues(claimMap, context);
-                            if (storedLocalUser !== null) {
-                                doAssociationWithLocalUser(fedUser, storedLocalUser.username, 
-                                    storedLocalUser.tenantDomain, storedLocalUser.userStoreDomain);
+                        if (idpName === "HYPR") {
+                            fedUser = context.currentKnownSubject;
+
+                            var associatedUser = getAssociatedLocalUser(fedUser);
+                            if (associatedUser == null) {
+                                var claimMap = {};
+                                claimMap["http://wso2.org/claims/username"] = fedUser.username;
+                                var storedLocalUser = getUniqueUserWithClaimValues(claimMap, context);
+                                if (storedLocalUser !== null) {
+                                    doAssociationWithLocalUser(fedUser, storedLocalUser.username, 
+                                        storedLocalUser.tenantDomain, storedLocalUser.userStoreDomain);
+                                }
                             }
                         }
                     }
-                }
-            });
-    };
+                });
+            };
+            ```
 
-    ```
+    === "Visual Editor"
+        To add passwordless login with HYPR using the Visual Editor:
+  
+        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
+        
+        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your HYPR connection.
+            
+            ![Add HYPR to the login flow using the visual editor]({{base_path}}/assets/img/guides/passwordless/hypr/add-hypr-login-with-visual-editor.png)
 
-6. Click **Update** to save the sign-in flow.
+        3. Expand the **Script Editor** and add the following script.
+
+            ``` js
+            var onLoginRequest = function onLoginRequest(context) {
+
+                var fedUser;
+                executeStep(1,
+                    {
+                        onSuccess: function (context) {
+                            var idpName = context.steps[1].idp;
+
+                            if (idpName === "HYPR") {
+                                fedUser = context.currentKnownSubject;
+
+                                var associatedUser = getAssociatedLocalUser(fedUser);
+                                if (associatedUser == null) {
+                                    var claimMap = {};
+                                    claimMap["http://wso2.org/claims/username"] = fedUser.username;
+                                    var storedLocalUser = getUniqueUserWithClaimValues(claimMap, context);
+                                    if (storedLocalUser !== null) {
+                                        doAssociationWithLocalUser(fedUser, storedLocalUser.username, 
+                                            storedLocalUser.tenantDomain, storedLocalUser.userStoreDomain);
+                                    }
+                                }
+                            }
+                        }
+                    });
+            };
+            ```
+
+    ---
+
+3. Click **Update** to save the sign-in flow.
 
 ## Try it out
 

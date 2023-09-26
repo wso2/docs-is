@@ -19,16 +19,46 @@ You need to [register an application with {{ product_name }}]({{base_path}}/guid
 
 ## Configure the login flow
 
-{% include "../../fragments/manage-app/conditional-auth/configure-conditional-auth.md" %}
+To enable conditional authentication:
 
-5. Select the **Request > Device-Based** template.
+1. On the Asgardeo Console, click **Applications**.
 
-6. Verify that the login flow is now updated with the following two authentication steps:
+2. Select the relevant application and go to it's **Sign-in Method** tab.
+
+3. Add New-Device-based adaptive MFA using your preferred editor:
+
+    ---
+    === "Classic Editor"
+        To add New-Device-based adaptive MFA using the classic editor:
+
+        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
+
+        2. Turn on **Conditional Authentication** by switching the toggle on.
+
+        3. Select the **Request > Device-Based** template.
+
+    === "Visual Editor"
+        To add New-Device-based adaptive MFA using the visual editor:
+
+        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Adaptive MFA**.
+
+        2. Click **+ ADD** next to **New-Device-Based** to add the New-Device-based adaptive MFA script.
+
+            ![New-device-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/new-device-based-adaptive-mfa-with-visual-editor.png)
+
+        3. Click **Confirm** to replace any existing script with the selected predefined script.
+
+    ---
+
+    !!! warning "Important"
+        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+
+4. Verify that the login flow is now updated with the following two authentication steps:
 
     - Step 1: Username and Password
     - Step 2: TOTP
 
-7. Update the following parameters in the script.
+5. Update the following parameters in the script.
     <!-- markdownlint-disable-file MD037 -->
     <table>
         <thead>
@@ -53,7 +83,7 @@ You need to [register an application with {{ product_name }}]({{base_path}}/guid
         </tbody>
     </table>
 
-8. Click **Update** to confirm.
+6. Click **Update** to confirm.
 
 ## How it works
 

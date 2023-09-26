@@ -95,18 +95,35 @@ Now, let's register the OIDC IdP in {{ product_name }}.
 !!! note Before you begin
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-1. On the {{ product_name }} Console, click **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Open your application from the list and go to the **Sign-in Method** tab.
+2. Select your application, go to the **Sign-in Method** tab and add OIDC identity provider from your preferred editor:
 
-3. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
-
-4. Click **Add Authentication** on the step, select your OIDC identity provider, and click **Add**.
-
-    !!! note Recommendations
+    !!! note "Recommendations"
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
 
-    ![Add OIDC identity provider login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/enable-oidc-enterprise-login-with-basic.png){: width=700"}
+    ---
+    === "Classic Editor"
+        To add OIDC identity provider login using the Classic Editor:
+
+        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
+
+        2. Click **Add Authentication** on the step, select your OIDC identity provider, and click **Add**.
+
+            ![Add OIDC identity provider login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/enable-oidc-enterprise-login-with-basic.png){: width=700"}
+
+    === "Visual Editor"
+        To add OIDC identity provider login using the Visual Editor:
+
+        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
+
+        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your OIDC identity provider connection.
+
+            ![Add OIDC IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/add-oidc-idp-with-visual-editor.png){: width=700"}
+
+    ---
+
+3. Click **Update** to save your changes.
 
 ## How it works
 
