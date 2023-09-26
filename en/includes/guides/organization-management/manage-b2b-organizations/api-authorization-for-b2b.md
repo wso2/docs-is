@@ -65,7 +65,9 @@ To assign application roles to External Groups:
 To invite a root organization's user group and assign it to a role:
 
 1. [Create a group in the root organization]({{base_path}}/guides/users/manage-groups/#onboard-a-group) and [assign the users]({{base_path}}/guides/users/manage-groups/#assign-users-to-groups) that should be invited.
+
 2. [Get the required access tokens]({{base_path}}/apis/organization-management/authentication/) to call the API.
+
 3. Use the access token and the sub organization ID obtained after executing step 2 and execute the following cURL:
     ``` bash
     curl --location --request PATCH 'https://api.authz-dv.cloudservices.wso2.com/o/<sub-org-id>/applications/<shared-app-id>/roles/<role-name>/cross-org-group-mapping' \
