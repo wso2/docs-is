@@ -19,15 +19,29 @@ Follow the steps given below to enable **Magic link** login to the login flow of
 
 2. Select the application to which you wish to add Magic link login.
 
-3. Go to the **Sign-in Method** tab and do one of the following:
+3. Go to the **Sign-in Method** tab of the application and add Magic link login from your preferred editor:
 
-    - If you haven’t already built a login flow for your application, select **Add Magic Link login** to build one.
+    ---
+    === "Classic Editor"
+        - If you haven’t already built a login flow for your application, select **Add Magic Link login** to build one.
 
-      ![Configuring magic link login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login.png){: width="600"}
+        ![Configuring magic link login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login.png){: width="600"}
 
-    - If you have an already built login flow, add the `Magic Link` authenticator as the first authentication step.
+        - If you have an already built login flow, add the `Magic Link` authenticator as the first authentication step.
 
-      ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-step.png)
+        ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-step.png)
+
+    === "Visual Editor"
+        To add passwordless login with Magic link using the Visual Editor:
+
+        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Passwordless login**.
+
+        2. Select `Magic Link`.
+
+        3. Click **Confirm** to add passwordless login with Magick Link to the sign-in flow.
+
+            ![Configuring magic link login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-with-visual-editor.png)
+    ---
 
 4. Click **Update** to save your changes.
 

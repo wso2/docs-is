@@ -31,6 +31,6 @@
 
   <div class="border-text">
     <img src="../../../assets/img/logo/apple-logo.svg" alt="Apple" width=100><br>
-    <a href="../../../guides/authentication/social-login/add-apple-login.md">Apple</a>
+    <a href="{{base_path}}/guides/authentication/social-login/add-apple-login/">Apple</a>
   </div>
 </div>

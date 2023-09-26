@@ -6,8 +6,8 @@ Follow the steps given below.
 3. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
 4. Turn on **Conditional Authentication** by switching the toggle on. You can define your conditional authentication script in the editor.
 
-   ![Enable conditional auth]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png)
+    ![Enable conditional auth]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png)
 
 
-   !!! warning Important
-      As a security measure, {{ product_name }} does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+    !!! warning Important
+        As a security measure, {{ product_name }} does not allow the usage of two consecutive periods (`..`) in authentication scripts.

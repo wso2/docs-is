@@ -22,15 +22,46 @@ Consider a scenario with two user groups, `manager` and `employee`. For users as
 
 ## Configure the login flow
 
-{% include "../../fragments/manage-app/conditional-auth/configure-conditional-auth.md" %}
+To enable conditional authentication:
 
-5. Select the **Adaptive MFA > Group-Based** template.
-6. Verify that the login flow is now updated with the following two authentication steps:
+1. On the Asgardeo Console, click **Applications**.
+
+2. Select the relevant application and go to it's **Sign-in Method** tab.
+
+3. Add group-based adaptive MFA using your preferred editor:
+
+    ---
+    === "Classic Editor"
+        To add group-based adaptive MFA using the classic editor:
+
+        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
+
+        2. Turn on **Conditional Authentication** by switching the toggle on.
+
+        3. Select the **Adaptive MFA > Group-Based** template.
+
+    === "Visual Editor"
+        To add group-based adaptive MFA using the visual editor:
+
+        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Adaptive MFA**.
+
+        2. Click **+ ADD** next to **Group-Based** to add the group-based adaptive MFA script.
+
+            ![Group-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-mfa-with-visual-editor.png)
+
+        3. Click **Confirm** to replace any existing script with the selected predefined script.
+
+    ---
+
+    !!! warning "Important"
+        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+
+4. Verify that the login flow is now updated with the following two authentication steps:
 
     - Step 1: Username and Password
     - Step 2: TOTP
 
-7. Update the following parameter in the script.
+5. Update the following parameter in the script.
 
       <table>
          <thead>
@@ -47,7 +78,7 @@ Consider a scenario with two user groups, `manager` and `employee`. For users as
          </tbody>
       </table>
 
-8. Click **Update** to confirm.
+6. Click **Update** to confirm.
 
 ## How it works
 

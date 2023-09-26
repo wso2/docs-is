@@ -22,17 +22,33 @@ Follow the steps given below to enable **passwordless** login for your applicati
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select the application to which you wish to add Magic link login.
+2. Select the application to which you wish to add FIDO login.
 
-3. Go to the **Sign-in Method** tab and do one of the following:
+3. Go to the **Sign-in Method** tab of the application and add FIDO login from your preferred editor:
 
-    - If you haven’t already built a login flow for your application, select **FIDO2** to build one.
 
-      ![Configuring fido2 login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login.png){: width="600"}
+    ---
+    === "Classic Editor"
+        - If you haven’t already built a login flow for your application, select **FIDO2** to build one.
 
-    - If you have an already built login flow, you can add FIDO2 as an additional authenticator for the first step.
+        ![Configuring fido2 login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login.png){: width="600"}
 
-      ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/fido2/fido-login-step.png)
+        - If you have an already built login flow, you can add FIDO2 as an additional authenticator for the first step.
+
+        ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/fido2/fido-login-step.png)
+
+    === "Visual Editor"
+        To add passwordless login with FIDO using the Visual Editor:
+
+        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Passwordless login**.
+
+        2. Select `Username & Password + FIDO2`.
+
+        3. Click **Confirm** to add passwordless login with FIDO to the sign-in flow.
+
+            ![Configuring fido2 login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login-with-visual-editor.png)
+
+    ---
 
 4. Click **Update** to save your changes.
 
