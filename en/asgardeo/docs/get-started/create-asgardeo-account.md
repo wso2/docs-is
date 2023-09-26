@@ -10,7 +10,7 @@ Let's sign up and create your first organization.
 
 2. Enter your email address and click **Register**. You will receive an email with instructions to proceed with your account creation in Asgardeo.
 
-    ![Sign up to Asgardeo](../assets/img/guides/get-started/sign-up-to-asgardeo.png)
+    ![Sign up to Asgardeo]({{base_path}}/assets/img/guides/get-started/sign-up-to-asgardeo.png)
 
 
 
@@ -28,7 +28,7 @@ Let's start by adding the first user to your organization.
 1. On the Asgardeo Console, go to **User Management** > **Users**.
 2. Click **Add User**.
 3. Fill in the user's details.
-    ![customer-account-create-ui](../assets/img/guides/get-started/create-user-account.png)
+    ![customer-account-create-ui]({{base_path}}/assets/img/guides/get-started/create-user-account.png)
 4. Select **Set a password for the user** and enter a temporary password for the user. The user will be able to change the password later.
 
 6. Click **Next** and **Finish**.

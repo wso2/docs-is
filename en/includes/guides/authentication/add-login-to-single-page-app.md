@@ -18,4 +18,4 @@ See the guides given below to add login to your SPAs with {{ product_name }}.
 
 ## Manually add login to your SPA
 
-- [Implement authorization code flow with PKCE](../../guides/authentication/oidc/implement-auth-code-with-pkce/)
+- [Implement authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/)

@@ -1,6 +1,6 @@
 # Configure conditional authentication
 
-Given below are the high-level steps for enabling [conditional authentication](../index.md) in your application.
+Given below are the high-level steps for enabling [conditional authentication]({{base_path}}/index.md) in your application.
 
 ## Enable conditional authentication
 

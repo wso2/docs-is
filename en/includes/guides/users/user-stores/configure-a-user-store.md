@@ -15,7 +15,7 @@ Follow the guide below to set up a remote user store in {{ product_name }}.
 
 ## Prerequisites
 - An organization in {{ product_name }}.
-[Create an organization](../../guides/organization-management/manage-organizations/#create-a-new-organization) if you don’t have one already.
+[Create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-a-new-organization) if you don’t have one already.
 
 
 - An on-premise user store. Currently, {{ product_name }} supports:

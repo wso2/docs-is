@@ -13,21 +13,21 @@ The main advantage of a single-page application is its speed. Since content is d
 
 JavaScript frameworks and libraries, such as React, Angular, Vue.js, are some popular technologies adopted to build SPAs.
 
-- [Register a single-page application](../applications/register-single-page-app.md)
+- [Register a single-page application]({{base_path}}/applications/register-single-page-app.md)
 
 ## Web applications
 
 Web applications(web apps) are the most common type of applications in use. They are usually hosted on a web server
 and accessed by the browser. Web applications need authentication as they offer functionality dependent on the logged-in user.
 
-- [Register a web application with OIDC](../applications/register-oidc-web-app.md)
-- [Register a web application  with SAML](../applications/register-saml-web-app.md)
+- [Register a web application with OIDC]({{base_path}}/applications/register-oidc-web-app.md)
+- [Register a web application  with SAML]({{base_path}}/applications/register-saml-web-app.md)
 
 ## Mobile applications
 
 Mobile applications are apps that run on mobile devices. Android and iOS are some of the popular technologies adopted to build Mobile Applications.
 
-- [Register a mobile application](../applications/register-mobile-app.md)
+- [Register a mobile application]({{base_path}}/applications/register-mobile-app.md)
 
 ## Standard-based applications
 
