@@ -177,7 +177,7 @@ The permissions of your API resource should be assigned to a role. These roles a
 To create a role and assign permissions to the scope:
 
 1. On the {{ product_name }} Console, go to **Applications**.
-2. Select the application to which you wish to authorize the registered API resource and go to **Roles**.
+2. Select the application to which you wish to authorize the registered API resource and go to **User Management** > **Roles**.
 3. Click **+ New Role**.
 4. Enter a **Role Name** and click **Next**.
 5. Select the permissions you wish to assign for the newly created application role.
@@ -197,7 +197,7 @@ You need to assign the created application roles to groups so that the business 
 
 To assign roles to groups:
 
-1. On the {{ product_name }} Console, go to **Groups**.
+1. On the {{ product_name }} Console, go to **User Management** >  **Groups**.
 2. Select the group to which you wish to assign roles and go to **Roles** tab.
 3. Click **+ Assign Roles**.
 4. Select the application roles you wish to assign to the group.

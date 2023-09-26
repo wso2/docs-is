@@ -11,7 +11,7 @@ The attributes in the core, user, and enterprise schemas are well-defined in the
 ## View SCIM 2.0 attributes
 To view the SCIM 2 attributes mapped to user attributes in your organization:
 
-1. On the {{ product_name }} Console, click **Attributes> Manage Attribute Mappings**.
+1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
 2. Click **SCIM 2.0**.
 
    ![View SCIM2 attributes](../../../assets/img/guides/organization/attributes/attribute-mappings/view-scim2-attributes.png)
@@ -19,7 +19,7 @@ To view the SCIM 2 attributes mapped to user attributes in your organization:
 ## Add a SCIM 2.0 custom schema attribute
 You can add new SCIM 2.0 custom schema attributes as follows:
 
-1. On the {{ product_name }} Console, click **Attributes > Manage Attribute Mappings**.
+1. On the {{ product_name }} Console, go to **Attribute Management** >  **Attributes** > **Manage Attribute Mappings**.
 2. Click **SCIM 2.0** and click **New Attribute**.
 3. Enter values for the following properties:
 
@@ -42,7 +42,7 @@ You can add new SCIM 2.0 custom schema attributes as follows:
 ## Delete a SCIM 2.0 custom schema attribute
 To delete the SCIM 2.0 custom schema attributes available in your organization:
 
-1. On the {{ product_name }} Console, click **Attributes > Manage Attribute Mappings**.
+1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
 2. Click **SCIM 2.0 > Custom Schema** and select the attribute to delete.
 3. Click **Delete** and enable the checkbox to confirm you action.
 4. Click **Confirm**.

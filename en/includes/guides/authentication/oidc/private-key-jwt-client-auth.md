@@ -217,7 +217,7 @@ The `jti` (JWT ID) claim is a unique identifier included in the JWT token, which
 
 To enable token reuse in {{ product_name }}.
 
-1. On the {{ product_name }} Console, go to **Account Security > Private Key JWT Client Authentication for OIDC**.
+1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Security > Private Key JWT Client Authentication for OIDC**.
 2. Click **Configure** and use the toggle to enable token reuse.
   
    ![configure JWT reuse](../../../assets/img/guides/applications/oidc/private-key-jwt-config.png)

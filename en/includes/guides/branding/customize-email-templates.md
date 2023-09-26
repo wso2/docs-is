@@ -81,8 +81,9 @@ The branding variables that affect the email templates are as follows:
 
 You can tailor the **subject**, **body**, and **footer** of email notifications to your preferences by following the steps below.
 
-1. On the {{ product_name }}, go to **Develop** > **Email Templates**.
+1. On the {{ product_name }}, go to **Customization** > **Email Templates**.
 2. Select the email template and the relevant locale that you wish to modify.
+
     ![Select email template](../../assets/img/guides/branding/select-email-template.png)
 
 3. Make your modifications in the **Content** tab and use the **Preview** tab for a real-time preview.

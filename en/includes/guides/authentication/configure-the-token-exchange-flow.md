@@ -2,11 +2,13 @@
 
 You can add a trusted token issuer to exchange tokens received from the configured third-party issuer for {{ product_name }} tokens.
 
-The trusted token issuer uses the OAuth 2.0 token exchange grant to enable the exchange of one type of token for another. Refer [Token exchange grant]({{base_path}}/references/grant-types-in-asgardeo/#token-exchange-grant) for more information on how the flow works.
+Learn how to configure the OAuth 2.0 token exchange flow in your Asgardeo organization. Refer [Token exchange grant]({{base_path}}/references/grant-types-in-asgardeo/#token-exchange-grant) for more information on how the flow works.
 
 Follow this guide for instructions.
 
 ## Register a trusted token issuer
+
+To exchange a third-party token for an Asgardeo token, you need to register the third-party token issuer as a trusted token issuer in your Asgardeo organization.
 
 To register a trusted token issuer:
 
@@ -60,10 +62,11 @@ To register a trusted token issuer:
 
 5. Click **Finish** to add the new trusted token issuer.
 
-## Enable token exchange
+## Enable token exchange in your app
 
 !!! note "Before you begin"
     You need to register any one of the following application types with {{ product_name }}:
+
     - [Standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/)
     - [Mobile application]({{base_path}}/guides/applications/register-mobile-app/)
     - [Traditional OIDC web application]({{base_path}}/guides/applications/register-oidc-web-app/)
@@ -71,23 +74,10 @@ To register a trusted token issuer:
     Currently, {{ product_name }} does not support the token exchange grant for single-page applications.
 
 1. On the {{ product_name }} Console, go to **Applications**.
+
 2. Open your application from the list and go to the **Protocol** tab.
-3. Configure the following values to enable token exchange for users consuming the application:
-  
-    <table>
-      <tr>
-        <th>Parameter</th>
-        <th>Value</th>
-      </tr>
-      <tr>
-        <td>Allowed grant types<</td>
-        <td><code>Token Exchange</code></td>
-      </tr>
-      <tr>
-        <td>Token type</td>
-        <td><code>JWT</code></td>
-      </tr>
-    </table>
+
+3. Add `Token Exchange` under the **Allowed grant types**.
 
 4. Click **Update** to save the configurations.
 
@@ -105,11 +95,11 @@ Follow the steps given below.
     --data-urlencode 'subject_token=<jwt_token>
     ' \
     --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt' \
-    --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:jwt' \
+    --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token' \
     --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange'
     ```
 
     !!! note
         {{ product_name }} only copies the `sub` claim from the token received from the trusted token issuer to the exchanged {{ product_name }} token.
 
-Upon successful execution, you will receive the exchanged token issued by the trusted token issuer.
+Upon successful execution, you will receive the exchanged token issued by {{ product_name }}.

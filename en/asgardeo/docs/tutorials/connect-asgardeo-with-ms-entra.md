@@ -251,7 +251,7 @@ In this step, you will configure the connection between Asgardeo and the Microso
         - PKCE is disabled as it is not required for the tutorial.
         - The listed configurations in the **Guide** tab are needed for the next step of the tutorial.
 
-7. Go to **Manage** > **Users** on the Asgardeo Console and add a new user from there.
+7. Go to **User Management** > **Users** on the Asgardeo Console and add a new user from there.
 
     !!! note
         This step is required to ensure you can log in to the application. You need a business user registered in the Asgardeo organization to be able to perform user login.

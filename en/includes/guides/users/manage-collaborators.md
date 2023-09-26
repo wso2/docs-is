@@ -16,7 +16,7 @@ Let's look at how administrators can onboard another administrator by sending an
 
 To onboard an administrator:
 
-1. On the {{ product_name }} Console, go to **Administrators**.
+1. On the {{ product_name }} Console, go to **Organizational Settings** > **Administrators**.
 
 2. Click **Add Administrator** and provide the required details.
 
@@ -55,7 +55,7 @@ You can assign admin privileges to existing business users only if it is allowed
 
 First, configure administrator settings for the organization:
 
-1. On the {{ product_name }} Console, go to **Administrators**.
+1. On the {{ product_name }} Console, go to **Organizational Settings** > **Administrators**.
 
 2. Click the settings icon next to **+ Add Administrator** to open the **Administrator Settings** page.
 
@@ -87,7 +87,7 @@ https://console.asgardeo.io/t/{org_name}
 ## View administrators
 To view the administrators of your organization:
 
-On the {{ product_name }} Console, go to **Administrators**. You will see the list of administrators presented in two tabs as follow.
+On the {{ product_name }} Console, go to **Organizational Settings** > **Administrators**. You will see the list of administrators presented in two tabs as follow.
 
 <table>
     <tr>
@@ -110,7 +110,7 @@ On the {{ product_name }} Console, go to **Administrators**. You will see the li
 
 To delete an administrator:
 
-1. On the {{ product_name }} Console, click **Administrators**.
+1. On the {{ product_name }} Console, click **Organizational Settings** > **Administrators**.
 2. Click **Delete** for the administrator you want to remove.
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.

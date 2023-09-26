@@ -39,7 +39,7 @@ To register your application in Asgardeo:
 
 If you currently do not have any users in your Asgardeo organization, follow the instructions below to create a new user account.
 
-1. On the Asgardeo Console, go to **Manage > Users**.
+1. On the Asgardeo Console, go to **User Management** > **Users**.
 2. Click **+ Add User** and provide the required details.
 
 Later, this user will log in to Asgardeo to get verifiable credentials to the MATTR Wallet.

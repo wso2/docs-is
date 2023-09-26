@@ -14,7 +14,7 @@ By configuring a custom email provider with your organization domain, users will
 
 Follow the steps given below to configure the email provider for your organization.
 
-1. On the {{ product_name }}, go to **Email Provider**.
+1. On the {{ product_name }}, go to **Organizational Settings** > **Email Provider**.
 
     ![{{ product_name }} Console - Email Provider UI](../../assets/img/guides/branding/email-provider-console-ui.png)
 

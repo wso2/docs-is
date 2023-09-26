@@ -26,7 +26,7 @@
 
 Follow the steps below to configure event publishing for {{ product_name }}.
 
-1. On the {{ product_name }} Console, go to **Events**.
+1. On the {{ product_name }} Console, go to **Monitoring > Events**.
 
 2. Select the events that you wish to publish to Choreo and click **Update**.
 

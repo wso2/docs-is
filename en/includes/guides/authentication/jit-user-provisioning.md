@@ -4,7 +4,7 @@ This guide explains the concept of Just-In-Time user provisioning, why and when 
 
 ## How JIT provisioning works
 
-Just-in-Time (JIT) user provisioning is a method used to store a user's identity and user claims in the {{ product_name }} user store when the user is authenticated through an [external identity provider (IdP)](../../guides/authentication/#manage-connections).
+Just-in-Time (JIT) user provisioning is a method used to store a user's identity and user claims in the {{ product_name }} user store when the user is authenticated through an [external identity provider (IdP)]({{base_path}}/guides/authentication/#manage-connections).
 
 The flow of JIT user provisioning is as follows:
 
@@ -16,7 +16,7 @@ The flow of JIT user provisioning is as follows:
 
 4. JIT provisioning is triggered and {{ product_name }} creates a user account in its internal user store along with the user claims obtained from the authentication response.
 
-![How JIT user provisioning works](../../assets/img/guides/jit-provisioning/how-jit-works.png)
+![How JIT user provisioning works]({{base_path}}/assets/img/guides/jit-provisioning/how-jit-works.png)
 
 With this process, new user accounts are automatically provisioned to {{ product_name }} through external IdPs.
 
@@ -26,11 +26,12 @@ First, the external IdP should be registered in {{ product_name }} as a connecti
 
 !!! note
     Learn more about how to enable login to your application using the following external IdPs:
-    - [Facebook](../../guides/authentication/social-login/add-facebook-login/)
-    - [Google](../../guides/authentication/social-login/add-google-login/)
-    - [Github](../../guides/authentication/social-login/add-github-login/)
-    - [OpenID Connect IdPs](../../guides/authentication/enterprise-login/add-oidc-idp-login/)
-    - [SAML IdPs](../../guides/authentication/enterprise-login/add-saml-idp-login/)
+
+    - [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/)
+    - [Google]({{base_path}}/guides/authentication/social-login/add-google-login/)
+    - [Github]({{base_path}}/guides/authentication/social-login/add-github-login/)
+    - [OpenID Connect IdPs]({{base_path}}/guides/authentication/enterprise-login/add-oidc-idp-login/)
+    - [SAML IdPs]({{base_path}}/guides/authentication/enterprise-login/add-saml-idp-login/)
 
 ## Enable/Disable JIT user provisioning
 
@@ -42,7 +43,7 @@ To enable/disable JIT user provisioning for an external Identity provider:
 
 3. JIT provisioning is enabled by default. You can uncheck the **Just-in-Time (JIT) User Provisioning**
  checkbox to disable it.
-    ![JIT user provisioning configuration is enabled](../../assets/img/guides/jit-provisioning/jit-enabled.png)
+    ![JIT user provisioning configuration is enabled]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png)
 
 4. Click **Update** to save.
 
@@ -56,14 +57,15 @@ To enable/disable JIT user provisioning for an external Identity provider:
 
 ## Troubleshoot sign-in flow errors
 
-If you have disabled JIT provisioning for an IdP, you need to validate its effect on your applications that use [multi-factor authentication](../../guides/authentication/mfa/). This is because certain MFA mechanisms (such as TOTP and EmailOTP) require the login users to have local accounts in {{ product_name }}.
+If you have disabled JIT provisioning for an IdP, you need to validate its effect on your applications that use [multi-factor authentication]({{base_path}}/guides/authentication/mfa/). This is because certain MFA mechanisms (such as TOTP and EmailOTP) require the login users to have local accounts in {{ product_name }}.
 Therefore, the application’s sign-in flow involving JIT-disabled IdPs and the MFA options will break by default.
 
 In such scenarios, you will see the following warning in the application’s sign-in flow:
 
-![MFA based Sign-in flow with JIT user provisioning](../../assets/img/guides/jit-provisioning/jit-mfa-conflict.png)
+![MFA based Sign-in flow with JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-mfa-conflict.png)
 
 To avoid such errors, you can use one of the following options:
+
 - Conditionally skip MFA
 
     You can skip MFA for external connections during the login flow by using the
@@ -82,7 +84,8 @@ To avoid such errors, you can use one of the following options:
         });
     };
     ```
+
     !!! note
-        For more information on this script, refer the [sign-in option based conditional authentication script](../../guides/authentication/conditional-auth/sign-in-option-based-template/#how-it-works).
+        For more information on this script, refer the [sign-in option based conditional authentication script]({{base_path}}/guides/authentication/conditional-auth/sign-in-option-based-template/#how-it-works).
 
 

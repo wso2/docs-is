@@ -5,7 +5,7 @@ You can map OpenID Connect attributes to [default attributes](../../guides/users
 ## View OpenID Connect attributes
 To view the OpenID Connect attributes available for your organization:
 
-1. On the {{ product_name }} Console, click **Attributes > Manage Attribute Mappings**.
+1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
 2. Click **OpenID Connect**.
 
    ![View OpenID Connect attributes](../../../assets/img/guides/organization/attributes/attribute-mappings/view-oidc-attributes.png)
@@ -15,7 +15,7 @@ You can find the mapped OpenID Connect attributes.
 ## Add an OpenID Connect attribute
 {{ product_name }} supports some OpenID Connect attributes by default. You can add new OpenID Connect attributes as follows:
 
-1. On the {{ product_name }} Console, click **Attributes > Manage Attribute Mappings**.
+1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
 2. Click **OpenID Connect** > **New Attribute**.
 4. Enter values for the following properties:
 
@@ -83,7 +83,7 @@ After user authentication, you can find the `email_home` claim in the ID token, 
 ## Delete an OpenID Connect attribute
 To delete the OpenID Connect attributes available in your organization:
 
-1. On the {{ product_name }} Console, click **Attributes > Manage Attribute Mappings**.
+1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
 2. Click **OpenID Connect** and select the attribute to delete.
 3. Click **Delete** and select the checkbox to confirm your action.
 4. Click **Confirm**.

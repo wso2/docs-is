@@ -20,7 +20,7 @@ You need to have an organization in {{ product_name }}. [Create an organization]
 
 Follow the steps given below to configure the branding preferences for your organization.
 
-1. On the {{ product_name }}, go to **Branding**.
+1. On the {{ product_name }}, go to **Customization** > **Branding**.
 
     ![{{ product_name }} Console - Branding UI](../../assets/img/guides/branding/branding-asgardeo-console-ui.png)
 

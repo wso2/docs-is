@@ -25,7 +25,7 @@ Let's sign up and create your first organization.
 
 Let's start by adding the first user to your organization.
 
-1. On the Asgardeo Console, click **Users**.
+1. On the Asgardeo Console, go to **User Management** > **Users**.
 2. Click **Add User**.
 3. Fill in the user's details.
     ![customer-account-create-ui](../assets/img/guides/get-started/create-user-account.png)

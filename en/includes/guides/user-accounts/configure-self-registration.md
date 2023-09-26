@@ -75,7 +75,7 @@ If a user decides to self-register using email, the default form that is present
 
 Follow the instructions below to customize the attributes that the form requests during self-registration.
 
-1. On the {{ product_name }} Console, click **Attributes** and under the **Manage Attributes** section, click **Attributes** again.
+1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** and under the **Manage Attributes** section, click **Attributes** again.
 2. Click **Edit** on the attribute that you want to customize.
 
     ![customize user attributes in self-registration form]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-form-attributes.png){: width="500" style="display: block; margin: 0 auto;"}

@@ -12,7 +12,7 @@ To maintain high availability for the remote user store, you need to connect a s
 
 To connect a second user store agent:
 
-1. On the {{ product_name }} Console, go to **User Stores**.
+1. On the {{ product_name }} Console, go to **User Management** > **User Stores**.
 2. Select your user store from the **User stores** list.
 3. In the **General** tab, a second user store agent is listed under **User Store Agent Connection(s)**.
 4. Click **Generate token** on the second user store agent.

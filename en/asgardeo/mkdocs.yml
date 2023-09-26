@@ -289,6 +289,7 @@ nav:
       - Suborganization APIs: apis/organization-management/index.md
       - Get access for suborganization APIs: apis/organization-management/authentication.md
       - User management - SCIM2 API: apis/organization-management/org-scim2.md
+      - B2B self service management API: apis/organization-management/onboard-admins-self-service.md
       - Application management API: apis/organization-management/org-application-management.md
       - Identity providers API: apis/organization-management/org-idp.md
       - Organization management API: apis/organization-management/org-management.md

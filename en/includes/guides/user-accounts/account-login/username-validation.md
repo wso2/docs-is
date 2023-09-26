@@ -4,7 +4,7 @@ Your {{ product_name }} organization could allow a user to log in with a custom 
 
 Follow the steps given below to change the username type for the users.
 
-1. On the {{ product_name }} Console, go to **Account Login**.
+1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Login**.
 2. Click **Configure** to open the **Username Validation** page.
 3. Select **Alphanumeric** and configure the minimum and maximum length for a username.
 4. Click **Update** to save the changes.

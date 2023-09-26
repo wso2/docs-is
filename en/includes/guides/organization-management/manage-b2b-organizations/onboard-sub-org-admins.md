@@ -23,7 +23,7 @@ To create a new sub organization user:
 
 1. Switch to the sub organization on the {{ product_name }} Console.
 
-2. Go to **Users** and click **Add User**.
+2. Go to **User Management** > **Users** and click **Add User**.
 
 3. Enter the following details:
     <table>
@@ -54,7 +54,7 @@ The Administrator role is available in sub organizations by default. To assign t
 
 1. Switch to the sub organization on the {{ product_name }} Console.
 
-2. Go to **Roles** and click **Configure** in the **Organization Roles** section.
+2. Go to **User Management** > **Roles** and click **Configure** in the **Organization Roles** section.
 
 3. Select the **Administrator** role and go to the **Users** tab.
 
