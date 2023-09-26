@@ -98,6 +98,13 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
 
     [Learn more]({{base_path}}/deploy/configure-recaptcha/)
 
+-   **OAuth client ID tenant unification**
+
+    OAuth consumer application client IDs are now tenant unique allowing same client ID to exist in multiple tenants. This feature requires enabling tenant qualified URLs and tenanted sessions which are by default enabled in IS 7.0.0 onwards.
+
+    !!! info
+        Once you start the identity server with tenant qualified URLs and tenanted sessions being enabled, you cannot disable them back as it could led to inconsistencies with this feature.
+
 WSO2 IS 6.1.0 introduces the following new features and enhancements:
 
 -   **Google One Tap authentication** 
