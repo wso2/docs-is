@@ -10,7 +10,7 @@ By following this guide, you will be able to deploy a React single-page applicat
 
 - **A user account in Asgardeo**
 
-  If you don't already have one, [create a user account](../../get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
+  If you don't already have one, [create a user account]({{base_path}}/get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
 
 ## Register the app
 
@@ -22,7 +22,7 @@ Follow the steps given below to register the sample React SPA in Asgardeo.
 
 3. Enter the following details:
 
-    ![Create a new SPA](../../assets/img/guides/applications/create-new-spa.png)
+    ![Create a new SPA]({{base_path}}/assets/img/guides/applications/create-new-spa.png)
 
     <table>
         <tr>
@@ -45,7 +45,7 @@ Follow the steps given below to register the sample React SPA in Asgardeo.
 4. Click **Register** to complete the registration.
 5. Go to the **Protocol** tab and take note of the **Client ID**. You will need it to configure the application later.
 
-    ![Client ID](../../assets/img/guides/applications/spa-client-id.png)
+    ![Client ID]({{base_path}}/assets/img/guides/applications/spa-client-id.png)
 !!! note
         To provide a better experience for the user, **it is recommended to configure an access URL** for the application. You can set an access URL for the application from the General tab. (For this sample application, the access URL is <code>https://localhost:3000</code>).
 
@@ -135,7 +135,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <p>The list of OIDC scopes that are used for requesting user information. You can add OIDC scopes such as <code>profile</code> and <code>email</code> in a comma-separated list as follows: </p>
             <code>"scope": ["profile", "email"]</code>
-            <p>Learn more about [OIDC scopes in Asgardeo](../../guides/users/attributes/manage-scopes/).</p>
+            <p>Learn more about [OIDC scopes in Asgardeo]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
         </td>
       </tr>
     </tbody>
@@ -147,16 +147,19 @@ Follow the steps given below to run the sample.
 
 1. On your terminal, navigate to the **root** of the project and run the command given below to start the sample application:
 
-    ```bash 
+    ```bash
     npm install && npm start
     ```
 
 2. Once the app is successfully compiled, it is accessible at `https://localhost:3000`.
 
-    ![React SPA login](../../assets/img/guides/applications/react-app-login.jpg)
+    ![React SPA login]({{base_path}}/assets/img/guides/applications/react-app-login.jpg)
 
 3. Click **Login**. You will be redirected to the Asgardeo login page.
 
-    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png)
+    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png)
 
 4. Enter the credentials of your user account and click **Sign In**.
+
+    !!! note "Extend your login session"
+        By default, the user login session is active for only `15 minutes`. You can extend the session to `14 days` by selecting the **Remember me on this computer** option provided at the login screen of your application.

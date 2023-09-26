@@ -14,7 +14,7 @@ By following this guide, you will be able to deploy a Java EE web application lo
 
 - **A user account in Asgardeo**
 
-  If you don't already have one, [create a user account](../../get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
+  If you don't already have one, [create a user account]({{base_path}}/get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
 
 ## Register the app
 
@@ -24,11 +24,11 @@ Follow these steps given below to register the sample Java EE web application in
 
 2. Click **New Application** and select **Traditional Web Application**.
 
-    ![Select app type in Asgardeo](../../assets/img/guides/applications/select-app-type.png)
+    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png)
 
 3. Enter the following details:
 
-    ![Create a new SAML app](../../assets/img/guides/applications/create-new-saml-app.png)
+    ![Create a new SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png)
 
     <table>
       <tr>
@@ -46,7 +46,7 @@ Follow these steps given below to register the sample Java EE web application in
 
 4. Select **Manual** as the configuration type and enter the following details:
     !!! note
-      Learn more about other [SAML configuration types](../../guides/applications/register-saml-web-app/).
+      Learn more about other [SAML configuration types]({{base_path}}/guides/applications/register-saml-web-app/).
 
     <table>
     <tr>
@@ -184,7 +184,7 @@ Follow the steps given below to configure the sample app.
         </tr>
         <tr>
            <td><code>IdPPublicCert</code></td>
-           <td>This specifies the public certificate of Asgardeo. You can obtain the public certificate from the Asgardeo Console. See [how to get SAML configurations from the Asgardeo Console](../../guides/authentication/saml/discover-saml-configs/#discover-saml-configurations-of-asgardeo).</td>
+           <td>This specifies the public certificate of Asgardeo. You can obtain the public certificate from the Asgardeo Console. See [how to get SAML configurations from the Asgardeo Console]({{base_path}}/guides/authentication/saml/discover-saml-configs/#discover-saml-configurations-of-asgardeo).</td>
         </tr>
         <tr>
           <td><code>skipURIs</code></td>
@@ -224,7 +224,7 @@ Follow the steps given below to configure the sample app.
                 <code>SAML2.EnableResponseSigning</code>
               </td>
               <td>
-                If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. You also need to [enable response signing from Asgardeo](../../references/app-settings/saml-settings-for-app/#response-signing).
+                If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. You also need to [enable response signing from Asgardeo]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
                 If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.
               </td>
           </tr>
@@ -233,7 +233,7 @@ Follow the steps given below to configure the sample app.
             <code>SAML2.EnableAssertionSigning</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. You also need to [enable response signing from Asgardeo](../../references/app-settings/saml-settings-for-app/#response-signing).
+              If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. You also need to [enable response signing from Asgardeo]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
               If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.
             </td>
           </tr>
@@ -242,7 +242,7 @@ Follow the steps given below to configure the sample app.
               <code>SAML2.EnableAssertionEncryption</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, the application expects an encrypted SAML assertion. You also need to [enable encryption for SAML assertions](../../references/app-settings/saml-settings-for-app/) from Asgardeo.
+              If this configuration is set to <code>true</code>, the application expects an encrypted SAML assertion. You also need to [enable encryption for SAML assertions]({{base_path}}/references/app-settings/saml-settings-for-app/) from Asgardeo.
             </td>
           </tr>
           <tr>
@@ -250,7 +250,7 @@ Follow the steps given below to configure the sample app.
               <code>SAML2.EnableRequestSigning</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, Asgardeo validates the SAML authentication request and logout request. You also need to [enable request signing](../../references/app-settings/saml-settings-for-app/) from Asgardeo.
+              If this configuration is set to <code>true</code>, Asgardeo validates the SAML authentication request and logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from Asgardeo.
             </td>
           </tr>
           <tr>
@@ -301,10 +301,13 @@ Follow the steps given below to run the sample.
 
 1. Access the application using the following URL: `http://localhost:8080/sample-app/index.html`.
 
-    ![Java OIDC app login](../../assets/img/guides/applications/java-saml-login.jpg)
+    ![Java OIDC app login]({{base_path}}/assets/img/guides/applications/java-saml-login.jpg)
 
 2. Click **Login**. You will be redirected to the Asgardeo login page.
 
-    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png)
+    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png)
 
 4. Enter credentials of your user account and click **Sign In**.
+
+    !!! note "Extend your login session"
+        By default, the user login session is active for only `15 minutes`. You can extend the session to `14 days` by selecting the **Remember me on this computer** option provided at the login screen of your application.
