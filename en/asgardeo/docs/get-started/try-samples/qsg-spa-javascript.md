@@ -1,4 +1,4 @@
-# JavaScript sample SPA
+# Sample JavaScript SPA
 
 By following this guide, you will be able to deploy a Javascript single-page application locally and secure it with OpenID Connect.
 
@@ -6,11 +6,11 @@ By following this guide, you will be able to deploy a Javascript single-page app
 
 - **npm with Node.js**
 
-  If you don't have it, [install npm and node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) in your local environment.
+  If you don't have it, [install npm and node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){target="_blank"} in your local environment.
 
 - **A user account in Asgardeo**
 
-  If you don't already have one, [create a user account](../../get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
+  If you don't already have one, [create a user account]({{base_path}}/get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
 
 ## Register the app
 
@@ -22,7 +22,7 @@ Follow the steps given below to register the sample Javascript SPA in Asgardeo.
 
 3. Enter the following details:
 
-    ![Create a new SPA](../../assets/img/guides/applications/create-new-spa.png)
+    ![Create a new SPA]({{base_path}}/assets/img/guides/applications/create-new-spa.png)
 
     <table>
         <tr>
@@ -45,39 +45,36 @@ Follow the steps given below to register the sample Javascript SPA in Asgardeo.
 4. Click **Register** to complete the registration.
 5. Go to the **Protocol** tab and take note of the **Client ID**. You will need it to configure the application later.
 
-    ![Client ID](../../assets/img/guides/applications/spa-client-id.png)
-!!! note
-        To provide a better experience for the user, **it is recommended to configure an access URL** for the application. You can set an access URL for the application from the General tab. (For this sample application, the access URL is <code>https://localhost:3000</code>).
+    ![Client ID]({{base_path}}/assets/img/guides/applications/spa-client-id.png)
 
-??? note "Why do we recommend this?"
-        - It will be used in the application catalog and discovery flows.
-        - We will use it to redirect the user back to the application in the following scenarios.
-            - If the login page times out
-            - After a password reset
-            - After self sign-up verification
-        - If the login flow is failed, we will provide an option for the user to re-initiate the login flow using this URL.
+!!! tip
+    To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:3000</code>).
+
+    The access URL is used,
+
+    - in the application catalog and discovery flows.
+    - to redirect the user back to the application in the following scenarios.
+        - if the login page times out
+        - after a password reset
+        - after the self sign-up verification
+    - to re-initiate the login flow if the login flow fails.
 
 ## Download the sample
 
 Click the button below to download the sample. You can also choose to view the source before doing so.
 
-<Button
-    buttonType='grey-outlined-icon'
-    displayType='inline-button'
-    buttonText='Download sample'
-    startIconPath='images/technologies/javascript-logo.svg'
-    endIconPath='icons/downloadIcon.svg'
-    externalLink='https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip'
-    v-bind:openInNewTab='true'
-/>
-<Button
-    buttonType='grey-outlined-icon'
-    displayType='inline-button'
-    buttonText='View source'
-    endIconPath='images/technologies/github-logo.svg'
-    externalLink='https://github.com/asgardeo/asgardeo-auth-spa-sdk/tree/main/samples/asgardeo-html-js-app'
-    v-bind:openInNewTab='true'
-/>
+<div class="centered-container">
+  <div class="border-text">
+    <img src="{{base_path}}/assets/img/logo/javascript-logo.svg" alt="JavaScript" width=50><br>
+    <a href="https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip" target="_blank">Download sample</a>
+  </div>
+
+  <div class="border-text">
+    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="Github" width=50><br>
+    <a href="https://github.com/asgardeo/asgardeo-auth-spa-sdk/tree/main/samples/asgardeo-html-js-app" target="_blank">View source</a>
+  </div>
+</div>
+
 
 ## Configure the sample
 
@@ -86,9 +83,6 @@ Follow the steps given below to configure the sample app.
 1. Unzip the application folder and open the `index.html` file located at the root of the project in a text editor.
 2. Scroll down towards the end of the body and find the `<script>` tag with the `authConfig` object.
 3. Update the following in the `authConfig` object:
-
-    !!! note
-        Replace <code>{organization_name}</code> with the name of your organization and apply the client ID that was generated when you registered the application in Asgardeo.
 
     ``` 
     const authConfig = {
@@ -149,10 +143,8 @@ Follow the steps given below to run the sample.
 
 2. Once the app is successfully compiled, it is accessible at `https://localhost:3000`.
 
-    ![Javascript SPA login](../../assets/img/guides/applications/js-app-login.jpg)
-
 3. Click **Login**. You will be redirected to the Asgardeo login page.
 
-    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png)
+    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="400px" style="display: block; margin: 0 auto;"}
 
 4. Enter the credentials of your user account and click **Sign In**.

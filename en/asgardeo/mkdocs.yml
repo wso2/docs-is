@@ -85,14 +85,14 @@ nav:
     - Create your Asgardeo account: get-started/create-asgardeo-account.md
     - Try login with Asgardeo: get-started/try-it-application.md
     - Start integrating Asgardeo into apps:
-      - Try a sample app:
+      - Try for a sample app:
         - Single Page apps:
           - React: get-started/try-samples/qsg-spa-react.md
-          - Javascript: get-started/try-samples/qsg-spa-javascript.md
+          - JavaScript: get-started/try-samples/qsg-spa-javascript.md
         - Web apps:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
-      - Try your own app:
+      - Try for your own app:
         - Single Page apps:
           - React: get-started/try-your-own-app/react.md
           - Javascript: get-started/try-your-own-app/javascript.md
