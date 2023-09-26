@@ -99,70 +99,67 @@ When your application is a confidential client, it needs to identify itself to t
 - Use **client_secret_post**: The `client_id` and `client_secret` are both sent as body parameters in the POST message. See the example given below.
 
     === "cURL"
-    
-      ```bash
-      curl --location --request POST 'https://api.asgardeo.io/t/<organization_name>/oauth2/token' \
-      --header 'Content-Type: application/x-www-form-urlencoded' \
-      --data-urlencode 'code={authorization_code}' \
-      --data-urlencode 'grant_type=authorization_code' \
-      --data-urlencode 'client_id={client_id}' \
-      --data-urlencode 'client_secret={client_secret}' \
-      --data-urlencode 'redirect_uri={redirect_uri}'
-      ```
-    
+        ```bash
+        curl --location --request POST 'https://api.asgardeo.io/t/<organization_name>/oauth2/token' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'code={authorization_code}' \
+        --data-urlencode 'grant_type=authorization_code' \
+        --data-urlencode 'client_id={client_id}' \
+        --data-urlencode 'client_secret={client_secret}' \
+        --data-urlencode 'redirect_uri={redirect_uri}'
+        ```
+
     === "JavaScript - jQuery"
-    
-      ```js
-      var settings = {
-          "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/token",
-          "method": "POST",
-          "timeout": 0,
-          "headers": {
-              "Content-Type": "application/x-www-form-urlencoded"
-          },
-          "data": {
-              "code": "{authorization_code}",
-              "grant_type": "authorization_code",
-              "client_id": "{client_id}",
-              "client_secret": "{client_secret}",
-              "redirect_uri": "{redirect_uri}"
-          }
-      };
-    
-      $.ajax(settings).done(function (response) {
-          console.log(response);
-      });
-      ```
-    
+        ```js
+        var settings = {
+            "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/token",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "data": {
+                "code": "{authorization_code}",
+                "grant_type": "authorization_code",
+                "client_id": "{client_id}",
+                "client_secret": "{client_secret}",
+                "redirect_uri": "{redirect_uri}"
+            }
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+        ```
+
     === "Nodejs - Axios"
-    
-      ```js
-      var axios = require('axios');
-      var qs = require('qs');
-      var data = qs.stringify({
-          'code': '{authorization_code}',
-          'grant_type': 'authorization_code',
-          'client_id': '{client_id}',
-          'client_secret': '{client_secret}',
-          'redirect_uri': '{redirect_uri}'
-      });
-      var config = {
-          method: 'post',
-          url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/token',
-          headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          data : data
-      };
-    
-      axios(config)
-          .then(function (response) {
-              console.log(JSON.stringify(response.data));
-          })
-          .catch(function (error) {
-              console.log(error);
-          });
-      ```
+        ```js
+        var axios = require('axios');
+        var qs = require('qs');
+        var data = qs.stringify({
+            'code': '{authorization_code}',
+            'grant_type': 'authorization_code',
+            'client_id': '{client_id}',
+            'client_secret': '{client_secret}',
+            'redirect_uri': '{redirect_uri}'
+        });
+        var config = {
+            method: 'post',
+            url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/token',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data : data
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        ```
 
 - Use **client_secret_basic**: The client secret is sent as an authorization header in the request (`Authorization: Basic BASE46_ENCODING<client_id:client_secret>`). See the example given below.
 
