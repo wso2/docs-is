@@ -15,11 +15,11 @@ To configure login attempts security:
 
 3. Switch to **Enabled** to enable this configuration.  
 
-    ![Enable login attempts security]({{base_path}}/assets/img/guides/organization/account-security/login-attempts-security/enable-login-attempts-security.png){: width="700" style="display: block; margin: 0 auto;"}
+    ![Enable login attempts security]({{base_path}}/assets/img/guides/organization/account-security/login-attempts-security/enable-login-attempts-security.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Configure the settings below if you want to change how login attempts security works by default.
 
-    ![View account security options]({{base_path}}/assets/img/guides/organization/account-security/login-attempts-security/configure-login-attempts-security.png){: width="700" style="display: block; margin: 0 auto;"}
+    ![View account security options]({{base_path}}/assets/img/guides/organization/account-security/login-attempts-security/configure-login-attempts-security.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     <table>
        <tbody>
@@ -74,4 +74,4 @@ To disable login attempts security:
 2. Go to **Login Attempts Security**.
 3. Click **Configure** and switch to **Disabled** to disable this security.  
 
-    ![Disable login attempts security]({{base_path}}/assets/img/guides/organization/account-security/login-attempts-security/disable-login-attempts-security.png)
+    ![Disable login attempts security]({{base_path}}/assets/img/guides/organization/account-security/login-attempts-security/disable-login-attempts-security.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}

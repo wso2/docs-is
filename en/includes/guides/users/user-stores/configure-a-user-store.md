@@ -2,7 +2,7 @@
 !!! note
     If you have connected a remote user store before 7th February 2023, you will have Read-Only access for the user store.
     If you need Read-Write access for your user store on {{ product_name }},
-    
+
     1. Delete the existing remote user store.
     2. [Register a remote user store](#register-a-remote-user-store) again with Read/Write access type.
     3. [Set up the remote user store](#set-up-the-remote-user-store) with the latest user store agent.
@@ -65,39 +65,38 @@ To configure a remote user store for your organization:
 1. On the {{ product_name }} Console, go to **User Management** > **User Stores**.
 2. Click **Connect userstore** to open the following:
 
-   ![Register remote user store to {{ product_name }}]({{base_path}}/assets/img/guides/user-stores/register-user-store.png)
+    ![Register remote user store to {{ product_name }}]({{base_path}}/assets/img/guides/user-stores/register-user-store.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details about the user store.
-<table>
-    <tr>
-        <td>Name</td>
-        <td>A unique name to identify your user store.</td>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td>A description for the user store.</td>
-    </tr>
-    <tr>
-        <td>Remote user store type</td>
-        <td>Select your user store type</td>
-    </tr>
-    <tr>
-        <td>Access Type</td>
-        <td>
-          Select the access type of the user store. It can be any one of the following: <br> - Read-only
-          <br> - Read/Write <br> Note : The access type of the user store cannot be modified after creation.
-       </td>
-    </tr>
-</table>
-
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>A unique name to identify your user store.</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>A description for the user store.</td>
+        </tr>
+        <tr>
+            <td>Remote user store type</td>
+            <td>Select your user store type</td>
+        </tr>
+        <tr>
+            <td>Access Type</td>
+            <td>
+            Select the access type of the user store. It can be any one of the following: <br> - Read-only
+            <br> - Read/Write <br> Note : The access type of the user store cannot be modified after creation.
+        </td>
+        </tr>
+    </table>
 
 4. Click **Next** and under **Map Attributes**, map **Username** and **User ID** attributes to that of your user store.
 
     !!! warning
         These two attributes need to be mapped correctly for proper authentication.
-        
-        - ```Username``` - This attribute is used as the user identifier. Provide an attribute that identifies your user in your on-premise user store. For the best experience, use a username that satisfies validation rules in [Username Validation]({{base_path}}/guides/user-accounts/account-login/username-validation/) section.
-        - ```User ID``` - This attribute is used to uniquely identify a user entry. Provide an attribute that uniquely identifies a user entry in your user store.
+
+        - `Username` - This attribute is used as the user identifier. Provide an attribute that identifies your user in your on-premise user store. For the best experience, use a username that satisfies validation rules in [Username Validation]({{base_path}}/guides/user-accounts/account-login/username-validation/) section.
+        - `User ID` - This attribute is used to uniquely identify a user entry. Provide an attribute that uniquely identifies a user entry in your user store.
 
 5. Click **Finish** to complete the registration.
 
@@ -140,21 +139,23 @@ To assemble and configure the user store agent bundle:
             Refer [remote user store properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) for the complete list of user store configurations.
 
 3. Return to the {{ product_name }} Console and, click **Generate Token** to create an installation token. The installation token is essential to run the user store agent.
+
     !!! warning
-
         - Copy the installation token and save it in a safe location. You won't be able to see it again!
-
         - This token has no expiry time, but in case you lose or forget it, you can [regenerate an installation token]({{base_path}}/guides/users/user-stores/update-user-stores/#regenerate-the-installation-token).
 
 4. To start the user store agent, navigate to its root directory and run one of the following commands based on your operating system:
-    - Linux/OSx:
+
+    === "Linux/OSx"
         ``` json 
         sh wso2agent.sh
         ```
-    - Windows:
+
+    === "Windows"
         ``` json 
         wso2agent.bat -- run
         ```
+
     Enter the installation token generated in the previous step when prompted.
 
 
@@ -162,15 +163,17 @@ To assemble and configure the user store agent bundle:
         1. Create a file named `accessToken` in the root directory of the agent.
         2. Add the installation token obtained from the previous step.
         3. Run the user store agent.
-            - Linux/OSx:
+
+            === "Linux/OSx"
                 ``` json
                 sh wso2agent.sh start
                 ```
-            - Windows:
+            === "Windows"
                 ``` json
                 wso2agent.bat start
                 ```
 
 ## What's Next
+
 - [Configure high availability for a remote user store]({{base_path}}/guides/users/user-stores/configure-high-availability/)
 - [Manage remote user stores in {{ product_name }}]({{base_path}}/guides/users/user-stores/update-user-stores/)

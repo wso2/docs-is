@@ -82,7 +82,7 @@ To enable token exchange in your application:
 3. Add `Token Exchange` under the **Allowed grant types**.
 
     !!! note
-        To enable refresh tokens for the token exchange grant, include `Refresh Token` as an **Allowed Grant Type**. Learn more about [ow the refresh token grant type works]({{base_path}}/references/grant-types-in-asgardeo/#refresh-token-grant).
+        To enable refresh tokens for the token exchange grant, include `Refresh Token` as an **Allowed Grant Type**. Learn more about [how the refresh token grant type works]({{base_path}}/references/grant-types-in-asgardeo/#refresh-token-grant).
 
 4. Click **Update** to save the configurations.
 

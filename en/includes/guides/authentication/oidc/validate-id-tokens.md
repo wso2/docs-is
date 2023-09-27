@@ -45,53 +45,42 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/jwks
 
 **Sample request**
 
-<CodeGroup>
-<CodeGroupItem title="cURL" active>
+=== "cURL"
+    ```bash
+    curl --location --request GET 'https://api.asgardeo.io/t/bifrost/oauth2/jwks'
+    ```
 
-```bash
-curl --location --request GET 'https://api.asgardeo.io/t/bifrost/oauth2/jwks'
-```
+=== "JavaScript - jQuery"
+    ```js
+    var settings = {
+        "url": "https://api.asgardeo.io/t/bifrost/oauth2/jwks",
+        "method": "GET",
+        "timeout": 0,
+    };
 
-</CodeGroupItem>
-
-<CodeGroupItem title="JavaScript - jQuery">
-
-```js
-var settings = {
-    "url": "https://api.asgardeo.io/t/bifrost/oauth2/jwks",
-    "method": "GET",
-    "timeout": 0,
-};
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-</CodeGroupItem>
-
-<CodeGroupItem title="Nodejs - Axios">
-
-```js
-var axios = require('axios');
-
-var config = {
-    method: 'get',
-    url: 'https://api.asgardeo.io/t/bifrost/oauth2/jwks',
-    headers: {}
-};
-
-axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
+    $.ajax(settings).done(function (response) {
+        console.log(response);
     });
-```
+    ```
 
-</CodeGroupItem>
-</CodeGroup>
+=== "Nodejs - Axios"
+    ```js
+    var axios = require('axios');
+
+    var config = {
+        method: 'get',
+        url: 'https://api.asgardeo.io/t/bifrost/oauth2/jwks',
+        headers: {}
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    ```
 
 **Sample response**
 

@@ -87,7 +87,7 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
     !!! note "Replicate content"
         If you have not yet configured an email template for the selected locale, you have the option to replicate content from the previous locale's template and use it to modify the email template for the selected locale.
 
-    ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png)
+    ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Make your modifications in the **Content** tab and use the **Preview** tab for a real-time preview.
 
@@ -98,7 +98,7 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 
     1. Display the `local` attribute on the user's profile. Learn more on [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
 
-    2. Update the `local` attribute value with the <a :href="$withBase('/references/localization-in-asgardeo/#supported-languages')">required locale code</a>.
+    2. Update the `local` attribute value with the [required locale code]({{base_path}}/references/localization-in-asgardeo/#supported-languages).
 
         - If the admin onboards the user to the organization, the admin is responsible for updating the locale code.
 

@@ -85,7 +85,7 @@ To add new scopes to your organization:
 1. In the {{ product_name }} Console, go to **Scopes**
 2. Click **New OIDC Scope** to open the **Create OpenID Connect Scope** dialog box.
   
-   ![Create OpenID Connect scopes]({{base_path}}/assets/img/guides/organization/scopes/create-scopes.png)
+    ![Create OpenID Connect scopes]({{base_path}}/assets/img/guides/organization/scopes/create-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Enter values for the required properties and click **Next**:
     <table>
@@ -106,7 +106,7 @@ To add new scopes to your organization:
         </table>
 4. Select the attributes that should correspond to the scope and click **Finish**.
 
-    ![Select attributes corresponding to scope]({{base_path}}/assets/img/guides/organization/scopes/select-attributes.png)
+    ![Select attributes corresponding to scope]({{base_path}}/assets/img/guides/organization/scopes/select-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Edit Scopes
 
@@ -128,35 +128,35 @@ As an application developer, you can follow the steps given below to configure y
 
 2. Copy the scopes listed at the end of the **User Attributes** section. You may have [default OIDC scopes](#default-oidc-scopes) or [custom scopes](#create-custom-scopes) listed.
 
-    ![Selected Scopes]({{base_path}}/assets/img/guides/organization/scopes/selected-scopes.png)
+    ![Selected Scopes]({{base_path}}/assets/img/guides/organization/scopes/selected-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. When configuring the authentication request in your client app, append the **scope** parameter with the scopes that you need:
 
     - For client apps using the SDK:
 
-      ``` json{6}
-      {
-        "clientID": "<client ID>",
-        "baseUrl": "https://api.asgardeo.io/t/<organization_name>",
-        "signInRedirectURL": "https://localhost:3000",
-        "signOutRedirectURL": "https://localhost:3000",
-        "scope": [ "openid", "address", "phone", "profile" ]
-      }
-      ```
-      
-      !!! note
-        Find out more about [configuring applications]({{base_path}}/get-started/start-integrating-apps/).
+        ``` json hl_lines="6"
+        {
+          "clientID": "<client ID>",
+          "baseUrl": "https://api.asgardeo.io/t/<organization_name>",
+          "signInRedirectURL": "https://localhost:3000",
+          "signOutRedirectURL": "https://localhost:3000",
+          "scope": [ "openid", "address", "phone", "profile" ]
+        }
+        ```
+
+        !!! note
+            Find out more about [configuring applications]({{base_path}}/get-started/start-integrating-apps/).
 
     - For client apps using direct API calls to authenticate:
 
-      ``` js{6}
-      curl -X GET \
-      https://api.asgardeo.io/t/<organization_name>/oauth2/authorize \
-        -d 'client_id={client_id}'
-        -d 'response_type=code'
-        -d 'redirect_uri={redirect_uri}'
-        -d 'scope=openid%address%phone%profile'
-      ```
+        ``` js hl_lines="6"
+        curl -X GET \
+        https://api.asgardeo.io/t/<organization_name>/oauth2/authorize \
+          -d 'client_id={client_id}'
+          -d 'response_type=code'
+          -d 'redirect_uri={redirect_uri}'
+          -d 'scope=openid%address%phone%profile'
+        ```
 
 When the user logs in, {{ product_name }} will prompt the user with a consent screen to authorize access to the user attributes. Once the user consents, your application will have access to the requested user attributes.
 

@@ -26,7 +26,6 @@ When your application is a confidential client, it needs to identify itself to t
 
 Apart from client authentication, the revocation request has some other parameters as well.
 
-<br>
 <table>
   <tr>
     <th>Request Parameter</th>
@@ -41,7 +40,6 @@ Apart from client authentication, the revocation request has some other paramete
     <td>The type of token. If the token is an access token, the type should be <code>access_token</code>. For a refresh token, the type should be <code>refresh_token</code>.</td>
   </tr>
 </table>
-<br>
 
 ### Client secret post based authentication
 
@@ -49,77 +47,65 @@ In this method, the app can send the `client_id` and `client_secret` as body par
 
 The sample request is given below.
 
-<CodeGroup>
+=== "cURL"
+    ```
+    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'token={token}' \
+    --data-urlencode 'token_type_hint={token_type}' \
+    --data-urlencode 'client_id={client_id}' \
+    --data-urlencode 'client_secret={client_secret}'
+    ```
 
-<CodeGroupItem title="cURL" active>
-```
-curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'token={token}' \
---data-urlencode 'token_type_hint={token_type}' \
---data-urlencode 'client_id={client_id}' \
---data-urlencode 'client_secret={client_secret}'
-```
-</CodeGroupItem>
+=== "JavaScript - jQuery"
+    ```js
+    var settings = {
+        "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/revoke",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+            "token": "{token}",
+            "token_type": "{token_type}",
+            "client_id": "{client_id}",
+            "client_secret": "{client_secret}"
+        }
+    };
 
-<br>
-
-<CodeGroupItem title="JavaScript - jQuery">
-
-```js
-var settings = {
-    "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/revoke",
-    "method": "POST",
-    "timeout": 0,
-    "headers": {
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-        "token": "{token}",
-        "token_type": "{token_type}",
-        "client_id": "{client_id}",
-        "client_secret": "{client_secret}"
-    }
-};
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-</CodeGroupItem>
-
-<CodeGroupItem title="Nodejs - Axios">
-
-```js
-var axios = require('axios');
-var qs = require('qs');
-var data = qs.stringify({
-    'token': '{token}',
-    'token_type_hint': '{token_type}',
-    'client_id': '{client_id}',
-    'client_secret': '{client_secret}',
-});
-var config = {
-    method: 'post',
-    url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/revoke',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data : data
-};
-
-axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
+    $.ajax(settings).done(function (response) {
+        console.log(response);
     });
-```
-</CodeGroupItem>
+    ```
 
-</CodeGroup>
+=== "Nodejs - Axios"
+    ```js
+    var axios = require('axios');
+    var qs = require('qs');
+    var data = qs.stringify({
+        'token': '{token}',
+        'token_type_hint': '{token_type}',
+        'client_id': '{client_id}',
+        'client_secret': '{client_secret}',
+    });
+    var config = {
+        method: 'post',
+        url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/revoke',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data : data
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    ```
 
 ### Client secret basic authentication
 
@@ -127,25 +113,26 @@ In client secret basic authentication, the application has to do base64 encoding
 
 The authorization header should look as follows:
 
-`Basic BASE46_ENCODING<your_client_id:your_client_secret>`
+```
+Basic BASE46_ENCODING<your_client_id:your_client_secret>
+```
 
 !!! tip
     To perform base64 encoding for the client ID and secret, you can use a tool, or you can run the below command.
-`
-echo -n '<your_client_id:your_client_secret>' | base64
-`
+    ```
+    echo -n '<your_client_id:your_client_secret>' | base64
+    ```
 
 **Sample request**
 
-<CodeGroupItem title="cURL" active>
-```
-curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
---header 'Authorization: Basic ejhSQjZ5c2REWmhlNFFPMHpKQVF6S2JpNlA0YTp6MEM3OXpsb3B4OGk3QnlPdzhLMTVBOWRwbFlh' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'token_type_hint=access_token' \
---data-urlencode 'token=292896cf-5525-3551-b9e2-1787f1114924'
-```
-</CodeGroupItem>
+=== "cURL"
+    ```
+    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
+    --header 'Authorization: Basic ejhSQjZ5c2REWmhlNFFPMHpKQVF6S2JpNlA0YTp6MEM3OXpsb3B4OGk3QnlPdzhLMTVBOWRwbFlh' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'token_type_hint=access_token' \
+    --data-urlencode 'token=292896cf-5525-3551-b9e2-1787f1114924'
+    ```
 
 When the token is revoked, you will get a `200 OK` response.
 
@@ -155,78 +142,65 @@ Since public clients cannot store credentials securely and they do not need to p
 
 **Sample request**
 
-<CodeGroup>
+=== "cURL"
+    ```
+    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'token={token}' \
+    --data-urlencode 'token_type_hint={token_type}' \
+    --data-urlencode 'client_id={client_id}'
+    ```
 
-<CodeGroupItem title="cURL" active>
-```
-curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'token={token}' \
---data-urlencode 'token_type_hint={token_type}' \
---data-urlencode 'client_id={client_id}'
-```
-</CodeGroupItem>
+=== "JavaScript - jQuery"
+    ```js
+    var settings = {
+        "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/revoke",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+            "token": "{token}",
+            "token_type": "{token_type}",
+            "client_id": "{client_id}"
+        }
+    };
 
-<br>
-
-<CodeGroupItem title="JavaScript - jQuery">
-
-```js
-var settings = {
-    "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/revoke",
-    "method": "POST",
-    "timeout": 0,
-    "headers": {
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-        "token": "{token}",
-        "token_type": "{token_type}",
-        "client_id": "{client_id}"
-    }
-};
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-</CodeGroupItem>
-
-<CodeGroupItem title="Nodejs - Axios">
-
-```js
-var axios = require('axios');
-var qs = require('qs');
-var data = qs.stringify({
-    'token': '{token}',
-    'token_type_hint': '{token_type}',
-    'client_id': '{client_id}'
-});
-var config = {
-    method: 'post',
-    url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/revoke',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data : data
-};
-
-axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
+    $.ajax(settings).done(function (response) {
+        console.log(response);
     });
-```
-</CodeGroupItem>
+    ```
 
-</CodeGroup>
+=== "Nodejs - Axios"
+    ```js
+    var axios = require('axios');
+    var qs = require('qs');
+    var data = qs.stringify({
+        'token': '{token}',
+        'token_type_hint': '{token_type}',
+        'client_id': '{client_id}'
+    });
+    var config = {
+        method: 'post',
+        url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/revoke',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data : data
+    };
 
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    ```
 
 This token revocation request for public clients takes the following parameters:
-<br>
+
 <table>
   <tr>
     <th>Request Parameter</th>

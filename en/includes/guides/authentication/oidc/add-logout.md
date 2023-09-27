@@ -21,7 +21,7 @@ curl -X POST "https://api.asgardeo.io/t/bifrost/oidc/logout" \
 The logout request has the following parameters:
 
 !!! note
-  See [RP-initiated logout request](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#RPLogout) for more details.
+    See [RP-initiated logout request](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#RPLogout) for more details.
 
 <br>
 <table>
@@ -36,7 +36,7 @@ The logout request has the following parameters:
   <tr>
     <td><code>post_logout_redirect_uri</code><Badge text="Optional" type="optional"/></td>
     <td>
-    The URL to be redirected to during user logout. The value defined here should be added as one of the [authorized redirect URLs](../../references/app-settings/oidc-settings-for-app/#authorized-redirect-urls). This should be passed along with the <code>id_token_hint</code>.
+    The URL to be redirected to during user logout. The value defined here should be added as one of the [authorized redirect URLs]({{base_path}}/references/app-settings/oidc-settings-for-app/#authorized-redirect-urls). This should be passed along with the <code>id_token_hint</code>.
     If the <code>post_logout_redirect_uri</code> parameter is not passed, the user will be routed to {{ product_name }}'s common page after logout.
     </td>
   </tr>

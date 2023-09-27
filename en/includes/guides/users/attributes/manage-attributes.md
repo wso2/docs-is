@@ -14,7 +14,7 @@ To view the attributes available for your organization:
 1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes**.
 2. Click **Attributes** again under the **Manage Attributes** section.
 
-   ![View attributes]({{base_path}}/assets/img/guides/organization/attributes/view-attributes.png)
+   ![View attributes]({{base_path}}/assets/img/guides/organization/attributes/view-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 You can now see the complete list of attributes along with **Attribute Display Name** and **Attribute** name.
 
@@ -26,25 +26,25 @@ To add a custom attribute:
 2. Click **Attributes** to see the list of attributes.
 3. Click **New Attribute** and enter values for the following properties:
 
-   ![Custom attribute]({{base_path}}/assets/img/guides/organization/attributes/new-custom-attribute.png)
+    ![Custom attribute]({{base_path}}/assets/img/guides/organization/attributes/new-custom-attribute.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-   <table>
-      <tbody>
-         <tr>
-            <td><b>Attribute Name</b></td>
-            <td>The name that will be shared with applications.</td>
+    <table>
+       <tbody>
+          <tr>
+             <td><b>Attribute Name</b></td>
+             <td>The name that will be shared with applications.</td>
+          </tr>
+          <tr>
+              <td><b>Protocol Mappings</b></td>
+              <td>Mappings are auto-generated for the protocols. You can customize them here. </td>
          </tr>
          <tr>
-             <td><b>Protocol Mappings</b></td>
-             <td>Mappings are auto-generated for the protocols. You can customize them here.   </td>
-        </tr>
-        <tr>
-            <td><b>Attribute Display Name</b></td>
-            <td>The name that will be used in a user's profile.</td>
-        </tr>
+             <td><b>Attribute Display Name</b></td>
+             <td>The name that will be used in a user's profile.</td>
+         </tr>
+       </tbody>
+    </table>
 
-      </tbody>
-   </table>
 4. Click **Finish**
 
 ## Update attributes
@@ -54,34 +54,36 @@ To update the properties of a user attribute:
 2. Click **Attributes** to see the list of attributes.
 3. Click **Edit** for the attribute you want to update.
 
-   ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes.png)
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-   !!! note
-     The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
+    !!! note
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
 
 4. Update the following values.
-   <table>
-      <tbody>
-         <tr>
-            <td><b>Attribute Display Name</b></td>
-            <td>Update the display name of the attribute that will show in user profiles.</td>
+
+    <table>
+       <tbody>
+          <tr>
+             <td><b>Attribute Display Name</b></td>
+             <td>Update the display name of the attribute that will show in user profiles.</td>
+          </tr>
+          <tr>
+               <td><b>Description</b></td>
+               <td>Update the description for the attribute.</td>
+          </tr>
+        <tr>
+              <td><b>Display this attribute on the user's profile</b></td>
+              <td>If this checkbox is selected, the attribute is displayed in user profiles.</ td>
          </tr>
          <tr>
-              <td><b>Description</b></td>
-              <td>Update the description for the attribute.</td>
+             <td><b>Make this attribute required on user's profile</b></td>
+             <td>If this checkbox is selected, users are required to specify a value for this attribute on their profile.</td>
          </tr>
-       <tr>
-             <td><b>Display this attribute on the user's profile</b></td>
-             <td>If this checkbox is selected, the attribute is displayed in user profiles.</td>
-        </tr>
-        <tr>
-            <td><b>Make this attribute required on user's profile</b></td>
-            <td>If this checkbox is selected, users are required to specify a value for this attribute on their profile.</td>
-        </tr>
-        <tr>
-           <td><b>Make this attribute read-only on user's profile</b></td>
-           <td>If this checkbox is selected, the value for this attribute will be read-only in user profiles.</td>
-      </tr>
-      </tbody>
-   </table>
+         <tr>
+            <td><b>Make this attribute read-only on user's profile</b></td>
+            <td>If this checkbox is selected, the value for this attribute will be read-only in user profiles.</td>
+       </tr>
+     </tbody>
+    </table>
+
 6. Click **Update**.

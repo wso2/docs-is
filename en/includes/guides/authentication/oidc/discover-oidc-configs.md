@@ -8,8 +8,8 @@ You can do this by invoking the discovery endpoint API or by using the {{ produc
 
 To get started, you need to have an application registered in {{ product_name }}:
 
-- Register a [single-page app with OIDC](../../guides/applications/register-single-page-app/).
-- Register a [web app with OIDC](../../guides/applications/register-oidc-web-app/).
+- Register a [single-page app with OIDC]({{base_path}}/guides/applications/register-single-page-app/).
+- Register a [web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
 
 ## Use the discovery endpoint
 
@@ -106,11 +106,11 @@ You can get the endpoints from the console as follows:
 2. Select an OIDC application from the list.
 
 3. Go to the **Info** tab of the application and find the server endpoints to your organization.
-   ![app-help-panel-for-endpoints](../../../assets/img/guides/applications/app-endpoint-help.png)
+   ![app-help-panel-for-endpoints]({{base_path}}/assets/img/guides/applications/app-endpoint-help.png)
 
 ## What's next?
 
 Explore how OpenID Connect endpoints are used when you implement login to your applications:
 
-- Implement login for single-page applications [using the authorization code flow with PKCE](../../guides/authentication/oidc/implement-auth-code-with-pkce/).
-- Implement login for traditional web applications [using the authorization code flow](../../guides/authentication/oidc/implement-auth-code/).
+- Implement login for single-page applications [using the authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/).
+- Implement login for traditional web applications [using the authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/).

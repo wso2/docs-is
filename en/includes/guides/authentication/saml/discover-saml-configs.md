@@ -10,9 +10,9 @@ When configuring SAML based sign in with {{ product_name }}, you need to know:
 2. Issuer of {{ product_name }}
 3. The public certificate of {{ product_name }}
 
- ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png)
+    ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png)
 
-## Prerequisite
+## Prerequisites
 To get started, you need to have an application registered in {{ product_name }}. If you don't have an app registered, go to {{ product_name }} to [register a SAML application]({{base_path}}/guides/applications/register-saml-web-app/).
 
 ## Get SAML configs
@@ -21,7 +21,7 @@ You need to know the SAML IdP configurations of {{ product_name }} if you want t
 There are two options for a SAML application to get the SAML IdP configurations of {{ product_name }}:
 
 1. [Use SAML IdP metadata of {{ product_name }}](#use-saml-metadata)
-2. [Get SAML IdP configurations of {{ product_name }} from Console](#get-saml-configurations-of-asgardeo-from-console)
+2. [Get SAML IdP configurations of {{ product_name }} from Console](#get-saml-configurations)
 
 ### Use SAML metadata
 
@@ -39,7 +39,7 @@ The SAML IdP metadata document contains:
 
 **Sample SAML IdP metadata of {{ product_name }}**
 
-```xml 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <EntityDescriptor
     xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="accounts.asgardeo.io/t/{organization_name}">
@@ -79,8 +79,8 @@ HFY29KP4da//BDdQrftzYCATe37Um09id/0KMGs=</X509Certificate>
 
 There are two ways to get the SAML IdP metadata of {{ product_name }}.
 
-1. [File based metadata](#use-file-based-metadata)
-2. [URL based metadata](#use-url-based-metadata)
+- [File based metadata](#use-file-based-metadata)
+- [URL based metadata](#use-url-based-metadata)
 
 Based on the capability of your SAML application or library, you can choose either approach.
 
@@ -95,7 +95,8 @@ To download the SAML metadata file of your organization in {{ product_name }},
 3. Go to the **Info** section.
 
 4. Click **Download IdP Metadata** to download the metadata xml file.
-    ![Get SAML metadata]({{base_path}}/assets/img/guides/applications/saml-app/download-idp-metadata.png)
+
+    ![Get SAML metadata]({{base_path}}/assets/img/guides/applications/saml-app/download-idp-metadata.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 #### Use URL Based Metadata
 
@@ -105,7 +106,7 @@ You can use below endpoint URL to get the SAML IdP metadata information.
 https://api.asgardeo.io/t/<organization_name>/identity/metadata/saml2
 ```
 
-_Sample endpoint URL_
+**Sample endpoint URL**
 ``` 
 https://api.asgardeo.io/t/bifrost/identity/metadata/saml2
 ```
@@ -113,7 +114,7 @@ https://api.asgardeo.io/t/bifrost/identity/metadata/saml2
 !!! note
     When integrating {{ product_name }} as a SAML IdP in Salesforce, be sure to add the SAML metadata URL to the [Salesforce remote site settings](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_callouts_remote_site_settings.htm) to recognize it as an authorized network address.
 
-### Get SAML configurations of {{ product_name }} from Console
+### Get SAML configurations
 
 Some applications and SDKs do not have the capability to dynamically resolve endpoints from  SAML metadata file. You need to configure endpoints manually to support them.
 
@@ -124,15 +125,15 @@ You can login to {{ product_name }} and get endpoints of {{ product_name }}.
 2. Select the SAML application from the application view.
 
 3. Go to the **Info** section of the application and finds the below server information related to your organization:
+
     - **Issuer** : Issuer name of {{ product_name }}
     - **Single Sign-On** : Sign-on URL of {{ product_name }}
     - **Single Logout** : Logout URL of {{ product_name }}
     - **IdP certificate** : Public certificate of {{ product_name }}
-   ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png)
+
+    ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png)
 
 4. You can download the certificate of {{ product_name }} from **IdP certificate**.
-
-<br>
 
 ## What's next?
 Now you've integrated your SAML web application. You also can:

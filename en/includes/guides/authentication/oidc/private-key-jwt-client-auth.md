@@ -39,41 +39,42 @@ Generate a public key and private key for the client application. Follow the ste
 
 1. Open a terminal and execute the following keytool command to create the client keystore.
 
-   !!! note
-    Replace the following values:
-    - `<clinet_ID>`: Specify the client ID generated when registering the client application in {{ product_name }}.
-    - `<keystore_name>`: Specify the name of the keystore you are creating.
+    !!! note
+        Replace the following values:
 
-   ``` bash
-   keytool -genkey -alias <client_ID> -keyalg RSA -keystore <keystore_name>.jks
-   ```
+        - `<clinet_ID>`: Specify the client ID generated when registering the client application in {{ product_name }}.
+        - `<keystore_name>`: Specify the name of the keystore you are creating.
+
+    ``` bash
+    keytool -genkey -alias <client_ID> -keyalg RSA -keystore <keystore_name>.jks
+    ```
 
 2. Convert the `.jks` keystore to `PKCS#12` format.
 
-   !!! note
-    Replace `<dest_keystore_name>` to specify a name for the new keystore in `PKCS#12` format.
+    !!! note
+        Replace `<dest_keystore_name>` to specify a name for the new keystore in `PKCS#12` format.
 
-   ``` bash
-   keytool -importkeystore -srckeystore <keystore_name>.jks -destkeystore <dest_keystore_name>.p12 -deststoretype PKCS12
-   ```
+    ``` bash
+    keytool -importkeystore -srckeystore <keystore_name>.jks -destkeystore <dest_keystore_name>.p12 -deststoretype PKCS12
+    ```
 
 3. Export the public key from the `.p12` keystore.
 
-   !!! note
-    Replace `<pub_key_name>` to specify a name for the public key certificate file.
+    !!! note
+        Replace `<pub_key_name>` to specify a name for the public key certificate file.
 
-   ``` bash
-   openssl pkcs12 -in <dest_keystore_name>.p12 -nokeys -out <pub_key_name>.pem
-   ```
+    ``` bash
+    openssl pkcs12 -in <dest_keystore_name>.p12 -nokeys -out <pub_key_name>.pem
+    ```
 
 4. Export the private key from the `.p12` keystore.
 
-   !!! note
-    Replace `<private_key_name>` to specify a name for the private key certificate file.
+    !!! note
+        Replace `<private_key_name>` to specify a name for the private key certificate file.
 
-   ``` bash
-   openssl pkcs12 -in <dest_keystore_name>.p12 -nodes -nocerts -out <private_key_name>.pem
-   ```
+    ``` bash
+    openssl pkcs12 -in <dest_keystore_name>.p12 -nodes -nocerts -out <private_key_name>.pem
+    ```
 
 ## Upload the public key to {{ product_name }}
 
@@ -125,58 +126,58 @@ If you are implementing the authorization code flow, you have enabled **code** a
 
 1. First, invoke the authorization endpoint in {{ product_name }} and get an authorization code.
 
-   ``` bash
-   https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}
-   ```
+    ``` bash
+    https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}
+    ```
 
 2. Invoke the token endpoint and get the access token.
 
-   ``` bash
-   curl --location --request POST 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
-   --header 'Content-Type: application/x-www-form-urlencoded' \
-   --data-urlencode 'code={authorization_code}' \
-   --data-urlencode 'grant_type=authorization_code' \
-   --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer'\
-   --data-urlencode 'client_assertion={jwt_assertion}' \
-   --data-urlencode 'redirect_uri={redirect_uri}'
-   ```
+    ``` bash
+    curl --location --request POST 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'code={authorization_code}' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer'\
+    --data-urlencode 'client_assertion={jwt_assertion}' \
+    --data-urlencode 'redirect_uri={redirect_uri}'
+    ```
 
-   Be sure to replace the following values in the request:
-
-   <table>
-    <tr>
-        <th>
-            <code>{organization_name}</code>
-        </th>
-        <td>
-            Name of the organization that you are accessing.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <code>{authorization_code}</code>
-        </th>
-        <td>
-            The authorization code that was received by invoking the authorization endpoint.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <code>{jwt_assertion}</code>
-        </th>
-        <td>
-            The JWT assertion that was created for your client application.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <code>{redirect_uri}</code>
-        </th>
-        <td>
-            The callback URL of your client application.
-        </td>
-    </tr>
-   </table>
+    Be sure to replace the following values in the request:
+ 
+    <table>
+     <tr>
+         <th>
+             <code>{organization_name}</code>
+         </th>
+         <td>
+             Name of the organization that you are accessing.
+         </td>
+     </tr>
+     <tr>
+         <th>
+             <code>{authorization_code}</code>
+         </th>
+         <td>
+             The authorization code that was received by invoking the authorization endpoint.
+         </td>
+     </tr>
+     <tr>
+         <th>
+             <code>{jwt_assertion}</code>
+         </th>
+         <td>
+             The JWT assertion that was created for your client application.
+         </td>
+     </tr>
+     <tr>
+         <th>
+             <code>{redirect_uri}</code>
+         </th>
+         <td>
+             The callback URL of your client application.
+         </td>
+     </tr>
+    </table>
 
 ### Client credential flow
 
@@ -220,4 +221,4 @@ To enable token reuse in {{ product_name }}.
 1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Security > Private Key JWT Client Authentication for OIDC**.
 2. Click **Configure** and use the toggle to enable token reuse.
   
-   ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png)
+    ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png)

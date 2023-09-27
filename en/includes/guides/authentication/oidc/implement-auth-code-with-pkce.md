@@ -2,22 +2,22 @@
 
 See the instructions given below to implement login with OpenID Connect in your application by using the authorization code flow and PKCE. This method is most suitable for public clients, which are applications that cannot keep the client credentials securely.
 
-[Single-page applications](../../guides/applications/register-single-page-app/) and [mobile applications](../../guides/applications/register-mobile-app/) are some examples for public clients.
+[Single-page applications]({{base_path}}/guides/applications/register-single-page-app/) and [mobile applications]({{base_path}}/guides/applications/register-mobile-app/) are some examples for public clients.
 
 For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) along with the authorization code grant to mitigate code interception attacks.
 
 The following diagram explains how this flow works with {{ product_name }}.
 
-![Authorization code flow](../../../assets/img/guides/applications/oidc/auth_code_flow.png)
+![Authorization code flow]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow.png)
 
 As shown above, you need to configure your application to get the authorization code from {{ product_name }}, and then exchange it for the required tokens.
 
 ## Prerequisites
 
-To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, register a [single-page application](../../guides/applications/register-single-page-app/#register-app) or [mobile application](../../guides/applications/register-mobile-app/#register-app).
+To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, register a [single-page application]({{base_path}}/guides/applications/register-single-page-app/#register-app) or [mobile application]({{base_path}}/guides/applications/register-mobile-app/#register-app).
 
 !!! note
-  Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account](../../guides/users/manage-customers/).
+    Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account]({{base_path}}/guides/users/manage-customers/).
 
 ## Get authorization code
 
@@ -46,9 +46,7 @@ https://api.asgardeo.io/t/bifrost/oauth2/authorize?scope=openid&response_type=co
 This authorization request takes the following parameters.
 
 !!! note
-  See <!-- [Authentication Request with Authorization code](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and --> [Authorization Request with PKCE](https://datatracker.ietf.org/doc/html/rfc7636#page-9) for details.
-
-<br>
+    See <!-- [Authentication Request with Authorization code](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and --> [Authorization Request with PKCE](https://datatracker.ietf.org/doc/html/rfc7636#page-9) for details.
 
 <table>
   <tr>
@@ -91,9 +89,6 @@ When the user is authenticated, {{ product_name }} redirects to the `redirect_ur
 https://localhost:5000/?code=60cb4ba7-b7b2-3f2f-8319-58122f1b2f5d&session_state=a0c3bc89849ba0f236791f7fe76a837b7b4422fdc9aca16db394d19a28724a29.wQc7eSHSRrGNfECJRMhSAw
 ```
 
-<br>
-
-<br>
 
 ## Get tokens
 
@@ -111,101 +106,86 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/token
 
 **Token request**
 
-<CodeGroup>
-<CodeGroupItem title="cURL" active>
+=== "cURL"
+    ```bash
+    curl --location --request POST '{token_endpoint_url}' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'code={authorization_code}' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'redirect_uri={redirect_uri}' \
+    --data-urlencode 'code_verifier={pkce_code_verifier}' \
+    --data-urlencode 'client_id={client_id}'
+    ```
 
-```bash
-curl --location --request POST '{token_endpoint_url}' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'code={authorization_code}' \
---data-urlencode 'grant_type=authorization_code' \
---data-urlencode 'redirect_uri={redirect_uri}' \
---data-urlencode 'code_verifier={pkce_code_verifier}' \
---data-urlencode 'client_id={client_id}'
-```
-
-</CodeGroupItem>
-
-<CodeGroupItem title="JavaScript - jQuery">
-
-```js
-var settings = {
-    "url": "https://api.asgardeo.io/t/bifrost/oauth2/token",
-    "method": "POST",
-    "timeout": 0,
-    "headers": {
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-        "code": "{authorization_doe}",
-        "grant_type": "authorization_code",
-        "redirect_uri": "{redirect_uri}",
-        "code_verifier": "{pkce_code_verifier}",
-        "client_id": "{client_id}"
-    }
-};
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-</CodeGroupItem>
-
-<CodeGroupItem title="Nodejs - Axios">
-
-```js
-var axios = require('axios');
-var qs = require('qs');
-var data = qs.stringify({
-    'code': '{authorization_doe}',
-    'grant_type': 'authorization_code',
-    'redirect_uri': '{redirect_uri}',
-    'code_verifier': '{pkce_code_verifier}',
-    'client_id': '{client_id}'
-});
-var config = {
-    method: 'post',
-    url: 'https://api.asgardeo.io/t/bifrost/oauth2/token',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data: data
-};
-
-axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
+=== "JavaScript - jQuery"
+    ```js
+    var settings = {
+        "url": "https://api.asgardeo.io/t/bifrost/oauth2/token",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+            "code": "{authorization_doe}",
+            "grant_type": "authorization_code",
+            "redirect_uri": "{redirect_uri}",
+            "code_verifier": "{pkce_code_verifier}",
+            "client_id": "{client_id}"
+        }
+    };
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response);
     });
-```
+    ```
 
-</CodeGroupItem>
-</CodeGroup>
+=== "Nodejs - Axios"
+    ```js
+    var axios = require('axios');
+    var qs = require('qs');
+    var data = qs.stringify({
+        'code': '{authorization_doe}',
+        'grant_type': 'authorization_code',
+        'redirect_uri': '{redirect_uri}',
+        'code_verifier': '{pkce_code_verifier}',
+        'client_id': '{client_id}'
+    });
+    var config = {
+        method: 'post',
+        url: 'https://api.asgardeo.io/t/bifrost/oauth2/token',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: data
+    };
+    
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    ```
 
 **Sample token request**
 
-<CodeGroupItem title="cURL" active>
-
-```bash 
-curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'code=60cb4ba7-b7b2-3f2f-8319-58122f1b2f5d' \
---data-urlencode 'grant_type=authorization_code' \
---data-urlencode 'redirect_uri=https://localhost:5000' \
---data-urlencode 'code_verifier=zYYoWc9LNIahfonUKyKZcpDc0oWV0zGbn-gTkrr4lkw' \
---data-urlencode 'client_id=fv_LScHaB83PN4VPX1cHufphtHQa'
-```
-
-</CodeGroupItem>
-
+=== "cURL"
+    ```bash 
+    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'code=60cb4ba7-b7b2-3f2f-8319-58122f1b2f5d' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'redirect_uri=https://localhost:5000' \
+    --data-urlencode 'code_verifier=zYYoWc9LNIahfonUKyKZcpDc0oWV0zGbn-gTkrr4lkw' \
+    --data-urlencode 'client_id=fv_LScHaB83PN4VPX1cHufphtHQa'
+    ```
 
 This token request takes the following parameters.
 
 !!! note
-  See <!-- [Token request with authorization code](https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest) and--> [Token request with PKCE](https://datatracker.ietf.org/doc/html/rfc7636#page-10) for details.
+    See <!-- [Token request with authorization code](https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest) and--> [Token request with PKCE](https://datatracker.ietf.org/doc/html/rfc7636#page-10) for details.
 
 <br>
 <table>
