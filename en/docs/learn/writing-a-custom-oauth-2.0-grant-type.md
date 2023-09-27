@@ -66,7 +66,6 @@ implement a new grant type.
         to `            true           `, provides the ability for the public
         clients to use the grant type for public client authentication.
 
-    To test this out, follow the instructions below to implement a
 
 ------------------------------------------------------------------------
 
