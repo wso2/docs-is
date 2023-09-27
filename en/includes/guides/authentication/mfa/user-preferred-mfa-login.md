@@ -81,7 +81,7 @@ To set preferred MFA options for users:
             </tr>
         </table>
 
-2. Set the preferred MFA option for each user using a [SCIM2/Me patch API](https://wso2.com/asgardeo/docs/apis/scim2/#/operations/patchUserMe) call.
+2. Set the preferred MFA option for each user using a [SCIM2/Me patch API](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/operation/patchUserMe) call.
 
     !!! note
         Update the `preferredMFAOption.authenticationOption` value for each user according to their choice in step 1.

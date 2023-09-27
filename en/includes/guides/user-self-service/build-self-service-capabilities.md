@@ -15,9 +15,9 @@ Once the user logs in to the business application, you can make these capabiliti
 You can use the following {{ product_name }} APIs to enable self-service capabilities in your business application.
 
 - SCIM/Me Endpoint
-    - [List user details](https://wso2.com/asgardeo/docs/apis/scim2/#/paths/Me/get)
-    - [Update user profile](https://wso2.com/asgardeo/docs/apis/scim2/#/operations/patchUserMe)
-    - [Update user password](https://wso2.com/asgardeo/docs/apis/scim2/#/operations/patchUserMe)
+    - [List user details](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/paths/~1Me/get)
+    - [Update user profile](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/operation/patchUserMe)
+    - [Update user password](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/operation/patchUserMe)
     
     !!! note
         To update the password of a user, update the `value` parameter of the API payload as follows:

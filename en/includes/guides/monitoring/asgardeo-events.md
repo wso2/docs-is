@@ -30,7 +30,7 @@ Follow the steps below to configure event publishing for {{ product_name }}.
 
 2. Select the events that you wish to publish to Choreo and click **Update**.
 
-    ![{{ product_name }} Console UI for events]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-ui.png)
+    ![{{ product_name }} Console UI for events]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-ui.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! note
         Alternatively, you can invoke the **Event Configuration Management** API to configure event publishing. See the [API Documentation]({{base_path}}/apis/event-configuration/) to learn more.
@@ -56,21 +56,21 @@ Choreo requires you to have a github repository to host the webhook logic. You c
     !!! note
         If you already have some components in the project, click on **+Create** button in the component list view.
 
-    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png)
+    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Enter a name and a description for your webhook, select **External** as the Access Mode and click **Next**.
 
-    ![Enter general details for the Choreo webhook]({{base_path}}/assets/img/guides/asgardeo-events/create-a-webhook-general-details.png)
+    ![Enter general details for the Choreo webhook]({{base_path}}/assets/img/guides/asgardeo-events/create-a-webhook-general-details.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Authorize and connect the github repository and the branch. Since the webhook code needs to be placed in the root of the repository, leave the **Path** parameter as shown.
 
-    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png)
+    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 6. Check the **Start with a sample** checkbox to create a pull request with the starter code required for the webhook and click **Next**.
 
 7. Select **{{ product_name }}** as the **Trigger Type** and click **Next**.
 
-    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-asgardeo-trigger-type.png)
+    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-asgardeo-trigger-type.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 8. Select one of the {{ product_name }} event types as the **Trigger Channel** and click **Create**. The available options are as follows:
      <table>
@@ -92,7 +92,7 @@ Choreo requires you to have a github repository to host the webhook logic. You c
         </tr>
      </table>
 
-    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-trigger-channel.png)
+    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-trigger-channel.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 9. After the webhook is created, Choreo will create a pull request in your connected Github repository with the sample starter code. Go to your repository and merge this code to complete the setup.
 
@@ -177,50 +177,51 @@ Let's set up a sample business use case in which Choreo prints a log whenever a 
 ## Payload of an {{ product_name }} event
 
 The payload of an {{ product_name }} event that is sent to Choreo consists of the following data objects:
+
 - **Security Data** object - The security data object is common to all {{ product_name }} events. This contains the following security metadata about the event.
 
-  <table>
-  <thead>
-      <tr>
-          <th><b>Property Name</b></th>
-          <th><b>Type</b></th>
-          <th><b>Description</b></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>iss</code></td>
-          <td>String</td>
-          <td>Issuer of the event</td>
-      </tr>
-      <tr>
-          <td><code>iat</code></td>
-          <td>String</td>
-          <td>Event published timestamp.</td>
-      </tr>
-      <tr>
-          <td><code>jti</code></td>
-          <td>String</td>
-          <td>Unique identifier for the event.</td>
-      </tr>
-      <tr>
-          <td><code>aud</code></td>
-          <td>String</td>
-          <td>Audience of the event.</td>
-      </tr>
-  </tbody>
-  </table>
+    <table>
+    <thead>
+        <tr>
+            <th><b>Property Name</b></th>
+            <th><b>Type</b></th>
+            <th><b>Description</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>iss</code></td>
+            <td>String</td>
+            <td>Issuer of the event</td>
+        </tr>
+        <tr>
+            <td><code>iat</code></td>
+            <td>String</td>
+            <td>Event published timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>jti</code></td>
+            <td>String</td>
+            <td>Unique identifier for the event.</td>
+        </tr>
+        <tr>
+            <td><code>aud</code></td>
+            <td>String</td>
+            <td>Audience of the event.</td>
+        </tr>
+    </tbody>
+    </table>
 
-  Example security data object:
+    Example security data object:
 
-  ``` js
-  {
-   "iss": "Asgardeo",
-   "jti": "3b69b103-fa6c-424a-bbf4-a974d0c2d2a3",
-   "iat": 1659732032884,
-   "aud": "https://websubhub/topics/myorg/REGISTRATIONS"
-  }
-  ```
+    ``` js
+    {
+    "iss": "Asgardeo",
+    "jti": "3b69b103-fa6c-424a-bbf4-a974d0c2d2a3",
+    "iat": 1659732032884,
+    "aud": "https://websubhub/topics/myorg/REGISTRATIONS"
+    }
+    ```
 
 - **Event Data** object - The event data object contains the details of the event (or the user action). Learn more about event data in the [Event data of {{ product_name }} events](#event-data-of-{{ product_name }}-events) section.
 
