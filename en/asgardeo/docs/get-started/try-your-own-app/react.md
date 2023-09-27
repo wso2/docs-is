@@ -1,17 +1,11 @@
----
-breadcrumb: false
----
-
-# Integrate your React app
+# Integrate Asgardeo with your React SPA
 
 Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [Asgardeo React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README.md).
 
-<Button
-    buttonType='grey-outlined-icon'
-    buttonText='Try out the sample app'
-    startIconPath='images/technologies/react-logo.svg'
-    buttonPath='/get-started/try-samples/qsg-spa-react'
-/>
+<div class="border-text">
+  <img src="{{base_path}}/assets/img/logo/react-logo.svg" alt="React" width=50><br>
+  <a href="{{base_path}}/get-started/try-samples/qsg-spa-react">Try out the sample app</a>
+</div>
 
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm) in your local environment.
@@ -19,8 +13,9 @@ Follow the steps given below to authenticate users to your React SPA with OpenID
 
 !!! note
     In the tutorial,
-    - your organization name is referred to as `<org_name>`.
-    - `<client_id>` refers to the client credential that you obtain once you register your application in Asgardeo.
+
+    - your organization name is referred to as `{org_name}`.
+    - `{client_id}` refers to the client credential that you obtain once you register your application in Asgardeo.
 
 ## Install the SDK
 
@@ -29,17 +24,18 @@ Run the following command to install the React SDK and the necessary dependencie
 ```bash
 npm install @asgardeo/auth-react react-router-dom --save
 ```
+
 !!! note
     The `react-router-dom` package is a peer-dependency of the SDK and it is required for the SDK to work. We are working on making it optional.
 
 ## Configure the SDK
 
-SDK uses [React Context API](https://react.dev/learn/passing-data-deeply-with-context) under the hood to share the data between components.
+SDK uses the [React Context API](https://react.dev/learn/passing-data-deeply-with-context) under the hood to share the data between components.
 You can easily integrate Asgardeo in your application by using `AuthProvider` as the wrapper element to inject configurations.
 
 `AuthProvider` will provide the session state which contains information such as the authenticated user's display name, email address etc. as well as the methods required to implement authentication in the React app.
 
-```js no-line-number
+```js
 import { AuthProvider } from "@asgardeo/auth-react";
 ```
 `AuthProvider` takes a config object as a [prop](https://react.dev/learn/passing-props-to-a-component) which is used to initialize the SDK instance. Copy and use the following code within your root component to configure `AuthProvider` for your application.
@@ -54,8 +50,8 @@ import { AuthProvider } from "@asgardeo/auth-react";
 const config = {
      signInRedirectURL: "https://localhost:3000/sign-in",
      signOutRedirectURL: "https://localhost:3000/sign-out",
-     clientID: "<client_id>",
-     baseUrl: "https://api.asgardeo.io/t/<org_name>",
+     clientID: "{client_id}",
+     baseUrl: "https://api.asgardeo.io/t/{org_name}",
      scope: [ "openid","profile" ]
 };
 
@@ -76,7 +72,7 @@ Details of the parameters are given below.
   </tr>
   <tr>
     <td><code>clientID</code></td>
-    <td>This is the Client ID of your OIDC app. See [how to obtain client ID](../../guides/applications/register-single-page-app/#get-the-client-id).</td>
+    <td>This is the Client ID of your OIDC app. See <a href="{{base_path}}/guides/applications/register-single-page-app/#get-the-client-id">how to obtain client ID</a>.</td>
   </tr>
   <tr>
     <td><code>baseUrl</code></td>
@@ -84,11 +80,11 @@ Details of the parameters are given below.
   </tr>
   <tr>
     <td><code>signInRedirectURL</code></td>
-    <td>This is the URL the app redirects to after user login. See [Authorized redirect URLs](../../references/app-settings/oidc-settings-for-app/#authorized-redirect-urls).</td>
+    <td>This is the URL the app redirects to after user login. See <a href="../../references/app-settings/oidc-settings-for-app/#authorized-redirect-urls">Authorized redirect URLs</a></td>
   </tr>
   <tr>
     <td><code>signOutRedirectURL</code></td>
-    <td>This is the URL the app redirects to after user logout. See [Authorized redirect URLs](../../references/app-settings/oidc-settings-for-app/#authorized-redirect-urls).</td>
+    <td>This is the URL the app redirects to after user logout. See <a href="../../references/app-settings/oidc-settings-for-app/#authorized-redirect-urls">Authorized redirect URLs</a></td>
   </tr>
   <tr>
     <td><code>scope</code></td>
@@ -114,14 +110,23 @@ And then inside your components, you can access the context as follows.
 const { state, signIn, signOut } = useAuthContext();
 ```
 Few common methods that you can access with `useAuthContext()` are listed below. These will be helpful when implementing authentication capabilities in your application.
+
 - `state` object - This will contain attributes such as whether a user is currently logged in, the username of the currently logged-in user etc.
+
 - `signIn` - Initiate a login request to Asgardeo, process the response to obtain authentication response.
+
 - `signOut` - Logout the user from Asgardeo and clear any authentication data from the SDK storage.
+
 - `isAuthenticated` - Check whether there is an authenticated user session. Based on the result you can decide to change the application view/behaviour.
+
 - `getBasicUserInfo` - Get authenticated user's basic information from the authentication response.
+
 - `getDecodedIDToken` - Get the decoded `id_token` obtained in the authentication response. From there you can derive more information such as additional user-attributes.
+
 - `getIDToken` - Get the `id_token` (JWT) obtained in the authentication response.
+
 - `getAccessToken` - Get the `access_token` obtained in the authentication response.
+
 - `refreshAccessToken` - Get the `refresh_token` obtained in the authentication response.
 
 !!! note
@@ -285,7 +290,7 @@ We can use the `signOut()` method from `useAuthContext()` hook to implement a lo
 ```
 Clicking on the **Logout** button will sign out the user. The user will then be redirected to the `signOutRedirectURL` (specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `false`.
 
-:::tip
+!!! tip
     You can use the `state.isAuthenticated` attribute to check the authentication status of the user.
 
 ### Add Routing

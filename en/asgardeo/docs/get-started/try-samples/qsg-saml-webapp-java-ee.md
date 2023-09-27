@@ -1,8 +1,4 @@
----
-breadcrumb: false
----
-
-# Java EE sample web app with SAML
+# Sample SAML Java EE web app
 
 By following this guide, you will be able to deploy a Java EE web application locally and secure it with SAML.
 
@@ -10,7 +6,7 @@ By following this guide, you will be able to deploy a Java EE web application lo
 
 - **Apache tomcat 9.x or 8.x**
 
-  If you don't have it, install [Apache tomcat](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+  If you don't have it, install [Apache tomcat](https://tomcat.apache.org/tomcat-9.0-doc/setup.html){target="_blank"}.
 
 - **A user account in Asgardeo**
 
@@ -35,25 +31,22 @@ Follow these steps given below to register the sample Java EE web application in
           <td>Name</td>
           <td>
             Give a unique name to identify your application.
-            <p><code>sample-app</code></p>
+            <p>e.g.:<code>sample-app</code></p>
           </td>
       </tr>
       <tr>
           <td>Protocol</td>
           <td>Select <b>SAML</b>.</td>
       </tr>
-    </table>
-
-4. Select **Manual** as the configuration type and enter the following details:
-    !!! note
-      Learn more about other [SAML configuration types]({{base_path}}/guides/applications/register-saml-web-app/).
-
-    <table>
+      <tr>
+          <td>Configruation type</td>
+          <td>Select <b>Manual</b> (Learn more about [SAML configuration types]({{base_path}}/guides/applications/register-saml-web-app/))</td>
+      </tr>
     <tr>
       <td>Issuer</td>
       <td>
         Add a unique identifier for the application. This should be used in the SAML authentication request sent from the client. You can't change the issuer after the app is registered.
-        <p><code>sample-issuer</code></p>
+        <p>e.g.:<code>sample-issuer</code></p>
       </td>
     </tr>
     <tr>
@@ -66,67 +59,60 @@ Follow these steps given below to register the sample Java EE web application in
     </table>
 5. Click **Register** to complete the registration.
 
-!!! note
-    To provide a better experience for the user, **it is recommended to configure an access URL** for the application. You can set an access URL for the application from the General tab. (For this sample application, the access URL is <code>https://localhost:8080/sample-app</code>)
+!!! tip
+    To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:8080/sample-app</code>).
 
-??? note "Why do we recommend this?"
-  
-    - It will be used in the application catalog and discovery flows.
-    - We will use it to redirect the user back to the application in the following scenarios.
-        - If the login page times out
-        - After a password reset
-        - After self sign-up verification
-    - If the login flow is failed, we will provide an option for the user to re-initiate the login flow using this URL.
+    The access URL is used,
+
+    - in the application catalog and discovery flows.
+    - to redirect the user back to the application in the following scenarios.
+        - if the login page times out
+        - after a password reset
+        - after the self sign-up verification
+    - to re-initiate the login flow if the login flow fails.
 
 ## Download the sample
 
 Click the button below to download the sample. You can also choose to view the source before doing so.
 
-<Button
-    buttonType='grey-outlined-icon'
-    displayType='inline-button'
-    buttonText='Download sample'
-    startIconPath='images/technologies/java-logo.svg'
-    endIconPath='icons/downloadIcon.svg'
-    externalLink='https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war'
-    v-bind:openInNewTab='true'
-/>
-<Button
-    buttonType='grey-outlined-icon'
-    displayType='inline-button'
-    buttonText='View source'
-    endIconPath='images/technologies/github-logo.svg'
-    externalLink='https://github.com/asgardeo/asgardeo-tomcat-saml-agent/tree/master/io.asgardeo.tomcat.saml.agent.sample'
-    v-bind:openInNewTab='true'
-/>
+<div class="centered-container">
+  <div class="border-text">
+    <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50><br>
+    <a href="https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war" target="_blank">Download sample</a>
+  </div>
+
+  <div class="border-text">
+    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="Github" width=50><br>
+    <a href="https://github.com/asgardeo/asgardeo-tomcat-saml-agent/tree/master/io.asgardeo.tomcat.saml.agent.sample" target="_blank">View source</a>
+  </div>
+</div>
 
 ## Configure the sample
 
 Follow the steps given below to configure the sample app.
 
-1. Move the  **war** file that you downloaded to the `<TOMCAT_HOME>/webapps` folder where `<TOMCAT_HOME>` is the root of your Tomcat server.
+1. Move the  **war** file that you downloaded to the `{TOMCAT_HOME}/webapps` folder where `{TOMCAT_HOME}` is the root of your Tomcat server.
   
-2. Open a terminal, navigate to the `<TOMCAT_HOME>/bin` folder, and start the Tomcat server using the following command:
+2. Open a terminal, navigate to the `{TOMCAT_HOME}/bin` folder, and start the Tomcat server using the following command:
 
     !!! note
-      This will extract the contents of the **war** file. </br>
+        This will extract the contents of the **war** file. </br>
       If your Tomcat server is set to auto-deploy applications, you can skip this step.
 
-    ```shell script 
+    ```bash 
     sh catalina.sh start
     ```
 
-3. Go to the `<TOMCAT_HOME>/webapps/sample-app/WEB-INF/classes` folder and open the `sample-app.properties` file in a text editor.
+3. Go to the `{TOMCAT_HOME}/webapps/sample-app/WEB-INF/classes` folder and open the `sample-app.properties` file in a text editor.
 
 4. Update the following in the `sample-app.properties` file:
 
-    !!! note Important
+    !!! note
 
-      - Update the **SAML2.IdPEntityId** parameter with the Asgardeo issuer, which is `api.asgardeo.io/t/{organization_name}`.
-      - Replace `{organization_name}` with the name of your organization.
-      - **SAML2.SPEntityId** should match the issuer name entered when registering the application in Asgardeo.
+        - Update the **SAML2.IdPEntityId** parameter with the Asgardeo issuer, which is `api.asgardeo.io/t/{organization_name}`.
+        - **SAML2.SPEntityId** should match the issuer name entered when registering the application in Asgardeo.
 
-    ```bash   
+    ```saml   
     SAML2.AssertionConsumerURL=http://localhost:8080/sample-app/home.jsp
     SAML2.SPEntityId=sample-issuer
     SAML2.IdPEntityId=api.asgardeo.io/t/{organization_name}
@@ -288,9 +274,9 @@ Follow the steps given below to configure the sample app.
           </tbody>
         </table>
 
-5. In the `<TOMCAT_HOME>/bin>` folder, run the following commands to restart the Tomcat server for the configurations to take effect:
+5. In the `{TOMCAT_HOME}/bin` folder, run the following commands to restart the Tomcat server for the configurations to take effect:
 
-    ```shell script 
+    ```bash 
     sh catalina.sh stop
     sh catalina.sh start
     ```
@@ -301,13 +287,11 @@ Follow the steps given below to run the sample.
 
 1. Access the application using the following URL: `http://localhost:8080/sample-app/index.html`.
 
-    ![Java OIDC app login]({{base_path}}/assets/img/guides/applications/java-saml-login.jpg)
-
 2. Click **Login**. You will be redirected to the Asgardeo login page.
 
-    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png)
+    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="400px" style="display: block; margin: 0 auto;"}
 
-4. Enter credentials of your user account and click **Sign In**.
+3. Enter credentials of your user account and click **Sign In**.
 
     !!! note "Extend your login session"
         By default, the user login session is active for only `15 minutes`. You can extend the session to `14 days` by selecting the **Remember me on this computer** option provided at the login screen of your application.

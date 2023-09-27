@@ -1,51 +1,45 @@
-# Try app login
+# Try login with Asgardeo
 
-Now that you have completed [onboarding to Asgardeo]({{base_path}}/get-started/create-asgardeo-account/), let's see how the application login flow with Asgardeo works.
+The following guide explains how you can quickly test login with Asgardeo using the **Try it** application provided by Asgardeo.
+
+!!! note "Before you begin"
+    - Create an account in Asgardeo.
+    - Create a user in Asgardeo (only users can login to applications created in Asgardeo). </b>
+
+    Refer [create your Asgardeo account]({{base_path}}/get-started/create-asgardeo-account/) to learn more.
 
 ## Asgardeo Try It app
 
-We have already set up and configured an application for you, which is the **Asgardeo Try It** app.
+**Try It** is a test application that we have already set up and configured for you to quicky integrate authenticators and see how Asgardeo login works with applications.
 
 Let's try a simple login flow in the Asgardeo Try It application:
 
 1. On the [Asgardeo Console](https://console.asgardeo.io/login), navigate to **Home** and click **Try login with the Try It app**.
 
-    !!! note
-        You need a user account to try out login. A dialog will appear prompting you to create a user account. Note that this dialog only appears if it is your first time.
+2. A dialog box appears prompting you to create a user account. Create a user account or if you already have one, click **Continue** to proceed.
 
-        Learn more about various [user accounts in Asgardeo]({{base_path}}/guides/users/).
+3. You are directed to the Asgardeo login screen. Use credentials of the user account you created above to log in to the application.
 
-2. If you don't already have a user created, click the link for creating a user and follow the instructions.
-
-   ![Get set]({{base_path}}/assets/img/guides/applications/get-set.png)
-
-3. When you are ready with the user account, click **Continue** to proceed.
-
-    !!! note
-        The process creates the **Asgardeo Try It** Application in the **Applications** section and redirects you to the login page of the application.
-
-4. Use credentials of a user to log in to the application.
+    ![Try It application]({{base_path}}/assets/img/get-started/try-it-login-screen.png){: width="400" style="display: block; margin: 0 auto;"}
 
 ## Customize the login flow
 
-To try out a customized login flow:
+You can use the various authenticators Asgardeo offers to customize the login flow of the **Try it** application. To set up a custom login flow:
 
 1. On the Asgardeo Console, go to **Applications**, and select the **Asgardeo Try It** application.
 
-2. Go to the **Sign-in Method** tab of the application and select the authentication method that you wish to try:
+    !!! tip
+        Alternatively, navigate to **Home** and click the gear icon that appear in the **Try login with the Try It app** card after you have set it up.
 
-    - [Social login]({{base_path}}/guides/authentication/social-login/)
-    - [Standard-based login]({{base_path}}/guides/authentication/enterprise-login/)
-    - [Passwordless login]({{base_path}}/guides/authentication/passwordless-login/)
-    - [Multi-factor authentication]({{base_path}}/guides/authentication/mfa/)
+2. Go to the **Sign-in Method** tab of the application, select the authentication flow that you wish to try and click **Update**.
 
-
-    ![Try It application]({{base_path}}assets/img/guides/applications/try-it-image.png)
+    ![Try It application]({{base_path}}/assets/img/get-started/custom-login-flow.png)
 
     !!! note
-        Alternatively, to customize the login flow, navigate to **Home** and click the gear icon that appears next to the **Try login with the Try It app** card after you have tried the default login at least once.
+        Follow the guides below to learn how to configure the authention flows.
 
-3. Once you **Update** the sign-in methods, click **Try Login** to try the customized login flow.
+        - [Add Social login]({{base_path}}/guides/authentication/social-login/)
+        - [Add Passwordless login]({{base_path}}/guides/authentication/passwordless-login/)
+        - [Add Multi-factor authentication]({{base_path}}/guides/authentication/mfa/)
 
-!!! note
-    Note that the **Try It** application is a preview app which allows you to make limited configurations. Learn about all the configurations available in Asgardeo in our [guides]({{base_path}}/guides/).
+3. Click **Try Login** to try the custom login flow.

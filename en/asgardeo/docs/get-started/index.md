@@ -41,34 +41,37 @@ Integrate Asgardeo into applications.
 ## Explore use cases
 Key features that Asgardeo offers for your applications
 
+  <a href="{{base_path}}/guides/authentication/">
+    <div class="border-text">
+      <h3>Authentication</h3>
+      <p>Define how you want your applications to verify user identity</p>
+    </div>
+  </a>
 
- <div class="border-text">
-    <h3>Authentication</h3>
-    <p>Define how you want your applications to verify user identity</p>
-  </div>
+  <a href="{{base_path}}/guides/api-authorization/">
+    <div class="border-text">
+      <h3>API authorization</h3>
+      <p>Enhance security for your APIs by implementing access control</p>
+    </div>
+  </a>
 
-   <div class="border-text">
-    <h3>API authorization</h3>
-    <p>Enhance security for your APIs by implementing access control</p>
-  </div>
+  <a href="{{base_path}}/guides/users/">
+    <div class="border-text">
+     <h3>User management</h3>
+      <p>Manage users, their identities, and control their permissions from a centralized location.</p>
+    </div>
+  </a>
 
-  <div class="border-text">
-    <h3>User management</h3>
-    <p>Manage users, their identities, and control their permissions from a centralized location.</p>
-  </div>
+  <a href="{{base_path}}/guides/organization-management/">
+    <div class="border-text">
+      <h3>B2B Organization management</h3>
+      <p>Manage your B2B partners and their users. Allow them access to your applications using organization login.</p>
+    </div>
+  </a>
 
-  <div class="border-text">
-    <h3>B2B Organization management</h3>
-    <p>Manage your B2B partners and their users. Allow them access to your applications using organization login.</p>
-  </div>
-
-  <div class="border-text">
-    <h3>Monitoring and Troubleshooting</h3>
-    <p>Set up analytics to analyze user behavior. Use logs to troubleshoot user issues. Use events to respond to user actions.</p>
-  </div>
-
-
-
-  
-
- 
+  <a href="{{base_path}}/guides/monitoring/">
+    <div class="border-text">
+      <h3>Monitoring and Troubleshooting</h3>
+      <p>Use logs to troubleshoot user issues and events to respond to user actions.</p>
+    </div>
+  </a>

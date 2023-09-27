@@ -18,12 +18,12 @@ OpenID Connect Discovery <!-- [OpenID Connect Discovery](https://openid.net/spec
 Applications can dynamically discover the OpenID Connect identity provider metadata by calling the OpenID Connect discovery <!-- [OpenID Connect discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest)--> endpoint. The structure of the request URL is as follows: `<issuer>/.well-known/openid-configuration`.  
 
 **Issuer of {{ product_name }}**
-```bash 
+```bash
 api.asgardeo.io
 ```
 
 **Discovery endpoint of {{ product_name }}**
-```bash 
+```bash
 https://api.asgardeo.io/t/<organization_name>/oauth2/token/.well-known/openid-configuration
 ```
 
