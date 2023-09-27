@@ -9,10 +9,13 @@ successfully logged out, the user is redirected to the `post_logout_redirect_uri
 https://api.asgardeo.io/t/<organization_name>/oidc/logout
 ```
 
-**Sample URL**
+**Sample request**
 
-``` 
-https://api.asgardeo.io/t/bifrost/oidc/logout?id_token_hint=<id_token>&post_logout_redirect_uri=<redirect URI>&state=<state>
+``` curl
+curl -X POST "https://api.asgardeo.io/t/bifrost/oidc/logout" \
+--data-urlencode "id_token_hint=<id_token>" \
+--data-urlencode "post_logout_redirect_uri=<redirect URI>" \
+--data-urlencode "state=<state>"
 ```
 
 The logout request has the following parameters:
