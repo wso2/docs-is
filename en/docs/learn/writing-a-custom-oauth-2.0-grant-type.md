@@ -62,7 +62,7 @@ implement a new grant type.
         issuing of IDtoken for each grant, and also allows the OIDC scope
         validator to validate the grant types that should support the openid
         scope.   
-        Setting the `            <PublicClientAllowed>           ` parameter 
+        Setting the `<PublicClientAllowed>` parameter 
         to `true`, provides the ability for the public
         clients to use the grant type for public client authentication.
 
