@@ -4,7 +4,7 @@ To access the management APIs of suborganizations in Asgardeo, you must first ge
 
 The following is a high-level diagram of how to authenticate to suborganization APIs.
 
-![Get access to for suborganization APIs](../../assets/img/apis/suborganization-apis/suborganization-authentication.png)
+![Get access to for suborganization APIs]({{base_path}}/assets/img/apis/suborganization-apis/suborganization-authentication.png){: style="display: block; margin: 0 auto;"}
 
 Follow the steps given below to get an access token with the required permissions.
 
@@ -20,24 +20,24 @@ Use the **standard-based** app type to register an OIDC management app:
 1. On the Asgardeo Console, go to **Applications**.
 2. Click **New Application** and select **Standard-Based Application** to open the following:
 
-    ![Register a standard based application](../assets/img/apis/management-apis/register-a-sba.png)
+    ![Register a standard based application]({{base_path}}/assets/img/apis/management-apis/register-a-sba.png){: width="600" style="display: block; margin: 0 auto;"}
 
 3. Provide an application name.
 4. Select **OIDC Standard-Based Application** as the app type and then select the **Management Application** checkbox.
 
     !!! note
-      Learn more about [OIDC configurations](../../references/app-settings/oidc-settings-for-app/).
+        Learn more about [OIDC configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/).
 
 5. Click **Register** to complete the registration.
 6. Click **Share Application** to share the application with suborganizations.
-6. Go to the **Protocol** tab and select [Authorization Code](../../references/grant-types-in-asgardeo/#authorization-code-grant) and [Organization Switch](../../references/grant-types-in-asgardeo/#organization-switch-grant) as the grant types for the application.
+6. Go to the **Protocol** tab and select [Authorization Code]({{base_path}}/references/grant-types-in-asgardeo/#authorization-code-grant) and [Organization Switch]({{base_path}}/references/grant-types-in-asgardeo/#organization-switch-grant) as the grant types for the application.
 
 The client credentials for your application are displayed in the protocol tab, as shown below.
 
-![Obtain the client ID and client secret of the app](../assets/img/apis/management-apis/obtain-client-credentials.png)
+![Obtain the client ID and client secret of the app]({{base_path}}/assets/img/apis/management-apis/obtain-client-credentials.png){: width="600" style="display: block; margin: 0 auto;"}
 
 !!! note
-  The client ID and client secret are sensitive information that must be protected. See the [best practices](#best-practices) before you proceed.
+    The client ID and client secret are sensitive information that must be protected. See the [best practices](#best-practices) before you proceed.
 
 ## Get the authorization code
 First, your app must initiate a login request to the authorization endpoint of Asgardeo. After redirecting to Asgardeo, the user should be prompted with a login page if the user is not authenticated.
@@ -116,7 +116,7 @@ This token request has the following parameters:
 You can now request an access token from the token endpoint by exchanging the access token of the root organization and specifying the internal scopes (permission level) you require to access.
 
 !!! note
-  See the relevant API reference docs for the list of internal scopes for each API.
+    See the relevant API reference docs for the list of internal scopes for each API.
 
 Use the following cURL command format in your request:
 

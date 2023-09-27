@@ -283,7 +283,6 @@ nav:
     - Administrators:
       - Export admin information API: apis/administrators/export-admin-info.md
     - Consent management API: apis/consent-management.md
-    - Event configuration API: apis/event-configuration.md
     - Validation API: apis/validation.md
     - Suborganization APIs:
       - Suborganization APIs: apis/organization-management/index.md

@@ -73,11 +73,16 @@ To register a trusted token issuer:
 
     Currently, {{ product_name }} does not support the token exchange grant for single-page applications.
 
+To enable token exchange in your application:
+
 1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Open your application from the list and go to the **Protocol** tab.
 
 3. Add `Token Exchange` under the **Allowed grant types**.
+
+    !!! note
+        To enable refresh tokens for the token exchange grant, include `Refresh Token` as an **Allowed Grant Type**. Learn more about [ow the refresh token grant type works]({{base_path}}/references/grant-types-in-asgardeo/#refresh-token-grant).
 
 4. Click **Update** to save the configurations.
 

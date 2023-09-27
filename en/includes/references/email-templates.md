@@ -1,13 +1,19 @@
 # Email templates
 
-Asgardeo organizations use default email templates to send email notifications. You can customize the existing templates to match your organization’s requirements using the [Email Templates API]({{base_path}}/apis/email-template.md).
+Asgardeo organizations use several email templates to send email notifications to users.
+
+!!! note
+
+    - You can customize all available email templates to match your organization’s preferences using the [Email Templates API]({{base_path}}/apis/email-template/).
+    - You can also use the Console to change some of the most frequently used email templates in Asgardeo. Learn how to [customize email content from the Console]({{base_path}}/guides/branding/customize-email-templates/#customize-email-content).
+
 
 ## Email templates in Asgardeo
 
 The following is a comprehensive list of email templates that are available in Asgardeo.
 
 !!! note
-    Some of the email templates below need to contain URLs. Learn how to generate these URLs in the [URLs in email templates](#urls-in-email-templates) section.
+    Some of the email templates below should contain URLs to redirect the user for certain actions. Learn how to generate these URLs in the [URLs in email templates](#urls-in-email-templates) section.
 
 <table>
     <thead>
