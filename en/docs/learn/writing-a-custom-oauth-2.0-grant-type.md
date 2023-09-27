@@ -67,7 +67,6 @@ implement a new grant type.
         clients to use the grant type for public client authentication.
 
     To test this out, follow the instructions below to implement a
-    custom-grant type sample.
 
 ------------------------------------------------------------------------
 
