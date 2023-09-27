@@ -321,9 +321,9 @@ WSO2 IS.
         **NOTE:** If the format is wrong you would not get the text message.
 
     !!! note
-    Make sure the number is registered with an SMS provider in order to
-    send the SMS. For this tutorial, you can use the mobile number that
-    was used to register with the SMS provider.
+        Make sure the number is registered with an SMS provider in order to
+        send the SMS. For this tutorial, you can use the mobile number that
+        was used to register with the SMS provider.
 
 ------------------------------------------------------------------------
 
