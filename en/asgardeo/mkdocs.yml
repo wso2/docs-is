@@ -143,6 +143,7 @@ nav:
             - Add standard-based login: guides/authentication/enterprise-login/index.md
             - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
             - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+          - Add identifier first login: guides/authentication/add-identifier-first-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
@@ -251,7 +252,10 @@ nav:
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
         - Manage subscriptions: guides/your-asgardeo/manage-subscriptions.md
-      - Asgardeo events: guides/asgardeo-events.md
+      - Monitoring:
+        - Monitoring: guides/monitoring/index.md
+        - Diagnostic logs: guides/monitoring/diagnostic-logs.md
+        - Asgardeo events: guides/monitoring/asgardeo-events.md
       - Organization insights: guides/organization-insights.md
   - Tutorials:
     - Tutorials: tutorials/index.md
