@@ -1,2 +1,2 @@
 {% set product_name = "WSO2 Identity Server" %}
-{% include "../../../../includes/guides/events.md" %}
+{% include "../../../../includes/guides/asgardeo-events.md" %}

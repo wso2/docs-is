@@ -85,7 +85,7 @@ To filter insights,
     !!! note
         All filter values are case sensitive.
 
-    ![Filter insights related to logins]({{base_path}}/assets/img/guides/organization-insights/filter-login-insights.png){width="500" style="display: block; margin: 0 auto;"}
+    ![Filter insights related to logins]({{base_path}}/assets/img/guides/organization-insights/filter-login-insights.png){width="400" style="display: block; margin: 0 auto;"}
 
   The table below has detailed information on all the filtering options available for insights of your organization.
 
@@ -122,7 +122,7 @@ To filter insights,
         <tr>
           <td>Connection ID</td>
           <td>Filter logins based on the UUID of the connection used for login.<br></br>
-            (You can find the UUID of a connection from the URL that appears when you select the connection from the Connections section on the {{ product_name }} Console.)</br></br>
+            (You can find the UUID of a connection from the URL that appears when you select the connection from the Connections section on the Asgardeo Console.)</br></br>
             For example, if you have multiple Google connections configured, you can filter based on one of them by entering its UUID.
             </br>
             </td>

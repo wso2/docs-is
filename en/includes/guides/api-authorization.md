@@ -1,5 +1,8 @@
 # API authorization
 
+!!! note
+    This feature is not yet available in the EU region. We are working on making it accessible in the future.
+
 {{ product_name }} allows organizations to authorize user access to an application's API resources based on the application roles assigned to the users.
 
 ![The relationship between terms]({{base_path}}/assets/img/guides/api-authorization/API-resource-high-level.png){: width="700" style="display: block; margin: 0 auto;"}

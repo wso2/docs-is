@@ -3,14 +3,14 @@
 You can customize the user interfaces (UIs) presented to your users during the login, sign-up, and account recovery flows, and on the My Account portal according to the theming guidelines of your organization.
 
 !!! note "UI Branding for B2B applications"
-      If you have created [suborganizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/), note that the branding you configure for your root organization also applies to your suborganizations.
+    If you have created [suborganizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/), note that the branding you configure for your root organization also applies to your suborganizations.
 
 By branding these interfaces, users will get a familiar and consistent user experience.
 
 !!! note
-      See the complete list of [UI branding options](#ui-branding-preferences) currently available in {{ product_name }}.
+    See the complete list of [UI branding options](#ui-branding-preferences) currently available in {{ product_name }}.
 
-![{{ product_name }} branding example]({{base_path}}/assets/img/guides/branding/branding-example.png)
+![{{ product_name }} branding example]({{base_path}}/assets/img/guides/branding/branding-example.png){: width="600" style="display: block; margin: 0 auto;"}
 
 ## Prerequisites
 
@@ -22,20 +22,20 @@ Follow the steps given below to configure the branding preferences for your orga
 
 1. On the {{ product_name }}, go to **Customization** > **Branding**.
 
-    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-asgardeo-console-ui.png)
+    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-asgardeo-console-ui.png){: width="600" style="display: block; margin: 0 auto;"}
 
 2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, and **Advanced** tabs.
 
-   !!! note
-         - If you leave any of the branding preferences empty, {{ product_name }} defaults will be used.
-         - The real-time preview will show you a sample view as you update the values.
+    !!! note
+        - If you leave any of the branding preferences empty, {{ product_name }} defaults will be used.
+        - The real-time preview will show you a sample view as you update the values.
 
 4. Click **Save & Publish** to publish your branding configurations.
 
 The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Branding email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
 
 !!! note
-      For free-tier subscriptions, the **Powered by {{ product_name }}** label will display on the {{ product_name }}-powered interfaces when branding is published.
+    For free-tier subscriptions, the **Powered by {{ product_name }}** label will display on the {{ product_name }}-powered interfaces when branding is published.
 
 ## Disable branding
 
@@ -48,7 +48,7 @@ When disabled, {{ product_name }}’s default branding will apply to the interfa
 If you want to revert your branding preferences, scroll down to the **Danger Zone** and click **Revert to default**.
 
 !!! warning
-      Note that this permanently removes all the branding options that you have saved and the {{ product_name }} defaults will immediately apply.
+    Note that this permanently removes all the branding options that you have saved and the {{ product_name }} defaults will immediately apply.
 
 ## Preview branding
 
@@ -56,7 +56,7 @@ You can preview how your branding preferences will look once they are saved and 
 
 To preview your branding configurations for different flows, on the **Preview** window, select the screen you wish to preview from the **Screen** list.
 
-![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png)
+![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0 auto;"}
 
 ## Extend branding
 
@@ -98,11 +98,11 @@ Listed below are the design changes you can apply to the user registration and l
 Select one of the available layouts for your login interfaces. {{ product_name }} uses the **Centered** layout by default.
 
 !!! note Custom layout
-      If you want to use the **Custom** layout from the list (shown below), contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
+    If you want to use the **Custom** layout from the list (shown below), contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
 
-      ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png)
+    ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png){: width="600" style="display: block; margin: 0 auto;"}
 
-      Note that these requests should be sent from the account of an administrator in the organization.
+    Note that these requests should be sent from the account of an administrator in the organization.
 
 #### Theme variations
 
@@ -151,24 +151,24 @@ The following design preferences apply to the theme you select. You can configur
         Be sure that the hosted image you use will properly return Content-Type headers. Without these headers, the image will not correctly render and you will experience a 403 error. You can use static image hosting services to ensure these headers are properly returned.
 
 ??? note "Color Palette"
-      This is the primary color palette for your interfaces. Click the color swatch and apply colors that match your organization’s style guide.
+    This is the primary color palette for your interfaces. Click the color swatch and apply colors that match your organization’s style guide.
 
-      <table>
-         <tr>
-            <td><b>Primary Color</b></td>
-            <td>
-               The color that appears dominantly in primary actions, anchor tags, emails, etc.</br></br>
-               By default, {{ product_name }} uses an orange shade as the primary color for both <b>Light</b> and <b>Dark</b> themes
-            </td>
-         </tr>
-         <tr>
-            <td><b>Secondary Color</b></td>
-            <td>
-               The color that appears in secondary actions and other emphasized content.</br></br>
-               By default, {{ product_name }} uses a lighter gray shade as the secondary color.
-            </td>
-         </tr>
-      </table>
+    <table>
+       <tr>
+          <td><b>Primary Color</b></td>
+          <td>
+             The color that appears dominantly in primary actions, anchor tags, emails, etc.</br></br>
+             By default, {{ product_name }} uses an orange shade as the primary color for both <b>Light</b> and <b>Dark</b> themes
+          </td>
+       </tr>
+       <tr>
+          <td><b>Secondary Color</b></td>
+          <td>
+             The color that appears in secondary actions and other emphasized content.</br></br>
+             By default, {{ product_name }} uses a lighter gray shade as the secondary color.
+          </td>
+       </tr>
+    </table>
 
     #### Body background
     
@@ -558,30 +558,30 @@ The following design preferences apply to the theme you select. You can configur
           </td>
        </tr>
     </table>
-    
-    ### Advanced preferences
-    
-    Listed below are some advanced branding preferences you can apply to the user registration and login     interfaces.
-    
-    <table>
-       <tr>
-          <td><b>Privacy Policy</b></td>
-          <td>
-             This is a link to a statement or a legal document that states how your organization     collects, handles, and processes the data of your users and visitors.</br></br>
-             Once you configure a valid URL, {{ product_name }} will show this on the footer of the     login screens.
-          </td>
-       </tr>
-       <tr>
-          <td><b>Terms of Service</b></td>
-          <td>
-             This is a link to an agreement that your users must agree to and abide by in order to use     your organization's applications or other services.</br></br>
-             Once you configure a valid URL, {{ product_name }} will show this on the footer of the     login screens.
-          </td>
-       </tr>
-       <tr>
-          <td><b>Cookie Policy</b></td>
-          <td>
-             This is a link to a document or a webpage with detailed information on all cookies used by     your applications and the purpose of each of them.
-          </td>
-       </tr>
-    </table>
+
+### Advanced preferences
+
+Listed below are some advanced branding preferences you can apply to the user registration and login interfaces.
+
+<table>
+   <tr>
+      <td><b>Privacy Policy</b></td>
+      <td>
+         This is a link to a statement or a legal document that states how your organization collects, handles, and processes the data of your users and visitors.</br></br>
+         Once you configure a valid URL, {{ product_name }} will show this on the footer of the login screens.
+      </td>
+   </tr>
+   <tr>
+      <td><b>Terms of Service</b></td>
+      <td>
+         This is a link to an agreement that your users must agree to and abide by in order to use your organization's applications or other services.</br></br>
+         Once you configure a valid URL, {{ product_name }} will show this on the footer of the login screens.
+      </td>
+   </tr>
+   <tr>
+      <td><b>Cookie Policy</b></td>
+      <td>
+         This is a link to a document or a webpage with detailed information on all cookies used by your applications and the purpose of each of them.
+      </td>
+   </tr>
+</table>

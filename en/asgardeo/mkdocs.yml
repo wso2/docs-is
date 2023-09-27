@@ -142,6 +142,7 @@ nav:
             - Add standard-based login: guides/authentication/enterprise-login/index.md
             - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
             - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+          - Add identifier first login: guides/authentication/add-identifier-first-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
@@ -168,7 +169,8 @@ nav:
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
             - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
             - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
-            - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
+            - Implement private key JWT client authentication: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
@@ -250,7 +252,10 @@ nav:
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
         - Manage subscriptions: guides/your-asgardeo/manage-subscriptions.md
-      - Asgardeo events: guides/asgardeo-events.md
+      - Monitoring:
+        - Monitoring: guides/monitoring/index.md
+        - Diagnostic logs: guides/monitoring/diagnostic-logs.md
+        - Asgardeo events: guides/monitoring/asgardeo-events.md
       - Organization insights: guides/organization-insights.md
   - Tutorials:
     - Tutorials: tutorials/index.md
@@ -282,7 +287,7 @@ nav:
     - Administrators:
       - Export admin information API: apis/administrators/export-admin-info.md
     - Consent management API: apis/consent-management.md
-    - Event configuration API: apis/event-configuration.md
+    - Attribute management API: apis/attribute-management.md
     - Validation API: apis/validation.md
     - Suborganization APIs:
       - Suborganization APIs: apis/organization-management/index.md
@@ -306,6 +311,7 @@ nav:
       - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
     - OAuth2 grant types of Asgardeo: references/grant-types-in-asgardeo.md
+    - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
@@ -319,6 +325,7 @@ nav:
       - Readiness check: references/production-checklist/readiness-check.md
       - Security check: references/production-checklist/security-check.md
       - Best practices: references/production-checklist/best-practices.md
+    - Asgardeo rate limits: references/rate-limits.md
 # Extensions
 # Extensions
 markdown_extensions:
