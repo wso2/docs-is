@@ -170,7 +170,8 @@ nav:
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
             - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
             - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
-            - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
+            - Implement private key JWT client authentication: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
@@ -287,6 +288,7 @@ nav:
     - Administrators:
       - Export admin information API: apis/administrators/export-admin-info.md
     - Consent management API: apis/consent-management.md
+    - Attribute management API: apis/attribute-management.md
     - Validation API: apis/validation.md
     - Suborganization APIs:
       - Suborganization APIs: apis/organization-management/index.md
@@ -310,6 +312,7 @@ nav:
       - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
     - OAuth2 grant types of Asgardeo: references/grant-types-in-asgardeo.md
+    - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
@@ -323,6 +326,7 @@ nav:
       - Readiness check: references/production-checklist/readiness-check.md
       - Security check: references/production-checklist/security-check.md
       - Best practices: references/production-checklist/best-practices.md
+    - Asgardeo rate limits: references/rate-limits.md
 # Extensions
 # Extensions
 markdown_extensions:

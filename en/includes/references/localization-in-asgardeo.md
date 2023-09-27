@@ -65,6 +65,30 @@ Below are the languages currently available for the i18n-supported user interfac
             <code>de_DE</code>
         </td>
     </tr>
+    <tr>
+        <td>
+            Chinese
+        </td>
+        <td>
+            <code>zh-CN</code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Japanese
+        </td>
+        <td>
+            <code>ja-JP</code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sinhalese
+        </td>
+        <td>
+            <code>si-LK</code>
+        </td>
+    </tr>
 </table>
 
 ## Language settings
@@ -94,40 +118,39 @@ Consider the following examples:
 
 - If the `ui_locales` is sent as `fr_FR`, **French** is used as the default locale.
 - If the `ui_locales` is sent as `fr_FR en_US`, **French** will be the default locale since it’s the first Asgardeo-support locale in the list.
-- If the `ui_locales` is sent as `si_LK en_US`, **English (en_US)** will be used as the default locale because the first given locale (`si_LK`) is not supported.
+- If the `ui_locales` is sent as `it_IT en_US`, **English (en_US)** will be used as the default locale because the first given locale (`it_IT`) is not supported.
 
 The following examples demonstrate how to set the `ui_locales` parameter in your application.
 
 - **Example 1:** Setting the default locale from the `signIn` request.
 
-  You can send the `ui_locales` in the signIn request as a parameter.
+    You can send the `ui_locales` in the signIn request as a parameter.
   
-  !!! note
-    Learn more about [setting the signIn request](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signin) using the Asgardeo SDKs.
+    !!! note
+        Learn more about [setting the signIn request](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signin) using the Asgardeo SDKs.
 
+    The following sample illustrates the `signIn` request using the JS/React SDK.
 
-  The following sample illustrates the `signIn` request using the JS/React SDK.
-
-  ``` Js
-  <SecureApp
-           fallback={<div>Loading</div>}
-           overrideSignIn={async () => {
-               await signIn({
-                   'ui_locales': 'fr_FR en_US'
-               });
-           }}
-       >
-           <AppContent/>
-       </SecureApp>
-  ```
+    ``` Js
+    <SecureApp
+            fallback={<div>Loading</div>}
+            overrideSignIn={async () => {
+                await signIn({
+                    'ui_locales': 'fr_FR en_US'
+                });
+            }}
+        >
+            <AppContent/>
+        </SecureApp>
+    ```
 
 - **Example 2:** Setting the default locale from the authorization request.
 
-  If you are sending the locale in the authorization request directly, you can append the `ui_locales` query parameter with the list of locales as shown below.
+   If you are sending the locale in the authorization request directly, you can append the `ui_locales` query parameter with the list of locales as shown below.
 
-  ```bash
-  https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}&ui_locales={ locales list }
-  ```
+    ```bash
+    https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}&ui_locales={ locales list }
+    ```
 
-!!! note Privacy policy and Terms of conditions URLs
+!!! note "Privacy policy and Terms of conditions URLs"
     The privacy policy and terms of conditions URLs are specified in your [branding configurations]({{base_path}}/guides/branding/configure-ui-branding/#advanced-preferences). The `ui_locales={ locales list }` parameter is appended to these URLs, which allows you to show the translated content for the user from your end.

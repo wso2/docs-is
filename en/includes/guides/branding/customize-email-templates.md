@@ -84,11 +84,25 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 1. On the {{ product_name }}, go to **Customization** > **Email Templates**.
 2. Select the email template and the relevant locale that you wish to modify.
 
+    !!! note "Replicate content"
+        If you have not yet configured an email template for the selected locale, you have the option to replicate content from the previous locale's template and use it to modify the email template for the selected locale.
+
     ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png)
 
 3. Make your modifications in the **Content** tab and use the **Preview** tab for a real-time preview.
 
 4. Click **Save** to publish your changes.
+
+!!! warning "Apply changes to user profiles"
+    To apply these changes to each user's profile in your organization:
+
+    1. Display the `local` attribute on the user's profile. Learn more on [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
+
+    2. Update the `local` attribute value with the <a :href="$withBase('/references/localization-in-asgardeo/#supported-languages')">required locale code</a>.
+
+        - If the admin onboards the user to the organization, the admin is responsible for updating the locale code.
+
+        - If the user self-registers, they should update the locale code by themselves at the time of registration.
 
 Alternatively, you can customize the content of email templates using the [Email Templates API]({{base_path}}/apis/email-template/) provided by {{ product_name }}.
 

@@ -21,7 +21,7 @@ To create a new organization in {{ product_name }}:
 The new organization is now available in the organization list.
 
 !!! note
-    If you a have B2B platform, you can now onboard your sub organizations. See the instructions on [setting up sub organizations]({{base_path}}/get-started/create-asgardeo-account/) and build your B2B organization structure.
+    If you a have B2B platform, you can now onboard your sub organizations. See the instructions on [setting up sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/) and build your B2B organization structure.
 
 ## Switch between organizations
 
@@ -42,7 +42,7 @@ To obtain the organization ID of your root organization, expand the organization
 ## Delete organizations
 
 You cannot remove organziations using the {{ product_name }} Console. If you have such a requirement, contact the {{ product_name }} team at **asgardeo-help@wso2.com**.
-If you are a B2B platform and you want to remove a sub organization in your primary organization, see the instructions on [deleting sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#delete-suborganizations).
+If you are a B2B platform and you want to remove a sub organization in your primary organization, see the instructions on [deleting sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#delete-sub-organizations).
 
 !!! note Before you begin
     Note the following before you proceed to delete a primary organization: </br>
