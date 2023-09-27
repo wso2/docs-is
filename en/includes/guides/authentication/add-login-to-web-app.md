@@ -6,14 +6,14 @@ See the guides given below to add login to your web apps with {{ product_name }}
 
 ## Try out samples
 
-- [Java EE OIDC sample](../../get-started/try-samples/qsg-oidc-webapp-java-ee/)
-- [Java EE SAML sample](../../get-started/try-samples/qsg-saml-webapp-java-ee/)
+- [Java EE OIDC sample]({{base_path}}/get-started/try-samples/qsg-oidc-webapp-java-ee/)
+- [Java EE SAML sample]({{base_path}}/get-started/try-samples/qsg-saml-webapp-java-ee/)
 
 ## Use an SDK to add login to your web app
 
-- [Java EE OIDC SDK](../../get-started/try-your-own-app/java-ee-oidc/)
-- [Java EE SAML SDK](../../get-started/try-your-own-app/java-ee-saml/)
+- [Java EE OIDC SDK]({{base_path}}/get-started/try-your-own-app/java-ee-oidc/)
+- [Java EE SAML SDK]({{base_path}}/get-started/try-your-own-app/java-ee-saml/)
 
 ## Manually add login to your web app
 
-- [Implement authorization code flow](../../guides/authentication/oidc/implement-auth-code/)
+- [Implement authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/)

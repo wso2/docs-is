@@ -65,7 +65,7 @@ This function is called when Asgardeo receives the initial login request. It inc
 
 `executeStep()`
 
-This function is called to execute an authentication step in the login flow. You need to [define your application's login flow](../../guides/authentication/#design-the-login-flow) before using this function.
+This function is called to execute an authentication step in the login flow. You need to [define your application's login flow]({{base_path}}/guides/authentication/#design-the-login-flow) before using this function.
 
 This method accepts an object as a parameter and should include the details listed below.
 
@@ -143,7 +143,7 @@ This section describes the **options** you can use to configure the `executeStep
 
 - <b> Connections: Local authenticators and federated IdPs </b>
 
-  When you want to access your configured [connections](../../guides/authentication/#manage-connections) in an authentication step, you can use the following values through the **options** explained above.
+  When you want to access your configured [connections]({{base_path}}/guides/authentication/#manage-connections) in an authentication step, you can use the following values through the **options** explained above.
 
   See the example on **filtering connections in a step** given below for details.
 
@@ -183,7 +183,7 @@ This section describes the **options** you can use to configure the `executeStep
   The **external identity providers** are represented by the `idp` parameter. The federated connection names are generated based on the name you assign to the connection at registration.
 
   ::: tip Example
-  If you add a [federated google connection](../../guides/authentication/social-login/add-google-login/) with the name **bifrost google**, the value you can use in your authentication scripts is `bifrost_google`.
+  If you add a [federated google connection]({{base_path}}/guides/authentication/social-login/add-google-login/) with the name **bifrost google**, the value you can use in your authentication scripts is `bifrost_google`.
   :::
 
 #### Examples

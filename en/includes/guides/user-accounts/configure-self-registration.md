@@ -1,13 +1,14 @@
 # Configure self-registration
 
-[Users](../../guides/users/manage-customers/) can self-register to an organization in {{ product_name }} via an application’s login page. This creates a new user account in the organization.
+[Users]({{base_path}}/guides/users/manage-customers/) can self-register to an organization in {{ product_name }} via an application’s login page. This creates a new user account in the organization.
 
 ## Enable/Disable self-registration
 
 To disable this capability in your organization or to change the default configurations, see the following instructions:
 
 1. On the {{ product_name }} Console, click **Self Registration**.
-    ![Configure self registration](../../assets/img/guides/organization/self-registration/configure-self-registration.png)
+
+    ![Configure self registration]({{base_path}}/assets/img/guides/organization/self-registration/configure-self-registration.png){: width="700" style="display: block; margin: 0 auto;"}
 
     The **Self Registration** section indicates whether or not it is already enabled.
 
@@ -55,35 +56,35 @@ To disable this capability in your organization or to change the default configu
 
 A user is able to self-register to your organization using the same ways that you have configured as sign-in methods for your applications.
 
-Refer to the documentation on how to [configure sign-in options](../../guides/authentication/) for your application.
+Refer to the documentation on how to [configure sign-in options]({{base_path}}/guides/authentication/) for your application.
 
 !!! note
     Currently, {{ product_name }} does not support Magic Links for self-registration.
 
 During user self-registration, the available methods are displayed to the user as shown below.
 
-![Self sign-up methods](../../assets/img/guides/organization/self-registration/sign-up-methods.png)
+![Self sign-up methods]({{base_path}}/assets/img/guides/organization/self-registration/sign-up-methods.png){: width="300" style="display: block; margin: 0 auto;"}
 
-For information on how a user can self-register, refer to [Try self-registration](../../guides/user-self-service/self-register/).
+For information on how a user can self-register, refer to [Try self-registration]({{base_path}}/guides/user-self-service/self-register/).
 
 ## Customize the self-registration form
 
 If a user decides to self-register using email, the default form that is presented to the user is as follows.
 
-![Self registration form](../../assets/img/guides/organization/self-registration/self-register-form.png)
+![Self registration form]({{base_path}}/assets/img/guides/organization/self-registration/self-register-form.png){: width="300" style="display: block; margin: 0 auto;"}
 
 Follow the instructions below to customize the attributes that the form requests during self-registration.
 
-1. On the {{ product_name }} Console, click **Attributes** and under the **Manage Attributes** section, click **Attributes** again.
+1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** and under the **Manage Attributes** section, click **Attributes** again.
 2. Click **Edit** on the attribute that you want to customize.
 
-    ![customize user attributes in self-registration form](../../assets/img/guides/organization/self-registration/self-registration-form-attributes.png)
+    ![customize user attributes in self-registration form]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-form-attributes.png){: width="500" style="display: block; margin: 0 auto;"}
 
 3. Select **Display this attribute on the user's profile**. The attribute will now appear on the self-registration form presented to the user.
 4. Select **Make this attribute required on the user's profile** if you want to make the attribute mandatory for self-registration.
 
 !!! note
-    Learn more about [user attributes](../../guides/users/attributes/manage-attributes/).
+    Learn more about [user attributes]({{base_path}}/guides/users/attributes/manage-attributes/).
 
 ## Get the verification status of user accounts
 
@@ -95,7 +96,7 @@ This capability is beneficial when you have self-registered users. For example, 
         To implement this scenario, you must enforce account verification for self-registered users and also allow the same users to access your applications before account verification is completed.</br></br>
         That is, both **Account verification** and **Activate account immediately** configurations should be enabled for self-registration in your organization.
 
-You can get the account verification status of users through the [SCIM2 API](../../apis/scim2/) in {{ product_name }}.
+You can get the account verification status of users through the [SCIM2 API]({{base_path}}/apis/scim2/) in {{ product_name }}.
 Invoke the following SCIM2 endpoints:
 
 - To get your own information, invoke the `/scim2/Me` endpoint:

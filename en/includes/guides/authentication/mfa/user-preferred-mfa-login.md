@@ -6,7 +6,7 @@
     Currently, you can only configure user-preferred MFA login by using the SCIM2/Me API of {{ product_name }}.
 
 ## Prerequisites
-To get started, you need to [register an application with {{ product_name }}](../../applications/index.md). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+To get started, you need to [register an application with {{ product_name }}]({{base_path}}/applications/index.md). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 ## Configure application login for user-preferred MFA
 
@@ -20,10 +20,10 @@ Follow the steps given below to configure the application login to prompt the us
     - **Email OTP**
     - **SMS OTP**
 
-    ![User Preferred MFA - adaptive auth script](../../../assets/img/guides/conditional-auth/user-preferred-mfa-option.png)
+    ![User Preferred MFA - adaptive auth script]({{base_path}}/assets/img/guides/conditional-auth/user-preferred-mfa-option.png)
 
 5. Turn on **Conditional Authentication** by switching the toggle.
-    ![Enable conditional auth in {{ product_name }}](../../../assets/img/guides/conditional-auth/enable-conditional-auth.png)
+    ![Enable conditional auth in {{ product_name }}]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png)
     You can now define your conditional authentication script.
 
     !!! warning Important

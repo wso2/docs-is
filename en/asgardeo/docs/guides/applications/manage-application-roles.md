@@ -1,72 +1,78 @@
-# Register a mobile app
+# Manage application roles
 
-To add login to your mobile application with Asgardeo, you need to first register your app in Asgardeo.
+An application role is a way of limiting access for users to access API resources of your application.
 
-Your app will be registered as an OpenID Connect mobile app and a client ID will be issued. Note that client secrets are not issued for mobile apps since they are public clients. However, the [PKCE (Proof Key for Code Exchange)](../../references/app-settings/oidc-settings-for-app/#proof-key-for-code-exchange-pkce) extension is enabled by default as a security measure.
+You can create roles for an application, assign permissions to your application roles and assign [user groups in Asgardeo]({{base_path}}/guides/users/manage-groups/) to those roles.
 
-## Register the app
+!!! note
+    See [API authorization]({{base_path}}/guides/api-authorization/) to learn how to create permissions for an API resource.
 
-To register the app:
+## Create an application role
+
+To create an application role and assign permissions to it:
 
 1. On the Asgardeo Console, go to **Applications**.
 
-2. Click **New Application** and select **Mobile Application**.
+2. Select the relevant application and go to its **Roles** tab.
 
-    ![Select an app type](../../assets/img/guides/applications/select-app-type.png){: width="700"}
+3. Click **+ New Role**.
 
-3. Enter the following details:
+4. Enter a **Role Name** and click **Next**.
 
-    ![Create a new Mobile](../../assets/img/guides/applications/create-new-mobile-app.png){: width="700"}
-
-    <table>
-        <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>A unique name to identify your application.</td>
-        </tr>
-        <tr>
-            <td>Authorized redirect URLs</td>
-            <td>The URL to which the authorization code is sent to upon user authentication and where the user is redirected to upon logout.</td>
-        </tr>
-        <tr>
-            <td>Allow sharing with sub-organizations</td>
-            <td>Enable this to share the new application with all or any selected suborganizations that belong to your root organization.</td>
-        </tr>
-    </table>
-
-5. Click **Register** to complete the registration.
+5. Select the permissions you wish to assign for the newly created application role.
 
     !!! note
-        If you have enabled **Allow sharing with sub-organizations** while registering the application, you will see a popup window with the following options.
+        Roles are application-specific but not resource specific. You can add permissions from multiple API resources to a single role.
 
-        ![Share the application with suborganizations](../../assets/img/guides/applications/share-application.png){: width="500"}
+    ![Map API permissions to the created application role]({{base_path}}/assets/img/guides/api-authorization/map-permissions-to-role.png)
 
-        <table>
-            <tr>
-                <th>Option</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>Share with all sub-organizations</td>
-                <td>If selected, the application will be shared with all existing suborganizations and any new suborganizations you may create in the future.</td>
-            </tr>
-            <tr>
-                <td>Share with only selected sub-organizations</td>
-                <td>If selected, you can select the suborganizations you wish to share the application with.</td>
-            </tr>
-        </table>
+6. Click **Save** to add the new application role.
 
-## Get the client ID
+    ![Create application roles]({{base_path}}/assets/img/guides/api-authorization/create-roles.png)
 
-When you register your mobile application, a client ID is generated. Your mobile application will identify itself to {{ product_name }} with this client ID.
+## Assign a user group to an application role
 
-You can get this client ID from the **Protocol** tab of the application as shown below.
+When you assign a user group to an application role, you grant the group members permissions, as defined in the role, to access API resources of the application. To do so,
 
-![Get client ID of Mobile](../../assets/img/guides/applications/spa-client-id.png){: width="700"}
+1. On the Asgardeo Console, go to **User Management** > **Roles**.
 
-## What's next?
+2. Expand the relevant application and click `+` on the role you wish to assign a group.
 
-- [Add login to your mobile app](../../guides/authentication/add-login-to-mobile-app/)
+3. On the **Groups** tab, click **+ Assign Group**.
+
+4. Select the group which should be assigned to the selected application role.
+
+5. Click **Assign**.
+
+## Assign an external group to an application role
+
+You can also assign an external group from a connection and grant the group members permissions, as defined in the role, to access API resources of the application.
+
+!!! note "Before you begin"
+
+    - You should [register, configure, and create groups for a connection]({{base_path}}/guides/authentication/#manage-connections).
+    - You should add this connection to the sign-in flow of the application to which the application roles belong.
+
+To do so,
+
+1. On the Asgardeo Console, go to **Roles**.
+
+2. Expand the application and click `+` on the role you wish to assign to the group.
+
+3. Go to the **External Groups** tab and expand the connection from which to wish to get the group.
+
+4. Select the group which should be assigned to the selected application role.
+
+5. Click **Assign Group** to complete the role to group assigning.
+
+## Delete an application role
+
+To delete an application role:
+
+1. On the Asgardeo Console, go to **Applications**.
+
+2. Select the application to which the role belongs and go to its **Roles** tab.
+
+3. Click on the trash icon next to the role you wish to delete.
+
+4. Select the checkbox and confirm your action.

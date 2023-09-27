@@ -6,22 +6,22 @@ See the topics given below to manage authentication for your applications.
 
 When you register an application, you can customize the login flow.
 
-- Configure {{ product_name }} login for [single-page applications with OIDC](../../guides/authentication/add-login-to-single-page-app/) or [web applications](../../guides/authentication/add-login-to-web-app/) with OIDC or SAML.
+- Configure {{ product_name }} login for [single-page applications with OIDC]({{base_path}}/guides/authentication/add-login-to-single-page-app/) or [web applications]({{base_path}}/guides/authentication/add-login-to-web-app/) with OIDC or SAML.
 
-- Add [social login](../../guides/authentication/social-login/) options such as [Google](../../guides/authentication/social-login/add-google-login/), [Facebook](../../guides/authentication/social-login/add-facebook-login/), and [Github](../../guides/authentication/social-login/add-github-login/).
+- Add [social login]({{base_path}}/guides/authentication/social-login/) options such as [Google]({{base_path}}/guides/authentication/social-login/add-google-login/), [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/), and [Github]({{base_path}}/guides/authentication/social-login/add-github-login/).
 
-- Add other [enterprise identity providers](../../guides/authentication/enterprise-login/) as login options.
+- Add other [enterprise identity providers]({{base_path}}/guides/authentication/enterprise-login/) as login options.
 
-- Configure the number of factors (2FA or MFA) in the login flow to enforce [multi-factor authentication](../../guides/authentication/mfa/).
+- Configure the number of factors (2FA or MFA) in the login flow to enforce [multi-factor authentication]({{base_path}}/guides/authentication/mfa/).
 
-- Enforce [conditional authentication](../../guides/authentication/conditional-auth/) to dynamically change the login flow of a user based on the user’s devices, networks, locations, or usage contexts.
+- Enforce [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) to dynamically change the login flow of a user based on the user’s devices, networks, locations, or usage contexts.
 
 ## Manage user attributes
 
 Manage the user attributes you want to share with your application:
 
-- [Enable user attributes for OpenID Connect apps](../../guides/authentication/user-attributes/enable-attributes-for-oidc-app/)
-- [Enable user attributes for SAML apps](../../guides/authentication/user-attributes/enable-attributes-for-saml-app/)
+- [Enable user attributes for OpenID Connect apps]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/)
+- [Enable user attributes for SAML apps]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-saml-app/)
 
 ## Manage connections
 
@@ -37,7 +37,7 @@ There are several benefits of using identity federation:
 - Allows users to sign in with a user account registered with a trusted IdP without having to manually create accounts for them in {{ product_name }}.
 
     !!! note
-        If the IdP is configured to use [JIT user provisioning](../../guides/authentication/jit-user-provisioning/), signing in with an external IdP will automatically create a local account for the user in {{ product_name }}.
+        If the IdP is configured to use [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/), signing in with an external IdP will automatically create a local account for the user in {{ product_name }}.
 
 - Give users the convenience of choosing their existing, trusted IdP when they sign in or sign up to your organization in {{ product_name }}.
 
@@ -45,8 +45,8 @@ There are several benefits of using identity federation:
 
 {{ product_name }} supports a variety of external identity providers with various open-standard protocols (such as OAuth2.0, OpenID Connect, and SAML).
 
-- [Social identity providers](../../guides/authentication/social-login/)
-- [Enterprise identity providers](../../guides/authentication/enterprise-login/)
+- [Social identity providers]({{base_path}}/guides/authentication/social-login/)
+- [Enterprise identity providers]({{base_path}}/guides/authentication/enterprise-login/)
 
 You can configure any number of external connections for your application via {{ product_name }}.
 

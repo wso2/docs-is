@@ -26,14 +26,14 @@
 
 Follow the steps below to configure event publishing for {{ product_name }}.
 
-1. On the {{ product_name }} Console, go to **Events**.
+1. On the {{ product_name }} Console, go to **Monitoring > Events**.
 
 2. Select the events that you wish to publish to Choreo and click **Update**.
 
-    ![{{ product_name }} Console UI for events](../assets/img/guides/asgardeo-events/asgardeo-events-ui.png)
+    ![{{ product_name }} Console UI for events]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-ui.png)
 
     !!! note
-        Alternatively, you can invoke the **Event Configuration Management** API to configure event publishing. See the [API Documentation](../../apis/event-configuration/) to learn more.
+        Alternatively, you can invoke the **Event Configuration Management** API to configure event publishing. See the [API Documentation]({{base_path}}/apis/event-configuration/) to learn more.
 
 ## Implement business use cases for {{ product_name }} events via Choreo
 
@@ -56,21 +56,21 @@ Choreo requires you to have a github repository to host the webhook logic. You c
     !!! note
         If you already have some components in the project, click on **+Create** button in the component list view.
 
-    ![Create a Webhook in Choreo](../assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png)
+    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png)
 
 4. Enter a name and a description for your webhook, select **External** as the Access Mode and click **Next**.
 
-    ![Enter general details for the Choreo webhook](../assets/img/guides/asgardeo-events/create-a-webhook-general-details.png)
+    ![Enter general details for the Choreo webhook]({{base_path}}/assets/img/guides/asgardeo-events/create-a-webhook-general-details.png)
 
 5. Authorize and connect the github repository and the branch. Since the webhook code needs to be placed in the root of the repository, leave the **Path** parameter as shown.
 
-    ![Connect Github repository to Choreo](../assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png)
+    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png)
 
 6. Check the **Start with a sample** checkbox to create a pull request with the starter code required for the webhook and click **Next**.
 
 7. Select **{{ product_name }}** as the **Trigger Type** and click **Next**.
 
-    ![Select {{ product_name }} trigger type](../assets/img/guides/asgardeo-events/choreo-select-asgardeo-trigger-type.png)
+    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-asgardeo-trigger-type.png)
 
 8. Select one of the {{ product_name }} event types as the **Trigger Channel** and click **Create**. The available options are as follows:
      <table>
@@ -92,7 +92,7 @@ Choreo requires you to have a github repository to host the webhook logic. You c
         </tr>
      </table>
 
-    ![Select {{ product_name }} trigger type](../assets/img/guides/asgardeo-events/choreo-select-trigger-channel.png)
+    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-trigger-channel.png)
 
 9. After the webhook is created, Choreo will create a pull request in your connected Github repository with the sample starter code. Go to your repository and merge this code to complete the setup.
 

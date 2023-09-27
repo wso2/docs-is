@@ -3,26 +3,26 @@
 You can customize the user interfaces (UIs) presented to your users during the login, sign-up, and account recovery flows, and on the My Account portal according to the theming guidelines of your organization.
 
 !!! note "UI Branding for B2B applications"
-      If you have created [suborganizations](../../guides/organization-management/manage-b2b-organizations/manage-suborganizations/), note that the branding you configure for your root organization also applies to your suborganizations.
+      If you have created [suborganizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/), note that the branding you configure for your root organization also applies to your suborganizations.
 
 By branding these interfaces, users will get a familiar and consistent user experience.
 
 !!! note
       See the complete list of [UI branding options](#ui-branding-preferences) currently available in {{ product_name }}.
 
-![{{ product_name }} branding example](../../assets/img/guides/branding/branding-example.png)
+![{{ product_name }} branding example]({{base_path}}/assets/img/guides/branding/branding-example.png)
 
 ## Prerequisites
 
-You need to have an organization in {{ product_name }}. [Create an organization](../../get-started/create-asgardeo-account/) if you don’t have one.
+You need to have an organization in {{ product_name }}. [Create an organization]({{base_path}}/get-started/create-asgardeo-account/) if you don’t have one.
 
 ## Update branding
 
 Follow the steps given below to configure the branding preferences for your organization.
 
-1. On the {{ product_name }}, go to **Branding**.
+1. On the {{ product_name }}, go to **Customization** > **Branding**.
 
-    ![{{ product_name }} Console - Branding UI](../../assets/img/guides/branding/branding-asgardeo-console-ui.png)
+    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-asgardeo-console-ui.png)
 
 2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, and **Advanced** tabs.
 
@@ -32,7 +32,7 @@ Follow the steps given below to configure the branding preferences for your orga
 
 4. Click **Save & Publish** to publish your branding configurations.
 
-The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Branding email templates](../../guides/branding/customize-email-templates/#configure-email-templates) for more information.
+The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Branding email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
 
 !!! note
       For free-tier subscriptions, the **Powered by {{ product_name }}** label will display on the {{ product_name }}-powered interfaces when branding is published.
@@ -56,7 +56,7 @@ You can preview how your branding preferences will look once they are saved and 
 
 To preview your branding configurations for different flows, on the **Preview** window, select the screen you wish to preview from the **Screen** list.
 
-![{{ product_name }} Console - Branding Preview](../../assets/img/guides/branding/branding-preview.png)
+![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png)
 
 ## Extend branding
 
@@ -100,7 +100,7 @@ Select one of the available layouts for your login interfaces. {{ product_name }
 !!! note Custom layout
       If you want to use the **Custom** layout from the list (shown below), contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
 
-      ![Select custom login layout](../../assets/img/guides/branding/select-custom-layout.png)
+      ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png)
 
       Note that these requests should be sent from the account of an administrator in the organization.
 

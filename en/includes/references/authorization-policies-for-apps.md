@@ -3,7 +3,7 @@
 In the context of Asgardeo, an authorization policy can be engaged when authorizing an API resource to an application. The policy selection determines the enforcement mechanism for controlling access to the API resource. Asgardeo offers two options:
 
 - **Role-Based Access Control (RBAC)**: This approach allows developers to enforce authorization to API resources based on application roles. The process flow once a user selects RBAC is as follows
-    
+
     1. The user attempts to access an application with controlled access to API resources.
     2. Asgardeo verifies the user's group assignment.
     3. Asgardeo retrieves the user's roles by checking the group-to-role mappings.

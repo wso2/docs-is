@@ -3,6 +3,7 @@
 Developers can use {{ product_name }}'s REST APIs to implement self-service capabilities for the users on their business applications.
 
 Here are some capabilities you may want to enable when you implement self-service capabilities in your business app.
+
 - Allow users to update their user profiles
 - Allow users to change passwords
 - Allow users to enable MFA
@@ -12,42 +13,45 @@ Once the user logs in to the business application, you can make these capabiliti
 
 ## Self-service APIs
 You can use the following {{ product_name }} APIs to enable self-service capabilities in your business application.
+
 - SCIM/Me Endpoint
-  - [List user details](https://wso2.com/asgardeo/docs/apis/scim2/#/paths/Me/get)
-  - [Update user profile](https://wso2.com/asgardeo/docs/apis/scim2/#/operations/patchUserMe)
-  - [Update user password](https://wso2.com/asgardeo/docs/apis/scim2/#/operations/patchUserMe)
+    - [List user details](https://wso2.com/asgardeo/docs/apis/scim2/#/paths/Me/get)
+    - [Update user profile](https://wso2.com/asgardeo/docs/apis/scim2/#/operations/patchUserMe)
+    - [Update user password](https://wso2.com/asgardeo/docs/apis/scim2/#/operations/patchUserMe)
     
     !!! note
-      To update the password of a user, update the `value` parameter of the API payload as follows:
-      ``` curl 
-      {
-        "schemas": [
-          "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-        ],
-        "Operations": [
-          {
-            "op": "add",
-            "value": {
-              "nickName": "shaggy"
+        To update the password of a user, update the `value` parameter of the API payload as follows:
+        
+        ``` curl 
+        {
+          "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+          ],
+          "Operations": [
+            {
+              "op": "add",
+              "value": {
+                "nickName": "shaggy"
+              }
             }
-          }
-        ]
-      }
-      ```
+          ]
+        }
+        ```
 - Manage MFA settings and recovery
-  - [TOTP]({{base_path}}/apis/register-mfa/totp.md)
-  - [Backup codes]({{base_path}}/apis/register-mfa/backup-code.md)
+    - [TOTP]({{base_path}}/apis/register-mfa/totp.md)
+    - [Backup codes]({{base_path}}/apis/register-mfa/backup-code.md)
 - [Export user profile]({{base_path}}/apis/register-mfa/export-user-info.md)
 - [Manage consent of users]({{base_path}}/apis/consent-management.md)
 
 ## Prerequisites
 
-You need an application that [integrates login with {{ product_name }}](../../guides/authentication/add-login-to-apps.md) over OpenID connect standards.
+You need an application that [integrates login with {{ product_name }}]({{base_path}}/guides/authentication/add-login-to-apps.md) over OpenID connect standards.
 
 Learn more about registering OIDC applications on {{ product_name }}.
-- [SPA](../../guides/applications/register-single-page-app/)
-- [Traditional Web application](../../guides/applications/register-oidc-web-app/)
-- [Mobile appliction](../../guides/applications/register-mobile-app/)
+
+- [SPA]({{base_path}}/guides/applications/register-single-page-app/)
+- [Traditional Web application]({{base_path}}/guides/applications/register-oidc-web-app/)
+- [Mobile appliction]({{base_path}}/guides/applications/register-mobile-app/)
 
 
 ## Invoke the self-service APIs
@@ -82,9 +86,9 @@ Data:
 ```
 
 ??? note "If you are using {{ product_name }}'s React SDK"
-    You can use the <code>[httpRequest](https://github.com/asgardeo/    asgardeo-auth-react-sdk/blob/main/API.md#httprequest)</code> method to invoke the     APIs on {{ product_name }}'s React SDK.
-    
-    A sample of how to use the `httpRequest` method in [{{ product_name }}'s React SDK]    (../../get-started/try-your-own-app/react/) is given below:
+    You can use the <code>[httpRequest](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#httprequest)</code> method to invoke the APIs on {{ product_name }}'s React SDK.
+
+    A sample of how to use the `httpRequest` method in [{{ product_name }}'s React SDK]    ({{base_path}}/get-started/try-your-own-app/react/) is given below:
     
     ```js
     import { useAuthContext, HttpRequestConfig } from "@asgardeo/auth-react";
@@ -106,5 +110,5 @@ Data:
                 console.log("request error: " + error);
             })
     ```
-
-You can replace the body of `const requestConfig: HttpRequestConfig = {}` with the API you wish to invoke.
+    
+    You can replace the body of `const requestConfig: HttpRequestConfig = {}` with the API you wish to invoke.

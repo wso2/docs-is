@@ -160,6 +160,7 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
+          - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
       - API authorization: guides/api-authorization.md
       - Branding:
         - Branding: guides/branding/index.md
@@ -219,6 +220,7 @@ nav:
         - Manage B2B organizations:
           - Manage B2B organizations: guides/organization-management/manage-b2b-organizations/index.md
           - Set up sub organizations: guides/organization-management/manage-b2b-organizations/manage-suborganizations.md
+          - Onboard sub organization admins: guides/organization-management/manage-b2b-organizations/onboard-sub-org-admins.md
           - Administration of sub organizations: guides/organization-management/manage-b2b-organizations/manage-b2b-administration.md
           - Share applications: guides/organization-management/manage-b2b-organizations/share-applications.md
           - Try a B2B use case: guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case.md
@@ -320,6 +322,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

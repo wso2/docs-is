@@ -1,15 +1,24 @@
 <!-- markdownlint-disable-next-line -->
-When a user logs in to applications, {{ product_name }} prompts for the user's consent to access the user attributes the application requires. The user can view the consents given to applications and revoke them if needed.
+
+When a user logs in to an application, {{ product_name }} prompts the user to provide consent to the application to access user attributes. Users can view these consents and if needed, revoke them using the My Account portal.
 
 Given below are the steps to follow.
 
 1. Sign in to the My Account portal.
-2. Click **Security > Manage Consents**.
-3. View the applications for which consent is given.
-4. Select an application and click **See more**. The attributes shared with the selected application are listed.
-   ![View consents]({{base_path}}/assets/img/guides/organization/self-service/myaccount/view-consents.png)
-5. You can do one of the following:
-    - Clear the attributes individually and click **Update**. This removes access to the unselected user attributes for the given application.
-    - Click **Revoke** to revoke all the user attributes shared with that application.
 
-If consent is revoked for a user attribute, the user will be prompted for consent in the next login attempt to that application.
+2. Click **Security > Manage Consents**.
+
+3. Users can view the applications for which they have given consent.
+
+4. Select an application and click **Show more** to display the attributes that are shared with the application.
+
+    ![View consents]({{base_path}}/assets/img/guides/organization/self-service/myaccount/view-consents.png){: width="700" style="display: block; margin: 0 auto;"}
+
+5. To revoke consent, the user can do one of the following:
+
+    - Clear attributes individually and click **Update**. This revokes consent for deselected user attributes.
+
+    - Click **Revoke** in the danger zone to revoke all user attributes shared with that application.
+
+    !!! note
+        If a user revokes consent to share an attribute with an application, {{ product_name }} again prompts the user for consent next time the user logs in to the same application.

@@ -22,7 +22,7 @@ Follow the steps given below to register the sample React SPA in Asgardeo.
 
 3. Enter the following details:
 
-    ![Create a new SPA](../../assets/img/guides/applications/create-new-spa.png)
+    ![Create a new SPA]({{base_path}}/assets/img/guides/applications/create-new-spa.png)
 
     <table>
         <tr>
@@ -129,7 +129,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <p>The list of OIDC scopes that are used for requesting user information. You can add OIDC scopes such as <code>profile</code> and <code>email</code> in a comma-separated list as follows: </p>
             <code>"scope": ["profile", "email"]</code>
-            <p>Learn more about [OIDC scopes in Asgardeo](../../guides/users/attributes/manage-scopes/).</p>
+            <p>Learn more about [OIDC scopes in Asgardeo]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
         </td>
       </tr>
     </tbody>
@@ -152,3 +152,6 @@ Follow the steps given below to run the sample.
     ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="400px" style="display: block; margin: 0 auto;"}
 
 4. Enter the credentials of your user account and click **Sign In**.
+
+    !!! note "Extend your login session"
+        By default, the user login session is active for only `15 minutes`. You can extend the session to `14 days` by selecting the **Remember me on this computer** option provided at the login screen of your application.

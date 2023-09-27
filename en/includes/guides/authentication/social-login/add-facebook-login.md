@@ -14,19 +14,19 @@ To register an app on Facebook:
 
 1. Log in to the [Facebook developer portal](https://developers.facebook.com/apps) and click **Create App**.
 
-    ![Log on to Facebook developer portal](../../../assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600"}
+    ![Log on to Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600"}
 
 2. Select **Consumer** as the app type and click **Next**.
 
-    ![Create Facebook consumer app](../../../assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600"}
+    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600"}
 
 3. Provide **Display Name** and click **Create App** to create an application.
 
-    ![Provide information to Facebook app](../../../assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600"}
+    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600"}
 
 4. Under **Add products to your app**, click **Set up** on the **Facebook Login** card.
 
-    ![Add Facebook login](../../../assets/img/guides/idp/facebook-idp/add-facebook-login.jpg){: width="600"}
+    ![Add Facebook login]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login.jpg){: width="600"}
 
 5. Select **Web** type and provide the following **Site URL** with your organization name:
 
@@ -34,7 +34,7 @@ To register an app on Facebook:
     https://api.asgardeo.io/t/{organization_name}
     ```
 
-    ![Add Facebook app url](../../../assets/img/guides/idp/facebook-idp/facebook-app-url.jpg){: width="600"}
+    ![Add Facebook app url]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-url.jpg){: width="600"}
 
 6. Save the changes and click **Continue**.
 
@@ -46,11 +46,11 @@ To register an app on Facebook:
 
 8. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.
 
-    ![Add Facebook settings](../../../assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600"}
+    ![Add Facebook settings]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600"}
 
 9. On the main panel, go to **Settings > Basic** and take note of the **App ID** and **App Secret**.
 
-    ![Get AppID and Secret from Facebook](../../../assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600"}
+    ![Get AppID and Secret from Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600"}
 
 ## Register the Facebook IdP
 
@@ -60,7 +60,7 @@ Now, let's register the Facebook IdP in {{ product_name }}.
 2. Click **Create Connection** and select **Facebook**.
 3. Enter the following details of the Facebook identity provider and click **Finish**:
 
-    ![Add Facebook IDP in {{ product_name }}](../../../assets/img/guides/idp/facebook-idp/add-facebook-idp.png){: width="600"}
+    ![Add Facebook IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-idp.png){: width="600"}
 
     <table>
         <tr>
@@ -81,16 +81,16 @@ Now, let's register the Facebook IdP in {{ product_name }}.
         </tr>
     </table>
 
-<!-- 4. If required, you can [disable JIT user provisioning](../../guides/authentication/jit-user-provisioning/). -->
+<!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->
 
 ??? note "Claim syncing for JIT-provisioned users"
-    [JIT user provisioning](../../guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning](../../guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
+    [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
 
     When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
 
     According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
 
-    You can use {{ product_name }}'s [identity provider APIs](../../apis/idp/#/operations/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#/operations/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
 
 After the Facebook identity provider is created, go to the **Settings** tab and see the list of permissions granted by Facebook to {{ product_name }}.
 
@@ -103,17 +103,36 @@ After the Facebook identity provider is created, go to the **Settings** tab and 
 ## Enable Facebook login
 
 !!! note Before you begin
-    You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.
-2. Open your application from the list and go to the **Sign-in Method** tab.
-3. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
-4. Click **Add Authentication** on the step, select your Facebook identity provider, and click **Add**.
+2. Select your application, go to the **Sign-in Method** tab and add Facebook login from your preferred editor:
 
-    !!! note Recommendations
+    !!! note "Recommendations"
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
 
-    ![Add Facebook login in {{ product_name }}](../../../assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png){: width="600"}
+    ---
+    === "Classic Editor"
+        To add Facebook login using the Classic Editor:
+
+        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
+
+        2. Click **Add Authentication** on the step, select your Facebook identity provider, and click **Add**.
+
+            ![Add Facebook login in Asgardeo]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png){: width=700"}
+
+    === "Visual Editor"
+        To add Facebook login using the Visual Editor:
+
+        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
+
+        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Facebook connection.
+
+            ![Add Facebook login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login-with-visual-editor.png){: width=500"}
+
+    ---
+
+3. Click **Update** to save your changes.
 
 ## Try it out
 
@@ -125,7 +144,7 @@ Follow the steps given below.
 
 3. On the {{ product_name }} login page, click **Sign in with Facebook**.
 
-    ![Login with Facebook](../../../assets/img/guides/idp/facebook-idp/sign-in-with-facebook.png){: width="300"}
+    ![Login with Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/sign-in-with-facebook.png){: width="300"}
 
 4. Log in to Facebook with an existing user account.
 

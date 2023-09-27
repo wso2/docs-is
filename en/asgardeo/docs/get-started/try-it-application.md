@@ -42,5 +42,4 @@ You can use the various authenticators Asgardeo offers to customize the login fl
         - [Add Passwordless login]({{base_path}}/guides/authentication/passwordless-login/)
         - [Add Multi-factor authentication]({{base_path}}/guides/authentication/mfa/)
 
-
 3. Click **Try Login** to try the custom login flow.

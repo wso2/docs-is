@@ -6,11 +6,11 @@ Consider a scenario where the login flow of the application should be stepped up
 
 Let's consider an API hosted on Choreo that reads an IP address from the request body, retrieves geolocation from the IP address, evaluates the risk of the login attempt, and sends back the result in the `hasRisk` parameter in the response. And the second authentication step should be prompted if the `hasRisk` is `true`.
 
-![API calls based adaptive authentication](../../../assets/img/guides/conditional-auth/api-calls-callchoreo.png)
+![API calls based adaptive authentication]({{base_path}}/assets/img/guides/conditional-auth/api-calls-callchoreo.png)
 
 ## Prerequisites
 
-- You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+- You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 - Get an API key from [ipgeolocation](https://ipgeolocation.io/). For more information, refer to [ipgeolocation documentation](https://ipgeolocation.io/documentation.html).
 
@@ -90,8 +90,8 @@ To create the REST API component and integrate it with your REST API:
 
 1. [Create an application](https://wso2.com/choreo/docs/developer-portal/manage-application/#create-an-application) on WSO2 Choreo to integrate your REST API with your {{ product_name }} app.
 
-     !!! note
-               Note the **Consumer Key** and **Consumer Secret**.
+    !!! note
+        Note the **Consumer Key** and **Consumer Secret**.
 
 2. Create a [REST API component on Choreo](https://wso2.com/choreo/docs/get-started/tutorials/create-your-first-rest-api/#step-1-create).
 
@@ -99,68 +99,79 @@ To create the REST API component and integrate it with your REST API:
 
 4. [Subscribe](https://wso2.com/choreo/docs/developer-portal/manage-subscription/#subscribe-to-an-api) the application you created on Choreo to the REST API.
 
-     !!! note
-          The Choreo application exposes the REST API to external clients. Therefore, you can connect to this application from {{ product_name }} and invoke the REST API.
+    !!! note
+        The Choreo application exposes the REST API to external clients. Therefore, you can connect to this application from {{ product_name }} and invoke the REST API.
 
 ## Configure the login flow
 
 Follow the steps given below.
 
 1. On the {{ product_name }} Console, click **Applications**.
+2. Select the relevant application and go to its **Sign-in Method** tab.
+3. Add MFA based on advanced conditions using your preferred editor:
 
-2. Select the application for which the conditional login flow should apply and go to the **Sign-in Method** tab.
+    ---
+    === "Classic Editor"
+        To add MFA based on advanced conditions using the classic editor:
 
-3. Click **Add TOTP as a second factor** to define the login flow, starting with `username and password` and stepping up with `TOTP`.
+        1. Click **Add TOTP as a second factor** to define the login flow, starting with `username and password` and stepping up with `TOTP`.
+        2. Turn on **Conditional Authentication** by switching the toggle.
 
-4. Turn on **Conditional Authentication** by switching the toggle.
+    === "Visual Editor"
+        To add MFA based on advanced conditions using the visual editor:
 
-   ![Enable conditional auth in {{ product_name }}](../../../assets/img/guides/conditional-auth/enable-conditional-auth.png)
+        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Multi-factor login**.
+        2. Select `Username + Password -> TOTP` and click **Confirm**.
+        3. Expand the **Script Editor** to add the script for MFA based on advanced conditions using Choreo.
 
-   You can now define your conditional authentication script.
+    ---
 
-5. Add the following authentication script.
+    ![Enable conditional auth in {{ product_name }}]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png)
 
-     !!! warning Important
-          As a security measure, {{ product_name }} does not allow the usage of two consecutive full stops (`..`) in authentication scripts.
+    You can now define your conditional authentication script.
 
-     ```js
-     var connectionMetadata = {
-     "url": "<Choreo API URL>",
-     "consumerKey": "<Consumer key of the Choreo application>",
-     "consumerSecret": "<Consumer secret of the Choreo application>"
-     };
+4. Add the following authentication script.
 
-     var onLoginRequest = function(context) {
-     executeStep(1, {
-          onSuccess: function(context) {
-               // Set the IP address of the authentication request as the body of the API call.
-               var requestPayload = {
-                    "ip": context.request.ip
-               };
-               Log.info("Calling the API hosted in Choreo!");
-               callChoreo(connectionMetadata, requestPayload, {
-                    onSuccess: function(context, data) {
-                         Log.info('Received risk:' + data.hasRisk);
-                         if (data.hasRisk === true) {
-                         // Prompt the second authentication factor if the hasRisk is true.
-                         executeStep(2);
-                         }
-                    },
-                    onFail: function(context, data) {
-                         Log.info('Failed to call Choreo API. Stepping up authentication by default.');
-                         executeStep(2);
-                    },
-                    onTimeout: function(context, data) {
-                         Log.info('Call to Choreo API timed out. Stepping up authentication by default.');
-                         executeStep(2);
-                    }
-               });
-          }
-     });
-     };
-     ```
+    !!! warning Important
+        As a security measure, {{ product_name }} does not allow the usage of two consecutive full stops (`..`) in authentication scripts.
 
-6. Update the following parameters in the script.
+    ```js
+    var connectionMetadata = {
+    "url": "<Choreo API URL>",
+    "consumerKey": "<Consumer key of the Choreo application>",
+    "consumerSecret": "<Consumer secret of the Choreo application>"
+    };    
+    var onLoginRequest = function(context) {
+    executeStep(1, {
+         onSuccess: function(context) {
+              // Set the IP address of the authentication request as the body of the API call.
+              var requestPayload = {
+                   "ip": context.request.ip
+              };
+              Log.info("Calling the API hosted in Choreo!");
+              callChoreo(connectionMetadata, requestPayload, {
+                   onSuccess: function(context, data) {
+                        Log.info('Received risk:' + data.hasRisk);
+                        if (data.hasRisk === true) {
+                        // Prompt the second authentication factor if the hasRisk is true.
+                        executeStep(2);
+                        }
+                   },
+                   onFail: function(context, data) {
+                        Log.info('Failed to call Choreo API. Stepping up authentication by    default.');
+                        executeStep(2);
+                   },
+                   onTimeout: function(context, data) {
+                        Log.info('Call to Choreo API timed out. Stepping up authentication by default.');
+                        executeStep(2);
+                   }
+              });
+         }
+    });
+    };
+    ```
+
+5. Update the following parameters in the script.
      <table>
           <tr>
                <th>Parameter</th>
@@ -180,30 +191,31 @@ Follow the steps given below.
           </tr>
      </table>
 
-     ??? note "Use a stored `Secret`"
-               If you don't want to enter the `consumerkey` and `consumerSecret` obtained from the Choreo application every time you use the conditional authentication script, you can store them as **Secret**s on Asgardeo.
+    ??? note "Use a stored `Secret`"
+        If you don't want to enter the `consumerkey` and `consumerSecret` obtained from the Choreo application every time you use the conditional authentication script, you can store them as **Secret**s on Asgardeo.
 
-               - **Using a stored `consumer key` and `consumer secret` in the conditional authentication script.**
+        - **Using a stored `consumer key` and `consumer secret` in the conditional authentication script.**
 
-                    If you are using a stored `consumerSecret`, replace the `connectionMetadata` object of the conditional authentication script as follows:
-                    ```js
-                    var connectionMetadata = {
-                         "url": "<Choreo API URL>",
-                         "consumerKeyAlias": "<The name of the secret that stores the consumer key of Choreo application>",
-                         "consumerSecretAlias": "<The name of the secret that stores the consumer secret of Choreo application>"
-                    };
-                    ```
+             If you are using a stored `consumerSecret`, replace the `connectionMetadata` object of the conditional authentication script as follows:
+             ```js
+             var connectionMetadata = {
+                  "url": "<Choreo API URL>",
+                  "consumerKeyAlias": "<The name of the secret that stores the consumer key of Choreo application>",
+                  "consumerSecretAlias": "<The name of the secret that stores the consumer secret of Choreo application>"
+             };
+             ```
 
-               - **Add a stored `consumer key` and `consumer secret` to the script.**
+        - **Add a stored `consumer key` and `consumer secret` to the script.**
 
-                    Select the location in the script where the secret should be inserted, click the key icon above the script, and use one of the following options:
-                    ![Add secret to script](../../../assets/img/guides/secret/add-secret-to-script.png)
+             Select the location in the script where the secret should be inserted, click the key icon above the script, and use one of the following options:
+             
+             ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png)
 
-                    - If you are adding an existing secret, click "+" next to the secret in the drop-down menu.
-                    - If you need a new secret, you can first [create a new secret](../../guides/authentication/conditional-auth/configure-conditional-auth/#create-a-new-secret-on-the-console).
-                         Now the new secret will be listed when you click the key icon. You can click "+" to add it to the script.
+             - If you are adding an existing secret, click "+" next to the secret in the drop-down menu.
+             - If you need a new secret, you can first [create a new secret]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#create-a-new-secret-on-the-console).
+                  Now the new secret will be listed when you click the key icon. You can click "+" to add it to the script.
 
-7. Click **Update** to save the configurations.
+6. Click **Update** to save the configurations.
 
 ## How it works
 Let's look at how this script works.
@@ -232,4 +244,4 @@ Follow the steps given below.
 
 4. Login from an IP address outside the allowed geolocation. TOTP authentication is prompted.
 
-     ![ip-based-2fa-conditional-auth-totp-page](../../../assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}
+     ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}

@@ -2,7 +2,7 @@
 
 To add login to your single-page application with {{ product_name }}, you need to first register your app in {{ product_name }}.
 
-Your app will be registered as an OpenID Connect single-page app, and a client ID will be issued. Note that client secrets are not issued because single-page apps are public clients. However, the [PKCE (Proof Key for Code Exchange)](../../references/app-settings/oidc-settings-for-app.md#proof-key-for-code-exchangepkce) extension is enabled by default as a security measure.
+Your app will be registered as an OpenID Connect single-page app, and a client ID will be issued. Note that client secrets are not issued because single-page apps are public clients. However, the [PKCE (Proof Key for Code Exchange)]({{base_path}}/references/app-settings/oidc-settings-for-app.md#proof-key-for-code-exchangepkce) extension is enabled by default as a security measure.
 
 Follow the instructions given below.
 
@@ -14,11 +14,11 @@ To register the app:
 
 2. Click **New Application** and select **Single-Page Application**.
 
-    ![Select an app type](../../assets/img/guides/applications/select-app-type.png){: width="700"}
+    ![Select an app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700"}
 
 3. Enter the following details:
 
-    ![Create a new SPA](../../assets/img/guides/applications/create-new-spa.png){: width="700"}
+    ![Create a new SPA]({{base_path}}/assets/img/guides/applications/create-new-spa.png){: width="700"}
 
     <table>
         <tr>
@@ -44,7 +44,7 @@ To register the app:
     !!! note
         If you have enabled **Allow sharing with sub-organizations** while registering the application, you will see a popup window with the following options.
 
-        ![Share the application with suborganizations](../../assets/img/guides/applications/share-application.png){: width="500"}
+        ![Share the application with suborganizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500"}
 
         <table>
             <tr>
@@ -67,8 +67,8 @@ When you register your single-page application, a client ID is generated. Your a
 
 You can get this client ID from the **Protocol** tab of the application as shown below.
 
-![Get client ID of SPA](../../assets/img/guides/applications/client-id.png){: width="700"}
+![Get client ID of SPA]({{base_path}}/assets/img/guides/applications/client-id.png){: width="700"}
 
 ## What's next?
 
-- [Add login to your single-page app](../../guides/authentication/add-login-to-single-page-app.md)
+- [Add login to your single-page app]({{base_path}}/guides/authentication/add-login-to-single-page-app.md)

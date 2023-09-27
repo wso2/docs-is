@@ -170,7 +170,7 @@ Follow the steps given below to configure the sample app.
         </tr>
         <tr>
            <td><code>IdPPublicCert</code></td>
-           <td>This specifies the public certificate of Asgardeo. You can obtain the public certificate from the Asgardeo Console. See [how to get SAML configurations from the Asgardeo Console](../../guides/authentication/saml/discover-saml-configs/#discover-saml-configurations-of-asgardeo).</td>
+           <td>This specifies the public certificate of Asgardeo. You can obtain the public certificate from the Asgardeo Console. See [how to get SAML configurations from the Asgardeo Console]({{base_path}}/guides/authentication/saml/discover-saml-configs/#discover-saml-configurations-of-asgardeo).</td>
         </tr>
         <tr>
           <td><code>skipURIs</code></td>
@@ -210,7 +210,7 @@ Follow the steps given below to configure the sample app.
                 <code>SAML2.EnableResponseSigning</code>
               </td>
               <td>
-                If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. You also need to [enable response signing from Asgardeo](../../references/app-settings/saml-settings-for-app/#response-signing).
+                If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. You also need to [enable response signing from Asgardeo]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
                 If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.
               </td>
           </tr>
@@ -219,7 +219,7 @@ Follow the steps given below to configure the sample app.
             <code>SAML2.EnableAssertionSigning</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. You also need to [enable response signing from Asgardeo](../../references/app-settings/saml-settings-for-app/#response-signing).
+              If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. You also need to [enable response signing from Asgardeo]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
               If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.
             </td>
           </tr>
@@ -228,7 +228,7 @@ Follow the steps given below to configure the sample app.
               <code>SAML2.EnableAssertionEncryption</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, the application expects an encrypted SAML assertion. You also need to [enable encryption for SAML assertions](../../references/app-settings/saml-settings-for-app/) from Asgardeo.
+              If this configuration is set to <code>true</code>, the application expects an encrypted SAML assertion. You also need to [enable encryption for SAML assertions]({{base_path}}/references/app-settings/saml-settings-for-app/) from Asgardeo.
             </td>
           </tr>
           <tr>
@@ -236,7 +236,7 @@ Follow the steps given below to configure the sample app.
               <code>SAML2.EnableRequestSigning</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, Asgardeo validates the SAML authentication request and logout request. You also need to [enable request signing](../../references/app-settings/saml-settings-for-app/) from Asgardeo.
+              If this configuration is set to <code>true</code>, Asgardeo validates the SAML authentication request and logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from Asgardeo.
             </td>
           </tr>
           <tr>
@@ -291,4 +291,7 @@ Follow the steps given below to run the sample.
 
     ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="400px" style="display: block; margin: 0 auto;"}
 
-4. Enter credentials of your user account and click **Sign In**.
+3. Enter credentials of your user account and click **Sign In**.
+
+    !!! note "Extend your login session"
+        By default, the user login session is active for only `15 minutes`. You can extend the session to `14 days` by selecting the **Remember me on this computer** option provided at the login screen of your application.

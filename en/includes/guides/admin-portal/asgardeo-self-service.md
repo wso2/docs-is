@@ -16,7 +16,7 @@ You can access the My Account portal using the following URL:
 
 You can also switch to My Account from the {{ product_name }}. Click your profile icon as shown below and select **My Account**.
 
-![Switch to MyAccount from Console](../../assets/img/guides/organization/self-service/myaccount/switch-to-myaccount.png)
+![Switch to MyAccount from Console]({{base_path}}/assets/img/guides/organization/self-service/myaccount/switch-to-myaccount.png)
 
 You are now automatically signed in to the portal.
 
@@ -29,7 +29,7 @@ To update your profile information via My Account:
 1. Sign in to the My Account portal.
 2. Click **Personal Info** to see the profile information.
 
-   ![Update user profile from MyAccount](../../assets/img/guides/organization/self-service/myaccount/update-profile-info.png)
+   ![Update user profile from MyAccount]({{base_path}}/assets/img/guides/organization/self-service/myaccount/update-profile-info.png)
 
 3. If required, update the editable information.
 
@@ -88,12 +88,12 @@ Follow the steps given below to set up an authenticator app using My Account.
 
 1. In your My Account portal, go to **Security > Additional Authentication**.
 
-    ![Add MFA from {{ product_name }} MyAccount](../../assets/img/guides/mfa/totp/add-mfa-via-myaccount.png)
+    ![Add MFA from {{ product_name }} MyAccount]({{base_path}}/assets/img/guides/mfa/totp/add-mfa-via-myaccount.png)
 
 2. Click the **+** icon and scan the prompted QR code using an authenticator application.
-    ![SCAN QR code in {{ product_name }} MyAccount](../../assets/img/guides/mfa/totp/scan-qr-code-via-myaccount.png)
+    ![SCAN QR code in {{ product_name }} MyAccount]({{base_path}}/assets/img/guides/mfa/totp/scan-qr-code-via-myaccount.png)
 3. Enter the TOTP code obtained after scanning the QR code and click **Verify**.
-    ![QR code verified](../../assets/img/guides/mfa/totp/verification-message-qr-code-via-myaccount.png)
+    ![QR code verified]({{base_path}}/assets/img/guides/mfa/totp/verification-message-qr-code-via-myaccount.png)
 
 
 ### Regenerate the QR code
@@ -104,15 +104,15 @@ If you deleted the scanned QR from the authenticator app, follow the steps below
 
 2. Click the eye icon (view) next to the authenticator app.
 
-    ![Add MFA from {{ product_name }} MyAccount](../../assets/img/guides/mfa/totp/regenerate-mfa-via-myaccount.png)
+    ![Add MFA from {{ product_name }} MyAccount]({{base_path}}/assets/img/guides/mfa/totp/regenerate-mfa-via-myaccount.png)
 
 3. Click **Regenerate** to generate a new QR code.
 
-    ![Regenerate QR code in {{ product_name }} MyAccount](../../assets/img/guides/mfa/totp/regenerate-qr-codes.png)
+    ![Regenerate QR code in {{ product_name }} MyAccount]({{base_path}}/assets/img/guides/mfa/totp/regenerate-qr-codes.png)
 
 3. Enter the TOTP code obtained after scanning the QR code and click **Verify**.
 
-    ![SCAN QR code in {{ product_name }} MyAccount](../../assets/img/guides/mfa/totp/verify-qr-code-via-myaccount.png)
+    ![SCAN QR code in {{ product_name }} MyAccount]({{base_path}}/assets/img/guides/mfa/totp/verify-qr-code-via-myaccount.png)
 
 ## Configure backup codes
 
@@ -129,7 +129,7 @@ To enable backup codes:
 2. Click `+` to add backup codes.
     You will see a popup window with ten backup codes. Each backup code can be used only once.
 
-    ![QR backup codes](../../assets/img/guides/mfa/backup-codes/backup-codes-via-myaccount.png)
+    ![QR backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/backup-codes-via-myaccount.png)
 
 3. Click **Download Codes** or **Copy Codes** and save the copied or downloaded backup codes securely, as the codes will only be shown once.
 4. After saving the backup codes, click **Close**.
@@ -144,12 +144,12 @@ In case you have lost these backup codes or have used them all, follow the steps
 1. On the My Account portal, go to **Security** > **Additional Authentication** > **Recovery Options**.
 2. Click on the refresh icon to regenerate the backup codes.
 
-    ![Regenerate backup codes](../../assets/img/guides/mfa/backup-codes/regenerate-backup-codes.png)
+    ![Regenerate backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/regenerate-backup-codes.png)
 
 3. On the confirmation window, click **Regenerate** to confirm your action.
     You will see a popup window with ten backup codes. Each backup code can be used only once.
 
-    ![QR backup codes](../../assets/img/guides/mfa/backup-codes/backup-codes-via-myaccount.png)
+    ![QR backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/backup-codes-via-myaccount.png)
 
 4. Click **Download Codes** or **Copy Codes** and save the copied or downloaded backup codes securely, as the codes will only be shown once.
 5. After saving the backup codes, click **Close**.
@@ -163,7 +163,7 @@ To remove the backup codes:
 1. On the My Account portal, go to **Security** > **Additional Authentication** > **Recovery Options**.
 2. Click on the trash icon to remove the existing backup codes.
 
-    ![Remove backup codes](../../assets/img/guides/mfa/backup-codes/remove-backup-codes.png)
+    ![Remove backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/remove-backup-codes.png)
 
 3. On the confirmation window, click **Remove** to confirm your action.
 

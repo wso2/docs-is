@@ -6,20 +6,47 @@ To control access to your application based on the user's age, you can apply the
 
 Consider a scenario where users who are younger than 18 years should be prevented from signing in to an application and redirected to an error message.
 
-![Age based access control](../../../assets/img/guides/conditional-auth/age-based-access-control.png)
+![Age based access control]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control.png)
 
 ## Prerequisites
 
-- You need to [register an application with {{ product_name }}](../../guides/applications/). You can register your own application or use one of the [sample applications](../../get-started/try-samples/) provided.
+- You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- Go to the user's profile and update the birth date so that the current age is below 18 years. For instructions, see [Manage user profiles](../../guides/applications/register-single-page-app/).
+- Go to the user's profile and update the birth date so that the current age is below 18 years. For instructions, see [Manage user profiles]({{base_path}}/guides/applications/register-single-page-app/).
 
 ## Configure the login flow
 
-{% include "../../fragments/manage-app/conditional-auth/configure-conditional-auth.md" %}
+1. On the {{ product_name }} Console, click **Applications**.
+2. Select the relevant application and go to its **Sign-in Method** tab.
+3. Add user-age-based access control using your preferred editor:
 
-5. Select the **Access Control > Age-Based** template.
-6. Update the following parameter in the script.
+    ---
+    === "Classic Editor"
+        To add user-age-based access control using the classic editor:
+
+        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
+
+        2. Turn on **Conditional Authentication** by switching the toggle on.
+
+        3. Select the **Access Control > Age-Based** template.
+
+    === "Visual Editor"
+        To add age-based access control using the visual editor:
+
+        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Access Control**.
+
+        2. Click **+ ADD** next to **User-Age-Based** to add the user-age-based access control script.
+
+            ![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png)
+
+        3. Click **Confirm** to replace any existing script with the selected predefined script.
+
+    ---
+
+    !!! warning "Important"
+        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+
+4. Update the following parameter in the script.
 
     <table>
         <thead>
@@ -44,7 +71,7 @@ Consider a scenario where users who are younger than 18 years should be prevente
         </tbody>
     </table>
 
-7. Click **Update** to confirm.
+5. Click **Update** to confirm.
 
 ## How it works
 
@@ -118,7 +145,7 @@ age of the user is above the configured age limit.
 configured error page.
 
 !!! note
-    Find out more about the scripting language in the [Conditional Authentication API Reference](../../references/conditional-auth/api-reference/).
+    Find out more about the scripting language in the [Conditional Authentication API Reference]({{base_path}}/references/conditional-auth/api-reference/).
 
 ## Try it out
 
@@ -128,4 +155,4 @@ Follow the steps given below.
 2. Try to log in as a user who is above 18 years of age. This user will successfully log in to the application.
 3. Log out of the application.
 4. Log in again with a user who is below 18 years. The user will see the following error.
-    ![authentication failed](../../../assets/img/guides/conditional-auth/auth-failure.png)
+    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png)

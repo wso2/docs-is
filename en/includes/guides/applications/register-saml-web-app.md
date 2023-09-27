@@ -15,7 +15,7 @@ To register the app:
 
 1. On the {{ product_name }} Console, click **Applications**.
 
-    ![Select app type](../../assets/img/guides/applications/select-app-type.png){: width="700"}
+    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700"}
 
 2. Click **New Application** and select **Traditional Web Application**.
 3. In the **Name** field, enter a unique name to identify your application.
@@ -48,7 +48,7 @@ To register the app:
     !!! note
         If you have enabled **Allow sharing with sub-organizations** while registering the application, you will see a popup window with the following options.
 
-        ![Share the application with suborganizations](../../assets/img/guides/applications/share-application.png){: width="500"}
+        ![Share the application with suborganizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500"}
 
         <table>
             <tr>
@@ -69,7 +69,7 @@ To register the app:
 
 If you selected **Manual** in the previous step, you can manually specify the SAML configurations as follows:
 
-![Register SAML app](../../assets/img/guides/applications/create-new-saml-app.png){: width="700"}
+![Register SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png){: width="700"}
 
 <table>
     <tr>
@@ -99,12 +99,12 @@ There are two ways to use a SAML metadata file during application registration:
 
 - Select the **File Based** option and upload the SAML SP metadata file.
 
-    ![Register SAML app using metadata file](../../assets/img/guides/applications/saml-app/register-saml-app-using-metadata-file.png){: width="700"}
+    ![Register SAML app using metadata file]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-metadata-file.png){: width="700"}
 
 - Select the **URL Based** option and specify the SAML meta URL, which refers to the endpoint that hosts the SAML metadata file.
 
-    ![Register SAML app using meta url](../../assets/img/guides/applications/saml-app/register-saml-app-using-meta-url.png){: width="700"}
+    ![Register SAML app using meta url]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-meta-url.png){: width="700"}
 
 ## What's next?
 
-- [Add login to your web app](../../guides/authentication/add-login-to-web-app/)
+- [Add login to your web app]({{base_path}}/guides/authentication/add-login-to-web-app/)

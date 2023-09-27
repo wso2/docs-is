@@ -1,6 +1,6 @@
 # Email templates
 
-Asgardeo organizations use default email templates to send email notifications. You can customize the existing templates to match your organization’s requirements using the [Email Templates API](../apis/email-template.md).
+Asgardeo organizations use default email templates to send email notifications. You can customize the existing templates to match your organization’s requirements using the [Email Templates API]({{base_path}}/apis/email-template.md).
 
 ## Email templates in Asgardeo
 
@@ -235,7 +235,7 @@ The following literals about the user are accessible for all email templates.
 
 You can use the following literals and customize email templates to fit the branding of your organization.
 
-You can configure the values of these literals from the Asgardeo Console. Refer to the [branding documentation](../guides/branding/configure-ui-branding.md) to learn more.
+You can configure the values of these literals from the Asgardeo Console. Refer to the [branding documentation]({{base_path}}/guides/branding/configure-ui-branding.md) to learn more.
 
 <table>
     <thead>

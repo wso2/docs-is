@@ -16,17 +16,17 @@ To add user attributes to the app:
 1. On the {{ product_name }}, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab. Here, the user attributes are listed under their relevant scopes.
 
-   ![Add user attributes in {{ product_name }}](../../../assets/img/guides/applications/attributes/oidc/add-user-attributes-list-grouped-user-attributes.png){: width="600"}
+   ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attributes-list-grouped-user-attributes.png){: width="600"}
 
 3. You can add user attributes using the following methods:
 
    - Add a group of user attributes by selecting the checkbox in front of the required scope. This will add all the user attributes grouped under the selected scope.
 
-      ![Add user attributes in {{ product_name }}](../../../assets/img/guides/applications/attributes/oidc/add-user-attribute-select-scope.png){: width="600"}
+      ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-scope.png){: width="600"}
 
    - Add a single user attribute by expanding the required scope and selecting the user attribute you need from the expanded list.
 
-      ![Add user attributes in {{ product_name }}](../../../assets/img/guides/applications/attributes/oidc/add-user-attribute-select-user-attribute.png){: width="600"}
+      ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-user-attribute.png){: width="600"}
 
 4. Click **Update** once you are done.
 
@@ -34,7 +34,7 @@ To add user attributes to the app:
 
 {% include "../../fragments/manage-app/manage-user-attributes/select-mandatory-attributes.md" %}
 
-![Add madatory user attributes in {{ product_name }}](../../../assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600"}
+![Add madatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600"}
 
 ## How it works
 
@@ -42,7 +42,7 @@ Let's see how this flow works in {{ product_name }}.
 
 Once you have configured the user attributes that are required for your application, {{ product_name }} implements the following process when a user tries to log in to your app.
 
-![Provides consent for attributes in {{ product_name }}](../../../assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800"}
+![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800"}
 
 ### Application requests attributes
 
@@ -51,7 +51,7 @@ When the user logs in to the app, a request is sent to {{ product_name }} with t
 Applications can use scopes to request access to a group of user attributes.
 
 !!! note
-      Learn more about [managing scopes](../../guides/users/attributes/manage-scopes/) in {{ product_name }}.
+      Learn more about [managing scopes]({{base_path}}/guides/users/attributes/manage-scopes/) in {{ product_name }}.
 
 ### {{ product_name }} checks for mandatory attributes
 
@@ -62,7 +62,7 @@ Applications can use scopes to request access to a group of user attributes.
 By default, {{ product_name }} requests the user's consent to share the user attributes with the application.
 
 !!! note
-      Learn more about [managing user consent](../../guides/authentication/manage-consent-for-attributes/).
+      Learn more about [managing user consent]({{base_path}}/guides/authentication/manage-consent-for-attributes/).
 
 ### Shares attributes with the app
 
@@ -74,7 +74,7 @@ The subject attribute is the unique identifer for a user. The application receiv
 
 #### ID token
 
-Once the [application calls the token endpoint](../../guides/authentication/oidc/implement-auth-code/#get-tokens), {{ product_name }} sends the ID token in the response.
+Once the [application calls the token endpoint]({{base_path}}/guides/authentication/oidc/implement-auth-code/#get-tokens), {{ product_name }} sends the ID token in the response.
 
 All the user attributes that are requested by scopes are returned as claims in the ID token. The application can decode the ID token to view the claims.
 
@@ -104,7 +104,7 @@ _A sample ID token is given below:_
   
 #### Userinfo response
 
-In addition to getting attributes from the ID token, the application can [invoke the userinfo endpoint](../../guides/authentication/oidc/implement-auth-code/#retrieve-user-details) and get user attributes along with the subject attribute.
+In addition to getting attributes from the ID token, the application can [invoke the userinfo endpoint]({{base_path}}/guides/authentication/oidc/implement-auth-code/#retrieve-user-details) and get user attributes along with the subject attribute.
 
 _A sample userinfo response is given below:_
 

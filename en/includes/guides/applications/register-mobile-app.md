@@ -2,7 +2,7 @@
 
 To add login to your mobile application with {{ product_name }}, you need to first register your app in {{ product_name }}.
 
-Your app will be registered as an OpenID Connect mobile app and a client ID will be issued. Note that client secrets are not issued for mobile apps since they are public clients. However, the [PKCE (Proof Key for Code Exchange)](../../references/app-settings/oidc-settings-for-app/#proof-key-for-code-exchange-pkce) extension is enabled by default as a security measure.
+Your app will be registered as an OpenID Connect mobile app and a client ID will be issued. Note that client secrets are not issued for mobile apps since they are public clients. However, the [PKCE (Proof Key for Code Exchange)]({{base_path}}/references/app-settings/oidc-settings-for-app/#proof-key-for-code-exchange-pkce) extension is enabled by default as a security measure.
 
 ## Register the app
 
@@ -12,11 +12,11 @@ To register the app:
 
 2. Click **New Application** and select **Mobile Application**.
 
-    ![Select an app type](../../assets/img/guides/applications/select-app-type.png){: width="700"}
+    ![Select an app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700"}
 
 3. Enter the following details:
 
-    ![Create a new Mobile](../../assets/img/guides/applications/create-new-mobile-app.png){: width="700"}
+    ![Create a new Mobile]({{base_path}}/assets/img/guides/applications/create-new-mobile-app.png){: width="700"}
 
     <table>
         <tr>
@@ -42,7 +42,7 @@ To register the app:
     !!! note
         If you have enabled **Allow sharing with sub-organizations** while registering the application, you will see a popup window with the following options.
 
-        ![Share the application with suborganizations](../../assets/img/guides/applications/share-application.png){: width="500"}
+        ![Share the application with suborganizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500"}
 
         <table>
             <tr>
@@ -65,8 +65,8 @@ When you register your mobile application, a client ID is generated. Your mobile
 
 You can get this client ID from the **Protocol** tab of the application as shown below.
 
-![Get client ID of Mobile](../../assets/img/guides/applications/spa-client-id.png){: width="700"}
+![Get client ID of Mobile]({{base_path}}/assets/img/guides/applications/spa-client-id.png){: width="700"}
 
 ## What's next?
 
-- [Add login to your mobile app](../../guides/authentication/add-login-to-mobile-app/)
+- [Add login to your mobile app]({{base_path}}/guides/authentication/add-login-to-mobile-app/)

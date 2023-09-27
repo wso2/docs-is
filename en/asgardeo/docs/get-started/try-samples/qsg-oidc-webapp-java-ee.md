@@ -10,7 +10,7 @@ By following this guide, you will be able to deploy a Java EE web application lo
 
 - **A user account in Asgardeo**
 
-  If you don't already have one, [create a user account](../../get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
+  If you don't already have one, [create a user account]({{base_path}}/get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
 
 ## Register the app
 
