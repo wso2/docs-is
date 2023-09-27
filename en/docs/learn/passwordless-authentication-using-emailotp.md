@@ -11,7 +11,7 @@ Email OTP:
 
 ### Deploying travelocity sample application
 
-In this guide we will be using `travelocity.com` as a sample application. To deploy the travelocity
+In this guide, we will be using `travelocity.com` as a sample application. To deploy the travelocity
 sample application, follow the steps in
 [Deploying the travelocity.com Sample App](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp).
 
