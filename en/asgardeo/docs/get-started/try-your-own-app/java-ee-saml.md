@@ -1,17 +1,11 @@
----
-breadcrumb: false
----
-
-# Integrate your Java EE webapp with SAML
+# Integrate SAML with your Java EE webapp
 
 Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Asgardeo Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent) which enables SAML-based login and logout.
 
-<Button
-    buttonType='grey-outlined-icon'
-    buttonText='Try out the sample app'
-    startIconPath='images/technologies/java-logo.svg'
-    buttonPath='/get-started/try-samples/qsg-saml-webapp-java-ee'
-/>
+<div class="border-text">
+  <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="React" width=50><br>
+  <a href="{{base_path}}/get-started/try-samples/qsg-saml-webapp-java-ee">Try out the sample app</a>
+</div>
 
 ## Prerequisites
 
@@ -72,8 +66,8 @@ SAML2.AssertionConsumerURL=<acs_url>
 SAML2.SPEntityId=<entity_id>
 
 #Asgardeo related configs
-SAML2.IdPEntityId=accounts.asgardeo.io/t/<organization_name>
-SAML2.IdPURL=https://api.asgardeo.io/t/<orgaization_name>/samlsso 
+SAML2.IdPEntityId=accounts.asgardeo.io/t/{organization_nam}
+SAML2.IdPURL=https://api.asgardeo.io/t/{organization_name}samlsso 
 IdPPublicCert=<public_cert_of_asgardeo_organization>
 IdPPublicCertAlias=wso2carbon
 

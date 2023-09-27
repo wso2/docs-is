@@ -1,28 +1,22 @@
----
-breadcrumb: false
----
-
-# Integrate your Java EE webapp with OIDC
+# Integrate OIDC with your Java EE webapp
 
 Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Asgardeo Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent) which enables OIDC-based login and logout.
 
-<Button
-    buttonType='grey-outlined-icon'
-    buttonText='Try out the sample app'
-    startIconPath='images/technologies/java-logo.svg'
-    buttonPath='/get-started/try-samples/qsg-oidc-webapp-java-ee'
-/>
+<div class="border-text">
+  <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="React" width=50><br>
+  <a href="{{base_path}}/get-started/try-samples/qsg-oidc-webapp-java-ee">Try out the sample app</a>
+</div>
 
 ## Prerequisites
 - [Download](https://tomcat.apache.org/tomcat-9.0-doc/) Apache Tomcat 9.x or 8.x in your local environment.
 - [Download](https://maven.apache.org/download.cgi), and [install](https://maven.apache.org/install.html) Apache Maven (3.6.x or higher) as the package manager if you already haven't.
-- You need to have an application registered in Asgardeo. If you don't, see the instructions on [registering an OIDC application](../../guides/applications/register-oidc-web-app/).
+- You need to have an application registered in Asgardeo. If you don't, see the instructions on [registering an OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/).
 
 ## Install the SDK
 
 To get started with the OIDC agent, you need to add relevant dependencies. By updating the `pom.xml` file with the following dependency, you can add the OIDC agent to your project.
 
-```xml 
+```xml
 <dependency>
     <groupId>io.asgardeo.tomcat.oidc.agent</groupId>
     <artifactId>io.asgardeo.tomcat.oidc.agent</artifactId>
@@ -32,7 +26,7 @@ To get started with the OIDC agent, you need to add relevant dependencies. By up
 
 The Agent is hosted at **WSO2 Internal Repository**. To resolve the dependency mentioned above, point to the repository as follows.
 
-```xml 
+```xml
 <repositories>
     <repository>
         <id>wso2.releases</id>
@@ -65,11 +59,11 @@ consumerSecret=<consumerSecret>
 callBackURL=<YOUR_APP_PATH>/oauth2client
 scope=openid
 logoutURL=logout
-authorizeEndpoint=https://api.asgardeo.io/t/<organization_name>/oauth2/authorize
-logoutEndpoint=https://api.asgardeo.io/t/<organization_name>/oidc/logout
-tokenEndpoint=https://api.asgardeo.io/t/<organization_name>/oauth2/token
-issuer=https://api.asgardeo.io/t/<organization_name>/oauth2/token
-jwksEndpoint=https://api.asgardeo.io/t/<organization_name>/oauth2/jwks
+authorizeEndpoint=https://api.asgardeo.io/t/{organization_name}/oauth2/authorize
+logoutEndpoint=https://api.asgardeo.io/t/{organization_name}/oidc/logout
+tokenEndpoint=https://api.asgardeo.io/t/{organization_name}/oauth2/token
+issuer=https://api.asgardeo.io/t/{organization_name}/oauth2/token
+jwksEndpoint=https://api.asgardeo.io/t/{organization_name}/oauth2/jwks
 skipURIs=<YOUR_APP_PATH>/index.html
 ```
 
@@ -79,7 +73,7 @@ the [Configuration Catalog](https://github.com/asgardeo/asgardeo-tomcat-oidc-age
 
 Finally, copy and paste the following configuration to the _<YOUR_APP>/src/main/webapp/WEB-INF/web.xml_ file.
 
-```xml 
+```xml
 <filter>
     <filter-name>OIDCAgentFilter</filter-name>
     <filter-class>io.asgardeo.tomcat.oidc.agent.OIDCAgentFilter</filter-class>
@@ -112,8 +106,6 @@ Finally, copy and paste the following configuration to the _<YOUR_APP>/src/main/
 </listener>
 ```
 
-<br>
-
 ## Add login
 
 In the `index.html` file, add a login button to redirect the user to secure pages upon successful login.
@@ -126,8 +118,6 @@ flow if it does not find an authenticated application session.
     <input type="submit" value="Log In">
 </form>
 ```
-
-<br>
 
 ## Add logout
 
