@@ -63,7 +63,7 @@ implement a new grant type.
         validator to validate the grant types that should support the openid
         scope.   
         Setting the `            <PublicClientAllowed>           ` parameter 
-        to `            true           `, provides the ability for the public
+        to `true`, provides the ability for the public
         clients to use the grant type for public client authentication.
 
 
