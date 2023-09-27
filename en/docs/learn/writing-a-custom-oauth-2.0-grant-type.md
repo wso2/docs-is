@@ -57,7 +57,7 @@ implement a new grant type.
     ```
 
     !!! info 
-        - Setting the `<IdTokenAllowed>` parameter to
+        Setting the `<IdTokenAllowed>` parameter to
         `true`, provides flexibility to control the
         issuing of IDtoken for each grant, and also allows the OIDC scope
         validator to validate the grant types that should support the openid
