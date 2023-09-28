@@ -12,7 +12,7 @@ Given below are the steps to follow.
 
 4. Select an application and click **Show more** to display the attributes that are shared with the application.
 
-    ![View consents]({{base_path}}/assets/img/guides/organization/self-service/myaccount/view-consents.png){: width="700" style="display: block; margin: 0 auto;"}
+    ![View consents]({{base_path}}/assets/img/guides/organization/self-service/myaccount/view-consents.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. To revoke consent, the user can do one of the following:
 
