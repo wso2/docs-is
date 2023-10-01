@@ -6,11 +6,11 @@ By following this guide, you will be able to deploy a Java EE web application lo
 
 - **Apache tomcat 9.x or 8.x**
 
-  If you don't have it, install [Apache tomcat](https://tomcat.apache.org/tomcat-9.0-doc/setup.html){target="_blank"}.
+    If you don't have it, install [Apache tomcat](https://tomcat.apache.org/tomcat-9.0-doc/setup.html){target="_blank"}.
 
 - **A user account in Asgardeo**
 
-  If you don't already have one, [create a user account]({{base_path}}/get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
+    If you don't already have one, [create a user account]({{base_path}}/get-started/create-asgardeo-account/#create-a-user) in Asgardeo.
 
 ## Register the app
 
@@ -20,11 +20,11 @@ Follow the steps given below to register the sample Java EE web application in A
 
 2. Click **New Application** and select **Traditional Web Application**:
 
-    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png)
+    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details:
 
-    ![Create a new web app]({{base_path}}/assets/img/guides/applications/create-new-web-app.png)
+    ![Create a new web app]({{base_path}}/assets/img/guides/applications/create-new-web-app.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -48,7 +48,7 @@ Follow the steps given below to register the sample Java EE web application in A
 
 5. Go to the **Protocol** tab and take note of the **Client ID** and the **Client secret**. You will need them to configure the application later.
 
-    ![Client ID and client secret]({{base_path}}/assets/img/guides/applications/client-secret-oidc.png)
+    ![Client ID and client secret]({{base_path}}/assets/img/guides/applications/client-secret-oidc.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 !!! tip
     To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:8080/oidc-sample-app</code>).
@@ -194,6 +194,7 @@ Follow the steps given below to configure the sample app.
     sh catalina.sh stop
     sh catalina.sh start
     ```
+
 ## Run the sample
 
 Follow the steps given below to run the sample.
@@ -202,6 +203,6 @@ Follow the steps given below to run the sample.
 
 2. Click **Login**. You will be redirected to the Asgardeo login page.
 
-    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="400px" style="display: block; margin: 0 auto;"}
+    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Enter the credentials of your user account and click **Sign In**.
