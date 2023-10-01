@@ -8,7 +8,7 @@ Users can manage their own active sessions via My Account as follows:
 
 3. Click **Show more** on a session to get more details.
 
-    ![Manage login sessions]({{base_path}}/assets/img/guides/organization/self-service/myaccount/manage-login-sessions.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Manage login sessions]({{base_path}}/assets/img/guides/organization/self-service/myaccount/manage-login-sessions.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. To terminate sessions, users can do one of the following:
 

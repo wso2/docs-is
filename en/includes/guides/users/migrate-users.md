@@ -38,10 +38,11 @@ These traditional methods come with various challenges as explained below, which
 * **End-user experience**
 
     Due to the challenge of credential transition, when migrating users in bulk, the following methods are used to activate the user accounts:
-  * Setting a temporary password for each user.
-  * Sending an invitation email with a password reset link.
+  
+    * Setting a temporary password for each user.
+    * Sending an invitation email with a password reset link.
 
-  The invitation emails may be missed out or ignored by the users, and users may even try to use the old password on the new systems. This causes user dissatisfaction with the organization.
+    The invitation emails may be missed out or ignored by the users, and users may even try to use the old password on the new systems. This causes user dissatisfaction with the organization.
 
 !!! note
     All the challenges mentioned above are handled by the {{ product_name }} team during user migration. This reduces the operational overhead on administrators and provides end-users with a better user experience.

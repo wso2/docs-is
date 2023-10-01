@@ -11,59 +11,48 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/userinfo
 
 **Sample request**
 
-<CodeGroup>
-<CodeGroupItem title="cURL" active>
+=== "cURL"
+    ```bash
+    curl --location --request GET 'https://api.asgardeo.io/t/{organization}/oauth2/userinfo' \
+    --header 'Authorization: Bearer {your_access_token}'
+    ```
 
-```bash
-curl --location --request GET 'https://api.asgardeo.io/t/{organization}/oauth2/userinfo' \
---header 'Authorization: Bearer {your_access_token}'
-```
+=== "JavaScript - jQuery"
+    ```js
+    var settings = {
+        "url": "https://api.asgardeo.io/t/{organization}/oauth2/userinfo",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Authorization": "Bearer {your_access_token}"
+        },
+    };
 
-</CodeGroupItem>
-
-<CodeGroupItem title="JavaScript - jQuery">
-
-```js
-var settings = {
-    "url": "https://api.asgardeo.io/t/{organization}/oauth2/userinfo",
-    "method": "GET",
-    "timeout": 0,
-    "headers": {
-        "Authorization": "Bearer {your_access_token}"
-    },
-};
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-</CodeGroupItem>
-
-<CodeGroupItem title="Nodejs - Axios">
-
-```js
-var axios = require('axios');
-
-var config = {
-    method: 'get',
-    url: 'https://api.asgardeo.io/t/{organization}/oauth2/userinfo',
-    headers: {
-        'Authorization': 'Bearer {your_access_token}'
-    }
-};
-
-axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
+    $.ajax(settings).done(function (response) {
+        console.log(response);
     });
-```
+    ```
 
-</CodeGroupItem>
-</CodeGroup>
+=== "Nodejs - Axios"
+    ```js
+    var axios = require('axios');
+
+    var config = {
+        method: 'get',
+        url: 'https://api.asgardeo.io/t/{organization}/oauth2/userinfo',
+        headers: {
+            'Authorization': 'Bearer {your_access_token}'
+        }
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    ```
 
 **Default sample response**  
 {{ product_name }} returns only the `sub` claim if there are no user attributes shared with the application.
@@ -74,5 +63,5 @@ axios(config)
 }
 ```
 
-You can customize the user information in the response by [configuring user attributes](../../guides/authentication/user-attributes/enable-attributes-for-oidc-app/) on the registered application.
+You can customize the user information in the response by [configuring user attributes]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/) on the registered application.
 <br>

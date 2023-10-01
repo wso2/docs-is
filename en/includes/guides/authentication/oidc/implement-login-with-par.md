@@ -21,9 +21,9 @@ To get started, you need to have an application registered in {{ product_name }}
 
 The request_uri functions as a reference to your authorization payload. You can receive a request_uri by invoking the following endpoint in Asgardeo.
 
-    ```
-    https://api.asgardeo.io/t/{organization_name}/oauth2/par
-    ```
+```
+https://api.asgardeo.io/t/{organization_name}/oauth2/par
+```
 
 The following example shows how you can initiate an authorization code flow using the `/par` endpoint.
 

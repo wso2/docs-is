@@ -1,6 +1,7 @@
 # Manage SCIM 2.0 attribute mappings
 
 Attributes in your organization are mapped to the following SCIM 2.0 schemas mappings:
+
 - [Core schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-3.1)
 - [User schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1)
 - [Enterprise schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.3)
@@ -14,7 +15,7 @@ To view the SCIM 2 attributes mapped to user attributes in your organization:
 1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
 2. Click **SCIM 2.0**.
 
-   ![View SCIM2 attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/view-scim2-attributes.png)
+    ![View SCIM2 attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/view-scim2-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Add a SCIM 2.0 custom schema attribute
 You can add new SCIM 2.0 custom schema attributes as follows:
@@ -23,20 +24,21 @@ You can add new SCIM 2.0 custom schema attributes as follows:
 2. Click **SCIM 2.0** and click **New Attribute**.
 3. Enter values for the following properties:
 
-   ![Add OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/add-scim2-attribute-mapping.png)
+    ![Add OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/add-scim2-attribute-mapping.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-   <table>
-         <tbody>
-           <tr>
-               <td>**SCIM Attribute**</td>
-               <td>The SCIM attribute name that will be shared with applications.</td>
-            </tr>
+    <table>
+          <tbody>
             <tr>
-               <td>**User attribute to map to**</td>
-               <td>Select the default attribute that should be mapped to the new SCIM attribute.</td>
-            </tr>
-         </tbody>
-      </table>
+                <td>**SCIM Attribute**</td>
+                <td>The SCIM attribute name that will be shared with applications.</td>
+             </tr>
+             <tr>
+                <td>**User attribute to map to**</td>
+                <td>Select the default attribute that should be mapped to the new SCIM attribute.</td>
+             </tr>
+          </tbody>
+       </table>
+
 4. Click **Save**.
 
 ## Delete a SCIM 2.0 custom schema attribute

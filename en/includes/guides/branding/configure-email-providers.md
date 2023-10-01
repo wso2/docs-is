@@ -16,7 +16,7 @@ Follow the steps given below to configure the email provider for your organizati
 
 1. On the {{ product_name }}, go to **Organizational Settings** > **Email Provider**.
 
-    ![{{ product_name }} Console - Email Provider UI]({{base_path}}/assets/img/guides/branding/email-provider-console-ui.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![{{ product_name }} Console - Email Provider UI]({{base_path}}/assets/img/guides/branding/email-provider-console-ui.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Update the following fields with the configuration information provided by your email provider.
 
@@ -77,7 +77,7 @@ To revert your email provider configurations,
 
 1. Scroll down to the **Danger Zone** and click **Revert**.
 
-    ![{{ product_name }} Console - Email Provider Danger Zone]({{base_path}}/assets/img/guides/branding/email-provider-danger-zone.png)
+    ![{{ product_name }} Console - Email Provider Danger Zone]({{base_path}}/assets/img/guides/branding/email-provider-danger-zone.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Select the checkbox to confirm your action.
 3. Click **Confirm**.

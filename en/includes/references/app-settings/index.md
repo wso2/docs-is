@@ -1,25 +1,21 @@
-<!--
----
-breadcrumb: false
-prev: false
-next: false
-search: true
-secondarySearch: false
-pageClass: item-index-page
-heading: App configurations
-subHeading: Configure the OpenID connect or SAML protocol related settings of your application in Asgardeo
-items:
-    - name: OIDC
-      icon: images/technologies/oidc-logo.svg
-      path: /references/app-settings/oidc-settings-for-app/
-    
-    - name: SAML
-      icon: images/technologies/saml-logo.svg
-      path: /references/app-settings/saml-settings-for-app/
+#
 
----
+<div class="index-heading">
+  App configurations
+</div>
 
-# App configurations
+<div class="index-text">
+  <p>Configure the OpenID connect or SAML protocol related settings of your application in {{ product_name }}</p>
+</div>
 
-<CardView/>
--->
+<div class="centered-container">
+  <div class="border-text" width=500>
+    <img src="../../assets/img/logo/oidc-logo.svg" alt="OIDC"><br>
+    <a href="../../references/app-settings/oidc-settings-for-app">OpenID Connect</a>
+  </div>
+
+  <div class="border-text" width=500>
+    <img src="../../assets/img/logo/saml-logo.svg" alt="SAML" width=100><br>
+    <a href="../../references/app-settings/saml-settings-for-app">SAML</a>
+  </div>
+</div>

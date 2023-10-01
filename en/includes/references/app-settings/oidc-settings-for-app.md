@@ -1,7 +1,8 @@
 # OIDC settings for apps
 
 You can find the OpenID Connect protocol related settings under **protocol** section of the selected application.
-  ![OIDC settings]({{base_path}}/assets/img/guides/applications/app-protocol-settings.png)
+  
+![OIDC settings]({{base_path}}/assets/img/guides/applications/app-protocol-settings.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Basic settings
 
@@ -9,7 +10,7 @@ You can find the OpenID Connect protocol related settings under **protocol** sec
 
 When your application is registered in Asgardeo, a client ID is generated as the identifier of the application. If you register a traditional web application, a client secret is generated in addition to the client ID as shown below.
 
-![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png)
+![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ### Allowed grant types
 This will determine how the application communicates with the token service. Web application template supports following grant types:
@@ -66,37 +67,35 @@ However, [implicit grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth
 See [grant types of Asgardeo]({{base_path}}/references/grant-types-in-asgardeo/) for more details.
 
 ### Public client
-
-<CommonGuide guide='guides/fragments/manage-app/oidc-settings/public-client.md'/>
+{% include "../../guides/fragments/manage-app/oidc-settings/public-client.md" %}
 
 ### Authorized redirect URLs
 Authorized redirect URLs are not required for `Client Credentials` and `Password` grant type.
-
-<CommonGuide guide='guides/fragments/manage-app/oidc-settings/authorized-urls.md'/>
+{% include "../../guides/fragments/manage-app/oidc-settings/authorized-urls.md" %}
 
 The `redirect_uri` sent in the [login]({{base_path}}/guides/authentication/oidc/implement-auth-code/#get-authorization-code) request and the `post_logout_redirect_uri` sent in the [logout request]({{base_path}}/guides/authentication/oidc/add-logout/) should match with one of the registered authorized redirect URLs.
 
 
 ### Allowed origins
- <CommonGuide guide='guides/fragments/manage-app/oidc-settings/allowed-origin.md'/>
+{% include "../../guides/fragments/manage-app/oidc-settings/allowed-origin.md" %}
 
 ## Advanced settings
 ### Proof Key for Code Exchange(PKCE)
 
 #### Mandatory
- <CommonGuide guide='guides/fragments/manage-app/oidc-settings/pkce-mandatory.md'/>
+ {% include "../../guides/fragments/manage-app/oidc-settings/pkce-mandatory.md" %}
 
 #### Support Plain Transform Algorithm
- <CommonGuide guide='guides/fragments/manage-app/oidc-settings/pkce-plain-text.md'/>
+{% include "../../guides/fragments/manage-app/oidc-settings/pkce-plain-text.md" %}
 
 ### Access Token
-  <CommonGuide guide='guides/fragments/manage-app/oidc-settings/access-token.md'/>
+{% include "../../guides/fragments/manage-app/oidc-settings/access-token.md" %}
 
 ### ID Token
- <CommonGuide guide='guides/fragments/manage-app/oidc-settings/id-token.md'/>
+{% include "../../guides/fragments/manage-app/oidc-settings/id-token.md" %}
 
 ### Refresh Token
- <CommonGuide guide='guides/fragments/manage-app/oidc-settings/refresh-token.md'/>
+{% include "../../guides/fragments/manage-app/oidc-settings/refresh-token.md" %}
 
 ### Certificate
 The certificate is used to validate signatures of signed requests from the application to Asgardeo and to encrypt requests from Asgardeo to the application.
@@ -106,24 +105,23 @@ You can either <b>Provide Certificate</b> or <b>Use JWKS endpoint</b> to add a c
 Follow the steps given below to Provide Certificate.
 
 1. Select <b>Provide Certificate</b> and click <b>New Certificate</b>.
-![Upload app certificate]({{base_path}}/assets/img/guides/applications/oidc/upload-certificate-of-app.png)
+
+    ![Upload app certificate]({{base_path}}/assets/img/guides/applications/oidc/upload-certificate-of-app.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Upload the certificate file or copy the certificate contents.
 <br>
 
-??? note If you have certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to convert your certs to PEM format using [OpenSSL](https://www.openssl.org/)
- **Convert CRT to PEM**
- ``` 
- openssl x509 -in cert.crt -out cert.pem
- ```
-**Convert CER to PEM:**
- ``` 
- openssl x509 -in cert.cer -out cert.pem
- ```
-**Convert DER to PEM:**
-  ``` 
-  openssl x509 -in cert.der -out cert.pem
- ```
-:::
+??? note "If you have certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to convert your certs to PEM format using [OpenSSL](https://www.openssl.org/)"
+    **Convert CRT to PEM**
+    ``` 
+    openssl x509 -in cert.crt -out cert.pem
+    ```
+    **Convert CER to PEM:**
+    ``` 
+    openssl x509 -in cert.cer -out cert.pem
+    ```
+    **Convert DER to PEM:**
+    ``` 
+    openssl x509 -in cert.der -out cert.pem
+    ```
 
-<br>

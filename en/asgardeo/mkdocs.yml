@@ -315,7 +315,6 @@ nav:
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - Application logs: references/application-logs.md
     - Email templates: references/email-templates.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md

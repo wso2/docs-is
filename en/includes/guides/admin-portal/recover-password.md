@@ -6,16 +6,19 @@ To recover your password:
 
 1. Go to the sign-in page via the [My Account Portal]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#access-my-account-portal).
 
-   ![Recover your password]({{base_path}}/assets/img/guides/organization/self-service/customer/recover-your-password.png)
+    ![Recover your password]({{base_path}}/assets/img/guides/organization/self-service/customer/recover-your-password.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Click **Forgot password?**.
 3. Enter your username and click **Send Reset Link**.
-   ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/forgot-your-password.png)
 
-   An email notification is sent to your email address.
+    ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/forgot-your-password.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+    An email notification is sent to your email address.
 
 4. Open the email you received and click **Reset Password**.
-   ![Reset password email]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email.png)
+
+    ![Reset password email]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
 5. Enter new password and **Proceed**.
 
 Now you have reset your password and can sign in using your new password.

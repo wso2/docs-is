@@ -16,60 +16,49 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/token/.well-known/openid-co
 
 **Sample request:**
 
-<CodeGroup>
+=== "cURL"
 
-<CodeGroupItem title="cURL">
+    ```  
+    curl --location --request GET 'https://api.asgardeo.io/t/bifrost/oauth2/token/.well-known/openid-configuration'
+    ```
 
-```  
-curl --location --request GET 'https://api.asgardeo.io/t/bifrost/oauth2/token/.well-known/openid-configuration'
-```
+=== "JavaScript - jQuery"
 
-</CodeGroupItem>
+    ```js 
+    var settings = {
+        "url": "https://api.asgardeo.io/t/bifrost/oauth2/token/.well-known/openid-configuration",
+        "method": "GET",
+        "timeout": 0,
+    };
 
-<CodeGroupItem title="JavaScript - jQuery" active>
-
-```js 
-var settings = {
-    "url": "https://api.asgardeo.io/t/bifrost/oauth2/token/.well-known/openid-configuration",
-    "method": "GET",
-    "timeout": 0,
-};
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-</CodeGroupItem>
-
-<CodeGroupItem title="Nodejs - Axios" active>
-
-```js 
-var axios = require('axios');
-
-var config = {
-    method: 'get',
-    url: 'https://api.asgardeo.io/t/bifrost/oauth2/token/.well-known/openid-configuration',
-    headers: {}
-};
-
-axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
+    $.ajax(settings).done(function (response) {
+        console.log(response);
     });
-```
+    ```
 
-</CodeGroupItem>
+=== "Nodejs - Axios"
 
-</CodeGroup>
+    ```js 
+    var axios = require('axios');
 
-<br>
+    var config = {
+        method: 'get',
+        url: 'https://api.asgardeo.io/t/bifrost/oauth2/token/.well-known/openid-configuration',
+        headers: {}
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    ```
 
 **Sample response:**
-```json 
+
+```json
 {
     .
     .

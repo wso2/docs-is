@@ -132,7 +132,7 @@ Let's try to access the API resources of the sample application as a `Reporter` 
 
 2. Log in as a `Reporter` user to Asgardeo and provide consent to the application to access the shown scopes.
 
-    ![Consent page of the Spring boot app]({{base_path}}/assets/img/tutorials/springboot-app/request-scopes-spring-tutorial.png){: width="400" style="display: block; margin: 0 auto;"}
+    ![Consent page of the Spring boot app]({{base_path}}/assets/img/tutorials/springboot-app/request-scopes-spring-tutorial.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Once you retrieve the authorization code from the browser response, use the following cURL command to request for an access token.
 

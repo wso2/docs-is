@@ -363,29 +363,29 @@ Let's walk through the end-to-end flow of the application we built in this tutor
 
 2. Click **Sign In** to start the authentication process.
 
-    ![sign-in page of the Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/sign-in-flutter.png){: width="300"}
+    ![sign-in page of the Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/sign-in-flutter.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     You will be redirected to Asgardeo's login page, where you will enter valid user credentials.
 
 3. Use the credentials of the user created when you registered the application in Asgardeo.
 
-    ![sign in to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/asgardeo-sign-in.png){: width="300"}
+    ![sign in to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/asgardeo-sign-in.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     Upon the first login attempt, Asgardeo prompts for consent to share the configured attributes with the Flutter application.
 
 4. Give your consent accordingly, allowing the application to access your profile information.
 
-    ![give consent to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/asgardeo-consent.png){: width="300"}
+    ![give consent to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/asgardeo-consent.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Once logged in, you will see a home page with the **View profile** and **Sign out** options.
 
-    ![home page to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/flutter-home-page.png){: width="300"}
+    ![home page to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/flutter-home-page.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 6. Go to the **Profile Information** section by clicking **View profile**.
 
     You can now view the logged-in user's profile information. You can click **Back to home** to navigate back to the home page.
 
-    ![home page to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/flutter-view-profile.png){: width="300"}
+    ![home page to Flutter app]({{base_path}}/assets/img/tutorials/flutter-app/flutter-view-profile.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 7. Log out from the application by clicking **Sign out**.
 

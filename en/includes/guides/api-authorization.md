@@ -142,7 +142,7 @@ If an API resource requires authorization, RBAC will be applied before granting 
 
 5. Click **Finish**.
 
-    ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/api-authorization/authorize-an-api-resource.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/api-authorization/authorize-an-api-resource.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Configure RBAC for API resources
 If RBAC is enabled as the authorization policy for the API resource, users accessing the API through an application will have role-based access.
@@ -188,11 +188,11 @@ To create a role and assign permissions to the scope:
     !!! note
         Roles are application-specific but not resource specific. You can add permissions from multiple API resources to a single role.
 
-    ![Map API permissions to the created application role]({{base_path}}/assets/img/guides/api-authorization/map-permissions-to-role.png){: width="500" style="display: block; margin: 0 auto;"}
+    ![Map API permissions to the created application role]({{base_path}}/assets/img/guides/api-authorization/map-permissions-to-role.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 6. Click **Save** to add the new application role.
 
-    ![Create application roles]({{base_path}}/assets/img/guides/api-authorization/create-roles.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Create application roles]({{base_path}}/assets/img/guides/api-authorization/create-roles.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ### Assign roles to groups
 
@@ -224,7 +224,7 @@ To request scopes for the user:
     1. On the {{ product_name }} Console, go to **Applications** and select your application.
     2. Copy the scopes listed at the end of the **API Authorization** section.
 
-        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/api-authorization/additional-scopes.png){: width="700" style="display: block; margin: 0 auto;"}
+        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/api-authorization/additional-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! tip
         When you add scopes to the configuration file of your SDK, add them as comma-separated values.
@@ -234,11 +234,11 @@ To request scopes for the user:
 
     Upon successful login, you will see the permission/scopes allowed for the user on the user consent page.
 
-    ![Permission of the user shown on the user consent page]({{base_path}}/assets/img/guides/api-authorization/user-consent-for-developer.png){: width="400" style="display: block; margin: 0 auto;"}
+    ![Permission of the user shown on the user consent page]({{base_path}}/assets/img/guides/api-authorization/user-consent-for-developer.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Click **Allow**. You will now be redirected to the application.
 
     You will be able to see the assigned permissions on the `allowedScopes` parameter of the authentication response.
 
-    ![Authentication response of the developer group user]({{base_path}}/assets/img/guides/api-authorization/allowed-scopes-for-developer.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Authentication response of the developer group user]({{base_path}}/assets/img/guides/api-authorization/allowed-scopes-for-developer.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 

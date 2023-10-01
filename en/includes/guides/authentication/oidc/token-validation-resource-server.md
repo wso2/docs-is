@@ -1,7 +1,7 @@
 # Token validation by resource servers
 
 A resource server is responsible for protecting resources such as APIs via OAuth2 access tokens. Access tokens are intended for authorizing the access of a resource.
-The resource server should be able to verify the access token sent by the application. If the application sends a [self-contained JWT access token](../../references/app-settings/oidc-settings-for-app/#access-token), then the resource server can validate the access token without interacting with the authorization server.
+The resource server should be able to verify the access token sent by the application. If the application sends a [self-contained JWT access token]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token), then the resource server can validate the access token without interacting with the authorization server.
 OAuth2.0 supports [token introspection](https://datatracker.ietf.org/doc/html/rfc7662) to inspect the **access tokens** and **refresh tokens** using authorization servers.
 
 {{ product_name }} provides the `/oauth2/introspect` endpoint to perform token validation. A resource server can inspect tokens using {{ product_name }} and know the information related to the tokens. On {{ product_name }}, the resource server has to use client secret basic authentication to authenticate with the token introspection endpoint.
@@ -31,15 +31,14 @@ curl --location --request POST '{introspection_endpoint_url}' \
 
 **Sample request**
 
-<CodeGroupItem title="cURL" active>
-```bash
-curl --location --request POST 'https://api.asgardeo.io/t/{organization}/oauth2/introspect' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Cookie: atbv=646b0ed2-c501-4b17-9251-94112013a718' \
---header 'Authorization: Bearer 54bd024f-5080-3db5-9422-785f5d610605' \
---data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
-```
-</CodeGroupItem>
+=== "cURL"
+  ```bash
+  curl --location --request POST 'https://api.asgardeo.io/t/{organization}/oauth2/introspect' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --header 'Cookie: atbv=646b0ed2-c501-4b17-9251-94112013a718' \
+  --header 'Authorization: Bearer 54bd024f-5080-3db5-9422-785f5d610605' \
+  --data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
+  ```
 
 This introspection request takes the following parameters:
 

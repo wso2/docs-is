@@ -17,7 +17,7 @@ You need to configure your API resources on the root organization
 !!! note Application roles of a sub organization
     The shared application will inherit the permission to role assignments from the application of the root organization.
 
-    ![Application roles inherited from the root organization]({{base_path}}/assets/img/guides/api-authorization/b2b-inherited-application-roles.png)
+    ![Application roles inherited from the root organization]({{base_path}}/assets/img/guides/api-authorization/b2b-inherited-application-roles.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     Role-to-group assigning should be done separately for the sub organization, as the sub organization does not inherit the groups from the root organization.
 
@@ -147,7 +147,7 @@ To request scopes for the user:
     2. Go to **Applications** and select your application.
     3. Copy the scopes listed at the end of the **API Authorization** section
 
-        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/api-authorization/additional-scopes.png)
+        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/api-authorization/additional-scopes.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! tip
             When you add scopes to the configuration file, add them as comma-separated values.

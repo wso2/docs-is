@@ -7,7 +7,7 @@ Users can discover applications that they can access within the organization by 
 
 1. In the user's MyAccount portal, navigate to **Applications**.
 
-    ![Discover applications in {{ product_name }} MyAccount]({{base_path}}/assets/img/guides/users/discover-apps.png){: width="500" style="display: block; margin: 0 auto;"}
+    ![Discover applications in {{ product_name }} MyAccount]({{base_path}}/assets/img/guides/users/discover-apps.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. In the **All Applications** section, users can view all the applications discoverable to them.
 

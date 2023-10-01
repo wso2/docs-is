@@ -15,31 +15,35 @@ Once the user logs in to the business application, you can make these capabiliti
 You can use the following {{ product_name }} APIs to enable self-service capabilities in your business application.
 
 - SCIM/Me Endpoint
+
     - [List user details](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/paths/~1Me/get)
     - [Update user profile](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/operation/patchUserMe)
     - [Update user password](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/operation/patchUserMe)
-    
-    !!! note
-        To update the password of a user, update the `value` parameter of the API payload as follows:
-        
-        ``` curl 
-        {
-          "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-          ],
-          "Operations": [
+
+        !!! note
+            To update the password of a user, update the `value` parameter of the API payload as follows:
+
+            ``` curl 
             {
-              "op": "add",
-              "value": {
-                "nickName": "shaggy"
-              }
+              "schemas": [
+                "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+              ],
+              "Operations": [
+                {
+                  "op": "add",
+                  "value": {
+                    "nickName": "shaggy"
+                  }
+                }
+              ]
             }
-          ]
-        }
-        ```
+            ```
+
 - Manage MFA settings and recovery
+  
     - [TOTP]({{base_path}}/apis/register-mfa/totp.md)
     - [Backup codes]({{base_path}}/apis/register-mfa/backup-code.md)
+
 - [Export user profile]({{base_path}}/apis/register-mfa/export-user-info.md)
 - [Manage consent of users]({{base_path}}/apis/consent-management.md)
 
@@ -88,7 +92,7 @@ Data:
 ??? note "If you are using {{ product_name }}'s React SDK"
     You can use the <code>[httpRequest](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#httprequest)</code> method to invoke the APIs on {{ product_name }}'s React SDK.
 
-    A sample of how to use the `httpRequest` method in [{{ product_name }}'s React SDK]    ({{base_path}}/get-started/try-your-own-app/react/) is given below:
+    A sample of how to use the `httpRequest` method in [{{ product_name }}'s React SDK]({{base_path}}/get-started/try-your-own-app/react/) is given below:
     
     ```js
     import { useAuthContext, HttpRequestConfig } from "@asgardeo/auth-react";

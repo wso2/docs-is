@@ -18,4 +18,4 @@ To configure reCAPTCHA:
 
 3. Turn the toggle on or off to enable or disable reCAPTCHA for your organization.
 
-    ![Enable bot detection]({{base_path}}/assets/img/guides/organization/account-security/bot-detection/enable-bot-detection.png)
+    ![Enable bot detection]({{base_path}}/assets/img/guides/organization/account-security/bot-detection/enable-bot-detection.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
