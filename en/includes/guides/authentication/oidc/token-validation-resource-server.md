@@ -31,15 +31,14 @@ curl --location --request POST '{introspection_endpoint_url}' \
 
 **Sample request**
 
-<CodeGroupItem title="cURL" active>
-```bash
-curl --location --request POST 'https://api.asgardeo.io/t/{organization}/oauth2/introspect' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Cookie: atbv=646b0ed2-c501-4b17-9251-94112013a718' \
---header 'Authorization: Bearer 54bd024f-5080-3db5-9422-785f5d610605' \
---data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
-```
-</CodeGroupItem>
+=== "cURL"
+  ```bash
+  curl --location --request POST 'https://api.asgardeo.io/t/{organization}/oauth2/introspect' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --header 'Cookie: atbv=646b0ed2-c501-4b17-9251-94112013a718' \
+  --header 'Authorization: Bearer 54bd024f-5080-3db5-9422-785f5d610605' \
+  --data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
+  ```
 
 This introspection request takes the following parameters:
 

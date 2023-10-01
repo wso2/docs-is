@@ -2,7 +2,7 @@
 
 Data residency is the geographical (or regulatory) boundary where your data is stored and processed.
 
-![data residency in Asgardeo]({{base_path}}/assets/img/references/asgardeo-data-residency.png)
+![data residency in Asgardeo]({{base_path}}/assets/img/references/asgardeo-data-residency.png){: width="700"}
 
 ## Datacenters
 

@@ -20,11 +20,11 @@ Follow the steps given below to create a sub organization.
 2. On the {{ product_name }} Console, go to **Sub Organizations** and click **Add Sub Organization**.
 3. In the **Add Sub Organization** dialog box that opens, enter a name and description for your organization.
 
-    ![Create suborganization]({{base_path}}/assets/img/guides/organization/manage-organizations/add-suborganization.png){: width="500" style="display: block; margin: 0 auto;"}
+    ![Create suborganization]({{base_path}}/assets/img/guides/organization/manage-organizations/add-suborganization.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Click **Register** to add the new sub organization. You will now see your sub organization listed as below.
 
-    ![The list of suborganizations]({{base_path}}/assets/img/guides/organization/manage-organizations/sub-organization-list.png){: width="700" style="display: block; margin: 0 auto;"}
+    ![The list of suborganizations]({{base_path}}/assets/img/guides/organization/manage-organizations/sub-organization-list.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Click the **Switch** icon next to the sub organization to go to the sub organization console.
 
@@ -49,7 +49,7 @@ To add additional information about your sub organizations:
 3. Go to the **Attributes** tab and add attributes by entering a **Name** and **Value**.
 4. Click **+** to add the new organization attribute.
 
-    ![Add organization attributes]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization-attributes.png){: width="500" style="display: block; margin: 0 auto;"}
+    ![Add organization attributes]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization-attributes.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Click **Update** to save the configurations.
 
@@ -57,7 +57,7 @@ To add additional information about your sub organizations:
 
 When you have multiple [sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/) for your primary business organization, you can switch between them on the {{ product_name }} Console by selecting the required sub organization from the list as shown below.
 
-![suborganizations]({{base_path}}/assets/img/guides/organization/manage-organizations/sub-organizations.png){: width="700" style="display: block; margin: 0 auto;"}
+![suborganizations]({{base_path}}/assets/img/guides/organization/manage-organizations/sub-organizations.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 
 ## Create a sub organization for your sub organization
@@ -93,6 +93,6 @@ You can delete any of the sub organizations of your primary organization as foll
 2. Go to **Sub Organizations** to view the list of sub organizations.
 3. Click the delete icon next to the sub organization you want to delete.
 
-    ![Delete a suborganization]({{base_path}}/assets/img/guides/organization/manage-organizations/delete-suborganization.png){: width="700" style="display: block; margin: 0 auto;"}
+    ![Delete a suborganization]({{base_path}}/assets/img/guides/organization/manage-organizations/delete-suborganization.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Select the checkbox and confirm your action.

@@ -3,34 +3,37 @@
 Asgardeo provides a set of defined functions and objects to write your conditional authentication script. They are grouped as follows:
 
 - [Core functions](#core-functions): These are the basic functions used in the script. These are used to identify the user who initiated the login flow, execute a step in the login flow, handle login failures, etc. Listed below are the core functions that can be used in conditional authentication scripts.
-  - [`onLoginRequest()`](#initial-login-request)
-  - [`executeStep()`](#execute-a-step)
-  - [`fail()`](#fail-the-login-flow)
-  - [`sendError()`](#redirect-to-error-code)
+  
+    - [`onLoginRequest()`](#initial-login-request)
+    - [`executeStep()`](#execute-a-step)
+    - [`fail()`](#fail-the-login-flow)
+    - [`sendError()`](#redirect-to-error-code)
 
 - [Utility functions](#utility-functions): These utility functions are used for specific scenarios. For example, checking whether the login user belongs to a specific user group. Listed below are the utility functions that can be used in conditional authentication scripts.
-  - [`isMemberOfAnyOfGroups()`](#check-group-membership)
-  - [`setCookie()`](#set-cookie)
-  - [`getCookieValue()`](#get-cookie-value)
-  - [`prompt()`](#prompt-for-user-input)
-  - [`getUserSessions()`](#get-user-sessions)
-  - [`terminateUserSession()`](#terminate-user-session)
-  - [`sendEmail()`](#send-email)
-  - [`callChoreo`](#call-a-choreo-api)
-  - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
-  - [`getUniqueUserWithClaimValues()`](#get-unique-user)
-  - [`getAssociatedLocalUser()`](#get-associated-user)
+  
+    - [`isMemberOfAnyOfGroups()`](#check-group-membership)
+    - [`setCookie()`](#set-cookie)
+    - [`getCookieValue()`](#get-cookie-value)
+    - [`prompt()`](#prompt-for-user-input)
+    - [`getUserSessions()`](#get-user-sessions)
+    - [`terminateUserSession()`](#terminate-user-session)
+    - [`sendEmail()`](#send-email)
+    - [`callChoreo`](#call-a-choreo-api)
+    - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
+    - [`getUniqueUserWithClaimValues()`](#get-unique-user)
+    - [`getAssociatedLocalUser()`](#get-associated-user)
 
 - [Object references](#object-reference): You can use objects to capture user behaviors and set attributes. For example, you can use the **user** and **request** objects and write the login conditions accordingly. Listed below are the object references that can be used in conditional authentication scripts.
-  - [`context`](#context)
-  - [`step`](#step)
-  - [`user`](#user)
-  - [`request`](#request)
-  - [`response`](#response)
-  - [`session`](#session)
-  - [`application`](#application)
-  - [`userAgent`](#user-agent)
-  - [`connectionMetadata`](#connectionmetadata)
+  
+    - [`context`](#context)
+    - [`step`](#step)
+    - [`user`](#user)
+    - [`request`](#request)
+    - [`response`](#response)
+    - [`session`](#session)
+    - [`application`](#application)
+    - [`userAgent`](#user-agent)
+    - [`connectionMetadata`](#connectionmetadata)
 
 ---
 
@@ -46,20 +49,19 @@ This function is called when Asgardeo receives the initial login request. It inc
 
 - **Parameters**
 
-  <table>
-      <tr>
-        <td><code>context</code></td>
-        <td>The authentication context, which contains the context information about the request.</td>
-      </tr>
-  </table>
+    <table>
+        <tr>
+          <td><code>context</code></td>
+          <td>The authentication context, which contains the context information about the request.</td>
+        </tr>
+    </table>
 
 - **Example**
 
-  ```bash 
-  onLoginRequest(context)
-  ```
+    ```bash 
+    onLoginRequest(context)
+    ```
 
-<br/>
 
 ### Execute a step
 
@@ -108,142 +110,141 @@ This section describes the **options** you can use to configure the `executeStep
 
 - <b>Options</b>
 
-  You can use these options when executing an authentication step through the script. See the [examples](#examples) given below for details.
+    You can use these options when executing an authentication step through the script. See the [examples](#examples) given below for details.
 
-  <table>
-    <tr>
-      <td><code>authenticationOptions</code></td>
-      <td>List the authentication methods that will be prompted for this step.</td>
-    </tr>
-    <tr>
-      <td><code>authenticationOptions.authenticator</code></td>
-      <td>The name of the local authenticator used.</td>
-    </tr>
-    <tr>
-      <td><code>authenticationOptions.idp</code></td>
-      <td>The name of the federated identity provider used.</td>
-    </tr>
-    <tr>
-      <td><code>authenticatorParams</code></td>
-      <td>Pass the configuration for the step authenticators or identity providers.</td>
-    </tr>
-    <tr>
-      <td><code>authenticatorParams.common</code></td>
-      <td>Specify the common configurations for both local authenticators and federated identity providers.</td>
-    </tr>
-    <tr>
-      <td><code>authenticatorParams.local.{authenticator-name}</code></td>
-      <td>The name of the local authenticator used in the application. The configurations passed here will be available for that specific authenticator.</td>
-    </tr>
-    <tr>
-      <td><code>authenticatorParams.local.{federated-identity-provider}</code></td>
-      <td>The name of the federated identity provider used in the application. The configurations passed here will be available for that federated identity provider.</td>
-    </tr>
-  </table>
+    <table>
+      <tr>
+        <td><code>authenticationOptions</code></td>
+        <td>List the authentication methods that will be prompted for this step.</td>
+      </tr>
+      <tr>
+        <td><code>authenticationOptions.authenticator</code></td>
+        <td>The name of the local authenticator used.</td>
+      </tr>
+      <tr>
+        <td><code>authenticationOptions.idp</code></td>
+        <td>The name of the federated identity provider used.</td>
+      </tr>
+      <tr>
+        <td><code>authenticatorParams</code></td>
+        <td>Pass the configuration for the step authenticators or identity providers.</td>
+      </tr>
+      <tr>
+        <td><code>authenticatorParams.common</code></td>
+        <td>Specify the common configurations for both local authenticators and federated identity providers.</td>
+      </tr>
+      <tr>
+        <td><code>authenticatorParams.local.{authenticator-name}</code></td>
+        <td>The name of the local authenticator used in the application. The configurations passed here will be available for that specific authenticator.</td>
+      </tr>
+      <tr>
+        <td><code>authenticatorParams.local.{federated-identity-provider}</code></td>
+        <td>The name of the federated identity provider used in the application. The configurations passed here will be available for that federated identity provider.</td>
+      </tr>
+    </table>
 
 - <b> Connections: Local authenticators and federated IdPs </b>
 
-  When you want to access your configured [connections]({{base_path}}/guides/authentication/#manage-connections) in an authentication step, you can use the following values through the **options** explained above.
+    When you want to access your configured [connections]({{base_path}}/guides/authentication/#manage-connections) in an authentication step, you can use the following values through the **options** explained above.
 
-  See the example on **filtering connections in a step** given below for details.
+    See the example on **filtering connections in a step** given below for details.
 
-  The **local authenticators** are represented by the `authenticator` parameter. The table shows the connection names (as displayed on the Asgardeo Console) and the corresponding authenticator name you can use in the scripts.
+    The **local authenticators** are represented by the `authenticator` parameter. The table shows the connection names (as displayed on the Asgardeo Console) and the corresponding authenticator name you can use in the scripts.
 
-  <table id="authenticatorNames">
-    <tbody>
-      <tr>
-        <th>Connection Name</th>
-        <th>Authenticator</th>
-      </tr>
-      <tr>
-        <td>Email OTP</td><td>email-otp-authenticator</td>
-      </tr>
-      <tr>
-        <td>Identifier First</td><td>IdentifierExecutor</td>
-      </tr>
-      <tr>
-        <td>Magic Link</td><td>MagicLinkAuthenticator</td>
-      </tr>
-      <tr>
-        <td>Security Key/Biometrics</td><td>FIDOAuthenticator</td>
-      </tr>
-      <tr>
-        <td>SMS OTP</td><td>sms-otp-authenticator</td>
-      </tr>
-      <tr>
-        <td>TOTP</td><td>totp</td>
-      </tr>
-      <tr>
-        <td>Username & Password</td><td>BasicAuthenticator</td>
-      </tr>
-    </tbody>
-  </table>
+    <table id="authenticatorNames">
+      <tbody>
+        <tr>
+          <th>Connection Name</th>
+          <th>Authenticator</th>
+        </tr>
+        <tr>
+          <td>Email OTP</td><td>email-otp-authenticator</td>
+        </tr>
+        <tr>
+          <td>Identifier First</td><td>IdentifierExecutor</td>
+        </tr>
+        <tr>
+          <td>Magic Link</td><td>MagicLinkAuthenticator</td>
+        </tr>
+        <tr>
+          <td>Security Key/Biometrics</td><td>FIDOAuthenticator</td>
+        </tr>
+        <tr>
+          <td>SMS OTP</td><td>sms-otp-authenticator</td>
+        </tr>
+        <tr>
+          <td>TOTP</td><td>totp</td>
+        </tr>
+        <tr>
+          <td>Username & Password</td><td>BasicAuthenticator</td>
+        </tr>
+      </tbody>
+    </table>
 
 
-  The **external identity providers** are represented by the `idp` parameter. The federated connection names are generated based on the name you assign to the connection at registration.
+    The **external identity providers** are represented by the `idp` parameter. The federated connection names are generated based on the name you assign to the connection at registration.
 
-  ::: tip Example
-  If you add a [federated google connection]({{base_path}}/guides/authentication/social-login/add-google-login/) with the name **bifrost google**, the value you can use in your authentication scripts is `bifrost_google`.
-  :::
+    !!! tip "Example"
+        If you add a [federated google connection]({{base_path}}/guides/authentication/social-login/add-google-login/) with the name **bifrost google**, the value you can use in your authentication scripts is `bifrost_google`.
 
 #### Examples
 Shown below are ways to define a login flow using the core functions.
 
 - <b>Example 1: Use <code>stepId</code></b>
   
-  This example uses only the `stepId`.
-  ``` js 
-  executeStep(1)
-  ```
+    This example uses only the `stepId`.
+    ``` js 
+    executeStep(1)
+    ```
 
 - <b>Example 2: Use <code>stepId</code> and <code>eventCallbacks</code></b>
   
-  This example uses only the `stepId` and `eventCallbacks`.
-  ``` js
-  executeStep(1, {
-      onSuccess: function(context) {
-          //Do something on success
-      }
-  });
-  ```
+    This example uses only the `stepId` and `eventCallbacks`.
+    ``` js
+    executeStep(1, {
+        onSuccess: function(context) {
+            //Do something on success
+        }
+    });
+    ```
 
 - <b>Example 3: Use all parameters</b>
 
-  This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be defined by the `options` object, such as `authenticationOptions` and `authenticatorParams`. However, you cannot write a script with only the `stepId` and `options`. See the following two examples:
+    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be defined by the `options` object, such as `authenticationOptions` and `authenticatorParams`. However, you cannot write a script with only the `stepId` and `options`. See the following two examples:
 
-  ``` js
-  executeStep(1, {
-      authenticationOptions:[{
-          authenticator: 'totp'
-      }]}, {}
-  );
-  ```
-  ``` js
-  executeStep(1, {
-      authenticatorParams: {
-          local: {
-              email-otp-authenticator: {
-                    enableRetryFromAuthenticator: 'true'
-              }
-          }
-      }, {}
-  );
-  ```
+    ``` js
+    executeStep(1, {
+        authenticationOptions:[{
+            authenticator: 'totp'
+        }]}, {}
+    );
+    ```
+    ``` js
+    executeStep(1, {
+        authenticatorParams: {
+            local: {
+                email-otp-authenticator: {
+                      enableRetryFromAuthenticator: 'true'
+                }
+            }
+        }, {}
+    );
+    ```
 
 - <b>Example 4: Filter connections in a step</b>
   
-  The `authenticationOptions` array filters out connections (local authenticators and federated identity providers) of a step based on a condition.
+    The `authenticationOptions` array filters out connections (local authenticators and federated identity providers) of a step based on a condition.
 
-  This can be achieved by specifying an array named `authenticationOptions` to the `options` map.  You can have `idp` as an array item for federated connections and `authenticator` as an array item for local connections, as shown below.
+    This can be achieved by specifying an array named `authenticationOptions` to the `options` map.  You can have `idp` as an array item for federated connections and `authenticator` as an array item for local connections, as shown below.
 
-    ``` js
-    executeStep(1,{
-      authenticationOptions:[{authenticator:'BasicAuthenticator'},{idp:'google'}]
-      },{
-          onSuccess: function (context) {
-              // Do something on success
-    };
-    ```
+      ``` js
+      executeStep(1,{
+        authenticationOptions:[{authenticator:'BasicAuthenticator'},{idp:'google'}]
+        },{
+            onSuccess: function (context) {
+                // Do something on success
+      };
+      ```
 
 
 ### Fail the login flow
@@ -258,31 +259,31 @@ passed. All the properties passed in the map are also optional.
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>errorCode</code></td>
-        <td>The error code to be appended in the redirect URL.</td>
-      </tr>
-      <tr>
-        <td><code>errorMessage</code></td>
-        <td>The error message to be appended in the redirect URL.</td>
-      </tr>
-      <tr>
-        <td><code>errorURI</code></td>
-        <td>The URI of a web page that includes additional information about the error.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>errorCode</code></td>
+          <td>The error code to be appended in the redirect URL.</td>
+        </tr>
+        <tr>
+          <td><code>errorMessage</code></td>
+          <td>The error message to be appended in the redirect URL.</td>
+        </tr>
+        <tr>
+          <td><code>errorURI</code></td>
+          <td>The URI of a web page that includes additional information about the error.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js
-  var parameterMap = {'errorCode': 'access_denied', 'errorMessage': 'login could not be completed', "errorURI":'http://www.example.com/error'};
-  if (!isAuthenticated) {
-      fail(parameterMap);
-  }
-  ```
+    ``` js
+    var parameterMap = {'errorCode': 'access_denied', 'errorMessage': 'login could not be completed', "errorURI":'http://www.example.com/error'};
+    if (!isAuthenticated) {
+        fail(parameterMap);
+    }
+    ```
 
 ### Redirect to error code
 
@@ -292,31 +293,31 @@ This function redirects the user to an error page. It includes the parameters li
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>url</code></td>
-        <td>The URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the <strong>retry.do</strong> error page.<br />
-        Note that any relative URL is assumed to be relative to the host’s root.</td>
-      </tr>
-      <tr>
-        <td><code>parameters</code></td>
-        <td>Key value map passed as parameters. These are converted to query parameters in the URL.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>The URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the <strong>retry.do</strong> error page.<br />
+          Note that any relative URL is assumed to be relative to the host’s root.</td>
+        </tr>
+        <tr>
+          <td><code>parameters</code></td>
+          <td>Key value map passed as parameters. These are converted to query parameters in the URL.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  It is recommended to use an i18n key to describe the error messages so that they can be internationalized easily on the error page.
+    It is recommended to use an i18n key to describe the error messages so that they can be internationalized easily on the error page.
 
-  ```js
-  var user = context.steps[1].subject;
-  var isAdmin = hasRole(user, 'admin');
-  if (!isAdmin) {
-      sendError('http://www.example.com/error',{'status':'000403','statusMsg':'You are not allowed to login to this app.', 'i18nkey':'not.allowed.error'});
-  }
-  ```
+    ```js
+    var user = context.steps[1].subject;
+    var isAdmin = hasRole(user, 'admin');
+    if (!isAdmin) {
+        sendError('http://www.example.com/error',{'status':'000403','statusMsg':'You are not allowed to login to this app.', 'i18nkey':'not.allowed.error'});
+    }
+    ```
 
 ## Utility functions
 
@@ -330,29 +331,29 @@ This function returns `true` if the specified user belongs to at least one of th
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>user</code></td>
-        <td>A user object representing the user details.</td>
-      </tr>
+    <table>
+      <tbody>
         <tr>
-        <td><code>groups</code></td>
-        <td>A list of strings that contain the groups. Each string is a group name.</td>
-      </tr>
-    </tbody>  
-  </table>
+          <td><code>user</code></td>
+          <td>A user object representing the user details.</td>
+        </tr>
+          <tr>
+          <td><code>groups</code></td>
+          <td>A list of strings that contain the groups. Each string is a group name.</td>
+        </tr>
+      </tbody>  
+    </table>
 
 - **Example**
 
-  ``` js
-  var groups = ['admin', 'manager'];
-  var user = context.steps[1].subject;
-  var isMember = isMemberOfAnyOfGroups(user, groups);
-  if (isMember) {
-      executeStep(2);
-  }
-  ```
+    ``` js
+    var groups = ['admin', 'manager'];
+    var user = context.steps[1].subject;
+    var isMember = isMemberOfAnyOfGroups(user, groups);
+    if (isMember) {
+        executeStep(2);
+    }
+    ```
 
 <br/>
 
@@ -364,48 +365,48 @@ This function sets a new cookie. It includes the parameters listed below.
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>response</code></td>
-        <td>The HTTP response.</td>
-      </tr>
-      <tr>
-        <td><code>name</code></td>
-        <td>Name of the cookie.</td>
-      </tr>
-      <tr>
-        <td><code>value</code></td>
-        <td>Value of the cookie.</td>
-      </tr>
-      <tr>
-        <td><code>properties</code></td>
-        <td><p>A map that may contain optional attributes of the cookie with the two custom attributes given below.</p>
-          <ul>
-            <li><code>sign</code>: The default value is <code>false</code>. If it is set to true, the value will be signed.</li>
-            <li><code>encrypt</code>: The default value is <code>false</code>. If it is set to true, the value will be encrypted.</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>response</code></td>
+          <td>The HTTP response.</td>
+        </tr>
+        <tr>
+          <td><code>name</code></td>
+          <td>Name of the cookie.</td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>Value of the cookie.</td>
+        </tr>
+        <tr>
+          <td><code>properties</code></td>
+          <td><p>A map that may contain optional attributes of the cookie with the two custom attributes given below.</p>
+            <ul>
+              <li><code>sign</code>: The default value is <code>false</code>. If it is set to true, the value will be signed.</li>
+              <li><code>encrypt</code>: The default value is <code>false</code>. If it is set to true, the value will be encrypted.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  The size of the value has to be less than the RSA key pair length if '`encrypt`' is enabled (set to true).
+    The size of the value has to be less than the RSA key pair length if '`encrypt`' is enabled (set to true).
 
-  ```js
-  setCookie(context.response, "name", "test", {"max-age" : 4000,
-                                              "path" : "/",
-                                              "domain" : "localhost",
-                                              "httpOnly" : true,
-                                              "secure" : true,
-                                              'sameSite': 'LAX',
-                                              "version" : 1,
-                                              "comment" : "some comments",
-                                              "encrypt" : true,
-                                              "sign" : true})
-  ```
+    ```js
+    setCookie(context.response, "name", "test", {"max-age" : 4000,
+                                                "path" : "/",
+                                                "domain" : "localhost",
+                                                "httpOnly" : true,
+                                                "secure" : true,
+                                                'sameSite': 'LAX',
+                                                "version" : 1,
+                                                "comment" : "some comments",
+                                                "encrypt" : true,
+                                                "sign" : true})
+    ```
 
 <br/>
 
@@ -417,33 +418,33 @@ This function gets the plain-text cookie value for the cookie name if it is pres
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>request</code></td>
-        <td>HTTP authentication request.</td>
-      </tr>
-      <tr>
-        <td><code>name</code></td>
-        <td>Name of the cookie.</td>
-      </tr>
-      <tr>
-        <td><code>properties</code></td>
-        <td><p>A map that may contain optional attributes of the cookie:</p>
-          <ul>
-            <li><code>decrypt</code>: The default value is <code>false</code>. If it is set to <code>true</code>, the value will be decrypted.</li>
-            <li><code>validateSignature</code>: The default value is <code>false</code>. If it is set to <code>true</code>, the signature will be validated before returning a response.</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>request</code></td>
+          <td>HTTP authentication request.</td>
+        </tr>
+        <tr>
+          <td><code>name</code></td>
+          <td>Name of the cookie.</td>
+        </tr>
+        <tr>
+          <td><code>properties</code></td>
+          <td><p>A map that may contain optional attributes of the cookie:</p>
+            <ul>
+              <li><code>decrypt</code>: The default value is <code>false</code>. If it is set to <code>true</code>, the value will be decrypted.</li>
+              <li><code>validateSignature</code>: The default value is <code>false</code>. If it is set to <code>true</code>, the signature will be validated before returning a response.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js 
-  getCookieValue(context.request,"name", {"decrypt" : true,"validateSignature" : true })
-  ```
+    ``` js 
+    getCookieValue(context.request,"name", {"decrypt" : true,"validateSignature" : true })
+    ```
 
 <br/>
 
@@ -455,42 +456,42 @@ This function prompts user input. It includes the parameters listed below.
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>templateId</code></td>
-        <td>Identifier of the template that needs to be prompted.</td>
-      </tr>
-      <tr>
-        <td><code>data</code></td>
-        <td>The data to send to the prompt.</td>
-      </tr>
-      <tr>
-        <td><code>eventHandlers</code></td>
-        <td>The callback event handlers.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>templateId</code></td>
+          <td>Identifier of the template that needs to be prompted.</td>
+        </tr>
+        <tr>
+          <td><code>data</code></td>
+          <td>The data to send to the prompt.</td>
+        </tr>
+        <tr>
+          <td><code>eventHandlers</code></td>
+          <td>The callback event handlers.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js
-  var onLoginRequest = function(context) {
-    executeStep(1, {
-        onSuccess: function (context) {
-            var username = context.steps[1].subject.username;
-            prompt("genericForm", {"username":username, "inputs":[{"id":"fname","label":"First Name"},{"id":"lname","label":"Last Name"}]}, {
-              onSuccess : function(context) {
-                  var fname = context.request.params.fname[0];
-                  var lname = context.request.params.lname[0];
-                  Log.info(fname);
-                  Log.info(lname);
-              }
-            });
-        }
-    });
-  }
-  ```
+    ``` js
+    var onLoginRequest = function(context) {
+      executeStep(1, {
+          onSuccess: function (context) {
+              var username = context.steps[1].subject.username;
+              prompt("genericForm", {"username":username, "inputs":[{"id":"fname","label":"First Name"},{"id":"lname","label":"Last Name"}]}, {
+                onSuccess : function(context) {
+                    var fname = context.request.params.fname[0];
+                    var lname = context.request.params.lname[0];
+                    Log.info(fname);
+                    Log.info(lname);
+                }
+              });
+          }
+      });
+    }
+    ```
 
 <br/>
 
@@ -503,24 +504,24 @@ array if there are no sessions). It includes the parameters listed below.
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>user</code></td>
-        <td>This is a user object that represents the user details.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>user</code></td>
+          <td>This is a user object that represents the user details.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js
-  var user = context.currentKnownSubject;
-  var sessions = getUserSessions(user);
-  for (var key in sessions) {
-      Log.info(“Session ID: ” + sessions[key].id);
-  }
-  ```
+    ``` js
+    var user = context.currentKnownSubject;
+    var sessions = getUserSessions(user);
+    for (var key in sessions) {
+        Log.info(“Session ID: ” + sessions[key].id);
+    }
+    ```
 
 <br/>
 
@@ -533,29 +534,29 @@ array if there are no sessions). It includes the parameters listed below.
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>user</code></td>
-        <td>This is a user object that represents the user details.</td>
-      </tr>
-      <tr>
-        <td><code>sessionId</code></td>
-        <td>This is the <code>sessionId</code> string of the session that needs to be terminated.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>user</code></td>
+          <td>This is a user object that represents the user details.</td>
+        </tr>
+        <tr>
+          <td><code>sessionId</code></td>
+          <td>This is the <code>sessionId</code> string of the session that needs to be terminated.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js
-  var user = context.currentKnownSubject;
-  var sessions = getUserSessions(user);
-  if (sessions.length > 0) {
-      var result = terminateUserSession(user, sessions[0]);
-      Log.info(“Terminate Operation Successful?: ” + result);
-  }
-  ```
+    ``` js
+    var user = context.currentKnownSubject;
+    var sessions = getUserSessions(user);
+    if (sessions.length > 0) {
+        var result = terminateUserSession(user, sessions[0]);
+        Log.info(“Terminate Operation Successful?: ” + result);
+    }
+    ```
 
 ### Send email
 
@@ -565,91 +566,91 @@ This function sends an email to the specified user. It includes the parameters l
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>user</code></td>
-        <td>An object representing the user details.</td>
-      </tr>
-      <tr>
-        <td><code>templateId</code></td>
-        <td>Identifier of the email template. The email template specifies the body of the email that is sent out.</td>
-      </tr>
-      <tr>
-        <td><code>placeholderParameters</code></td>
-        <td>Used to replace any placeholders in the template.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>user</code></td>
+          <td>An object representing the user details.</td>
+        </tr>
+        <tr>
+          <td><code>templateId</code></td>
+          <td>Identifier of the email template. The email template specifies the body of the email that is sent out.</td>
+        </tr>
+        <tr>
+          <td><code>placeholderParameters</code></td>
+          <td>Used to replace any placeholders in the template.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js
-  var user = context.steps[1].subject;
-  var firstName = user.localClaims['http://wso2.org/claims/givenname'];
-  sendEmail(user, 'myTemplate', {'firstName':firstName});
-  ```
+    ``` js
+    var user = context.steps[1].subject;
+    var firstName = user.localClaims['http://wso2.org/claims/givenname'];
+    sendEmail(user, 'myTemplate', {'firstName':firstName});
+    ```
 
 ### Call a Choreo API
 
 This function invokes an API hosted in [Choreo](https://wso2.com/choreo/). It includes the parameters listed below.
 
-!!! note Important
-  Note that to use the `callChoreo` function, the API should,
-  - contain an endpoint that accepts `POST` requests.
-  - return a status code of `2xx`.
+!!! note "Important"
+    Note that to use the `callChoreo` function, the API should,
+
+    - contain an endpoint that accepts `POST` requests.
+    - return a status code of `2xx`.
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>connectionMetadata</code></td>
-        <td>An object containing the necessary metadata to invoke the API. . See [ConnectionMetadata](#connectionmetadata) for more information.</td>
-      </tr>
-      <tr>
-        <td><code>payloadData</code></td>
-        <td>An object representing the payload that needs to be sent in the API request body.</td>
-      </tr>
-      <tr>
-        <td><code>eventHandlers</code></td>
-        <td>An object that contains the callback functions, which are to be called based on the result of API invocation. <br> Supported results are <code>onSuccess</code>, <code>onFail</code>, and <code>onTimeout</code>.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>connectionMetadata</code></td>
+          <td>An object containing the necessary metadata to invoke the API. . See [ConnectionMetadata](#connectionmetadata) for more information.</td>
+        </tr>
+        <tr>
+          <td><code>payloadData</code></td>
+          <td>An object representing the payload that needs to be sent in the API request body.</td>
+        </tr>
+        <tr>
+          <td><code>eventHandlers</code></td>
+          <td>An object that contains the callback functions, which are to be called based on the result of API invocation. <br> Supported results are <code>onSuccess</code>, <code>onFail</code>, and <code>onTimeout</code>.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js
-  var connectionMetadata = {
-  "url": "<Choreo API URL>",
-  "consumerKey": "<Consumer key of the Choreo Application>",
-  "consumerSecret": "<Consumer secret of the Choreo Application>"
-  };
-  
-  var requestPayload = {"example-key": "example-value"};
-  
-  callChoreo(connectionMetadata, requestPayload, {
-    onSuccess: function(context, data) {
-        Log.info("Successfully invoked the Choreo API.");
-    },
-    onFail: function(context, data) {
-        Log.info("Error occurred while invoking the Choreo API.");
-    },
-    onTimeout: function(context, data) {
-        Log.info("Invoking Choreo API timed out.");
-    }
-  });
-  ```
-
-  ??? note Using Asgardeo as the key manager
-  If you are using Asgardeo as the key manager in your Choreo organization, append  the `asgardeoTokenEndpoint` parameter to the `connectionMetadata` variable as follows:
     ``` js
     var connectionMetadata = {
-      "asgardeoTokenEndpoint": "https://api.asgardeo.io/t/<organization_name>/oauth2/token"
+    "url": "<Choreo API URL>",
+    "consumerKey": "<Consumer key of the Choreo Application>",
+    "consumerSecret": "<Consumer secret of the Choreo Application>"
     };
+    
+    var requestPayload = {"example-key": "example-value"};
+    
+    callChoreo(connectionMetadata, requestPayload, {
+      onSuccess: function(context, data) {
+          Log.info("Successfully invoked the Choreo API.");
+      },
+      onFail: function(context, data) {
+          Log.info("Error occurred while invoking the Choreo API.");
+      },
+      onTimeout: function(context, data) {
+          Log.info("Invoking Choreo API timed out.");
+      }
+    });
     ```
-  :::
+
+    ??? note "Using Asgardeo as the key manager"
+        If you are using Asgardeo as the key manager in your Choreo organization, append  the `asgardeoTokenEndpoint` parameter to the `connectionMetadata` variable as follows:
+            ``` js
+            var connectionMetadata = {
+              "asgardeoTokenEndpoint": "https://api.asgardeo.io/t/<organization_name>/oauth2/token"
+            };
+            ```
 
 
 ### Get parameter value from JWT
@@ -660,28 +661,28 @@ This function returns a string containing the parameter's value in a decoded Jso
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>jwt</code></td>
-        <td>The JWT to be decoded.</td>
-      </tr>
-      <tr>
-        <td><code>parameterName</code></td>
-        <td>The name of the parameter in the JWT for which the value should be retrieved.</td>
-      </tr>
-      <tr>
-        <td><code>isParameterInPayload</code></td>
-        <td>Indicates whether the parameter to be retrieved is in the JWT header or body. <br> Value should be <code>true</code> if the parameter to be retrieved is in the body.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>jwt</code></td>
+          <td>The JWT to be decoded.</td>
+        </tr>
+        <tr>
+          <td><code>parameterName</code></td>
+          <td>The name of the parameter in the JWT for which the value should be retrieved.</td>
+        </tr>
+        <tr>
+          <td><code>isParameterInPayload</code></td>
+          <td>Indicates whether the parameter to be retrieved is in the JWT header or body. <br> Value should be <code>true</code> if the parameter to be retrieved is in the body.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js
-  var state = getValueFromDecodedAssertion(context.request.params.request[0],"state",true);
-  ```
+    ``` js
+    var state = getValueFromDecodedAssertion(context.request.params.request[0],"state",true);
+    ```
 
 ### Get unique user
 
@@ -691,27 +692,27 @@ The utility function will search the underlying user stores and return a unique 
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>claimMap</code></td>
-        <td>A map that contains the claim URI and claim value.</td>
-      </tr>
-      <tr>
-        <td><code>context</code></td>
-        <td>The authentication context, which contains the context information about the request.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>claimMap</code></td>
+          <td>A map that contains the claim URI and claim value.</td>
+        </tr>
+        <tr>
+          <td><code>context</code></td>
+          <td>The authentication context, which contains the context information about the request.</td>
+        </tr>
+      </tbody>
+    </table>
 
 - **Example**
 
-  ``` js
-  var claimMap = {};
-  claimMap[MAPPED_FEDERATED_USER_NAME_CLAIM] = federatedUserName;
-  claimMap[MAPPED_FEDERATED_IDP_NAME_CLAIM] = idpName;
-  var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
-  ```
+    ``` js
+    var claimMap = {};
+    claimMap[MAPPED_FEDERATED_USER_NAME_CLAIM] = federatedUserName;
+    claimMap[MAPPED_FEDERATED_IDP_NAME_CLAIM] = idpName;
+    var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
+    ```
 
 ### Get associated user
 
@@ -721,14 +722,14 @@ This function returns the local user associated with the federate username given
 
 - **Parameters**
 
-  <table>
-    <tbody>
-      <tr>
-        <td><code>federatedUser</code></td>
-        <td>The federated user object.</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>federatedUser</code></td>
+          <td>The federated user object.</td>
+        </tr>
+      </tbody>
+    </table>
 
 ## Object reference
 

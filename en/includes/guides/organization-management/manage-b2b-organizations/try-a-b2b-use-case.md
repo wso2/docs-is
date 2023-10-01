@@ -211,7 +211,7 @@ Follow the steps below to see how organization login works for a user in the **B
 
 1. Open the application by copying the following URL to your browser: `http://localhost:3000/`
 
-    ![Guardio Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/guardio-app-login.png)
+    ![Guardio Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/guardio-app-login.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Click **Sign In** and see that you are diverted to the {{ product_name }} login screen.
 
@@ -219,7 +219,7 @@ Follow the steps below to see how organization login works for a user in the **B
 
 4. Enter **Best Car Mart** as the organization name and click **Submit**.
     
-    ![Sign in with organization login]({{base_path}}/assets/img/guides/organization/manage-organizations/sign-in-with-organization-login.png){: width="400" style="display: block; margin: 0 auto;"}
+    ![Sign in with organization login]({{base_path}}/assets/img/guides/organization/manage-organizations/sign-in-with-organization-login.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Enter the username and password of a user who you have onboarded to Best Car Mart.
 
@@ -240,11 +240,11 @@ To configure an identity provider for **Guardio Insurance App**:
 
 2. On the application, go to **Settings** > **Identity Providers** and click **Add Identity Provider**.
 
-    ![Logged into best auto mart]({{base_path}}/assets/img/guides/organization/manage-organizations/best-auto-mart-org-app.png){: width="700" style="display: block; margin: 0 auto;"}
+    ![Logged into best auto mart]({{base_path}}/assets/img/guides/organization/manage-organizations/best-auto-mart-org-app.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Select **Google** if you are onboarding a Google IdP or **Enterprise** if you are onboarding an enterprise IdP.
 
-    ![Select Identity Provider method]({{base_path}}/assets/img/guides/organization/manage-organizations/select-idp-method.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Select Identity Provider method]({{base_path}}/assets/img/guides/organization/manage-organizations/select-idp-method.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Provide the details specific to your IdP and click **Create**.
 

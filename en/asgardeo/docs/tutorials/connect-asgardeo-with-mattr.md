@@ -178,7 +178,7 @@ Follow the steps given below.
 2. Go to the MATTR mobile wallet app and scan the QR code.
 3. Click **Proceed** and log in to your account in Asgardeo.
 
-    ![get verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/get-verifiable-credentials.png)
+    ![get verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/get-verifiable-credentials.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 Now, you can view your credentials in your MATTR Wallet.
 
@@ -247,7 +247,7 @@ Let's use a sample MATTR application to perform the credential verification. For
 
 4. Scan the QR code with the MATTR Wallet and click **Send**.
 
-    ![verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verifiable-credentials.png)
+    ![verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verifiable-credentials.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! note
         Once sent by the wallet holder, the callback endpoint defined in the presentation request receives the verification response and requested credentials. In this case, the sample MATTR application receives the response and prints it to the running terminal.

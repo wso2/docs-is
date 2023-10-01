@@ -65,7 +65,7 @@ The Administrator role is available in sub organizations by default. To assign t
     !!! note
         See details of all the available [administrator permissions]({{base_path}}/references/user-management/user-roles/) you are granting the sub organization administrator.
 
-    ![Assign admin permission to suborganization user]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-admin-permissions.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Assign admin permission to suborganization user]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-admin-permissions.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 6. Click **Save**.
 

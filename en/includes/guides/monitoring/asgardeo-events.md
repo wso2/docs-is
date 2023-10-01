@@ -7,17 +7,17 @@
 !!! note Important
     Note that all events published by {{ product_name }} are encrypted end-to-end organization-wise until Choreo processes and decrypts them.
 
-- [Login events](#login-events) - Events related to login flows.
+- [Login events](#login-events): Events related to login flows.
   - [Login success event](#login-success-event): Published when a user successfully logs in to an application.
 
-- [User operation events](#user-operation-events) - Events related to user operations, profile updates, and account deletes.
+- [User operation events](#user-operation-events): Events related to user operations, profile updates, and account deletes.
   - [User account lock event](#user-account-lock-event): Published when a user account is locked.
   - [User credential update event](#user-credential-update-event): Published when a user's credentials are updated.
   - [User group update event](#user-group-update-event): Published when users are added or removed from a group.
   - [User account unlock event](#user-account-unlock-event): Published when a user account is unlocked.
   - [User delete event](#user-delete-event): Published when a user's account is deleted.
   
-- [Registration events](#registration-events) - Events that occur during user registration flows.
+- [Registration events](#registration-events): Events that occur during user registration flows.
   - [Add user event](#add-user-event): Published when a user is added to the organization.
   - [Accept user invite event](#accept-user-invite-event): Published when a user accepts an invitation to an organization.
   - [Confirm self-signup event](#confirm-self-signup-event): Published when a user completes account verification during self-sign-up.

@@ -1,25 +1,21 @@
-<!--
----
-breadcrumb: false
-prev: false
-next: false
-search: true
-secondarySearch: false
-pageClass: item-index-page
-heading: IdP configurations
-subHeading: Configure the OpenID enterprise IdP or SAML IdP related settings in Asgardeo
-items:
-    - name: OIDC
-      icon: images/technologies/oidc-logo.svg
-      path: /references/idp-settings/oidc-settings-for-idp/
-    
-    - name: SAML
-      icon: images/technologies/saml-logo.svg
-      path: /references/idp-settings/saml-settings-for-idp/
+#
 
----
+<div class="index-heading">
+  IdP configurations
+</div>
 
-# IdP configurations
+<div class="index-text">
+  <p>Configure the OpenID enterprise IdP or SAML IdP related settings in {{ product_name }}</p>
+</div>
 
-<CardView/>
--->
+<div class="centered-container">
+  <div class="border-text" width=500>
+    <img src="../../assets/img/logo/oidc-logo.svg" alt="OIDC"><br>
+    <a href="../../references/idp-settings/oidc-settings-for-idp/">OpenID Connect</a>
+  </div>
+
+  <div class="border-text" width=500>
+    <img src="../../assets/img/logo/saml-logo.svg" alt="SAML" width=100><br>
+    <a href="../../references/idp-settings/saml-settings-for-idp/">SAML</a>
+  </div>
+</div>

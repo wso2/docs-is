@@ -170,7 +170,7 @@ Some email templates in Asgardeo should contain URLs which users can click to co
 
 - URL to reset a password (admin forced)
 
-     ```ts
+    ```ts
     {{ "{{ account.recovery.endpoint-url }}"}}/confirmrecovery.do?confirmation={{ "{{ confirmation-code }}"}}&userstoredomain={{ "{{ userstore-domain }}"}}&username={{ "{{ url:user-name }}"}}&type=reset
     ```
 

@@ -11,7 +11,7 @@ To enable backup codes:
 2. Click `+` to add backup codes.
     You will see a popup window with ten backup codes. Each backup code can be used only once.
 
-    ![QR backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/backup-codes-via-myaccount.png){: width="500" style="display: block; margin: 0 auto;"}
+    ![QR backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/backup-codes-via-myaccount.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Click **Download Codes** or **Copy Codes** and save the backup codes in a secure location, as the codes will only be shown once.
 
@@ -28,12 +28,12 @@ In case you have lost the backup codes or have used them all, follow the steps b
 
 2. Click on the refresh icon to regenerate the backup codes.
 
-    ![Regenerate backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/regenerate-backup-codes.png){: width="500" style="display: block; margin: 0 auto;"}
+    ![Regenerate backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/regenerate-backup-codes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. On the confirmation window, click **Regenerate** to confirm your action.
     You will see a popup window with ten backup codes. Each backup code can be used only once.
 
-    ![QR backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/backup-codes-via-myaccount.png){: width="500" style="display: block; margin: 0 auto;"}
+    ![QR backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/backup-codes-via-myaccount.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Click **Download Codes** or **Copy Codes** and save the copied or downloaded backup codes securely, as the codes will only be shown once.
 
@@ -49,7 +49,7 @@ To remove the backup codes:
 
 2. Click on the trash icon to remove the existing backup codes.
 
-    ![Remove backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/remove-backup-codes.png){: width="700" style="display: block; margin: 0 auto;"}
+    ![Remove backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/remove-backup-codes.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. On the confirmation window, click **Remove** to confirm your action.
 

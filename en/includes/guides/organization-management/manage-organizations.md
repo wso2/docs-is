@@ -13,10 +13,10 @@ To create a new organization in {{ product_name }}:
 
 1. Select the organization list and click **New Organization**.
 
-    ![Create new organization]({{base_path}}/assets/img/guides/organization/manage-organizations/create-new-organization.png){: width="400" style="display: block; margin: 0 auto;"}
+    ![Create new organization]({{base_path}}/assets/img/guides/organization/manage-organizations/create-new-organization.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Enter a name for your organization and click **Create**.
-    ![Create guardio organization]({{base_path}}/assets/img/guides/organization/manage-organizations/create-guardio-org.png){: width="400" style="display: block; margin: 0 auto;"}
+    ![Create guardio organization]({{base_path}}/assets/img/guides/organization/manage-organizations/create-guardio-org.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 The new organization is now available in the organization list.
 
@@ -29,7 +29,7 @@ When you have multiple organizations, you can switch between them on the {{ prod
 
 The list of primary organizations will show all the organizations you own or to which you have administrator access.
 
-![Root organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/root-organizations.png){: width="400" style="display: block; margin: 0 auto;"}
+![Root organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/root-organizations.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Obtain the organization ID
 
@@ -37,7 +37,7 @@ You may need to use the organization ID to execute cURLs when managing organizat
 
 To obtain the organization ID of your root organization, expand the organization list and copy the provided organization ID.
 
-![Obtain organization id]({{base_path}}/assets/img/guides/organization/manage-organizations/obtain-organization-id.png){: width="300" style="display: block; margin: 0 auto;"}
+![Obtain organization id]({{base_path}}/assets/img/guides/organization/manage-organizations/obtain-organization-id.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Delete organizations
 

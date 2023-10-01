@@ -11,21 +11,21 @@ To upgrade your subscription:
 1. Sign in to the Asgardeo Console.
 2. Click **Upgrade** on the upper menu or go to the profile menu and select **Billing Portal** to open the portal.
 
-    ![open the billing portal]({{base_path}}/assets/img/guides/select-upgrade-biling-portal.png)
+    ![open the billing portal]({{base_path}}/assets/img/guides/select-upgrade-biling-portal.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. On the **Subscriptions** page, select your preferred billing cycle, your business use case, the number of monthly active users (MAUs), the subscription plan, and the support plan.
 
     !!! note
-      Find detailed information about subscription plans in [Plan details](#plan-details)
+        Find detailed information about subscription plans in [Plan details](#plan-details)
 
 4. Once you have evaluated the subscription details, you can do one of the following:
 
     - **Subscribe to an Essentials or a Professional plan** by following the steps below:
-        
+
         1. Once you have decided on an appropriate plan, click **Upgrade**.
         2. Enter your billing and payment details and agree to our [terms of fees and payment](https://wso2.com/asgardeo/terms-of-use/#fees-and-payment)
 
-            ![enter billing details]({{base_path}}/assets/img/guides/self-service-billing-payment.png)
+            ![enter billing details]({{base_path}}/assets/img/guides/self-service-billing-payment.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         3. Click **Upgrade** to complete your subscription.
 
@@ -43,7 +43,7 @@ The topics below explain about the options available to you when selecting a pla
 You can choose to be billed monthly or annually for your subscription. However, note that the [monthly active users (MAUs)](#monthly-active-users-maus) count that exceeds the allowed limit is always charged monthly.
 
 !!! note
-  Billing cycles start on the 1st day of every month. Depending on the day of the month on which you subscribe, you will be charged a prorated fee for the first month. <br/><br/>
+    Billing cycles start on the 1st day of every month. Depending on the day of the month on which you subscribe, you will be charged a prorated fee for the first month. <br/><br/>
 
 ### Business use case
 
@@ -90,9 +90,9 @@ If you are on the free subscription, the MAU count will be throttled when the li
 Depending on your selected use case, the available subscription plans will change. You can customize the subscription plan by changing your selected options such as  MAUs, support plan, etc.
 
 !!! note
-  To compare the different subscription plans, go to [{{ product_name }} pricing](https://wso2.com/asgardeo/pricing/).
+    To compare the different subscription plans, go to [{{ product_name }} pricing](https://wso2.com/asgardeo/pricing/).
 
-![select subscription plan]({{base_path}}/assets/img/guides/select-subscription-plan.png)
+![select subscription plan]({{base_path}}/assets/img/guides/select-subscription-plan.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ### Support plan
 
@@ -105,19 +105,19 @@ Available support packages for each plan are as follows:
 - **Enterprise plan**: Enterprise(24/7 SLA) support included.
 
 
-![select support plan]({{base_path}}/assets/img/guides/select-support-plan.png)
+![select support plan]({{base_path}}/assets/img/guides/select-support-plan.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Manage billing and payment
 
 Your billing and payment information will be saved in the **Billing Details** tab. You can use this tab to edit your billing details or to add or delete a payment method.
 
-![Manage billing and payment]({{base_path}}/assets/img/guides/billing-and-payment-information.png)
+![Manage billing and payment]({{base_path}}/assets/img/guides/billing-and-payment-information.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Manage invoices
 
 Once you have upgraded to a paid plan, you can find and download your invoice from the **Invoices** tab that appear.
 
-![Manage invoices]({{base_path}}/assets/img/guides/billing-invoices-tab.png)
+![Manage invoices]({{base_path}}/assets/img/guides/billing-invoices-tab.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Downgrade/Cancel your subscription
 
