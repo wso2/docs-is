@@ -265,7 +265,7 @@ nav:
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
   - Integrations:
-    - Integrations: integrations/index.md
+    - Integrate Asgardeo into your application: integrations/index.md
   - APIs:
     - APIs: apis/index.md
     - Authentication: apis/authentication.md
@@ -376,7 +376,7 @@ extra_css:
   - assets/css/choreotheme.css
   - assets/lib/json-formatter/json-formatter.css
   - assets/css/config-catalog.css
-  - assets/lib/fontawesome-free-6.3.0-web/css/all.min.css
+  - assets/lib/fontawesome-free-6.4.2-web/css/all.min.css
 extra_javascript:
   - assets/lib/json-formatter/json-formatter.umd.js
   - assets/lib/highlightjs/highlight.min.js
