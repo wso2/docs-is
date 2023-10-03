@@ -4,7 +4,6 @@ WSO2 Identity Server can act both as a SCIM Provider and a SCIM consumer at the 
 
 When the WSO2 Identity Server is connected to an external LDAP or an Active Directory instance, they might not have these mandatory SCIM attributes in their schema. So the option is to map the SCIM claims to the existing attributes of the Active Directory.
 
-## Scenario
 Add a user with the username "Alex" and password "Wso2@123". Here we have to map the **userName** (urn:ietf:params:scim:schemas:core:2.0:User) SCIM attribute to an existing claim in the Active Directory (e.g.: cn).
 
 Furthermore, when a user is being added in SCIM, there are four more SCIM attributes being added behind the scene including:
@@ -224,14 +223,15 @@ The Active directory attributes `whenChanged` and `whenCreated` should be added 
 You can configure this timestamp attributes using the following methods:
 
 - Using the Management console:
+
     1. On the Management console, go to **Userstores** > **List**
     2. Click **Edit** corresponding to your secondary user store.
     3. Expand **Advanced** and add `whenChanged,whenCreated` as **Timestamp Attributes**.
     4. Click **Update** to save the configurations.
 
-- Manually updating the configuration file
+- Manually updating the configuration file:
 
-    Add the following configuration to the <userstore>.xml file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
+    Add the following configuration to the `<userstore>.xml` file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
 
     ``` xml
     <Property name=”TimestampAttributes”>whenChanged,whenCreated</Property>
@@ -244,14 +244,15 @@ The active Directiry attributes, `objectGuid`, `whenCreated`, and `whenChanged` 
 You can configure the immutable attributes using the following methods:
 
 - Using the Management console:
+
     1. On the Management console, go to **Userstores** > **List**
     2. Click **Edit** corresponding to your secondary user store.
     3. Expand **Advanced** and add `objectGuid,whenChanged,whenCreated` as **Immutable Attributes**.
     4. Click **Update** to save the configurations.
 
-- Manually updating the configuration file
+- Manually updating the configuration file:
 
-    Add the following configuration to the <userstore>.xml file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
+    Add the following configuration to the `<userstore>.xml` file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
 
     ``` xml
     <Property name=”ImmutableAttributes”>objectGuid,whenCreated,whenChanged</Property>
@@ -264,20 +265,23 @@ ObjectGUID is used as the ImmutableID in Active Directories and is used as the b
 To do this you need to [add objectGUID under immutableAttributes](#immutable-attributes) and configure the LDAP binary attributes using the following methods:
 
 - Using the Management console:
+
     1. On the Management console, go to **Userstores** > **List**
     2. Click **Edit** corresponding to your secondary user store.
     3. Expand **Advanced**, select **Return objectGUID in UUID Canonical Format** and add `objectGuid` as **LDAP binary attributes**
     4. Click **Update** to save the configurations.
 
-- Manually updating the configuration file
+- Manually updating the configuration file:
 
-    Add the following configuration to the <userstore>.xml file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
+    Add the following configuration to the `<userstore>.xml` file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
 
     ``` xml
     <Property name=”transformObjectGUIDToUUID”>true</Property>
 
     <Property name=”java.naming.ldap.attributes.binary”>objectGuid</Property>
     ```
+
+## Step 5: Accessing the APIs
 
 Now the basic claim mapping is done. You can now add a user using the curl commands [here]({{base_path}}/apis/scim2-rest-apis).
 
