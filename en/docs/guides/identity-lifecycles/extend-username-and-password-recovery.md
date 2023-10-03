@@ -823,7 +823,7 @@ Using v2 API:
         }
         ```
 
-4. Use the `flowConfirmationCode` recieved in the previous response as the `confirmationCode` in this request to verify the password reset.
+4. Use the `confirmationCode` to verify the password reset.
 
     !!! note "OTP parameter"
         - It is required to add the OTP parameter to the request if you are using OTP based recovery.
