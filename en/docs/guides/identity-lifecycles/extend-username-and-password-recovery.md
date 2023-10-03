@@ -490,7 +490,6 @@ Using v2 API:
         }
         ```
 
-5. Use the `resetCode` and the new password to update the existing password and recover the account.
 5. Use the `resetCode`, `flowConfirmationCode` and the new password to update the existing password and recover the account.
     !!! abstract ""
         **Request Format**
@@ -502,6 +501,7 @@ Using v2 API:
         -d "
         {
             "resetCode":"aefaef12-951e-4a42-b01b-3118798f58c3",
+            "flowConfirmationCode": "1234-1234-1234-1234",
             "password":"newPassword",
             "properties":[
                 {
@@ -733,7 +733,6 @@ Using v2 API:
     !!! note
             The validity period of the recovery code is determined by the [2nd step of configuring password recovery](#password-recovery-flow)
 
-2. Use the `recoveryCode` and a channel `id` to get the recovered username.
 2. Use the `recoveryCode` and a channel `id` to get notifications via that channel.
     !!! abstract ""
         **Request Format**
@@ -825,10 +824,6 @@ Using v2 API:
 
 4. Use the `confirmationCode` to verify the password reset.
 
-    !!! note "OTP parameter"
-        - It is required to add the OTP parameter to the request if you are using OTP based recovery.
-        - Remove the `otp` parameter if you are using Email based recovery.
-
     !!! abstract ""
         **Request Format**
         ```curl
@@ -839,7 +834,6 @@ Using v2 API:
         -d "
         {
             "confirmationCode":"1234-2ws34-12345",
-            "otp":"gt4k1d" # This parameter is required only if you are using OTP based recovery. Remove this if you are using Email based recovery.
             "properties":[
                 {
                     "key":"key",
