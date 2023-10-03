@@ -4,19 +4,29 @@ WSO2 Identity Server can act both as a SCIM Provider and a SCIM consumer at the 
 
 When the WSO2 Identity Server is connected to an external LDAP or an Active Directory instance, they might not have these mandatory SCIM attributes in their schema. So the option is to map the SCIM claims to the existing attributes of the Active Directory.
 
-Add a user with the username "Alex" and password "Wso2@123". Here we have to map the **userName** (urn:ietf:params:scim:schemas:core:2.0:User) SCIM attribute to an existing claim in the Active Directory (e.g.: cn). Furthermore, when a user is being added in SCIM, there are four more SCIM attributes being added behind the scene including **location** (urn:ietf:params:scim:schemas:core:2.0), **created** (urn:ietf:params:scim:schemas:core:2.0), **lastModified** (urn:ietf:params:scim:schemas:core:2.0), and **id** (urn:ietf:params:scim:schemas:core:2.0). These attributes need to be mapped to the existing Active Directory user attributes as well.
+## Scenario
+Add a user with the username "Alex" and password "Wso2@123". Here we have to map the **userName** (urn:ietf:params:scim:schemas:core:2.0:User) SCIM attribute to an existing claim in the Active Directory (e.g.: cn).
 
-The SCIM claim dialect (urn:ietf:params:scim:schemas:core:2.0:User and urn:ietf:params:scim:schemas:core:2.0) uses `String` type to hold their values. So, when mapping any SCIM claim to an attribute in the Active Directory, make sure to use the attributes of `String` type. You can find all Active Directory attributes [here](https://docs.microsoft.com/en-us/windows/win32/adschema/attributes-all).
+Furthermore, when a user is being added in SCIM, there are four more SCIM attributes being added behind the scene including:
+
+- **location** (`urn:ietf:params:scim:schemas:core:2.0`),
+- **created** (`urn:ietf:params:scim:schemas:core:2.0`),
+- **lastModified** (`urn:ietf:params:scim:schemas:core:2.0`)
+- **id** (`urn:ietf:params:scim:schemas:core:2.0`).
+
+These attributes need to be mapped to the existing Active Directory user attributes as well.
+
+The SCIM claim dialect (`urn:ietf:params:scim:schemas:core:2.0:User` and `urn:ietf:params:scim:schemas:core:2.0`) uses `String` type to hold their values. So, when mapping any SCIM claim to an attribute in the Active Directory, make sure to use the attributes of `String` type. You can find all Active Directory attributes [here](https://docs.microsoft.com/en-us/windows/win32/adschema/attributes-all).
 
 When a user or a group is created with SCIM 2.0, there are a set of mandatory SCIM 2.0 claim values that need to be saved along with the user or group. Some of these values are as follows.
 
--   urn:ietf:params:scim:schemas:core:2.0:meta.location 
--   urn:ietf:params:scim:schemas:core:2.0:meta.resourceType 
--   urn:ietf:params:scim:schemas:core:2.0:meta.version 
--   urn:ietf:params:scim:schemas:core:2.0:meta.created 
--   urn:ietf:params:scim:schemas:core:2.0:id 
--   urn:ietf:params:scim:schemas:core:2.0:meta.lastModified 
--   urn:ietf:params:scim:schemas:core:2.0:User:userName
+- urn:ietf:params:scim:schemas:core:2.0:meta.location
+- urn:ietf:params:scim:schemas:core:2.0:meta.resourceType
+- urn:ietf:params:scim:schemas:core:2.0:meta.version
+- urn:ietf:params:scim:schemas:core:2.0:meta.created
+- urn:ietf:params:scim:schemas:core:2.0:id
+- urn:ietf:params:scim:schemas:core:2.0:meta.lastModified
+- urn:ietf:params:scim:schemas:core:2.0:User:userName
 
 This claim mapping can be done through the WSO2 Identity Server Claim Management Feature.
 
@@ -176,19 +186,98 @@ To import the user store certificate to the WSO2 Identity Server trust store, na
 keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.jks -storepass wso2carbon
 ```
 
-## Step 3: Configure claim mappings
+## Step 3: Map WSO2 claims to AD attribute
 
-1. On the WSO@ Identity Server Management Console go t0 **Identity** > **Claims** > **List**.
+Following are the mandatory basic claim mappings that need to be done and this will be extended as per your requirements.
+
+| Local Claim   | Mapped Attribute  |
+|---------------|-------------------|
+| `http://wso2.org/claims/location` | streetAddress |
+| `http://wso2.org/claims/resourceType` | unixHomeDirectory |
+| `http://wso2.org/claims/im` | userWorkstations |
+| `http://wso2.org/claims/created` | whenCreated |
+| `http://wso2.org/claims/userid` | objectGuid |
+| `http://wso2.org/claims/modified` | whenChanged |
+| `http://wso2.org/claims/username` | cn |
+
+To configure the claim mappings:
+
+1. On the Management Console, go to **Identity** > **Claims** and click **List**.
 2. Select `http://wso2.org/claims` from the list.
-3. Choose the Location claim and click on **Edit**.
+3. Choose one of the above mentioned mandatory local claims.
+4. Enter the **Mapped Attribute (s)** as specified in the table above and click **Update** to save the configurations.
+5. Repeat step three and four for the remaining mandatory local claims.
 
-    ![location-claim-scim2]({{base_path}}/assets/img/guides/location-claim-scim2.png)
+Learn more on [how to configure claim mappings]({{base_path}}/guides/dialects/edit-claim-mapping/).
 
-4. Change the Mapped Attribute value to `homePostalAddress` and click **Update**.
 
-    ![mapped-attribute-scim2]({{base_path}}/assets/img/guides/mapped-attribute-scim2.png)
+## Step 4: Configure additional properties
 
-5. Edit the other four claims in the same way.
+This step of the guide helps to catergorize the types of attributes used in Active Directory on the WSO2 Identity Server.
+
+Catergorizing the attributes makes it easier to perform the necessary conversions when communicating between the AD and the WSO2 Identity Server.
+
+### Timestamp attribute
+
+The Active directory attributes `whenChanged` and `whenCreated` should be added as a timestamp attribute. In AD, timestamp values are stored in Generalized-Time format. Therefore when reading time values from AD and passing these values to WSO2IS requires a time conversion to UTC time format.
+
+You can configure this timestamp attributes using the following methods:
+
+- Using the Management console:
+    1. On the Management console, go to **Userstores** > **List**
+    2. Click **Edit** corresponding to your secondary user store.
+    3. Expand **Advanced** and add `whenChanged,whenCreated` as **Timestamp Attributes**.
+    4. Click **Update** to save the configurations.
+
+- Manually updating the configuration file
+
+    Add the following configuration to the <userstore>.xml file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
+
+    ``` xml
+    <Property name=”TimestampAttributes”>whenChanged,whenCreated</Property>
+    ```
+
+### Immutable attributes
+
+The active Directiry attributes, `objectGuid`, `whenCreated`, and `whenChanged` are immutable attributes, meaning that they cannot be changed.
+
+You can configure the immutable attributes using the following methods:
+
+- Using the Management console:
+    1. On the Management console, go to **Userstores** > **List**
+    2. Click **Edit** corresponding to your secondary user store.
+    3. Expand **Advanced** and add `objectGuid,whenChanged,whenCreated` as **Immutable Attributes**.
+    4. Click **Update** to save the configurations.
+
+- Manually updating the configuration file
+
+    Add the following configuration to the <userstore>.xml file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
+
+    ``` xml
+    <Property name=”ImmutableAttributes”>objectGuid,whenCreated,whenChanged</Property>
+    ```
+
+### ObjectGUID attribute
+
+ObjectGUID is used as the ImmutableID in Active Directories and is used as the best identifier for most of the applications for various reasons. You may also need to use the objectGUID attribute as a unique attribute and map into a local claim in WSO2 Identity Server. 
+
+To do this you need to [add objectGUID under immutableAttributes](#immutable-attributes) and configure the LDAP binary attributes using the following methods:
+
+- Using the Management console:
+    1. On the Management console, go to **Userstores** > **List**
+    2. Click **Edit** corresponding to your secondary user store.
+    3. Expand **Advanced**, select **Return objectGUID in UUID Canonical Format** and add `objectGuid` as **LDAP binary attributes**
+    4. Click **Update** to save the configurations.
+
+- Manually updating the configuration file
+
+    Add the following configuration to the <userstore>.xml file in the `<IS_HOME>/repository/deployment/server/userstores` folder:
+
+    ``` xml
+    <Property name=”transformObjectGUIDToUUID”>true</Property>
+
+    <Property name=”java.naming.ldap.attributes.binary”>objectGuid</Property>
+    ```
 
 Now the basic claim mapping is done. You can now add a user using the curl commands [here]({{base_path}}/apis/scim2-rest-apis).
 
@@ -201,9 +290,8 @@ Message body
 {schemas:[],userName:'wso2.com/uresh67',password:Wso2@123}
 ```
 
-!!! info 
+!!! info
     You need to do the claim mapping for every SCIM claim you are using with user operations.
 
-!!! info "Related topics" 
-    -   [Concepts: Provisioning Framework]({{base_path}}/references/concepts/provisioning-framework/#inbound-provisioning)
-    
+!!! info "Related topics"
+    - [Concepts: Provisioning Framework]({{base_path}}/references/concepts/provisioning-framework/#inbound-provisioning)
