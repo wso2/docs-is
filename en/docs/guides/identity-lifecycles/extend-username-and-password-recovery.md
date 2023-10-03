@@ -758,7 +758,7 @@ Using v2 API:
         **Sample Request**
         ```curl
         {
-        "code": "PWR-02002",
+        "code": "PWR-02001",
         "message": "Password recovery information sent via user preferred notification channel.",
         "flowConfirmationCode": "1234-1234-1234-1234",
         "notificationChannel": "EXTERNAL",
