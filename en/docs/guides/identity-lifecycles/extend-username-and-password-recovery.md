@@ -454,7 +454,7 @@ Using v2 API:
 
     !!! note "OTP parameter"
         - It is required to add the OTP parameter to the request if you are using OTP based recovery. Use the `flowConfirmationCode` received in the previous response as the `confirmationCode` in this request
-        - Remove the `otp` parameter if you are using Email based recovery.
+        - Remove the `otp` parameter if you are using Email based recovery. `confirmationCode` should be the code received by the user.
 
     !!! abstract ""
         **Request Format**
