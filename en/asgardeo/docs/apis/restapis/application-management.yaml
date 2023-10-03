@@ -12,6 +12,10 @@ paths:
       tags:
         - Applications
       operationId: getAllApplications
+      x-code-samples:
+        - lang: Shell
+          source: |-
+            curl -k -H "Authorization: Bearer <bearer_token>" "https://api.asgardeo.io/t/<organization-name>/api/server/v1/applications"
       summary: |
         List applications
       description: "This API provides the capability to retrieve the list of applications.\n\n <b>Scope required:</b> ``internal_application_mgt_view``"
