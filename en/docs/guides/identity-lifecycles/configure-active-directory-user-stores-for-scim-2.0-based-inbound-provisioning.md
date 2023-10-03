@@ -18,21 +18,177 @@ When a user or a group is created with SCIM 2.0, there are a set of mandatory SC
 -   urn:ietf:params:scim:schemas:core:2.0:meta.lastModified 
 -   urn:ietf:params:scim:schemas:core:2.0:User:userName
 
-
 This claim mapping can be done through the WSO2 Identity Server Claim Management Feature.
 
-## Configure claim mappings
+## Step 1: Set up the secondary user store
 
-1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-1.  Navigate to **Main** > **Identity** > **Claims** > **List**.
-2.  Select `http://wso2.org/claims` from the list.
-3.  Choose the Location claim and click on **Edit**.
+You need to configure the secondary user store. This can be done in the following methods:
+
+- [Using the management console]({{base_path}}/deploy/configure-secondary-user-stores/#configure-using-the-management-console)
+
+    For this usecase you can select any one of the following **Userstore Manager Class** from the list:
+
+    - `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager` <sup><b>RECOMMENDED</b></sup>
+    - `org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager`
+
+- [Manually]({{base_path}}/deploy/configure-secondary-user-stores/#configure-manually)
+
+    If you are using `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager` class to configure the user store, use the following user store file configuration.
+
+    ??? note "User store file configuration"
+        ```xml
+        <?xml version=”1.0" encoding=”UTF-8"?><UserStoreManager class=”org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager”>
+        <Property name=”ConnectionURL”>***************</Property>
+        <Property name=”ConnectionName”>CN=ADMIN,CN=Users,DC=abc,DC=abcd</Property>
+        <Property name=”ConnectionPassword”>*************</Property>
+        <Property name=”UserSearchBase”>CN=Users,DC=abc,DC=abcd</Property>
+        <Property name=”UserEntryObjectClass”>user</Property>
+        <Property name=”UserNameAttribute”>cn</Property>
+        <Property name=”UserNameSearchFilter”>(&amp;(objectClass=user)(cn=?))</Property>
+        <Property name=”UserNameListFilter”>(objectClass=user)</Property>
+        <Property name=”UserDNPattern”/>
+        <Property name=”DisplayNameAttribute”/>
+        <Property name=”Disabled”>false</Property>
+        <Property name=”ReadGroups”>true</Property>
+        <Property name=”WriteGroups”>true</Property>
+        <Property name=”GroupSearchBase”>CN=Users,DC=abc,DC=abcd</Property>
+        <Property name=”GroupEntryObjectClass”>group</Property>
+        <Property name=”GroupNameAttribute”>cn</Property>
+        <Property name=”GroupNameSearchFilter”>(&amp;(objectClass=group)(cn=?))</Property>
+        <Property name=”GroupNameListFilter”>(objectcategory=group)</Property>
+        <Property name=”RoleDNPattern”/>
+        <Property name=”MembershipAttribute”>member</Property>
+        <Property name=”MemberOfAttribute”>memberOf</Property>
+        <Property name=”BackLinksEnabled”>true</Property>
+        <Property name=”Referral”>follow</Property>
+        <Property name=”UserNameJavaRegEx”>[a-zA-Z0–9._-|//]{3,30}$</Property>
+        <Property name=”UserNameJavaScriptRegEx”>^[\S]{3,30}$</Property>
+        <Property name=”UsernameJavaRegExViolationErrorMsg”>Username pattern policy violated.</Property>
+        <Property name=”PasswordJavaRegEx”>^[\S]{5,30}$</Property>
+        <Property name=”PasswordJavaScriptRegEx”>^[\S]{5,30}$</Property>
+        <Property name=”PasswordJavaRegExViolationErrorMsg”>Password pattern policy violated.</Property>
+        <Property name=”RoleNameJavaRegEx”>^[a-zA-Z0–9._-|//]{3,30}$</Property>
+        <Property name=”RoleNameJavaScriptRegEx”>^[\S]{3,30}$</Property>
+        <Property name=”BulkImportSupported”>true</Property>
+        <Property name=”EmptyRolesAllowed”>true</Property>
+        <Property name=”PasswordHashMethod”>PLAIN_TEXT</Property>
+        <Property name=”MultiAttributeSeparator”>,</Property>
+        <Property name=”isADLDSRole”>false</Property>
+        <Property name=”userAccountControl”>512</Property>
+        <Property name=”MaxUserNameListLength”>100</Property>
+        <Property name=”MaxRoleNameListLength”>100</Property>
+        <Property name=”kdcEnabled”>false</Property>
+        <Property name=”defaultRealmName”>WSO2.ORG</Property>
+        <Property name=”UserRolesCacheEnabled”>true</Property>
+        <Property name=”ConnectionPoolingEnabled”>false</Property>
+        <Property name=”LDAPConnectionTimeout”>5000</Property>
+        <Property name=”ReadTimeout”>5000</Property>
+        <Property name=”RetryAttempts”>0</Property>
+        <Property name=”CountRetrieverClass”/>
+        <Property name=”java.naming.ldap.attributes.binary”>objectGuid</Property>
+        <Property name=”ClaimOperationsSupported”>true</Property>
+        <Property name=”transformObjectGUIDToUUID”>true</Property>
+        <Property name=”MembershipAttributeRange”>1500</Property>
+        <Property name=”UserCacheExpiryMilliseconds”/>
+        <Property name=”UserDNCacheEnabled”>true</Property>
+        <Property name=”StartTLSEnabled”>false</Property>
+        <Property name=”EnableMaxUserLimitForSCIM”>false</Property>
+        <Property name=”ImmutableAttributes”>objectGuid,whenCreated,whenChanged</Property>
+        <Property name=”TimestampAttributes”>whenChanged,whenCreated</Property>
+        <Property name=”DomainName”>abc</Property>
+        <Property name=”Description”/>
+        </UserStoreManager>
+
+        Use below user store configurations if you are using the UniqueIDActiveDirectoryUserStoreManager.
+
+        <?xml version=”1.0" encoding=”UTF-8"?><UserStoreManager class=”org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager”>
+        <Property name=”ConnectionURL”>***************</Property>
+        <Property name=”ConnectionName”>CN=ADMIN,CN=Users,DC=abc,DC=abcd</Property>
+        <Property name=”ConnectionPassword”>*************</Property>
+        <Property name=”UserSearchBase”>CN=Users,DC=abc,DC=abcd</Property>
+        <Property name=”UserEntryObjectClass”>user</Property>
+        <Property name=”UserNameAttribute”>cn</Property>
+
+        <Property name=”UserIDAttribute”>objectGuid</Property>
+
+        <Property name=”UserIdSearchFilter”>(&amp;(objectClass=user)(objectGuid=?))</Property>
+        <Property name=”UserNameSearchFilter”>(&amp;(objectClass=user)(cn=?))</Property>
+        <Property name=”UserNameListFilter”>(objectClass=user)</Property>
+        <Property name=”UserDNPattern”/>
+        <Property name=”DisplayNameAttribute”/>
+        <Property name=”Disabled”>false</Property>
+        <Property name=”ReadGroups”>true</Property>
+        <Property name=”WriteGroups”>true</Property>
+        <Property name=”GroupSearchBase”>CN=Users,DC=abc,DC=abcd</Property>
+        <Property name=”GroupEntryObjectClass”>group</Property>
+        <Property name=”GroupNameAttribute”>cn</Property>
+        <Property name=”GroupNameSearchFilter”>(&amp;(objectClass=group)(cn=?))</Property>
+        <Property name=”GroupNameListFilter”>(objectcategory=group)</Property>
+        <Property name=”RoleDNPattern”/>
+        <Property name=”MembershipAttribute”>member</Property>
+        <Property name=”MemberOfAttribute”>memberOf</Property>
+        <Property name=”BackLinksEnabled”>true</Property>
+        <Property name=”Referral”>follow</Property>
+        <Property name=”UserNameJavaRegEx”>[a-zA-Z0–9._-|//]{3,30}$</Property>
+        <Property name=”UserNameJavaScriptRegEx”>^[\S]{3,30}$</Property>
+        <Property name=”UsernameJavaRegExViolationErrorMsg”>Username pattern policy violated.</Property>
+        <Property name=”PasswordJavaRegEx”>^[\S]{5,30}$</Property>
+        <Property name=”PasswordJavaScriptRegEx”>^[\S]{5,30}$</Property>
+        <Property name=”PasswordJavaRegExViolationErrorMsg”>Password pattern policy violated.</Property>
+        <Property name=”RoleNameJavaRegEx”>^[a-zA-Z0–9._-|//]{3,30}$</Property>
+        <Property name=”RoleNameJavaScriptRegEx”>^[\S]{3,30}$</Property>
+        <Property name=”BulkImportSupported”>true</Property>
+        <Property name=”EmptyRolesAllowed”>true</Property>
+        <Property name=”PasswordHashMethod”>PLAIN_TEXT</Property>
+        <Property name=”MultiAttributeSeparator”>,</Property>
+        <Property name=”isADLDSRole”>false</Property>
+        <Property name=”userAccountControl”>512</Property>
+        <Property name=”MaxUserNameListLength”>100</Property>
+        <Property name=”MaxRoleNameListLength”>100</Property>
+        <Property name=”kdcEnabled”>false</Property>
+        <Property name=”defaultRealmName”>WSO2.ORG</Property>
+        <Property name=”UserRolesCacheEnabled”>true</Property>
+        <Property name=”ConnectionPoolingEnabled”>false</Property>
+        <Property name=”LDAPConnectionTimeout”>5000</Property>
+        <Property name=”ReadTimeout”>5000</Property>
+        <Property name=”RetryAttempts”>0</Property>
+        <Property name=”CountRetrieverClass”/>
+        <Property name=”java.naming.ldap.attributes.binary”>objectGuid</Property>
+        <Property name=”ClaimOperationsSupported”>true</Property>
+        <Property name=”transformObjectGUIDToUUID”>true</Property>
+        <Property name=”MembershipAttributeRange”>1500</Property>
+        <Property name=”UserCacheExpiryMilliseconds”/>
+        <Property name=”UserDNCacheEnabled”>true</Property>
+        <Property name=”StartTLSEnabled”>false</Property>
+        <Property name=”EnableMaxUserLimitForSCIM”>false</Property>
+        <Property name=”ImmutableAttributes”>objectGuid,whenCreated,whenChanged</Property>
+        <Property name=”TimestampAttributes”>whenChanged,whenCreated</Property>
+        <Property name=”DomainName”>abc</Property>
+        <Property name=”Description”/>
+        </UserStoreManager>
+        ```
+
+## Step 2: Import the user store certificate
+
+To import the user store certificate to the WSO2 Identity Server trust store, navigate to `<IS_HOME>repository/resources/security` folder and execute the following command:
+
+``` shell
+keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.jks -storepass wso2carbon
+```
+
+## Step 3: Configure claim mappings
+
+1. On the WSO@ Identity Server Management Console go t0 **Identity** > **Claims** > **List**.
+2. Select `http://wso2.org/claims` from the list.
+3. Choose the Location claim and click on **Edit**.
+
     ![location-claim-scim2]({{base_path}}/assets/img/guides/location-claim-scim2.png)
 
-4.  Change the Mapped Attribute value to `homePostalAddress` and click **Update**.
+4. Change the Mapped Attribute value to `homePostalAddress` and click **Update**.
+
     ![mapped-attribute-scim2]({{base_path}}/assets/img/guides/mapped-attribute-scim2.png)
 
-5.  Edit the other four claims in the same way.
+5. Edit the other four claims in the same way.
 
 Now the basic claim mapping is done. You can now add a user using the curl commands [here]({{base_path}}/apis/scim2-rest-apis).
 
