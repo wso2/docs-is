@@ -491,6 +491,7 @@ Using v2 API:
         ```
 
 5. Use the `resetCode`, `flowConfirmationCode` and the new password to update the existing password and recover the account.
+
     !!! abstract ""
         **Request Format**
         ```curl
@@ -734,6 +735,7 @@ Using v2 API:
             The validity period of the recovery code is determined by the [2nd step of configuring password recovery](#password-recovery-flow)
 
 2. Use the `recoveryCode` and a channel `id` to get notifications via that channel.
+    
     !!! abstract ""
         **Request Format**
         ```curl
