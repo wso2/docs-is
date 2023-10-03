@@ -734,7 +734,7 @@ Using v2 API:
             The validity period of the recovery code is determined by the [2nd step of configuring password recovery](#password-recovery-flow)
 
 2. Use the `recoveryCode` and a channel `id` to get the recovered username.
-
+2. Use the `recoveryCode` and a channel `id` to get notifications via that channel.
     !!! abstract ""
         **Request Format**
         ```curl
