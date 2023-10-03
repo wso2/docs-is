@@ -491,7 +491,7 @@ Using v2 API:
         ```
 
 5. Use the `resetCode` and the new password to update the existing password and recover the account.
-
+5. Use the `resetCode`, `flowConfirmationCode` and the new password to update the existing password and recover the account.
     !!! abstract ""
         **Request Format**
         ```curl
