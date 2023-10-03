@@ -6,18 +6,18 @@ When the WSO2 Identity Server is connected to an external LDAP or an Active Dire
 
 Add a user with the username "Alex" and password "Wso2@123". Here we have to map the **userName** (urn:ietf:params:scim:schemas:core:2.0:User) SCIM attribute to an existing claim in the Active Directory (e.g.: cn).
 
-Furthermore, when a user is being added in SCIM, there are four more SCIM attributes being added behind the scene including:
+Furthermore, when a user is being added using SCIM, four more SCIM attributes are being added behind the scenes including:
 
 - **location** (`urn:ietf:params:scim:schemas:core:2.0`),
 - **created** (`urn:ietf:params:scim:schemas:core:2.0`),
 - **lastModified** (`urn:ietf:params:scim:schemas:core:2.0`)
-- **id** (`urn:ietf:params:scim:schemas:core:2.0`).
+- **id** (`urn:ietf:params:scim:schemas:core:2.0`)
 
 These attributes need to be mapped to the existing Active Directory user attributes as well.
 
 The SCIM claim dialect (`urn:ietf:params:scim:schemas:core:2.0:User` and `urn:ietf:params:scim:schemas:core:2.0`) uses `String` type to hold their values. So, when mapping any SCIM claim to an attribute in the Active Directory, make sure to use the attributes of `String` type. You can find all Active Directory attributes [here](https://docs.microsoft.com/en-us/windows/win32/adschema/attributes-all).
 
-When a user or a group is created with SCIM 2.0, there are a set of mandatory SCIM 2.0 claim values that need to be saved along with the user or group. Some of these values are as follows.
+When a user or a group is created with SCIM 2.0, there is a set of mandatory SCIM 2.0 claim values that need to be saved along with the user or group. Some of these values are as follows.
 
 - urn:ietf:params:scim:schemas:core:2.0:meta.location
 - urn:ietf:params:scim:schemas:core:2.0:meta.resourceType
@@ -35,7 +35,7 @@ You need to configure the secondary user store. This can be done in the followin
 
 - [Using the management console]({{base_path}}/deploy/configure-secondary-user-stores/#configure-using-the-management-console)
 
-    For this usecase you can select any one of the following **Userstore Manager Class** from the list:
+    For this use case, you can select any one of the following **Userstore Manager Class** from the list:
 
     - `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager` <sup><b>RECOMMENDED</b></sup>
     - `org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager`
@@ -203,24 +203,24 @@ To configure the claim mappings:
 
 1. On the Management Console, go to **Identity** > **Claims** and click **List**.
 2. Select `http://wso2.org/claims` from the list.
-3. Choose one of the above mentioned mandatory local claims.
+3. Choose one of the above-mentioned mandatory local claims.
 4. Enter the **Mapped Attribute (s)** as specified in the table above and click **Update** to save the configurations.
-5. Repeat step three and four for the remaining mandatory local claims.
+5. Repeat steps three and four for the remaining mandatory local claims.
 
 Learn more on [how to configure claim mappings]({{base_path}}/guides/dialects/edit-claim-mapping/).
 
 
 ## Step 4: Configure additional properties
 
-This step of the guide helps to catergorize the types of attributes used in Active Directory on the WSO2 Identity Server.
+This step of the guide helps to categorize the types of attributes used in Active Directory on the WSO2 Identity Server.
 
-Catergorizing the attributes makes it easier to perform the necessary conversions when communicating between the AD and the WSO2 Identity Server.
+Categorizing the attributes makes it easier to perform the necessary conversions when communicating between the AD and the WSO2 Identity Server.
 
 ### Timestamp attribute
 
-The Active directory attributes `whenChanged` and `whenCreated` should be added as a timestamp attribute. In AD, timestamp values are stored in Generalized-Time format. Therefore when reading time values from AD and passing these values to WSO2IS requires a time conversion to UTC time format.
+The Active directory attributes `whenChanged` and `whenCreated` should be added as a timestamp attribute. In AD, timestamp values are stored in a generalized time format. Therefore reading time values from AD and passing these values to WSO2IS requires a time conversion to UTC format.
 
-You can configure this timestamp attributes using the following methods:
+You can configure these timestamp attributes using the following methods:
 
 - Using the Management console:
 
@@ -239,7 +239,7 @@ You can configure this timestamp attributes using the following methods:
 
 ### Immutable attributes
 
-The active Directiry attributes, `objectGuid`, `whenCreated`, and `whenChanged` are immutable attributes, meaning that they cannot be changed.
+The Active Directory attributes, `objectGuid`, `whenCreated`, and `whenChanged` are immutable, meaning that they cannot be changed.
 
 You can configure the immutable attributes using the following methods:
 
@@ -260,7 +260,7 @@ You can configure the immutable attributes using the following methods:
 
 ### ObjectGUID attribute
 
-ObjectGUID is used as the ImmutableID in Active Directories and is used as the best identifier for most of the applications for various reasons. You may also need to use the objectGUID attribute as a unique attribute and map into a local claim in WSO2 Identity Server. 
+The `objectGUID` attribute serves as the immutable identifier within Active Directory and is widely utilized as the primary identifier for many applications. In certain scenarios, you may find it necessary to leverage the `objectGUID` attribute as a distinct and unique attribute. This attribute can then be mapped into a local claim within the WSO2 Identity Server.
 
 To do this you need to [add objectGUID under immutableAttributes](#immutable-attributes) and configure the LDAP binary attributes using the following methods:
 
