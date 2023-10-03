@@ -34,10 +34,10 @@ copyright: ©2023 WSO2 LLC.
 theme:
   name: material
   custom_dir: theme/material
-  logo: assets/images/asgardeo-logo-dark.svg
+  logo: assets/images/asgardeo-docs-logo-dark.svg
   font:
     text: Nunito
-  favicon: assets/images/favicon.png
+  favicon: assets/images/favicon.svg
   toc: false
   features:
     # Top navigation
