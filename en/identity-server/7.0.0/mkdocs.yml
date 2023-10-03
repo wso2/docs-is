@@ -232,7 +232,6 @@ nav:
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
         - Manage subscriptions: guides/your-asgardeo/manage-subscriptions.md
-      - Asgardeo events: guides/asgardeo-events.md
       - Organization insights: guides/organization-insights.md
   - Tutorials:
     - Tutorials: tutorials/index.md
