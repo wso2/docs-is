@@ -4,7 +4,7 @@ Identity Provider initiated Single Sign On (IdP-initiated SSO) is an authenticat
 
 Federated IdP-initiated SSO extends this process so that a user belonging to an external organization is also able to access applications in your organization.
 
-In this scenario, your organization's IdP and the external organization's IdP establish a trust relationship. Therefore, external users can conveniently log in to their organization IdP and access applications in your organization without creating accounts in your organization's IdP.
+In this scenario, your organization's IdP and the external organization's IdP establish a trust relationship. Therefore, external users can conveniently log in to their organization's IdP and access applications in your organization without creating accounts in your organization's IdP.
 
 This guide explains how you can implement federated IdP-initiated SSO using the WSO2 Identity Server (WSO2 IS).
 
