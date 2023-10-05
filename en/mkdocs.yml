@@ -201,6 +201,7 @@ nav:
       - Access Delegation:
         - Overview: guides/access-delegation/access-delegation.md
         - OAuth 2.0 Grant Types:
+          - Overview: guides/access-delegation/oauth-2.0-grant-types.md
           - Authorization Code Grant: guides/access-delegation/auth-code-playground.md
           - Client Credentials Grant: guides/access-delegation/client-credentials-playground.md
           - Device Flow Grant: guides/access-delegation/try-device-flow.md
@@ -1469,8 +1470,8 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.1.0
-  base_path: https://is.docs.wso2.com/en/next
-  #base_path: http://127.0.0.1:8000/en/6.1.0
+  #base_path: https://is.docs.wso2.com/en/next
+  base_path: http://127.0.0.1:8000/en/6.1.0
 
   nav_list:
     - Home
