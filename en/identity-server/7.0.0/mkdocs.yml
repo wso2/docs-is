@@ -82,7 +82,16 @@ nav:
   - Home:
     - Home: index.md
   - Get Started:
-    - WSO2 Identity Server: get-started/index.md
+      - Introduction: get-started/quick-start-guide.md
+      - Quickstart:
+        - Quick Setup: get-started/sample-use-cases/set-up.md
+        - Try a Sample Scenario:
+          - Sample Scenario: get-started/sample-use-cases/sample-scenario.md
+          - Use Cases:
+            - Single Sign-On: get-started/sample-use-cases/single-sign-on.md
+            - Multi-Factor Authentication: get-started/sample-use-cases/multi-factor-authentication.md
+            - Federated Authentication: get-started/sample-use-cases/federated-authentication.md
+            - Self Sign-Up: get-started/sample-use-cases/self-sign-up.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
@@ -369,4 +378,4 @@ extra:
     - APIs
     - References
 
-base_path: http://localhost:8000/en/6.1.0
+base_path: http://localhost:8000/en/7.0.0
