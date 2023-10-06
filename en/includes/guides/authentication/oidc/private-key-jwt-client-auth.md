@@ -26,12 +26,12 @@ Register the client application in {{ product_name }} as follows:
 
 1. Create an OIDC application:
 
-   - [Standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/)
-   - [OIDC web application]({{base_path}}/guides/applications/register-oidc-web-app/)
+    - [Standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/)
+    - [OIDC web application]({{base_path}}/guides/applications/register-oidc-web-app/)
 
 2. Go to the **Protocol** tab of the new application and configure the required grant type.
 
-   ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png)
+    ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png)
 
 ## Prepare the private key and public key
 
@@ -97,7 +97,7 @@ Prepare the JSON payload required by the authorization server for client authent
 "exp": 1643650350,
 "iat": 1643650346,
 "jti": "10003",
-"aud": "https://api.asgardeo.io/t/<organization_name>/oauth2/token"
+"aud": "{{ product_url_format }}/oauth2/token"
 }
 ```
 
@@ -118,7 +118,7 @@ Listed below are the main steps for invoking the token endpoint and acquiring an
 3. Authorization server extracts the signature using the public key and authenticates the client.
 4. The access token is granted if the client is successfully authenticated.
 
-Let’s look at how this works for different grant types.
+Let's look at how this works for different grant types.
 
 ### Authorization code flow
 
@@ -127,13 +127,13 @@ If you are implementing the authorization code flow, you have enabled **code** a
 1. First, invoke the authorization endpoint in {{ product_name }} and get an authorization code.
 
     ``` bash
-    https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}
+    {{ product_url_format }}/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}
     ```
 
 2. Invoke the token endpoint and get the access token.
 
     ``` bash
-    curl --location --request POST 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl --location --request POST '{{ product_url_format }}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'code={authorization_code}' \
     --data-urlencode 'grant_type=authorization_code' \
@@ -184,7 +184,7 @@ If you are implementing the authorization code flow, you have enabled **code** a
 If you are implementing the client credentials flow, you have enabled **client credentials** as the grant type when registering your application. You can now send the following requests to get the access token.
 
 ``` bash
-curl --location --request POST 'https://api.asgardeo.io/t/<organization_name>/oauth2/token' \
+curl --location --request POST '{{ product_url_format }}/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials’ \
 --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer'\

@@ -26,19 +26,19 @@ First, your app must initiate a login request to {{ product_name }}. After redir
 **Authorization endpoint**
 
 ```bash 
-https://api.asgardeo.io/t/<organization_name>/oauth2/authorize
+{{ product_url_format }}/oauth2/authorize
 ```
 
 **Request format**
 
 ```bash   
-https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}&code_challenge=<code_challenge>&code_challenge_method=<code_challenge_method>
+{{ product_url_format }}/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}&code_challenge=<code_challenge>&code_challenge_method=<code_challenge_method>
 ```
 
 **Sample request**
 
 ```bash   
-https://api.asgardeo.io/t/bifrost/oauth2/authorize?scope=openid&response_type=code&redirect_uri=https://localhost:5000&client_id=fv_LScHaB83PN4VPX1cHufphtHQa&code_challenge_method=S256&code_challenge=IMbNq8j9HZBlbLuZ4nHcYOv1ZkRF5TVNAfVIGyeUsi0
+{{ product_url_sample }}/oauth2/authorize?scope=openid&response_type=code&redirect_uri=https://localhost:5000&client_id=fv_LScHaB83PN4VPX1cHufphtHQa&code_challenge_method=S256&code_challenge=IMbNq8j9HZBlbLuZ4nHcYOv1ZkRF5TVNAfVIGyeUsi0
 ```
 
 <br>
@@ -101,7 +101,7 @@ After receiving the authorization code, the application has to exchange it to ge
 **Token endpoint**
 
 ```bash 
-https://api.asgardeo.io/t/<organization_name>/oauth2/token
+{{ product_url_format }}/oauth2/token
 ```
 
 **Token request**
@@ -120,7 +120,7 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/token
 === "JavaScript - jQuery"
     ```js
     var settings = {
-        "url": "https://api.asgardeo.io/t/bifrost/oauth2/token",
+        "url": "{{ product_url_sample }}/oauth2/token",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -153,7 +153,7 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/token
     });
     var config = {
         method: 'post',
-        url: 'https://api.asgardeo.io/t/bifrost/oauth2/token',
+        url: '{{ product_url_sample }}/oauth2/token',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -173,7 +173,7 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/token
 
 === "cURL"
     ```bash 
-    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
+    curl --location --request POST '{{ product_url_sample }}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'code=60cb4ba7-b7b2-3f2f-8319-58122f1b2f5d' \
     --data-urlencode 'grant_type=authorization_code' \

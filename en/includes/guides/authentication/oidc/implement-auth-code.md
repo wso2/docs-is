@@ -31,7 +31,7 @@ First, your app must initiate a login request to the authorization endpoint of {
     ---
     **Request sample**
     ``` shell
-    {{ product_url_sample }}/oauth2/authorize?response_type=code&    client_id=z8RB6ysdDZhe4QO0zJAQzKbi6P4a&scope=openid&redirect_uri=http://localhost:5000&login_hint=johnd@bifrost.com
+    {{ product_url_sample }}/oauth2/authorize?response_type=code&client_id=z8RB6ysdDZhe4QO0zJAQzKbi6P4a&scope=openid&redirect_uri=http://localhost:3000&login_hint=johnd@bifrost.com
     ```
 
 <!-- >!!! note
@@ -70,10 +70,8 @@ Once the user is successfully authenticated, {{ product_name }} redirects the us
 **Sample response**
 
 ``` 
-https://localhost:5000/?code=97c85a59-a758-3a56-95cd-e71a505b493d&session_state=a0c3bc89849ba0f236791f7fe76a837b7b4422fdc9aca16db394d19a28724a29.wQc7eSHSRrGNfECJRMhSAw
+https://localhost:3000/?code=97c85a59-a758-3a56-95cd-e71a505b493d&session_state=a0c3bc89849ba0f236791f7fe76a837b7b4422fdc9aca16db394d19a28724a29.wQc7eSHSRrGNfECJRMhSAw
 ```
-
-<br>
 
 ## Get tokens
 
@@ -86,7 +84,7 @@ After receiving the authorization code, the application has to exchange it to ge
 **Token endpoint**
 
 ```bash 
-https://api.asgardeo.io/t/<organization_name>/oauth2/token
+{{ product_url_format }}/oauth2/token
 ```
 
 **Token request**
@@ -100,7 +98,7 @@ When your application is a confidential client, it needs to identify itself to t
 
     === "cURL"
         ```bash
-        curl --location --request POST 'https://api.asgardeo.io/t/<organization_name>/oauth2/token' \
+        curl --location --request POST '{{ product_url_format }}/oauth2/token' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'code={authorization_code}' \
         --data-urlencode 'grant_type=authorization_code' \
@@ -112,7 +110,7 @@ When your application is a confidential client, it needs to identify itself to t
     === "JavaScript - jQuery"
         ```js
         var settings = {
-            "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/token",
+            "url": "{{ product_url_format }}/oauth2/token",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -145,7 +143,7 @@ When your application is a confidential client, it needs to identify itself to t
         });
         var config = {
             method: 'post',
-            url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/token',
+            url: '{{ product_url_format }}/oauth2/token',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -164,7 +162,7 @@ When your application is a confidential client, it needs to identify itself to t
 - Use **client_secret_basic**: The client secret is sent as an authorization header in the request (`Authorization: Basic BASE46_ENCODING<client_id:client_secret>`). See the example given below.
 
     ```bash
-    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
+    curl --location --request POST '{{ product_url_sample }}/oauth2/token' \
     --header 'Authorization: Basic ejhSQjZ5c2REWmhlNFFPMHpKQVF6S2JpNlA0YTp6MEM3OXpsb3B4OGk3QnlPdzhLMTVBOWRwbFlh' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'code=97c85a59-a758-3a56-95cd-e71a505b493d' \
