@@ -1,6 +1,6 @@
 # Delete an Existing User 
 
-This section guides you through deleting an exisiting user in WSO2 Identity Server.
+This section guides you through deleting an existing user in WSO2 Identity Server.
 
 !!! warning 
 	Deleting a user cannot be undone.
@@ -19,15 +19,15 @@ This section guides you through deleting an exisiting user in WSO2 Identity Serv
 !!! abstract ""
     **Request**
     ```
-    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID} -H "Accept: application/json"
+    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_HOST}:{IS_PORT}/scim2/Users/{SCIM_USER_ID} -H "Accept: application/json"
     ```
     ---
      **Sample Request**
     ```curl
-    curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae -H "Accept: application/json"
+    curl -v -k --user admin:admin -X DELETE https://localhost:9443/scim2/Users/b228b59d-db19-4064-b637-d33c31209fae -H "Accept: application/json"
     ```
 
-You receive a response with status `200 OK` and the user will be deleted from the userstore.
+You receive a response with status `204 No Content` and the user will be deleted from the userstore.
     
 !!! info "Related topics"
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
