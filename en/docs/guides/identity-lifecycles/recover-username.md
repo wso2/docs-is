@@ -97,7 +97,7 @@ There are two ways to enable account recovery in WSO2 Identity Server.
 
 3.	Enter the first name of the user and the tenant domain (use `carbon.super` as default).
 
-    ![proceed-to-username-recovery]({{base_path}}/assets/img/using-wso2-identity-server/username-recovery.png)
+    ![proceed-to-username-recovery]({{base_path}}/assets/img/using-wso2-identity-server/username_recovery.png)
     
 4.	Click **Submit**. 
 
