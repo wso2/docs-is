@@ -23,14 +23,14 @@ Follow these instructions to register an OAuth 2.0 application in Google.
 2. If the **APIs & services** page isn't already open, do the following:
 
     1. Open the navigation menu and click **View all products**.
-       ![View all products on the Google console]({{base_path}}/assets/img/samples/google-view-all-products.png)
+       ![View all products on the Google console]({{base_path}}/assets/img/get-started/google-view-all-products.png)
 
     2. Under **Management**, click **APIs & Services**.
-       ![Select APIs & Services]({{base_path}}/assets/img/samples/google-apis-and-services.png)
+       ![Select APIs & Services]({{base_path}}/assets/img/get-started/google-apis-and-services.png)
 
 3. Go to the **Credentials** page, click **Create Credentials**, and select **OAuth client ID**.
 
-    ![Select APIs & Services]({{base_path}}/assets/img/samples/google-oauth-client-id.png)
+    ![Select APIs & Services]({{base_path}}/assets/img/get-started/google-oauth-client-id.png)
 
 4. Configure your consent screen by clicking **Configure Consent Screen** and return to **Create OAuth client ID** screen once you are done.
 
@@ -118,5 +118,3 @@ You have successfully signed in to the **Pickup-Dispatch** application as an ext
 To try out other scenarios, navigate back to the command-line where you ran the quickstart sample and enter `y` to clean the setup.
 
 ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)
-
----

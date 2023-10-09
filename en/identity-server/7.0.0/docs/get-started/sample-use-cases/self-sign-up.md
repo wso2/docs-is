@@ -95,7 +95,7 @@ To try login with your new user account, follow the instructions given below as 
 - If you selected **Enable User Registration (without any
     config)** during the sample setup, go back to the **Pickup-Dispatch** application and sign in using the new user credentials.
 
--If you selected **Account Lock on Creation** during the sample setup, access your email  account to view the account registration confirmation mail.
+- If you selected **Account Lock on Creation** during the sample setup, access your email  account to view the account registration confirmation mail.
 
     1. Access your email and click **Confirm Registration** in the email or copy the link
         in the email to your browser and confirm the account creation.
