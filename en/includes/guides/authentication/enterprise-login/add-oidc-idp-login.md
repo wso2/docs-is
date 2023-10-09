@@ -130,7 +130,7 @@ Now, let's register the OIDC IdP in {{ product_name }}.
 
 To provide this login capability, {{ product_name }} uses the standard OpenID Connect with authorization code flow <!-- [OpenID Connect with authorization code flow](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)--> underneath. For an application, this flow works as follows:
 
-![Add OIDC enterprise login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/oidc-enterprise-login-flow.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Add OIDC enterprise login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/oidc-enterprise-login-flow.png){: width="700" style="display: block; margin: 0 auto;"}
 
 ## Add groups to the connection
 
