@@ -12,7 +12,7 @@ You need to register {{ product_name }} as a SAML application in the external id
 You can use the following URL as the **Assertion Consumer Service URL** (also known as callback URL/ redirect URL/ ACS URL) in the application that represents {{ product_name }}.
 
 ```bash 
-https://api.asgardeo.io/t/<organization_name>/commonauth
+{{ product_url_format }}/commonauth
 ```
 
 After you register the app, you should get the required configurations, as explained below.

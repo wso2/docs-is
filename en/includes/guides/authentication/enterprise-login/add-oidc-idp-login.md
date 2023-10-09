@@ -11,7 +11,7 @@ You need to register an OpenID Connect application with the external identity pr
 You can use the following URL as the **callbackURL** of the application.
 
 ```bash 
-https://api.asgardeo.io/t/<organization_name>/commonauth
+{{ product_url_format }}/commonauth
 ```
 Once you register an application, you will receive the following:
 
