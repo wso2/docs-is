@@ -247,7 +247,7 @@ sms notification templates.
         ![disable-internal-notifications]({{base_path}}/assets/img/guides/disable-internal-notification.png)
 
 ??? warning "Disabled password recovery v1 API"
-    Password recovery v1 API is diabled by default due to security issues encountered. We recommend using the password recovery v2 API to avoid any adverse effects.
+    We recommend using the password recovery v2 API to avoid any adverse effects.
     
     If you still need to use the v1 API, you need to enable the v1 API by adding the following configuration to `<IS-HOME>/repository/conf/deployment.toml` file:
 
