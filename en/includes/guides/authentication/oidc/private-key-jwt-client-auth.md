@@ -111,6 +111,7 @@ Listed below are the main steps for invoking the token endpoint and acquiring an
 
     !!! note
         Note the following two parameters that should be set in the token request:
+        
         - `client_assertion`: The authentication token (JWT assertion) must be sent as the value of this parameter.
         - `client_assertion_type`: The value of this parameter must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 

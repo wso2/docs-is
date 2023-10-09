@@ -25,7 +25,7 @@ Use the following sections to verify if your applications are ready for producti
     - Provide the correct certificate. [Learn more]({{base_path}}/references/app-settings/oidc-settings-for-app/#certificate)
     - Securing application secrets in the clients.
 
-    An application’s client secret and client ID can be used to invoke APIs. Hence, securely store and minimize access to only authorized people for your applications' client id and client secret.
+    An application's client secret and client ID can be used to invoke APIs. Hence, securely store and minimize access to only authorized people for your applications' client id and client secret.
 
 ??? note "SAML"
     To ensure the readiness of the SAML applications of your organizations:
@@ -52,13 +52,13 @@ Use the following sections to verify if your applications are ready for producti
     - Configure access, refresh, and id token expiry times.
     - Provide the correct certificate. [Learn more]({{base_path}}/references/app-settings/oidc-settings-for-app/#certificate)
 
-    An application’s client secret and client ID can be used to invoke APIs. Hence, securely store and minimize access to only authorized people for your applications' client id and client secret.
+    An application's client secret and client ID can be used to invoke APIs. Hence, securely store and minimize access to only authorized people for your applications' client id and client secret.
 
 ## Connections
 Verify authorized redirect URL and home page URL of social connections are updated with the production environment's values.
 
 ## Branding
-By default, Asgardeo interfaces presented to users are themed according to Asgardeo’s default branding. Make sure to customize the UIs according to your organization’s branding styles. The following is the list of branding changes required. [Learn more]({{base_path}}/guides/branding/configure-ui-branding/)
+By default, Asgardeo interfaces presented to users are themed according to Asgardeo's default branding. Make sure to customize the UIs according to your organization's branding styles. The following is the list of branding changes required. [Learn more]({{base_path}}/guides/branding/configure-ui-branding/)
 
 **General**
 To ensure the readiness of the general branding of your organizations:
@@ -72,7 +72,7 @@ To ensure the readiness of the design branding of your organizations:
 
 - Configure logo, favicon, and side images.
 - Configure the heading text.
-- Customize branding styles to UIs provided by Asgardeo provided according to your organization’s branding guidelines.
+- Customize branding styles to UIs provided by Asgardeo provided according to your organization's branding guidelines.
 
 **Advanced**
 To ensure the readiness of the advanced branding of your organizations:
@@ -88,7 +88,7 @@ By default, the interfaces provided by Asgardeo (such as the login page) are pre
     The free-tier users do not have the capability to configure domain branding.
 
 ### Customize email template
-By default, all the emails triggered by Asgardeo for your end users have Asgardeo’s default branding. If you wish to change the branding and content of the emails, you can customize them via the APIs. [Learn more]({{base_path}}/apis/email-template/#/operations/updateEmailTemplate)
+By default, all the emails triggered by Asgardeo for your end users have Asgardeo's default branding. If you wish to change the branding and content of the emails, you can customize them via the APIs. [Learn more]({{base_path}}/apis/email-template/#/operations/updateEmailTemplate)
 
 !!! note
     Asgardeo rolled out this feature on Sep 20, 2022. Therefore this new feature is only applied to the Asgardeo organizations created after Sep 20, 2022.

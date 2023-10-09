@@ -25,7 +25,7 @@ To register your application in Asgardeo:
     1. Give a name for the application, select the **OpenID Connect** protocol, provide an authorized redirect URL, and click **Register** to complete the registration.
 
         !!! note
-            For now, let's give a dummy value as the **Authorized redirect URL**. You’ll update this later when you configure MATTR and create a credential issuer.
+            For now, let's give a dummy value as the **Authorized redirect URL**. You'll update this later when you configure MATTR and create a credential issuer.
 
     2. Take note of the client ID and client secret.
 
@@ -147,7 +147,7 @@ Follow the steps given below.
     - `claimMappings`: Configure the claims that you need to offer with the verifiable credential to the wallet holder by adding them in the `claimMappings` parameter in the request payload. See the [MATTR-supported credential claim mappings](https://learn.mattr.global/tutorials/web-credentials/issue/oidc-bridge/common-mappings).
 
     !!! note
-        In the step that displays the QR code, we’ll refer to the `id` parameter in the response as `{issuer-id}`.
+        In the step that displays the QR code, we'll refer to the `id` parameter in the response as `{issuer-id}`.
 
 5. On the Asgardeo Console, go to the **Protocol** tab under **Applications**, select your OIDC application, and do the following updates:
 

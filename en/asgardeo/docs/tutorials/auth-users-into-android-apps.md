@@ -27,7 +27,7 @@ The high-level flow for the integration is as follows:
 1. The user clicks the login button of an Android application.
 2. The user is directed to the Asgardeo login page.
 3. The user enters their Asgardeo account credentials.
-4. The user is authenticated via Asgardeo, and upon successful login, they are redirected to the application’s home page.
+4. The user is authenticated via Asgardeo, and upon successful login, they are redirected to the application's home page.
 5. If the user clicks the logout button of the application, they are logged out from Asgardeo and redirected to the relevant page.
 
 ### OIDC authentication method
@@ -72,7 +72,7 @@ To integrate Asgardeo as your CIAM provider, you need to register your applicati
 After registering your application with Asgardeo, you can enable [user attributes for the app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app.md). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
 
 !!! note
-      If you need additional attributes that are not listed in the user’s profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes.md) and retrieve them through the `profile` scope.
+      If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes.md) and retrieve them through the `profile` scope.
 
 Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-customers/#onboard-a-user).
 

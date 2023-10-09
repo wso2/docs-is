@@ -23,7 +23,7 @@ Recently Mr. Krabs decided to issue employee credentials to their employees usin
 ## Step 1: Configure Microsoft Azure for verifiable credentials
 
 !!! note Before you begin
-    To proceed with this tutorial, you need to have a tenant with an active Azure subscription. If you haven’t claimed an Azure subscription before, you can [create an account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) for free and claim $200 credits.
+    To proceed with this tutorial, you need to have a tenant with an active Azure subscription. If you haven't claimed an Azure subscription before, you can [create an account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) for free and claim $200 credits.
 
     Before proceeding with this tutorial, check all the prerequisites mentioned in the [Azure documentation](https://learn.microsoft.com/en-us/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant#prerequisites).
 
@@ -60,7 +60,7 @@ First, we need to create an Azure key vault instance to store the public and pri
                 Resource group
             </td>
             <td>
-                Select the resource group. You can create a new resource group if you don’t already have one.
+                Select the resource group. You can create a new resource group if you don't already have one.
             </td>
         </tr>
         <tr>
@@ -319,7 +319,7 @@ Now, let's create a credential for the Verified ID service with the id token att
     !!! note
         This is the most important part, where we add configurations for the connection with Asgardeo. The rules definition determines what the user should do to get the credential.
 
-        Here, the attestation should be an `idTokens` attestation, and the rules definition should contain the Asgardeo application’s client ID, openid configuration url, scopes, and claim mappings. See the below table to learn how to retrieve these values on Asgardeo.
+        Here, the attestation should be an `idTokens` attestation, and the rules definition should contain the Asgardeo application's client ID, openid configuration url, scopes, and claim mappings. See the below table to learn how to retrieve these values on Asgardeo.
 
     <table>
         <tr>
@@ -367,7 +367,7 @@ Now, let's create a credential for the Verified ID service with the id token att
                 mapping
             </td>
             <td>
-                The output and input claim mappings for VC and Asgardeo. You’ll be able to find the identifier for the <code>inputClaim</code> from the <b>User Attributes</b> tab of the created Asgardeo application.
+                The output and input claim mappings for VC and Asgardeo. You'll be able to find the identifier for the <code>inputClaim</code> from the <b>User Attributes</b> tab of the created Asgardeo application.
             </td>
         </tr>
     </table>
@@ -536,7 +536,7 @@ Follow the step below to start the application.
         ./ngrok http 8080
         ```
 
-3. Open the displayed public URL, and you’ll see the MS verifiable credential sample application.
+3. Open the displayed public URL, and you'll see the MS verifiable credential sample application.
 
     ![MS verifiale credential sample]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-16.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -556,11 +556,11 @@ To get the KrustyKrab verifiable credential:
 
 2. Open your Microsoft Authenticator app and go to the **Verified IDs** tab.
 
-    You’ll be able to scan the QR code there.
+    You'll be able to scan the QR code there.
 
     ![scan QR code]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-18.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-3. Scan the QR and you’ll see an option to sign in with Asgardeo.
+3. Scan the QR and you'll see an option to sign in with Asgardeo.
 
 4. Click **Sign In with Asgardeo**, and you are redirected to the login page provided by Asgardeo.
 

@@ -117,7 +117,7 @@ You can provide a list of strings, separated by a space, to define the locales. 
 Consider the following examples:
 
 - If the `ui_locales` is sent as `fr_FR`, **French** is used as the default locale.
-- If the `ui_locales` is sent as `fr_FR en_US`, **French** will be the default locale since it’s the first Asgardeo-support locale in the list.
+- If the `ui_locales` is sent as `fr_FR en_US`, **French** will be the default locale since it's the first Asgardeo-support locale in the list.
 - If the `ui_locales` is sent as `it_IT en_US`, **English (en_US)** will be used as the default locale because the first given locale (`it_IT`) is not supported.
 
 The following examples demonstrate how to set the `ui_locales` parameter in your application.

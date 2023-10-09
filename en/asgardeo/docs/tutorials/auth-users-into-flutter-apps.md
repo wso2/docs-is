@@ -29,7 +29,7 @@ The following steps explain the high-level authentication flow:
 1. The user clicks the login button of a Flutter application.
 2. The user is directed to the Asgardeo (CIAM provider) login page.
 3. The user enters their Asgardeo account credentials.
-4. The user is authenticated via Asgardeo, and upon successful login, they are redirected to the application’s home page.
+4. The user is authenticated via Asgardeo, and upon successful login, they are redirected to the application's home page.
 5. If the user clicks the logout button of the application, they are logged out from Asgardeo and redirected to the relevant page.
 
 ### OIDC authentication method
@@ -74,7 +74,7 @@ To integrate Asgardeo as your CIAM provider, you need to register your applicati
 After registering your application with Asgardeo, you can enable [user attributes for the app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app.md). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
 
 !!! note
-  If you need additional attributes that are not listed in the user’s profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes.md) and retrieve them through the `profile` scope.
+  If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes.md) and retrieve them through the `profile` scope.
 
 In this tutorial, you will retrieve the First Name, Last Name, Mobile, Country, Birth Date, and Photo URL as profile information.
 
@@ -82,7 +82,7 @@ Note that admin users are not allowed to log in to the Android application. Ther
 
 ## Step 3: Install dependencies
 
-Let’s start the integration by adding the required dependencies:
+Let's start the integration by adding the required dependencies:
 
 - [flutter_appauth](https://pub.dev/packages/flutter_appauth)
 
@@ -189,7 +189,7 @@ Follow the steps given below to integrate your application with Asgardeo:
                   discoveryUrl
               </th>
               <td>
-                  This is the OpenID Connect Discovery endpoint in Asgardeo, which is used to discover Asgardeo’s metadata required to interact with it.
+                  This is the OpenID Connect Discovery endpoint in Asgardeo, which is used to discover Asgardeo's metadata required to interact with it.
               </td>
           </tr>
           <tr>
@@ -273,7 +273,7 @@ You can replace the current implementation of the `loginFunction()` with the fol
   }
   ```
 
-Here’s how the flow works in more detail:
+Here's how the flow works in more detail:
 
 - [AuthorizationTokenRequest](https://pub.dev/documentation/flutter_appauth_platform_interface/latest/flutter_appauth_platform_interface/AuthorizationTokenRequest-class.html) is created by passing the `clientId`, `redirectUrl`, `discoveryUrl`, and `scopes`.
 
@@ -284,7 +284,7 @@ Here’s how the flow works in more detail:
 
 - The `AuthorizationTokenRequest` object is then passed into [appAuth.authorizeAndExchangeCode()](https://pub.dev/documentation/flutter_appauth/latest/flutter_appauth/FlutterAppAuth/authorizeAndExchangeCode.html) to start the sign-in process.
 
-    The user is directed to Asgardeo’s sign-in page for authentication. As a result, [AuthorizationTokenResponse](https://pub.dev/documentation/flutter_appauth_platform_interface/latest/flutter_appauth_platform_interface/AuthorizationTokenResponse-class.html) is received. It contains two token types returned by Asgardeo.
+    The user is directed to Asgardeo's sign-in page for authentication. As a result, [AuthorizationTokenResponse](https://pub.dev/documentation/flutter_appauth_platform_interface/latest/flutter_appauth_platform_interface/AuthorizationTokenResponse-class.html) is received. It contains two token types returned by Asgardeo.
 
     - **Access Token**: A token represents access delegated to the client application by the user to access the user's protected resources. It has a specific scope and duration.
     - **ID Token**: A security token represented as a JSON Web Token (JWT) that proves the user's successful authentication with Asgardeo. Furthermore, it contains other requested user profile information.
@@ -295,7 +295,7 @@ Once the user has logged in to the system, there is a section that shows the use
 
 Then, the retrieved profile information response is parsed and set to the corresponding variables.
 
-You will notice that the ID token contains the same set of user information and wonder why we are using a different API call to fetch them separately. Calling the `userinfo` endpoint with the retrieved access token is an alternative way of retrieving the user’s profile information.
+You will notice that the ID token contains the same set of user information and wonder why we are using a different API call to fetch them separately. Calling the `userinfo` endpoint with the retrieved access token is an alternative way of retrieving the users profile information.
 
 Furthermore, this demonstrates how access tokens are used for accessing protected resources (such as the `userinfo` endpoint) on behalf of the user.
 
@@ -327,7 +327,7 @@ Future<void> retrieveUserDetails() async {
 
 ## Step 8: Implement logout
 
-Finally, change the `logOutFunction()` method, which performs the user logout. The following code snippet handles the user’s sign-out functionality.
+Finally, change the `logOutFunction()` method, which performs the user logout. The following code snippet handles the user's sign-out functionality.
 
 ```js
 void logOutFunction() async {

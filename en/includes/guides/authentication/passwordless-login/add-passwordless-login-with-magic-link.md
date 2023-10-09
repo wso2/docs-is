@@ -23,13 +23,13 @@ Follow the steps given below to enable **Magic link** login to the login flow of
 
     ---
     === "Classic Editor"
-        - If you haven’t already built a login flow for your application, select **Add Magic Link login** to build one.
+        - If you haven't already built a login flow for your application, select **Add Magic Link login** to build one.
 
-        ![Configuring magic link login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login.png){: width="600"}
+        ![Configuring magic link login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         - If you have an already built login flow, add the `Magic Link` authenticator as the first authentication step.
 
-        ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-step.png)
+        ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add passwordless login with Magic link using the Visual Editor:
@@ -40,7 +40,7 @@ Follow the steps given below to enable **Magic link** login to the login flow of
 
         3. Click **Confirm** to add passwordless login with Magick Link to the sign-in flow.
 
-            ![Configuring magic link login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-with-visual-editor.png)
+            ![Configuring magic link login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
     ---
 
 4. Click **Update** to save your changes.
@@ -53,14 +53,14 @@ Follow the steps given below.
 2. Click **Login** to open the {{ product_name }} login page.
 3. On the {{ product_name }} login page, enter your username and press **Continue**.
 
-    ![Sign In magic link in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/magic-link/magic-link-login-page.png){: width="300"}
+    ![Sign In magic link in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/magic-link/magic-link-login-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
     You will be redirected to the below page.
 
-    ![Magic link login notification page]({{base_path}}/assets/img/guides/passwordless/magic-link/magic-link-login-notification-page.png){: width="300"}
+    ![Magic link login notification page]({{base_path}}/assets/img/guides/passwordless/magic-link/magic-link-login-notification-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Check your inbox for the magic link email. The email reads as follows.
 
-    ![Magic link email]({{base_path}}/assets/img/guides/passwordless/magic-link/magic-link-email.png){: width="400"}
+    ![Magic link email]({{base_path}}/assets/img/guides/passwordless/magic-link/magic-link-email.png){: width="400" style="border: 0.3px solid lightgrey;"}
 
 5. Open the magic link by clicking **Sign In** on the **same browser** as your application.

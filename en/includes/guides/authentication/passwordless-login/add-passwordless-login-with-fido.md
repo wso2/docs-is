@@ -29,13 +29,13 @@ Follow the steps given below to enable **passwordless** login for your applicati
 
     ---
     === "Classic Editor"
-        - If you haven’t already built a login flow for your application, select **FIDO2** to build one.
+        - If you haven't already built a login flow for your application, select **FIDO2** to build one.
 
-        ![Configuring fido2 login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login.png){: width="600"}
+            ![Configuring fido2 login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         - If you have an already built login flow, you can add FIDO2 as an additional authenticator for the first step.
 
-        ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/fido2/fido-login-step.png)
+            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/fido2/fido-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add passwordless login with FIDO using the Visual Editor:
@@ -46,7 +46,7 @@ Follow the steps given below to enable **passwordless** login for your applicati
 
         3. Click **Confirm** to add passwordless login with FIDO to the sign-in flow.
 
-            ![Configuring fido2 login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login-with-visual-editor.png)
+            ![Configuring fido2 login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -80,8 +80,8 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 2. Click **Login** to open the {{ product_name }} login page.
 3. On the {{ product_name }} login page, click **Sign In With Security Key**. You will be redirected to the FIDO2 login page.
   
-    ![Sign In With Security Key in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key.png){: width="300"}
+    ![Sign In With Security Key in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Follow the instructions given by your browser or device to login.
   
-    ![Sign In With Security Key page in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key-page.png){: width="300"}
+    ![Sign In With Security Key page in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
