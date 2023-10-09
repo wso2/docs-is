@@ -23,4 +23,4 @@ To delete a connection that does not have any applications using it:
 
 3. Select the checkbox and confirm your action.
 
-    ![Delete connection]({{base_path}}/assets/img/guides/idp/delete-idp/confirmation-modal.png)
+    ![Delete connection]({{base_path}}/assets/img/guides/idp/delete-idp/confirmation-modal.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}

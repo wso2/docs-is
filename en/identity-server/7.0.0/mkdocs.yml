@@ -113,7 +113,6 @@ nav:
           - Add social login:
             - Add social login: guides/authentication/social-login/index.md
             - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
-            - Add Github login: guides/authentication/social-login/add-github-login.md
             - Add Google login: guides/authentication/social-login/add-google-login.md
             - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
             - Add Apple login: guides/authentication/social-login/add-apple-login.md

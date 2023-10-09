@@ -42,7 +42,7 @@ Let's see how this flow works in {{ product_name }}.
 
 Once you have configured the user attributes that are required for your application, {{ product_name }} implements the following process when a user tries to log in to your app.
 
-![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800" style="display: block; margin: 0 auto;"}
 
 ### Application requests attributes
 
