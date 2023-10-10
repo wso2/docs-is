@@ -14,5 +14,5 @@ template: templates/redoc.html
     4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
      IS. 
 
-<redoc spec-url={{base_path}}/apis/restapis/challenge.yaml></redoc>
+<redoc spec-url=../../apis/restapis/challenge.yaml></redoc>
 <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>

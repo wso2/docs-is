@@ -18,8 +18,9 @@
 
 
 
-.md-main .md-sidebar.md-sidebar--primary {
+ .md-main .md-sidebar.md-sidebar--primary {
     padding-bottom: 80px;
+    width: 300px;
 }
 
 .md-sidebar[data-md-state=lock] {

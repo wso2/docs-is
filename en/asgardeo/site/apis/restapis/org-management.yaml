@@ -2,20 +2,20 @@ openapi: 3.0.0
 info:
   version: "v1"
   title: 'Asgardeo - Organization Management API Definition'
-  description: 'This is the RESTful API for organization management at the suborganization level in Asgardeo. This API allows users to create, 
-  update, retrieve and delete organizations under a given suborganization. <br><br>
+  description: 'This is the RESTful API for organization management in Asgardeo. This API allows users to create, 
+  update, retrieve and delete organizations. <br><br>
 
   <b>Important</b>:<br>
-  You need a paid Asgardeo subscription to use this feature. If you don’t already have one, 
+  You need a paid Asgardeo subscription to create hierarchical organizations. If you don’t already have one, 
   view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.
   '
 servers:
-  - url: 'https://api.asgardeo.io/o/{suborganization-id}/api/server/v1/organizations'
+  - url: 'https://api.asgardeo.io/o/{organization-id}/api/server/v1/organizations'
     variables:
       server-url:
-        default: https://api.asgardeo.io/o/{suborganization-id}
-      suborganization-id:
-        default: {suborganization-id}
+        default: https://api.asgardeo.io/o/{organization-id}
+      organization-id:
+        default: {organization-id}
 security:
   - OAuth2: []
 paths:
@@ -23,8 +23,7 @@ paths:
     post:
       tags:
         - Organization
-      description:
-        This API is used to create the organization defined in the user input.
+      description: "This API is used to create the organization defined in the user input.<br> \n\n <b>Scope required:</b> `internal_organization_create`"
       summary:
         Create a new organization
       operationId: organizationPost
@@ -56,8 +55,7 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
     get:
-      description:
-        This API is used to search and retrieve organizations created for this suborganization.
+      description: "This API is used to search and retrieve organizations created for this organization.<br> \n\n <b>Scope required:</b> `internal_organization_view`"
       summary:
         Retrieve organizations
       operationId: organizationsGet
@@ -89,8 +87,7 @@ paths:
 
   /{organization-id}:
     get:
-      description:
-        This API is used to get an existing organization identified by the organization ID.
+      description: "This API is used to get an existing organization identified by the organization ID.<br> \n\n <b>Scope required:</b> `internal_organization_view`"
       summary:
         Get an organization by ID
       parameters:
@@ -121,9 +118,7 @@ paths:
       tags:
         - Organization
     patch:
-      description:
-        This API provides the capability to update an organization property
-        using patch request. Organization patch is supported only for key-value pairs.
+      description: "This API provides the capability to update an organization property using patch request. Organization patch is supported only for key-value pairs. \n\n <b>Scope required:</b> `internal_organization_update`"
       summary:
         Patch an organization property by ID
       parameters:
@@ -159,8 +154,7 @@ paths:
       tags:
         - Organization
     put:
-      description:
-        This API provides the capability to update an organization by its id.
+      description: "This API provides the capability to update an organization by its id. \n\n <b>Scope required:</b> `internal_organization_update`"
       summary:
         Update an organization by ID
       parameters:
@@ -196,9 +190,7 @@ paths:
       tags:
         - Organization
     delete:
-      description:
-        This API provides the capability to delete an organization by
-        giving its ID.
+      description: "This API provides the capability to delete an organization by giving its ID.<br> \n\n <b>Scope required:</b> `internal_organization_delete`"
       summary:
         Delete an organization by ID
       parameters:
@@ -380,10 +372,10 @@ components:
           example:
             [
               {
-                "href": "/o/b4526d91-a8bf-43d2-8b14-c548cf73065b/api/server/v1/organizations?limit=10&filter=name+co+der&next=MjAyMS0xMi0yMSAwNToxODozMS4wMDQzNDg=",
+                "href": "/o/b4526d91-a8bf-43d2-8b14-c548cf73065b/api/server/v1/organizations?limit=10&next=MjAyMS0xMi0yMSAwNToxODozMS4wMDQzNDg=",
                 "rel": "next",
               },  {
-                "href": "/o/b4526d91-a8bf-43d2-8b14-c548cf73065b/api/server/v1/organizations?limit=10&filter=name+co+der&before=MjAyMS0xMi0yMSAwNToxODozMS4wMDQzNDg=",
+                "href": "/o/b4526d91-a8bf-43d2-8b14-c548cf73065b/api/server/v1/organizations?limit=10&before=MjAyMS0xMi0yMSAwNToxODozMS4wMDQzNDg=",
                 "rel": "previous",
               }
             ]
@@ -592,5 +584,4 @@ components:
   securitySchemes:
     OAuth2:
       type: oauth2
-      description: "**Authorization code OAuth flow** + **Organization Switch**"
-      
+      description: "**Authorization code OAuth flow**"

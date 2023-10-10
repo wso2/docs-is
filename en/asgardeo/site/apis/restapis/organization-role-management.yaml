@@ -26,7 +26,7 @@ paths:
       tags:
       - Organization Role Management
       summary: Get roles inside an organization
-      description: This API returns roles in an organization based on the provided filter and limit.
+      description: This API returns roles in an organization based on the provided filter and limit.<br> \n\n <b>Scope required:</b> `internal_role_mgt_view`
       parameters:
       - name: organization-id
         in: path
@@ -89,7 +89,7 @@ paths:
       tags:
       - Organization Role Management
       summary: Create a role inside an organization
-      description: This API creates a role inside an organization, assigns users, groups, and permissions, and returns the details of the created role, including its unique id.
+      description: This API creates a role inside an organization, assigns users, groups, and permissions, and returns the details of the created role, including its unique id.<br> \n\n <b>Scope required:</b> `internal_role_mgt_create`
       operationId: createRole
       parameters:
       - name: organization-id
@@ -147,7 +147,7 @@ paths:
       tags:
       - Organization Role Management
       summary: Get role by ID
-      description: This API returns the role details of a particular role using its unique id.
+      description: This API returns the role details of a particular role using its unique id.<br> \n\n <b>Scope required:</b> `internal_role_mgt_view`
       parameters:
       - name: role-id
         in: path
@@ -192,7 +192,7 @@ paths:
       tags:
       - Organization Role Management
       summary: Update Role - PUT
-      description: This API updates the role details and returns the updated role details using a PUT operation.
+      description: This API updates the role details and returns the updated role details using a PUT operation.<br> \n\n <b>Scope required:</b> `internal_role_mgt_update`
       parameters:
       - name: role-id
         in: path
@@ -250,7 +250,7 @@ paths:
       tags:
       - Organization Role Management
       summary: Delete a role inside an organization
-      description: This API deletes a particular role inside an organization using its unique ID.
+      description: This API deletes a particular role inside an organization using its unique ID.<br> \n\n <b>Scope required:</b> `internal_role_mgt_delete`
       parameters:
       - name: role-id
         in: path
@@ -291,7 +291,7 @@ paths:
       tags:
       - Organization Role Management
       summary: Update Role - PATCH
-      description: This API updates the role details and returns the updated role details.
+      description: This API updates the role details and returns the updated role details.<br> \n\n <b>Scope required:</b> `internal_role_mgt_update`
       parameters:
       - name: role-id
         in: path

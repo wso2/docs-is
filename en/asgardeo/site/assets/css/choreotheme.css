@@ -14,7 +14,7 @@
 
 .md-typeset h3 {
     font-weight: 500;
-    color: #5a5856;
+    color: black;
 }
 
 .md-typeset a{
@@ -91,7 +91,7 @@
     /* White */
 
     background: #FFFFFF;
-    /* Card/Grey/Default */q
+    /* Card/Grey/Default */
 
     box-shadow: 0px 1px 1px #CBCEDB;
     border-radius: 12px;
@@ -134,15 +134,13 @@
     padding-left: 0.5rem;
   }
 
- 
-
   .md-sidebar__scrollwrap {
       padding-right: 0;
   }
 
   .md-content {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
   }
 
   .md-container{
@@ -262,7 +260,7 @@ h3{
 
 .md-search__form {
     border-radius: 0.5rem;
-    background-color: #CBCEDB;
+    background-color: #ededed;
 }
 
 .md-header{
@@ -345,6 +343,159 @@ h3{
 .md-search_label2{
 color: #a8a39f;
 }
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index-heading{
+    font-size: 2em;
+    text-align: center;
+}
+
+.index-text{
+    color: #888888; /* Change text color to red (#FF0000) */
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.border-text {
+    border: 0.5px solid #cbc9c9; /* Border style, width, and color */
+    padding: 10px; /* Padding around the text */
+    display: inline-block; /* Adjust div width based on content */
+    border-radius: 4px;
+    text-align: center;
+    width: 400px; /* Set the width as needed */
+    margin: 10px; /* Add margin for space between elements */
+    background-color: #f8f8f8;
+    transition: transform 0.2s;
+}
+
+.border-text:hover {
+    transform: scale(1.03); /* Enlarge the block by 3% on hover */
+}
+
+/* Integrations page */
+
+.tech-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.tech-item {
+    display: flex;
+    background-color: rgb(248, 248, 248);
+    margin: 0.3em 0;
+    height: 6.5em;
+    border-radius: 6px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: inset 0px 0px 0px 1px #EEEEEE;
+}
+
+
+.tech-name {
+      flex: 3;
+      margin-left: 20px;
+      margin-right: 2px;
+      font-size: 15px;
+      font-weight: 600;
+      width: 18em;
+      line-height: 1.5;
+      padding-top: 10px;
+      text-align: left;
+      white-space: nowrap;
+}
+
+.tech-description {
+    flex: 4;
+    text-align: left;
+    margin: 15px 30px;
+    white-space: pre-line;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container {
+      padding: 5px;
+      width: 10px;
+}
+
+.tech-icon {
+    flex: 1;
+    max-width: 40px; /* Adjust the max width as needed */
+    max-height: 40px; /* Adjust the max height as needed */
+    margin-left: 40px;
+    margin-top: 20px;
+    height: 2.5em;
+    width: auto;
+    border: none;
+}
+
+.tech-links {
+    flex: 2;
+    display: flex;
+    align-items: center; /* Center align vertically */
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+.tech-link {
+    flex: 1;
+    margin: 10px 20px 10px 10px; /* Add space around each link icon */
+}
+
+.tech-link:empty {
+    display: none;
+}
+
+.tooltip {
+    position: relative;
+    display: inline;
+    line-height: 2;
+  }
+
+.tooltip-text {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0; /* Start with zero opacity */
+    background-color: rgba(70, 70, 70, 255);
+    color: #f1f1f1;
+    padding: 0px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 1;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.5s ease;
+}
+
+.tooltip-text:before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0; /* Create a triangle shape */
+    border-style: solid;
+    border-color: rgba(70, 70, 70, 255) transparent transparent transparent;
+    z-index: -1;
+  }
+
+  
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
 
 
 @media screen and (max-width: 500px) {

@@ -14,5 +14,5 @@ template: templates/redoc.html
         You will receive a sample curl command with the sample values you filled in. 
     3. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS. 
 
-<redoc spec-url={{base_path}}/apis/restapis/oauth2-scope-endpoint.yaml></redoc>
+<redoc spec-url=../../apis/restapis/oauth2-scope-endpoint.yaml></redoc>
 <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>

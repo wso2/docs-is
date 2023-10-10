@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Choreo Learning Portal">
+        <meta name="description" content="Documentation for WSO2 Identity Server">
       
       
         <meta name="author" content="WSO2">
@@ -14,7 +14,7 @@
       
       
       
-      <link rel="icon" href="/asgardeo/docs/assets/images/favicon.png">
+      <link rel="icon" href="/en/7.0.0/assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="/asgardeo/docs/assets/stylesheets/main.7bf56d0a.min.css">
+      <link rel="stylesheet" href="/en/7.0.0/assets/stylesheets/main.7bf56d0a.min.css">
       
         
-        <link rel="stylesheet" href="/asgardeo/docs/assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="/en/7.0.0/assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -45,19 +45,19 @@
       
     
     
-      <link rel="stylesheet" href="/asgardeo/docs/assets/lib/highlightjs/styles/vs.min.css">
+      <link rel="stylesheet" href="/en/7.0.0/assets/lib/highlightjs/styles/vs.min.css">
     
-      <link rel="stylesheet" href="/asgardeo/docs/assets/css/blue-palette-alt2.css">
+      <link rel="stylesheet" href="/en/7.0.0/assets/css/blue-palette-alt2.css">
     
-      <link rel="stylesheet" href="/asgardeo/docs/assets/css/choreotheme.css">
+      <link rel="stylesheet" href="/en/7.0.0/assets/css/choreotheme.css">
     
-      <link rel="stylesheet" href="/asgardeo/docs/assets/lib/json-formatter/json-formatter.css">
+      <link rel="stylesheet" href="/en/7.0.0/assets/lib/json-formatter/json-formatter.css">
     
-      <link rel="stylesheet" href="/asgardeo/docs/assets/css/config-catalog.css">
+      <link rel="stylesheet" href="/en/7.0.0/assets/css/config-catalog.css">
     
-      <link rel="stylesheet" href="/asgardeo/docs/assets/lib/fontawesome-free-6.3.0-web/css/all.min.css">
+      <link rel="stylesheet" href="/en/7.0.0/assets/lib/fontawesome-free-6.3.0-web/css/all.min.css">
     
-    <script>__md_scope=new URL("/asgardeo/docs/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("/en/7.0.0/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -99,9 +99,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/asgardeo/docs/." title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
+    <a href="/en/7.0.0/." title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
       
-  <img src="/asgardeo/docs/assets/images/asgardeo-logo-dark.svg" alt="logo" style="vertical-align: middle;">
+  <img src="/en/7.0.0/assets/images/identity-server-docs-logo.svg" alt="logo" style="vertical-align: middle;">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -168,10 +168,16 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -187,6 +193,20 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <div class="row" style="width: 10rem;">
+<div style="display: block; float: left; width: 49%;">
+   <a class="md-source" data-md-component="source" href="https://discord.com/invite/wso2">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>  
+  </div>
+  <label>Get Help</label>
+</a>
+</div> 
+</div>
+      </div>
     
   </nav>
   
@@ -205,7 +225,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/asgardeo/docs/." class="md-tabs__link">
+      <a href="/en/7.0.0/." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -221,7 +241,23 @@
   
   
     <li class="md-tabs__item">
-      <a href="/asgardeo/docs/guides/" class="md-tabs__link">
+      <a href="/en/7.0.0/get-started/index.md" class="md-tabs__link">
+        Get Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="/en/7.0.0/guides/" class="md-tabs__link">
         Guides
       </a>
     </li>
@@ -237,7 +273,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/asgardeo/docs/tutorials/" class="md-tabs__link">
+      <a href="/en/7.0.0/tutorials/index.md" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -253,7 +289,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/asgardeo/docs/integrations/" class="md-tabs__link">
+      <a href="/en/7.0.0/integrations/index.md" class="md-tabs__link">
         Integrations
       </a>
     </li>
@@ -269,7 +305,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/asgardeo/docs/apis/" class="md-tabs__link">
+      <a href="/en/7.0.0/apis/" class="md-tabs__link">
         APIs
       </a>
     </li>
@@ -285,7 +321,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/asgardeo/docs/references/" class="md-tabs__link">
+      <a href="/en/7.0.0/references/" class="md-tabs__link">
         References
       </a>
     </li>
@@ -320,13 +356,27 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/asgardeo/docs/." title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
+    <a href="/en/7.0.0/." title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
       
-  <img src="/asgardeo/docs/assets/images/asgardeo-logo-dark.svg" alt="logo" style="vertical-align: middle;">
+  <img src="/en/7.0.0/assets/images/identity-server-docs-logo.svg" alt="logo" style="vertical-align: middle;">
 
     </a>
     
   </label>
+  
+    <div class="md-nav__source">
+      <div class="row" style="width: 10rem;">
+<div style="display: block; float: left; width: 49%;">
+   <a class="md-source" data-md-component="source" href="https://discord.com/invite/wso2">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>  
+  </div>
+  <label>Get Help</label>
+</a>
+</div> 
+</div>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -343,9 +393,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
       
       
         
@@ -358,7 +406,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/.">Home</a>
+          <a href="/en/7.0.0/.">Home</a>
           
         </div>
       
@@ -390,9 +438,60 @@
       
       
       
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Get Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Get Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/get-started/index.md" class="md-nav__link">
+        WSO2 Identity Server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
         
@@ -418,25 +517,21 @@
         
           
         
-          
-        
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/">Guides</a>
+          <a href="/en/7.0.0/guides/">Guides</a>
           
-            <label for="__nav_2">
+            <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Guides
         </label>
@@ -450,23 +545,17 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
       
       
         
           
             
-          
-        
           
         
           
@@ -484,16 +573,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/applications/">Applications</a>
+          <a href="/en/7.0.0/guides/applications/">Applications</a>
           
-            <label for="__nav_2_2">
+            <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           Applications
         </label>
@@ -507,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/applications/register-single-page-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/applications/register-single-page-app/" class="md-nav__link">
         Register an SPA
       </a>
     </li>
@@ -521,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/applications/register-oidc-web-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/applications/register-oidc-web-app/" class="md-nav__link">
         Register web app with OIDC
       </a>
     </li>
@@ -535,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/applications/register-saml-web-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/applications/register-saml-web-app/" class="md-nav__link">
         Register web app with SAML
       </a>
     </li>
@@ -549,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/applications/register-standard-based-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/applications/register-standard-based-app/" class="md-nav__link">
         Register a standard-based app
       </a>
     </li>
@@ -563,22 +652,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/applications/register-mobile-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/applications/register-mobile-app/" class="md-nav__link">
         Register a mobile app
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/applications/manage-application-roles/" class="md-nav__link">
-        Manage application roles
       </a>
     </li>
   
@@ -598,21 +673,19 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
       
       
         
           
             
+          
+        
           
         
           
@@ -644,16 +717,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/">Authentication</a>
+          <a href="/en/7.0.0/guides/authentication/">Authentication</a>
           
-            <label for="__nav_2_3">
+            <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           Authentication
         </label>
@@ -672,9 +745,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
       
       
         
@@ -688,13 +759,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
           Add login to apps
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_2">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_2">
           <span class="md-nav__icon md-icon"></span>
           Add login to apps
         </label>
@@ -706,8 +777,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/add-login-to-apps/" class="md-nav__link">
-        Add login to Apps
+      <a href="/en/7.0.0/guides/authentication/add-login-to-apps/" class="md-nav__link">
+        Add login to apps
       </a>
     </li>
   
@@ -720,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/add-login-to-single-page-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/add-login-to-single-page-app/" class="md-nav__link">
         Add login to an SPA
       </a>
     </li>
@@ -734,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/add-login-to-web-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/add-login-to-web-app/" class="md-nav__link">
         Add login to a web app
       </a>
     </li>
@@ -748,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/add-login-to-mobile-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/add-login-to-mobile-app/" class="md-nav__link">
         Add login to a mobile app
       </a>
     </li>
@@ -774,9 +845,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
       
       
         
@@ -797,16 +866,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/passwordless-login/">Add passwordless login</a>
+          <a href="/en/7.0.0/guides/authentication/passwordless-login/">Add passwordless login</a>
           
-            <label for="__nav_2_3_3">
+            <label for="__nav_3_3_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_3">
           <span class="md-nav__icon md-icon"></span>
           Add passwordless login
         </label>
@@ -820,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/passwordless-login/add-passwordless-login-with-magic-link/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/passwordless-login/add-passwordless-login-with-magic-link/" class="md-nav__link">
         Add login with Magic link
       </a>
     </li>
@@ -834,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/passwordless-login/add-passwordless-login-with-fido/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/passwordless-login/add-passwordless-login-with-fido/" class="md-nav__link">
         Add login with FIDO2
       </a>
     </li>
@@ -848,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/passwordless-login/add-passwordless-login-with-hypr/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/passwordless-login/add-passwordless-login-with-hypr/" class="md-nav__link">
         Add login with HYPR
       </a>
     </li>
@@ -862,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/passwordless-login/add-passwordless-login-with-email-otp/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/passwordless-login/add-passwordless-login-with-email-otp/" class="md-nav__link">
         Add login with Email OTP
       </a>
     </li>
@@ -888,9 +957,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
       
       
         
@@ -907,16 +974,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/user-attributes/">Enable user attributes</a>
+          <a href="/en/7.0.0/guides/authentication/user-attributes/">Enable user attributes</a>
           
-            <label for="__nav_2_3_4">
+            <label for="__nav_3_3_4">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_4">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_4">
           <span class="md-nav__icon md-icon"></span>
           Enable user attributes
         </label>
@@ -930,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/user-attributes/enable-attributes-for-oidc-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/user-attributes/enable-attributes-for-oidc-app/" class="md-nav__link">
         Enable attributes for OIDC apps
       </a>
     </li>
@@ -944,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/user-attributes/enable-attributes-for-saml-app/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/user-attributes/enable-attributes-for-saml-app/" class="md-nav__link">
         Enable attributes for SAML apps
       </a>
     </li>
@@ -965,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/manage-consent-for-attributes/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/manage-consent-for-attributes/" class="md-nav__link">
         Manage consent for user attributes
       </a>
     </li>
@@ -984,16 +1051,12 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6" >
       
       
         
           
             
-          
-        
           
         
           
@@ -1009,16 +1072,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/social-login/">Add social login</a>
+          <a href="/en/7.0.0/guides/authentication/social-login/">Add social login</a>
           
-            <label for="__nav_2_3_6">
+            <label for="__nav_3_3_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_6">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_6">
           <span class="md-nav__icon md-icon"></span>
           Add social login
         </label>
@@ -1032,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/social-login/add-facebook-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/social-login/add-facebook-login/" class="md-nav__link">
         Add Facebook login
       </a>
     </li>
@@ -1046,21 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/social-login/add-github-login/" class="md-nav__link">
-        Add Github login
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/social-login/add-google-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/social-login/add-google-login/" class="md-nav__link">
         Add Google login
       </a>
     </li>
@@ -1074,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/social-login/add-microsoft-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/social-login/add-microsoft-login/" class="md-nav__link">
         Add Microsoft login
       </a>
     </li>
@@ -1088,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/social-login/add-apple-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/social-login/add-apple-login/" class="md-nav__link">
         Add Apple login
       </a>
     </li>
@@ -1114,9 +1163,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_7" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_7" >
       
       
         
@@ -1131,16 +1178,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/decentralized-login/">Add decentralized login</a>
+          <a href="/en/7.0.0/guides/authentication/decentralized-login/">Add decentralized login</a>
           
-            <label for="__nav_2_3_7">
+            <label for="__nav_3_3_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_7">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_7">
           <span class="md-nav__icon md-icon"></span>
           Add decentralized login
         </label>
@@ -1154,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/decentralized-login/sign-in-with-ethereum/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/decentralized-login/sign-in-with-ethereum/" class="md-nav__link">
         Sign-in with Ethereum
       </a>
     </li>
@@ -1180,9 +1227,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_8" >
       
       
         
@@ -1199,16 +1244,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/enterprise-login/">Add standard-based login</a>
+          <a href="/en/7.0.0/guides/authentication/enterprise-login/">Add standard-based login</a>
           
-            <label for="__nav_2_3_8">
+            <label for="__nav_3_3_8">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_8">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_8">
           <span class="md-nav__icon md-icon"></span>
           Add standard-based login
         </label>
@@ -1222,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/enterprise-login/add-oidc-idp-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/enterprise-login/add-oidc-idp-login/" class="md-nav__link">
         Add login with OIDC IdP
       </a>
     </li>
@@ -1236,7 +1281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/enterprise-login/add-saml-idp-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/enterprise-login/add-saml-idp-login/" class="md-nav__link">
         Add login with SAML IdP
       </a>
     </li>
@@ -1262,16 +1307,12 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_9" >
       
       
         
           
             
-          
-        
           
         
           
@@ -1285,16 +1326,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/mfa/">Add multi-factor authentication</a>
+          <a href="/en/7.0.0/guides/authentication/mfa/">Add multi-factor authentication</a>
           
-            <label for="__nav_2_3_9">
+            <label for="__nav_3_3_9">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_9">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_9">
           <span class="md-nav__icon md-icon"></span>
           Add multi-factor authentication
         </label>
@@ -1308,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/mfa/add-totp-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/mfa/add-totp-login/" class="md-nav__link">
         Add TOTP
       </a>
     </li>
@@ -1322,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/mfa/add-emailotp-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/mfa/add-emailotp-login/" class="md-nav__link">
         Add Email OTP
       </a>
     </li>
@@ -1336,21 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/mfa/add-smsotp-login/" class="md-nav__link">
-        Add SMS OTP
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/mfa/user-preferred-mfa-login/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/mfa/user-preferred-mfa-login/" class="md-nav__link">
         Add user-preferred MFA
       </a>
     </li>
@@ -1376,9 +1403,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_10" >
       
       
         
@@ -1399,16 +1424,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/conditional-auth/">Add conditional authentication</a>
+          <a href="/en/7.0.0/guides/authentication/conditional-auth/">Add conditional authentication</a>
           
-            <label for="__nav_2_3_10">
+            <label for="__nav_3_3_10">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_10">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_10">
           <span class="md-nav__icon md-icon"></span>
           Add conditional authentication
         </label>
@@ -1422,7 +1447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/configure-conditional-auth/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/configure-conditional-auth/" class="md-nav__link">
         Set up conditional authentication
       </a>
     </li>
@@ -1441,9 +1466,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_10_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_10_3" >
       
       
         
@@ -1455,13 +1478,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_3_10_3" id="__nav_2_3_10_3_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_3_10_3" id="__nav_3_3_10_3_label" tabindex="0">
           Add access control
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_10_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_10_3">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_10_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_10_3">
           <span class="md-nav__icon md-icon"></span>
           Add access control
         </label>
@@ -1473,8 +1496,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/access-control/" class="md-nav__link">
-        Add access control
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/access-control/" class="md-nav__link">
+        Access control
       </a>
     </li>
   
@@ -1487,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/user-age-based-template/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/user-age-based-template/" class="md-nav__link">
         Age-based access
       </a>
     </li>
@@ -1501,7 +1524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/group-based-template-access-control/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/group-based-template-access-control/" class="md-nav__link">
         Group-based access
       </a>
     </li>
@@ -1527,9 +1550,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_10_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_10_4" >
       
       
         
@@ -1547,13 +1568,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_3_10_4" id="__nav_2_3_10_4_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_3_10_4" id="__nav_3_3_10_4_label" tabindex="0">
           Add adaptive MFA
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_10_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_10_4">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_10_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_10_4">
           <span class="md-nav__icon md-icon"></span>
           Add adaptive MFA
         </label>
@@ -1565,8 +1586,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/adaptive-mfa/" class="md-nav__link">
-        Add adaptive MFA
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/adaptive-mfa/" class="md-nav__link">
+        Adaptive mfa
       </a>
     </li>
   
@@ -1579,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/group-based-template/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/group-based-template/" class="md-nav__link">
         MFA based on user group
       </a>
     </li>
@@ -1593,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/sign-in-option-based-template/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/sign-in-option-based-template/" class="md-nav__link">
         MFA based on sign-in option
       </a>
     </li>
@@ -1607,7 +1628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/new-device-based-template/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/new-device-based-template/" class="md-nav__link">
         MFA based on user device
       </a>
     </li>
@@ -1621,7 +1642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/ip-based-template/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/ip-based-template/" class="md-nav__link">
         MFA based on IP address
       </a>
     </li>
@@ -1635,7 +1656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/add-authentications-based-on-api-calls/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/add-authentications-based-on-api-calls/" class="md-nav__link">
         MFA based on advanced conditions (using WSO2 Choreo)
       </a>
     </li>
@@ -1656,7 +1677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/conditional-auth/write-your-first-script/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/conditional-auth/write-your-first-script/" class="md-nav__link">
         Write a custom authentication script
       </a>
     </li>
@@ -1682,9 +1703,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_11" >
       
       
         
@@ -1715,16 +1734,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/oidc/">Configure OIDC flows</a>
+          <a href="/en/7.0.0/guides/authentication/oidc/">Configure OIDC flows</a>
           
-            <label for="__nav_2_3_11">
+            <label for="__nav_3_3_11">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_11_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_11">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_11">
           <span class="md-nav__icon md-icon"></span>
           Configure OIDC flows
         </label>
@@ -1738,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/discover-oidc-configs/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/discover-oidc-configs/" class="md-nav__link">
         Discover OIDC endpoints
       </a>
     </li>
@@ -1752,7 +1771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/implement-auth-code/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/implement-auth-code/" class="md-nav__link">
         Implement login using the Authorization Code flow
       </a>
     </li>
@@ -1766,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/implement-auth-code-with-pkce/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/implement-auth-code-with-pkce/" class="md-nav__link">
         Implement login using the Authorization Code flow and PKCE
       </a>
     </li>
@@ -1780,7 +1799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/private-key-jwt-client-auth/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/private-key-jwt-client-auth/" class="md-nav__link">
         Implement private key JWT client authentication for OIDC
       </a>
     </li>
@@ -1794,7 +1813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/validate-id-tokens/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/validate-id-tokens/" class="md-nav__link">
         Validate ID tokens
       </a>
     </li>
@@ -1808,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/request-user-info/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/request-user-info/" class="md-nav__link">
         Request user information
       </a>
     </li>
@@ -1822,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/token-validation-resource-server/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/token-validation-resource-server/" class="md-nav__link">
         Validate tokens
       </a>
     </li>
@@ -1836,7 +1855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/revoke-tokens/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/revoke-tokens/" class="md-nav__link">
         Revoke tokens
       </a>
     </li>
@@ -1850,7 +1869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/oidc/add-logout/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/oidc/add-logout/" class="md-nav__link">
         Implement logout
       </a>
     </li>
@@ -1876,9 +1895,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_12" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_12" >
       
       
         
@@ -1893,16 +1910,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/authentication/saml/">Configure SAML flows</a>
+          <a href="/en/7.0.0/guides/authentication/saml/">Configure SAML flows</a>
           
-            <label for="__nav_2_3_12">
+            <label for="__nav_3_3_12">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_12_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_12">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_12">
           <span class="md-nav__icon md-icon"></span>
           Configure SAML flows
         </label>
@@ -1916,7 +1933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/saml/discover-saml-configs/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/saml/discover-saml-configs/" class="md-nav__link">
         Discover SAML endpoints and settings
       </a>
     </li>
@@ -1937,7 +1954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/authentication/jit-user-provisioning/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/authentication/jit-user-provisioning/" class="md-nav__link">
         Configure Just-in-Time user provisioning
       </a>
     </li>
@@ -1945,56 +1962,14 @@
 
             
           
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-          API authorization
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          API authorization
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
             
               
   
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/api-authorization/" class="md-nav__link">
-        API authorization
+      <a href="/en/7.0.0/guides/authentication/configure-the-token-exchange-flow/" class="md-nav__link">
+        Configure the token exchange flow
       </a>
     </li>
   
@@ -2013,17 +1988,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/guides/api-authorization/" class="md-nav__link">
+        API authorization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
       
       
         
@@ -2044,16 +2029,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/branding/">Branding</a>
+          <a href="/en/7.0.0/guides/branding/">Branding</a>
           
-            <label for="__nav_2_5">
+            <label for="__nav_3_5">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_5">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           Branding
         </label>
@@ -2067,7 +2052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/branding/configure-ui-branding/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/branding/configure-ui-branding/" class="md-nav__link">
         Configure UI branding
       </a>
     </li>
@@ -2081,7 +2066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/branding/configure-custom-domains/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/branding/configure-custom-domains/" class="md-nav__link">
         Configure custom domains
       </a>
     </li>
@@ -2095,7 +2080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/branding/customize-email-templates/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/branding/customize-email-templates/" class="md-nav__link">
         Customize email templates
       </a>
     </li>
@@ -2109,7 +2094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/branding/configure-email-providers/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/branding/configure-email-providers/" class="md-nav__link">
         Configure the email provider
       </a>
     </li>
@@ -2130,16 +2115,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
       
       
         
@@ -2166,16 +2147,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/users/">User management</a>
+          <a href="/en/7.0.0/guides/users/">User management</a>
           
-            <label for="__nav_2_6">
+            <label for="__nav_3_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_6">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
           <span class="md-nav__icon md-icon"></span>
           User management
         </label>
@@ -2189,7 +2170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/manage-collaborators/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/manage-collaborators/" class="md-nav__link">
         Manage administrators
       </a>
     </li>
@@ -2203,7 +2184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/manage-customers/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/manage-customers/" class="md-nav__link">
         Manage users
       </a>
     </li>
@@ -2217,7 +2198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/manage-groups/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/manage-groups/" class="md-nav__link">
         Manage groups
       </a>
     </li>
@@ -2231,7 +2212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/manage-sessions/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/manage-sessions/" class="md-nav__link">
         Manage active sessions
       </a>
     </li>
@@ -2245,8 +2226,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/migrate-users/" class="md-nav__link">
-        Migrate users to Asgardeo
+      <a href="/en/7.0.0/guides/users/migrate-users/" class="md-nav__link">
+        Migrate users to WSO2 Identity Server
       </a>
     </li>
   
@@ -2264,9 +2245,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_7" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_7" >
       
       
         
@@ -2287,16 +2266,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/users/attributes/">Manage attributes and mappings</a>
+          <a href="/en/7.0.0/guides/users/attributes/">Manage attributes and mappings</a>
           
-            <label for="__nav_2_6_7">
+            <label for="__nav_3_6_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_6_7">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6_7">
           <span class="md-nav__icon md-icon"></span>
           Manage attributes and mappings
         </label>
@@ -2310,7 +2289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/attributes/manage-attributes/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/attributes/manage-attributes/" class="md-nav__link">
         User attributes
       </a>
     </li>
@@ -2324,7 +2303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/attributes/manage-oidc-attribute-mappings/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/attributes/manage-oidc-attribute-mappings/" class="md-nav__link">
         OIDC attribute mappings
       </a>
     </li>
@@ -2338,7 +2317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/attributes/manage-scim2-attribute-mappings/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/attributes/manage-scim2-attribute-mappings/" class="md-nav__link">
         SCIM2 attribute mappings
       </a>
     </li>
@@ -2352,7 +2331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/attributes/manage-scopes/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/attributes/manage-scopes/" class="md-nav__link">
         OIDC scopes
       </a>
     </li>
@@ -2378,9 +2357,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_8" >
       
       
         
@@ -2399,16 +2376,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/users/user-stores/">Manage user stores</a>
+          <a href="/en/7.0.0/guides/users/user-stores/">Manage user stores</a>
           
-            <label for="__nav_2_6_8">
+            <label for="__nav_3_6_8">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_6_8">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6_8">
           <span class="md-nav__icon md-icon"></span>
           Manage user stores
         </label>
@@ -2422,7 +2399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/user-stores/configure-a-user-store/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/user-stores/configure-a-user-store/" class="md-nav__link">
         Connect a remote user store
       </a>
     </li>
@@ -2436,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/user-stores/configure-high-availability/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/user-stores/configure-high-availability/" class="md-nav__link">
         Configure high availability
       </a>
     </li>
@@ -2450,7 +2427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/users/user-stores/update-user-stores/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/users/user-stores/update-user-stores/" class="md-nav__link">
         Manage remote user stores
       </a>
     </li>
@@ -2478,16 +2455,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
       
       
         
@@ -2510,16 +2483,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/user-accounts/">Account management</a>
+          <a href="/en/7.0.0/guides/user-accounts/">Account management</a>
           
-            <label for="__nav_2_7">
+            <label for="__nav_3_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_7">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           Account management
         </label>
@@ -2533,7 +2506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-accounts/configure-self-service-portal/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-accounts/configure-self-service-portal/" class="md-nav__link">
         Configure self-service portal
       </a>
     </li>
@@ -2547,7 +2520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-accounts/password-recovery/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-accounts/password-recovery/" class="md-nav__link">
         Configure password recovery
       </a>
     </li>
@@ -2561,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-accounts/configure-self-registration/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-accounts/configure-self-registration/" class="md-nav__link">
         Configure self-registration
       </a>
     </li>
@@ -2580,9 +2553,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_5" >
       
       
         
@@ -2594,13 +2565,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_7_5" id="__nav_2_7_5_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_7_5" id="__nav_3_7_5_label" tabindex="0">
           Manage account security
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_7_5">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7_5">
           <span class="md-nav__icon md-icon"></span>
           Manage account security
         </label>
@@ -2612,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-accounts/account-security/login-attempts-security/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-accounts/account-security/login-attempts-security/" class="md-nav__link">
         Configure login-attempts security
       </a>
     </li>
@@ -2626,7 +2597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-accounts/account-security/bot-detection/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-accounts/account-security/bot-detection/" class="md-nav__link">
         Configure bot detection
       </a>
     </li>
@@ -2640,7 +2611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-accounts/account-security/password-validation/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-accounts/account-security/password-validation/" class="md-nav__link">
         Configure password validation
       </a>
     </li>
@@ -2666,9 +2637,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_6" >
       
       
         
@@ -2676,13 +2645,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_7_6" id="__nav_2_7_6_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_7_6" id="__nav_3_7_6_label" tabindex="0">
           Manage account login
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_7_6">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7_6">
           <span class="md-nav__icon md-icon"></span>
           Manage account login
         </label>
@@ -2694,7 +2663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-accounts/account-login/username-validation/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-accounts/account-login/username-validation/" class="md-nav__link">
         Configure username validation
       </a>
     </li>
@@ -2722,16 +2691,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
       
       
         
@@ -2748,16 +2713,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/user-self-service/">User self-service</a>
+          <a href="/en/7.0.0/guides/user-self-service/">User self-service</a>
           
-            <label for="__nav_2_8">
+            <label for="__nav_3_8">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_8">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_8">
           <span class="md-nav__icon md-icon"></span>
           User self-service
         </label>
@@ -2776,9 +2741,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8_2" >
       
       
         
@@ -2810,13 +2773,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_8_2" id="__nav_2_8_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_8_2" id="__nav_3_8_2_label" tabindex="0">
           Self-service portal
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_8_2">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_8_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_8_2">
           <span class="md-nav__icon md-icon"></span>
           Self-service portal
         </label>
@@ -2828,8 +2791,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/customer-self-service-portal/" class="md-nav__link">
-        Self-service portal for users
+      <a href="/en/7.0.0/guides/user-self-service/customer-self-service-portal/" class="md-nav__link">
+        Customer self service portal
       </a>
     </li>
   
@@ -2842,7 +2805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/update-profile-info/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/update-profile-info/" class="md-nav__link">
         Update profile information
       </a>
     </li>
@@ -2856,7 +2819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/change-password/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/change-password/" class="md-nav__link">
         Change password
       </a>
     </li>
@@ -2870,7 +2833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/manage-linked-accounts/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/manage-linked-accounts/" class="md-nav__link">
         Manage linked social accounts
       </a>
     </li>
@@ -2884,7 +2847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/export-profile-information/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/export-profile-information/" class="md-nav__link">
         Export profile information
       </a>
     </li>
@@ -2898,7 +2861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/manage-consents/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/manage-consents/" class="md-nav__link">
         Manage consents
       </a>
     </li>
@@ -2912,7 +2875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/manage-login-sessions/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/manage-login-sessions/" class="md-nav__link">
         Manage login sessions
       </a>
     </li>
@@ -2926,7 +2889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/self-register/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/self-register/" class="md-nav__link">
         Self-register
       </a>
     </li>
@@ -2940,7 +2903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/register-security-key/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/register-security-key/" class="md-nav__link">
         Register FIDO2 security key/biometrics
       </a>
     </li>
@@ -2954,7 +2917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/customer-password-recovery/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/customer-password-recovery/" class="md-nav__link">
         Password recovery
       </a>
     </li>
@@ -2968,7 +2931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/enable-totp/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/enable-totp/" class="md-nav__link">
         Enroll TOTP
       </a>
     </li>
@@ -2982,7 +2945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/manage-backup-codes/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/manage-backup-codes/" class="md-nav__link">
         Manage backup codes
       </a>
     </li>
@@ -2996,7 +2959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/discover-applications/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/discover-applications/" class="md-nav__link">
         Discover applications
       </a>
     </li>
@@ -3017,7 +2980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/user-self-service/build-self-service-capabilities/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/user-self-service/build-self-service-capabilities/" class="md-nav__link">
         Build self-service capabilities
       </a>
     </li>
@@ -3038,16 +3001,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
       
       
         
@@ -3066,16 +3025,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/organization-management/">Organization management</a>
+          <a href="/en/7.0.0/guides/organization-management/">Organization management</a>
           
-            <label for="__nav_2_9">
+            <label for="__nav_3_9">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_9">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_9">
           <span class="md-nav__icon md-icon"></span>
           Organization management
         </label>
@@ -3089,7 +3048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/organization-management/manage-organizations/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/organization-management/manage-organizations/" class="md-nav__link">
         Manage organizations
       </a>
     </li>
@@ -3108,14 +3067,14 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_9_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9_3" >
       
       
         
           
             
+          
+        
           
         
           
@@ -3133,16 +3092,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/organization-management/manage-b2b-organizations/">Manage B2B organizations</a>
+          <a href="/en/7.0.0/guides/organization-management/manage-b2b-organizations/">Manage B2B organizations</a>
           
-            <label for="__nav_2_9_3">
+            <label for="__nav_3_9_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_9_3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_9_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_9_3">
           <span class="md-nav__icon md-icon"></span>
           Manage B2B organizations
         </label>
@@ -3156,7 +3115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/organization-management/manage-b2b-organizations/manage-suborganizations/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/organization-management/manage-b2b-organizations/manage-suborganizations/" class="md-nav__link">
         Set up sub organizations
       </a>
     </li>
@@ -3170,7 +3129,21 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/organization-management/manage-b2b-organizations/manage-b2b-administration/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/organization-management/manage-b2b-organizations/onboard-sub-org-admins/" class="md-nav__link">
+        Onboard sub organization admins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/guides/organization-management/manage-b2b-organizations/manage-b2b-administration/" class="md-nav__link">
         Administration of sub organizations
       </a>
     </li>
@@ -3184,7 +3157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/organization-management/manage-b2b-organizations/share-applications/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/organization-management/manage-b2b-organizations/share-applications/" class="md-nav__link">
         Share applications
       </a>
     </li>
@@ -3198,7 +3171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case/" class="md-nav__link">
         Try a B2B use case
       </a>
     </li>
@@ -3212,7 +3185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/organization-management/manage-b2b-organizations/api-authorization-for-b2b/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/organization-management/manage-b2b-organizations/api-authorization-for-b2b/" class="md-nav__link">
         API authorization for sub organizations
       </a>
     </li>
@@ -3233,7 +3206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/organization-management/manage-environments/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/organization-management/manage-environments/" class="md-nav__link">
         Manage environments
       </a>
     </li>
@@ -3254,16 +3227,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
       
       
         
@@ -3284,18 +3253,18 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/guides/your-asgardeo/">Your Asgardeo</a>
+          <a href="/en/7.0.0/guides/your-is/">Your WSO2 Identity Server</a>
           
-            <label for="__nav_2_10">
+            <label for="__nav_3_10">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_10">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_10">
           <span class="md-nav__icon md-icon"></span>
-          Your Asgardeo
+          Your WSO2 Identity Server
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -3307,7 +3276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/your-asgardeo/asgardeo-self-service/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/your-is/is-self-service/" class="md-nav__link">
         Self-service
       </a>
     </li>
@@ -3321,7 +3290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/your-asgardeo/recover-password/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/your-is/recover-password/" class="md-nav__link">
         Recover your password
       </a>
     </li>
@@ -3335,7 +3304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/your-asgardeo/delete-your-user-account/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/your-is/delete-your-user-account/" class="md-nav__link">
         Delete your user account
       </a>
     </li>
@@ -3349,7 +3318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/your-asgardeo/manage-subscriptions/" class="md-nav__link">
+      <a href="/en/7.0.0/guides/your-is/manage-subscriptions/" class="md-nav__link">
         Manage subscriptions
       </a>
     </li>
@@ -3364,34 +3333,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/asgardeo-events/" class="md-nav__link">
-        Asgardeo events
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/guides/organization-insights/" class="md-nav__link">
-        Organization insights
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3411,96 +3352,34 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
         
           
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/tutorials/">Tutorials</a>
-          
-            <label for="__nav_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-          
-            
               
   
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/tutorials/auth-users-into-android-apps/" class="md-nav__link">
-        Authenticate users into Android applications
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/tutorials/auth-users-into-flutter-apps/" class="md-nav__link">
-        Authenticate users into Flutter applications
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/tutorials/connect-asgardeo-with-ms-entra/" class="md-nav__link">
-        Connect Asgardeo as an OIDC attribute provider (with Microsoft Entra Verified ID)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/tutorials/connect-asgardeo-with-mattr/" class="md-nav__link">
-        Connect Asgardeo as an OIDC attribute provider (with MATTR)
+      <a href="/en/7.0.0/tutorials/index.md" class="md-nav__link">
+        Tutorials
       </a>
     </li>
   
@@ -3526,33 +3405,39 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/integrations/">Integrations</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Integrations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Integrations
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/integrations/index.md" class="md-nav__link">
+        Integrations
+      </a>
+    </li>
+  
+
+            
           
         </ul>
       </nav>
@@ -3573,9 +3458,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
         
@@ -3613,23 +3496,21 @@
         
           
         
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/apis/">APIs</a>
+          <a href="/en/7.0.0/apis/">APIs</a>
           
-            <label for="__nav_5">
+            <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           APIs
         </label>
@@ -3643,8 +3524,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/authentication/" class="md-nav__link">
-        Authentication
+      <a href="/en/7.0.0/apis/use-the-authentication-rest-apis/" class="md-nav__link">
+        Authentication API
       </a>
     </li>
   
@@ -3657,128 +3538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/application-management/" class="md-nav__link">
-        Application management API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/oauth-dcr/" class="md-nav__link">
-        OAuth Dynamic Client Registration API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/idp/" class="md-nav__link">
-        Identity provider API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/scim2/" class="md-nav__link">
-        User management (SCIM 2.0) API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/email-template/" class="md-nav__link">
-        Email templates API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/identity-governance/" class="md-nav__link">
-        Identity governance API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_9" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
-          User sessions
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_9">
-          <span class="md-nav__icon md-icon"></span>
-          User sessions
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/session/" class="md-nav__link">
+      <a href="/en/7.0.0/apis/session-mgt-rest-api/" class="md-nav__link">
         Session management API
       </a>
     </li>
@@ -3792,8 +3552,142 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/extend-sessions/" class="md-nav__link">
-        Session extension API
+      <a href="/en/7.0.0/apis/entitlement-with-rest-apis/" class="md-nav__link">
+        Entitlement management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+          User management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          User management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/scim-1.1-apis/" class="md-nav__link">
+        SCIM 1.1 API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_5_2" id="__nav_6_5_2_label" tabindex="0">
+          SCIM 2.0 API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          SCIM 2.0 API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/scim2-rest-apis/" class="md-nav__link">
+        SCIM 2.0 API Definition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/scim2-patch-operations/" class="md-nav__link">
+        SCIM 2.0 Patch Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/scim2-batch-operations/" class="md-nav__link">
+        SCIM 2.0 Batch Operations
       </a>
     </li>
   
@@ -3813,8 +3707,99 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/event-configuration/" class="md-nav__link">
-        Event configuration API
+      <a href="/en/7.0.0/apis/use-the-account-recovery-rest-apis/" class="md-nav__link">
+        Account recovery API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/association-rest-api/" class="md-nav__link">
+        Associated accounts API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/challenge-questions/" class="md-nav__link">
+        Challenge question API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/challenge-rest-api/" class="md-nav__link">
+        Challenge answers API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/use-the-self-sign-up-rest-apis/" class="md-nav__link">
+        Self Sign-Up API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/idp-rest-api/" class="md-nav__link">
+        Identity provider API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/idp-session-extender-endpoint/" class="md-nav__link">
+        IdP session extension API
       </a>
     </li>
   
@@ -3827,16 +3812,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
       
       
         
@@ -3850,13 +3831,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
           Self-service
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_11">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_8">
           <span class="md-nav__icon md-icon"></span>
           Self-service
         </label>
@@ -3868,7 +3849,21 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/register-mfa/totp/" class="md-nav__link">
+      <a href="/en/7.0.0/apis/fido-rest-api/" class="md-nav__link">
+        FIDO API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/totp-rest-api/" class="md-nav__link">
         TOTP API
       </a>
     </li>
@@ -3882,8 +3877,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/register-mfa/backup-code/" class="md-nav__link">
-        Backup codes API
+      <a href="/en/7.0.0/apis/user-discoverable-applications/" class="md-nav__link">
+        User discoverable application API
       </a>
     </li>
   
@@ -3896,22 +3891,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/register-mfa/password-recovery/" class="md-nav__link">
-        Password recovery API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/register-mfa/export-user-info/" class="md-nav__link">
-        Export user information API
+      <a href="/en/7.0.0/apis/approvals-rest-api/" class="md-nav__link">
+        Approvals management API
       </a>
     </li>
   
@@ -3931,190 +3912,48 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_12" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
       
       
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
-        <label class="md-nav__link" for="__nav_5_12" id="__nav_5_12_label" tabindex="0">
-          Administrators
+        <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          Application management
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_12_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_12">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_9">
           <span class="md-nav__icon md-icon"></span>
-          Administrators
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/administrators/export-admin-info/" class="md-nav__link">
-        Export admin information API
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/consent-management/" class="md-nav__link">
-        Consent management API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/event-configuration/" class="md-nav__link">
-        Event configuration API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/validation/" class="md-nav__link">
-        Validation API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_16" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/apis/organization-management/">Suborganization APIs</a>
-          
-            <label for="__nav_5_16">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_16_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_16">
-          <span class="md-nav__icon md-icon"></span>
-          Suborganization APIs
+          Application management
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-          
-            
               
   
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/organization-management/authentication/" class="md-nav__link">
-        Get access for suborganization APIs
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/organization-management/org-scim2/" class="md-nav__link">
-        User management - SCIM2 API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/organization-management/org-application-management/" class="md-nav__link">
+      <a href="/en/7.0.0/apis/application-rest-api/" class="md-nav__link">
         Application management API
       </a>
     </li>
@@ -4127,9 +3966,42 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_9_2" id="__nav_6_9_2_label" tabindex="0">
+          Authorized apps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_9_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Authorized apps
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/organization-management/org-idp/" class="md-nav__link">
-        Identity providers API
+      <a href="/en/7.0.0/apis/authorized-apps-rest-api/" class="md-nav__link">
+        Authorized apps API V1
       </a>
     </li>
   
@@ -4142,22 +4014,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/organization-management/org-management/" class="md-nav__link">
-        Organization management API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/organization-management/organization-role-management/" class="md-nav__link">
-        Organization role management API
+      <a href="/en/7.0.0/apis/authorized-apps-v2-rest-api/" class="md-nav__link">
+        Authorized apps API V2
       </a>
     </li>
   
@@ -4177,9 +4035,484 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/apis/idle-account-identification/" class="md-nav__link">
-        Idle account identification API
+      <a href="/en/7.0.0/apis/oauth2-scope-management-rest-apis/" class="md-nav__link">
+        OAuth 2.0 scope management API
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/oidc-scope-management-rest-apis/" class="md-nav__link">
+        OpenID Connect scope management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/" class="md-nav__link">
+        OIDC Dynamic Client Registration API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/script-library-rest-api/" class="md-nav__link">
+        Script Library management API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/claim-management-rest-api/" class="md-nav__link">
+        Claim management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_11" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_11" id="__nav_6_11_label" tabindex="0">
+          Server management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_11">
+          <span class="md-nav__icon md-icon"></span>
+          Server management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_11_1" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_11_1" id="__nav_6_11_1_label" tabindex="0">
+          Configuration management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_11_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/use-the-configuration-management-rest-apis/" class="md-nav__link">
+        Configuration management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/retrieve-tenant-resources-based-on-search-parameters/" class="md-nav__link">
+        Retrieve Tenant Resources Based on Search Parameters
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/identity-governance-rest-api/" class="md-nav__link">
+        Identity governance API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/keystore-rest-api/" class="md-nav__link">
+        Keystore management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/user-store-rest-api/" class="md-nav__link">
+        User store management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/tenant-management-rest-api/" class="md-nav__link">
+        Tenant management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/cors-rest-api/" class="md-nav__link">
+        CORS API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_11_7" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_11_7" id="__nav_6_11_7_label" tabindex="0">
+          Consent management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_11_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_11_7">
+          <span class="md-nav__icon md-icon"></span>
+          Consent management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/use-the-consent-management-rest-apis/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/consent-management-api-definition/" class="md-nav__link">
+        Consent management API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/email-templates-rest-api/" class="md-nav__link">
+        Email templates API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/workflow-engine-rest-api/" class="md-nav__link">
+        Workflow engine management API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/notification-sender-rest-api/" class="md-nav__link">
+        Notification sender management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/configs-rest-api/" class="md-nav__link">
+        Server configuration API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/permission-management-rest-api/" class="md-nav__link">
+        Permission management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/user-functionality-mgt-rest-api/" class="md-nav__link">
+        User Functionality management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_16" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_16" id="__nav_6_16_label" tabindex="0">
+          Admin services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_16_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_16">
+          <span class="md-nav__icon md-icon"></span>
+          Admin services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/call-admin-services/" class="md-nav__link">
+        Call admin services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/en/7.0.0/apis/admin-services-for-one-way-operations/" class="md-nav__link">
+        One way operations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -4204,9 +4537,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
       
       
         
@@ -4216,43 +4547,21 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/references/">References</a>
+          <a href="/en/7.0.0/references/">References</a>
           
-            <label for="__nav_6">
+            <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_6">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           References
         </label>
@@ -4265,63 +4574,62 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/user-management/user-roles/" class="md-nav__link">
-        Asgardeo user roles
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
       
       
         
           
-            
-          
-        
-          
-        
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/references/app-settings/">App configurations</a>
-          
-            <label for="__nav_6_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_6_3">
+        <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          Extenstions
           <span class="md-nav__icon md-icon"></span>
-          App configurations
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Extenstions
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_1" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7_2_1" id="__nav_7_2_1_label" tabindex="0">
+          Authentication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Authentication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -4329,22 +4637,8 @@
   
   
     <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/app-settings/oidc-settings-for-app/" class="md-nav__link">
-        OIDC configurations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/app-settings/saml-settings-for-app/" class="md-nav__link">
-        SAML configurations
+      <a href="/en/7.0.0/references/extend/write-a-custom-oauth-2.0-grant-type/" class="md-nav__link">
+        Write a Custom OAuth 2.0 grant
       </a>
     </li>
   
@@ -4358,211 +4652,8 @@
 
             
           
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="/asgardeo/docs/references/idp-settings/">IdP configurations</a>
-          
-            <label for="__nav_6_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_6_4">
-          <span class="md-nav__icon md-icon"></span>
-          IdP configurations
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/idp-settings/oidc-settings-for-idp/" class="md-nav__link">
-        OIDC configurations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/idp-settings/saml-settings-for-idp/" class="md-nav__link">
-        SAML configurations
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/grant-types-in-asgardeo/" class="md-nav__link">
-        OAuth2 grant types of Asgardeo
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/conditional-auth/api-reference/" class="md-nav__link">
-        Conditional auth - API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/remote-user-store/remote-user-store-properties/" class="md-nav__link">
-        Remote user store properties
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/authorization-policies-for-apps/" class="md-nav__link">
-        Authorization policies for apps
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/application-logs/" class="md-nav__link">
-        Application logs
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/email-templates/" class="md-nav__link">
-        Email templates
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/accessibility/" class="md-nav__link">
-        Accessibility compliance
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/data-residency-in-asgardeo/" class="md-nav__link">
-        Data residency in Asgardeo
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/asgardeo/docs/references/localization-in-asgardeo/" class="md-nav__link">
-        Localization in Asgardeo
-      </a>
     </li>
   
 
@@ -4608,6 +4699,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" hidden>
@@ -4637,16 +4730,16 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/asgardeo/docs/", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "content.code.copy", "content.action.edit", "content.action.view"], "search": "/asgardeo/docs/assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "/en/7.0.0/", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "navigation.top", "content.code.copy", "content.action.edit", "content.action.view", "content.tabs.link", "search.suggest", "search.share"], "search": "/en/7.0.0/assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/asgardeo/docs/assets/javascripts/bundle.fc8c2696.min.js"></script>
+      <script src="/en/7.0.0/assets/javascripts/bundle.fc8c2696.min.js"></script>
       
-        <script src="/asgardeo/docs/assets/lib/json-formatter/json-formatter.umd.js"></script>
+        <script src="/en/7.0.0/assets/lib/json-formatter/json-formatter.umd.js"></script>
       
-        <script src="/asgardeo/docs/assets/lib/highlightjs/highlight.min.js"></script>
+        <script src="/en/7.0.0/assets/lib/highlightjs/highlight.min.js"></script>
       
-        <script src="/asgardeo/docs/assets/js/choreotheme.js"></script>
+        <script src="/en/7.0.0/assets/js/choreotheme.js"></script>
       
     
   </body>

@@ -1,22 +1,37 @@
 openapi: 3.0.0
 info:
   description: >-
-    This is the RESTful API for identity governance configurations in Asgardeo.
+    This is the RESTful API for identity governance configurations in WSO2
+    Identity Server
   version: "v1"
-  title: Asgardeo - Governance Connectors Admin API
+  title: WSO2 Identity Server - Governance connectors Admin API
+  contact:
+    name: WSO2 Identity Server
+    url: 'https://wso2.com/identity-and-access-management'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: Management
     description: Secured Admin-only calls
 security:
   - OAuth2: []
+  - BasicAuth: []
 paths:
   /identity-governance/:
     get:
       tags:
         - Management
-      summary: Get connector categories
+      summary: Retrieve governance connector categories.
       operationId: getCategories
-      description: "Retrieve governance connector categories.\n\n <b>Scope required:</b> ``internal_governance_view``"
+      description: |
+        Retrieve governance connector categories.
+
+        <b>Permission required:</b> <br>
+          * /permission/admin/manage/identity/idpmgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_view
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -41,9 +56,14 @@ paths:
     get:
       tags:
         - Management
-      summary: Get connectors of a category
+      summary: Retrieve governance connectors of a category.
       operationId: getConnectorCategory
-      description: "Retrieve governance connectors of a category. \n\n <b>Scope required:</b> ``internal_governance_view``"
+      description: |
+        Retrieve governance connectors of a category. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_view
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
       responses:
@@ -63,9 +83,14 @@ paths:
     get:
       tags:
         - Management
-      summary: Get connectors of a category
+      summary: Retrieve governance connectors of a category.
       operationId: getConnectorsOfCategory
-      description: "Retrieve governance connectors of a category.\n\n <b>Scope required:</b> ``internal_governance_view``"
+      description: |
+        Retrieve governance connectors of a category.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_view
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
       responses:
@@ -87,9 +112,14 @@ paths:
     get:
       tags:
         - Management
-      summary: Get a governance connector
+      summary: Retrieve governance connector.
       operationId: getConnector
-      description: "Retrieve governance connector. \n\n <b>Scope required:</b> ``internal_governance_view``"
+      description: |
+        Retrieve governance connector.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_view
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: '#/components/parameters/connectorIdPathParam'
@@ -109,9 +139,14 @@ paths:
     patch:
       tags:
         - Management
-      summary: Patch a governance connector
+      summary: Patch governance connector.
       operationId: patchConnector
-      description: "Patch governance connector. \n\n <b>Scope required:</b> ``internal_governance_update``"
+      description: |
+        Patch governance connector.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/update <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_update
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: '#/components/parameters/connectorIdPathParam'
@@ -133,7 +168,12 @@ paths:
               $ref: '#/components/schemas/ConnectorsPatchReq'
         description: governance-connector to update
 servers:
-  - url: https://api.asgardeo.io/t/{organization-name}/api/server/v1
+  - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
 components:
   parameters:
     limitQueryParam:
@@ -210,12 +250,15 @@ components:
     OK:
       description: OK.
   securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
     OAuth2:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
-          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
+          authorizationUrl: 'https://localhost:9443/oauth/authorize'
+          tokenUrl: 'https://localhost:9443/oauth/token'
           scopes: {}
   schemas:
     CategoriesRes:
@@ -233,7 +276,7 @@ components:
         self:
           type: string
           description: Path to retrieve the full connector information.
-          example: /t/{organization-name}/api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz
+          example: /t/carbon.super/api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz
         connectors:
           type: array
           description: Connectors of the category with minimal attributes.
@@ -250,7 +293,7 @@ components:
         self:
           type: string
           description: Path to retrieve the full connector information.
-          example: /t/{organization-name}/api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz/connectors/c3VzcGVuc2lvbi5ub3RpZmljYXRpb24
+          example: /t/carbon.super/api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz/connectors/c3VzcGVuc2lvbi5ub3RpZmljYXRpb24
     CategoryRes:
       type: object
       description: Governance connector category response.
@@ -358,17 +401,13 @@ components:
       properties:
         code:
           type: string
-          description: The error code recieved.
           example: AAA-00000
         message:
           type: string
-          description: The displayed error message.
           example: Some Error Message
         description:
           type: string
-          description: The description of the error that occured.
           example: Some Error Description
         traceId:
           type: string
-          description: An identifier to trace the error.
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047

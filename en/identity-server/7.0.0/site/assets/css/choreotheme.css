@@ -14,7 +14,7 @@
 
 .md-typeset h3 {
     font-weight: 500;
-    color: #5a5856;
+    color: black;
 }
 
 .md-typeset a{
@@ -91,7 +91,7 @@
     /* White */
 
     background: #FFFFFF;
-    /* Card/Grey/Default */q
+    /* Card/Grey/Default */
 
     box-shadow: 0px 1px 1px #CBCEDB;
     border-radius: 12px;
@@ -134,15 +134,13 @@
     padding-left: 0.5rem;
   }
 
- 
-
   .md-sidebar__scrollwrap {
       padding-right: 0;
   }
 
   .md-content {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
   }
 
   .md-container{
@@ -152,7 +150,6 @@
   .md-container-home{
     background-image: url( '../img/home/background.svg' );
 }
-
 
   .cIcon {
     height: 18px;
@@ -195,6 +192,7 @@ visibility: hidden;
 .md-search__input::placeholder {
    color: #a8a39f;
 }
+
 .md-search__input-home{
  background: #FFFFFF; 
  box-shadow: 5px 0px 20px 20px rgba(203, 206, 219, 0.2); 
@@ -262,7 +260,7 @@ h3{
 
 .md-search__form {
     border-radius: 0.5rem;
-    background-color: #CBCEDB;
+    background-color: #ededed;
 }
 
 .md-header{
@@ -346,6 +344,38 @@ h3{
 color: #a8a39f;
 }
 
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index-heading{
+    font-size: 2em;
+    text-align: center;
+}
+
+.index-text{
+    color: #888888; /* Change text color to red (#FF0000) */
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.border-text {
+    border: 0.5px solid #cbc9c9; /* Border style, width, and color */
+    padding: 10px; /* Padding around the text */
+    display: inline-block; /* Adjust div width based on content */
+    border-radius: 4px;
+    text-align: center;
+    width: 400px; /* Set the width as needed */
+    margin: 10px; /* Add margin for space between elements */
+    background-color: #f8f8f8;
+    transition: transform 0.2s;
+}
+
+.border-text:hover {
+    transform: scale(1.03); /* Enlarge the block by 3% on hover */
+}
 
 @media screen and (max-width: 500px) {
 
