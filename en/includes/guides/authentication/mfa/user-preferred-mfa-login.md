@@ -16,9 +16,10 @@ Follow the steps given below to configure the application login to prompt the us
 2. Select your application and go to the **Sign-in Method** tab.
 3. Click **Start with default configuration** to define the login flow starting with `username and password`.
 4. Add a second authentication step with the following authenticators.
+
     - **TOTP**
     - **Email OTP**
-    - **SMS OTP**
+    <!--- **SMS OTP**-->
 
     ![User Preferred MFA - adaptive auth script]({{base_path}}/assets/img/guides/conditional-auth/user-preferred-mfa-option.png)
 
@@ -75,13 +76,13 @@ To set preferred MFA options for users:
                 <td>Email OTP</td>
                 <td><code>email-otp-authenticator</code></td>
             </tr>
-            <tr>
+            <!--<tr>
                 <td>SMS OTP</td>
                 <td><code>SMSOTP</code></td>
-            </tr>
+            </tr>-->
         </table>
 
-2. Set the preferred MFA option for each user using a [SCIM2/Me patch API](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/operation/patchUserMe) call.
+2. Set the preferred MFA option for each user using a [SCIM2/Me patch API]({{base_path}}/{{ patch_user_path }}) call.
 
     !!! note
         Update the `preferredMFAOption.authenticationOption` value for each user according to their choice in step 1.
@@ -130,5 +131,5 @@ To set preferred MFA options for users:
                 "urn:ietf:params:scim:api:messages:2.0:PatchOp"
             ]
         }'
-        --header "Content-Type:application/json" https://api.asgardeo.io/t/<org_name>/scim2/Me
+        --header "Content-Type:application/json" {{ product_url_format }}/scim2/Me
         ```

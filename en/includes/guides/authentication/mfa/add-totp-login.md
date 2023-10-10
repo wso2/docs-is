@@ -35,13 +35,13 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
     === "Classic Editor"
         - If you don't have a customized login flow, you can click **Add TOTP as a second factor**.
 
-            ![Configuring TOTP authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator.png){: width=600"}
+            ![Configuring TOTP authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
             This opens the customized login flow with TOTP as a second-factor authenticator:
 
         - If you have an already customized login flow, you can add a second step and add TOTP as the authenticator.
             
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width=600"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add TOTP as a second-factor authenticator using the Visual Editor:
@@ -52,7 +52,7 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
 
         3. Click **Confirm** to add TOTP as a second factor to the sign-in flow.
 
-            ![Configuring TOTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600"}
+            ![Configuring TOTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -60,10 +60,10 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
         Once the TOTP authenticator is added, select **Enable backup codes**. This allows users to use their backup codes to log in to the application when they cannot obtain the required MFA codes.
 
         === "Using the classic editor"
-            ![Enable backup codes for totp authenticator]({{base_path}}/assets/img/guides/mfa/totp/enable-backup-codes.png){: width="500"}
+            ![Enable backup codes for totp authenticator]({{base_path}}/assets/img/guides/mfa/totp/enable-backup-codes.png){: width="500" style="border: 0.3px solid lightgrey;"}
         
         === "Using the visual editor"
-            ![Enable backup codes for totp authenticator using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/enable-backup-codes-with-visual-editor.png){: width="500"}
+            ![Enable backup codes for totp authenticator using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/enable-backup-codes-with-visual-editor.png){: width="500" style="border: 0.3px solid lightgrey;"}
 
         Learn more about [configuring backup codes for business users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
 
@@ -126,15 +126,13 @@ Application users can enroll for TOTP authentication when they login to the busi
         - This step is prompted only when the user attempts to log in for the first time.
         - This step will not be prompted if you have [disabled enrolling in TOTP during first login](#disable-enrolling-in-totp-during-first-login).
 
-    ![QR code for TOTP authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/scan-qr-code-totp.png){: width=300"}
+    ![QR code for TOTP authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/scan-qr-code-totp.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Check the authenticator app and see that the TOTP is generated.
-  
-    ![OTP token from the authenticator]({{base_path}}/assets/img/guides/mfa/totp/google-authenticator.png){: width=300"}
 
 5. Enter the TOTP:
   
-    ![User enters OTP token in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/enter-otp-token.png){: width=300"}
+    ![User enters OTP token in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/enter-otp-token.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 6. Click **Continue** to continue login.
 
