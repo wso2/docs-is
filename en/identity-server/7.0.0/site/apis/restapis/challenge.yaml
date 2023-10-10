@@ -1,0 +1,1063 @@
+openapi: 3.0.1
+info:
+  title: WSO2 Identity Server - User's Challenge Answers API Definition.
+  description: This is the RESTful API for managing answers to challenge questions.
+    of a user in WSO2 Identity Server
+  contact:
+    name: WSO2 Identity Server
+    url: https://wso2.com/identity-and-access-management/
+    email: architecture@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1
+servers:
+- url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
+security:
+- OAuth2: []
+- BasicAuth: []
+tags:
+- name: me
+  description: Operations for the authenticated user.
+- name: admin
+  description: |
+    Operations available for privileged users, to be invoked on behalf of another user.
+    **These endpoints are not released in WSO2 Identity Server - 5.9.0 version and will be released in the next product version.**
+paths:
+  /me/challenges:
+    get:
+      tags:
+      - me
+      summary: Retrieve challenges available for the authenticated user.
+      description: |
+        Retrieves the available challenges in the system for the authenticated user. In the response, challenge questions are grouped as **challenge sets**.
+
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      operationId: getChallengesForLoggedInUser
+      parameters:
+      - name: limit
+        in: query
+        description: Maximum number of records to return. _*This filtering is not
+          yet supported._
+        schema:
+          minimum: 0
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination. _*This filtering is
+          not yet supported._
+        schema:
+          minimum: 0
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: All the available challenges in the system that can be answered
+            by the user.
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChallengeSet'
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+  /me/challenge-answers:
+    get:
+      tags:
+      - me
+      summary: Get user's answered challenges.
+      description: |
+        Get previously answered challenge(s) in the system by the authenticated user.
+
+          <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      operationId: getAnsweredChallengesOfLoggedInUser
+      responses:
+        200:
+          description: Array of Challenge(s) that are already answered by the authenticated
+            user.
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserChallengeAnswerResponse'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+      - me
+      summary: Answer new challenge question combination over existing answers.
+      description: |
+        Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for logged In user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
+
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      operationId: updateChallengeAnswersOfLoggedInUser
+      requestBody:
+        description: Set of challenges with answer.
+        content:
+          '*/*':
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ChallengeAnswer'
+        required: false
+      responses:
+        200:
+          description: OK
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challengeAnswers
+    post:
+      tags:
+      - me
+      summary: Answer to a collection of new challenges.
+      description: |
+        Provide answer(s) to one or more candidate challenge question set(s) available in the system for the authenticated user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **set(s)**.
+
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      operationId: addChallengeAnswersForLoggedInUser
+      requestBody:
+        description: One or more challenge(s) with the answer.
+        content:
+          '*/*':
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ChallengeAnswer'
+        required: false
+      responses:
+        201:
+          description: Item Created
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        409:
+          description: Element Already Exists
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challengeAnswer
+    delete:
+      tags:
+      - me
+      summary: Remove challenge question answers.
+      description: |
+        Removes all the existing challenge answers of the authenticated user.
+
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      operationId: deleteChallengeAnswersOfLoggedInUser
+      responses:
+        204:
+          description: No Content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+  /me/challenge-answers/{challenge-set-id}:
+    put:
+      tags:
+      - me
+      summary: Update challenge answer of an already answered challenge.
+      description: |
+        Update challenge answer in a specific challenge for authenticated user.
+
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      operationId: updateChallengeAnswerOfLoggedInUser
+      parameters:
+      - name: challenge-set-id
+        in: path
+        description: Challenge Question Set ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The challenge answer with the challenge-question.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/UserChallengeAnswer'
+        required: false
+      responses:
+        200:
+          description: OK
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challenge-answer
+    post:
+      tags:
+      - me
+      summary: Answers a specific new challenge.
+      description: |
+        Provide an **answer** to **a specific challenge** in the system for logged-in user. The user can at most select one question from a challenge set of interest.
+
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      operationId: addChallengeAnswerOfLoggedInUser
+      parameters:
+      - name: challenge-set-id
+        in: path
+        description: Challenge Question Set ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The answer to the challenge along with the question.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/UserChallengeAnswer'
+        required: false
+      responses:
+        201:
+          description: Item Created
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        409:
+          description: Element Already Exists
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challengeAnswer
+    delete:
+      tags:
+      - me
+      summary: Remove a challenge question answer.
+      description: |
+        Removes existing answer provided by the authenticated user to a specific challenge.
+
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      operationId: deleteChallengeAnswerOfLoggedInUser
+      parameters:
+      - name: challenge-set-id
+        in: path
+        description: Challenge Question Set ID
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: No Content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+  /{user-id}/challenges:
+    get:
+      tags:
+      - admin
+      summary: Retrieve challenges available for a user identified by the user-id.
+      description: |
+        Retrieves the available challenges in the system for the specified user. In the response challenge questions are grouped as **challenge set**s.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/view
+        <b>Scope required:</b>
+            * internal_identity_mgt_view
+      operationId: getChallengesForAUser
+      parameters:
+      - name: user-id
+        in: path
+        description: Uniquely identifiable user ID
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of records to return. _*This filtering is not
+          yet supported._
+        schema:
+          minimum: 0
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination. _*This filtering is
+          not yet supported._
+        schema:
+          minimum: 0
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: |
+            All the available challenges in the system that can be answered by the user.
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChallengeSet'
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+  /{user-id}/challenge-answers:
+    get:
+      tags:
+      - admin
+      summary: Get user's answered challenges.
+      description: |
+        Get previously answered challenge(s) in the system by the user idenrified by user-id.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/view
+        <b>Scope required:</b>
+            * internal_identity_mgt_view
+      operationId: getAnsweredChallengesOfAUser
+      parameters:
+      - name: user-id
+        in: path
+        description: Uniquely identifiable user ID
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Array of Challenge(s) that are already answered by the authenticated
+            user.
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserChallengeAnswerResponse'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+      - admin
+      summary: Answer new challenge question combination over existing answers.
+      description: |
+        Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for the user identified by user-id. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/update
+        <b>Scope required:</b>
+            * internal_identity_mgt_update
+      operationId: updateChallengeAnswersOfAUser
+      parameters:
+      - name: user-id
+        in: path
+        description: Uniquely identifiable user ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Set of challenges with answer.
+        content:
+          '*/*':
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ChallengeAnswer'
+        required: false
+      responses:
+        200:
+          description: OK
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challengeAnswers
+    post:
+      tags:
+      - admin
+      summary: Answer to a collection of new challenges.
+      description: |
+        Provide answer(s) to one or more candidate challenge question set(s) available in the system for the user identified by user-id. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **set(s)**.
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/create
+        <b>Scope required:</b>
+            * internal_identity_mgt_create
+      operationId: addChallengeAnswersOfAUser
+      parameters:
+      - name: user-id
+        in: path
+        description: Uniquely identifiable user ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: One or more challenge(s) with the answer.
+        content:
+          '*/*':
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ChallengeAnswer'
+        required: false
+      responses:
+        201:
+          description: Item Created
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        409:
+          description: Element Already Exists
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challenge-answer
+    delete:
+      tags:
+      - admin
+      summary: Remove challenge question answers.
+      description: |
+        Removes all the existing challenge answers of the user identified by user-id.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/delete
+        <b>Scope required:</b>
+            * internal_identity_mgt_delete
+      operationId: deleteChallengeAnswersOfAUser
+      parameters:
+      - name: user-id
+        in: path
+        description: Uniquely identifiable user ID
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: No Content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+  /{user-id}/challenge-answers/{challenge-set-id}:
+    put:
+      tags:
+      - admin
+      summary: Update challenge answer of an already answered challenge.
+      description: |
+        Update challenge answer in a specific challenge for authenticated user.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/update
+        <b>Scope required:</b>
+            * internal_identity_mgt_update
+      operationId: updateChallengeAnswerOfAUser
+      parameters:
+      - name: challenge-set-id
+        in: path
+        description: Challenge Question Set ID
+        required: true
+        schema:
+          type: string
+      - name: user-id
+        in: path
+        description: Uniquely identifiable user ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The challenge answer with the challenge-question.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/UserChallengeAnswer'
+        required: false
+      responses:
+        200:
+          description: OK
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challengeAnswer
+    post:
+      tags:
+      - admin
+      summary: Answers a specific new challenge.
+      description: |
+        Provide an **answer** to **a specific challenge** in the system for the user identified by user-id. The user can at most select one question from a challenge set of interest.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/create
+        <b>Scope required:</b>
+            * internal_identity_mgt_create
+      operationId: addChallengeAnswerOfAUser
+      parameters:
+      - name: challenge-set-id
+        in: path
+        description: Challenge Question Set ID
+        required: true
+        schema:
+          type: string
+      - name: user-id
+        in: path
+        description: Uniquely identifiable user ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: The answer to the challenge along with the question.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/UserChallengeAnswer'
+        required: false
+      responses:
+        201:
+          description: Item Created
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        409:
+          description: Element Already Exists
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challengeAnswer
+    delete:
+      tags:
+      - admin
+      summary: Remove a challenge question answer.
+      description: |
+        Removes existing answer provided by the user(identified by user-id) to a specific challenge.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/delete
+        <b>Scope required:</b>
+            * internal_identity_mgt_delete
+      operationId: deleteChallengeAnswerOfAUser
+      parameters:
+      - name: challenge-set-id
+        in: path
+        description: Challenge Question Set ID
+        required: true
+        schema:
+          type: string
+      - name: user-id
+        in: path
+        description: Uniquely identifiable user ID
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: No Content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    ChallengeSet:
+      required:
+      - questions
+      type: object
+      properties:
+        questionSetId:
+          type: string
+          description: A unique ID for the challenge set.
+          example: challengeQuestion1
+        questions:
+          type: array
+          description: Challenge questions for the set.
+          items:
+            $ref: '#/components/schemas/ChallengeQuestion'
+    ChallengeQuestion:
+      required:
+      - question
+      type: object
+      properties:
+        locale:
+          type: string
+          description: The locale of the question.
+          example: en_US
+        question:
+          type: string
+          description: Challenge question display value.
+          example: Favorite vacation location ?
+        questionId:
+          type: string
+          description: A unique ID for the challenge quesion within the set.
+          example: question1
+    ChallengeAnswer:
+      required:
+      - answer
+      type: object
+      properties:
+        questionSetId:
+          type: string
+          description: A unique ID to identify the challenge set.
+          example: challengeQuestion1
+        challengeQuestion:
+          $ref: '#/components/schemas/ChallengeQuestion'
+        answer:
+          type: string
+          description: Answer to the challenge question.
+          example: Colombo
+    UserChallengeAnswer:
+      required:
+      - answer
+      type: object
+      properties:
+        challengeQuestion:
+          $ref: '#/components/schemas/ChallengeQuestion'
+        answer:
+          type: string
+          example: Colombo
+    UserChallengeAnswerResponse:
+      required:
+      - answer
+      - question
+      - questionSetId
+      type: object
+      properties:
+        questionSetId:
+          type: string
+          description: A unique ID to identify the challenge set.
+          example: challengeQuestion1
+        question:
+          type: string
+          description: Challenge question display value.
+          example: Favorite vacation location ?
+        answer:
+          type: string
+          description: A hashed value of the challenge answer.
+          example: Ro83J+wm/zkUt2/6GDf+xZD8s/2pjPqTUhrkOrwGBb4=
+    Error:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: some_error_code
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: Some Correlation for Error Instance
+  responses:
+    Conflict:
+      description: Element Already Exists
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Created:
+      description: Item Created
+      content: {}
+    Forbidden:
+      description: Resource Forbidden
+      content: {}
+    InvalidInput:
+      description: Invalid input request
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NoContent:
+      description: No Content
+      content: {}
+    NotFound:
+      description: The specified resource is not found
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    OK:
+      description: OK
+      content: {}
+    ServerError:
+      description: Internal Server Error
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+      content: {}
+  parameters:
+    usernamePathParams:
+      name: user-id
+      in: path
+      description: Uniquely identifiable user ID
+      required: true
+      schema:
+        type: string
+    questionSetIdPathParam:
+      name: challenge-set-id
+      in: path
+      description: Challenge Question Set ID
+      required: true
+      schema:
+        type: string
+    questionIdPathParam:
+      name: question-id
+      in: path
+      description: Challenge Question ID
+      required: true
+      schema:
+        type: string
+    localeQueryParam:
+      name: locale
+      in: query
+      description: An optional search string for looking up challenge-questions based
+        on locale
+      schema:
+        type: string
+    offsetQueryParam:
+      name: offset
+      in: query
+      description: Number of records to skip for pagination. _*This filtering is not
+        yet supported._
+      schema:
+        minimum: 0
+        type: integer
+        format: int32
+    limitQueryParam:
+      name: limit
+      in: query
+      description: Maximum number of records to return. _*This filtering is not yet
+        supported._
+      schema:
+        minimum: 0
+        type: integer
+        format: int32
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}

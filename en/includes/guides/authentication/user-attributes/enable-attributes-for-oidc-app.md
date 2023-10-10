@@ -16,17 +16,17 @@ To add user attributes to the app:
 1. On the {{ product_name }}, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab. Here, the user attributes are listed under their relevant scopes.
 
-   ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attributes-list-grouped-user-attributes.png){: width="600"}
+    ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attributes-list-grouped-user-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. You can add user attributes using the following methods:
 
-   - Add a group of user attributes by selecting the checkbox in front of the required scope. This will add all the user attributes grouped under the selected scope.
+    - Add a group of user attributes by selecting the checkbox in front of the required scope. This will add all the user attributes grouped under the selected scope.
 
-      ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-scope.png){: width="600"}
+        ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-scope.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-   - Add a single user attribute by expanding the required scope and selecting the user attribute you need from the expanded list.
+    - Add a single user attribute by expanding the required scope and selecting the user attribute you need from the expanded list.
 
-      ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-user-attribute.png){: width="600"}
+        ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-user-attribute.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** once you are done.
 
@@ -34,7 +34,7 @@ To add user attributes to the app:
 
 {% include "../../fragments/manage-app/manage-user-attributes/select-mandatory-attributes.md" %}
 
-![Add madatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600"}
+![Add madatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## How it works
 
@@ -42,7 +42,7 @@ Let's see how this flow works in {{ product_name }}.
 
 Once you have configured the user attributes that are required for your application, {{ product_name }} implements the following process when a user tries to log in to your app.
 
-![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800"}
+![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800" style="display: block; margin: 0 auto;"}
 
 ### Application requests attributes
 
@@ -51,7 +51,7 @@ When the user logs in to the app, a request is sent to {{ product_name }} with t
 Applications can use scopes to request access to a group of user attributes.
 
 !!! note
-      Learn more about [managing scopes]({{base_path}}/guides/users/attributes/manage-scopes/) in {{ product_name }}.
+    Learn more about [managing scopes]({{base_path}}/guides/users/attributes/manage-scopes/) in {{ product_name }}.
 
 ### {{ product_name }} checks for mandatory attributes
 
@@ -62,7 +62,7 @@ Applications can use scopes to request access to a group of user attributes.
 By default, {{ product_name }} requests the user's consent to share the user attributes with the application.
 
 !!! note
-      Learn more about [managing user consent]({{base_path}}/guides/authentication/manage-consent-for-attributes/).
+    Learn more about [managing user consent]({{base_path}}/guides/authentication/manage-consent-for-attributes/).
 
 ### Shares attributes with the app
 
@@ -88,7 +88,7 @@ _A sample ID token is given below:_
   "amr": [
     "BasicAuthenticator"
   ],
-  "iss": "https://api.asgardeo.io/t/bitfrost/oauth2/token",
+  "iss": "{{ product_url_sample }}/oauth2/token",
   "given_name": "alice",
   "sid": "5580be2b-a12d-43a4-823a-9d1352b88269",
   "aud": "UEP40cZTZfxJfGdDWFmTrwqluxoa",

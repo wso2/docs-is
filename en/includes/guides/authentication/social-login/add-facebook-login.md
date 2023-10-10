@@ -14,43 +14,43 @@ To register an app on Facebook:
 
 1. Log in to the [Facebook developer portal](https://developers.facebook.com/apps) and click **Create App**.
 
-    ![Log on to Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600"}
+    ![Log on to Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Select **Consumer** as the app type and click **Next**.
 
-    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600"}
+    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Provide **Display Name** and click **Create App** to create an application.
 
-    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600"}
+    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Under **Add products to your app**, click **Set up** on the **Facebook Login** card.
 
-    ![Add Facebook login]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login.jpg){: width="600"}
+    ![Add Facebook login]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Select **Web** type and provide the following **Site URL** with your organization name:
 
     ```bash
-    https://api.asgardeo.io/t/{organization_name}
+    {{ product_url_format }}
     ```
 
-    ![Add Facebook app url]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-url.jpg){: width="600"}
+    ![Add Facebook app url]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-url.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 6. Save the changes and click **Continue**.
 
 7. On the left panel, under **Facebook Login**, go to **Settings** and add the following as the **Valid OAuth Redirect URIs**:
 
     ```bash
-    https://api.asgardeo.io/t/{organization_name}/commonauth
+    {{ product_url_format }}/commonauth
     ```
 
 8. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.
 
-    ![Add Facebook settings]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600"}
+    ![Add Facebook settings]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-9. On the main panel, go to **Settings > Basic** and take note of the **App ID** and **App Secret**.
+9. On the main panel, go to **App settings > basic** and take note of the **App ID** and **App Secret**.
 
-    ![Get AppID and Secret from Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600"}
+    ![Get AppID and Secret from Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Register the Facebook IdP
 
@@ -60,7 +60,7 @@ Now, let's register the Facebook IdP in {{ product_name }}.
 2. Click **Create Connection** and select **Facebook**.
 3. Enter the following details of the Facebook identity provider and click **Finish**:
 
-    ![Add Facebook IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-idp.png){: width="600"}
+    ![Add Facebook IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-idp.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -119,7 +119,7 @@ After the Facebook identity provider is created, go to the **Settings** tab and 
 
         2. Click **Add Authentication** on the step, select your Facebook identity provider, and click **Add**.
 
-            ![Add Facebook login in Asgardeo]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png){: width=700"}
+            ![Add Facebook login in Asgardeo]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Facebook login using the Visual Editor:
@@ -128,7 +128,7 @@ After the Facebook identity provider is created, go to the **Settings** tab and 
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Facebook connection.
 
-            ![Add Facebook login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login-with-visual-editor.png){: width=500"}
+            ![Add Facebook login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -144,7 +144,7 @@ Follow the steps given below.
 
 3. On the {{ product_name }} login page, click **Sign in with Facebook**.
 
-    ![Login with Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/sign-in-with-facebook.png){: width="300"}
+    ![Login with Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/sign-in-with-facebook.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Log in to Facebook with an existing user account.
 

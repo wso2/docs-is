@@ -3,32 +3,16 @@
 <html lang="en" class="no-js">
   <head>
     
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="Choreo Learning Portal">
-      
-      
-        <meta name="author" content="WSO2">
-      
-      
-        <link rel="canonical" href="https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-facebook-login/">
-      
-      
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../add-github-login/">
-      
-      <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
-    
+  <meta name="docsearch:language" content="en" />
+  <meta name="docsearch:version" content="6.1.0" />
+
     
       
         <title>Add Facebook login - </title>
       
     
     
+  
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.7bf56d0a.min.css">
       
         
@@ -37,6 +21,9 @@
       
 
     
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+
     
     
       
@@ -134,7 +121,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../../.." title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
       
-  <img src="../../../../assets/images/asgardeo-logo-dark.svg" alt="logo" style="vertical-align: middle;">
+  <img src="../../../../assets/images/identity-server-docs-logo.svg" alt="logo" style="vertical-align: middle;">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -201,10 +188,16 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -220,6 +213,20 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <div class="row" style="width: 10rem;">
+<div style="display: block; float: left; width: 49%;">
+   <a class="md-source" data-md-component="source" href="https://discord.com/invite/wso2">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>  
+  </div>
+  <label>Get Help</label>
+</a>
+</div> 
+</div>
+      </div>
     
   </nav>
   
@@ -240,6 +247,22 @@
     <li class="md-tabs__item">
       <a href="../../../.." class="md-tabs__link">
         Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../get-started/index.md" class="md-tabs__link">
+        Get Started
       </a>
     </li>
   
@@ -272,7 +295,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../tutorials/" class="md-tabs__link">
+      <a href="../../../../tutorials/index.md" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -288,7 +311,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../integrations/" class="md-tabs__link">
+      <a href="../../../../integrations/index.md" class="md-tabs__link">
         Integrations
       </a>
     </li>
@@ -357,11 +380,25 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../../.." title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
       
-  <img src="../../../../assets/images/asgardeo-logo-dark.svg" alt="logo" style="vertical-align: middle;">
+  <img src="../../../../assets/images/identity-server-docs-logo.svg" alt="logo" style="vertical-align: middle;">
 
     </a>
     
   </label>
+  
+    <div class="md-nav__source">
+      <div class="row" style="width: 10rem;">
+<div style="display: block; float: left; width: 49%;">
+   <a class="md-source" data-md-component="source" href="https://discord.com/invite/wso2">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>  
+  </div>
+  <label>Get Help</label>
+</a>
+</div> 
+</div>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -378,9 +415,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
       
       
         
@@ -418,6 +453,59 @@
 
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Get Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Get Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../get-started/index.md" class="md-nav__link">
+        WSO2 Identity Server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -427,16 +515,12 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
         
           
             
-          
-        
-          
-        
           
         
           
@@ -464,14 +548,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../">Guides</a>
           
-            <label for="__nav_2">
+            <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_2">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Guides
         </label>
@@ -485,23 +569,17 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
       
       
         
           
             
-          
-        
           
         
           
@@ -521,14 +599,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../applications/">Applications</a>
           
-            <label for="__nav_2_2">
+            <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           Applications
         </label>
@@ -606,20 +684,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../applications/manage-application-roles/" class="md-nav__link">
-        Manage application roles
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -635,19 +699,19 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
       
       
         
           
             
+          
+        
           
         
           
@@ -681,14 +745,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../">Authentication</a>
           
-            <label for="__nav_2_3">
+            <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_2_3">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           Authentication
         </label>
@@ -707,9 +771,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
       
       
         
@@ -723,13 +785,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
           Add login to apps
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_2">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_2">
           <span class="md-nav__icon md-icon"></span>
           Add login to apps
         </label>
@@ -742,7 +804,7 @@
   
     <li class="md-nav__item">
       <a href="../../add-login-to-apps/" class="md-nav__link">
-        Add login to Apps
+        Add login to apps
       </a>
     </li>
   
@@ -809,9 +871,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
       
       
         
@@ -834,14 +894,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../passwordless-login/">Add passwordless login</a>
           
-            <label for="__nav_2_3_3">
+            <label for="__nav_3_3_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_3">
           <span class="md-nav__icon md-icon"></span>
           Add passwordless login
         </label>
@@ -923,9 +983,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
       
       
         
@@ -944,14 +1002,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../user-attributes/">Enable user attributes</a>
           
-            <label for="__nav_2_3_4">
+            <label for="__nav_3_3_4">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_4">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_4">
           <span class="md-nav__icon md-icon"></span>
           Enable user attributes
         </label>
@@ -1021,14 +1079,12 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_6" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6" checked>
       
       
         
           
             
-          
-        
           
         
           
@@ -1046,14 +1102,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../">Add social login</a>
           
-            <label for="__nav_2_3_6">
+            <label for="__nav_3_3_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_6_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_2_3_6">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3_6">
           <span class="md-nav__icon md-icon"></span>
           Add social login
         </label>
@@ -1101,8 +1157,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#register-asgardeo-on-facebook" class="md-nav__link">
-    Register Asgardeo on Facebook
+  <a href="#register-wso2-identity-server-on-facebook" class="md-nav__link">
+    Register WSO2 Identity Server on Facebook
   </a>
   
 </li>
@@ -1126,18 +1182,12 @@
     Try it out
   </a>
   
-    <nav class="md-nav" aria-label="Try it out">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#add-groups-to-the-connection" class="md-nav__link">
     Add groups to the connection
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1152,20 +1202,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../add-github-login/" class="md-nav__link">
-        Add Github login
-      </a>
     </li>
   
 
@@ -1231,9 +1267,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_7" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_7" >
       
       
         
@@ -1250,14 +1284,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../decentralized-login/">Add decentralized login</a>
           
-            <label for="__nav_2_3_7">
+            <label for="__nav_3_3_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_7">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_7">
           <span class="md-nav__icon md-icon"></span>
           Add decentralized login
         </label>
@@ -1297,9 +1331,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_8" >
       
       
         
@@ -1318,14 +1350,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../enterprise-login/">Add standard-based login</a>
           
-            <label for="__nav_2_3_8">
+            <label for="__nav_3_3_8">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_8">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_8">
           <span class="md-nav__icon md-icon"></span>
           Add standard-based login
         </label>
@@ -1379,16 +1411,12 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_9" >
       
       
         
           
             
-          
-        
           
         
           
@@ -1404,14 +1432,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../mfa/">Add multi-factor authentication</a>
           
-            <label for="__nav_2_3_9">
+            <label for="__nav_3_3_9">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_9">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_9">
           <span class="md-nav__icon md-icon"></span>
           Add multi-factor authentication
         </label>
@@ -1453,20 +1481,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mfa/add-smsotp-login/" class="md-nav__link">
-        Add SMS OTP
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../mfa/user-preferred-mfa-login/" class="md-nav__link">
         Add user-preferred MFA
       </a>
@@ -1493,9 +1507,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_10" >
       
       
         
@@ -1518,14 +1530,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../conditional-auth/">Add conditional authentication</a>
           
-            <label for="__nav_2_3_10">
+            <label for="__nav_3_3_10">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_10">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_10">
           <span class="md-nav__icon md-icon"></span>
           Add conditional authentication
         </label>
@@ -1558,9 +1570,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_10_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_10_3" >
       
       
         
@@ -1572,13 +1582,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_3_10_3" id="__nav_2_3_10_3_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_3_10_3" id="__nav_3_3_10_3_label" tabindex="0">
           Add access control
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_10_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_10_3">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_10_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_10_3">
           <span class="md-nav__icon md-icon"></span>
           Add access control
         </label>
@@ -1591,7 +1601,7 @@
   
     <li class="md-nav__item">
       <a href="../../conditional-auth/access-control/" class="md-nav__link">
-        Add access control
+        Access control
       </a>
     </li>
   
@@ -1644,9 +1654,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_10_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_10_4" >
       
       
         
@@ -1664,13 +1672,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_3_10_4" id="__nav_2_3_10_4_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_3_10_4" id="__nav_3_3_10_4_label" tabindex="0">
           Add adaptive MFA
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_10_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_10_4">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_10_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_10_4">
           <span class="md-nav__icon md-icon"></span>
           Add adaptive MFA
         </label>
@@ -1683,7 +1691,7 @@
   
     <li class="md-nav__item">
       <a href="../../conditional-auth/adaptive-mfa/" class="md-nav__link">
-        Add adaptive MFA
+        Adaptive mfa
       </a>
     </li>
   
@@ -1799,9 +1807,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_11" >
       
       
         
@@ -1834,14 +1840,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../oidc/">Configure OIDC flows</a>
           
-            <label for="__nav_2_3_11">
+            <label for="__nav_3_3_11">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_11_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_11">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_11">
           <span class="md-nav__icon md-icon"></span>
           Configure OIDC flows
         </label>
@@ -1993,9 +1999,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_12" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_12" >
       
       
         
@@ -2012,14 +2016,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../saml/">Configure SAML flows</a>
           
-            <label for="__nav_2_3_12">
+            <label for="__nav_3_3_12">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_12_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3_12">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_12">
           <span class="md-nav__icon md-icon"></span>
           Configure SAML flows
         </label>
@@ -2062,56 +2066,14 @@
 
             
           
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-          API authorization
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          API authorization
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
             
               
   
   
   
     <li class="md-nav__item">
-      <a href="../../../api-authorization/" class="md-nav__link">
-        API authorization
+      <a href="../../configure-the-token-exchange-flow/" class="md-nav__link">
+        Configure the token exchange flow
       </a>
     </li>
   
@@ -2130,17 +2092,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../api-authorization/" class="md-nav__link">
+        API authorization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
       
       
         
@@ -2163,14 +2135,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../branding/">Branding</a>
           
-            <label for="__nav_2_5">
+            <label for="__nav_3_5">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_5">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           Branding
         </label>
@@ -2247,16 +2219,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
       
       
         
@@ -2285,14 +2253,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../users/">User management</a>
           
-            <label for="__nav_2_6">
+            <label for="__nav_3_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_6">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
           <span class="md-nav__icon md-icon"></span>
           User management
         </label>
@@ -2363,7 +2331,7 @@
   
     <li class="md-nav__item">
       <a href="../../../users/migrate-users/" class="md-nav__link">
-        Migrate users to Asgardeo
+        Migrate users to WSO2 Identity Server
       </a>
     </li>
   
@@ -2381,9 +2349,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_7" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_7" >
       
       
         
@@ -2406,14 +2372,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../users/attributes/">Manage attributes and mappings</a>
           
-            <label for="__nav_2_6_7">
+            <label for="__nav_3_6_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_6_7">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6_7">
           <span class="md-nav__icon md-icon"></span>
           Manage attributes and mappings
         </label>
@@ -2495,9 +2461,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_8" >
       
       
         
@@ -2518,14 +2482,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../users/user-stores/">Manage user stores</a>
           
-            <label for="__nav_2_6_8">
+            <label for="__nav_3_6_8">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_6_8">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6_8">
           <span class="md-nav__icon md-icon"></span>
           Manage user stores
         </label>
@@ -2595,16 +2559,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
       
       
         
@@ -2629,14 +2589,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../user-accounts/">Account management</a>
           
-            <label for="__nav_2_7">
+            <label for="__nav_3_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_7">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           Account management
         </label>
@@ -2697,9 +2657,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_5" >
       
       
         
@@ -2711,13 +2669,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_7_5" id="__nav_2_7_5_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_7_5" id="__nav_3_7_5_label" tabindex="0">
           Manage account security
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_7_5">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7_5">
           <span class="md-nav__icon md-icon"></span>
           Manage account security
         </label>
@@ -2783,9 +2741,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_6" >
       
       
         
@@ -2793,13 +2749,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_7_6" id="__nav_2_7_6_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_7_6" id="__nav_3_7_6_label" tabindex="0">
           Manage account login
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_7_6">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7_6">
           <span class="md-nav__icon md-icon"></span>
           Manage account login
         </label>
@@ -2839,16 +2795,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
       
       
         
@@ -2867,14 +2819,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../user-self-service/">User self-service</a>
           
-            <label for="__nav_2_8">
+            <label for="__nav_3_8">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_8">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_8">
           <span class="md-nav__icon md-icon"></span>
           User self-service
         </label>
@@ -2893,9 +2845,7 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8_2" >
       
       
         
@@ -2927,13 +2877,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_8_2" id="__nav_2_8_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_8_2" id="__nav_3_8_2_label" tabindex="0">
           Self-service portal
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_8_2">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_8_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_8_2">
           <span class="md-nav__icon md-icon"></span>
           Self-service portal
         </label>
@@ -2946,7 +2896,7 @@
   
     <li class="md-nav__item">
       <a href="../../../user-self-service/customer-self-service-portal/" class="md-nav__link">
-        Self-service portal for users
+        Customer self service portal
       </a>
     </li>
   
@@ -3155,16 +3105,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
       
       
         
@@ -3185,14 +3131,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../organization-management/">Organization management</a>
           
-            <label for="__nav_2_9">
+            <label for="__nav_3_9">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_9">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_9">
           <span class="md-nav__icon md-icon"></span>
           Organization management
         </label>
@@ -3225,14 +3171,14 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_9_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9_3" >
       
       
         
           
             
+          
+        
           
         
           
@@ -3252,14 +3198,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../organization-management/manage-b2b-organizations/">Manage B2B organizations</a>
           
-            <label for="__nav_2_9_3">
+            <label for="__nav_3_9_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_9_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_9_3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_9_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_9_3">
           <span class="md-nav__icon md-icon"></span>
           Manage B2B organizations
         </label>
@@ -3275,6 +3221,20 @@
     <li class="md-nav__item">
       <a href="../../../organization-management/manage-b2b-organizations/manage-suborganizations/" class="md-nav__link">
         Set up sub organizations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../organization-management/manage-b2b-organizations/onboard-sub-org-admins/" class="md-nav__link">
+        Onboard sub organization admins
       </a>
     </li>
   
@@ -3371,16 +3331,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
       
       
         
@@ -3401,18 +3357,18 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../your-asgardeo/">Your Asgardeo</a>
+          <a href="../../../your-is/">Your WSO2 Identity Server</a>
           
-            <label for="__nav_2_10">
+            <label for="__nav_3_10">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_10">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_10">
           <span class="md-nav__icon md-icon"></span>
-          Your Asgardeo
+          Your WSO2 Identity Server
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -3424,7 +3380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../your-asgardeo/asgardeo-self-service/" class="md-nav__link">
+      <a href="../../../your-is/is-self-service/" class="md-nav__link">
         Self-service
       </a>
     </li>
@@ -3438,7 +3394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../your-asgardeo/recover-password/" class="md-nav__link">
+      <a href="../../../your-is/recover-password/" class="md-nav__link">
         Recover your password
       </a>
     </li>
@@ -3452,7 +3408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../your-asgardeo/delete-your-user-account/" class="md-nav__link">
+      <a href="../../../your-is/delete-your-user-account/" class="md-nav__link">
         Delete your user account
       </a>
     </li>
@@ -3466,7 +3422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../your-asgardeo/manage-subscriptions/" class="md-nav__link">
+      <a href="../../../your-is/manage-subscriptions/" class="md-nav__link">
         Manage subscriptions
       </a>
     </li>
@@ -3481,34 +3437,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../asgardeo-events/" class="md-nav__link">
-        Asgardeo events
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../organization-insights/" class="md-nav__link">
-        Organization insights
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3528,96 +3456,34 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
         
           
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../tutorials/">Tutorials</a>
-          
-            <label for="__nav_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-          
-            
               
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/auth-users-into-android-apps/" class="md-nav__link">
-        Authenticate users into Android applications
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../tutorials/auth-users-into-flutter-apps/" class="md-nav__link">
-        Authenticate users into Flutter applications
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../tutorials/connect-asgardeo-with-ms-entra/" class="md-nav__link">
-        Connect Asgardeo as an OIDC attribute provider (with Microsoft Entra Verified ID)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../tutorials/connect-asgardeo-with-mattr/" class="md-nav__link">
-        Connect Asgardeo as an OIDC attribute provider (with MATTR)
+      <a href="../../../../tutorials/index.md" class="md-nav__link">
+        Tutorials
       </a>
     </li>
   
@@ -3643,33 +3509,39 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../integrations/">Integrations</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Integrations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Integrations
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integrations/index.md" class="md-nav__link">
+        Integrations
+      </a>
+    </li>
+  
+
+            
           
         </ul>
       </nav>
@@ -3690,16 +3562,12 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
         
           
             
-          
-        
           
         
           
@@ -3739,14 +3607,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../../apis/">APIs</a>
           
-            <label for="__nav_5">
+            <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           APIs
         </label>
@@ -3760,8 +3628,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/authentication/" class="md-nav__link">
-        Authentication
+      <a href="../../../../apis/use-the-authentication-rest-apis/" class="md-nav__link">
+        Authentication API
       </a>
     </li>
   
@@ -3774,128 +3642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/application-management/" class="md-nav__link">
-        Application management API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/oauth-dcr/" class="md-nav__link">
-        OAuth Dynamic Client Registration API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/idp/" class="md-nav__link">
-        Identity provider API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/scim2/" class="md-nav__link">
-        User management (SCIM 2.0) API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/email-template/" class="md-nav__link">
-        Email templates API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/identity-governance/" class="md-nav__link">
-        Identity governance API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_9" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
-          User sessions
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_9">
-          <span class="md-nav__icon md-icon"></span>
-          User sessions
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/session/" class="md-nav__link">
+      <a href="../../../../apis/session-mgt-rest-api/" class="md-nav__link">
         Session management API
       </a>
     </li>
@@ -3909,8 +3656,142 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/extend-sessions/" class="md-nav__link">
-        Session extension API
+      <a href="../../../../apis/entitlement-with-rest-apis/" class="md-nav__link">
+        Entitlement management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+          User management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          User management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/scim-1.1-apis/" class="md-nav__link">
+        SCIM 1.1 API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_5_2" id="__nav_6_5_2_label" tabindex="0">
+          SCIM 2.0 API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          SCIM 2.0 API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/scim2-rest-apis/" class="md-nav__link">
+        SCIM 2.0 API Definition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/scim2-patch-operations/" class="md-nav__link">
+        SCIM 2.0 Patch Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/scim2-batch-operations/" class="md-nav__link">
+        SCIM 2.0 Batch Operations
       </a>
     </li>
   
@@ -3930,8 +3811,99 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/event-configuration/" class="md-nav__link">
-        Event configuration API
+      <a href="../../../../apis/use-the-account-recovery-rest-apis/" class="md-nav__link">
+        Account recovery API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/association-rest-api/" class="md-nav__link">
+        Associated accounts API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/challenge-questions/" class="md-nav__link">
+        Challenge question API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/challenge-rest-api/" class="md-nav__link">
+        Challenge answers API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/use-the-self-sign-up-rest-apis/" class="md-nav__link">
+        Self Sign-Up API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/idp-rest-api/" class="md-nav__link">
+        Identity provider API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/idp-session-extender-endpoint/" class="md-nav__link">
+        IdP session extension API
       </a>
     </li>
   
@@ -3944,16 +3916,12 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
       
       
         
@@ -3967,13 +3935,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
           Self-service
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_11">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_8">
           <span class="md-nav__icon md-icon"></span>
           Self-service
         </label>
@@ -3985,7 +3953,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/register-mfa/totp/" class="md-nav__link">
+      <a href="../../../../apis/fido-rest-api/" class="md-nav__link">
+        FIDO API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/totp-rest-api/" class="md-nav__link">
         TOTP API
       </a>
     </li>
@@ -3999,8 +3981,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/register-mfa/backup-code/" class="md-nav__link">
-        Backup codes API
+      <a href="../../../../apis/user-discoverable-applications/" class="md-nav__link">
+        User discoverable application API
       </a>
     </li>
   
@@ -4013,22 +3995,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/register-mfa/password-recovery/" class="md-nav__link">
-        Password recovery API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/register-mfa/export-user-info/" class="md-nav__link">
-        Export user information API
+      <a href="../../../../apis/approvals-rest-api/" class="md-nav__link">
+        Approvals management API
       </a>
     </li>
   
@@ -4048,190 +4016,48 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_12" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
       
       
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
-        <label class="md-nav__link" for="__nav_5_12" id="__nav_5_12_label" tabindex="0">
-          Administrators
+        <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+          Application management
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_12_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_12">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_9">
           <span class="md-nav__icon md-icon"></span>
-          Administrators
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/administrators/export-admin-info/" class="md-nav__link">
-        Export admin information API
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/consent-management/" class="md-nav__link">
-        Consent management API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/event-configuration/" class="md-nav__link">
-        Event configuration API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/validation/" class="md-nav__link">
-        Validation API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_16" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../apis/organization-management/">Suborganization APIs</a>
-          
-            <label for="__nav_5_16">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_16_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_16">
-          <span class="md-nav__icon md-icon"></span>
-          Suborganization APIs
+          Application management
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-          
-            
               
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/organization-management/authentication/" class="md-nav__link">
-        Get access for suborganization APIs
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/organization-management/org-scim2/" class="md-nav__link">
-        User management - SCIM2 API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/organization-management/org-application-management/" class="md-nav__link">
+      <a href="../../../../apis/application-rest-api/" class="md-nav__link">
         Application management API
       </a>
     </li>
@@ -4244,9 +4070,42 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_9_2" id="__nav_6_9_2_label" tabindex="0">
+          Authorized apps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_9_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Authorized apps
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../../apis/organization-management/org-idp/" class="md-nav__link">
-        Identity providers API
+      <a href="../../../../apis/authorized-apps-rest-api/" class="md-nav__link">
+        Authorized apps API V1
       </a>
     </li>
   
@@ -4259,22 +4118,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/organization-management/org-management/" class="md-nav__link">
-        Organization management API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../apis/organization-management/organization-role-management/" class="md-nav__link">
-        Organization role management API
+      <a href="../../../../apis/authorized-apps-v2-rest-api/" class="md-nav__link">
+        Authorized apps API V2
       </a>
     </li>
   
@@ -4294,9 +4139,484 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apis/idle-account-identification/" class="md-nav__link">
-        Idle account identification API
+      <a href="../../../../apis/oauth2-scope-management-rest-apis/" class="md-nav__link">
+        OAuth 2.0 scope management API
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/oidc-scope-management-rest-apis/" class="md-nav__link">
+        OpenID Connect scope management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/use-the-openid-connect-dynamic-client-registration-rest-apis/" class="md-nav__link">
+        OIDC Dynamic Client Registration API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/script-library-rest-api/" class="md-nav__link">
+        Script Library management API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/claim-management-rest-api/" class="md-nav__link">
+        Claim management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_11" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_11" id="__nav_6_11_label" tabindex="0">
+          Server management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_11">
+          <span class="md-nav__icon md-icon"></span>
+          Server management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_11_1" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_11_1" id="__nav_6_11_1_label" tabindex="0">
+          Configuration management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_11_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/use-the-configuration-management-rest-apis/" class="md-nav__link">
+        Configuration management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/retrieve-tenant-resources-based-on-search-parameters/" class="md-nav__link">
+        Retrieve Tenant Resources Based on Search Parameters
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/identity-governance-rest-api/" class="md-nav__link">
+        Identity governance API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/keystore-rest-api/" class="md-nav__link">
+        Keystore management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/user-store-rest-api/" class="md-nav__link">
+        User store management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/tenant-management-rest-api/" class="md-nav__link">
+        Tenant management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/cors-rest-api/" class="md-nav__link">
+        CORS API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_11_7" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_11_7" id="__nav_6_11_7_label" tabindex="0">
+          Consent management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_11_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_11_7">
+          <span class="md-nav__icon md-icon"></span>
+          Consent management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/use-the-consent-management-rest-apis/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/consent-management-api-definition/" class="md-nav__link">
+        Consent management API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/email-templates-rest-api/" class="md-nav__link">
+        Email templates API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/workflow-engine-rest-api/" class="md-nav__link">
+        Workflow engine management API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/notification-sender-rest-api/" class="md-nav__link">
+        Notification sender management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/configs-rest-api/" class="md-nav__link">
+        Server configuration API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/permission-management-rest-api/" class="md-nav__link">
+        Permission management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/user-functionality-mgt-rest-api/" class="md-nav__link">
+        User Functionality management API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_16" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_16" id="__nav_6_16_label" tabindex="0">
+          Admin services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_16_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_16">
+          <span class="md-nav__icon md-icon"></span>
+          Admin services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/call-admin-services/" class="md-nav__link">
+        Call admin services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apis/admin-services-for-one-way-operations/" class="md-nav__link">
+        One way operations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -4321,36 +4641,12 @@
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
       
       
         
           
             
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
           
         
           
@@ -4362,14 +4658,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../../references/">References</a>
           
-            <label for="__nav_6">
+            <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_6">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           References
         </label>
@@ -4382,63 +4678,62 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../references/user-management/user-roles/" class="md-nav__link">
-        Asgardeo user roles
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
       
       
         
           
-            
-          
-        
-          
-        
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../references/app-settings/">App configurations</a>
-          
-            <label for="__nav_6_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_6_3">
+        <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          Extenstions
           <span class="md-nav__icon md-icon"></span>
-          App configurations
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Extenstions
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_1" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7_2_1" id="__nav_7_2_1_label" tabindex="0">
+          Authentication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Authentication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -4446,22 +4741,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../references/app-settings/oidc-settings-for-app/" class="md-nav__link">
-        OIDC configurations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/app-settings/saml-settings-for-app/" class="md-nav__link">
-        SAML configurations
+      <a href="../../../../references/extend/write-a-custom-oauth-2.0-grant-type/" class="md-nav__link">
+        Write a Custom OAuth 2.0 grant
       </a>
     </li>
   
@@ -4475,211 +4756,8 @@
 
             
           
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../references/idp-settings/">IdP configurations</a>
-          
-            <label for="__nav_6_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_6_4">
-          <span class="md-nav__icon md-icon"></span>
-          IdP configurations
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/idp-settings/oidc-settings-for-idp/" class="md-nav__link">
-        OIDC configurations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/idp-settings/saml-settings-for-idp/" class="md-nav__link">
-        SAML configurations
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/grant-types-in-asgardeo/" class="md-nav__link">
-        OAuth2 grant types of Asgardeo
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/conditional-auth/api-reference/" class="md-nav__link">
-        Conditional auth - API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/remote-user-store/remote-user-store-properties/" class="md-nav__link">
-        Remote user store properties
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/authorization-policies-for-apps/" class="md-nav__link">
-        Authorization policies for apps
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/application-logs/" class="md-nav__link">
-        Application logs
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/email-templates/" class="md-nav__link">
-        Email templates
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/accessibility/" class="md-nav__link">
-        Accessibility compliance
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/data-residency-in-asgardeo/" class="md-nav__link">
-        Data residency in Asgardeo
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../references/localization-in-asgardeo/" class="md-nav__link">
-        Localization in Asgardeo
-      </a>
     </li>
   
 
@@ -4718,8 +4796,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#register-asgardeo-on-facebook" class="md-nav__link">
-    Register Asgardeo on Facebook
+  <a href="#register-wso2-identity-server-on-facebook" class="md-nav__link">
+    Register WSO2 Identity Server on Facebook
   </a>
   
 </li>
@@ -4743,18 +4821,12 @@
     Try it out
   </a>
   
-    <nav class="md-nav" aria-label="Try it out">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#add-groups-to-the-connection" class="md-nav__link">
     Add groups to the connection
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4777,14 +4849,31 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
+  
                   
+
+  
+    <a href="https://github.com/wso2/docs-is/edit/master/en/docs/guides/authentication/social-login/add-facebook-login.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/wso2/docs-is/raw/master/en/docs/guides/authentication/social-login/add-facebook-login.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
 
 
 <h1 id="add-facebook-login">Add Facebook login<a class="headerlink" href="#add-facebook-login" title="Permanent link">&para;</a></h1>
-<p>You can add Facebook login to your applications using Asgardeo and enable users to log in with their Facebook account.</p>
+<p>You can add Facebook login to your applications using WSO2 Identity Server and enable users to log in with their Facebook account.</p>
 <p>Follow this guide for instructions.</p>
-<h2 id="register-asgardeo-on-facebook">Register Asgardeo on Facebook<a class="headerlink" href="#register-asgardeo-on-facebook" title="Permanent link">&para;</a></h2>
-<p>You need to register Asgardeo as an app on Facebook.</p>
+<h2 id="register-wso2-identity-server-on-facebook">Register WSO2 Identity Server on Facebook<a class="headerlink" href="#register-wso2-identity-server-on-facebook" title="Permanent link">&para;</a></h2>
+<p>You need to register WSO2 Identity Server as an app on Facebook.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can follow the <a href="https://developers.facebook.com/docs/development/create-an-app">Facebook Documentation</a> for detailed instructions.</p>
@@ -4792,52 +4881,54 @@
 <p>To register an app on Facebook:</p>
 <ol>
 <li>
-<p>Log in to the <a href="https://developers.facebook.com/apps">Facebook developer portal</a> and click <strong>Create App</strong>.
- <a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Log on to Facebook developer portal" src="../../../../assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg" /></a></p>
+<p>Log in to the <a href="https://developers.facebook.com/apps">Facebook developer portal</a> and click <strong>Create App</strong>.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Log on to Facebook developer portal" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
 </li>
 <li>
-<p>Select <strong>Consumer</strong> as the app type and click <strong>Next</strong>.
- <a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/facebook-app-type.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create Facebook consumer app" src="../../../../assets/img/guides/idp/facebook-idp/facebook-app-type.jpg" /></a></p>
+<p>Select <strong>Consumer</strong> as the app type and click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create Facebook consumer app" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
 </li>
 <li>
-<p>Provide <strong>Display Name</strong> and click <strong>Create App</strong> to create an application.
- <a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/facebook-app-info.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Provide information to Facebook app" src="../../../../assets/img/guides/idp/facebook-idp/facebook-app-info.jpg" /></a></p>
+<p>Provide <strong>Display Name</strong> and click <strong>Create App</strong> to create an application.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Provide information to Facebook app" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
 </li>
 <li>
-<p>Under <strong>Add products to your app</strong>, click <strong>Set up</strong> on the <strong>Facebook Login</strong> card.
- <a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/add-facebook-login.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook login" src="../../../../assets/img/guides/idp/facebook-idp/add-facebook-login.jpg" /></a></p>
+<p>Under <strong>Add products to your app</strong>, click <strong>Set up</strong> on the <strong>Facebook Login</strong> card.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/add-facebook-login.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook login" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/add-facebook-login.jpg" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
 </li>
 <li>
-<p>Select <strong>Web</strong> type and provide the following <strong>Site URL</strong> with your organization name:
-    <div class="highlight"><pre><span></span><code>https://api.asgardeo.io/t/<span class="o">{</span>organization_name<span class="o">}</span>
+<p>Select <strong>Web</strong> type and provide the following <strong>Site URL</strong> with your organization name:</p>
+<div class="highlight"><pre><span></span><code>https://localhost:9443
 </code></pre></div>
-    <a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/facebook-app-url.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook app url" src="../../../../assets/img/guides/idp/facebook-idp/facebook-app-url.jpg" /></a></p>
+
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-app-url.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook app url" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-app-url.jpg" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
 </li>
 <li>
 <p>Save the changes and click <strong>Continue</strong>.</p>
 </li>
 <li>
-<p>On the left panel, under <strong>Facebook Login</strong>, go to <strong>Settings</strong> and add the following as the <strong>Valid OAuth Redirect URIs</strong>:
-   <div class="highlight"><pre><span></span><code>https://api.asgardeo.io/t/<span class="o">{</span>organization_name<span class="o">}</span>/commonauth
-</code></pre></div></p>
+<p>On the left panel, under <strong>Facebook Login</strong>, go to <strong>Settings</strong> and add the following as the <strong>Valid OAuth Redirect URIs</strong>:</p>
+<div class="highlight"><pre><span></span><code>https://localhost:9443/commonauth
+</code></pre></div>
+
 </li>
 <li>
-<p>Enable <strong>Client OAuth Login</strong> and <strong>Web OAuth Login</strong> (these are enabled by default) and save the changes.
-    <a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook settings" src="../../../../assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg" /></a></p>
+<p>Enable <strong>Client OAuth Login</strong> and <strong>Web OAuth Login</strong> (these are enabled by default) and save the changes.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook settings" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
 </li>
 <li>
-<p>On the main panel, go to <strong>Settings &gt; Basic</strong> and take note of the <strong>App ID</strong> and <strong>App Secret</strong>.
-      <a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Get AppID and Secret from Facebook" src="../../../../assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png" /></a></p>
+<p>On the main panel, go to <strong>App settings &gt; basic</strong> and take note of the <strong>App ID</strong> and <strong>App Secret</strong>.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Get AppID and Secret from Facebook" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
 </li>
 </ol>
 <h2 id="register-the-facebook-idp">Register the Facebook IdP<a class="headerlink" href="#register-the-facebook-idp" title="Permanent link">&para;</a></h2>
-<p>Now, let's register the Facebook IdP in Asgardeo.</p>
+<p>Now, let's register the Facebook IdP in WSO2 Identity Server.</p>
 <ol>
-<li>On the Asgardeo Console, go to <strong>Connections</strong>.</li>
+<li>On the WSO2 Identity Server Console, go to <strong>Connections</strong>.</li>
 <li>Click <strong>Create Connection</strong> and select <strong>Facebook</strong>.</li>
 <li>
 <p>Enter the following details of the Facebook identity provider and click <strong>Finish</strong>:</p>
-<p><a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/add-facebook-idp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook IDP in Asgardeo" src="../../../../assets/img/guides/idp/facebook-idp/add-facebook-idp.png" /></a></p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/add-facebook-idp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook IDP in WSO2 Identity Server" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/add-facebook-idp.png" style="border: 0.3px solid lightgrey;" width="600" /></a></p>
 <p><table>
     <tr>
         <th>Parameter</th>
@@ -4858,38 +4949,68 @@
 </table></p>
 </li>
 </ol>
-<!-- 4. If required, you can [disable JIT user provisioning](../../guides/authentication/jit-user-provisioning/). -->
+<!-- 4. If required, you can [disable JIT user provisioning](http://127.0.0.1:8000/en/7.0.0/guides/authentication/jit-user-provisioning/). -->
 
-<details class="note"><summary>Claim syncing for JIT-provisioned users</summary><p><a href="../../guides/authentication/jit-user-provisioning/">JIT user provisioning</a> is enabled by default for your external identity provider. If required, you can <a href="../../guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning">disable JIT user provisioning</a>.</p>
-<p>When a user with a local Asgardeo account uses the same email address to log in through an external identity provider, Asgardeo syncs the claims from the JIT-provisioned user account and the local account.</p>
-<p>According to the default behavior of Asgardeo, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.</p>
-<p>You can use Asgardeo's <a href="../../apis/idp/#/operations/getJITConfig">identity provider APIs</a> to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.</p>
+<details class="note"><summary>Claim syncing for JIT-provisioned users</summary><p><a href="http://127.0.0.1:8000/en/7.0.0/guides/authentication/jit-user-provisioning/">JIT user provisioning</a> is enabled by default for your external identity provider. If required, you can <a href="http://127.0.0.1:8000/en/7.0.0/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning">disable JIT user provisioning</a>.</p>
+<p>When a user with a local WSO2 Identity Server account uses the same email address to log in through an external identity provider, WSO2 Identity Server syncs the claims from the JIT-provisioned user account and the local account.</p>
+<p>According to the default behavior of WSO2 Identity Server, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.</p>
+<p>You can use WSO2 Identity Server's <a href="http://127.0.0.1:8000/en/7.0.0/apis/idp/#tag/Provisioning/operation/getJITConfig">identity provider APIs</a> to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.</p>
 </details>
-<p>After the Facebook identity provider is created, go to the <strong>Settings</strong> tab and see the list of permissions granted by Facebook to Asgardeo.</p>
+<p>After the Facebook identity provider is created, go to the <strong>Settings</strong> tab and see the list of permissions granted by Facebook to WSO2 Identity Server.</p>
 <ul>
 <li><strong>email</strong>: Grants read access to a user's primary email address.</li>
 <li><strong>public_profile</strong>: Grants read access to a user's default public profile details.  </li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Asgardeo needs these permissions to get user information. Asgardeo checks the attribute configurations of the application and sends the relevant attributes received from Facebook to the app. You can read the <a href="https://developers.facebook.com/docs/permissions/reference">Facebook documentation</a> to learn more.</p>
+<p>WSO2 Identity Server needs these permissions to get user information. WSO2 Identity Server checks the attribute configurations of the application and sends the relevant attributes received from Facebook to the app. You can read the <a href="https://developers.facebook.com/docs/permissions/reference">Facebook documentation</a> to learn more.</p>
 </div>
 <h2 id="enable-facebook-login">Enable Facebook login<a class="headerlink" href="#enable-facebook-login" title="Permanent link">&para;</a></h2>
 <div class="admonition note before you begin">
 <p class="admonition-title">Note</p>
-<p>You need to <a href="../../guides/applications/">register an application with Asgardeo</a>. You can register your own application or use one of the <a href="../../get-started/try-samples/">sample applications</a> provided.</p>
+<p>You need to <a href="http://127.0.0.1:8000/en/7.0.0/guides/applications/">register an application with WSO2 Identity Server</a>. You can register your own application or use one of the <a href="http://127.0.0.1:8000/en/7.0.0/get-started/try-samples/">sample applications</a> provided.</p>
 </div>
 <ol>
-<li>On the Asgardeo Console, go to <strong>Applications</strong>.</li>
-<li>Open your application from the list and go to the <strong>Sign-in Method</strong> tab.</li>
-<li>If you haven't already defined a sign-in flow, click <strong>Start with Default configuration</strong> to get started.</li>
+<li>On the WSO2 Identity Server Console, go to <strong>Applications</strong>.</li>
+<li>
+<p>Select your application, go to the <strong>Sign-in Method</strong> tab and add Facebook login from your preferred editor:</p>
+<div class="admonition note">
+<p class="admonition-title">Recommendations</p>
+<p>WSO2 Identity Server recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.</p>
+</div>
+<hr />
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Classic Editor</label><label for="__tabbed_1_2">Visual Editor</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>To add Facebook login using the Classic Editor:</p>
+<ol>
+<li>
+<p>If you haven't already defined a sign-in flow, click <strong>Start with Default configuration</strong> to get started.</p>
+</li>
 <li>
 <p>Click <strong>Add Authentication</strong> on the step, select your Facebook identity provider, and click <strong>Add</strong>.</p>
-<div class="admonition note recommendations">
-<p class="admonition-title">Note</p>
-<p>Asgardeo recommends adding your social and enterprise connections to the first authentication step as they are used for identifying the user.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook login in Asgardeo" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
+</li>
+</ol>
 </div>
-<p><a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook login in Asgardeo" src="../../../../assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png" /></a></p>
+<div class="tabbed-block">
+<p>To add Facebook login using the Visual Editor:</p>
+<ol>
+<li>
+<p>Switch to the <strong>Visual Editor</strong> tab, by default the <code>Username &amp; Password</code> login flow will be added onto the Visual Editor's workspace.</p>
+</li>
+<li>
+<p>Click on <code>+ Add Sign In Option</code> to add a new authenticator to the same step and select your Facebook connection.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/add-facebook-login-with-visual-editor.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add Facebook login in Asgardeo using the Visual Editor" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/add-facebook-login-with-visual-editor.png" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="500" /></a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<hr />
+</li>
+<li>
+<p>Click <strong>Update</strong> to save your changes.</p>
 </li>
 </ol>
 <h2 id="try-it-out">Try it out<a class="headerlink" href="#try-it-out" title="Permanent link">&para;</a></h2>
@@ -4899,14 +5020,12 @@
 <p>Access the application URL.</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to open the Asgardeo login page.</p>
+<p>Click <strong>Login</strong> to open the WSO2 Identity Server login page.</p>
 </li>
 <li>
-<p>On the Asgardeo login page, click <strong>Sign in with Facebook</strong>.</p>
+<p>On the WSO2 Identity Server login page, click <strong>Sign in with Facebook</strong>.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/sign-in-with-facebook.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login with Facebook" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/facebook-idp/sign-in-with-facebook.png" style="border: 0.3px solid lightgrey;" width="300" /></a></p>
 </li>
-</ol>
-<p><a class="glightbox" href="../../../../assets/img/guides/idp/facebook-idp/sign-in-with-facebook.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login with Facebook" src="../../../../assets/img/guides/idp/facebook-idp/sign-in-with-facebook.png" /></a></p>
-<ol>
 <li>
 <p>Log in to Facebook with an existing user account.</p>
 </li>
@@ -4916,22 +5035,91 @@
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When a user successfully logs in with Facebook for the first time, a <strong>user</strong> account is created in the Asgardeo Console with the Facebook username. This new user account will be managed by Facebook.</p>
+<p>When a user successfully logs in with Facebook for the first time, a <strong>user</strong> account is created in the WSO2 Identity Server Console with the Facebook username. This new user account will be managed by Facebook.</p>
 </div>
-<h3 id="add-groups-to-the-connection">Add groups to the connection<a class="headerlink" href="#add-groups-to-the-connection" title="Permanent link">&para;</a></h3>
-<p><CommonGuide guide='guides/fragments/manage-connection/add-groups.md'/></p>
+<h2 id="add-groups-to-the-connection">Add groups to the connection<a class="headerlink" href="#add-groups-to-the-connection" title="Permanent link">&para;</a></h2>
+<p>To add groups to a connection on WSO2 Identity Server:</p>
+<ol>
+<li>On the WSO2 Identity Server Console, go to <strong>Connections</strong>.</li>
+<li>
+<p>Select your connection and go to the <strong>Groups</strong> tab.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the <strong>Groups</strong> tab is only available for enterprise and social login connections.</p>
+</div>
+</li>
+<li>
+<p>Enter the name of the connection's group attribute you wish to map to the group attribute of WSO2 Identity Server.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/add-group-attribute.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add the group attribute" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/add-group-attribute.png" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
+</li>
+<li>
+<p>Click <strong>Update</strong>.</p>
+</li>
+<li>
+<p>Click <strong>+ New Group</strong> and enter the group name. Ensure that the name matches the configuration in the federated connection.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/add-federated-group.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add group" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/add-federated-group.png" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
+</li>
+<li>
+<p>Click <strong>Finish</strong> to add the group information.</p>
+</li>
+</ol>
 <h2 id="delete-a-connection">Delete a connection<a class="headerlink" href="#delete-a-connection" title="Permanent link">&para;</a></h2>
-<p><CommonGuide guide='guides/fragments/manage-connection/delete-connection.md'/></p>
+<!-- markdownlint-disable-next-line -->
+
+<div class="admonition note before you begin">
+<p class="admonition-title">Note</p>
+<p>If your connection has applications associated with it, you will not be able to delete the connection.</p>
+<p>Before deleting such connections:</p>
+<ol>
+<li>Check the associated applications from the <strong>Connected Apps</strong> tab of the connection.</li>
+<li>Click on an application that uses the connection and you will be redirected to the Sign-in Method tab of the respective application.</li>
+<li>Remove the connection from the sign-in flow of the associated applications.</li>
+<li>Repeat steps 2 and 3 for all listed applications.</li>
+<li>Proceed to delete the connection.</li>
+</ol>
+</div>
+<p>To delete a connection that does not have any applications using it:</p>
+<ol>
+<li>On the WSO2 Identity Server Console, go to <strong>Connections</strong>.</li>
+<li>Click <strong>Set up</strong> and navigate to the <strong>General</strong> tab.</li>
+<li>
+<p>At the bottom of the page, click the button in the <strong>Delete connection</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>You cannot delete connections that are available by default.</p>
+</p>
+</div>
+</li>
+<li>
+<p>Select the checkbox and confirm your action.</p>
+<p><a class="glightbox" href="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/delete-idp/confirmation-modal.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Delete connection" src="http://127.0.0.1:8000/en/7.0.0/assets/img/guides/idp/delete-idp/confirmation-modal.png" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;" width="600" /></a></p>
+</li>
+</ol>
 
 
 
 
 
                 
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSWTP6" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <script type="text/javascript">
+    docsearch({
+    appId: 'MB2DH61VKZ',
+    indexName: 'wso2_is',
+    apiKey: '87a6b2f09944fb1f721ab3108476e157',
+    inputSelector: '.md-search__input',
+    algoliaOptions: {"facetFilters":["language:en","version:6.1.0"]}
+    });
+  </script>
+
               </article>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" hidden>
@@ -4948,7 +5136,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Index" rel="prev">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Add social login" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -4957,20 +5145,20 @@
                 <span class="md-footer__direction">
                   Previous
                 </span>
-                Index
+                Add social login
               </div>
             </div>
           </a>
         
         
           
-          <a href="../add-github-login/" class="md-footer__link md-footer__link--next" aria-label="Next: Add Github login" rel="next">
+          <a href="../add-google-login/" class="md-footer__link md-footer__link--next" aria-label="Next: Add Google login" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Next
                 </span>
-                Add Github login
+                Add Google login
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4997,10 +5185,15 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "navigation.top", "content.code.copy", "content.action.edit", "content.action.view", "content.tabs.link", "search.suggest", "search.share"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      <script src="../../../../assets/javascripts/application.162298c2.js"></script>
+      
+        
+        
+      
+      <script>app.initialize({version:"1.4.2",url:{base:"../../../.."}})</script>
       
         <script src="../../../../assets/lib/json-formatter/json-formatter.umd.js"></script>
       

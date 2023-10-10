@@ -77,5 +77,5 @@ The following section provides the instructions to contruct requests for each no
             }
         ```
 
-<redoc spec-url={{base_path}}/apis/restapis/notification-senders.yaml></redoc>
+<redoc spec-url=../../apis/restapis/notification-senders.yaml></redoc>
 <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>

@@ -19,7 +19,7 @@ To enable SMS OTP for the organization:
 1. On the {{ product_name }}, go to **Connections** and select **SMS OTP**.
 2. Update the following parameters in the **Settings** tab:
 
-    ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/configure-sms-otp-settings.png){: width="600"}
+    ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/configure-sms-otp-settings.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -56,13 +56,13 @@ To add **SMS OTP** to the authentication flow of the app:
     === "Classic Editor"
         - If you don't have a customized login flow, you can click **Add SMS OTP as a second factor**.
 
-            ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/sms-otp-authenticator.png){: width="600"}
+            ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/sms-otp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         This opens the customized login flow with SMS OTP as a second-factor authenticator:
 
         - If you have an already customized login flow, you can add a second step and add SMS OTP as the authenticator.
 
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add SMS OTP as a second-factor authenticator using the Visual Editor:
@@ -73,7 +73,7 @@ To add **SMS OTP** to the authentication flow of the app:
 
         3. Click **Confirm** to add SMS OTP as a second factor to the sign-in flow.
 
-            ![Configuring SMS OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600"}
+            ![Configuring SMS OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -81,10 +81,10 @@ To add **SMS OTP** to the authentication flow of the app:
         Once the SMS OTP authenticator is added, select **Enable backup codes**. This allows users to use their backup codes to log in to the application when they cannot obtain the required MFA codes.
 
         === "Using the classic editor"
-            ![Enable backup codes for SMS otp authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes.png){: width="500"}
+            ![Enable backup codes for SMS otp authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
         
         === "Using the visual editor"
-            ![Enable backup codes for SMS otp authenticator using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes-with-visual-editor.png){: width="500"}
+            ![Enable backup codes for SMS otp authenticator using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         Learn more about [configuring backup codes for business users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
 
@@ -105,7 +105,7 @@ To create a webhook on Choreo:
 
 3. Start creating a webhook in Choreo from the list of components. Learn more about webhooks in the Choreo [documentation](https://wso2.com/choreo/docs/develop/components/webhook/#develop-a-webhook).
 
-    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: width="600"}
+    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Provide general details of the webhook and click **Next**
 
@@ -116,18 +116,18 @@ To create a webhook on Choreo:
     !!! note
         Be sure to select **Start with a sample**, which will create a pull request in your GitHub repository with the starter code required for the webhook.
 
-    ![Configure repository for choreo webhook.]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-configure-repository.png){: width="600"}
+    ![Configure repository for choreo webhook.]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-configure-repository.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 6. Select **{{ product_name }}** as the **Trigger Type** and click **Next**.
 
-    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-asgardeo-trigger-type.png){: width="600"}
+    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-asgardeo-trigger-type.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 7. Select **NotificationService** as the **Trigger Channel** and click **Create**.
 
     !!! note
         The `NotificationService` trigger channel listens to all notification events from the organization in {{ product_name }}.
 
-    ![Select NotificationService as the webhook trigger channel.]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-trigger-channel.png){: width="550"}
+    ![Select NotificationService as the webhook trigger channel.]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-trigger-channel.png){: width="550" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 8. After the webhook is created, Choreo will create a pull request in your connected Github repository with the sample starter code. Go to your repository and merge this code to complete the setup.
 
@@ -295,7 +295,7 @@ When SMS OTP is enabled for the organization and added to the login flow of your
 1. {{ product_name }} sends the OTP to the user's registered mobile number.
 2. {{ product_name }} prompts the user to enter the OTP code.
 
-    ![Authenticate with SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/enter-sms-otp.png){: width="300"}
+    ![Authenticate with SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/enter-sms-otp.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 3. If required, the user can request {{ product_name }} to resend the OTP. A new OTP will be sent if the current resend attempt count is less than the maximum allowed resend attempt count. The new OTP invalidates the previously sent OTP.
 4. The user enters the OTP and clicks **Continue**.

@@ -16,15 +16,15 @@ You need to register {{ product_name }} as an OAuth2.0 application on Google.
 
     1. Open the navigation menu and click **View all products**.
 
-       ![View all products on the Google console]({{base_path}}/assets/img/guides/idp/google-idp/view-all-products.png){: width="600"}
+       ![View all products on the Google console]({{base_path}}/assets/img/guides/idp/google-idp/view-all-products.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     2. Under **Management**, click **APIs & Services**.
 
-       ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/apis-and-services.png){: width="600"}
+       ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/apis-and-services.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Go to the **Credentials** page, click **Create Credentials**, and select **Oauth client ID**.
 
-    ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/google-oauth-client-id.png){: width="600"}
+    ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/google-oauth-client-id.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Configure your consent screen by clicking **Configure Consent Screen** and return to **Create OAuth client ID** screen once you are done.
 
@@ -35,7 +35,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Google.
 6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application:
 
     ```bash
-    https://api.asgardeo.io/t/{organization_name}/commonauth
+    {{ product_url_format }}/commonauth
     ```
 
 7. Take note of the client ID and client secret generated for the application.
@@ -48,7 +48,7 @@ Now, let's register the Google IdP in {{ product_name }}.
 2. Click **New Connections** and select **Google**.
 3. Enter the following details of the Google identity provider and click **Finish**:
 
-    ![Add Google IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/google-idp/add-google-idp.png){: width="600"}
+    ![Add Google IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/google-idp/add-google-idp.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -108,7 +108,7 @@ After the Google identity provider is created, go to the **Settings** tab and se
     
         2. Click **Add Authentication** on the step, select your Google identity provider, and click **Add**.
 
-            ![Add Google login in Asgardeo]({{base_path}}/assets/img/guides/idp/google-idp/add-google-federation-with-basic.png){: width=700"}
+            ![Add Google login in Asgardeo]({{base_path}}/assets/img/guides/idp/google-idp/add-google-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Google login using the Visual Editor:
@@ -117,7 +117,7 @@ After the Google identity provider is created, go to the **Settings** tab and se
     
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Google connection.
 
-            ![dd Google login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/google-idp/add-google-login-with-visual-editor.png){: width=500"}
+            ![dd Google login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/google-idp/add-google-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -131,7 +131,7 @@ Follow the steps given below.
 2. Click **Login** to open the {{ product_name }} login page.
 3. On the {{ product_name }} login page, **Sign in with Google**.
 
-    ![Login with Google]({{base_path}}/assets/img/guides/idp/google-idp/sign-in-with-google.png){: width=300"}
+    ![Login with Google]({{base_path}}/assets/img/guides/idp/google-idp/sign-in-with-google.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Log in to Google with an existing user account.
 

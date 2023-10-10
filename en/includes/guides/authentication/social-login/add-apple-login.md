@@ -14,11 +14,14 @@ To register {{ product_name }} on Apple, you need to create the following compon
     To register an App ID:
 
     1. On the [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
-        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png)
+        
+        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
     2. Click `+` to register an **App ID**.
     3. Select **App IDs** and click **Continue**.
     4. Select **App** as the type and click **Continue**.
     5. Enter the values for the following parameters.
+        
         <table>
             <tr>
                 <th>Parameter</th>
@@ -30,10 +33,12 @@ To register {{ product_name }} on Apple, you need to create the following compon
             </tr>
             <tr>
                 <td>Bundle ID</td>
-                <td>A unique identifier for the application. It is usually a string of characters in reverse domain name notation. <br> <b>Example</b>: <code>io.asgardeo.myorg</code></td>
+                <td>A unique identifier for the application. It is usually a string of characters in reverse domain name notation. <br> <b>Example</b>: <code>com.domainname.appname</code></td>
             </tr>
         </table>
-        ![Register an App ID]({{base_path}}/assets/img/guides/idp/apple-idp/register-an-app-id.png)
+        
+        ![Register an App ID]({{base_path}}/assets/img/guides/idp/apple-idp/register-an-app-id.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
     6. Under the **Capabilities** tab, select **Sign in with Apple**.
     7. Click **Continue** and then click **Register**.
 
@@ -41,10 +46,12 @@ To register {{ product_name }} on Apple, you need to create the following compon
     To register a services ID:
 
     1. On the [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
-        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png)
+        
+        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     2. Click `+` and select **Services IDs** and click **Continue**.
     3. Enter values for the following parameters:
+
         <table>
             <tr>
                 <th>Parameter</th>
@@ -56,14 +63,16 @@ To register {{ product_name }} on Apple, you need to create the following compon
             </tr>
             <tr>
                 <td><b>Identifier</b></td>
-                <td>A unique identifier for the application. It is usually a string of characters in reverse domain name notation. This value is considered the client ID of the application.<br> <b>Example</b>: <code>io.asgardeo.myorg</code></td>
+                <td>A unique identifier for the application. It is usually a string of characters in reverse domain name notation. This value is considered the client ID of the application.<br> <b>Example</b>: <code>com.domainname.appname</code></td>
             </tr>
         </table>
+
     4. Click **Continue** and then click **Register**.
     5. Go back to the **Identifiers** section and click on the **Services ID** you created.
     6. Enable **Sign in with Apple** and click **Configure**.
     7. Under **Web Authentication Configuration**, select the **App ID** you created as the **Primary App ID**.
     8. Enter the following values under **Register Website URLs**.
+        
         <table>
             <tr>
                 <th>Parameter</th>
@@ -71,20 +80,23 @@ To register {{ product_name }} on Apple, you need to create the following compon
             </tr>
             <tr>
                 <td><b>Domain</b></td>
-                <td><code>api.asgardeo.io</code></td>
+                <td><code>{{ product_url }}</code></td>
             </tr>
             <tr>
                 <td><b>Return URL</b></td>
-                <td><code>https://api.asgardeo.io/t/{organization_name}/commonauth</code></td>
+                <td><code>{{ product_url_format }}/commonauth</code></td>
             </tr>
         </table>
+
     9. Click **Continue** and then click **Save**.
 
 ??? note "Step 3: Register a new key"
     To register a new key:
 
     1. On [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Keys**.
-        ![Add Apple keys]({{base_path}}/assets/img/guides/idp/apple-idp/register-a-new-key.png)
+        
+        ![Add Apple keys]({{base_path}}/assets/img/guides/idp/apple-idp/register-a-new-key.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
     2. Click `+` to register a new key.
     3. Enter a name for the key, enable **Sign in with Apple**, and click **Configure**.
     4. Under **Configure Keys**, select the App ID you created previously and click Save. Then click Continue.
@@ -110,7 +122,7 @@ Now, let's register the Apple IdP in {{ product_name }}.
 2. Click **New Connections** and select **Apple**.
 3. Enter the following details of the Apple identity provider and click **Finish**:
 
-    ![Add Apple IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-idp.png)
+    ![Add Apple IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-idp.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -183,7 +195,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
 
         2. Click **Add Authentication** on the step, select your Apple identity provider, and click **Add**.
 
-            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png){: width=700"}
+            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Apple login using the Visual Editor:
@@ -192,7 +204,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Apple connection.
 
-            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-visual-editor.png){: width=500"}
+            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -208,7 +220,7 @@ Follow the steps given below.
 
 3. On the {{ product_name }} login page, click **Sign in with Apple**.
 
-    ![Login with Apple]({{base_path}}/assets/img/guides/idp/apple-idp/sign-in-with-apple.png){: width=300"}
+    ![Login with Apple]({{base_path}}/assets/img/guides/idp/apple-idp/sign-in-with-apple.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Log in to Apple with an existing Apple ID.
 

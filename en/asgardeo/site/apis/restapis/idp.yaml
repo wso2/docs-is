@@ -1235,6 +1235,257 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  '/trusted-token-issuers':
+    get:
+      tags:
+        - Trusted Token Issuers
+      summary: |
+        List trusted token issuers
+      description: "This API provides the capability to retrieve the list of token issuers.\n\n<b>Scope required:</b> `internal_idp_view`"
+      operationId: getTrustedTokenIssuers
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/requiredAttributesQueryParam'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Trusted Token Issuers
+      summary: |
+        Add a new trusted token issuer
+      description: "This API provides the capability to create a token issuer. \n\n<b>Scope required:</b> `internal_idp_create`"
+      operationId: addTrustedTokenIssuer
+      responses:
+        '201':
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the newly created Token issuer.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrustedTokenIssuerResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TrustedTokenIssuerResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrustedTokenIssuerPOSTRequest'
+        description: This represents the trusted token issuer to be created.
+        required: true
+
+  '/trusted-token-issuers/{trusted-token-issuer-id}':
+    get:
+      tags:
+        - Trusted Token Issuers
+      summary: |
+        Retrieve IdP by trusted token issuer's ID
+      description: "This API provides the capability to retrieve the trusted token issuer details by using its ID.\n\n<b>Scope required:</b> `internal_idp_view`"
+      operationId: getTrustedTokenIssuer
+      parameters:
+        - name: trusted-token-issuer-id
+          in: path
+          description: ID of the trusted token issuer.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrustedTokenIssuerResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TrustedTokenIssuerResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      tags:
+        - Trusted Token Issuers
+      summary: >
+        Patch a trusted token issuer property by ID
+      description: "This API provides the capability to update a trusted token issuer property using patch request. Trusted token issuer patch is supported only for key-value pairs.\n\n<b>Scope required:</b> `internal_idp_update`"
+      operationId: patchTrustedTokenIssuer
+      parameters:
+        - name: trusted-token-issuer-id
+          in: path
+          description: ID of the trusted token issuer.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the updated trusted token issuer.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrustedTokenIssuerResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+        required: true
+    delete:
+      tags:
+        - Trusted Token Issuers
+      summary: |
+        Delete a trusted token issuer by ID
+      description: "This API provides the capability to delete a trusted token issuer by giving its ID. \n\n<b>Scope required:</b> ` internal_idp_delete`"
+      operationId: deleteTrustedTokenIssuer
+      parameters:
+        - name: trusted-token-issuer-id
+          in: path
+          description: ID of the trusted token issuer
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/forceQueryParam'
+      responses:
+        '204':
+          description: Successfully Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   parameters:
     limitQueryParam:
@@ -1304,6 +1555,17 @@ components:
       schema:
         type: boolean
         default: false
+    sortOrderQueryParam:
+      in: query
+      name: sortOrder
+      required: false
+      description: >-
+        Define the order in which the retrieved tenants should be sorted.
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
   securitySchemes:
     OAuth2:
       type: oauth2
@@ -1903,6 +2165,26 @@ components:
         localRole:
           type: string
           example: manager
+    IdPGroupsConfig:
+      type: array
+      description: IdP groups supported by the IdP.
+      items:
+        $ref: '#/components/schemas/IdPGroup'
+      minItems: 0
+    IdPGroup:
+      type: object
+      required:
+        - name
+      description: Represents an IdP group supported by an Identity Provider.
+      properties:
+        name:
+          type: string
+          description: Name of the IdP group
+          example: google-admin
+        id:
+          type: string
+          description: UUID of the IdP group
+          example: 6b1f8513-3de0-4f28-9cad-b7400dbc94ae
     Claims:
       type: object
       properties:
@@ -2123,6 +2405,83 @@ components:
       required:
         - name
         - idp
+    TrustedTokenIssuerPOSTRequest:
+      type: object
+      required:
+        - name
+        - issuer
+        - certificate
+      properties:
+        name:
+          type: string
+          example: google
+        description:
+          type: string
+          example: "Trusted Token Issuer"
+        image:
+          type: string
+          example: "issuer-logo-url"
+        templateId:
+          type: string
+          example: '8ea23303-49c0-4253-b81f-82c0fe6fb4a0'
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+        alias:
+          type: string
+          example: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
+        issuer:
+          type: string
+          example: 'https://www.issuer.com'
+        claims:
+          $ref: '#/components/schemas/Claims'
+    TrustedTokenIssuerResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '123e4567-e89b-12d3-a456-556642440000'
+        name:
+          type: string
+          example: google
+        description:
+          type: string
+        templateId:
+          type: string
+          example: '8ea23303-49c0-4253-b81f-82c0fe6fb4a0'
+        isEnabled:
+          type: boolean
+          default: true
+          example: true
+        isPrimary:
+          type: boolean
+          default: false
+        image:
+          type: string
+          example: "google-logo-url"
+        isFederationHub:
+          type: boolean
+          example: false
+        homeRealmIdentifier:
+          type: string
+          example: localhost
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+        alias:
+          type: string
+          example: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
+        issuer:
+          type: string
+          example: 'https://www.idp.com'
+        claims:
+          $ref: '#/components/schemas/Claims'
+        roles:
+          $ref: '#/components/schemas/Roles'
+        groups:
+          $ref: '#/components/schemas/IdPGroupsConfig'
+        federatedAuthenticators:
+          $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
+        provisioning:
+          $ref: '#/components/schemas/ProvisioningResponse'
     Service:
       type: string
       example: 'Authentication'

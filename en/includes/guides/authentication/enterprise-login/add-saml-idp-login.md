@@ -12,7 +12,7 @@ You need to register {{ product_name }} as a SAML application in the external id
 You can use the following URL as the **Assertion Consumer Service URL** (also known as callback URL/ redirect URL/ ACS URL) in the application that represents {{ product_name }}.
 
 ```bash 
-https://api.asgardeo.io/t/<organization_name>/commonauth
+{{ product_url_format }}/commonauth
 ```
 
 After you register the app, you should get the required configurations, as explained below.
@@ -54,7 +54,7 @@ If you selected **Manual Configuration** in the previous step, follow the steps 
 
 1. Enter the following details and click **Next**.
 
-    ![Create SAML Enterprise IDP with manual configurations]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-manual-config.png){: width=600"}
+    ![Create SAML Enterprise IDP with manual configurations]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-manual-config.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -95,7 +95,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
 
 2. Upload the IdP metadata file and click **Next**.
 
-    ![Create SAML Enterprise IDP with Metadata file]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-metafile.png){: width=600"}
+    ![Create SAML Enterprise IDP with Metadata file]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-metafile.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. (Optional) Upload the public certificate of the identity provider.
 4. Click **Finish** to complete the registration.
@@ -122,7 +122,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
         
         2. Click **Add Authentication** on the step, select your SAML identity provider, and click **Add**.
 
-            ![Add SAML IdP login in Asgardeo]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/enable-saml-enterprise-login-with-basic.png){: width=700"}
+            ![Add SAML IdP login in Asgardeo]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/enable-saml-enterprise-login-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add SAML identity provider login using the Visual Editor:
@@ -131,7 +131,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your SAML identity provider connection.
 
-            ![Add SAML IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/add-saml-idp-with-visual-editor.png){: width=700"}
+            ![Add SAML IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/add-saml-idp-with-visual-editor.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -145,10 +145,12 @@ This is done so that {{ product_name }} can identify the user attributes in the 
 1. On the {{ product_name }} Console, click **Connections**.
 2. Select the SAML IdP connection from the list and click **Set up**.
 3. Go to the **Attributes** tab and click **Add IdP Attributes**.
-    ![Go to attributes section in SAML IdP]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/go-to-user-attribute-page.png){: width=600"}
+
+    ![Go to attributes section in SAML IdP]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/go-to-user-attribute-page.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
 4. Provide the following values and click **Add Attribute Mapping**.
 
-    ![Map SAML IdP attributes]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/map-saml-idp-attributes.png){: width=600"}
+    ![Map SAML IdP attributes]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/map-saml-idp-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -167,7 +169,7 @@ This is done so that {{ product_name }} can identify the user attributes in the 
 
 5. Select one of the mapped attributes as the **subject attribute** for your application and click **Update**.
 
-    ![select a subject attribute]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/select-subject-attributes.png){: width=600"}
+    ![select a subject attribute]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/select-subject-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! note
         By default, {{ product_name }} uses the subject attribute sent by the external SAML IdP as the subject identifier. To configure a different attribute as the subject, enable the **Find user ID from requests** from the **Settings** tab of the SAML IdP.
@@ -183,7 +185,7 @@ You may want to convert them to the local attribute URI so that the application 
 
 **A sample IdP attribute mapping done from the {{ product_name }} Console**:
 
-![Sample IdP attribute mapping]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/sample-attribute-mapping.png){: width=600"}
+![Sample IdP attribute mapping]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/sample-attribute-mapping.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 **Sample attributes in the SAML assertion of the integrated SAML app**:
 

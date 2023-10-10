@@ -1,26 +1,38 @@
 openapi: 3.0.1
 info:
-  title: Asgardeo - OAuth2 Dynamic Client Registration API
+  title: WSO2 Identity Server OAuth2 Dynamic Client Registration Endpoint
   description: |
-    This document specifies an OAuth2 Dynamic Client Registration endpoint for Asgardeo.
+    This document specifies an OAuth2 Dyanmic Client Registration Endpoint for WSO2 Identity Server.
+  contact:
+    name: WSO2
+    url: http://wso2.com/identity-and-access-management
+    email: architecture@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.1.0
 servers:
-- url: https:/api.asgardeo.io/t/{org-name}/api/identity/oauth2/dcr/v1.1
+- url: https:/{serverUrl}/api/identity/oauth2/dcr/v1.1
+  variables:
+    serverUrl:
+      default: localhost:9443
 security:
 - OAuth2: []
+- BasicAuth: []
 paths:
   /register:
     get:
       tags:
       - OAuth2 DCR
       summary: |
-        Get application by name
-      description: "This API is used to get/retrieve an OAuth2 application by `client_name`. \n\n <b>Scope required:</b> `internal_application_mgt_view`."
+        Get OAuth2 application information
+      description: |
+        This API is used to get/retrieve an OAuth2 application by client_name.
       operationId: getApplicationByName
       parameters:
       - name: client_name
         in: query
-        description: The name of the OAuth2 client application.
+        description: Unique identifier of the OAuth2 client application.
         required: true
         schema:
           type: string
@@ -44,7 +56,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
       x-wso2-request: |
-        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://api.asgardeo.io/t/{organization-name}/api/identity/oauth2/dcr/v1.1/register?client_name=application_owner_application_1"
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register?client_name=application_owner_application_1"
       x-wso2-response: |
         "HTTP/1.1 200 OK"
         { "client_id": "s6BhdRkqt3",
@@ -57,11 +69,13 @@ paths:
       tags:
       - OAuth2 DCR
       summary: |
-        Register an OAuth2 app
-      description: "This API is used to create an OAuth2 application. 
-        \nIf your want to create your application to use the `implicit` or `authorization_code` grant types, you need to provide the `redirect_uri` field in your request.\
-        \n If you are using any other grant type, \nsuch as `password`, you don't need to send the `redirect_uri` field in the request.
-        \n Check the sample request given below.\n\n <b>Scope required:</b> `internal_application_mgt_create`."
+        Registers an OAuth2 application
+      description: "This API is used to create an OAuth2 application. If your want\
+        \ to create your application to use the implicit or authorization_code \n\
+        grant types, you need to provide the redirect_uris field in your request.\
+        \ If you are using any other grant type, \nsuch as password, you don't need\
+        \ to send the redirect_uri field in the request. Check the sample request\
+        \ given below.\n"
       operationId: registerApplication
       requestBody:
         description: Application information to register.
@@ -101,7 +115,7 @@ paths:
           "redirect_uris":[""],
           "client_name": "application_1",
           "grant_types": ["password"] }'
-        "https://api.asgardeo.io/t/{org-name}/api/identity/oauth2/dcr/v1.1/register"
+        "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register"
       x-wso2-response: |
         "HTTP/1.1 201 Created"
         { "client_id": "s6BhdRkqt3",
@@ -116,8 +130,9 @@ paths:
       tags:
       - OAuth2 DCR
       summary: |
-        Get application by ID  
-      description: "This API is used to retrieve an OAuth2 application by `client_id`. \n\n <b>Scope required:</b> `internal_application_mgt_view`."
+        Get OAuth2 application information
+      description: |
+        This API is used to get/retrieve an OAuth2 application by client_id.
       operationId: getApplication
       parameters:
       - name: client_id
@@ -146,7 +161,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
       x-wso2-request: |
-        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://api.asgardeo.io/t/{org-name}/api/identity/oauth2/dcr/v1.1/register/s6BhdRkqt3"
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/s6BhdRkqt3"
       x-wso2-response: |
         "HTTP/1.1 200 OK"
         { "client_id": "s6BhdRkqt3",
@@ -159,8 +174,9 @@ paths:
       tags:
       - OAuth2 DCR
       summary: |
-        Update an OAuth2 app
-      description: "This API is used to update an OAuth2 application.\n\n <b>Scope required:</b> `internal_application_mgt_update`."
+        Updates an OAuth2 application
+      description: |
+        This API is used to update an OAuth2 application.
       operationId: updateApplication
       parameters:
       - name: client_id
@@ -207,7 +223,7 @@ paths:
           "redirect_uris":["https://client.example.org/callback"],
           "client_name": "application_1",
           "grant_types": ["password"] }'
-        "https://api.asgardeo.io/t/{org-name}/api/identity/oauth2/dcr/v1.1/register"
+        "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register"
       x-wso2-response: |
         "HTTP/1.1 200 OK"
         { "client_id": "s6BhdRkqt3",
@@ -221,8 +237,9 @@ paths:
       tags:
       - OAuth2 DCR
       summary: |
-        Delete an OAuth2 app
-      description: "This API is used to delete an OAuth2 application by `client_id`.\n\n <b>Scope required:</b> `internal_application_mgt_delete`."
+        Delete OAuth2 application
+      description: |
+        This API is used to delete an OAuth2 application by client_id.
       operationId: deleteApplication
       parameters:
       - name: client_id
@@ -248,7 +265,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
       x-wso2-request: |
-        curl -X DELETE -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://api.asgardeo.io/t/{org-name}/api/identity/oauth2/dcr/v1.1/register/s6BhdRkqt3"
+        curl -X DELETE -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/s6BhdRkqt3"
       x-wso2-response: |
         "HTTP/1.1 204 No Content"
 components:
@@ -263,31 +280,16 @@ components:
           type: array
           items:
             type: string
-          description: The redirect URI determines where Asgardeo will redirect users after authentication and logout.
         client_name:
           type: string
-          description: The name of the OAuth2 client application.
         client_id:
           type: string
-          description: The public identifier of the application.
         client_secret:
           type: string
-          description: The secret corresponding to the `clientId` of the application. This is confidential and will be used to make requests and authenticate into your application.
         grant_types:
           type: array
-          example:
-            - authorization_code
-            - password
           items:
             type: string
-          description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
-          <ul>
-            <li>authorization_code</li>
-            <li>client_credentials</li>
-            <li>refresh_token</li>
-            <li>implicit</li>
-            <li>password</li>
-          </ul>"
         application_type:
           type: string
         jwks_uri:
@@ -318,7 +320,6 @@ components:
           type: string
         backchannel_logout_uri:
           type: string
-          description: Represents the URL that is used for sending logout requests from the identity provider (IdP) to the application in a back-channel manner, without involving the user's browser.
         backchannel_logout_session_required:
           type: boolean
     updateRequest:
@@ -330,29 +331,14 @@ components:
             type: string
         client_name:
           type: string
-          example: "client_application"
-          description: The name of the OAuth2 client application.
         client_id:
           type: string
-          description: The public identifier of the application.
         client_secret:
           type: string
-          description: The secret corresponding to the `clientId` of the application. This is confidential and will be used to make requests and authenticate into your application.
         grant_types:
           type: array
-          example:
-            - authorization_code
-            - password
           items:
             type: string
-          description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
-          <ul>
-            <li>authorization_code</li>
-            <li>client_credentials</li>
-            <li>refresh_token</li>
-            <li>implicit</li>
-            <li>password</li>
-          </ul>"
         backchannel_logout_uri:
           type: string
         backchannel_logout_session_required:
@@ -362,39 +348,20 @@ components:
       properties:
         client_id:
           type: string
-          example: "s6BhdRkqt3"
-          description: The public identifier of the application.
         client_secret:
           type: string
-          example: "ZJYCqe3GGRvdrudKyZS0XhGv_Z45DuKhCUk0gBR1vZk"
-          description: The secret corresponding to the `clientId` of the application. This is confidential and will be used to make requests and authenticate into your application.
         client_secret_expires_at:
           type: string
-          example: "1577858400"
-          description: The remaining time for expiry of the `client_secret`.
         redirect_uris:
           type: array
           items:
             type: string
         grant_types:
           type: array
-          example:
-            - authorization_code
-            - password
           items:
             type: string
-          description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
-          <ul>
-            <li>authorization_code</li>
-            <li>client_credentials</li>
-            <li>refresh_token</li>
-            <li>implicit</li>
-            <li>password</li>
-          </ul>"
         client_name:
           type: string
-          example: "client_application"
-          description: The name of the OAuth2 client application.
     error:
       type: object
       properties:
@@ -403,10 +370,13 @@ components:
         error_description:
           type: string
   securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
     OAuth2:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://api.asgardeo.io/t/{org-name}/oauth2/authorize
-          tokenUrl: https://api.asgardeo.io/t/{org-name}/oauth2/token
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
           scopes: {}

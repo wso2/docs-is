@@ -3,8 +3,8 @@
 function convert_links_in_file() {
   input_file=$1
 
-  # Perform the replacement using sed and save the changes in the same file
-  sed -i 's#<a :href="\$withBase(\x27\([^)]*\)\x27)">\([^<]*\)</a>#[\2](../..\1)#g' "$input_file"
+  # Replace Format 1 links
+  sed -E -i 's#<a href="([^"]+)">([^<]+)</a>#[\2](\1)#g' "$input_file"
 }
 
 function convert_links_in_directory() {

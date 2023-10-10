@@ -31,5 +31,5 @@ template: templates/redoc.html
        for some API calls. This id can be retrieved by making a GET request to the `/me/federated-association` (or 
        `/{user-id}/federated-association`) API.
 
-<redoc spec-url={{base_path}}/apis/restapis/association.yaml></redoc>
+<redoc spec-url=../../apis/restapis/association.yaml></redoc>
 <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>

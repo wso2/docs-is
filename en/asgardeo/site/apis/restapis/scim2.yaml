@@ -595,8 +595,8 @@ paths:
           application/scim+json:
             schema:
               oneOf:
-                - $ref: '#/components/schemas/UserObjectPassInvite'
                 - $ref: '#/components/schemas/UserObject'
+                - $ref: '#/components/schemas/UserObjectPassInvite'
         required: false
       responses:
         201:
@@ -989,18 +989,23 @@ components:
           properties:
             givenName:
               type: string
+              description: The `givenName` you specify will be entered for the First Name attribute in the user's profile.
               example: Kim
             familyName:
               type: string
+              description: The `familyName` you specify will be entered for the Last Name attribute in the user's profile.
               example: Berry
         userName:
           type: string
-          example: DEFAULT/kim@gmail.com
+          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your Asgardeo organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
+          example: DEFAULT/kim@gmail.com 
         password:
           type: string
-          example: aBcd!23
+          description: Use this parameter to set a password for the user account. The user will be able to reset this password later. When setting the password, be sure to follow the password-validation rules configured for your organization.
+          example: aBcd!23#
         emails:
           type: array
+          description: This email will be entered for the Email attribute in the user's profile.
           example:
           - value: kim@gmail.com
             primary: true
@@ -1021,8 +1026,8 @@ components:
           properties:
             verifyEmail:
               type: boolean
+              description: When the administrator sets the password for the new user account, this parameter specifies if the new user should confirm the new account through email. If this parameter is set to `true`, an email is sent to the user's email address requesting confirmation.
               example: true
-              description: Specifies if the new user should verify the email address used at the account creation.
     UserObjectPassInvite:
       title: Invite the user to set their own password
       type: object
@@ -1036,15 +1041,19 @@ components:
           properties:
             givenName:
               type: string
+              description: The `givenName` you specify will be entered for the First Name attribute in the user's profile.
               example: Kim
             familyName:
               type: string
+              description: The `familyName` you specify will be entered for the Last Name attribute in the user's profile.
               example: Berry
         userName:
           type: string
+          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your Asgardeo organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
           example: DEFAULT/kim@gmail.com
         emails:
           type: array
+          description: This email will be entered for the Email attribute in the user's profile.
           example:
           - value: kim@gmail.com
             primary: true
@@ -1065,12 +1074,8 @@ components:
           properties:
             askPassword:
               type: boolean
+              description: If this parameter is set to `true`, users will be allowed configure their own password. An email is sent to the specified email address, which will have instructions for the user to set the password and confirm the new user account.
               example: true
-              description: Specifies if the created user should configure their own password.
-            verifyEmail:
-              type: boolean
-              example: true
-              description: Specifies if the new user should verify the email address used at the account creation.
     UserResponseObject:
       required:
       - meta
@@ -1322,6 +1327,7 @@ components:
           type: string
           example: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
         members:
+          description: The members of the group. Note that if the group is from a remote user store, a limited number of members will be returned. You can use filters to query remaining users. For example - `emails+eq+user@gmail.com+and+groups+eq+remote_group_01`
           type: array
           items:
             type: object
@@ -2397,16 +2403,16 @@ components:
       description: "You can use the following OAuth grant types to securely access the respective API endpoints.
       \n\n **Authorization Code OAuth Flow**
       \n\n Authorization URL: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
-      \n\n This flow type is used for the ```me``` endpoint of SCIM2 APIs. You can use the following scope for this endpoints.
+      \n\n This flow type is used for the `me` endpoint of SCIM2 APIs. You can use the following scope for this endpoints.
         \n\n - ```internal_login```: Grant permission for an authenticated user for self management.  
       \n\n**Client Credentials OAuth Flow**
       \n\n Token URL: https://api.asgardeo.io/t/{org-name}/oauth2/token
       \n\n This flow type is used for the following endpoints:
-        \n\n - ```users``` endpoint
-        \n\n - ```group``` endpoint
-        \n\n - ```bulk``` endpoint
-        \n\n - ```resource type``` endpoint
-        \n\n - ```service provider config``` endpoint 
+        \n\n - `users` endpoint
+        \n\n - `group` endpoint
+        \n\n - `bulk` endpoint
+        \n\n - `resource type` endpoint
+        \n\n - `service provider config` endpoint 
       \n\n You can use the following scopes for each of the endpoints.
         \n\n - ```internal_user_mgt_list```: Grant permissions to read user records.
         \n\n - ```internal_user_mgt_create```: Grant permissions to create new users.

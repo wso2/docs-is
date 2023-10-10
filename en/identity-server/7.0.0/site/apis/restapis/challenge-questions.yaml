@@ -1,0 +1,388 @@
+swagger: '2.0'
+info:
+  description: This is the RESTful API for managing challenge questions in WSO2 Identity Server.
+  version: "v1"
+  title: WSO2 Identity Server - Challenge Question Sets Management API Definition
+  contact:
+    name: "WSO2 Identity Server"
+    url: "https://wso2.com/identity-and-access-management/"
+    email: "architecture@wso2.com"
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+- url: https://{server-Url}/t/{tenant-domain}/api/server/v1/challenges
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
+schemes:
+ - https
+
+# tags are used for organizing operations
+tags:
+- name: admin
+  description: Secured Admin-only calls
+
+# applicable authentication mechanisms
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /challenges:
+    post:
+      tags:
+        - admin
+      summary: Add a new set of challenge questions.
+      operationId: addChallenges
+      description: |
+        Adds a new set of challenge questions to the system. A set can have any number of questions.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/challenge/create
+      consumes:
+      - application/json
+      parameters:
+      - in: body
+        name: challengeSet
+        description: Challenge question set to add.
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/ChallengeSet'
+      responses:
+        201:
+          $ref: '#/responses/Created'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        409:
+          $ref: '#/responses/Conflict'
+        500:
+          $ref: '#/responses/ServerError'
+    get:
+      tags:
+        - admin
+      summary: Retrieve all the challenge questions.
+      operationId: searchChallenges
+      produces:
+      - application/json
+      description: |
+        Retrieve all the challenge questions in the system.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/challenge/view
+      parameters:
+        - $ref: '#/parameters/localeQueryParam'
+        - $ref: '#/parameters/offsetQueryParam'
+        - $ref: '#/parameters/limitQueryParam'
+      responses:
+        200:
+          description: Search results matching criteria.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChallengeSet'
+        401:
+          $ref: '#/responses/Unauthorized'
+        500:
+          $ref: '#/responses/ServerError'
+  /challenges/{challenge-set-id}:
+    get:
+      tags:
+        - admin
+      summary: Retrieve a set of challenge questions.
+      operationId: getChallengeQuestionSet
+      produces:
+      - application/json
+      description: |
+        Retrieve the challenge questions in the system in a set identified by the challenge-set-id.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/challenge/view
+      parameters:
+        - $ref: '#/parameters/questionSetIdPathParam'
+        - $ref: '#/parameters/localeQueryParam'
+        - $ref: '#/parameters/offsetQueryParam'
+        - $ref: '#/parameters/limitQueryParam'
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            $ref: '#/definitions/ChallengeSet'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+    put:
+      tags:
+        - admin
+      summary: Update challenge questions of a set.
+      operationId: updateChallengeQuestionSet
+      description: |
+        Updates an existing challenge question set in the system. This will override the existing challenge questions in the set with new challenge questions.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/challenge/update
+      consumes:
+      - application/json
+      parameters:
+        - $ref: '#/parameters/questionSetIdPathParam'
+        - in: body
+          name: challengeSet
+          description: Challenge-questions for the set
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChallengeQuestion'
+      responses:
+        200:
+          $ref: '#/responses/OK'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+    patch:
+      tags:
+        - admin
+      summary: Add a challenge question to a set.
+      operationId: addChallengeQuestionToASet
+      description: |
+        Add new challenge question to an existing set.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/challenge/update
+      consumes:
+      - application/json
+      parameters:
+        - $ref: '#/parameters/questionSetIdPathParam'
+        - in: body
+          name: challenge-question
+          description: A challenge question to add.
+          schema:
+            $ref: '#/definitions/ChallengeQuestionPatch'
+      responses:
+        200:
+          $ref: '#/responses/OK'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+      x-wso2-curl: |
+    delete:
+      tags:
+        - admin
+      summary: Removes a challenge question set.
+      operationId: deleteChallengeQuestionSet
+      description: |
+        Removes an existing challenge question set from the system. By specifying the locale query parameter, questions of specific locale can be deleted within the set.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/challenge/delete
+      parameters:
+        - $ref: '#/parameters/questionSetIdPathParam'
+        - $ref: '#/parameters/localeQueryParam'
+      responses:
+        204:
+          $ref: '#/responses/NoContent'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        500:
+          $ref: '#/responses/ServerError'
+  /challenges/{challenge-set-id}/questions/{question-id}:
+    delete:
+      tags:
+        - admin
+      summary: Remove a challenge question in a set.
+      operationId: deleteChallengeQuestion
+      description: |
+        Removes a specific question from an existing challenge question set. By specifying the locale query parameter, the locale-specific challenge question entry for the question can be deleted.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/challenge/delete
+      parameters:
+        - $ref: '#/parameters/questionIdPathParam'
+        - $ref: '#/parameters/questionSetIdPathParam'
+        - $ref: '#/parameters/localeQueryParam'
+      responses:
+        204:
+          $ref: '#/responses/NoContent'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        500:
+          $ref: '#/responses/ServerError'
+parameters:
+    questionSetIdPathParam:
+      in: path
+      name: challenge-set-id
+      required: true
+      type: string
+      description: Challenge question set ID.
+    questionIdPathParam:
+      in: path
+      name: question-id
+      required: true
+      type: string
+      description: Challenge question ID.
+    localeQueryParam:
+      in: query
+      name: locale
+      description: >
+        An optional search string to look up challenge questions based on locale.
+      required: false
+      type: string
+    offsetQueryParam:
+      in: query
+      name: offset
+      description: Number of records to skip for pagination. _*This filtering is not yet supported._
+      type: integer
+      format: int32
+      minimum: 0
+    limitQueryParam:
+      in: query
+      name: limit
+      description: Maximum number of records to return. _*This filtering is not yet supported._
+      type: integer
+      format: int32
+      minimum: 0
+
+definitions:
+    #-----------------------------------------------------
+    # ChallengeSet Properties object
+    #-----------------------------------------------------
+  ChallengeSet:
+    type: object
+    required:
+      - challengeSetId
+      - questions
+    properties:
+      questionSetId:
+        type: string
+        example: challengeQuestion1
+        description: A unique ID for the challenge set.
+      questions:
+        type: array
+        description: Challenge questions for the set.
+        items:
+          $ref: '#/definitions/ChallengeQuestion'
+  #-----------------------------------------------------
+  # ChallengeQuestion Properties object
+  #-----------------------------------------------------
+  ChallengeQuestion:
+    type: object
+    required:
+      - question
+    properties:
+      locale:
+        type: string
+        example: en_US
+        description: The locale of the question.
+      question:
+        type: string
+        example: What is your favorite travel destination ?
+        description: Challenge question display value.
+      questionId:
+        type: string
+        example: question1
+        description: A unique ID for the challenge quesion within the set.
+  #-----------------------------------------------------
+  # ChallengeAnswer Properties object
+  #-----------------------------------------------------
+  ChallengeQuestionPatch:
+    type: object
+    required:
+      - operation
+      - challengeQuestion
+    properties:
+      challengeQuestion:
+          $ref: '#/definitions/ChallengeQuestion'
+      operation:
+        type: string
+        example: add
+        description:
+          Operation to perform on the challenge set.
+
+            Only ['add'] is suppored.
+
+  #-----------------------------------------------------
+  # The Error Response  object
+  #-----------------------------------------------------
+  Error:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: string
+        example: "some_error_code"
+      message:
+        type: string
+        example: "Some Error Message"
+      description:
+        type: string
+        example: "Some Error Description"
+      traceId:
+        type: string
+        example: "Some Trace ID"
+
+securityDefinitions:
+  BasicAuth:
+    type: basic
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://localhost:9443/oauth2/authorize
+    tokenUrl: https://localhost:9443/oauth2/token
+
+#-----------------------------------------------------
+# Descriptions of dispatcher responses
+#-----------------------------------------------------
+responses:
+  NotFound:
+    description: The specified resource is not found
+    schema:
+      $ref: '#/definitions/Error'
+  Unauthorized:
+    description: Unauthorized
+  ServerError:
+    description: Internal Server Error
+    schema:
+      $ref: '#/definitions/Error'
+  InvalidInput:
+    description: Invalid input request
+    schema:
+      $ref: '#/definitions/Error'
+  Conflict:
+    description: Element Already Exists
+    schema:
+      $ref: '#/definitions/Error'
+  Created:
+    description: Item Created
+  OK:
+    description: OK
+  NoContent:
+    description: No Content.
+
+host: localhost:9443
+basePath: /t/{tenant-domain}/api/server/v1
+

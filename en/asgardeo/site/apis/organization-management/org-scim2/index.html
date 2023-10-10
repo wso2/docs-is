@@ -24,7 +24,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Choreo Learning Portal">
+        <meta name="description" content="Asgardeo Learning Portal">
       
       
         <meta name="author" content="WSO2">
@@ -36,9 +36,9 @@
         <link rel="prev" href="../authentication/">
       
       
-        <link rel="next" href="../org-application-management/">
+        <link rel="next" href="../onboard-admins-self-service/">
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
@@ -102,6 +102,21 @@
       color: white;
       white-space: initial;
     }
+
+    .menu-content{
+      top: 5.9rem !important;
+    }
+
+     .md-nav{
+       display:none;
+    }
+
+    @media only screen and (max-width: 76.1875em){
+      .md-nav--primary, .md-nav--primary .md-nav {
+          display: block !important;
+      }
+    }
+
   </style>
 
     
@@ -128,7 +143,7 @@
     
       <link rel="stylesheet" href="../../../assets/css/config-catalog.css">
     
-      <link rel="stylesheet" href="../../../assets/lib/fontawesome-free-6.3.0-web/css/all.min.css">
+      <link rel="stylesheet" href="../../../assets/lib/fontawesome-free-6.4.2-web/css/all.min.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -185,7 +200,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
       
-  <img src="../../../assets/images/asgardeo-logo-dark.svg" alt="logo" style="vertical-align: middle;">
+  <img src="../../../assets/images/asgardeo-docs-logo-dark.svg" alt="logo" style="vertical-align: middle;">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -305,6 +320,22 @@
   
   
     <li class="md-tabs__item">
+      <a href="../../../get-started/" class="md-tabs__link">
+        Get Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../../../guides/" class="md-tabs__link">
         Guides
       </a>
@@ -398,7 +429,7 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <p><redoc spec-url=../../apis/restapis/org-scim2.yaml></redoc>
+  <p><redoc spec-url=../../../apis/restapis/org-scim2.yaml></redoc>
 <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script></p>
   
     
@@ -408,6 +439,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" hidden>
@@ -440,13 +473,13 @@
         
         
           
-          <a href="../org-application-management/" class="md-footer__link md-footer__link--next" aria-label="Next: Application management API" rel="next">
+          <a href="../onboard-admins-self-service/" class="md-footer__link md-footer__link--next" aria-label="Next: B2B self service management API" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Next
                 </span>
-                Application management API
+                B2B self service management API
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -473,7 +506,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "navigation.top", "content.code.copy", "content.action.edit", "content.action.view", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.fc8c2696.min.js"></script>

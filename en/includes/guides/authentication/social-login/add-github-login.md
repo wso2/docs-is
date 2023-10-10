@@ -15,19 +15,21 @@ You need to register {{ product_name }} as an OAuth app on GitHub.
 2. On the left panel of the **Settings** page, click **Developer settings**.
 3. Under **OAuth apps**, click **Register a new application**.
 
-    ![Register oauth2 app in Github]({{base_path}}/assets/img/guides/idp/github-idp/github-register-app.jpg){: width="600"}
+    ![Register oauth2 app in Github]({{base_path}}/assets/img/guides/idp/github-idp/github-register-app.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Give the application a name and the following URLs:
+    
     - **Homepage URL**
-      ```bash 
-       https://api.asgardeo.io/t/{organization_name}
-      ```
+        ```bash 
+        {{ product_url_format }}
+        ```
+    
     - **Authorization callback URL**
-      ```bash
-      https://api.asgardeo.io/t/<organization_name>/commonauth
-      ```
+        ```bash
+        {{ product_url_format }}/commonauth
+        ```
 
-    ![Enter Github app details]({{base_path}}/assets/img/guides/idp/github-idp/github-app-info.jpg){: width="600"}
+    ![Enter Github app details]({{base_path}}/assets/img/guides/idp/github-idp/github-app-info.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Click **Register application**.
 6. Generate a new client secret and take note of the **Client ID** and **Client secret**.
@@ -40,7 +42,7 @@ Now, let's register the Github IdP in {{ product_name }}.
 2. Click **New Connections** and select **Github**.
 3. Enter the following details and click **Finish**:
 
-    ![Add Github IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/github-idp/add-github-idp.png){: width="600"}
+    ![Add Github IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/github-idp/add-github-idp.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -99,7 +101,7 @@ After the GitHub identity provider is created, go to the **Settings** tab and se
   
         2. Click **Add Authentication** on the step, select your Github identity provider, and click **Add**.
 
-            ![Add Github login in Asgardeo]({{base_path}}/assets/img/guides/idp/github-idp/add-github-federation-with-basic.png){: width=700"}
+            ![Add Github login in Asgardeo]({{base_path}}/assets/img/guides/idp/github-idp/add-github-federation-with-basic.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Github login using the Visual Editor:
@@ -108,7 +110,7 @@ After the GitHub identity provider is created, go to the **Settings** tab and se
   
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Github connection.
 
-            ![Add Github login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/github-idp/add-github-login-with-visual-editor.png){: width=500"}
+            ![Add Github login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/github-idp/add-github-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -124,7 +126,7 @@ Follow the steps given below.
 
 3. On the {{ product_name }} login page, **Sign in with Github**.
 
-    ![Login with Github]({{base_path}}/assets/img/guides/idp/github-idp/sign-in-with-github.png){: width="300"}
+    ![Login with Github]({{base_path}}/assets/img/guides/idp/github-idp/sign-in-with-github.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Log in to GitHub with an existing user account.
 

@@ -1,0 +1,733 @@
+openapi: 3.0.0
+info:
+  description: >
+    This is the RESTful API for user store management related operations in WSO2 Identity Server
+  version: "v1"
+  title: WSO2 Identity Server - UserStore Rest API
+  contact:
+    name: WSO2 Identity Server
+    url: 'https://wso2.com/identity-and-access-management'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admin
+    description: Secured Admin-only calls
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /userstores:
+    post:
+      tags:
+        - User Store
+      summary: Add a secondary user store.
+      operationId: addUserStore
+      description: |
+        This API provides the capability to add a secondary user store.
+
+        **NOTE:**
+
+          To retrieve the available user store classes/types, use the **api/server/v1/userstores/meta/types** API.
+
+         <b>Permission required:</b>
+          - /permission/admin
+      responses:
+        '201':
+          description: Successful response
+          headers:
+            Location:
+              description: >-
+                Location of the newly created secondary userstore. userstore id is generated as base-64-url-encoded(domain-name) value.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStoreResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserStoreReq'
+        description: Secondary user store to add.
+    get:
+      tags:
+        - User Store
+      summary: Retrieve or list the configured secondary user stores.
+      operationId: getSecondaryUserStores
+      description: >
+        This API provides the capability to list the configured secondary userstores.
+        <b>Permission required:</b>
+        */permission/admin
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/sortQueryParam'
+        - $ref: '#/components/parameters/requiredAttributesQueryParam'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserStoreListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+  '/userstores/primary':
+    get:
+      tags:
+        - User Store
+      summary: >-
+        Retrieve the configurations of primary userstore.
+      operationId: getPrimaryUserStore
+      description: >
+        This API provides the capability to retrieve the configurations of
+        primary user store.
+
+          <b>Permission required:</b>
+        */permission/admin
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStoreConfigurationsRes'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/userstores/{userstore-domain-id}':
+    get:
+      tags:
+        - User Store
+      summary: >-
+        Retrieve the configurations of secondary user store based on its domain id.
+      operationId: getUserStoreByDomainId
+      description: >
+        This API provides the capability to retrieve the configurations of
+        secondary user store based on its domain id.
+
+          <b>Permission required:</b>
+        */permission/admin
+      parameters:
+        - $ref: '#/components/parameters/domainNamePathParam'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStoreConfigurationsRes'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - User Store
+      summary: Delete a secondary user store.
+      operationId: deleteUserStore
+      description: >
+        This API provides the capability to delete a secondary user store
+        matching to the given user store domain id.
+
+         <b>Permission required:</b>
+         */permission/admin
+      parameters:
+        - $ref: '#/components/parameters/domainNamePathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+        - User Store
+      summary: Update a user store by its domain id.
+      operationId: updateUserStore
+      description: >
+        This API provides the capability to edit a user store based on its
+        domain id.
+
+         <b>Permission required:</b>
+          */permission/admin
+      parameters:
+        - in: path
+          name: userstore-domain-id
+          required: true
+          description: Current domain id of the user store
+          schema:
+            type: string
+            example: SkRCQy1TRUNPTkRBUlk
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStoreResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserStoreReq'
+              # But not allowing to change the typeName and name in the PUT request.
+        description: >-
+          The secondary user store values which are needed to be edited for a
+          given domain id.
+    patch:
+      tags:
+        - User Store
+      summary: Patch the secondary user store by it's domain id.
+      operationId: patchUserStore
+      description: >
+        This API provides the capability to update the secondary user store's
+        property using patch request by using its domain id.
+
+         <b>Permission required:</b>
+         */permission/admin
+      parameters:
+        - $ref: '#/components/parameters/domainNamePathParam'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStoreResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+        required: true
+  /userstores/meta/types:
+    get:
+      tags:
+        - Meta
+      summary: Retrieve the available user store classes/types.
+      operationId: getAvailableUserStoreTypes
+      description: >
+        This API provides the capability to retrieve the available user store
+        types.
+
+         <b>Permission required:</b>
+
+        */permission/admin
+      responses:
+        '200':
+          description: Successful Response.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailableUserStoreClassesRes'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/userstores/meta/types/{type-id}':
+    get:
+      tags:
+        - Meta
+      summary: >-
+        Retrieve the properties of secondary user store of a given user store type.
+      operationId: getUserStoreManagerProperties
+      description: >
+        This API provides the capability to retrieve the properties of secondary
+        user store of a given class name.
+
+         <b>Permission required:</b>
+
+        */permission/admin
+      parameters:
+        - in: path
+          name: type-id
+          required: true
+          description: Id of the user store type
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaUserStoreType'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+  /userstores/test-connection:
+    post:
+      tags:
+        - User Store
+      summary: Test the connection to the datasource used by a JDBC user store manager.
+      operationId: testRDBMSConnection
+      description: >
+        This API provides the capability to test the connection to the
+        datasource used by a JDBC user store manager.
+
+          <b>Permission required:</b>
+          */permission/admin
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionEstablishedResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDBMSConnectionReq'
+        description: >-
+          RDBMS connection properties used to connect to the datasource used by a
+          JDBC user store manager.
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+components:
+  parameters:
+    domainNamePathParam:
+      name: userstore-domain-id
+      in: path
+      required: true
+      description: The unique name of the user store domain
+      schema:
+        type: string
+        example: SkRCQy1TRUNPTkRBUlk
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: maximum number of records to return
+      schema:
+        type: integer
+        format: int32
+    offsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: number of records to skip for pagination
+      schema:
+        type: integer
+        format: int32
+    filterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description: Condition to filter the retrieval of records.
+      schema:
+        type: string
+    sortQueryParam:
+      in: query
+      name: sort
+      required: false
+      description: Define the order of how the retrieved records should be sorted.
+      schema:
+        type: string
+    requiredAttributesQueryParam:
+      in: query
+      name: requiredAttributes
+      required: false
+      description: Define set of user store attributes (as comma separated) to be returned.
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: The specified resource is not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized.
+    ServerError:
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Invalid input request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Element Already Exists.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Deleted:
+      description: Item Deleted
+    Created:
+      description: User Store Created.
+    OK:
+      description: OK.
+    Success:
+      description: Connection Established.
+    NoContent:
+      description: No Content.
+    Forbidden:
+      description: Resource Forbidden.
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth/authorize'
+          tokenUrl: 'https://localhost:9443/oauth/token'
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information
+  schemas:
+    UserStoreReq:
+      type: object
+      required:
+        - typeId
+        - description
+        - name
+        - properties
+      description: Secondary user store request.
+      properties:
+        typeId:
+          type: string
+          description: The id of the user store manager class type.
+          example: VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg
+        description:
+          type: string
+          description: Description of the user store.
+          example: Some description about the user store.
+        name:
+          type: string
+          description: This is a unique name that identifies the user store.
+          example: JDBC-SECONDARY
+        properties:
+          type: array
+          description: >-
+            Various properties related to the user store such as connection URL,
+            connection password etc.
+          items:
+            $ref: '#/components/schemas/Property'
+    PatchRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/PatchDocument'
+    ConnectionEstablishedResponse:
+      type: object
+      properties:
+        connection:
+          type: boolean
+          example: true
+    PatchDocument:
+      description: A JSONPatch document as defined by RFC 6902
+      required:
+        - operation
+        - path
+      properties:
+        operation:
+          type: string
+          description: The operation to be performed
+          enum:
+            - ADD
+            - REMOVE
+            - REPLACE
+          example: REPLACE
+        path:
+          type: string
+          description: A JSON-Pointer
+          example: /properties/disabled
+        value:
+          type: string
+          description: The value to be used within the operations
+          example: 'true'
+    RDBMSConnectionReq:
+      required:
+        - driverName
+        - connectionURL
+        - username
+        - connectionPassword
+      description: RDBMS Connection Request.
+      properties:
+        driverName:
+          type: string
+          description: Driver Name.
+          example: com.mysql.jdbc.Driver
+        connectionURL:
+          type: string
+          description: The Connection URL.
+          example: 'jdbc:mysql://192.168.48.154:3306/test'
+        username:
+          type: string
+          description: The username.
+          example: root
+        connectionPassword:
+          type: string
+          description: The password.
+          example: root
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+    Property:
+      type: object
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          example: some property name
+        value:
+          type: string
+          example: some property value
+    UserStoreListResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: SkRCQy1TRUNPTkRBUlk
+          description: base64 url encoded value of domain name
+        name:
+          type: string
+          example: JDBC-SECONDARY
+          description: Domain name of the secondary user store.
+        enabled:
+          type: boolean
+          example: true
+          description: Enabled status of the userstore.
+        description:
+          type: string
+          example: Some description of the user store
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v1/userstores/SkRCQy1TRUNPTkRBUlk
+          description: Location of the created/updated resource.
+        properties:
+          type: array
+          description: Requested configured user store property for the set
+          items:
+            $ref: '#/components/schemas/AddUserStorePropertiesRes'
+    MetaUserStoreType:
+      type: object
+      properties:
+        typeName:
+          type: string
+          example: UniqueIDJDBCUserStoreManager
+        typeId:
+          type: string
+          example: b3JnLndzbzIuY2FyYm9uLnVzZXIuY29yZS5qZGJjLkpEQkNVc2VyU3RvcmVNYW5hZ2Vy
+        className:
+          type: string
+          example: org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager
+        properties:
+          $ref: '#/components/schemas/UserStorePropertiesRes'
+    UserStoreResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: SkRCQy1TRUNPTkRBUlk=
+          description: base64 url encoded value of domain name
+        name:
+          type: string
+          example: JDBC-SECONDARY
+          description: domain name of the secondary user store
+        typeName:
+          type: string
+          example: UniqueIDJDBCUserStoreManager
+        typeId:
+          type: string
+          example: VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg
+        description:
+          type: string
+          example: Some description of the user store
+        properties:
+          type: array
+          description: Configured user store proper for the set.
+          items:
+            $ref: '#/components/schemas/AddUserStorePropertiesRes'
+    AvailableUserStoreClassesRes:
+      type: object
+      description: Available User Store Classes Response.
+      properties:
+        typeId:
+          type: string
+          example: VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg
+        typeName:
+          type: string
+          example: UniqueIDJDBCUserStoreManager
+        className:
+          type: string
+          example: org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v1/userstores/meta/types/VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg
+    UserStoreConfigurationsRes:
+      type: object
+      description: Available User Store Configurations Response.
+      properties:
+        typeName:
+          type: string
+          example: UniqueIDJDBCUserStoreManager
+        typeId:
+          type: string
+          example: VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg
+        name:
+          type: string
+          example: JDBC-SECONDARY
+        description:
+          type: string
+          example: Some description of the user store
+        className:
+          type: string
+          example: org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager
+        properties:
+          type: array
+          description: Configured user store property for the set
+          items:
+            $ref: '#/components/schemas/AddUserStorePropertiesRes'
+    AddUserStorePropertiesRes:
+      type: object
+      description: Available User Store Properties.
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          example: ConnectionName
+        value:
+          type: string
+          example: 'CN=,DC='
+    UserStorePropertiesRes:
+      properties:
+        Mandatory:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertiesRes'
+        Optional:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertiesRes'
+        Advanced:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertiesRes'
+    PropertiesRes:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Some Mandatory Property Name
+        defaultValue:
+          type: string
+          example: Some Mandatory Property Value
+        description:
+          type: string
+          example: Description of the property
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attribute'
+    Attribute:
+      type: object
+      properties:
+        name:
+          type: string
+          example: category
+        value:
+          type: string
+          example: basic

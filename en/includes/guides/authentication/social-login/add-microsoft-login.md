@@ -17,12 +17,14 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
         You must use an account in the same Microsoft 365 subscription (tenant) with which you intend to register the app.
 
 2. On the Azure portal, go to **Azure Services > Azure Active Directory**.
-    ![Azure Active Directory service]({{base_path}}/assets/img/guides/idp/microsoft-idp/azure-active-directory.png){: width=600"}
+
+    ![Azure Active Directory service]({{base_path}}/assets/img/guides/idp/microsoft-idp/azure-active-directory.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. Click **Add** and select **App registration** from the list.
 
 4. Provide the required information for app registration.
-    ![Register an application on the Azure Portal]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width=600"}
+
+    ![Register an application on the Azure Portal]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -39,7 +41,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
         </tr>
         <tr>
             <td>Redirect URI</td>
-            <td>Select a platform according to your application and enter the redirect URI. <br><b>Value:</b> <code>https://api.asgardeo.io/t/{organization_name}/commonauth</code></td>
+            <td>Select a platform according to your application and enter the redirect URI. <br><b>Value:</b> <code>{{ product_url_format }}/commonauth</code></td>
         </tr>
     </table>
 
@@ -66,7 +68,7 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
 2. Click **New Connections** and select **Microsoft**.
 3. Enter the following details of the Microsoft identity provider and click **Finish**:
 
-    ![Add Microsoft IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-idp.png){: width=600"}
+    ![Add Microsoft IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-idp.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -113,6 +115,8 @@ After the Microsoft identity provider is created, go to the **Settings** tab and
 !!! note Before you begin
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
+To enable Microsoft login:
+
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application, go to the **Sign-in Method** tab and add Microsoft login from your preferred editor:
 
@@ -127,7 +131,7 @@ After the Microsoft identity provider is created, go to the **Settings** tab and
 
         2. Click **Add Authentication** on the step, select your Microsoft identity provider, and click **Add**.
 
-            ![Add Microsoft login in Asgardeo]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-with-basic.png){: width=700"}
+            ![Add Microsoft login in Asgardeo]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Microsoft login using the Visual Editor:
@@ -136,7 +140,7 @@ After the Microsoft identity provider is created, go to the **Settings** tab and
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Microsoft connection.
 
-            ![Add Microsoft login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-login-with-visual-editor.png){: width=500"}
+            ![Add Microsoft login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -150,7 +154,7 @@ Follow the steps given below.
 2. Click **Login** to open the {{ product_name }} login page.
 3. On the {{ product_name }} login page, **Sign in with Microsoft**.
 
-    ![Login with Microsoft]({{base_path}}/assets/img/guides/idp/microsoft-idp/sign-in-with-microsoft.png){: width=300"}
+    ![Login with Microsoft]({{base_path}}/assets/img/guides/idp/microsoft-idp/sign-in-with-microsoft.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Log in to Microsoft with an existing user account.
 

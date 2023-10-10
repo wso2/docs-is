@@ -24,13 +24,13 @@ Follow the steps given below to enable **Email OTP** login to the login flow of 
 
     ---
     === "Classic Editor"
-        - If you haven’t already built a login flow for your application, select **Add Email OTP login** to build one.
+        - If you haven't already built a login flow for your application, select **Add Email OTP login** to build one.
 
-            ![Configuring email OTP login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login.png)
+            ![Configuring email OTP login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         - If you have an already built login flow, add the `Email OTP` authenticator as the first authentication step.
         
-            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step.png)
+            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add passwordless login with Email OTP using the Visual Editor:
@@ -41,7 +41,7 @@ Follow the steps given below to enable **Email OTP** login to the login flow of 
 
         3. Click **Confirm** to add passwordless login with Email OTP to the sign-in flow.
 
-            ![Configuring email OTP login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step-with-visual-editor.png){: width="600"}
+            ![Configuring email OTP login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -55,14 +55,14 @@ Follow the steps given below.
 2. Click **Login** to open the {{ product_name }} login page.
 3. On the {{ product_name }} login page, enter your username and press **Continue**.
 
-    ![Sign In with email OTP in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/email-otp/email-otp-login-page.png){: width="400"}
+    ![Sign In with email OTP in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/email-otp/email-otp-login-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
     You will be redirected to the below email OTP page.
 
-    ![Email OTP submit page]({{base_path}}/assets/img/guides/passwordless/email-otp/email-otp-submit-page.png){: width="400"}
+    ![Email OTP submit page]({{base_path}}/assets/img/guides/passwordless/email-otp/email-otp-submit-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Check your inbox for the email containing the one-time passcode. The email reads as follows.
 
-    ![Email OTP email]({{base_path}}/assets/img/guides/passwordless/email-otp/email-otp-email.png){: width="400"}
+    ![Email OTP email]({{base_path}}/assets/img/guides/passwordless/email-otp/email-otp-email.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 5. Enter the received passcode in the email OTP page and click on **Continue**.

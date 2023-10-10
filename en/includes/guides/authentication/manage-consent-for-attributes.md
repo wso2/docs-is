@@ -8,7 +8,7 @@ In {{ product_name }}, you can either display a screen to request consent for us
 
 Once the user is logged in, {{ product_name }} requests consent to share the user's attributes with the application.
 
-![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/provide-consent.png){: width="300"}
+![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/provide-consent.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 If the application requires **mandatory** attributes for which values are not specified in the [user profile]({{base_path}}/guides/users/manage-customers/#manage-the-customer-s-profile), {{ product_name }} will prompt the user to enter those values during login.
 
@@ -29,4 +29,4 @@ If user consent is not required for your application to access user information,
 1. Sign in to the {{ product_name }} and select the application for which user consent needs to be disabled.
 2. Go to the **Advanced** tab and enable **Skip login consent**.
 
-   ![Skip login consent in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/skip-login-consent.png)
+    ![Skip login consent in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/skip-login-consent.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
