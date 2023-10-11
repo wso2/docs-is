@@ -82,7 +82,31 @@ nav:
   - Home:
     - Home: index.md
   - Get Started:
-    - WSO2 Identity Server: get-started/index.md
+    - Introduction: get-started/quick-start-guide.md
+    - Quickstart:
+      - Quick Setup: get-started/sample-use-cases/set-up.md
+      - Try a Sample Scenario:
+        - Sample Scenario: get-started/sample-use-cases/sample-scenario.md
+        - Use Cases:
+          - Single Sign-On: get-started/sample-use-cases/single-sign-on.md
+          - Multi-Factor Authentication: get-started/sample-use-cases/multi-factor-authentication.md
+          - Federated Authentication: get-started/sample-use-cases/federated-authentication.md
+          - Self Sign-Up: get-started/sample-use-cases/self-sign-up.md
+    - Start integrating IS into apps:
+      - Try for a sample app:
+        - Single Page apps:
+          - React: get-started/try-samples/qsg-spa-react.md
+          - JavaScript: get-started/try-samples/qsg-spa-javascript.md
+        - Web apps:
+          - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+          - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+      - Try for your own app:
+        - Single Page apps:
+          - React: get-started/try-your-own-app/react.md
+          - Javascript: get-started/try-your-own-app/javascript.md
+        - Web apps:
+          - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
+          - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
@@ -367,4 +391,4 @@ extra:
     - APIs
     - References
 
-base_path: http://localhost:8000/en/6.1.0
+base_path: http://localhost:8000/en/7.0.0
