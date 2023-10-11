@@ -43,12 +43,12 @@ To enable conditional authentication:
 
         2. Turn on **Conditional Authentication** by switching the toggle on.
 
-        3. Select the **Adaptive MFA > Group-Based** template.
+        3. Select the **Users** > **Group-Based** template.
 
     === "Visual Editor"
         To add group-based adaptive MFA using the visual editor:
 
-        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Adaptive MFA**.
+        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Users**.
 
         2. Click **+ ADD** next to **Group-Based** to add the group-based adaptive MFA script.
 
