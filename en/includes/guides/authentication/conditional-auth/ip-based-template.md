@@ -44,7 +44,7 @@ To enable conditional authentication:
 
         2. Click **+ ADD** next to **IP-Based** to add the IP-based adaptive MFA script.
 
-            ![IP-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/ip-based-adaptive-mfa-with-visual-editor.png)
+            ![IP-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/ip-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 
@@ -178,4 +178,4 @@ Follow the steps given below.
 
 4. Log in with a user who does not belong to the configured IP address range. TOTP authentication is prompted.
 
-    ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}
+    ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300" style="border: 0.3px solid lightgrey;"}
