@@ -326,6 +326,588 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /configs/jwt-key-validator:
+    get:
+      tags:
+        - Private Key JWY validation Authenticators
+      summary: Retrieve the tenant private key jwt authentication configuration.
+      operationId: getPrivatKeyJWTValidationConfiguration
+      description: Retrieve the tenant private key jwt authentication configuration.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTValidatorConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      tags:
+        - Private Key JWY validation Authenticators
+      summary: Patch the tenant private key jwt authentication configuration.
+      operationId: patchPrivatKeyJWTValidationConfiguration
+      description: Patch the tenant private key jwt authentication configuration.  A JSONPatch as defined by RFC 6902.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JWTKeyValidatorPatchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/home-realm-identifiers:
+    get:
+      tags:
+        - Home Realm Identifiers
+      summary: Retrieve the Home Realm Identifiers.
+      operationId: getHomeRealmIdentifiers
+      description: Retrieve the Home Realm Identifiers.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HomeRealmIdentifiers'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/schemas:
+    get:
+      tags:
+        - Schemas
+      summary: Retrieve Schemas supported By Server.
+      operationId: getSchemas
+      description: |
+        Retrieve Schemas supported by Server.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SchemaListItem'
+
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/schemas/{schema-id}:
+    get:
+      tags:
+        - Schemas
+      summary: Get Schema by ID
+      operationId: getSchema
+      description: |
+        By passing in the appropriate schema ID, you can retrieve attributes of a schema supported by the Server.
+      parameters:
+        - name: schema-id
+          in: path
+          description: Schema ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schema'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/remote-logging:
+    get:
+      tags:
+        - Server Remote Logging Configuration
+      summary: Retrieve Remote Logging Configuration
+      operationId: getRemoteLoggingConfigs
+      description: |
+        Retrieve Remote Logging Configurations
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RemoteLoggingConfigListItem'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Server Remote Logging Configuration
+      summary: Update Remote Logging Configuration
+      operationId: updateRemoteLoggingConfigs
+      description: |
+        Update Remote Logging Configuration
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RemoteLoggingConfigListItem'
+        required: true
+    delete:
+      tags:
+        - Server Remote Logging Configuration
+      summary: |
+        Restore Server Remote Logging Configuration to Default setting
+      operationId: restoreServerRemoteLoggingConfigurations
+      description: >
+        Restore Remote Logging Configuration to Default Configuration
+      responses:
+        '204':
+          description: Delete successful
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/remote-logging/{log-type}:
+    get:
+      tags:
+        - Server Remote Logging Configuration
+      summary: Retrieve Remote Logging Configuration
+      operationId: getRemoteLoggingConfig
+      description: |
+        Retrieve Remote Logging Configurations
+      parameters:
+        - name: log-type
+          in: path
+          description: Log Type
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteLoggingConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Server Remote Logging Configuration
+      summary: Update Remote Logging Configuration
+      operationId: updateRemoteLoggingConfig
+      description: |
+        Update Remote Logging Configuration
+      parameters:
+        - name: log-type
+          in: path
+          description: Log Type
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoteLoggingConfig'
+        required: true
+    delete:
+      tags:
+        - Server Remote Logging Configuration
+      summary: |
+        Restore Server Remote Logging Configuration to Default setting
+      operationId: restoreServerRemoteLoggingConfiguration
+      description: >
+        Restore Remote Logging Configuration to Default Configuration
+      parameters:
+        - name: log-type
+          in: path
+          description: Log Type
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Delete successful
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/authentication/inbound/saml2:
+    get:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Retrieve SAML2 inbound authentication configurations.
+      description: |
+        Retrieve server SAML2 inbound authentication configurations.
+      operationId: getSAMLInboundAuthConfig
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundAuthSAML2Config'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Update SAML2 inbound authentication configurations.
+      description: |
+        Patch server SAML2 inbound authentication configurations.
+      operationId: updateSAMLInboundAuthConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundAuthSAML2Config'
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/authentication/inbound/passivests:
+    get:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Retrieve WS Federation (Passive STS) inbound authentication configurations.
+      description: |
+        Retrieve WS Federation (Passive STS) inbound authentication configurations.
+      operationId: getPassiveSTSInboundAuthConfig
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundAuthPassiveSTSConfig'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Update WS Federation (Passive STS) inbound authentication configurations.
+      description: |
+        Patch WS Federation (Passive STS) inbound authentication configurations.
+      operationId: updatePassiveSTSInboundAuthConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundAuthPassiveSTSConfig'
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
@@ -379,6 +961,9 @@ components:
           items:
             type: string
             example: "localhost"
+        realmConfig:
+          readOnly: true
+          $ref: '#/components/schemas/RealmConfig'
         idleSessionTimeoutPeriod:
           type: string
           description: "The idle session timeout in minutes"
@@ -395,6 +980,24 @@ components:
           $ref: '#/components/schemas/AuthenticatorListResponse'
         cors:
           $ref: '#/components/schemas/CORSConfig'
+    RealmConfig:
+      type: object
+      properties:
+        adminUser:
+            type: string
+            description: "Username of the super admin user in the system."
+            example: "admin"
+            readOnly: true
+        adminRole:
+            type: string
+            description: "Name of the super admin role in the system."
+            example: "Internal/admin"
+            readOnly: true
+        everyoneRole:
+            type: string
+            description: "Name of the everyone role in the system."
+            example: "Internal/everyone"
+            readOnly: true
     ProvisioningConfig:
       type: object
       properties:
@@ -444,6 +1047,12 @@ components:
           enum:
             - LOCAL
             - REQUEST_PATH
+        tags:
+          type: array
+          items:
+            type: string
+          example: [2FA,MFA]
+          readOnly: true
         self:
           type: string
           example: /t/carbon.super/api/server/v1/configs/authenticators/QmFzaWNBdXRoZW50aWNhdG9y
@@ -468,6 +1077,12 @@ components:
           enum:
             - LOCAL
             - REQUEST_PATH
+        tags:
+          type: array
+          items:
+            type: string
+          example: [2FA,MFA]
+          readOnly: true
         properties:
           type: array
           items:
@@ -557,6 +1172,13 @@ components:
           type: number
           description: Indicates how long the results of a preflight request can be cached by the web client, in seconds. If -1 then unspecified.
           example: 3600
+    JWTValidatorConfig:
+      type: object
+      properties:
+        enableTokenReuse:
+          type: boolean
+          description: If true, the JTI in the JWT will be unique per the request if the previously used JWT is not already expired. JTI (JWT ID) is a claim that provides a unique identifier for the JWT.
+          example: true
     CORSPatchRequest:
       type: array
       items:
@@ -584,3 +1206,175 @@ components:
           type: string
           description: The value to be used within the operations.
           example: '30'
+    JWTKeyValidatorPatchRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/JWTKeyValidatorPatch'
+    JWTKeyValidatorPatch:
+      type: object
+      required:
+        - operation
+        - path
+        - value
+      properties:
+        operation:
+          type: string
+          description: The operation to be performed.
+          enum:
+            - ADD
+            - REMOVE
+            - REPLACE
+          example: ADD
+        path:
+          type: string
+          description: A JSON-Pointer
+          example: '/enableTokenReuse'
+        value:
+          type: boolean
+          description: The value to be used within the operations.
+          example: false
+    HomeRealmIdentifiers:
+      type: array
+      description: The list of home realm identifiers.
+      items:
+        type: string
+        example: localhost
+    SchemaListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "b0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
+        name:
+          type: string
+          example: "urn:ietf:params:scim:schemas:core:2.0"
+        self:
+          type: string
+          example: "/t/carbon.super/api/server/v1/configs/schemas/123e4567-e89b-12d3-a456-556642440000"
+    Schema:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "b0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
+        name:
+          type: string
+          example: "urn:ietf:params:scim:schemas:core:2.0"
+        attributes:
+          type: array
+          description: "list of attributes available in a schema"
+          items:
+            type: string
+            example: "urn:ietf:params:scim:schemas:core:2.0:id"
+    RemoteLoggingConfig:
+      type: object
+      properties:
+        remoteUrl:
+          type: string
+          description: "Remote Server URL"
+          example: "https://test.remote.server.com/api/log"
+        connectTimeoutMillis:
+          type: string
+          description: "Connect Timeout in Millisecond"
+          example: "5000"
+        verifyHostname:
+          type: boolean
+          description: "If this property is set to true, Hostname will be verified"
+          example: true
+          default: true
+        username:
+          type: string
+          description: "The username to be used for authentication with the remote server"
+          example: "admin"
+        password:
+          type: string
+          description: "The password to be used for authentication with the remote server"
+          example: "admin"
+        keystoreLocation:
+          type: string
+          description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server"
+        keystorePassword:
+          type: string
+          description: " The password of the keystore"
+        truststoreLocation:
+          type: string
+          description: " The location of the truststore which contains the certificates of the remote server"
+        truststorePassword:
+          type: string
+          description: " The password of the truststore"
+    RemoteLoggingConfigListItem:
+      type: object
+      properties:
+        remoteUrl:
+          type: string
+          description: "Remote Server URL"
+          example: "https://test.remote.server.com/api/log"
+        connectTimeoutMillis:
+          type: string
+          description: "Connect Timeout in Millisecond"
+          example: "5000"
+        verifyHostname:
+          type: boolean
+          description: "If this property is set to true, Hostname will be verified"
+          example: true
+          default: true
+        logType:
+          type: string
+          enum:
+            - AUDIT
+            - CARBON
+          description: "Log Type"
+        username:
+          type: string
+          description: "The username to be used for authentication with the remote server"
+          example: "admin"
+        password:
+          type: string
+          description: "The password to be used for authentication with the remote server"
+          example: "admin"
+        keystoreLocation:
+          type: string
+          description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server"
+        keystorePassword:
+          type: string
+          description: " The password of the keystore"
+        truststoreLocation:
+          type: string
+          description: " The location of the truststore which contains the certificates of the remote server"
+        truststorePassword:
+          type: string
+          description: " The password of the truststore"
+    InboundAuthSAML2Config:
+      type: object
+      properties:
+        destinationURLs:
+          type: array
+          description: "List of destination URLs"
+          items:
+            type: string
+          example: ["https://localhost:9443/samlsso"]
+        metadataValidityPeriod:
+          type: number
+          description: "SAML metadata validity period in minutes"
+          example: 60
+        enableMetadataSigning:
+          type: boolean
+          description: "Enable SAML metadata signing"
+          example: false
+        metadataEndpoint:
+          type: string
+          description: "SAML metadata endpoint"
+          readOnly: true
+          example: "https://localhost:9443/identity/metadata/saml2"
+    InboundAuthPassiveSTSConfig:
+      type: object
+      properties:
+        enableRequestSigning:
+          type: boolean
+          description: "Enable authentication requests signing"
+          example: false
+        passiveSTSUrl:
+          type: string
+          description: "Passive STS URL"
+          readOnly: true
+          example: "https://localhost:9443/passivests"
