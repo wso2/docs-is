@@ -241,7 +241,7 @@ The following literals about the user are accessible for all email templates.
 
 You can use the following literals and customize email templates to fit the branding of your organization.
 
-You can configure the values of these literals from the Asgardeo Console. Refer to the [branding documentation]({{base_path}}/guides/branding/configure-ui-branding.md) to learn more.
+You can configure the values of these literals from the Asgardeo Console. Refer to the [branding documentation]({{base_path}}/guides/branding/configure-ui-branding/) to learn more.
 
 <table>
     <thead>

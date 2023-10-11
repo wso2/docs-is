@@ -12,5 +12,5 @@ See the guides given below to add login to your mobile applications with {{ prod
 
 ## Add login to your framework-based mobile apps
 
-- [Authenticate users into Android applications]({{base_path}}/tutorials/auth-users-into-android-apps.md)
-- [Authenticate users into Flutter applications]({{base_path}}/tutorials/auth-users-into-flutter-apps.md)
+- [Authenticate users into Android applications]({{base_path}}/tutorials/auth-users-into-android-apps/)
+- [Authenticate users into Flutter applications]({{base_path}}/tutorials/auth-users-into-flutter-apps/)

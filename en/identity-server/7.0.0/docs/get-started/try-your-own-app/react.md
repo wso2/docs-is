@@ -1,6 +1,6 @@
 # Integrate with your React SPA
 
-Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README.md).
+Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README/).
 
 <div class="border-text">
   <img src="{{base_path}}/assets/img/logo/react-logo.svg" alt="React" width=50><br>

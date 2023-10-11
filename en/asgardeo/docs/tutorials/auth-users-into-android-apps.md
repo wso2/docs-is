@@ -34,7 +34,7 @@ The high-level flow for the integration is as follows:
 
 Before you dive into integrating Asgardeo with your mobile application, let's take a closer look at the authentication mechanism you will use for login capabilities. Authentication involves various protocols, but for this example, we'll be using the OIDC protocol, which is widely recognized as the industry standard for mobile applications.
 
-To ensure a secure authentication process for your Android application, let's use the OIDC protocol with PKCE. Learn more about the [authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce.md).
+To ensure a secure authentication process for your Android application, let's use the OIDC protocol with PKCE. Learn more about the [authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/).
 
 ### SDKs
 
@@ -64,15 +64,15 @@ After installing Android Studio, create a new project with a basic activity, and
 
 ## Step 2: Register the application in Asgardeo
 
-To integrate Asgardeo as your CIAM provider, you need to register your application in Asgardeo. Since you are building an Android application, it should be registered as a mobile application. See the instructions on [registering a mobile application]({{base_path}}/guides/applications/register-mobile-app.md).
+To integrate Asgardeo as your CIAM provider, you need to register your application in Asgardeo. Since you are building an Android application, it should be registered as a mobile application. See the instructions on [registering a mobile application]({{base_path}}/guides/applications/register-mobile-app/).
 
 !!! note
       When registering the application, it's important to specify `com.sample.mealmagic://home` as the authorized redirect URI, which must also match the redirect URL specified in the application configuration.
 
-After registering your application with Asgardeo, you can enable [user attributes for the app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app.md). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
+After registering your application with Asgardeo, you can enable [user attributes for the app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
 
 !!! note
-      If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes.md) and retrieve them through the `profile` scope.
+      If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes/) and retrieve them through the `profile` scope.
 
 Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-customers/#onboard-a-user).
 

@@ -3,7 +3,7 @@
 Email OTP is a form of passwordless authentication. It allows users to log in by providing a one-time passcode sent to their email instead of entering a password.
 
 ## Prerequisites
-- To get started, you need to [register an application with {{ product_name }}]({{base_path}}/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
+- To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 - You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/get-started/create-asgardeo-account/#create-a-user) in {{ product_name }}.
 

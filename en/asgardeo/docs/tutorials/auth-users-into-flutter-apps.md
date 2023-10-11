@@ -34,7 +34,7 @@ The following steps explain the high-level authentication flow:
 
 ### OIDC authentication method
 
-The Flutter application integrates with Asgardeo using the [OIDC](https://openid.net/connect/) protocol, which is a standard way of supporting secure authentication and identity and access management. OIDC supports several grant types, and here the [Authorization Code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code.md) is used.
+The Flutter application integrates with Asgardeo using the [OIDC](https://openid.net/connect/) protocol, which is a standard way of supporting secure authentication and identity and access management. OIDC supports several grant types, and here the [Authorization Code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/) is used.
 
 ### SDKs
 
@@ -66,15 +66,15 @@ In this tutorial, we will walk you through the process of adding authentication 
 
 ## Step 2: Register your application in Asgardeo
 
-To integrate Asgardeo as your CIAM provider, you need to register your application as a Mobile Application in Asgardeo. Since you have chosen iOS as your development platform, you will register it as a mobile application. See the instructions on [registering a mobile application]({{base_path}}/guides/applications/register-mobile-app.md).
+To integrate Asgardeo as your CIAM provider, you need to register your application as a Mobile Application in Asgardeo. Since you have chosen iOS as your development platform, you will register it as a mobile application. See the instructions on [registering a mobile application]({{base_path}}/guides/applications/register-mobile-app/).
 
 !!! note
     When registering the mobile application, be sure to add `wso2.asgardeo.sampleflutterapp://login-callback` as the authorized redirect URI. This is the same callback URL you will add when setting up the application.
 
-After registering your application with Asgardeo, you can enable [user attributes for the app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app.md). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
+After registering your application with Asgardeo, you can enable [user attributes for the app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
 
 !!! note
-  If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes.md) and retrieve them through the `profile` scope.
+  If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes/) and retrieve them through the `profile` scope.
 
 In this tutorial, you will retrieve the First Name, Last Name, Mobile, Country, Birth Date, and Photo URL as profile information.
 
