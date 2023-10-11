@@ -12,7 +12,7 @@ Consider a scenario where users who are younger than 18 years should be prevente
 
 - You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- Go to the user's profile and update the birth date so that the current age is below 18 years. For instructions, see [Manage user profiles]({{base_path}}/guides/applications/register-single-page-app/).
+- Go to the user's profile and update the date of birth so that the current age is below 18 years. For instructions, see [Manage user profiles]({{base_path}}/guides/user-self-service/update-profile-info/).
 
 ## Configure the login flow
 

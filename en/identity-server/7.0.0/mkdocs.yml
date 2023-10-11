@@ -159,7 +159,7 @@ nav:
             - Add access control:
               - guides/authentication/conditional-auth/access-control.md
               - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
-              - Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
+              #- Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
             - Add adaptive MFA:
               - guides/authentication/conditional-auth/adaptive-mfa.md
               - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md

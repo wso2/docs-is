@@ -43,7 +43,7 @@ To enable conditional authentication:
 
         2. Turn on **Conditional Authentication** by switching the toggle on.
 
-        3. Select the **Users** > **Group-Based** template.
+        3. Select the **User** > **Group-Based** template.
 
     === "Visual Editor"
         To add group-based adaptive MFA using the visual editor:
@@ -64,7 +64,7 @@ To enable conditional authentication:
 4. Verify that the login flow is now updated with the following two authentication steps:
 
     - Step 1: Username and Password
-    - Step 2: TOTP
+    - Step 2: TOTP and FIDO
 
 5. Update the following parameter in the script.
 
@@ -126,6 +126,8 @@ Follow the steps given below.
 2. Try to log in with a user who does not belong to any of the configured groups (manager or employee). You will
    successfully sign in to the application.
 3. Log out of the application.
-4. Log in with a user who belongs to the `manager` or `employee` group or both. TOTP authentication is prompted.
+4. Log in with a user who belongs to the `manager` or `employee` group or both.
 
-    ![group-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    The user will be prompted to select the step-up method, and the sign-in flow will be stepped up according to the user's preference.
+
+    ![group-based-2fa-conditional-auth-stepup-page]({{base_path}}/assets/img/guides/conditional-auth/group-based-step-up.png){: width="300" style="border: 0.3px solid lightgrey;"}
