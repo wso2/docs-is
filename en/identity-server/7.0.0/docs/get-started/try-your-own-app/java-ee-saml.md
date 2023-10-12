@@ -48,7 +48,7 @@ Follow the steps given below to install the SAML agent.
     </repositories>
     ```
 
-See the [reference documentation](https://github.com/asgardeo/asgardeo-tomcat-saml-agent/blob/master/README.md) to learn more.
+See the [reference documentation](https://github.com/asgardeo/asgardeo-tomcat-saml-agent/blob/master/README/) to learn more.
 
 ## Initialize the SDK
 
@@ -211,7 +211,7 @@ Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/r
   </tbody>
 </table>
 
-See the complete list of [configuration properties](https://github.com/asgardeo/asgardeo-tomcat-saml-agent/blob/master/io.asgardeo.tomcat.saml.agent.sample/src/main/resources/configuration-catalog.md).
+See the complete list of [configuration properties](https://github.com/asgardeo/asgardeo-tomcat-saml-agent/blob/master/io.asgardeo.tomcat.saml.agent.sample/src/main/resources/configuration-catalog/).
 
 ### Configure the keystore
 

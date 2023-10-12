@@ -76,4 +76,4 @@ You can get this client ID and client secret from the **Protocol** tab of the ap
 
 ## What's next?
 
-- [Add login to your web app]({{base_path}}/guides/authentication/add-login-to-web-app.md)
+- [Add login to your web app]({{base_path}}/guides/authentication/add-login-to-web-app/)

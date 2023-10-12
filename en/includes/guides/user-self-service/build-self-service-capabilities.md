@@ -41,15 +41,15 @@ You can use the following {{ product_name }} APIs to enable self-service capabil
 
 - Manage MFA settings and recovery
   
-    - [TOTP]({{base_path}}/apis/register-mfa/totp.md)
-    - [Backup codes]({{base_path}}/apis/register-mfa/backup-code.md)
+    - [TOTP]({{base_path}}/apis/register-mfa/totp/)
+    - [Backup codes]({{base_path}}/apis/register-mfa/backup-code/)
 
-- [Export user profile]({{base_path}}/apis/register-mfa/export-user-info.md)
-- [Manage consent of users]({{base_path}}/apis/consent-management.md)
+- [Export user profile]({{base_path}}/apis/register-mfa/export-user-info/)
+- [Manage consent of users]({{base_path}}/apis/consent-management/)
 
 ## Prerequisites
 
-You need an application that [integrates login with {{ product_name }}]({{base_path}}/guides/authentication/add-login-to-apps.md) over OpenID connect standards.
+You need an application that [integrates login with {{ product_name }}]({{base_path}}/guides/authentication/add-login-to-apps/) over OpenID connect standards.
 
 Learn more about registering OIDC applications on {{ product_name }}.
 
