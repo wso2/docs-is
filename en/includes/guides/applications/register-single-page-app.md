@@ -71,4 +71,4 @@ You can get this client ID from the **Protocol** tab of the application as shown
 
 ## What's next?
 
-- [Add login to your single-page app]({{base_path}}/guides/authentication/add-login-to-single-page-app.md)
+- [Add login to your single-page app]({{base_path}}/guides/authentication/add-login-to-single-page-app/)

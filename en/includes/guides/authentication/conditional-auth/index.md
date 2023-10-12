@@ -73,5 +73,5 @@ If required, you can also use the script editor to introduce new functions and f
 
 ## What's next
 
-- [Configure conditional authentication]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth.md)
+- [Configure conditional authentication]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/)
 - [Conditional authentication API reference]({{base_path}}/references/conditional-auth/api-reference/)

@@ -108,7 +108,7 @@ nav:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
   - Guides: 
-      - Guides: guides/index.md
+      - guides/index.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md
@@ -381,7 +381,8 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/wso2
 #site_version: 1.0.0
-  base_path: http://127.0.0.1:8000/en/7.0.0
+  #base_path: http://127.0.0.1:8000/en/7.0.0
+  base_path: https://is.docs.wso2.com/en/next
 
   nav_list:
     - Get Started
@@ -390,5 +391,3 @@ extra:
     - Integrations
     - APIs
     - References
-
-base_path: http://localhost:8000/en/7.0.0
