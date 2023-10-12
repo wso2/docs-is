@@ -162,6 +162,7 @@ nav:
               #- Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
             - Add adaptive MFA:
               - guides/authentication/conditional-auth/adaptive-mfa.md
+              - MFA based on user role: guides/authentication/conditional-auth/role-based-template.md
               - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
               - MFA based on sign-in option: guides/authentication/conditional-auth/sign-in-option-based-template.md
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
