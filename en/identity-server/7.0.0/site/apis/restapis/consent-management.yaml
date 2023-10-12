@@ -1,0 +1,1463 @@
+openapi: 3.0.1
+info:
+  title: 'WSO2 Identity Server Consent Management Rest API '
+  description: |
+    This document specifies a **Consent Management RESTfulAPI** for WSO2 **Identity Server**.
+  contact:
+    name: WSO2
+    url: http://wso2.com/products/identity-server/
+    email: architecture@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://{serverUrl}/t/{tenantDomain}/api/identity/consent-mgt/v1.0
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
+paths:
+  /consents:
+    get:
+      tags:
+      - Consent
+      summary: |
+        List Consents
+      description: |
+        This API is used to list consent elements based on the filtered attributes.
+      parameters:
+      - name: limit
+        in: query
+        description: Number of search results
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Start index of the search
+        schema:
+          type: integer
+      - name: piiPrincipalId
+        in: query
+        description: Subject identifier
+        schema:
+          type: string
+      - name: spTenantDomain
+        in: query
+        description: Service provider tenant domain
+        schema:
+          type: string
+      - name: service
+        in: query
+        description: Service name
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: State (ACTIVE/REVOKED)
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          headers:
+            Location:
+              description: Location to retireve the consent element to.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents?limit=<Limit_Number>&offset=<Offset_Number>&piiPrincipalId=<PII_Principal_Name>&spTenantDomain=<Tenant_Domain>&service=<Service_Name>*&state=<ACTIVE/REVOKED>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents?limit=10&offset=0&piiPrincipalId=testuser&spTenantDomain=carbon.super&service=foo*&state=ACTIVE" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        [{"consentReceiptID":"7a6886ab-b02f-424f-9cd4-adf5e92f0798","language":"EN","piiPrincipalId":"testuser","tenantDomain":"carbon.super","state":"ACTIVE"}]
+    post:
+      tags:
+      - Consent
+      summary: |
+        Add consent
+      description: |
+        This API is used to store consent information given by the user.
+      requestBody:
+        description: This represents the consent element that needs to be stored.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequest'
+        required: true
+      responses:
+        201:
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the newly created consent.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentAddResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X POST "https://localhost:9443/api/identity/consent-mgt/v1.0/consents" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"services\": [ { \"service\": \"<Service_Name>\", \"tenantDomain\": \"<Tenant_Domain_Name>\", \"purposes\": [ { \"purposeId\": <Purpose_ID>, \"purposeCategoryId\": [ <Purpose_Category_ID> ], \"consentType\": \"<Consent_Type>\", \"piiCategory\": [ { \"piiCategoryId\": <PII_Category_ID>, \"validity\": \"days:<Number_Of_Days>\" }, { \"piiCategoryId\": <PII_Category_ID>, \"validity\": \"days:<Number_Of_Days>\" } ], \"primaryPurpose\": true, \"termination\": \"days:<Number_Of_Days>\", \"thirdPartyDisclosure\": false, \"thirdPartyName\": \"\" } ] } ], \"collectionMethod\": \"<Collection_Method>\", \"jurisdiction\": \"<Jurisdiction>\", \"language\": \"<Language_Abbreviation>\", \"policyURL\": \"<Service_Policy_URL>", \"properties\": [ { \"key\": \"<PII_Controller's_Public_Key>\", \"value\": \"v1\" } ]}"
+      x-wso2-curl: |
+        curl -k -X POST "https://localhost:9443/api/identity/consent-mgt/v1.0/consents" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"services\": [ { \"service\": \"foo-service\", \"tenantDomain\": \"carbon.super\", \"purposes\": [ { \"purposeId\": 1, \"purposeCategoryId\": [ 1 ], \"consentType\": \"EXPLICIT\", \"piiCategory\": [ { \"piiCategoryId\": 1, \"validity\": \"days:30\" }, { \"piiCategoryId\": 2, \"validity\": \"days:30\" } ], \"primaryPurpose\": true, \"termination\": \"days:30\", \"thirdPartyDisclosure\": false, \"thirdPartyName\": \"\" } ] } ], \"collectionMethod\": \"Sign-Up\", \"jurisdiction\": \"CA\", \"language\": \"EN\", \"policyURL\": \"https://foo.com/privacy\", \"properties\": [ { \"key\": \"k1\", \"value\": \"v1\" } ]}"
+      x-wso2-response: |
+        {"consentReceiptId":"38279263-f385-4252-8966-40998faa95ae","collectionMethod":"Sign-Up","language":"EN","piiPrincipalId":"admin","tenantDomain":"carbon.super"}
+      x-codegen-request-body-name: consent
+  /consents/receipts/{receiptId}:
+    get:
+      tags:
+      - Consent
+      summary: |
+        Retrieve a consent receipt
+      description: |
+        This API is used to retrieve consent using the conset receipt ID.
+      parameters:
+      - name: receiptId
+        in: path
+        description: The unique identifier of a receipt
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentReceipt'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/receipts/<Consent_Receipt_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/receipts/7a6886ab-b02f-424f-9cd4-adf5e92f0798" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        {"version":"KI-CR-v1.1.0","jurisdiction":"CA","consentTimestamp":1517742624682,"collectionMethod":"Sign-Up","consentReceiptID":"7a6886ab-b02f-424f-9cd4-adf5e92f0798","publicKey":null,"language":"EN","piiPrincipalId":"testuser","tenantDomain":"carbon.super","state":"ACTIVE","piiControllers":[{"piiController":"sample","contact":"sample","address":{"addressCountry":"USA","addressLocality":"Mountain View","addressRegion":"CA","postOfficeBoxNumber":"233","postalCode":"94043","streetAddress":"1600 Amphitheatre Pkwy"},"email":"sample@abc.com","phone":"+01433444333","onBehalf":false,"piiControllerUrl":"https://sample.piicontroller.url"}],"policyUrl":"https://foo.com/privacy","services":[{"service":"foo-service","tenantDomain":"carbon.super","purposes":[{"purpose":"Contact","purposeCategory":["Legal"],"consentType":"EXPLICIT","piiCategory":[{"piiCategory":"email","validity":"days:30"},{"piiCategory":"username","validity":"days:30"}],"primaryPurpose":true,"termination":"days:30","thirdPartyDisclosure":false,"thirdPartyName":""}]}],"sensitive":false,"spiCat":null}
+    delete:
+      tags:
+      - Consent
+      summary: |
+        Revoke consent
+      description: |
+        This API is used to revoke consent.
+      parameters:
+      - name: receiptId
+        in: path
+        description: This represents the Revoke Receipt ID.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/receipts/<Consent_Receipt_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/receipts/7a6886ab-b02f-424f-9cd4-adf5e92f0798" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        "HTTP/1.1 200 Ok"
+  /consents/purposes:
+    get:
+      tags:
+      - Purpose
+      summary: |
+        Retrieve all purposes
+      description: |
+        This API is used to retrieve all purposes.
+      parameters:
+      - name: group
+        in: query
+        description: Purpose group
+        schema:
+          type: string
+      - name: groupType
+        in: query
+        description: Type of the purpose group
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Number of search results
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Start index of the search
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purposes'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes?group=<Group>&groupType=<Group_Type>limit=<Limit_Number>&offset=<Offset_Number>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes?group=SIGNUP&groupType=SYSTEM&limit=10&offset=0" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json"
+      x-wso2-response: |
+        [{"purposeId":1,"purpose":"Contact","description":"Contact the user","piiCategories":[]},{"purposeId":2,"purpose":"Marketing","description":"Sending marketing materials"}]
+    post:
+      tags:
+      - Purpose
+      summary: |
+        Add purpose
+      description: |
+        This API is used to add a new purpose for consent management.
+      requestBody:
+        description: This represents the purpose element that needs to be stored.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurposeRequest'
+        required: true
+      responses:
+        201:
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the newly created purpose.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purposeGetResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X POST "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"purpose\": \"<Purpose_Name>\", \"description\": \"<Purpose_Description>\", \"group\": \"<Purpose_Group>\", \"groupType\": \"<Purpose_Group_Type\", \"piiCategories\": [{\"piiCategoryId\": <PII_Category_Id>, \"mandatory\": <Is_Mandatory>}]}"
+      x-wso2-curl: |
+        curl -k -X POST "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"purpose\": \"Contact\", \"description\": \"Contact the user\", \"group\": \"SIGNIN\", \"groupType\": \"SYSTEM\", "piiCategories\": {\"piiCategoryId\": 1, \"mandatory\": true}}"
+      x-wso2-response: |
+        {"purposeId":1,"purpose":"Contact","description":"Contact the user","piiCategories":[{"piiCategoryId":1,"piiCategory":"email","description":"user email","sensitive":false, "mandatory":true},{"piiCategoryId":2,"piiCategory":"username","description":"user name","sensitive":false, "mandatory":false}]}
+      x-codegen-request-body-name: purpose
+  /consents/purposes/{purposeId}:
+    get:
+      tags:
+      - Purpose
+      summary: |
+        Retrieve a purpose
+      description: |
+        This API is used to retrieve a specific purpose using the purpose ID.
+      parameters:
+      - name: purposeId
+        in: path
+        description: Id of the purpose
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purposeGetResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes/<Purpose_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes/1" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json"
+      x-wso2-response: |
+        {"purposeId":1,"purpose":"Contact","description":"Contact the user","piiCategories":[{"piiCategoryId":1,"piiCategory":"email","description":"user email","sensitive":false},{"piiCategoryId":2,"piiCategory":"username","description":"user name","sensitive":false, "mandatory":false}]}
+    delete:
+      tags:
+      - Purpose
+      summary: |
+        Delete a purpose
+      description: |
+        This API is used to delete a purpose.
+      parameters:
+      - name: purposeId
+        in: path
+        description: Unique ID of the purpose
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes/<Purpose_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes/1" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        "HTTP/1.1 200 Ok"
+  /consents/purpose-categories:
+    get:
+      tags:
+      - Purpose Category
+      summary: |
+        Retrieve all purpose categories
+      description: |
+        This API is used to retrieve  all purpose categories.
+      parameters:
+      - name: limit
+        in: query
+        description: Number of search results
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Start index of the search
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purpseCategories'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories?limit=<LimitNumber>&offset=<OffsetNumber>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories?limit=10&offset=0" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        [{"purposeCategoryId":1,"purposeCategory":"Marketing","description":"For marketing related activities"},{"purposeCategoryId":2,"purposeCategory":"Legal","description":"For legal requirements"}]
+    post:
+      tags:
+      - Purpose Category
+      summary: |
+        Add purpose category
+      description: |
+        This API is used to add a new purpose category for consent management.
+      requestBody:
+        description: This represents the purpose category name.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurposeCategoryRequest'
+        required: true
+      responses:
+        201:
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the newly created purpose category.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purposeCategoryListResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X POST "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"purposeCategory\": \"<Category_Name>\", \"description\": \"<Category_Description>\"}"
+      x-wso2-curl: |
+        curl -k -X POST "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"purposeCategory\": \"Marketing\", \"description\": \"For marketing related activities\"}"
+      x-wso2-response: |
+        {"purposeCategoryId":1,"purposeCategory":"Marketing","description":"For marketing related activities"}
+      x-codegen-request-body-name: purposeCategory
+  /consents/purpose-categories/{purposeCategoryId}:
+    get:
+      tags:
+      - Purpose Category
+      summary: |
+        Retrieve a purpose category
+      description: |
+        This API is used to retrieve a purpose category using the purpose category ID.
+      parameters:
+      - name: purposeCategoryId
+        in: path
+        description: Unique ID of the purpose category
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purposeCategoryListResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/<Purpose_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/1" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        {"purposeCategoryId":1,"purposeCategory":"Marketing","description":"For marketing related activities"}
+    delete:
+      tags:
+      - Purpose Category
+      summary: |
+        Delete purpose category
+      description: |
+        This API is used to delete a purpose category.
+      parameters:
+      - name: purposeCategoryId
+        in: path
+        description: Unique ID of the purpose category
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/<Purpose_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/1" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        "HTTP/1.1 200 Ok"
+  /consents/pii-categories:
+    get:
+      tags:
+      - PII Category
+      summary: |
+        Retrieve all PII categories
+      description: |
+        This API is used to retrieve all PII categories.
+      parameters:
+      - name: limit
+        in: query
+        description: Number of search results
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Start index of the search
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/piiCategories'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories?limit=<Limit_Number>&offset=<Offset_Number>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories?limit=10&offset=0" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        [{"piiCategoryId":1,"piiCategory":"email","description":"user email","sensitive":false},{"piiCategoryId":2, "piiCategory":"username","description":"user name","sensitive":false}]
+    post:
+      tags:
+      - PII Category
+      summary: |
+        Add PII category
+      description: |
+        This API is used to add a new PII category for consent management.
+      requestBody:
+        description: This represents the PII catogory name.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PIIcategoryRequest'
+        required: true
+      responses:
+        201:
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the newly created PII category
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/piiCategoryListResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X POST "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"<PII_Category_Name>\": <Attributes>}"
+      x-wso2-curl: |
+        curl -k -X POST "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"piiCategory\": \"email\", \"description\": \"user email\", \"sensitive\": false}"
+      x-wso2-response: |
+        {"piiCategoryId":1,"piiCategory":"email","description":"user email","sensitive":false}
+      x-codegen-request-body-name: piiCategory
+  /consents/pii-categories/{piiCategoryId}:
+    get:
+      tags:
+      - PII Category
+      summary: |
+        Retrieve a PII category
+      description: |
+        This API is used to retrieve a specific PII category using the PII category ID.
+      parameters:
+      - name: piiCategoryId
+        in: path
+        description: Unique ID of the PII category
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/piiCategoryListResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/<PII_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/1" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        {"piiCategoryId":1,"piiCategory":"email","description":"user email","sensitive":false}
+    delete:
+      tags:
+      - PII Category
+      summary: |
+        Delete PII category
+      description: |
+        This API is used to delete a PII category.
+      parameters:
+      - name: piiCategoryId
+        in: path
+        description: Unique ID of the PII category
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/<PII_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/1" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        "HTTP/1.1 200 Ok"
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+    ConsentRequest:
+      type: object
+      properties:
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/service'
+        collectionMethod:
+          type: string
+        jurisdiction:
+          type: string
+        language:
+          type: string
+        policyURL:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    PurposeRequest:
+      required:
+      - purpose
+      type: object
+      properties:
+        purpose:
+          type: string
+        description:
+          type: string
+        group:
+          type: string
+        groupType:
+          type: string
+        piiCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/purposePiiCategoryRequest'
+    purposePiiCategoryRequest:
+      type: object
+      properties:
+        piiCategoryId:
+          type: integer
+        mandatory:
+          type: boolean
+    PIIcategoryRequest:
+      required:
+      - piiCategory
+      type: object
+      properties:
+        piiCategory:
+          type: string
+        description:
+          type: string
+        displayName:
+          type: string
+        sensitive:
+          type: boolean
+    PurposeCategoryRequest:
+      required:
+      - purposeCategory
+      type: object
+      properties:
+        purposeCategory:
+          type: string
+        description:
+          type: string
+    purposes:
+      type: array
+      items:
+        $ref: '#/components/schemas/purposeListResponse'
+    purpseCategories:
+      type: array
+      items:
+        $ref: '#/components/schemas/purposeCategoryListResponse'
+    piiCategories:
+      type: array
+      items:
+        $ref: '#/components/schemas/piiCategoryListResponse'
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    ConsentAddResponse:
+      required:
+      - consentReceiptID
+      - piiPrincipalId
+      - tenantDomain
+      type: object
+      properties:
+        consentReceiptID:
+          type: string
+        language:
+          type: string
+        piiPrincipalId:
+          type: string
+        tenantDomain:
+          type: string
+    ConsentResponse:
+      required:
+      - consentReceiptID
+      - piiPrincipalId
+      - tenantDomain
+      type: object
+      properties:
+        consentReceiptID:
+          type: string
+        language:
+          type: string
+        piiPrincipalId:
+          type: string
+        tenantDomain:
+          type: string
+        state:
+          type: string
+        spDisplayName:
+          type: string
+        spDescription:
+          type: string
+    ConsentReceipt:
+      required:
+      - collectionMethod
+      - consentReceiptID
+      - consentTimestamp
+      - jurisdiction
+      - piiControllers
+      - piiPrincipalId
+      - policyUrl
+      - sensitive
+      - services
+      - spiCat
+      - version
+      type: object
+      properties:
+        version:
+          type: string
+          description: The version of this specification to which a receipt conforms.
+            The value MUST be “KI-CR-v1.1.0” for this version of the specification.
+        jurisdiction:
+          type: string
+          description: The jurisdiction(s) applicable to this transaction.
+        consentTimestamp:
+          type: integer
+          description: Date and time of the consent transaction. The JSON value is
+            expressed as the number of seconds since 1970-01-01 00:00:00 GMT
+          format: int64
+        collectionMethod:
+          type: string
+          description: A description of the method by which consent was obtained.
+        consentReceiptID:
+          type: string
+          description: A unique number for each Consent Receipt.
+        publicKey:
+          type: string
+          description: The PII Controller’s public key.
+        language:
+          type: string
+          description: Language in which the consent was obtained as for ISO 639-1:2002
+            [ISO 639].
+        piiPrincipalId:
+          type: string
+          description: PII Principal-provided identifier. E.g., email address.
+        tenantDomain:
+          type: string
+          description: Tenant domain of the service (SP).
+        state:
+          type: string
+          description: Current state of the receipt.
+        piiControllers:
+          type: array
+          description: An array that contains one or more items where each item represents
+            one PII Controller.
+          items:
+            $ref: '#/components/schemas/piiController'
+        policyUrl:
+          type: string
+          description: A link to the PII Controller’s privacy statement/policy and
+            applicable terms of use in effect when the consent was obtained, and the
+            receipt was issued.
+        services:
+          type: array
+          description: An array that contains one or more items where each item represents
+            one Service.
+          items:
+            $ref: '#/components/schemas/serviceResponse'
+        sensitive:
+          type: boolean
+          description: Indicates whether the consent interaction contains PII that
+            is designated sensitive or not sensitive.
+        spiCat:
+          type: array
+          description: A listing of categories where PII data collected is sensitive.
+          items:
+            type: string
+    service:
+      type: object
+      properties:
+        service:
+          type: string
+          description: The service or group of services being provided for which PII
+            is collected. The name of the service for which consent for the collection,
+            use, and disclosure of PII is being provided.
+        serviceDisplayName:
+          type: string
+          description: display name of the service
+        serviceDescription:
+          type: string
+          description: Description about the service
+        tenantDomain:
+          type: string
+          description: Tenant domain of the SP
+        purposes:
+          type: array
+          items:
+            $ref: '#/components/schemas/purpose'
+    serviceResponse:
+      type: object
+      properties:
+        service:
+          type: string
+          description: The service or group of services being provided for which PII
+            is collected. The name of the service for which consent for the collection,
+            use, and disclosure of PII is being provided.
+        serviceDisplayName:
+          type: string
+          description: display name of the service
+        serviceDescription:
+          type: string
+          description: Description about the service
+        tenantDomain:
+          type: string
+          description: Tenant domain of the SP
+        purposes:
+          type: array
+          items:
+            $ref: '#/components/schemas/purposeResponse'
+    purpose:
+      required:
+      - purposeCategoryId
+      - termination
+      - thirdPartyDisclosure
+      - thirdPartyName
+      type: object
+      properties:
+        purposeId:
+          type: integer
+          description: A unique Id of purpose
+        purposeCategoryId:
+          type: array
+          description: The reason the PII Controller is collecting the PII.
+          items:
+            type: integer
+        consentType:
+          type: string
+          description: The type of the consent used by the PII Controller as their
+            authority to collect, use or disclose PII.
+        piiCategory:
+          type: array
+          description: A list of defined PII categories Ids.
+          items:
+            $ref: '#/components/schemas/piiCategoryList'
+        primaryPurpose:
+          type: boolean
+          description: Indicates if a purpose is part of the core service of the PII
+            Controller. Possible values are TRUE or FALSE.
+        termination:
+          type: string
+          description: Conditions for the termination of consent. Link to policy defining
+            how consent or purpose is terminated.
+        thirdPartyDisclosure:
+          type: boolean
+          description: Indicates if the PII Controller is disclosing PII to a third
+            party.  Possible values are TRUE or FALSE.
+        thirdPartyName:
+          type: string
+          description: The name or names of the third party to which the PII Processor
+            may disclose the PII.
+    purposeResponse:
+      required:
+      - piiCategory
+      - purposeCategory
+      - termination
+      - thirdPartyDisclosure
+      - thirdPartyName
+      type: object
+      properties:
+        purpose:
+          type: string
+          description: A short, clear explanation of why the PII item is required.
+        purposeId:
+          type: integer
+          description: Id of the purpose.
+        purposeCategory:
+          type: array
+          description: The reason the PII Controller is collecting the PII.
+          items:
+            type: string
+        consentType:
+          type: string
+          description: The type of the consent used by the PII Controller as their
+            authority to collect, use or disclose PII.
+        piiCategory:
+          type: array
+          description: A list of defined PII categories Ids.  PII Category should
+            reflect the category that will be shared as understood by the PII Principal.
+          items:
+            $ref: '#/components/schemas/piiCategoryNameList'
+        primaryPurpose:
+          type: boolean
+          description: Indicates if a purpose is part of the core service of the PII
+            Controller. Possible values are TRUE or FALSE.
+        termination:
+          type: string
+          description: Conditions for the termination of consent. Link to policy defining
+            how consent or purpose is terminated.
+        thirdPartyDisclosure:
+          type: boolean
+          description: Indicates if the PII Controller is disclosing PII to a third
+            party.  Possible values are TRUE or FALSE.
+        thirdPartyName:
+          type: string
+          description: The name or names of the third party to which the PII Processor
+            may disclose the PII.
+    purposeListResponse:
+      type: object
+      properties:
+        purposeId:
+          type: integer
+        purpose:
+          type: string
+        description:
+          type: string
+        group:
+          type: string
+        groupType:
+          type: string
+    purposeGetResponse:
+      type: object
+      properties:
+        purposeId:
+          type: integer
+        purpose:
+          type: string
+        description:
+          type: string
+        group:
+          type: string
+        groupType:
+          type: string
+        piiCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/purposePiiCategoryListResponse'
+    purposeCategoryListResponse:
+      type: object
+      properties:
+        purposeCategoryId:
+          type: integer
+        purposeCategory:
+          type: string
+        description:
+          type: string
+    piiCategoryList:
+      type: object
+      properties:
+        piiCategoryId:
+          type: integer
+        validity:
+          type: string
+    piiCategoryNameList:
+      type: object
+      properties:
+        piiCategoryName:
+          type: string
+        piiCategoryId:
+          type: integer
+        validity:
+          type: string
+        piiCategoryDisplayName:
+          type: string
+    piiCategoryListResponse:
+      type: object
+      properties:
+        piiCategoryId:
+          type: integer
+        piiCategory:
+          type: string
+        description:
+          type: string
+        displayName:
+          type: string
+        sensitive:
+          type: boolean
+    purposePiiCategoryListResponse:
+      type: object
+      properties:
+        piiCategoryId:
+          type: integer
+        piiCategory:
+          type: string
+        description:
+          type: string
+        displayName:
+          type: string
+        sensitive:
+          type: boolean
+        mandatory:
+          type: boolean
+    address:
+      type: object
+      properties:
+        addressCountry:
+          type: string
+        addressLocality:
+          type: string
+        addressRegion:
+          type: string
+        postOfficeBoxNumber:
+          type: string
+        postalCode:
+          type: string
+        streetAddress:
+          type: string
+      description: The physical address of PII controller. Postal address for contacting
+        the PII Controller. This is compliant with the schema https://schema.org/PostalAddress.
+    piiController:
+      required:
+      - address
+      - contact
+      - email
+      - phone
+      - piiController
+      type: object
+      properties:
+        piiController:
+          type: string
+          description: Name of the first PII Controller who collects the data. This
+            entity is accountable for compliance with the management of PII. The PII
+            Controller determines the purpose(s) and type(s) of PII processing.
+        contact:
+          type: string
+          description: Contact name of the PII Controller. This field MUST contain
+            a non-empty string.
+        address:
+          $ref: '#/components/schemas/address'
+        email:
+          type: string
+          description: Contact email address of the PII Controller. The direct email
+            to contact the PII Controller regarding the consent or privacy contract.
+        phone:
+          type: string
+          description: Contact phone number of the PII Controller. The business phone
+            number to contact the PII Controller regarding the consent.
+        onBehalf:
+          type: boolean
+          description: A PII Processor acting on behalf of a PII Controller or PII
+            Processor. For example, a third-party analytics service would be a PII
+            Processor on behalf of the PII Controller, or a site operator acting on
+            behalf of the PII Controller.
+        piiControllerUrl:
+          type: string
+          description: A URL for contacting the PII Controller.
+  parameters:
+    receiptId:
+      name: receiptId
+      in: path
+      description: The unique identifier of a receipt
+      required: true
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: Number of search results
+      schema:
+        type: integer
+    offset:
+      name: offset
+      in: query
+      description: Start index of the search
+      schema:
+        type: integer
+    service:
+      name: service
+      in: query
+      description: Service name
+      schema:
+        type: string
+    state:
+      name: state
+      in: query
+      description: State (ACTIVE/REVOKED)
+      schema:
+        type: string
+    spTenantDomain:
+      name: spTenantDomain
+      in: query
+      description: Service provider tenant domain
+      schema:
+        type: string
+    piiPrincipalId:
+      name: piiPrincipalId
+      in: query
+      description: Subject identifier
+      schema:
+        type: string
+    consentIdQuery:
+      name: consent-id
+      in: query
+      description: The unique identifier of a consent
+      schema:
+        type: string
+    collectionMethod:
+      name: collectionMethod
+      in: query
+      description: Collection method of the consent
+      schema:
+        type: string
+    piiCategoryId:
+      name: piiCategoryId
+      in: query
+      description: ID of PII Category that will be shared as understood by the PII
+        Principal
+      schema:
+        type: string
+    next:
+      name: next
+      in: query
+      description: Next result set
+      schema:
+        type: string
+    previous:
+      name: previous
+      in: query
+      description: Previous result set
+      schema:
+        type: string
+    group:
+      name: group
+      in: query
+      description: Purpose group
+      schema:
+        type: string
+    groupType:
+      name: groupType
+      in: query
+      description: Type of the purpose group
+      schema:
+        type: string
