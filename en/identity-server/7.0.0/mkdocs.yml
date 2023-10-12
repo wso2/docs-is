@@ -108,7 +108,7 @@ nav:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
   - Guides: 
-      - Guides: guides/index.md
+      - guides/index.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md
@@ -391,5 +391,3 @@ extra:
     - Integrations
     - APIs
     - References
-
-base_path: http://localhost:8000/en/7.0.0
