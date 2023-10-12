@@ -8,7 +8,7 @@ When you register an application, you can customize the login flow.
 
 - Configure {{ product_name }} login for [single-page applications with OIDC]({{base_path}}/guides/authentication/add-login-to-single-page-app/) or [web applications]({{base_path}}/guides/authentication/add-login-to-web-app/) with OIDC or SAML.
 
-- Add [social login]({{base_path}}/guides/authentication/social-login/) options such as [Google]({{base_path}}/guides/authentication/social-login/add-google-login/), [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/), and [Github]({{base_path}}/guides/authentication/social-login/add-github-login/).
+- Add [social login]({{base_path}}/guides/authentication/social-login/) options such as [Google]({{base_path}}/guides/authentication/social-login/add-google-login/), [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/), [Apple]({{base_path}}/guides/authentication/social-login/add-apple-login/), and [Microsoft]({{base_path}}/guides/authentication/social-login/add-microsoft-login/).
 
 - Add other [enterprise identity providers]({{base_path}}/guides/authentication/enterprise-login/) as login options.
 
