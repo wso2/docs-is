@@ -1,6 +1,6 @@
-# Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+# Copyright (c) 2021-2023, WSO2 LLC. (https://www.wso2.com).
 #
-# WSO2 Inc. licenses this file to you under the Apache License,
+# WSO2 LLC. licenses this file to you under the Apache License,
 # Version 2.0 (the "License"); you may not use this file except
 # in compliance with the License.
 # You may obtain a copy of the License at
@@ -20,21 +20,21 @@ site_description: Asgardeo Learning Portal
 site_author: WSO2
 site_url: https://wso2.com/asgardeo/docs
 
-
 # Repository
-#repo_name: wso2/docs-choreo-dev
-#repo_url: https://github.com/wso2/docs-choreo-dev/
-#edit_uri: https://github.com/wso2/docs-choreo-dev/edit/dev/en/docs/
+repo_name: wso2/docs-is
+# repo_url: https://github.com/wso2/docs-is/
+# edit_uri: https://github.com/wso2/docs-choreo-dev/edit/dev/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
-copyright: ©2023 WSO2 LLC. 
+copyright: © 2023 WSO2 LLC.
 
 # Configuration
 theme:
   name: material
   custom_dir: theme/material
   logo: assets/images/asgardeo-docs-logo-dark.svg
+  logo_light: assets/images/asgardeo-docs-logo.svg
   font:
     text: Nunito
   favicon: assets/images/favicon.svg
@@ -366,32 +366,32 @@ plugins:
   - redirects:
       redirect_maps:
 extra_css:
+  - assets/lib/fontawesome-free-6.4.2-web/css/all.min.css 
+  - assets/css/overrides.css
   # - assets/lib/highlightjs/default.min.css
   # - assets/css/theme.css
   # - assets/css/prism.css
   # - assets/lib/json-formatter/json-formatter.css
-  
-  - assets/lib/highlightjs/styles/vs.min.css
-  - assets/css/blue-palette-alt2.css
-  - assets/css/choreotheme.css
-  - assets/lib/json-formatter/json-formatter.css
-  - assets/css/config-catalog.css
-  - assets/lib/fontawesome-free-6.4.2-web/css/all.min.css
+  #- assets/lib/highlightjs/styles/vs.min.css
+  #- assets/css/blue-palette-alt2.css
+  #- assets/css/choreotheme.css
+  #- assets/lib/json-formatter/json-formatter.css
+  #- assets/css/config-catalog.css
 extra_javascript:
-  - assets/lib/json-formatter/json-formatter.umd.js
-  - assets/lib/highlightjs/highlight.min.js
- # - assets/js/theme.js
+  #- assets/lib/json-formatter/json-formatter.umd.js
+  #- assets/lib/highlightjs/highlight.min.js
+  # - assets/js/theme.js
   #- assets/js/prism-ballerina.js
-  - assets/js/choreotheme.js
+  #- assets/js/choreotheme.js
 extra:
   material:
     jinja2content: true
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/wso2
+  generator: false
+  # social:
+  #   - icon: fontawesome/brands/github
+  #     link: https://github.com/wso2
 #site_version: 1.0.0
   base_path: http://localhost:8000/asgardeo/docs
-
   nav_list:
     - Get Started
     - Guides
@@ -399,5 +399,59 @@ extra:
     - Integrations
     - APIs
     - References
-
+  redocly:
+    scroll_y_offset: 105.5
+  integrations:
+    - name: Asgardeo Auth React SDK
+      icon: assets/img/logo/react-logo.svg
+      description: An Asgardeo SDK to integrate Asgardeo into React applications
+      documentation_link: get-started/try-your-own-app/javascript/
+      download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip
+      source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
+    - name: Asgardeo Auth SPA SDK
+      icon: assets/img/logo/javascript-logo.svg
+      description: An Asgardeo SDK to integrate Asgardeo into single page applications
+      documentation_link: get-started/try-your-own-app/javascript/
+      download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
+      source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
+    - name: Angular OAuth2 OIDC
+      icon: assets/img/logo/angular-logo.svg
+      description: A library for implementing OAuth2 and OIDC in Angular applications
+      source_link: https://github.com/manfredsteyer/angular-oauth2-oidc
+    - name: Next Auth
+      icon: assets/img/logo/nextjs-logo.svg
+      description: A library for implementing OAuth2 and OIDC in NextJS applications
+      source_link: https://github.com/nextauthjs/next-auth
+    - name: Asgardeo Auth Node SDK
+      icon: assets/img/logo/expressjs-logo.svg
+      description: An Asgardeo SDK to integrate Asgardeo into JS/TS-based frameworks such as ExpressJS
+      source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
+    - name: Asgardeo Tomcat OIDC Agent
+      icon: assets/img/logo/java-logo.svg
+      description: An Asgardeo Tomcat agent for implementing login/logout for Tomcat web apps
+      documentation_link: get-started/try-your-own-app/java-ee-oidc/
+      download_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war
+      source_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent
+    - name: Asgardeo Tomcat SAML Agent
+      icon: assets/img/logo/java-logo.svg
+      description: An Asgardeo SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
+      documentation_link: get-started/try-your-own-app/java-ee-saml/
+      download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
+      source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
+    - name: Flutter AppAuth
+      icon: assets/img/logo/flutter-logo.svg
+      description: A wrapper for native AppAuth SDKs to integrate OAuth2 and OIDC providers into Flutter apps
+      source_link: https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth
+    - name: React Native AppAuth
+      icon: assets/img/logo/react-logo.svg
+      description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
+      source_link: https://github.com/FormidableLabs/react-native-app-auth
+    - name: AppAuth Android
+      icon: assets/img/logo/android-logo.svg
+      description: A client SDK to integrate OAuth2 and OIDC providers into Android applications
+      source_link: https://github.com/openid/AppAuth-Android
+    - name: AppAuth iOS
+      icon: assets/img/logo/apple-idp-illustration.svg
+      description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
+      source_link: https://github.com/openid/AppAuth-iOS
 base_path: http://localhost:8000/asgardeo/docs
