@@ -14,7 +14,7 @@ This section explains how owners can create multiple organizations in the {{ pro
 
     See [Configure password recovery]({{base_path}}/guides/user-accounts/password-recovery/) for instructions.
 
-- Users can self-register to an organization in {{ product_name }} via an application’s login page.
+- Users can self-register to an organization in {{ product_name }} via an application's login page.
 
     See [Configure self-registration]({{base_path}}/guides/user-accounts/configure-self-registration/) for instructions.
 

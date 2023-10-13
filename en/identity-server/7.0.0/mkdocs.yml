@@ -159,10 +159,13 @@ nav:
             - Add access control:
               - guides/authentication/conditional-auth/access-control.md
               - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
+              - Concurrent session-based access: guides/authentication/conditional-auth/concurrent-session-based-template
               #- Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
             - Add adaptive MFA:
               - guides/authentication/conditional-auth/adaptive-mfa.md
               - MFA based on user role: guides/authentication/conditional-auth/role-based-template.md
+              - MFA based on user store: guides/authentication/conditional-auth/user-store-based-template.md
+              - MFA based on login-attempts: guides/authentication/conditional-auth/login-attempt-based-template.md
               - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
               - MFA based on sign-in option: guides/authentication/conditional-auth/sign-in-option-based-template.md
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
@@ -382,8 +385,8 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/wso2
 #site_version: 1.0.0
-  #base_path: http://127.0.0.1:8000/en/7.0.0
-  base_path: https://is.docs.wso2.com/en/next
+  base_path: http://127.0.0.1:8000/en/7.0.0
+  #base_path: https://is.docs.wso2.com/en/next
 
   nav_list:
     - Get Started

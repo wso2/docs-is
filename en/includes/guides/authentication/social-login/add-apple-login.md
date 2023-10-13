@@ -163,7 +163,7 @@ Now, let's register the Apple IdP in {{ product_name }}.
 After creating the Apple identity provider, go to the **Settings** tab and see the list of **scopes** to which Apple has granted permissions.
 
 - **email**: Allows to view the user's email address.
-- **name**: Allows to view the user’s name fields.
+- **name**: Allows to view the user's name fields.
 
 !!! note
     {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Apple to the app. You can read the [Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope) to learn more.

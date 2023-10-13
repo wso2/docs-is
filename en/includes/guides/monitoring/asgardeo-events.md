@@ -679,7 +679,7 @@ When a user is added to the organization, an event with the following data is cr
     <tr>
         <td><code>roleList</code></td>
         <td>List</td>
-        <td>User’s Assigned Roles</td>
+        <td>User's Assigned Roles</td>
     </tr>
      <tr>
         <td><code>claims</code></td>

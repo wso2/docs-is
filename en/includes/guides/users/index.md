@@ -30,13 +30,13 @@ An owner can perform the following actions:
 - Manage applications
 - Enforce password reset
 
-The owner account cannot be deleted once it is created. There can be only one owner for an organization. By default, it’s the user who created the organization.
+The owner account cannot be deleted once it is created. There can be only one owner for an organization. By default, it's the user who created the organization.
 
 An owner is always assigned the **Administrator** role. It cannot be changed by other admins either.
 
 ### Administrator
 
-An administrator can manage the organization and has access to the organization’s administrative operations. An administrator can be invited to the organization and assigned with the Administrator [user role]({{base_path}}/references/user-management/user-roles/).
+An administrator can manage the organization and has access to the organization's administrative operations. An administrator can be invited to the organization and assigned with the Administrator [user role]({{base_path}}/references/user-management/user-roles/).
 
 Refer [Managing administrators]({{base_path}}/guides/users/manage-collaborators/) for more information.
 

@@ -14,7 +14,7 @@ Consider a scenario with two user roles, `admin` and `manager`. For users assign
 1. Username and password
 2. TOTP or FIDO
 
-![Role based adaptive authentication]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-auth.png)
+![Role based adaptive authentication]({{base_path}}/assets/img/guides/conditional-auth/role-based-adaptive-auth.png)
 
 ## Prerequisites
 
@@ -23,6 +23,7 @@ Consider a scenario with two user roles, `admin` and `manager`. For users assign
 - Create two user roles named `admin` and `manager` and assign user accounts to them. For instructions, see the following:
 
     <!-- ADD CONTENT -->
+
     - [Managing roles]({{base_path}}/guides/users/manage-roles/)
     - [Managing users]({{base_path}}/guides/users/manage-groups/)
 
@@ -53,7 +54,7 @@ To enable conditional authentication:
 
         2. Click **+ ADD** next to **Role-Based** to add the role-based adaptive MFA script.
 
-            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/role-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 
@@ -133,6 +134,6 @@ Follow the steps given below.
 
     The user will be prompted to select the step-up method, and the sign-in flow will be stepped up according to the user's preference.
 
-    ![group-based-2fa-conditional-auth-stepup-page]({{base_path}}/assets/img/guides/conditional-auth/group-based-step-up.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![role-based-2fa-conditional-auth-stepup-page]({{base_path}}/assets/img/guides/conditional-auth/totp-fido-step-up.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 

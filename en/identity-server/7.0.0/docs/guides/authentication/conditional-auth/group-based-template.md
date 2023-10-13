@@ -23,7 +23,7 @@ Consider a scenario with two user groups, `manager` and `employee`. For users as
 - Create two user groups named `manager` and `employee` and assign user accounts to them. For instructions, see the following:
 
       - [Managing groups]({{base_path}}/guides/users/manage-groups/)
-      - [Managing users]({{base_path}}/guides/users/manage-groups/)
+      - [Managing users]({{base_path}}/guides/users/manage-customers/)
 
 ## Configure the login flow
 
@@ -130,4 +130,4 @@ Follow the steps given below.
 
     The user will be prompted to select the step-up method, and the sign-in flow will be stepped up according to the user's preference.
 
-    ![group-based-2fa-conditional-auth-stepup-page]({{base_path}}/assets/img/guides/conditional-auth/group-based-step-up.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![group-based-2fa-conditional-auth-stepup-page]({{base_path}}/assets/img/guides/conditional-auth/totp-fido-step-up.png){: width="300" style="border: 0.3px solid lightgrey;"}

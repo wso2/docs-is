@@ -38,7 +38,7 @@ Consider a scenario where users who are younger than 18 years should be prevente
     === "Visual Editor"
         To add age-based access control using the visual editor:
 
-        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Access Control**.
+        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **User**.
 
         2. Click **+ ADD** next to **User-Age-Based** to add the user-age-based access control script.
 

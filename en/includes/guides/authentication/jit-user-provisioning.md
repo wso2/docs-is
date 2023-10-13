@@ -58,9 +58,9 @@ To enable/disable JIT user provisioning for an external Identity provider:
 ## Troubleshoot sign-in flow errors
 
 If you have disabled JIT provisioning for an IdP, you need to validate its effect on your applications that use [multi-factor authentication]({{base_path}}/guides/authentication/mfa/). This is because certain MFA mechanisms (such as TOTP and EmailOTP) require the login users to have local accounts in {{ product_name }}.
-Therefore, the application’s sign-in flow involving JIT-disabled IdPs and the MFA options will break by default.
+Therefore, the application's sign-in flow involving JIT-disabled IdPs and the MFA options will break by default.
 
-In such scenarios, you will see the following warning in the application’s sign-in flow:
+In such scenarios, you will see the following warning in the application's sign-in flow:
 
 ![MFA based Sign-in flow with JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-mfa-conflict.png)
 

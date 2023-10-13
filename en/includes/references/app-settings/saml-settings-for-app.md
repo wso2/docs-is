@@ -199,7 +199,7 @@ Asgardeo uses the Public Key of the application (obtained from the [certificate]
 
 #### Enable attribute profile
 
-Specifies whether to include the user’s attributes in the SAML assertions as part of the attribute statement. You can configure user attributes by navigating to **User Attributes** section in the application.
+Specifies whether to include the user's attributes in the SAML assertions as part of the attribute statement. You can configure user attributes by navigating to **User Attributes** section in the application.
 
 <br>
 
@@ -243,7 +243,7 @@ Asgardeo facilitates IdP initiated SAML2 single log out requests. The following 
    </tr>
   <tr>
      <td>returnTo<Badge text="Optional" type="optional"/></td>
-     <td>Value of the parameter should be the URL which needs to be redirected to, after the log out. If this parameter is present in the request, then the ‘spEntityID’ parameter must also be present.</td>
+     <td>Value of the parameter should be the URL which needs to be redirected to, after the log out. If this parameter is present in the request, then the `spEntityID` parameter must also be present.</td>
   </tr>
 </tbody>
 </table>

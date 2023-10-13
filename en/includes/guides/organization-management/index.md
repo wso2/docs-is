@@ -27,6 +27,6 @@ In a B2B scenario,
 
 - you will create subordinate organizations to onboard other business organizations (partners, suppliers, customer organizations, etc.) to your platform.
 
-- administrators of each subordinate organization manage the respective organization’s user base and define login experiences for applications according to the organization’s requirements.
+- administrators of each subordinate organization manage the respective organization's user base and define login experiences for applications according to the organization's requirements.
 
     <!-- Learn more about how {{ product_name }} supports B2B platforms. -->

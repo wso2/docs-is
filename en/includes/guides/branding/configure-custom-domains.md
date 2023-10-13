@@ -2,7 +2,7 @@
 <Badge text="Paid subscription required" type="warn" />
 
 !!! warning
-    You need a paid {{ product_name }} subscription to use this feature. If you don’t already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the {{ product_name }} sales team.
+    You need a paid {{ product_name }} subscription to use this feature. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the {{ product_name }} sales team.
 
 By default, the {{ product_name }} interfaces presented to your users (during the login, sign-up, and account recovery flows), as well as the back-end services (such as APIs), are served by {{ product_name }} on the following domains:
 
