@@ -96,10 +96,6 @@
     color: var(--md-default-bg-color)  !important;
 }
 
-/* .bCTehv {
-    color: var(--md-primary-fg-color) !important;
-} */
-
 .emrRcd:hover {
     background-color: var(--md-default-fg-color--lightest) !important;
 }
