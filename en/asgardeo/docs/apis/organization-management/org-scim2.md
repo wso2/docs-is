@@ -2,5 +2,4 @@
 template: templates/redoc.html
 ---
 
-<redoc spec-url=../../../apis/restapis/org-scim2.yaml></redoc>
-<script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+<redoc spec-url="{{base_path}}/apis/restapis/org-scim2.yaml" scroll-y-offset="{{redocly.scroll_y_offset}}"></redoc>
