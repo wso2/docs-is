@@ -23,7 +23,7 @@ site_url: https://wso2.com/asgardeo/docs
 # Repository
 repo_name: wso2/docs-is
 # repo_url: https://github.com/wso2/docs-is/
-# edit_uri: https://github.com/wso2/docs-choreo-dev/edit/dev/en/docs/
+# edit_uri: https://github.com/wso2/docs-is/tree/is-asgardeo-unified/en/asgardeo/docs
 dev_addr: localhost:8000
 
 # Copyright
@@ -40,11 +40,8 @@ theme:
   favicon: assets/images/favicon.svg
   toc: false
   features:
-    # Top navigation
     - navigation.tabs
-    # Top navigation - sticky
     - navigation.tabs.sticky
-    # Section index pages
     - navigation.indexes
     - navigation.path
     - navigation.top
@@ -325,15 +322,13 @@ nav:
       - Security check: references/production-checklist/security-check.md
       - Best practices: references/production-checklist/best-practices.md
     - Asgardeo rate limits: references/rate-limits.md
-# Extensions
-# Extensions
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - admonition
-#  - markdown_include.include:
-#      base_path: ../includes
+  # - markdown_include.include:
+  #     base_path: ../includes
   - markdown.extensions.toc:
       permalink: true
       toc_depth: 3
@@ -368,21 +363,23 @@ plugins:
 extra_css:
   - assets/lib/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css
+  # TODO: Need to verify if below css files are still needed. And clean those.
   # - assets/lib/highlightjs/default.min.css
   # - assets/css/theme.css
   # - assets/css/prism.css
   # - assets/lib/json-formatter/json-formatter.css
-  #- assets/lib/highlightjs/styles/vs.min.css
-  #- assets/css/blue-palette-alt2.css
-  #- assets/css/choreotheme.css
-  #- assets/lib/json-formatter/json-formatter.css
-  #- assets/css/config-catalog.css
+  # - assets/lib/highlightjs/styles/vs.min.css
+  # - assets/css/blue-palette-alt2.css
+  # - assets/css/choreotheme.css
+  # - assets/lib/json-formatter/json-formatter.css
+  # - assets/css/config-catalog.css
 extra_javascript:
-  #- assets/lib/json-formatter/json-formatter.umd.js
-  #- assets/lib/highlightjs/highlight.min.js
+  # TODO: Need to verify if below js files are still needed. And clean those.
+  # - assets/lib/json-formatter/json-formatter.umd.js
+  # - assets/lib/highlightjs/highlight.min.js
   # - assets/js/theme.js
-  #- assets/js/prism-ballerina.js
-  #- assets/js/choreotheme.js
+  # - assets/js/prism-ballerina.js
+  # - assets/js/choreotheme.js
 extra:
   material:
     jinja2content: true
