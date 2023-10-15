@@ -323,7 +323,6 @@ Deploy this sample web app on a web container.
     folder. For example,
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
     .
-2.  Start the Tomcat server.
 3.  Copy the `wso2carbon.jks` file from the `<IS_HOME>/repository/resources/security` folder and replace the existing `wso2carbon.jks` file in the  `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-dispatch.com/WEB-INF/classes` folder.
      
      !!! info
