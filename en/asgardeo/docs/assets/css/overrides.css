@@ -56,6 +56,13 @@
     }
 }
 
+@media screen and (max-width: 76.1875em) {
+    .md-nav--primary .md-nav__title[for=__drawer] {
+        background-color: var(--md-default-bg-color);
+        height: 4.2rem;
+    }
+}
+
 /* Default/Light theme styles  */
 [data-md-color-scheme=default] .md-header,
 [data-md-color-scheme=default] .md-tabs  {
@@ -76,7 +83,7 @@
 }
 
 [data-md-color-scheme=default] [data-md-component=logo][data-md-color=slate] {
-    display: none;
+    display: none !important;
 }
 
 /* Dark theme styes  */
@@ -86,11 +93,11 @@
 }
 
 [data-md-color-scheme=slate] img[data-md-component=logo][data-md-color=slate] {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 [data-md-color-scheme=slate] img[data-md-component=logo][data-md-color=default] {
-    display: none;
+    display: none !important;
 }
 
 [data-md-color-scheme=slate] .asgardeo-community-icon path.black {

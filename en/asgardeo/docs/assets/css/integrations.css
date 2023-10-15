@@ -16,9 +16,18 @@
  * under the License.
  */
 
+.md-sidebar--secondary {
+    display: none !important;
+}
+
 .integrations-list-container {
     margin: auto;
     max-width: 1000px;
+}
+
+[data-md-color-scheme=slate] .integrations-list-item {
+    background-color: rgb(30 30 30);
+    box-shadow: inset 0px 0px 0px 1px #4e4e4e;
 }
 
 .integrations-list-item {
@@ -118,4 +127,10 @@
 .source-link {
     flex: 1;
     margin: 0 20px 0 0;
+}
+
+@media screen and (min-width: 76.25em) {
+    .md-sidebar {
+        display: none;
+    }
 }

@@ -28,7 +28,12 @@
 {% block container %}
   <div class="md-content">
     <article class="md-content__inner md-typeset">
-      <h1 class="md-home-search-input-label">How can we help?</h1>
+
+      <div class="md-home-search-container">
+        <h1 class="md-home-search-input-label">How can we help?</h1>
+
+        {% include "partials/search.html" %}
+      </div>
 
       {{ page.content }}
 
