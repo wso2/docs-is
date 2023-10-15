@@ -530,16 +530,18 @@ configure Email OTP as second authentication step.
     2.  Creating the first authentication step:
 
         1.  Click **Add Authentication Step**.
-           
-        2.  Select  **Use subject identifier from this step** and **Use attributes from this step**.
 
-        3.  Click **Add Authenticator** that is under Local
+        2.  Click **Add Authenticator** that is under Local
             Authenticators of Step 1 to add the basic authentication as
             the first step.  
             Adding basic authentication as a first step ensures that the
             first step of authentication will be done using the user's
             credentials that are configured with the WSO2 Identity
-            Server
+            Server.
+
+            !!! note
+                **Use subject identifier from this step** and **Use attributes from this step** will be selected 
+                by default. If not, make sure to select the two checkboxes.
 
     3.  Creating the second authentication step:
 
