@@ -410,15 +410,16 @@ Deploy this sample web app on a web container.
     folder. For example,
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
     .
-3.  Copy the `wso2carbon.jks` file from the `<IS_HOME>/repository/resources/security` folder and replace the existing `wso2carbon.jks` file in the  `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-manager.com/WEB-INF/classes` folder.
+2.  Copy the `wso2carbon.jks` file from the `<IS_HOME>/repository/resources/security` folder and replace the existing `wso2carbon.jks` file in the  `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-manager.com/WEB-INF/classes` folder.
      
      !!! info
           If you miss this step, you will run into an authentication issue.
-4.  Open the `sso.properties` file in the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-manager.com/WEB-INF/classes` folder and change the hostname in the SAML2 assertion consumer URL (`SAML2.AssertionConsumerURL` parameter) from `localhost.com` to `localhost` as shown below.
+3.  Open the `sso.properties` file in the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-manager.com/WEB-INF/classes` folder and change the hostname in the SAML2 assertion consumer URL (`SAML2.AssertionConsumerURL` parameter) from `localhost.com` to `localhost` as shown below.
 
       ```bash
       SAML2.AssertionConsumerURL=http://localhost:8080/saml2-web-app-pickup-manager.com/home.jsp
       ```
+4.  Start the Tomcat server.
 
 To check the sample application, navigate to
 `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/saml2-web-app-pickup-manager.com/index.jsp        `
