@@ -16,7 +16,7 @@ The flow of JIT user provisioning is as follows:
 
 4. JIT provisioning is triggered and {{ product_name }} creates a user account in its internal user store along with the user claims obtained from the authentication response.
 
-![How JIT user provisioning works]({{base_path}}/assets/img/guides/jit-provisioning/how-jit-works.png)
+![How JIT user provisioning works]({{base_path}}/assets/img/guides/jit-provisioning/how-jit-works.png){: width="800" style="display: block; margin: 0 auto;"}
 
 With this process, new user accounts are automatically provisioned to {{ product_name }} through external IdPs.
 
@@ -30,25 +30,25 @@ First, the external IdP should be registered in {{ product_name }} as a connecti
     - [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/)
     - [Google]({{base_path}}/guides/authentication/social-login/add-google-login/)
     - [Github]({{base_path}}/guides/authentication/social-login/add-github-login/)
-    - [OpenID Connect IdPs]({{base_path}}/guides/authentication/enterprise-login/add-oidc-idp-login/)
-    - [SAML IdPs]({{base_path}}/guides/authentication/enterprise-login/add-saml-idp-login/)
+    - [OIDC connections]({{base_path}}/guides/authentication/enterprise-login/add-oidc-idp-login/)
+    - [SAML connections]({{base_path}}/guides/authentication/enterprise-login/add-saml-idp-login/)
 
 ## Enable/Disable JIT user provisioning
 
 To enable/disable JIT user provisioning for an external Identity provider:
 
-1. On the {{ product_name }} Console, click **Connections** and select the relevant IdP.
+1. On the {{ product_name }} Console, click **Connections** and select the relevant connection.
 
-2. Go to the **Advanced** tab of the selected IdP.
+2. Go to the **Advanced** tab of the selected connection.
 
-3. JIT provisioning is enabled by default. You can uncheck the **Just-in-Time (JIT) User Provisioning**
- checkbox to disable it.
-    ![JIT user provisioning configuration is enabled]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png)
+3. JIT provisioning is enabled by default. You can uncheck the **Just-in-Time (JIT) User Provisioning** checkbox to disable it.
+
+    ![JIT user provisioning configuration is enabled]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save.
 
 !!! note
-    - When JIT is enabled, {{ product_name }} will create a user profile and store the user attributes recieved from the external IdP.
+    - When JIT is enabled, {{ product_name }} will create a user profile and store the user attributes received from the external IdP.
     <br />
     - When JIT is disabled, a user profile is not created. Therefore, there is no location to store the attributes of the user. In such cases, the attributes are directly passed to the application.
 
@@ -62,7 +62,7 @@ Therefore, the application's sign-in flow involving JIT-disabled IdPs and the MF
 
 In such scenarios, you will see the following warning in the application's sign-in flow:
 
-![MFA based Sign-in flow with JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-mfa-conflict.png)
+![MFA based Sign-in flow with JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-mfa-conflict.png){:style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 To avoid such errors, you can use one of the following options:
 
@@ -86,6 +86,4 @@ To avoid such errors, you can use one of the following options:
     ```
 
     !!! note
-        For more information on this script, refer the [sign-in option based conditional authentication script]({{base_path}}/guides/authentication/conditional-auth/sign-in-option-based-template/#how-it-works).
-
-
+        For more information on this script, refer to the [sign-in option-based conditional authentication script]({{base_path}}/guides/authentication/conditional-auth/sign-in-option-based-template/#how-it-works).
