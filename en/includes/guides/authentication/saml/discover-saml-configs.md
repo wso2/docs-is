@@ -10,7 +10,7 @@ When configuring SAML based sign in with {{ product_name }}, you need to know:
 2. Issuer of {{ product_name }}
 3. The public certificate of {{ product_name }}
 
-    ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png){: style="display: block; margin: 0 auto;"}
 
 ## Prerequisites
 To get started, you need to have an application registered in {{ product_name }}. If you don't have an app registered, go to {{ product_name }} to [register a SAML application]({{base_path}}/guides/applications/register-saml-web-app/).
