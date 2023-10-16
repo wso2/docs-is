@@ -6,13 +6,13 @@ successfully logged out, the user is redirected to the `post_logout_redirect_uri
 **Logout endpoint**
 
 ``` 
-https://api.asgardeo.io/t/<organization_name>/oidc/logout
+{{ product_url_format }}/oidc/logout
 ```
 
 **Sample request**
 
 ``` curl
-curl -X POST "https://api.asgardeo.io/t/bifrost/oidc/logout" \
+curl -X POST "{{ product_url_sample }}/oidc/logout" \
 --data-urlencode "id_token_hint=<id_token>" \
 --data-urlencode "post_logout_redirect_uri=<redirect URI>" \
 --data-urlencode "state=<state>"
@@ -23,7 +23,6 @@ The logout request has the following parameters:
 !!! note
     See [RP-initiated logout request](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#RPLogout) for more details.
 
-<br>
 <table>
   <tr>
     <th>Request Parameter</th>

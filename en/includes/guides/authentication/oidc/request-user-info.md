@@ -6,21 +6,21 @@ information as a payload. The application should send a request with the access 
 **Userinfo endpoint**
 
 ``` 
-https://api.asgardeo.io/t/<organization_name>/oauth2/userinfo
+{{ product_url_format }}/oauth2/userinfo
 ```
 
 **Sample request**
 
 === "cURL"
     ```bash
-    curl --location --request GET 'https://api.asgardeo.io/t/{organization}/oauth2/userinfo' \
+    curl --location --request GET '{{ product_url_format }}/oauth2/userinfo' \
     --header 'Authorization: Bearer {your_access_token}'
     ```
 
 === "JavaScript - jQuery"
     ```js
     var settings = {
-        "url": "https://api.asgardeo.io/t/{organization}/oauth2/userinfo",
+        "url": "{{ product_url_format }}/oauth2/userinfo",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -39,7 +39,7 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/userinfo
 
     var config = {
         method: 'get',
-        url: 'https://api.asgardeo.io/t/{organization}/oauth2/userinfo',
+        url: '{{ product_url_format }}/oauth2/userinfo',
         headers: {
             'Authorization': 'Bearer {your_access_token}'
         }
