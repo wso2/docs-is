@@ -60,6 +60,6 @@ template: templates/redoc.html
                 </td>
             </tr>
         </tbody>
-    </table> -->
+    </table>
 
 <redoc spec-url="../../apis/restapis/authentication.yaml"></redoc>
