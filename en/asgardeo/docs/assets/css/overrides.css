@@ -50,10 +50,8 @@
     fill: #000;
 }
 
-@media screen and (min-width: 60em) {
-    .md-search__form {
-        background-color: #7a7a7a42;
-    }
+.md-search__form {
+    background-color: #7a7a7a42;
 }
 
 @media screen and (max-width: 76.1875em) {
