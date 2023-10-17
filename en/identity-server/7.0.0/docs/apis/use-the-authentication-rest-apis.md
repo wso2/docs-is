@@ -4,7 +4,7 @@ template: templates/redoc.html
 
 # Authentication REST APIs
 
-??? Note "Click for instructions"
+<!-- ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server.
 
     1.  Expand the relevant API operation and click **Try It Out**.  
@@ -60,7 +60,6 @@ template: templates/redoc.html
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
 
-<redoc spec-url=../../apis/restapis/authentication.yaml></redoc>
-<script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+<redoc spec-url="../../apis/restapis/authentication.yaml"></redoc>

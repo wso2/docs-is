@@ -16,14 +16,14 @@
  * under the License.
 -->
 
-{% if config.theme.logo or config.logo_light %}
-    {% if config.theme.logo %}
-        <img src="{{ config.theme.logo | url }}" alt="logo" data-md-component="logo" data-md-color="default">
-    {% endif %}
-    {% if config.theme.logo_light %}
-        <img src="{{ config.theme.logo_light | url }}" alt="logo" data-md-component="logo" data-md-color="slate">
-    {% endif %}
-{% else %}
-  {% set icon = config.theme.icon.logo or "material/library" %}
-  {% include ".icons/" ~ icon ~ ".svg" %}
-{% endif %}
+<div class="row" style="margin-right: 0.6rem;">
+  <div style="display: inline-block;">
+    <a class="md-source" href="https://discord.com/invite/wso2">
+      <div class="md-source__icon md-icon">
+        {% set icon = "fontawesome/brands/discord" %}
+        {% include ".icons/" ~ icon ~ ".svg" %}  
+      </div>
+      <label>Get Help</label>
+    </a>
+  </div>
+</div>
