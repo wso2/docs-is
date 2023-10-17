@@ -434,4 +434,3 @@ extra:
       icon: assets/img/logo/apple-idp-illustration.svg
       description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
       source_link: https://github.com/openid/AppAuth-iOS
-      
