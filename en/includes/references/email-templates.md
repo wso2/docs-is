@@ -236,6 +236,7 @@ The following literals about the user are accessible for all email templates.
     </tbody>
 </table>
 
+---
 
 ### Branding literals
 
