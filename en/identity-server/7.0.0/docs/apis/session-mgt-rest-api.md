@@ -2,21 +2,6 @@
 template: templates/redoc.html
 ---
 
-# User's Session Management API Definition
-
-??? Note "Click for instructions"
-    Before invoking the session management REST APIs, create some sessions for the user. You can create active sessions for the users as follows.
-    
-       1. [Register a service provider]({{base_path}}/guides/applications/register-sp) in the WSO2 Identity Server so that the Identity Server will handle the authentication for the application.
-       2. Log in to the application with valid credentials.
-       
-    Follow the steps below to try out the REST APIs with your local instance of WSO2 Identity Server. 
-    
-       1. If you are using OAuth-based authentication, [obtain an access token]({{base_path}}/apis/overview/#how-to-access-the-apis) for your organization using the scope specified in the relevant API operation. Skip this step if you are using basic authentication to invoke the API.
-       2. Expand the relevant API operation and select the required authentication method from the **Examples** list.
-       3. Copy the sample cURL command provided under the examples, update the relevant variables, and add the `-k` header to the curl command.
-       4. Run the curl command on the terminal with a running instance of WSO2 IS. 
-
 !!! Note
 
     - From WSO2 IS 6.0.0 onwards, access tokens mapped with the session via REST API can be revoked. 
