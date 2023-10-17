@@ -4,7 +4,7 @@ info:
     This is the RESTful API for identity governance configurations in WSO2
     Identity Server
   version: "v1"
-  title: WSO2 Identity Server - Governance connectors Admin API
+  title: Governance connectors Admin API
   contact:
     name: WSO2 Identity Server
     url: 'https://wso2.com/identity-and-access-management'

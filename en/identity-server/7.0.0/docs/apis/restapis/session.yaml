@@ -16,7 +16,7 @@ info:
     - If a session is terminated via the API and the same access token is used by multiple sessions, the other sessions will lose their tokens. Therefore, it is recommended to use sso-session binding if you wish to retain the capability to revoke the access token when the session is terminated via the REST API.
     - WSO2 Identity Server also sends SAML/OIDC back-channel logouts when the session is terminated via the API. To support this, you should configure the application to enable back-channel logout.
   version: 'v1'
-  title: WSO2 Identity Server - User Session Management API Definition
+  title: User Session Management API Definition
   contact:
     name: 'WSO2 Identity Server'
     url: 'https://wso2.com/identity-and-access-management/'

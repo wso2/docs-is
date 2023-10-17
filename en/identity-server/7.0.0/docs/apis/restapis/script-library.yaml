@@ -3,7 +3,7 @@ info:
   description: >
     This document specifies a Script Library Management RESTful API for WSO2 Identity Server.
   version: "1.0.0-oas3"
-  title: WSO2 Identity Server - Script Library Management API definition
+  title: Script Library Management API
   termsOfService: 'http://swagger.io/terms/'
   contact:
     name: WSO2

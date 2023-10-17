@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: SCIM 2.0 Endpoint Swagger Definition
+  title: SCIM 2.0 Endpoint API
   description: |
     SCIM 2.0 endpoints
   contact:

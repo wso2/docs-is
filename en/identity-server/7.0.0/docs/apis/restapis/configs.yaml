@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: "1.0.0"
-  title: 'WSO2 Identity Server - Configurations API Definition'
+  title: 'Configurations API'
   description: 'This document specifies a **RESTful API** for **WSO2 Identity Server Configurations**'
   contact:
     name: WSO2

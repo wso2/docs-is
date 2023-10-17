@@ -4,7 +4,7 @@ info:
     This document specifies an **Application Management RESTful API** for **WSO2
     Identity Server**.
   version: "v1"
-  title: WSO2 Identity Server - Application Management Rest API
+  title: Application Management Rest API
   termsOfService: 'http://swagger.io/terms/'
   contact:
     name: WSO2

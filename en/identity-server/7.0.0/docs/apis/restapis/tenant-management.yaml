@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: WSO2 Identity Server - Tenant Management API
+  title: Tenant Management API
   description: >-
     This is the RESTful API for managing Tenants in the WSO2 Identity
     Server.

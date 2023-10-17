@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server Rest API - Recovery
+  title: Recovery API
   description: |
     This document specifies a **RESTful API** for WSO2 **Identity Server** .
   contact:

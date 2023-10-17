@@ -3,7 +3,7 @@ info:
   description: >-
     This is the RESTful API for user visible application management in WSO2 Identity Server.
   version: "v1"
-  title: WSO2 Identity Server - User Application Management API
+  title: User Application Management API
   contact:
     name: WSO2 Identity Server
     url: 'https://wso2.com/identity-and-access-management'

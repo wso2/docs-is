@@ -6,7 +6,7 @@ info:
     In addition, APIs are available to retrieve metadata about federated authenticators and outbound provisioning
     connectors that can be configured for any given identity provider.
   version: "v1"
-  title: WSO2 Identity Server - Identity Provider Management API definition
+  title: Identity Provider Management API
   termsOfService: 'http://swagger.io/terms/'
   contact:
     name: WSO2

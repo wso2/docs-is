@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server - OAuth2 Authorized Apps API
+  title: OAuth2 Authorized Apps API
   description: This is the RESTful API for managing OAuth2 Authorized Apps.
 
     <br><br>Through this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.

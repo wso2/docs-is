@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server - User Account Associations API Definition
+  title: User Account Associations API
   description: |
     The APIs provide the capability to `add`/`retrieve`/`delete` associated local/federated accounts of an authenticated user.
     <br> In addition, APIs are available for privileged users to be invoked on behalf of another user to retrieve/delete associated local/federated accounts.

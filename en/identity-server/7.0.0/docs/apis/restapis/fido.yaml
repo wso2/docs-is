@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: 'WSO2 Identity Server FIDO2 Rest API '
+  title: 'FIDO2 Rest API '
   description: |
     This document specifies a **FIDO 2 RESTfulAPI** for WSO2 **Identity Server** .
 

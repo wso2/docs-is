@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server Scope Endpoint
+  title:  Server Scope Endpoint API
   description: |
     The OAuth2 scope API in WSO2 Identity Server (IS) can be used to manage oauth2 scopes and scope bindings such as roles and permissions. Since OIDC scope is a sub category of OAuth2 scopes, these endpoints cannot have the same
     scope names as in WSO2 IS.

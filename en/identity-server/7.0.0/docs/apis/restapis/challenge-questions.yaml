@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   description: This is the RESTful API for managing challenge questions in WSO2 Identity Server.
   version: "v1"
-  title: WSO2 Identity Server - Challenge Question Sets Management API Definition
+  title: Challenge Question Sets Management API
   contact:
     name: "WSO2 Identity Server"
     url: "https://wso2.com/identity-and-access-management/"

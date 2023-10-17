@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: "1.0.0"
-  title: 'WSO2 Identity Server - CORS API Definition'
+  title: 'CORS API Definition'
   description: 'This document specifies a **RESTful API** for **WSO2 Identity Server CORS**'
   contact:
     name: WSO2
