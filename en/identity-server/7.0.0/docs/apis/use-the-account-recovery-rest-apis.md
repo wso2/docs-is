@@ -14,25 +14,5 @@ template: templates/redoc.html
     4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
      IS. 
 
-<div id="swagger-ui"></div>
-<script>
-
-  // Begin Swagger UI call region
-  const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/account-recovery.yaml",
-    dom_id: '#swagger-ui',
-    deepLinking: true,
-    validatorUrl: null,
-    presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
-    ],
-    plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
-    ],
-    layout: "StandaloneLayout"
-  })
-  // End Swagger UI call region
-
-   window.ui = ui
-</script>
+<redoc spec-url=../../apis/restapis/account-recovery.yaml></redoc>
+<script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>

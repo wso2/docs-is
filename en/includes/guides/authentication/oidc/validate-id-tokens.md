@@ -11,20 +11,23 @@ eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVEx
 **Decoded sample ID token**
 ```json 
 {
-  "isk": "3c7e422dad595077e02a6364cc5b7c9a1671d78fad52ffe5e6a437094b4ca9ff",
-  "at_hash": "IUtEn4tKAisUeWD8HXfpEw",
-  "aud": "Wsoq8t4nHW80gSnPfyDvRbiC__Ea",
-  "c_hash": "svbr55HEHPj7zkwgenJH1Q",
-  "sub": "Alica@bifrost.com",
-  "nbf": 1629968344,
-  "azp": "Wsoq8t4nHW80gSnPfyDvRbiC__Ea",
+  "isk": "7b8bfe9f4ed1396eb777b0c6d8e111af6e0c18b416074c6ee8ca3f424fcc6c66",
+  "at_hash": "znkxxOhMFPQ6P9W74IJJMA",
+  "sub": "3b7cbde5-bfc7-474a-b79e-4d9e03c4c55f",
   "amr": [
     "BasicAuthenticator"
   ],
-  "iss": "https://api.asgardeo.io/t/bifrost/oauth2/token",
-  "exp": 1629971944,
-  "iat": 1629968344,
-  "sid": "f78f5f4c-1862-4209-85a3-e22c2a9c068d"
+  "iss": "{{ product_url_sample }}/oauth2/token",
+  "sid": "de96a883-9baf-409e-9711-eaa7ca841f51",
+  "aud": "hyfI0ShhPybRU7zP2nnm3jEtJ4sa",
+  "c_hash": "Jsg6vv4Q4lzpPmTtAoxImA",
+  "nbf": 1697445072,
+  "azp": "hyfI0ShhPybRU7zP2nnm3jEtJ4sa",
+  "org_id": "332080fd-338e-4269-88e4-a565c98d74cb",
+  "exp": 1697448672,
+  "org_name": "{{ org_name }}",
+  "iat": 1697445072,
+  "jti": "3807f58a-70e3-41a8-96d5-1c394fc8cf55"
 }
 ```
 
@@ -40,20 +43,20 @@ By using a signature validation library, you can validate the signature of the I
 **JWKS endpoint**
 
 ``` 
-https://api.asgardeo.io/t/<organization_name>/oauth2/jwks
+{{ product_url_format }}/oauth2/jwks
 ```
 
 **Sample request**
 
 === "cURL"
     ```bash
-    curl --location --request GET 'https://api.asgardeo.io/t/bifrost/oauth2/jwks'
+    curl --location --request GET '{{ product_url_sample }}/oauth2/jwks'
     ```
 
 === "JavaScript - jQuery"
     ```js
     var settings = {
-        "url": "https://api.asgardeo.io/t/bifrost/oauth2/jwks",
+        "url": "{{ product_url_sample }}/oauth2/jwks",
         "method": "GET",
         "timeout": 0,
     };
@@ -69,7 +72,7 @@ https://api.asgardeo.io/t/<organization_name>/oauth2/jwks
 
     var config = {
         method: 'get',
-        url: 'https://api.asgardeo.io/t/bifrost/oauth2/jwks',
+        url: '{{ product_url_sample }}/oauth2/jwks',
         headers: {}
     };
 
@@ -115,7 +118,7 @@ Given below are some claims that are sent in the ID token. These need to be veri
   </tr>
   <tr>
     <td><code>iss</code> <p>(issuer)</p></td>
-    <td>This should match the <code>https://api.asgardeo.io/t/organization_name/oauth2/token</code> value.</td>
+    <td>This should match the <code>{{ product_url_format }}/oauth2/token</code> value.</td>
   </tr>
   <tr>
     <td><code>aud</code> <p>(audience)</p></td>

@@ -6,7 +6,7 @@ By configuring a custom email provider with your organization domain, users will
 
 ## Prerequisites
 
-- You need to have an organization in {{ product_name }}. [Create an organization]({{base_path}}/get-started/create-asgardeo-account/) if you don’t have one.
+- You need to have an organization in {{ product_name }}. [Create an organization]({{base_path}}/get-started/create-asgardeo-account/) if you don't have one.
 
 - You need to have a **custom email provider (SMTP server)**, which you have control over and can use to send emails to your users.
 

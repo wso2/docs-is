@@ -12,10 +12,6 @@ By branding these interfaces, users will get a familiar and consistent user expe
 
 ![{{ product_name }} branding example]({{base_path}}/assets/img/guides/branding/branding-example.png)
 
-## Prerequisites
-
-You need to have an organization in {{ product_name }}. [Create an organization]({{base_path}}/get-started/create-asgardeo-account/) if you don’t have one.
-
 ## Update branding
 
 Follow the steps given below to configure the branding preferences for your organization.
@@ -34,14 +30,13 @@ Follow the steps given below to configure the branding preferences for your orga
 
 The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Branding email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
 
-!!! note
-    For free-tier subscriptions, the **Powered by {{ product_name }}** label will display on the {{ product_name }}-powered interfaces when branding is published.
+{{ powered_by_note }}
 
 ## Disable branding
 
 You can temporarily disable your branding preferences by clicking **Unpublish** in the **Danger Zone**. Your progress will be preserved up to the point and you can choose to publish them again later by clicking on the **Save & Publish** button.
 
-When disabled, {{ product_name }}’s default branding will apply to the interfaces in your application's login, user registration, account recovery flows, and My Account portal.
+When disabled, {{ product_name }}'s default branding will apply to the interfaces in your application's login, user registration, account recovery flows, and My Account portal.
 
 ## Revert branding
 
@@ -58,11 +53,7 @@ To preview your branding configurations for different flows, on the **Preview** 
 
 ![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-## Extend branding
-
-When you go to **Customization > Branding** on the {{ product_name }} console, you will see the list of branding preferences that are supported for your user interfaces by default.
-
-If you require any of the extended branding capabilities (explained below), you can contact the {{ product_name }} team at **asgardeo-help@wso2.com** . Note that you need to send the request from an administrator account.
+{{ asgardeo_help }}
 
 ## UI branding preferences
 
@@ -124,14 +115,14 @@ The following design preferences apply to the theme you select. You can configur
                   <li><b>URL</b>: You can update the logo by specifying the URL of a hosted image.</li>
                   <li><b>Alt Text</b>: The 'Alt text' or 'alternative text' is a short description of an image. This text is useful to make sense of the image when it can't be viewed for some reason. A descriptive alt text is always a good practice to improve accessibility.</li>
                </ul>
-               Use an image that’s at least 600x600 pixels and less than 1MB in size for better performance.
+               Use an image that's at least 600x600 pixels and less than 1MB in size for better performance.
             </td>
          </tr>
          <tr>
             <td><b>Favicon</b></td>
             <td>Browsers that provide favicon support typically display a page's favicon in the browser's address bar and next to the page's name in a list of bookmarks.</br></br>
             You can update the favicon by specifying the URL of a hosted image (of type <b>png</b>, <b>ico</b>, etc.).</br></br>
-            Use an image with a square aspect ratio that’s at least 16x16 pixels in size for better results.
+            Use an image with a square aspect ratio that's at least 16x16 pixels in size for better results.
             </td>
          </tr>
          <tr>
@@ -142,7 +133,7 @@ The following design preferences apply to the theme you select. You can configur
                   <li><b>Alt Text</b>: The 'Alt text' or 'alternative text' is a short description of an image. This text is useful to make sense of the image when it can't be viewed for some reason. A descriptive alt text is always a good practice to improve accessibility.</li>
                   <li><b>Logo Title</b>: The text shown beside the Logo.</li>
                </ul>
-               Use an image that’s at least 250x50 pixels and less than 1MB in size for better performance.
+               Use an image that's at least 250x50 pixels and less than 1MB in size for better performance.
             </td>
          </tr>
       </table>
@@ -151,7 +142,7 @@ The following design preferences apply to the theme you select. You can configur
         Be sure that the hosted image you use will properly return Content-Type headers. Without these headers, the image will not correctly render and you will experience a 403 error. You can use static image hosting services to ensure these headers are properly returned.
 
 ??? note "Color Palette"
-    This is the primary color palette for your interfaces. Click the color swatch and apply colors that match your organization’s style guide.
+    This is the primary color palette for your interfaces. Click the color swatch and apply colors that match your organization's style guide.
 
     <table>
        <tr>
@@ -304,7 +295,7 @@ The following design preferences apply to the theme you select. You can configur
 
 ??? note "Footer"
     Decide how you want the footer to look in the login screens by modifying the following attributes:
-    
+
     <table>
        <tr>
           <td><b>Border Color</b></td>

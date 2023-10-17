@@ -10,7 +10,7 @@ When configuring SAML based sign in with {{ product_name }}, you need to know:
 2. Issuer of {{ product_name }}
 3. The public certificate of {{ product_name }}
 
-    ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png)
+    ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png){: style="display: block; margin: 0 auto;"}
 
 ## Prerequisites
 To get started, you need to have an application registered in {{ product_name }}. If you don't have an app registered, go to {{ product_name }} to [register a SAML application]({{base_path}}/guides/applications/register-saml-web-app/).
@@ -42,7 +42,7 @@ The SAML IdP metadata document contains:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <EntityDescriptor
-    xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="accounts.asgardeo.io/t/{organization_name}">
+    xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="{{ entityID }}">
     <IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" validUntil="2021-07-07T07:01:06.536Z">
         <KeyDescriptor use="signing">
             <KeyInfo
@@ -65,14 +65,14 @@ HFY29KP4da//BDdQrftzYCATe37Um09id/0KMGs=</X509Certificate>
                 </X509Data>
             </KeyInfo>
         </KeyDescriptor>
-        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://api.asgardeo.io/t/{organization_name}/samlartresolve" index="1"/>
-        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://api.asgardeo.io/t/{organization_name}/samlsso" ResponseLocation="https://api.asgardeo.io/t/{organization_name}/samlsso"/>
-        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://api.asgardeo.io/t/{organization_name}/samlsso" ResponseLocation="https://api.asgardeo.io/t/{organization_name}/samlsso"/>
-        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://api.asgardeo.io/t/{organization_name}/samlsso" ResponseLocation="https://api.asgardeo.io/t/{organization_name}/samlsso"/>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://api.asgardeo.io/t/{organization_name}/samlsso"/>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://api.asgardeo.io/t/{organization_name}/samlsso"/>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://api.asgardeo.io/t/{organization_name}/samlsso"/>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://api.asgardeo.io/t/{organization_name}/samlsso"/>
+        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="{{ product_url_format }}/samlartresolve" index="1"/>
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="{{ product_url_format }}/samlsso" ResponseLocation="{{ product_url_format }}/samlsso"/>
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="{{ product_url_format }}/samlsso" ResponseLocation="{{ product_url_format }}/samlsso"/>
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="{{ product_url_format }}/samlsso" ResponseLocation="{{ product_url_format }}/samlsso"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="{{ product_url_format }}/samlsso"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="{{ product_url_format }}/samlsso"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="{{ product_url_format }}/samlsso"/>
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="{{ product_url_format }}/samlsso"/>
     </IDPSSODescriptor>
 </EntityDescriptor>
 ```
@@ -103,12 +103,12 @@ To download the SAML metadata file of your organization in {{ product_name }},
 You can use below endpoint URL to get the SAML IdP metadata information.
 
 ``` 
-https://api.asgardeo.io/t/<organization_name>/identity/metadata/saml2
+{{ product_url_format }}/identity/metadata/saml2
 ```
 
 **Sample endpoint URL**
 ``` 
-https://api.asgardeo.io/t/bifrost/identity/metadata/saml2
+{{ product_url_sample }}/identity/metadata/saml2
 ```
 
 !!! note
@@ -131,7 +131,7 @@ You can login to {{ product_name }} and get endpoints of {{ product_name }}.
     - **Single Logout** : Logout URL of {{ product_name }}
     - **IdP certificate** : Public certificate of {{ product_name }}
 
-    ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png)
+    ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. You can download the certificate of {{ product_name }} from **IdP certificate**.
 

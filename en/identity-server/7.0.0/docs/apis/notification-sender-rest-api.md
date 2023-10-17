@@ -51,7 +51,7 @@ The following section provides the instructions to contruct requests for each no
 
         Example:
 
-        * Let’s assume you change the `Bulksms` template as follows.
+        * Let's assume you change the `Bulksms` template as follows.
         ```
             <configuration provider="Bulksms">
                 <body>

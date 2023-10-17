@@ -6,7 +6,7 @@ The following guide is a complete end-to-end use case on how to manage B2B (Busi
 
 You are an administrator of **Guardio Insurance**, which is a company that provides its services to other business organizations.
 
-**Best Car Mart** has a partnership with Guardio Insurance to provide life insurance policies to its employees. Guardio Insurance exposes its services to Best Car Mart’s employees through its **Guardio Insurance App**.
+**Best Car Mart** has a partnership with Guardio Insurance to provide life insurance policies to its employees. Guardio Insurance exposes its services to Best Car Mart's employees through its **Guardio Insurance App**.
 
 The employees of Best Car Mart should be able to log in to the Guardio Insurance App to consume its services. The administrators of Best Car Mart will manage the users of its organization and also determine the login experience that their users should have.
 

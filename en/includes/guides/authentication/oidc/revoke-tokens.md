@@ -14,7 +14,7 @@ Public clients such as SPAs, mobile apps can't store credentials securely. Those
 **Token revocation endpoint**
 
 ``` 
-https://api.asgardeo.io/t/<organization_name>/oauth2/revoke
+{{ product_url_format }}/oauth2/revoke
 ```
 
 ## Token revocation by confidential clients
@@ -49,7 +49,7 @@ The sample request is given below.
 
 === "cURL"
     ```
-    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
+    curl --location --request POST '{{ product_url_sample }}/oauth2/revoke' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'token={token}' \
     --data-urlencode 'token_type_hint={token_type}' \
@@ -60,7 +60,7 @@ The sample request is given below.
 === "JavaScript - jQuery"
     ```js
     var settings = {
-        "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/revoke",
+        "url": "{{ product_url_format }}/oauth2/revoke",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -91,7 +91,7 @@ The sample request is given below.
     });
     var config = {
         method: 'post',
-        url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/revoke',
+        url: '{{ product_url_format }}/oauth2/revoke',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -127,7 +127,7 @@ Basic BASE46_ENCODING<your_client_id:your_client_secret>
 
 === "cURL"
     ```
-    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
+    curl --location --request POST '{{ product_url_sample }}/oauth2/revoke' \
     --header 'Authorization: Basic ejhSQjZ5c2REWmhlNFFPMHpKQVF6S2JpNlA0YTp6MEM3OXpsb3B4OGk3QnlPdzhLMTVBOWRwbFlh' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'token_type_hint=access_token' \
@@ -144,7 +144,7 @@ Since public clients cannot store credentials securely and they do not need to p
 
 === "cURL"
     ```
-    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/revoke' \
+    curl --location --request POST '{{ product_url_sample }}/oauth2/revoke' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'token={token}' \
     --data-urlencode 'token_type_hint={token_type}' \
@@ -154,7 +154,7 @@ Since public clients cannot store credentials securely and they do not need to p
 === "JavaScript - jQuery"
     ```js
     var settings = {
-        "url": "https://api.asgardeo.io/t/<organization_name>/oauth2/revoke",
+        "url": "{{ product_url_format }}/oauth2/revoke",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -183,7 +183,7 @@ Since public clients cannot store credentials securely and they do not need to p
     });
     var config = {
         method: 'post',
-        url: 'https://api.asgardeo.io/t/<orgaization_name>/oauth2/revoke',
+        url: '{{ product_url_format }}/oauth2/revoke',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },

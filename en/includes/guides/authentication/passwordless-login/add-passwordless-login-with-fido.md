@@ -8,7 +8,7 @@ There are two types of authenticators that you can use with FIDO2 passwordless a
 - **Roaming authenticators** (also known as `cross-platform` or `external` authenticators): Authenticators like hardware security keys which are external and not bound to any specific device.
 
 !!! note "What is FIDO2?"
-    The FIDO Alliance, whose mission is to reduce the world’s reliance on passwords, introduced its latest specifications, collectively called FIDO2. FIDO2 specifications are the World Wide Web Consortium’s (W3C) Web Authentication specification (WebAuthn) and FIDO alliance’s corresponding Client to Authenticator Protocol (CTAP).
+    The FIDO Alliance, whose mission is to reduce the world's reliance on passwords, introduced its latest specifications, collectively called FIDO2. FIDO2 specifications are the World Wide Web Consortium's (W3C) Web Authentication specification (WebAuthn) and FIDO alliance's corresponding Client to Authenticator Protocol (CTAP).
 
 ## Prerequisites
 

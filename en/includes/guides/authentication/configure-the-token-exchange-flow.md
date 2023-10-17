@@ -2,13 +2,13 @@
 
 You can add a trusted token issuer to exchange tokens received from the configured third-party issuer for {{ product_name }} tokens.
 
-Learn how to configure the OAuth 2.0 token exchange flow in your Asgardeo organization. Refer [Token exchange grant]({{base_path}}/references/grant-types-in-asgardeo/#token-exchange-grant) for more information on how the flow works.
+Learn how to configure the OAuth 2.0 token exchange flow in your {{ product_name }} organization. Refer [Token exchange grant]({{base_path}}/references/grant-types-in-asgardeo/#token-exchange-grant) for more information on how the flow works.
 
 Follow this guide for instructions.
 
 ## Register a trusted token issuer
 
-To exchange a third-party token for an Asgardeo token, you need to register the third-party token issuer as a trusted token issuer in your Asgardeo organization.
+To exchange a third-party token for an {{ product_name }}  token, you need to register the third-party token issuer as a trusted token issuer in your {{ product_name }}  organization.
 
 To register a trusted token issuer:
 
@@ -94,7 +94,7 @@ Follow the steps given below.
 2. Execute the following cURL command to exchange the third-party token for an {{ product_name }} token.
 
     ``` curl
-    curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl --location '{{ product_url_format }}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
     --data-urlencode 'subject_token=<jwt_token>
