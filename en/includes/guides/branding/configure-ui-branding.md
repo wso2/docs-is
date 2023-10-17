@@ -12,10 +12,6 @@ By branding these interfaces, users will get a familiar and consistent user expe
 
 ![{{ product_name }} branding example]({{base_path}}/assets/img/guides/branding/branding-example.png)
 
-## Prerequisites
-
-You need to have an organization in {{ product_name }}. [Create an organization]({{base_path}}/get-started/create-asgardeo-account/) if you don't have one.
-
 ## Update branding
 
 Follow the steps given below to configure the branding preferences for your organization.
@@ -34,8 +30,7 @@ Follow the steps given below to configure the branding preferences for your orga
 
 The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Branding email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
 
-!!! note
-    For free-tier subscriptions, the **Powered by {{ product_name }}** label will display on the {{ product_name }}-powered interfaces when branding is published.
+{{ powered_by_note }}
 
 ## Disable branding
 
@@ -58,11 +53,7 @@ To preview your branding configurations for different flows, on the **Preview** 
 
 ![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-## Extend branding
-
-When you go to **Customization > Branding** on the {{ product_name }} console, you will see the list of branding preferences that are supported for your user interfaces by default.
-
-If you require any of the extended branding capabilities (explained below), you can contact the {{ product_name }} team at **asgardeo-help@wso2.com** . Note that you need to send the request from an administrator account.
+{{ asgardeo_help }}
 
 ## UI branding preferences
 
@@ -304,7 +295,7 @@ The following design preferences apply to the theme you select. You can configur
 
 ??? note "Footer"
     Decide how you want the footer to look in the login screens by modifying the following attributes:
-    
+
     <table>
        <tr>
           <td><b>Border Color</b></td>
