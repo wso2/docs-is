@@ -300,7 +300,9 @@ nav:
         - Configuration management:
             - Configuration management API: apis/use-the-configuration-management-rest-apis.md
             - Retrieve Tenant Resources Based on Search Parameters: apis/retrieve-tenant-resources-based-on-search-parameters.md
-        - Identity governance API: apis/identity-governance-rest-api.md
+        - Identity governance: 
+          - Identity Governance API introduction: apis/governance-connectors.md
+          - Identity governance API: apis/identity-governance-rest-api.md
         - Keystore management API: apis/keystore-rest-api.md
         - User store management API: apis/user-store-rest-api.md
         - Tenant management API: apis/tenant-management-rest-api.md
@@ -310,7 +312,9 @@ nav:
           - Consent management API: apis/consent-management-api-definition.md
         - Email templates API: apis/email-templates-rest-api.md
         - Workflow engine management API: apis/workflow-engine-rest-api.md
-    - Notification sender management API: apis/notification-sender-rest-api.md
+    - Notification sender management:
+      - Notification sender configurations: apis/notification-sender.md
+      - Notification sender API: apis/notification-sender-rest-api.md
     - Server configuration API: apis/configs-rest-api.md
     - Permission management API : apis/permission-management-rest-api.md
     - User Functionality management API: apis/user-functionality-mgt-rest-api.md

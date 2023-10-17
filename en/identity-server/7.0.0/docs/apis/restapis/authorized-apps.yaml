@@ -1,12 +1,13 @@
 openapi: 3.0.1
 info:
   title: WSO2 Identity Server - OAuth2 Authorized Apps API
-  description: |
-    This is the RESTful API for managing OAuth2 Authorized Apps.
+  description: This is the RESTful API for managing OAuth2 Authorized Apps.
 
-    Through this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
+    <br><br>Through this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
 
-    Additionally, privileged user can view and revoke other users' authorized apps using the API.
+    <br><br>Additionally, privileged user can view and revoke other users' authorized apps using the API.
+    
+    <br><br>`Warning` <br> This API version will be deprecated in future versions of WSO2 IS. You can use [OAuth2 Authorized Apps API Definition - v2]({{base_path}}/apis/authorized-apps-v2-rest-api/) instead."
   contact:
     name: WSO2 Identity Server
     url: https://wso2.com/identity-and-access-management/
@@ -29,16 +30,13 @@ tags:
 - name: me
   description: Operations for the authenticated user.
 - name: admin
-  description: |
-    Operations available for privileged users, to be invoked on behalf of another user.
-
-    **These endpoints are not released in WSO2 Identity Server - 5.9.0 version and will be released in the next product version.**
+  description: Operations available for privileged users, to be invoked on behalf of another user.
 paths:
   /{user-id}/authorized-apps:
     get:
       tags:
       - admin
-      summary: list authorized applications of a user
+      summary: List authorized applications of a user
       description: |
         List approved OAuth applications for a given user
       operationId: listUserAuthorizedApps
@@ -73,7 +71,7 @@ paths:
     delete:
       tags:
       - admin
-      summary: remove all authorized applications of a user
+      summary: Remove all authorized applications of a user
       description: |
         Removes authorization from all OAuth apps of a given user
       operationId: deleteUserAuthorizedApps
@@ -104,7 +102,7 @@ paths:
     get:
       tags:
       - admin
-      summary: retrieve authorized app by app ID for a user
+      summary: Retrieve authorized app by app ID for a user
       description: |
         Retrived autherized OAuth apps by an app ID for a given user
       operationId: listUserAuthorizedAppsByAppId
@@ -149,7 +147,7 @@ paths:
     delete:
       tags:
       - admin
-      summary: removes challenge question answers
+      summary: Removes challenge question answers
       description: |
         Removes autherized OAuth apps by an app ID for a given user
       operationId: deleteUserAuthorizedAppsByAppId
@@ -192,10 +190,9 @@ paths:
     get:
       tags:
       - me
-      summary: list authorized applications for the authenticated user
+      summary: List authorized applications for the authenticated user
       description: Lists approved OAuth applications of the authenticated user<br>
-        <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> *
-        internal_login
+        <b>Permission required:</b> <br> None <br> <b>Scope required:</b> <br> `internal_login`
       operationId: listLoggedInUserAuthorizedApps
       responses:
         200:
@@ -221,10 +218,9 @@ paths:
     delete:
       tags:
       - me
-      summary: removes authorized applications for the authenticated user
+      summary: Remove authorized applications for the authenticated user
       description: Removes approved OAuth applications of the authenticated user<br>
-        <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> *
-        internal_login
+        <b>Permission required:</b> <br> None <br> <b>Scope required:</b> <br> `internal_login`
       operationId: deleteLoggedInUserAuthorizedApps
       responses:
         204:
@@ -246,10 +242,10 @@ paths:
     get:
       tags:
       - me
-      summary: retrieve authorized app by app ID for the authenticated user
+      summary: Retrieve authorized app by app ID for the authenticated user
       description: Retrieves authorized OAuth app by an app ID for the authenticated
-        user<br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b>
-        <br> * internal_login
+        user<br> <b>Permission required:</b> <br> None <br> <b>Scope required:</b>
+        <br> `internal_login`
       operationId: getLoggedInUserAuthorizedAppByAppId
       parameters:
       - name: application-id
@@ -286,10 +282,10 @@ paths:
     delete:
       tags:
       - me
-      summary: removes authorized app by app ID for the authenticated user
+      summary: Remove authorized app by app ID for the authenticated user
       description: Removes authorized OAuth app by an app ID for the authenticated
-        user<br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b>
-        <br> * internal_login
+        user<br> <b>Permission required:</b> <br> None <br> <b>Scope required:</b>
+        <br> `internal_login`
       operationId: deleteLoggedInUserAuthorizedAppByAppId
       parameters:
       - name: application-id

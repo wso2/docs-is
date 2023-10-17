@@ -4,11 +4,17 @@ info:
     This is the RESTful API for managing user sessions in WSO2 Identity Server. The APIs provide the capability
     to retrieve/terminate active sessions of an authenticated user. In addition, APIs are available for privileged
     users to be invoked on behalf of another user to retrieve/delete sessions of the user.
-    <br> <b> Authentication methods: </b>
+    <br><br> <b> Authentication methods: </b>
     <ul>
     <li> Basic authentication </li>
     <li> OAuth based authentication - <code> Password </code> </li>
     </ul>
+
+    <b>Note</b><br>
+    - From WSO2 IS 6.0.0 onwards, access tokens mapped with the session via REST API can be revoked. 
+      This is applicable for authorization code grant, implicit flow, refresh token grant, and hybrid flow. 
+    - If a session is terminated via the API and the same access token is used by multiple sessions, the other sessions will lose their tokens. Therefore, it is recommended to use sso-session binding if you wish to retain the capability to revoke the access token when the session is terminated via the REST API.
+    - WSO2 Identity Server also sends SAML/OIDC back-channel logouts when the session is terminated via the API. To support this, you should configure the application to enable back-channel logout.
   version: 'v1'
   title: WSO2 Identity Server - User Session Management API Definition
   contact:
