@@ -14,7 +14,7 @@ When you register an application, you can customize the login flow.
 
 - Configure the number of factors (2FA or MFA) in the login flow to enforce [multi-factor authentication]({{base_path}}/guides/authentication/mfa/).
 
-- Enforce [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) to dynamically change the login flow of a user based on the user’s devices, networks, locations, or usage contexts.
+- Enforce [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) to dynamically change the login flow of a user based on the user's devices, networks, locations, or usage contexts.
 
 ## Manage user attributes
 

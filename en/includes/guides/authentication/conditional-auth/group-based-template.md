@@ -47,7 +47,7 @@ To enable conditional authentication:
 
         2. Click **+ ADD** next to **Group-Based** to add the group-based adaptive MFA script.
 
-            ![Group-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-mfa-with-visual-editor.png)
+            ![Group-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 
@@ -123,4 +123,4 @@ Follow the steps given below.
 3. Log out of the application.
 4. Log in with a user who belongs to the `manager` or `employee` group or both. TOTP authentication is prompted.
 
-    ![group-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}
+    ![group-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300" style="border: 0.3px solid lightgrey;"}

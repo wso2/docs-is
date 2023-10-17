@@ -115,14 +115,14 @@ The following design preferences apply to the theme you select. You can configur
                   <li><b>URL</b>: You can update the logo by specifying the URL of a hosted image.</li>
                   <li><b>Alt Text</b>: The 'Alt text' or 'alternative text' is a short description of an image. This text is useful to make sense of the image when it can't be viewed for some reason. A descriptive alt text is always a good practice to improve accessibility.</li>
                </ul>
-               Use an image that’s at least 600x600 pixels and less than 1MB in size for better performance.
+               Use an image that's at least 600x600 pixels and less than 1MB in size for better performance.
             </td>
          </tr>
          <tr>
             <td><b>Favicon</b></td>
             <td>Browsers that provide favicon support typically display a page's favicon in the browser's address bar and next to the page's name in a list of bookmarks.</br></br>
             You can update the favicon by specifying the URL of a hosted image (of type <b>png</b>, <b>ico</b>, etc.).</br></br>
-            Use an image with a square aspect ratio that’s at least 16x16 pixels in size for better results.
+            Use an image with a square aspect ratio that's at least 16x16 pixels in size for better results.
             </td>
          </tr>
          <tr>
@@ -133,7 +133,7 @@ The following design preferences apply to the theme you select. You can configur
                   <li><b>Alt Text</b>: The 'Alt text' or 'alternative text' is a short description of an image. This text is useful to make sense of the image when it can't be viewed for some reason. A descriptive alt text is always a good practice to improve accessibility.</li>
                   <li><b>Logo Title</b>: The text shown beside the Logo.</li>
                </ul>
-               Use an image that’s at least 250x50 pixels and less than 1MB in size for better performance.
+               Use an image that's at least 250x50 pixels and less than 1MB in size for better performance.
             </td>
          </tr>
       </table>
@@ -142,7 +142,7 @@ The following design preferences apply to the theme you select. You can configur
         Be sure that the hosted image you use will properly return Content-Type headers. Without these headers, the image will not correctly render and you will experience a 403 error. You can use static image hosting services to ensure these headers are properly returned.
 
 ??? note "Color Palette"
-    This is the primary color palette for your interfaces. Click the color swatch and apply colors that match your organization’s style guide.
+    This is the primary color palette for your interfaces. Click the color swatch and apply colors that match your organization's style guide.
 
     <table>
        <tr>
@@ -295,7 +295,7 @@ The following design preferences apply to the theme you select. You can configur
 
 ??? note "Footer"
     Decide how you want the footer to look in the login screens by modifying the following attributes:
-    
+
     <table>
        <tr>
           <td><b>Border Color</b></td>

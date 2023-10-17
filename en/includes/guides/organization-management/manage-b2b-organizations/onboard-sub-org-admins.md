@@ -237,7 +237,7 @@ This approach is particularly suitable when a sub organization user prefers to m
 
 To create and maintain admins in the root organization:
 
-1. Create a user in the root organization using {{ product_name }}’s SCIM APIs.
+1. Create a user in the root organization using {{ product_name }}'s SCIM APIs.
     ``` curl
     curl --location 'https://api.asgardeo.io/o/{root-org-id}/scim2/Users' \
     --header 'Content-Type: application/json' \

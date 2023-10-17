@@ -43,7 +43,7 @@ To enable conditional authentication:
 
         2. Click **+ ADD** next to **Group-Based** to add the group-based access control script.
         
-            ![Group-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-access-control-with-visual-editor.png)
+            ![Group-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-access-control-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 
@@ -126,5 +126,6 @@ Follow the steps given below.
 2. Try to log in as a user who belongs to the specified groups. This user will successfully log in to the application.
 3. Log out of the application.
 4. Log in again as a user who does not belong to the specified groups. The user will see the following error.
-    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png)
+
+    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 

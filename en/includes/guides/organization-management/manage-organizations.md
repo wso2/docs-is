@@ -54,8 +54,8 @@ If you are a B2B platform and you want to remove a sub organization in your prim
 
 To remove any of your primary organizations, send an email to `asgardeo-help@wso2.com` with the required details listed below. This information will help the {{ product_name }} team confirm the authenticity of your request.
 - The name of the organization you want to delete.
-- The first name, last name, and email address of your (owner’s) {{ product_name }} user account.
+- The first name, last name, and email address of your (owner's) {{ product_name }} user account.
 
-## What’s next?
+## What's next?
 - Learn about managing administrators and users of an organization in the [user management]({{base_path}}/guides/users/) section.
 - Learn about [managing the environments of your SDLC]({{base_path}}/guides/organization-management/manage-environments/).
