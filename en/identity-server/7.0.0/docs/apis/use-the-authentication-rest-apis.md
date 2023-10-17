@@ -62,5 +62,4 @@ template: templates/redoc.html
         </tbody>
     </table>
 
-<redoc spec-url=../../apis/restapis/authentication.yaml></redoc>
-<script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+<redoc spec-url="../../apis/restapis/authentication.yaml"></redoc>

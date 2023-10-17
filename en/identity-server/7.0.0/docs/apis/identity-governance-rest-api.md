@@ -195,5 +195,4 @@ The APIs can be used to retrieve the above mentioned categories, connectors of t
     4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
      IS.
 
-<redoc spec-url=../../apis/restapis/identity-governance.yaml></redoc>
-<script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+<redoc spec-url="../../apis/restapis/identity-governance.yaml"></redoc>
