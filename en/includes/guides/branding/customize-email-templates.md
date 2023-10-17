@@ -6,11 +6,7 @@ The following topics explain how you can customize email notifications that are 
 
 Once you publish your [branding preferences]({{base_path}}/guides/branding/configure-ui-branding/#general-preferences) on {{ product_name }}, the branding preferences are automatically applied to emails sent to the users of your organization.
 
-!!! note
-    This feature was onboarded on 20th September 2022. Email template branding will not be applied to email templates of organizations created before this date.
-
-    If you need to apply organization branding to your emails, contact the {{ product_name }} team at **asgardeo-help@wso2.com**.
-
+{{email_template_note}}
 
 The branding variables that affect the email templates are as follows:
 
@@ -81,6 +77,9 @@ The branding variables that affect the email templates are as follows:
 
 You can tailor the **subject**, **body**, and **footer** of email notifications to your preferences by following the steps below.
 
+!!! note
+    This feature is only available for the most frequently used email templates. You can customize [all available email templates]({{base_path}}/references/email-templates/) using the [Email Templates API](/apis/email-template/).
+
 1. On the {{ product_name }}, go to **Customization** > **Email Templates**.
 2. Select the email template and the relevant locale that you wish to modify.
 
@@ -106,11 +105,6 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 
 Alternatively, you can customize the content of email templates using the [Email Templates API]({{base_path}}/apis/email-template/) provided by {{ product_name }}.
 
-!!! note
-    This feature is only available for the most frequently used email templates. You can customize [all available email templates]({{base_path}}/references/email-templates/) using the [Email Templates API](/apis/email-template/).
-
-## Customize email settings
-
-You can customize the default settings set by Asgardeo for email parameters such as `from address` and `replyTo` by contacting the Asgardeo team at **asgardeo-help@wso2.com**.
+{{customize_email_settings}}
 
 

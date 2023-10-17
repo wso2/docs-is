@@ -188,9 +188,8 @@ nav:
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
-        - Configure custom domains: guides/branding/configure-custom-domains.md
         - Customize email templates: guides/branding/customize-email-templates.md
-        - Configure the email provider: guides/branding/configure-email-providers.md
+        - Configure the email sender: guides/branding/configure-email-sender.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-collaborators.md
@@ -381,8 +380,8 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/wso2
 #site_version: 1.0.0
-  #base_path: http://127.0.0.1:8000/en/7.0.0
-  base_path: https://is.docs.wso2.com/en/next
+  base_path: http://127.0.0.1:8000/en/7.0.0
+  #base_path: https://is.docs.wso2.com/en/next
 
   nav_list:
     - Get Started
