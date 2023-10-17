@@ -1,16 +1,16 @@
 # Email templates
 
-Asgardeo organizations use several email templates to send email notifications to users.
+{{ product_name }} organizations use several email templates to send email notifications to users.
 
 !!! note
 
     - You can customize all available email templates to match your organization's preferences using the [Email Templates API]({{base_path}}/apis/email-template/).
-    - You can also use the Console to change some of the most frequently used email templates in Asgardeo. Learn how to [customize email content from the Console]({{base_path}}/guides/branding/customize-email-templates/#customize-email-content).
+    - You can also use the Console to change some of the most frequently used email templates in {{ product_name }}. Learn how to [customize email content from the Console]({{base_path}}/guides/branding/customize-email-templates/#customize-email-content).
 
 
-## Email templates in Asgardeo
+## Email templates in {{ product_name }}
 
-The following is a comprehensive list of email templates that are available in Asgardeo.
+The following is a comprehensive list of email templates that are available in {{ product_name }}.
 
 !!! note
     Some of the email templates below should contain URLs to redirect the user for certain actions. Learn how to generate these URLs in the [URLs in email templates](#urls-in-email-templates) section.
@@ -25,7 +25,7 @@ The following is a comprehensive list of email templates that are available in A
             <td>LiteUserEmailConfirmation<br/><br/>
                 ResendLiteUserEmailConfirmation
             </td>
-            <td>These emails are generated when you create an account in Asgardeo.</td>
+            <td>These emails are generated when you create an account in {{ product_name }}.</td>
         </tr>
          <tr>
             <td>EmailConfirm<br/><br/>
@@ -33,7 +33,7 @@ The following is a comprehensive list of email templates that are available in A
             ResendAccountConfirmation
                 </ul>
             </td>
-            <td>These emails are sent when a user creates an account in your Asgardeo organization. The email will prompt the user to confirm their account/email </td>
+            <td>These emails are sent when a user creates an account in your {{ product_name }} organization. The email will prompt the user to confirm their account/email </td>
         </tr>
         <tr>
             <td>VerifyEmailOnUpdate</td>
@@ -129,7 +129,7 @@ The following is a comprehensive list of email templates that are available in A
 
 ## URLs in email templates
 
-Some email templates in Asgardeo should contain URLs which users can click to complete an action. Explained below are those URLs and in which email templates these URLs should contain.
+Some email templates in {{ product_name }} should contain URLs which users can click to complete an action. Explained below are those URLs and in which email templates these URLs should contain.
 
 - URL to confirm a user account
 
@@ -205,7 +205,7 @@ Some email templates in Asgardeo should contain URLs which users can click to co
 
 ## Literals in email templates
 
-Email templates use literals to display dynamic information on email templates. The following are the template literals that are accessible for all email templates in Asgardeo.
+Email templates use literals to display dynamic information on email templates. The following are the template literals that are accessible for all email templates in {{ product_name }}.
 
 ### General literals
 
@@ -241,7 +241,7 @@ The following literals about the user are accessible for all email templates.
 
 You can use the following literals and customize email templates to fit the branding of your organization.
 
-You can configure the values of these literals from the Asgardeo Console. Refer to the [branding documentation]({{base_path}}/guides/branding/configure-ui-branding/) to learn more.
+You can configure the values of these literals from the {{ product_name }} Console. Refer to the [branding documentation]({{base_path}}/guides/branding/configure-ui-branding/) to learn more.
 
 <table>
     <thead>

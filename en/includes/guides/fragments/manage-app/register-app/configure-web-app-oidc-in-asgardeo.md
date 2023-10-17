@@ -1,5 +1,5 @@
 <!-- markdownlint-disable-next-line -->
-1. In the Asgardeo Console, Select the **Applications**.
+1. In the {{ product_name }} Console, Select the **Applications**.
 2. Select **New Application** and select **Traditional Web Application** type.
 
    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png)

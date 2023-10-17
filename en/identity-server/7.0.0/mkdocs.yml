@@ -341,7 +341,6 @@ nav:
       - CCPA: references/compliance/ccpa.md
       - FIPS: references/compliance/fips.md
       - Accessibility compliance: references/compliance/accessibility.md
-    - Data residency in  WSO2 Identity Server: references/data-residency.md
     - Localization in  WSO2 Identity Server: references/localization.md
     - Production checklist:
       - references/production-checklist/index.md

@@ -1,6 +1,6 @@
 # Conditional authentication - API reference
 
-Asgardeo provides a set of defined functions and objects to write your conditional authentication script. They are grouped as follows:
+{{ product_name }} provides a set of defined functions and objects to write your conditional authentication script. They are grouped as follows:
 
 - [Core functions](#core-functions): These are the basic functions used in the script. These are used to identify the user who initiated the login flow, execute a step in the login flow, handle login failures, etc. Listed below are the core functions that can be used in conditional authentication scripts.
   
@@ -45,7 +45,7 @@ These are the basic functions that are required for defining the application log
 
 `onLoginRequest()`
 
-This function is called when Asgardeo receives the initial login request. It includes the parameters given below.
+This function is called when {{ product_name }} receives the initial login request. It includes the parameters given below.
 
 - **Parameters**
 
@@ -149,7 +149,7 @@ This section describes the **options** you can use to configure the `executeStep
 
     See the example on **filtering connections in a step** given below for details.
 
-    The **local authenticators** are represented by the `authenticator` parameter. The table shows the connection names (as displayed on the Asgardeo Console) and the corresponding authenticator name you can use in the scripts.
+    The **local authenticators** are represented by the `authenticator` parameter. The table shows the connection names (as displayed on the {{ product_name }} Console) and the corresponding authenticator name you can use in the scripts.
 
     <table id="authenticatorNames">
       <tbody>
@@ -644,11 +644,11 @@ This function invokes an API hosted in [Choreo](https://wso2.com/choreo/). It in
     });
     ```
 
-    ??? note "Using Asgardeo as the key manager"
-        If you are using Asgardeo as the key manager in your Choreo organization, append  the `asgardeoTokenEndpoint` parameter to the `connectionMetadata` variable as follows:
+    ??? note "Using {{ product_name }} as the key manager"
+        If you are using {{ product_name }} as the key manager in your Choreo organization, append  the `asgardeoTokenEndpoint` parameter to the `connectionMetadata` variable as follows:
             ``` js
             var connectionMetadata = {
-              "asgardeoTokenEndpoint": "https://api.asgardeo.io/t/<organization_name>/oauth2/token"
+              "asgardeoTokenEndpoint": "{{ product_url_format }}/oauth2/token"
             };
             ```
 
