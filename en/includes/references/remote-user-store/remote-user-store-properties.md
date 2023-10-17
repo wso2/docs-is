@@ -181,7 +181,7 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td><code>multi_attribute_separator</code></td>
                 <td>
                     This property is used to define a character to separate multiple attributes. This ensures that it
-                    will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but
+                    will not appear as part of a claim value. Normally "," is used to separate multiple attributes, but
                     you can define ",,," or "..." or a similar character sequence
                     <br><br>Example: <code>multi_attribute_separator = ","</code>
                 </td>
