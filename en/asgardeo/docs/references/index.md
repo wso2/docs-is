@@ -8,7 +8,7 @@ See the topics in this section for references that will help you while working w
 
 - [OpenID Connect and SAML settings]({{base_path}}/references/idp-settings/) for enterprise identity providers in Asgardeo.
 
-- [Grant types]({{base_path}}/references/grant-types-in-asgardeo/) used in Asgardeo.
+- [Grant types]({{base_path}}/references/grant-types/) used in Asgardeo.
 
 - The [API references]({{base_path}}/references/conditional-auth/api-reference/) you need for writing conditional authentication scripts.
 

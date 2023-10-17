@@ -2,7 +2,7 @@
 
 You can add a trusted token issuer to exchange tokens received from the configured third-party issuer for {{ product_name }} tokens.
 
-Learn how to configure the OAuth 2.0 token exchange flow in your {{ product_name }} organization. Refer [Token exchange grant]({{base_path}}/references/grant-types-in-asgardeo/#token-exchange-grant) for more information on how the flow works.
+Learn how to configure the OAuth 2.0 token exchange flow in your {{ product_name }} organization. Refer [Token exchange grant]({{base_path}}/references/grant-types/#token-exchange-grant) for more information on how the flow works.
 
 Follow this guide for instructions.
 
@@ -82,7 +82,7 @@ To enable token exchange in your application:
 3. Add `Token Exchange` under the **Allowed grant types**.
 
     !!! note
-        To enable refresh tokens for the token exchange grant, include `Refresh Token` as an **Allowed Grant Type**. Learn more about [how the refresh token grant type works]({{base_path}}/references/grant-types-in-asgardeo/#refresh-token-grant).
+        To enable refresh tokens for the token exchange grant, include `Refresh Token` as an **Allowed Grant Type**. Learn more about [how the refresh token grant type works]({{base_path}}/references/grant-types/#refresh-token-grant).
 
 4. Click **Update** to save the configurations.
 

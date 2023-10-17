@@ -57,7 +57,7 @@ You can enable refresh token grant to get refresh tokens.
 
 However, [implicit grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.1.2) and [password](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.4) grants are not recommended due to security reasons.
 
-See [grant types of {{ product_name }}]({{base_path}}/references/grant-types-in-asgardeo/) for more details.
+See [grant types of {{ product_name }}]({{base_path}}/references/grant-types/) for more details.
 
 ### Public client
 {% include "../../guides/fragments/manage-app/oidc-settings/public-client.md" %}
