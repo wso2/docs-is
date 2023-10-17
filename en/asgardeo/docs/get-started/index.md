@@ -12,7 +12,6 @@ Integrate Asgardeo into applications.
     <img src="{{base_path}}/assets/img/logo/react-logo.svg" alt="Javascript" width=50><br>
     <a href="{{base_path}}/guides/authentication/social-login/add-facebook-login.md">Try sample</a>
     <a href="{{base_path}}/guides/authentication/social-login/add-facebook-login.md">Add to your app</a>
-
   </div>
 
   <div class="border-text">

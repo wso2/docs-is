@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2023, WSO2 LLC. (https://www.wso2.com).
+# Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
 #
 # WSO2 LLC. licenses this file to you under the Apache License,
 # Version 2.0 (the "License"); you may not use this file except
@@ -16,7 +16,7 @@
 
 # Project information
 site_name: ""
-site_description: Asgardeo Learning Portal
+site_description: Asgardeo Learning Center
 site_author: WSO2
 site_url: https://wso2.com/asgardeo/docs
 
@@ -370,7 +370,6 @@ extra_css:
   # - assets/lib/json-formatter/json-formatter.css
   # - assets/lib/highlightjs/styles/vs.min.css
   # - assets/css/blue-palette-alt2.css
-  # - assets/css/choreotheme.css
   # - assets/lib/json-formatter/json-formatter.css
   # - assets/css/config-catalog.css
 extra_javascript:
@@ -379,7 +378,6 @@ extra_javascript:
   # - assets/lib/highlightjs/highlight.min.js
   # - assets/js/theme.js
   # - assets/js/prism-ballerina.js
-  # - assets/js/choreotheme.js
 extra:
   material:
     jinja2content: true
@@ -396,8 +394,6 @@ extra:
     - Integrations
     - APIs
     - References
-  redocly:
-    scroll_y_offset: 105.5
   integrations:
     - name: Asgardeo Auth React SDK
       icon: assets/img/logo/react-logo.svg
@@ -451,4 +447,3 @@ extra:
       icon: assets/img/logo/apple-idp-illustration.svg
       description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
       source_link: https://github.com/openid/AppAuth-iOS
-base_path: http://localhost:8000/asgardeo/docs

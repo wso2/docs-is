@@ -32,6 +32,10 @@
     max-width: 100%;
 }
 
+.md-header {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08), inset 0px -1px 0px #E1E2E7;
+}
+
 .md-tabs__link--active,
 .md-tabs__link:focus,
 .md-tabs__link:hover {
@@ -88,6 +92,10 @@
 [data-md-color-scheme=slate] .md-header,
 [data-md-color-scheme=slate] .md-tabs {
     background-color: var(--md-default-bg-color);
+}
+
+[data-md-color-scheme=slate] .md-header {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), inset 0px -1px 0px #161616;
 }
 
 [data-md-color-scheme=slate] img[data-md-component=logo][data-md-color=slate] {

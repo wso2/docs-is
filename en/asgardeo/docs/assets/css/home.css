@@ -240,7 +240,7 @@ body[data-md-color-scheme=slate] {
     display: inline-block !important;
 }
 
-.md-header__button {
+.md-header__button[for=__drawer] {
     display: none !important;
 }
 
