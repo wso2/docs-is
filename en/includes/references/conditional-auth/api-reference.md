@@ -298,7 +298,7 @@ This function redirects the user to an error page. It includes the parameters li
         <tr>
           <td><code>url</code></td>
           <td>The URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the <strong>retry.do</strong> error page.<br />
-          Note that any relative URL is assumed to be relative to the host’s root.</td>
+          Note that any relative URL is assumed to be relative to the host's root.</td>
         </tr>
         <tr>
           <td><code>parameters</code></td>
@@ -768,7 +768,7 @@ Contains the authentication step information. It may be a null or invalid step n
 <table>
     <tr>
       <td><code>step.subject</code></td>
-      <td>Contains the authenticated user’s information from this step. It may be null if the step is not yet
+      <td>Contains the authenticated user's information from this step. It may be null if the step is not yet
   executed. See [user](#user) for more information.</td>
     </tr>
     <tr>
@@ -790,7 +790,7 @@ Contains the authentication step information. It may be a null or invalid step n
     </tr>
     <tr>
       <td><code>user.username</code></td>
-      <td>The user’s username.</td>
+      <td>The user's username.</td>
     </tr>
     <tr>
       <td><code>user.userStoreDomain</code></td>
@@ -798,7 +798,7 @@ Contains the authentication step information. It may be a null or invalid step n
     </tr>
     <tr>
       <td><code>user.localClaims[“local_claim_url”]</code></td>
-      <td><code>(Read/Write)</code> <br> User’s attribute (claim) value for the given "local_claim_url". If the user is a federated user, this will be the value of the mapped remote claim from the identity provider.</td>
+      <td><code>(Read/Write)</code> <br> User's attribute (claim) value for the given "local_claim_url". If the user is a federated user, this will be the value of the mapped remote claim from the identity provider.</td>
     </tr>
     <tr>
       <td><code>user.claims[“local_claim_url”]</code></td>
@@ -810,7 +810,7 @@ Contains the authentication step information. It may be a null or invalid step n
     </tr>
     <tr>
       <td><code>user.remoteClaims[“remote_claim_url”]</code></td>
-      <td><code>(Read/Write)</code> <br> User’s attribute (claim) as returned by the identity provider for the given <code>remote_claim_url</code>. Applicable only for federated users.</td>
+      <td><code>(Read/Write)</code> <br> User's attribute (claim) as returned by the identity provider for the given <code>remote_claim_url</code>. Applicable only for federated users.</td>
     </tr>
 </table>
 
@@ -819,15 +819,15 @@ Contains the authentication step information. It may be a null or invalid step n
 <table>
     <tr>
       <td><code>request.headers[“header_name”]</code></td>
-      <td>The request’s header value for the given header name.</td>
+      <td>The request's header value for the given header name.</td>
     </tr>
     <tr>
       <td><code>request.params.param_name[0]</code></td>
-      <td>The request’s parameter value for the given parameter name by the <code>param_name</code> index (<code>param_name</code> is an array).</td>
+      <td>The request's parameter value for the given parameter name by the <code>param_name</code> index (<code>param_name</code> is an array).</td>
     </tr>
     <tr>
       <td><code>request.cookies[“cookie_name”]</code></td>
-      <td>The request’s cookie value for the given cookie name.</td>
+      <td>The request's cookie value for the given cookie name.</td>
     </tr>
     <tr>
       <td><code>request.ip</code></td>
@@ -853,19 +853,19 @@ Contains the authentication step information. It may be a null or invalid step n
     </tr>
     <tr>
       <td><code>session.ip</code></td>
-      <td>This is the session’s IP address.</td>
+      <td>This is the session's IP address.</td>
     </tr>
     <tr>
       <td><code>session.loginTime</code></td>
-      <td>This is the session’s last login time.</td>
+      <td>This is the session's last login time.</td>
     </tr>
     <tr>
       <td><code>session.lastAccessTime</code></td>
-      <td>This is the session’s last accessed time.</td>
+      <td>This is the session's last accessed time.</td>
     </tr>
     <tr>
       <td><code>session.id</code></td>
-      <td>This is the session’s ID.</td>
+      <td>This is the session's ID.</td>
     </tr>
     <tr>
       <td><code>session.applications</code></td>

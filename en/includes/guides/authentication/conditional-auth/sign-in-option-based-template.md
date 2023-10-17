@@ -42,7 +42,7 @@ Follow the steps given below.
 
         2. Click **+ ADD** next to **Sign-In-Option-Based** to add the IP-based adaptive MFA script.
 
-            ![Sign-In-option-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/sign-in-option-based-adaptive-mfa-with-visual-editor.png)
+            ![Sign-In-option-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/sign-in-option-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 
@@ -112,4 +112,4 @@ Follow the steps given below.
 3. Log out of the application.
 4. Sign in with the authenticator specified in the script. TOTP authentication is prompted.
 
-    ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300"}
+    ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300" style="border: 0.3px solid lightgrey;"}

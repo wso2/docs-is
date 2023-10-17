@@ -73,14 +73,14 @@ Data of your end users are only stored in the regional datacenter you selected w
 
 ## Data sharing
 
-Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2’s global entities (currently includes the USA, Sri Lanka, and Brazil) can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional
+Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities (currently includes the USA, Sri Lanka, and Brazil) can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional
 datacenter that you have selected.
 
 Therefore, note that your organization–level logs may include personal information (such as the IP addresses and email addresses) of your end users.
 
 ## Data privacy
 
-Learn about Asgardeo’s [privacy policy]({{base_path}}https://wso2.com/asgardeo/privacy-policy/#:~:text=Asgardeo%20doesn%27t%20store%20any,API%20Services%20User%20Data%20Policy.) to understand how your data privacy is protected.
+Learn about Asgardeo's [privacy policy]({{base_path}}https://wso2.com/asgardeo/privacy-policy/#:~:text=Asgardeo%20doesn%27t%20store%20any,API%20Services%20User%20Data%20Policy.) to understand how your data privacy is protected.
 
 ## Get support
 

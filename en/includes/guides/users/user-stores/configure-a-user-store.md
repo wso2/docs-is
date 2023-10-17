@@ -15,7 +15,7 @@ Follow the guide below to set up a remote user store in {{ product_name }}.
 
 ## Prerequisites
 - An organization in {{ product_name }}.
-[Create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-a-new-organization) if you don’t have one already.
+[Create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-a-new-organization) if you don't have one already.
 
 
 - An on-premise user store. Currently, {{ product_name }} supports:
@@ -102,7 +102,7 @@ To configure a remote user store for your organization:
 
 ## Set up the remote user store
 
-After registering the user store, you’ll be redirected to the **Setup Guide** of the user store agent.
+After registering the user store, you'll be redirected to the **Setup Guide** of the user store agent.
 
 To assemble and configure the user store agent bundle:
 

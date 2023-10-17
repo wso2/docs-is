@@ -10,15 +10,15 @@ You have to send it as the authorization header in the request: `Authorization: 
 **Token introspection endpoint**
 
 ``` 
-https://api.asgardeo.io/t/<organization_name>/oauth2/introspect
+{{ product_url_sample }}/oauth2/introspect
 ```
 
 !!! tip
     To perform base64 encoding for the client ID and client secret, you can use a tool, or you can run the below command.
 
-`
-echo -n '<client_id:client_secret>' | base64
-`
+    `
+    echo -n '<client_id:client_secret>' | base64
+    `
 
 **Request format**
 
@@ -33,7 +33,7 @@ curl --location --request POST '{introspection_endpoint_url}' \
 
 === "cURL"
   ```bash
-  curl --location --request POST 'https://api.asgardeo.io/t/{organization}/oauth2/introspect' \
+  curl --location --request POST '{{ product_url_sample }}/oauth2/introspect' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --header 'Cookie: atbv=646b0ed2-c501-4b17-9251-94112013a718' \
   --header 'Authorization: Bearer 54bd024f-5080-3db5-9422-785f5d610605' \
@@ -69,7 +69,7 @@ The following response will be returned for the provided access token:
   "exp": 1629968693,
   "iat": 1629961093,
   "client_id": "Wsoq8t4nHW80gSnPfyDvRbiC__Eb",
-  "username": "DEFAULT/Alica@gmail.com@bifrost"
+  "username": "{{ username }}"
 }
 ```
 
@@ -84,7 +84,7 @@ The following response will be returned for the provided refresh token:
   "exp": 1630047493,
   "iat": 1629961093,
   "client_id": "Wsoq8t4nHW80gSnPfyDvRbiC__Ea",
-  "username": "DEFAULT/Alica@bifrost.com@bifrost"
+  "username": "{{ username }}"
 }
 ```
 

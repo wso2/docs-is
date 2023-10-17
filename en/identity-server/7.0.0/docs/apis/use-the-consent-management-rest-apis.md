@@ -14,7 +14,7 @@ management.
 
 -   **Personally Identifiable Information (PII)**: Any information that can be used to identify the PII Principal to whom the information relates to.
 -   **PII Principal**: The natural person to whom the personally identifiable information (PII) relates to.
--   **Consent**: A Personally identifiable information (PII) Principal’s freely
+-   **Consent**: A Personally identifiable information (PII) Principal's freely
     given, specific and informed agreement to the processing of their
     PII.
 -   **Purpose**: The business, operational or regulatory requirement for the
@@ -23,7 +23,7 @@ management.
     the entity.
 -   **Consent Receipt**: A record of a consent interaction (or consent record summary
     linked to the record of consent) provided by a PII Principal to a
-    PII Controller to collect, use and disclose the PII Principal’s PII
+    PII Controller to collect, use and disclose the PII Principal's PII
     in accordance to an agreed set of terms.
 -   **PII Controller**: A private stakeholder that determines the purposes and means for
     processing personally identifiable information (PII) other  than the

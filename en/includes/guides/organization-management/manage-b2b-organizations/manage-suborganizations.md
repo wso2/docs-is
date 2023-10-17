@@ -63,7 +63,7 @@ When you have multiple [sub organizations]({{base_path}}/guides/organization-man
 ## Create a sub organization for your sub organization
 
 !!! warning
-    You need a paid {{ product_name }} subscription to use this feature. If you don’t already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the {{ product_name }} sales team.
+    You need a paid {{ product_name }} subscription to use this feature. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the {{ product_name }} sales team.
 
 Sub organization admins can create new sub organization for their organizations.
 

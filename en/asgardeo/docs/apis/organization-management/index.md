@@ -24,7 +24,7 @@ Some of these APIs are used for organization management purposes, and they have 
 - [Idle account identification API]({{base_path}}/apis/organization-management/org-idle-account-identification/)
   
 !!! warning
-    You need a paid Asgardeo subscription to use this feature. If you don’t already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.
+    You need a paid Asgardeo subscription to use this feature. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.
 
 ## Authentication
 

@@ -89,11 +89,11 @@ To register an API resource on {{ product_name }},
         </tr>
         <tr>
             <td><b>Display Name</b></td>
-            <td>A meaningful name for your permission. This will be displayed on your application’s user consent page.</td>
+            <td>A meaningful name for your permission. This will be displayed on your application's user consent page.</td>
         </tr>
         <tr>
             <td><b>Description</b></td>
-            <td>A description for your permission. This will be displayed on your application’s user consent page.</td>
+            <td>A description for your permission. This will be displayed on your application's user consent page.</td>
         </tr>
     </table>
 
@@ -164,11 +164,11 @@ If you didn't specify all the permissions for the API resource when [registering
         </tr>
         <tr>
             <td><b>Display Name</b></td>
-            <td>A meaningful name for your permission. This will be displayed on your application’s user consent page.</td>
+            <td>A meaningful name for your permission. This will be displayed on your application's user consent page.</td>
         </tr>
         <tr>
             <td><b>Description</b></td>
-            <td>A description for your permission. This will be displayed on your application’s user consent page.</td>
+            <td>A description for your permission. This will be displayed on your application's user consent page.</td>
         </tr>
     </table>
 4. Click **Finish**.
