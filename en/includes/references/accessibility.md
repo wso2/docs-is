@@ -6,4 +6,4 @@ This makes content on Asgardeo more accessible to a broader range of people with
 
 Content is now robust and understandable, making it more user-friendly.
 
-WSO2 provides a [Voluntary Product Accessibility Template (VPAT)](../assets/vpat-asgardeo.pdf) document for Asgardeo with details of the product's compliance with Web Content Accessibility Guidelines 2.1 (WCAG 2.1).
+WSO2 provides a [Voluntary Product Accessibility Template (VPAT)]({{base_path}}/assets/vpat.pdf) document for Asgardeo with details of the product's compliance with Web Content Accessibility Guidelines 2.1 (WCAG 2.1).

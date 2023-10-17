@@ -336,7 +336,11 @@ nav:
     - Email templates: references/email-templates.md
     - Compliance:
       - references/compliance/index.md
-      - Accessibility compliance: references/accessibility.md
+      - GDPR: references/compliance/gdpr.md
+      - eIDAS: references/compliance/eidas.md
+      - CCPA: references/compliance/ccpa.md
+      - FIPS: references/compliance/fips.md
+      - Accessibility compliance: references/compliance/accessibility.md
     - Data residency in  WSO2 Identity Server: references/data-residency.md
     - Localization in  WSO2 Identity Server: references/localization.md
     - Production checklist:
@@ -410,8 +414,8 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/wso2
 #site_version: 1.0.0
-  #base_path: http://127.0.0.1:8000/en/7.0.0
-  base_path: https://is.docs.wso2.com/en/next
+  base_path: http://127.0.0.1:8000/en/7.0.0
+  #base_path: https://is.docs.wso2.com/en/next
 
   nav_list:
     - Get Started
