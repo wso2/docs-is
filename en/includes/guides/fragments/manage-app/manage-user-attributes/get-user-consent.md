@@ -1,7 +1,7 @@
 <!-- markdownlint-disable-next-line -->
 Once the user is logged in to {{ product_name }}, {{ product_name }} requests consent from the end user to share user attributes with the application.
 
-If the user **does not have** the attribute details in the [user profile]({{base_path}}/guides/users/manage-customers/#manage-the-customer-s-profile), {{ product_name }} will prompt the user to enter the **mandatory** user attributes during login.  
+If the user **does not have** the attribute details in the [user profile]({{base_path}}/guides/users/manage-customers/#manage-user-profiles), {{ product_name }} will prompt the user to enter the **mandatory** user attributes during login.  
 
 The user can do one of the following during login:
 

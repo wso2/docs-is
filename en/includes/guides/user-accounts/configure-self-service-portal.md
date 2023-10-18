@@ -64,7 +64,7 @@ My Account portal users can use backup codes to log in to applications when they
 
 To enable backup codes for My Account portal login:
 
-!!! note Before you begin
+!!! note "Before you begin"
     To enable backup codes, you need to enable at least one 2FA option for the login flow.
 
 1. On the {{ product_name }} Console, go to **Organizational Settings** > **Self-Service Portal**.

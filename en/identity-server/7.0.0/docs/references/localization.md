@@ -7,7 +7,7 @@ Asgardeo enables a language picker on the following interfaces exposed to busine
 
 The **default language** on these interfaces is configured as explained in the [language settings](#language-settings) section.
 
-!!! note Important
+!!! note "Important"
     When [user attributes]({{base_path}}/guides/users/attributes/manage-attributes/) configured on Asgardeo are displayed to users (during user sign-up and consent management flows), only the default user attributes get translated.
 
 These interfaces are i18n-supported, which allows Asgardeo to update the text content from i18n resource files. This feature allows your business users to experience these use cases in their preferred language. The languages that Asgardeo currently supports are listed below.
@@ -109,7 +109,7 @@ The language preference specified in the user's browser is applied to Asgardeo i
 
 As an application developer, you can configure the application to send the `ui_locales` parameter in the sign-in request or authorization request when the user signs in to the application.
 
-!!! note Important
+!!! note "Important"
     The `ui_locale` parameter is only available for OIDC flows and not for SAML flows.
 
 You can provide a list of strings, separated by a space, to define the locales. Asgardeo will search through the list until an Asgardeo-supported locale is found, and the first Asgardeo-supported locale in the list will be used as the default locale. If a supported locale is not found, Asgardeo will use the [browser-level locale](#browser-level-settings).

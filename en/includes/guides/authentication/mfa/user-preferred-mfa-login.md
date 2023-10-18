@@ -61,7 +61,7 @@ To set preferred MFA options for users:
 
 1. Collect information from your application users on their preferred MFA option.
 
-    !!! note Available authenticators
+    !!! note "Available authenticators"
         The following authentication options are available for users:
         <table>
             <tr>

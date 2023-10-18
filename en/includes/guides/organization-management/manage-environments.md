@@ -53,6 +53,6 @@ For example, once applications and artifacts are developed and tested in the **B
 
 You can do this manually by recreating the artifacts in the higher environments.
 
-!!! note Important
+!!! note "Important"
     Some configurations, such as client IDs, secrets, URLs, and connection configurations, will be specific to the business environment, while other functional attributes, such as adaptive authentication scripts, remain the same in all environments.
 

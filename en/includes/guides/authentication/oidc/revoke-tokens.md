@@ -222,5 +222,5 @@ This token revocation request for public clients takes the following parameters:
 
 When the token is revoked, you will get a `200 OK` response.
 
-!!! note  Info
+!!! note
     You will always get a `200 OK` response when you try to revoke an invalid token, expired, or already revoked. This helps to prevent any information leaks.

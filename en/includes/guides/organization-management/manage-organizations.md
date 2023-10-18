@@ -44,7 +44,7 @@ To obtain the organization ID of your root organization, expand the organization
 You cannot remove organziations using the {{ product_name }} Console. If you have such a requirement, contact the {{ product_name }} team at **asgardeo-help@wso2.com**.
 If you are a B2B platform and you want to remove a sub organization in your primary organization, see the instructions on [deleting sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#delete-sub-organizations).
 
-!!! note Before you begin
+!!! note "Before you begin"
     Note the following before you proceed to delete a primary organization: </br>
 
     - A deleted organization cannot be restored. Proceed with caution.

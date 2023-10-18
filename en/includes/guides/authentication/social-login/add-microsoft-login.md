@@ -56,7 +56,7 @@ Now, let's generate a client secret for the application.
 2. Enter a description for the client secret and select the expiry time.
 3. Click **Add** to add the client secret.
 
-    !!! note Important
+    !!! note "Important"
         Take note of the generated **Secret ID**. Azure will allow copying this value only once.
 
 
@@ -112,7 +112,7 @@ After the Microsoft identity provider is created, go to the **Settings** tab and
 
 ## Enable Microsoft login
 
-!!! note Before you begin
+!!! note "Before you begin"
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 To enable Microsoft login:

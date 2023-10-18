@@ -1,7 +1,7 @@
 <!-- markdownlint-disable-next-line -->
 
 
-!!! note Before you begin
+!!! note "Before you begin"
     If your connection has applications associated with it, you will not be able to delete the connection.
 
     Before deleting such connections:

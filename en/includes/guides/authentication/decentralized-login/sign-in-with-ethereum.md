@@ -82,7 +82,7 @@ Follow the steps below to register the **Sign-In With Ethereum** IdP in {{ produ
 
 The following guide shows you how to enable **Sign-In With Ethereum** in an application.
 
-!!! note Before you begin
+!!! note "Before you begin"
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.

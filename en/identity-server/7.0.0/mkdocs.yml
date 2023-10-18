@@ -168,7 +168,7 @@ nav:
               - MFA based on user store: guides/authentication/conditional-auth/user-store-based-template.md
               - MFA based on login-attempts: guides/authentication/conditional-auth/login-attempt-based-template.md
               - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
-              - MFA based on sign-in option: guides/authentication/conditional-auth/sign-in-option-based-template.md
+              #- MFA based on sign-in option: guides/authentication/conditional-auth/sign-in-option-based-template.md
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
@@ -277,7 +277,7 @@ nav:
         - Challenge question API: apis/challenge-questions.md
         - Challenge answers API: apis/challenge-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
-    - Identity provider API: apis/idp-rest-api.md
+    - Identity provider API: apis/idp.md
     - IdP session extension API: apis/idp-session-extender-endpoint.md
     - Self-service:
         - FIDO API: apis/fido-rest-api.md
@@ -386,6 +386,7 @@ plugins:
   - include-markdown
   - redirects:
       redirect_maps:
+        'apis/idp-rest-api.md': 'https://is.docs.wso2.com/en/next//apis/idp/'
 extra_css:
   - assets/lib/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css

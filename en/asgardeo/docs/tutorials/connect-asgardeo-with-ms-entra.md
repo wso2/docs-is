@@ -22,7 +22,7 @@ Recently Mr. Krabs decided to issue employee credentials to their employees usin
 
 ## Step 1: Configure Microsoft Azure for verifiable credentials
 
-!!! note Before you begin
+!!! note "Before you begin"
     To proceed with this tutorial, you need to have a tenant with an active Azure subscription. If you haven't claimed an Azure subscription before, you can [create an account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) for free and claim $200 credits.
 
     Before proceeding with this tutorial, check all the prerequisites mentioned in the [Azure documentation](https://learn.microsoft.com/en-us/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant#prerequisites).

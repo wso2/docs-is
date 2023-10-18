@@ -14,7 +14,7 @@ You need to configure your API resources on the root organization
 
 ## Assign sub organization user groups to application roles
 
-!!! note Application roles of a sub organization
+!!! note "Application roles of a sub organization"
     The shared application will inherit the permission to role assignments from the application of the root organization.
 
     ![Application roles inherited from the root organization]({{base_path}}/assets/img/guides/api-authorization/b2b-inherited-application-roles.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
@@ -45,7 +45,7 @@ To assign application roles to user groups of the sub organization:
 
 To assign application roles to External Groups:
 
-!!! note Before you begin
+!!! note "Before you begin"
     To get started,
 
     - You should [register, configure, and create groups for a connection]({{base_path}}/guides/authentication/#manage-connections) in your sub organization.
@@ -160,5 +160,5 @@ To request scopes for the user:
 4. Click **Allow**. You will now be redirected to the application.
     You will be able to see the assigned permissions on the `allowedScopes` parameter of the authentication response.
 
-!!! note If you are switching organizations
+!!! note "If you are switching organizations"
     If the user switches the organization to another sub organization, the scopes will be updated according to the roles assigned to the user in the switched organization.
