@@ -2,15 +2,4 @@
 template: templates/redoc.html
 ---
 
-# Keystore Management API Definition
-
-??? Note "Click for instructions"
-    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
-    To try some APIs, a tenant needs to be created with the domain name 'wso2.com'. See [Add a new tenant]({{base_path}}/guides/tenants/tenant-mgt) for more information.
-    
-    1.  Expand the relevant API operation and click **Try It Out**.  
-    2.  Fill in relevant sample values for the input parameters and click **Execute**. 
-        You will receive a sample curl command with the sample values you filled in. 
-    3.  Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS. 
-
 <redoc spec-url="../../apis/restapis/keystore.yaml"></redoc>

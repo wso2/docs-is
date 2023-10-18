@@ -3,14 +3,7 @@ info:
   description: >
     This is the RESTful API for user store management related operations in WSO2 Identity Server
   version: "v1"
-  title: WSO2 Identity Server - UserStore Rest API
-  contact:
-    name: WSO2 Identity Server
-    url: 'https://wso2.com/identity-and-access-management'
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  title: User Store Rest API
 tags:
   - name: admin
     description: Secured Admin-only calls
@@ -39,7 +32,7 @@ paths:
           headers:
             Location:
               description: >-
-                Location of the newly created secondary userstore. userstore id is generated as base-64-url-encoded(domain-name) value.
+                Location of the newly created secondary user store. userstore id is generated as base-64-url-encoded(domain-name) value.
               schema:
                 type: string
           content:
@@ -68,7 +61,7 @@ paths:
       summary: Retrieve or list the configured secondary user stores.
       operationId: getSecondaryUserStores
       description: >
-        This API provides the capability to list the configured secondary userstores.
+        This API provides the capability to list the configured secondary user stores.
         <b>Permission required:</b>
         */permission/admin
       parameters:
@@ -99,7 +92,7 @@ paths:
       tags:
         - User Store
       summary: >-
-        Retrieve the configurations of primary userstore.
+        Retrieve the configurations of primary user store.
       operationId: getPrimaryUserStore
       description: >
         This API provides the capability to retrieve the configurations of

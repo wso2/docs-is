@@ -1,15 +1,8 @@
 swagger: '2.0'
 info:
-  description: This is the RESTful API for managing challenge questions in WSO2 Identity Server.
+  description: This is the RESTful API for managing challenge questions in the WSO2 Identity Server.
   version: "v1"
-  title: WSO2 Identity Server - Challenge Question Sets Management API Definition
-  contact:
-    name: "WSO2 Identity Server"
-    url: "https://wso2.com/identity-and-access-management/"
-    email: "architecture@wso2.com"
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  title: Challenge Question Sets Management API
 servers:
 - url: https://{server-Url}/t/{tenant-domain}/api/server/v1/challenges
   variables:
@@ -159,7 +152,7 @@ paths:
       summary: Add a challenge question to a set.
       operationId: addChallengeQuestionToASet
       description: |
-        Add new challenge question to an existing set.
+        Add a new challenge question to an existing set.
 
           <b>Permission required:</b>
             * /permission/admin/manage/identity/challenge/update
@@ -298,12 +291,12 @@ definitions:
         description: The locale of the question.
       question:
         type: string
-        example: What is your favorite travel destination ?
+        example: What is your favorite travel destination?
         description: Challenge question display value.
       questionId:
         type: string
         example: question1
-        description: A unique ID for the challenge quesion within the set.
+        description: A unique ID for the challenge question within the set.
   #-----------------------------------------------------
   # ChallengeAnswer Properties object
   #-----------------------------------------------------
@@ -321,7 +314,7 @@ definitions:
         description:
           Operation to perform on the challenge set.
 
-            Only ['add'] is suppored.
+            Only ['add'] is supported.
 
   #-----------------------------------------------------
   # The Error Response  object
@@ -385,4 +378,3 @@ responses:
 
 host: localhost:9443
 basePath: /t/{tenant-domain}/api/server/v1
-

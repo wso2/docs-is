@@ -1,17 +1,9 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: WSO2 Identity Server - Tenant Management API
+  title: Tenant Management API
   description: >-
-    This is the RESTful API for managing Tenants in the WSO2 Identity
-    Server.
-  contact:
-    name: WSO2 Identity Server
-    url: 'https://wso2.com/identity-and-access-management/'
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    This is the RESTful API for managing Tenants in the WSO2 Identity Server.
 security:
   - OAuth2: []
   - BasicAuth: []

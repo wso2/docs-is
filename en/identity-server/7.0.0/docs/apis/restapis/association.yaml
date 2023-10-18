@@ -1,18 +1,9 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server - User Account Associations API Definition
+  title: User Account Associations API
   description: |
-    This document specifies a **RESTful API** for WSO2 **Identity Server**. The APIs provide the
-    capability to add/retrieve/delete associated local/federated accounts of an authenticated user.
-    In addition, APIs are available for privileged users to be invoked on behalf of another user
-    to retrieve/delete associated local/federated accounts.
-  contact:
-    name: WSO2
-    url: http://wso2.com/products/identity-server/
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    The APIs provide the capability to `add`/`retrieve`/`delete` associated local/federated accounts of an authenticated user.
+    <br> In addition, APIs are available for privileged users to be invoked on behalf of another user to retrieve/delete associated local/federated accounts.
   version: v1
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
@@ -35,7 +26,7 @@ paths:
     get:
       tags:
       - me
-      summary: Retrive the associations of the authenticated user.
+      summary: Retrieve the associations of the authenticated user.
       description: |
         This API is used to retrieve the associations of the authenticated user.<br>
         <b>Permission required:</b>
@@ -72,8 +63,7 @@ paths:
       summary: |
         Associate a user to the authenticated user
       description: |
-        This API is used to associate a user to the authenticated user. For example, if it is required to associate your
-        user account to the user account of 'john', this endpoint can be used. The userId and the password are required to associate the accounts.<br>
+        This API is used to associate a user to the authenticated user. For example, if it is required to associate your user account to the user account of 'john', this endpoint can be used. The userId and the password are required to associate the accounts.<br>
         <b>Permission required:</b>
             * None
         <b>Scope required:</b>
@@ -145,7 +135,7 @@ paths:
     delete:
       tags:
       - me
-      summary: Delete given user account from my user associations
+      summary: Delete the given user account from my user associations
       description: |
         This API is used to delete the given user account from the associations of the authenticated user.<br>
         <b>Permission required:</b>
@@ -178,7 +168,7 @@ paths:
     get:
       tags:
       - me
-      summary: Retrive the federated associations of the authenticated user.
+      summary: Retrieve the federated associations of the authenticated user.
       description: |
         This API is used to retrieve the federated associations of the authenticated user.<br>
         <b>Permission required:</b>
@@ -411,7 +401,7 @@ paths:
     delete:
       tags:
       - admin
-      summary: Delete user's all user federated associations
+      summary: Delete user's all user-federated associations
       description: |
         This API is used to delete all federated associations of the user.<br>
         <b>Permission required:</b>
@@ -450,7 +440,7 @@ paths:
     delete:
       tags:
       - admin
-      summary: Delete user's federated association
+      summary: Delete the user's federated association
       description: |
         This API is used to delete a federated association of the user.<br>
         <b>Permission required:</b>

@@ -1,23 +1,14 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: WSO2 Identity Server - Email Template API
+  title: Email Template API
   description: >-
-    This is the RESTful API for managing email templates in WSO2 Identity
-    Server.This API allows adding, retrieving, replacing, and removing email
-    templates and template types.
-  contact:
-    name: WSO2 Identity Server
-    url: 'https://wso2.com/identity-and-access-management/'
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    This is the RESTful API for managing email templates in the WSO2 Identity Server. This API allows adding, retrieving, replacing, and removing email templates and template types.
 tags:
   - name: Email Template Types
     description: An email template type can have multiple email templates for different languages.
   - name: Email Templates
-    description: An email template of a specific type and a language.
+    description: An email template of a specific type and language.
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -183,11 +174,10 @@ paths:
     put:
       tags:
         - Email Template Types
-      summary: Replaces all email templates of the respective email template type
+      summary: Replace all email templates of the respective email template type
       operationId: updateEmailTemplateType
       description: |
-        Replaces all email templates of the respective email template type with
-        the newly provided email templates. <br>
+        Replace all email templates of the respective email template type with the newly provided email templates. <br>
 
         <b>Permission required:</b> <br>
         * /permission/admin/manage/identity/emailmgt/update <br>
@@ -251,7 +241,7 @@ paths:
       summary: Retrieves the list of email templates in the template type id.
       operationId: getTemplatesListOfEmailTemplateType
       description: |
-        Retrieves the list of email templates in the template type id. <br>
+        Retrieves the list of email templates in the template type ID. <br>
 
 
         <b>Permission required:</b> <br>
@@ -290,7 +280,7 @@ paths:
       summary: Retrieves a single email template.
       operationId: getEmailTemplate
       description: |
-        Retrieves the email template that matches to the template-type-id and the template-id. <br>
+        Retrieves the email template that matches the `template-type-id` and the `template-id`. <br>
 
         <b>Permission required:</b> <br>
           * /permission/admin/manage/identity/emailmgt/view <br>
@@ -325,7 +315,7 @@ paths:
       summary: Replaces an existing email template.
       operationId: updateEmailTemplate
       description: |
-        Replaces the email template identified by the template-type-id and the template-id. <br>
+        Replace the email template identified by the `template-type-id` and the `template-id`. <br>
 
         <b>Permission required:</b> <br>
           * /permission/admin/manage/identity/emailmgt/update <br>

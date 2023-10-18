@@ -1,19 +1,12 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server - OAuth2 Authorized Apps API
+  title: OAuth2 Authorized Apps API
   description: |
     This is the RESTful API for managing OAuth2 Authorized Apps.
 
-    With this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on **Approve Always** during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
+    With this API, authenticated users can view and revoke the OAuth2/OIDC applications for which they have permanently provided consent (by clicking on **Approve Always** during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
 
     Additionally, privileged users can view and revoke authorized apps of other users using this API.
-  contact:
-    name: WSO2 Identity Server
-    url: https://wso2.com/identity-and-access-management/
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v2
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/users/v2
@@ -33,7 +26,6 @@ tags:
   description: |
     Operations available for privileged users, to be invoked on behalf of another user.
 
-    **These endpoints are not released in WSO2 Identity Server - 5.9.0 version and will be released in the next product version.**
 paths:
   /{user-id}/authorized-apps:
     get:
@@ -41,7 +33,7 @@ paths:
       - admin
       summary: List authorized applications of a user
       description: |
-        List approved OAuth applications for a given user
+        The list of approved OAuth applications for a given user.
       operationId: listUserAuthorizedApps
       parameters:
       - name: user-id
@@ -107,7 +99,7 @@ paths:
       - admin
       summary: Retrieve authorized app by app ID for a user
       description: |
-        Retrived autherized OAuth apps by an app ID for a given user
+        Retrieve authorized OAuth apps by an app ID for a given user
       operationId: listUserAuthorizedAppsByAppId
       parameters:
       - name: user-id
@@ -152,7 +144,7 @@ paths:
       - admin
       summary: Removes challenge question answers
       description: |
-        Removes autherized OAuth apps by an app ID for a given user
+        Removes authorized OAuth apps by an app ID for a given user
       operationId: deleteUserAuthorizedAppsByAppId
       parameters:
       - name: user-id
@@ -331,7 +323,7 @@ components:
       properties:
         id:
           type: string
-          description: Unique Id of the application.
+          description: Unique ID of the application.
           example: 298c5fd8-01ac-4ada-bc10-1ce37f32140
         name:
           type: string
@@ -339,7 +331,7 @@ components:
           example: FooApp
         clientId:
           type: string
-          description: Client Id of the application.
+          description: Client ID of the application.
           example: 7y7zPj4wDX3nRtfPKrmt8Auke44a
     Error:
       required:

@@ -1,15 +1,8 @@
 openapi: 3.0.1
 info:
-  title: SCIM 2.0 Endpoint Swagger Definition
+  title: SCIM 2.0 Endpoint API
   description: |
     SCIM 2.0 endpoints
-  contact:
-    name: WSO2 Identity Server Team
-    url: http://wso2.com
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0
   version: 1.0.0
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/scim2

@@ -1,15 +1,8 @@
 openapi: 3.0.0
 info:
-  description: This is the RESTful API for handling user functionality manangement in WSO2 Identity Server.
+  description: This is the RESTful API for handling user functionality management in WSO2 Identity Server.
   version: "1.0.0"
-  title: WSO2 Identity Server - User Functionality Management API
-  contact:
-    name: "WSO2 Identity Server"
-    url: "https://wso2.com/identity-and-access-management"
-    email: "architecture@wso2.org"
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  title: User Functionality Management API
 
 tags:
   - name: user functionality management
@@ -25,7 +18,7 @@ paths:
       tags:
         - user functionality management
       summary: |
-        Get the lock status of a functionality for authenticated user
+        Get the lock status of a functionality for an authenticated user
       description: |
         Get the status of a functionality for the authenticated user.
 

@@ -1,20 +1,10 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies an **Identity Provider Management RESTful API** for
-    **WSO2 Identity Server**. The APIs provide the capability to add/update/delete/patch identity providers.
-    In addition, APIs are available to retrieve metadata about federated authenticators and outbound provisioning
-    connectors that can be configured for any given identity provider.
+    This document specifies an **Identity Provider Management RESTful API** for **WSO2 Identity Server**. The APIs provide the capability to add/update/delete/patch identity providers.
+    In addition, APIs are available to retrieve metadata about federated authenticators and outbound provisioning connectors that can be configured for any given identity provider.
   version: "v1"
-  title: WSO2 Identity Server - Identity Provider Management API definition
-  termsOfService: 'http://swagger.io/terms/'
-  contact:
-    name: WSO2
-    url: 'http://wso2.com/products/identity-server/'
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  title: Identity Provider Management API
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -150,8 +140,7 @@ paths:
       summary: |
         Metadata about supported federated authenticators of identity providers
       description: >-
-        This API provides the list of supported federated authenticators for an
-        identity provider in the the identity server. <br>
+        This API provides the list of supported federated authenticators for an identity provider in the identity server. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -196,7 +185,7 @@ paths:
         Metadata about a supported federated authenticator
       description: >
         This API provides the details of a single supported federated
-        authenticator for an identity provider in the the identity server. <br>
+        authenticator for an identity provider in the identity server. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -301,7 +290,7 @@ paths:
       parameters:
         - name: outbound-provisioning-connector-id
           in: path
-          description: ID of a Outbound Provisioning Connector
+          description: ID of an Outbound Provisioning Connector
           required: true
           schema:
             type: string
@@ -402,11 +391,9 @@ paths:
       tags:
         - Identity Providers
       summary: >
-        Patch an identity provider property by ID. Patch is supported only for
-        key-value pairs
+        Patch an identity provider property by ID. Patch is supported only for key-value pairs
       description: >
-        This API provides the capability to update an identity provider property
-        using patch request. IdP patch is supported only for key-value pairs. <br>
+        This API provides the capability to update an identity provider property using a patch request. IdP patch is supported only for key-value pairs. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -616,11 +603,9 @@ paths:
       tags:
         - Federated Authenticators
       summary: |
-        Retrieve federated authenticator config of an identity provider
+        Retrieve the federated authenticator config of an identity provider
       description: >
-        This API provides the capability to retrieve the federated authenticator
-        information of an identity provider by giving the federated
-        authenticator's ID. <br>
+        This API provides the capability to retrieve the federated authenticator information of an identity provider by giving the federated authenticator's ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -843,8 +828,7 @@ paths:
       summary: |
         Update outbound provisioning connectors of an identity provider
       description: >
-        This API provides updates the list of outbound provisioning connectors enabled for
-        an identity provider. <br>
+        This API provides updates the list of outbound provisioning connectors enabled for an identity provider. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -898,7 +882,7 @@ paths:
       tags:
         - Provisioning
       summary: |
-        Retrieve outbound provisioning connector of an identity provider
+        Retrieve the outbound provisioning connector of an identity provider
       description: >
         This API provides the capability to retrieve the outbound provisioning
         connector information of an identity provider by specifying the provisioning
@@ -1299,10 +1283,7 @@ paths:
         Update the just-in-time provisioning config of an identity provider
       description: >
         This API provides the capability to update the just-in-time provisioning
-        config of an identity provider by specifying the identity provider's ID. This
-        includes the ability to enable/disable JIT provisioning, change
-        provisioning userstore and enable/disable user prompts for username,
-        password and consent. <br>
+        config of an identity provider by specifying the identity provider's ID. This includes the ability to enable/disable JIT provisioning, change provisioning user store, and enable/disable user prompts for username, password, and consent. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -1829,7 +1810,7 @@ components:
       items:
         $ref: '#/components/schemas/Patch'
     Patch:
-      description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root level attributes of
+      description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root-level attributes of
        an identity provider.
       required:
         - operation

@@ -1,16 +1,7 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server - Claim Admin API
-  description: This is the RESTful API for claims management related operations in
-    WSO2 Identity Server. This API allows adding, retrieving, updating, and deleting
-    local/external claims and claim dialects.
-  contact:
-    name: WSO2 Identity Server
-    url: https://wso2.com/identity-and-access-management
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Claim management API
+  description: This is the RESTful API for claims management-related operations in the WSO2 Identity Server. This API allows adding, retrieving, updating, and deleting local/external claims and claim dialects.
   version: v1
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
@@ -819,7 +810,7 @@ components:
         description:
           type: string
           description: Description of the claim.
-          example: Some description about the claim.
+          example: Some description of the claim.
         displayOrder:
           type: integer
           description: The order in which the claim is displayed among other claims
@@ -927,7 +918,7 @@ components:
           type: string
           description: Userstore domain name.
           example: SECONDARY
-      description: Claim userstore attribute mapping.
+      description: Claim user store attribute mapping.
     ClaimDialectReq:
       required:
       - dialectURI
