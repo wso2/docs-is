@@ -16,7 +16,7 @@ Follow the steps below to share your primary applications with sub organizations
     ![Share application with suborganizations]({{base_path}}/assets/img/guides/organization/manage-organizations/share-application.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Click **Update** to save the configurations.
-6. Go to the **Protocol** tab of the application, be sure that the following [grant types]({{base_path}}/references/grant-types-in-asgardeo/) are allowed, and click **Update**.
+6. Go to the **Protocol** tab of the application, be sure that the following [grant types]({{base_path}}/references/grant-types/) are allowed, and click **Update**.
 
     !!! note
         Note that the `Organization Switch` grant will only be visible after you share the application with sub organizations.

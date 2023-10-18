@@ -8,7 +8,7 @@ You can find the OpenID Connect protocol related settings under **protocol** sec
 
 ### Client credentials
 
-When your application is registered in Asgardeo, a client ID is generated as the identifier of the application. If you register a traditional web application, a client secret is generated in addition to the client ID as shown below.
+When your application is registered in {{ product_name }}, a client ID is generated as the identifier of the application. If you register a traditional web application, a client secret is generated in addition to the client ID as shown below.
 
 ![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -42,29 +42,22 @@ This will determine how the application communicates with the token service. Web
       <td>Used for executing the <b>OAuth2 Password</b> flow in client applications.  The client sends the user's credentials to get an access token. This grant type is not recommended.</td>
     </tr>
     <tr>
+      <td>Token Exchange</td>
+      <td>This is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another. </td>
+    </tr>
+    <tr>
       <td>Organization Switch</td>
-      <td>A custom OAuth2 grant type that allows clients to get access to suborganization APIs in Asgardeo. The client can exchange the access token received from the root organization for an access token of the suborganization.  </td>
+      <td>A custom OAuth2 grant type that allows clients to get access to suborganization APIs in {{ product_name }}. The client can exchange the access token received from the root organization for an access token of the suborganization.  </td>
     </tr>
-      <td></td>
-      <td></td>
-    </tr>
-
   </tbody>
 </table>
 
-<!-- - Code - 
-- Client Credentials
-- Refresh Token
-- Implicit
-  Applications request token
-- Password
-- Organization Switch -->
-
-It is recommended to use code grant for public clients. For single-page application templates, code grant is enabled by default.
+It is recommended to use `code` grant for public clients. For single-page application templates, code grant is enabled by default.
 You can enable refresh token grant to get refresh tokens.
+
 However, [implicit grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.1.2) and [password](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-14#section-2.4) grants are not recommended due to security reasons.
 
-See [grant types of Asgardeo]({{base_path}}/references/grant-types-in-asgardeo/) for more details.
+See [grant types of {{ product_name }}]({{base_path}}/references/grant-types/) for more details.
 
 ### Public client
 {% include "../../guides/fragments/manage-app/oidc-settings/public-client.md" %}
@@ -75,11 +68,12 @@ Authorized redirect URLs are not required for `Client Credentials` and `Password
 
 The `redirect_uri` sent in the [login]({{base_path}}/guides/authentication/oidc/implement-auth-code/#get-authorization-code) request and the `post_logout_redirect_uri` sent in the [logout request]({{base_path}}/guides/authentication/oidc/add-logout/) should match with one of the registered authorized redirect URLs.
 
-
 ### Allowed origins
 {% include "../../guides/fragments/manage-app/oidc-settings/allowed-origin.md" %}
 
 ## Advanced settings
+This section elaborates on the advanced setting available for OIDC applications on {{ product_name }}.
+
 ### Proof Key for Code Exchange(PKCE)
 
 #### Mandatory
@@ -98,7 +92,7 @@ The `redirect_uri` sent in the [login]({{base_path}}/guides/authentication/oidc/
 {% include "../../guides/fragments/manage-app/oidc-settings/refresh-token.md" %}
 
 ### Certificate
-The certificate is used to validate signatures of signed requests from the application to Asgardeo and to encrypt requests from Asgardeo to the application.
+The certificate is used to validate signatures of signed requests from the application to {{ product_name }} and to encrypt requests from {{ product_name }} to the application.
 <br><br>
 You can either <b>Provide Certificate</b> or <b>Use JWKS endpoint</b> to add a certificate.
 <br>

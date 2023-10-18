@@ -1,6 +1,6 @@
 # Conditional authentication - API reference
 
-Asgardeo provides a set of defined functions and objects to write your conditional authentication script. They are grouped as follows:
+{{ product_name }} provides a set of defined functions and objects to write your conditional authentication script. They are grouped as follows:
 
 - [Core functions](#core-functions): These are the basic functions used in the script. These are used to identify the user who initiated the login flow, execute a step in the login flow, handle login failures, etc. Listed below are the core functions that can be used in conditional authentication scripts.
   
@@ -45,7 +45,7 @@ These are the basic functions that are required for defining the application log
 
 `onLoginRequest()`
 
-This function is called when Asgardeo receives the initial login request. It includes the parameters given below.
+This function is called when {{ product_name }} receives the initial login request. It includes the parameters given below.
 
 - **Parameters**
 
@@ -78,8 +78,7 @@ This method accepts an object as a parameter and should include the details list
   </tr>
   <tr>
     <td><code>&ltoptions&gt</code></td>
-    <td>(Optional) A map that can configure step execution. Authentication option filtering is supported.<br />
-For more information, see the example on <b>filtering connections in a step</b> given below.</td>
+    <td>(Optional) A map that can configure step execution. Authentication option filtering is supported.<br /> For more information, see the example on <b>filtering connections in a step</b> given below.</td>
   </tr>
   <tr>
     <td><code>&lteventCallbacks&gt</code></td>
@@ -149,7 +148,7 @@ This section describes the **options** you can use to configure the `executeStep
 
     See the example on **filtering connections in a step** given below for details.
 
-    The **local authenticators** are represented by the `authenticator` parameter. The table shows the connection names (as displayed on the Asgardeo Console) and the corresponding authenticator name you can use in the scripts.
+    The **local authenticators** are represented by the `authenticator` parameter. The table shows the connection names (as displayed on the {{ product_name }} Console) and the corresponding authenticator name you can use in the scripts.
 
     <table id="authenticatorNames">
       <tbody>
@@ -355,7 +354,6 @@ This function returns `true` if the specified user belongs to at least one of th
     }
     ```
 
-<br/>
 
 ### Set cookie
 
@@ -408,8 +406,6 @@ This function sets a new cookie. It includes the parameters listed below.
                                                 "sign" : true})
     ```
 
-<br/>
-
 ### Get cookie value
 
 `getCookieValue(request, name, properties)`
@@ -445,8 +441,6 @@ This function gets the plain-text cookie value for the cookie name if it is pres
     ``` js 
     getCookieValue(context.request,"name", {"decrypt" : true,"validateSignature" : true })
     ```
-
-<br/>
 
 ### Prompt for user input
 
@@ -493,8 +487,6 @@ This function prompts user input. It includes the parameters listed below.
     }
     ```
 
-<br/>
-
 ### Get user sessions
 
 `getUserSessions()`
@@ -519,11 +511,9 @@ array if there are no sessions). It includes the parameters listed below.
     var user = context.currentKnownSubject;
     var sessions = getUserSessions(user);
     for (var key in sessions) {
-        Log.info(“Session ID: ” + sessions[key].id);
+        Log.info("Session ID: " + sessions[key].id);
     }
     ```
-
-<br/>
 
 ### Terminate user session
 
@@ -554,7 +544,7 @@ array if there are no sessions). It includes the parameters listed below.
     var sessions = getUserSessions(user);
     if (sessions.length > 0) {
         var result = terminateUserSession(user, sessions[0]);
-        Log.info(“Terminate Operation Successful?: ” + result);
+        Log.info("Terminate Operation Successful?: " + result);
     }
     ```
 
@@ -644,11 +634,11 @@ This function invokes an API hosted in [Choreo](https://wso2.com/choreo/). It in
     });
     ```
 
-    ??? note "Using Asgardeo as the key manager"
-        If you are using Asgardeo as the key manager in your Choreo organization, append  the `asgardeoTokenEndpoint` parameter to the `connectionMetadata` variable as follows:
+    ??? note "Using {{ product_name }} as the key manager"
+        If you are using {{ product_name }} as the key manager in your Choreo organization, append  the `asgardeoTokenEndpoint` parameter to the `connectionMetadata` variable as follows:
             ``` js
             var connectionMetadata = {
-              "asgardeoTokenEndpoint": "https://api.asgardeo.io/t/<organization_name>/oauth2/token"
+              "asgardeoTokenEndpoint": "{{ product_url_format }}/oauth2/token"
             };
             ```
 
@@ -737,145 +727,105 @@ This function returns the local user associated with the federate username given
 
 Contains the authentication context information. The information can be accessed as follows:
 
-<table>
-    <tr>
-      <td><code>context.steps[n]</code></td>
-      <td>Access the authentication step information, where 'n' is the step number (1-based). See [step](#step) for more information.</td>
-    </tr>
-</table>
+| | |
+|-|-|
+| context.steps[n] | Access the authentication step information, where 'n' is the step number (1-based). See [step](#step) for more information.  |
 
 The step number is the one configured at the step configuration, not the actual order in which they get executed.
 
-<table>
-    <tr>
-      <td><code>context.request</code></td>
-      <td>Access the HTTP authentication request information. See [request](#request) for more information.</td>
-    </tr>
-    <tr>
-      <td><code>context.response</code></td>
-      <td>Access the HTTP response, which will be sent back to the client. See [response](#response) for more information.</td>
-    </tr>
-    <tr>
-      <td><code>context.serviceProviderName</code></td>
-      <td>Get the application name.</td>
-    </tr>
-</table>
+| | |
+|-|-|
+| context.request | Access the HTTP authentication request information. See [request](#request) for more information. |
+| context.response  | Access the HTTP response, which will be sent back to the client. See [response](#response) for more information.  |
+| context.serviceProviderName | Get the application name. |
+
 
 ### Step
 
 Contains the authentication step information. It may be a null or invalid step number.
 
-<table>
-    <tr>
-      <td><code>step.subject</code></td>
-      <td>Contains the authenticated user's information from this step. It may be null if the step is not yet
-  executed. See [user](#user) for more information.</td>
-    </tr>
-    <tr>
-      <td><code>step.idp</code></td>
-      <td>Gives the name of the federated connection that is used to authenticate the user.</td>
-    </tr>
-    <tr>
-      <td><code>step.authenticator</code></td>
-      <td>Give the name of the authenticator that is used for authenticating the user. You can find the authenticator names from the [ connection names table](#authenticatorNames).</td>
-    </tr>
-</table>
+| | |
+|-|-|
+| step.subject  | Contains the authenticated user's information from this step. It may be null if the step is not yet executed. See [user](#user) for more information. |
+| step.idp  | Gives the name of the federated connection that is used to authenticate the user. |
+| step.authenticator  | Give the name of the authenticator that is used for authenticating te user. You can find the authenticator names from the [connection names table](#authenticatorNames). |
 
 ### User
 
 <table>
-    <tr>
-      <td><code>user.uniqueId</code></td>
-      <td>The unique identifier of the user.</td>
-    </tr>
-    <tr>
-      <td><code>user.username</code></td>
-      <td>The user's username.</td>
-    </tr>
-    <tr>
-      <td><code>user.userStoreDomain</code></td>
-      <td><code>(Read/Write)</code> <br>The user store domain of the local user.</td>
-    </tr>
-    <tr>
-      <td><code>user.localClaims[“local_claim_url”]</code></td>
-      <td><code>(Read/Write)</code> <br> User's attribute (claim) value for the given "local_claim_url". If the user is a federated user, this will be the value of the mapped remote claim from the identity provider.</td>
-    </tr>
-    <tr>
-      <td><code>user.claims[“local_claim_url”]</code></td>
-      <td><code>(Read/Write)</code> <br> Sets a temporary claim value for the session.</td>
-    </tr>
-    <tr>
-      <td><code>user.localClaims[“local_claim_url”]</code></td>
-      <td>Updates the claim value in the user store as well. The <code>user.claims[“local_claim_url”]</code> parameter is an alternative to setting a temporary claim.</td>
-    </tr>
-    <tr>
-      <td><code>user.remoteClaims[“remote_claim_url”]</code></td>
-      <td><code>(Read/Write)</code> <br> User's attribute (claim) as returned by the identity provider for the given <code>remote_claim_url</code>. Applicable only for federated users.</td>
-    </tr>
+  <tr>
+    <td><code>user.uniqueId</code></td>
+    <td>The unique identifier of the user.</td>
+  </tr>
+  <tr>
+    <td><code>user.username</code></td>
+    <td>The user's username.</td>
+  </tr>
+  <tr>
+    <td><code>user.userStoreDomain</code></td>
+    <td><code>(Read/Write)</code> <br>The user store domain of the local user.</td>
+  </tr>
+  <tr>
+    <td><code>user.localClaims["local_claim_url"]</code></td>
+    <td><code>(Read/Write)</code> <br> User's attribute (claim) value for the given "local_claim_url". If the user is a federated user, this will be the value of the mapped remote claim from the identity provider.</td>
+  </tr>
+  <tr>
+    <td><code>user.claims["local_claim_url"]</code></td>
+    <td><code>(Read/Write)</code> <br> Sets a temporary claim value for the session.</td>
+  </tr>
+  <tr>
+    <td><code>user.localClaims["local_claim_url"]</code></td>
+    <td>Updates the claim value in the user store as well. The <code>user.claims["local_claim_url"]</code> parameter is an alternative to setting a temporary claim.</td>
+  </tr>
+  <tr>
+    <td><code>user.remoteClaims["remote_claim_url"]</code></td>
+    <td><code>(Read/Write)</code> <br> User's attribute (claim) as returned by the identity provider for the given <code>remote_claim_url</code>. Applicable only for federated users.</td>
+  </tr>
 </table>
 
 ### Request
 
 <table>
-    <tr>
-      <td><code>request.headers[“header_name”]</code></td>
-      <td>The request's header value for the given header name.</td>
-    </tr>
-    <tr>
-      <td><code>request.params.param_name[0]</code></td>
-      <td>The request's parameter value for the given parameter name by the <code>param_name</code> index (<code>param_name</code> is an array).</td>
-    </tr>
-    <tr>
-      <td><code>request.cookies[“cookie_name”]</code></td>
-      <td>The request's cookie value for the given cookie name.</td>
-    </tr>
-    <tr>
-      <td><code>request.ip</code></td>
-      <td>The client IP address of the user who initiated the request. If there are any load balancers (eg. Nginx) with connection termination, the IP is retrieved from the headers set by the load balancer.</td>
-    </tr>
+  <tr>
+    <td><code>request.headers["header_name"]</code></td>
+    <td>The request's header value for the given header name.</td>
+  </tr>
+  <tr>
+    <td><code>request.params.param_name[0]</code></td>
+    <td>The request's parameter value for the given parameter name by the <code>param_name</code> index (<code>param_name</code> is an array).</td>
+  </tr>
+  <tr>
+    <td><code>request.cookies["cookie_name"]</code></td>
+    <td>The request's cookie value for the given cookie name.</td>
+  </tr>
+  <tr>
+    <td><code>request.ip</code></td>
+    <td>The client IP address of the user who initiated the request. If there are any load balancers (eg. Nginx) with connection termination, the IP is retrieved from the headers set by the load balancer.</td>
+  </tr>
 </table>
 
 ### Response
 
-<table>
+  <table>
     <tr>
-      <td><code>response.headers[“header_name”]</code></td>
+      <td><code>response.headers["header_name"]</code></td>
       <td>(Write) The response header value for the given header name.</td>
     </tr>
-</table>
+  </table>
 
 ### Session
 
-<table>
-    <tr>
-      <td><code>session.userAgent</code></td>
-      <td>This is the userAgent object of the user session. See [userAgent](#user-agent) for more information.</td>
-    </tr>
-    <tr>
-      <td><code>session.ip</code></td>
-      <td>This is the session's IP address.</td>
-    </tr>
-    <tr>
-      <td><code>session.loginTime</code></td>
-      <td>This is the session's last login time.</td>
-    </tr>
-    <tr>
-      <td><code>session.lastAccessTime</code></td>
-      <td>This is the session's last accessed time.</td>
-    </tr>
-    <tr>
-      <td><code>session.id</code></td>
-      <td>This is the session's ID.</td>
-    </tr>
-    <tr>
-      <td><code>session.applications</code></td>
-      <td>This is the list of application objects in the session. See [application](#application) for more information.</td>
-    </tr>
-</table>
+  | | |
+  |-|-|
+  | session.userAgent | This is the userAgent object of the user session. See [userAgent](#user-agent) for more information.  |
+  | session.ip  | This is the session's IP address. |
+  | session.loginTime | This is the session's last login time.  |
+  | session.lastAccessTime  | This is the session's last accessed time.  |
+  | session.id  | This is the list of application objects in the session. See [application](#application) for more information. |
 
 ### Application
 
-<table>
+  <table>
     <tr>
       <td><code>application.subject</code></td>
       <td>This is the subject of the application.</td>
@@ -888,11 +838,11 @@ Contains the authentication step information. It may be a null or invalid step n
       <td><code>application.appId</code></td>
       <td>This is the ID of the application.</td>
     </tr>
-</table>
+  </table>
 
 ### User agent
 
-<table>
+  <table>
     <tr>
       <td><code>userAgent.raw</code></td>
       <td>This is the raw userAgent string.</td>
@@ -909,36 +859,37 @@ Contains the authentication step information. It may be a null or invalid step n
       <td><code>userAgent.device</code></td>
       <td>This is the device property that is extracted from the raw userAgent string.</td>
     </tr>
-</table>
+  </table>
+
 
 ### ConnectionMetadata
 
 It contains the necessary metadata for invoking the API when calling the callChoreo function.
 
 <table>
-    <tr>
-      <td><code>connectionMetadata.url</code></td>
-      <td>URL of the Choreo hosted API.</td>
-    </tr>
-    <tr>
-      <td><code>connectionMetadata.consumerKey</code></td>
-      <td>The consumer key of the Choreo application.</td>
-    </tr>
-    <tr>
-      <td><code>connectionMetadata.consumerSecret</code></td>
-      <td>The consumer secret of the Choreo application.</td>
-    </tr>
+  <tr>
+    <td><code>connectionMetadata.url</code></td>
+    <td>URL of the Choreo hosted API.</td>
+  </tr>
+  <tr>
+    <td><code>connectionMetadata.consumerKey</code></td>
+    <td>The consumer key of the Choreo application.</td>
+  </tr>
+  <tr>
+    <td><code>connectionMetadata.consumerSecret</code></td>
+    <td>The consumer secret of the Choreo application.</td>
+  </tr>
 </table>
 
 If the consumer key and the consumer secret are added as secrets, they should be included in the ConnectionMetadata as aliases, as shown below.
 
 <table>
-    <tr>
-      <td><code>connectionMetadata.consumerKeyAlias</code></td>
-      <td>The name of the secret that stores the consumer key.</td>
-    </tr>
-    <tr>
-      <td><code>connectionMetadata.consumerSecretAlias</code></td>
-      <td>The name of the secret that stores the consumer secret.</td>
-    </tr>
+  <tr>
+    <td><code>connectionMetadata.consumerKeyAlias</code></td>
+    <td>The name of the secret that stores the consumer key.</td>
+  </tr>
+  <tr>
+    <td><code>connectionMetadata.consumerSecretAlias</code></td>
+    <td>The name of the secret that stores the consumer secret.</td>
+  </tr>
 </table>  

@@ -1,16 +1,16 @@
-# Asgardeo user roles
+# {{ product_name }} user roles
 
-Roles consist of the permissions that are required by users to access the Asgardeo resources such as functions available on the Asgardeo Console, REST APIs, etc.
+Roles consist of the permissions that are required by users to access the {{ product_name }} resources such as functions available on the {{ product_name }} Console, REST APIs, etc.
 
-When you assign a role to a user, you are controlling what the user can do in Asgardeo.
+When you assign a role to a user, you are controlling what the user can do in {{ product_name }}.
 
-By default, Asgardeo has the **Administrator** user role. This role includes all administrative permissions in the organization. An organization can have many users with the administrator role. An administrator is a privileged user who has overall access to the organization.
+By default, {{ product_name }} has the **Administrator** user role. This role includes all administrative permissions in the organization. An organization can have many users with the administrator role. An administrator is a privileged user who has overall access to the organization.
 
-<!-- 2. **Application developer**: This role includes the permissions required for registering and managing applications. The application developer is a privileged user who can integrate applications with Asgardeo. 
+<!-- 2. **Application developer**: This role includes the permissions required for registering and managing applications. The application developer is a privileged user who can integrate applications with {{ product_name }}. 
 
-3. **Administrative auditor**: This role includes list and view permissions to Asgardeo resources, which is useful in troubleshooting issues and providing support for other users in the organization. This role provides users read only access to the organization.
+3. **Administrative auditor**: This role includes list and view permissions to {{ product_name }} resources, which is useful in troubleshooting issues and providing support for other users in the organization. This role provides users read only access to the organization.
 
-Only [Adminstrators]({{base_path}}/guides/users/manage-collaborators/) can be assigned to Asgardeo roles, and an administrator can be assigned only with one role.
+Only [Adminstrators]({{base_path}}/guides/users/manage-collaborators/) can be assigned to {{ product_name }} roles, and an administrator can be assigned only with one role.
 
 The following tables list the permissions enabled for roles in the organization. -->
 The following list contains the permissions enabled for an Administrator:

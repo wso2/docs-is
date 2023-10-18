@@ -7,10 +7,10 @@ You can find the OIDC enterprise IdP settings in the **Settings** tab of the sel
 Listed below are the mandatory settings.
 
 ### Client ID
-The client ID that is generated when registering Asgardeo as an OIDC application in the external identity provider.
+The client ID that is generated when registering {{ product_name }} as an OIDC application in the external identity provider.
 
 ### Client secret
-The client secret that is generated when registering Asgardeo as an OIDC application in the external identity provider.
+The client secret that is generated when registering {{ product_name }} as an OIDC application in the external identity provider.
 
 ### Authorization endpoint URL
 The OpenID Connect standard authorization endpoint URL of the external identity provider.
@@ -21,7 +21,7 @@ The OpenID Connect standard token endpoint URL of the external identity provider
 ### Authorized redirect URL
 This is where the user needs to be redirected after completing authentication at the external identity provider. The identity provider needs to send the authorization code to this URL upon successful authentication.
 
-You should configure `https://api.asgardeo.io/t/{your_organinzation_name}/commonauth` as the redirect URL/callback URL when you register Asgardeo as an OIDC application in the external IdP.
+You should configure `{{ product_url_format }}/commonauth` as the redirect URL/callback URL when you register {{ product_name }} as an OIDC application in the external IdP.
 
 ## Additional settings
 
@@ -32,14 +32,14 @@ Listed below are additional settings.
 The OpenID Connect standard userinfo endpoint <!-- [OpenID Connect standard userinfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo)--> of the external identity provider. If this URL is not given, user attributes are taken from the ID token of the token response received from the external IdP.
 
 ### Logout URL
-The [OpenID Connect standard logout endpoint](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#Terminology) of the external identity provider. If this URL is given, Asgardeo sends logout requests to the external IdP when a user logs out from the connected application.
+The [OpenID Connect standard logout endpoint](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#Terminology) of the external identity provider. If this URL is given, {{ product_name }} sends logout requests to the external IdP when a user logs out from the connected application.
 
 ### Scopes
 This is a list of case-sensitive OpenID Connect scopes that needs to be requested from the OIDC external IdP. See the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims) for more information about what scopes can be configured here.
 
 ### Additional query parameters
 
-Asgardeo supports sending additional information to your OIDC external IdP in the form of query params in the login request.
+{{ product_name }} supports sending additional information to your OIDC external IdP in the form of query params in the login request.
 
 - Fixed query params
 - Dynamic query params
@@ -50,7 +50,7 @@ Asgardeo supports sending additional information to your OIDC external IdP in th
 You can check below examples when an application developer wants to send _login_hint_ as a query param to external provider.
 
 #### Fixed query params
-Here Asgardeo sends the fixed query param to the external identity provider in the login request.
+Here {{ product_name }} sends the fixed query param to the external identity provider in the login request.
 
 - **Sample Query Param:**
 
@@ -71,7 +71,7 @@ Here Asgardeo sends the fixed query param to the external identity provider in t
         You can see a sample OIDC request from an application below.
 
         ```
-        https://api.asgardeo.io/t/bifrost/oauth2/authorize?scope=openid&response_type=code&redirect_uri=<redirect_uri>&client_id=<client_id>&login_hint_value=user@gmail.com
+        {{ product_url_sample }}/oauth2/authorize?scope=openid&response_type=code&redirect_uri=<redirect_uri>&client_id=<client_id>&login_hint_value=user@gmail.com
         ```
 
 

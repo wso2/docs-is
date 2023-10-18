@@ -23,7 +23,7 @@ Therefore, using PAR with an OAuth authorization request,
 
 The diagram below illustrates the PAR authorization flow.
 
-![Asgardeo PAR endpoint]({{base_path}}/assets/img/references/asgardeo-par-endpoint.png)
+![{{ product_name }} PAR endpoint]({{base_path}}/assets/img/references/asgardeo-par-endpoint.png)
 
 1. The client makes a POST request to the `/par` endpoint along with all the parameters required for authorization.
 

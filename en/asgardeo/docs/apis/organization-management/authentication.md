@@ -30,7 +30,7 @@ Use the **standard-based** app type to register an OIDC management app:
 
 5. Click **Register** to complete the registration.
 6. Click **Share Application** to share the application with suborganizations.
-6. Go to the **Protocol** tab and select [Authorization Code]({{base_path}}/references/grant-types-in-asgardeo/#authorization-code-grant) and [Organization Switch]({{base_path}}/references/grant-types-in-asgardeo/#organization-switch-grant) as the grant types for the application.
+6. Go to the **Protocol** tab and select [Authorization Code]({{base_path}}/references/grant-types/#authorization-code-grant) and [Organization Switch]({{base_path}}/references/grant-types/#organization-switch-grant) as the grant types for the application.
 
 The client credentials for your application are displayed in the protocol tab, as shown below.
 
