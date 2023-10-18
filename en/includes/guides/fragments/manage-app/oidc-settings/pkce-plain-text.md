@@ -2,7 +2,7 @@
 If this configuration is selected, the applications can use `plain` algorithm. i.e,`code_challenge = code_verifier`. But this is not recommended due to security best practises.
 
 ``` 
-https://api.asgardeo.io/t/bifrost/oauth2/authorize?response_type=code&client_id=Wsoq8t4nHW80gSnPfyDvRbiC__Ea&scope=openidprofile&redirect_uri=http%3A%2F%2Flocalhost%3A5000&code_challenge_method=plain&code_challenge=nAkA5m0EKlFbHFvF_V53Icig9gSnqr-HxH44Lvkne2c
+{{ product_url_sample }}/oauth2/authorize?response_type=code&client_id=Wsoq8t4nHW80gSnPfyDvRbiC__Ea&scope=openidprofile&redirect_uri=http%3A%2F%2Flocalhost%3A5000&code_challenge_method=plain&code_challenge=nAkA5m0EKlFbHFvF_V53Icig9gSnqr-HxH44Lvkne2c
 ```
 
 _Sample token request_:
@@ -10,7 +10,7 @@ _Sample token request_:
 === "cURL"
 
     ```bash
-    curl --location --request POST 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
+    curl --location --request POST '{{ product_url_sample }}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'code=60cb4ba7-b7b2-3f2f-8319-58122f1b2f5d' \
     --data-urlencode 'grant_type=authorization_code' \
@@ -23,7 +23,7 @@ _Sample token request_:
 
     ```js
     var settings = {
-        "url": "https://api.asgardeo.io/t/bifrost/oauth2/token",
+        "url": "{{ product_url_sample }}/oauth2/token",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -57,7 +57,7 @@ _Sample token request_:
     });
     var config = {
         method: 'post',
-        url: 'https://api.asgardeo.io/t/bifrost/oauth2/token',
+        url: '{{ product_url_sample }}/oauth2/token',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },

@@ -319,11 +319,34 @@ nav:
     - Admin services:
       - Call admin services: apis/call-admin-services.md
       - One way operations: apis/admin-services-for-one-way-operations.md
-  - References:  
+  - References:   
     - References: references/index.md
-    - Extenstions:
-      - Authentication:
-        - Write a Custom OAuth 2.0 grant: references/extend/write-a-custom-oauth-2.0-grant-type.md
+    - User roles: references/user-management/user-roles.md
+    - App configurations:
+      - App configurations: references/app-settings/index.md
+      - OIDC configurations: references/app-settings/oidc-settings-for-app.md
+      - SAML configurations: references/app-settings/saml-settings-for-app.md
+    - IdP configurations:
+      - IdP configurations: references/idp-settings/index.md
+      - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
+      - SAML configurations: references/idp-settings/saml-settings-for-idp.md
+    - OAuth2 grant types of WSO2 Identity Server: references/grant-types.md
+    - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
+    - Conditional auth - API: references/conditional-auth/api-reference.md
+    - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
+    - Authorization policies for apps: references/authorization-policies-for-apps.md
+    - Email templates: references/email-templates.md
+    - Compliance:
+      - references/compliance/index.md
+      - GDPR: references/compliance/gdpr.md
+      - eIDAS: references/compliance/eidas.md
+      - CCPA: references/compliance/ccpa.md
+      - FIPS: references/compliance/fips.md
+      - Accessibility compliance: references/compliance/accessibility.md
+    - Localization in  WSO2 Identity Server: references/localization.md
+    #- Extenstions:
+      #- Authentication:
+        #- Write a Custom OAuth 2.0 grant: references/extend/write-a-custom-oauth-2.0-grant-type.md
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition

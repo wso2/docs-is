@@ -4,26 +4,33 @@ You can find the SAML IdP related settings under **settings** section of the sel
 ## Basic settings
 
 - ### Service provider entity ID
-Also known as  issuer. Specifies the entityID of Asgardeo which acts as the application. This value will be used as the `<saml2:Issuer>` in the SAML requests initiated from Asgardeo to external Identity Provider (IdP). You need to provide a unique value as the service provider entityId.
 
-It is recommended to use a valid urn(e.g: urn:asgardeo:id) as the entityID.
+    Also known as  issuer. Specifies the entityID of {{ product_name }} which acts as the application. This value will be used as the `<saml2:Issuer>` in the SAML requests initiated from {{ product_name }} to external Identity Provider (IdP). You need to provide a unique value as the service provider entityId.
+
+    It is recommended to use a valid urn (e.g: urn:asgardeo:id) as the entityID.
 
 - ### Identity provider Single Sign-On URL
-Single sign-on URL of the external IdP. This is where Asgardeo will send its authentication requests.
+
+    Single sign-on URL of the external IdP. This is where {{ product_name }} will send its authentication requests.
 
 - ### Assertion Consumer Service (ACS) URL
-The Assertion Consumer Service (ACS) URL determines where Asgardeo expects the external identity provider to send the SAML response.
+
+    The Assertion Consumer Service (ACS) URL determines where {{ product_name }} expects the external identity provider to send the SAML response.
 
 - ### Identity provider entity ID
-Also known as the issuer of identity provider. This is the `<saml2:Issuer>` value specified in the SAML responses issued by the external IdP.
+
+    Also known as the issuer of identity provider. This is the `<saml2:Issuer>` value specified in the SAML responses issued by the external IdP.
 
 - ### Identity provider NameID format
-Name ID defines the name identifier formats supported by the external IdP. Name identifier is how Asgardeo communicates with external IdP regarding a user.
+
+    Name ID defines the name identifier formats supported by the external IdP. Name identifier is how {{ product_name }} communicates with external IdP regarding a user.
 
 - ### HTTP protocol binding
-Specifies the mechanisms to transport SAML messages in communication protocols. Bindings define how SAML request-response protocol messages can be exchanged between identity provider and SAML application via HTTP transport.
 
-Asgardeo supports below bindings:
+    Specifies the mechanisms to transport SAML messages in communication protocols. Bindings define how SAML request-response protocol messages can be exchanged between identity provider and SAML application via HTTP transport.
+
+{{ product_name }} supports below bindings:
+
 - HTTP Post
 - HTTP Redirect
 - As Per Request
@@ -31,50 +38,64 @@ Asgardeo supports below bindings:
 ## Single Logout
 
 - ### Accept identity provider logout requests
-Specifies whether single logout request from the IdP must be accepted by Asgardeo. By selecting this configuration, Asgardeo can process the SAML IdP initiated logout requests and send the back-channel logout requests to the downstream applications.
+
+    Specifies whether single logout request from the IdP must be accepted by {{ product_name }}. By selecting this configuration, {{ product_name }} can process the SAML IdP initiated logout requests and send the back-channel logout requests to the downstream applications.
 
 - ### Identity provider logout enabled
-Specifies whether logout is supported by the external IdP.
+
+    Specifies whether logout is supported by the external IdP.
 
 - ### IdP logout URL
-Provides the logout endpoint URL of the IdP.
+
+    Provides the logout endpoint URL of the IdP.
 
 ## Request & Response Signing
 
 ### Strictly verify authentication response signature info
-Specifies if SAML2 authentication response from the external IdP must be signed or not. If this setting is selected, Asgardeo will validate the signature in authentication response sent by the external IdP.
+
+Specifies if SAML2 authentication response from the external IdP must be signed or not. If this setting is selected, {{ product_name }} will validate the signature in authentication response sent by the external IdP.
 
 ### Logout request signing
-Specifies if SAML2 logout request to the external IdP from Asgardeo must be signed or not.
+
+Specifies if SAML2 logout request to the external IdP from {{ product_name }} must be signed or not.
 
 ### Authentication request signing
-Specifies if SAML2 authentication request to the external IdP from Asgardeo must be signed or not.
+
+Specifies if SAML2 authentication request to the external IdP from {{ product_name }} must be signed or not.
 
 ### Signature algorithm
+
 Used as the signing algorithm to sign the authentication request and logout request.
 
 ### Digest algorithm
+
 Used as the digest algorithm in authentication request and logout request.
 
 ## Advanced
 
 ### Include protocol binding in the request
+
 Specifies whether the transport mechanism should be included in the small authentication request.
 
 ### Find user ID from requests
+
 To specify an attribute from the SAML 2.0 assertion as the user identifier, configure the subject attribute from the attributes section.
 
 ### Additional query parameters
-Asgardeo supports sending additional information to your SAML external IdP in the form of query params in the login request.
+
+{{ product_name }} supports sending additional information to your SAML external IdP in the form of query params in the login request.
+
 - Fixed query params
 - Dynamic query params
+
   - Query param value sent in the application login request
   - Query param value resolved in a conditional authentication script
 
 You can check below examples when an application developer wants to send _login_hint_ as a query param to external provider.
 
 #### Fixed query params
-Here Asgardeo sends the fixed query param (e.g: `login_hint`) to the external identity provider in the login request.
+
+Here {{ product_name }} sends the fixed query param (e.g: `login_hint`) to the external identity provider in the login request.
 
 - **Sample Query Param:**
 
