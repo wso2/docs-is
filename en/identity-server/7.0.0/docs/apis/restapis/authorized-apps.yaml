@@ -8,13 +8,6 @@ info:
     <br><br>Additionally, privileged user can view and revoke other users' authorized apps using the API.
     
     <br><br>`Warning` <br> This API version will be deprecated in future versions of WSO2 IS. You can use [OAuth2 Authorized Apps API Definition - v2]({{base_path}}/apis/authorized-apps-v2-rest-api/) instead."
-  contact:
-    name: WSO2 Identity Server
-    url: https://wso2.com/identity-and-access-management/
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v1
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/users/v1

@@ -1,15 +1,7 @@
 openapi: 3.0.1
 info:
   title: WorkFlow Engine API
-  description: This is the RESTful API for managing WorkFlow Engines in WSO2 Identity
-    Server
-  contact:
-    name: WSO2 Identity Server
-    url: https://wso2.com/identity-and-access-management/
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: This is the RESTful API for managing WorkFlow Engines in WSO2 Identity Server.
   version: v1
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1

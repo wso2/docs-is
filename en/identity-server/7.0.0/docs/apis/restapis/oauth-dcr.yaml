@@ -3,13 +3,6 @@ info:
   title: OAuth2 Dynamic Client Registration Endpoint
   description: |
     This document specifies an OAuth2 Dyanmic Client Registration Endpoint for WSO2 Identity Server.
-  contact:
-    name: WSO2
-    url: http://wso2.com/identity-and-access-management
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.1.0
 servers:
 - url: https:/{serverUrl}/api/identity/oauth2/dcr/v1.1

@@ -6,13 +6,6 @@ info:
     This is the RESTful API for managing email templates in WSO2 Identity
     Server.This API allows adding, retrieving, replacing, and removing email
     templates and template types.
-  contact:
-    name: WSO2 Identity Server
-    url: 'https://wso2.com/identity-and-access-management/'
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: Email Template Types
     description: An email template type can have multiple email templates for different languages.

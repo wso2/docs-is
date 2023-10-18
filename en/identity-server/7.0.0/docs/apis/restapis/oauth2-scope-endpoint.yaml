@@ -4,13 +4,6 @@ info:
   description: |
     The OAuth2 scope API in WSO2 Identity Server (IS) can be used to manage oauth2 scopes and scope bindings such as roles and permissions. Since OIDC scope is a sub category of OAuth2 scopes, these endpoints cannot have the same
     scope names as in WSO2 IS.
-  contact:
-    name: WSO2
-    url: http://wso2.com/identity-and-access-management
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
 - url: https://{serverUrl}/api/identity/oauth2/v1.0

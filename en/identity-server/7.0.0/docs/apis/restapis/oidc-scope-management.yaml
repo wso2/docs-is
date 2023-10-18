@@ -5,14 +5,6 @@ info:
     Since OIDC scope is a sub category of OAuth2 scopes, these end points cannot have the same scope names in WSO2 IS. 
   version: "1.0.0-oas3"
   title:  OIDC Scope Management API
-  termsOfService: 'http://swagger.io/terms/'
-  contact:
-    name: "WSO2 Identity Server"
-    url: "https://wso2.com/identity-and-access-management"
-    email: "architecture@wso2.org"
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'

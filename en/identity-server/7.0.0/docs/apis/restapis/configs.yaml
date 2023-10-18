@@ -3,13 +3,6 @@ info:
   version: "1.0.0"
   title: 'Configurations API'
   description: 'This document specifies a **RESTful API** for **WSO2 Identity Server Configurations**'
-  contact:
-    name: WSO2
-    url: 'http://wso2.com/products/identity-server/'
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security:
   - OAuth2: []
   - BasicAuth: []

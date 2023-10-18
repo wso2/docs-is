@@ -3,13 +3,6 @@ info:
   title: Recovery API
   description: |
     This document specifies a **RESTful API** for WSO2 **Identity Server** .
-  contact:
-    name: WSO2
-    url: http://wso2.com/products/identity-server/
-    email: architecture@wso2.com
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 0.9.0
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/identity/recovery/v0.9

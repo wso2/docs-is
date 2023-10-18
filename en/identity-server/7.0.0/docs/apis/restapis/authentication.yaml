@@ -53,13 +53,6 @@ info:
             </tr>
         </tbody>
     </table>
-  contact:
-    name: WSO2
-    url: http://wso2.com/products/identity-server/
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: "1.2"
 servers:
 - url: https://{serverUrl}/api/identity/auth/v1.1

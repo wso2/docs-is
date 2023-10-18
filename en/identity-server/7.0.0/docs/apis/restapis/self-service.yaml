@@ -3,13 +3,6 @@ info:
   title: WSO2 Identity Server Rest API - User
   description: |
     This document specifies a **RESTful API** for WSO2 **Identity Server**.
-  contact:
-    name: WSO2
-    url: http://wso2.com/products/identity-server/
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
 - url: https://apis.is.com/t/{tenant-domain}/api/identity/user/v1.0

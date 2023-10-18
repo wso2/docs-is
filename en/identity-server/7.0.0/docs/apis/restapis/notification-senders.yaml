@@ -2,13 +2,6 @@ openapi: 3.0.0
 info:
   title: Notification Senders API
   description: This document specifies a **RESTful API** for **WSO2 Identity Server Notification Senders**
-  contact:
-    name: WSO2
-    url: http://wso2.com/products/identity-server/
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: "v1"
 servers:
   - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1

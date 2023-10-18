@@ -6,13 +6,6 @@ info:
     <li> Retrieve the stored claims, security questions and the consent receipts approved by the user. </li>
     <li> Self-register users.</li>
     <li> Validate self-registered accounts.</li>
-  contact:
-    name: WSO2
-    url: http://wso2.com/products/identity-server/
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/identity/user/v1.0

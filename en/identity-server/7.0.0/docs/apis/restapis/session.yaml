@@ -17,13 +17,6 @@ info:
     - WSO2 Identity Server also sends SAML/OIDC back-channel logouts when the session is terminated via the API. To support this, you should configure the application to enable back-channel logout.
   version: 'v1'
   title: User Session Management API Definition
-  contact:
-    name: 'WSO2 Identity Server'
-    url: 'https://wso2.com/identity-and-access-management/'
-    email: 'architecture@wso2.com'
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 schemes:
   - https
