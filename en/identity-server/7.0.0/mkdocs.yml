@@ -109,7 +109,7 @@ nav:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
   - Guides: 
-      - guides/index.md
+      - Guides: guides/index.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md
@@ -160,7 +160,7 @@ nav:
             - Add access control:
               - guides/authentication/conditional-auth/access-control.md
               - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
-              - Concurrent session-based access: guides/authentication/conditional-auth/concurrent-session-based-template
+              - Concurrent session-based access: guides/authentication/conditional-auth/concurrent-session-based-template.md
               #- Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
             - Add adaptive MFA:
               - guides/authentication/conditional-auth/adaptive-mfa.md
@@ -259,10 +259,8 @@ nav:
         - Recover your password: guides/your-is/recover-password.md
         - Delete your user account: guides/your-is/delete-your-user-account.md
         - Manage subscriptions: guides/your-is/manage-subscriptions.md
-  - Tutorials:
-    - Tutorials: tutorials/index.md
   - Integrations:
-    - Integrations: integrations/index.md
+    - Integrate WSO2 IS into your application: integrations/index.md
   - APIs:
     - APIs: apis/index.md
     - Authentication API: apis/use-the-authentication-rest-apis.md
@@ -376,8 +374,8 @@ extra:
   #   - icon: fontawesome/brands/github
   #     link: https://github.com/wso2
 #site_version: 1.0.0
-  #base_path: http://127.0.0.1:8000/en/7.0.0
-  base_path: https://is.docs.wso2.com/en/next
+  base_path: http://127.0.0.1:8000/en/7.0.0
+  #base_path: https://is.docs.wso2.com/en/next
   nav_list:
     - Get Started
     - Guides
