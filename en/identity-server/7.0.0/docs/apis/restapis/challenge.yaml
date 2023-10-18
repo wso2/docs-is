@@ -1,8 +1,7 @@
 openapi: 3.0.1
 info:
   title: User's Challenge Answers API
-  description: This is the RESTful API for managing answers to challenge questions.
-    of a user in WSO2 Identity Server
+  description: This is the RESTful API for managing answers to challenge questions of a user in the WSO2 Identity Server
   version: v1
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
@@ -20,7 +19,7 @@ tags:
 - name: admin
   description: |
     Operations available for privileged users, to be invoked on behalf of another user.
-    **These endpoints are not released in WSO2 Identity Server - 5.9.0 version and will be released in the next product version.**
+    **These endpoints are not released in the WSO2 Identity Server - 5.9.0 version and will be released in the next product version.**
 paths:
   /me/challenges:
     get:
@@ -95,7 +94,7 @@ paths:
       operationId: getAnsweredChallengesOfLoggedInUser
       responses:
         200:
-          description: Array of Challenge(s) that are already answered by the authenticated
+          description: Array of Challenge(s) that are already answered by the authenticated.
             user.
           content:
             '*/*':
@@ -120,7 +119,7 @@ paths:
       - me
       summary: Answer new challenge question combination over existing answers.
       description: |
-        Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for logged In user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
+        Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for logged-in users. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
 
         <b>Permission required:</b>
             * None
@@ -128,7 +127,7 @@ paths:
             * internal_login
       operationId: updateChallengeAnswersOfLoggedInUser
       requestBody:
-        description: Set of challenges with answer.
+        description: Set of challenges with answers.
         content:
           '*/*':
             schema:
@@ -253,9 +252,9 @@ paths:
     put:
       tags:
       - me
-      summary: Update challenge answer of an already answered challenge.
+      summary: Update the challenge answer of an already answered challenge.
       description: |
-        Update challenge answer in a specific challenge for authenticated user.
+        Update challenge answer in a specific challenge for authenticated users.
 
         <b>Permission required:</b>
             * None
@@ -270,7 +269,7 @@ paths:
         schema:
           type: string
       requestBody:
-        description: The challenge answer with the challenge-question.
+        description: The challenge answer with the challenge question.
         content:
           '*/*':
             schema:
@@ -310,7 +309,7 @@ paths:
       - me
       summary: Answers a specific new challenge.
       description: |
-        Provide an **answer** to **a specific challenge** in the system for logged-in user. The user can at most select one question from a challenge set of interest.
+        Provide an **answer** to **a specific challenge** in the system for logged-in users. The user can at most select one question from a challenge set of interest.
 
         <b>Permission required:</b>
             * None
@@ -371,7 +370,7 @@ paths:
       - me
       summary: Remove a challenge question answer.
       description: |
-        Removes existing answer provided by the authenticated user to a specific challenge.
+        Removes existing answers provided by the authenticated user to a specific challenge.
 
         <b>Permission required:</b>
             * None
@@ -413,7 +412,7 @@ paths:
       - admin
       summary: Retrieve challenges available for a user identified by the user-id.
       description: |
-        Retrieves the available challenges in the system for the specified user. In the response challenge questions are grouped as **challenge set**s.
+        Retrieves the available challenges in the system for the specified user. In the response challenge questions are grouped as **challenge sets**.
 
         <b>Permission required:</b>
             * /permission/admin/manage/identity/identitymgt/view
@@ -437,8 +436,7 @@ paths:
           format: int32
       - name: offset
         in: query
-        description: Number of records to skip for pagination. _*This filtering is
-          not yet supported._
+        description: Number of records to skip for pagination. _*This filtering is not yet supported._
         schema:
           minimum: 0
           type: integer
@@ -446,7 +444,7 @@ paths:
       responses:
         200:
           description: |
-            All the available challenges in the system that can be answered by the user.
+            All the available challenges in the system can be answered by the user.
           content:
             '*/*':
               schema:
@@ -481,9 +479,9 @@ paths:
     get:
       tags:
       - admin
-      summary: Get user's answered challenges.
+      summary: Get the user's answered challenges.
       description: |
-        Get previously answered challenge(s) in the system by the user idenrified by user-id.
+        Get previously answered challenge(s) in the system by the user identified by user-id.
 
         <b>Permission required:</b>
             * /permission/admin/manage/identity/identitymgt/view
@@ -545,7 +543,7 @@ paths:
         schema:
           type: string
       requestBody:
-        description: Set of challenges with answer.
+        description: Set of challenges with answers.
         content:
           '*/*':
             schema:
@@ -689,9 +687,9 @@ paths:
     put:
       tags:
       - admin
-      summary: Update challenge answer of an already answered challenge.
+      summary: Update the challenge answer of an already answered challenge.
       description: |
-        Update challenge answer in a specific challenge for authenticated user.
+        Update challenge answer in a specific challenge for authenticated users.
 
         <b>Permission required:</b>
             * /permission/admin/manage/identity/identitymgt/update
@@ -712,7 +710,7 @@ paths:
         schema:
           type: string
       requestBody:
-        description: The challenge answer with the challenge-question.
+        description: The challenge answer with the challenge question.
         content:
           '*/*':
             schema:
@@ -819,7 +817,7 @@ paths:
       - admin
       summary: Remove a challenge question answer.
       description: |
-        Removes existing answer provided by the user(identified by user-id) to a specific challenge.
+        Removes existing answers provided by the user(identified by user-id) to a specific challenge.
 
         <b>Permission required:</b>
             * /permission/admin/manage/identity/identitymgt/delete
@@ -889,10 +887,10 @@ components:
         question:
           type: string
           description: Challenge question display value.
-          example: Favorite vacation location ?
+          example: Favorite vacation location?
         questionId:
           type: string
-          description: A unique ID for the challenge quesion within the set.
+          description: A unique ID for the challenge question within the set.
           example: question1
     ChallengeAnswer:
       required:
@@ -933,7 +931,7 @@ components:
         question:
           type: string
           description: Challenge question display value.
-          example: Favorite vacation location ?
+          example: Favorite vacation location?
         answer:
           type: string
           description: A hashed value of the challenge answer.

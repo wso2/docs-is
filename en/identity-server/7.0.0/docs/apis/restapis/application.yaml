@@ -1,8 +1,7 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies an **Application Management RESTful API** for **WSO2
-    Identity Server**.
+    This document specifies an **Application Management RESTful API** for WSO2 Identity Server.
   version: "v1"
   title: Application Management Rest API
 

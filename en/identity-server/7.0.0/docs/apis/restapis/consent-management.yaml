@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: 'Consent Management Rest API'
   description: |
-    This document specifies a **Consent Management RESTfulAPI** for WSO2 **Identity Server**.
+    This document specifies a **Consent Management RESTfulAPI** for WSO2 Identity Server.
   version: 1.0.0
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/identity/consent-mgt/v1.0
@@ -56,7 +56,7 @@ paths:
           description: OK
           headers:
             Location:
-              description: Location to retireve the consent element to.
+              description: Location to retrieve the consent element.
               schema:
                 type: string
           content:
@@ -151,7 +151,7 @@ paths:
       summary: |
         Retrieve a consent receipt
       description: |
-        This API is used to retrieve consent using the conset receipt ID.
+        This API is used to retrieve consent using the consent receipt ID.
       parameters:
       - name: receiptId
         in: path
@@ -474,7 +474,7 @@ paths:
       summary: |
         Retrieve all purpose categories
       description: |
-        This API is used to retrieve  all purpose categories.
+        This API is used to retrieve all purpose categories.
       parameters:
       - name: limit
         in: query
@@ -744,7 +744,7 @@ paths:
       description: |
         This API is used to add a new PII category for consent management.
       requestBody:
-        description: This represents the PII catogory name.
+        description: This represents the PII category name.
         content:
           application/json:
             schema:
@@ -1109,10 +1109,10 @@ components:
             use, and disclosure of PII is being provided.
         serviceDisplayName:
           type: string
-          description: display name of the service
+          description: Display name of the service.
         serviceDescription:
           type: string
-          description: Description about the service
+          description: Description of the service
         tenantDomain:
           type: string
           description: Tenant domain of the SP
@@ -1130,10 +1130,10 @@ components:
             use, and disclosure of PII is being provided.
         serviceDisplayName:
           type: string
-          description: display name of the service
+          description: Display name of the service.
         serviceDescription:
           type: string
-          description: Description about the service
+          description: Description about the service.
         tenantDomain:
           type: string
           description: Tenant domain of the SP
@@ -1151,7 +1151,7 @@ components:
       properties:
         purposeId:
           type: integer
-          description: A unique Id of purpose
+          description: A unique ID of purpose.
         purposeCategoryId:
           type: array
           description: The reason the PII Controller is collecting the PII.
@@ -1159,11 +1159,10 @@ components:
             type: integer
         consentType:
           type: string
-          description: The type of the consent used by the PII Controller as their
-            authority to collect, use or disclose PII.
+          description: The type of consent used by the PII Controller as their authority to collect, use, or disclose PII.
         piiCategory:
           type: array
-          description: A list of defined PII categories Ids.
+          description: A list of defined PII category IDs.
           items:
             $ref: '#/components/schemas/piiCategoryList'
         primaryPurpose:
@@ -1204,12 +1203,10 @@ components:
             type: string
         consentType:
           type: string
-          description: The type of the consent used by the PII Controller as their
-            authority to collect, use or disclose PII.
+          description: The type of consent used by the PII Controller as their authority to collect, use, or disclose PII.
         piiCategory:
           type: array
-          description: A list of defined PII categories Ids.  PII Category should
-            reflect the category that will be shared as understood by the PII Principal.
+          description: A list of defined PII category IDs. The PII Category should reflect the category that will be shared as understood by the PII Principal.
           items:
             $ref: '#/components/schemas/piiCategoryNameList'
         primaryPurpose:
@@ -1222,12 +1219,10 @@ components:
             how consent or purpose is terminated.
         thirdPartyDisclosure:
           type: boolean
-          description: Indicates if the PII Controller is disclosing PII to a third
-            party.  Possible values are TRUE or FALSE.
+          description: Indicates if the PII Controller is disclosing PII to a third party. Possible values are `TRUE` or `FALSE`.
         thirdPartyName:
           type: string
-          description: The name or names of the third party to which the PII Processor
-            may disclose the PII.
+          description: The name or names of the third party to which the PII Processor may disclose the PII.
     purposeListResponse:
       type: object
       properties:
@@ -1328,8 +1323,7 @@ components:
           type: string
         streetAddress:
           type: string
-      description: The physical address of PII controller. Postal address for contacting
-        the PII Controller. This is compliant with the schema https://schema.org/PostalAddress.
+      description: The physical address of the PII controller. Postal address for contacting the PII Controller. This is compliant with the schema `https://schema.org/PostalAddress`.
     piiController:
       required:
       - address
@@ -1341,29 +1335,21 @@ components:
       properties:
         piiController:
           type: string
-          description: Name of the first PII Controller who collects the data. This
-            entity is accountable for compliance with the management of PII. The PII
-            Controller determines the purpose(s) and type(s) of PII processing.
+          description: Name of the first PII Controller who collects the data. This entity is accountable for compliance with the management of PII. The PII Controller determines the purpose(s) and type(s) of PII processing.
         contact:
           type: string
-          description: Contact name of the PII Controller. This field MUST contain
-            a non-empty string.
+          description: Contact name of the PII Controller. This field MUST contain a non-empty string.
         address:
           $ref: '#/components/schemas/address'
         email:
           type: string
-          description: Contact email address of the PII Controller. The direct email
-            to contact the PII Controller regarding the consent or privacy contract.
+          description: Contact email address of the PII Controller. The direct email to contact the PII Controller regarding the consent or privacy contract.
         phone:
           type: string
-          description: Contact phone number of the PII Controller. The business phone
-            number to contact the PII Controller regarding the consent.
+          description: Contact phone number of the PII Controller. The business phone number to contact the PII Controller regarding the consent.
         onBehalf:
           type: boolean
-          description: A PII Processor acting on behalf of a PII Controller or PII
-            Processor. For example, a third-party analytics service would be a PII
-            Processor on behalf of the PII Controller, or a site operator acting on
-            behalf of the PII Controller.
+          description: A PII Processor acting on behalf of a PII Controller or PII Processor. For example, a third-party analytics service would be a PII Processor on behalf of the PII Controller, or a site operator acting on behalf of the PII Controller.
         piiControllerUrl:
           type: string
           description: A URL for contacting the PII Controller.

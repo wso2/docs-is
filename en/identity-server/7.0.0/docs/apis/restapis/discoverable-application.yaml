@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   description: >-
-    This is the RESTful API for user visible application management in WSO2 Identity Server.
+    This is the RESTful API for user-visible application management in the WSO2 Identity Server.
   version: "v1"
   title: User Application Management API
 servers:
@@ -54,14 +54,14 @@ paths:
     get:
       tags:
         - Application Listing
-      summary: Get application by Id.
+      summary: Get application by ID
       description: >
         This API provides the capability to retrieve an application to an authorized user. 
       operationId: getApplication
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -114,16 +114,16 @@ components:
       examples:
         sw:
           value: name sw sales
-          summary: filter by sw operator
+          summary: Filter by `sw` operator
         ew:
           value: name ew force
-          summary: filter by ew operator
+          summary: Filter by `ew` operator
         co:
           value: name co sales
-          summary: filter by co operator
+          summary: Filter by `co` operator
         eq:
           value: name eq salesforce
-          summary: filter by eq operator
+          summary: Filter by `eq` operator
     sortOrderQueryParam:
       in: query
       name: sortOrder
@@ -155,7 +155,7 @@ components:
         Define only the required attributes to be sent in the response object as a comma-separated string.
       schema:
         type: string
-      example: name,description,logo
+      example: name, description, logo
   responses:
     NotFound:
       description: The specified resource is not found.

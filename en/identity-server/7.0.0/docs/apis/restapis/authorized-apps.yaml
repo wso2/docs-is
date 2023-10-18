@@ -3,9 +3,9 @@ info:
   title: OAuth2 Authorized Apps API
   description: This is the RESTful API for managing OAuth2 Authorized Apps.
 
-    <br><br>Through this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
+    <br><br>Through this API, authenticated users can view and revoke the OAuth2/OIDC applications for which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
 
-    <br><br>Additionally, privileged user can view and revoke other users' authorized apps using the API.
+    <br><br>Additionally, privileged users can view and revoke other users' authorized apps using the API.
     
     <br><br>`Warning` <br> This API version will be deprecated in future versions of WSO2 IS. You can use [OAuth2 Authorized Apps API Definition - v2]({{base_path}}/apis/authorized-apps-v2-rest-api/) instead."
   version: v1
@@ -31,7 +31,7 @@ paths:
       - admin
       summary: List authorized applications of a user
       description: |
-        List approved OAuth applications for a given user
+        List approved OAuth applications for a given user.
       operationId: listUserAuthorizedApps
       parameters:
       - name: user-id
@@ -42,7 +42,7 @@ paths:
           type: string
       responses:
         200:
-          description: search results matching criteria
+          description: Search results matching criteria
           content:
             '*/*':
               schema:
@@ -97,7 +97,7 @@ paths:
       - admin
       summary: Retrieve authorized app by app ID for a user
       description: |
-        Retrived autherized OAuth apps by an app ID for a given user
+        Retrieve authorized OAuth apps by an app ID for a given user
       operationId: listUserAuthorizedAppsByAppId
       parameters:
       - name: user-id
@@ -142,7 +142,7 @@ paths:
       - admin
       summary: Removes challenge question answers
       description: |
-        Removes autherized OAuth apps by an app ID for a given user
+        Removes authorized OAuth apps by an app ID for a given user
       operationId: deleteUserAuthorizedAppsByAppId
       parameters:
       - name: user-id
@@ -275,9 +275,8 @@ paths:
     delete:
       tags:
       - me
-      summary: Remove authorized app by app ID for the authenticated user
-      description: Removes authorized OAuth app by an app ID for the authenticated
-        user<br> <b>Permission required:</b> <br> None <br> <b>Scope required:</b>
+      summary: Remove the authorized app by app ID for the authenticated user
+      description: Removes authorized OAuth app by an app ID for the authenticated user<br> <b>Permission required:</b> <br> None <br> <b>Scope required:</b>
         <br> `internal_login`
       operationId: deleteLoggedInUserAuthorizedAppByAppId
       parameters:
