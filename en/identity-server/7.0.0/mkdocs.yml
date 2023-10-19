@@ -430,7 +430,7 @@ extra:
       source_link: https://github.com/nextauthjs/next-auth
     - name: Asgardeo Auth Node SDK
       icon: assets/img/logo/expressjs-logo.svg
-      description: An Asgardeo SDK to integrate Asgardeo into JS/TS-based frameworks such as ExpressJS
+      description: An Asgardeo SDK to integrate WSO2 IS into JS/TS-based frameworks such as ExpressJS
       source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
     - name: Asgardeo Tomcat OIDC Agent
       icon: assets/img/logo/java-logo.svg
