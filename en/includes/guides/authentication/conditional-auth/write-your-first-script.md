@@ -18,8 +18,9 @@ Let's consider the following simplified set of requirements for your business ap
 - Customize the login flow in your application and enable `Username and Password` authentication.
 
 - Create two user groups named `manager` and `employee` and assign user accounts to them. For instructions, see the following:
-  - [Managing groups]({{base_path}}/guides/users/manage-groups/)
-  - [Managing users]({{base_path}}/guides/users/manage-groups/)
+
+    - [Managing groups]({{base_path}}/guides/users/manage-groups/)
+    - [Managing users]({{base_path}}/guides/users/manage-groups/)
 
 ## Start with the default script
 

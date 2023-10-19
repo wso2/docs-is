@@ -2,7 +2,7 @@
 
 To add login to your single-page application with {{ product_name }}, you need to first register your app in {{ product_name }}.
 
-Your app will be registered as an OpenID Connect single-page app, and a client ID will be issued. Note that client secrets are not issued because single-page apps are public clients. However, the [PKCE (Proof Key for Code Exchange)]({{base_path}}/references/app-settings/oidc-settings-for-app.md#proof-key-for-code-exchangepkce) extension is enabled by default as a security measure.
+Your app will be registered as an OpenID Connect single-page app, and a client ID will be issued. Note that client secrets are not issued because single-page apps are public clients. However, the [PKCE (Proof Key for Code Exchange)]({{base_path}}/references/app-settings/oidc-settings-for-app/#proof-key-for-code-exchangepkce) extension is enabled by default as a security measure.
 
 Follow the instructions given below.
 

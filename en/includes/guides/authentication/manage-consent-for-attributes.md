@@ -10,7 +10,7 @@ Once the user is logged in, {{ product_name }} requests consent to share the use
 
 ![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/provide-consent.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-If the application requires **mandatory** attributes for which values are not specified in the [user profile]({{base_path}}/guides/users/manage-customers/#manage-the-customer-s-profile), {{ product_name }} will prompt the user to enter those values during login.
+If the application requires **mandatory** attributes for which values are not specified in the [user profile]({{base_path}}/guides/users/manage-customers/#manage-user-profiles), {{ product_name }} will prompt the user to enter those values during login.
 
 The user can do one of the following during login:
 

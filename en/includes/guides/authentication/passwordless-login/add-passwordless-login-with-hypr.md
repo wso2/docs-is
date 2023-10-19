@@ -95,7 +95,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
 ## Enable HYPR login
 
-!!! note Before you begin
+!!! note "Before you begin"
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.
@@ -185,7 +185,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
 ## Try it out
 
-!!! note Before you begin
+!!! note "Before you begin"
     - Make sure you have a user account in the application registered in the HYPR control center.
     - Download the HYPR app to your mobile device and pair the device to your user account in HYPR.
     <br/>

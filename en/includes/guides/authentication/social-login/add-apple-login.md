@@ -5,7 +5,7 @@ Follow this guide for instructions.
 
 ## Register {{ product_name }} on Apple
 
-!!! note Before you begin
+!!! note "Before you begin"
     You need a paid subscription to get access to an Apple developer account.
 
 To register {{ product_name }} on Apple, you need to create the following components on Apple's Developer Portal:
@@ -179,7 +179,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
 
 ## Enable Apple login
 
-!!! note Before you begin
+!!! note "Before you begin"
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.

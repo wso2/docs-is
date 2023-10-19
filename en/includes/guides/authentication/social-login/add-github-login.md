@@ -84,7 +84,7 @@ After the GitHub identity provider is created, go to the **Settings** tab and se
 
 ## Enable GitHub login
 
-!!! note Before you begin
+!!! note "Before you begin"
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.

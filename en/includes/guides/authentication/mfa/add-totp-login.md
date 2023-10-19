@@ -103,7 +103,7 @@ To disable TOTP enrollment during login:
     };
     ```
 
-    !!! note Enable enrolling in TOTP at first login
+    !!! note "Enable enrolling in TOTP at first login"
         To enable enrolling in TOTP the first time a user logs in, use any of the following approaches:
           
           - Update the value of `enrolUserInAuthenticationFlow` parameter to `true`.

@@ -1,6 +1,6 @@
 # Configure conditional authentication
 
-Given below are the high-level steps for enabling [conditional authentication]({{base_path}}/guides/conditional-authentication/) in your application.
+Given below are the high-level steps for enabling conditional authentication in your application.
 
 ## Enable conditional authentication
 

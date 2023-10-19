@@ -123,7 +123,7 @@ When you have enabled at least one additional authentication method in the **Add
 
 ### Enable backup codes
 
-!!! note Before you begin
+!!! note "Before you begin"
     You need to configure at least one additional authenticator from the My Account portal. See more information on [configuring the authenticator app](#initial-setup).
 
 To enable backup codes:

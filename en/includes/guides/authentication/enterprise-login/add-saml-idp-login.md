@@ -105,13 +105,13 @@ If you selected **File Based Configuration** in the previous step, follow the st
   
 ## Enable the SAML IdP for login
 
-!!! note Before you begin
+!!! note "Before you begin"
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, click **Applications**.
 2. Select your application, go to the **Sign-in Method** tab and add SAML identity provider from your preferred editor:
 
-    !!! note Recommendations
+    !!! note "Recommendations"
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
 
     ---

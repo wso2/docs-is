@@ -4,7 +4,7 @@
 
 {{ product_name }} publishes the following events under three main categories.
 
-!!! note Important
+!!! note "Important"
     Note that all events published by {{ product_name }} are encrypted end-to-end organization-wise until Choreo processes and decrypts them.
 
 - [Login events](#login-events): Events related to login flows.
