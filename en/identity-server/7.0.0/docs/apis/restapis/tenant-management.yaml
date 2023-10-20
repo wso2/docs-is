@@ -50,7 +50,7 @@ paths:
     post:
       tags:
         - Tenants
-      summary: Add tenant.
+      summary: Add tenant
       operationId: addTenant
       description: |
         This API provides the capability to create new tenants.
@@ -88,7 +88,7 @@ paths:
     post:
       tags:
         - Tenants
-      summary: Add tenant.
+      summary: Add tenant
       operationId: addChannelVerifiedTenant
       description: |
         This API provides the capability to create new channel verified tenants.
@@ -128,7 +128,7 @@ paths:
     get:
       tags:
         - Tenants
-      summary: Retrieve tenant by tenant ID.
+      summary: Retrieve tenant by tenant ID
       operationId: getTenant
       description: |
         Retrieve tenant using the tenant ID.
@@ -159,7 +159,7 @@ paths:
     get:
       tags:
         - Tenants
-      summary: Get tenant by domain.
+      summary: Get tenant by domain
       operationId: getTenantByDomain
       description: |
         Get the tenant using domain.
@@ -190,7 +190,7 @@ paths:
     head:
       tags:
         - Tenants
-      summary: Check domain Existence.
+      summary: Check domain existence
       operationId: isDomainExist
       description: |
         Check the tenant existence using domain.
@@ -218,7 +218,7 @@ paths:
     put:
       tags:
         - Tenants
-      summary: Activate or deactivate tenant.
+      summary: Activate or deactivate tenant
       operationId: updateTenantStatus
       description: |
         This API activates/deactivates the specified tenant.
@@ -257,7 +257,7 @@ paths:
     get:
       tags:
         - Tenants
-      summary: Retrieve tenant's owners.
+      summary: Retrieve tenant's owners
       operationId: getOwners
       description: |
         Retrieve owners of the tenant which are identified by the provided tenant id.

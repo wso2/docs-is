@@ -19,7 +19,7 @@ tags:
 paths:
   /workflow-engines:
     get:
-      summary: Retrieve all the available workflow engines.
+      summary: Retrieve all the available workflow engines
       description: |
         Retrieve metadata information of all the workflow engines in the system.
 

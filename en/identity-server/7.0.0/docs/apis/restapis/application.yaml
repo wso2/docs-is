@@ -563,7 +563,7 @@ paths:
       tags:
         - Resident Application
       summary: |
-        Update Resident Application
+        Update resident application
       operationId: updateResidentApplication
       description: >
         This API provides the capability to update the Resident Application Configuration. <br>
@@ -623,7 +623,7 @@ paths:
       tags:
         - Inbound Protocols
       summary: |
-        Retrieve inbound protocol configurations of the application
+        Retrieve inbound protocol configurations
       operationId: getInboundAuthenticationConfigurations
       description: >
         This API provides the capability to retrieve authentication protocol
@@ -671,7 +671,7 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Retrieve SAML2 authentication protocol parameters of application
+        Retrieve SAML2 authentication protocol parameters
       operationId: getInboundSAMLConfiguration
       description: >
         This API provides the capability to retrieve SAML2 authentication
@@ -719,7 +719,7 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Update SAML2 authentication protocol parameters of application
+        Update SAML2 authentication protocol parameters
       operationId: updateInboundSAMLConfiguration
       description: >
         This API provides the capability to store SAML2 authentication protocol
@@ -787,7 +787,7 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Delete SAML2 authentication protocol parameters of application
+        Delete SAML2 authentication protocol parameters
       operationId: deleteInboundSAMLConfiguration
       description: >
         This API provides the capability to delete SAML2 authentication protocol
@@ -833,7 +833,7 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Retrieve OIDC authentication protocol parameters of application
+        Retrieve OIDC authentication protocol parameters
       description: >
         This API provides the capability to retrieve OIDC authentication
         protocol parameters of an application. <br>
@@ -880,7 +880,7 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Update OIDC authentication protocol parameters of application
+        Update OIDC authentication protocol parameters
       description: >
         This API provides the capability to store OIDC authentication protocol
         parameters of an application. <br>
@@ -945,7 +945,7 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Delete OIDC authentication protocol parameters of application
+        Delete OIDC authentication protocol parameters
       description: >
         This API provides the capability to delete OIDC authentication protocol
         parameters of an application. <br>
@@ -991,7 +991,7 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Regenerate the OAuth2/OIDC client secret of application
+        Regenerate the OAuth2/OIDC client secret
       description: |
         This API regenerates the OAuth2/OIDC client secret. <br>
           <b>Permission required:</b> `/permission/admin/manage/identity/applicationmgt/create` <br>
@@ -1083,7 +1083,7 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: >
-        Retrieve Passive STS authentication protocol parameters of application
+        Retrieve Passive STS authentication protocol parameters
       description: >
         This API provides the capability to retrieve Passive STS authentication
         protocol parameters of an application. <br>
@@ -1131,7 +1131,7 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: |
-        Update Passive STS authentication protocol parameters of application
+        Update Passive STS authentication protocol parameters
       description: >
         This API provides the capability to store passive STS authentication
         protocol parameters of an application. <br>
@@ -1199,7 +1199,7 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: |
-        Delete Passive STS authentication protocol parameters of application
+        Delete Passive STS authentication protocol parameters
       description: >
         This API provides the capability to delete Passive STS authentication
         protocol parameters of an application. <br>
@@ -1244,7 +1244,7 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Retrieve WS Trust authentication protocol parameters of application
+        Retrieve WS Trust authentication protocol parameters
       description: >
         This API provides the capability to retrieve Passive STS authentication
         protocol parameters of an application. <br>
@@ -1292,7 +1292,7 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Update WS Trust authentication protocol parameters of application
+        Update WS Trust authentication protocol parameters
       description: >
         This API provides the capability to store WS Trust authentication
         protocol parameters of an application. <br>
@@ -1360,7 +1360,7 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Delete WS Trust authentication protocol parameters of application
+        Delete WS Trust authentication protocol parameters
       description: >
         This API provides the capability to delete WS Trust authentication
         protocol parameters of an application. <br>
@@ -1405,7 +1405,7 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: >
-        Retrieve custom Inbound authentication protocol parameters of application.
+        Retrieve custom inbound authentication protocol parameters
       description: >
         This API provides the capability to retrieve custom inbound
         authentication protocol parameters of an application. <br>
@@ -1458,7 +1458,7 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: |
-        Update the custom inbound authentication protocol parameters of application
+        Update the custom inbound authentication protocol parameters
       description: >
         This API provides the capability to store custom inbound authentication protocol parameters of an application.
         <br>
@@ -1531,7 +1531,7 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: >
-        Delete custom inbound authentication protocol parameters of application
+        Delete custom inbound authentication protocol parameters
       description: >
         This API provides the capability to delete custom inbound authentication protocol of an application. <br>
           <b>Permission required:</b> `/permission/admin/manage/identity/applicationmgt/delete` <br>
@@ -1781,7 +1781,7 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve the sample adaptive authentication templates.
+        Retrieve adaptive authentication sample templates
       description: >
         This API provides the capability to retrieve the sample adaptive authentication templates. <br>
           <b>Permission required:</b> `/permission/admin/manage/identity/applicationmgt/view` <br>
@@ -1817,7 +1817,7 @@ paths:
         - Application Templates
       operationId: getAllApplicationTemplates
       summary: |
-        List Application Templates
+        List application templates
       description: |
         This API provides the capability to retrieve the list of templates available.
       parameters:
@@ -1966,7 +1966,7 @@ paths:
       tags:
         - Application Templates
       summary: |
-        Update the application template by the template ID.
+        Update the application template by the template ID
       operationId: updateApplicationTemplate
       description: |
         This API provides the capability to update an application template by the template ID.
@@ -2014,7 +2014,7 @@ paths:
       tags:
         - Application Templates
       summary: |
-        Delete application template by template ID.
+        Delete application template by template ID
       operationId: deleteApplicationTemplate
       description: |
         This API provides the capability to delete an application template by template ID.

@@ -23,7 +23,7 @@ paths:
       tags:
       - me
       summary: |
-        Trigger FIDO2 device registration.
+        Trigger FIDO2 device registration
       description: |
         This API is used to trigger the FIDO2 device registration flow.
 
@@ -95,7 +95,7 @@ paths:
       tags:
       - me
       summary: |
-        Trigger FIDO2 usernameless device registration.
+        Trigger FIDO2 usernameless device registration
       description: |
         This API is used to trigger the FIDO2 usernameless device registration flow.
 
@@ -167,7 +167,7 @@ paths:
       tags:
       - me
       summary: |
-        Complete FIDO2 device registration.
+        Complete FIDO2 device registration
       description: |
         This API is used to complete the FIDO2 device registration flow.
 
@@ -230,7 +230,7 @@ paths:
       tags:
       - me
       summary: |
-        Deregister devices by username and credentialId.
+        Deregister devices by username and credentialId
       description: |
         This API is used to deregister devices by username and credentialId.
 
@@ -275,7 +275,7 @@ paths:
       tags:
       - me
       summary: |
-        Update display name of device by username and credentialId.
+        Update display name of device by username and credentialId
       description: |
         This API is used to update the display name of a device by username and credentialId.
 
@@ -333,7 +333,7 @@ paths:
       summary: |
         Device Metadata
       description: |
-        This API is used to get FIDO metadata by username.
+        This API is used to get FIDO metadata by username
 
         <b>Permission required:</b>
          * /permission/admin/login

@@ -64,7 +64,7 @@ paths:
     post:
       tags:
       - Authentication
-      summary: Authenticate User
+      summary: Authenticate user
       security:
         - BasicAuth: []
       description: This API is used to authenticate the user and to get a JWT that can be used to identify the user authenticated. 
@@ -112,7 +112,7 @@ paths:
       tags:
       - Authentication
       summary: |
-        Retrieve an authentication context parameter.
+        Retrieve an authentication context parameter
       description: |
         This API is used to retrieve parameters set by the authentication framework to be accessed by the authentication endpoint. Parameters should be set by calling AuthenticationContext.addEndpointParam() to be eligible to query with this API. This can be used to retrieve sensitive parameters required for the authentication endpoint.
       security:

@@ -377,7 +377,7 @@ paths:
       tags:
         - Identity Providers
       summary: >
-        Patch an identity provider property by ID. Patch is supported only for key-value pairs
+        Patch an identity provider property by ID
       description: >
         This API provides the capability to update an identity provider property using a patch request. IdP patch is supported only for key-value pairs. <br>
         <b>Permission required:</b> `/permission/admin/manage/identity/idpmgt/update` <br>
@@ -434,7 +434,7 @@ paths:
       tags:
         - Identity Providers
       summary: |
-        Delete an identity provider by using the identity provider's ID. 
+        Delete an identity provider by ID
       description: >
         This API provides the capability to delete an identity provider by
         giving its ID. <br>
@@ -633,8 +633,7 @@ paths:
       tags:
         - Federated Authenticators
       summary: >
-        Update a federated authenticator of an identity provider by using
-        authenticator id
+        Update a federated authenticator of an IdP using authenticator id
       description: >
         This API provides the capability to update an identity provider's
         federated authenticator config by specifying the authenticator ID. <br>

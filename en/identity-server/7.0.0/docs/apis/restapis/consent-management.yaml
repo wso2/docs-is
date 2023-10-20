@@ -17,7 +17,7 @@ paths:
       tags:
       - Consent
       summary: |
-        List Consents
+        List consents
       description: |
         This API is used to list consent elements based on the filtered attributes.
       parameters:

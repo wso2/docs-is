@@ -26,7 +26,7 @@ paths:
     get:
       tags:
       - me
-      summary: Retrieve the associations of the authenticated user.
+      summary: Retrieve the associations of the authenticated user
       description: |
         This API is used to retrieve the associations of the authenticated user.<br>
         <b>Permission required:</b> None <br>
@@ -129,7 +129,7 @@ paths:
     delete:
       tags:
       - me
-      summary: Delete the given user account from my user associations
+      summary: Delete the given user account from associations
       description: |
         This API is used to delete the given user account from the associations of the authenticated user.<br>
         <b>Permission required:</b> None <br>

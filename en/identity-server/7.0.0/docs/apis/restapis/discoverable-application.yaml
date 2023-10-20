@@ -19,7 +19,7 @@ paths:
     get:
       tags:
         - Application Listing
-      summary: List applications.
+      summary: List applications
       description: |
         This API provides the capability to retrieve
         the list of applications to an authorized user.

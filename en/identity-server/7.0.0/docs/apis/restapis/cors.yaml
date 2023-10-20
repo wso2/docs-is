@@ -11,7 +11,7 @@ paths:
     get:
       tags:
         - CORS origins
-      summary: Retrieve the CORS origins.
+      summary: Retrieve the CORS origins
       operationId: getCORSOrigins
       description: |
         This API provides the capability to retrieve the list of the allowed CORS origins for the tenant.<br>
@@ -50,7 +50,7 @@ paths:
     get:
       tags:
         - Application associations
-      summary: Retrieve the Applications associated with a CORS origin by ID.
+      summary: Retrieve the Applications associated with a CORS origin by ID
       operationId: getAssociatedAppsByCORSOrigin
       description: |
         This API provides the capability to retrieve the Applications associated with a CORS origin by ID.<br>

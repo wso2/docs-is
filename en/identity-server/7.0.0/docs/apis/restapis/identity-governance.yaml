@@ -46,7 +46,7 @@ paths:
     get:
       tags:
         - Management
-      summary: Retrieve governance connectors of a category.
+      summary: Retrieve governance connectors of a category
       operationId: getConnectorCategory
       description: |
         Retrieve governance connectors of a category. <br>
@@ -71,7 +71,7 @@ paths:
     get:
       tags:
         - Management
-      summary: Retrieve governance connectors of a category.
+      summary: Retrieve governance connectors of a category
       operationId: getConnectorsOfCategory
       description: |
         Retrieve governance connectors of a category.<br>
@@ -98,7 +98,7 @@ paths:
     get:
       tags:
         - Management
-      summary: Retrieve governance connector.
+      summary: Retrieve governance connector
       operationId: getConnector
       description: |
         Retrieve governance connector.<br>
@@ -123,7 +123,7 @@ paths:
     patch:
       tags:
         - Management
-      summary: Patch governance connector.
+      summary: Patch governance connector
       operationId: patchConnector
       description: |
         Patch governance connector.<br>

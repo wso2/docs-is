@@ -28,7 +28,7 @@ paths:
     post:
       tags:
         - admin
-      summary: Add a new set of challenge questions.
+      summary: Add a new set of challenge questions
       operationId: addChallenges
       description: |
         Adds a new set of challenge questions to the system. A set can have any number of questions.
@@ -59,7 +59,7 @@ paths:
     get:
       tags:
         - admin
-      summary: Retrieve all the challenge questions.
+      summary: Retrieve all the challenge questions
       operationId: searchChallenges
       produces:
       - application/json
@@ -87,7 +87,7 @@ paths:
     get:
       tags:
         - admin
-      summary: Retrieve a set of challenge questions.
+      summary: Retrieve a set of challenge questions
       operationId: getChallengeQuestionSet
       produces:
       - application/json
@@ -117,7 +117,7 @@ paths:
     put:
       tags:
         - admin
-      summary: Update challenge questions of a set.
+      summary: Update challenge questions of a set
       operationId: updateChallengeQuestionSet
       description: |
         Updates an existing challenge question set in the system. This will override the existing challenge questions in the set with new challenge questions.
@@ -149,7 +149,7 @@ paths:
     patch:
       tags:
         - admin
-      summary: Add a challenge question to a set.
+      summary: Add a challenge question to a set
       operationId: addChallengeQuestionToASet
       description: |
         Add a new challenge question to an existing set.
@@ -180,7 +180,7 @@ paths:
     delete:
       tags:
         - admin
-      summary: Removes a challenge question set.
+      summary: Removes a challenge question set
       operationId: deleteChallengeQuestionSet
       description: |
         Removes an existing challenge question set from the system. By specifying the locale query parameter, questions of specific locale can be deleted within the set.
@@ -203,7 +203,7 @@ paths:
     delete:
       tags:
         - admin
-      summary: Remove a challenge question in a set.
+      summary: Remove a challenge question in a set
       operationId: deleteChallengeQuestion
       description: |
         Removes a specific question from an existing challenge question set. By specifying the locale query parameter, the locale-specific challenge question entry for the question can be deleted.

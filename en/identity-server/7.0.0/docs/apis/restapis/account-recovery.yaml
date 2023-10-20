@@ -21,7 +21,7 @@ paths:
       - Password Recovery
       - Notification
       summary: |
-        Send Recovery Notification
+        Send recovery notification
       description: |
         This API is used to send password recovery confirmation over defined channels like email/SMS.
       parameters:
@@ -74,7 +74,7 @@ paths:
       - Password Recovery
       - Notification
       summary: |
-        Update Password
+        Update password
       description: |
         This API is used to reset the user password using the confirmation key received through the recovery process. You need to input the `key` and the new `password`.
       requestBody:
@@ -117,7 +117,7 @@ paths:
       tags:
       - Password Recovery
       summary: |
-        Validate Confirmation Code
+        Validate confirmation code
       description: |
         This API is used to validate confirmation codes sent in account recovery scenarios and self-signup. You need to input the confirmation `code` and recovery `step` as parameters.
       requestBody:
@@ -162,7 +162,7 @@ paths:
       - Password Recovery
       - Security Question
       summary: |
-        Get Challenge Question of User
+        Get challenge question of user
       description: |
         This API is used to initiate password recovery using user challenge questions. The response will be a random challenge question with a confirmation key.
       parameters:
@@ -216,7 +216,7 @@ paths:
       - Password Recovery
       - Security Question
       summary: |
-        Get Challenge Questions of User
+        Get challenge questions of user
       description: |
         This API is used to initiate password recovery using user challenge questions at once. The response will be a random challenge question with a confirmation key.
       parameters:
@@ -270,7 +270,7 @@ paths:
       - Password Recovery
       - Security Question
       summary: |
-        Validate user challenge answer/answers.
+        Validate user challenge answer/answers
       description: |
         This is used to validate the user challenge answer. If the user challenge answer is valid, it sends another challenge question to answer until the status becomes `COMPLETE`. If the answer is wrong, the user can retry the answer.
       requestBody:
@@ -310,7 +310,7 @@ paths:
       - Username Recovery
       - Notification
       summary: |
-        Recover Username
+        Recover username
       description: |
         This API can be used to recover a forgotten username.
       parameters:
@@ -362,7 +362,7 @@ paths:
       tags:
       - Username Recovery
       summary: |
-        Get Supported Claims
+        Get supported claims
       description: |
         Return the recovery-supported claims in the given tenant.
       parameters:
@@ -402,7 +402,7 @@ paths:
       - Password Recovery
       - Username Recovery
       summary: |
-        Get Captcha
+        Get CAPTCHA
       description: |
         Return the reCaptcha information if it's supported for the given tenant.
       operationId: getCaptcha
@@ -452,7 +452,7 @@ paths:
       - Password Recovery
       - Username Recovery
       summary: |
-        Verify Captcha
+        Verify CAPTCHA
       description: |
         Return true or false after verifying the captcha response.
       operationId: verifyCaptcha
