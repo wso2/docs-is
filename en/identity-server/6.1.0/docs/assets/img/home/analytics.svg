@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="57" viewBox="0 0 96 57">
+  <g id="Analytics" transform="translate(-173 -314)">
+    <g id="Ellipse_8" data-name="Ellipse 8" transform="translate(173 352)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+      <circle cx="9.5" cy="9.5" r="7.5" fill="none"/>
+    </g>
+    <g id="Ellipse_9" data-name="Ellipse 9" transform="translate(199 325)" fill="#ed5d2b" stroke="#ed5d2b" stroke-width="4">
+      <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+      <circle cx="9.5" cy="9.5" r="7.5" fill="none"/>
+    </g>
+    <g id="Ellipse_10" data-name="Ellipse 10" transform="translate(219 346)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+      <circle cx="9.5" cy="9.5" r="7.5" fill="none"/>
+    </g>
+    <g id="Ellipse_11" data-name="Ellipse 11" transform="translate(250 314)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+      <circle cx="9.5" cy="9.5" r="7.5" fill="none"/>
+    </g>
+    <rect id="Rectangle_17" data-name="Rectangle 17" width="24" height="4" transform="translate(186.2 355.071) rotate(-45)" fill="#ed5d2b"/>
+    <rect id="Rectangle_19" data-name="Rectangle 19" width="32.255" height="4" transform="translate(231.2 350.071) rotate(-45)" fill="#ed5d2b"/>
+    <rect id="Rectangle_18" data-name="Rectangle 18" width="14" height="4" transform="translate(222.1 351.828) rotate(-135)" fill="#ed5d2b"/>
+  </g>
+</svg>

@@ -1,0 +1,688 @@
+openapi: 3.0.1
+info:
+  title: WSO2 Identity Server Rest API - Recovery
+  description: |
+    This document specifies a **RESTful API** for WSO2 **Identity Server** .
+  contact:
+    name: WSO2
+    url: http://wso2.com/products/identity-server/
+    email: architecture@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.9.0
+servers:
+- url: https://{serverUrl}/t/{tenantDomain}/api/identity/recovery/v0.9
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
+security:
+- OAuth2: []
+- BasicAuth: []
+paths:
+  /recover-password:
+    post:
+      tags:
+      - Password Recovery
+      - Notification
+      summary: |
+        Send Recovery Notification
+      description: |
+        This API is used to send password recovery confirmation over defined channels like email/sms.
+      parameters:
+      - name: type
+        in: query
+        description: Notification Type
+        schema:
+          type: string
+      - name: notify
+        in: query
+        description: If notify=true, notifications will be internally managed.
+        schema:
+          type: boolean
+      requestBody:
+        description: Optional property parameters can be sent via email based on the
+          email template.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecoveryInitiatingRequest'
+        required: true
+      responses:
+        202:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: key
+                type: string
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username": "isura","realm": "ENGINEERING","tenant-domain":"carbon.super"},"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email¬ify=true"
+      x-wso2-response: |
+        "HTTP/1.1 202 Accepted"
+      x-codegen-request-body-name: RecoveryInitiatingRequest
+  /set-password:
+    post:
+      tags:
+      - Password Recovery
+      - Notification
+      summary: |
+        Update Password
+      description: |
+        This API is used to reset user password using the confirmation key recieved through the recovery process. You need to input the `key` and the new `password`.
+      requestBody:
+        description: Key, password, and optional metadata properties.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        202:
+          description: Successful response
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        412:
+          description: Precondition Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetryError'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: "curl -X POST -H \"Authorization: Basic YWRtaW46YWRtaW4=\" -H\
+        \ \"Content-Type: application/json\" -d '{\"key\": \"5c765a47-6764-4048-b5cf-55864cb654c0\"\
+        , \"password\": \"P@ssW0rd\",\"properties\": []}' \"https://localhost:9443/api/identity/recovery/v0.9/set-password\"\
+        \n    \n"
+      x-wso2-response: "\"HTTP/1.1 200 OK\"        \n"
+      x-codegen-request-body-name: ResetPasswordRequest
+  /validate-code:
+    post:
+      tags:
+      - Password Recovery
+      summary: |
+        Validate Confirmation Code
+      description: |
+        This API is used to validate confirmation codes sent in account recovery scenarios and self-signup. You need to input the confirmation `code` and recovery `step` as parameters.
+      requestBody:
+        description: Code, recovery step, and optional parameters. <br/> For recovery **step**,
+          you can use one of the following according to the recovery scenario that you want to validate the code. 
+          <ul>
+            <li>**UPDATE_PASSWORD**</li>
+            <li>**CONFIRM_SIGN_UP**</li>
+            <li>**VALIDATE_CHALLENGE_QUESTION**</li>
+            <li>**VALIDATE_ALL_CHALLENGE_QUESTION**</li>
+          </ul>
+          
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CodeValidationRequest'
+        required: true
+      responses:
+        202:
+          description: Accepted
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "84325529-8aa7-4851-8751-5980a7f2d9f7","step": "UPDATE_PASSWORD","properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/validate-code"
+      x-wso2-response: |
+        "HTTP/1.1 202 Accepted"
+      x-codegen-request-body-name: CodeValidationRequest
+  /security-question:
+    get:
+      tags:
+      - Password Recovery
+      - Security Question
+      summary: |
+        Get Challenge Question of User
+      description: |
+        This API is used to initiate password recovery using user challenge questions. Response will be a random challenge question with a confirmation key.
+      parameters:
+      - name: username
+        in: query
+        description: username of the user
+        required: true
+        schema:
+          type: string
+      - name: realm
+        in: query
+        description: |
+          `User Store Domain` that the user belongs to. If not specified, it will be `PRIMARY` domain.
+        schema:
+          type: string
+      - name: tenant-domain
+        in: query
+        description: |
+          `Tenant Domain` that the user belongs to. If not specified, it will be `carbon.super` domain.
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitiateQuestionResponse'
+        204:
+          description: No content
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/security-question?username=isura"
+      x-wso2-response: |
+        {"key":"7ced9ef0-7f3f-4f65-a115-ddbcce3a6b49","question":{"question":"City where you were born ?","question-set-id":"http://wso2.org/claims/challengeQuestion1"}
+  /security-questions:
+    get:
+      tags:
+      - Password Recovery
+      - Security Question
+      summary: |
+        Get Challenge Questions of User
+      description: |
+        This API is used to initiate password recovery using user challenge questions at once. Response will be a random challenge question with a confirmation key.
+      parameters:
+      - name: username
+        in: query
+        description: username of the user
+        required: true
+        schema:
+          type: string
+      - name: realm
+        in: query
+        description: |
+          `User Store Domain` that the user belongs to. If not specified, it will be `PRIMARY` domain.
+        schema:
+          type: string
+      - name: tenant-domain
+        in: query
+        description: |
+          `Tenant Domain` that the user belongs to. If not specified, it will be `carbon.super` domain.
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitiateAllQuestionResponse'
+        204:
+          description: No content
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/security-question?username=isura"
+      x-wso2-response: |
+        {"key":"f9f04fd7-3666-4bc6-bc99-9190b04b0ccc","questions":[{"question":"City where you were born ?","question-set-id":"http://wso2.org/claims/challengeQuestion1"},{"question":"Model of your first car ?","question-set-id":"http://wso2.org/claims/challengeQuestion2"}],"link":{"rel":"validate-answer","uri":"/api/identity/recovery/v0.9"}}
+  /validate-answer:
+    post:
+      tags:
+      - Password Recovery
+      - Security Question
+      summary: |
+        Validate user challenge answer/answers.
+      description: |
+        This is used to validate the user challenge answer. If the user challenge answer is valid, it sends another challenge question to answer until the status becomes `COMPLETE`. If the answer is wrong, user can retry the answer.
+      requestBody:
+        description: User answers verification with key returned in previous step.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnswerVerificationRequest'
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitiateQuestionResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetryError'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -k -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"key": "0b20bd4d-cd82-4e8f-8ca4-4d265360b56b","answers": [{ "question-set-id": "http://wso2.org/claims/challengeQuestion1","answer": "born"},{"question-set-id": "http://wso2.org/claims/challengeQuestion2","answer": "car"}],"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/validate-answer"
+      x-wso2-response: |
+        {"key":"c45d7251-59f1-468d-9844-8a6d7c5fe9d9","question":null,"link":{"rel":"set-password","uri":"/api/identity/recovery/v0.9"}}
+      x-codegen-request-body-name: AnswerVerificationRequest
+  /recover-username/:
+    post:
+      tags:
+      - Username Recovery
+      - Notification
+      summary: |
+        Recover username
+      description: |
+        This API can be used to recover a forgotten username.
+      parameters:
+      - name: tenant-domain
+        in: query
+        description: Tenant Domain that the user belongs to. Default `carbon.super`
+        schema:
+          type: string
+      - name: notify
+        in: query
+        description: If notify=true, notifications will be internally managed.
+        schema:
+          type: boolean
+      requestBody:
+        description: User answers for recovery claims.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserClaim'
+        required: true
+      responses:
+        202:
+          description: Successful response
+          content: {}
+        204:
+          description: No valid user found for given data.
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '[{"uri": "http://wso2.org/claims/givenname","value": "isura"},{"uri": "http://wso2.org/claims/emailaddress", "value": "isuradil@email.com"},{"uri": "http://wso2.org/claims/lastname","value": "karunaratne" }]' "https://localhost:9443/api/identity/recovery/v0.9/recover-username/"
+      x-wso2-response: |
+        "HTTP/1.1 202 Accepted"
+      x-codegen-request-body-name: Claim
+  /claims:
+    get:
+      tags:
+      - Username Recovery
+      summary: |
+        Get Supported Claims
+      description: |
+        return the recovery supported claims in the given tenant.
+      parameters:
+      - name: tenant-domain
+        in: query
+        description: tenant domain. Default `carbon.super`
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Claim'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/recovery/v0.9/claims?tenant-domain=carbon.super"
+      x-wso2-response: |
+        [{"uri":"http://wso2.org/claims/mobile","value":null,"description":"Mobile","display-name":"Mobile","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/role","value":null,"description":"Role","display-name":"Role","dialect":"http://wso2.org/claims","required":false,"readOnly":true},{"uri":"http://wso2.org/claims/givenname","value":null,"description":"First Name","display-name":"First Name","dialect":"http://wso2.org/claims","required":true,"readOnly":false},{"uri":"http://wso2.org/claims/organization","value":null,"description":"Organization","display-name":"Organization","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/im","value":null,"description":"IM","display-name":"IM","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/lastname","value":null,"description":"Last Name","display-name":"Last Name","dialect":"http://wso2.org/claims","required":true,"readOnly":false},{"uri":"http://wso2.org/claims/telephone","value":null,"description":"Telephone","display-name":"Telephone","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/country","value":null,"description":"Country","display-name":"Country","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/emailaddress","value":null,"description":"Email Address","display-name":"Email","dialect":"http://wso2.org/claims","required":true,"readOnly":false},{"uri":"http://wso2.org/claims/url","value":null,"description":"URL","display-name":"URL","dialect":"http://wso2.org/claims","required":false,"readOnly":false}]
+  /captcha:
+    get:
+      tags:
+      - Password Recovery
+      - Username Recovery
+      summary: |
+        Get Captcha
+      description: |
+        return the reCaptcha information if its supported for the given tenant.
+      operationId: getCaptcha
+      parameters:
+      - name: tenant-domain
+        in: query
+        description: tenant domain. Default `carbon.super`
+        schema:
+          type: string
+      - name: captcha-type
+        in: query
+        description: type of captcha
+        required: true
+        schema:
+          type: string
+      - name: recovery-type
+        in: query
+        description: username recovery or password recovery
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReCaptchaProperties'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/captcha?tenant-domain=carbon.super&captcha-type=ReCaptcha&recovery-type=username-recovery"
+      x-wso2-response: |
+        {"reCaptchaEnabled":true,"reCaptchaKey":"6LctLW4UAAAA5YWxy93f7yBQlzMh_RdkmUxd-J","reCaptchaAPI":"https://www.google.com/recaptcha/api.js"}
+    post:
+      tags:
+      - Password Recovery
+      - Username Recovery
+      summary: |
+        Verify Captcha
+      description: |
+        return true or false after verify the captcha response.
+      operationId: verifyCaptcha
+      parameters:
+      - name: tenant-domain
+        in: query
+        description: tenant domain. Default `carbon.super`
+        schema:
+          type: string
+      - name: captcha-type
+        in: query
+        description: type of captcha
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: recaptcha response from google.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReCaptchaResponseToken'
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReCaptchaVerificationResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-request: |
+        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"token": "xsfwewfcavfrwafrawva"}' "https://localhost:9443/api/identity/recovery/v0.9/captcha?tenant-domain=carbon.super&captcha-type=ReCaptcha"
+      x-wso2-response: |
+        {"success":true}
+      x-codegen-request-body-name: reCaptcha-response
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        realm:
+          type: string
+    ResetPasswordRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        password:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+    Question:
+      type: object
+      properties:
+        question:
+          type: string
+        question-set-id:
+          type: string
+    AnswerVerificationRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityAnswer'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    RetryError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+        key:
+          type: string
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    RecoveryInitiatingRequest:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    InitiateAllQuestionResponse:
+      type: object
+      properties:
+        key:
+          type: string
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+        link:
+          $ref: '#/components/schemas/Link'
+    InitiateQuestionResponse:
+      type: object
+      properties:
+        key:
+          type: string
+        question:
+          $ref: '#/components/schemas/Question'
+        link:
+          $ref: '#/components/schemas/Link'
+    SecurityAnswer:
+      type: object
+      properties:
+        question-set-id:
+          type: string
+        answer:
+          type: string
+    Claim:
+      type: object
+      properties:
+        uri:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+        display-name:
+          type: string
+        dialect:
+          type: string
+        validation-regex:
+          type: string
+        required:
+          type: boolean
+        read-only:
+          type: boolean
+    Link:
+      type: object
+      properties:
+        rel:
+          type: string
+        uri:
+          type: string
+    UserClaim:
+      type: object
+      properties:
+        uri:
+          type: string
+        value:
+          type: string
+    CodeValidationRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        step:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    ReCaptchaResponseToken:
+      type: object
+      properties:
+        token:
+          type: string
+    ReCaptchaVerificationResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+    ReCaptchaProperties:
+      type: object
+      properties:
+        reCaptchaEnabled:
+          type: boolean
+        reCaptchaKey:
+          type: string
+        reCaptchaAPI:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information

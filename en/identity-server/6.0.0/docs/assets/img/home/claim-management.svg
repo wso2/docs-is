@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="73" height="64" viewBox="0 0 73 64">
+  <g id="Claim_Management" data-name="Claim Management" transform="translate(-368 -168)">
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="44" height="4" transform="translate(368 168)" fill="#ed5d2b"/>
+    <rect id="Rectangle_26" data-name="Rectangle 26" width="44" height="4" transform="translate(368 192)" fill="#ed5d2b"/>
+    <rect id="Rectangle_30" data-name="Rectangle 30" width="44" height="4" transform="translate(368 216)" fill="#ed5d2b"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="53" height="4" transform="translate(368 174)" fill="#bdbdbd"/>
+    <rect id="Rectangle_27" data-name="Rectangle 27" width="53" height="4" transform="translate(368 198)" fill="#bdbdbd"/>
+    <rect id="Rectangle_31" data-name="Rectangle 31" width="53" height="4" transform="translate(368 222)" fill="#bdbdbd"/>
+    <rect id="Rectangle_24" data-name="Rectangle 24" width="53" height="4" transform="translate(368 180)" fill="#bdbdbd"/>
+    <rect id="Rectangle_28" data-name="Rectangle 28" width="53" height="4" transform="translate(368 204)" fill="#bdbdbd"/>
+    <rect id="Rectangle_32" data-name="Rectangle 32" width="53" height="4" transform="translate(368 228)" fill="#bdbdbd"/>
+    <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(425 168)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <rect width="16" height="16" stroke="none"/>
+      <rect x="2" y="2" width="12" height="12" fill="none"/>
+    </g>
+    <g id="Rectangle_25" data-name="Rectangle 25" transform="translate(425 192)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <rect width="16" height="16" stroke="none"/>
+      <rect x="2" y="2" width="12" height="12" fill="none"/>
+    </g>
+    <g id="Rectangle_29" data-name="Rectangle 29" transform="translate(425 216)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <rect width="16" height="16" stroke="none"/>
+      <rect x="2" y="2" width="12" height="12" fill="none"/>
+    </g>
+  </g>
+</svg>

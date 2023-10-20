@@ -1,0 +1,872 @@
+openapi: 3.0.0
+info:
+  title: WSO2 Identity Server - Notification Senders API Definition
+  description: This document specifies a **RESTful API** for **WSO2 Identity Server Notification Senders**
+  contact:
+    name: WSO2
+    url: http://wso2.com/products/identity-server/
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: "v1"
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /notification-senders/email:
+    get:
+      tags:
+        - Email Senders
+      summary: Get a list of email senders
+      description: |
+        This API provides the capability to retrieve the list of email senders. <br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/view <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_view
+      operationId: getEmailSenders
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailProviderList'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Email Senders
+      summary: Create an email sender
+      description: |
+        This API provides the capability to create an email sender.\n\nIf the 'name' is not not defined, 'EmailPublisher' is taken as the default name. <br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/add <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_add
+      operationId: createEmailSender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailSenderAdd'
+            example:
+              fromAddress: iam@gmail.com
+              userName: iam
+              password: iam123
+              properties:
+                - key: mail.smtp.starttls.enable
+                  value: true
+      responses:
+        "201":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /notification-senders/email/{sender-name}:
+    get:
+      tags:
+        - Email Senders
+      summary: Retrieve an email sender by name
+      description: |
+        This API provides the capability to retrieve an email sender by name.
+        The URL encoded email sender name is used as sender-name.<br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/view <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_view
+      operationId: getEmailSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the email sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Email Senders
+      summary: Update an email sender
+      description: |
+        This API provides the capability to update an email sender by name.
+        The URL encoded email sender name is used as sender-name.<br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/update <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_update
+      operationId: updateEmailSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the email sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailSenderUpdateRequest'
+            example:
+              fromAddress: iam@gmail.com
+              userName: iam
+              password: iam123
+              properties:
+                - key: mail.smtp.starttls.enable
+                  value: true
+        required: true
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - Email Senders
+      summary: Delete an email sender by name
+      description: |
+        This API provides the capability to delete an email sender by name.
+        The URL encoded email sender name is used as sender-name.<br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/delete <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_delete
+      operationId: deleteEmailSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the email sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /notification-senders/sms:
+    get:
+      tags:
+        - SMS Senders
+      summary: Get a list of SMS senders
+      description: |
+        This API provides the capability to retrieve a list of SMS notification senders.<br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/view <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_view
+      operationId: getSMSSenders
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMSProviderList'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - SMS Senders
+      summary: Create a SMS sender
+      description: |
+        This API provides the capability to create a SMS sender.
+        If the 'name' is not not defined, 'SMSPublisher' is taken as the default name.<br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/add <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_add
+      operationId: createSMSSender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSSenderAdd'
+            example:
+              provider: NEXMO
+              providerURL: https://rest.nexmo.com/sms/json
+              key: 123**45
+              secret: 5tg**ssd
+              sender: +94 775563324
+              type : json
+              properties:
+                - key: body.scope
+                  value: "internal"
+                - key: http.headers
+                  value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+      responses:
+        "201":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMSSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /notification-senders/sms/{sender-name}:
+    get:
+      tags:
+        - SMS Senders
+      summary: Get a SMS sender by name
+      description: |
+        This API provides the capability to retrieve a SMS notification sender by name.
+        The URL encoded SMS sender name is used as sender-name.<br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/view <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_view
+      operationId: getSMSSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the SMS sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMSSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - SMS Senders
+      summary: Update a SMS sender
+      description: |
+        This API provides the capability to update a SMS Sender.
+        The URL encoded SMS sender name is used as sender-name.<br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/update <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_update
+      operationId: updateSMSSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the SMS sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSSenderUpdateRequest'
+            example:
+              provider: NEXMO
+              providerURL: https://rest.nexmo.com/sms/json
+              key: 123**45
+              secret: 5tg**ssd
+              sender: +94 775563324
+              type : json
+              properties:
+                - key: body.scope
+                  value: "internal"
+                - key: http.headers
+                  value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+        required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMSSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - SMS Senders
+      summary: Delete a SMS sender by name
+      description: |
+        This API provides the capability to delete a SMS sender by name.
+        The URL encoded SMS sender name is used as sender-name.<br>
+          <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/configmgt/delete <br>
+          <b>Scope required:</b> <br>
+            * internal_config_mgt_delete
+      operationId: deleteSMSSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the SMS sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: NSM-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+    EmailSenderAdd:
+      required:
+        - fromAddress
+      type: object
+      properties:
+        name:
+          type: string
+        smtpServerHost:
+          type: string
+        smtpPort:
+          type: integer
+        fromAddress:
+          type: string
+          example: iam@gmail.com
+        userName:
+          type: string
+          example: iam
+        password:
+          type: string
+          example: iam123
+        properties:
+          type: array
+          example:
+            - key: body.scope
+              value: "true"
+            - key: mail.smtp.starttls.enable
+              value: true
+          items:
+            $ref: '#/components/schemas/Properties'
+    SMSSenderAdd:
+      required:
+        - providerURL
+        - provider
+        - contentType
+      type: object
+      properties:
+        name:
+          type: string
+          example: SMSPublisher
+        provider:
+          type: string
+          example: NEXMO
+        providerURL:
+          type: string
+          example: https://rest.nexmo.com/sms/json
+        key:
+          type: string
+          example: 123**45
+        secret:
+          type: string
+          example: 5tg**ssd
+        sender:
+          type: string
+          example: +94 775563324
+        contentType:
+          type: string
+          enum:
+            - JSON
+            - FORM
+        properties:
+          type: array
+          example:
+            - key: http.headers
+              value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+          items:
+            $ref: '#/components/schemas/Properties'
+    EmailSender:
+      required:
+        - fromAddress
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          example: EmailPublisher
+        smtpServerHost:
+          type: string
+          example: smtp.gmail.com
+        smtpPort:
+          type: integer
+          example: 587
+        fromAddress:
+          type: string
+          example: iam@gmail.com
+        userName:
+          type: string
+          example: iam
+        password:
+          type: string
+          example: iam123
+        properties:
+          type: array
+          example:
+            - key: mail.smtp.starttls.enable
+              value: true
+          items:
+            $ref: '#/components/schemas/Properties'
+    SMSSender:
+      required:
+        - providerURL
+        - name
+        - provider
+        - contentType
+      type: object
+      properties:
+        name:
+          type: string
+          example: SMSPublisher
+        provider:
+          type: string
+          example: NEXMO
+        providerURL:
+          type: string
+          example: https://rest.nexmo.com/sms/json
+        key:
+          type: string
+          example: 123**45
+        secret:
+          type: string
+          example: 5tg**ssd
+        sender:
+          type: string
+          example: +94 775563324
+        contentType:
+          type: string
+          enum:
+            - JSON
+            - FORM
+        properties:
+          type: array
+          example:
+            - key: body.scope
+              value: "internal"
+            - key: http.headers
+              value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+          items:
+            $ref: '#/components/schemas/Properties'
+    EmailSenderUpdateRequest:
+      required:
+        - fromAddress
+      type: object
+      properties:
+        smtpServerHost:
+          type: string
+          example: smtp.gmail.com
+        smtpPort:
+          type: integer
+          example: 587
+        fromAddress:
+          type: string
+          example: iam@gmail.com
+        userName:
+          type: string
+          example: iam
+        password:
+          type: string
+          example: iam123
+        properties:
+          type: array
+          example:
+            - key: body.scope
+              value: "true"
+            - key: mail.smtp.starttls.enable
+              value: true
+          items:
+            $ref: '#/components/schemas/Properties'
+    SMSSenderUpdateRequest:
+      required:
+        - providerURL
+        - provider
+        - contentType
+      type: object
+      properties:
+        provider:
+          type: string
+          example: NEXMO
+        providerURL:
+          type: string
+          example: https://rest.nexmo.com/sms/json
+        key:
+          type: string
+          example: 123**45
+        secret:
+          type: string
+          example: 5tg**ssd
+        sender:
+          type: string
+          example: +94 775563324
+        contentType:
+          type: string
+          enum:
+            - JSON
+            - FORM
+        properties:
+          type: array
+          example:
+            - key: http.headers
+              value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+          items:
+            $ref: '#/components/schemas/Properties'
+    Properties:
+      required:
+        - key
+        - value
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      example:
+        - key: email
+          value: iam@gmail.com
+    EmailProviderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EmailSender'
+    SMSProviderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/SMSSender'
+  parameters:
+    typeQueryParam:
+      name: type
+      in: query
+      description: |
+        Type of authenticators. Can be either 'LOCAL' or 'REQUEST_PATH'
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}

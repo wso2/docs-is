@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="71" height="90" viewBox="0 0 71 90">
+  <g id="Consent_Management" data-name="Consent Management" transform="translate(-527 -162)">
+    <path id="Subtraction_5" data-name="Subtraction 5" d="M19,100H-8.85A5.157,5.157,0,0,1-14,94.848v-73.7A5.157,5.157,0,0,1-8.85,16H33.428L48.087,31.928V68h-4V34.66H32.48a1.625,1.625,0,0,1-1.831-1.8V20H-8.85A1.5,1.5,0,0,0-10,21.152v73.7A1.5,1.5,0,0,0-8.85,96H19v4ZM34.644,23.709v6.983h6.425ZM19,74.386H-2.043a1.623,1.623,0,0,1-1.621-1.621,1.622,1.622,0,0,1,1.621-1.62H19v3.24ZM34.69,63.672H-2.043a1.622,1.622,0,0,1-1.621-1.62,1.623,1.623,0,0,1,1.621-1.621H34.69a1.62,1.62,0,1,1,0,3.241Zm0-10.534H-2.043a1.623,1.623,0,0,1-1.621-1.621A1.622,1.622,0,0,1-2.043,49.9H34.69a1.62,1.62,0,1,1,0,3.241Zm0-10.891H-2.043a1.622,1.622,0,0,1-1.621-1.62,1.623,1.623,0,0,1,1.621-1.621H34.69a1.62,1.62,0,1,1,0,3.241Z" transform="translate(541 146)" fill="#ed5d2b"/>
+    <g id="Rectangle_15" data-name="Rectangle 15" transform="translate(567 221)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <rect width="31" height="31" stroke="none"/>
+      <rect x="2" y="2" width="27" height="27" fill="none"/>
+    </g>
+  </g>
+</svg>

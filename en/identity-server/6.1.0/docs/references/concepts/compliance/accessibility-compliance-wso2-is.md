@@ -1,0 +1,7 @@
+# Accessibility Compliance
+
+WSO2 Identity Server (WSO2 IS) version 6.1.0 conforms with Level A and Level AA success criteria and techniques of the **Web Content Accessibility Guidelines 2.1** ([WCAG 2.1](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=111%2C123%2C141%2C143%2C144%2C146%2C1412%2C1413%2C211%2C231%2C243%2C244%2C245%2C246%2C247%2C248%2C249%2C2410%2C251%2C252%2C253%2C254%2C311%2C316%2C321%2C322%2C323%2C324%2C325%2C331%2C332%2C411%2C412%2C1411&currentsidebar=%23col_overview&levels=aaa&technologies=smil%2Cpdf%2Cflash%2Csl)).
+
+This makes content on WSO2 IS 6.1.0 more accessible to a broader range of people with disabilities and makes the product more usable in general. With this, the business user registration interfaces and sign-in interfaces offered by WSO2 IS are now operable through a keyboard interface. Color is not used as the only visual means of conveying information anymore. Content is now robust and understandable, making it more user-friendly.
+
+WSO2 provides a [Voluntary Product Accessibility Template (VPAT)]({{base_path}}/assets/attachments/VPAT-WSO2-IS-6.1.0.pdf) for WSO2 IS 6.1.0 to document the product's compliance with **Web Content Accessibility Guidelines 2.1** ([WCAG 2.1](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=111%2C123%2C141%2C143%2C144%2C146%2C1412%2C1413%2C211%2C231%2C243%2C244%2C245%2C246%2C247%2C248%2C249%2C2410%2C251%2C252%2C253%2C254%2C311%2C316%2C321%2C322%2C323%2C324%2C325%2C331%2C332%2C411%2C412%2C1411&currentsidebar=%23col_overview&levels=aaa&technologies=smil%2Cpdf%2Cflash%2Csl)).

@@ -1,0 +1,444 @@
+openapi: 3.0.1
+info:
+  title: 'WSO2 Identity Server FIDO2 Rest API '
+  description: |
+    This document specifies a **FIDO 2 RESTfulAPI** for WSO2 **Identity Server** .
+
+  contact:
+    name: WSO2
+    url: http://wso2.com/products/identity-server/
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v2
+servers:
+- url: https://{serverUrl}/t/{tenantDomain}/api/users/v2/me/webauthn
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
+security:
+- OAuth2: []
+- BasicAuth: []
+tags:
+- name: me
+  description: Operations for the authenticated user.
+paths:
+  /start-registration:
+    post:
+      tags:
+      - me
+      summary: |
+        Trigger FIDO2 device registration.
+      description: |
+        This API is used to trigger FIDO2 device registration flow.
+
+         <b>Permission required:</b>
+         * /permission/admin/login
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+              - appId
+              properties:
+                appId:
+                  type: string
+                  description: Represents the host name of FIDO request initiator.
+        required: true
+      responses:
+        201:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  requestId: veiLaU2yg0-pAhn1sRlXZBbxS5KaidyAyfWt-sQUajU
+                  publicKeyCredentialCreationOptions:
+                    rp:
+                      name: WSO2 Identity Server
+                      id: localhost
+                    user:
+                      name: admin@carbon.super
+                      displayName: admin
+                      id: iAgKlKucOIjxUoUq510BXTI9_p3NENmQo2ZM5gQMcoA
+                    challenge: tvyJuz16drO390L5VPheOG5zpY9zEcSVbc1QNeFv0Fs
+                    pubKeyCredParams:
+                    - alg: -7
+                      type: public-key
+                    - alg: -257
+                      type: public-key
+                    excludeCredentials: []
+                    attestation: none
+                    extensions: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /start-usernameless-registration:
+    post:
+      tags:
+      - me
+      summary: |
+        Trigger FIDO2 usernameless device registration.
+      description: |
+        This API is used to trigger FIDO2 usernameless device registration flow.
+
+         <b>Permission required:</b>
+         * /permission/admin/login
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+              - appId
+              properties:
+                appId:
+                  type: string
+                  description: Represents the host name of FIDO request initiator.
+        required: true
+      responses:
+        201:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  requestId: veiLaU2yg0-pAhn1sRlXZBbxS5KaidyAyfWt-sQUajU
+                  publicKeyCredentialCreationOptions:
+                    rp:
+                      name: WSO2 Identity Server
+                      id: localhost
+                    user:
+                      name: admin@carbon.super
+                      displayName: admin
+                      id: iAgKlKucOIjxUoUq510BXTI9_p3NENmQo2ZM5gQMcoA
+                    challenge: tvyJuz16drO390L5VPheOG5zpY9zEcSVbc1QNeFv0Fs
+                    pubKeyCredParams:
+                    - alg: -7
+                      type: public-key
+                    - alg: -257
+                      type: public-key
+                    excludeCredentials: []
+                    attestation: none
+                    extensions: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /finish-registration:
+    post:
+      tags:
+      - me
+      summary: |
+        Complete FIDO2 device registration.
+      description: |
+        This API is used to complete FIDO2 device registration flow.
+
+        <b>Permission required:</b>
+         * /permission/admin/login
+      requestBody:
+        description: Response from the client.
+        content:
+          application/json:
+            schema:
+              type: string
+              example: '{requestId=GzNnMTGdZjfS80BbYmGnXuJBwAV2Qbwb0vws47DCYLk, credential={id=CnLte9JzbTY_NDpGatGAAGD2VfTQHJD8COjAU3w,
+                response={attestationObject=o2b2uUzV0ifaiSsnIPVh3FGSgELyCQJIMIICRDC,
+                clientDataJSON=eyJjaGFsbGVuZ2UiOiJUZ0pfdXVra3FuUG1C}, clientExtensionResults={},
+                type=public-key}}'
+        required: true
+      responses:
+        201:
+          description: Device registered successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  requestId: GzNnMTGdZjfS80BbYmGnXuJBwAV2Qbwb0vws47DCYLk
+                  credential:
+                    id: CnLte9JzbTY_NDpGatGAAGD2VfTQHJD8COjAU3w
+                    response:
+                      attestationObject: o2b2uUzV0ifaiSsnIPVh3FGSgELyCQJIMIICRDC
+                      clientDataJSON: eyJjaGFsbGVuZ2UiOiJUZ0pfdXVra3FuUG1C
+                    clientExtensionResults: {}
+                    type: public-key
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: challengeResponse
+  /{credentialId}:
+    delete:
+      tags:
+      - me
+      summary: |
+        Deregister devices by username and credentialId.
+      description: |
+        This API is used to deregister devices by username and credentialId.
+
+        <b>Permission required:</b>
+         * /permission/admin/login
+      parameters:
+      - name: credentialId
+        in: path
+        description: credentialId
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: No Content
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      tags:
+      - me
+      summary: |
+        Update display name of device by username and credentialId.
+      description: |
+        This API is used to update display name of a device by username and credentialId.
+
+        <b>Permission required:</b>
+         * /permission/admin/login
+      parameters:
+      - name: credentialId
+        in: path
+        description: credentialId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationObject'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: body
+  /:
+    get:
+      tags:
+      - me
+      summary: |
+        Device Metadata
+      description: |
+        This API is used to get fido metadata by username.
+
+        <b>Permission required:</b>
+         * /permission/admin/login
+      responses:
+        200:
+          description: All available fido metadata for a user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationObject'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: some_error_code
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+    PatchRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/Patch'
+    Patch:
+      required:
+      - operation
+      - path
+      type: object
+      properties:
+        operation:
+          type: string
+          description: The operation to be performed
+          example: REPLACE
+          enum:
+          - ADD
+          - REMOVE
+          - REPLACE
+        path:
+          type: string
+          description: A JSON-Pointer
+          example: /displayName
+        value:
+          type: string
+          description: The value to be used within the operations
+          example: Device01
+      description: A JSONPatch as defined by RFC 6902. Patch operation is supported
+        only for root level attributes of an Identity Provider.
+    RegistrationObject:
+      type: array
+      items:
+        type: object
+        properties: {}
+        example:
+          signatureCount: 0
+          userIdentity:
+            name: admin@carbon.super
+            displayName: admin
+            id: uq99g9NLogr-k3OC6i1UDhmfeiZeKbygGPBcKoq96UI
+          credential:
+            credentialId: S2_HP9mz3wt0_XFrF4QEqcCOn-mblJ2e6YBX79MqU3cwEH-7UXd0oxn0-QKpB4HsRpe3jerAyT233hKdq3vfrQ
+            userHandle: uq99g9NLogr-k3OC6i1UDhmfeiZeKbygGPBcKoq96UI
+            publicKeyCose: pSJYIDbPBKVOQWaZAraIPfggBxVHVGuYPROvWR5WigNbh5iiAyYBAiFYIIbF8aqhhWrQYbQnQJY7WrjiQD84qvQulLfGjbUgk1yAIAE
+            signatureCount: 0
+          registrationTime: 2019-11-26T05:16:19.932Z
+          isUsernamelessSupported: false
+          displayName: My Device
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}

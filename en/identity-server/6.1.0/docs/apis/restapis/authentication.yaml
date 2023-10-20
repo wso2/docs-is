@@ -1,0 +1,228 @@
+openapi: 3.0.1
+info:
+  title: WSO2 Identity Server Rest API - Authentication
+  description: |
+    This document specifies a RESTful API for WSO2 Identity Server.
+  contact:
+    name: WSO2
+    url: http://wso2.com/products/identity-server/
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: "1.2"
+servers:
+- url: https://{serverUrl}/api/identity/auth/v1.1
+  variables:
+    serverUrl:
+      default: localhost:9443
+paths:
+  /authenticate:
+    post:
+      tags:
+      - Authentication
+      summary: Authenticate User
+      security:
+        - BasicAuth: []
+      description: This API is used to authenticate the user and to get a JWT that can be used to identify the user authenticated. 
+      requestBody:
+        description: Username and password in request body. **Not required if you have authorized to the API using basic auth.**
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationRequest'
+        required: false
+      responses:
+        202:
+          description: Authentication accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationSuccessResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+  /context/{sessionKey}:
+    get:
+      tags:
+      - Authentication
+      summary: |
+        Retrieve a authentication context parameter.
+      description: |
+        This API is used to retrieve parameters set by authentication framework to be accessed by authentication
+        endpoint. Parameters should be set by calling AuthenticationContext.addEndpointParam() to be eligible to
+        query with this API. This can be used to retieve sensitive parameters required for the authentication endpoint.
+      security:
+        - BasicAuth: []
+      operationId: getContextParameters
+      parameters:
+      - name: sessionKey
+        in: path
+        description: This represents the session data key that will uniquely identify
+          the authentication context
+        required: true
+        schema:
+          type: string
+      - name: parameters
+        in: query
+        description: Comma separated list of parameters to filter. If none provided
+          all available parameters will be sent.
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parameters'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      
+  /data/{keyType}/{correlationKey}:
+    get:
+      tags:
+      - Authentication
+      summary: |
+        Retrieve sensitive parameters used at authentication flow
+      description: |
+        <b>Before using this API, see instructions above on how to configure this API in IS.</b><br />
+        This API is used to retrieve sensitive parameters that can't be sent as query parameters during the authentication flow.
+        This call may not be idempotent if IS is configured to clear the data on retrieval to prevent multiple retrievals. 
+        
+      operationId: getSensitiveParameters
+      security:
+        - BasicAuth: []
+      parameters:
+      - name: keyType
+        in: path
+        description: |
+          The corelation key type. Either **AuthRequestKey** or **OauthConsentKey**. <br/> **AuthRequestKey** can be
+          used to query parameters set by authentication framework and relates to sessionDataKey. </br> **OauthConsentKey**
+          can be used to query parameters set by oauth consent flow and relates to sessionDataKeyConsent.
+        required: true
+        schema:
+          type: string
+      - name: correlationKey
+        in: path
+        description: The correlation key. Either the value of **sessionDataKey** or **sessionDataKeyConsent** corresponding to the keyType above.
+        required: true
+        schema:
+          type: string
+      - name: parameters
+        in: query
+        description: Comma separated list of parameters to filter. If none provided
+          all available parameters will be returned.
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parameters'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    AuthenticationRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    AuthenticationSuccessResponse:
+      type: object
+      properties:
+        token:
+          type: string
+    Parameters:
+      type: object
+      additionalProperties:
+        type: object
+        properties: {}
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic

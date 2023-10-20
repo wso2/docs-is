@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="84.001" height="95" viewBox="0 0 84.001 95">
+  <g id="User_Self-Service" data-name="User Self-Service" transform="translate(-173.999 -173.5)">
+    <g id="Group_75" data-name="Group 75">
+      <circle id="Ellipse_4" data-name="Ellipse 4" cx="12.5" cy="12.5" r="12.5" transform="translate(204 193)" fill="#ed5d2b"/>
+      <path id="Intersection_1" data-name="Intersection 1" d="M5,18V11.5C10.453,4.575,19.838,0,30.5,0,40.537,0,49.442,4.053,55,10.309V18Z" transform="translate(186 224)" fill="#ed5d2b"/>
+    </g>
+    <path id="Subtraction_2" data-name="Subtraction 2" d="M24,113.814h0a42,42,0,0,1,0-83.626v4.022a38,38,0,0,0,0,75.583v4.021Zm8,0h0v-4.021a38,38,0,0,0,0-75.582V30.187a42,42,0,0,1,0,83.626Z" transform="translate(188 149)" fill="#ed5d2b"/>
+    <path id="Polygon_1" data-name="Polygon 1" d="M7.5,0,15,8.5H0Z" transform="translate(215.999 173.5) rotate(90)" fill="#ed5d2b"/>
+    <path id="Polygon_2" data-name="Polygon 2" d="M7.5,0,15,8.5H0Z" transform="translate(215.5 268.5) rotate(-90)" fill="#ed5d2b"/>
+  </g>
+</svg>

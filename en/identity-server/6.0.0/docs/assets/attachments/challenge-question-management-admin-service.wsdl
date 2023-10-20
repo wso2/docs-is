@@ -1,0 +1,415 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax2422="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2424="http://model.recovery.identity.carbon.wso2.org/xsd" xmlns:ns="http://services.recovery.identity.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax2418="http://recovery.identity.carbon.wso2.org/xsd" xmlns:ax2419="http://base.identity.carbon.wso2.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.recovery.identity.carbon.wso2.org">
+    <wsdl:documentation>ChallengeQuestionManagementAdminService</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax2420="http://base.identity.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://recovery.identity.carbon.wso2.org/xsd">
+            <xs:import namespace="http://base.identity.carbon.wso2.org/xsd"/>
+            <xs:complexType name="IdentityRecoveryException">
+                <xs:complexContent>
+                    <xs:extension base="ax2419:IdentityException">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="errorDescription" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.common.application.identity.carbon.wso2.org/xsd">
+            <xs:complexType name="User">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="tenantDomain" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userStoreDomain" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.recovery.identity.carbon.wso2.org/xsd">
+            <xs:complexType name="ChallengeQuestion">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="locale" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="question" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="questionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="questionSetId" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="UserChallengeAnswer">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="question" nillable="true" type="ax2424:ChallengeQuestion"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://base.identity.carbon.wso2.org/xsd">
+            <xs:complexType name="IdentityException">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax2421="http://recovery.identity.carbon.wso2.org/xsd" xmlns:ax2423="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2425="http://model.recovery.identity.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://services.recovery.identity.carbon.wso2.org">
+            <xs:import namespace="http://recovery.identity.carbon.wso2.org/xsd"/>
+            <xs:import namespace="http://model.common.application.identity.carbon.wso2.org/xsd"/>
+            <xs:import namespace="http://model.recovery.identity.carbon.wso2.org/xsd"/>
+            <xs:element name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="IdentityRecoveryException" nillable="true" type="ax2421:IdentityRecoveryException"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getChallengeQuestionsForUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="user" nillable="true" type="ax2422:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getChallengeQuestionsForUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2424:ChallengeQuestion"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getChallengeQuestionsForLocale">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="tenantDomain" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="locale" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getChallengeQuestionsForLocaleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2424:ChallengeQuestion"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setChallengeQuestionsOfTenant">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="challengeQuestions" nillable="true" type="ax2424:ChallengeQuestion"/>
+                        <xs:element minOccurs="0" name="tenantDomain" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteChallengeQuestionsOfTenant">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="challengeQuestions" nillable="true" type="ax2424:ChallengeQuestion"/>
+                        <xs:element minOccurs="0" name="tenantDomain" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setUserChallengeAnswers">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="user" nillable="true" type="ax2422:User"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="userChallengeAnswers" nillable="true" type="ax2424:UserChallengeAnswer"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getUserChallengeAnswers">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="user" nillable="true" type="ax2422:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getUserChallengeAnswersResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2424:UserChallengeAnswer"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getChallengeQuestionsOfTenant">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="tenantDomain" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getChallengeQuestionsOfTenantResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2424:ChallengeQuestion"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getChallengeQuestionsForUserRequest">
+        <wsdl:part name="parameters" element="ns:getChallengeQuestionsForUser"/>
+    </wsdl:message>
+    <wsdl:message name="getChallengeQuestionsForUserResponse">
+        <wsdl:part name="parameters" element="ns:getChallengeQuestionsForUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+        <wsdl:part name="parameters" element="ns:ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+    </wsdl:message>
+    <wsdl:message name="getChallengeQuestionsForLocaleRequest">
+        <wsdl:part name="parameters" element="ns:getChallengeQuestionsForLocale"/>
+    </wsdl:message>
+    <wsdl:message name="getChallengeQuestionsForLocaleResponse">
+        <wsdl:part name="parameters" element="ns:getChallengeQuestionsForLocaleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getUserChallengeAnswersRequest">
+        <wsdl:part name="parameters" element="ns:getUserChallengeAnswers"/>
+    </wsdl:message>
+    <wsdl:message name="getUserChallengeAnswersResponse">
+        <wsdl:part name="parameters" element="ns:getUserChallengeAnswersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getChallengeQuestionsOfTenantRequest">
+        <wsdl:part name="parameters" element="ns:getChallengeQuestionsOfTenant"/>
+    </wsdl:message>
+    <wsdl:message name="getChallengeQuestionsOfTenantResponse">
+        <wsdl:part name="parameters" element="ns:getChallengeQuestionsOfTenantResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setChallengeQuestionsOfTenantRequest">
+        <wsdl:part name="parameters" element="ns:setChallengeQuestionsOfTenant"/>
+    </wsdl:message>
+    <wsdl:message name="deleteChallengeQuestionsOfTenantRequest">
+        <wsdl:part name="parameters" element="ns:deleteChallengeQuestionsOfTenant"/>
+    </wsdl:message>
+    <wsdl:message name="setUserChallengeAnswersRequest">
+        <wsdl:part name="parameters" element="ns:setUserChallengeAnswers"/>
+    </wsdl:message>
+    <wsdl:portType name="ChallengeQuestionManagementAdminServicePortType">
+        <wsdl:operation name="getChallengeQuestionsForUser">
+            <wsdl:input message="ns:getChallengeQuestionsForUserRequest" wsaw:Action="urn:getChallengeQuestionsForUser"/>
+            <wsdl:output message="ns:getChallengeQuestionsForUserResponse" wsaw:Action="urn:getChallengeQuestionsForUserResponse"/>
+            <wsdl:fault message="ns:ChallengeQuestionManagementAdminServiceIdentityRecoveryException" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException" wsaw:Action="urn:getChallengeQuestionsForUserChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getChallengeQuestionsForLocale">
+            <wsdl:input message="ns:getChallengeQuestionsForLocaleRequest" wsaw:Action="urn:getChallengeQuestionsForLocale"/>
+            <wsdl:output message="ns:getChallengeQuestionsForLocaleResponse" wsaw:Action="urn:getChallengeQuestionsForLocaleResponse"/>
+            <wsdl:fault message="ns:ChallengeQuestionManagementAdminServiceIdentityRecoveryException" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException" wsaw:Action="urn:getChallengeQuestionsForLocaleChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getUserChallengeAnswers">
+            <wsdl:input message="ns:getUserChallengeAnswersRequest" wsaw:Action="urn:getUserChallengeAnswers"/>
+            <wsdl:output message="ns:getUserChallengeAnswersResponse" wsaw:Action="urn:getUserChallengeAnswersResponse"/>
+            <wsdl:fault message="ns:ChallengeQuestionManagementAdminServiceIdentityRecoveryException" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException" wsaw:Action="urn:getUserChallengeAnswersChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getChallengeQuestionsOfTenant">
+            <wsdl:input message="ns:getChallengeQuestionsOfTenantRequest" wsaw:Action="urn:getChallengeQuestionsOfTenant"/>
+            <wsdl:output message="ns:getChallengeQuestionsOfTenantResponse" wsaw:Action="urn:getChallengeQuestionsOfTenantResponse"/>
+            <wsdl:fault message="ns:ChallengeQuestionManagementAdminServiceIdentityRecoveryException" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException" wsaw:Action="urn:getChallengeQuestionsOfTenantChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+        </wsdl:operation>
+        <wsdl:operation name="setChallengeQuestionsOfTenant">
+            <wsdl:input message="ns:setChallengeQuestionsOfTenantRequest" wsaw:Action="urn:setChallengeQuestionsOfTenant"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteChallengeQuestionsOfTenant">
+            <wsdl:input message="ns:deleteChallengeQuestionsOfTenantRequest" wsaw:Action="urn:deleteChallengeQuestionsOfTenant"/>
+        </wsdl:operation>
+        <wsdl:operation name="setUserChallengeAnswers">
+            <wsdl:input message="ns:setUserChallengeAnswersRequest" wsaw:Action="urn:setUserChallengeAnswers"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ChallengeQuestionManagementAdminServiceSoap11Binding" type="ns:ChallengeQuestionManagementAdminServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getChallengeQuestionsForUser">
+            <soap:operation soapAction="urn:getChallengeQuestionsForUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <soap:fault use="literal" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getChallengeQuestionsForLocale">
+            <soap:operation soapAction="urn:getChallengeQuestionsForLocale" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <soap:fault use="literal" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getUserChallengeAnswers">
+            <soap:operation soapAction="urn:getUserChallengeAnswers" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <soap:fault use="literal" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getChallengeQuestionsOfTenant">
+            <soap:operation soapAction="urn:getChallengeQuestionsOfTenant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <soap:fault use="literal" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setChallengeQuestionsOfTenant">
+            <soap:operation soapAction="urn:setChallengeQuestionsOfTenant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="deleteChallengeQuestionsOfTenant">
+            <soap:operation soapAction="urn:deleteChallengeQuestionsOfTenant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setUserChallengeAnswers">
+            <soap:operation soapAction="urn:setUserChallengeAnswers" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ChallengeQuestionManagementAdminServiceSoap12Binding" type="ns:ChallengeQuestionManagementAdminServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getChallengeQuestionsForUser">
+            <soap12:operation soapAction="urn:getChallengeQuestionsForUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <soap12:fault use="literal" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getChallengeQuestionsForLocale">
+            <soap12:operation soapAction="urn:getChallengeQuestionsForLocale" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <soap12:fault use="literal" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getUserChallengeAnswers">
+            <soap12:operation soapAction="urn:getUserChallengeAnswers" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <soap12:fault use="literal" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getChallengeQuestionsOfTenant">
+            <soap12:operation soapAction="urn:getChallengeQuestionsOfTenant" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException">
+                <soap12:fault use="literal" name="ChallengeQuestionManagementAdminServiceIdentityRecoveryException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setChallengeQuestionsOfTenant">
+            <soap12:operation soapAction="urn:setChallengeQuestionsOfTenant" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="deleteChallengeQuestionsOfTenant">
+            <soap12:operation soapAction="urn:deleteChallengeQuestionsOfTenant" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setUserChallengeAnswers">
+            <soap12:operation soapAction="urn:setUserChallengeAnswers" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ChallengeQuestionManagementAdminServiceHttpBinding" type="ns:ChallengeQuestionManagementAdminServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getChallengeQuestionsForUser">
+            <http:operation location="getChallengeQuestionsForUser"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getChallengeQuestionsForLocale">
+            <http:operation location="getChallengeQuestionsForLocale"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUserChallengeAnswers">
+            <http:operation location="getUserChallengeAnswers"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getChallengeQuestionsOfTenant">
+            <http:operation location="getChallengeQuestionsOfTenant"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setChallengeQuestionsOfTenant">
+            <http:operation location="setChallengeQuestionsOfTenant"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="deleteChallengeQuestionsOfTenant">
+            <http:operation location="deleteChallengeQuestionsOfTenant"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setUserChallengeAnswers">
+            <http:operation location="setUserChallengeAnswers"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ChallengeQuestionManagementAdminService">
+        <wsdl:port name="ChallengeQuestionManagementAdminServiceHttpsSoap11Endpoint" binding="ns:ChallengeQuestionManagementAdminServiceSoap11Binding">
+            <soap:address location="https://localhost:9443/services/ChallengeQuestionManagementAdminService.ChallengeQuestionManagementAdminServiceHttpsSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ChallengeQuestionManagementAdminServiceHttpsSoap12Endpoint" binding="ns:ChallengeQuestionManagementAdminServiceSoap12Binding">
+            <soap12:address location="https://localhost:9443/services/ChallengeQuestionManagementAdminService.ChallengeQuestionManagementAdminServiceHttpsSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ChallengeQuestionManagementAdminServiceHttpsEndpoint" binding="ns:ChallengeQuestionManagementAdminServiceHttpBinding">
+            <http:address location="https://localhost:9443/services/ChallengeQuestionManagementAdminService.ChallengeQuestionManagementAdminServiceHttpsEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
