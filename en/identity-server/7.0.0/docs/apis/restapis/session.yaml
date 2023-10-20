@@ -36,6 +36,14 @@ tags:
   - name: sysadmin
     description: Operations available for privileged users, to be invoked for system management.
 
+x-tagGroups:
+  - name: User Management
+    tags:
+      - me
+  - name: Statistics
+    tags:
+      - admin
+
 # Applicable authentication mechanisms
 security:
   - OAuth2: []
@@ -48,10 +56,8 @@ paths:
         - me
       description: >
         A user can have multiple active sessions. This API retrieves information of all the active sessions of the authenticated user. <br>
-        <b>Permission required:</b> <br>
-        * None <br>
-        <b>Scope required:</b> <br>
-        * internal_login
+        <b>Permission required:</b> None <br>
+        <b>Scope required:</b> `internal_login`
       summary: Retrieve active sessions of the authenticated user
       operationId: getSessionsOfLoggedInUser
       produces:
@@ -126,10 +132,8 @@ paths:
         - me
       description: >
         A user has multiple active sessions. This API terminates all the active sessions of the authenticated user. <br>
-        <b>Permission required:</b> <br>
-        * None <br>
-        <b>Scope required:</b> <br>
-        * internal_login
+        <b>Permission required:</b> None <br>
+        <b>Scope required:</b> `internal_login`
       summary: Terminate all the active sessions of the authenticated user
       operationId: terminateSessionsByLoggedInUser
       requestBody:
@@ -166,10 +170,8 @@ paths:
         - me
       description: >
         A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the session-id. <br>
-        <b>Permission required:</b> <br>
-        * None <br>
-        <b>Scope required:</b> <br>
-        * internal_login
+        <b>Permission required:</b> None <br>
+        <b>Scope required:</b> `internal_login`
       summary: Terminate a given session of the authenticated user
       operationId: terminateSessionByLoggedInUser
       parameters:
@@ -207,10 +209,8 @@ paths:
       tags:
       - admin
       description: Retrieves information related to the active sessions of a user identified by the user-id. <br>
-        <b>Permission required:</b> <br>
-        * /permission/admin/manage/identity/authentication/session/view <br>
-        <b>Scope required:</b> <br>
-        * internal_session_view
+        <b>Permission required:</b> `/permission/admin/manage/identity/authentication/session/view` <br>
+        <b>Scope required:</b> `internal_session_view`
       summary: Retrieve active sessions of a given user
       operationId: getSessionsByUserId
       parameters:
@@ -257,10 +257,8 @@ paths:
       tags:
       - admin
       description: Delete all the sessions of a user identified by the user-id. <br>
-        <b>Permission required:</b> <br>
-        * /permission/admin/manage/identity/authentication/session/delete <br>
-        <b>Scope required:</b> <br>
-        * internal_session_delete
+        <b>Permission required:</b> `/permission/admin/manage/identity/authentication/session/delete` <br>
+        <b>Scope required:</b> `internal_session_delete`
       summary: Terminate all sessions of a given user
       operationId: terminateSessionsByUserId
       parameters:
@@ -296,10 +294,8 @@ paths:
       tags:
         - admin
       description: Retrieves information related to the active session identified by session-id of a user identified by the user-id. <br>
-        <b>Permission required:</b> <br>
-        * /permission/admin/manage/identity/authentication/session/view <br>
-        <b>Scope required:</b> <br>
-        * internal_session_view
+        <b>Permission required:</b> `/permission/admin/manage/identity/authentication/session/view` <br>
+        <b>Scope required:</b> `internal_session_view`
       summary: Retrieve a given active session of a given user
       operationId: getSessionBySessionId
       parameters:
@@ -326,10 +322,8 @@ paths:
       tags:
       - admin
       description: Terminate a specific session of a user by the session-id. <br>
-        <b>Permission required:</b> <br>
-        * /permission/admin/manage/identity/authentication/session/delete <br>
-        <b>Scope required:</b> <br>
-        * internal_session_delete
+        <b>Permission required:</b> `/permission/admin/manage/identity/authentication/session/delete` <br>
+        <b>Scope required:</b> `internal_session_delete`
       summary: Terminate a given session of a given user
       operationId: terminateSessionBySessionId
       parameters:
@@ -365,10 +359,8 @@ paths:
       tags:
         - sysadmin
       description: Retrieves information related to the active sessions on the system. <br>
-        <b>Permission required:</b> <br>
-        * /permission/admin/manage/identity/authentication/session/view <br>
-        <b>Scope required:</b> <br>
-        * internal_session_view
+        <b>Permission required:</b> `/permission/admin/manage/identity/authentication/session/view` <br>
+        <b>Scope required:</b> `internal_session_view`
       summary: Retrieve all active sessions
       operationId: getSessions
       parameters:

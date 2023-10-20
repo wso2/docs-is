@@ -17,11 +17,9 @@ paths:
       description: |
         Retrieve all tenants in the system.
 
-        <b>Permission required:</b>
-        * /permission/protected/manage/monitor/tenants/list
+        <b>Permission required:</b>`/permission/protected/manage/monitor/tenants/list` 
 
-        <b>scope required:</b>
-        * internal_list_tenants
+        <b>scope required:</b>`internal_list_tenants`
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -57,11 +55,9 @@ paths:
       description: |
         This API provides the capability to create new tenants.
 
-        <b>Permission required:</b>
-        * /permission/protected/manage/monitor/tenants/list
+        <b>Permission required:</b> `/permission/protected/manage/monitor/tenants/list`
 
-        <b>scope required:</b>
-        * internal_list_tenants
+        <b>scope required:</b> `internal_list_tenants`
       requestBody:
         content:
           application/json:
@@ -97,11 +93,9 @@ paths:
       description: |
         This API provides the capability to create new channel verified tenants.
 
-        <b>Permission required:</b>
-        * /permission/protected/manage/monitor/tenants/list
+        <b>Permission required:</b> `/permission/protected/manage/monitor/tenants/list`
 
-        <b>scope required:</b>
-        * internal_list_tenants
+        <b>scope required:</b> `internal_list_tenants`
 
         <b> cURL</b>
         curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "domain":"lanka.com", "purpose":"Personal", "code":"2d962a0b-9280-4394-8652-0137a25d9bac", "owners":[ { "username":"lanka@wso2.com", "email":"lanka@wso2.com","password":"Pass#word2", "firstname":"Lanka", "lastname":"Jaya", "provisioningMethod":"verified-lite-user", "additionalClaims":[ { "claim":"http://wso2.org/claims/telephone", "value":"+94 562 8723" } ] } ] }' "https://localhost:9443/t/carbon.super/api/server/v1/channel-verified-tenants"
@@ -139,11 +133,9 @@ paths:
       description: |
         Retrieve tenant using the tenant ID.
 
-        <b>Permission required:</b>
-        * /permission/protected/manage/monitor/tenants/list
+        <b>Permission required:</b> `/permission/protected/manage/monitor/tenants/list`
 
-        <b>scope required:</b>
-        * internal_list_tenants
+        <b>scope required:</b> `internal_list_tenants`
       parameters:
         - $ref: '#/components/parameters/tenantIdPathParam'
       responses:
@@ -172,11 +164,9 @@ paths:
       description: |
         Get the tenant using domain.
 
-        <b>Permission required:</b>
-        * /permission/protected/manage/monitor/tenants/list
+        <b>Permission required:</b> `/permission/protected/manage/monitor/tenants/list`
 
-        <b>scope required:</b>
-        * internal_list_tenants
+        <b>scope required:</b> `internal_list_tenants`
       parameters:
         - $ref: '#/components/parameters/tenantDomainPathParam'
       responses:
@@ -205,11 +195,9 @@ paths:
       description: |
         Check the tenant existence using domain.
 
-        <b>Permission required:</b>
-        * /permission/protected/manage/monitor/tenants/list
+        <b>Permission required:</b> `/permission/protected/manage/monitor/tenants/list`
 
-        <b>scope required:</b>
-        * internal_list_tenants
+        <b>scope required:</b> `internal_list_tenants`
       parameters:
         - $ref: '#/components/parameters/tenantDomainPathParam'
       responses:
@@ -235,11 +223,9 @@ paths:
       description: |
         This API activates/deactivates the specified tenant.
 
-        <b>Permission required:</b>
-        * /permission/protected/manage/modify/tenants
+        <b>Permission required:</b> `/permission/protected/manage/modify/tenants`
 
-        <b>scope required:</b>
-        * internal_modify_tenants
+        <b>scope required:</b> `internal_modify_tenants`
       parameters:
         - $ref: '#/components/parameters/tenantIdPathParam'
       requestBody:
@@ -276,11 +262,9 @@ paths:
       description: |
         Retrieve owners of the tenant which are identified by the provided tenant id.
 
-        <b>Permission required:</b>
-        * /permission/protected/manage/monitor/tenants/list
+        <b>Permission required:</b> `/permission/protected/manage/monitor/tenants/list`
 
-        <b>scope required:</b>
-        * internal_list_tenants
+        <b>scope required:</b> `internal_list_tenants`
       parameters:
         - $ref: '#/components/parameters/tenantIdPathParam'
       responses:
@@ -313,10 +297,8 @@ paths:
         description: |
           This API provides the capability to delete the tenant meta data(tenant specific data like tenant domain,
           tenant owner details). <br>
-            <b>Permission required:</b> <br>
-                * /permission/protected/manage/modify/tenants <br>
-            <b>Scope required:</b> <br>
-                * internal_modify_tenants
+            <b>Permission required:</b> `/permission/protected/manage/modify/tenants` <br>
+            <b>Scope required:</b> `internal_modify_tenants`
         parameters:
           - $ref: '#/components/parameters/tenantIdPathParam'
         responses:

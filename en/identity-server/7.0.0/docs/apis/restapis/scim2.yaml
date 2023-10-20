@@ -21,8 +21,8 @@ paths:
       - Me Endpoint
       summary: Get Me
       description: "This API returns the user details of the currently authenticated\
-        \ user.\n\n  <b>Permission required:</b>\n    * /permission/admin/login\n\
-        \  \n  <b>Scope required:</b>\n    * internal_login\n"
+        \ user.\n\n  <b>Permission required:</b> `/permission/admin/login`\n\
+        \  \n  <b>Scope required:</b>`internal_login`\n"
       parameters:
       - name: attributes
         in: query
@@ -52,8 +52,7 @@ paths:
       - Me Endpoint
       summary: Update Me
       description: "This API uses a PUT operation to update user details.\n\n  <b>Permission\
-        \ required:</b>\n  * /permission/admin/login\n  \n  <b>Scope required:</b>\n\
-        \    * internal_login\n"
+        \ required:</b>`/permission/admin/login`\n  \n  <b>Scope required:</b>`internal_login`\n"
       operationId: updateUserMe
       parameters:
       - name: attributes
@@ -91,8 +90,8 @@ paths:
       - Me Endpoint
       summary: Create Me
       description: "This API is used to register a user anonymously.\n\n <b>Permission\
-        \ required:</b>\n    * /permission/admin/manage/identity/usermgt/create\n\
-        \    \n <b>Scope required:</b>\n    * internal_user_mgt_create\n"
+        \ required:</b>`/permission/admin/manage/identity/usermgt/create`\n\
+        \    \n <b>Scope required:</b>`internal_user_mgt_create`\n"
       operationId: createUserMe
       parameters:
       - name: attributes
@@ -143,8 +142,8 @@ paths:
       - Me Endpoint
       summary: Delete Me
       description: "This API is used to delete the currently authenticated user.\n\
-        \n  <b>Permission required:</b>\n   * /permission/admin/manage/identity/usermgt/delete\n\
-        \   \n   <b>Scope required:</b>\n    * internal_user_mgt_delete\n"
+        \n  <b>Permission required:</b>`/permission/admin/manage/identity/usermgt/delete`\n\
+        \   \n   <b>Scope required:</b>`internal_user_mgt_delete`\n"
       operationId: deleteUserMe
       responses:
         204:
@@ -167,8 +166,7 @@ paths:
       - Me Endpoint
       summary: Update Me - PATCH
       description: "This API uses a PATCH operation to update user details.\n\n  <b>Permission\
-        \ required:</b>\n   * /permission/admin/login\n   \n   <b>Scope required:</b>\n\
-        \    * internal_login\n \n"
+        \ required:</b>`/permission/admin/login`\n   \n   <b>Scope required:</b>`internal_login`\n \n"
       operationId: patchUserMe
       parameters:
       - name: attributes
@@ -207,8 +205,8 @@ paths:
       - Groups Endpoint
       summary: Filter Groups
       description: "This API returns groups according to the specified filter, sort,\
-        \ and pagination parameters.\n\n  <b>Permission required:</b>\n  * / permission/admin/manage/identity/rolemgt/view\n\
-        \  \n  <b>Scope required:</b>\n    * internal_role_mgt_view\n"
+        \ and pagination parameters.\n\n  <b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/view`\n\
+        \  \n  <b>Scope required:</b>`internal_role_mgt_view`\n"
       operationId: getGroup
       parameters:
       - name: attributes
@@ -267,8 +265,8 @@ paths:
       - Groups Endpoint
       summary: Create Group
       description: "This API creates a group and returns the details of the created\
-        \ group including its unique ID.\n\n<b>Permission required:</b>\n* /permission/admin/manage/identity/rolemgt/create\n\
-        \n<b>Scope required:</b>\n    * internal_role_mgt_create\n    \n"
+        \ group including its unique ID.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/create`\n\
+        \n<b>Scope required:</b>`internal_role_mgt_create`\n    \n"
       operationId: createGroup
       parameters:
       - name: attributes
@@ -319,8 +317,8 @@ paths:
       - Groups Endpoint
       summary: Search Groups
       description: "This API returns groups according to the specified filter, sort,\
-        \ and pagination parameters.\n\n<b>Permission required:</b>\n* /permission/admin/manage/identity/rolemgt/view\n\
-        \n<b>Scope required:</b>\n    * internal_role_mgt_view\n    \n"
+        \ and pagination parameters.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/view`\n\
+        \n<b>Scope required:</b>`internal_role_mgt_view`\n    \n"
       operationId: getGroupsByPost
       requestBody:
         content:
@@ -354,8 +352,8 @@ paths:
       - Groups Endpoint
       summary: Get Group by ID
       description: "This API returns the group details of a particular group using\
-        \ its unique ID.\n\n<b>Permission required:</b>\n* /permission/admin/manage/identity/rolemgt/view\n\
-        \n<b>Scope required:</b>\n    * internal_role_mgt_view\n    \n"
+        \ its unique ID.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/view`\n\
+        \n<b>Scope required:</b>`internal_role_mgt_view`\n    \n"
       operationId: getGroup by id
       parameters:
       - name: id
@@ -398,8 +396,8 @@ paths:
       - Groups Endpoint
       summary: Update Group - PUT
       description: "This API updates the group details and returns the updated group\
-        \ details using a PUT operation.\n\n<b>Permission required:</b>\n* /permission/admin/manage/identity/rolemgt/update\n\
-        \n<b>Scope required:</b>\n    * internal_role_mgt_update\n    \n"
+        \ details using a PUT operation.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/update`\n\
+        \n<b>Scope required:</b>`internal_role_mgt_update`\n    \n"
       operationId: updateGroup
       parameters:
       - name: id
@@ -488,11 +486,9 @@ paths:
       description: |
         This API updates the group details and returns the updated group details using a PATCH operation.
 
-        <b>Permission required:</b>
-        * /permission/admin/manage/identity/rolemgt/update
+        <b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/update` <br>
 
-        <b>Scope required:</b>
-            * internal_role_mgt_update
+        <b>Scope required:</b>`internal_role_mgt_update`
       operationId: patchGroup
       parameters:
       - name: id
@@ -555,8 +551,8 @@ paths:
         \ number of users per page as the `totalResults`. This is only applicable\
         \ for the LDAP user store. The JDBC user store is working according to the\
         \ specification.\n\n[scim2]\nremove_duplicate_users_in_users_response = true\n\
-        \n<b>Permission required:</b>\n* /permission/admin/manage/identity/usermgt/list\n\
-        \n<b>Scope required:</b>\n    * internal_user_mgt_list\n    \n"
+        \n<b>Permission required:</b>`/permission/admin/manage/identity/usermgt/list`\n\
+        \n<b>Scope required:</b>`internal_user_mgt_list`\n    \n"
       operationId: getUser
       parameters:
       - name: attributes
@@ -616,8 +612,8 @@ paths:
       - Users Endpoint
       summary: Create User
       description: "This API creates a user and returns the user details along with\
-        \ the user's unique ID.\n\n<b>Permission required:</b>\n* /permission/admin/manage/identity/usermgt/create\n\
-        \n<b>Scope required:</b>\n    * internal_user_mgt_create\n    \n"
+        \ the user's unique ID.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/usermgt/create`\n\
+        \n<b>Scope required:</b>`internal_user_mgt_create`\n    \n"
       operationId: createUser
       parameters:
       - name: attributes
@@ -674,8 +670,8 @@ paths:
       - Users Endpoint
       summary: Search Users
       description: "This API returns users according to the filter, sort and pagination\
-        \ parameters.\n\n <b>Permission required:</b>\n  * /permission/admin/manage/identity/usermgt/list\n\
-        \  \n  <b>Scope required:</b>\n    * internal_user_mgt_list\n    \n"
+        \ parameters.\n\n <b>Permission required:</b>`/permission/admin/manage/identity/usermgt/list`\n\
+        \  \n  <b>Scope required:</b>`internal_user_mgt_list`\n    \n"
       operationId: getUsersByPost
       requestBody:
         content:
@@ -708,9 +704,7 @@ paths:
       tags:
       - Users Endpoint
       summary: Get User by ID
-      description: "Return user details if a user found.\n\n<b>Permission required:</b>\n\
-        * /permission/admin/manage/identity/usermgt/view\n\n<b>Scope required:</b>\n\
-        \    * internal_user_mgt_view\n    \n"
+      description: "Return user details if a user found.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/usermgt/view`\n\n<b>Scope required:</b>`internal_user_mgt_view`\n    \n"
       operationId: getUser by id
       parameters:
       - name: id
@@ -753,8 +747,8 @@ paths:
       - Users Endpoint
       summary: Update User - PUT
       description: "This API updates user details and returns the updated user details\
-        \ using a PUT operation.\n\n <b>Permission required:</b>\n  * /permission/admin/manage/identity/usermgt/update\n\
-        \  \n  <b>Scope required:</b>\n    * internal_user_mgt_update\n    \n"
+        \ using a PUT operation.\n\n <b>Permission required:</b>`/permission/admin/manage/identity/usermgt/update`\n\
+        \  \n  <b>Scope required:</b>`internal_user_mgt_update`\n    \n"
       operationId: updateUser
       parameters:
       - name: id
@@ -804,8 +798,8 @@ paths:
       - Users Endpoint
       summary: Delete User by ID
       description: "This API deletes a user using the user's unique ID.\n\n <b>Permission\
-        \ required:</b>\n * /permission/admin/manage/identity/usermgt/delete\n \n\
-        \ <b>Scope required:</b>\n    * internal_user_mgt_delete\n"
+        \ required:</b>`/permission/admin/manage/identity/usermgt/delete`\n \n\
+        \ <b>Scope required:</b>`internal_user_mgt_delete`\n"
       operationId: deleteUser
       parameters:
       - name: id
@@ -835,9 +829,9 @@ paths:
       - Users Endpoint
       summary: Update User - PATCH
       description: "This API updates user details and returns the updated user details\
-        \ using a PATCH operation.\n\n <b>Permission required:</b>\n * /permission/admin/manage/identity/usermgt/update\n\
-        \ \n <b>Scope required:</b>\n    * internal_user_mgt_update\n\n<b>Supported\
-        \ Operations:</b>\n    * add\n    * replace\n    * remove\n    \n"
+        \ using a PATCH operation.\n\n <b>Permission required:</b>`/permission/admin/manage/identity/usermgt/update`\n\
+        \ \n <b>Scope required:</b>`internal_user_mgt_update`\n\n<b>Supported\
+        \ Operations:</b>    `add`, `replace`, `remove`\n    \n"
       operationId: patchUser
       parameters:
       - name: id
@@ -888,8 +882,8 @@ paths:
       - Roles Endpoint
       summary: Filter Roles
       description: "This API returns roles according to the specified filter, sort,\
-        \ and pagination parameters.\n\n  <b>Permission required:</b>\n    * / permission/admin/manage/identity/rolemgt/view\n\
-        \    \n   <b>Scope required:</b>\n    * internal_role_mgt_view\n    \n"
+        \ and pagination parameters.\n\n  <b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/view`\n\
+        \    \n   <b>Scope required:</b>`internal_role_mgt_view`\n    \n"
       operationId: getRole
       parameters:
       - name: filter
@@ -933,8 +927,8 @@ paths:
       - Roles Endpoint
       summary: Create Role
       description: "This API creates a role and returns the details of the created\
-        \ role including its unique ID.\n\n<b>Permission required:</b>\n    * /permission/admin/manage/identity/rolemgt/create\n\
-        \    \n <b>Scope required:</b>\n    * internal_role_mgt_create\n    \n"
+        \ role including its unique ID.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/create`\n\
+        \    \n <b>Scope required:</b>`internal_role_mgt_create`\n    \n"
       operationId: createRole
       requestBody:
         content:
@@ -974,8 +968,8 @@ paths:
       - Roles Endpoint
       summary: Search Roles
       description: "This API returns roles according to the specified filter, sort\
-        \ and pagination parameters.\n\n<b>Permission required:</b>\n    * /permission/admin/manage/identity/rolemgt/view\n\
-        \    \n<b>Scope required:</b>\n    * internal_role_mgt_view\n    \n"
+        \ and pagination parameters.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/view`\n\
+        \    \n<b>Scope required:</b>`internal_role_mgt_view`\n    \n"
       operationId: getRolesByPost
       requestBody:
         content:
@@ -1009,8 +1003,8 @@ paths:
       - Roles Endpoint
       summary: Get Role by ID
       description: "This API returns the role details of a particular role using its\
-        \ unique ID.\n\n<b>Permission required:</b>\n    * /permission/admin/manage/identity/rolemgt/view\n\
-        \n<b>Scope required:</b>\n    * internal_role_mgt_view\n    \n"
+        \ unique ID.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/view`\n\
+        \n<b>Scope required:</b>`internal_role_mgt_view`\n    \n"
       operationId: getRolebyId
       parameters:
       - name: id
@@ -1053,8 +1047,8 @@ paths:
       - Roles Endpoint
       summary: Update Role - PUT
       description: "This API updates the role details and returns the updated role\
-        \ details using a PUT operation.\n\n<b>Permission required:</b>\n    * /permission/admin/manage/identity/rolemgt/update\n\
-        \    \n<b>Scope required:</b>\n    * internal_role_mgt_update\n    \n"
+        \ details using a PUT operation.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/update`\n\
+        \    \n<b>Scope required:</b>`internal_role_mgt_update`\n    \n"
       operationId: updateRole
       parameters:
       - name: id
@@ -1106,8 +1100,8 @@ paths:
       - Roles Endpoint
       summary: Delete Role
       description: "This API deletes a particular role using its unique ID.\n\n<b>Permission\
-        \ required:</b>\n    * /permission/admin/manage/identity/rolemgt/delete\n\n\
-        <b>Scope required:</b>\n    * internal_role_mgt_delete\n    \n"
+        \ required:</b>`/permission/admin/manage/identity/rolemgt/delete`\n\n\
+        <b>Scope required:</b>`internal_role_mgt_delete`\n    \n"
       operationId: deleteRole
       parameters:
       - name: id
@@ -1137,8 +1131,8 @@ paths:
       - Roles Endpoint
       summary: Update Role - PATCH
       description: "This API updates the role details and returns the updated role\
-        \ details using a PATCH operation.\n\n<b>Permission required:</b>\n    * /permission/admin/manage/identity/rolemgt/update\n\
-        \n<b>Scope required:</b>\n    * internal_role_mgt_update\n    \n"
+        \ details using a PATCH operation.\n\n<b>Permission required:</b>`/permission/admin/manage/identity/rolemgt/update`\n\
+        \n<b>Scope required:</b>`internal_role_mgt_update`\n    \n"
       operationId: patchRole
       parameters:
       - name: id
@@ -1192,11 +1186,9 @@ paths:
           - **DELETE** operation: Removes an existing resource.
         Learn more about [defining batch operations](../scim2-batch-operations).
         
-         <b>Permission required:</b>
-         * /permission/admin/manage/identity/usermgt
+         <b>Permission required:</b> `/permission/admin/manage/identity/usermgt` <br>
          
-         <b>Scope required:</b>
-            * internal_user_mgt_create
+         <b>Scope required:</b> `internal_user_mgt_create`
       operationId: createBulkUsers
       requestBody:
         content:

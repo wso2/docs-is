@@ -21,10 +21,8 @@ paths:
       summary: Get a list of email senders
       description: |
         This API provides the capability to retrieve the list of email senders. <br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/view` <br>
+          <b>Scope required:</b> `internal_config_mgt_view`
       operationId: getEmailSenders
       responses:
         "200":
@@ -67,10 +65,8 @@ paths:
       summary: Create an email sender
       description: |
         This API provides the capability to create an email sender.\n\nIf the 'name' is not not defined, 'EmailPublisher' is taken as the default name. <br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/add <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_add
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/add` <br>
+          <b>Scope required:</b> `internal_config_mgt_add`
       operationId: createEmailSender
       requestBody:
         content:
@@ -133,10 +129,8 @@ paths:
       description: |
         This API provides the capability to retrieve an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/view` <br>
+          <b>Scope required:</b> `internal_config_mgt_view`
       operationId: getEmailSender
       parameters:
         - name: sender-name
@@ -189,10 +183,8 @@ paths:
       description: |
         This API provides the capability to update an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/update <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_update
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/update` <br>
+          <b>Scope required:</b> `internal_config_mgt_update`
       operationId: updateEmailSender
       parameters:
         - name: sender-name
@@ -258,10 +250,8 @@ paths:
       description: |
         This API provides the capability to delete an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/delete <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_delete
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/delete` <br>
+          <b>Scope required:</b> `internal_config_mgt_delete`
       operationId: deleteEmailSender
       parameters:
         - name: sender-name
@@ -310,10 +300,8 @@ paths:
       summary: Get a list of SMS senders
       description: |
         This API provides the capability to retrieve a list of SMS notification senders.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+          <b>Permission required:</b> `permission/admin/manage/identity/configmgt/view` <br>
+          <b>Scope required:</b> `internal_config_mgt_view`
       operationId: getSMSSenders
       responses:
         "200":
@@ -357,10 +345,8 @@ paths:
       description: |
         This API provides the capability to create a SMS sender.
         If the 'name' is not not defined, 'SMSPublisher' is taken as the default name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/add <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_add
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/add` <br>
+          <b>Scope required:</b> `internal_config_mgt_add`
       operationId: createSMSSender
       requestBody:
         content:
@@ -428,10 +414,8 @@ paths:
       description: |
         This API provides the capability to retrieve a SMS notification sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/view` <br>
+          <b>Scope required:</b> `internal_config_mgt_view`
       operationId: getSMSSender
       parameters:
         - name: sender-name
@@ -484,10 +468,8 @@ paths:
       description: |
         This API provides the capability to update a SMS Sender.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/update <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_update
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/update` <br>
+          <b>Scope required:</b> `internal_config_mgt_update`
       operationId: updateSMSSender
       parameters:
         - name: sender-name
@@ -558,10 +540,8 @@ paths:
       description: |
         This API provides the capability to delete a SMS sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/delete <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_delete
+          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/delete` <br>
+          <b>Scope required:</b> `internal_config_mgt_delete`
       operationId: deleteSMSSender
       parameters:
         - name: sender-name
