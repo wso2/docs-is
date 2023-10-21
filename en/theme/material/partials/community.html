@@ -25,19 +25,21 @@
       </div>
       <label>Get Help</label>
     </a>
-  </div> 
-  <div style="display: inline-block;">
-    <a class="md-source" href="https://console.asgardeo.io/">
-      <div class="md-source__icon md-icon">
-        <svg width="24" height="21" viewBox="0 0 24 21" class="asgardeo-community-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g>
-              <path d="M17.147 0L19.3662 3.83584L16.9072 8.08534H21.8028L24.0003 11.8994H10.293L17.147 0Z" class="orange" />
-              <path d="M0 11.8994L2.19749 8.08534H7.09313L4.65581 3.83584L6.85328 0L13.7291 11.8994H0Z" class="orange" />
-              <path d="M14.4488 20.8349L12.0115 16.5855L9.55245 20.8349H5.13574L12.0115 8.93555L18.8655 20.8349H14.4488Z" class="black" />
-          </g>
-        </svg>     
-      </div>
-      <label>Try Asgardeo</label>
-    </a>
   </div>
+  {% if config.extra.product == "asgardeo" %}
+    <div style="display: inline-block;">
+      <a class="md-source" href="https://console.asgardeo.io/">
+        <div class="md-source__icon md-icon">
+          <svg width="24" height="21" viewBox="0 0 24 21" class="asgardeo-community-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M17.147 0L19.3662 3.83584L16.9072 8.08534H21.8028L24.0003 11.8994H10.293L17.147 0Z" class="orange" />
+                <path d="M0 11.8994L2.19749 8.08534H7.09313L4.65581 3.83584L6.85328 0L13.7291 11.8994H0Z" class="orange" />
+                <path d="M14.4488 20.8349L12.0115 16.5855L9.55245 20.8349H5.13574L12.0115 8.93555L18.8655 20.8349H14.4488Z" class="black" />
+            </g>
+          </svg>     
+        </div>
+        <label>Try Asgardeo</label>
+      </a>
+    </div>
+  {% endif %}
 </div>

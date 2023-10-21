@@ -388,6 +388,7 @@ extra:
   #     link: https://github.com/wso2
   # site_version: 1.0.0
   base_path: http://localhost:8000/asgardeo/docs
+  product: asgardeo
   nav_list:
     - Get Started
     - Guides
