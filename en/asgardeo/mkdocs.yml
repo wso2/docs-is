@@ -32,12 +32,12 @@ copyright: © 2023 WSO2 LLC.
 # Configuration
 theme:
   name: material
-  custom_dir: theme/material
+  custom_dir: ../theme/material
   logo: assets/images/asgardeo-docs-logo-dark.svg
   logo_light: assets/images/asgardeo-docs-logo.svg
   font:
     text: Nunito
-  favicon: assets/images/favicon.svg
+  favicon: assets/images/asgardeo-favicon.svg
   toc: false
   features:
     - navigation.tabs
@@ -355,14 +355,14 @@ markdown_extensions:
   - attr_list
 plugins:
   - search
-  - glightbox
+  # - glightbox
   - include-markdown
   - markdownextradata: {}
   - redirects:
       redirect_maps:
         'references/grant-types-in-asgardeo.md': 'https://wso2.com/asgardeo/docs/references/grant-types/'
 extra_css:
-  - assets/lib/fontawesome-free-6.4.2-web/css/all.min.css 
+  - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css
   # TODO: Need to verify if below css files are still needed. And clean those.
   # - assets/lib/highlightjs/default.min.css
@@ -386,7 +386,7 @@ extra:
   # social:
   #   - icon: fontawesome/brands/github
   #     link: https://github.com/wso2
-#site_version: 1.0.0
+  # site_version: 1.0.0
   base_path: http://localhost:8000/asgardeo/docs
   nav_list:
     - Get Started
@@ -448,3 +448,8 @@ extra:
       icon: assets/img/logo/apple-idp-illustration.svg
       description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
       source_link: https://github.com/openid/AppAuth-iOS
+  redoc_theme: '{
+    "colors": {
+      "primary": { "main": "#ff7300" }
+    }
+  }'
