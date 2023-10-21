@@ -31,12 +31,12 @@ copyright: WSO2 Identity Server - Documentation
 # Configuration
 theme:
   name: material
-  custom_dir: theme/material
+  custom_dir: ../../theme/material
   logo: assets/images/identity-server-docs-logo-dark.svg
   logo_light: assets/images/identity-server-docs-logo.svg
   font:
     text: Nunito
-  favicon: assets/images/favicon.png
+  favicon: assets/images/identity-server-favicon.png
   toc: false
   features:
     # Top navigation
@@ -381,14 +381,14 @@ markdown_extensions:
   - attr_list
 plugins:
   - search
-  - glightbox
+    # - glightbox
   - markdownextradata: {}
   - include-markdown
   - redirects:
       redirect_maps:
         'apis/idp-rest-api.md': 'https://is.docs.wso2.com/en/next//apis/idp/'
 extra_css:
-  - assets/lib/fontawesome-free-6.4.2-web/css/all.min.css 
+  - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css
 extra:
   material:
@@ -397,8 +397,8 @@ extra:
   # social:
   #   - icon: fontawesome/brands/github
   #     link: https://github.com/wso2
-#site_version: 1.0.0
-  #base_path: http://127.0.0.1:8000/en/7.0.0
+  # site_version: 1.0.0
+  # base_path: http://127.0.0.1:8000/en/7.0.0
   base_path: https://is.docs.wso2.com/en/next
   nav_list:
     - Get Started
@@ -460,3 +460,8 @@ extra:
       icon: assets/img/logo/apple-idp-illustration.svg
       description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
       source_link: https://github.com/openid/AppAuth-iOS
+  redoc_theme: '{
+    "colors": {
+      "primary": { "main": "#ff7300" }
+    }
+  }'
