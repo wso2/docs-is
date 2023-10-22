@@ -20,7 +20,7 @@
 :root {
     --md-primary-fg-color: #ff7300;
     --md-accent-fg-color: #e46700;
-    --md-redoc-example-bg-color: #17232c;
+    --md-redoc-example-bg-color: #2b3339;
 }
 
 [data-md-color-scheme=slate] {
@@ -33,7 +33,7 @@
 }
 
 .md-header {
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08), inset 0px -1px 0px #E1E2E7;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15), inset 0px -1px 0px #E1E2E7;
 }
 
 .md-tabs__link--active,
@@ -63,6 +63,76 @@
         background-color: var(--md-default-bg-color);
         height: 4.2rem;
     }
+}
+
+.center-all {
+    text-align: center;
+}
+
+.center-all .cards-container {
+    justify-content: center; 
+}
+
+.cards-grid h1:first-child {
+    margin-bottom: 0;
+}
+
+.cards-container {
+    margin: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.cards-container > h1 {
+    margin-bottom: 0;
+}
+
+.cards-container > h3 {
+    margin: 0.5em 0 2em;
+}
+
+.cards-container .card {
+    display: inline-block;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    max-width: 330px;
+    text-align: center;
+    color: var(--md-default-fg-color);
+}
+
+.cards-container .card > h3 {
+    margin-top: 0;
+}
+
+.cards-container .card > p:last-child {
+    margin-bottom: 0;
+}
+
+.cards-container .card.square {
+    width: 170px;
+    height: 170px;
+}
+
+.cards-container a.card:hover {
+    background: var(--md-default-fg-color--lightest);
+    color: var(--md-default-fg-color);
+}
+
+.cards-container .card > img {
+    width: 100px;
+    max-height: 100px;
+}
+
+.cards-container .card > p > a {
+    margin: 10px;
+    color: var(--md-default-fg-color);
+}
+
+.cards-container .card > p > a:hover {
+    color: var(--md-primary-fg-color);
 }
 
 /* Default/Light theme styles  */
