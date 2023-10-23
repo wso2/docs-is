@@ -13,7 +13,7 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Add a new script library.
+        Add a new script library
       description: >
         This API provides the capability to create a new Script library.
       operationId: addScriptLibrary
@@ -53,7 +53,7 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        List script libraries.
+        List script libraries
       description: >
         This API provides the capability to list Script Libraries.
       operationId: getScriptLibraries
@@ -97,7 +97,7 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Get script library.
+        Get script library
       description: >
         This API provides the capability to retrive the script library details by using its name.
       operationId: getScriptLibraryByName
@@ -141,7 +141,7 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Delete a script library.
+        Delete a script library
       description: >
         This API provides the capability to delete an script library by  giving its name.
       operationId: deleteScriptLibrary
@@ -175,7 +175,7 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Update a script library.
+        Update a script library
       description: >
         This API provides the capability to Update a script library of an script library by using name.
       operationId: updateScriptLibrary
@@ -228,7 +228,7 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Get the content of the script library.
+        Get the content of the script library
       description: >
         This API provides the capability to retrive the content of script library by using its name.
       operationId: getScriptLibraryContentByName

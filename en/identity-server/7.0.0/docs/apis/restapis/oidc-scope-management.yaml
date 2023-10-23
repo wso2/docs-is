@@ -23,7 +23,7 @@ paths:
     get:
       tags:
         - OIDC Scope Endpoint
-      summary: Retrieves the list of scopes
+      summary: Retrieve the list of scopes
       operationId: getScopes
       description: This REST API can be used to get details of the available scopes.
       security:
@@ -51,7 +51,7 @@ paths:
     post:
       tags:
         - OIDC Scope Endpoint
-      summary: Add a new OIDC Scope
+      summary: Add a new OIDC scope
       operationId: addScope
       security:
         - BasicAuth: []
@@ -110,7 +110,7 @@ paths:
     put:
       tags:
         - OIDC Scope Endpoint
-      summary: Update an OIDC Scope
+      summary: Update an OIDC scope
       operationId: updateScope
       security:
         - BasicAuth: []
@@ -144,7 +144,7 @@ paths:
     delete:
       tags:
         - OIDC Scope Endpoint
-      summary: Delete an OIDC Scope
+      summary: Delete an OIDC scope
       operationId: deleteScope
       security:
         - BasicAuth: []

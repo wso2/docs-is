@@ -17,7 +17,7 @@ paths:
     get:
       tags:
         - Email Template Types
-      summary: Retrieves all the email template types.
+      summary: Retrieves all the email template types
       operationId: getAllEmailTemplateTypes
       description: |
         Retrieves all the email template types in the system, with limited details of the email templates.
@@ -53,7 +53,7 @@ paths:
     post:
       tags:
         - Email Template Types
-      summary: Adds a new email template type.
+      summary: Adds a new email template type
       operationId: addEmailTemplateType
       description: |
         Adds a new email template type to the system. An email template type can have any number of email templates. <br>
@@ -97,7 +97,7 @@ paths:
     get:
       tags:
         - Email Template Types
-      summary: Retrieves the email template type corresponding to the template type id.
+      summary: Retrieves the email template type corresponding to the template type id
       operationId: getEmailTemplateType
       description: |
         Retrieves the email template type in the system identified by the template-type-id. <br>
@@ -132,7 +132,7 @@ paths:
     post:
       tags:
         - Email Templates
-      summary: Adds a new email template to an existing email template type.
+      summary: Adds a new email template to an existing email template type
       operationId: addEmailTemplate
       description: |
         Another email template with the same locale should not already exist in the
@@ -209,7 +209,7 @@ paths:
     delete:
       tags:
         - Email Template Types
-      summary: Removes an email template type.
+      summary: Removes an email template type
       operationId: deleteEmailTemplateType
       description: |
         Removes an existing email template type with all its email templates
@@ -238,7 +238,7 @@ paths:
     get:
       tags:
         - Email Templates
-      summary: Retrieves the list of email templates in the template type id.
+      summary: Retrieves the list of email templates in the template type id
       operationId: getTemplatesListOfEmailTemplateType
       description: |
         Retrieves the list of email templates in the template type ID. <br>
@@ -277,7 +277,7 @@ paths:
     get:
       tags:
         - Email Templates
-      summary: Retrieves a single email template.
+      summary: Retrieves a single email template
       operationId: getEmailTemplate
       description: |
         Retrieves the email template that matches the `template-type-id` and the `template-id`. <br>
@@ -312,7 +312,7 @@ paths:
     put:
       tags:
         - Email Templates
-      summary: Replaces an existing email template.
+      summary: Replaces an existing email template
       operationId: updateEmailTemplate
       description: |
         Replace the email template identified by the `template-type-id` and the `template-id`. <br>
@@ -346,7 +346,7 @@ paths:
     delete:
       tags:
         - Email Templates
-      summary: Removes an email template.
+      summary: Removes an email template
       operationId: deleteEmailTemplate
       description: |
         Removes an email template identified by the template-type-id and the template-id. <br>

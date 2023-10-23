@@ -29,12 +29,10 @@ paths:
           * RESERVED -  Tasks that are _assigned_ to the user and to be approved by this user.
           * COMPLETED - Tasks that are already _completed_ (approved or denied) by this user.
 
-        <b>Permission required:</b>
-            * /permission/admin/manage/humantask/viewtasks
-        <b>Scope required:</b>
-            * internal_humantask_view
+        <b>Permission required:</b> `/permission/admin/manage/humantask/viewtasks` <br>
+        <b>Scope required:</b> `internal_humantask_view` <br>
 
-         A user can also invoke the endpoint with the following query parameters.
+        A user can also invoke the endpoint with the following query parameters.
       operationId: listApprovalTasksForLoggedInUser
       parameters:
       - name: limit
@@ -125,10 +123,8 @@ paths:
       summary: Retrieves an approval task by the task-id
       description: |
         Retrieves information of a specific approval task identified by the task-id <br/>
-        <b>Permission required:</b>
-            * /permission/admin/manage/humantask/viewtasks
-        <b>Scope required:</b>
-            * internal_humantask_view
+        <b>Permission required:</b> `/permission/admin/manage/humantask/viewtasks`
+        <b>Scope required:</b> `internal_humantask_view`
       operationId: getApprovalTaskInfo
       parameters:
       - name: task-id
@@ -210,10 +206,8 @@ paths:
          * REJECT - Deny the task. The status of the task will be changed to COMPLETED.
          <br/>
 
-        <b>Permission required:</b>
-            * /permission/admin/manage/humantask/viewtasks
-        <b>Scope required:</b>
-            * internal_humantask_view
+        <b>Permission required:</b> `/permission/admin/manage/humantask/viewtasks`
+        <b>Scope required:</b> `internal_humantask_view`
       operationId: updateStateOfTask
       parameters:
       - name: task-id

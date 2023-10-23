@@ -187,8 +187,8 @@ paths:
       - me
       summary: List authorized applications for the authenticated user
       description: Lists approved OAuth applications of the authenticated user<br>
-        <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> *
-        internal_login
+        <b>Permission required:</b> None <br>
+        <b>Scope required:</b> `internal_login`
       operationId: listLoggedInUserAuthorizedApps
       responses:
         200:
@@ -215,9 +215,9 @@ paths:
       tags:
       - me
       summary: Removes authorized applications for the authenticated user
-      description: Removes approved OAuth applications of the authenticated user<br>
-        <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> *
-        internal_login
+      description: Removes approved OAuth applications of the authenticated user. <br>
+        <b>Permission required:</b> None <br> 
+        <b>Scope required:</b> `internal_login`
       operationId: deleteLoggedInUserAuthorizedApps
       responses:
         204:
@@ -241,8 +241,9 @@ paths:
       - me
       summary: Retrieve authorized app by app ID for the authenticated user
       description: Retrieves authorized OAuth app by an app ID for the authenticated
-        user<br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b>
-        <br> * internal_login
+        user.<br> 
+        <b>Permission required:</b> None <br> 
+        <b>Scope required:</b> `internal_login`
       operationId: getLoggedInUserAuthorizedAppByAppId
       parameters:
       - name: application-id
@@ -281,8 +282,9 @@ paths:
       - me
       summary: Removes authorized app by app ID for the authenticated user
       description: Removes authorized OAuth app by an app ID for the authenticated
-        user<br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b>
-        <br> * internal_login
+        user. <br> 
+        <b>Permission required:</b> None <br> 
+        <b>Scope required:</b> `internal_login`
       operationId: deleteLoggedInUserAuthorizedAppByAppId
       parameters:
       - name: application-id

@@ -20,13 +20,11 @@ paths:
       summary: |
         Get the lock status of a functionality for an authenticated user
       description: |
-        Get the status of a functionality for the authenticated user.
+        Get the status of a functionality for the authenticated user. <br>
 
-        <b>Permission required:</b> <br/>
-          - none
+        <b>Permission required:</b> none <br>
 
-        <b>Scope required:</b> <br/>
-          - internal_login
+        <b>Scope required:</b> `internal_login` <br>
 
       operationId: getLockStatusOfLoggedInUser
       parameters:
@@ -68,16 +66,14 @@ paths:
     put:
       tags:
         - user functionality management
-      summary: Lock or Unlock a function for authenticated user
+      summary: Lock or unlock a function for authenticated user
       operationId: changeStatusOfLoggedInUser
       description: |
-        This API is used to lock or unlock a function for the authenticated user.
+        This API is used to lock or unlock a function for the authenticated user. <br>
 
-        <b>Permission required:</b> <br/>
-          - none
+        <b>Permission required:</b> none <br>
 
-        <b>Scope required:</b> <br/>
-          - internal_login
+        <b>Scope required:</b> `internal_login`
 
       parameters:
         - name: function-id
@@ -133,11 +129,9 @@ paths:
       description: |
         Get the status of a functionality for a particular user.
 
-        <b>Permission required:</b> <br/>
-          - /permission/admin/manage/identity/identitymgt/view
+        <b>Permission required:</b> `/permission/admin/manage/identity/identitymgt/view` <br>
 
-        <b>Scope required:</b> <br/>
-          - internal_identity_mgt_view
+        <b>Scope required:</b> `internal_identity_mgt_view`
 
       operationId: getLockStatus
       parameters:
@@ -185,16 +179,14 @@ paths:
     put:
       tags:
         - user functionality management
-      summary: Lock or Unlock a function for a user
+      summary: Lock or unlock a function for a user
       operationId: changeStatus
       description: |
-        This API is used to lock or unlock a function for a particular user.
+        This API is used to lock or unlock a function for a particular user. <br>
 
-        <b>Permission required:</b> <br/>
-          - /permission/admin/manage/identity/identitymgt/update
+        <b>Permission required:</b> `/permission/admin/manage/identity/identitymgt/update` <br>
 
-        <b>Scope required:</b> <br/>
-          - internal_identity_mgt_update
+        <b>Scope required:</b> `internal_identity_mgt_update`
 
       parameters:
         - name: function-id

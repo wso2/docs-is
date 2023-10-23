@@ -17,7 +17,7 @@ paths:
     get:
       tags:
       - me
-      summary: Retrieve the QR Code URL of the authenticated user.
+      summary: Retrieve the QR Code URL of the authenticated user
       description: |
         This API is used to retrieve the QR code URL of the authenticated user.
 
@@ -106,7 +106,7 @@ paths:
     delete:
       tags:
       - me
-      summary: Resets TOTP credentials of the authenticated user.
+      summary: Resets TOTP credentials of the authenticated user
       description: |
         This API is used to delete the TOTP credentials of the authenticated user.
 
@@ -131,7 +131,7 @@ paths:
     get:
       tags:
       - me
-      summary: Retrieve the TOTP secret of the authenticated user.
+      summary: Retrieve the TOTP secret of the authenticated user
       description: |
         This API is used to retrieve the TOTP secret of the authenticated user.
 
