@@ -23,11 +23,7 @@ site_url: https://is.docs.wso2.com/en/latest/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-<<<<<<<< HEAD:en/identity-server/6.1.0/mkdocs.yml
 edit_uri: https://github.com/wso2/docs-is/edit/6.1.0/en/docs/
-========
-edit_uri: https://github.com/wso2/docs-is/edit/6.0.0/en/docs/
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/mkdocs.yml
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -96,11 +92,7 @@ nav:
           #- Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
           - OIDC Flows:
             - Overview: guides/login/oidc-authentication.md 
-<<<<<<<< HEAD:en/identity-server/6.1.0/mkdocs.yml
             - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
-========
-            - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/mkdocs.yml
             - OIDC Auth Code Flow with PKCE for public clients: guides/login/oidc-auth-code-pkce-public-clients.md
             - OIDC Auth Code Flow with PKCE: guides/login/oidc-auth-code-pkce.md
             - OIDC Implicit Flow: guides/login/oidc-implicit-client-profile.md 
@@ -226,12 +218,7 @@ nav:
         - OAuth 2.0 Transaction Logs: guides/access-delegation/oauth-transaction-logs.md
         - OAuth 2.0 Token Hashing: guides/access-delegation/oauth-token-hashing.md
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
-<<<<<<<< HEAD:en/identity-server/6.1.0/mkdocs.yml
         - Mutual TLS for OAuth clients: guides/access-delegation/mutual-tls-for-oauth-clients.md
-========
-        - User Managed Access: guides/access-delegation/uma.md
-        - Mutual TLS for OAuth Clients: guides/access-delegation/mutual-tls-for-oauth-clients.md
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/mkdocs.yml
       - Consent Management:
         - Manage user consent: guides/consent-mgt/manage-user-consent.md
         - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
@@ -606,7 +593,6 @@ nav:
           - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
         - Manage a Service Provider: guides/applications/manage-sp.md
         - Set up a Resident Service Provider: guides/applications/resident-sp.md
-        
       - Identity Providers:
         - Overview: guides/identity-federation/basic-overview.md
         - Register an IdP: guides/identity-federation/add-idp.md
@@ -623,12 +609,6 @@ nav:
           - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
           - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Tenants: references/concepts/introduction-to-multitenancy.md
-      - Workflow Management:
-          - Overview: guides/workflows/overview.md
-          - Add a workflow definition: guides/workflows/add-a-new-workflow-definition.md
-          - Engage a workflow in an operation: guides/workflows/engage-a-workflow-in-an-operation.md
-          - Manage human tasks: guides/workflows/manage-human-tasks.md
-          - Monitor workflow requests: guides/workflows/monitor-workflow-requests.md
     - WSO2 IS Extensions:
       #- Work with the Source Code: references/extend/work-with-the-source-code.md
       - Authentication:
@@ -691,12 +671,6 @@ nav:
         - Re-brand the Default Login Page: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
         - Re-brand the SSO Redirection Page: references/extend/rebranding/rebrand-the-sso-redirection-page.md
         - Customize Login Pages: references/extend/rebranding/customizable-login-portal.md
-<<<<<<<< HEAD:en/identity-server/6.1.0/mkdocs.yml
-========
-      - Workflow management:
-        - Extend the workflow event handler: references/extend/workflows/extend-the-workflow-event-handler.md
-        - Write a cutom workflow template: references/extend/workflows/write-a-custom-workflow-template.md
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/mkdocs.yml
       - Errors:
         - Error messages: references/extend/errors/customize-authentication-error-messages.md
         - Error Pages: references/extend/errors/customize-error-pages.md
@@ -777,7 +751,6 @@ nav:
             - Refresh Tokens: references/concepts/authorization/refresh-token.md
           - Client Authentication: references/concepts/authorization/client-authentication.md
           - Token Introspection: references/concepts/authorization/introspection.md
-          - JARM for OAuth 2.0: references/concepts/authorization/jarm.md
         - User Managed Access (UMA):
           - Introduction to UMA: references/concepts/authorization/user-managed-access.md
           - Resource Registration Endpoint: references/concepts/authorization/uma-resource-registration.md
@@ -1263,11 +1236,7 @@ plugins:
               'develop/oidc-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oidc-scope-management-rest-apis/'
               'develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/'
               'develop/permission-management-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/permission-management-rest-api/'
-<<<<<<<< HEAD:en/identity-server/6.1.0/mkdocs.yml
               'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-self-sign-up-rest-apis/#/User%20Export'
-========
-              'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-self-sign-up-rest-apis/#/User%20Export/'
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/mkdocs.yml
               'develop/scim-1.1-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim-1.1-apis/'
               'develop/scim2-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim2-rest-apis/'
               'develop/scim2-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim2-rest-apis/'
@@ -1305,11 +1274,7 @@ plugins:
               'develop/customizing-the-authentication-endpoint.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/customize-the-authentication-endpoint/'
               'develop/localization-support-in-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/localization-support-in-identity-server/'
               'develop/hosting-authentication-endpoint-on-a-different-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/host-authentication-endpoint-on-a-different-server/'
-<<<<<<<< HEAD:en/identity-server/6.1.0/mkdocs.yml
               'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/'
-========
-              'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/tree/v1.4.28#build--run'
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/mkdocs.yml
               'develop/customizing-my-account-ui.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/myaccount/customize-my-account-ui/'
               'develop/configure-my-account.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/myaccount/configure-my-account/'
               'setup/installing-the-product.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/get-started/install/'
@@ -1395,19 +1360,10 @@ plugins:
               #'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/6.0.0/migrate-userstore-managers/'
               'setup/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/wso2-identity-server-feature-deprecation/'
               'deploy/migrate/migration-process.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
-<<<<<<<< HEAD:en/identity-server/6.1.0/mkdocs.yml
               'deploy/migrate/what-has-changed.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
               'deploy/migrate/migrate-to-600.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
               'deploy/migrate/prepare-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
               'deploy/migrate/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/6.0.0/references/wso2-identity-server-feature-deprecation/'
-========
-              'deploy/migrate/migrate-to-600.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
-              'deploy/migrate/migrate-userstore-managers.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
-              'deploy/migrate/what-has-changed.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
-              'deploy/migrate/migration-guide.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
-              'deploy/migrate/preparing-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
-              'deploy/migrate/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/references/wso2-identity-server-feature-deprecation/'
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/mkdocs.yml
               'setup/environment-compatibility.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/environment-compatibility'
               'administer/wso2-administration-guide.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'administer/configuring-the-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/'
@@ -1499,15 +1455,9 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-<<<<<<<< HEAD:en/identity-server/6.1.0/mkdocs.yml
   site_version: 6.1.0
   base_path: https://is.docs.wso2.com/en/6.1.0
   #base_path: http://127.0.0.1:8000/en/6.1.0
-========
-  site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.0.0
-  #base_path: http://127.0.0.1:8000/en/6.0.0
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/mkdocs.yml
 
   nav_list:
     - Home
