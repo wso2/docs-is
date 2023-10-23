@@ -116,11 +116,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/approval-tasks' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/approval-tasks/{task-id}:
     get:
       tags:
       - me
-      summary: Retrieves an approval task by the task-id
+      summary: Retrieve an approval task by the task-id
       description: |
         Retrieves information of a specific approval task identified by the task-id <br/>
         <b>Permission required:</b> `/permission/admin/manage/humantask/viewtasks`
@@ -193,6 +200,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/approval-tasks/451' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/approval-tasks/{task-id}/state:
     put:
       tags:
@@ -251,6 +265,17 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/approval-tasks/451/state' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '{
+              "action": "APPROVE"
+            }'
       x-codegen-request-body-name: next-state
 components:
   schemas:
