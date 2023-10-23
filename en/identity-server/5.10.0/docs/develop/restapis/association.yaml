@@ -1,0 +1,572 @@
+swagger: '2.0'
+######################################################
+# Prolog
+######################################################
+info:
+  description: |
+    This document specifies a **RESTful API** for WSO2 **Identity Server** .
+    It is written with [swagger 2](http://swagger.io/). The APIs provide the
+    capability to add/retrieve/delete associated local/federated accounts of an authenticated user.
+    In addition, APIs are available for privileged users to be invoked on behalf of another user
+    to retrieve/delete associated local/federated accounts.
+
+  version: "v1"
+  title: "WSO2 Identity Server - User Account Associations API Definition"
+  contact:
+    name: "WSO2"
+    url: "http://wso2.com/products/identity-server/"
+    email: "architecture@wso2.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+# Tags are used for organizing operations
+tags:
+  - name: me
+    description: Operations for the authenticated user.
+  - name: admin
+    description: >
+      Operations available for privileged users, to be invoked on behalf of another user.
+      **These endpoints are not released in WSO2 Identity Server - 5.9.0 version and will be released in the next product version.**
+
+######################################################
+# The fixed parts of the URLs of the API
+######################################################
+
+# The schemes supported by the API
+schemes:
+  - https
+# Applicable authentication mechanisms.
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+
+# The domain of the API.
+# This is configured by the customer during deployment.
+# The given host is just an example.
+# host: apis.is.com
+
+# The base path of the API.
+# Will be prefixed to all paths.
+
+# if the tenant domain is carbon.super basepath can be /api/identity/user/v1.0 like this too.
+# basePath: /t/{tenant-domain}/api/identity/v1.0
+
+# The following media types can be passed as input in message bodies of the API.
+# The actual media type must be specified in the Content-Type header field of the request.
+# The default is json, i.e. the Content-Type header is not needed to
+# be set, but supporting it serves extensibility.
+consumes:
+  - application/json
+
+# The following media types may be passed as output in message bodies of the API.
+# The media type(s) consumable by the requestor is specified in the Accept header field
+# of the corresponding request.
+# The actual media type returned will be specfied in the Content-Type header field
+# of the of the response.
+# The default of the Accept header is json, i.e. there is not needed to
+# set the value, but supporting it serves extensibility.
+
+
+produces:
+  - application/json
+paths:
+  # Endpoint uses to associate two user accounts.
+  /me/associations:
+    post:
+      description: |
+        This API is used to associate a user to the authenticated user. For example if it is required to associate  my
+        user account to the user account of 'john', this endpoint can be used. userId and the password are required to associate the accounts.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      summary: |
+        Associate a user to the authenticated user
+      parameters:
+        -
+          name: association
+          in: body
+          description:  User details to be associated. userId should be the fully qualified username of the user.
+          required: true
+          schema:
+            $ref: '#/definitions/AssociationUserRequest'
+      responses:
+        201:
+          description: Successfully created
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        409:
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+    get:
+      tags:
+        - me
+      summary: Retrive the associations of the authenticated user.
+      description: |
+        This API is used to retrieve the associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      responses:
+        200:
+          description: Successful operation
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/User'
+        204:
+          description: No content
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+
+    delete:
+      summary: Delete all my user associations
+      description: |
+        This API is used to delete all associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      responses:
+        204:
+          description: No content
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+
+  /me/associations/{associated-user-id}:
+    delete:
+      parameters:
+        - name: associated-user-id
+          in: path
+          required: true
+          type: string
+      summary: Delete given user account from my user associations
+      description: |
+        This API is used to delete the given user account from the associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      responses:
+        204:
+          description: No content
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+
+  /me/federated-associations:
+    get:
+      tags:
+        - me
+      summary: Retrive the federated associations of the authenticated user.
+      description: |
+        This API is used to retrieve the federated associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      responses:
+        200:
+          description: Successful operation
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/FederatedAssociation'
+        204:
+          description: No content
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: Delete all my federated user associations
+      description: |
+        This API is used to delete all the federated associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      responses:
+        204:
+          description: No content
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+
+  /me/federated-associations/{id}:
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      summary: Delete my federated association
+      description: |
+        This API is used to delete a federated association of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      responses:
+        204:
+          description: No content
+        401:
+          description: Unauthorized request
+        403:
+          description: Resource Forbidden
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+
+  /{user-id}/associations:
+    get:
+      tags:
+        - admin
+      summary: Get user's associations
+      description: |
+        This API is used to retrieve the associations of the user.<br>
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/user/association/view
+        <b>Scope required:</b>
+            * internal_user_association_view
+      parameters:
+        -
+          name: user-id
+          in: path
+          required: true
+          description: user id
+          type: string
+      responses:
+        200:
+          description: Successful operation
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/User'
+        204:
+          description: No content
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized request
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      parameters:
+        -
+          name : user-id
+          in : path
+          required: true
+          type: string
+      summary: Delete user's all user associations
+      description: |
+        This API is used to delete all associations of the user.<br>
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/user/association/delete
+        <b>Scope required:</b>
+            * internal_user_association_delete
+      responses:
+        204:
+          description: No content
+        401:
+          description: Unauthorized request
+        403:
+          description: Resource Forbidden
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - admin
+
+  /{user-id}/federated-associations:
+    get:
+      tags:
+        - admin
+      summary: Get user's federated associations
+      description: |
+        This API is used to retrieve the federated associations of the user.<br>
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/user/association/view
+        <b>Scope required:</b>
+            * internal_user_association_view
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          description: user id
+          type: string
+      responses:
+        200:
+          description: Successful operation
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/FederatedAssociation'
+        204:
+          description: No content
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized request
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          type: string
+      summary: Delete user's all user federated associations
+      description: |
+        This API is used to delete all federated associations of the user.<br>
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/user/association/delete
+        <b>Scope required:</b>
+            * internal_user_association_delete
+      responses:
+        204:
+          description: No content
+        401:
+          description: Unauthorized request
+        403:
+          description: Resource Forbidden
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - admin
+
+  /{user-id}/federated-associations/{id}:
+    delete:
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      summary: Delete user's federated association
+      description: |
+        This API is used to delete a federated association of the user.<br>
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/user/association/delete
+        <b>Scope required:</b>
+            * internal_user_association_delete
+      responses:
+        204:
+          description: No content
+        401:
+          description: Unauthorized request
+        403:
+          description: Resource Forbidden
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - admin
+
+definitions:
+
+  #-----------------------------------------------------
+  # The Error Response  object
+  #-----------------------------------------------------
+  Error:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: string
+        example: "some_error_code"
+      message:
+        type: string
+        example: "Some Error Message"
+      description:
+        type: string
+        example: "Some Error Description"
+      traceId:
+        type: string
+        example: "Some Correlation for Error Instance"
+  #-----------------------------------------------------
+  # The User Response  object
+  #-----------------------------------------------------
+  User:
+    type: object
+    properties:
+      userId:
+        type: string
+        example: '23e22434234234329jj9iin'
+      username:
+        type: string
+        example: john
+      userStoreDomain:
+        type: string
+        example: PRIMARY
+      tenantDomain:
+        type: string
+        example: carbon.super
+      firstName:
+        type: string
+        example: john
+      lastName:
+        type: string
+        example: doe
+      email:
+        type: string
+        example: john.doe@wso2.com
+  #-----------------------------------------------------
+  # The Federated Association Response  object
+  #-----------------------------------------------------
+  FederatedAssociation:
+    type: object
+    properties:
+      id:
+        type: string
+        example: eeqweisfhkdfik
+      idp:
+        $ref: '#/definitions/Idp'
+      federatedUserId:
+        type: string
+        example: john@google.com
+  #-----------------------------------------------------
+  # The Federated Identity Provider Response object
+  #-----------------------------------------------------
+  Idp:
+    type: object
+    properties:
+      id:
+        type: string
+        example: eeqweisfhkdfikaefcqwesfceqwqas
+      name:
+        type: string
+        example: google.com
+      displayName:
+        type: string
+        example: Google
+      imageUrl:
+        type: string
+        example: https://is.example.com/sample.jpg
+  #-----------------------------------------------------
+  # The Property  object
+  #-----------------------------------------------------
+  Property:
+    type: object
+    properties:
+      key:
+        type: string
+        example: 'test-key'
+      value:
+        type: string
+        example: 'test-value'
+  #-----------------------------------------------------
+  # The AssociationUserRequest Association User Request
+  #-----------------------------------------------------
+  AssociationUserRequest:
+    type: object
+    properties:
+      userId:
+        type: string
+        example: john
+      password:
+        type: string
+        example: userpassword
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+securityDefinitions:
+  BasicAuth:
+    type: basic
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://localhost:9443/oauth2/authorize
+    tokenUrl: https://localhost:9443/oauth2/token
+# Added by API Auto Mocking Plugin
+host: localhost:9443
+basePath: /t/carbon.super/api/users/v1
