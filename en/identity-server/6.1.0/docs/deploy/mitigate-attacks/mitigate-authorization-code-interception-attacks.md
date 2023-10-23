@@ -129,10 +129,6 @@ steps below to do this.
 
 
 !!! info "Related topics" 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
     -   See [Try Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
-========
-    -   See [Try Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground/)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
         to try out PKCE with the authorization code grant type using the
         WSO2 Playground web application.

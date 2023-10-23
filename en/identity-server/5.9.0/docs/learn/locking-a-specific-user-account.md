@@ -38,8 +38,9 @@ account locking, expand the section below for instructions.
 
       3.  Click **Resident** under **Identity Providers** found in the
          **Main** tab.
-      4.  Expand the **Login Attempts Security** tab.
-    5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
+      4.  Expand the **Login Policies** tab.
+    5.  Expand the **Account Locking** tab and select the **Account Lock
+        Enabled** checkbox. Click **Update** to save changes.  
         ![login-policies](../assets/img/using-wso2-identity-server/login-policies.png) 
 
         !!! tip
@@ -193,18 +194,22 @@ below.
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/locking-a-specific-user-account.md
+    
+#### Configuring email templates for WUM Updated version
 
-WSO2 Identity Server uses separate email templates for notifying, 
-========
-  
-WSO2 Identity Server uses separate email templates for notifying: 
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/locking-a-specific-user-account.md
+!!! warning
+    To use this feature, apply the `0015` WUM update for WSO2 Identity Server 5.9.0 using the WSO2 Update Manager 
+    (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, 
+    you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating 
+    WSO2 Identity Server using WUM, see [Updating WSO2 Products](../../administer/getting-wso2-updates)
+    
+WUM Updated WSO2 Identity Server 5.9.0 uses separate email templates for notifying, 
 
 - Account locking by administrator
 - Account unlocking by administrator 
 
-Add the following email templates by referring to the instructions in [Customizing Automated Emails](../../learn/customizing-automated-emails).
+Add the following email templates by referring to the instructions in 
+[Customizing AutomatedEmails](../../learn/customizing-automated-emails).
 
 Following are the sample email templates.
 
@@ -370,3 +375,4 @@ Following are the sample email templates.
        </table>]]>
     ```
     - Footer : ---
+

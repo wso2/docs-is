@@ -6,7 +6,7 @@ authorization mechanisms that only span a single boundary of trust.
 Hence, these organizations often provide and consume services across
 trust boundaries, which may include partners, subsidiaries, customers or
 suppliers and may span across multiple buildings, cities, states,
-countries and even continents. Identity federation and single sign-on
+countries and even continents. Identity federation and Single Sign On
 (SSO) come into the picture to provide and consume these services across
 trust boundaries.
 
@@ -23,42 +23,34 @@ when accessing each application until their session is terminated.
 
 This topic expands on Federated Identity and Single-Sign-On concepts.
 
----
+## SAML2-based SSO
 
-## SAML 2.0 based SSO
-
-One of the key features in WSO2 Identity Server is SAML 2.0 based
+One of the key features in WSO2 Identity Server is SAML2-based
 Single-Sign-On (SSO) feature. This implementation complies with the
-SAML 2.0 Web Browser SSO profile
-and the Single Logout Profile.
+[SAML2 Web Browser SSO profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
+and the [Single Logout Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf).
 
-!!! info
-    Refer [here](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) for information on SAML 2.0 profiles.
-
-
-Single sign-on (SSO) has become very popular since it is a very
+Single Sign On (SSO) systems have become very popular since it is a very
 secure and convenient authentication mechanism. Google Apps can be taken
-as the best example for a single sign-on system where users can
-automatically log in to multiple web applications once they are
-authenticated once using a single set of credentials.
+as the best example for a Single Sign On system where users can
+automatically login to multiple web applications once they are
+authenticated at a one place using a single credential.
 
 Security Assertion Markup Language (SAML) version 2.0 Profiles
-specification defines a web browser based single sign-on system. This
+Specification defines a web browser based single sign on system. This
 article briefly explains the SAML 2.0 web browser-based SSO profile and
 guides you to build your own SAML 2.0 Assertions Consumer using the
 OpenSAML 2.2.3 Java library. This section helps you to understand how
 SAML 2.0 based SSO systems work and how to use WSO2 Identity Server as
-the identity provider in a SSO system.
+the Identity Provider in a SSO system.
 
-The following sections expand on SAML 2.0 based SSO.
+The following sections expand on SAML2 based SSO:
 
----
+### About SSO
 
-## About SSO
-
-There are two roles in a single sign-on (SSO) system: Service Providers and Identity Providers. 
-The important characteristic of a single sign-on
-system is the pre-defined trust relationship between the service
+In a single sign on system there are two roles; Service Providers and
+Identity Providers (IP). The important characteristic of a single sign
+on system is the pre-defined trust relationship between the service
 providers and the identity providers. Service providers trust the
 assertions issued by the identity providers and the identity providers
 issue assertions based on the results of authentication and
@@ -80,20 +72,16 @@ The following are some of the advantages you can have with SSO:
 -   User identities are managed at a central point. This is more secure,
     less complex and easily manageable.
 
-For more information on SSO, see [here]({{base_path}}/references/concepts/single-sign-on).
-
-WSO2 Identity Server supports the SAML 2.0
+With the release of WSO2 Identity Server 3.0, it supports the SAML 2.0
 web browser based SSO profile. WSO2 Identity Server can act as the
-identity provider of a single sign-on system with minimal
+identity provider of a single sign on system with minimal
 configurations. This section provides information on how to configure
 the identity server and how your applications can be deployed in a SAML
 2.0 web browser based SSO system.
 
----
+### SSO in reality
 
-## SSO in reality
-
-Single sign-on (SSO) is widely used in web technologies. Google is one of the
+Single Sign On is widely used in web technologies. Google is one of the
 best examples.
 
 Try this simple exercise,
@@ -114,7 +102,7 @@ Try this simple exercise,
     Password at Gmail.
 7.  In addition to that; now try
     [www.youtube.com](http://www.youtube.com/).
-8.  Click on the **Sign In** button on the top right of the YouTube
+8.  Click on the “ **Sign In** ” button on the top right of the YouTube
     home page.
 9.  You are automatically signed in. You do not have to enter your
     username and password at YouTube.
@@ -125,13 +113,11 @@ Try this simple exercise,
 		[www.google.com/accounts/ServiceLogin](http://www.google.com/accounts/ServiceLogin)
 		and return immediately back to the website.
 
-Single sign-on (SSO) allows you to sign in only once but provides access
+Single Sign On (SSO) allows you to sign in only once but provides access
 to multiple resources without having to re-enter your username and
 password.
 
----
-
-## SAML 2.0 web browser-based SSO profile
+### SAML 2.0 web browser-based SSO profile
 
 SAML 2.0 Web Browser based SSO profile is defined under the SAML 2.0
 Profiles specification. SAML 2.0 provides five main specifications:
@@ -163,17 +149,15 @@ If the user accesses the identity provider directly, then only the steps
 3, 4 and 5 are in the flow.
 
 The message MUST contain an element which uniquely identifies the
-service provider who created the message. More information regarding the message
+service provider who created the message. Optionally the message may
+contain elements such as, etc. More information regarding the message
 can be found in [SAML Core
-Specification](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf).
+Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf).
 
 The following diagram illustrates the scenario:
+![](../assets/img/103330622/103330623.png)
 
-![SAML 2.0 web browser-based SSO profile flow]({{base_path}}/assets/img/references/sso-profile.png)
-
----
-
-## SAML 2.0 SSO assertion consumers
+### SAML 2.0 SSO assertion consumers
 
 Service providers act as SAML assertion consumers. They have two basic
 functions:
@@ -184,19 +168,17 @@ functions:
     on them.
 
 The following code is a sketch of a sample service provider servlet in a
-SAML 2.0 web browser-based SSO system.
+SAML 2.0 Web-Browser based SSO system.
 
 ``` java
 public class Resource extends HttpServlet 
 {             
      private static SamlConsumer consumer = new SamlConsumer();           
-     
      public void doGet(HttpServletRequest request, HttpServletResponse response) 
      { 
              requestMessage = consumer.buildRequestMessage();
              response.sendRedirect(requestMessage);
      }            
-     
      public void doPost(HttpServletRequest request, HttpServletResponse response) 
      { 
              responseMessage = request.getParameter("SAMLResponse").toString();  
@@ -207,9 +189,9 @@ public class Resource extends HttpServlet 
 
 When a web user attempts to access the above servlet, its **doGet()**
 method is called. Inside the **doGet()** method, it generates an message
-and then redirects the user to the identity provider.
+and then redirects the user to the Identity Provider.
 
-After authentication is completed by the identity provider, it does a
+After authentication is completed by the Identity Provider, it does a
 POST call back to the above servlet with a message. Then the
 **doPost()** method of the servlet gets called and inside the
 **doPost()** method, it retrieves the message from the request and then
@@ -219,9 +201,7 @@ The complete source code can be checked out
 [here](http://svn.wso2.org/repos/wso2/carbon/platform/branches/turing/products/is/4.6.0/modules/samples/sso/)
 .
 
----
-
-## &lt;AuthnRequest&gt; message
+### <AuthnRequest> Message
 
 To create an `         <AuthnRequest>        ` message using the
 OpenSAML library:
@@ -260,6 +240,9 @@ OpenSAML library:
 	authnRequest.setVersion(SAMLVersion.VERSION_20); 
     ```
 
+    The message may contain many other elements like, etc. those
+    elements can be created and added to the message in the same way.
+
 5.  Next encode the message.
 
     ``` java
@@ -295,13 +278,11 @@ OpenSAML library:
     response.sendRedirect(redirectionUrl);
 	```
 
----
-
-## &lt;Response&gt; message
+### <Response> Message
 
 To read the `         <Response>        ` message issued by the WSO2 Identity Server:
 
-1.  A sample &lt;Response&gt; message can be found [here](http://wso2.org/files/Response.xml).
+1.  A sample \<Response\> message can be found [here](http://wso2.org/files/Response.xml).
 
 2.  The response message must be fetched from the request.
 
@@ -309,7 +290,7 @@ To read the `         <Response>        ` message issued by the WSO2 Identity Se
 	responseMessage = request.getParameter("SAMLResponse").toString();
 	```
 
-3.  The fetched **responseMessage** is unmarshalled and the SAML
+3.  The fetched “ **responseMessage** ” is unmarshaled and the SAML
     message is retrieved.
 
     ``` java
@@ -324,10 +305,11 @@ To read the `         <Response>        ` message issued by the WSO2 Identity Se
     ```
 
 4.  The retrieved SAML 2.0 Response message can be easily processed. For
-    example, let's take the username or the subject's name ID.
+    example, lets takes the User Name or the Subject's Name Id.
 
     ``` java
-	String subject = response.getAssertions().get(0).getSubject().getNameID().getValue();
+	String subject = response.getAssertions().get(0).getSubject()
+.getNameID().getValue();
 	```
 
 5.  Alternatively, you can retrieve the certificate.
@@ -338,45 +320,26 @@ To read the `         <Response>        ` message issued by the WSO2 Identity Se
 
 Likewise the message from the WSO2 Identity Server can be read easily.
 
----
+### Identity provider initiated SSO
 
-## Identity provider initiated SSO
-
-To initiate identity provider initiated SSO you need to perform a HTTP GET/POST to the
+To initiate IdP Initiated SSO you need to perform a HTTP GET/POST to the
 following URL (assume the registered service provider issuer ID is
-foo.com).
+foo.com)
 
-```
-https://localhost:9443/samlsso?spEntityID=foo.com
-```
+<https://localhost:9443/samlsso?spEntityID=foo.com>
 
 This request will authenticate and redirect the user to the registered
-Assertion Consumer URL. You can use `acs` query parameter in the request
-to specify the Assertion Consumer URL that the browser should be redirected
-to after the authentication is successful. 
+Assertion Consumer URL. Optionally you can send in a RelayState
+parameter as follows:
 
--   If the `acs` query parameter is not present in the request, the Identity
-    Server sends the response to default ACS URL of the service provider.
--   If the `acs` parameter is present and the value of that parameter matches
-    with any of the registered ACS URLs of the service provider, then the
-    Identity Server sends the response to the matched one.
-    
-    ```
-    https://localhost:9443/samlsso?spEntityID=foo.com&acs=http://localhost:8080/foo.com/my-home.jsp
-    ```
- 
-Optionally, you can send a `RelayState` parameter as follows:
-
-```
-https://localhost:9443/samlsso?spEntityID=foo.com&RelayState=http://localhost:8080/foo.com/my-home.jsp
-```
+<https://localhost:9443/samlsso?spEntityID=foo.com&RelayState=http://localhost:8080/foo.com/my-home.jsp>
 
 This request will authenticate and redirect the user to the URL in the
 RelayState parameter itself.
 
 !!! info 
-	You could could have service provider initiated SSO alone, or service provider initiated SSO and identity provider initiated SSO together.
-	You cannot have identity provider initiated SSO alone. By design, service provider
-	initiated SSO is more restrictive and secure. If a service provider is
-	allowed to do identity provider initiated SSO, it would automatically imply that this
-	service provider is allowed to do service provider initiated SSO as well.
+	Either you could have SP Initiated SSO only, or SP Initiated SSO and IdP
+	Initiated SSO. You can't have IdP initiated SSO only. By design, SP
+	Initiated SSO is more restrictive and secure. If a service provider is
+	allowed to do IdP Initiated SSO, it would automatically imply that this
+	service provider is allowed to do SP initiated SSO as well.

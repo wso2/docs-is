@@ -1,4 +1,4 @@
-# XACML 3.0 Sample Policy - 4
+# XACML 3.0. Sample Policy - 4
 
 This topic demonstrates an example of a XACML policy that addresses the following authorization requirements.
 

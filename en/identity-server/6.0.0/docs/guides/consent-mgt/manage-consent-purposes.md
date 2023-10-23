@@ -112,11 +112,4 @@ management console.
     ![manage-purpose]({{base_path}}/assets/img/guides/manage-purpose.png)
 
     !!! tip "Deleting PII Category"
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/consent-mgt/manage-consent-purposes.md
         To delete a specific PII cateogry, use the consent management [Delete PII Category REST API]({{base_path}}/apis/use-the-consent-management-rest-apis/). Note that you can not delete a PII category that is already associated with a consent receipt.
-========
-    
-        To delete a specific PII cateogry, use the consent management [Delete PII Category REST API](https://api-docs.wso2.com/apidocs/is/is590/Consent-management-apis/index.html#!/operations#PIICategory#consentsPiiCategoriesPiiCategoryIdDelete). Note that you can not delete a PII category that is already
-        associated with a consent receipt.
-    
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/managing-consent-purposes.md

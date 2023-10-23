@@ -1,9 +1,9 @@
-# Manage Human Tasks
+# Managing Human Tasks
 
-Human tasks are the steps that require human interaction in order to allow the process of the operation to proceed. Follow the steps below to test the workflow.
+Human tasks are the steps that require human interaction in order to allow the process of the operation to proceed.  Follow the steps below to test the workflow.
 
 1.  Sign in to WSO2 Identity Server with the admin credentials.
-2.  Create a user with the name `Alex`. After you successfully create the
+2.  Create a user with the name `Bobby`. After you successfully create the
     user, it will be greyed out as shown below until a manager approves
     the addition of the user account.
 
@@ -11,21 +11,21 @@ Human tasks are the steps that require human interaction in order to allow the p
         All pending status workflows are denoted in this manner with
         disabled or greyed out functions.
     
-    ![workflow-pending-status]({{base_path}}/assets/img/guides/workflows/console.png)  
+    ![workflow-pending-status](../assets/img/using-wso2-identity-server/console.png)  
 
-3.  [Sign in to the My Account]({{base_path}}/guides/my-account/my-account) as a manager. 
+3.  [Sign in to the User Portal](../../learn/user-portal/#accessing-the-user-portal-and-its-components) as a manager. 
 
 4.  Choose **Operations** from the left panel. Select **Ready** tab in **Pending Approvals**.  
 
-    ![pending-approvals]({{base_path}}/assets/img/guides/workflows/pending-list.png)       
+    ![pending-approvals](../assets/img/using-wso2-identity-server/pending-list.png)       
     
-5.  To view more information about the request, click the **show more** button corresponding to the request made for user, Alex.
+5.  To view more information about the request, click the **show more** button corresponding to the request made for user, Bobby.
 
-    ![workflow-task-status]({{base_path}}/assets/img/guides/workflows/pending-info.png) 
+    ![workflow-task-status](../assets/img/using-wso2-identity-server/pending-info.png) 
 
 6.  Click on the button corresponding to a state to move the state of the selected task to a new state and to complete
     the workflow approval process. For example, clicking **Approve** will approve the pending task and complete the workflow process. Now you can find this request in the **Completed** tab.  
-    ![approving-pending-task]({{base_path}}/assets/img/guides/workflows/approved.png)   
+    ![approving-pending-task](../assets/img/using-wso2-identity-server/approved.png)   
 
     | Operation  | Description                                                                                                                                                               |
     |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -37,9 +37,8 @@ Human tasks are the steps that require human interaction in order to allow the p
 !!! info 
     The workflow comes with some advanced features such as:
 
-    -   Multi-step approvals
-    -   User specific approvals
-    -   Multiple role based approvals
+    -   [Multi-step approvals](../../learn/using-workflows-with-user-management)
+    -   [User specific approvals](../../learn/using-workflows-with-user-management)
+    -   [Multiple role based approvals](../../learn/using-workflows-with-user-management)
 
     Instead of a one-step approval, there can be multiple steps to the approval flow. For example, a workflow with two-step approval where in the first step the role to authorize the request is the Manager and in the second step the role to authorize the request is the SeniorManager. In this case, when a user is added to the system, only users with Manager role can initially see the pending approvals. After the users with this role approves the pending tasks, then the users with SeniorManager role can see the pending tasks. After both the users approve, the task is completed.
-    

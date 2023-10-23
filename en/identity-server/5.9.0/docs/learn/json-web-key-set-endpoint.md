@@ -41,7 +41,7 @@ specification](http://openid.net/specs/openid-connect-discovery-1_0.html)
 <a class="sourceLine" id="cb1-4" title="4">      <span class="st">&quot;kty&quot;</span>: <span class="st">&quot;RSA&quot;</span>,</a>
 <a class="sourceLine" id="cb1-5" title="5">      <span class="st">&quot;e&quot;</span>: <span class="st">&quot;AQAB&quot;</span>,</a>
 <a class="sourceLine" id="cb1-6" title="6">      <span class="st">&quot;use&quot;</span>: <span class="st">&quot;sig&quot;</span>,</a>
-<a class="sourceLine" id="cb1-7" title="7">      <span class="st">&quot;kid&quot;</span>: <span class="st">&quot;NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ_RS256&quot;</span>,</a>
+<a class="sourceLine" id="cb1-7" title="7">      <span class="st">&quot;kid&quot;</span>: <span class="st">&quot;NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ&quot;</span>,</a>
 <a class="sourceLine" id="cb1-8" title="8">      <span class="st">&quot;alg&quot;</span>: <span class="st">&quot;RS256&quot;</span>,</a>
 <a class="sourceLine" id="cb1-9" title="9">      <span class="st">&quot;n&quot;</span>: <span class="st">&quot;luZFdW1ynitztkWLC6xKegbRWxky-5P0p4ShYEOkHs30QI2VCuR6Qo4Bz5rTgLBrky03W1GAVrZxuvKRGj9V9-PmjdGtau4CTXu9pLLcqnruaczoSdvBYA3lS9a7zgFU0-s6kMl2EhB-rk7gXluEep7lIOenzfl2f6IoTKa2fVgVd3YKiSGsyL4tztS70vmmX121qm0sTJdKWP4HxXyqK9neolXI9fYyHOYILVNZ69z_73OOVhkh_mvTmWZLM7GM6sApmyLX6OXUp8z0pkY-vT_9-zRxxQs7GurC4_C1nK3rI_0ySUgGEafO1atNjYmlFN-M3tZX6nEcA6g94IavyQ&quot;</span></a>
 <a class="sourceLine" id="cb1-10" title="10">    },</a>
@@ -134,7 +134,7 @@ specification](http://openid.net/specs/openid-connect-discovery-1_0.html)
 <a class="sourceLine" id="cb1-4" title="4">      <span class="st">&quot;kty&quot;</span>: <span class="st">&quot;RSA&quot;</span>,</a>
 <a class="sourceLine" id="cb1-5" title="5">      <span class="st">&quot;e&quot;</span>: <span class="st">&quot;AQAB&quot;</span>,</a>
 <a class="sourceLine" id="cb1-6" title="6">      <span class="st">&quot;use&quot;</span>: <span class="st">&quot;sig&quot;</span>,</a>
-<a class="sourceLine" id="cb1-7" title="7">      <span class="st">&quot;kid&quot;</span>: <span class="st">&quot;MTk5NjA3YjRkNGRmZmI4NTYyMzEzZWFhZGM1YzAyZWMyZTg0ZGQ4Yw_RS256&quot;</span>,</a>
+<a class="sourceLine" id="cb1-7" title="7">      <span class="st">&quot;kid&quot;</span>: <span class="st">&quot;MTk5NjA3YjRkNGRmZmI4NTYyMzEzZWFhZGM1YzAyZWMyZTg0ZGQ4Yw&quot;</span>,</a>
 <a class="sourceLine" id="cb1-8" title="8">      <span class="st">&quot;alg&quot;</span>: <span class="st">&quot;RS256&quot;</span>,</a>
 <a class="sourceLine" id="cb1-9" title="9">      <span class="st">&quot;n&quot;</span>: <span class="st">&quot;0OA-yiyn_pCKnldZBq2KPnGplLuTEtGU7IZP66Wf7ElhFJ-kQ87BMKvZqVNDV84MSY3XQg0t0yL6gITg-W8op61PWO2UrEcxhhMHN_rra22Ae2OCaUfOr43cW1YFc54cYj5p7v-HSVvjTuNLGMMrNfTGAOCPzuLxbSHfq62uydU&quot;</span></a>
 <a class="sourceLine" id="cb1-10" title="10">    },</a>

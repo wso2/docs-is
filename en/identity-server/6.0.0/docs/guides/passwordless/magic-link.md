@@ -15,11 +15,20 @@ To configure Magic Link as an authenticator:
 
 2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-3. Expand the **Local and Outbound Authentication Configuration** section.
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-4. For **Authentication Type**, select the **Local Authentication** option and then select **Magic Link** from the list.
+4. You will be redirected to **Advanced Configuration**.
 
-5. Click **Update** to save the configurations.
+5. Click **+ Add Authentication Step** twice to add two authentication steps.
+
+6. Select the following authentication methods from the relevant dropdowns and click **+ Add Authenticator**.
+
+    | Authentication step   | Local Authenticator      |
+    |--------------------------|-----------------------|
+    | First step    | `identity-first handler` |
+    | Second step   | `Magic Link`             |
+
+7. Click **Update** to save the configurations.
 
 ## Try it out
 
@@ -28,11 +37,7 @@ To configure Magic Link as an authenticator:
 3. Check your inbox for the magic link email. The email reads as follows:
     ![Magic Link email](../../assets/img/guides/magic-link-email.png)
 4. Open the Magic Link by clicking **Sign In** on the same browser as your application.
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/passwordless/magic-link.md
-   
-========
 
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/passwordless/magic-link.md
     !!! note
         This is not supported in the private windows of Safari browser.
 

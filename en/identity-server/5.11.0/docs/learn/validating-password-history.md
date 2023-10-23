@@ -99,11 +99,7 @@ Follow the steps below to define the password policy that Sam wants to enforce.
 
 		<img src="../../assets/img/learn/passwore-history-error-message.png" alt="Passwrod History Validation error message" width="600" style="border:1px solid grey">
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/validating-password-history.md
 	6.	To mimic three consecutive password changes, change Alex's password to the following sequentially. 
-========
-	7.	To mimic three consecutive password changes, change Alex's password to the following sequentially. 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/validating-password-history.md
 
 		-	`test123`
 		-	`test234`
@@ -111,8 +107,4 @@ Follow the steps below to define the password policy that Sam wants to enforce.
 
 		Note that these passwords get successfully added to the system. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/validating-password-history.md
 	7.	Now, change Alex's password back to `testwso2is`. Note that the password gets successfully changed. 
-========
-	8.	Now, change Alex's password back to `testwso2is`. Note that the password gets successfully changed. 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/validating-password-history.md

@@ -3,7 +3,14 @@ info:
   description: >
     This is the RESTful API for user store management related operations in WSO2 Identity Server
   version: "v1"
-  title: User Store Rest API
+  title: WSO2 Identity Server - UserStore Rest API
+  contact:
+    name: WSO2 Identity Server
+    url: 'https://wso2.com/identity-and-access-management'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: admin
     description: Secured Admin-only calls
@@ -15,7 +22,7 @@ paths:
     post:
       tags:
         - User Store
-      summary: Add a secondary user store
+      summary: Add a secondary user store.
       operationId: addUserStore
       description: |
         This API provides the capability to add a secondary user store.
@@ -32,7 +39,7 @@ paths:
           headers:
             Location:
               description: >-
-                Location of the newly created secondary user store. userstore id is generated as base-64-url-encoded(domain-name) value.
+                Location of the newly created secondary userstore. userstore id is generated as base-64-url-encoded(domain-name) value.
               schema:
                 type: string
           content:
@@ -58,10 +65,10 @@ paths:
     get:
       tags:
         - User Store
-      summary: Retrieve or list the configured secondary user stores
+      summary: Retrieve or list the configured secondary user stores.
       operationId: getSecondaryUserStores
       description: >
-        This API provides the capability to list the configured secondary user stores.
+        This API provides the capability to list the configured secondary userstores.
         <b>Permission required:</b>
         */permission/admin
       parameters:
@@ -92,7 +99,7 @@ paths:
       tags:
         - User Store
       summary: >-
-        Retrieve the configurations of primary user store
+        Retrieve the configurations of primary userstore.
       operationId: getPrimaryUserStore
       description: >
         This API provides the capability to retrieve the configurations of
@@ -118,7 +125,7 @@ paths:
       tags:
         - User Store
       summary: >-
-        Retrieve the configurations of secondary user store based on its domain id
+        Retrieve the configurations of secondary user store based on its domain id.
       operationId: getUserStoreByDomainId
       description: >
         This API provides the capability to retrieve the configurations of
@@ -144,7 +151,7 @@ paths:
     delete:
       tags:
         - User Store
-      summary: Delete a secondary user store
+      summary: Delete a secondary user store.
       operationId: deleteUserStore
       description: >
         This API provides the capability to delete a secondary user store
@@ -166,7 +173,7 @@ paths:
     put:
       tags:
         - User Store
-      summary: Update a user store by its domain id
+      summary: Update a user store by its domain id.
       operationId: updateUserStore
       description: >
         This API provides the capability to edit a user store based on its
@@ -211,7 +218,7 @@ paths:
     patch:
       tags:
         - User Store
-      summary: Patch the secondary user store by it's domain id
+      summary: Patch the secondary user store by it's domain id.
       operationId: patchUserStore
       description: >
         This API provides the capability to update the secondary user store's
@@ -248,7 +255,7 @@ paths:
     get:
       tags:
         - Meta
-      summary: Retrieve the available user store classes/types
+      summary: Retrieve the available user store classes/types.
       operationId: getAvailableUserStoreTypes
       description: >
         This API provides the capability to retrieve the available user store
@@ -275,7 +282,7 @@ paths:
       tags:
         - Meta
       summary: >-
-        Retrieve the properties of secondary user store of a given user store type
+        Retrieve the properties of secondary user store of a given user store type.
       operationId: getUserStoreManagerProperties
       description: >
         This API provides the capability to retrieve the properties of secondary
@@ -312,7 +319,7 @@ paths:
     post:
       tags:
         - User Store
-      summary: Test the connection to the datasource used by a JDBC user store manager
+      summary: Test the connection to the datasource used by a JDBC user store manager.
       operationId: testRDBMSConnection
       description: >
         This API provides the capability to test the connection to the

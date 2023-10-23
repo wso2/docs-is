@@ -91,14 +91,12 @@ Pickup now needs to set up outbound provisioning between WSO2 IS and the **Sales
     | LanguageLocaleKey                  | http://wso2.org/claims/dob                      |
     | LastName                           | http://wso2.org/claims/lastname                 |
     | LocaleSidKey                       | http://wso2.org/claims/primaryChallengeQuestion |
-    | ProfileId                          | Empty                                           |
+    | ProfileId                          | http://wso2.org/claims/role                     |
     | TimeZoneSidKey                     | http://wso2.org/claims/challengeQuestion1       |
     | UserPermissionsCallCenterAutoLogin | http://wso2.org/claims/telephone                |
     | UserPermissionsMarketingUser       | http://wso2.org/claims/mobile                   |
     | UserPermissionsOfflineUser         | http://wso2.org/claims/country                  |
     | Username                           | http://wso2.org/claims/emailaddress             |
-    
-![add-claim-mapping](https://user-images.githubusercontent.com/28682701/174729411-c9c201b1-a376-4c73-8d61-cd230858a923.png)
 
 9. Expand **Advanced Claim Configuration** and add the values for each of these claims one by one. 
 

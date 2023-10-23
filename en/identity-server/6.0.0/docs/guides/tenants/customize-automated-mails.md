@@ -47,41 +47,8 @@ template.
 
       
     !!! tip "Placeholders and Custom Claim Dialects"
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/tenants/customize-automated-mails.md
         
         {!./includes/placeholders.md !}
-========
-        You can set different placeholders in order to populate custom information such as `{first-name}` and `{user-id}` in the subject, body and footer of the email template.
-    
-        You can also specify any custom claim URI created in the WSO2 claim dialect:
-    
-        -   If it is an identity claim, specify the claim accordingly. For example, for the the claim `<http://wso2.org/claims/identity/homeAddress>`, it should be specified as `{{user.claim.identity.homeAddress}}`
-    
-        -   If it is a normal claim, specify the claim accordingly. For example, for the claim `<http://wso2.org/claims/homeAddress>`, it should be specified as
-            `{{user.claim.homeAddress}}`.
-    
-        Before sending the email, WSO2 Identity Server will retrieve the user details from the user store configured for this tenant and replace the placeholders with the corresponding values of the user.
-        
-        !!! note
-            When you are using an identity claim as a placeholder in the **Account Confirmation** template
-            for User Self Registration, you need to use the notation `{{claimName}}` instead of using 
-            `{{user.claim.identity.claimName}}`. Additionally you need to send the respective value 
-            for the placeholder in the API request payload, under the `properties` section. 
-            A sample request payload is given below.
-            ```
-            {
-            ...
-            "properties": [
-            ...
-                {
-                "key": "claimName",
-                "value": "Value for the claim"
-                }
-            ...
-            ]
-            }
-            ```
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/customizing-automated-emails.md
     
 
 5.  Click **Add** to add a new email template.
@@ -119,49 +86,8 @@ template.
     ![edit-email-template]({{base_path}}/assets/img/guides/edit-email-template.png) 
 
     !!! tip "Placeholders and Custom Claim Dialects"
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/tenants/customize-automated-mails.md
 
         {!./includes/placeholders.md !}
-========
-        You can set different placeholders in order to populate
-        custom information such as `           {first-name}          ` and
-        `           {user-id}          ` in the subject, body and footer of
-        the email template.
-    
-        You can also specify any custom claim URI created in the WSO2 claim
-        dialect:
-    
-        -   If it is an identity claim, specify the claim accordingly. For example, the claim `<http://wso2.org/claims/identity/homeAddress>` should be specified as
-            `{{user.claim.identity.homeAddress}}`.
-    
-        -   If it is a normal claim, specify the claim accordingly. For example, the claim `<http://wso2.org/claims/homeAddress>` should be specified as
-            `{{user.claim.homeAddress}}`.
-    
-        Before sending the email, the WSO2 IS will retrieve the user details
-        from the user store configured for this tenant and replace the
-        placeholders with the corresponding values of the user.
-        
-        !!! note
-            When you are using an identity claim as a placeholder in the **Account Confirmation** template
-            for User Self Registration, you need to use the notation `{{claimName}}` instead of using 
-            `{{user.claim.identity.claimName}}`. Additionally you need to send the respective value 
-            for the placeholder in the API request payload, under the `properties` section. 
-            A sample request payload is given below.
-            ```
-            {
-            ...
-            "properties": [
-            ...
-                {
-                "key": "claimName",
-                "value": "Value for the claim"
-                }
-            ...
-            ]
-            }
-            ```
-    
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/customizing-automated-emails.md
 
 4.  Click **Save** to update.
 
@@ -194,15 +120,7 @@ Once you have set the template language for the user, it is also necessary to sp
 
     !!! note
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/tenants/customize-automated-mails.md
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/tenants/customize-automated-mails.md
-        If the locale value is not defined for the user, the default locale value will be `en_US`. From update level **6.1.0.35**, you can change the default locale value using the following configuration:
-========
         If the locale value is not defined for the user, the default locale value will be `en_US`. From update level **6.0.0.83**, you can change the default locale value using the following configuration:
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/tenants/customize-automated-mails.md
-========
-        If the locale value is not defined for the user, the default locale value will be `en_US`. From update level **5.11.0.250**, you can change the default locale value using the following configuration:
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/customizing-automated-emails.md
 
         ``` 
         [identity_mgt.notification]
@@ -212,10 +130,6 @@ Once you have set the template language for the user, it is also necessary to sp
         If the above configuration is added to the `deployment.toml` file, the specified value will be used as the locale for both SMS and email flows; otherwise, the default value (`en_US`) will be assigned.
 
         Note that if the registry doesn't have the template related to the newly configured locale, the configuration will not be considered, and the configurations will be reverted to the default locale.
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/tenants/customize-automated-mails.md
-========
-    
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/customizing-automated-emails.md
 
 Now that this is done, any email notifications you receive will be in the language you specified.
 

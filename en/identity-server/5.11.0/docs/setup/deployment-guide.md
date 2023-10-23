@@ -537,15 +537,7 @@ Once you have chosen a file system,
 
 1. Mount it in the nodes that are participating in the cluster.
 2. If the userstores need to be updated at runtime, create a directory called `Userstores` in the shared file system and create a symlink from the `<IS_HOME>/repository/deployment/server/userstores` path to the `Userstores` directory. 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/deployment-guide.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/deployment-guide.md
 4. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
-========
-3. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/setup/deployment-guide.md
-========
-3. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/deployment-guide.md
 
 !!! note
     Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment/server/userstores` and

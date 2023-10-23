@@ -1,11 +1,18 @@
+# OAuth Transaction Logs
 
-This section guides you through enabling the logger for OAuth endpoints and is **optional**.
+This section guides you through enabling the logger for OAuth endpoints.
 
+!!! tip "Before you begin"
+    Shutdown the server if WSO2 Identity Server is already running.
+    
 
-1.  Add the following event listener to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder.
+1.  Add the following event listener to the
+    `           deployment.toml          ` file found in the
+    `           <IS_HOME>/repository/conf/          ` folder.
 
-    !!! tip
-        You can disable logging by setting the `enable` property to **false**.  
+    !!! tip "Tip"
+        You can disable logging by setting the
+        `           enable          ` property to **false**.  
     
     ``` java
     [event.default_listener.oauth_listener]
@@ -13,9 +20,17 @@ This section guides you through enabling the logger for OAuth endpoints and is *
     enable = true
     ```
 
-2.  Start WSO2 Identity Server. If the changes have been applied successfully, a new file named `transaction.log` will be created in the `<IS_HOME>/repository/logs/` folder.
+2.  Start WSO2 Identity Server. If the changes have been applied
+    successfully, a new file named `          transaction.log         `
+    will be created in the
+    `          <IS_HOME>/repository/logs/         ` folder.
 
-Whenever you generate an OAuth token or perform an OAuth token introspection-related operation, the action will be logged in the `transaction.log` file. Sample log entries are shown below.
+Whenever you [generate an OAuth token](../../learn/working-with-oauth) or perform
+an [OAuth token
+introspection](../../learn/invoke-the-oauth-introspection-endpoint) related
+operation, the action will be logged in the
+`         transaction.log        ` file. Sample log entries are shown
+below.
 
 **OAuth Token Generation Log**
 

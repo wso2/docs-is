@@ -4,7 +4,7 @@
     
     Before publishing a XACML policy to the Policy Decision Point (PDP), you
     need to create the policy first. For more information on how to create a
-    XACML policy, see [Creating a XACML Policy]({{base_path}}/guides/authorization/create-a-policy).
+    XACML policy, see [Creating a XACML Policy](../../learn/creating-a-xacml-policy).
     
 
 In order to use a XACML policy for authorization in WSO2 Identity
@@ -19,17 +19,18 @@ Administration Point(PAP), and other additional information such as
 subject, resource, action and environmental resources in the Policy
 Information Point(PIP) to make the decision. For more information about
 this process, see [XACML system
-architecture]({{base_path}}/references/concepts/authorization/access-control).
+architecture](../../get-started/access-control-and-entitlement-management#xacml-system-architecture).
 
 You can publish a XACML policy to PDP for runtime evaluation using the
 instructions in this topic.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console]({{base_path}}/setup/getting-started-with-the-management-console).
+    [Management Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**.
 3.  The policies that you created are listed in the **Available
     Entitlement Policies** table.  
+    ![available-entitlement-policies](../assets/img/tutorials/available-entitlement-policies.png)
 4.  You can publish policies using one of the following options.  
     1.  Click **Publish to My PDP** next to the policy you wish to
         publish - *This will publish the specific policy to PDP.*
@@ -40,6 +41,8 @@ instructions in this topic.
         *This will publish all the policies available in the "Available
         Entitlement Policy" to the PDP*.
     4.  The **Publish Policy** page appears.
+
+    ![publish-policy](../assets/img/tutorials/publish-policy.png)
 
 5.  Here you can do the following by selecting an option from each
     section.
@@ -70,7 +73,7 @@ instructions in this topic.
 	<tr class="even">
 	<td>Enable Policy</td>
 	<td><div class="content-wrapper">
-	<p>The target action of the policy is "ENABLE". This option enables the policy in the PDP. <img src="{{base_path}}/assets/img/tutorials/enable-policy.png"></p>
+	<p>The target action of the policy is "ENABLE". This option enables the policy in the PDP. <img src="../../assets/img/tutorials/enable-policy.png"></p>
 	<p>This is not relevant for the initial policy publishing process.<br/>
 	</p>
 	</div></td>
@@ -79,7 +82,7 @@ instructions in this topic.
 	<td>Disable Policy</td>
 	<td><div class="content-wrapper">
 	<p>The target action of the policy is "DISABLE". This option disables the policy in the PDP.</p>
-	<p><img src="{{base_path}}/assets/img/tutorials/disable-policy.png"><br/>
+	<p><img src="../../assets/img/tutorials/disable-policy.png"><br/>
 	</p>
 	<p>This is not relevant for the initial policy publishing process.</p>
 	</div></td>
@@ -108,6 +111,8 @@ instructions in this topic.
     View** in the **Entitlement** menu under **PDP**.
 8.  By clicking "Edit Order"(2), you can edit the order of the policy
     and the order will be displayed in the policy view(1).
+
+![edit-the-order-of-the-policy](../assets/img/tutorials/edit-the-order-of-the-policy.png)
 
 When you have multiple policies published, you can select a policy
 combining algorithm from(3) and click **Update**.

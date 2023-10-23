@@ -10,178 +10,6 @@ Identity Server.
 
 Let's get started!
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-sms-otp.md
-========
-## Enable SMSOTP
-
-Add the following configurations to `<IS_HOME>/repository/conf/deployment.toml` file to enable SMSOTP 
-for WSO2 Identity Server.
-
-```
-[authentication.authenticator.sms_otp] 
-name ="SMSOTP"
-enable=true
-
-[authentication.authenticator.sms_otp.parameters]
-SMSOTPAuthenticationEndpointURL= "/smsotpauthenticationendpoint/smsotp.jsp"
-SMSOTPAuthenticationEndpointErrorPage= "/smsotpauthenticationendpoint/smsotpError.jsp"
-MobileNumberRegPage = "/smsotpauthenticationendpoint/mobile.jsp"
-RetryEnable = true
-ResendEnable = true
-BackupCode = true
-SMSOTPEnableByUserClaim = true
-usecase = "local"
-secondaryUserstore = "primary"
-SMSOTPMandatory = false
-SendOtpToFederatedMobile = false
-federatedMobileAttributeKey = "mobile"
-CaptureAndUpdateMobileNumber = true
-SendOTPDirectlyToMobile = false
-redirectToMultiOptionPageOnFailure = false
-TokenExpiryTime = 12
-```
-
-
-<table style="width:100%; table-layout: fixed;">
-    <thead>
-        <tr>
-            <th width="40%">Value</th>
-            <th width="60%">Description</th>
-        </tr>			
-    </thead>
-    <tbody>
-        <tr>
-            <td>name</td>
-            <td>Define the authenticator as <code>SMSOTP</code>.</td>
-        </tr>
-        <tr>
-            <td>enable</td>
-            <td>Enable or disable the authenticator.</td>
-        </tr>
-        <tr>
-            <td>SMSOTPAuthenticationEndpointURL</td>
-            <td>Authentication endpoint URL of the authenticator.</td>
-        </tr>
-        <tr>
-            <td>SMSOTPAuthenticationEndpointErrorPage</td>
-            <td>Error page that will be displayed in an authentication failure.</td>
-        </tr>
-        <tr>
-            <td>MobileNumberRegPage</td>
-            <td>Range of usable mobile numbers to send SMSs.</td>
-        <tr>
-            <td>RetryEnable</td>
-            <td>Define whether to retry or not.</td>
-        </tr>
-        <tr>
-            <td>ResendEnable</td>
-            <td>Define whether to enable resending the SMSOTP or not in case a user 
-            enters an incorrect code.</td>
-        </tr>
-        <tr>
-            <td>BackupCode</td>
-            <td>Define whether to use a backup code instead of the actual SMS code or not.</td>
-        </tr>
-		<tr>
-			<td>usecase</td>
-			<td>This parameter defines how the username will be retrieved and this has to be configured if the previous authenticator is not a Local Authenticator (eg: Basic Auth). You can configure the following possible values:
-				<ul>
-					<li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.</li>
-					<li><code>association</code>: The federated username must be associated with the local account in advance in the <b>User Portal</b>. The local username is retrieved from the association. To associate the user, log in to the User Portal and go to <b>Associated Account</b>  by clicking <b>View details</b>.</li>
-					<li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the SMSOTP authenticator.</li>
-					<li>
-						<p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is, the local username that is contained in a federated user's attribute. When using this, add the following parameter under the  <code>[authentication.authenticator.sms_otp.parameters]</code> section in the <code>deployment.toml</code> file and put the value, e.g., <code>email</code>, <code>screen_name</code>, <code>id</code>.</p>
-						<code>[authentication.authenticator.sms_otp.parameters]</code><br/>
-						<code>userAttribute = "email"</code>
-					</li>
-				</ul>    
-			</td>
-		</tr>
-		<tr>
-			<td>secondaryUserstore</td>
-			<td>
-				<p>You can define multiple user stores per tenant as comma separated values.</p>
-				<p>Example:</p>
-				<code>secondaryUserstore = "jdbc, abc, xyz"</code>
-				<details class="example">
-					<summary>Tip</summary>
-					<p>The user store configurations are maintained per tenant:</p>
-					<ul>
-						<li>If you use a <b>super tenant</b>, set all the parameter values in the <code><IS_HOME>/repository/conf/deployment.toml</code> file.</li>
-						<li>If you use a tenant,
-							<ul>
-								<li>Upload the XML file (<code><IS_HOME>/repository/conf/identity/application-authentication.xml</code>) into a specific registry location (<code>/_system/governance/SMSOTP</code>).</li>
-								<li>Create the collection named <code>SMSOTP</code>, add the resource, and upload the <code>application-authentication.xml</code> file into the registry.</li>
-								<li>While doing the authentication, the system first checks whether there is an XML file uploaded to the registry. If there is, it reads the file from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.</li>
-								<li>You can use the registry or local file to get the property values.</li>
-							</ul>
-						</li>
-					</ul>
-				</details>
-			</td>
-		</tr>
-        <tr>
-            <td>SMSOTPMandatory</td>
-            <td>If the value is true, the second step will be enabled by the admin. The user cannot be 
-            authenticated without SMS OTP authentication. This parameter is used for both super tenant 
-            and tenant in the configuration. The value can be <code>true</code> or <code>false</code>.</td>
-        </tr>
-		<tr>
-			<td>SendOtpToFederatedMobile</td>
-			<td>
-				<p>When the <code>SMSOTPMandatory</code> and this parameter are set to <code>true</code> and the user is not found in the active directory, the OTP is sent to the mobile number defined in the federated authenticator claim.</p>
-				<p>When the <code>SMSOTPMandatory</code> is set to <code>false</code>, an error page is displayed.</p>
-				<p>When the <code>SMSOTPMandatory</code> is set to <code>false</code> and the user is not found in the active directory, the authentication mechanism terminates at the first step of the 2FA/MFA. This parameter is not required in such a scenario.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>federatedMobileAttributeKey</td>
-			<td>This parameter identifies the mobile attribute of the federated authenticator (e.g. Foursquare). Set this parameter if <code>SendOtpToFederatedMobile</code> is set to <code>true</code>. Example: <code>http://wso2.org/foursquare/claims/phone_number</code></td>
-		</tr>
-        <tr>
-            <td>SMSOTPEnableByUserClaim</td>
-            <td>Disable the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
-            <code>false</code>. If the value is set to <code>true</code>, the user can enable and disable the 
-            SMS OTP according to what the admin selects in <code>SMSOTPMandatory</code> parameter value.</td>
-        </tr>
-        <tr>
-            <td>CaptureAndUpdateMobileNumber</td>
-            <td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user forgets to
-             update the mobile number in a specific user profile where this property is set to 
-             <code>true</code>, the user can update a mobile claim with value during the authentication time 
-             and use that mobile number to send OTP. 
-             This update functionality will happen in the first login only. For the next logins, the 
-             updated mobile number will be used.</td>
-        </tr>
-        <tr>
-            <td>SendOTPDirectlyToMobile</td>
-            <td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user does not exist 
-            in the user store and if the admin sets <code>SendOTPDirectlyToMobile</code> to <code>true
-            </code>, the user can enter the mobile number in authentication time in a mobile number 
-            request page; the OTP will be directly sent to that mobile number.</td>
-        </tr>
-        <tr>
-            <td>redirectToMultiOptionPageOnFailure</td>
-            <td>During a failed attempt enable redirect to the Multi Option Page where the user 
-            can select the authentication mechanism.</td>
-		</tr>
-		<tr>
-            <td>TokenExpiryTime</td>
-            <td>SMS OTP does not have a default validity period. Therefore, you must explicitly configure it by adding the <code>TokenExpiryTime</code> parameter. The value provided for the parameter is considered in seconds.</td>
-		</tr>
-    </tbody>
-</table>
-
-!!! note
-
-    The SMS provider is the entity that is used to send the SMS. The SMSOTP connector has been configured 
-    such that it can be used with most types of SMS APIs. Some use the GET method with the client secret 
-    and API Key encoded in the URL (e.g., Nexmo), while some may use the POST method when sending the 
-    values in the headers and the message and telephone number in the payload (e.g., Clickatell). 
-    This could change significantly between different SMS providers. The configuration of the 
-    connector in the identity provider would also change based on this.
-
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-sms-otp.md
 ## Configuring the identity provider
 
 First you have to configure WSO2 Identity Server by adding a new identity
@@ -613,7 +441,6 @@ the various values you can configure for the authenticator.
 			<td>This parameter defines how the username will be retrieved and this has to be configured if the previous authenticator is not a Local Authenticator (eg: Basic Auth). You can configure the following possible values:
 				<ul>
 					<li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.</li>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-sms-otp.md
 					<li><code>association</code>: The federated username must be associated with the local account in advance using the <b>My Account</b> portal. The local username is retrieved from the association. To associate the user, log into the <a href="../../learn/my-account">My Account</a> portal and go to <b>Associated Account</b>  by clicking  <b>View details</b>.</li>
 					<li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the SMSOTP authenticator.</li>
 					<li>
@@ -621,14 +448,6 @@ the various values you can configure for the authenticator.
 						
 						<code>[authentication.authenticator.sms_otp.parameters]</code><br/>
 				                <code>userAttribute = "email"</code>
-========
-					<li><code>association</code>: The federated username must be associated with the local account in advance in the <b>User Portal</b>. The local username is retrieved from the association. To associate the user, log in to the <a href="../../learn/user-portal">User Portal</a> and go to <b>Associated Account</b>  by clicking <b>View details</b>.</li>
-					<li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the SMSOTP authenticator.</li>
-					<li>
-						<p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is, the local username contained in a federated user's attribute. When using this, add the following parameter under the  <code>[authentication.authenticator.sms_otp.parameters]</code> section in the <code>deployment.toml</code> file and put the value, e.g., <code>email</code>, <code>screen_name</code>, <code>id</code>.</p>
-						<code>[authentication.authenticator.sms_otp.parameters]</code><br/>
-						<code>userAttribute = "email"</code>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/configuring-sms-otp.md
 					</li>
 				</ul>    
 			</td>
@@ -646,11 +465,7 @@ the various values you can configure for the authenticator.
 						<li>If you use a <b>super tenant</b>, set all the parameter values in the <code><IS_HOME>/repository/conf/deployment.toml</code> file.</li>
 						<li>If you use a tenant,
 							<ul>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-sms-otp.md
 								<li>Upload the XML file (<code><IS_HOME>/repository/conf/identity/application-authentication.xml</code>) into a specific registry location (<code>/_system/governance/SMSOTP</code>).</li>
-========
-								<li>Upload the XML file (<code><IS_HOME>/repository/conf/identity/application-authentication.xml</code>) to a specific registry location (<code>/_system/governance/SMSOTP</code>).</li>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/configuring-sms-otp.md
 								<li>Create the collection named <code>SMSOTP</code>, add the resource, and upload the <code>application-authentication.xml</code> file into the registry.</li>
 								<li>While doing the authentication, the system first checks whether there is an XML file uploaded to the registry. If there is, it reads the file from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.</li>
 								<li>You can use the registry or local file to get the property values.</li>
@@ -670,11 +485,7 @@ the various values you can configure for the authenticator.
 			<td>SendOtpToFederatedMobile</td>
 			<td>
 				<p>When the <code>SMSOTPMandatory</code> and this parameter are set to <code>true</code> and the user is not found in the active directory, the OTP is sent to the mobile number defined in the federated authenticator claim.</p>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-sms-otp.md
 				<p>When the <code>SMSOTPMandatory</code> is set to <code>false</code>, an error page is displayed.</p>
-========
-				<p>When the <code>SMSOTPMandatory</code> is set to <code>false</code>, an error page gets displayed.</p>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/configuring-sms-otp.md
 				<p>When the <code>SMSOTPMandatory</code> is set to <code>false</code> and the user is not found in the active directory, the authentication mechanism terminates at the first step of the 2FA/MFA. This parameter is not required in such a scenario.</p>
 			</td>
 		</tr>
@@ -745,28 +556,7 @@ You can configure any of the above as following in the
     redirectToMultiOptionPageOnFailure = false
 	TokenExpiryTime = 12
     ```
-
-## Validating the mobile number format of the user
-
-Follow the steps given below to validate the mobile number of the users in
-WSO2 IS.    
-
-!!! note
-	The `CaptureAndUpdateMobileNumber` property in the SMS OTP configuration properties should be set to **true**.
-
-1.  Expand **SMS OTP Configuration** under **Federated Authenticators**.
-
-2.  Enter the regex pattern you wish to validate the mobile number against when the user enters the mobile number on the registration page.
-
-	![add-mobile-number-regex-pattern](../assets/img/tutorials/sms-otp/add-mobile-number-regex-pattern.png)
-
-	!!! info
-		-	For example, if the entered mobile number is to be validated against the **E.164** format, enter the regex pattern as `\\+[1-9]\\d{1,14}\$`.
-
-3.  Enter the error message that should be displayed to the user when the mobile number is entered in the incorrect format.
-	
-	![add-regex-violation-error-message](../assets/img/tutorials/sms-otp/add-regex-violation-error-message.png)
-
+     
 !!! note
 
     The SMS provider is the entity that is used to send the SMS. The SMSOTP connector has been configured 

@@ -83,11 +83,7 @@ Depending on the type of keystore you have, follow one of the steps below to gen
     openssl x509 -x509toreq -in <cert_name.crt> -out <CSR.csr> -signkey <private_key.key>
     ```
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md
 Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. <!--For testing purposes, you can go to <http://www.getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.-->
-========
-Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. For testing purposes you can go to <https://getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/administer/renewing-a-ca-signed-certificate-in-a-keystore.md
 
 After you obtain a new certificate, you have to import the new certificate to a keystore if you are using a java keystore.
 

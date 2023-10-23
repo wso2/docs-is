@@ -195,7 +195,6 @@ To enable hostname verification:
 
 By default, XSS attacks are prevented in the latest WSO2 Identity Server versions. This is due to output encoding of the displaying values. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
 ## Callback URL Regular Expressions
 
 For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
@@ -205,8 +204,6 @@ For the scenarios listed below, you can define a regular expression to validate 
 - [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
 - [Lite User Registration](../../learn/lite-user-registration/#enable-lite-user-registration)
 
-========
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
 ## JSESSIONID length
 
 If required, increase the `session ID length` by changing the `sessionIDLength` attribute of the session manager in the `context.xml` file in the `<IS_HOME>/repository/conf/tomcat` directory as shown below. The default value is `16 bytes`.
@@ -275,18 +272,11 @@ Log forging can be prevented by appending a UUID to the log message.
     ```java  tab="Example" 
     -Xms512m -Xmx2048m 
     ```
-    
-- To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
 - To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine. 
 
 ## Mutual SSL
 
-========
-## Mutual SSL
-
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
 If mutual SSL is enabled, [enable intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
 
 If mutual SSL authentication capabilities are not required, you can [disable it](../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is).
@@ -298,36 +288,9 @@ The web applications provided out-of-the-box use a set of default credentials to
 
 Follow the steps below to change the default credentials.
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
 1.  Shut the server down in case you have already started it. 
 
 2.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
-========
-1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 
-    Update Manager](https://wso2.com/updates/wum)(WUM) to get any
-        fixes or latest updates for this release.
-    
-        !!! note "Important"
-            If you are upgrading to use this version in your production
-            environment, use WSO2 Update Manager to get the latest updates
-            available for WSO2 IS 5.10.0. For more information on how to use WSO2
-            Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
-
-2.  Shut the server down in case you have already started it. 
-
-3.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md
-========
-1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 Update Manager](https://wso2.com/updates/wum)     (WUM) to get any fixes or latest updates for this release.
-
-    !!! note "Important"
-        If you are upgrading to use this version in your production environment, use WSO2 Update Manager to get the latest updates available for WSO2 IS 5.9.0. For more information on how to use WSO2 Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager). 
-        
-2.  Shut the server down in case you have already started it. 
-
-3.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
     
     -   Add the `app_password` property and enter a preferred password as the value.
       
@@ -359,15 +322,7 @@ Follow the steps below to change the default credentials.
 
             c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
     
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
 3.  Once these changes are configured, restart the server with,
-========
-4.  Once these changes are configured, restart the server with,
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md
-========
-4.  Once these changes are configured, restart the server with,
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
     
     - Linux/Unix : sh wso2server.sh
     - Windows : wso2server.bat
@@ -379,21 +334,4 @@ When configuring intermediate certificate validation for REST APIs, it is recomm
 !!! info
 
     For more information, see the instructions on [configuring intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation). 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
     
-========
-========
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
-
-## Callback URL Regular Expressions
-
-For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
-
-- [Password Recovery](../../learn/password-recovery)
-- [Username Recovery](../../learn/username-recovery)
-- [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md
-========
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md

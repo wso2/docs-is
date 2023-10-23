@@ -6,12 +6,12 @@ UI tool through which authorization requests can be created and
 evaluated against available policies in the system. Users can create
 simple authorization requests using the web UI of the TryIt Tool. By
 switching to “Create Request Using Editor” mode, you can write complex
-XACML 3.0 requests in XML format and try them.
+XACML 3.0 requests in XML format and try them.
 
 !!! tip "Before you begin"
     
     Prior to creating a basic XACML 3.0 request for evaluation you need to
-    [create a policy]({{base_path}}/guides/authorization/create-a-policy).
+    [create a policy](../../learn/creating-a-xacml-policy).
     
 
 Follow the instructions below to create a basic XACML 3.0 request for
@@ -20,11 +20,11 @@ Evaluation. You can create a request using one of the following methods.
 #### Create request using editor
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console]({{base_path}}/setup/getting-started-with-the-management-console).
+    [Management Console](../../setup/getting-started-with-the-management-console).
 2.  Click **Tools** to access the **XACML** menu.
 3.  Click **TryIt**.
 4.  Click on the **Create Request Using Editor** link.  
-    ![Create request using editor]({{base_path}}/assets/img/guides/create-request-using-editor.png)
+    ![Create request using editor](../assets/img/using-wso2-identity-server/create-request-using-editor.png)
 5.  Use the "Toggle editor" to create a request in XML. The default
     elements are as follows:
 
@@ -36,7 +36,7 @@ Evaluation. You can create a request using one of the following methods.
     -   `            <AttributeValue/>           `
     -   `            <Environment>                       `
 
-    ![Evaluate entitlement policy]({{base_path}}/assets/img/guides/evaluate-entitlement-policy.png) 
+    ![Evaluate entitlement policy](../assets/img/using-wso2-identity-server/evaluate-entitlement-policy.png) 
 
     Refer to [XACML 2.0/3.0 specification](http://docs.oasis-open.org/xacml/) for more
     information on XACML authorization requests.
@@ -78,10 +78,10 @@ Evaluation. You can create a request using one of the following methods.
 #### Create request using UI
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console]({{base_path}}/setup/getting-started-with-the-management-console).
+    [Management Console](../../setup/getting-started-with-the-management-console).
 2.  Click **Tools** to access the **XACML** menu.
 3.  Click **TryIt**.
-4.  Fill in the following fields and click the **Create Request**
+4.  Fill in the following fields and click the **Create Request**
     button.  
 
     -   **Multiple Request** - This enables you to evaluate multiple
@@ -97,7 +97,7 @@ Evaluation. You can create a request using one of the following methods.
     -   **Environment Name** - Provides additional information to
         evaluate the request, such as the current date and time, etc.
 
-    ![Create request using UI]({{base_path}}/assets/img/guides/create-request-using-ui.png)
+    ![Create request using UI](../assets/img/using-wso2-identity-server/create-request-using-ui.png)
 
     Refer to [XACML 2.0/3.0
     specification](http://docs.oasis-open.org/xacml/) for more

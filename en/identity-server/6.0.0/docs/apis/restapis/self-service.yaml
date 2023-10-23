@@ -2,7 +2,15 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Server Rest API - User
   description: |
-    This document specifies a **RESTful API** for WSO2 **Identity Server**.
+    This document specifies a **RESTful API** for WSO2 **Identity Server** .
+    It is written with [swagger 2](http://swagger.io/).
+  contact:
+    name: WSO2
+    url: http://wso2.com/products/identity-server/
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
 - url: https://apis.is.com/t/{tenant-domain}/api/identity/user/v1.0

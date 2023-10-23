@@ -6,11 +6,7 @@ WSO2 Identity Server enables resetting user passwords by correctly responding to
 
 **Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Alex** who is a new recruit at Pickup has forgotten the password. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-password-reset-with-challenge.md
 Let's learn how Alex can recover the password by answering to a challenge question!
-========
-Let's learn how Alex can recover the password by answering a challenge question!
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-password-reset-with-challenge.md
 
 ## Set up
 

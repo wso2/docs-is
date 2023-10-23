@@ -4,11 +4,7 @@ User Managed Access (UMA) enables controlled access to a user's protected digita
 
 ## Scenario 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-access-delegation-with-uma.md
 Larry, Alex, and Sam are three users in WSO2 IS. Larry has a photo album in the **Photo-editer** application and wants to share the Family photos album with the family members; Alex and Sam. Alex and Sam can view this photo album using the **Photo-viewer** application. The **Photo-editor** and **Photo-viewer** applications are using WSO2 IS as their identity provider.
-========
-Larry, Alex, and Sam are three users in WSO2 IS. Larry has a photo album in the **Photo-editer** application and wants to share the Family photos album with the family members, Alex and Sam. Alex and Sam can view this photo album using the **Photo-viewer** application. The **Photo-editor** and **Photo-viewer** applications are using WSO2 IS as their identity provider.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-access-delegation-with-uma.md
     
 ![uma-scenario-diagram](../assets/img/learn/uma-scenario-diagram.png)
 
@@ -39,11 +35,7 @@ Once you have deployed the samples, note that two service providers have been cr
     !!! info
         'admin' is the default administrative user in WSO2 Identity Server.
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-access-delegation-with-uma.md
 2. Next, create two new users called "Sam" and "Alex" (the requesting parties) with login permission. 
-========
-2. Next, create two new users called "Pam" and "Alex" (the requesting parties) with login permission. 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-access-delegation-with-uma.md
 
 The setup is now complete and you can proceed to try out the scenario.
 
@@ -53,11 +45,7 @@ The setup is now complete and you can proceed to try out the scenario.
 
 2. Log in to the **Photo Editor** application using Larry's credentials and provide the requested consent. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-access-delegation-with-uma.md
 3. Select the checkboxes and click **Share** to share the resources with Alex and Sam.
-========
-3. Select the checkboxes and click **Share** to share the resources with Alex and Pam.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-access-delegation-with-uma.md
 
     ![photo-editor-share](../assets/img/learn/photo-editor-share.png)
 

@@ -123,7 +123,4 @@ Service Provider Name is a required field and you can use Opencart-SP as the nam
 5. The user profile attributes configured in WSO2 Identity Server will be populated in the Personal details of your
 account.
     <!-- ![opencart-sso-account-info.png]({{base_path}}/assets/img/tutorials/opencart-sso-account-info.png) -->
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/log-into-opencart-using-is.md
 
-========
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/log-into-opencart-using-is.md

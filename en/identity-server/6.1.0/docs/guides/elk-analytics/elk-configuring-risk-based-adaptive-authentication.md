@@ -42,11 +42,7 @@ works to assess the risk of the user.
         ```
         **Sample Request**
         ```
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
         curl -L -X PUT 'https://localhost:9200/transaction' -H 'Authorization: Basic d3NvMnVzZXI6Y2hhbmdlbWU=' -H 'Content-Type: application/json' --data-raw '{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}'
-========
-        curl -L -X PUT 'https://localhost:9200/transaction' -H 'Authorization: Basic d3NvMnVzZXI6Y2hhbmdlbWU= -H 'Content-Type: application/json' --data-raw '{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}'
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
         ```
         **Response**
         ```

@@ -183,8 +183,4 @@ For a description of the parameters included in the HTML form, see [logout reque
     - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/guides/login/oidc-backchannel-logout)
     - [Guide: OpenID Connect Session Management]({{base_path}}/guides/login/session-management-logout)
     <!-- - [Quick Start: OpenID Connect Back-Channel Logout]({{base_path}}/quick-starts/oidc-backchannel-logout-sample) -->
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/oidc-logout-url-redirection.md
     - [Guide: Manage User Sessions and Logout]({{base_path}}/guides/login/session-management-logout/)
-========
-    - [Guide: Manage User Sessions and Logout]({{base_path}}/guides/login/session-management-logout/)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/oidc-logout-url-redirection.md

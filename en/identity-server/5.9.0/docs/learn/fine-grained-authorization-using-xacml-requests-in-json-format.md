@@ -17,7 +17,7 @@ the resource.
 
 -   [Download](https://wso2.com/identity-and-access-management) and run
     WSO2 Identity Server. For detailed instrction on how to install WSO2
-    IS, see [Installing the Product]({{base_path}}/setup/installing-the-product).
+    IS, see [Installing the Product](../../setup/installing-the-product).
 -   Go to the Chrome Web Store and add the
     [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
     app.
@@ -130,7 +130,7 @@ Identity Server:
 
 6.  Click **Publish to My PDP** applicable to the sample policy that you
     added. This takes you to the **Publish Policy** screen.  
-    ![publish-policy-to-pdp]({{base_path}}/assets/img/guides/publish-policy-to-pdp.png)
+    ![publish-policy-to-pdp](../assets/img/tutorials/publish-policy-to-pdp.png)
 7.  Click **Publish**. This displays a confirmation message asking
     whether you want to continue publishing to PDP.
 8.  Click **Yes**. This publishes the policy to the PDP.

@@ -76,21 +76,13 @@ credentials (basic authentication) to access a resource.
     with the appended tenant domain (i.e., alex@abc.com).  
     ![pickup-sign-in-chris](../assets/img/tutorials/pickup-sign-in-chris.png)  
     Note that you are prompted for harware key authentication because
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-tenant-based-adaptive-authentication.md
-    **abc.com** is a domain that belongs to the allowlist.
-========
     **abc.com** is a allowlisted tenant domain.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-tenant-based-adaptive-authentication.md
 5.  Enter the 4 digit key and click **Sign In**. You are successfully
     logged in to the application.  
     ![hardware-key-authenticator](../assets/img/tutorials/hardware-key-authenticator.png)
 6.  Log out and log in with Kim's credentials. Kim is the admin of the
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-tenant-based-adaptive-authentication.md
-    **123.com** tenant domain, which is not a part of the allowlist.
-========
     **123.com** tenant domain, which is not one of the allowlisted
     domains.  
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-tenant-based-adaptive-authentication.md
     ![pickup-sign-in-kim](../assets/img/tutorials/pickup-sign-in-kim.png)
 7.  Provide consent.  
     Note that you are successfully logged in to the application after

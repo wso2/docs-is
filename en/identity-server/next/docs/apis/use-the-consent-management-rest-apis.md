@@ -69,18 +69,7 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
     information (PII) on behalf of and in accordance with the
     instructions of a PII controller.
 
-<<<<<<<< HEAD:en/identity-server/7.0.0/docs/apis/use-the-consent-management-rest-apis.md
 ## Extension points
-========
-### APIs and supported operations
-
-!!! info
-    
-    For information on the REST APIs, supported operations and sample requests/responses, see [Consent Management APIs Swagger Documentation](https://api-docs.wso2.com/apidocs/is/is590/Consent-management-apis/).
-    
-
-### Extension points
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/develop/using-the-consent-management-rest-apis.md
 
 You can customize the REST APIs using the following extension points:
 

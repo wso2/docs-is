@@ -256,11 +256,7 @@ the values it contains.
 
 ####  IDN_SCIM_GROUP
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/identity-related-tables.md
 When creating a new role in the userstore, the SCIM attributes for the created role are stored in
-========
-When creating a new role in the user store, the SCIM attributes for the created role are stored in
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/administer/identity-related-tables.md
 this table.  For each role that is created, there are multiple rows
 stored since multiple SCIM attributes are associated with a role
 (GROUP). The following table lists out the columns and a description of

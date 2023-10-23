@@ -11,14 +11,12 @@ entitlement management systems are governed by industry standard
 specifications, hence supporting security requirements for heterogeneous
 applications becomes easy.
 
-Click [here]({{base_path}}/guides/authorization/overview) for
+Click [here](../../learn/access-control) for
 more information on Access control.
 
 ### Types of access control
 
-![The various types of access control]({{base_path}}/assets/img/references/types-of-access-control.png)
-
-
+![The various types of access control](../assets/img/getting-started/types-of-access-control.png)
 
 The following table describes the various types of access control.
 
@@ -38,7 +36,7 @@ The following table describes the various types of access control.
 <td><p>Role-based Access Control</p></td>
 <td><p>Role-based Access Control (RBAC) is an approach used to restrict access to authorized users based on their role. This is a static permission model which provides access control. It is used by the majority of enterprises with more than 500 users.</p>
 <p>This access control type is used when all users are categorized into different roles. The roles define the resources that can be accessed by users assigned to that role. This type of access control reduces management overhead. These users and roles can also be externalized using user stores. These roles need to be managed carefully. There can be instances where a user is assigned to multiple roles. This is a subset of ABAC.</p>
-<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href={{base_path}}/guides/identity-lifecycles/manage-roles-overview>here</a> for information on Configuring roles and permissions.</p></td>
+<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href="../../learn/configuring-roles-and-permissions">here</a> for information on Configuring roles and permissions.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Attribute-based Access Control</p></td>
@@ -68,11 +66,11 @@ authorization mechanism.
 
 Although XACML was introduced as a standard by OASIS in 2003, not many
 organizations that have adopted it yet. This is because most
-organization's lack of interest in moving towards a XACML based solution
+organization's lack of interest in moving towards a XACML based solution
 for authorization. The following can be some of the reasons for this:
 
 -   Many software designer and developers lack a clear understanding
-    of features, importance, and advantages of XACML.
+    of features, importance, and advantages of XACML.
 -   It is comparatively difficult to implement a XACML solution when
     compared with a typical JDBC or hard-coded authorization system.
 -   Performance of XACML-based authorization system may be less than
@@ -114,7 +112,7 @@ uses for their own process for authorization. Today, authorization has
 become more complex because users within organizations and outside need
 access to shared data and have the need to collaborate efficiently.
 Therefore, this has been challenging task to manage these
-legacy systems, custom authorization systems. However, XACML offers a
+legacy systems, custom authorization systems. However, XACML offers a
 solution to this problem.
 
 Most traditional authorization systems mostly have the following
@@ -140,12 +138,12 @@ at from an authorization system.
     [example.com](http://example.com) domain and whose age is greater
     than 21 years old”
 -   If we are going to implement a new information system with the
-    organization, can we re-use the authorization logic of a legacy
+    organization, can we re-use the authorization logic of a legacy
     system?
 -   Can we achieve a fine-grained authorization level without defining
-    a large number of static combinations?
+    a large number of static combinations?
 -   Are the authorization systems capable of answering the questions
-    such as: “Can a user, Alex, transfer X amount from Y current account
+    such as: “Can a user, Bob, transfer X amount from Y current account
     at 1.00pm?“
 
 Clearly, the above goals cannot be achieved from a traditional
@@ -194,19 +192,19 @@ descriptive attributes about the user or any other missing attribute in
 the request. Policy Administration Point (PAP) is used to manage the PDP
 and PIP functionality.
 
-![XACML system architecture]({{base_path}}/assets/img/references/xacml-system-architecture.png)
+![XACML system architecture](../assets/img/getting-started/xacml-system-architecture.png)
 
 ------------------------------------------------------------------------
 
 ### XACML terminology
 
 The XACML reference architecture illustrated above is comprised of
-the following four 'building blocks'.
+the following four 'building blocks'.
 
 -   **Policy Enforcement Point (PEP)** : The system entity that performs
     access control by making decision requests and enforcing
     authorization decisions. This is the entity that sends the XACML
-    request to the Policy Decision Point (PDP) and receives an
+    request to the Policy Decision Point (PDP) and receives an
     authorization decision.
 -   **Policy Decision Point (PDP)** : The system entity that evaluates
     an applicable policy and returns an authorization decision.
@@ -225,7 +223,7 @@ The WSO2 Identity Server is a major player in the XACML and open source
 world. The Identity Server supports XACML 3.0, which is based on [Balana
 XACML implementation](https://github.com/wso2/balana). As the source
 code, distribution and documentation are available for free, it is
-possible to analyze and understand the architecture behind it. You can
+possible to analyze and understand the architecture behind it. You can
 find source code from
 [here](https://svn.wso2.org/repos/wso2/trunk/commons/balana/).
 
@@ -234,11 +232,11 @@ XACML engine (or the entitlement engine) of the WSO2 Identity Server.
 
 The XACML engine of the WSO2 Identity Server has two major components,
 i.e., PAP and PDP. The section below focuses on Policy Decision
-Point (PDP).
+Point (PDP).
 
 The following diagram represents the component architecture of the PDP.
 
-![Component architecture of the policy decision point]({{base_path}}/assets/img/references/xacml-engine-architecture.png)
+![Component architecture of the policy decision point](../assets/img/getting-started/xacml-engine-architecture.png)
 
 The following provides a more detailed information on the various
 components available in the PDP architecture.
@@ -286,7 +284,7 @@ PDP is exposed via the Entitlement Admin Service with method name
 This module finds  from different policy stores to evaluate a
 XACML request. The following is a high-level diagram of how this works.
 
-![Carbon policy finder]({{base_path}}/assets/img/references/carbon-policy-finder.png)
+![Carbon policy finder](../assets/img/getting-started/carbon-policy-finder.png)
 
 Any number of policy finder modules can be plugged with the Carbon
 policy finder.  
@@ -418,7 +416,7 @@ This module helps to find the missing attribute for a given XACML
 request. The following is the high-level diagram for both the Carbon
 attribute and resource finders.
 
-![Carbon attribute finder]({{base_path}}/assets/img/references/carbon-attribute-finder.png)
+![Carbon attribute finder](../assets/img/getting-started/carbon-attribute-finder.png)
 
 Any number of PIP attribute finder modules can be plugged with the
 Carbon attribute finder. You need to implement the PIPAttributeFinder
@@ -427,7 +425,7 @@ entitlement.properties configuration file. By default, WSO2 Identity
 Server is shipped with a DefaultAttributeFinder that communicates with
 the underlying user store of the Identity Server. The default user store
 of the Identity Server is ApacheDS where it can be changed. Refer
-[Configuring the Realm]({{base_path}}/setup/configuring-the-realm) for more
+[Configuring the Realm](../../setup/configuring-the-realm) for more
 information.
 
 All modules would be initialized and supported attribute Ids are
@@ -458,12 +456,12 @@ XACML defines three top-level policy elements:
 
 -   Element that contains a *boolean* expression that can be
     evaluated in isolation, but that is not intended to be accessed in
-    isolation by a PDP. So, it is not intended to form the basis of an
-    authorization decision by itself. It is intended to exist in
+    isolation by a PDP. So, it is not intended to form the basis of an
+    authorization decision by itself. It is intended to exist in
     isolation only within a XACML PAP, where it may form the basic
     unit of management.  
 -   Element that contains a set of elements and a specified procedure
-    for combining the results of their evaluation. It is the basic unit
+    for combining the results of their evaluation. It is the basic unit
     of policy used by the PDP, and so it is intended to form the basis
     of an authorization decision.  
 -   Element that contains a set of or other elements and a specified
@@ -498,7 +496,7 @@ main components of a Rule are as follows:
     certain of those obligations to the PEP in the response context.
 -   <<zero-width space>AttributeSelector<zero-width space>>- This allows the
     policy to specify an attribute with given identifier, category and
-    data type. The AttributeSelector on the other hand, provides a mean
+    data type. The AttributeSelector on the other hand, provides a mean
     to lookup the value of attributes using a XPath query by specifying
     the data type and XPath expression. Attribute selectors are then
     executed against the XML content that may have been sent along in
@@ -573,7 +571,7 @@ Expressions**. This adds dynamic expressions into the obligation
 statements. For a more in-depth understanding, see the following
 example:
 
-Let's assume that you want to do following with the Obligation: “On
+Let's assume that you want to do following with the Obligation: “On
 deny, inform the PEP to send an email to the user”.
 
 In XACML 2.0, you need to define the obligation element with the user
@@ -612,7 +610,7 @@ inform PEP to send an email to <user@foo.com> address.
 
 In XACML 2.0, obligations can only be added to policies and policy sets.
 However, with XACML 3.0, rules can also contain obligations. At the root
-of all XACML policies, is a policy or a policy set . A policy represents
+of all XACML policies, is a policy or a policy set . A policy represents
 a single access control policy, expressed through a set of rules. A
 policy set is a container that can hold other policies or policy sets,
 as well as references to policies found in remote locations.
@@ -624,11 +622,7 @@ Advice is similar to obligations and it shares much of its syntax. The
 difference is contractual: the PEP can disregard any advice it receives.
 PEPs do not have to comply with advice statements; PEPs can consider or
 discard the statement. A common scenario is to explain why something was
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/get-started/access-control-and-entitlement-management.md
-denied: “User, Alex is denied because Alex does not have a valid email”.
-========
 denied: “User Alex is denied because Alex does not have a valid email”.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/get-started/access-control-and-entitlement-management.md
 
 The XACML specification says that any advice returned with a decision
 can be safely ignored by compliant PEPs. This means that PEPs should
@@ -651,13 +645,13 @@ AND relationship between the same category. However, in XACML 3.0,
 introduced to `         Target        ` element. That clearly helps to
 define the OR and AND relationship between different categories.
 
-As an example, let's look at a `         Target        ` element. In
+As an example, let's look at a `         Target        ` element. In
 XACML 2.0, we have an `         AND        ` relationship between
 **foo1** and **foo2** resources and an `         OR        `
 relationship between **bar1** and **bar2** actions. However, we cannot
 create an `         OR        ` relationship between a **foo1** resource
 and **bar1** action. so we cannot define something such as “Target would
-be matched when Alex can access the **foo** resource or do a **bar**
+be matched when Bob can access the **foo** resource or do a **bar**
 action” by using the `         Target        ` element.
 
 ``` java
@@ -694,7 +688,7 @@ action” by using the `         Target        ` element.
 XACML 3.0 has an `AND` relationship between “ **foo** ”
 resource and **bar1** role and an `OR` relationship
 between **bar2** action. So we cannot define something as “Target
-would be matched, when Alex can access **foo** resource and do **bar1**
+would be matched, when Bob can access **foo** resource and do **bar1**
 action or do **bar2** action”.
 
 ``` java
@@ -774,7 +768,7 @@ decisions.
 
 The [XACML 3.0 Multiple Decision
 Profile](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-multiple-v1-spec-cd-03-en.html)
-(MDP) is particularly useful in scenarios where the PEP needs to request
+(MDP) is particularly useful in scenarios where the PEP needs to request
 decisions for multiple requests in one XACML request, and provides a
 considerable improvement in performance between the PEP and the PDP in
 such scenarios.
@@ -782,13 +776,13 @@ such scenarios.
 For a set of tutorials that demonstrate how to work with XACML MDP
 requests in WSO2 Identity Server, see [Working with XACML Multiple
 Decision Profile
-Requests]({{base_path}}/learn/working-with-xacml-multiple-decision-profile-requests)
+Requests](../../learn/working-with-xacml-multiple-decision-profile-requests)
 .
 
 #### XACML 3.0 JSON Profile
 
 This is a new profile that provides a standardized interface between
-the PEP and the PDP using JSON. The decision request and response
+the PEP and the PDP using JSON. The decision request and response
 structure is specified in the core XACML specification.
 
 With the introduction of the [XACML 3.0 JSON
@@ -800,13 +794,13 @@ default XML format with regard to XACML 3.0 requests and responses.
     
     WSO2 Identity Server also supports [working with XACML MDP requests and
     responses in JSON
-    format]({{base_path}}/learn/working-with-mdp-requests-in-json-format)
+    format](../../learn/working-with-mdp-requests-in-json-format)
     .
     
 
   
 Following are some of the key points to keep in mind when you work with
-XACML 3.0 JSON requests and responses via WSO2 Identity Server:
+XACML 3.0 JSON requests and responses via WSO2 Identity Server:
 
 -   Certain parts of JSON requests and responses have default values to
     avoid bloating. For example, the default value of the data-type of
@@ -1026,17 +1020,13 @@ above request:
 For a tutorial that demonstrate how WSO2 IS supports fine-grained
 authorization using XACML requests in JSON format, see [Fine-grained
 Authorization using XACML Requests in JSON
-Format]({{base_path}}/learn/fine-grained-authorization-using-xacml-requests-in-json-format).
+Format](../../learn/fine-grained-authorization-using-xacml-requests-in-json-format).
 
 #### Administrative Delegation Profile
 
 This is also a new profile that comes with XACML 3.0. This allows you to
 define policies about who can write policies about what. For
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/authorization/access-control.md
-example, "Alex may issue a policy but only about resources in department
-========
-example, "Alex may issue a policy but only about resources in department
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/get-started/access-control-and-entitlement-management.md
+example, “Bob may issue a policy but only about resources in department
 X”.
 
 ### XACML 2.0 and XACML 3.0 samples

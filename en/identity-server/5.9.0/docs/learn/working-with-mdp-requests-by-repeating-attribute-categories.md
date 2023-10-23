@@ -39,7 +39,7 @@ network.
 -   [Download](https://wso2.com/identity-and-access-management) and run
     WSO2 Identity Server. For detailed instrction on how to install WSO2
     Identity Server, see [Installing the
-    Product]({{base_path}}/setup/installing-the-product).
+    Product](../../setup/installing-the-product).
 -   Go to the Chrome Web Store and add the
     [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
     app.
@@ -49,9 +49,9 @@ network.
 Upload and publish the following sample policies to the XACML PDP in
 WSO2 Identity Server as enabled policies:
 
--   [web-filter-policy-1.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-1.xml)
--   [web-filter-policy-2.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-2.xml)
--   [web-filter-policy-3.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-3.xml)
+-   [web-filter-policy-1.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/multiple/web-filter-policy-1.xml)
+-   [web-filter-policy-2.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/multiple/web-filter-policy-2.xml)
+-   [web-filter-policy-3.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/multiple/web-filter-policy-3.xml)
 
 Follow the steps below to publish a sample policy to the PDP in WSO2
 Identity Server:
@@ -72,7 +72,7 @@ Identity Server:
 
 6.  Click **Publish to My PDP** applicable to the sample policy that you
     added. This takes you to the **Publish Policy** screen.  
-    ![publish-policy-to-pdp]({{base_path}}/assets/img/guides/publish-policy-to-pdp.png)
+    ![publish-policy-to-pdp](../assets/img/tutorials/publish-policy-to-pdp.png)
 7.  Click **Publish**. This displays a confirmation message asking
     whether you want to continue publishing to PDP.
 8.  Click **Yes**. This publishes the policy to the PDP.
@@ -88,7 +88,7 @@ Identity Server:
 !!! tip
     
     You can either use the PEP TryIt tool to invoke the PDP, or invoke the
-    `         getDecision        ` method of the PDP API using [SOAP UI](https://www.soapui.org/downloads/latest-release.html).
+    `         getDecision        ` method of the PDP API using [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html).
     
 
 ``` java

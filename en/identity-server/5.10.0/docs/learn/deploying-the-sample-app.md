@@ -115,32 +115,6 @@ For example,
     
 ### Configuring the service provider
 
-!!! note "Important"
-
-    SAML2 POST Binding requires CORS configurations. Before configuring the service provider, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
-
-    ```toml
-    [cors]
-    allow_generic_http_requests = true
-    allow_any_origin = false
-    allowed_origins = [
-        "http://localhost:8080", "http://localhost.com:8080"
-    ]
-    allow_subdomains = false
-    supported_methods = [
-        "GET",
-        "POST",
-        "HEAD",
-        "OPTIONS"
-    ]
-    support_any_header = true
-    supported_headers = []
-    exposed_headers = []
-    supports_credentials = true
-    max_age = 3600
-    tag_requests = false
-    ```
-
 The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
@@ -360,32 +334,6 @@ For example,
     
 ### Configuring the service provider
 
-!!! note "Important"
-
-    SAML2 POST Binding requires CORS configs set up. Before configuring the service provider, make sure you add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
-
-    ```toml
-    [cors]
-    allow_generic_http_requests = true
-    allow_any_origin = false
-    allowed_origins = [
-        "http://localhost:8080", "http://localhost.com:8080"
-    ]
-    allow_subdomains = false
-    supported_methods = [
-        "GET",
-        "POST",
-        "HEAD",
-        "OPTIONS"
-    ]
-    support_any_header = true
-    supported_headers = []
-    exposed_headers = []
-    supports_credentials = true
-    max_age = 3600
-    tag_requests = false
-    ```
-
 The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
@@ -464,32 +412,6 @@ For example,
 
 
 ### Configuring the service provider
-
-!!! note "Important"
-
-    SAML2 POST Binding requires CORS configs set up. Before configuring the service provider, make sure you add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
-
-    ```toml
-    [cors]
-    allow_generic_http_requests = true
-    allow_any_origin = false
-    allowed_origins = [
-        "http://localhost:8080", "http://localhost.com:8080"
-    ]
-    allow_subdomains = false
-    supported_methods = [
-        "GET",
-        "POST",
-        "HEAD",
-        "OPTIONS"
-    ]
-    support_any_header = true
-    supported_headers = []
-    exposed_headers = []
-    supports_credentials = true
-    max_age = 3600
-    tag_requests = false
-    ```
 
 The next step is to configure the service provider.
 
@@ -707,12 +629,7 @@ To check the **photo-edit** sample application, navigate to
 on your browser.
 
 For example,
-`                     http://localhost.com:8080/photo-edit/index.jsp                 . 
-
-!!! note
-    -   The default password configuration for photo-editor and photo-viewer is `admin`. If a different password needs to be used to test the samples, change the hardcoded password in `<TOMCAT_HOME>/webapps/photo-view/WEB-INF/classes/apptwo.properties` or `<TOMCAT_HOME>/webapps/photo-edit/WEB-INF/classes/apptwo.properties`. 
-
-    -    All the directories of the tomcat server should be accessible even without root access. Otherwise, the application fails due to insufficient permissions. `
+`                     http://localhost.com:8080/photo-edit/index.jsp                 .         `
     
 ### Configuring the service provider
 

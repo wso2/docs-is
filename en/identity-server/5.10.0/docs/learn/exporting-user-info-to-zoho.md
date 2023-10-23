@@ -8,7 +8,7 @@ Let's get started!
 
 !!! tip "Before you begin!"
     Create the `users.csv` file by following the instructions in 
-    [Exporting User Data From WSO2 Identity Server](../exporting-user-data-from-wso2-is).
+    [Exporting User Data From WSO2 Identity Server](../learn/exporting-user-data-from-wso2-is.md).
     
 ##Try it Out
 

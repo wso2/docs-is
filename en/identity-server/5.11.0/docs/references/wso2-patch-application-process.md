@@ -1,26 +1,24 @@
 # WSO2 Patch Application Process
 
 !!! note WSO2 has introduced the
-	[WSO2 Update Manger (WUM)](https://wso2.com/updates/wum), which is a
-	command-line tool that allows you to update your product with the latest
-	available patches and enhancements. All WSO2 products based on Carbon
-	4.5.x are supported by WUM. Go to the
-	[WUM website](https://wso2.com/updates/wum) to see if your product
-	version is currently supported. You can follow the instructions in
-	Updating your WSO2 product to get the patch updates using WUM. Note that
-	WUM does not allow you to pick and choose the patches that you apply.
-	Therefore, if you want to apply a selected patch to your product, you
-	must use the following patch application process.
+[WSO2 Update Manger (WUM)](https://wso2.com/updates/wum), which is a
+command-line tool that allows you to update your product with the latest
+available patches and enhancements. All WSO2 products based on Carbon
+4.5.x are supported by WUM. Go to the
+[WUM website](https://wso2.com/updates/wum) to see if your product
+version is currently supported. You can follow the instructions in
+Updating your WSO2 product to get the patch updates using WUM. Note that
+WUM does not allow you to pick and choose the patches that you apply.
+Therefore, if you want to apply a selected patch to your product, you
+must use the following patch application process.
     
 The patch application process described below guides you on how to
 manually apply patches, such as [security
-patches](https://wso2.com/security-patch-releases/), to Carbon
+patches](http://wso2.com/security-patch-releases/), to Carbon
 4.5.x-based products (if your product version is currently not supported
 by WUM).
 
----
-
-## What is a patch?
+### What is a patch?
 
 The following diagram depicts the contents of a patch archive that is
 provided by WSO2. The patch archive name indicates the WSO2 Carbon
@@ -52,9 +50,7 @@ library files, configurations, scripts and more.
     
     `               └── api#identity#oauth2#v1.0.war          `
 
----
-
-## Apply patches to the product
+### Applying patches to the product
 
 !!! info "Before You Begin"
 
@@ -65,7 +61,7 @@ library files, configurations, scripts and more.
         directory of the patch archive, it is highly recommended to backup
         the existing resources. The original files might be required if you
         are [reverting the
-        patch](#remove-patches) later.  
+        patch](#removing-patches) later.  
         -   As a precaution, make a backup of the server.
 
 Follow the steps given below to apply patches to your server.
@@ -93,12 +89,11 @@ Follow the steps given below to apply patches to your server.
         directory, which will contain the original content of the
         `           <IS_HOME>/repository/components/plugins/          `
         directory. This step enables you to [revert back to the previous
-        state](#remove-patches) if something
+        state](#removing-patches) if something
         goes wrong during operations.
     
----
 
-## Verify the patch application
+### Verifying the patch application
 
 After the patch application process is completed, the patch verification
 process ensures that the latest patches are correctly applied to the
@@ -134,9 +129,8 @@ process ensures that the latest patches are correctly applied to the
                 the data in this file, you will get a startup error when
                 applying patches.
         
----
 
-## Remove patches
+### Removing patches
 
 Patches installed in your WSO2 product using the above steps can also be
 removed when required. However, this needs to be done with caution as
@@ -157,7 +151,7 @@ To remove a patch:
     directory.
 2.  If there were artifacts copied from the resources directory of the
     patch archive, you need to replace them with the original artifacts
-    (from the [backup](#apply-patches-to-the-product) that was
+    (from the [backup](#applying-patches-to-the-product) that was
     created before applying the patch). Also if there were exploded
     artifacts (such as \*.war files in the
     `          <IS_HOME>/repository/deployment/server/webapps         `

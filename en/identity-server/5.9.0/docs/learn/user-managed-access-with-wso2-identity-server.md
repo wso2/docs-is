@@ -8,11 +8,7 @@ authorization server to try out UMA for a sample scenario.
 
 To demonstrate the UMA flow using WSO2 IS as the authorization server,
 let’s consider a sample scenario where Larry (resource owner) wants to
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/user-managed-access-with-wso2-identity-server.md
-share a photo album (resource) on Larry's cloud drive (resource server)
-========
 share a photo album (resource) on the cloud drive (resource server)
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/user-managed-access-with-wso2-identity-server.md
 with a friend, Sam (requesting party).  Let's assume that Sam uses a
 mobile app (client) to view Larry’s photo album. Note that Larry wants to
 allow Sam to only have view permission to the photo album.
@@ -50,8 +46,7 @@ resource owner:
 3.  Click **Add New User**.
 4.  Specify the following values to create a new user.
 
-    | Property         | Value                                  |
-    | ---------------- | ---------------------------------------|
+
     | Domain           | `               PRIMARY              ` |
     | Username         | `               Larry              `    |
     | Password         | `               Larry123              ` |
@@ -71,8 +66,7 @@ requesting party:
 2.  Click **Add New User**.
 3.  Specify the following values to create a new user:
 
-    | Property         | Value                                  |
-    | ---------------- | ---------------------------------------|
+
     | Domain           | `               PRIMARY              ` |
     | Username         | `               sam              `     |
     | Password         | `               sam123              `  |
@@ -135,7 +129,7 @@ values to obtain the Protection API Access Token (PAT).
             command.
 
     ``` java
-    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=larry&password=larry123&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=kate&password=kate123&scope=uma_protection" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
     You will get a response similar to the following:
@@ -144,7 +138,7 @@ values to obtain the Protection API Access Token (PAT).
     {
         "access_token":"b8df48ff-feab-3632-b3dc-68ae6b4c62e2",
         "refresh_token":"1037ccad-f45a-38e7-96ad-40c00fbc7ca4",
-        "scope":"internal_application_mgt_view uma_protection",
+        "scope":"uma_protection",
         "token_type":"Bearer",
         "expires_in":3600
     }
@@ -433,11 +427,7 @@ token that it has issued, which the resource server can use.
           "exp": 1553418559,
           "iat": 1553414959,
           "client_id": "JfTSiJ24gh8sYHTQVuOl5RoftkAa",
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/user-managed-access-with-wso2-identity-server.md
-          "username": "sam"
-========
           "username": "Alex.uma.demo"
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/user-managed-access-with-wso2-identity-server.md
         }
     ```
 
@@ -469,11 +459,7 @@ This is how UMA works.
       "exp": 1553414723,
       "iat": 1553411123,
       "client_id": "JfTSiJ24gh8sYHTQVuOl5RoftkAa",
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/user-managed-access-with-wso2-identity-server.md
-      "username": "sam"
-========
       "username": "Alex.uma.demo"
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/user-managed-access-with-wso2-identity-server.md
     }
     ```
     

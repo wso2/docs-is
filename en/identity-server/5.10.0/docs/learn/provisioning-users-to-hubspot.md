@@ -123,7 +123,7 @@ users created in WSO2 Identity Server can also be provisioned to external system
 
 ## Try it out
 
-1. Access WSO2 Identity Server [My Account Portal](https://localhost:9443/myaccount/).
+1. Access WSO2 Identity Server [User Portal](https://localhost:9443/user-portal/).
 2. Click **Create Account**.
 
     ![sign-in](../assets/img/tutorials/sign-in.png)

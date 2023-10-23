@@ -1,13 +1,15 @@
-# Configure the Tenant Loading Policy
+# Configuring the Tenant Loading Policy
 
-In WSO2 Identity Server (WSO2 IS) based on Carbon 4.4.0 or later versions, you have the
+In WSO2 products based on Carbon 4.4.0 or later versions, you have the
 option of setting the required tenant loading policy by enabling either
 **Lazy Loading** or **Eager Loading** of tenants. Additionally, you can
 separately control the loading policy for web applications and axis2
 services deployed in your tenants using the **GhostDeployment** setting.
 
 !!! note
-    By default, **Lazy Loading** is enabled for tenants in WSO2 IS.
+    
+    By default, **Lazy Loading** is enabled for tenants in all WSO2
+    products.
     
 
 First, read the following descriptions to understand how Lazy loading
@@ -17,10 +19,12 @@ and Eager loading work:
     are not loaded at the time the server starts. Instead, the tenants
     are loaded on demand (upon a request sent to a particular tenant).
     When a tenant receives a request, the particular tenant and all
-    tenant-specific artifacts, except **web applications** and **axis2 tenants** (including the tenant-specific artifacts) are **unloaded**
+    tenant-specific artifacts, except **web applications** and **axis2
+      
+    Tenants (including the tenant-specific artifacts) are **unloaded**
     from memory if the tenant remains idle for a specified amount of
     time. You can configure the allowed tenant idle time. See
-    [Configure Lazy Loading](#configure-lazy-loading) for
+    [Configuring Lazy Loading](#configuring-lazy-loading) for
     instructions.
       
 -   **Eager Loading:** Unlike lazy loading, eager loading ensures that
@@ -32,18 +36,17 @@ and Eager loading work:
       
     When eager loading is enabled, tenants (and the tenant-specific
     artifacts) are expected to remain in memory without unloading until
-    the server shuts down. See [Configure Eager Loading](#configure-eager-loading) for instructions.
+    the server shuts down. See [Configuring Eager Loading](#configuring-eager-loading) for instructions.
 
 Now, see the instructions given below to configure the required tenant
 loading policy for your system. 
 
----
+### Configuring Lazy Loading
 
-## Configure Lazy Loading
+As explained above, Lazy Loading (for tenants) is enabled as the loading
+policy in WSO2 Identity Server, by default.
 
-As explained above, Lazy Loading (for tenants) is enabled as the loading policy in WSO2 IS, by default.
-
-### Configure the tenant unloading time (for Lazy Loading)
+#### Configuring the tenant unloading time (for Lazy Loading)
 
 If you have Lazy loading enabled, you can configure the allowed tenant
 idle time. For example, if you set the idle time to 30 minutes, tenants
@@ -73,14 +76,12 @@ your system. You can configure this value using two methods.
 
         ``` java
         $JAVA_OPTS \ 
-        -Dtenant.idle.time=<value_in_minutes>. \
+             -Dtenant.idle.time=<value_in_minutes>. \
         ```
 
     3.  Restart the server.
 
----
-
-## Configure Eager Loading
+### Configuring Eager Loading
 
 Follow the instructions given below to change the tenant loading policy
 to eager loading.
@@ -90,7 +91,8 @@ to eager loading.
     and artifacts that are loaded.
         
 
-1.  Open the ` deployment.toml ` file from the `<IS_HOME>/repository/conf/ ` directory.
+1.  Open the ` deployment.toml ` file from the `
+    <PRODUCT_HOME>/repository/conf/ ` directory.
 
 2.  Enable the `eager_loading_tenants` configuration as shown below.
 
@@ -103,5 +105,8 @@ to eager loading.
     should apply, by using the above configuration. See the following
     examples:
     -   If the setting should apply to all tenants, add `*` .
-    -   If the setting should apply to all tenants, except `foo.com` and `bar.com`, add `*,! foo.com, ! bar.com`
-    -   If the setting should apply only to `foo.com` and `bar.com`, add `foo.com,bar.com ` .
+    -   If the setting should apply to all tenants, except
+        [foo.com](http://foo.com/) and [bar.com](http://bar.com/), add `
+        *,! foo.com ,! bar.com`
+    -   If the setting should apply only to [foo.com](http://foo.com/)
+        and [bar.com](http://bar.com/), add `foo.com,bar.com ` .

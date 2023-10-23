@@ -1,11 +1,8 @@
-# Configure Log Masking with Log4j
+# Mask Sensitive Information in Logs
 
 There can be business sensitive information that are added to logs in 
 the product console and/or Carbon log files. When these logs
 are analyzed, the information is exposed to those who check this.
-
-To avoid this potential security pitfall, users can mask sensitive
-information.
 
 To avoid this potential security pitfall, users can mask sensitive
 information from the log file at the time of logging. In this feature,
@@ -17,14 +14,9 @@ To configure this feature, follow the instructions given below.
 
 ---
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/monitor/mask-sensitive-information-in-logs.md
-## Configure log masking
+## Enable log masking
 
 1.  Log masking is enabled by default. However, you need to configure required masking patterns.
-========
-1.  Log masking is enabled by default from WSO2 Identity Server 5.9.0 onwards.However, you need 
-    to configure required masking patterns.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/masking-sensitive-information-in-logs.md
 
 2.  These patterns are configured in the `<IS-HOME>/repository/conf/wso2-log-masking.properties`. You can change 
     its default configurations in `<IS-HOME>/repository/conf/deployment.toml`.

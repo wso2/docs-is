@@ -108,11 +108,7 @@ The user store configurations are maintained per tenant.
 
 - If you use a super tenant, set all the parameter values in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/mfa/sms-otp-config-advanced.md
-- If you use a tenant:
-========
 - If you use a tenant: 
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/mfa/sms-otp-config-advanced.md
 
     1. Upload the XML file (`<IS_HOME>/repository/conf/identity/application-authentication.xml`) into a specific registry location (`/_system/governance/SMSOTP`).
 

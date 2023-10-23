@@ -5,7 +5,7 @@ caching techniques. However, caching implementation must be designed
 carefully. When looking at the XACML reference architecture, we could
 identify that, caching can be done in four places.
 
-![pdp-caching-techniques]({{base_path}}/assets/img/tutorials/pdp-caching-techniques.jpg)
+![pdp-caching-techniques](../assets/img/tutorials/pdp-caching-techniques.jpg)
 
 1.  XACML policies can be cached as policies are usually stored in a
     database or file system. This can be done for each request, if is

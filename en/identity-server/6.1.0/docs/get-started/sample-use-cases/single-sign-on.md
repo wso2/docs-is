@@ -29,12 +29,12 @@ protocol, follow the steps below.
 
 First, let's set up and run the sample applications.
 
-1.  Follow the instructions on [setting up the samples]({{base_path}}/get-started/sample-use-cases/sample-scenario/#set-up-the-sample-apps/).
+1.  Follow the instructions on [setting up the samples]({{base_path}}/get-started/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
 
     !!! info
         A message appears to pick a scenario.
     
-    ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png)
+    ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png) 
 
 
 2.  Enter `1` as the scenario number at the command prompt.
@@ -76,7 +76,7 @@ First, let's set up and run the sample applications.
     ![Consent page]({{base_path}}/assets/img/get-started/qsg-sso-consent.png)
 
     !!! note
-
+    
         Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. 
         To learn more about GDPR and how WSO2 Identity Server handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
 

@@ -1028,11 +1028,7 @@ Format]({{base_path}}/learn/fine-grained-authorization-using-xacml-requests-in-j
 
 This is also a new profile that comes with XACML 3.0. This allows you to
 define policies about who can write policies about what. For
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/authorization/access-control.md
 example, "Alex may issue a policy but only about resources in department
-========
-example, "Alex may issue a policy but only about resources in department
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/get-started/access-control-and-entitlement-management.md
 X”.
 
 ### XACML 2.0 and XACML 3.0 samples

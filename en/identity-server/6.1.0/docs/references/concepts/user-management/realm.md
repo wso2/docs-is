@@ -53,8 +53,4 @@ Userstores are used to store all the users, roles, and permissions within our re
     - [Guide: Configuring Realms]({{base_path}}/references/concepts/user-management/realm)
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
     - [Concept: Roles and permissions]({{base_path}}/references/concepts/user-management/roles-and-permissions)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/concepts/user-management/realm.md
     - [Concept: Userstores]({{base_path}}/references/concepts/user-management/userstores)
-========
-    - [Concept: Userstores]({{base_path}}/references/concepts/user-management/userstores)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/concepts/user-management/realm.md

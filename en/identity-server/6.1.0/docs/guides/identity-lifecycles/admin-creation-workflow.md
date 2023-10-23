@@ -81,11 +81,7 @@ Below is a sample request to create a user and its corresponding response using 
 !!! info "Related topics"
     - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
     - [Guide: User Self Registration Workflow]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/identity-lifecycles/admin-creation-workflow.md
     - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/guides/identity-federation/jit-workflow/)
-========
-     - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/guides/identity-federation/jit-workflow)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/identity-lifecycles/admin-creation-workflow.md
     - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
     - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)

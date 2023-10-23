@@ -176,13 +176,8 @@ sample values: sAMAccountName</td>
 <td>UserIDAttribute</td>
 <td>user_id_attribute</td>
 <td>User ID Attribute</td>
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-active-directory-user-store.md
 <td><p>This is the attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID.</p>
 <p>Default: ObjectGUID <br /></p></td>
-========
-<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID.</p>
-<p>Default: ObjectGuid <br /></p></td>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/setup/configuring-a-read-write-active-directory-user-store.md
 </tr>
 <tr class="even">
 <td>UserNameSearchFilter</td>

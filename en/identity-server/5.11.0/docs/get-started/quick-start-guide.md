@@ -12,16 +12,10 @@ sample scenario.
 credentials to sign in to different internal enterprise applications.
 Following are two such applications:
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/get-started/quick-start-guide.md
 -   **Pickup Dispatch** : This application helps to manage the overall
     operations at Pickup.
 -   **Pickup Manager** : This application helps to allocate vehicles to
-========
--   **Pickup Dispatch** : This application helps allocate vehicles to
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/get-started/quick-start-guide.md
     drivers.
--   **Pickup Manager** : This application helps manage the overall
-    operations at Pickup.
 
 Pickup needs to identify the necessary permission levels to be granted
 to the employees and any security vulnerabilities.
@@ -39,15 +33,9 @@ using WSO2 Identity Server.
 
 #### Set-up
     
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/get-started/quick-start-guide.md
 1. Download and install Oracle Java SE Development Kit (JDK) version version 1.8 or 11).
 
 2. Install WSO2 Identity Server by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
-========
-1. Download and install Oracle Java SE Development Kit (JDK) version 1.8 or 11).
-
-2. Install WSO2 Identity Server 5.9.0 by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/get-started/quick-start-guide.md
    The WSO2 Identity Server installation location varies according to the OS as given below.
 
     |OS     |Home Directory                                |
@@ -327,17 +315,10 @@ and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.
 3.  Add the following configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and restart the server.
 
        ```toml
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/get-started/quick-start-guide.md
        [[resource.access_control]]
        context = "(.*)/sample-auth/(.*)"
        secure = false
        http_method = "all" 
-========
-       [resource.access_control]
-       context = "(.*)/sample-auth/(.*)"
-       secure = false
-       http_method = "all"
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/get-started/quick-start-guide.md
        ```
 3.  Start the Identity Server.
 

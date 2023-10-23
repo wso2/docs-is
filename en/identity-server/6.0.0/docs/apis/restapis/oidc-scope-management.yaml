@@ -4,7 +4,15 @@ info:
     The OIDC scope API in WSO2 Identity Server(IS) can be used to manage OIDC scopes and map claims.
     Since OIDC scope is a sub category of OAuth2 scopes, these end points cannot have the same scope names in WSO2 IS. 
   version: "1.0.0-oas3"
-  title:  OIDC Scope Management API
+  title:  WSO2 Identity Server - OIDC Scope Management API
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: "WSO2 Identity Server"
+    url: "https://wso2.com/identity-and-access-management"
+    email: "architecture@wso2.org"
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
@@ -23,7 +31,7 @@ paths:
     get:
       tags:
         - OIDC Scope Endpoint
-      summary: Retrieve the list of scopes
+      summary: Retrieves the list of scopes
       operationId: getScopes
       description: This REST API can be used to get details of the available scopes.
       security:
@@ -51,7 +59,7 @@ paths:
     post:
       tags:
         - OIDC Scope Endpoint
-      summary: Add a new OIDC scope
+      summary: Add a new OIDC Scope
       operationId: addScope
       security:
         - BasicAuth: []
@@ -110,7 +118,7 @@ paths:
     put:
       tags:
         - OIDC Scope Endpoint
-      summary: Update an OIDC scope
+      summary: Update an OIDC Scope
       operationId: updateScope
       security:
         - BasicAuth: []
@@ -144,7 +152,7 @@ paths:
     delete:
       tags:
         - OIDC Scope Endpoint
-      summary: Delete an OIDC scope
+      summary: Delete an OIDC Scope
       operationId: deleteScope
       security:
         - BasicAuth: []

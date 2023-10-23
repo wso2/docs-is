@@ -53,7 +53,4 @@ You will receive a response similar to the format below.
 
 !!! info "Related topics"
         - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/concepts/authorization/authorization-code-grant.md
-========
         - [Quick Start: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground/)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/concepts/authorization/authorization-code-grant.md

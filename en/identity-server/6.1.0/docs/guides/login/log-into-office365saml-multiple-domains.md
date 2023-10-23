@@ -431,3 +431,4 @@ provider of WSO2 IS and the Azure Active Directory.
         ```
 
     2.  Re-set the parameters as listed in step 5 and then set the authentication method again as shown in step 6.
+

@@ -1628,12 +1628,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
 </table>
 </div>
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/references/error-catalog.md
 ## Tenant Management Errors
-========
-
-## User Functionality Management Errors
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/references/error-catalog.md
 
 <div class="errorcode">
 <table>
@@ -1644,7 +1639,6 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <th>Possible Cause</th>
   </thead>
   <tbody>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/references/error-catalog.md
   <tr>
     <td>TM-60000</td>
     <td>400</td>
@@ -1801,56 +1795,6 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>Error while deleting the tenant metadata.</td>
     <td>Server encountered an error while deleting the tenant metadata identified by {tenant-unique-id}.</td>
   </tr>
-========
-      <tr>
-        <td>UFM-10001</a></td>
-        <td>415</td>
-        <td>Unsupported parameter.</td>
-        <td>Only action parameter is needed for unlocking a functionality.</td>
-      </tr>
-      <tr>
-        <td>UFM-10002</a></td>
-        <td>403</td>
-        <td>User is not permitted to unlock.</td>
-        <td>The user is not permitted to unlock the functionality.</td>
-      </tr>
-      <tr>
-        <td>UFM-10003</a></td>
-        <td>404</td>
-        <td>Invalid UserID provided.</td>
-        <td>The provided userID is invalid.</td>
-      </tr>
-      <tr>
-        <td>UFM-10004</a></td>
-        <td>400</td>
-        <td>Invalid Request.</td>
-        <td>The provided request is invalid.</td>
-      </tr>
-      <tr>
-        <td>UFM-10005</a></td>
-        <td>403</td>
-        <td>Functionality is already locked.</td>
-        <td>This functionality is already locked.</td>
-      </tr>
-      <tr>
-        <td>UFM-15001</a></td>
-        <td>500</td>
-        <td>Failed to get the lock status.</td>
-        <td>A system error occurred while getting status of the functionality.</td>
-      </tr>
-      <tr>
-        <td>UFM-15002</a></td>
-        <td>500</td>
-        <td>Failed to lock the functionality.</td>
-        <td>A system error occurred while locking the functionality.</td>
-      </tr>
-      <tr>
-        <td>UFM-15003</a></td>
-        <td>500</td>
-        <td>Failed to unlock the functionality.</td>
-        <td>A system error occurred while unlocking the functionality.</td>
-      </tr> 
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/references/error-catalog.md
   </tbody>
 </table>
 </div>

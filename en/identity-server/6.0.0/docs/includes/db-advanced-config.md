@@ -26,9 +26,5 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	validationInterval="30000"
 	defaultAutoCommit=false
 	commitOnReturn=true
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/includes/db-advanced-config.md
-	```
-========
   	```
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/includes/db-advanced-config.md
 	

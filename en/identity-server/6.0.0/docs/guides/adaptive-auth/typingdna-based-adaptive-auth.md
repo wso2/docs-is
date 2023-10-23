@@ -1,6 +1,6 @@
 # Configure TypingDNA-based adaptive Authentication
 
-[Typing DNA](https://www.typingdna.com/) uses AI-based technology to authenticate users according to the way they type.
+[Typing DNA](https://www.typingdna.com/) uses AI-based technology to identify users according to the way they type.
 
 You can integrate typingDNA with WSO2 Identity Server to provide risk-based adaptive authentication for users.
 
@@ -15,11 +15,9 @@ Consider a scenario where you want to prompt an additional authentication step i
 ----
 
 ## Prerequisites
-
-- See the [general prerequisites]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth/#prerequisites-for-adaptive-authentication) for all adaptive authenticaiton scenarios.
-- [Set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample)   application.
-- [Create a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named **Alex** with login permissions.
-- Create a typingDNA account. Learn how to create one [here](https://github.com/wso2-extensions/identity-conditional-auth-typingdna/blob/main/docs/files/Account%20Creation.pdf).
+1. [Set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample)   application.
+2. [Create a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named **Alex** with login permissions.
+3. Create a typingDNA account. Learn how to create one [here](https://github.com/wso2-extensions/identity-conditional-auth-typingdna/blob/main/docs/files/Account%20Creation.pdf).
 
     !!! info
         Once you sign up for a typingDNA account, go to the dashboard and under API settings, enable **Auto-enroll**,   and **Force initial enrollments**.

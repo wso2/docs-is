@@ -1377,22 +1377,14 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>USM-10010</td>
         <td>403</td>
         <td>Action Forbidden</td>
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/error-catalog.md
-        <td>User is not authorized to terminate the session/s.</td>
-========
         <td>User is not authorized to terminate the session/s.</td>      
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/error-catalog.md
       </tr>
       <tr>
         <td>USM-10011</td>
         <td>400</td>
         <td>Invalid data.</td>
         <td>Data validation has failed, {details}</td>
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/error-catalog.md
-      </tr>
-========
       </tr>                 
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/error-catalog.md
   </tbody>
 </table>
 </div>

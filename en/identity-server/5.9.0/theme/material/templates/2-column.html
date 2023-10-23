@@ -1,4 +1,3 @@
-
 <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
@@ -17,9 +16,17 @@
  * under the License.
 -->
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/theme/material/templates/2-column.html
-Try one of the navigation links above or use the search engine in the top right corner. 
-========
 {% extends "main.html" %}
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/theme/material/templates/2-column.html
 
+{% block styles %}
+  {{ super() }}
+  <style>
+    .md-main .md-content {
+      margin-right: 0;
+    }
+
+    .md-main .md-sidebar.md-sidebar--secondary {
+      width: 0;
+    }
+  </style>
+{% endblock %}

@@ -133,8 +133,4 @@ to https://\<orgname\>.crmdomain.com.
 
 !!! info "Related Topics"
     To test out WSO2 Identity Server's passive security token service
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/log-into-dynamic-crm-with-wsfederation.md
     using a sample, see [Configuring Single Sign On Using WS-Federation]({{base_path}}/guides/login/webapp-ws-federation/).
-========
-    using a sample, see [Configuring Single Sign On Using WS-Federation]({{base_path}}/guides/login/webapp-ws-federation/).
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/log-into-dynamic-crm-with-wsfederation.md

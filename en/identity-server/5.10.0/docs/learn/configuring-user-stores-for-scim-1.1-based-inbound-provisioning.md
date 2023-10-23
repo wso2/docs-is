@@ -1,23 +1,23 @@
 # Configuring User Stores for SCIM 1.1 based inbound provisioning
 
-WSO2 Identity server supports inbound provisioning based on both SCIM 1.1 and SCIM 2.0. This document provides the additional steps that need to be followed if you are using SCIM 1.1 for inbound provisioning. If you need more information on SCIM 2.0 APIs, see [SCIM APIs]({{base_path}}/develop/scim-1.1-apis).
+WSO2 Identity server supports inbound provisioning based on both SCIM 1.1 and SCIM 2.0. This document provides the additional steps that need to be followed if you are using SCIM 1.1 for inbound provisioning. If you need more information on SCIM 2.0 APIs, see [SCIM APIs](../../develop/scim-1.1-apis).
 
 When a user or a group is created with SCIM, there is a set of mandatory
 SCIM  claim values that need to be saved along with the user or group.
 Some of these values are as follows.
 
-- `urn:scim:schemas:core:1.0:userName`
-- `urn:scim:schemas:core:1.0:meta.location`
-- `urn:scim:schemas:core:1.0:meta.created`
-- `urn:scim:schemas:core:1.0:meta.lastModified`
-- `urn:scim:schemas:core:1.0:id`
+-   `          urn:scim:schemas:core:1.0:userName         `
+-   `          urn:scim:schemas:core:1.0:meta.location         `
+-   `          urn:scim:schemas:core:1.0:meta.created         `
+-   `          urn:scim:schemas:core:1.0:meta.lastModified         `
+-   `          urn:scim:schemas:core:1.0:id         `
 
-Unless your user store is a JDBC user store
-, you need to map how these values are stored in your user
+Unless your user store is a JDBC user store or the embedded LDAP (that
+comes with IS), you need to map how these values are stored in your user
 store. This mapping can be done using the claim mapping setup in the
 Identity Server. This mapping can be done in the claim mapping setup in
 the Identity Server. You can find Active directory specific claim
-configuration in [Configuring Active Directory User Stores for Inbound Provisioning]({{base_path}}/learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning).
+configuration in [Configuring Active Directory User Stores for Inbound Provisioning](../../learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning).
 
 Now let's assume you have an AD user store as the primary user store and
 you have done the claim mappings for the SCIM attributes. Then you need
@@ -27,38 +27,38 @@ attributes. Therefore it should be possible to map claim attributes to
 the secondary user store. For this, you need to change the "Mapped
 Attribute" value as indicated below.
 
-1. Log in to the WSO2 Identity Server and access the [management
-    console]({{base_path}}/setup/getting-started-with-the-management-console).
-2. In the **Main** menu of the management console, click **List** under
+1.  Log in to the WSO2 Identity Server and access the [management
+    console](../../setup/getting-started-with-the-management-console).
+2.  In the **Main** menu of the management console, click **List** under
     **Claims**. For more information on configuring claims, see [Claim
-    Management]({{base_path}}/learn/claim-management). Click on **urn:scim:schemas:core:1.0** claim dialect and find the
+    Management](../../learn/claim-management). Click on **urn:scim:schemas:core:1.0** claim dialect and find the
     mapped local claim to the SCIM claim that you need to edit.
-    <!--![claim]({{base_path}}/assets/img/learn/claim.png)-->
+    ![claim](../assets/img/learn/claim.png)
 
-3. You can alternatively [Add a New Claim]({{base_path}}/learn/adding-claim-mapping) if the claim
+3.  You can alternatively [Add a New Claim](../../learn/adding-claim-mapping) if the claim
     you wish to modify is not available.
-    <!--![add-claim]({{base_path}}/assets/img/learn/add-claim.png)-->
-    <!--![available-claims]({{base_path}}/assets/img/learn/available-claims.png)-->
+    ![add-claim](../assets/img/learn/add-claim.png)
+    ![available-claims](../assets/img/learn/available-claims.png)
 
-4. Once you find the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
-
-5. Click **Edit** and modify the Mapped Attribute field in the resulting page.  
-    <!--![update-local-claim]({{base_path}}/assets/img/learn/update-local-claim.png)-->
+4.  Once you find the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
+    
+5.  Click **Edit** and modify the Mapped Attribute field in the resulting page.  
+    ![update-local-claim](../assets/img/learn/update-local-claim.png) 
 
 Here we have configure a claim attribute mapping for primary user store,
 if you have a secondary user store you need to add another mapping for
 those as well. To do that just click Add, Attribute Mappings and set
 values for user store domain name and mapped attribute.
 
-!!! info
+!!! info 
     For information about Local Claim Dialect attributes, click
-    [here]({{base_path}}/learn/adding-claim-mapping).
+    [here](../../learn/adding-claim-mapping).
 
 Now you can perform SCIM operations, See the samples cURL commands used
 to secondary user store as below. Here, **demo** is the secondary user
 store used in the examples.
 
-## User Creation
+## User Creation 
 This will create user in the mentioned user store domain.
 
 **Request**
@@ -165,8 +165,11 @@ curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Groups/
 ```
 
 !!! note
-If a mapped attribute matches with the secondary user store, then it is not necessary to repeat the attribute value in the claim mapping for the secondary domain.
-
+    
+    If a mapped attribute matches with the secondary user store, then it is
+    not necessary to repeat the attribute value in the claim mapping for the
+    secondary domain.
+    
 
 ## Add a new member to a group
 This will add a new member to a group with a specific SCIM group id of a user-store domain.
@@ -181,7 +184,7 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD}  -X PATCH -d '{"displayName": "{US
 curl -v -k --user admin:admin -X PATCH -d '{"displayName": "demo/secEngineer","members": [{"value":"4a0fcb2b-efff-4dc2-ad2d-a25f0a814bd3","display": "demo/secUser1"}]}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/574dd322-adf5-4dee-8b03-27130fb5cece
 ```
 
-## Delete a member from a group
+## Delete a member from a group 
 This will delete a member from a given group of a user-store domain.
 
 ``` java

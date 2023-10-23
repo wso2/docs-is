@@ -44,9 +44,4 @@ One of the following cURL commands can be used to try this grant type.
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/references/concepts/authorization/refresh-token-grant).
 
 !!! info "Related topics"
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/concepts/authorization/resource-owner-grant.md
         - [Guide: Password Grant]({{base_path}}/guides/access-delegation/password-playground/)
-========
-        - [Guide: Password Grant]({{base_path}}/guides/access-delegation/password-playground/)
-        <!-- - [Quick Start: Password Grant]({{base_path}}/quick-starts/password-playground) -->
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/concepts/authorization/resource-owner-grant.md

@@ -1,18 +1,8 @@
 # User Information Recovery
 
 !!! warning
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/user-information-recovery-service.md
     The functionalities enabled by this SOAP API are available with the [Account Recovery REST APIs]({{base_path}}/apis/restapis/using-the-account-recovery-rest-apis/) 
     with better performance. Note that it is recommended to use REST APIs wherever possible.
-========
-
-    The functionalities enabled by this SOAP API are available with the [Account Recovery REST APIs](../../develop/using-the-account-recovery-rest-apis/) 
-    with better performance. Note that it is recommended to use REST APIs wherever possible.
-
-This section lists out and describes the operations that are available in the **User Information Recovery API**. 
-
-## About User Information Recovery API
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/user-information-recovery-service.md
 
 The **User Information Recovery API** enables recovering user information during user authentication through various features such as captcha and challenge questions.
 This section lists out and describes the operations that are available in the **User Information Recovery API**. 

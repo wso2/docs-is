@@ -9,13 +9,8 @@ can configure workflows to do the following.
 
 -   **User specific approvals** : You can configure a specific user to
     approve the user account. For example, you may want only the user
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/using-workflows-with-user-management.md
-    named "Alex" to approve accounts.
--   **Multi-step approvals** : You can configure multiple steps for
-========
     named "Bob" to approve accounts.
 -   **Multi-step approvals** : You can  configure multiple steps for
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/using-workflows-with-user-management.md
     approval, where the approval is first done by one user and then by
     another user. For example, you need "Alex" to approve the accounts
     first and then "Sam" to approve the account creation. So Sam

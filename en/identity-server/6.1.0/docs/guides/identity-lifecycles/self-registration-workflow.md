@@ -36,11 +36,7 @@ Follow the steps given below to register users for the super tenant, `carbon.sup
 
 1. Log in to the Management Console (`https://<IS_HOST>:<IS_PORT>/carbon`)  
     !!! note
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/identity-lifecycles/self-registration-workflow.md
     If your IS is already running, make sure to stop and start to apply configurations.
-========
-        If your IS is already running, make sure to stop and start to apply configurations.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/identity-lifecycles/self-registration-workflow.md
 
 2. Navigate to **Main** > **Identity**.
 
@@ -326,13 +322,8 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
 
 !!! info "Related topics"
     - [REST API: Self Register]({{base_path}}/apis/use-the-self-sign-up-rest-apis)
-    - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow)
-    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow)
+    - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
+    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
     - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/identity-lifecycles/self-registration-workflow.md
     - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning) 
     - [Guides: Configure Account Confirmation Methods for Self-Registration]({{base_path}}/guides/identity-lifecycles/self-register-verification/)
-========
-    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
-    - [Guides: Configure Account Confirmation Methods for Self-Registration]({{base_path}}/guides/identity-lifecycles/self-register-verification)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/identity-lifecycles/self-registration-workflow.md

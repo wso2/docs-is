@@ -45,7 +45,7 @@ reCaptcha for a specific tenant.
 
 7.  You have now successfully configured reCaptcha for the username
     recovery flow. Start the WSO2 Identity Server and log into the end
-    user [My Account portal](https://localhost:9443/myaccount/).
+    user [dashboard](https://localhost:9443/dashboard).
 
     !!! tip
     
@@ -55,7 +55,7 @@ reCaptcha for a specific tenant.
 
 8.  Click on **Forgot Username**.
 
-![forgot-username](../assets/img/using-wso2-identity-server/register-now-option.png)
+![forgot-username](../assets/img/using-wso2-identity-server/forgot-username.png)
 
   
 
@@ -65,12 +65,12 @@ Enter the domain name in the page that appears next.
 
   
 
-Clicking on **Forgot Username** redirects you to the
+Clicking on **Proceed to Username Recovery** redirects you to the
 following page where you can select the recaptcha option for username
 recovery.
 
 
-![proceed-to-username-recovery](../assets/img/using-wso2-identity-server/recaptcha-for-username-recovery.png)
+![proceed-to-username-recovery](../assets/img/using-wso2-identity-server/proceed-to-username-recovery.png)
 
 ### Configuring username recovery with reCaptcha globally
 
@@ -94,8 +94,8 @@ username recovery with reCaptcha.
 .
 
 3.  You have now successfully configured reCaptcha for the username
-    recovery flow. Start WSO2 Identity Server and log into the 
-    [My Account portal](https://localhost:9443/myaccount/).
+    recovery flow. Start WSO2 Identity Server and log into the end user
+    [dashboard](https://localhost:9443/dashboard).
 
     !!! tip
     
@@ -105,7 +105,7 @@ username recovery with reCaptcha.
 
 4.  Click the Forgot Username link.
 
-![forgot-username-link](../assets/img/using-wso2-identity-server/register-now-option.png)
+![forgot-username-link](../assets/img/using-wso2-identity-server/forgot-username-link.png)
 
   
 

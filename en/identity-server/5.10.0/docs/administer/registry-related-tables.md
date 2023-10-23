@@ -16,7 +16,6 @@ JDBC-base databases.These locks are defined in this table.
 -   `REG_LOCKED_TIME`
 -   `REG_TENANT_ID`
       
----
 
 #### REG\_LOG
 
@@ -33,8 +32,6 @@ table. Following are the columns in the table.
 -   `REG_ACTION_DATA`
 -   `REG_TENANT_ID`
 
----
-
 #### REG\_PATH
 
 The paths of all registry resources are stored in this table along with
@@ -46,8 +43,6 @@ path, this ID is used.
 -   `REG_PATH_PARENT_ID`
 -   `REG_TENANT_ID`
 
----
-
 #### REG\_CONTENT
 
 Actual content of the registry resources are stored as binary objects in
@@ -56,8 +51,6 @@ this table. Following are the columns of the table.
 -   `REG_CONTENT_ID`
 -   `REG_CONTENT_DATA`
 -   `REG_TENANT_ID`
-
----
 
 #### REG\_CONTENT\_HISTORY
 
@@ -68,8 +61,6 @@ table. Following are the columns of the table.
 -   `REG_CONTENT_DATA`
 -   `REG_DELETED`
 -   `REG_TENANT_ID`
-
----
 
 #### REG\_RESOURCE
 
@@ -88,8 +79,6 @@ Following are the columns of the table.
 -   `REG_CONTENT_ID`
 -   `REG_TENANT_ID`
 -   `REG_UUID`
-
----
 
 #### REG\_RESOURCE\_HISTORY
 
@@ -111,11 +100,9 @@ Following are the columns of the table.
 -   `REG_TENANT_ID`
 -   `REG_UUID`
 
----
-
 #### REG\_COMMENT
 
-The details of a comment added for a registry resource are stored in
+The details of a comment  added for a registry resource are stored in
 this table. Comments in this table are mapped with the records in
 `REG\_RESOURCE\_COMMENT` table. Following are the columns of the table.
 
@@ -124,8 +111,6 @@ this table. Comments in this table are mapped with the records in
 -   `REG_USER_ID`
 -   `REG_COMMENTED_TIME`
 -   `REG_TENANT_ID`
-
----
 
 #### REG\_RESOURCE\_COMMENT
 
@@ -139,8 +124,6 @@ registry path ID. Following are the columns of the table.
 -   `REG_RESOURCE_NAME`
 -   `REG_TENANT_ID`
 
----
-
 #### REG\_RATING
 
 Ratings for the registry resources are stored in this table. Following
@@ -151,8 +134,6 @@ are the columns of the table.
 -   `REG_USER_ID`
 -   `REG_RATED_TIME`
 -   `REG_TENANT_ID`
-
----
 
 #### REG\_RESOURCE\_RATING
 
@@ -166,8 +147,6 @@ in this table acts as mappings to the records in `REG_RATING`.
 -   `REG_RESOURCE_NAME`
 -   `REG_TENANT_ID`
 
----
-
 #### REG\_TAG
 
 Tags of a registry resource are stored in this table. Following are the
@@ -178,8 +157,6 @@ columns of the table.
 -   `REG_USER_ID`
 -   `REG_TAGGED_TIME`
 -   `REG_TENANT_ID`
-
----
 
 #### REG\_RESOURCE\_TAG
 
@@ -194,8 +171,6 @@ table.
 -   `REG_RESOURCE_NAME`
 -   `REG_TENANT_ID`
 
----
-
 #### REG\_PROPERTY
 
 Properties for a registry resource are stored as key value pairs in this
@@ -205,8 +180,6 @@ table. Following are the columns of the table.
 -   `REG_NAME`
 -   `REG_VALUE`
 -   `REG_TENANT_ID`  
-
----
 
 #### REG\_RESOURCE\_PROPERTY
 
@@ -221,8 +194,6 @@ resource registry path. Following are the columns of the table.
 -   `REG_RESOURCE_NAME`
 -   `REG_TENANT_ID`
 
----
-
 #### REG\_ASSOCIATION
 
 An association can be created from any resource (or collection) on the
@@ -232,7 +203,7 @@ should be a resource existing on the registry, the destination resource
 can be anything for which a URL can be given. Association has a type
 associated.
 
-For example, suppose Document A confirms to a standard B. You can create an
+eg: Document A that confirms to a standard B, You can create an
 association between those two by stating A "confirms to" B, where
 association name is "confirms to". The registry associations are stored
 in this table.
@@ -242,8 +213,6 @@ in this table.
 -   `REG_TARGETPATH`
 -   `REG_ASSOCIATION_TYPE`
 -   `REG_TENANT_ID`
-
----
 
 #### REG\_SNAPSHOT
 
@@ -266,4 +235,4 @@ columns of the table.
 -   `REG_RESOURCE_VIDS`
 -   `REG_TENANT_ID`
 
-![Registry related tables]({{base_path}}/assets/img/deploy/registry-related-tables.png) 
+![Registry related tables](../assets/img/using-wso2-identity-server/registry-related-tables.png) 

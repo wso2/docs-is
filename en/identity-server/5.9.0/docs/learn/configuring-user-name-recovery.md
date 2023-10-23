@@ -1,25 +1,19 @@
-# Configuring Username Recovery
+# Configuring User Name Recovery
 
-WSO2 Identity Server enables recovering user accounts where the user has forgotten the username. This is done by matching the user claims that are related to user attributes. The user will be prompted to enter values for these user attributes. If the value entered by the user matches with the claims, the corresponding username will be emailed to the user’s registered email ID.  
+WSO2 Identity Server enables recovering user accounts where the user has forgotten the user name. This is done by matching the user claims that are related to user attributes. The user will be prompted to enter values for these user attributes. If the value entered by the user matches with the claims, the corresponding user name will be emailed to the user’s registered email ID.  
 
 <img src="../../assets/img/learn/user-name-recovery-overview.png" alt="User Name Recovery" width="700"> 
 
 ## Scenario
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-user-name-recovery.md
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Larry** who is a new recruit at Pickup has forgotten the username. 
-
-Let's learn how Larry can recover the password by providing the corresponding profile information!
-========
 **Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Alex** who is a new recruit at Pickup has forgotten the user name. 
 
 Let's learn how Alex can recover the password by providing some profile information!
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-user-name-recovery.md
 
 
 ## Set up
 
-Follow the steps below to configure WSO2 Identity Server to enable username recovery.
+Follow the steps below to configure WSO2 Identity Server to enable user name recovery.
 
 1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
@@ -37,7 +31,7 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 	2.	To configure the email server to send emails requesting password reset, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
-		-	**username**: This is the username of the given email address.
+		-	**username**: This is the user name of the given email address.
 		-	**password**: This is the password of the given email address. 
 
 		```toml tab="Format"
@@ -70,29 +64,21 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
 
-			3.  Enable **Less secure app access** in the Google Account's **Security** section.
-
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
 3.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
 	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
-4.	Under the **Account Management** section, click **Account Recovery**.
+4.	Under the **Account Management Policies** section, click **Account Recovery**.
 
 	<img src="../../assets/img/learn/account-recovery-option.png" alt="Account Recovery Option" width="700" style="border:1px solid grey">  	
 
 5.	Select the following check boxes:
-	-	**Username recovery**
-	-	**Manage notifications sending internally**
+	-	**Enable Username Recovery**
+	-	**Enable Internal Notification Management**
 
-	<img src="../../assets/img/learn/user-name-recovery-options.png" alt="User Name Recover options" width="600" style="border:1px solid grey">		
-
-	!!! note
-        The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
-
-	!!! note
-        The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
+	<img src="../../assets/img/learn/user-name-recovery-options.png" alt="User Name Recover options" width="600" style="border:1px solid grey">  	
 
 	!!! note
         The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
@@ -141,20 +127,15 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 		<img src="../../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-user-name-recovery.md
-	2.	Enter an email address to which Larry's password recovery emails will be sent. Enter the first name as `Larry`.
-========
 	2.	Enter an email address to which Alex's password recovery emails will be sent.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-user-name-recovery.md
 
 		<img src="../../assets/img/learn/user-email.png" alt="User Email option" width="700" style="border:1px solid grey">   
 
 	3. Click **Update**. 
 
-4.	To mimic a forgotten username:
+4.	To mimic a forgotten user name:
 
-	1.	On the Sign In screen of the WSO2 Identity Server My Account at `https://localhost:9443/myaccount`, click
-	 **Username**.
+	1.	On the Sign In screen of the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`, click **Username**.
 
 		<img src="../../assets/img/learn/forgotten-user-name-option.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
@@ -164,7 +145,7 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 	4.	Click **Submit**. 
 
-	5.	An email with the username is sent to the given email address.		
+	5.	An email with the user name is sent to the given email address.		
 
 		<img src="../../assets/img/learn/account-recovery-email.png" alt="Account Recovery email" width="500" style="border:1px solid grey"> 
 	

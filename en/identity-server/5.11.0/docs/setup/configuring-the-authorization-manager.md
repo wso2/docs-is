@@ -1,41 +1,46 @@
-# Configure the Authorization Manager
+# Configuring the Authorization Manager
 
+User management functionality is provided by default in all WSO2
+Carbon-based products and is configured in the
+`         <PRODUCT_HOME>/repository/conf/deployment.toml       ` file.
 This documentation explains how to set up a repository for storing
 authorization information (role-based permissions) and how to change the
 relevant configurations.
 
-According to the default configuration in WSO2 products, the users,
-roles and permissions are stored in the same repository (i.e., the
-default embedded H2 database). However, you can change this
-configuration in such a way that the users and roles are stored in one
-repository (userstore) and the permissions are stored in a separate
-repository. A userstore can be a typical RDBMS, an LDAP or an external
-Active Directory. See the [related topics](#related-topics) for    
-information on how userstores are configured.
+According to the default configuration in WSO2 products, the Users,
+Roles and Permissions are stored in the same repository (i.e., the
+default, embedded H2 database). However, you can change this
+configuration in such a way that the Users and Roles are stored in one
+repository (User Store) and the Permissions are stored in a separate
+repository. A user store can be a typical RDBMS, an LDAP or an external
+Active Directory. See the [related
+topics](#related-topics) for    
+information on how user stores are configured.
 
-The repository that stores permissions should always be an RDBMS. The
-Authorization Manager configuration in the deployment.toml file stored in
-the `          <IS_HOME>/repository/conf/         ` directory connects the system to this RDBMS.
+The repository that stores Permissions should always be an RDBMS. The
+Authorization Manager configuration in the deployment.toml (stored in
+the `          <PRODUCT_HOME>/repository/conf/         ` directory)
+connects the system to this RDBMS.
 
 Follow the instructions given below to set up and configure the
 Authorization Manager.
 
-----
 
-## Step 1: Set up the repository
+### Step 1: Setting up the repository
 
 By default, the embedded H2 database is used for storing permissions.
+You can change this as follows:
 
 Refer the [related topics](#related-topics) for detailed information on
 setting up databases and configuring datasources.
 
-## Step 2: Update the user realm configurations
+### Step 2: Updating the user realm configurations
 
 Once you have set up a new RDBMS and configured the datasource, the
 `          deployment.toml         ` file (user realm configuration) should
 be updated as explained below.
 
-### Set up the database connection
+#### Setting up the database connection
 
 Update the datasource information using the
 `          data_source        ` element under
@@ -58,12 +63,12 @@ that are set by default.
 <tbody>
 <tr class="odd">
 <td><code>       [realm_manager] <br>       data_source=             </code></td>
-<td><p>This is the jndi name of the datasource that is used for referring to the datasource. In the following example, the jndi name of the default datasource defined in the <code>               &lt;IS_HOME&gt;/repository/conf/datasources/master-datasources.xml              </code> file is linked from the <code>               user-mgt.xml              </code> file.</p></td>
+<td><p>This is the jndi name of the datasource that is used for referring to the datasource. In the following example, the jndi name of the default datasource defined in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/datasources/master-datasources.xml              </code> file is linked from the <code>               user-mgt.xml              </code> file.</p></td>
 <td>Mandatory</td>
 </tr>
 <tr class="even">
 <td><pre><code>[realm_manager] <br>isCascadeDeleteEnabled=     </code></pre></td>
-<td>This property is set to 'true' by default, which enables cascade delete for the UM_USER_PERMISSION and UM_ROLE_PERMISSION tables when a permission gets deleted from the UM_PERMISSION table. That is, if a record in the parent table is deleted, the corresponding records in the child table will be automatically deleted.</td>
+<td>This property is set to 'true' by default, which enables cascade delete for the UM_USER_PERMISSION and UM_ROLE_PERMISSION tables when a permission gets deleted from the UM_PERMISSION table. That is, if a record in the parent table is deleted the corresponding records in the child table will be automatically deleted.</td>
 <td>Mandatory</td>
 </tr>
 </tbody>
@@ -94,9 +99,9 @@ You can add more optional configurations using the
 </tbody>
 </table>
 
-### Configure the authorization manager
+#### Configuring the Authorization Manager
 
-To enable the authorization manager, configure the following properties in the `<IS_HOME>/repository/conf/deployment.toml` file.
+To enable the authorization manager, configure the following properties in the <PRODUCT_HOME>/repository/conf/deployment.toml file.
 
 ```toml
 [authorization_manager]
@@ -110,13 +115,13 @@ GetAllRolesOfUserEnabled = true
 
 -   The
     `           org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager          `
-    class enables the Authorization Manager.
+    class enables the Authorization Manager for your product.
 -   The `           AdminRoleManagementPermissions          ` property
     sets the registry path where the authorization information
     (role-based permissions) are stored. Note that this links to the
     repository that you defined in **Step 1**.
 -   It is recommended to enable the
-    `            GetAllRolesOfUserEnabled           ` property in
+    `            GetAllRolesOfUserEnabled           ` property in the
     `            AuthorizationManager           ` as follows:  
 
     ``` toml
@@ -124,23 +129,23 @@ GetAllRolesOfUserEnabled = true
     GetAllRolesOfUserEnabled = true
     ```
 
-    Although using the userstore manager does not depend on this
+    Although using the user store manager does not depend on this
     property, you must consider enabling this if there are any
     performance issues in your production environment. Enabling this
     property affects the performance when the user logs in. This depends
-    on the users, roles, and permission stats.
+    on the users, roles and permission stats.
 
 -   By default, the rules linked to a permission (role name, action,
     resource) are not case sensitive. If you want to make them case
-    sensitive, enable the following property.
+    sensitive, enable the following property:
 
     ``` toml
     [user_store]
     case_sensitive_authorization_rules = true
     ```
 
----
 
-## Related Topics
-- [Deploy: Work with Databases]({{base_path}}/deploy/work-with-databases)
-- [Deploy: Configure Userstores]({{base_path}}/deploy/configure-user-stores)
+#### Related Topics
+- [Configuring User Stores](../../setup/configuring-user-stores) : This
+  topic explains how the repositories for storing information about
+  Users and Roles are configured.

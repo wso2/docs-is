@@ -1,15 +1,14 @@
-# Configure a Read-write LDAP userstore
+# Configuring a Read-write LDAP User Store
 
-WSO2 Identity Server uses the embedded H2 database as the primary user store. This document will guide you to change that to a Read/Write LDAP user store.
+WSO2 identity server uses an embedded Read/Write LDAP as the primary user store. This document will guide you to change that to a Read-Only LDAP user store.
 
 !!! tip 
-    Please read the topic [Configuring userstores]({{base_path}}/deploy/configure-user-stores) to get a high-level understanding of the userstores available in WSO2 Identity Server (WSO2 IS).
+    Please read the topic [Configuring User Stores](../../setup/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
+    Identity Server (WSO2 IS).
+    
+## Configuring Read-write LDAP user store manager
 
----
-
-## Configure Read-write LDAP userstore manager
-
-The following are the minimum configurations that are needed to be provided to configure the read-write LDAP userstore manager.
+The following are the minimum configurations that are needed to be provided to configure the Read-only LDAP user store manager.
 
 <table>
 <thead>
@@ -20,34 +19,28 @@ The following are the minimum configurations that are needed to be provided to c
 </tr>
 <tr class="even">
 <td>type</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-read-write-ldap-user-store.md
-<td>userstore Type</td>
-<td>This is the type of the userstore manager that we are using. For read-write LDAP userstore manager. this value
-should be read_write_ldap_unique_id.
-========
 <td>User Store Type</td>
 <td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
-should be read_only_ldap_unique_id.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-write-ldap-user-store.md
+should be read_only_ldap.
 </td>
 </tr>
 <tr class="odd">
 <td>base_dn</td>
 <td>User Search Base</td>
-<td>This denotes the DN of the context or object under which the user entries are stored in the userstore. When the userstore searches for users, it will start from this location of the directory.<br />
+<td>DN of the context or object under which the user entries are stored in the user store. When the user store searches for users, it will start from this location of the directory<br />
 Sample values: ou=Users,dc=wso2,dc=org</td>
 </tr>
 </table>
 </thead>
 
-Following are the minimum userstore properties that are needed to be provided to configure Read-only LDAP userstore manager.
+Following are the minimum user store properties that are needed to be provided to configure Read-only LDAP user store manager.
 
 <table>
 <thead>
 <tr class="header">
 <th>Property Id</th>
-<th>Primary userstore Property</th>
-<th>Secondary userstore Property</th>
+<th>Primary User Store Property</th>
+<th>Secondary User Store Property</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -56,23 +49,23 @@ Following are the minimum userstore properties that are needed to be provided to
 <td>ConnectionURL</td>
 <td>connection_url</td>
 <td>Connection URL</td>
-<td><p>Connection URL to the user store server.</p>
+<td><p>Connection URL to the user store server. In the case of default LDAP in Carbon, the port is specified in the carbon.xml file, and a reference to that port is included in this configuration.</p>
 <p>Sample values:<br />
 <a href="ldap://10.100.1.100:389">ldap://10.100.1.100:389</a><br />
 <a href="ldaps://10.100.1.102:639">ldaps://10.100.1.102:639</a><br />
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
-Need to import the certificate of userstore to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="{{base_path}}/deploy/security/use-asymmetric-encryption">Using asymmetric encryption</a><br />
+Need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
+<a href="../../administer/using-asymmetric-encryption">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="{{base_path}}/deploy/performance/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
+<a href="../../setup/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
 </tr>
 <tr class="odd">
 <td>ConnectionName</td>
 <td>connection_name</td>
 <td>Connection Name</td>
-<td><p>The username used to connect to the userstore and perform various operations. This user does not need to be an administrator in the userstore or have an administrator role in the WSO2 product that you are using, but this user MUST have permissions to read the user list and users' attributes and to perform search operations on the userstore. The value you specify is used as the DN (Distinguish Name) attribute of the user who has sufficient permissions to perform operations on users and roles in LDAP</p>
+<td><p>The username used to connect to the user store and perform various operations. This user does not need to be an administrator in the user store or have an administrator role in the WSO2 product that you are using, but this user MUST have permissions to read the user list and users' attributes and to perform search operations on the user store. The value you specify is used as the DN (Distinguish Name) attribute of the user who has sufficient permissions to perform operations on users and roles in LDAP</p>
 <p>This property is mandatory.<br />
 Sample values: uid=admin,ou=system</p></td>
 </tr>
@@ -90,19 +83,19 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 
 ``` toml
 [user_store]
-type = "read_write_ldap_unique_id"
+type = "read_write_ldap"
 base_dn = "ou=system"
 connection_url = "ldap://localhost:10389"
 connection_name = "uid=admin,ou=system"
 connection_password = "admin"
 ```
-Apart from above properties, WSO2 Identity Server also supports advanced LDAP configurations.
+Apart from above properties WSO2 Identity Server also supports advanced LDAP configurations.
+Please refer to the following topic. 
 
----
 
-## Properties used in Read-write LDAP userstore manager
+## Properties used in Read-write LDAP user store manager
 
-Any of  the following properties can be configured for the `PRIMARY` userstore by adding them as follows to 
+Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to 
 `<IS-HOME>/repository/conf/deployment.toml`.
 
 ``` toml
@@ -113,18 +106,18 @@ For example :
 
 ``` toml
 [user_store]
-read_groups = true
+scim_enabled = true
 ```
 
 !!! note 
-    In the table given below, the `Primary userstore Property` column has the `PRIMARY` userstore properties that can be configured in the `deployment.toml` file. The `Secondary userstore Property` column has the properties that can be configured for a secondary userstore through the Management Console.
+    In the table given below, the `Primary User Store Property` column has the `PRIMARY` userstore properties that can be configured in the `deployment.toml` file. The `Secondary User Store Property` column has the properties that can be configured for a secondary user store through the Management Console.
 
 <table>
 <thead>
 <tr class="header">
 <th>Property Id</th>
-<th>Primary userstore Property</th>
-<th>Secondary userstore Property</th>
+<th>Primary User Store Property</th>
+<th>Secondary User Store Property</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -140,46 +133,32 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <td>UserNameAttribute</td>
 <td>user_name_attribute</td>
 <td>Username Attribute</td>
-<td><p>A uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
+<td><p>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username">Using email address as the username</a></p></td>
-</tr>
-<tr class="odd">
-<td>UserIDAttribute</td>
-<td>user_id_attribute</td>
-<td>User ID Attribute</td>
-<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID. </p>
-<p>Default: scimId <br /></p></td>
-</tr>
-<tr class="odd">
-<td>UserIDAttribute</td>
-<td>user_id_attribute</td>
-<td>User ID Attribute</td>
-<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID. </p>
-<p>Default: scimId <br /></p></td>
+Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../learn/using-email-address-as-the-username">Using email address as the username</a></p></td>
 </tr>
 <tr class="even">
 <td>UserNameSearchFilter</td>
 <td>user_name_search_filter</td>
 <td>User Search Filter</td>
 <td>Filtering criteria used to search for a particular user entry.<br />
-Default : (&amp;amp;(objectClass=identityPerson)(uid=?))</td>
+Default : (&amp;amp;(objectClass=person)(uid=?))</td>
 </tr>
 <tr class="odd">
 <td>UserNameListFilter</td>
 <td>user_name_list_filter</td>
 <td>User List Filter</td>
-<td>Filtering criteria for searching user entries in the userstore. This query or filter is used when doing search operations on users with different search attributes.<br />
+<td>Filtering criteria for searching user entries in the user store. This query or filter is used when doing search operations on users with different search attributes.<br />
 <br />
-Default: (objectClass=identityPerson)<br />
+Default: (objectClass=person)<br />
 In this case, the search operation only provides the objects created from the person object class.</td>
 </tr>
 <tr class="even">
 <td>UserDNPattern</td>
 <td>user_dn_pattern</td>
 <td>User DN Pattern</td>
-<td><p>The pattern for the user's DN, which can be defined to improve the search. When there are many user entries in the LDAP userstore, defining a UserDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</p>
+<td><p>The pattern for the user's DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a UserDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</p>
 <p>Sample values: uid={0},ou=Users,dc=wso2,dc=org</p></td>
 </tr>
 <tr class="odd">
@@ -193,31 +172,31 @@ In this case, the search operation only provides the objects created from the pe
 <td>ReadGroups</td>
 <td>read_groups
 <td>Read Groups</td>
-<td>When WriteGroups is set to falses, this Indicates whether groups should be read from the userstore. If this is disabled by setting it to false, none of the groups in the userstore can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
+<td>When WriteGroups is set to falses, this Indicates whether groups should be read from the user store. If this is disabled by setting it to false, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
 <p>Default: true
 <br />
 Possible values:<br />
-true: Read groups from userstore<br />
-false: Don’t read groups from userstore</td>
+true: Read groups from user store<br />
+false: Don’t read groups from user store</td>
 </td>
 </tr>
 <tr class="odd">
 <td>WriteGroups</td>
 <td>write_groups</td>
 <td>Write Groups</td>
-<td>Indicates whether groups should be write to the userstore.<br />
+<td>Indicates whether groups should be write to the user store.<br />
 <p>Default: true
 <br />
 Possible values:<br />
-true: Write groups to userstore<br />
-false: Do not write groups to userstore, so only internal roles can be created. Depend on the value of ReadGroups property, it will read existing groups from userstore or not<br />
+true: Write groups to user store<br />
+false: Do not write groups to user store, so only internal roles can be created. Depend on the value of ReadGroups property, it will read existing groups from user store or not<br />
 </td>
 </tr>
 <tr class="even">
 <td>GroupSearchBase</td>
 <td>group_search_base</td>
 <td>Group Search Base</td>
-<td><p>DN of the context or object under which the group entries are stored in the userstore. When the userstore searches for groups, it will start from this location of the directory</p>
+<td><p>DN of the context or object under which the group entries are stored in the user store. When the user store searches for groups, it will start from this location of the directory</p>
 <p>Default: ou=Groups,dc=wso2,dc=org</p></td>
 </tr>
 <tr class="odd">
@@ -245,7 +224,7 @@ Default: groupOfNames</td>
 <td>GroupNameListFilter</td>
 <td>group_name_list_filter</td>
 <td>Group List Filter</td>
-<td><p>Filtering criteria for searching group entries in the userstore. This query or filter is used when doing search operations on groups with different search attributes.</p>
+<td><p>Filtering criteria for searching group entries in the user store. This query or filter is used when doing search operations on groups with different search attributes.</p>
 <p>Default: ((objectClass=groupOfNames)) In this case, the search operation only provides the objects created from the 
 groupOfName object class.</p></td>
 </tr>
@@ -253,7 +232,7 @@ groupOfName object class.</p></td>
 <td>RoleDNPattern</td>
 <td>role_dn_pattern</td>
 <td>Role DN Pattern</td>
-<td><p>The pattern for the group's DN, which can be defined to improve the search. When there are many group entries in the LDAP userstore, defining a RoleDNPattern provides more impact on performances as the LDAP does not have to traverse through the entire tree to findgroup.</p>
+<td><p>The pattern for the group's DN, which can be defined to improve the search. When there are many group entries in the LDAP user store, defining a RoleDNPattern provides more impact on performances as the LDAP does not have to traverse through the entire tree to findgroup.</p>
 <p>Sample values: cn={0},ou=Groups,dc=wso2,dc=org</p></td>
 </tr>
 <tr class="even">
@@ -325,11 +304,23 @@ Default: Password length should be within 5 to 30 characters</td></tr>
 <td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
 Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
 </tr>
+<tr class="even">
+<td>SCIMEnabled</td>
+<td>scim_enabled</td>
+<td>Enable SCIM</td>
+<td>This is to configure whether user store is supported for SCIM provisioning.<br />
+<br />
+Possible values:<br />
+True : User store support for SCIM provisioning.<br />
+False: User does not store support for SCIM provisioning.
+<br />
+Default: false</td>
+</tr>
 <tr class="odd">
 <td>PasswordHashMethod</td>
 <td>password_hash_method</td>
 <td>Password Hashing Algorithm</td>
-<td><p>Specifies the Password Hashing Algorithm used the hash the password before storing in the userstore.<br />
+<td><p>Specifies the Password Hashing Algorithm used the hash the password before storing in the user store.<br />
 Possible values:<br />
 SHA - Uses SHA digest method. SHA-1, SHA-256<br />
 MD5 - Uses MD 5 digest method.<br />
@@ -337,7 +328,7 @@ PLAIN_TEXT - Plain text passwords.(Default)</p>
 <p>If you just configure as SHA, It is considered as SHA-1, It is always better to configure algorithm with higher bit value as digest bit size would be increased.<br />
 <br />
 Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc..) are supported to store password as salted hashed values (SSHA)<br />
-Therefore WSO2IS server just wants to feed password into the connected userstore as a plain text value. Then LDAP userstore can store them as salted hashed value. To feed the plain text into the LDAP server, you need to set PasswordHashMethod to “PLAIN_TEXT”<br />
+Therefore WSO2IS server just wants to feed password into the connected user store as a plain text value. Then LDAP user store can store them as salted hashed value. To feed the plain text into the LDAP server, you need to set PasswordHashMethod to “PLAIN_TEXT”<br />
 But; if your LDAP does not support to store user password as hashed values. You can configure WSO2 server to hash the password and feeds the hashed password into the LDAP server. Then you need to configure PasswordHashMethod property with SHA (SHA-1), SHA-256, SHA-512. Please note WSO2 server cannot create a salted hashed password (SSHA) to feed into the LDAP.</p></td>
 </tr>
 <tr class="even">
@@ -351,27 +342,27 @@ Default: “,”</td>
 <td>MaxUserName<br>ListLength </td>
 <td>max_user_name<br>_list_length</td>
 <td>Maximum User List Length</td>
-<td>Controls the number of users listed in the userstore of a WSO2 product. This is useful when you have a large number of users and don't want to list them all. Setting this property to 0 displays all users.<br />
+<td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and don't want to list them all. Setting this property to 0 displays all users.<br />
 Default: 100<br />
 <br />
-In some userstores, there are policies to limit the number of records that can be returned from the query. Setting the value 0 it will list the maximum results returned by the userstore. If you need to increase that you need to set it in the userstore level.<br />
+In some user stores, there are policies to limit the number of records that can be returned from the query. Setting the value 0 it will list the maximum results returned by the user store. If you need to increase that you need to set it in the user store level.<br />
 Eg : Active directory has the MaxPageSize property with the default value 1000.</td>
 </tr>
 <tr class="even">
 <td>MaxRoleName<br>ListLength</td>
 <td>max_role_name<br>_list_length</td>
 <td>Maximum Role List Length</td>
-<td><p>Controls the number of roles listed in the userstore of a WSO2 product. This is useful when you have a large number of roles and don't want to list them all. Setting this property to 0 displays all roles.<br />
+<td><p>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and don't want to list them all. Setting this property to 0 displays all roles.<br />
 Default: 100<br />
 <br />
-In some userstores, there are policies to limit the number of records that can be returned from the query, Setting the value 0 it will list the maximum results returned by the userstore. If you need to increase that you need to set it n the userstore level.</p>
+In some user stores, there are policies to limit the number of records that can be returned from the query, Setting the value 0 it will list the maximum results returned by the user store. If you need to increase that you need to set it n the user store level.</p>
 <p>Eg: Active directory has the MaxPageSize property with the default value 1000.</p></td>
 </tr>
 <tr class="odd">
 <td>kdcEnabled</td>
 <td>kdc_enabled</td>
 <td>Enable KDC</td>
-<td>If your userstore is capable of acting as a Kerberos, Key Distribution Center (KDC) and if you like to enable it, set this property to true.<br />
+<td>If your user store is capable of acting as a Kerberos, Key Distribution Center (KDC) and if you like to enable it, set this property to true.<br />
 Default: false</td>
 </tr>
 <tr class="even">
@@ -416,7 +407,7 @@ Default: not configured</td>
 <td>MembershipAttributeRange</td>
 <td>membership_attribute_range</td>
 <td>Membership Attribute Range</td>
-<td><p>This is to define the maximum users of role returned by the LDAP/AD userstore. This does not depend on the max page size of the userstore.</p>
+<td><p>This is to define the maximum users of role returned by the LDAP/AD user store. This does not depend on the max page size of the user store.</p>
 <p>Default: not configured</p></td>
 </tr>
 <tr class="odd">
@@ -440,26 +431,24 @@ will be terminated.
 </tbody>
 </table>
 
----
-
-## Update the system administrator
+### Updating the system administrator
 
 The **admin** user is the super tenant that will be able to manage all
 other users, roles, and permissions in the system by using the management
 console of the product. Therefore, the user that should have admin
-permissions is required to be stored in the userstore when you start
-the system for the first time. Since the LDAP userstore can be written
-to, you have the option of creating a new admin user in the userstore
+permissions is required to be stored in the user store when you start
+the system for the first time. Since the LDAP user store can be written
+to, you have the option of creating a new admin user in the user store
 when you start the system for the first time. Alternatively, you can
 also use a user ID that already exists in the LDAP. For information
 about the system administrator user, see [Configuring the System
-Administrator]({{base_path}}/deploy/configure-the-system-administrator).
+Administrator](../../setup/configuring-the-system-administrator).
 
 These two alternative configurations can be done as explained below.
 
--   If you are using a user that is already in the LDAP. Find a valid user that already resides in the userstore. For 
+-   If you are using a user that is already in the LDAP. Find a valid user that already resides in the user store. For 
     example, say a valid username is
-    AdminSOA.Add the following configuration to the `deployment.toml` file as shown below. You do not have to update the password element as it is already set in the userstore.
+    AdminSOA.Add the following configuration to the `deployment.toml` as shown below. You do not have to update the password element as it is already set in the user store.
     
     ```toml
     [super_admin]
@@ -468,8 +457,8 @@ These two alternative configurations can be done as explained below.
     create_admin_account = false
     ```
 
--   if you are creating a new admin user in the userstore when you start the system. you can add the super tenant
-    user to the userstore. Add the following configuration to the `deployment.toml` file as shown below.
+-   if you are creating a new admin user in the user store when you start the system. you can add the super tenant
+    user to the user store. Add the following configuration to the `deployment.toml` as shown below.
     
     ```toml
     [super_admin]

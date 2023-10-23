@@ -4,70 +4,24 @@ WSO2 Identity Server enables the privileged users to disable user accounts for l
 
 ## Scenario
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-account-disabling.md
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Sam** is an administrator at Pickup. **Larry** is an employee who had served Pickup for 7 years and is entitled for sabbatical leave. As Larry is going on sabbatical leave for 2 years, Sam wants to disable Larry's account.  
-
-Let's learn how Sam can disable Larry's user account! 
-========
 **Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Sam** is an administrator at Pickup. **Alex** is an employee who had served Pickup for 7 years and is entitled for sabbatical leave. As Alex is going on sabbatical leave for 2 years, Sam wants to disable Alex's account.  
 
 Let's learn how Sam can disable Alex's user account! 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-account-disabling.md
 
 ## Set up
 
 Follow the steps below to configure account disabling in WSO2 Identity Server.
 
-1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and check whether the following listener configs are in place.
 
-	1.	Check whether the following listener configs are in place:
-
-		```toml
-		[event.default_listener.identity_mgt]
-		priority= "50"
-		enable = false
-		[event.default_listener.governance_identity_mgt]
-		priority= "95"
-		enable = true
-		```
-
-	2.	To configure the email server to send emails that informs about the disabled account to the user, add the following configurations:
-
-		-	**from_address**: This is the email address from which the confirmation email will be sent.
-		-	**username**: This is the username of the given email address.
-		-	**password**: This is the password of the given email address. 
-
-		```toml tab="Format"
-		[output_adapter.email]
-		from_address= ""
-		username= ""
-		password= ""
-		hostname= "smtp.gmail.com"
-		port= 587
-		enable_start_tls= true
-		enable_authentication= true
-		```
-
-		```toml tab="Sample"
-		[output_adapter.email]
-		from_address= "wso2iamtest@gmail.com"
-		username= "wso2iamtest"
-		password= "Wso2@iam70"
-		hostname= "smtp.gmail.com"
-		port= 587
-		enable_start_tls= true
-		enable_authentication= true
-		```
-
-		!!! warning "If you are using a Google email account"
-
-			Google has restricted third-party applications and less secure applications from sending emails by default. As WSO2 Identity Server acts as a third-party application when sending emails for password entry, follow the steps below to enable your Google email account to provide access to third-party applications.
-
-			1.	Access [https://myaccount.google.com/security](https://myaccount.google.com/security).
-
-			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
-
-			3.  Enable **Less secure app access** in Google Account **Security** section.
+	```toml
+	[event.default_listener.identity_mgt]
+	priority= "50"
+	enable = false
+	[event.default_listener.governance_identity_mgt]
+	priority= "95"
+	enable = true
+	```
 
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
@@ -77,7 +31,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
-	2.	Under the **Account Management** section, click **Account Disable**.
+	2.	Under the **Login Policies** section, click **Account Disabling**.
 
 		<img src="../../assets/img/learn/account-disabling-option.png" alt="Account Disabling Option" width="700" style="border:1px solid grey">  	
 
@@ -105,7 +59,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-disabled-claim-supported-by-default.png" alt="Account Disabled claim's Suppported by Default option" width="700" style="border:1px solid grey">  
 
-	1. Click **Update**.
+	5. Click **Update**.
 
 ## Try out
 
@@ -148,11 +102,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-account-disabling.md
-	2.	Enter an email address to which Larry's account disabling emails will be sent and select the **Account Disabled** check box.
-========
 	2.	Enter an email address to which Alex's account disabling emails will be sent and select the **User Locked** check box.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-account-disabling.md
 
 		<img src="../../assets/img/learn/user-disabled.png" alt="User Disabled option" width="700" style="border:1px solid grey">    		
 
@@ -162,10 +112,9 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-disabled-email.png" alt="Account Disabled email" width="500" style="border:1px solid grey"> 
 
-	5.	Access the WSO2 Identity Server My Account at `https://localhost:9443/myaccount`.
+	5.	Access the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
 
-		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
-		 solid grey"> 	
+		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
 	6.	Try logging in with Alex's credentials. Note that an error message appears.
 
@@ -173,7 +122,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 	1.	Click **User Profile** option of Alex.
 
-	2.	Unselect the **Account Disabled** check box.
+	2.	Unselect the **User Disabled** check box.
 
 	3.	Click **Update**.
 
@@ -181,9 +130,4 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-enabled-email.png" alt="Account Enabled email" width="500" style="border:1px solid grey"> 		
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-account-disabling.md
-	5.	Trying logging in to the WSO2 Identity Server User Portal with Larry's credentials. The WSO2 Identity Server
-	 User Portal home screen appears.
-========
 	5.	Trying logging in to the WSO2 Identity Server Dashboard with Alex's credentials. The WSO2 Identity Server Dashboard home screen appears.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-account-disabling.md

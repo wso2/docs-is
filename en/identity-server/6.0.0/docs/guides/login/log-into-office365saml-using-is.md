@@ -71,20 +71,10 @@ a user.
 
 2. Access the following URL and log in to the management console: `<https://localhost:9443/carbon/>`
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/login/log-into-office365saml-using-is.md
 3. Click **Resident Identity Provider** under **Identity Providers** on the **Main** tab.
 4. Expand the **Inbound Authentication Configuration** section and then expand **SAML2 Web SSO Configuration**.
 5. Enter " `wso2.microsoft"` as the **Identity Provider Entity Id** value.  
     <!-- ![entity-id]({{base_path}}/assets/img/tutorials/entity-id.png) -->
-========
-3.  Click **Resident Identity Provider** under **Identity Providers** on
-    the **Main** tab.
-4.  Expand the **Inbound Authentication Configuration** section and then
-    expand **SAML2 Web SSO Configuration**.
-5.  Enter  `          "wso2.microsoft"         ` as the **Identity
-    Provider Entity Id** value.  
-    ![entity-id](../assets/img/tutorials/entity-id.png)
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/configuring-office365-saml2-with-wso2-identity-server.md
 
 ## Configuring the claims
 
@@ -366,8 +356,4 @@ provider of WSO2 IS and the Azure Active Directory.
 
 ## What's Next?
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/log-into-office365saml-using-is.md
 To see how this feature works, try out the [Configuring On-Demand Provisioning with Azure AD]({{base_path}}/guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad) tutorial to provision users directly to Azure AD at the point of authentication.
-========
-To see how this feature works, try out the [Configuring On-Demand Provisioning with Azure AD]({{base_path}}/guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad) tutorial to provision users directly to Azure AD at the point of authentication.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/log-into-office365saml-using-is.md

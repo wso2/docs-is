@@ -1,6 +1,6 @@
 # SCIM2 Patch Operations
 
-Follow the topics given below to understand how **Patch** operations can be used when you invoke the [SCIM2 API](scim2-rest-apis/).
+Follow the topics given below to understand how **Patch** operations can be used when you invoke the [SCIM2 API](scim2-rest-apis.md).
 
 ## Introduction
 
@@ -754,7 +754,7 @@ Let's create a patch request payload to rename an existing user group.
     }
     ```
 
-## Patch roles
+## Patch user roles
 
 You can use the patch operations to add/remove/replace users and user groups for a role.
 

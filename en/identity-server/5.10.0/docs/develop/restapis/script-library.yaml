@@ -1,9 +1,19 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies a Script Library Management RESTful API for WSO2 Identity Server.
+    This document specifies a **Script Library Management RESTful API** for
+    **WSO2 Identity Server**. This supports Restful APIs for adding, retrieving,
+    updating, and deleting script libraries in WSO2 Identity Server.
   version: "1.0.0-oas3"
-  title: Script Library Management API
+  title: WSO2 Identity Server - Script Library Management API definition
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -13,9 +23,13 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Add a new script library
-      description: >
-        This API provides the capability to create a new Script library.
+        Add a new script library.
+      description: |
+        This API provides the capability to create a new Script library. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/create <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_create <br>
       operationId: addScriptLibrary
       responses:
         '201':
@@ -53,9 +67,13 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        List script libraries
+        List script libraries.
       description: >
-        This API provides the capability to list Script Libraries.
+        This API provides the capability to list Script Libraries. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraries
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -97,9 +115,13 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Get script library
-      description: >
-        This API provides the capability to retrive the script library details by using its name.
+        Get script library.
+      description: |
+        This API provides the capability to retrieve the details of a script library using its name.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraryByName
       parameters:
         - name: script-library-name
@@ -141,9 +163,13 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Delete a script library
-      description: >
-        This API provides the capability to delete an script library by  giving its name.
+        Delete a script library.
+      description: |
+        This API provides the capability to delete a script library using its name.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/delete <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_delete
       operationId: deleteScriptLibrary
       parameters:
         - name: script-library-name
@@ -165,6 +191,12 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
@@ -175,9 +207,13 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Update a script library
-      description: >
-        This API provides the capability to Update a script library of an script library by using name.
+        Update a script library.
+      description: |
+        This API provides the capability to update a script library using its name.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/update <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_update
       operationId: updateScriptLibrary
       parameters:
         - name: script-library-name
@@ -228,9 +264,13 @@ paths:
       tags:
         - Script Libraries
       summary: |
-        Get the content of the script library
-      description: >
-        This API provides the capability to retrive the content of script library by using its name.
+        Get the content of the script library.
+      description: |
+        This API provides the capability to retrieve the content of a script library using its name.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraryContentByName
       parameters:
         - name: script-library-name
@@ -243,9 +283,10 @@ paths:
         '200':
           description: Successful Response
           content:
-            application/octet-stream:
+            application/javascript:
               schema:
-                example: 'Content of the script library'
+                type: string
+                format: binary
         '400':
           description: Bad Request
           content:
@@ -269,11 +310,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 servers:
-  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
+  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
     variables:
-      tenantDomain:
+      tenant-domain:
         default: "carbon.super"
-      serverUrl:
+      server-url:
         default: "localhost:9443"
 
 components:
@@ -319,27 +360,34 @@ components:
       properties:
         name:
           type: string
+          description: 'Name of the script library.'
           example: 'script library name'
         description:
           type: string
+          description: 'Description of the script library.'
           example: 'script library description'
         content-ref:
           type: string
+          description: 'Reference of the content of the script library.'
           example: 'script library content reference'
     ScriptLibraryListResponse:
       type: object
       properties:
         totalResults:
           type: integer
+          description: 'Total number of script libraries.'
           example: 10
         startIndex:
           type: integer
+          description: 'Starting index of the script library.'
           example: 1
         count:
           type: integer
+          description: 'Number of script libraries in the list.'
           example: 10
         scriptLibraries:
           type: array
+          description: 'Set of script libraries.'
           items:
             $ref: '#/components/schemas/ScriptLibrary'
     scriptLibraryPOSTRequest:
@@ -350,12 +398,15 @@ components:
       properties:
         name:
           type: string
+          description: 'Name of the script library.'
           example: 'script library name'
         description:
           type: string
+          description: 'Description of the script library.'
           example: 'script library description'
         content:
           type: string
+          description: 'Content or the code of the script library.'
           format: binary
     scriptLibraryPUTRequest:
       type: object
@@ -364,9 +415,11 @@ components:
       properties:
         description:
           type: string
+          description: 'Description of the script library.'
           example: 'script library description'
         content:
           type: string
+          description: 'Content or the code of the script library.'
           format: binary
     Error:
       type: object

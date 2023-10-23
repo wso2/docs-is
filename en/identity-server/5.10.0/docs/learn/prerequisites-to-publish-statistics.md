@@ -16,10 +16,10 @@ distribution.
 2.  Download the WSO2 Identity Server Analytics 5.8.0 pack.
     
     !!! Note 
-        WSO2 Identity Server 5.11.0 analytics capabilities are fully
+        WSO2 Identity Server 5.10.0 analytics capabilities are fully
         compatible with WSO2 IS Analytics 5.8.0. Please note that **WSO2 IS
         Analytics 5.8.0 is the recommended version for WSO2 Identity Server
-        5.11.0**.
+        5.10.0**.
     
     1.  To download the pack with updates, click **SIGN-IN & DOWNLOAD**
         .
@@ -61,7 +61,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence">
     <pre class="sourceCode java"><code class="sourceCode java">
     <a class="sourceLine" id="cb1-1" title="1">
-    [identity_mgt.analytics_login_data_publisher] </br>
+    [identity_mgt.analytics_login_data_publisher]</br>
     enable=true
     </a>
     </code>
@@ -101,8 +101,6 @@ Follow the steps below to enable event publishing in WSO2 IS.
     </table>
     
     **Enable analytics for Password grant logins**
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/prerequisites-to-publish-statistics.md
-========
             
     !!! warning
                  
@@ -112,7 +110,6 @@ Follow the steps below to enable event publishing in WSO2 IS.
              released. For more information on updating WSO2 Identity Server using WUM, see 
              [Updating WSO2 Products](https://is.docs.wso2.com/en/5.10.0/administer/getting-wso2-updates/).
              
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/prerequisites-to-publish-statistics.md
      Optionally, you can enable analytics for password grant type logins. Add the following configuration to the 
      deployment.toml file to enable this feature.
          
@@ -120,7 +117,8 @@ Follow the steps below to enable event publishing in WSO2 IS.
      [analytics]
      publish_password_grant_logins=true
      ```
-     
+         
+
 ### Step 03: Configure Event Publishers
 
 In a fresh WSO2 IS pack, you can view all the event publishers related

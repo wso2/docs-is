@@ -1,10 +1,4 @@
 # Enable Mobile Number Verification for an Updated Mobile Number
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
-========
-
-!!! info "Important!"
-    This capability is available as an update in WSO2 IS 5.10.0 from update **level 21** onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md
 
 This feature enables mobile number verification when the user updates the user profile with a new mobile number, so that the new mobile number can be taken into consideration for all further activities performed by the user.
 
@@ -16,11 +10,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
     -   Sending the SMS OTP verification is skipped in the following instances:
         1. The `verifyMobile` claim is not set to true in the SCIM 2.0 request.
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
         2. The claim update is invoked by a user other than the claim owner or a non privileged user.
-========
-        2. The claim update is invoked by a user other than the claim owner.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
 ## Step 01 - Add an event publisher to send SMS
@@ -34,19 +24,11 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
             statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
             <from streamName="id_gov_sms_notify_stream" version="1.0.0"/>
             <mapping customMapping="enable" type="json">
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
                 <inline>{"api_key":"4c9374",
                     "api_secret":"FtqyPggE93",
                     "from":"NEXMO",
                     "to":{{send-to}},
                     "text":{{body}}
-========
-                <inline>{"api_key"="4c9374",
-                    "api_secret"="FtqyPggE93",
-                    "from"="NEXMO",
-                    "to"={{send-to}},
-                    "text"={{body}}
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md
                     }</inline>
             </mapping>
             <to eventAdapterType="http">
@@ -168,11 +150,7 @@ curl -v -k --user bob123:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:
 Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new mobile number. 
 
 To validate the verification code sent to the user, use the existing `validate-code` and `resend-code` APIS of the
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
  [Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/selfregister-v5.11.0/). 
-========
- [Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is510/self-registration/). 
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md
  
 ### Validating the verification code
 
@@ -263,8 +241,4 @@ Additionally, you can use the following curl command to resend a new SMS OTP cod
 !!! info "Related Topics"
     See [SCIM 2.0 Rest APIs](../../develop/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
     
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
     For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/selfregister-v5.11.0/).
-========
-    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is510/self-registration/).
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md

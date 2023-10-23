@@ -44,10 +44,6 @@ This document explains the steps to configure WSO2 Identity Server to send email
     sending emails to confirm user registrations or notification for
     password reset WSO2 Identity Server.     
        
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/configuring-email-sending.md
     Follow the steps provided by [Google](https://support.google.com/mail/answer/185833) to create an app specific 
-========
-    Follow the steps provided by [Google](https://support.google.com/mail/answer/185833) to create an app-specific 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/configuring-email-sending.md
     password and use it for the SMTP configurations on the WSO2 Identity Server so that Google does not restrict the 
     access.

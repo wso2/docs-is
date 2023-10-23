@@ -16,13 +16,9 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 ## Before you begin
 
-1. Check out the corresponding identity apps source code from the [identity-apps](https://github.com/wso2/identity-apps) repository.  
+1. Check out the corresponding identity apps source code from the [identity-apps](https://github.com/wso2/identity-apps) repository. 
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/extend/myaccount/customize-my-account-ui.md
 2. Check out the latest tag of the identity-apps. For example, the `v1.4.28` tag is used in the sample mentioned below. 
-========
-2. Check out the `v1.4.28` tag of the identity-apps repo, which corresponds to WSO2 IS 6.0.0. 
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/extend/myaccount/customize-my-account-ui.md
 
     ```java
     $ git fetch --all --tags --prune

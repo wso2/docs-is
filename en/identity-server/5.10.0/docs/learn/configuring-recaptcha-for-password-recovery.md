@@ -47,8 +47,8 @@ reCaptcha for a specific tenant.
     ![account-recovery](../assets/img/using-wso2-identity-server/account-recovery.png) 
 
 7.  You have now successfully configured reCaptcha for the password
-    recovery flow. Start WSO2 Identity Server and log into the 
-    [My Account portal](https://localhost:9443/myaccount/).
+    recovery flow. Start WSO2 Identity Server and log into the end user
+    [user portal](https://localhost:9443/user-portal).
 
     !!! tip
     
@@ -88,8 +88,8 @@ password recovery with reCaptcha.
     ReCaptcha](../../learn/setting-up-recaptcha).
 
 3.  You have now successfully configured reCaptcha for the password
-    recovery flow. Start WSO2 Identity Server and log into the 
-    [My Account portal](https://localhost:9443/myaccount/).  
+    recovery flow. Start WSO2 Identity Server and log into the end user
+    [user portal.](https://localhost:9443/user-portal)  
 
     !!! tip
     

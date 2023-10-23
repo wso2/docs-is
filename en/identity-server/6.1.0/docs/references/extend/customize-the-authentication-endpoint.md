@@ -311,9 +311,5 @@ Follow the steps below to ensure that the access URL is configured for your appl
 
 3. Specify the access URL of your application as shown below.
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/extend/customize-the-authentication-endpoint.md
     ![service provider access url]({{base_path}}/assets/img/references/add-access-url-to-sp.png)
 
-========
-    ![service provider access url]({{base_path}}/assets/img/references/add-access-url-to-sp.png)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/extend/customize-the-authentication-endpoint.md

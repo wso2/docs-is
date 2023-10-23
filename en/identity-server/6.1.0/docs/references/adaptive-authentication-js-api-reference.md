@@ -320,7 +320,7 @@ if (!isAdmin) {
 
 #### fail()
 
-This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow.
+This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow. 
 
 This function takes a map as an optional parameter. When a map is provided as the parameter, the redirect URL will be appended with following properties which should be contained in the map, otherwise the default parameters will be passed. All the properties passed in the map are also optional.
 
@@ -584,40 +584,6 @@ It includes the following parameters:
 ``` java
 var state = getValueFromDecodedAssertion(context.request.params.request[0],"state",true);
 ```
-#### getUniqueUserWithClaimValues(claimMap, context, profile)
-
-The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the first key from the map and get all users with the claim and add to list. Then remove from the list the users who are not having the other claims. Therefore, the order of the map will decide the performance of this function.
-The first claim in this must have a low number of users.
-
-| Parameter            | Description                                                                  |
-|----------------------|------------------------------------------------------------------------------|
-| claimMap  | A map contains the claim URI and claim value.    |
-| context   | The authentication context, which contains the context information about the request.    |
-| parameterName | Profile of the user. (Optional, the default value is 'default')      |
-
-``` java
-var claimMap = {};
-claimMap[MAPPED_FEDERATED_USER_NAME_CLAIM] = federatedUserName;
-claimMap[MAPPED_FEDERATED_IDP_NAME_CLAIM] = idpName;
-var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
-```
-
-#### getAssociatedLocalUser(federatedUser)
-This function prompts user input. It includes the following parameters.
-
-| Parameter            | Description                                                                  |
-|----------------------|------------------------------------------------------------------------------|
-| federatedUser  | The federated user object.    |
-
-#### doAssociationWithLocalUser(fedUser, localUsername, tenantDomain, userStoreDomain)
-This function prompts user input. It includes the following parameters.
-
-| Parameter            | Description                                                                  |
-|----------------------|------------------------------------------------------------------------------|
-| fedUser  | Federated user object.    |
-| localUsername  | The username of the local user to be associated.    |
-| tenantDomain| The tenant domain of the local user.      |
-| userStoreDomain | The user store domain of the local user.      |
 
 #### getUniqueUserWithClaimValues(claimMap, context, profile)
 
@@ -704,17 +670,8 @@ step number.
 - `user.tenantDomain` : (Read/Write) The user’s tenant domain (only for local users; federated users will have this as `carbon.super` ).
 - `user.userStoreDomain` : (Read/Write) The user’s user store domain (only for local users).
 - `user.roles` : (Read/Write) List of user’s roles.
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/adaptive-authentication-js-api-reference.md
 - `user.localClaims[“<local_claim_url>”]` : (Read/Write) User’s attribute (claim) value for the given “local\_claim\_url”. If the user is a federated user, this will be the value of the mapped remote claim from the identity provider.
 - `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
-========
--   `          user.localClaims[“<local_claim_url>”]         ` :
-    (Read/Write) User’s attribute (claim) value for the given
-    “local\_claim\_url”. If the user is a federated user, this will be
-    the value of the mapped remote claim from the identity provider.
-        
--   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/adaptive-authentication-js-api-reference.md
 
     !!! note
         Note that `user.localClaims[“<local_claim_url>”]` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis.

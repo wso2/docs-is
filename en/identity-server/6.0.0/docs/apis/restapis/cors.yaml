@@ -1,8 +1,15 @@
 openapi: 3.0.0
 info:
   version: "1.0.0"
-  title: 'CORS API Definition'
+  title: 'WSO2 Identity Server - CORS API Definition'
   description: 'This document specifies a **RESTful API** for **WSO2 Identity Server CORS**'
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -11,12 +18,14 @@ paths:
     get:
       tags:
         - CORS origins
-      summary: Retrieve the CORS origins
+      summary: Retrieve the CORS origins.
       operationId: getCORSOrigins
       description: |
         This API provides the capability to retrieve the list of the allowed CORS origins for the tenant.<br>
-          <b>Permission required:</b> `/permission/admin/manage/cors/origins/view` <br>
-          <b>Scope required:</b> `internal_cors_origins_view`
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/cors/origins/view <br>
+          <b>Scope required:</b> <br>
+              * internal_cors_origins_view
       responses:
         '200':
           description: Successful Response
@@ -50,12 +59,14 @@ paths:
     get:
       tags:
         - Application associations
-      summary: Retrieve the Applications associated with a CORS origin by ID
+      summary: Retrieve the Applications associated with a CORS origin by ID.
       operationId: getAssociatedAppsByCORSOrigin
       description: |
         This API provides the capability to retrieve the Applications associated with a CORS origin by ID.<br>
-          <b>Permission required:</b> `/permission/admin/manage/cors/origins/view` <br>
-          <b>Scope required:</b> `internal_cors_origins_view`
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/cors/origins/view <br>
+          <b>Scope required:</b> <br>
+              * internal_cors_origins_view
       parameters:
         - name: cors-origin-id
           in: path

@@ -44,8 +44,4 @@ http://localhost:8080/playground2/oauth2client#access_token=131d4094-b94c-3714-9
 
 !!! info "Related topics"
         - [Guide: OIDC Implicit Client Profile]({{base_path}}/guides/login/oidc-implicit-client-profile/)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/concepts/authorization/implicit-grant.md
         - [Guide: Implicit Grant]({{base_path}}/guides/access-delegation/implicit-playground/)
-========
-        - [Guide: Implicit Grant]({{base_path}}/guides/access-delegation/implicit-playground/)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/concepts/authorization/implicit-grant.md

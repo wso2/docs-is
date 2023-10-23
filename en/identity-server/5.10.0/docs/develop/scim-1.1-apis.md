@@ -2,15 +2,7 @@
 
 !!! warning
     
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/scim-1.1-apis.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/scim-1.1-apis.md
-    **WSO2 recommends using** **[SCIM 2.0 APIs]({{base_path}}/apis/scim2-rest-apis)** because of the following
-========
     **WSO2 recommends using** **[SCIM 2.0 APIs](../../develop/scim2-rest-apis/)** because of the following
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/scim-1.1-apis.md
-========
-    **WSO2 recommends using** **[SCIM 2.0 APIs](../../develop/scim2-rest-apis/)** because of the following
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/scim-1.1-apis.md
     reasons:
     
     -   SCIM 2.0 APIs provide additional methods that are not available with
@@ -19,18 +11,18 @@
     -   There is more focus on feature development for SCIM 2.0 APIs.
     
 
-The SCIM API is used in to perform various tasks in the WSO2
+The SCIM API can be called in order to perform various tasks in the WSO2
 Identity Server. For simplicity, cURL commands are used in this example
 to send CRUD requests to the REST endpoints of Identity Server.
 
 To execute these commands, you need to [Download the WSO2 Identity
-Server](https://wso2.com/products/identity-server/), unzip it and run
+Server](http://wso2.com/products/identity-server/), unzip it and run
 it.
 
 -   Navigate to the *SCIM User Endpoint* at the following URL:
     https://localhost:9443/wso2/scim/Users .
 
-    You can use the following SCIM User Endpoint to specifically return
+    You can use the following SCIM User Endpoint to specifically return
     data of the currently logged-in user:
     `https://localhost:9443/wso2/scim/Users/me`  
     (You can use this endpoint for commands that refer to a single user,
@@ -46,17 +38,10 @@ exchanged and also protected with Basic Auth Authentication.
     The following requests use Basic Auth authentication to demonstrate
     sending requests to the REST endpoints of WSO2 Identity Server as a
     quick start. **In a production environment, we recommend that you use
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/scim-1.1-apis.md
-    OAuth Authentication instead.** For instructions, see [Setting Up Service Provider for Inbound Provisioning]({{base_path}}/guides/applications/inbound-provisioning-for-sp/).
-
--   **Create User** : The following command can be used to create a
-    user. In this request, authentication is done using Basic Auth and the payload is sent in JSON format adhering to the SCIM 1.1 specification. You receive a response with 201 CREATED status and the payload response as follows:
-========
     OAuth Authentication instead.** For instructions, see [Setting Up Service Provider for Inbound Provisioning](../../learn/setting-up-service-provider-for-inbound-provisioning/).
 
 -   **Create User** : The following command can be used to create a
     user. In this request, authentication is done using Basic Auth and the payload is sent in JSON format adhering to the SCIM 1.1 specification. You receive a response with 201 CREATED status and the payload response as follows:
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/scim-1.1-apis.md
 
     ```curl tab="Request"
     curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"schemas":[],"name":{"familyName":"{FAMILY_NAME}","givenName":"{FIRST_NAME}"},"userName":"{USERNAME}","password":"{PASSWORD}","emails":[{"primary":true,"value":"{HOME_EMAIL}","type":"home"},{"value":"{WORK_EMAIL}","type":"work"}]}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Users
@@ -74,23 +59,23 @@ exchanged and also protected with Basic Auth Authentication.
 
     Do the following to test this.
 
-    -   Log in to the WSO2 Identity Server [management
-        console]({{base_path}}/setup/getting-started-with-the-management-console) using
+-   -   Log in to the WSO2 Identity Server [management
+        console](../../setup/getting-started-with-the-management-console) using
         admin credentials (admin/admin).
     -   Click **List** under the **Users and Roles** section on the
         **Main** tab and then select **Users**. You will see that
-        the user created above is listed.
+        the user created above is listed.
     -   Click on **User Profile** to view the user profile of the user
         you created. You will see that only the user's first and last
         names have been set properly but the other fields remain empty.
         This is because the Carbon platform uses a different set of
-        attributes in LDAP than the SCIM specific dialect. However,
+        attributes in LDAP than the SCIM specific dialect. However,
         those attributes are stored in the underlying user store. You
         can verify this using a GET request on the particular user.
 
 <!-- -->
 
--   **GET User** : You can retrieve a particular user resource using its
+-   **GET User** : You can retrieve a particular user resource using its
     unique id (You can get this id in the response to the
     `create user` request):
 
@@ -131,7 +116,7 @@ exchanged and also protected with Basic Auth Authentication.
     {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":2,"Resources":[{"id":"0032fd29-55a9-4fb9-be82-b1c97c073f02","userName":"hasinitg","meta":{"lastModified":"2016-01-26T16:46:53","created":"2016-01-26T16:46:53","location":"https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02"}},{"id":"b228b59d-db19-4064-b637-d33c31209fae","userName":"pulasthim","meta":{"lastModified":"2016-01-26T17:00:33","created":"2016-01-26T17:00:33","location":"https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae"}}]}
     ```
 
-    You can see the representation of the three users with attributes in
+    You can see the representation of the three users with attributes in
     JSON format adhering to SCIM Schema.
 
 <!-- -->
@@ -185,7 +170,7 @@ exchanged and also protected with Basic Auth Authentication.
         {"familyName":"Tester","givenName":"hasinitg"},"id":"15722a71-3bd1-4864-8460-1e63a2dace65","userName":"hasinitg"}
         ```
 
--   **Delete User** : Delete the user with username 'pulasthim' that was
+-   **Delete User** : Delete the user with username 'pulasthim' that was
     created through the WSO2 Identity Server management console.
 
     ```curl tab="Request"
@@ -204,7 +189,7 @@ exchanged and also protected with Basic Auth Authentication.
     SCIM ID which is unique to the service provider, the user REST
     endpoint also supports the filter operation. You can filter users
     based on their username, which is considered the unique user
-    attribute in Carbon servers. You can use the following cURL command.
+    attribute in Carbon servers. You can use the following cURL command.
     WSO2 Identity Server currently supports only equal operation in
     filtering.
 
@@ -221,18 +206,14 @@ exchanged and also protected with Basic Auth Authentication.
     ```
 
 -   **Create Group** : You can create groups either with or without
-    members. The following command creates a group with a user.
+    members. The following command creates a group with a user.
 
     !!! note
         When creating a group with users, you need to have that
         user already existing in the user store and provide its unique id.
         Create a new group named: 'engineer' with the user 'hasinitg' as a
         member. The attributes you have to include in the cURL command are
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/scim-1.1-apis.md
-        the userID, username:password.
-========
         the userID, username:password.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/scim-1.1-apis.md
 
         You receive a response with the payload as indicated below and a response status 201 CREATED:
 
@@ -254,11 +235,7 @@ exchanged and also protected with Basic Auth Authentication.
 
 -   **List Groups:** Now create another role through the Identity Server
     Management Console and list all the groups. Create a group named:
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/scim-1.1-apis.md
-    'manager' without any users added to it. The following command lists
-========
     'manager' without any users added to it. The following command lists
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/scim-1.1-apis.md
     the groups. When you list the groups, you can see both groups are listed.
 
     ```java tab="Sample Request"
@@ -295,7 +272,7 @@ exchanged and also protected with Basic Auth Authentication.
     curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Groups/484cdc26-9136-427b-ad9e-96ea3082e1f5 -H "Accept: application/json"
     ```
 
--   **Filter Group** : You can filter groups with the group display name
+-   **Filter Group** : You can filter groups with the group display name
     using one of the following commands. These commands filter the group
     with display name: 'engineer'. You can use one of the two curl commands given below to test this. 
 
@@ -459,8 +436,4 @@ The WSO2 Identity Server exposes SCIM endpoint **/Bulk** to do bulk operations u
 
     ```java tab="Response"
     {"schemas":["urn:scim:schemas:core:1.0"],"Operations":[{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Groups/6f008b6c-e990-4f67-9048-0fbcb3b52d5c","method":"POST","bulkId":"bulkGroup1"},{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Groups/1b7c44a8-26b8-4e81-9961-26d90fe68ac5","method":"POST","bulkId":"bulkGroup2"}]}
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/scim-1.1-apis.md
     ```
-========
-    ```
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/scim-1.1-apis.md

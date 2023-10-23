@@ -14,98 +14,118 @@ Server to authenticate Salesforce users using Integrated Windows
 Authentication.
 
 !!! info "Related links"
-	See [Integrated Windows Authentication]({{base_path}}/learn/integrated-windows-authentication-overview) and
-    [Configuring IWA Single-Sign-On]({{base_path}}/learn/configuring-iwa-single-sign-on)
+	See [Integrated Windows Authentication](../../learn/integrated-windows-authentication-overview) and
+    [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on)
     for more information on Integrated Windows Authentication and
     details on how to enable it in the Identity Server.
 
-!!! tip "Before you begin"
-    - When you log in to Salesforce, you normally use an email address. To integrate this with WSO2 Identity Server, configure users in WSO2 Identity Server so that the users can log in using their email addresses.
-    - Configuring the email address as the username in an **already running Identity Server** is not the production recommended way. Therefore, **make sure to configure it before you begin working with WSO2 IS**.
+!!! tip "Before you begin" 
+    -	When you log in to Salesforce, you normally use an email address. To integrate this with WSO2 Identity Server, configure users in WSO2 Identity Server so that the users can log in using their email addresses.
+    -	Configuring the email address as the username in an **already running Identity Server** is not the production recommended way. Therefore, **make sure to configure it before you begin working with WSO2 IS**.
 
-## Configuring email address as the user name
+### Configuring email address as the user name 
 
-Follow the steps below to configure the email address as the user name.
+Follow the steps below to configure the email address as the user name.          
 
-1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
-
-2. Set the `enable_email_domain` configuration under `[tenant_mgt]` to `true`.
+1.  Open the `<IS_HOME>/repository/conf/deployment.toml             `
+	file.
+	
+2.  Set the `enable_email_domain` configuration under `[tenant_mgt]` to `true`.
 
 	```toml
-    [tenant_mgt]
-    enable_email_domain= "true"
-	```
+	[tenant_mgt]
+	enable_email_domain= "true"
+	``` 
 
-3. Open the `<IS_HOME>/repository/conf/claim-config.xml` file and configure the `AttributeID` property of the `http://wso2.org/claims/username` claim ID that is under `<Dialect dialectURI="http://wso2.org/claims">` to `mail` .
+3.  Open the `               <IS_HOME>/repository/conf/claim-config.xml              `
+	file and configure the `               AttributeID              `
+	property of the
+	`                               http://wso2.org/claims/username                             `
+	claim ID that is under
+	`               <Dialect dialectURI="                               http://wso2.org/claims                              ">              `
+	to `               mail              ` .
 
-    ``` java
-    <Claim>
-        <ClaimURI>http://wso2.org/claims/username</ClaimURI>
-        <DisplayName>Username</DisplayName>
-        <AttributeID>mail</AttributeID>
-        <Description>Username</Description>
-    </Claim>
+	``` java
+	<Claim>
+	   <ClaimURI>http://wso2.org/claims/username</ClaimURI>
+	   <DisplayName>Username</DisplayName>
+	   <AttributeID>mail</AttributeID>
+	   <Description>Username</Description>
+	</Claim>
 	```
 
 	!!! note
-        This file is checked only when WSO2 IS is starting for the first time. Therefore, if you haven't configured this property at the time of starting up the server for the first time, you will get errors at the start up.
+		This file is checked only when WSO2 IS is starting for the first
+		time. Therefore, if you haven't configured this property at the time
+		of starting up the server for the first time, you will get errors at
+		the start up.
 
 
-4.  Open the `<IS_HOME>/repository/conf/identity/identity-mgt.properties` file and set the following property to `true`.
+4.  Open the `<IS_HOME>/repository/conf/identity/identity-mgt.properties               `
+	file and set the following property to
+	`               true              ` .
 
-    !!! warning
-        This step is required due to a known issue that prevents the confirmation codes from being removed after they are used when email usernames are enabled. This occurs because the '@' character (and some special characters) are not allowed in the registry. To overcome this issue, enable hashed usernames when saving the confirmation codes by configuring the properties below.
-        ``` toml
-        UserInfoRecovery.UseHashedUserNames=true
-        ```
+	!!! warning
+		This step is required due to a known issue that prevents the
+		confirmation codes from being removed after they are used when email
+		usernames are enabled. This occurs because the '@' character (and
+		some special characters) are not allowed in the registry. To
+		overcome this issue, enable hashed usernames when saving the
+		confirmation codes by configuring the properties below.
+		``` toml
+		UserInfoRecovery.UseHashedUserNames=true
+		```
 
-    !!! tip
-        Optionally, you can also configure the following property to determine which hash algorithm to use.
-        ``` toml
-        UserInfoRecovery.UsernameHashAlg=SHA-1
-        ```
+	!!! tip
+		Optionally, you can also configure the following property to
+		determine which hash algorithm to use.
+		``` toml
+		UserInfoRecovery.UsernameHashAlg=SHA-1
+		```
 
-5. Configure the following set of parameters in the user store configuration, depending on the type of user store you are connected to (LDAP/Active Directory/ JDBC).
-    
-    !!! note
-        If you are connected to the active directory user store these properties should be added within `[user_store.properties]` instead of `[user_store]`.
-    
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Parameter</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p><code>                    user_name_attribute                   </code></p>
-    <p><br />
-    </p></td>
-    <td><div class="content-wrapper">
-    <p>Set the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_attribute = "mail"</code></pre>
-    </div>
-    </div>
-    </div></td>
-    </tr>
-    <tr class="even">
-    <td><code>                   user_name_search_filter                  </code></td>
-    <td><div class="content-wrapper">
-    <p>Use the mail attribute of the user instead of <code>                     cn                    </code> or <code>                     uid                    </code> . <strong>LDAP/Active Directory only</strong></p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_search_filter = "(&amp;(objectClass=identityPerson)(mail=?))"</code></pre>
-    </div>
-    </div>
-    </div></td>
-    </tr>
-    <tr class="odd">
-    <td><code>                   user_name_list_filter                  </code></td>
-    <td><div class="content-wrapper">
-    <p>Use the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
+5.  Configure the following set of parameters in the user store
+	configuration, depending on the type of user store you are connected
+	to (LDAP/Active Directory/ JDBC).
+
+	!!! note 
+		If you are connected to the active directory user store these properties should be added within [user_store.properties] instead of [user_store].
+
+	<table>
+	<thead>
+	<tr class="header">
+	<th>Parameter</th>
+	<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr class="odd">
+	<td><p><code>                    user_name_attribute                   </code></p>
+	<p><br />
+	</p></td>
+	<td><div class="content-wrapper">
+	<p>Set the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
+	<div class="code panel pdl" style="border-width: 1px;">
+	<div class="codeContent panelContent pdl">
+	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_attribute = "mail"</code></pre>
+	</div>
+	</div>
+	</div></td>
+	</tr>
+	<tr class="even">
+	<td><code>                   user_name_search_filter                  </code></td>
+	<td><div class="content-wrapper">
+	<p>Use the mail attribute of the user instead of <code>                     cn                    </code> or <code>                     uid                    </code> . <strong>LDAP/Active Directory only</strong></p>
+	<div class="code panel pdl" style="border-width: 1px;">
+	<div class="codeContent panelContent pdl">
+	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_search_filter = "(&amp;(objectClass=identityPerson)(mail=?))"</code></pre>
+	</div>
+	</div>
+	</div></td>
+	</tr>
+	<tr class="odd">
+	<td><code>                   user_name_list_filter                  </code></td>
+	<td><div class="content-wrapper">
+	<p>Use the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
 	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_list_filter = "(&amp;(objectClass=identityPerson)(mail=*))"</code></pre>
@@ -147,7 +167,7 @@ Follow the steps below to configure the email address as the user name.
 	<p class="admonition-title">Note</p>
 	<p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
 	<p>After this configuration, the user having the username <strong><code>                      admin@wso2.com                     </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-	<img src="{{base_path}}/assets/img/tutorials/super-admin-config.png" /></p></div>
+	<img src="../../assets/img/tutorials/super-admin-config.png" /></p></div>
 	<div class="admonition title">
 	<p class="admonition-title">Tip</p>
 	<p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>
@@ -169,13 +189,8 @@ Follow the steps below to configure the email address as the user name.
 		With these configuration users can log in to super tenant with both
 		email user name ( *[alex@gmal.com](mailto:alex@wso2.com)* ) or
 		non-email user names (larry). But for tenant only email user names
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/login/log-into-salesforce-using-iwa.md
-		allowed (tod@ [gmail.com](http://gmail.com) @
-		[wso2.com](http://wso2.com) )
-========
 		allowed (tod@ [gmail.com](https://gmail.com) @
 		[wso2.com](https://wso2.com) )
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/logging-in-to-salesforce-with-integrated-windows-authentication.md
 
 	!!! note
 		You can configure email user name without enabling
@@ -188,7 +203,9 @@ Follow the steps below to configure the email address as the user name.
 6.  Restart WSO2 Identity Server.
 
 !!! info "Related Topics"
-    For more information on how to configure primary and secondary user stores, see [Configuring User Stores]({{base_path}}/setup/configuring-user-stores).
+	For more information on how to configure primary and secondary user
+	stores, see [Configuring User
+	Stores](../../setup/configuring-user-stores).
 
 
 Now that you have configured the email addresses, let's configure Salesforce.
@@ -215,11 +232,11 @@ Now that you have configured the email addresses, let's configure Salesforce.
 		1.  Click your username to expand the drop down.
 
 		2.  Click **Switch to Lightning Experience**.  
-			<!-- ![switch-to-lightening-experience]({{base_path}}/assets/img/tutorials/switch-to-lightening-experience.png) -->
+			![switch-to-lightening-experience](../assets/img/tutorials/switch-to-lightening-experience.png)			
 
 		3.  Click the settings icon on the top-right-hand corner, and click
 			**Set Up**.  
-			<!-- ![switch-from-classic]({{base_path}}/assets/img/tutorials/switch-from-classic.png) -->
+			![switch-from-classic](../assets/img/tutorials/switch-from-classic.png)
 
     	Now you are navigated to the lightening theme of Salesforce.
     
@@ -239,7 +256,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
 
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
-        <!-- ![my-domain]({{base_path}}/assets/img/tutorials/my-domain.png) -->
+        ![my-domain](../assets/img/tutorials/my-domain.png)
         
     2.  Click **My Domain**.
     
@@ -250,7 +267,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
         For the page given below to load on your browser, make sure that
         the Salesforce cookies are not blocked.
 
-        <!-- ![sales-force-cookies]({{base_path}}/assets/img/tutorials/sales-force-cookies.png) -->
+        ![sales-force-cookies](../assets/img/tutorials/sales-force-cookies.png)
 
     4.  If the domain is available, select **I agree to Terms and
         Conditions** and click **Register Domain** to register your new
@@ -264,13 +281,13 @@ Now that you have configured the email addresses, let's configure Salesforce.
     
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** checkbox to enable federated single sign-on using SAML.  
-    <!-- ![saml-enabled]({{base_path}}/assets/img/tutorials/saml-enabled.png) -->
+    ![saml-enabled](../assets/img/tutorials/saml-enabled.png)
     
 7.  Click **Save** to save this configuration change.
 
 8.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
-    <!-- ![saml-sso-setting]({{base_path}}/assets/img/tutorials/saml-sso-setting.png) --> Ensure that
+    ![saml-sso-setting](../assets/img/tutorials/saml-sso-setting.png) Ensure that
     you configure the following properties.
     <table>
     <thead>
@@ -388,7 +405,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
     
 13. Under **Authentication Service**, select **SSO** instead of **Login
     Page**.  
-    <!-- ![authentication-service-sso]({{base_path}}/assets/img/tutorials/authentication-service-sso.png) -->
+    ![authentication-service-sso](../assets/img/tutorials/authentication-service-sso.png)
     
 14. Click **Save**.
 
@@ -418,7 +435,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
 ### Configuring the service provider
 
 1.  Sign in. Enter your username and password to log on to the
-    [management console]({{base_path}}/setup/getting-started-with-the-management-console).
+    [management console](../../setup/getting-started-with-the-management-console).
     
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
@@ -427,7 +444,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
-    <!-- ![service-provider-name]({{base_path}}/assets/img/tutorials/service-provider-name.png) -->
+    ![service-provider-name](../assets/img/tutorials/service-provider-name.png)
     
 4.  Click **Register**.
 
@@ -436,7 +453,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
     
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on.  
-    <!-- ![single-sign-on-setting]({{base_path}}/assets/img/tutorials/single-sign-on-setting.png)   -->
+    ![single-sign-on-setting](../assets/img/tutorials/single-sign-on-setting.png)  
     See the following table for details.
 
     | Field                                      | Value                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -447,6 +464,6 @@ Now that you have configured the email addresses, let's configure Salesforce.
     | Use fully qualified username in the NameID | Selected                                                                 | A fully qualified username is basically the user name with the user store domain. In short, the username must be in the following format: `               {user store domain}{user name}              ` .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | Enable Response Signing                    | Selected                                                                 | Select **Enable Response Signing** to sign the SAML2 Responses returned after the authentication process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | Enable Assertion Signing                   | Selected                                                                 | Select **Enable Assertion Signing** to sign the SAML2 Assertions returned after the authentication. SAML2 relying party components expect these assertions to be signed by the Identity Server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-    | Enable Attribute Profile                   | Selected                                                                 | Select **Enable Attribute Profile** to enable this and add a claim by entering the claim link and clicking the **Add Claim** button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to **Include Attributes in the Response Always** , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.
+    | Enable Attribute Profile                   | Selected                                                                 | Select **Enable Attribute Profile** to enable this and add a claim by entering the claim link and clicking the **Add Claim** button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to **Include Attributes in the Response Always** , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.                                                                                                                                                                                 |
 
-7. Click **Register** to save your configurations.
+7.  Click **Register** to save your configurations.

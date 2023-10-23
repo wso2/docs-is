@@ -112,7 +112,7 @@ To configure manually,
 				<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence">
 				<pre class="sourceCode xml"><code class="sourceCode xml">
 				<a class="sourceLine" id="cb1-1" title="1">[authentication.authenticator.saml.parameters] </a>
-				<a class="sourceLine" id="cb1-2" title="2">VerifyAssertionIssuer=true </a>
+				<a class="sourceLine" id="cb1-2" title="2">VerifyAsserstionIssuer: true </a>
 				</div>
 				</div>
 				</div></td>
@@ -126,7 +126,12 @@ To configure manually,
 			<tr>
 				<td>ACS URL</td>
 				<td>
-					<p>This is the identity provider's SAML2 ACS URL.</p>			
+					<p>This is the identity provider's SAML2 ACS URL.</p>
+					<div class="admonition warning">
+					<p class="admonition-title">Warning</p>
+					<p>To configure this, apply the <b>2020-01-17 WUM update</b> to WSO2 Identity Server 5.9.0 using the WSO2 Update Manager (WUM).</p>
+				    <p>To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see [Getting Started with WUM in the WSO2 Administration Guide](https://docs.wso2.com/display/updates/Getting+Started).</p> 
+					</div> 				
 				</td>
 				<td>If not entered, the default ACS URL will be used.</td>
 			</tr>
@@ -482,7 +487,6 @@ To configure through file upload:
         ``` java
         [authentication.authenticator.saml] 
         enable=true
-	    [authentication.authenticator.saml.parameters]
         SAMLSSOAssertionConsumerUrl="https://localhost:9443/commonauth"
     	```
 
@@ -497,7 +501,7 @@ To configure through file upload:
 	 
 		``` xml
 		[saml.slo] 
-		host_name_verification=false
+		host_name_verification: false
 		```
 	
 	- If the certificate is self-signed, import the service

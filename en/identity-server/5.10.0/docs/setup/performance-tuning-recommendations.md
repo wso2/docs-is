@@ -1,7 +1,7 @@
 # Performance Tuning Recommendations
 
 This section describes some recommended performance tuning
-configurations to optimize WSO2 Identity Server.
+configurations to optimize the WSO2 Identity Server.
 
 !!! note "Important"    
     -   Performance tuning requires you to modify important system files,
@@ -13,16 +13,15 @@ configurations to optimize WSO2 Identity Server.
         in your environment. We recommend you to carry out load tests on
         your environment to tune the Identity Server accordingly.
     
----
 
-## OS-level settings
+### OS-level settings
 
 When it comes to performance, the OS that the server runs plays an
 important role.
 
 !!! info
     If you are running on MacOS Sierra or High Sierra, and experiencing long
-    start-up times for WSO2 Identity Server, try mapping your Mac hostname to
+    start-up times for WSO2 products, try mapping your Mac hostname to
     `          127.0.0.1         ` and `          ::1         ` in the
     `          /etc/hosts         ` file.
 
@@ -90,9 +89,7 @@ important role.
     * hard nproc 20000
     ```
 
----
-
-## Set the thread execution limit for multitenant mode
+### Setting the thread execution limit for multitenant mode
 
 In multi-tenant mode, the Carbon runtime limits the thread execution
 time. That is, if a thread is stuck or taking a long time to process,
@@ -117,9 +114,7 @@ threshold="600"
     seconds after which a thread is considered stuck. The default value
     is 600 seconds.
 
----
-
-## JVM settings
+### JVM settings
 
 -   JVM heap size (Xmx) depends on your load. Given below are the
     general settings but if you are on a production environment, this
@@ -157,9 +152,7 @@ threshold="600"
     In a clustered environment, the entity expansion limit has no
     dependency on the number of worker nodes.
 
----
-
-## Database level settings
+### Database level settings
 
 Set up the `         THRIFT_SESSION        ` database index in the
 Identity Server database to improve performance:
@@ -170,11 +163,10 @@ create index
 !!! info
     If you want to remove unused tokens from the database, see [Removing
     Unused Tokens from the
-    Database]({{base_path}}/deploy/remove-unused-tokens-from-the-database).
+    Database](../../setup/removing-unused-tokens-from-the-database).
 
----
 
-## JDBC pool configuration
+### JDBC pool configuration
 
 Within WSO2 Identity Server, we use Tomcat JDBC pooling as the default pooling framework due to its production-ready stability and high performance. The goal of tuning the pool properties is to maintain a pool that is large enough to handle peak load without unnecessarily utilizing resources. These pooling configurations can be tuned for your production server in general in the
 `         <IS_HOME>/repository/conf/deployment.toml        `
@@ -192,7 +184,7 @@ validationQuery = ""
 MaxPermSize = ""
 ```
 !!! info
-    For more information on configuring pooling configurations for other databases, see [Work with Databases]({{base_path}}/deploy/work-with-databases).
+    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../setup/working-with-databases).
 
 The following parameters should be considered when tuning the
 connection pool:
@@ -217,15 +209,7 @@ Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html).
 <tbody>
 <tr class="odd">
 <td>maxActive</td>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/performance-tuning-recommendations.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/performance/performance-tuning-recommendations.md
-<td><p>This denotes the maximum number of active connections that can be allocated from the connection pool at the same time. The default value is <code>              100.             </code></p></td>
-========
 <td><p>The maximum number of active connections that can be allocated from the connection pool at the same time. The default value is <code>              50.             </code></p></td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/performance-tuning-recommendations.md
-========
-<td><p>The maximum number of active connections that can be allocated from the connection pool at the same time. The default value is <code>              50.             </code></p></td>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/setup/performance-tuning-recommendations.md
 <td><p>The maximum latency (approximately) = (P / M) * T,</p>
 <p><em>where,</em></p>
 <ul>
@@ -278,9 +262,9 @@ Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html).
 </tr>
 <tr class="even">
 <td>MaxPermSize</td>
-<td>The memory size allocated for WSO2 Identity Server.</td>
+<td>The memory size allocated for the WSO2 product.</td>
 <td><p>The default memory allocated for the product via this parameter is as follows: <code>              -Xms256m -Xmx512m -XX:MaxPermSize=256m             </code></p>
-<p>You can increase the performance by increasing this value in the <code>              &lt;IS_HOME&gt;/bin/wso2server.sh             </code> file as follows: <code>              -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m             </code></p></td>
+<p>You can increase the performance by increasing this value in the <code>              &lt;PRODUCT_HOME&gt;/bin/wso2server.sh             </code> file as follows: <code>              -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m             </code></p></td>
 </tr>
 </tbody>
 </table>
@@ -300,9 +284,8 @@ Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html).
         **`           SHARED_POOL_SIZE          `** and
         `                     LARGE_POOL_SIZE.                   `  
     
----
 
-## Cache configuration
+### Caching configuration
 
 The `         <Cache>        ` element configured in the
 `deployment.toml` file (stored in the
@@ -319,9 +302,7 @@ restart the server if you change the default caching timeout in the
 default_cache_timeout= "15"
 ```    
 
----
-
-## Pool LDAPS connections
+### Pooling LDAPS connections
 
 Connection pooling does not apply to LDAPS connections (SSL-enabled LDAP
 connections) by default. Therefore, you need to enable connection
@@ -329,7 +310,7 @@ pooling for LDAPS connections at the time of starting your server:
 
 1.  Stop the server.
 2.  Open a command terminal, navigate to the
-    `          <IS_HOME>/bin         ` directory, and execute the
+    `          <PRODUCT_HOME>/bin         ` directory, and execute the
     relevant startup script:
     -   On Linux: `            wso2server.sh           `
     -   On Windows: `            wso2server.bat           `

@@ -1,8 +1,8 @@
-# Remove References to Deleted User Identities
+# Removing References to Deleted User Identities
 
 A key requirement outlined in the General Data Protection Regulation
 (GDPR) is the right of the data subject to be forgotten, which gives
-individuals the right to request an organization to remove their
+individuals the right to request an organisation to remove their
 personal information from a system.  
 To comply with this requirement, WSO2 Identity Server (WSO2 IS) supports
 removing references to personally identifiable information (PII) of a
@@ -12,7 +12,7 @@ remove references to a user’s PII that can generally be stored in
 metadata database tables, access logs, audit logs as well as any other
 log files in WSO2 IS.
 
-!!! note 
+!!! note "Before you begin, keep the following in mind"
     
     -   The purpose of this tool is to remove references to personally
         identifiable information of a user that can persist in RDBMS tables
@@ -41,147 +41,54 @@ log files in WSO2 IS.
 The following sections guide you through configuring and running the
 Identity Anonymization tool in WSO2 IS.
 
----
-### Building the Identity Anonymization tool
-
-Follow the steps below to build the tool:
-
-1.  Clone the <https://github.com/wso2/identity-anonymization-tool>
-    repository to a required location.
-2.  In the source that you checked out, navigate to
-    `          identity-anonymization-tool         `, and run
-    `          mvn clean install         ` . This downloads all
-    dependencies and builds the tool in your local repository. You can
-    find the
-    `          org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip         `
-    file created in the
-    `          identity-anonymization-tool/components/org.wso2.carbon.privacy.forgetme.tool/target         `
-    directory.
-3.  Unzip the
-    `           org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip          `
-    file. This creates the
-    `           identity-anonymization-tool-SNAPSHOT          `
-    directory with a directory. The path to the
-    `           identity-anonymization-tool-SNAPSHOT          `
-    directory will be referred to as `           <TOOL_HOME>          `
-    throughout this section.
-
-    The following table describes the purpose of the most important
-    configuration related directories and files of the tool, which are
-    in the `           <TOOL_HOME>/conf          ` directory:
-
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Directory/File name</th>
-    <th>Purpose</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><code>               config.json              </code></td>
-    <td>This is the master configuration file.<br />
-    You can configure this file depending on the metadata database tables, access logs, audit logs, or any other log
-     files on which you want the Identity Anonymization tool to run. For information on how to configure this file
-     , see <a href="#configuring-the-master-configuration-file">
-     Configuring the master configuration file</a> .</td>
-    </tr>
-    <tr class="even">
-    <td><code>               datasources              </code></td>
-    <td><p>This is the default directory where configured datasources are searched for when you run the Identity Anonymization tool.<br />
-    If necessary, you can define your own datasource configurations depending on the databases that you want to connect to, and specify the defined datasource configuration location using command line arguments.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><code>               log-config/patterns.xml              </code></td>
-    <td>This file should contain all the regex patterns that can be used to find and replace references to deleted user identities in log file entries.</td>
-    </tr>
-    <tr class="even">
-    <td><code>               sql              </code></td>
-    <td>This directory should include all the SQL files that contain required queries to replace or delete references to deleted user identities.</td>
-    </tr>
-    </tbody>
-    </table>
-
-
-
-## Change the default configurations of the tool
+### Changing default configurations of the tool
 
 All configurations related to this tool can be found inside the
-`         <TOOL_HOME>/conf        `
-directory.
-
-The master configuration file of the Identity Anonymization tool is the
-`         config.json        ` file. Following is a sample config.json
-file:
-
-``` java
-
-  "processors" : [
-    "log-file", "rdbms"
-  ],
-  "directories": [
-    {
-      "dir": "log-config",
-      "type": "log-file",
-      "processor" : "log-file",
-      "log-file-path" : "<IS_HOME>/repository/logs",
-      "log-file-name-regex" : "^(wso2carbon(.)*\\.log|audit(.)*\\.log)$"
-    },
-    {
-      "dir": "sql",
-      "type": "rdbms",
-      "processor" : "rdbms"
-    }
-  ],
-  "extensions": [
-    {
-      "dir": "<IS_HOME>/repository/conf/datasources/",
-      "type": "datasource",
-      "processor" : "rdbms",
-      "properties" : [
-        {"identity": "WSO2_CARBON_DB"}
-      ]
-    }
-  ]
-}
-```
-
-You can configure the following in the `         config.json        `
-file based on your requirement:
-
--   `          processors         ` - A list of processors on which you
-    want the tool run. The processors that you can specify are
-    pre-defined. Possible values are `          RDBMS         ` and
-    `          log-file         ` .
--   `          directories         ` - The definitions of directories on
-    which you want the tool to run. When you specify a directory
-    definition, be sure to either specify the directory path relative to
-    the location of the `          config.json         ` file, or
-    specify the absolute path to the directory.
--   `          processor         ` - The type of processor to use to
-    process instructions in the corresponding directory.
--   `          extensions         ` - The extensions to be initialized
-    prior to starting a processor.
-
-
-The configurations of the tool need to be set up to search
-for references of the deleted user from the following file paths. You need to change the config.json file accordingly.
+`         <IS_HOME>/repository/components/tools/forget-me/conf        `
+directory. The default configurations of the tool are set up to search
+for references of the deleted user from the following file paths:
 
 -   **Read Logs** : `          <IS_HOME>/repository/logs         `
 -   **Read Data sources** :
-    `          <IS_HOME>/repository/conf/datasources         `
+    `          <IS_HOME>/repository/conf/datasources/         `
 -   **Default data source name** : `          WSO2_CARBON_DB         `
--   **Log file name regex** : `          ^(wso2carbon(.)*\\.log|audit(.)*\\.log)$         `
+-   **Log file name regex** : `          wso2carbon.log         `
 
-<!--For information on changing these configurations, see [Configuring the
-config.json file](TBD:{{base_path}}/setup/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
-in the Product Administration Guide.-->
+For information on changing these configurations, see [Configuring the
+config.json file](../../setup/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
+in the Product Administration Guide.
 
----
+### Changing the default configuration directory location
 
-## Run the tool in WSO2 IS
+You can change the default location of the tool configurations if
+desired. You may want to do this if you are working with a multi-product
+environment where you want to manage configurations in a single location
+for ease of use. Note that this is **optional**.
 
-This tool has independent runtime. From IS 6.0.0 onwards, this tool is externalised.
+To change the default configurations location for the embedded tool, do
+the following:
+
+1.  Open the `            forgetme.sh           ` file found inside the
+    `            <IS_HOME>/bin           ` folder.
+
+2.  The location path is the value given after
+    `                         -d                       ` within the
+    following line. Modify the value after
+    `                         -d                       ` to change the
+    location.  
+    The default location path is
+    `            $CARBON_HOME/repository/components/tools/forget-me/conf.           `
+
+    ``` java
+    sh $CARBON_HOME/repository/components/tools/forget-me/bin/forget-me -d $CARBON_HOME/repository/components/tools/forget-me/conf $@
+    ```
+
+### Running the tool in WSO2 IS
+
+This tool is packaged with WSO2 Identity Server by default. Follow the
+steps below to run the tool:
+
+  
 
 !!! note    
     -   This tool is designed to run in offline mode (i.e., the server
@@ -192,13 +99,13 @@ This tool has independent runtime. From IS 6.0.0 onwards, this tool is externali
     
     -   If you configure any JDBC database other than the H2 database
         provided by default, copy the relevant JDBC driver to the
-        `            <TOOL_HOME>/lib           `
+        `            <IS_HOME>/repository/components/tools/forget-me/lib           `
         directory.
     
-1. Modify the config.json file with the logs directory location and datasources directory location.
-2. Open a new terminal window and navigate to the
-    `           <TOOL_HOME>/bin          ` directory.
-3. Execute one of the following commands depending on your operating
+
+1.  Open a new terminal window and navigate to the
+    `           <IS_HOME>/bin          ` directory.
+2.  Execute one of the following commands depending on your operating
     system:
 
     -   On Linux/Mac OS:
@@ -224,7 +131,8 @@ This tool has independent runtime. From IS 6.0.0 onwards, this tool is externali
         command line options to run the identity anonymization tool to
         remove references to a specific deleted user.  
         For information on how to enable tracking deleted users, see
-        [Delete an Existing User]({{base_path}}/guides/identity-lifecycles/delete-users/#track-user-deletion-on-deleting-a-user-optional).
+        [Tracking user deletion on deleting a
+        user](../../learn/configuring-users#tracking-user-deletion-on-deleting-a-user).
           
 
     !!! Note
@@ -270,7 +178,7 @@ This tool has independent runtime. From IS 6.0.0 onwards, this tool is externali
     <tr class="odd">
     <td>T</td>
     <td><div class="content-wrapper">
-    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code>. For information on working with tenants in WSO2 Identity Server, see <a href="{{base_path}}/references/concepts/introduction-to-multitenancy"> Introduction to Multitenancy</a>.</p>
+    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code> . For information on working with tenants in WSO2 products, see <a href="../../administer/introduction-to-multitenancy">Working with Multiple Tenants</a> .</p>
     <p>
     <div class="admonition note">
     <p class="admonition-title">Note</p>
@@ -372,10 +280,20 @@ This tool has independent runtime. From IS 6.0.0 onwards, this tool is externali
     `            Report-<PROCESSOR>-<TIMESTAMP>.txt           ` naming
     convention.
 
----
- 
+### Running the tool in WSO2 IS Analytics
 
-### Run the standalone version of the tool
+To use this tool with WSO2 IS Analytics, you can configure and run the
+tool by following the same steps given in this guide in the
+`          <IS_ANALYTICS_HOME>         ` directory (the WSO2 IS
+analytics installation directory) instead of the
+`          <IS_HOME>         ` directory.
+
+!!! note    
+    Before you run the tool, be sure to start the WSO2 IS Analytics server
+    at least once to generate the required analytics streams.
+    
+
+### Running the standalone version of the tool
 
 If you are using multiple WSO2 products and you want to remove
 references to a particular deleted user from all the products at once,
@@ -389,5 +307,6 @@ to run the tool on.
 
 For information on how to build, configure and run the standalone
 version of the Identity Anonymization tool to run on multiple WSO2
-products, see [Remove References to Deleted User Identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities)
+products, see [Removing References to Deleted User Identities in WSO2
+Products](../../setup/removing-references-to-deleted-user-identities-in-wso2-products)
 in the WSO2 Administration Guide.

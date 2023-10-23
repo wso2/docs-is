@@ -1,12 +1,10 @@
-# Manage Userstores with SOAP APIs
+# Managing User Stores with APIs
 
-The `UserStoreConfigAdminService` allows you to add, retrieve, edit, and delete userstores within WSO2 Identity Server. 
+The `UserStoreConfigAdminService` allows you to add, retrieve, edit, and delete user stores within WSO2 Identity Server. 
 
 This section guides you through invoking and working with the `UserStoreConfigAdminService` and the operations you can work within this service.
 
----
-
-## Invoke the admin service
+## Invoking the admin service
 
 `UserStoreConfigAdminService` is an admin service of WSO2 Identity Server. As admin services are secured to prevent anonymous invocations, you cannot view the WSDL of the admin service by
 default. Follow the steps below to view and invoke it:
@@ -15,19 +13,17 @@ default. Follow the steps below to view and invoke it:
 
     ```toml
     [admin_service.wsdl]
-    enable = true
+    enable = "true"
     ```
 
 2.  Restart WSO2 Identity Server.
 3.  If you have started WSO2 Identity Server in default configurations, use the following URL in your browser to see the WSDL of the admin service:
-    <https://localhost:9443/services/UserStoreConfigAdminService?wsdl>
+    <https://localhost:9443/services/UserStoreConfigAdminService?wsdl>.
 
     !!! info
 
-        For more information on WSO2 admin services and how to invoke an admin service using either SoapUI or any other client program, see [Call
-        Admin Services]({{base_path}}/apis/call-admin-services).
-
----
+        For more information on WSO2 admin services and how to invoke an admin service using either SoapUI or any other client program, see [Calling
+        Admin Services](../../develop/calling-admin-services).
 
 ## API operations
 
@@ -39,7 +35,7 @@ The following operations are available in **UserStoreConfigAdminService**.
     <tbody>
         <tr class="even">
             <th>Description</th>
-            <td>This operation adds a secondary userstore.</td>
+            <td>This operation adds a secondary user store.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -50,11 +46,11 @@ The following operations are available in **UserStoreConfigAdminService**.
             <td>
                 <p>
                     <ul>
-                        <li><code>className</code> <code>[string]</code>: This is the userstore manager class name. A list of available class names can be obtained using the <a href="#getavailableuserstoreclasses">getAvailableUserStoreClasses</a> function.</li>
-                        <li><code>description</code><code>[string]</code> : This is the description of the userstore.</li>
+                        <li><code>className</code> <code>[string]</code>: This is the user store manager class name. A list of available class names can be obtained using the <a href="#getavailableuserstoreclasses">getAvailableUserStoreClasses</a> function.</li>
+                        <li><code>description</code><code>[string]</code> : This is the description of the user store.</li>
                         <li><code>disabled</code><code>[boolean]</code> : To disable, mark as <code>true</code>. To enable, mark as <code>false</code>.</li>
-                        <li><code>domainID</code><code>[string]</code> : This is the domain name of the userstore. This is a unique name that identifies the userstore.</li>
-                        <li><code>properties</code><code>[property]</code> : These are various properties related to the userstore such as connection URL and connection password.</li>
+                        <li><code>domainID</code><code>[string]</code> : This is the domain name of the user store. This is a unique name that identifies the user store.</li>
+                        <li><code>properties</code><code>[property]</code> : These are various properties related to the user store such as connection URL and connection password.</li>
                         <li><code>properties.name</code><code>[string]</code> : This is the name of the property.</li>
                         <li><code>properties.value</code><code>[string]</code> : This is the value of the property.</li>
                     </ul>
@@ -62,13 +58,13 @@ The following operations are available in **UserStoreConfigAdminService**.
                 <p>
                     <div class="admonition tip">
                         <p class="admonition-title">Tip</p>
-                        <p>For a full list of possible input parameters including optional parameters, see the relevant topic from the following list depending on the type of userstore you are creating:</p>
+                        <p>For a full list of possible input parameters including optional parameters, see the relevant topic from the following list depending on the type of user store you are creating:</p>
                             <ul>    
-                                <li><a href="/deploy/configure-a-jdbc-user-store/#properties-used-in-jdbc-userstore-manager">Properties used in JDBC userstore manager</a></li>
-                                <li><a href="/deploy/configure-a-read-write-active-directory-user-store/#properties-used-in-read-write-active-directory-userstore-manager">Properties used in Read-write Active Directory userstore manager</a></li>
-                                <li><a href="/deploy/configure-a-read-only-ldap-user-store/#properties-used-in-read-only-ldap-userstore-manager">Properties used in Read-only LDAP userstore manager</a></li>
-                                <li><a href="/deploy/configure-a-read-write-ldap-user-store/#properties-used-in-read-write-ldap-userstore-manager">Properties used in Read-write LDAP userstore manager</a></li>
-                                <li><a href="/deploy/carbon-remote-user-store-manager">Properties used in Carbon Remote userstore manager</a></li>
+                                <li><a href="../../setup/configuring-a-jdbc-user-store">Properties used in JDBC user store manager</a></li>
+                                <li><a href="../../setup/configuring-a-read-write-active-directory-user-store">Properties used in Read-write Active Directory user store manager</a></li>
+                                <li><a href="../../setup/configuring-a-read-only-ldap-user-store">Properties used in Read-only LDAP user store manager</a></li>
+                                <li><a href="../../setup/configuring-a-read-write-ldap-user-store">Properties used in Read-write LDAP user store manager</a></li>
+                                <li><a href="../../develop/carbon-remote-user-store-manager">Properties used in Carbon Remote user store manager</a></li>
                             </ul>
                         <p>Note that some of these parameters such as connection URL, username, password, and driver name are mandatory when creating a secondary keystore. See the relevant sample request in the code block below.</p>
                     </div>
@@ -498,7 +494,6 @@ The following operations are available in **UserStoreConfigAdminService**.
         </soap:Body>
     </soap:Envelope>
     ```
----
 
 ### changeUserStoreState()
 
@@ -506,7 +501,7 @@ The following operations are available in **UserStoreConfigAdminService**.
     <tbody>
     <tr class="even">
         <th>Description</th>
-        <td>This enables or disables the userstore.</td>
+        <td>This enables or disables the user store.</td>
     </tr>
     <tr class="odd">
         <th>Permission Level</th>
@@ -516,14 +511,14 @@ The following operations are available in **UserStoreConfigAdminService**.
         <th>Input Parameters</th>
         <td>
             <ul>
-                <li><code>domain</code> <code>[string]</code>: This domain name of the userstore.</li>
+                <li><code>domain</code> <code>[string]</code>: This domain name of the user store.</li>
                 <li><code>isDisable</code> <code>[string]</code>: To disable, mark as <code>true</code>. To enable, mark as <code>false</code>.</li>
             </ul>
         </td>
     </tr>
     <tr class="odd">
         <th>Output Parameters</th>
-        <td>A boolean parameter indicating if the userstore is read only or not</td>
+        <td>A boolean parameter indicating if the user store is read only or not.</td>
     </tr>
     <tr>
         <th>Request</th>
@@ -547,7 +542,6 @@ The following operations are available in **UserStoreConfigAdminService**.
        </soapenv:Body>
     </soapenv:Envelope>
     ```
----
 
 ### deleteUserStore()
 
@@ -555,7 +549,7 @@ The following operations are available in **UserStoreConfigAdminService**.
     <tbody>
         <tr class="even">
             <th>Description</t>
-            <td>This operation deletes a userstore.</td>
+            <td>This operation deletes a user store.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -565,7 +559,7 @@ The following operations are available in **UserStoreConfigAdminService**.
             <th>Input Parameters</th>
             <td>
                 <ul>
-                    <li><code>domainName</code> <code>[string]</code>: This is the domain name of the userstore. This is a unique name that identifies the userstore.</li>
+                    <li><code>domainName</code> <code>[string]</code>: This is the domain name of the user store. This is a unique name that identifies the user store.</li>
                 </ul>
             </td>
         </tr>
@@ -588,7 +582,6 @@ The following operations are available in **UserStoreConfigAdminService**.
        </soapenv:Body>
     </soapenv:Envelope>
     ```
----
 
 ### deleteUserStoresSet()
 
@@ -596,7 +589,7 @@ The following operations are available in **UserStoreConfigAdminService**.
     <tbody>
         <tr class="even">
             <th>Description</th>
-            <td>This operation deletes multiple userstores.</td>
+            <td>This operation deletes multiple user stores.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -606,7 +599,7 @@ The following operations are available in **UserStoreConfigAdminService**.
             <th>Input Parameters</th>
             <td>
                 <ul>
-                    <li><code>domains</code> <code>[string]</code>: This is array of domain names of the userstores that are to be deleted.</li>
+                    <li><code>domains</code> <code>[string]</code>: This is array of domain names of the user stores that are to be deleted.</li>
                 </ul>
             </td>
         </tr>
@@ -631,15 +624,13 @@ The following operations are available in **UserStoreConfigAdminService**.
     </soapenv:Envelope>
     ```
 
----
-
 ### editUserStore()
 
 <table>
     <tbody>
         <tr class="even">
             <th>Description</th>
-            <td>This is operation edits a userstore.</td>
+            <td>This is operation edits a user store.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -650,11 +641,11 @@ The following operations are available in **UserStoreConfigAdminService**.
             <td>
                 <p>
                     <ul>
-                        <li><code>className</code> <code>[string]</code>: This is the userstore manager class name. A list of available class names can be obtained using the <a href="  #getavailableuserstoreclasses">getAvailableUserStoreClasses</a> function.</li>
-                        <li><code>description</code><code>[string]</code> : This is the description of the userstore.</li>
+                        <li><code>className</code> <code>[string]</code>: This is the user store manager class name. A list of available class names can be obtained using the <a href="  #getavailableuserstoreclasses">getAvailableUserStoreClasses</a> function.</li>
+                        <li><code>description</code><code>[string]</code> : This is the description of the user store.</li>
                         <li><code>disabled</code><code>[boolean]</code> : To disable, mark as <code>true</code>. To enable, mark as <code>false</code>.</li>
-                        <li><code>domainID</code><code>[string]</code> : This is the domain name of the userstore. This is a unique name that identifies the userstore.</li>
-                        <li><code>properties</code><code>[property]</code> : These are various properties related to the userstore such as connection URL and connection password.</li>
+                        <li><code>domainID</code><code>[string]</code> : This is the domain name of the user store. This is a unique name that identifies the user store.</li>
+                        <li><code>properties</code><code>[property]</code> : These are various properties related to the user store such as connection URL and connection password.</li>
                         <li><code>properties.name</code><code>[string]</code> : This is the name of the property.</li>
                         <li><code>properties.value</code><code>[string]</code> : This is the value of the property.</li>
                     </ul>
@@ -713,15 +704,13 @@ The following operations are available in **UserStoreConfigAdminService**.
     </soapenv:Envelope>
     ```
 
----
-
 ### editUserStoreWithDomainName()
 
 <table>
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation edits a userstore and changes its domain name.</td>
+            <td>This operation edits a user store and change its domain name.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -731,11 +720,11 @@ The following operations are available in **UserStoreConfigAdminService**.
             <th>Input Parameters</th>
             <td>
                 <ul>
-                    <li><code>className</code> <code>[string]</code>: This is the userstore manager class name. A list of available class names can be obtained using the <a href="  #getavailableuserstoreclasses">getAvailableUserStoreClasses</a> function.</li>
-                    <li><code>description</code><code>[string]</code> : This is the description of the userstore.</li>
+                    <li><code>className</code> <code>[string]</code>: This is the user store manager class name. A list of available class names can be obtained using the <a href="  #getavailableuserstoreclasses">getAvailableUserStoreClasses</a> function.</li>
+                    <li><code>description</code><code>[string]</code> : This is the description of the user store.</li>
                     <li><code>disabled</code><code>[boolean]</code> : To disable, mark as <code>true</code>. To enable, mark as <code>false</code>.</li>
-                    <li><code>domainID</code><code>[string]</code> : This is the domain name of the userstore. This is a unique name that identifies the userstore.</li>
-                    <li><code>properties</code><code>[property]</code> : These are various properties related to the userstore such as connection URL and connection password.</li>
+                    <li><code>domainID</code><code>[string]</code> : This is the domain name of the user store. This is a unique name that identifies the user store.</li>
+                    <li><code>properties</code><code>[property]</code> : These are various properties related to the user store such as connection URL and connection password.</li>
                     <li><code>properties.name</code><code>[string]</code> : This is the name of the property.</li>
                     <li><code>properties.value</code><code>[string]</code> : This is the value of the property.</li>
                 </ul>                
@@ -780,15 +769,13 @@ The following operations are available in **UserStoreConfigAdminService**.
     </soapenv:Envelope>
     ```
 
----
-
 ### getAvailableUserStoreClasses()
 
 <table>
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation retrieves the available userstore classes.</td>
+            <td>This operation retrieves the available user store classes.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -834,15 +821,13 @@ The following operations are available in **UserStoreConfigAdminService**.
     </soapenv:Envelope>
     ```
 
----
-
 ### getSecondaryRealmConfigurations()
 
 <table>
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation retrieves the configurations of secondary userstores.</td>
+            <td>This operation retrieves the configurations of secondary user stores.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -884,15 +869,13 @@ The following operations are available in **UserStoreConfigAdminService**.
     </soapenv:Envelope>
     ```
 
----
-
 ### getUserStoreManagerProperties()
 
 <table>
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation retrieves the properties of secondary userstores.</td>
+            <td>This operation retrieves the properties of secondary user stores.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -1151,15 +1134,13 @@ The following operations are available in **UserStoreConfigAdminService**.
     </soapenv:Envelope>
     ```
 
----
-
 ### testRDBMSConnection()
 
 <table>
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation tests the connection to the datasource used by a JDBC userstore manager.</td>
+            <td>This operation tests the connection to the datasource used by a JDBC user store manager.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>

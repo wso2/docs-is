@@ -4,7 +4,7 @@ As an enterprise's applications, services, and API adoptions grow,
 managing identities (such as employees, vendors, partners, and
 customers) across internal, shared, and SaaS services becomes a
 significant challenge. The [WSO2 Identity
-Server](https://wso2.com/products/identity-server/) is a product that can
+Server](http://wso2.com/products/identity-server/) is a product that can
 meet this challenge and also provide options to solve identity problems
 you may encounter in future.
 

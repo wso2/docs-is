@@ -1,6 +1,6 @@
 # User Registration with Password Entry
 
-[Registering users](../../learn/user-registration) with password entry is an [account management](../../learn/managing-user-accounts) feature offered by WSO2 Identity Server. 
+[Registering users](../../learn/user-registraion) with password entry is an [account management](../../learn/managing-user-accounts) feature offered by WSO2 Identity Server. 
 
 In this approach, an administrator first creates a user account in the system upon which a confirmation link will be emailed to the user’s registered email Id. Once the user clicks on the confirmation link, the user will be taken into a screen prompting to enter the password. Once the user enters the correct password, the user account gets activated. 
 
@@ -27,7 +27,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		ask_password_from_user= true
 		```
 
-	2.	To configure the email server to send emails requesting password entry, add the following configurations.
+	2.	To configure the email server to send emails requesting passwor entry, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
 		-	**username**: This is the user name of the given email address.
@@ -63,9 +63,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
 
-			3.  Enable **Less secure app access** in the Google Account security section.
-
-2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
+2.	[Restart WSO2 Identity Server]((../../setup/running-the-product/)).
 
 3.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 	 
 
@@ -73,7 +71,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
-5.	Under the **Account Management Policies** section, click **User Onboarding > Ask Password**.
+5.	Under the **Account Management Policies** section, click **User Onboarding**.
 
 	<img src="../../assets/img/learn/user-onboarding-option.png" alt="User Onboarding Option" width="700" style="border:1px solid grey">  	
 
@@ -110,35 +108,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		-	**Username**: `Jane`
 		-	**Define password here**: Unselected
 		-	**Ask Password from user**: Selected
-		-	**Email Address**: Enter the email address to which you wish to receive the account confirmation email. 
+		-	**Email Address**: Enter the email address to which you wish to recieve the account confirmation email. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/user-registration-with-password-entry.md
-            !!! tip "Using special characters"
-            
-                - **In the username**
-                
-                    Note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and
-                      whitespaces are not allowed in usernames as they have been reserved for other purposes. See
-                       [Usernames in WSO2 Identity Server](../references/usernames-in-identity-server.md) for more
-                        information on this.
+			!!! tip "Using special characters in the email address"
 
-			    - **In the email address**
-
-                    If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../learn/adding-email-special-characters).
-========
-		!!! tip "Using special characters"
-
-		    - **In the username**
-
-		    Note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and
-			whitespaces are not allowed in usernames as they have been reserved for other purposes. See
-			[Usernames in WSO2 Identity Server](../references/usernames-in-identity-server.md) for more
-			information on this.
-
-		    - **In the email address**
-
-		    If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../learn/adding-email-special-characters).
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/user-registration-with-password-entry.md
+				If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../learn/adding-email-special-characters).
 
 
 	4.	Click **Finish**. 

@@ -34,5 +34,3 @@ template: templates/swagger.html
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8955162f4953dc6b66de)

@@ -1,4 +1,4 @@
-# Manage User Roles
+# Configuring Users, Roles and Permissions
 
 WSO2 Identity Server supports the role-based authentication model where
 privileges of a user are based on roles attached.
@@ -10,21 +10,13 @@ the set of permissions owned by a user is determined by the roles
 assigned to that user. If a user has several assigned roles, their
 permissions are added together.
 
-This section guides you through the operations that can be carried out on user roles. 
-
-- [Add User Roles]({{base_path}}/guides/identity-lifecycles/add-user-roles)
-
-- [Edit/Delete Roles]({{base_path}}/guides/identity-lifecycles/edit-delete-roles)
-
-- [Role-based Permissions]({{base_path}}/guides/identity-lifecycles/role-based-permissions)
-
 !!! note "Before you begin"
 
     The following items are things to note before you begin.
 
     -   Only system administrators can add, modify and remove users and
         roles. To set up administrators, see [Configuring the System
-        Administrator]({{base_path}}/deploy/configure-the-system-administrator).  
+        Administrator](../../setup/configuring-the-system-administrator).  
         
 
     -   Your product has a primary user store where the users/roles that you
@@ -49,8 +41,8 @@ This section guides you through the operations that can be carried out on user r
         change the `            RegEx           ` configuration or enter
         values that conform to the `            RegEx           ` . If you
         [change the default user
-        store]({{base_path}}/deploy/configure-the-primary-user-store) or [set up a secondary
-        user store]({{base_path}}/deploy/configure-secondary-user-stores), configure the
+        store](../../setup/configuring-the-primary-user-store) or [set up a secondary
+        user store](../../setup/configuring-secondary-user-stores), configure the
         `            RegEx           ` accordingly under the user store
         manager configurations in the
         `            <IS_HOME>/repository/conf/deployment.toml          `
@@ -72,4 +64,18 @@ This section guides you through the operations that can be carried out on user r
         WSO2 Carbon maintains roles and permissions in the Carbon database,
         but it can also read users/roles from the configured User Store.
 
+!!! info "Related topics"
 
+    For detailed information on configuring users, roles, and permissions,
+    see the following topics.
+
+    -   [Configuring Users](../../learn/configuring-users)
+    -   [Configuring Roles and
+        Permissions](../../learn/configuring-roles-and-permissions)
+    -   [Using Workflows with User
+        Management](../../learn/using-workflows-with-user-management)
+    You can also see the following pages for system administrator related
+    configurations:
+
+    -   See [Configuring User Stores](../../setup/configuring-user-stores) for
+        instructions on how to configure primary and secondary user stores.

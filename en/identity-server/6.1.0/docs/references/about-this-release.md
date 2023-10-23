@@ -94,31 +94,16 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
 
 -   **reCAPTCHA v3 and invisible reCAPTCHA v2 support**
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/about-this-release.md
     Improved security against spam and fraudulent activity with an enhanced reCAPTCHA user experience compared to the conventional "I'm not a robot" checkbox.
 
     [Learn more]({{base_path}}/deploy/configure-recaptcha/)
 
 WSO2 IS 6.1.0 introduces the following new features and enhancements:
-========
-    Improved  security against spam and fraudulent activity with an enhanced reCAPTCHA user experience compared to the conventional "I'm not a robot" checkbox.
-
-    [Learn more]({{base_path}}/deploy/configure-recaptcha/)
-
-- **Customized login pages for users**
-
-    Easily personalize login, registration, recovery, and single sign-on interfaces with custom layouts and branding.
-
-    [Learn more]({{base_path}}/references/extend/rebranding/customizable-login-portal/)
-
-## What has changed in this release?
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/about-this-release.md
 
 -   **Google One Tap authentication** 
     
     Enabling seamless authentication with Google on authenticated Google sessions with a single tap. A personalized login button will be there for sign-in/sign-up. This option is enabled via the existing Google authenticator.
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/about-this-release.md
     [Learn more]({{base_path}}/guides/identity-federation/google/)
 
 -   **Accessibility**
@@ -132,9 +117,6 @@ WSO2 IS 6.1.0 introduces the following new features and enhancements:
 If you are moving to WSO2 Identity Server 6.1.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.1.0.
 
 Learn more about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
-========
-Learn moe about [upgrading to WSO2 IS 6.0.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/about-this-release.md
 
 ## Beta features
 
@@ -164,11 +146,7 @@ The following features are removed from WSO2 IS 6.0.0 onwards.
 
 ## Deprecated features
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/about-this-release.md
 The following capabilities are deprecated from WSO2 IS 6.0.0 onwards, which means they will be removed in a future release.
-========
-The following capabilities are deprecated in WSO2 Identity Server 6.0.0, which means they will be removed in a future release. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/about-this-release.md
 
 -   SCIM 1 inbound provisioning
 

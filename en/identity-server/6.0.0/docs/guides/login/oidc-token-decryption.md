@@ -1,12 +1,7 @@
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/login/oidc-token-decryption.md
 # Decrypt OpenID Connect Encrypted ID Tokens
 
 The WSO2 Identity Server provides encrypted ID Tokens to address some
 security vulnerabilities in the production environment.
-========
-# Decrypting OpenID Connect Encrypted ID Tokens
-The WSO2 Identity Server provides encrypted ID Tokens.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/decrypting-openid-connect-encrypted-id-tokens.md
 
 -   Unencrypted JWT ID tokens can contain only two base64 encoded
     portions separated by a "."

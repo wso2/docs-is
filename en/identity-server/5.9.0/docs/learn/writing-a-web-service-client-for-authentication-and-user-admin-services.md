@@ -2,14 +2,14 @@
 
 This topic demonstrates how to use different web services API exposed by
 Identity Server, to write a client application "
-[remote-user-mgt](https://github.com/wso2/samples-is/tree/master/user-mgt)
+[remote-user-mgt](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples/user-mgt)
 " to handle user management functionality (ex: create user, create
 roles, assign roles) of WSO2 Identity Server remotely. The
-[remote-user-mgt](https://github.com/wso2/samples-is/tree/master/user-mgt)
+[remote-user-mgt](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples/user-mgt)
 sample uses ` AuthenticationAdmin, RemoteUserStoreManagerService ` and `
 RemoteAuthorizationManagerService ` admin services to perform different
 operations. Go through the
-[remote-user-mgt](https://github.com/wso2/samples-is/tree/master/user-mgt)
+[remote-user-mgt](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples/user-mgt)
 sample implementation to see details.
 
 !!! info 
@@ -22,15 +22,18 @@ sample implementation to see details.
     APIs](../../develop/managing-permissions-with-apis)
     .
 
-1.  The code for the sample can be checked out from the [GitHub
-    repository](https://github.com/wso2/samples-is).
+1.  The code for the sample can be checked out from the GitHub
+    repository. To do this, follow the instructions on the [Downloading
+    a Sample](../../learn/downloading-a-sample)
+    topic.
 2.  Once you have downloaded the samples, go to the `
     <Sample_Home>/user-mgt/remote-user-mgt ` directory to
     build the remote user management client.
     
     !!! Tip 
         `<Samples_Home>` is referred to the
-        [root directory of the WSO2 Identity Server's samples](https://github.com/wso2/samples-is).
+        [root directory of the WSO2 Identity Server's samples](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples)
+        that you checkout by following the steps [here](../../learn/downloading-a-sample/)
 
 3.  Make sure the URL of the remote server (`remote.server.url`),
     credentials of the user who performs user management operations

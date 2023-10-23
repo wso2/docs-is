@@ -4,7 +4,7 @@ You can register external PEP Endpoints in the WSO2 Identity Server. The
 Identity Server sends cache invalidation notifications (JSON, XML,
 EMAIL) to the pre-configured external PEP endpoints. Basic
 authentication will be used as the [authentication
-mechanism]({{base_path}}/learn/configuring-local-and-outbound-authentication-for-a-service-provider)
+mechanism](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider)
 .
 
 This topic describes how you can enable the XACML engine to send
@@ -15,7 +15,7 @@ permissions or attributes are updated.
 
 1.  If you are using EMAIL as the notification method, enable the email
     sending configurations of the WSO2 Identity Server as explained
-    [here]({{base_path}}/setup/configuring-email-sending).
+    [here](../../setup/configuring-email-sending).
 
 2.  Create an email template in
     `           <carbon-home>/repository/conf/email          ` directory
