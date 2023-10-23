@@ -1,0 +1,255 @@
+swagger: '2.0'
+######################################################
+# Prolog
+######################################################
+info:
+  version: "v1"
+  title: "WSO2 Identity Server FIDO 2 Rest API "
+  description: |
+    This document specifies a **FIDO 2 RESTfulAPI** for WSO2 **Identity Server** .
+
+    It is written with [swagger 2](http://swagger.io/).
+
+  contact:
+    name: "WSO2"
+    url: "http://wso2.com/products/identity-server/"
+    email: "architecture@wso2.org"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+# Tags are used for organizing operations
+tags:
+- name: me
+  description: Operations for the authenticated user.
+
+######################################################
+# The fixed parts of the URLs of the API
+######################################################
+
+# The schemes supported by the API
+schemes:
+  - https
+
+# The domain of the API.
+# This is configured by the customer during deployment.
+# The given host is just an example.
+# host: apis.is.com
+
+# The base path of the API.
+# Will be prefixed to all paths.
+
+basePath: /t/carbon.super/api/users/v1
+
+# The following media types can be passed as input in message bodies of the API.
+# The actual media type must be specified in the Content-Type header field of the request.
+# The default is json, i.e. the Content-Type header is not needed to
+# be set, but supporting it serves extensibility.
+consumes:
+  - application/json
+
+# The following media types may be passed as output in message bodies of the API.
+# The media type(s) consumable by the requester is specified in the Accept header field
+# of the corresponding request.
+# The actual media type returned will be specified in the Content-Type header field
+# of the of the response.
+# The default of the Accept header is json, i.e. there is not needed to
+# set the value, but supporting it serves extensibility.
+produces:
+  - application/json
+paths:
+  # Endpoint used to start registration
+  /me/webauthn/start-registration:
+    post:
+      description: |
+        This API is used to start the fido device registration process.
+      summary: |
+        Start FIDO registration
+
+      consumes:
+        - application/x-www-form-urlencoded
+      # post parameters:
+      parameters:
+        -
+          name: appId
+          in: formData
+          description:  This represents the appId of the FIDO request initiator
+          required: true
+          type: string
+      responses:
+        201:
+          description: Successful response
+          schema:
+            type: string
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        409:
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+  /me/webauthn/finish-registration:
+    post:
+      description: |
+        This API is used to complete the device registration
+      summary: |
+        complete device registration
+      # post parameters:
+      parameters:
+        -
+          name: response
+          in: body
+          description:  Response from the client
+          required: true
+          schema:
+            type: string
+      responses:
+        201:
+          description: Successful response
+          schema:
+            type: string
+          headers:
+            Location:
+              type: 'string'
+              description: 'Location of the newly created purpose category.'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        409:
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+  /me/webauthn/{credentialId}:
+    delete:
+      description: |
+        This API is used to deregister devices by username and credentialId.
+      summary: |
+        Deregister devices by username and credentialId
+      parameters:
+        -
+          name: credentialId
+          in: path
+          description:  credentialId
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+  # Endpoint used to get device metadata by username
+  /me/webauthn:
+    get:
+      description: |
+        This API is used to get fido metadata by username.
+      summary: |
+        Device Metadata
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        -
+          name: username
+          in: query
+          description:  This represents the username
+          required: true
+          type: string
+      responses:
+        201:
+          description: Successful response
+          schema:
+            type: string
+          headers:
+            Location:
+              type: 'string'
+              description: 'Metadata of devices registerd to the user'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        409:
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+
+definitions:
+  #-----------------------------------------------------
+  # The Error Response  object
+  #-----------------------------------------------------
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+#-----------------------------------------------------
+
+#-----------------------------------------------------
+# Security Definitions
+#-----------------------------------------------------
+securityDefinitions:
+  BasicAuth:
+    type: basic
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://localhost:9443/oauth2/authorize
+    tokenUrl: https://localhost:9443/oauth2/token
+    scopes:
+      read: Grants read access
+      write: Grants write access
+      admin: Grants read and write access to administrative information
