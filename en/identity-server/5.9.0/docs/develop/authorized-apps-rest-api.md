@@ -2,16 +2,12 @@
 template: templates/swagger.html
 ---
 
-# OAuth2 Authorized Apps API Definition - v1
+# OAuth2 Authorized Apps API Definition - V1
 
-!!! warning
-    This API version will be deprecated in future versions of WSO2 IS. 
-    You can use [OAuth2 Authorized Apps API Definition - v2]({{base_path}}/apis/authorized-apps-v2-rest-api/) instead.
-
-??? Note "Click For instructions"
-    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
+??? Note "Click to view"
+    Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
-       1.  Click **Authorize** and provide the desired values for authentication. 
+       1.  Click on **Authorize** button and provide desired values for authentication. 
        2.  Expand the relevant API operation and click the **Try It Out** button.  
        3.  Fill in relevant sample values for the input parameters and click **Execute**. 
             You will receive a sample curl command with the sample values you filled in. 
@@ -20,10 +16,10 @@ template: templates/swagger.html
          
 <div id="swagger-ui"></div>
 <script>
-
+window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/authorized-apps.yaml",
+    url: "../../develop/restapis/authorizedapps.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -38,5 +34,6 @@ template: templates/swagger.html
   })
   // End Swagger UI call region
 
-   window.ui = ui
+  window.ui = ui
+}
 </script>

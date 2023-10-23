@@ -1,7 +1,7 @@
 # Username Recovery
 
 The user account recovery feature implemented in the WSO2 Identity
-Server (WSO2 IS) helps to recover the username of the account if the user has
+Server helps to recover the username of the account if the user has
 forgotten it. This recovery process is also secured with
 captcha verification.
 
@@ -14,11 +14,6 @@ address. Upon the successful verification of the user details, the user
 account ID is sent to the user by email.For this to be possible, the
 user needs to fill the details in their respective user profile such as
 email, first name, last name and any other required attributes.
-
-!!! note
-	WSO2 IS validates whether the user account is locked or disabled prior to account recovery. In addition, if any customization prior to account recovery such as checking the eligibility of the user for account recovery by validating certain conditions/ user claims is needed, WSO2 Identity Server provides an extension for that.
-
-	WSO2 IS triggers the `PRE_ACCOUNT_RECOVERY` event prior to user account recovery using the WSO2 IS eventing framework. A custom event handler can be written upon which the `PRE_ACCOUNT_RECOVERY` event is triggered. For more information on how to write a custom handler and trigger an event, see [Writing a custom handler](../../develop/writing-a-custom-event-handler).
 
 The instructions below guide you through setting up username recovery
 with the WSO2 IS.
@@ -81,11 +76,7 @@ with the WSO2 IS.
     Notification Internally Management** checkbox.  
     
     !!! note
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/username-recovery.md
-        The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
-========
         The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/username-recovery.md
 
     For more information on the fields seen on this screen, see [Account Recovery REST API](../../develop/using-the-account-recovery-rest-apis).
       
@@ -129,7 +120,7 @@ with the WSO2 IS.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given here.
-3.  Access the [WSO2 Identity Server My Account Portal](https://localhost:9443/myaccount/).
+3.  Access the [WSO2 Identity Server User Portal](https://localhost:9443/user-portal/).
 4.  Click the **Forgot Username** link.
 5.  Enter the required fields and click **Submit**.  
     ![enter-fields-dashboard](../assets/img/using-wso2-identity-server/enter-fields-userportal.png) 

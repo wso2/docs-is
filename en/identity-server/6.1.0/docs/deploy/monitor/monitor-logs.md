@@ -3,14 +3,8 @@
 Logging is one of the most important aspects of a production-grade
 server. A properly configured logging system is vital for identifying
 errors, security threats, and usage patterns.
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/monitor/monitor-logs.md
  
 ---
-========
-
-!!! Warning
-    Note that WSO2 Identity Server 5.9.0, 5.10.0, and 5.11.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/setup/monitoring-logs.md
 
 ## Log types
 

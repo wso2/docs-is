@@ -1,20 +1,18 @@
-# Consent Management REST APIs
+# Using the Consent Management REST APIs
 
 The consent management APIs in WSO2 Identity Server collect and manage
 end user consents when user information is shared with external parties.
 The following sections guide you through the consent management concepts
 and the APIs you can invoke.
 
----
-
-## Definitions for consent management
+### Definitions for consent management
 
 This section defines and explains commonly used terms in consent
 management.
 
 -   **Personally Identifiable Information (PII)**: Any information that can be used to identify the PII Principal to whom the information relates to.
 -   **PII Principal**: The natural person to whom the personally identifiable information (PII) relates to.
--   **Consent**: A Personally identifiable information (PII) Principal's freely
+-   **Consent**: A Personally identifiable information (PII) Principal’s freely
     given, specific and informed agreement to the processing of their
     PII.
 -   **Purpose**: The business, operational or regulatory requirement for the
@@ -23,10 +21,10 @@ management.
     the entity.
 -   **Consent Receipt**: A record of a consent interaction (or consent record summary
     linked to the record of consent) provided by a PII Principal to a
-    PII Controller to collect, use and disclose the PII Principal's PII
+    PII Controller to collect, use and disclose the PII Principal’s PII
     in accordance to an agreed set of terms.
 -   **PII Controller**: A private stakeholder that determines the purposes and means for
-    processing personally identifiable information (PII) other  than the
+    processing personally identifiable information (PII) other than the
     natural persons who use data for personal purposes.  
 Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
@@ -50,28 +48,20 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
     street_address = "1600"
     ```
             
-    | Property         | Type    | Required/Optional | Description                                                                                                                            |
-    |------------------|---------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-    | `name`           | string  | Required          | Name of the first PII controller who collects the data.                                                                                |
-    | `contact`        | string  | Required          | Contact name of the PII controller.                                                                                                    |
-    | `email`          | string  | Required          | Contact email address of the PII Controller. The direct email to contact the PII Controller regarding the consent or privacy contract. |
-    | `phone`          | string  | Required          | Contact phone number of the PII Controller. The business phone number to contact the PII Controller regarding the consent.             |
-    | `on_behalf`      | boolean | Optional          | A PII Processor acting on behalf of a PII Controller or PII Processor.                                                                 |
-    | `url`            | string  | Optional          | A URL for contacting the PII Controller.                                                                                               |
-    | `country`        | string  | Required          | Country of the PII controller.                                                                                                         |
-    | `locality`       | string  | Required          | Locality of the PII controller.                                                                                                        |
-    | `region`         | string  | Required          | Region of the PII controller.                                                                                                          |
-    | `po_box`         | string  | Required          | Post office box number of the PII controller.                                                                                          |
-    | `postal_code`    | string  | Required          | Postal code of the PII controller.                                                                                                     |    
-    | `street_address` | string  | Required          | Street address of the PII controller.                                                                                                  |
+    | Property             | Type    | Required/Optional | Description                                                                                                                            |
+    |----------------------|---------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+    | <PIIController\>    | string  | Required          | Name of the first PII controller who collects the data.                                                                                |
+    | <Contact\>          | string  | Required          | Contact name of the PII controller.                                                                                                    |
+    | <Email\>            | string  | Required          | Contact email address of the PII Controller. The direct email to contact the PII Controller regarding the consent or privacy contract. |
+    | <Phone\>            | string  | Required          | Contact phone number of the PII Controller. The business phone number to contact the PII Controller regarding the consent.             |
+    | <OnBehalf\>         | boolean | Optional          | A PII Processor acting on behalf of a PII Controller or PII Processor.                                                                 |
+    | <PiiControllerUrl\> | string  | Optional          | A URL for contacting the PII Controller.                                                                                               |
+    | <Address\>          | object  | Required          | The physical address of the PII controller.                                                                                            |
 
 -   **PII Processor**: A private stakeholder that processes personally identifiable
     information (PII) on behalf of and in accordance with the
     instructions of a PII controller.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/use-the-consent-management-rest-apis.md
-## Extension points
-========
 ### APIs and supported operations
 
 !!! info
@@ -80,7 +70,6 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
     
 
 ### Extension points
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/using-the-consent-management-rest-apis.md
 
 You can customize the REST APIs using the following extension points:
 

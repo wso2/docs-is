@@ -11,9 +11,7 @@ using WSO2 Identity Server as an identity provider.
 This tutorial demonstrates how you can add SSO support to a sample iOS
 application using WSO2 Identity Server as the Identity Provider.
 
----
-
-## Prerequisites
+### Prerequisites
 
 Before you start the tutorial, be sure to complete the following
 prerequisites:
@@ -30,6 +28,7 @@ prerequisites:
     sample.
 
 !!! tip
+    
     It is useful to have basic knowledge in iOS application development and
     some experience with the SWIFT (3+) programming language.
     
@@ -37,9 +36,7 @@ prerequisites:
 Once you have the prerequisites, you can follow the step-by-step
 instructions in the following sections.
 
----
-
-## Set up WSO2 Identity Server
+### Setting up WSO2 Identity Server
 
 Since WSO2 Identity Server acts as the identity provider in this
 tutorial, first you need to configure WSO2 Identity Server as an
@@ -60,7 +57,7 @@ add a self-signed certificate to both WSO2 Identity Server and the
 simulator.
 
 1.  Follow the steps
-    [here]({{base_path}}/deploy/security/create-new-keystores#add-ca-signed-certificate-to-keystores)
+    [here](../../administer/creating-new-keystores#adding-ca-signed-certificate-to-keystores)
     to add a self-signed certificate to WSO2 Identity Server.
 
     !!! note
@@ -69,7 +66,7 @@ simulator.
         DNS entry to a custom domain name and generate self-signed
         certificates to that particular domain. If you are doing this, you
         also need to [change the WSO2 Identity Server
-        host]({{base_path}}/deploy/get-started/run-the-product#access-the-management-console)
+        host](../../setup/running-the-product#accessing-the-management-console)
         accordingly and add the local DNS entry to your hosts file.
     
 
@@ -77,7 +74,7 @@ simulator.
     can sign in using `          admin         ` as the username and
     password. For detailed instructions on accessing the management
     console of WSO2 Identity Server, see [Accessing the Management
-    Console]({{base_path}}/deploy/get-started/run-the-product#access-the-management-console).
+    Console](../../setup/running-the-product#accessing-the-management-console).
 3.  On the **Main** tab of the management console, go to **Identity**
     -\> **Service Provider** and click **Add**.
 4.  Enter an appropriate name for the new service provider and click
@@ -106,9 +103,7 @@ simulator.
 Now you have set up WSO2 Identity Server. Next you need to set up the
 sample iOS application.
 
----
-
-## Set up the sample application
+### Setting up the sample application
 
 1.  Use [this tool](https://github.com/yageek/iostrust) to import a
     self-signed certificate to the iOS simulator.
@@ -118,7 +113,7 @@ sample iOS application.
     `           <SAMPLES_HOME>          ` throughout this tutorial.
 
 3.  Open the
-    `<SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcworkspace`
+    `           <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcworkspace          `
     file in Xcode.
 
     !!! note
@@ -126,14 +121,14 @@ sample iOS application.
         Note
     
         Ensure that you do not open the
-        `<SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcodeproj          `
+        `           <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/           WSO2-IS-SampleApp.xcodeproj          `
         file as it will not resolve the [CocoaPods](https://cocoapods.org)
         dependencies.
     
 
 Following is the directory structure of the sample application project:
 
-![sample-app-directory-structure]({{base_path}}/assets/img/guides/sample-app-directory-structure.png)
+![sample-app-directory-structure](../assets/img/tutorials/sample-app-directory-structure.png)
 
 Following are descriptions of the key components of the sample
 application project:
@@ -212,17 +207,16 @@ required.
         sample source code. Installing dependencies from scratch is not
         recommended until the issues and complexities are resolved.
         
----
 
-## Configure the sample application
+### Configuring the sample application
 
 There are two key configuration steps that you need to perform before
 you run the application.
 
-### Configure application settings
+##### Configuring application settings
 
 To configure application settings, right click on the
-`<SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp/Info.plist`
+`         <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp/Info.plist        `
 file and open it with a source code editor.
 
 -   In the source code, you will see the following lines of code:
@@ -282,13 +276,12 @@ file and open it with a source code editor.
         certificates in a production environment. Therefore, be sure to
         remove the above code block before you publish your application for
         review.
+    
 
----
-
-### Configure endpoints and OAuth client settings
+##### Configuring endpoints and OAuth client settings
 
 To configure endpoint and OAuth client settings, right click on the
-`SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp/Config.plist        `
+`         <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp/Config.plist        `
 file and open it with a source code editor.
 
 -   In the source code, you will see several OAuth related properties
@@ -335,15 +328,13 @@ file and open it with a source code editor.
 
 Now you are ready to try out the sample application.
 
----
-
-## Run the sample application
+### Running the sample application
 
 Follow the steps below to use the iOS simulator and run the sample
 application:
 
 1.  Open the
-    `<SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcworkspace`
+    `           <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcworkspace          `
     file in Xcode. You may already have this file open in Xcode if you
     followed the steps in the Setting up the iOS client sample
     application section.
@@ -351,26 +342,26 @@ application:
 2.  Click **Run** on the Xcode toolbar to build the sample application and
     run it via the simulator. This will launch the sample application in
     the simulator.  
-    ![pickup-login]({{base_path}}/assets/img/guides/pickup-login.png)
+    ![pickup-login](../assets/img/tutorials/pickup-login.png)
 
 3.  Click **LOGIN**. You will see the following message on the
     screen:  
-    ![confirm-pickup-login]({{base_path}}/assets/img/guides/confirm-pickup-login.png)
+    ![confirm-pickup-login](../assets/img/tutorials/confirm-pickup-login.png)
 
 4.  Click **Continue**. You will be redirected to the sign-in screen so
     that you can sign-in via WSO2 Identity Server.  
-    ![sign-in]({{base_path}}/assets/img/guides/sign-in-via-identity-server.png)
+    ![sign-in](../assets/img/tutorials/sign-in-via-identity-server.png)
 
 5.  Enter your credentials and click **SIGN IN**. This will take you to
     the consent screen.  
-    ![oidc-claims-approval]({{base_path}}/assets/img/guides/oidc-claims-approval.png)
+    ![oidc-claims-approval](../assets/img/tutorials/oidc-claims-approval.png)
 
 6.  Select a required approval mechanism, then select the attributes you
     want to share with the service provider, and then click **Continue**
     to allow the sample application access your information. This will
     redirect you to the sample application profile screen that displays
     your user name and a **Sign out** button.  
-    ![pickup-welcome-screen]({{base_path}}/assets/img/guides/pickup-welcome-screen.png)
+    ![pickup-welcome-screen](../assets/img/tutorials/pickup-welcome-screen.png)
 
 Now you have successfully signed in to the sample application using WSO2
 Identity Server as an identity provider.
@@ -384,12 +375,12 @@ Follow the steps below to sign out of the sample application:
 1.  On the sample application profile screen, click **Sign out**. You
     will see the following message on the screen:  
       
-    ![confirm-pickup-signout]({{base_path}}/assets/img/guides/confirm-pickup-signout.png)
+    ![confirm-pickup-signout](../assets/img/tutorials/confirm-pickup-signout.png)
 
 2.  Click **Yes**. This will sign you out from the sample application.
     You will also see a message as follows notifying that you are going
     to be redirected to a page to log out of WSO2 Identity Server.  
-    ![pickup-logout-redirection-notice]({{base_path}}/assets/img/guides/pickup-logout-redirection-notice.png)
+    ![pickup-logout-redirection-notice](../assets/img/tutorials/pickup-logout-redirection-notice.png)
 
 3.  Click **Ok**. You will see a message as follows:
 
@@ -407,14 +398,14 @@ Follow the steps below to sign out of the sample application:
             However, you can continue to log out of the application.
     
 
-    ![pickup-logout-signin-error]({{base_path}}/assets/img/guides/pickup-logout-signin-error.png)
+    ![pickup-logout-signin-error](../assets/img/tutorials/pickup-logout-signin-error.png)
 
 4.  Click **Continue**. This will redirect you to the OpenID Connect
     logout page of WSO2 Identity Server. Once you click ‘Yes’ you will
     be logged out from the server and will be redirected to the login
     page of the application.
 
-    ![oidc-logout]({{base_path}}/assets/img/guides/oidc-logout.png)
+    ![oidc-logout](../assets/img/tutorials/oidc-logout.png)
 
 5.  Click **Yes**. This will log you out from the server and will
     redirect you to the sign-in page of the sample application.

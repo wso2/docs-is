@@ -14,7 +14,7 @@ Follow the steps below to define the password policy that Sam wants to enforce.
 
 !!! tip "Before you begin"
 
-	1.	[Run WSO2 Identity Server](../../setup/running-the-product/).
+	1.	[Run WSO2 Identity Sever](../../setup/running-the-product/).
 
 	2.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator.
 
@@ -80,39 +80,34 @@ Follow the steps below to define the password policy that Sam wants to enforce.
 
 3.	To change the password:
 
-	1.	Access WSO2 Identity Server My Account portal at `https://localhost:9443/myaccount/`.
+	1.	Access WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
 
 	2.	Log in with the credentials of the user account that you created.
 
 		<img src="../../assets/img/learn/sign-in-form.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
-	3.	Under **Security**, click **Change your password**. 
+	3.	Consent to share the shown attributes with the given service provider.
 
-		<img src="../../assets/img/learn/userportal-change-password-option.png" alt="Change Passwrod option" width="700
-		" style="border:1px solid grey">
+		<img src="../../assets/img/learn/consent-form.png" alt="Consent form" width="400" style="border:1px solid grey">
 
-	4.	Enter `testwso2is` in **Current Password**, **New Password**, and **Confirm Password** text boxes.
+	4.	Under **Change Password**, click **View details**. 
+
+		<img src="../../assets/img/learn/dashboard-change-password-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
+
+	5.	Enter `testwso2is` in **Current Password**, **New Password**, and **Confirm New Password** text boxes.
 
 		<img src="../../assets/img/learn/change-password-form.png" alt="Change Password form" width="700" style="border:1px solid grey"> 
 
-	5.	Click **Update**. An error message appears. 
+	6.	Click **Update**. An error message appears. 
 
 		<img src="../../assets/img/learn/passwore-history-error-message.png" alt="Passwrod History Validation error message" width="600" style="border:1px solid grey">
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/validating-password-history.md
-	6.	To mimic three consecutive password changes, change Alex's password to the following sequentially. 
-========
 	7.	To mimic three consecutive password changes, change Alex's password to the following sequentially. 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/validating-password-history.md
 
 		-	`test123`
 		-	`test234`
 		-	`test345`
 
-		Note that these passwords get successfully added to the system. 
+		Note that these passwords gets successfully added to the system. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/validating-password-history.md
-	7.	Now, change Alex's password back to `testwso2is`. Note that the password gets successfully changed. 
-========
 	8.	Now, change Alex's password back to `testwso2is`. Note that the password gets successfully changed. 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/validating-password-history.md

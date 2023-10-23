@@ -163,44 +163,10 @@ template for this option can be configured in the
 
 ### Using SCIM 2.0 API
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/forced-password-reset.md
 Use the following SCIM 2.0 request to trigger a password reset.
     
 Set the **forcePasswordReset** attribute under the `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema as
 **true** in the SCIM2 user create request. 
-========
-1. Open the `scim2-schema-extension.config` file located in the `<IS_HOME>/repository/conf/` folder.
-2. Define the extension by adding the attributes in the following format before the last element of the JSON array in the `scim2-schema-extension.config` file.
-	
-	```xml 
-	{ "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:forcePasswordReset", "attributeName":"forcePasswordReset", "dataType":"boolean", "multiValued":"false", "description":"Enable password change required notification in the user creation.", "required":"false", "caseExact":"false", "mutability":"readwrite", "returned":"default", "uniqueness":"none", "subAttributes":"null", "canonicalValues":[], "referenceTypes":[] },
-	```
-	
-3. Add the attribute names to the `scim2-schema-extension.config` file as `subAttributes` of the wso2Extension attribute as shown below.
-	
-	```xml
-	{ "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", "attributeName":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", "dataType":"complex", "multiValued":"false", "description":"Enterprise User", "required":"false", "caseExact":"false", "mutability":"readWrite", "returned":"default", "uniqueness":"none", "subAttributes":"verifyEmail askPassword employeeNumber costCenter organization division department manager forcePasswordReset", "canonicalValues":[], "referenceTypes":["external"] }
-	```
-	
-4. Restart the server.
-5. Log in to the Management Console.
-6. Add a new external claim by following **Main** > **Claims** > **Add** > **Add External Claim**. 
-7. Add this new external claim under the `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` dialect as shown below. Make sure the name entered in the **Dialect URI** is the same as the one configured as the `attributeURI` in step 2. 
-    
-	| Field              | Value                                                                       |
-    |--------------------|-----------------------------------------------------------------------------|
-    | Dialect URI*       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User                   |
-    |External Claim URI* |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:forcePasswordReset| 
-    |Mapped Local Claim* |http://wso2.org/claims/identity/adminForcedPasswordReset                     |
-    
-8. Use the following SCIM 2.0 request to trigger a password reset.
-    
-    You need to set the **forcePasswordReset** attribute under the`
-    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema as
-    true in the SCIM2 user create request. 
-    ```java
-    PATCH https://<host>:<port>/scim2/Users/<users-scim-id>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/forced-password-reset.md
 
 ```java
 PATCH https://<host>:<port>/scim2/Users/<users-scim-id>

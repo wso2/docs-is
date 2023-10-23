@@ -16,7 +16,7 @@
  * under the License.
  */
 
- .md-main > .md-main__inner > .md-content {
+.md-main > .md-main__inner > .md-content {
     -webkit-transition: margin 0.2s linear;
     -khtml-transition: margin 0.2s linear;
     -moz-transition: margin 0.2s linear;
@@ -790,7 +790,8 @@ html .md-footer-meta.md-typeset a,
 	display: none;
 }
 
-border-left: 4px solid transparent;
+.md-nav--secondary ul>li.md-nav__item {
+	border-left: 4px solid transparent;
 	transition: border 500ms;
 	margin-left: -3px;
 }
@@ -976,7 +977,6 @@ border-left: 4px solid transparent;
 	display: flex;
 	align-items: center;
 	color: #ff5003;
-	padding-right: 8px;
 	transition: all 0.8s ease;
 }
 

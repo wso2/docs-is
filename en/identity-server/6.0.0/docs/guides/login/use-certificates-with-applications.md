@@ -78,10 +78,7 @@ The following steps describe how to configure a service provider public certific
 
 !!! info "Related topics" 
     -  [Concept: JWKS]({{base_path}}/references/concepts/authentication/jwks)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/use-certificates-with-applications.md
-========
     -  [Guide: Generate and Encrypt ID Tokens]({{base_path}}/oidc-token-encryption)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/use-certificates-with-applications.md
     -  [Guide: OpenID Connect Token Encryptuon]({{base_path}}/guides/login/oidc-token-encryption)
     -  [Guide: Call the JSON Web Key Set (JWKS) Endpoint]({{base_path}}/guides/login/using-jwks)
     -  [Guide: Pass Parameters as a Request Object]({{base_path}}/guides/login/oidc-request-object)

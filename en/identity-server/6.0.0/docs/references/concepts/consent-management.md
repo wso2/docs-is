@@ -73,16 +73,9 @@ features.
     information, see [Consent Management REST
     APIs]({{base_path}}/apis/use-the-consent-management-rest-apis/).
 -   Consent portal for individuals to review, modify, and revoke already
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/consent-management.md
     given consents. For more information, see [Consent management]({{base_path}}/guides/my-account/manage-consent-my-account).
 -   Support for organizations to define and manage consent,
     data processing purposes, and user attributes per consent. <!-- For more
-========
-    given consents. For more information, see [Consent management](../../learn/user-portal/#consent-management)
-    .
--   Admin portal support for organizations to define and manage consent,
-    data processing purposes, and user attributes per consent. For more
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/consent-management.md
     information, see [Managing Consent
     Purposes](TO-DO:{{base_path}}/learn/managing-consent-purposes).-->
 -   Consent collection during single sign-on (SSO) before sharing the
@@ -119,11 +112,7 @@ WSO2 IS.
     selectively opt-in/opt-out on each of the purposes.
 
 -   Users can review or revoke already given consent by logging in to
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/consent-management.md
     WSO2 IS My Account (self-care portal).
-========
-    WSO2 IS user portal (self-care portal).
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/consent-management.md
 
 -   Personal data processing applications can check for consent of each
     user through the consent REST API before carrying out any data
@@ -156,11 +145,7 @@ supported in WSO2 IS.
     the consent that the user approves at this point.
 
 -   Users can review or revoke already given consent by logging in to
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/consent-management.md
     the WSO2 IS My Account (self-care portal).
-========
-    the WSO2 IS user portal (self-care portal).
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/consent-management.md
 
 <!--
 !!! tip
@@ -180,15 +165,7 @@ third party applications can not be supported in WSO2 IS as it is
 considered the responsibility of the relevant third party application to
 provide consent management UI facilities for their end users.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/consent-management.md
 #### Support for Kantara consent receipt (draft) specification
-========
-!!! tip For more information and instructions for setting up this use
-    case, see [Using the Consent Management REST
-    APIs](../../develop/using-the-consent-management-rest-apis).
-
-##### **Support for Kantara consent receipt (draft) specification**
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/consent-management.md
 
 A consent receipt is a representation of the consent provided by a
 person at the point he/she agrees to share the personal information with
@@ -202,8 +179,4 @@ Specification](https://kantarainitiative.org/confluence/display/infosharing/Cons
     For more information and instructions for setting up this use case, see
     [Consent Management REST
     APIs]({{base_path}}/apis/use-the-consent-management-rest-apis/).
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/concepts/consent-management.md
     
-========
-    
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/concepts/consent-management.md

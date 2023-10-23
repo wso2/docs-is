@@ -172,9 +172,5 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 		<img src="../../assets/img/learn/account-unlocked-email.png" alt="Account Unlocked email" width="500" style="border:1px solid grey"> 		
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-admin-initiated-account-locking.md
 	5.	Try logging in to the WSO2 Identity Server **My Account** with Alex's credentials. The WSO2 Identity Server
 	 **My Account** home screen appears.
-========
-	5.	Try logging in to the WSO2 Identity Server Dashboard with Alex's credentials. The WSO2 Identity Server Dashboard home screen appears.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-admin-initiated-account-locking.md

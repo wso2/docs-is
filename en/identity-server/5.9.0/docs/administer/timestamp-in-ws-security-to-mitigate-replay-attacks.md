@@ -3,9 +3,7 @@
 The following sections describe replay attacks and expand on how
 timestamps can be used to mitigate these attacks in WS-Security.
 
----
-
-## How replay attacks can be harmful?
+### How replay attacks can be harmful?
 
 When sensitive information is exchanged or critical transactions are
 performed over the network, it becomes necessary to secure the
@@ -26,9 +24,7 @@ For an example:
 -   The attacker resends the sequence of messages involved with a login
     step, to login and steal money from the bank account.
 
----
-
-## Timestamp in WS-Security
+### Timestamp in WS-Security
 
 Due to replay attacks, it is important to validate the freshness of a
 message before performing any operation that the message invokes. This
@@ -91,9 +87,7 @@ specification. The following sections discuss how it is being utilized
 and processed in an actual implementation by referring to Rampart and
 WSS4J.
 
----
-
-## Rampart and WSS4J
+### Rampart and WSS4J
 
 Rampart is the Axis2 module that introduces security processing handlers
 to the inflow and outflow of the Axis2 SOAP processing engine. Rampart
@@ -135,9 +129,7 @@ to configure and control Timestamp handling in Rampart and WSS4J
     is set to false by default. Timestamp validation happens in
     `          PolicyBasedResultsValidator         ` of Rampart.
 
----
-
-## How Timestamp is created
+### How Timestamp is created
 
 `         RampartSender        ` is the handler introduced by Rampart
 for security processing of the outflow of Axis2. In the process of
@@ -151,9 +143,7 @@ The following is how ' `         created        ` ' and '
 -   `created = current time`
 -   `expires = created(in millis) + timestampttl*1000`
 
----
-
-## How Timestamp is validated
+### How Timestamp is validated
 
 `         RampartReceiver        ` is the handler introduced by Rampart
 for security processing of the inflow of Axis2. In the process of
@@ -179,9 +169,7 @@ considering both `         created        ` and
 `         expires        `, the validation at the WSS4J is disabled by
 default with `         timestampstrict        ` set to false.
 
----
-
-## Other ways to avoid replay attacks
+### Other ways to avoid replay attacks
 
 According to the above logic of validating Timestamp, it is considered
 valid during the time period:

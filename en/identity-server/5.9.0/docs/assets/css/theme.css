@@ -16,45 +16,45 @@
  * under the License.
  */
 
- .md-main > .md-main__inner > .md-content {
-    -webkit-transition: margin 0.2s linear;
-    -khtml-transition: margin 0.2s linear;
-    -moz-transition: margin 0.2s linear;
-    -ms-transition: margin 0.2s linear;
-    transition: margin 0.2s linear;
+.md-main>.md-main__inner>.md-content {
+	-webkit-transition: margin 0.2s linear;
+	-khtml-transition: margin 0.2s linear;
+	-moz-transition: margin 0.2s linear;
+	-ms-transition: margin 0.2s linear;
+	transition: margin 0.2s linear;
 }
 
 .md-main .md-sidebar.md-sidebar--secondary {
-    -webkit-transition: width 0.2s linear;
-    -khtml-transition: width 0.2s linear;
-    -moz-transition: width 0.2s linear;
-    -ms-transition: width 0.2s linear;
-    transition: width 0.2s linear;
-    padding-bottom: 80px;
+	-webkit-transition: width 0.2s linear;
+	-khtml-transition: width 0.2s linear;
+	-moz-transition: width 0.2s linear;
+	-ms-transition: width 0.2s linear;
+	transition: width 0.2s linear;
+	padding-bottom: 80px;
 }
 
 .md-main .md-sidebar.md-sidebar--primary {
-    padding-bottom: 80px;
+	padding-bottom: 80px;
 }
 
 .md-sidebar[data-md-state=lock] {
-    top: 5.9rem;
+	top: 5.9rem;
 }
 
 .md-main.hide-toc .md-content {
-    margin-right: 35px;
+	margin-right: 35px;
 }
 
 .md-main.hide-toc .md-sidebar.md-sidebar--secondary {
-    width: 31px;
+	width: 31px;
 }
 
 .md-sidebar {
-    padding: 1.45rem 0;
+	padding: 1.45rem 0;
 }
 
 .md-header {
-    height: 2.6rem;
+	height: 2.6rem;
 }
 
 .md-header-nav__topic {
@@ -67,11 +67,6 @@
 	color: #212121;
 	border-top: 4px solid #ff7043;
 }
-
-/* Added to keep the tiles intact
-.md-container { 
-	height: auto !Important; 
-} */
 
 .md-header-nav__button.md-logo>img {
 	width: 60px;
@@ -790,7 +785,8 @@ html .md-footer-meta.md-typeset a,
 	display: none;
 }
 
-border-left: 4px solid transparent;
+.md-nav--secondary ul>li.md-nav__item {
+	border-left: 4px solid transparent;
 	transition: border 500ms;
 	margin-left: -3px;
 }
@@ -901,7 +897,7 @@ border-left: 4px solid transparent;
 }
 
 .swagger-ui .info .info__tos {
-    display: none;
+	display: none;
 }
 
 .content {
@@ -976,7 +972,6 @@ border-left: 4px solid transparent;
 	display: flex;
 	align-items: center;
 	color: #ff5003;
-	padding-right: 8px;
 	transition: all 0.8s ease;
 }
 
@@ -1009,51 +1004,52 @@ border-left: 4px solid transparent;
 }
 
 .hint {
-    display: block;
-    flex-direction: column;
-    visibility: visible;
-    text-align: left;
+	display: block;
+	flex-direction: column;
+	visibility: visible;
+	text-align: left;
 }
 
 .md-typeset .hint {
-    margin: 5px 0;
+	margin: 5px 0;
 }
 
 .card .text {
-    width: 80%;
-    margin: 0 auto;
-    font-style: normal;
-    font-size: 10px;
-    text-align: left;
-    margin-top: 10px;
-    line-height: 1;
-    color: white;
-    font-weight: 400;
-    opacity: 0;
-    max-height:0;
+	width: 80%;
+	margin: 0 auto;
+	font-style: normal;
+	font-size: 10px;
+	text-align: left;
+	margin-top: 10px;
+	line-height: 1;
+	color: white;
+	font-weight: 400;
+	opacity: 0;
+	max-height: 0;
 }
+
 .md-sidebar ::-webkit-scrollbar {
-    width: 5px;
+	width: 5px;
 }
 
 .md-sidebar ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+	background: #f1f1f1;
 }
 
 .md-sidebar ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 2.5px;
+	background: #888;
+	border-radius: 2.5px;
 }
 
 .md-sidebar__scrollwrap {
-    margin: 0;
+	margin: 0;
 }
 
 
 /* add padding to avoid 'copy to clipboard' being covered */
 
 .md-typeset .codehilite {
-    padding-right: 50px;
+	padding-right: 50px;
 }
 
 .md-typeset ol,
@@ -1112,7 +1108,4 @@ border-left: 4px solid transparent;
 .algolia-autocomplete .ds-dropdown-menu {
     font-size: 15px;
 }
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/assets/css/theme.css
-========
 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/assets/css/theme.css

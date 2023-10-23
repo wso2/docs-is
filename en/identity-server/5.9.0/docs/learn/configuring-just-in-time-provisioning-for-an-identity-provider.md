@@ -100,24 +100,7 @@ below:
             store
             configuration](../../setup/configuring-user-stores)
             .
-
-    - Associate JIT provisioned user with local user.
-              
-        !!! note
-
-            This configuration is available as an update in WSO2 IS 5.11.0 from update level 69 onwards
-            (Updates 2.0 model). If you don't already have this update, see the instructions on
-            [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
-
-        To associate the JIT provisioned user with the local user having the same username, 
-        add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
         
-        ``` toml
-        [authentication]
-        jit_provisioning.associating_to_existing_user = true
-        ```
-
-        Note that if this is enabled, there's a risk of unauthorized profile update.
 
 6.  Click **Register** to add the identity provider.
 
@@ -135,20 +118,3 @@ below:
     provisioning user interfaces, see [Customizing Just-In-Time Provisioning
     User
     Interfaces](../../learn/customizing-just-in-time-provisioning-user-interfaces).
-    
-### Configuring JIT Provisioning Enhanced Feature (Optional)
-
-Add the following configuration to `deployment.toml` in the <IS_HOME>/conf directory.
-
-```toml
-[authentication.jit_provisioning]
-enable_enhanced_feature = "true"
-```
-
-With the the JIT provisioned enhanced feature, the following capabilities will be available.
-
--   A Federated unique user id will be set as the username of the JIT provisioned user.
--   Second-factor authenticators(Ex:- TOTP, Email OTP) will be able to configure for federated users when JIT provisioing is enabled
--   When an IDP is deleted, all provisioned users from that IDP will be deleted.
--   Editing JIT provisioned user’s attributes will not be allowed.
--   Ability to lock JIT provisioned user accounts based on social identity.

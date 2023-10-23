@@ -20,7 +20,7 @@ admin service:
 
     ```toml
     [admin_service.wsdl]
-    enable = true
+    enable = false
     ```
 
 2.  Restart WSO2 Identity Server.

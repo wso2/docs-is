@@ -14,7 +14,7 @@ version SCIM 2.0 was released as IETF RFC in September 2015.
     SCIM 2.0 is supported by default in WSO2 Identity Server
     version 5.4.0 onwards. If you are using WSO2 Identity Server 5.4.0 or a
     later version, see
-    [SCIM 2.0 REST     APIs](../develop/scim2-rest-apis.md) for
+    [SCIM 2.0 REST     APIs](../../develop/using-the-scim-2.0-rest-apis) for
     instructions on how to use SCIM 2.0 OOTB.
     
 ## Extending the SCIM 2.0 API 
@@ -49,7 +49,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
 3.  Add the attribute names of the attributes that you added to the
     `           scim2-schema-extension.config          ` file as
     `                       subAttributes                     ` of the
-    `           urn:ietf:params:scim:schemas:extension:enterprise:2.0:User          ` attribute as seen in the code
+    `           wso2Extension          ` attribute as seen in the code
     block below.
 
     ``` java
@@ -84,7 +84,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
     - **Description**: Custom Claim
     - **Mapped Attribute(s**):
         - **User Store Domain Name**: PRIMARY
-        - **Mapped Attribute**: customClaim
+        - **apped Attribute**: customClaim
     - **Supported By Default**: True
 
     ![add-scim-local-custom-claim](../assets/img/learn/add-scim-local-custom-claim.png)

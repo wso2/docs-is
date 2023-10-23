@@ -1,28 +1,26 @@
-# Manage Users and Roles with SOAP APIs
+# Managing Users and Roles with APIs
 
 !!! warning
     
     From 5.4.0 onwards, SCIM 2.0 REST APIs are supported out-of-the-box with
     WSO2 Identity Server and is recommended for user store management. For
     more information on using the SCIM 2.0 REST APIs instead of the SOAP
-    service given below, see [SCIM 2.0 REST
-    APIs]({{base_path}}/scim2-rest-apis/).
+    service given below, see [Using the SCIM 2.0 REST
+    APIs](../../develop/using-the-scim-2.0-rest-apis).
     
 
 This section guides you through invoking and working with the
 **RemoteUserStoreManagerService** and the operations you can work with
 in this service.
 
----
-
-## Invoking the admin service
+### Invoking the admin service
 
 `         RemoteUserStoreManagerService        ` is an admin service of
 the WSO2 Carbon platform. As admin services are secured to prevent
 anonymous invocations, you cannot view the WSDL of the admin service by
 default. Follow the steps below to view and invoke it:
 
-1.  Set the  below configuration in
+1.  Set the  bellow configuration in
     `           <IS_HOME>/repository/conf/deployment.toml          ` file.
 
     ``` 
@@ -34,13 +32,17 @@ default. Follow the steps below to view and invoke it:
 3.  If you have started the server in default configurations, use the
     following URL in your browser to see the WSDL of the admin service:
     <https://localhost:9443/services/RemoteUserStoreManagerService?wsdl>
+    .
 
 For more information on WSO2 admin services and how to invoke an admin
-service using either SoapUI or any other client program, see [Call Admin Services]({{base_path}}/apis/call-admin-services).
+service using either SoapUI or any other client program, see [Calling
+Admin Services from
+Apps](../../develop/calling-admin-services)
+section in WSO2 Carbon documentation.
 
----
+  
 
-## Operations included in the API and sample requests
+### Operations included in the API and sample requests
 
 The following operations are available in the
 **RemoteUserStoreManagerService**.
@@ -48,12 +50,11 @@ The following operations are available in the
 !!! note
     
     For the methods that have **profile name** as an input parameter, you
-    can also pass null for the parameter so the default profile
+    can also pass null for the parameter in which case the default profile
     will then be considered instead.
     
----
 
-### authenticate()
+##### authenticate()
 
 <table>
 <tbody>
@@ -112,9 +113,7 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
----
-
-### isReadOnly()
+##### isReadOnly()
 
 |                   |                                                                      |
 |-------------------|----------------------------------------------------------------------|
@@ -132,7 +131,7 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
-### getUserClaimValue()
+##### getUserClaimValue()
 
 <table>
 <tbody>
@@ -198,9 +197,9 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
----
+  
 
-### getUserList()
+##### getUserList()
 
 <table>
 <tbody>
@@ -266,9 +265,9 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
----
+  
 
-### getUserListOfRole()
+##### getUserListOfRole()
 
 <table>
 <tbody>
@@ -322,14 +321,13 @@ The following operations are available in the
 
 !!! note
     
-    This operation retrieves a list of all the users. The users
+    **Note:** This operation retrieves a list of all the users. The users
     assigned to the specified role will be indicated in the list. Users
     belonging to the role are shown as **selected = true** and users not
-    belonging to the role are shown as **selected = false**.
+    belonging to the role are show as **selected = false**.
+    
 
----    
-
-### updateCredential()
+##### updateCredential()
 
 <table>
 <tbody>
@@ -395,9 +393,7 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
----
-
-###  getUserClaimValuesForClaims()
+#####  getUserClaimValuesForClaims()
 
 <table>
 <tbody>
@@ -463,13 +459,84 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/apis/manage-users-and-roles-with-apis.md
----
-========
---- 
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/apis/manage-users-and-roles-with-apis.md
+  
 
-### deleteUserClaimValue()
+##### setUserClaimValue()
+
+<table>
+<tbody>
+<tr class="odd">
+<td>Method</td>
+<td>setUserClaimValue</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td>Update the user claim value in a user profile</td>
+</tr>
+<tr class="odd">
+<td>Input Parameters</td>
+<td><div class="table-wrap">
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Username</td>
+<td>String</td>
+<td>Username</td>
+</tr>
+<tr class="even">
+<td>Profile Name</td>
+<td>String</td>
+<td>Name of the user profile</td>
+</tr>
+<tr class="odd">
+<td>Claim URI</td>
+<td>String</td>
+<td>The claim URI of the claim</td>
+</tr>
+<tr class="even">
+<td>Claim Value</td>
+<td>String</td>
+<td>The claim value</td>
+</tr>
+</tbody>
+</table>
+</div></td>
+</tr>
+<tr class="even">
+<td>Output Parameters</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+``` xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:setUserClaimValue>
+         <!--Optional:-->
+         <ser:userName>nila@wso2support.com</ser:userName>
+         <!--Optional:-->
+         <ser:claimURI>http://wso2.org/claims/lastname</ser:claimURI>
+         <!--Optional:-->
+         <ser:claimValue>thiru</ser:claimValue>
+         <!--Optional:-->
+         <ser:profileName>nila@wso2support.com</ser:profileName>
+      </ser:setUserClaimValue>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+
+  
+
+##### deleteUserClaimValue()
 
 <table>
 <tbody>
@@ -535,9 +602,9 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
----
+  
 
-### isExistingUser()
+##### isExistingUser()
 
 <table>
 <tbody>
@@ -589,9 +656,9 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
----
+  
 
-### deleteUserClaimValues()
+##### deleteUserClaimValues()
 
 <table>
 <tbody>
@@ -658,9 +725,9 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
----
+  
 
-### updateCredentialByAdmin()
+##### updateCredentialByAdmin()
 
 <table>
 <tbody>
@@ -719,9 +786,7 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
-
-###  getRoleNames()
+#####  getRoleNames()
 
 |                   |                                                   |
 |-------------------|---------------------------------------------------|
@@ -739,9 +804,9 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
+  
 
-### getAllProfileNames()
+##### getAllProfileNames()
 
 |                   |                                                           |
 |-------------------|-----------------------------------------------------------|
@@ -759,9 +824,9 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
---- 
+  
 
-### listUsers()
+##### listUsers()
 
 <table>
 <tbody>
@@ -835,9 +900,9 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
+  
 
-### deleteRole()
+##### deleteRole()
 
 <table>
 <tbody>
@@ -889,9 +954,9 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
+  
 
-### deleteUser()
+##### deleteUser()
 
 <table>
 <tbody>
@@ -943,9 +1008,7 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
-
-### getRoleListOfUser()
+##### getRoleListOfUser()
 
 <table>
 <tbody>
@@ -997,9 +1060,9 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
+  
 
-### updateRoleName()
+##### updateRoleName()
 
 <table>
 <tbody>
@@ -1058,9 +1121,9 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
+  
 
-### isExistingRole()
+##### isExistingRole()
 
 <table>
 <tbody>
@@ -1112,9 +1175,9 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
+  
 
-### updateRoleListOfUser()
+##### updateRoleListOfUser()
 
 <table>
 <tbody>
@@ -1182,9 +1245,9 @@ The following operations are available in the
 </soap:Envelope>
 ```
 
----
+  
 
-### getHybridRoles()
+##### getHybridRoles()
 
 |                   |                                                                                                                         |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -1202,9 +1265,9 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
----
+  
 
-### getUserClaimValues()
+##### getUserClaimValues()
 
 <table>
 <tbody>
@@ -1263,9 +1326,9 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </soap:Envelope>
 ```
 
----
+  
 
-### addUser()
+##### addUser()
 
 <table>
 <tbody>
@@ -1359,9 +1422,9 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </soapenv:Envelope>
 ```
 
----
+  
 
-### addRole()
+##### addRole()
 
 <table>
 <tbody>
@@ -1434,9 +1497,9 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </soapenv:Envelope>
 ```
 
---- 
+  
 
-### updateUserListOfRole()
+##### updateUserListOfRole()
 
 <table>
 <tbody>
@@ -1504,9 +1567,9 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </soapenv:Envelope>
 ```
 
----
+  
 
-### setUserClaimValues()
+##### setUserClaimValues()
 
 <table>
 <tbody>
@@ -1583,9 +1646,9 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </soapenv:Envelope>
 ```
 
----  
+  
 
-### getTenantIdOfUser()
+##### getTenantIdOfUser()
 
 <table>
 <tbody>
@@ -1620,7 +1683,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </tr>
 <tr class="even">
 <td>Output Parameters</td>
-<td>The tenant ID as an integer</td>
+<td>The Tenant ID as an integer</td>
 </tr>
 </tbody>
 </table>
@@ -1637,9 +1700,9 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </soapenv:Envelope>
 ```
 
----
+  
 
-### getProfileNames()
+##### getProfileNames()
 
 <table>
 <tbody>

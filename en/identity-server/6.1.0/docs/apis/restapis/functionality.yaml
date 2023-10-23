@@ -1,8 +1,15 @@
 openapi: 3.0.0
 info:
-  description: This is the RESTful API for handling user functionality management in WSO2 Identity Server.
+  description: This is the RESTful API for handling user functionality manangement in WSO2 Identity Server.
   version: "1.0.0"
-  title: User Functionality Management API
+  title: WSO2 Identity Server - User Functionality Management API
+  contact:
+    name: "WSO2 Identity Server"
+    url: "https://wso2.com/identity-and-access-management"
+    email: "architecture@wso2.org"
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 tags:
   - name: user functionality management
@@ -18,13 +25,15 @@ paths:
       tags:
         - user functionality management
       summary: |
-        Get the lock status of a functionality for an authenticated user
+        Get the lock status of a functionality for authenticated user
       description: |
-        Get the status of a functionality for the authenticated user. <br>
+        Get the status of a functionality for the authenticated user.
 
-        <b>Permission required:</b> none <br>
+        <b>Permission required:</b> <br/>
+          - none
 
-        <b>Scope required:</b> `internal_login` <br>
+        <b>Scope required:</b> <br/>
+          - internal_login
 
       operationId: getLockStatusOfLoggedInUser
       parameters:
@@ -66,14 +75,16 @@ paths:
     put:
       tags:
         - user functionality management
-      summary: Lock or unlock a function for authenticated user
+      summary: Lock or Unlock a function for authenticated user
       operationId: changeStatusOfLoggedInUser
       description: |
-        This API is used to lock or unlock a function for the authenticated user. <br>
+        This API is used to lock or unlock a function for the authenticated user.
 
-        <b>Permission required:</b> none <br>
+        <b>Permission required:</b> <br/>
+          - none
 
-        <b>Scope required:</b> `internal_login`
+        <b>Scope required:</b> <br/>
+          - internal_login
 
       parameters:
         - name: function-id
@@ -129,9 +140,11 @@ paths:
       description: |
         Get the status of a functionality for a particular user.
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/identitymgt/view` <br>
+        <b>Permission required:</b> <br/>
+          - /permission/admin/manage/identity/identitymgt/view
 
-        <b>Scope required:</b> `internal_identity_mgt_view`
+        <b>Scope required:</b> <br/>
+          - internal_identity_mgt_view
 
       operationId: getLockStatus
       parameters:
@@ -179,14 +192,16 @@ paths:
     put:
       tags:
         - user functionality management
-      summary: Lock or unlock a function for a user
+      summary: Lock or Unlock a function for a user
       operationId: changeStatus
       description: |
-        This API is used to lock or unlock a function for a particular user. <br>
+        This API is used to lock or unlock a function for a particular user.
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/identitymgt/update` <br>
+        <b>Permission required:</b> <br/>
+          - /permission/admin/manage/identity/identitymgt/update
 
-        <b>Scope required:</b> `internal_identity_mgt_update`
+        <b>Scope required:</b> <br/>
+          - internal_identity_mgt_update
 
       parameters:
         - name: function-id

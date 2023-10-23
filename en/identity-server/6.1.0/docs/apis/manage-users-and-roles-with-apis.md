@@ -463,11 +463,7 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/apis/manage-users-and-roles-with-apis.md
 ---
-========
---- 
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/apis/manage-users-and-roles-with-apis.md
 
 ### deleteUserClaimValue()
 

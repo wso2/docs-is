@@ -46,11 +46,7 @@ When you have [encrypted passwords](#encrypt-passwords), you can refer them from
 You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a place holder: `$secret{alias}`. 
 
 !!! note 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/security/encrypt-passwords-with-cipher-tool.md
     You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties]({{base_path}}/deploy/security/set-passwords-using-environment-variables-or-system-properties)
-========
-    You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../setup/set-passwords-using-environment-variables-or-system-properties)
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/encrypting-passwords-with-cipher-tool.md
 
 ```toml
 [super_admin]
@@ -89,14 +85,8 @@ To change any password that has been encrypted already, follow the steps given b
 6. The system will then prompt you to select the alias of the password which you want to change. Enter the list number of the password alias.
 7. The system will then prompt you (twice) to enter the new password. Enter your new password.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/security/encrypt-passwords-with-cipher-tool.md
 !!! info "Related topics"
     
     -   [Deploy: Resolve Encrypted Passwords]({{base_path}}/deploy/security/resolve-encrypted-passwords)
-========
-!!! info
-    
-    For information on resolving the encrypted passwords, see [Resolving Encrypted Passwords](../../setup/resolving-encrypted-passwords).
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/encrypting-passwords-with-cipher-tool.md
 
     -   [Deploy: Customize Secure Vault]({{base_path}}/deploy/security/customize-secure-vault)

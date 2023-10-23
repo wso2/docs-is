@@ -1,29 +1,4 @@
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-federation/configure-ws-federation.md
 # Configure WS-Federation
-========
-# Configuring WS-Federation
-
-WS-Federation (Web Services Federation) describes the management and
-brokering of trust relationships and security token exchange across Web
-services and organizational boundaries. WS-Federation is a part of the
-larger WS-Security framework. For example, WS-Federation builds on the
-Security Token Service (STS) by providing mechanisms that facilitate
-interactions. In the WS-Federation Model, an Identity Provider is a
-Security Token Service (STS). Service Providers depend on an Identity
-Provider or Security Token Service to do the user authentication. OAuth
-is an important protocol for IdP services as most major Web services are
-also identity providers, mainly through the use of OAuth. These Web
-services include Google, Facebook, Yahoo, AOL, Microsoft, PayPal,
-MySpace, and Flickr among much more. Furthermore, all major email
-providers offer OAuth IdP services.
-
-In most instances it is necessary to secure the Security Token Service.
-According to the Trust Brokering model defined in the WS-Trust
-specification, the subject (user) should authenticate themself to the STS
-before obtaining a token. STS may use this authentication information
-when constructing the security token. For example, STS may populate the
-required claims based on the user name provided by the subject.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/configuring-ws-federation.md
 
 To navigate to the federated authenticators configuration section, do
 the following.

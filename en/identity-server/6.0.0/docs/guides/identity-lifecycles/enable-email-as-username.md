@@ -6,7 +6,6 @@
     **make sure to configure it before you begin working with WSO2 IS**.
     
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-lifecycles/enable-email-as-username.md
 1.  Log in to the Management Console and click **Claims > List > http://wso2.org/claims**.
    
 2. Click the **Edit** link corresponding to the **Username** claim and configure the `Mapped Attribute` property to `mail`.
@@ -18,11 +17,6 @@
 4.  Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 5.  Add the following configuration to enable email authentication.
-========
-1.  Open the 
-    `          <IS_HOME>/repository/conf/deployment.toml         ` file.
-2.  Add the following configuration.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/using-email-address-as-the-username.md
 
     ``` toml
     [tenant_mgt]
@@ -118,7 +112,6 @@
     </table>
 
     !!! info 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-lifecycles/enable-email-as-username.md
         - With these configuration users can log in to super tenant with both
         email username (**`alex@gmail.com`**) or
         non-email usernames (`larry`). However, for tenants, only email usernames are allowed. (**`tod@gmail.com@wso2.com`**). 
@@ -126,25 +119,3 @@
         ***@carbon.super*** at the end of usernames.
 
 7.  Restart the server.
-========
-        With these configuration users can log in to super tenant with both
-        email user name (**`alex@gmail.com`**) or
-        non-email user names (`larry`). But for tenant only email user names
-        allowed (**`tod@gmail.com@wso2.com`**). 
-
-    !!! note
-    
-        You can configure email user name without enabling
-        **`enable_email_domain`** property, then
-        users can login to both super tenant and tenant using email and
-        non-email user names. But super tenant users should always use
-        ***@carbon.super*** at the end of user names.
-    
-
-5.  Restart the server.
-
-!!! info "Related Topics"
-
-    For more information on how to configure primary and secondary user
-    stores, see [Configuring User Stores](../../setup/configuring-user-stores).
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/using-email-address-as-the-username.md

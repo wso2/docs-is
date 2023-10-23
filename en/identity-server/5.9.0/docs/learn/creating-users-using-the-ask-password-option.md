@@ -30,9 +30,6 @@ When selecting either of these options, the administrator must enter an
 - In **Verify Email** flow, the URL sent in the email is a link which
   confirms the user upon visiting.
 
-!!! Note 
-    Please note that both of these functionalities cannot be achieved combined and incase both are requested, **Verify Email** flow takes precedence.
-
 
 ## Configuring the Feature
 
@@ -126,12 +123,6 @@ password feature:
     [identity_mgt.user_onboarding]
     ask_password_from_user= true
     ```
-    
-    !!! info 
-         If you are adding users via the management console, you should have the following permissions to enable 
-        "Ask password" option in the management console.
-    
-        -	/permission/admin/manage/identity/governance/view
 
 6.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
@@ -219,6 +210,6 @@ true in the SCIM2 user create request.
     ```
     
 !!! info "Related Links"
-    -   For information on how to edit an existing email template, see [Email Templates](../../learn/customizing-automated-emails).
+    -   For information on how to edit an existing email template, see [Email Templates](../../learn/email-templates).
     -   See [Configuring Claims](../../learn/configuring-claims) for more information on how to store
         the claim values in the user store.

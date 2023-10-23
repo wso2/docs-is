@@ -76,11 +76,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
     
     -   Token introspection across tenant domains is enabled by default. To disable cross tenant token validation,
         add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/invoke-the-oauth-introspection-endpoint.md
-        
-========
 
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/invoke-the-oauth-introspection-endpoint.md
         ``` toml
         [oauth.introspect]
         allow_cross_tenant = false

@@ -558,57 +558,14 @@ var state = getValueFromDecodedAssertion(context.request.params.request[0],"stat
 
 #### getUniqueUserWithClaimValues(claimMap, context, profile)
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/references/adaptive-authentication-js-api-reference.md
 The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the first key from the map and get all users with the claim and add them to the list. Then, remove the users that do not have the other claims from that list. Thereby, the order of the map will decide the performance of this function.
-========
-The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the 1st key from the map and get all users with the claim and add to list. Then remove the users from that list not having the other claims. So the order of the map will decide the performance of this function.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/references/adaptive-authentication-js-api-reference.md
 The first claim in this must have a low number of users.
 
 | Parameter            | Description                                                                  |
 |----------------------|------------------------------------------------------------------------------|
 | claimMap  | A map contains the claim URI and claim value.    |
 | context   | The authentication context, which contains the context information about the request.    |
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/references/adaptive-authentication-js-api-reference.md
 | parameterName | (Optional) Profile of the user. The default value is 'default').     |
-========
-| parameterName | Profile of the user. (Optional, the default value is 'default')      |
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/references/adaptive-authentication-js-api-reference.md
-
-``` java
-var claimMap = {};
-claimMap[MAPPED_FEDERATED_USER_NAME_CLAIM] = federatedUserName;
-claimMap[MAPPED_FEDERATED_IDP_NAME_CLAIM] = idpName;
-var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
-```
-
-#### getAssociatedLocalUser(federatedUser)
-This function prompts user input. It includes the following parameters.
-
-| Parameter            | Description                                                                  |
-|----------------------|------------------------------------------------------------------------------|
-| federatedUser  | The federated user object.    |
-
-#### doAssociationWithLocalUser(fedUser, localUsername, tenantDomain, userStoreDomain)
-This function prompts user input. It includes the following parameters.
-
-| Parameter            | Description                                                                  |
-|----------------------|------------------------------------------------------------------------------|
-| fedUser  | Federated user object.    |
-| localUsername  | The username of the local user to be associated.    |
-| tenantDomain| The tenant domain of the local user.      |
-| userStoreDomain | The user store domain of the local user.      |
-
-#### getUniqueUserWithClaimValues(claimMap, context, profile)
-
-The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the 1st key from the map and get all users with the claim and add to list. Then remove the users from that list not having the other claims. So the order of the map will decide the performance of this function.
-The first claim in this must have a low number of users.
-
-| Parameter            | Description                                                                  |
-|----------------------|------------------------------------------------------------------------------|
-| claimMap  | A map contains the claim URI and claim value.    |
-| context   | The authentication context, which contains the context information about the request.    |
-| parameterName | Profile of the user. (Optional, the default value is 'default')      |
 
 ``` java
 var claimMap = {};
@@ -686,27 +643,15 @@ step number.
     (Read/Write) User’s attribute (claim) value for the given
     “local\_claim\_url”. If the user is a federated user, this will be
     the value of the mapped remote claim from the IdP.
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/references/adaptive-authentication-js-api-reference.md
         
 -   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
 
     !!! note 
         `          user.localClaims[“<local_claim_url>”]         ` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis.
 
-========
-    
--   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
-    
-    !!! note 
-        -   To use the `user.claims[“<local_claim_url>”]` property, apply the **0376** WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see [Getting Started with WUM.](../../administer/dminister/getting-wso2-updates)
-        -   `          user.localClaims[“<local_claim_url>”]         ` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis only.
-        
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/references/adaptive-authentication-js-api-reference.md
 -   `          user.remoteClaims[“<remote_claim_url”]         ` :
     (Read/Write) User’s attribute (claim) as returned by IdP for the
     given “remote\_claim\_url”. Applicable only for federated users.
-    
-
 
 ##### request Object
 

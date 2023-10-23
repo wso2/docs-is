@@ -1,12 +1,10 @@
-# Configure AD FS as a Federated Authenticator
+# Configuring AD FS as a Federated Authenticator
 
-In this guide, you configure Active Directory Federation Services (AD
+In this tutorial, you configure Active Directory Federation Services (AD
 FS) 3.0 as the federated authenticator in WSO2 Identity Server (WSO2 IS)
 using SAML. Let's take a look at the steps you need to follow:
 
----
-
-## Configure Active Directory Federation Services (AD FS)
+### Configuring Active Directory Federation Services (AD FS)
 
 Follow the steps given below to add WSO2 IS as the relying party AD FS.
 
@@ -15,18 +13,19 @@ Follow the steps given below to add WSO2 IS as the relying party AD FS.
 2. Right click on **Relying Party Trust** and select **Add Relying Party
 Trust**.  
 
-3. Click **Start > Next** on the wizard.
+3. Click Start -> Next on the wizard.
 
 4. Enter a preferred name to represent WSO2 Identity Server (relying party)
 and click **Next**.
 
 5. Select the **AD FS Profile** and click **Next**.  
 
-6. Click **Next** again as you are not using an encryption profile.
+6. Click **Next** again as you are not using an encryption profile for this
+tutorial.
 
 7. Enter the SAML 2.0 SSO service URL of the relying party as the
 commonauth endpoint .  
-The endpoint for WSO2 IS is `https://<IS_HOST>:<PORT>/commonauth`.
+The endpoint for WSO2 IS is `https://localhost:9443/commonauth`.
 
 8. Enter a value for the **relying party trust identifier** and click
 **Next**.  
@@ -35,7 +34,8 @@ The endpoint for WSO2 IS is `https://<IS_HOST>:<PORT>/commonauth`.
 		The same value that is entered here needs to be used when configuring
 		the identity provider on WSO2 IS.
 
-9. Click **Next** as multi factor authentication is not required for this guide.
+9. Click **Next** as multi factor authentication is not required for this
+tutorial.
 
 10. Select **Permit all users to access this relying party** and click
 **Next**.
@@ -46,7 +46,7 @@ The endpoint for WSO2 IS is `https://<IS_HOST>:<PORT>/commonauth`.
 
 13. In the Edit Claim Rule dialogue specify the claims that needs to be sent
 	to the relying party.  
-	In this guide, let's send the SAM-Account-Name LDAP attribute as a
+	In this tutorial, let's send the SAM-Account-Name LDAP attribute as a
 	NameID claim.
 
 	a.  Click **Add Rule**.
@@ -91,7 +91,7 @@ The endpoint for WSO2 IS is `https://<IS_HOST>:<PORT>/commonauth`.
 			from the Key Management feature of the WSO2 IS management
 			console.
 
-    In this guide, the service provider is added in the super tenant
+    In this tutorial, the service provider is added in the super tenant
     domain and the default keystore is not changed. Therefore, the
     default `            wso2carbon           ` certificate that is in
     the `            <IS_HOME>/repository/resources/security           `
@@ -135,38 +135,44 @@ The endpoint for WSO2 IS is `https://<IS_HOST>:<PORT>/commonauth`.
 You have successfully configured AF DS. Next , you need to configure
 WSO2 IS for federated authentication.
 
----
-
-## Configure WSO2 IS for federated authentication
+### Configuring WSO2 IS for Federated Authentication
 
 Follow the steps given below to configure WSO2 IS to use AF DS as the
 Identity Provider (IdP).
 
-1.  Log in to the WSO2 IS Management console (`https://<IS_HOST>:<PORT>/carbon`).
+1.  Login to IS Management console.
 
-2.  Navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
+2.  Click Add under Identity Providers.
 
-3.  Provide a unique name for the IdP and select the **Upload IDP certificate** option in **Choose IDP certificate type**.
-
-4.	Select **Choose file** and add the Token-signing certificate of ADFS.
+3.  Provide a unique name for the IdP and add the **Token-signing
+    certificate of ADFS** by clicking the Browse button.
     
-5.  Expand **Federated Authenticators** and **Expand SAML Web SSO Configuration**.
+4.  Expand **Federated Authenticators** and **Expand SAML Web SSO
+    Configuration**.
     
-6.  Click **Configure** to start configuring the SAML 2 Web SSO
+5.  Click **Configure** to start configuring the SAML 2 Web SSO
     configurations.  
-	
     a.  Check **Enable SAML2 Web SSO**.
     
-    b.  The **Identity Provider Entity Id** can be found in `https://<AD_FS_server>/FederationMetadata/2007-06/FederationMetadata.xml` under the `entityID` attribute. The Entity ID is usually in the form `http://<AD_FS_server>/adfs/services/trust`.
+    b.  Identity Provider Entity Id: This can be found in
+        FederationMetadata.xml under entityID attribute. The
+        FederationMetadata.xml can be accessed through
+        `https://<AD_FS_server>/FederationMetadata/2007-06/FederationMetadata.xml`. The Entity ID is usually in the 
+        form
+        `http://<AD_FS_server>/adfs/services/trust`
         
-    c.  The **Service Provider Entity Id** should be the same as what is given in the ADFS RP trust identifier, e.g., wso2-is.
+    c.  Service Provider Entity Id should be same as what’s given in AD
+        FS RP trust identifier. **eg:wso2-is**
         
-    d.  SSO URL should be in the form of `http://<AD_FS_server>/adfs/ls`.
+    d.  SSO URL should be in the form of
+        `http://<AD_FS_server>/adfs/ls`.
         
-    e.  Select **Enable Logout Request Signing**.
+    e.  Check Enable Logout.
     
-    f.  The **Logout URL** should be the same as SSO URL.
+    f.  Logout URL should be the same as SSO URL.
     
-    g.  Select **HTTP Binding** as **HTTP-POST**.
+    g.  Check Enable Logout Request Signing.
     
-6.  Click **Register**.
+    h.  Select HTTP Binding as POST.
+    
+6.  Click Register to save the IdP.  

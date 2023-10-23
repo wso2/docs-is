@@ -1,17 +1,24 @@
 openapi: 3.0.0
 info:
   description: |
-    The OIDC scope API in WSO2 Identity Server(IS) can be used to manage OIDC scopes and map claims.
-    Since OIDC scope is a sub category of OAuth2 scopes, these end points cannot have the same scope names in WSO2 IS. 
+    This is the RESTful API for OIDC Scope management related operations in WSO2 Identity Server.
   version: "1.0.0-oas3"
-  title:  OIDC Scope Management API
+  title:  WSO2 Identity Server - OIDC Scope Management API
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: "WSO2 Identity Server"
+    url: "https://wso2.com/identity-and-access-management"
+    email: "architecture@wso2.org"
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 servers:
-  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
     variables:
-      serverUrl:
-        default: localhost:9443
-      tenantDomain:
+      tenant-domain:
+        enum:
+          - carbon.super
         default: carbon.super
 
 # The base path of the OIDC scope management API.
@@ -23,9 +30,13 @@ paths:
     get:
       tags:
         - OIDC Scope Endpoint
-      summary: Retrieve the list of scopes
+      summary: Retrieves the list of scopes
       operationId: getScopes
-      description: This REST API can be used to get details of the available scopes.
+      description: This REST API can be used to get details of the available scopes. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -51,8 +62,13 @@ paths:
     post:
       tags:
         - OIDC Scope Endpoint
-      summary: Add a new OIDC scope
+      summary: Add a new OIDC Scope
       operationId: addScope
+      description: This Rest API can be used to add a new OIDC scope. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -80,7 +96,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Get a scope
       operationId: getScope
-      description: This REST API can be used to get the scope.
+      description: This REST API can be used to get the scope. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -110,8 +130,13 @@ paths:
     put:
       tags:
         - OIDC Scope Endpoint
-      summary: Update an OIDC scope
+      summary: Update an OIDC Scope
       operationId: updateScope
+      description: This API can be used to update an existing OIDC scope. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -144,8 +169,13 @@ paths:
     delete:
       tags:
         - OIDC Scope Endpoint
-      summary: Delete an OIDC scope
+      summary: Delete an OIDC Scope
       operationId: deleteScope
+      description: This API can be used to delete an existing OIDC scope. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       security:
         - BasicAuth: []
         - OAuth2: []

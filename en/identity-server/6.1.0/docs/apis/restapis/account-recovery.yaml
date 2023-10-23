@@ -1,8 +1,15 @@
 openapi: 3.0.1
 info:
-  title: Recovery API
+  title: WSO2 Identity Server Rest API - Recovery
   description: |
-    This document specifies a RESTful API for the WSO2 Identity Server.
+    This document specifies a **RESTful API** for WSO2 **Identity Server** .
+  contact:
+    name: WSO2
+    url: http://wso2.com/products/identity-server/
+    email: architecture@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 0.9.0
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/identity/recovery/v0.9
@@ -21,9 +28,9 @@ paths:
       - Password Recovery
       - Notification
       summary: |
-        Send recovery notification
+        Send Recovery Notification
       description: |
-        This API is used to send password recovery confirmation over defined channels like email/SMS.
+        This API is used to send password recovery confirmation over defined channels like email/sms.
       parameters:
       - name: type
         in: query
@@ -74,9 +81,9 @@ paths:
       - Password Recovery
       - Notification
       summary: |
-        Update password
+        Update Password
       description: |
-        This API is used to reset the user password using the confirmation key received through the recovery process. You need to input the `key` and the new `password`.
+        This API is used to reset user password using the confirmation key recieved through the recovery process. You need to input the `key` and the new `password`.
       requestBody:
         description: Key, password, and optional metadata properties.
         content:
@@ -117,7 +124,7 @@ paths:
       tags:
       - Password Recovery
       summary: |
-        Validate confirmation code
+        Validate Confirmation Code
       description: |
         This API is used to validate confirmation codes sent in account recovery scenarios and self-signup. You need to input the confirmation `code` and recovery `step` as parameters.
       requestBody:
@@ -162,9 +169,9 @@ paths:
       - Password Recovery
       - Security Question
       summary: |
-        Get challenge question of user
+        Get Challenge Question of User
       description: |
-        This API is used to initiate password recovery using user challenge questions. The response will be a random challenge question with a confirmation key.
+        This API is used to initiate password recovery using user challenge questions. Response will be a random challenge question with a confirmation key.
       parameters:
       - name: username
         in: query
@@ -216,9 +223,9 @@ paths:
       - Password Recovery
       - Security Question
       summary: |
-        Get challenge questions of user
+        Get Challenge Questions of User
       description: |
-        This API is used to initiate password recovery using user challenge questions at once. The response will be a random challenge question with a confirmation key.
+        This API is used to initiate password recovery using user challenge questions at once. Response will be a random challenge question with a confirmation key.
       parameters:
       - name: username
         in: query
@@ -270,11 +277,11 @@ paths:
       - Password Recovery
       - Security Question
       summary: |
-        Validate user challenge answer/answers
+        Validate user challenge answer/answers.
       description: |
-        This is used to validate the user challenge answer. If the user challenge answer is valid, it sends another challenge question to answer until the status becomes `COMPLETE`. If the answer is wrong, the user can retry the answer.
+        This is used to validate the user challenge answer. If the user challenge answer is valid, it sends another challenge question to answer until the status becomes `COMPLETE`. If the answer is wrong, user can retry the answer.
       requestBody:
-        description: User answers verification with the key returned in the previous step.
+        description: User answers verification with key returned in previous step.
         content:
           application/json:
             schema:
@@ -353,7 +360,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-wso2-request: |
-        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '[{"uri": "http://wso2.org/claims/givenname","value": "john"},{"uri": "http://wso2.org/claims/emailaddress", "value": "johndoe@email.com"},{"uri": "http://wso2.org/claims/lastname","value": "doe" }]' "https://localhost:9443/api/identity/recovery/v0.9/recover-username/"
+        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '[{"uri": "http://wso2.org/claims/givenname","value": "isura"},{"uri": "http://wso2.org/claims/emailaddress", "value": "isuradil@email.com"},{"uri": "http://wso2.org/claims/lastname","value": "karunaratne" }]' "https://localhost:9443/api/identity/recovery/v0.9/recover-username/"
       x-wso2-response: |
         "HTTP/1.1 202 Accepted"
       x-codegen-request-body-name: Claim
@@ -362,9 +369,9 @@ paths:
       tags:
       - Username Recovery
       summary: |
-        Get supported claims
+        Get Supported Claims
       description: |
-        Return the recovery-supported claims in the given tenant.
+        return the recovery supported claims in the given tenant.
       parameters:
       - name: tenant-domain
         in: query
@@ -402,9 +409,9 @@ paths:
       - Password Recovery
       - Username Recovery
       summary: |
-        Get CAPTCHA
+        Get Captcha
       description: |
-        Return the reCaptcha information if it's supported for the given tenant.
+        return the reCaptcha information if its supported for the given tenant.
       operationId: getCaptcha
       parameters:
       - name: tenant-domain
@@ -452,24 +459,24 @@ paths:
       - Password Recovery
       - Username Recovery
       summary: |
-        Verify CAPTCHA
+        Verify Captcha
       description: |
-        Return true or false after verifying the captcha response.
+        return true or false after verify the captcha response.
       operationId: verifyCaptcha
       parameters:
       - name: tenant-domain
         in: query
-        description: Tenant domain. Default `carbon.super`
+        description: tenant domain. Default `carbon.super`
         schema:
           type: string
       - name: captcha-type
         in: query
-        description: Type of captcha
+        description: type of captcha
         required: true
         schema:
           type: string
       requestBody:
-        description: Recaptcha response from Google.
+        description: recaptcha response from google.
         content:
           application/json:
             schema:

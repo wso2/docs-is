@@ -109,7 +109,6 @@ pattern.
     Your service provider needs to authorize users
     once they are logged in. What the user can do at the identity
     provider is different from what the same user can do at the service
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/identity-anti-patterns-and-the-identity-bus.md
     provider. Users' roles from the identity provider define what they can
     do at the identity provider. Service provider's roles define the
     things a user can do at the service provider. Identity bus is
@@ -117,15 +116,6 @@ pattern.
     provider's roles. For example, users may bring idp-admin roles from
     their identity providers - in a SAML response - then the identity bus
     will find the mapped service provider role corresponding to these,
-========
-    provider. The user's role from the identity provider defines what they can do at the identity provider. 
-    Service provider's roles define the
-    things a user can do at the service provider. Identity bus is
-    capable of mapping identity provider's roles to the service
-    provider's roles. For example users may bring idp-admin role from
-    their identity providers - in a SAML response - then the identity bus
-    will find the mapped service provider roles corresponding to these,
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/get-started/identity-anti-patterns-and-the-identity-bus.md
     say sp-admin, and will add that into the SAML response returning
     back to the service provider from the identity bus.
     

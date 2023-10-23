@@ -120,11 +120,7 @@ Once you have set the template language for the user, it is also necessary to sp
 
     !!! note
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/tenants/customize-automated-mails.md
         If the locale value is not defined for the user, the default locale value will be `en_US`. From update level **6.1.0.35**, you can change the default locale value using the following configuration:
-========
-        If the locale value is not defined for the user, the default locale value will be `en_US`. From update level **6.0.0.83**, you can change the default locale value using the following configuration:
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/tenants/customize-automated-mails.md
 
         ``` 
         [identity_mgt.notification]

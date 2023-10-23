@@ -2,9 +2,9 @@
 template: templates/swagger.html
 ---
 
-# User's Session Management API Definition - v1
+# User's Session Management API Definition - V1
 
-??? Note "Click For Instructions"
+??? Note "Click to view"
     Before invoking the session management REST APIs, create some sessions for the user. You can create active 
     sessions for the users as follows.
        1. Register a service provider in the WSO2 Identity Server so that the authentication for the application will
@@ -24,7 +24,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/wso2/identity-api-user/v1.1.17/components/org.wso2.carbon.identity.api.user.session/org.wso2.carbon.identity.api.user.session.v1/src/main/resources/session.yaml",
+    url: "../../develop/restapis/session.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -42,4 +42,4 @@ window.onload = function() {
 }
 </script>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fc9461875e367a944219)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/66cce47010103c720d0f)

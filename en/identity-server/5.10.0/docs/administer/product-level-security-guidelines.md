@@ -8,13 +8,13 @@ Apply all the security patches relevant to your WSO2 Identity Server version.
 
 If your WSO2 Identity Server product version is supported by WSO2 Update Manager (WUM), you need to use WUM to get the latest fixes.
     <ul>
-        <li>If your WSO2 Identity Server is listed as a WUM-supported product <a href="https://wso2.com/update/">here</a>, follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a>.</li>
-        <li><p>If you are using an older WSO2 Identity Server version that is not WUM-supported, download the security patches that are relevant to your version from the <a href="https://wso2.com/security-patch-releases/">WSO2 Security Patch Release</a> page and manually apply them to your system. For instructions, see <a href="../../administer/wso2-patch-application-process">WSO2 Patch Application Process</a>.</p></li>
+        <li>If your WSO2 Identity Server is listed as a WUM-supported product <a href="http://wso2.com/update/">here</a>, follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a>.</li>
+        <li><p>If you are using an older WSO2 Identity Server version that is not WUM-supported, download the security patches that are relevant to your version from the <a href="http://wso2.com/security-patch-releases/">WSO2 Security Patch Release</a> page and manually apply them to your system. For instructions, see <a href="../../administer/wso2-patch-application-process">WSO2 Patch Application Process</a>.</p></li>
     </ul>
 
 !!! note
 
-    WSO2 releases security patch notifications monthly via the **Support Portal** and on the **[WSO2 Security Patch Releases](https://wso2.com/security-patch-releases)** page. 
+    WSO2 releases security patch notifications monthly via the **Support Portal** and on the **[WSO2 Security Patch Releases](http://wso2.com/security-patch-releases)** page. 
 
     -   For highly critical issues, patches are issued immediately to **customers**. 
 
@@ -36,9 +36,6 @@ Change the default key stores and create new keys for all the cryptographic oper
 
     For more information, see [Recommendations for using keystores](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products) and [Creating New Keystores](../../administer/creating-new-keystores).
 
-## Symmetric Encryption Key
-
-Generate a secure secret key by following the instructions given in [Using Symmetric Encryption](../../administer/using-symmetric-encryption/#internal-crypto-provider).
 
 ## Passwords in config files
 
@@ -195,14 +192,6 @@ To enable hostname verification:
 
 By default, XSS attacks are prevented in the latest WSO2 Identity Server versions. This is due to output encoding of the displaying values. 
 
-## Callback URL Regular Expressions
-
-For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
-
-- [Password Recovery](../../learn/password-recovery)
-- [Username Recovery](../../learn/username-recovery)
-- [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
-- [Lite User Registration](../../learn/lite-user-registration/#enable-lite-user-registration)
 
 ## JSESSIONID length
 
@@ -273,7 +262,7 @@ Log forging can be prevented by appending a UUID to the log message.
     -Xms512m -Xmx2048m 
     ```
 
-- To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine. 
+- To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine.
 
 ## Mutual SSL
 
@@ -288,11 +277,6 @@ The web applications provided out-of-the-box use a set of default credentials to
 
 Follow the steps below to change the default credentials.
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-1.  Shut the server down in case you have already started it. 
-
-2.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
-========
 1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 
     Update Manager](https://wso2.com/updates/wum)(WUM) to get any
         fixes or latest updates for this release.
@@ -306,7 +290,6 @@ Follow the steps below to change the default credentials.
 2.  Shut the server down in case you have already started it. 
 
 3.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md
     
     -   Add the `app_password` property and enter a preferred password as the value.
       
@@ -338,11 +321,7 @@ Follow the steps below to change the default credentials.
 
             c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
     
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-3.  Once these changes are configured, restart the server with,
-========
 4.  Once these changes are configured, restart the server with,
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md
     
     - Linux/Unix : sh wso2server.sh
     - Windows : wso2server.bat
@@ -354,9 +333,6 @@ When configuring intermediate certificate validation for REST APIs, it is recomm
 !!! info
 
     For more information, see the instructions on [configuring intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation). 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-    
-========
 
 ## Callback URL Regular Expressions
 
@@ -365,4 +341,3 @@ For the scenarios listed below, you can define a regular expression to validate 
 - [Password Recovery](../../learn/password-recovery)
 - [Username Recovery](../../learn/username-recovery)
 - [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md

@@ -36,38 +36,9 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
     1.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
     
-<<<<<<<< HEAD:en/identity-server/5.10.0/docs/learn/configuring-email-otp.md
     !!! tip 
         The email template used to send this email notification is
         the **EmailOTP** template.
-========
-    2. Add following property to `deployment.toml` file in the `IS_HOME/repository/conf` folder to comment out the <module ref="addressing"/> property inorder to avoid syntax errors.
-    
-    ```
-    [server]
-    disable_addressing = true
-    ```
-    
-    3.  Add the following email template to the
-        `           <IS_HOME>/repository/conf/email/email-admin-config.xml.          `
-    
-        ``` xml
-        <configuration type="EmailOTP" display="EmailOTP" locale="en_US" emailContentType="text/html">
-           <targetEpr></targetEpr>
-           <subject>WSO2 IS Email OTP</subject>
-           <body>
-              Hi,
-              Please use this one-time password {{OTPCode}} to sign in to your application.
-           </body>
-           <footer>
-              Best Regards,
-              WSO2 Identity Server Team
-              http://www.wso2.com
-           </footer>
-           <redirectPath></redirectPath>
-        </configuration>
-        ```
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-email-otp.md
         
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
@@ -92,14 +63,9 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         EmailOTPEnableByUserClaim = true
         CaptureAndUpdateEmailAddress = true
         showEmailAddressInUI = true
-<<<<<<<< HEAD:en/identity-server/5.10.0/docs/learn/configuring-email-otp.md
         useEventHandlerBasedEmailSender = true
         emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
         tokenExpirationTime = 300000
-========
-        tokenExpirationTime = 300000
-        useEventHandlerBasedEmailSender = true
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-email-otp.md
         ``` 
     
     
@@ -274,7 +240,6 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                         </td>
                     </tr>
                     <tr>
-<<<<<<<< HEAD:en/identity-server/5.10.0/docs/learn/configuring-email-otp.md
                         <td><code>emailAddressRegex</code></td>
                         <td>When `showEmailAddressInUI` is enabled, it provides the capability to define the way the email address should be displayed in the UI. This can be configured with a proper regex pattern as required.</td>
                         <td>
@@ -285,8 +250,6 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                         </td>
                     </tr>
                     <tr>
-========
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-email-otp.md
                         <td><code>tokenExpirationTime</code></td>
                         <td>This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.</td>
                         <td>

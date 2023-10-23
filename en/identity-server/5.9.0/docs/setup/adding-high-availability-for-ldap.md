@@ -16,7 +16,7 @@ Server when you add high availability to your LDAP.
     file and find the user store manager config relevant for your LDAP.  
     ```
     [user_store]
-    type = "read_write_ldap_unique_id"
+    type = "read_write_ldap"
     ...
     ```
     
@@ -25,7 +25,7 @@ Server when you add high availability to your LDAP.
     
     ```
     [user_store]
-    type = "read_write_ldap_unique_id"
+    type = "read_write_ldap"
     connection_url = "ldap://localhost:10500 ldap://localhost:10511"
     ...
     ```

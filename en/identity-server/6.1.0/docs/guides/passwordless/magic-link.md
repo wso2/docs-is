@@ -28,11 +28,7 @@ To configure Magic Link as an authenticator:
 3. Check your inbox for the magic link email. The email reads as follows:
     ![Magic Link email](../../assets/img/guides/magic-link-email.png)
 4. Open the Magic Link by clicking **Sign In** on the same browser as your application.
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/passwordless/magic-link.md
    
-========
-
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/passwordless/magic-link.md
     !!! note
         This is not supported in the private windows of Safari browser.
 

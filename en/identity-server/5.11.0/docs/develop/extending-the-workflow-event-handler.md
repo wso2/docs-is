@@ -1,12 +1,3 @@
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/workflows/extend-the-workflow-event-handler.md
-# Extend the Workflow Event Handler
-
-By default, WSO2 Identity Server only supports user store operations to be engaged with workflows. However, this is an extensible feature where you can implement workflow support for any other operation such as SP/IDP operations, XACML policy creation, tenant operations, etc., which has an implemented interceptor that gets executed before method execution.
-
-This page guides you through implementing workflow support for SP operations.
-
----
-========
 # Extending the Workflow Event Handler
 
 By default, WSO2 Identity Server only supports user store operations to
@@ -23,13 +14,9 @@ You can add a new handler by adding a new .jar file to the
 can create a .jar file as described below.
 
 Structure the new handler according to the following hierarchy.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/extending-the-workflow-event-handler.md
 
-## Write a new handler
+![Handler hierarchy](../assets/img/using-wso2-identity-server/handler-hierarchy.png)
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/workflows/extend-the-workflow-event-handler.md
-### Structure the new handler 
-========
 Add a separate handler for each operation for which you wish to add workflow support. 
 
 In this example, to implement workflow support for SP
@@ -37,37 +24,30 @@ create functionality, add ‘
 `         SPCreateHandler        ` ’ by extending
 `         AbstractWorkflowRequestHandler        ` . The following
 methods should be overridden:
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/extending-the-workflow-event-handler.md
 
-Create the project according to the following hierarchy.
-
-![Handler hierarchy]({{base_path}}/assets/img/extend/handler-hierarchy.png)
-
-Add a separate handler for each operation for which you wish to add workflow support. 
-
-### Implement the workflow support
-
-In this example, to implement workflow support for SP create functionality, add `SPCreateHandler` by extending [AbstractWorkflowRequestHandler](https://github.com/wso2/carbon-identity-framework/blob/master/components/workflow-mgt/org.wso2.carbon.identity.workflow.mgt/src/main/java/org/wso2/carbon/identity/workflow/mgt/extension/AbstractWorkflowRequestHandler.java). The following methods should be overridden:
-
--   `retryNeedAtCallback()` - Return whether the same request is initiated at the callback. If set to 'true', this will
+-   `          retryNeedAtCallback()         ` - Return whether the same
+    request is initiated at the callback. If set to 'true', this will
     take actions to skip the request initiated at the callback.
--   `getEventID()` - Return the event that this handler is subscribed, used when handling the callback.
--   `getParamDefinitions()` - Returns the parameter names and their types. Will be used in input validation and in UIs.
--   `getFriendlyName()` - Return the human friendly name for the event associated with this handler.
--   `getDescription()` - Return the human friendly description for the event associated with this handler
--   `getCategory()` - Return the category of the event associated with this handler.
--   `isValidOperation()` - Check if the operation is executable. For example, if there is already a SP added is pending in a workflow with same name, this method should return false.
--   `onWorkflowCompletion()` - This is the callback method from executor. This will be called when IS receives the callback. This method should contain details on how to handle the operations related to callback, such as retrieving parameters of operation from the map received, call the operation again, etc.
+-   `          getEventID()         ` - Return the event that this
+    handler is subscribed, used when handling the callback.
+-   `          getParamDefinitions()         ` - Returns the parameter
+    names and their types. Will be used in input validation and in UIs.
+-   `          getFriendlyName()         ` - Return the human friendly
+    name for the event associated with this handler.
+-   `          getDescription()         ` - Return the human friendly
+    description for the event associated with this handler
+-   `          getCategory()         ` - Return the category of the
+    event associated with this handler.
+-   `          isValidOperation()         ` - Check if the operation is
+    operation execute. For example, if there is already a SP added is
+    pending in a workflow with same name, this method should return
+    false.
+-   `          onWorkflowCompletion()         ` - This is the callback
+    method from executor. This will be called when IS receives the
+    callback. This method should contains details of how to handle the
+    call back such as retrieving parameters of operation from map
+    received, call the operation again, etc.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/workflows/extend-the-workflow-event-handler.md
-Other than these implemented methods, write a function such as `startSPCreateWorkflow`, the function
-that will get called from operation listener. In this method, add operation parameters to the `wfParams` and `nonWfParams` maps. Also, check if the operation is valid using implemented `isOperatonValid()` method. It should throw an exception if this is not valid.
-
-### Define a map
-
-Next, define a map called `PARAM_DEFINITIONS` which contains the types of each parameter used for the operation.
-
-========
 Other than these implemented methods, write a function such
 as `         ‘startSPCreateWorkflow’        ` which will be the function
 that will get called from operation listener. In this method, add operation parameters to the `         wfParams        ` and
@@ -78,7 +58,6 @@ and should throw an exception if this is not valid.
 Next, define a map called `         PARAM_DEFINITIONS        `
 which contains the types of each parameters used for the operation.
 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/extending-the-workflow-event-handler.md
 ??? example "Click to view a sample class written for an SP create workflow handler"
     ``` java
     public class SPCreateHandler extends AbstractWorkflowRequestHandler {
@@ -184,17 +163,11 @@ which contains the types of each parameters used for the operation.
     }
     ```
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/workflows/extend-the-workflow-event-handler.md
-### Call the handler
-
-Now, call `startSPCreateWorkflow` before the operation is executed. You can do this easily by implementing the `doPre` method of the operation through an interface. Following is a sample listener implementation created for this purpose.  Define `orderID` of this listener so that it will execute as the first listener before all the other listeners.
-========
 Now, call `         ‘startSPCreateWorkflow’        `
 before the operation get executed. You can do this easily by implementing
 the ‘doPre’ method of the operation through an interface. Following is a
 sample listener implementation created for this purpose.  Define `         orderID        ` of this listener so that this will
 execute as the first listener before all other listeners.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/extending-the-workflow-event-handler.md
 
 ??? example "Click to view the sample listener implementation"
     ``` java
@@ -224,15 +197,10 @@ execute as the first listener before all other listeners.
     }
     ```
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/workflows/extend-the-workflow-event-handler.md
-### Register the handler and listener
-
-========
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/extending-the-workflow-event-handler.md
 Finally in the service component, register the handler and the listener that you implemented using the following code block. 
 
 ``` java
-/**
+**
 * @scr.component name="tenant.mgt.workflow" immediate="true"
 */
 public class SPWorkflowServiceComponent {
@@ -246,52 +214,14 @@ public class SPWorkflowServiceComponent {
 }
 ```
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/workflows/extend-the-workflow-event-handler.md
----
-========
 After adding the .jar file of this handler to the
 `         <IS_HOME>/repository/components/dropins        ` folder, you
 will see the new operation category, and the operation is available to
 select when adding a new workflow engagement.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/extending-the-workflow-event-handler.md
 
-## Build the handler
+![Operation category selection](../assets/img/using-wso2-identity-server/operation-category-selection.png)
 
-1. Open a terminal from the `<SAMPLE_HOME>/sample` location and run the following command.
+![Operation category name](../assets/img/using-wso2-identity-server/operation-category-name.png)
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/workflows/extend-the-workflow-event-handler.md
-    ```
-    mvn clean install
-    ```
-
-2.  Once the project is built successfully, the .jar file can be found in the generated `target` directory. 
-
----
-
-## Deploy the handler
-
-Deploy the new handler by adding the new .jar file to the `<IS_HOME>/repository/components/dropins` folder. 
-
----
-
-## Verify handler
-
-1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
-
-2. Navigate to **Main** > **Manage** > **Workflow Engagements** > **Add**.
-
-    ![add-workflow-engagement]({{base_path}}/assets/img/extend/add-workflow-engagement.png)
-    
-3. Under the **Operation Category**, you will see the new operation category.
-
-    ![Operation category selection]({{base_path}}/assets/img/extend/operation-category-selection.png)
-
-4. Under the **Operation Name**, you will see the new operation name.
-
-    ![Operation category name]({{base_path}}/assets/img/extend/operation-category-name.png)
-
-A sample handler implementation is available [here](https://github.com/wso2/samples-is/tree/master/workflow).
-========
 A sample handler implementation is available
 [here](https://github.com/wso2/samples-is/tree/master/workflow).
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/extending-the-workflow-event-handler.md

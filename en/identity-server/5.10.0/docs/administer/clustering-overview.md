@@ -98,7 +98,7 @@ the membership schemes:
 
 WSO2 products are compatible with each other if they are based on the
 same WSO2 Carbon version. See the [release
-matrix](https://wso2.com/products/carbon/release-matrix/) for
+matrix](http://wso2.com/products/carbon/release-matrix/) for
 compatibility information.
 
 !!! info "About performance of WSO2 products in a cluster"

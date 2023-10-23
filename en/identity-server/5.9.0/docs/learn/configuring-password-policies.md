@@ -4,4 +4,3 @@ WSO2 Identity Server enables configuring password policies to enhance user passw
 
 -	[Password Patterns](../../learn/configuring-password-patterns)
 -	[Password History](../../learn/validating-password-history)
--   [Password Expiry](../../learn/password-expiry)

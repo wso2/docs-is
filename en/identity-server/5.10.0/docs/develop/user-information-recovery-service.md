@@ -1,13 +1,6 @@
 # User Information Recovery
 
 !!! warning
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/user-information-recovery-service.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/user-information-recovery-service.md
-    The functionalities enabled by this SOAP API are available with the [Account Recovery REST APIs]({{base_path}}/apis/restapis/using-the-account-recovery-rest-apis/) 
-    with better performance. Note that it is recommended to use REST APIs wherever possible.
-========
-========
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/user-information-recovery-service.md
 
     The functionalities enabled by this SOAP API are available with the [Account Recovery REST APIs](../../develop/using-the-account-recovery-rest-apis/) 
     with better performance. Note that it is recommended to use REST APIs wherever possible.
@@ -15,38 +8,8 @@
 This section lists out and describes the operations that are available in the **User Information Recovery API**. 
 
 ## About User Information Recovery API
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/user-information-recovery-service.md
 
 The **User Information Recovery API** enables recovering user information during user authentication through various features such as captcha and challenge questions.
-This section lists out and describes the operations that are available in the **User Information Recovery API**. 
-
----
-
-## Invoke the admin service
-
-`         UserInformationRecoveryService        ` is an admin service of the WSO2
-Carbon platform. As admin services are secured to prevent anonymous
-invocations, you cannot view the WSDL of the admin service by default.
-Follow the steps below to view and invoke it:
-
-1.  Set the  bellow configuration in
-        `           <IS_HOME>/repository/conf/deployment.toml          ` file.
-
-    ``` 
-    [admin_service.wsdl]
-    enable = true
-    ```
-
-2.  Restart the Identity Server.
-3.  If you have started the server in default configurations, use the
-    following URL in your browser to see the WSDL of the admin service:
-    <https://localhost:9443/services/UserInformationRecoveryService?wsdl>.
-
-For more information on WSO2 admin services and how to invoke an admin
-service using either SoapUI or any other client program, see [Call
-Admin Services]({{base_path}}/develop/apis/call-admin-services).
-
----
 
 ## API operations
 
@@ -65,7 +28,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
         <tr class="even">
             <th>Input Parameters</th>
             <td>
-               <li><code>userName</code> <code>[String]</code>: This the username of the user.</li>
+               <li><code>userName</code> <code>[String]</code>: This the user name of the user.</li>
                <li><code>code</code> <code>[String]</code>: This is the confirmation code send to the user.</li>
                <li><code>captcha</code> <code>[Captcha]</code>: This the captcha code. It uncludes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
             </td>
@@ -102,7 +65,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
 
 ### getAllChallengeQuestions
 
@@ -160,8 +122,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
-
 ### getUserChallengeQuestion
 
 <table>
@@ -178,7 +138,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username of the user.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
                   <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
                </ul>
@@ -207,7 +167,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
 
 ### getUserChallengeQuestionIds
 
@@ -225,7 +184,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username of the user.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
                   <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code send to the user.</li>
                </ul>                        
             </td>
@@ -251,7 +210,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
 
 ### getUserIdentitySupportedClaims
 
@@ -292,8 +250,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
-
 ### registerUser
 
 <table>
@@ -310,7 +266,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username of the user.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
                   <li><code>password</code> <code>[String]</code>: This is the user password.</li>
                   <li><code>claims</code> <code>[UserIdentityClaim[]]</code>: These are user claims. Includes <code>claimUri</code> and <code>claimValue</code>.</li>
                   <li><code>profileName</code> <code>[String]</code>: This is the user profile name.</li>
@@ -349,8 +305,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
-
 ### resendSignUpConfirmationCode
 
 <table>
@@ -367,7 +321,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
                   <li><code>code</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>tenantDomain</code> <code>[String]</code>: This is user's tenant domain.</li>
                </ul>             
@@ -397,8 +351,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
-
 ### sendRecoveryNotification
 
 <table>
@@ -415,7 +367,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
                   <li><code>key</code> <code>[String]</code>: This is the confirmation key that is sent to the user.</li>
                   <li><code>notificationType</code> <code>[String]</code>: This is the notification type.</li>
                </ul>             
@@ -443,8 +395,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
-
 ### updatePassword
 
 <table>
@@ -461,7 +411,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
                   <li><code>confirmationCode</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>newPassword</code> <code>[String]</code>: This is the user's new password.</li>
                </ul>             
@@ -489,8 +439,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
         </tr>        
     </tbody>    
 </table>
-
----
 
 ### verifyAccount
 
@@ -548,8 +496,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
-
 ### verifyConfirmationCode
 
 <table>
@@ -566,7 +512,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
                   <li><code>code</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>captcha</code> <code>[Captcha]</code>: This is the captcha code. Includes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
                </ul>             
@@ -606,8 +552,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
-
 ### verifyUser
 
 <table>
@@ -624,7 +568,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
                   <li><code>captcha</code> <code>[Captcha]</code>: This is the captcha code. Includes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
                </ul>             
             </td>
@@ -657,8 +601,6 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
     </tbody>    
 </table>
 
----
-
 ### verifyUserChallengeAnswer
 
 <table>
@@ -675,7 +617,7 @@ Admin Services]({{base_path}}/develop/apis/call-admin-services).
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
                   <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
                   <li><code>answer</code> <code>[String]</code>: This is the answer to the question.</li>                  

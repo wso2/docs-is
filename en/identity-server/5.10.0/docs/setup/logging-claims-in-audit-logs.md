@@ -1,4 +1,4 @@
-# Log Claims in Audit Logs
+# Logging Claims in Audit Logs
 
 This feature enables to specify the required claims to be logged in
 audit logs.
@@ -9,7 +9,7 @@ Make the following changes in the `         deployment.toml       ` file
 in `         <IS_HOME>/repository/conf/       ` to enable
 the audit logger.
 
-1.  Add the following configuration to the  `         deployment.toml       ` file.
+1.  Add the following configuration to  `         deployment.toml       ` file.
 
     ``` toml
     [event.default_listener.user_claim_audit_logger]     
@@ -27,12 +27,13 @@ the audit logger.
     ```
 
     !!! note
+    
         In the above configuration, you can define any claim available in
-        the `<http://wso2.org/claims>` dialect as a
+        the <http://wso2.org/claims> dialect as a
         `           LoggableUserClaim          ` . The **accountLocked** and
         **role** claims have been used here only as examples.
         
-3. Add the following configuration to the `deployment.toml` file to configure the `"LogUpdatedClaimsOnly"` property.
+3. Add the following configuration to `deployment.toml` file to configure the `"LogUpdatedClaimsOnly"` property.
    
    ```
    [event.default_listener.user_claim_audit_logger]     
@@ -40,8 +41,10 @@ the audit logger.
    enable = true
    LogUpdatedClaimsOnly = true
    ```
-   
-   On making the above-mentioned changes, claims will be logged into the `           audit.log          ` file in `<IS_HOME>/repository/log`.
+
+    On making the above mentioned changes, claims will be logged into
+    the `           audit.log          ` file in
+    `           <IS_HOME>/repository/log.          `
 
       
 

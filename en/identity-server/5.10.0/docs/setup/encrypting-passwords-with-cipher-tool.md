@@ -1,16 +1,15 @@
-# Encrypt Passwords with the Cipher Tool
+# Encrypting Passwords with Cipher Tool
 
 
 The instructions on this page explain how plain text passwords in configuration files can be encrypted using the secure vault implementation that is built into WSO2 Identity Server.  
 
 !!! tip "Before you begin"
     - If you are using Windows, you need to have **Ant** (<http://ant.apache.org/>) installed before using the Cipher Tool.
+    - If required, you can enable [single key encryption](../../administer/using-symmetric-encryption) instead of (the default) asymmetric encryption.
 
----
+### Encrypting passwords
 
-## Encrypt passwords
-
-1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the `[secrets]` configuration section at the bottom of the file as shown below. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
+1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the `[secrets]` configuration section **at the bottom of the file** as shown below. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
 
     ```toml
     [secrets]
@@ -21,7 +20,7 @@ The instructions on this page explain how plain text passwords in configuration 
     "log4j.appender.LOGEVENT.password" = "[password_5]"
     ```
 
-2. Navigate to the `<IS_HOME>/bin/` directory in a command prompt and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
+2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
     * On Linux: `./ciphertool.sh -Dconfigure`
     * On Windows: `ciphertool.bat -Dconfigure`
 
@@ -36,25 +35,15 @@ The instructions on this page explain how plain text passwords in configuration 
     "log4j.appender.LOGEVENT.password" = "kydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTagXTvBz1/76b/DnHQgxjNhD3LHtH+yJXNowecEEC"
     ```
 
----
-
-## Use encrypted passwords
-When you have [encrypted passwords](#encrypt-passwords), you can refer them from the relevant configuration files - the `deployment.toml` file or LOG4j properties.
+## Using encrypted passwords
+When you have [encrypted passwords](#encrypting-passwords), you can refer them from the relevant configuration files: The `deployment.toml` file or LOG4j properties.
 
 ### Passwords in deployment.toml
 
 You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a place holder: `$secret{alias}`. 
 
 !!! note 
-<<<<<<<< HEAD:en/identity-server/5.10.0/docs/setup/encrypting-passwords-with-cipher-tool.md
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/security/encrypt-passwords-with-cipher-tool.md
-    You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties]({{base_path}}/deploy/security/set-passwords-using-environment-variables-or-system-properties)
-========
     You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../setup/set-passwords-using-environment-variables-or-system-properties)
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/setup/encrypting-passwords-with-cipher-tool.md
-========
-    You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../setup/set-passwords-using-environment-variables-or-system-properties)
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/encrypting-passwords-with-cipher-tool.md
 
 ```toml
 [super_admin]
@@ -71,20 +60,18 @@ password = "$secret{keystore_password}"
 ```
 
 ### Passwords in LOG4j properties
-For example, consider the 'log4j.appender.LOGEVENT.password' in the `log4j2.properties` file. You can refer the [encrypted password](#encrypt-passwords) from the `log4j2.properties` file as shown below.
+For example, consider the 'log4j.appender.LOGEVENT.password' in the log4j.properties file. You can refer the [encrypted password](#encrypting-passwords) from the log4j.properties file as shown below.
 
 ```
 log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
 ```
 
----
+## Changing encrypted passwords
 
-## Change encrypted passwords
+To change any password that we have encrypted already, follow the below steps:
 
-To change any password that has been encrypted already, follow the steps given below.
-    
-1. Make sure you shut down the server.
-2. Navigate to the `<IS_HOME>/bin/` directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
+1. Be sure to shut down the server.
+2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
 3. Execute the following command for your OS:
     * On Linux: `./ciphertool.sh -Dchange`
     * On Windows: `ciphertool.bat -Dchange`
@@ -93,13 +80,8 @@ To change any password that has been encrypted already, follow the steps given b
 6. The system will then prompt you to select the alias of the password which you want to change. Enter the list number of the password alias.
 7. The system will then prompt you (twice) to enter the new password. Enter your new password.
 
-<<<<<<<< HEAD:en/identity-server/5.10.0/docs/setup/encrypting-passwords-with-cipher-tool.md
-!!! info "Related topics"
-    
-    -   [Deploy: Resolve Encrypted Passwords]({{base_path}}/deploy/security/resolve-encrypted-passwords)
-========
 !!! info
+    
     For information on resolving the encrypted passwords, see [Resolving Encrypted Passwords](../../setup/resolving-encrypted-passwords).
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/encrypting-passwords-with-cipher-tool.md
 
-    -   [Deploy: Customize Secure Vault]({{base_path}}/deploy/security/customize-secure-vault)
+    For information on customizing secure vault implementaion, see [Customizing Secure Vault](../../setup/customizing-secure-vault).

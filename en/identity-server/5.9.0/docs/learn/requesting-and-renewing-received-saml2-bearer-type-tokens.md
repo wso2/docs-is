@@ -102,7 +102,7 @@ party to grant the security token from the STS.
     
     Before you begin!
     
-    [Git checkout the samples directory](https://github.com/wso2/samples-is).
+    [Download the samples directory](../../learn/downloading-a-sample).
     
 
 1.  Navigate to

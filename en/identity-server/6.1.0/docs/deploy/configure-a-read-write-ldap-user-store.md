@@ -20,15 +20,9 @@ The following are the minimum configurations that are needed to be provided to c
 </tr>
 <tr class="even">
 <td>type</td>
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 <td>userstore Type</td>
 <td>This is the type of the userstore manager that we are using. For read-write LDAP userstore manager. this value
 should be read_write_ldap_unique_id.
-========
-<td>User Store Type</td>
-<td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
-should be read_only_ldap_unique_id.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-only-ldap-user-store.md
 </td>
 </tr>
 <tr class="odd">
@@ -90,11 +84,7 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 
 ``` toml
 [user_store]
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 type = "read_write_ldap_unique_id"
-========
-type = "read_only_ldap_unique_id"
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-only-ldap-user-store.md
 base_dn = "ou=system"
 connection_url = "ldap://localhost:10389"
 connection_name = "uid=admin,ou=system"
@@ -138,7 +128,7 @@ read_groups = true
 <td>user_entry_object_class</td>
 <td>User Entry Object Class</td>
 <td>Object class used to construct user entries.<br />
-<p>Default: identityPerson( Is a custom object class defined in WSO2 Identity Server)</p></td>
+Default: identityPerson( Is a custom object class defined in WSO2 Identity Server)</td>
 </tr>
 <tr class="odd">
 <td>UserNameAttribute</td>
@@ -156,23 +146,12 @@ Note: email address is considered as a special case in WSO2 products, if you wan
 <td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID. </p>
 <p>Default: scimId <br /></p></td>
 </tr>
-<tr class="odd">
-<td>UserIDAttribute</td>
-<td>user_id_attribute</td>
-<td>User ID Attribute</td>
-<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID.</p>
-<p>Default: scimId <br /></p></td>
-</tr>
 <tr class="even">
 <td>UserNameSearchFilter</td>
 <td>user_name_search_filter</td>
 <td>User Search Filter</td>
 <td>Filtering criteria used to search for a particular user entry.<br />
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 Default : (&amp;amp;(objectClass=identityPerson)(uid=?))</td>
-========
-<p>Default : (&amp;amp;(objectClass=person)(uid=?))</p></td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-only-ldap-user-store.md
 </tr>
 <tr class="odd">
 <td>UserNameListFilter</td>
@@ -180,11 +159,7 @@ Default : (&amp;amp;(objectClass=identityPerson)(uid=?))</td>
 <td>User List Filter</td>
 <td>Filtering criteria for searching user entries in the userstore. This query or filter is used when doing search operations on users with different search attributes.<br />
 <br />
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 Default: (objectClass=identityPerson)<br />
-========
-<p>Default: (objectClass=person)</p><br />
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-only-ldap-user-store.md
 In this case, the search operation only provides the objects created from the person object class.</td>
 </tr>
 <tr class="even">
@@ -244,7 +219,7 @@ Default: groupOfNames</td>
 <td>group_name_attribute</td>
 <td>Group Name Attribute</td>
 <td>Attribute used for uniquely identifying a group entry. This attribute is to be treated as the group name.
-<br/><p>Default: cn</p></td>
+<br/>Default: cn</td>
 </tr>
 <tr class="odd">
 <td>GroupNameSearchFilter</td>
@@ -287,59 +262,55 @@ Possible values: memberOf</td>
 <td>back_links_enabled</td>
 <td>Enable Back Links</td>
 <td>Defines whether the backlink support is enabled. If you are using MemberOfAttribute attributes this should be set to 'true'.
-<br/><p>Default : false</p></td>
+<br/>Default : false</td>
 </tr>
 <tr class="odd">
 <td>UsernameJavaRegEx</td>
 <td>username_java_regex</td>
 <td>Username RegEx (Java)</td>
 <td>The regular expression used by the back-end components for username validation. By default, strings with non-empty characters have a length of 3 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
-<p>Default: [a-zA-Z0-9._\-|//]{3,30}$</p></td>
+Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
 </tr>
 <tr class="even">
 <td>UsernameJava<br>ScriptRegEx</td>
 <td>username_java_<br>script_regex</td>
 <td>Username RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for username validation.<br />
-<p>Default: ^[\S]{3,30}$</p></td>
+Default: ^[\S]{3,30}$</td>
 </tr>
 <tr class="odd">
 <td>UsernameJavaReg<br>ExViolationErrorMsg</td>
 <td>username_java_reg_<br>ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
 <td>Error message when the Username is not matched with UsernameJavaRegEx<br />
-<p>Default: Username pattern policy violated</p></td>
+Default: Username pattern policy violated</td>
 </tr>
 <tr class="even">
 <td>PasswordJavaRegEx</td>
 <td>password_java_regex</td>
 <td>Password RegEx (Java)</td>
 <td>The regular expression used by the back-end components for password validation. By default, strings with non-empty characters have a length of 5 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
-<p>Default: ^[\S]{5,30}$</p></td>
+Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="odd">
 <td>PasswordJava<br>ScriptRegEx</td>
 <td>password_java_<br>script_regex</td>
 <td>Password RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
-<p>Default: ^[\S]{5,30}$</p></td>
+Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="even">
 <td>PasswordJavaReg<br>ExViolationErrorMsg</td>
 <td>password_java_reg<br>ex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
 <td>Error message when the Password is not matched with passwordJavaRegEx<br />
-<p>Default: Password length should be within 5 to 30 characters</p></td></tr>
+Default: Password length should be within 5 to 30 characters</td></tr>
 <tr class="odd">
 <td>RolenameJavaRegEx</td>
 <td>rolename_java_regex</td>
 <td>Role Name RegEx (Java)</td>
 <td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
-========
-<p>Default: [a-zA-Z0-9._\-|//]{3,30}$</p></td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-only-ldap-user-store.md
 </tr>
 <tr class="odd">
 <td>PasswordHashMethod</td>
@@ -361,51 +332,34 @@ But; if your LDAP does not support to store user password as hashed values. You 
 <td>multi_attribute_separator</td>
 <td>Multiple Attribute Separator</td>
 <td>This property is used to define a character to separate multiple attributes. This ensures that it will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but you can define ",,," or "..." or a similar character sequence<br />
-<p>Default: “,”</p></td>
+Default: “,”</td>
 </tr>
 <tr class="odd">
 <td>MaxUserName<br>ListLength </td>
 <td>max_user_name<br>_list_length</td>
 <td>Maximum User List Length</td>
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 <td>Controls the number of users listed in the userstore of a WSO2 product. This is useful when you have a large number of users and don't want to list them all. Setting this property to 0 displays all users.<br />
 Default: 100<br />
 <br />
 In some userstores, there are policies to limit the number of records that can be returned from the query. Setting the value 0 it will list the maximum results returned by the userstore. If you need to increase that you need to set it in the userstore level.<br />
-========
-<td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and don't want to list them all. Setting this property to 0 displays all users.<br />
-<p>Default: 100</p><br />
-In some user stores, there are policies to limit the number of records that can be returned from the query. Setting the value 0 it will list the maximum results returned by the user store. If you need to increase that you need to set it in the user store level.<br />
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-only-ldap-user-store.md
 Eg : Active directory has the MaxPageSize property with the default value 1000.</td>
 </tr>
 <tr class="even">
 <td>MaxRoleName<br>ListLength</td>
 <td>max_role_name<br>_list_length</td>
 <td>Maximum Role List Length</td>
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 <td><p>Controls the number of roles listed in the userstore of a WSO2 product. This is useful when you have a large number of roles and don't want to list them all. Setting this property to 0 displays all roles.<br />
 Default: 100<br />
 <br />
 In some userstores, there are policies to limit the number of records that can be returned from the query, Setting the value 0 it will list the maximum results returned by the userstore. If you need to increase that you need to set it n the userstore level.</p>
-========
-<td><p>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and don't want to list them all. Setting this property to 0 displays all roles.<br />
-<p>Default: 100</p><br />
-In some user stores, there are policies to limit the number of records that can be returned from the query, Setting the value 0 it will list the maximum results returned by the user store. If you need to increase that you need to set it n the user store level.</p>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-only-ldap-user-store.md
 <p>Eg: Active directory has the MaxPageSize property with the default value 1000.</p></td>
 </tr>
 <tr class="odd">
 <td>kdcEnabled</td>
 <td>kdc_enabled</td>
 <td>Enable KDC</td>
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 <td>If your userstore is capable of acting as a Kerberos, Key Distribution Center (KDC) and if you like to enable it, set this property to true.<br />
 Default: false</td>
-========
-<td>If your user store is capable of acting as a Kerberos, Key Distribution Center (KDC) and if you like to enable it, set this property to true.<br />
-<p>Default: false</p></td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-only-ldap-user-store.md
 </tr>
 <tr class="even">
 <td>UserRoles<br>CacheEnabled</td>
@@ -428,14 +382,14 @@ Possible values:<br />
 True: Enable connection pooling. Enabling it will improve the performance<br />
 False: Disable connection pooling
 <br />
-<p>Default: false</p><br /></td>
+Default: false<br /></td>
 </tr>
 <tr class="even">
 <td>LDAPConnectionTimeout</td>
 <td>ldap_connection_timeout</td>
 <td>LDAP Connection Timeout</td>
 <td>Timeout in making the initial LDAP connection. This is configured in milliseconds.<br />
-<p>Default: 5000</p></td>
+Default: 5000</td>
 </tr>
 <tr class="odd">
 <td>ReadTimeout</td>
@@ -443,7 +397,7 @@ False: Disable connection pooling
 <td>LDAP Read Timeout</td>
 <td>The value of this property is the read timeout in milliseconds for LDAP operations. If the LDAP provider cannot get a LDAP response within that period, it aborts the read attempt. The integer should be greater than zero. An integer less than or equal to zero means no read timeout is specified which is equivalent to waiting for the response infinitely until it is received.
 <br />
-<p>Default: not configured</p></td>
+Default: not configured</td>
 </tr>
 <tr class="even">
 <td>MembershipAttributeRange</td>
@@ -466,7 +420,7 @@ False: Disable connection pooling
 <td>If the connection to the LDAP is inactive for the length of time
 (in milliseconds) specified by this property, the connection
 will be terminated.
-<p>Default: not configured</p>
+<p>Default: not configured</p><br/>
 <p>Sample: 20</p>
 </td>
 </tr>

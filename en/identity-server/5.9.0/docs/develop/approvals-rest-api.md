@@ -2,14 +2,14 @@
 template: templates/swagger.html
 ---
 
-# Workflow Approval API Definition
+# Workflow Approval API Definition - V1 
 
-??? note "Click for instructions"
-    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
+??? note "Click to view"
+    Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
       
-      1. [Add a new workflow definition]({{base_path}}/guides/workflows/adding-a-new-workflow-definition/) 
-      and [engage the workflow in an operation]({{base_path}}/guides/workflows/engaging-a-workflow-in-an-operation/)
-      2. Perfom a few related operations to generate few human task approvals.
+      1. [Add a new workflow definition](../../learn/adding-a-new-workflow-definition/) 
+      and [engage the workflow in an operation](../../learn/engaging-a-workflow-in-an-operation/)
+      2. Perfom few related operations to generate few human task approvals.
       3. Click on **Authorize** button and provide desired values for authentication.
       4. Expand the relevant API operation and click the **Try It Out** button.  
       5. Fill in relevant sample values for the input parameters and click **Execute**. 
@@ -19,10 +19,10 @@ template: templates/swagger.html
 
 <div id="swagger-ui"></div>
 <script>
-
+window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/approvals.yaml",
+    url: "../../develop/restapis/approvals.yaml",
     name: "Download the yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
@@ -38,5 +38,8 @@ template: templates/swagger.html
   })
   // End Swagger UI call region
 
-   window.ui = ui
+  window.ui = ui
+}
 </script>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5756659f9134b101dd64)

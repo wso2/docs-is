@@ -1,4 +1,4 @@
-# Add Logs for Tokens
+# Adding Logs for Tokens
 
 Entries in the
 `         <IS_HOME>/repository/conf/security/identity_log_tokens.properties        `
@@ -9,18 +9,6 @@ disabled from appearing in the logs by setting each token to
 `         false        ` .
 
 ``` c#
-<<<<<<<< HEAD:en/identity-server/5.10.0/docs/setup/adding-logs-for-tokens.md
-UserClaims=true
-UserIdToken=true
-XACML_Request=true
-XACML_Response=true
-NTLM_Token=true
-SAML_Assertion=true
-SAML_Request=true
-AccessToken=true
-RefreshToken=true
-AuthorizationCode=true
-========
     UserClaims=true
     UserIdToken=true
     XACML_Request=true
@@ -31,14 +19,13 @@ AuthorizationCode=true
     AccessToken=true
     RefreshToken=true
     AuthorizationCode=true
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/adding-logs-for-tokens.md
 ```
 
 In addition to this, you need to ensure that the logs in the
 `         <IS_HOME>/repository/conf/log4j2.properties        ` file are
-enabled as well. To do this, follow the instructions given below.
+enabled as well. To do this, please follow the following instructions.
 
-Change log level from `INFO` to `DEBUG` in the `org.wso2.carbon.identity` logger as follows.
+Change log level from `INFO` to `DEBUG` in `org.wso2.carbon.identity` logger as follows.
 
 ``` c#
 logger.org-wso2-carbon-identity.name=org.wso2.carbon.identity
@@ -60,15 +47,13 @@ To start the server and pass the parameter, navigate to the
 `         <IS_HOME>/bin        ` folder in the command line and run the
 following command.
 
-**Startup command**
-``` bash
+``` bash tab="Startup command"
 sh wso2server.sh -DRead_Log_Token_Properties=true
 ```
 
 To add the parameter to the environment variable, use the following
-command and then [start the server]({{base_path}}/deploy/get-started/run-the-product/).
+command and then [start the server](../../setup/running-the-product).
 
-**Exporting to the Java environment variable**
-``` bash
+``` bash tab="Exporting to the Java environment variable"
 export JAVA_OPTS=-DRead_Log_Token_Properties=true
 ```

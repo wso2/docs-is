@@ -1,14 +1,12 @@
-# Mitigate Authorization Code Interception Attacks
+# Mitigating Authorization Code Interception Attacks
 
 The following sections describe the impact of the code interception
 attack and the approaches you can use to mitigate it. You may need to
 mitigate these kind of attacks when creating an OAuth application that
-uses the [Authorization Code Grant]({{base_path}}/references/concepts/authorization/authorization-code-grant) type for
+uses the [Authorization Code Grant](../../learn/authorization-code-grant) type for
 authentication.
 
----
-
-## How can code interception attacks be harmful?
+### How can code interception attacks be harmful?
 
 A code interception attack is where a malicious client intercepts the
 authorization code returned from the authorization endpoint and uses it
@@ -17,9 +15,7 @@ applications that run on platforms like Android, iOS and Microsoft
 Windows. These applications generally use the **Authorization Code**
 grant type for authentication.
 
----
-
-### The authorization code grant type flow
+##### The authorization code grant type flow
 
 1. The application is registered as a handler for a particular URI scheme
 (e.g., URLs beginning with " `          org.wso2.app://         ` ").
@@ -38,8 +34,8 @@ case, the identity provider is the WSO2 Identity Server (IS).
     2.  Approves any user consents regarding the application.
 
 4. When the user is successfully authenticated, WSO2 IS redirects the user
-to the redirection URL provided by the application (e.g., 
-`          org.wso2.app://auth?code=12345&state=abc         ` ).
+to the redirection URL provided by the application (e.g., “
+`          org.wso2.app://auth?code=12345&state=abc         ` ”).
 
 5. The browser queries the mobile Operating System (OS) to get a list of
 applications that handle the URI provided. The mobile OS determines the
@@ -67,11 +63,9 @@ following diagram.
     and select the legitimate application. However, some operating systems
     (such as iOS) do not have any such scheme.
 
-![Authorization code grant type flow]({{base_path}}/assets/img/deploy/authorization-code-grant-type-flow.png) 
+![Authorization code grant type flow](../assets/img/using-wso2-identity-server/authorization-code-grant-type-flow.png) 
 
----
-
-## Mitigate code interception attacks using PKCE
+### Mitigating code interception attacks using PKCE
 
 The WSO2 Identity Server supports the Proof Key for Code Exchange (PKCE)
 specification, which prevents applications from exchanging a maliciously
@@ -106,33 +100,22 @@ it with the `         code_challenge        ` . If the comparison fails
 or no `         code_verifier        ` is sent, WSO2 IS does not respond
 with an access token.
 
----
-
-## Configure PKCE with WSO2 Identity Server
+### Configuring PKCE with WSO2 Identity Server
 
 In order to mitigate these attacks using PKCE with WSO2 Identity Server,
 you need to enable PKCE when creating the OAuth application. Follow the
 steps below to do this.
 
-## Configure a new service provider
-
-{!./includes/register-a-service-provider.md!}
-
-## Configure PKCE
-
+1.  [Add a new service provider.](../../learn/adding-and-configuring-a-service-provider)
 2.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** section. Click
     **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
-    ![]({{base_path}}/assets/img/deploy/register-a-new-application.png)
+    ![](../assets/img/using-wso2-identity-server/register-a-new-application.png)
 
 
-!!! info "Related topics" 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
-    -   See [Try Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
-========
-    -   See [Try Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground/)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
+!!! info "Related Topics" 
+    -   See [Try Authorization Code Grant](../../learn/try-authorization-code-grant)
         to try out PKCE with the authorization code grant type using the
         WSO2 Playground web application.

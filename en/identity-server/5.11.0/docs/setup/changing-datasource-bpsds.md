@@ -111,15 +111,7 @@ the following. The explanation for the following configurations can be found in 
    minIdle = "5"
    testOnBorrow = true
    validationInterval = "30000"
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/changing-datasource-bpsds.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/changing-datasource-bpsds.md
    validationQuery = "SELECT 1; COMMIT" #Set this query based on DB type
    defaultAutoCommit=false
    commitOnReturn=true
-========
-   validationQuery = "SELECT 1; COMMIT"
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/setup/changing-datasource-bpsds.md
-========
-   validationQuery = "SELECT 1; COMMIT"
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/changing-datasource-bpsds.md
    ```

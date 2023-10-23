@@ -1,7 +1,11 @@
-# Notification Senders configurations
+---
+template: templates/swagger.html
+---
 
-The RESTful API for managing notification sender configurations in WSO2 Identity Server supports Email and SMS as the notification channels.
+# Notification Senders API Definition
 
+This is the RESTful API for managing notification sender configurations in WSO2 Identity Server. 
+It supports Email and SMS as the notification channels. 
 The following section provides the instructions to contruct requests for each notification sender type.<br>
 
 !!! warning "Important"
@@ -47,7 +51,7 @@ The following section provides the instructions to contruct requests for each no
 
         Example:
 
-        * Let's assume you change the `Bulksms` template as follows.
+        * Let’s assume you change the `Bulksms` template as follows.
         ```
             <configuration provider="Bulksms">
                 <body>
@@ -72,3 +76,24 @@ The following section provides the instructions to contruct requests for each no
                 ]
             }
         ```
+    
+<div id="swagger-ui"></div>
+<script>
+    // Begin Swagger UI call region
+  const ui = SwaggerUIBundle({
+     url: "{{base_path}}/apis/restapis/notification-senders.yaml",
+    dom_id: '#swagger-ui',
+    deepLinking: true,
+    validatorUrl: null,
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: "StandaloneLayout",
+  })
+  // End Swagger UI call region
+  window.ui = ui
+</script>

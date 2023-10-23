@@ -236,8 +236,4 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
 	
 	3.  Change the value of the **Identity Provider Entity ID** to the
 		required Issuer value and click **Update.**  
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/log-into-workday-using-is.md
 		<!-- ![identity-provider-entity-id]({{base_path}}/assets/img/tutorials/identity-provider-entity-id.png) -->
-========
-		<!-- ![identity-provider-entity-id]({{base_path}}/assets/img/tutorials/identity-provider-entity-id.png) -->
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/log-into-workday-using-is.md

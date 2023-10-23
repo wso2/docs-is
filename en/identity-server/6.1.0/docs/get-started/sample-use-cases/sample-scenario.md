@@ -1,11 +1,11 @@
 # Sample Scenario
 
-You can easily try out the identity and access management (IAM) capabilities in the WSO2 Identity Server by using the scenario explained below.
+You can easily try out the identity and access management (IAM) capabilities in WSO2 Identity Server (WSO2 IS) by using the scenario explained below.
 
 ## About the sample scenario
 
 **Pickup** is a cab company that has many employees who use different
-credentials to sign in to different internal enterprise applications. **Pickup** will register its users and applications in WSO2 Identity Server to fulfill its IAM requirements.
+credentials to sign in to different internal enterprise applications. **Pickup** will register its users and applications in WSO2 Identity Server to fulfill its IAM [requirements](#requirements).
 
 ![qsg-overall-scenario]({{base_path}}/assets/img/get-started/qsg-overall-scenario.png)
 
@@ -27,7 +27,7 @@ Following are three users in the company:
 <table>
     <tr>
         <th>Rowan</th>
-        <td>The company HR manager who would define the access requirements of the company.</td>
+        <td>The company HR manager who would define the access requirements of the company.</td>
     </tr>
     <tr>
         <th>Cameron</th>
@@ -39,7 +39,9 @@ Following are three users in the company:
     </tr>
 </table>
 
-Listed below are the organizational requirements that are addressed by the WSO2 Identity Server.
+### Requirements
+
+Listed below are the organizational requirements that are addressed by WSO2 Identity Server.
 
 - Employees need to remember multiple credentials when logging in to the many applications of **Pickup**. It is required to unify logins for employees with **single sign-on** so that employees will only have to remember a single password.
 
@@ -57,38 +59,34 @@ Listed below are the organizational requirements that are addressed by the WSO2 
 
     Try out [self sign-up]({{base_path}}/get-started/sample-use-cases/self-sign-up/).
 
-## Set up the sample applications
+## Set up the sample apps
 
 To try out the sample identity and access management scenarios on your WSO2 IS instance, you need to set up the required sample applications with your WSO2 IS.
 
 !!! note "Before you begin"
     -   Open the `/etc/hosts` file and add the following entry:
-
+    
         ``` bash
         127.0.0.1        localhost.com
         ```
 
-        -   If you are planning to use single sign-on (SSO), do not use `localhost` to avoid any issues. Use `localhost.com` instead. If you are using Windows, `localhost.com` is already mapped to `127.0.0.1`.
+        -   If you are planning to use single sign-on (SSO), do not use `localhost` as it will cause the Tomcat naked host issue. Use `localhost.com` instead. If you are using Windows, `localhost.com` is considered as `127.0.0.1`.
         -   Make sure that this is the only such entry available for this IP address in the `/etc/hosts` file to avoid any conflicts.
         
-    -   [Download](https://curl.haxx.se/download.html) and install curl. Make sure you install the binary type file of the version your choice.
+    -   [Download](https://curl.haxx.se/download.html) and install curl. Make sure you install the binary type file of the version you choose.
 
 Follow the steps given below.
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/get-started/sample-use-cases/sample-scenario.md
-1. [Download the sample applications](https://github.com/wso2/samples-is/releases/download/v4.5.2/is-samples-distribution.zip) and unzip using the following command.
-========
 1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.5.2/is-samples-distribution.zip) and unzip.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/get-started/sample-use-cases/sample-scenario.md
 
-    ``` bash
+    ``` java
     unzip is-samples-distribution.zip
     ```
 
     !!! info
-        The root folder of the samples distribution is referred to as `{IS_SAMPLE_DISTR}`.
+        The root folder of the samples distribution is referred to as `<IS_SAMPLE_DISTR>`.
 
-2. Open the `server.properties` file in the `{IS_SAMPLE_DISTR}/IS-QSG/conf/` folder and configure `wso2is.host.domain` and `wso2is.host.port` as follows:
+2.  Open the `server.properties` file in the `<IS_SAMPLE_DISTR>/IS-QSG/conf/` folder and configure `wso2is.host.domain` and `wso2is.host.port` as follows:
 
     ``` bash
     #localhost.com is used to resolve naked hostname validation issue
@@ -98,37 +96,37 @@ Follow the steps given below.
     server.host.port=8080
     ```
 
-3. To configure and run the sample applications, open a terminal, navigate to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` folder, and follow the steps given below:
+3.  To configure and run the sample applications, open a terminal, navigate to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` folder, and follow the steps given below: 
 
-    1. Execute one of the following commands to start the sample application:
+    1.  Execute one of the following commands to start the sample application:
 
-        - On Linux/MacOS
+        -   On Linux/MacOS
 
             ``` bash
             sh app-server.sh
             ```
 
-        - On Windows
-
+        -   On Windows
+        
             ``` bash
             app-server.bat
             ```
 
-    2. Execute the following command to start the quickstart samples accordingly.
+    2.  Execute the following command to start the quickstart samples accordingly.
 
-        - On Linux/MacOS
+        -   On Linux/MacOS
 
             ``` bash
             sh qsg.sh
             ```
 
-        - On Windows
-
+        -   On Windows
+        
             ``` bash
             qsg.bat
             ```
 
-4. When prompted, confirm the configurations.
+4.  When prompted, confirm the configurations.
 
 ## What's next?
 

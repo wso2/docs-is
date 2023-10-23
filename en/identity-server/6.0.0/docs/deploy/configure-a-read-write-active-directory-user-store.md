@@ -25,14 +25,8 @@ Following are the minimum configurations that are needed to be provided to confi
 </thead>
 <tr class="even">
 <td>type</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-read-write-active-directory-user-store.md
 <td>userstore Type</td>
 <td>This denotes the type of the userstore manager that we are using. For Read-only LDAP userstore manager, this value should be active_directory_unique_id.
-========
-<td>User Store Type</td>
-<td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
-should be active_directory_unique_id.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-write-active-directory-user-store.md
 </td>
 </tr>
 <tr class="odd">
@@ -95,25 +89,15 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 ```toml
 [user_store]
 type = "active_directory_unique_id"
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-read-write-active-directory-user-store.md
 base_dn = "dc=wso2,dc=org"
-========
-base_dn = "cn=Users,dc=wso2,dc=org"
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-write-active-directory-user-store.md
 connection_url = "ldaps://10.100.1.102:639"
 connection_name = "cn=admin,ou=system"
 connection_password = "admin"
 ```
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-read-write-active-directory-user-store.md
 In addition to the above, please make sure that you import the Active Directory user store public certificate to the 
 WSO2 Identity Server’s client trust store. To perform this, you need to navigate to the 
 `<IS_HOME>repository/resources/security` directory and execute the following command to import the certificate to 
-========
-In addition to the above, please make sure that you import the Active Directory user store public certificate to the
-WSO2 Identity Server’s client trust store. To perform this, you need to navigate to the
-`<IS_HOME>repository/resources/security` directory and execute the following command to import the certificate to
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-write-active-directory-user-store.md
 client-truststore of WSO2 Identity Server.
 
 ```
@@ -123,7 +107,6 @@ keytool -import -alias certalias -file <certificate>.pem -keystore client-trusts
 !!! note
     `wso2carbon` is the keystore password of the default client-truststore.jks file of WSO2 Identity Server.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-read-write-active-directory-user-store.md
 Furthermore, please make sure to follow the steps mentioned in [Configure Active Directory Userstores for SCIM 2.0 based Inbound Provisioning](../guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md) 
 since SCIM is enabled by default from the WSO2 Identity Server 5.10.0 onwards.
 
@@ -135,11 +118,6 @@ since SCIM is enabled by default from the WSO2 Identity Server 5.10.0 onwards.
 
 ---
 
-========
-Furthermore, please make sure to follow the steps mentioned in [Configure Active Directory Userstores for SCIM 2.0 based Inbound Provisioning](../../learn/configuring-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning)
-since SCIM is enabled by default from the WSO2 Identity Server 5.10.0 onwards.
-
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-write-active-directory-user-store.md
 ## Properties used in Read-write Active Directory userstore manager
 
 The following table lists the properties used in Read-write Active
@@ -187,11 +165,7 @@ Default: identityPerson (a custom object class defined in WSO2 Identity Server)<
 <td>UserNameAttribute</td>
 <td>user_name_attribute</td>
 <td>Username Attribute</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-read-write-active-directory-user-store.md
 <td><p>This is a uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
-========
-<td><p>A uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-write-active-directory-user-store.md
 <p>Default: uid<br />
 <br />
 Note: email address is considered as a special case in WSO2 Identity Server, if you want to set the email address as username, see <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username">Enable using email address as the username.</a></p>
@@ -202,13 +176,8 @@ sample values: sAMAccountName</td>
 <td>UserIDAttribute</td>
 <td>user_id_attribute</td>
 <td>User ID Attribute</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-read-write-active-directory-user-store.md
 <td><p>This is the attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID.</p>
 <p>Default: ObjectGUID <br /></p></td>
-========
-<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID.</p>
-<p>Default: ObjectGuid <br /></p></td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-write-active-directory-user-store.md
 </tr>
 <tr class="even">
 <td>UserNameSearchFilter</td>

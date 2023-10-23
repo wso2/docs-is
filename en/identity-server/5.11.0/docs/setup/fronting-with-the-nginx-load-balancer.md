@@ -1,15 +1,5 @@
-# Set up WSO2 clusters with Nginx 
+# Fronting with the Nginx Load Balancer 
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/front-with-the-nginx-load-balancer.md
-When setting up the WSO2 Identity Server cluster with Nginx, follow the instructions given below. 
-
-!!! note 
-    Follow the instructions given below only **after** setting up the cluster following the [Deployment Patterns]({{base_path}}/deploy/deployment-guide). 
-
-!!! tip 
-    When clustering WSO2 Identity Server with a load balancer, you may need to
-    enable sticky sessions. This is required for the WSO2 Identity Server Management Console and My Account to work and if we disable temporary session data
-========
 When setting up the WSO2 Identity Server cluster with Nginx,
 you can follow the instructions given below (you must do this **after**
 setting up the cluster following the instructions in [deploying the identity server](../../setup/deployment-guide). 
@@ -18,18 +8,15 @@ setting up the cluster following the instructions in [deploying the identity ser
     When clustering WSO2 Identity Server with a load balancer, you may need to
     enable sticky sessions. This is required for the management console and
     the user portal to work and if we disable temporary session data
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/fronting-with-the-nginx-load-balancer.md
     persistence in the
     `<IS_HOME>/repository/conf/deployment.toml`
-    file. <!--For more information on sticky sessions, see [Sticky Sessions with Manager Nodes]({{base_path}}/deploy/sticky-sessions-with-manager-nodes).-->
+    file. For more information on sticky sessions, see [Sticky Sessions with Manager Nodes](../../administer/sticky-sessions-with-manager-nodes).
    
 Following is the deployment diagram with the load balancer.
 
-![Deployment with the loadbalancer]({{base_path}}/assets/img/deploy/deployment-with-the-loadbalancer.png) 
+![Deployment with the loadbalancer](../assets/img/setup/deployment-with-the-loadbalancer.png) 
 
----
-
-## Configure Nginx
+#### Configuring Nginx
 
 Use the following steps to configure [NGINX
 Plus](https://www.nginx.com/products/) version 1.7.11 or
@@ -148,7 +135,8 @@ collectively as "Nginx".)
 
 3.  Now that you've configured HTTP requests, you must also configure
     HTTPS requests. Configure Nginx to direct the HTTPS requests to the
-    two worker nodes via the HTTPS 443 port using ` https://is.wso2.com/` . To do this, create a VHost file ( ` is.https.conf ` ) in the `
+    two worker nodes via the HTTPS 443 port using ` https://is.wso2.com/
+     ` . To do this, create a VHost file ( ` is.https.conf ` ) in the `
     /etc/nginx/conf.d ` directory and add the following configurations
     into it.
 
@@ -219,7 +207,7 @@ collectively as "Nginx".)
         }
     ```
 
-4.  Configure Nginx to access the WSO2 Identity Server Management Console as
+4.  Configure Nginx to access the Management Console as
     `            https://mgt.is.wso2.com/carbon           ` via HTTPS
     443 port. This is to direct requests to the manager node. To do
     this, create a VHost file (
@@ -259,7 +247,8 @@ collectively as "Nginx".)
     !!! tip    
         If you have made modifications to anything other than the VHost
         files, you may need to restart the Nginx server instead of
-        reloading it.
+        reloading:
         ```
         $sudo service nginx restart
         ```    
+

@@ -112,7 +112,7 @@ To configure manually,
 				<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence">
 				<pre class="sourceCode xml"><code class="sourceCode xml">
 				<a class="sourceLine" id="cb1-1" title="1">[authentication.authenticator.saml.parameters] </a>
-				<a class="sourceLine" id="cb1-2" title="2">VerifyAssertionIssuer=true </a>
+				<a class="sourceLine" id="cb1-2" title="2">VerifyAsserstionIssuer: true </a>
 				</div>
 				</div>
 				</div></td>
@@ -126,7 +126,12 @@ To configure manually,
 			<tr>
 				<td>ACS URL</td>
 				<td>
-					<p>This is the identity provider's SAML2 ACS URL.</p>			
+					<p>This is the identity provider's SAML2 ACS URL.</p>
+					<div class="admonition warning">
+					<p class="admonition-title">Warning</p>
+					<p>To configure this, apply the <b>2020-01-17 WUM update</b> to WSO2 Identity Server 5.9.0 using the WSO2 Update Manager (WUM).</p>
+				    <p>To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see [Getting Started with WUM in the WSO2 Administration Guide](https://docs.wso2.com/display/updates/Getting+Started).</p> 
+					</div> 				
 				</td>
 				<td>If not entered, the default ACS URL will be used.</td>
 			</tr>
@@ -209,7 +214,7 @@ To configure manually,
 			</tr>
 			<tr class="odd">
 				<td>Authentication Context Class</td>
-				<td><p>Choose one or multiple <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-authn-context-2.0-os.pdf">Authentication Context Class References</a> (AuthnContextClassRef) to be included in the requested authentication context from the Identity Server, which specifies the authentication context requirements of authentication statements returned in the response. The Authentication Context Class table below lists the usable classes and their respective URIs that will be sent in the SAMLRequest from the Identity Server to the trusted IdP.</p></td>
+				<td><p>Choose an <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-authn-context-2.0-os.pdf">Authentication Context Class Reference</a> (AuthnContextClassRef) to be included in the requested authentication context from the Identity Server which specifies the authentication context requirements of authentication statements returned in the response. Authentication Context Class table below lists the usable classes and their respective URIs that will be sent in the SAMLRequest from the Identity Server to trusted IdP.</p></td>
 				<td>Default value: <code>             PasswordProtectedTransport            </code> .</td>
 			</tr>
 			<tr class="even">
@@ -245,23 +250,17 @@ To configure manually,
 				<td>Additional Query Parameters</td>
 				<td><div class="content-wrapper">
 				<p>This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here. These will be sent along with the SAML request.</p>
-				<div class="admonition note">
-				<p>If you want to send query parameters that need to be updated dynamically with each SAML request, the value needs to be defined within parenthesis. This value should be the key of the query parameter sent in the SAML request URL.</p>
-				<strong>Example:</strong> <code>locale={lang}</code>
-				<br/><br/>
-				<p>Multiple parameters can be defined by separation of query parameters using the <code> &amp;</code> character.</p>
-				<strong>Example:</strong> <code>locale={lang}&amp;scope=email profile</code>
-				<br/><br/>
-				<p>Alternatively, use the following format to send query parameters that are resolved using an adaptive authentication script.</p>
-				<strong>Example:</strong> <code>login_hint=$authparam{paramName} </code>
-				</div>
 				<div class="admonition info">
 				<p class="admonition-title">Info</p>
-				Resolving query parameters from adaptive scripts is available as an update in WSO2 IS 5.10.0 from 2022-06-28 onwards (WUM model) and from update level 154 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on <a href="https://updates.docs.wso2.com/en/latest/updates/overview/">updating WSO2 products</a>.
+				<p>If you want to send query parameters that need to be updated dynamically with each SAML request, the value needs to be defined within parenthesis.This value should be the key of the query parameter sent in the SAML request URL.<br />
+				Example: <code>                locale={lang}               </code></p>
+				<p>Multiple parameters can be defined by separation of query parameters using the <code>                &amp;               </code> character.</p>
+				<div>
+				Example: <code>                locale={lang}&amp;scope=openid email profile               </code>
 				</div>
 				</div>
 				</div></td>
-				<td><code>paramName1=value1</code></td>
+				<td><code>             paramName1=value1            </code></td>
 			</tr>
 		</tbody>
 	</table> 
@@ -482,7 +481,6 @@ To configure through file upload:
         ``` java
         [authentication.authenticator.saml] 
         enable=true
-	    [authentication.authenticator.saml.parameters]
         SAMLSSOAssertionConsumerUrl="https://localhost:9443/commonauth"
     	```
 
@@ -497,7 +495,7 @@ To configure through file upload:
 	 
 		``` xml
 		[saml.slo] 
-		host_name_verification=false
+		host_name_verification: false
 		```
 	
 	- If the certificate is self-signed, import the service

@@ -84,15 +84,15 @@ which is `         carbon.super        `.
     </thead>
     <tbody>
     <tr class="odd">
-    <td> User self registration</td>
+    <td>Enable Self User Registration</td>
     <td>Enable self registration.</td>
     </tr>
     <tr class="even">
-    <td>Lock user account on creation</td>
+    <td>Enable Account Lock On Creation Enabled</td>
     <td>Enable account lock during self registration. The account will be unclocked upon confirmation.</td>
     </tr>
     <tr class="odd">
-    <td>Manage notifications sending internally</td>
+    <td>Enable Notification Internally Management</td>
     <td>
     <p>
     Select to configure Identity server to send confirmation emails to the user.
@@ -101,11 +101,11 @@ which is `         carbon.super        `.
     </td>
     </tr>
     <tr class="even">
-    <td>Prompt reCaptcha</td>
+    <td>Enable reCaptcha</td>
     <td>Select to enable reCaptcha for self-registration. See <a href="../../learn/configuring_google_recaptcha_for_security_question_based_password_recovery">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
     </tr>
     <tr class="odd">
-    <td>User self registration verification link expiry time</td>
+    <td>User self registration code expiry time</td>
     <td><div class="content-wrapper">
     <p>Number of minutes that the confirmation link would be valid. The confirmation link will expire 
     after the specified time has elapsed.</p>
@@ -201,7 +201,7 @@ Next, you can try out self-registration.
 
 ## Try out self-registration
 
-1.  Access the [WSO2 Identity Server My Account portal](https://localhost:9443/myaccount/).
+1.  Access the [WSO2 Identity Server user portal](https://localhost:9443/user-portal/).
 2.  Click the **Create Account** link and then enter the new user's
     username.
 
@@ -243,7 +243,7 @@ Next, you can try out self-registration.
     Follow the steps given below to resend the confirmation email.
 
     1.  Access the [WSO2 Identity Server
-        My Account portal](https://localhost:9443/myaccount/) and try to login with
+        user portal](https://localhost:9443/user-portal/) and try to login with
         the user you just registered.  
         The user account should not be activated for the user, which means
         you should not have confirmed the account.

@@ -170,22 +170,7 @@ accounts, e-mail authorizations in the form of rules and roles, and
 other tasks such as provisioning of resources associated with enabling
 new users.
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
 When you log into Salesforce, you normally use an email address. So, to integrate this with the Identity Server, you need to configure WSO2 IS to enable users to log in using their email addresses. In order to do that, follow the steps given below.
-========
-1.  Download the WSO2 Identity Server from
-    [here](https://wso2.com/products/identity-server/) and [run
-    it](../../setup/running-the-product).
-2.  Log in to the [Management
-    Console](../../setup/getting-started-with-the-management-console) as an
-    administrator.
-3.  When you log into Salesforce, you normally use an email address. So,
-    to integrate this with the Identity Server, you need to configure
-    WSO2 IS to enable users to log in using their email addresses. In
-    order to do that, follow the steps found in the [Using Email Address
-    as the Username](../../learn/using-email-address-as-the-username) topic.
-4.  Restart the Identity Server.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/outbound-provisioning-with-salesforce.md
 
 !!! warning
     Configuring the email address as the username in an **already running
@@ -588,9 +573,5 @@ You can see that the user has been created in the "Users" section in salesforce.
 !!! info "Related topics"
     - [Concept: Identity Provisioning Framework]({{base_path}}/references/concepts/provisioning-framework/)
     - [Guide: Configure Just-In-Time Provisioning for an Identity Provider]({{base_path}}/guides/identity-federation/jit-workflow)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
-========
-
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
 
 

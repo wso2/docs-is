@@ -29,14 +29,11 @@ With the **new configuration model** from WSO2 Identity Server 5.9.0 onwards, co
 -	Configurations are well-grouped and consistently named
 
 !!! warning
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/new-configuration-model.md
 	If you are familiar with the previous configuration model, note that the `deployment.toml` gets precedence over the old `.xml` configuration files. It is expected to reset changes in `.xml` configuration files unless these configurations are now represented in `deployment.toml` file.
-========
-	If you are familiar with the previous configuration model, note that the `deployment.toml` gets precedence over the old `.xml` configuration files—it is expected to reset changes in `.xml` configuration files unless these configurations are now represented in `deployment.toml` file.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/references/new-configuration-model.md
 
 !!! tip
 	For TOML configurations pertaining to a particular feature, see the respective document section.
 
 !!! info
 	For more information about the new configuration model, see [Simplifying Configuration with WSO2 Identity Server](https://wso2.com/blogs/thesource/2019/10/simplifying-configuration-with-WSO2-identity-server).
+

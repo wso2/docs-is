@@ -38,8 +38,9 @@ account locking, expand the section below for instructions.
 
       3.  Click **Resident** under **Identity Providers** found in the
          **Main** tab.
-      4.  Expand the **Login Attempts Security** tab.
-    5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
+      4.  Expand the **Login Policies** tab.
+    5.  Expand the **Account Locking** tab and select the **Account Lock
+        Enabled** checkbox. Click **Update** to save changes.  
         ![login-policies](../assets/img/using-wso2-identity-server/login-policies.png) 
 
         !!! tip
@@ -193,13 +194,8 @@ below.
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/locking-a-specific-user-account.md
-
-WSO2 Identity Server uses separate email templates for notifying, 
-========
   
 WSO2 Identity Server uses separate email templates for notifying: 
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/locking-a-specific-user-account.md
 
 - Account locking by administrator
 - Account unlocking by administrator 

@@ -20,15 +20,9 @@ The following are the minimum configurations that are needed to be provided to c
 </tr>
 <tr class="even">
 <td>type</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-read-write-ldap-user-store.md
 <td>userstore Type</td>
 <td>This is the type of the userstore manager that we are using. For read-write LDAP userstore manager. this value
 should be read_write_ldap_unique_id.
-========
-<td>User Store Type</td>
-<td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
-should be read_only_ldap_unique_id.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-read-write-ldap-user-store.md
 </td>
 </tr>
 <tr class="odd">
@@ -144,13 +138,6 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <p>Default: uid<br />
 <br />
 Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username">Using email address as the username</a></p></td>
-</tr>
-<tr class="odd">
-<td>UserIDAttribute</td>
-<td>user_id_attribute</td>
-<td>User ID Attribute</td>
-<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID. </p>
-<p>Default: scimId <br /></p></td>
 </tr>
 <tr class="odd">
 <td>UserIDAttribute</td>

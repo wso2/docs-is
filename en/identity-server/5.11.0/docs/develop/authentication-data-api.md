@@ -41,11 +41,7 @@ need to configure the Identity Server as follows.
         <tbody>
             <tr>
                 <td>filter_policy</td>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/authentication-data-api.md
                 <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlist value, whereas an <b>exclude</b> indicates a denylist value.</td>
-========
-                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates a allowlist, whereas an <b>exclude</b> indicates a denylist.</td>
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/develop/authentication-data-api.md
             </tr>
             <tr>
                 <td>remove_on_consume_from_api</td>
@@ -53,11 +49,7 @@ need to configure the Identity Server as follows.
             </tr>
             <tr>
                 <td>parameters</td>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/authentication-data-api.md
                 <td>The list of parameters to be allowed/denied. The name attribute is used to specify the parameter name.</td>
-========
-                <td>The list of parameters to be allowlisted/denylisted. The name attribute is used to specify the parameter name.</td>
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/develop/authentication-data-api.md
             </tr>
             <tr>
                 <td>sessionDataKey</td>

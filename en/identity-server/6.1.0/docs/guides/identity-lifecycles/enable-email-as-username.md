@@ -6,7 +6,6 @@
     **make sure to configure it before you begin working with WSO2 IS**.
     
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/identity-lifecycles/enable-email-as-username.md
 1.  Log in to the Management Console and click **Claims > List > http://wso2.org/claims**.
    
 2. Click the **Edit** link corresponding to the **Username** claim and configure the `Mapped Attribute` property to `mail`.
@@ -18,11 +17,6 @@
 4.  Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 5.  Add the following configuration to enable email authentication.
-========
-1.  Open the 
-    `          <IS_HOME>/repository/conf/deployment.toml         ` file.
-2.  Add the following configuration.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/using-email-address-as-the-username.md
 
     ``` toml
     [tenant_mgt]

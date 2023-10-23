@@ -1,21 +1,13 @@
-# Monitor Logs
+# Monitoring Logs
 
 Logging is one of the most important aspects of a production-grade
 server. A properly configured logging system is vital for identifying
 errors, security threats, and usage patterns.
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/monitoring-logs.md
-========
 
 !!! Warning
     Note that WSO2 Identity Server 5.9.0, 5.10.0, and 5.11.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/monitoring-logs.md
 
-!!! Warning
-    Note that WSO2 Identity Server 5.9.0, 5.10.0, and 5.11.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
- 
----
-
-## Log types
+### Log types
 
 Following are the various log types that are used in WSO2 Identity Server—separate log files are created for each of those log types in
 the `          <IS_HOME>/repository/logs         ` directory.
@@ -51,27 +43,27 @@ the `          <IS_HOME>/repository/logs         ` directory.
 !!! note  
     WSO2 Identity Server generates other log 
     files in addition to the Carbon logs, Audit logs, HTTP access logs,
-    Patch logs, and Service/Event logs. For more information, see [Monitor WSO2 Identity Server]({{base_path}}/deploy/monitor/monitor-the-identity-server).
----
+    Patch logs, and Service/Event logs. For more information, see [Monitoring the Identity Server](../../setup/monitoring-the-identity-server).
 
-## Configure WSO2 Identity Server for log monitoring
+### Configuring WSO2 Identity Server for log monitoring
 
 See the following information on configuring **Carbon logs**, **Audit
 logs,** **HTTP access logs**, and **Service/Event logs** for WSO2 Identity Server.
 
-### Configure Carbon logs 
+#### Configuring Carbon logs 
 Carbon logs are enabled in WSO2 Identity Server by default. You can change
 the following default configuration by manually updating the
 `log4j2.properties` file. 
 
 ```toml
+
 # Appender config to CARBON_LOGFILE
 appender.CARBON_LOGFILE.type = RollingFile
 appender.CARBON_LOGFILE.name = CARBON_LOGFILE
 appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
 appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
 appender.CARBON_LOGFILE.layout.type = PatternLayout
-appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] [%X{Correlation-ID}] %5p {% raw %}{%c}{% endraw %} - %mm%ex%n
+appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] [%X{Correlation-ID}] %5p {%c} - %mm%ex%n
 appender.CARBON_LOGFILE.policies.type = Policies
 appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
 appender.CARBON_LOGFILE.policies.time.interval = 1
@@ -82,16 +74,14 @@ appender.CARBON_LOGFILE.filter.threshold.type = ThresholdFilter
 appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
 ```
 
----
-
-### Enable logs for a component
+#### Enable Logs for a Component
  
 Add logger in the `<IS_HOME>/repository/conf/log4j2.properties` file to
 define the logger. Then add the <Logger_Name> to the loggers list by comma-separate.
 
 ```
     logger.<Logger_Name>.name = <Component_name>
-    logger.<Logger_Name>.level = INFO
+    logger.<Logger_Name>.type = INFO
 
     loggers = AUDIT_LOG, trace-messages, ..., <Logger_Name>
 ```
@@ -106,15 +96,14 @@ For example:
 ```
     
 The log levels that
-can be configured are [listed below](#set-the-log4j-log-level).
+can be configured are [listed below](##setting-the-log4j-log-level).
 
 !!! note
     All the changes that are made to the log4j2.properties will be applied at run time.
     You don't need to restart the server after a configuration change in log4j2.properties.
 
----
 
-### Configure audit logs
+#### Configuring Audit logs
 
 Audit logs are enabled in WSO2 Identity Server by default. You can change
 the following default configuration by manually updating the the
@@ -129,7 +118,7 @@ appender.AUDIT_LOGFILE.name = AUDIT_LOGFILE
 appender.AUDIT_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/audit.log
 appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}.log
 appender.AUDIT_LOGFILE.layout.type = PatternLayout
-appender.AUDIT_LOGFILE.layout.pattern = TID: [%tenantId] [%d] [%X{Correlation-ID}] %5p {% raw %}{%c}{% endraw %} - %mm%ex%n
+appender.AUDIT_LOGFILE.layout.pattern = TID: [%tenantId] [%d] [%X{Correlation-ID}] %5p {%c} - %mm%ex%n
 appender.AUDIT_LOGFILE.policies.type = Policies
 appender.AUDIT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
 appender.AUDIT_LOGFILE.policies.time.interval = 1
@@ -141,33 +130,27 @@ appender.AUDIT_LOGFILE.filter.threshold.level = INFO
 ```
 
 The log levels that
-can be configured are [listed below](#set-the-log4j-log-level).
+can be configured are [listed below](##setting-the-log4j-log-level).
 
----
+#### Configuring HTTP access logs
 
-### Configure HTTP access logs
-
-See [HTTP Access Logging]({{base_path}}/deploy/monitor/http-access-logging) for instructions on
+See [HTTP Access Logging](../../setup/http-access-logging) for instructions on
 how to configure and use HTTP access logs.
 
----
-
-### Configure product observability
+#### Configuring product observability
 
 WSO2 Identity Server supports logging capabilities for tracking down latencies due to database calls.
-See [Work with Product Observability]({{base_path}}/deploy/monitor/work-with-product-observability) for instructions on
+See [Working with Product Observability](../../setup/working-with-product-observability) for instructions on
 how to configure and use this capability.
 
----
-
-### Set the Log4j log level
+#### Setting the Log4j log level
 
 The log level can be set specifically for each appender in the
 `         log4j2.properties        ` file by setting the threshold value.
 If a log level is not specifically given for an appender as explained
 below, the root log level (INFO) will apply to all appenders by default.
 
-Following is how the log level is set to `DEBUG` for the `CARBON_LOGFILE` appender ([Carbon log](#configure-carbon-logs)): 
+Following is how the log level is set to `DEBUG` for the `CARBON_LOGFILE` appender ([Carbon log](#configuring-carbon-logs)): 
 
 !!! example  
     ```toml
@@ -187,9 +170,9 @@ Following are the log levels that can be configured:
 | INFO  | Indicates important runtime events, such as server startup/shutdown. These logs are expected to be immediately visible on the command line that you used for starting the server . It is recommended to keep these logs to a minimum.                                           |
 | DEBUG | Provides detailed information on the flow through the system. This information is expected to be written to logs only. Generally, most lines logged by your application should be written as DEBUG logs.                                                                        |
 | TRACE | Provides additional details on the behavior of events and services. This information is expected to be written to logs only.                                                                                                                                                    |
----
 
-## Manage log growth
+
+### Managing log growth
 
 See the following content on managing the growth of **Carbon logs** and
 **Audit logs** :
@@ -206,11 +189,9 @@ rotation period, a new file will be created with the appended logs and
 archived. The name of the archived log file will always contain the date
 on which the file is archived.
 
----
+#### Managing the growth of Carbon logs
 
-### Manage the growth of Carbon logs
-
-Log growth in ([Carbon logs](#configure-carbon-logs)) can be
+Log growth in ([Carbon logs](#configuring-carbon-logs)) can be
 managed by the following configurations in the
 `         <IS_HOME>/repository/conf/log4j2.properties        ` file.
 
@@ -236,7 +217,7 @@ file by configuring Rollover based on log file size by following the steps given
        ```
     in the
 
-    `           <IS_HOME>/repository/conf/          `
+    `           <PRODUCT_HOME>/repository/conf/          `
     `           log4j2.properties          ` file.
     
     If the size of the log file is exceeding the value defined in the
@@ -250,9 +231,7 @@ file by configuring Rollover based on log file size by following the steps given
 
     -   `            appender.CARBON_LOGFILE.strategy.max           `
 
----
-
-### Limit the size of audit log files
+#### Limiting the size of audit log files
 
 In WSO2 servers, audit logs are enabled by default. We can limit the
 audit log files with the following configuration:
@@ -274,9 +253,7 @@ audit log files with the following configuration:
 
     -   `            appender.AUDIT_LOGFILE.strategy.max           `
 
----
-
-## Monitor logs
+### Monitoring logs
 
 In WSO2 Identity Server, users can configure and adjust the logging levels
 for each type of activity/transaction. There are several ways to view
@@ -291,71 +268,3 @@ and monitor the logs:
     **Carbon logs** in separate log files with time stamps . Note that
     older Carbon logs are archived in the
     `          wso2carbon.log         ` file.
-
-
----
-
-## Track user deletion on deleting a user
-
-WSO2 Identity Server (WSO2 IS) allows you to track details related to
-user deletion by writing the following information to a log file each
-time a user is deleted:
-
--   The user name of the deleted user.
--   The user store domain name of the deleted user.
-
--   The tenant domain name of the deleted user.
--   The tenant ID of the deleted user.
--   The timestamp that the user was deleted.
-
-You can use this log file as an input to the Identity Anonymization tool
-that is packaged with WSO2 Identity Server, to ensure that you [remove references to all deleted user identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities/).
-
-Follow the steps below to configure WSO2 Identity Server to log details
-related to user deletion each time you delete a user.
-
-1.  Add the following property to the 
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file, and set it to
-    `           true          `.
-
-    ``` toml
-    [event.default_listener.user_deletion]
-    priority= "98"
-    enable = true 
-    ```
-
-2.  Add the following property to the
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file, and set `           enable          ` to
-    `           true          `.
-
-    ``` toml
-    [event.default_recorder.user_delete_event]
-    name= "org.wso2.carbon.user.mgt.recorder.DefaultUserDeletionEventRecorder"
-    enable = true
-    ```
-
-    This writes details related to user deletion in the `.csv` format to
-    the
-    `           <IS_HOME>/repository/logs/delete-event.log          `
-    file.
-
-    !!! note
-         If necessary, you can write user delete event details to a custom `.csv`
-         file that you specify. To do this, add the following property in
-          the `<IS_HOME>/repository/conf/deployment.toml         `
-         file, and make sure to specify the custom `.csv `file path.
-
-         ``` java
-         [event.default_recorder.user_delete_event]
-         write_to_separate_csv.path = "${carbon.home}/repository/logs/delete-records.csv"
-         ```
-
-!!! tip
-    By default, all logs related to user deletion are written in `.csv` format
-    to a specified log file. You can extend this functionality to log the
-    details in any other format that you want, and you can also extend the
-    functionality to write the details to a text file, database, or any
-    other file depending on your requirement.
-    <!--For more information, see [Writing user deletion logs in other formats](TODO:insert-link).-->

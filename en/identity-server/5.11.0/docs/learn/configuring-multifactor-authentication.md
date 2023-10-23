@@ -146,8 +146,4 @@ You have now added and configured the service provider.
 
     ![authenticate-with-smsotp](../assets/img/tutorials/authenticating-with-smsotp.png)
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-multifactor-authentication.md
 You are redirected to the Pickup Dispatch home page. You have successfully configured and logged in using multifactor authentication.
-========
-You are redirected to the Pickup Dispatch home page. You have succesfully configured and logged in using multifactor authentication.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-multifactor-authentication.md

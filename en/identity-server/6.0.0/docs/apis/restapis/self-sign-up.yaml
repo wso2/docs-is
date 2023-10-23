@@ -2,9 +2,6 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Server Rest API - User
   description: |
-<<<<<<<< HEAD:en/identity-server/7.0.0/docs/apis/restapis/self-service.yaml
-    This document specifies a **RESTful API** for WSO2 **Identity Server**.
-========
     This document specifies the **RESTful API** for WSO2 Identity Server's **Self-Sign-Up** functionality. These APIs can be used to:
     <li> Retrieve the stored claims, security questions and the consent receipts approved by the user. </li>
     <li> Self-register users.</li>
@@ -16,10 +13,17 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/apis/restapis/self-sign-up.yaml
   version: 1.0.0
 servers:
-- url: https://apis.is.com/t/{tenant-domain}/api/identity/user/v1.0
+- url: https://{serverUrl}/t/{tenantDomain}/api/identity/user/v1.0
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
+security:
+- OAuth2: []
+- BasicAuth: []
 paths:
   /me:
     get:
@@ -1015,8 +1019,6 @@ components:
         newUsername:
           type: string
           description: Expected new username of the User.
-<<<<<<<< HEAD:en/identity-server/7.0.0/docs/apis/restapis/self-service.yaml
-========
   securitySchemes:
     BasicAuth:
       type: http
@@ -1031,4 +1033,3 @@ components:
             read: Grants read access
             write: Grants write access
             admin: Grants read and write access to administrative information
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/apis/restapis/self-sign-up.yaml

@@ -79,13 +79,9 @@ to manage their deployment. The admin services operate in a tenant aware
 fashion. Thus, privileges and restrictions that apply to any client
 using an admin service are taken into account. -->
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/introduction-to-multitenancy.md
 ---
 
 ## Tenant loading policy
-========
-### Tenant loading policy
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/administer/introduction-to-multitenancy.md
 
 Lazy loading is a design pattern used specifically in cloud deployments
 to prolong the initialization of an object or artifact until it is

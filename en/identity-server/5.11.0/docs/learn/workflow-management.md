@@ -13,11 +13,7 @@ Let's consider a sample use case.
 
 ## Sample use case
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/workflow-management.md
 Consider a company where new employees are added to the system by HR but only after it goes through an approval process. For example, a senior HR manager has to approve new user additions. Once this is done, the users can log in to the system and continue their work. The following pre-requisites are necessary to implement this sample use case:
-========
-Consider a company where new employees are added to the system by HR, but only after it goes through an approval process. For example, a senior HR manager has to approve new user additions. Once this is done, the users can login to the system and continue their work. The following pre-requisites are necessary to implement this sample use case:
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/workflow-management.md
 
 ![sample-for-workflow](../assets/img/using-wso2-identity-server/sample-for-workflow.png) 
 

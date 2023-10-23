@@ -278,13 +278,8 @@ configure the Identity Server as a service provider in Shibboleth.
 You must configure Shibboleth as a SAML2 SSO federated identity provider
 in the Identity Server.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-federation/configure-shibboleth-idp.md
 1.  [Download](http://wso2.com/products/identity-server/) and
     [install]({{base_path}}/deploy/get-started/install)
-========
-1.  [Download](https://wso2.com/products/identity-server/) and
-    [install](../../setup/installing-the-product)
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
     the WSO2 Identity Server.
     
 2.  [Start the Identity Server]({{base_path}}/deploy/get-started/run-the-product).

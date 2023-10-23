@@ -42,7 +42,7 @@ respective extension point below.
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
 <a class="sourceLine" id="cb1-2" title="2">[[oauth.custom_grant_type]] </a>
 <a class="sourceLine" id="cb1-3" title="3">name = "name of the grant type" </a>
-<a class="sourceLine" id="cb1-3" title="4">grant_handler = "full qualified class name of grant handler" </a></code></pre></div>
+<a class="sourceLine" id="cb1-3" title="4">handler_class = "full qualified class name of grant handler" </a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -79,7 +79,7 @@ implement a grant validator and register
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
 <a class="sourceLine" id="cb1-2" title="2">[[oauth.custom_grant_type]] </a>
 <a class="sourceLine" id="cb1-3" title="3">name = "name of the grant type" </a>
-<a class="sourceLine" id="cb1-3" title="4">grant_handler = "full qualified class name of grant handler" </a>
+<a class="sourceLine" id="cb1-3" title="4">handler_class = "full qualified class name of grant handler" </a>
 <a class="sourceLine" id="cb1-4" title="5">grant_validator = "full qualified class name of grant validator" </a></code></pre></div>
 </div>
 </div>
@@ -557,30 +557,7 @@ Implementations supporting both JSON and JWT response formats are available. By 
 </tbody>
 </table>
 
-### Adding a custom GrantTypeValidatorImplClass
-
-<table>
-<tbody>
-<tr class="odd">
-<td>Usage</td>
-<td><p>This can be used to add a custom <code>GrantTypeValidatorImplClass</code> to the <code>refresh_token</code> grant type<br /></td>
-</tr>
-<tr class="even">
-<td>Configuration</td>
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
-<a class="sourceLine" id="cb1-2" title="2">[oauth.grant_type.refresh_token]</a>
-<a class="sourceLine" id="cb1-3" title="3">enable=true</a>
-<a class="sourceLine" id="cb1-4" title="4">grant_validator="sampleRefreshTokenValidator"</a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
-
+  
 
   
 

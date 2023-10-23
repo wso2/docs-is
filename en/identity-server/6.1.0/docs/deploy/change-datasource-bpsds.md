@@ -21,13 +21,8 @@ Following are the sample configuration for each database type.
         driver = "org.postgresql.Driver"
 
         [bps_database.config.pool_options]
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/change-datasource-bpsds.md
         defaultAutoCommit=true
         commitOnReturn=true
-========
-        defaultAutoCommit = true
-        commitOnReturn = true
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/deploy/change-datasource-bpsds.md
         ```
         
     2.  Execute the database scripts. 
@@ -100,10 +95,6 @@ Following are the sample configuration for each database type.
     2.  Execute the database scripts. 
     
         Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/oracle.sql` file against the created database.    
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/change-datasource-bpsds.md
-========
-        
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/deploy/change-datasource-bpsds.md
 
 
 **Advanced BPS Database Configurations**

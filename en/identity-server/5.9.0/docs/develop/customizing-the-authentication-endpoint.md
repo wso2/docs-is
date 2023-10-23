@@ -1,4 +1,4 @@
-# Changing the Authentication Endpoint
+# Customizing the Authentication Endpoint
 
 The authentication endpoint is the authentication URL used in
 authentication requests. The following sections discuss methods of
@@ -156,7 +156,7 @@ Do the following configurations to enable this feature.
     carbon_security_keystore_password="wso2carbon"
     client_truststore="client-truststore.jks"
     carbon_security_truststore_password="wso2carbon"
-    identity_server_service_url="https://localhost:9443"
+    identity_server_service_url="https://localhost:9443/services/"
     username_header="UserName"
     ```
 
@@ -358,30 +358,12 @@ below steps:
           when the back button is pressed.
 
         - Relying party name with redirect URL needs to be configured like below:
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/customizing-the-authentication-endpoint.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/customizing-the-authentication-endpoint.md
-            - `<OAuth2_client_id>`=`<login_redirect_url>`
-            - `<SAML_Issuer_Name>`=`<login_redirect_url>`
-
-        - Following are two sample values for Name and Value:
-            - Name : MY_ACCOUNT
-            - Value : https://localhost:9443/myaccount/overview        
-========
-             - `<OAuth2_client_id>`=`<login_redirect_url>` 
-             - `<SAML_Issuer_Name>`=`<login_redirect_url>`
-
-        - Following are two sample values for Name and Value:
-            - Name : USER_PORTAL
-            - Value : https://localhost:9443/user-portal/overview        
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/customizing-the-authentication-endpoint.md
-========
              - `<OAuth2_client_id>`=`<login_redirect_url>` 
              - `<SAML_Issuer_Name>`=`<login_redirect_url>`
 
         - Following are two sample values for Name and Value:
             - Name : wso2.mydashboard
             - Value : https://localhost:9443/dashboard/index.jag         
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/develop/customizing-the-authentication-endpoint.md
 
         - If you are using travelocity as the sample app, you can use the below values:
             - Name : travelocity.com

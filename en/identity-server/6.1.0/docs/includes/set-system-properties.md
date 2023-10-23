@@ -14,8 +14,4 @@ you can take the following approaches:
     connect to the registry in a properties file instead of in the Java
     code and secure the properties file with the [cipher tool](../../../deploy/security/encrypt-passwords-with-cipher-tool).
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/includes/set-system-properties.md
 You are now ready to [run the product](../../../deploy/get-started/run-the-product).
-========
-You are now ready to [run the product](../../../deploy/get-started/run-the-product).
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/includes/set-system-properties.md

@@ -125,13 +125,13 @@ the role as needed.
     **Request**
 
     ``` java
-    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": {GROUP_NAME},"members": {MEMBERS_OF_THE_GROUP}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/scim2/Groups
+    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": {GROUP_NAME},"members": {MEMBERS_OF_THE_GROUP}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups
     ```
 
     **Request: Sample**
 
     ``` java
-    curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"value":"316214c0-dd7e-4dc3-bed8-e91227d32597","hasinitg": "hasinitg"}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Groups
+    curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"value":"316214c0-dd7e-4dc3-bed8-e91227d32597","hasinitg": "hasinitg"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
     ```
 
     You receive a response with the payload as indicated below and a
@@ -140,7 +140,7 @@ the role as needed.
     **Response**
 
     ``` java
-    {"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","schemas":["urn:scim:schemas:core:1.0"],"displayName":"PRIMARY/engineer","members":[{"value":"0032fd29-55a9-4fb9-be82-b1c97c073f02","display":"hasinitg"}],"meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/scim2/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}
+    {"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","schemas":["urn:scim:schemas:core:1.0"],"displayName":"PRIMARY/engineer","members":[{"value":"0032fd29-55a9-4fb9-be82-b1c97c073f02","display":"hasinitg"}],"meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}
     ```
 
     You can observe in the management console of IS, that the new group

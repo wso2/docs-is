@@ -1,8 +1,8 @@
-# Email OTP Configurations
+# EMAIL OTP Configurations
 
-This page lists out all the advanced configurations related to email OTP. 
+This page lists out all the advanced configurations related to SMS OTP. 
 
-The following code snippet shows a sample email OTP configuration in the `<IS_HOME>/repository/conf/deployment.toml` file. 
+The following code snippet shows a sample EMAIL OTP configuration in the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
 ```toml
 [authentication.authenticator.email_otp]
@@ -76,7 +76,7 @@ This parameter defines how the email ID will be retrieved. You can configure the
 
 - **assocication**: The federated username must be associated with the local account in advance in the WSO2 Identity Server My Account. The local username is retrieved from the association. <!-- For information on creating an association, see the [My Account help](insertlink). -->
 
-- **subjectUri**: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the email OTP authenticator.
+- **subjectUri**: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the EmailOTP authenticator.
 
 - **userAttribute**: The name of the federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the `[authentication.authenticator.email_otp.parameters]` section in the `deployment.toml` file and enter the relevant value, e.g., email and screen_name, id.
 
@@ -85,7 +85,7 @@ This parameter defines how the email ID will be retrieved. You can configure the
     userAttribute = "email"
     ```
 
-    If you use OpenID Connect supported authenticators such as LinkedIn and Foursquare or in the case of multiple social login options as the first step and email OTP as second step, you need to add similar configuration for the specific authenticator in the `deployment.toml` file.
+    If you use OpenID Connect supported authenticators such as LinkedIn and Foursquare or in the case of multiple social login options as the first step and EmailOTP as second step, you need to add similar configuration for the specific authenticator in the `deployment.toml` file.
 
     **Examples**
 
@@ -132,7 +132,7 @@ You can use the registry or local file to get the property values.
 
 #### EMAILOTPMandatory
 
-This parmeter defines whether email OTP is enforced as the second step of the 2FA/MFA or not.
+This parmeter defines whether EmailOTP is enforced as the second step of the 2FA/MFA or not.
 
 If the user is not found in the active directory where the parameter is set to *true*, the OTP is directly sent to the email address defined in the claims set.
 
@@ -161,7 +161,7 @@ Configure this parameter if `sendOTPToFederatedEmailAttribute` is set to *true*.
 
 This parameter enables the user to override the functionality defined at the `EMAILOTPMandatory` parameter.
 
-If this parameter and the `EMAILOTPMandatory` parameters are set to *true*, the user can either enable or disable the email OTP functionality.
+If this parameter and the `EMAILOTPMandatory` parameters are set to *true*, the user can either enable or disable the EmailOTP functionality.
 
 If this parameter is set to *false* and the `EMAILOTPMandatory` parameter is set to *true*, the user gets redirected to an error page.
 

@@ -6,7 +6,7 @@ Language (XACML) 3.0.
 
 ??? abstract "What's XACML?"
 
-	XACML is a standard policy language that supports a standard way to write access control rules and evaluate access requests according to the rules defined in policies. It lets you form a query to ask whether the given action should be allowed or not, and interprets the result. To learn more about XACML, see [Access control and Entitlement management]({{base_path}}/references/concepts/authorization/access-control).
+	XACML is a standard policy language that supports a standard way to write access control rules and evaluate access requests according to the rules defined in policies. It lets you form a query to ask whether the given action should be allowed or not, and interprets the result. To learn more about XACML, see [Working with XACML](../../learn/working-with-xacml).
 
 ## Scenario
 
@@ -17,23 +17,11 @@ Pickup is a cab company that has many employees who use different credentials t
 
 Following are three Pickup employees:
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/fine-grained-authorization-with-xacml.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/authorization/fine-grained-auth-xacml.md
--	**John**: A manager who has permission to view old and current driver allocations via Pickup Dispatch.
--	**Jane**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. Sam also has permission to view old and current driver allocations. 
--	**Richard**: An HR manager who only has access to Pickup Manager.  
-========
--	**Larry**: A manager who has permission to view old and current driver allocations via Pickup Dispatch.
--	**Sam**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. Sam also has permission to view old and current driver allocations. 
--	**Kim**: An HR manager who only has access to Pickup Manager.  
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/fine-grained-authorization-with-xacml.md
-========
 -	**Alex**: A manager who has permission to view old and current driver allocations via Pickup Dispatch.
 -	**Sam**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. Sam also has permission to view old and current driver allocations. 
 -	**Kim**: An HR manager who only has access to Pickup Manager.  
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/fine-grained-authorization-with-xacml.md
 
-<img src="{{base_path}}/assets/img/guides/pickup-access-control-with-xacml.png" alt="Scenario Diagram" width="800">  
+<img src="../../assets/img/learn/pickup-access-control-with-xacml.png" alt="Scenario Diagram" width="800">  
 
 Let's creat a XACML policy that controls access to Pickup Dispatch accordingly!  
 
@@ -43,26 +31,26 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 
 !!! tip "Before you begin"
 
-	1.	[Run WSO2 Identity Sever]({{base_path}}/setup/running-the-product/).
+	1.	[Run WSO2 Identity Sever](../../setup/running-the-product/).
 
-	2.	Sign in to the WSO2 Identity Server [Management Console]({{base_path}}/setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator.
+	2.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator.
 
 
 1.	On the **Main** menu of the Management Console, click **Entitlement > PAP > Policy Adminisration**.
 
-	<img src="{{base_path}}/assets/img/guides/policy-administration-menu-item.png" alt="Policy Administration menu-item" width="200" style="border:1px solid grey">  
+	<img src="../../assets/img/learn/policy-administration-menu-item.png" alt="Policy Administration menu-item" width="200" style="border:1px solid grey">  
 
 2.	Click **Add New Entitlement Policy**.
 
-	<img src="{{base_path}}/assets/img/guides/add-new-entitlement-policy-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
+	<img src="../../assets/img/learn/add-new-entitlement-policy-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
 
 3.	Click **Standard Policy Editor**. 
 
-	<img src="{{base_path}}/assets/img/guides/standard-policy-editor-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
+	<img src="../../assets/img/learn/standard-policy-editor-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
 
 4.	Enter the required values as given below.
 
-	<img src="{{base_path}}/assets/img/guides/create-a-xacml-policy.png" alt="Create a XACML Policy screen" width="700" style="border:1px solid grey"> 
+	<img src="../../assets/img/learn/create-a-xacml-policy.png" alt="Create a XACML Policy screen" width="700" style="border:1px solid grey"> 
 
 	1.	**Entitlement Policy Name**: This is the XACML policy name. Enter `Pickup_Access_Control`.
 
@@ -124,7 +112,7 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 
 				Click **Add**. Note that the rule appears at the bottom of the screen. 
 
-				<img src="{{base_path}}/assets/img/guides/first-xacml-rule.png" alt="First XACML Rule" width="700" style="border:1px solid grey">
+				<img src="../../assets/img/learn/first-xacml-rule.png" alt="First XACML Rule" width="700" style="border:1px solid grey">
 
 		2.	Similarly, to grant edit access to Sam, add the following rule element values and click **Add**.
 
@@ -258,11 +246,11 @@ Follow the steps below to test the XACML policy that you created above.
 
 1.	On the **Policy Administration** screen of the Management Console, locate the newly added XACML policy.
 
-	<img src="{{base_path}}/assets/img/guides/xacml-policy-location.png" alt="XACML Policy Location" width="700" style="border:1px solid grey"> 
+	<img src="../../assets/img/learn/xacml-policy-location.png" alt="XACML Policy Location" width="700" style="border:1px solid grey"> 
 
 2.	Click **Try**. Note that the **TryIt** screen appears.
 
-	<img src="{{base_path}}/assets/img/guides/tryit-screen.png" alt="XACML Policy Location" width="700" style="border:1px solid grey">  
+	<img src="../../assets/img/learn/tryit-screen.png" alt="XACML Policy Location" width="700" style="border:1px solid grey">  
 
 3.	To mimic a GET request to the `/pickup-dispatch/protected/index.jsp` resource by Alex, 
 	1.	Enter the following request element values. 

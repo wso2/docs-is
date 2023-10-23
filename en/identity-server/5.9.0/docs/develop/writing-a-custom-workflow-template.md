@@ -1,28 +1,35 @@
-# Write a Custom Workflow Template
+# Writing a Custom Workflow Template
 
-You may have already tried out workflow support for user store operations where you can configure user store operations to get approved at one or more steps.
+You may have already tried out workflow support for user store
+operations where you can configure user store operations to get approved
+at one or more steps.
 
-Multi-step approval is a very simple example of flows that can be used with IS workflow feature, but users are allowed define different types of configurable flows by adding a new workflow template.
+Multi-step approval is a very simple example of flows that can be used
+with IS workflow feature, but users are allowed define different types
+of configurable flows by adding a new workflow template.
 
----
   
 
-## Add a new workflow template
+### Adding a New Workflow Template
 
-A workflow template defines a configurable flow. It is an abstract representation of a workflow. You can add a new template by creating a custom bundle as below and copying it to the `<IS_HOME>/repository/components/dropins` folder.   
+A workflow template defines a configurable flow. It is an abstract
+representation of a workflow. You can add a new template by creating a
+custom bundle as below and copying it to
+repository/components/dropins folder.   
 
-First, you need to create a `SampleTemplate` class which extends the [AbstractTemplate](https://github.com/wso2/carbon-identity-framework/blob/master/components/workflow-mgt/org.wso2.carbon.identity.workflow.mgt/src/main/java/org/wso2/carbon/identity/workflow/mgt/template/AbstractTemplate.java) class. The following methods should be overridden:
+First, you need to create a SampleTemplate class which extends
+AbstractTemplate class. The following methods should be overridden:
 
--   `getInputData()` -  Provides the parameter definition required by the
+-   `getInputData()` :  Provides the parameter definition required by the
     template.
 
--   `getTemplateId()` - Should return the template Id which should be
-    unique.
+-   `getTemplateId()` : Should return the template Id which should be
+    unique
 
--   `getName()` - Returns a user friendly name for the template. This will
-    be the name shown at the admin UI.
+-   `getName()` : Returns a user friendly name for the template. This will
+    be the name shown at the admin UI
 
--   `getDescription()` - Returns a description about this template.
+-   `getDescription()`: Returns a description about this template
 
 ??? example "Click to view a sample class written for a multi-step approval template"
     ```
@@ -54,8 +61,9 @@ First, you need to create a `SampleTemplate` class which extends the [AbstractT
     }
     ```
 
-The configurable details of the template such as `Template ID`, `Template Name`, `Template Meta Data`, etc. should be separately defined
-in an xml file like shown below.   
+The configurable details of the template such as “Template ID”,
+“Template Name”, “Template Meta Data”, etc. should be separately defined
+in xml file like below.   
 
 ``` xml
 <met:MetaData xmlns:met="http://metadata.bean.mgt.workflow.identity.carbon.wso2.org">
@@ -72,24 +80,26 @@ in an xml file like shown below.
 </met:MetaData>
 ```
 
-Finally in the service component, register this template at activation. You can do this as follows. 
+Finally in the service component, we need to register this template
+at activation. We can do this as follows. 
 
 ``` xml
 bundleContext.registerService(AbstractTemplate.class, new SampleTemplate(readFileContent(Constants.TEMPLATE_PARAMETER_METADATA_FILE_NAME)), null);
 ```
   
-Next, add a concrete implementation of this template.
+Now we need to add a concrete implementation of this template.
 
-----
+### Adding a Workflow Template Implementation
 
-## Add a workflow template implementation
+The template implementation defines how the template should be deployed
+and executed. Optionally you can write this as a separate bundle and
+copy into repository/components/dropins folder.
 
-The template implementation defines how the template should be deployed and executed. Optionally, you can write this as a separate bundle and
-copy it to the `<IS_HOME>/repository/components/dropins` folder.
+The implementations can be written by extending the AbstractWorkflow
+class. The following methods should be overridden:
 
-The implementations can be written by extending the [AbstractWorkflow](https://github.com/wso2/carbon-identity-framework/blob/master/components/workflow-mgt/org.wso2.carbon.identity.workflow.mgt/src/main/java/org/wso2/carbon/identity/workflow/mgt/workflow/AbstractWorkflow.java) class. The following method should be overridden:
-
--   `getInputData()` -  Returns a parameter definition required by the template implementation.
+-   `getInputData()` :  Returns a parameter definition required by the
+    template implementation.
 
     ??? example "Click to view a sample class written for a sample template"
         ``` java
@@ -138,7 +148,9 @@ The implementations can be written by extending the [AbstractWorkflow](https://g
         }
         ```
 
-    The configurable details of the template implementation such as `Template ID`, `Template Implementation ID`, `Template Implementation Meta Data`, etc. should be separately defined in xml file like below.
+    The configurable details of the template implementation such as
+    “Template ID”, “Template Implementation ID”, “Template Implementation
+    Meta Data”, etc. should be separately defined in xml file like below.
 
     ``` xml
     <met:MetaData xmlns:met="http://metadata.bean.mgt.workflow.identity.carbon.wso2.org">
@@ -159,14 +171,17 @@ The implementations can be written by extending the [AbstractWorkflow](https://g
     </met:MetaData>
     ```
 
-Finally, in the service component, we need to register this template at activation as follows.
+Finally, in the service component, we need to register this template at
+activation as follows.
 
 ``` java
 bundleContext.registerService(AbstractWorkflow.class, new SampleTemplateImplementation(BPELDeployer.class, RequestExecutor.class, readFileContent(Constants.WORKFLOW_IMPL_PARAMETER_METADATA_FILE_NAME)), null);
 ```
 
-Now, when adding a new workflow, you will get a drop-down menu to select which template to follow in that workflow.
+Now when adding a new workflow, you will get a drop-down menu to select
+which template to follow in that workflow.
 
-![Workflow template selection]({{base_path}}/assets/img/extend/workflow-template-selection.png)
+![Workflow template selection](../assets/img/using-wso2-identity-server/workflow-template-selection.png)
 
-The source of the sample which was used for this documentation can be found [here](https://github.com/wso2/samples-is/tree/master/workflow/template/sample-template).
+The source of the sample which was used for this documentation can be found
+[here](https://github.com/wso2/product-is/tree/master/modules/samples/workflow/template/sample-template).

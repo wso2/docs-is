@@ -238,14 +238,10 @@ For instructions on how to do this, see [Configuring a Service Provider for Adap
 
 6. Create a user called "Alex" and edit the user profile. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/adaptive-authentication-with-function-library.md
 7. Enter a birth date that specifies Alex as below 18 years of age. 
-========
-7. Enter a birth date that specifies Alex as under 18 years of age. 
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/adaptive-authentication-with-function-library.md
     
     !!! note
-        Enter the birth date in the following format: &lt;yyyy-mm-dd&gt;.
+        Enter the birth date in the following format: <yyyy-mm-dd>.
 
 8. Create another user called "Kim" and edit the user profile. Enter a birth date that specifies Kim as over 18 years of age. 
 

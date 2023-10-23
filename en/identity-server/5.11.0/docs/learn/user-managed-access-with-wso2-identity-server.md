@@ -8,11 +8,7 @@ authorization server to try out UMA for a sample scenario.
 
 To demonstrate the UMA flow using WSO2 IS as the authorization server,
 let’s consider a sample scenario where Larry (resource owner) wants to
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/user-managed-access-with-wso2-identity-server.md
 share a photo album (resource) on Larry's cloud drive (resource server)
-========
-share a photo album (resource) on the cloud drive (resource server)
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/user-managed-access-with-wso2-identity-server.md
 with a friend, Sam (requesting party).  Let's assume that Sam uses a
 mobile app (client) to view Larry’s photo album. Note that Larry wants to
 allow Sam to only have view permission to the photo album.
@@ -433,11 +429,7 @@ token that it has issued, which the resource server can use.
           "exp": 1553418559,
           "iat": 1553414959,
           "client_id": "JfTSiJ24gh8sYHTQVuOl5RoftkAa",
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/user-managed-access-with-wso2-identity-server.md
           "username": "sam"
-========
-          "username": "Alex.uma.demo"
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/user-managed-access-with-wso2-identity-server.md
         }
     ```
 
@@ -469,11 +461,7 @@ This is how UMA works.
       "exp": 1553414723,
       "iat": 1553411123,
       "client_id": "JfTSiJ24gh8sYHTQVuOl5RoftkAa",
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/user-managed-access-with-wso2-identity-server.md
       "username": "sam"
-========
-      "username": "Alex.uma.demo"
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/user-managed-access-with-wso2-identity-server.md
     }
     ```
     

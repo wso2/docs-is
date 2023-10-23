@@ -1,6 +1,11 @@
-# Configure IWA on Linux
+# Configuring IWA on Linux
 
-For information on Integrated Windows Authentication (IWA), see [IWA](TO-DO: concepts).
+Integrated Windows Authentication (IWA) is a popular authentication
+mechanism that is used to authenticate users in Microsoft Windows
+servers. It uses Negotiate/Kerberos or NTLM to authenticate users based
+on an encrypted ticket/message passed between a browser and a server.
+Follow the instructions in the sections below to configure IWA for local
+or federated authentication in WSO2 Identity Server (IS).
 
 !!! tip
     
@@ -11,7 +16,7 @@ For information on Integrated Windows Authentication (IWA), see [IWA](TO-DO: con
     on NTLM. If you still want to use the previous IWA authenticator that
     was based on NTLM, it is [available as an extension](https://github.com/wso2-extensions/identity-local-auth-iwa-ntlm)
     . For more information on how to setup the NTLM-based IWA authenticator,
-    see [Configuring IWA Single-Sign-On]({{base_path}}/guides/login/configure-iwa-single-sign-on).
+    see [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on).
     
     The benefits of using the authenticator based on Kerberos vs the
     authenticator based on NTLM are as follows:
@@ -21,25 +26,22 @@ For information on Integrated Windows Authentication (IWA), see [IWA](TO-DO: con
     -   Performance and security on Kerberos are better.
     
 
-!!! info "Related topics"
+!!! info "Related Links"
 
 	-   For more information about IWA, see [Integrated Windows
-		Authentication]({{base_path}}/references/concepts/authentication/integrated-windows-authentication-overview)
+		Authentication](../../learn/integrated-windows-authentication-overview)
     
 	-   To configure Active Directory as a user store, see [Configuring a
-		Read-write Active Directory Userstore]({{base_path}}/deploy/configuring-a-read-write-active-directory-user-store/).
+		Read-write Active Directory User
+		Store](../../setup/configuring-a-read-write-active-directory-user-store).
 
----
+### How IWA with Kerberos works
 
-## How IWA with Kerberos works
+![iwa-wso2](../assets/img/tutorials/iwa-wso2.png)
 
-![iwa-wso2]({{base_path}}/assets/img/guides/iwa-wso2.png)
+![iwa-with-kerberos](../assets/img/tutorials/iwa-with-kerberos.png)  
 
-![iwa-with-kerberos]({{base_path}}/assets/img/guides/iwa-with-kerberos.png)  
-
----
-
-## Set up IWA
+### Setting up IWA
 
 1.  Add a DNS host entry in the Active Directory (AD) to map the IP
     address of the WSO2 Identity Server to a hostname. If there are
@@ -47,17 +49,17 @@ For information on Integrated Windows Authentication (IWA), see [IWA](TO-DO: con
     for each Kerberos domain.
 
     !!! info 
-        When adding the DNS entry, generally the first part of the hostname
-        is given. The AD will append the rest with its AD domain. For
-        example, if the AD domain is 'wso2.com, after you add a DNS host
-        entry, the final result will be similar to the following:
+		When adding the DNS entry, generally the first part of the hostname
+		is given. The AD will append the rest with its AD domain. For
+		example, if the AD domain is 'wso2.com, after you add a DNS host
+		entry, the final result will be similar to the following:
 
-        ``` java
-        idp.wso2.com
-        ```
-                
-        Kerberos does not work with IP addresses, it relies on
-        domain names and correct DNS entries only.
+		``` java
+		idp.wso2.com
+		```
+		 
+		Kerberos does not work with IP addresses, it relies on
+		domain names and correct DNS entries only.
 
 2.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration.
 
@@ -120,17 +122,15 @@ For information on Integrated Windows Authentication (IWA), see [IWA](TO-DO: con
 You can now set up IWA either as a local authenticator or as a federated
 authenticator.
 
----
-
-## Configure WSO2 IS with IWA as a local or federated authenticator
+### Configuring WSO2 IS with IWA as a local or federated authenticator
 
 1.  Follow the steps above to set up IWA.
 
 2.  Start the WSO2 IS server and log in to the management console.
-3.  Navigate to **Main\>Identity Providers** and click **Add**. Enter a
+3.  Navigate to **Main\>Identity Providers** and click **Add** . Enter a
     name for the identity provider.
 4.  Expand the **Federated Authenticators** section and then expand
-    **IWA Federated Configuration**.
+    **IWA Federated Configuration** .
 5.  Fill in the fields as follows:
 
     <table>
@@ -171,8 +171,8 @@ authenticator.
     <td><p><strong>[Mandatory only if you want to use IWA as a local authenticator]</strong></p>
     <p>The mounted user stores in which you want the user’s existence to be checked in.</p>
     <ul>
-    <li>To configure IWA as a <strong>local authenticator</strong>, mount the user store domain names of the relevant user stores that you expect the user to be in.</li>
-    <li>To configure IWA as a <strong>federated authenticator</strong>, leave this field blank.</li>
+    <li>To configure IWA as a <strong>local authenticator</strong> , mount the user store domain names of the relevant user stores that you expect the user to be in.</li>
+    <li>To configure IWA as a <strong>federated authenticator</strong> , leave this field blank.</li>
     </ul></td>
     <td>PRIMARY</td>
     </tr>
@@ -180,15 +180,15 @@ authenticator.
     </table>
 
     -   IWA as a Local Authenticator
-    ![iwa-as-a-local-authenticator]({{base_path}}/assets/img/guides/iwa-as-a-local-authenticator.png)
+    ![iwa-as-a-local-authenticator](../assets/img/tutorials/iwa-as-a-local-authenticator.png)
     
     -   IWA as a Federated Authenticator
-    ![iwa-as-a-federated-authenticator]({{base_path}}/assets/img/guides/iwa-as-a-federated-authenticator.png)
+    ![iwa-as-a-federated-authenticator](../assets/img/tutorials/iwa-as-a-federated-authenticator.png)
 
 6.  Configure your browser to support Kerberos and NTLM. The points below
     explain how to configure each browser.
 
-	**Configure firefox**
+	**Configuring firefox**
     
 	1. Type `                about:config               ` in the address
 	bar, ignore the warning and continue, this will display the advanced
@@ -197,42 +197,41 @@ authenticator.
 	2\. In the search bar, search for the key "
 	`                network.negotiate-auth.trusted-uris.               `
 
-	![configuring-firefox-for-kerberos]({{base_path}}/assets/img/guides/configuring-firefox-for-kerberos.png)
+	![configuring-firefox-for-kerberos](../assets/img/tutorials/configuring-firefox-for-kerberos.png)
 
 	3\. Add the WSO2 Identity Server URL and click OK.
 
-	![adding-wso2-is-url]({{base_path}}/assets/img/guides/adding-wso2-is-url.png)
+	![adding-wso2-is-url](../assets/img/tutorials/adding-wso2-is-url.png)
 
-	**Configure Internet Explorer/Chrome**
+	**Configuring Internet Explorer/Chrome**
 
 	1. Go to Tools -\>Internet Options.
 
 	2\. In the “security” tab select local intranet.
 
-	![configuring-internet-explorer-chrome]({{base_path}}/assets/img/guides/configuring-internet-explorer-chrome.png)
+	![configuring-internet-explorer-chrome](../assets/img/tutorials/configuring-internet-explorer-chrome.png)
 
 	3\. Click the **Sites** button. Then add the URL of WSO2 Identity Server
 	there.
 
-	![adding-wso2-is-url-ie-chrome]({{base_path}}/assets/img/guides/adding-wso2-is-url-ie-chrome.png)
+	![adding-wso2-is-url-ie-chrome](../assets/img/tutorials/adding-wso2-is-url-ie-chrome.png)
 
 	Chrome simply inherits the settings from Internet Explorer. So you
 	don’t have to configure anything additionally.  
 
----
+### Testing the IWA authenticator
 
-## Test the IWA authenticator
-
-Set up IWA as a local authenticator or as a federated authenticator by following the steps above.
-
-{!./includes/travelocity.md !}
+1.  Set up IWA as a local authenticator or as a federated authenticator
+    by following the steps above.
+2.  Download and set up the Travelocity sample application. To do this,
+    follow the instructions on the [Deploying the Sample Applications](../../learn/deploying-the-sample-app#deploying-the-travelocity-webapp) page.
 
 3.  Edit the service provider you created for the Travelocity sample,
     and expand the **Local and Outbound Authentication** section.
 
 4.  Select **Federated Authentication** as the **Authentication Type**
     and select the identity provider you created above.  
-    ![]({{base_path}}/assets/img/guides/federated-authentication.png)
+    ![](../assets/img/tutorials/federated-authentication.png)
     
 5.  Restart the Apache Tomcat server and run the Travelocity sample
     application from a Windows machine.  

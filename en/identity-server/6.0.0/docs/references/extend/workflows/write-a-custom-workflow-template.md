@@ -169,9 +169,4 @@ Now, when adding a new workflow, you will get a drop-down menu to select which t
 
 ![Workflow template selection]({{base_path}}/assets/img/extend/workflow-template-selection.png)
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/workflows/write-a-custom-workflow-template.md
 The source of the sample which was used for this documentation can be found [here](https://github.com/wso2/samples-is/tree/master/workflow/template/sample-template).
-========
-The source of the sample which was used for this documentation can be found
-[here](https://github.com/wso2/samples-is/tree/master/workflow/template/sample-template).
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/writing-a-custom-workflow-template.md

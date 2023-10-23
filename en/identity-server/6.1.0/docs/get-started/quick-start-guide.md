@@ -20,7 +20,7 @@ Are you new to **WSO2 Identity Server**? Let's get to know what we are all about
 
 ## Why WSO2 Identity Server?
 
-![IAM functionality]({{base_path}}/assets/img/get-started/iam-functionality.png)
+![IAM functionality]({{base_path}}/assets/img/guides/iam-functionality.png)
 
 - **Unify sign-ins** -  WSO2 IS facilitates single sign-on (SSO) that eliminates the need to maintain multiple credentials for each application making life easier for your users.
 

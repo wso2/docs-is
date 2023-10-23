@@ -1,8 +1,15 @@
 openapi: 3.0.0
 info:
   version: "1.0.0"
-  title: 'Configurations API'
-  description: 'This document specifies a RESTful API for WSO2 Identity Server Configurations'
+  title: 'WSO2 Identity Server - Configurations API Definition'
+  description: 'This document specifies a **RESTful API** for **WSO2 Identity Server Configurations**'
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -11,7 +18,7 @@ paths:
     get:
       tags:
         - Server Configs
-      summary: Retrieve server configs
+      summary: Retrieve Server Configs
       operationId: getConfigs
       description: |
         Retrieve Server Configs
@@ -47,9 +54,9 @@ paths:
     patch:
       tags:
         - Server Configs
-      summary: Patch server configs
+      summary: Patch Server Configs
       description: |
-        Patch Server Configs. Patch operation is supported only for primary attributes (`homeRealmIdentifier`, `idleSessionTimeoutPeriod`, and `rememberMePeriod`)
+        Patch Server Configs. Patch operation is supported only for primary attributes (homeRealmIdentifier, idleSessionTimeoutPeriod and rememberMePeriod)
       operationId: patchConfigs
       responses:
         '200':
@@ -86,7 +93,7 @@ paths:
     get:
       tags:
         - Server Inbound SCIM
-      summary: Retrieve server inbound SCIM configs
+      summary: Retrieve Server Inbound SCIM configs
       operationId: getInboundScimConfigs
       description: |
         Retrieve Server Inbound SCIM Configs
@@ -122,7 +129,7 @@ paths:
     put:
       tags:
         - Server Inbound SCIM
-      summary: Update server inbound SCIM configs
+      summary: Update Server Inbound SCIM configs
       operationId: updateInboundScimConfigs
       description: |
         Update Server Inbound SCIM configs
@@ -403,7 +410,7 @@ components:
       properties:
         provisioningUserstore:
           type: string
-          description: "User store domain name to inbound provision users and groups. This property becomes only applicable if the enableProxyMode config is set to false"
+          description: "userstore domain name to inbound provision users and groups. This property becomes only applicable if the enableProxyMode config is set to false"
           default: "PRIMARY"
           example: "PRIMARY"
         enableProxyMode:
@@ -484,7 +491,7 @@ components:
       items:
         $ref: '#/components/schemas/Patch'
     Patch:
-      description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root-level attributes of ServerConfig.
+      description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root level attributes of ServerConfig.
       required:
         - operation
         - path
@@ -510,7 +517,7 @@ components:
       properties:
         allowGenericHttpRequests:
           type: boolean
-          description: If true, generic HTTP requests must be allowed to pass through the filter, else, only valid and accepted CORS must be allowed (strict CORS filtering).
+          description: If true, generic HTTP requests must be allowed to pass through the filter. Else, only valid and accepted CORS must be allowed (strict CORS filtering).
           example: true
         allowAnyOrigin:
           type: boolean

@@ -4,13 +4,15 @@ You can view the current status of a XACML policy using the
 instructions in this topic.
 
 1.  Sign in. Enter your username and password to log in to the
-    [Management Console]({{base_path}}/setup/getting-started-with-the-management-console).
+    [Management Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**.
 3.  The policies that you created are listed in the **Available
     Entitlement Policies** table. Click **View Status** to check the
-    current status of the policy you require. 
+    current status of the policy you require.  
+    ![checking-the-status-policy](../assets/img/tutorials/checking-the-status-policy.png)
 4.  The resulting page lists out the following information as follows.  
+    ![status-policy-results](../assets/img/tutorials/status-policy-results.png) 
     The following are the status details of the policy:  
     -   **Time Stamp** - This is the timestamp of the action performed.
     -   **Action** - The action performed by the user.
@@ -27,6 +29,7 @@ instructions in this topic.
     filter out the status details according to the action performed by the
     user.
     
+    ![policy-status-type](../assets/img/tutorials/policy-status-type.png)
     
     Currently available policy status types:
     
