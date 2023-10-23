@@ -95,6 +95,7 @@ nav:
           - Self Sign-Up: get-started/sample-use-cases/self-sign-up.md
     - Start integrating IS into apps:
       - Try for a sample app:
+        - get-started/try-samples/index.md
         - Single Page apps:
           - React: get-started/try-samples/qsg-spa-react.md
           - JavaScript: get-started/try-samples/qsg-spa-javascript.md
@@ -102,6 +103,7 @@ nav:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
       - Try for your own app:
+        - get-started/try-your-own-app/index.md
         - Single Page apps:
           - React: get-started/try-your-own-app/react.md
           - Javascript: get-started/try-your-own-app/javascript.md
@@ -386,7 +388,7 @@ plugins:
   - include-markdown
   - redirects:
       redirect_maps:
-        'apis/idp-rest-api.md': 'https://is.docs.wso2.com/en/next//apis/idp/'
+        'apis/idp-rest-api.md': 'https://is.docs.wso2.com/en/next/apis/idp/'
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css

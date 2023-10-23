@@ -1,31 +1,28 @@
-<!--
 ---
-sidebar: true
-breadcrumb: false
-search: true
-secondarySearch: true
-pageClass: item-index-page
-heading: Try a sample app
-subHeading: Pick a technology and try a sample application with Asgardeo login.
-searchEmptyText: Search does not match any existing samples.
-items:
-  - icon: images/technologies/react-logo.svg
-    name: React
-    path: /get-started/try-samples/qsg-spa-react/
-  
-  - icon: images/technologies/javascript-logo.svg
-    name: Javascript
-    path: /get-started/try-samples/qsg-spa-javascript/
-
-  - icon: images/technologies/oidc-logo.svg
-    name: Java EE - OIDC
-    path: /get-started/try-samples/qsg-oidc-webapp-java-ee/
-  
-  - icon: images/technologies/saml-logo.svg
-    name: Java EE - SAML
-    path: /get-started/try-samples/qsg-saml-webapp-java-ee/
+template: templates/no-right-sidebar.html
 ---
 
-<!-- markdownlint-disable-next-line -->
-<CardView/>
+<div class="center-all">
+  <h1>Try a sample app</h1>
+  <h3>Pick a technology and try a sample application with WSO2 Identity Server login.</h3>
+
+  <div class="cards-container">
+    <a href="../../get-started/try-samples/qsg-spa-react/" class="card square">
+      <img src="../../assets/img/logo/react-logo.svg" alt="React" />
+      <span>React</span>
+    </a>
+    <a href="../../get-started/try-samples/qsg-spa-javascript/" class="card square">
+      <img src="../../assets/img/logo/javascript-logo.svg" alt="Javascript" />
+      <span>Javascript</span>
+    </a>
+    <a href="../../get-started/try-samples/qsg-oidc-webapp-java-ee/" class="card square">
+      <img src="../../assets/img/logo/oidc-logo.svg" alt="Java EE - OIDC" />
+      <span>Java EE - OIDC</span>
+    </a>
+    <a href="../../get-started/try-samples/qsg-saml-webapp-java-ee/" class="card square">
+      <img src="../../assets/img/logo/saml-logo.svg" alt="Java EE - SAML" />
+      <span>Java EE - SAML</span>
+    </a>
+  </div>
+</div>
 
