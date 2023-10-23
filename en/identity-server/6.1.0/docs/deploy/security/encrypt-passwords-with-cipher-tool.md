@@ -46,7 +46,11 @@ When you have [encrypted passwords](#encrypt-passwords), you can refer them from
 You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a place holder: `$secret{alias}`. 
 
 !!! note 
+<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/security/encrypt-passwords-with-cipher-tool.md
     You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties]({{base_path}}/deploy/security/set-passwords-using-environment-variables-or-system-properties)
+========
+    You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../setup/set-passwords-using-environment-variables-or-system-properties)
+>>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/setup/encrypting-passwords-with-cipher-tool.md
 
 ```toml
 [super_admin]

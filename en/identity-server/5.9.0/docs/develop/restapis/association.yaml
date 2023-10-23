@@ -1,0 +1,299 @@
+swagger: '2.0'
+######################################################
+# Prolog
+######################################################
+info:
+  description: |
+    This document specifies a **RESTful API** for WSO2 **Identity Server** .
+    It is written with [swagger 2](http://swagger.io/).
+  version: "v1"
+  title: "WSO2 Identity Server - User Account Associations API Definition"
+  contact:
+    name: "WSO2"
+    url: "http://wso2.com/products/identity-server/"
+    email: "architecture@wso2.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+# Tags are used for organizing operations
+tags:
+- name: me
+  description: Operations for the authenticated user.
+
+######################################################
+# The fixed parts of the URLs of the API
+######################################################
+
+# The schemes supported by the API
+schemes:
+  - https
+# Applicable authentication mechanisms.
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+# The domain of the API.
+# This is configured by the customer during deployment.
+# The given host is just an example.
+# host: apis.is.com
+
+# The base path of the API.
+# Will be prefixed to all paths.
+
+# if the tenant domain is carbon.super basepath can be /api/identity/user/v1.0 like this too.
+# basePath: /t/{tenant-domain}/api/identity/v1.0
+
+# The following media types can be passed as input in message bodies of the API.
+# The actual media type must be specified in the Content-Type header field of the request.
+# The default is json, i.e. the Content-Type header is not needed to
+# be set, but supporting it serves extensibility.
+consumes:
+  - application/json
+
+# The following media types may be passed as output in message bodies of the API.
+# The media type(s) consumable by the requestor is specified in the Accept header field
+# of the corresponding request.
+# The actual media type returned will be specfied in the Content-Type header field
+# of the of the response.
+# The default of the Accept header is json, i.e. there is not needed to
+# set the value, but supporting it serves extensibility.
+
+
+produces:
+  - application/json
+paths:
+  # Endpoint uses to associate two user accounts.
+  /me/associations:
+    post:
+      description: |
+         This API is used to associate a user to the authenticated user. For example, if it is required to associate  my user account to the user account of 'john', this endpoint can be used. userId and the password are required to associate the accounts.
+
+          <b>Permission required:</b>
+          * /permission/admin/login
+      summary: |
+        Associate a user to the authenticated user
+      parameters:
+        -
+          name: association
+          in: body
+          description:  User details to be associated. userId should be the fully qualified username of the user.
+          required: true
+          schema:
+            $ref: '#/definitions/AssociationUserRequest'
+      responses:
+        201:
+          description: Successfully created
+        400:
+          description: Bad Request
+          schema:
+             $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        409:
+          description: Conflict
+          schema:
+             $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+             $ref: '#/definitions/Error'
+      tags:
+        - me
+    get:
+      tags:
+      - me
+      summary: Retrive the associations of the authenticated user.
+      description: |
+        This API is used to retrieve the associations of the authenticated user.
+
+          <b>Permission required:</b>
+
+          * /permission/admin/login
+      responses:
+        200:
+          description: Successful operation
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/User'
+        204:
+          description: No content
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+             $ref: '#/definitions/Error'
+
+    delete:
+      summary: Delete all my user associations
+      description: |
+        This API is used to delete all associations of the authenticated user.
+
+          <b>Permission required:</b>
+
+          * /permission/admin/login
+      responses:
+        204:
+          description: No content
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+             $ref: '#/definitions/Error'
+      tags:
+      - me
+  /me/associations/switch:
+    put:
+      parameters:
+        -
+          name : SwitchUserReqeust
+          in : body
+          required: true
+          schema:
+            $ref: '#/definitions/AssociationSwitchRequest'
+
+      summary: Switch user account
+      description: |
+          This API is used to switch the user account in the user portal. This API is not implemented yet.
+                  <b>Permission required:</b>
+          * /permission/admin/manage/identity/user/association/update
+      responses:
+        200:
+          description: OK
+        400:
+          description: Bad Request
+          schema:
+             $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+             $ref: '#/definitions/Error'
+        501:
+          description: Not Implemented
+          schema:
+             $ref: '#/definitions/Error'
+      tags:
+      - me
+
+definitions:
+
+#-----------------------------------------------------
+  # The Error Response  object
+  #-----------------------------------------------------
+  Error:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: string
+        example: "some_error_code"
+      message:
+        type: string
+        example: "Some Error Message"
+      description:
+        type: string
+        example: "Some Error Description"
+      traceId:
+        type: string
+        example: "Some Correlation for Error Instance"
+#-----------------------------------------------------
+# The User Response  object
+#-----------------------------------------------------
+  User:
+    type: object
+    properties:
+      userId:
+        type: string
+        example: '23e22434234234329jj9iin'
+      username:
+        type: string
+        example: john
+      userStoreDomain:
+        type: string
+        example: PRIMARY
+      tenantDomain:
+        type: string
+        example: carbon.super
+#-----------------------------------------------------
+# The Property  object
+#-----------------------------------------------------
+  Property:
+    type: object
+    properties:
+      key:
+        type: string
+        example: 'test-key'
+      value:
+        type: string
+        example: 'test-value'
+
+#-----------------------------------------------------
+# The AssociationRequest Association Request
+#-----------------------------------------------------
+  AssociationRequest:
+    type: object
+    properties:
+      associateUserId:
+        type: string
+        example: johnb
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+#-----------------------------------------------------
+# The AssociationSwitchRequest Association Request
+#-----------------------------------------------------
+  AssociationSwitchRequest:
+    type: object
+    properties:
+      userId:
+        type: string
+        example: john
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+#-----------------------------------------------------
+# The AssociationUserRequest Association User Request
+#-----------------------------------------------------
+  AssociationUserRequest:
+    type: object
+    properties:
+      userId:
+        type: string
+        example: john
+      password:
+        type: string
+        example: userpassword
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+securityDefinitions:
+  BasicAuth:
+    type: basic
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://localhost:9443/oauth2/authorize
+    tokenUrl: https://localhost:9443/oauth2/token
+# Added by API Auto Mocking Plugin
+host: localhost:9443
+basePath: /t/carbon.super/api/users/v1

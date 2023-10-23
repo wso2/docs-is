@@ -179,4 +179,8 @@ Specification](https://kantarainitiative.org/confluence/display/infosharing/Cons
     For more information and instructions for setting up this use case, see
     [Consent Management REST
     APIs]({{base_path}}/apis/use-the-consent-management-rest-apis/).
+<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/concepts/consent-management.md
     
+========
+    
+>>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/concepts/consent-management.md
