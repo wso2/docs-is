@@ -1,0 +1,24 @@
+<!--
+ * Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="17.634" height="16.303" viewBox="0 0 17.634 16.303">
+  <g id="swap" transform="translate(0 -19.32)">
+    <path id="Path_1876" data-name="Path 1876" d="M3.192,26.094a.551.551,0,0,0,.779,0l.713-.713a.551.551,0,0,0,0-.779l-.713-.713h9.805a1.655,1.655,0,0,1,1.653,1.653.828.828,0,0,0,.827.827h.551a.828.828,0,0,0,.827-.827,3.862,3.862,0,0,0-3.857-3.857H3.971l.713-.713a.551.551,0,0,0,0-.779l-.713-.713a.551.551,0,0,0-.779,0L.081,22.593a.276.276,0,0,0,0,.39Z"/>
+    <path id="Path_1877" data-name="Path 1877" d="M14.441,288.276a.551.551,0,0,0-.779,0l-.713.713a.55.55,0,0,0,0,.779l.713.713H3.857A1.655,1.655,0,0,1,2.2,288.827.828.828,0,0,0,1.378,288H.827a.828.828,0,0,0-.827.827,3.862,3.862,0,0,0,3.857,3.857h9.805l-.713.713a.55.55,0,0,0,0,.779l.713.713a.551.551,0,0,0,.779,0l3.112-3.111a.276.276,0,0,0,0-.39Z" transform="translate(0 -259.426)"/>
+  </g>
+</svg>
