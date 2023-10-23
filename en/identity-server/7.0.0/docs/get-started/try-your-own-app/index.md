@@ -4,7 +4,7 @@ template: templates/no-right-sidebar.html
 
 <div class="center-all">
   <h1>Try your own app</h1>
-  <h3>Pick the technology of your application and follow the instructions to enable Asgardeo login.</h3>
+  <h3>Pick the technology of your application and follow the instructions to enable WSO2 Identity Server login.</h3>
 
   <div class="cards-container">
     <a href="../../get-started/try-your-own-app/react/" class="card square">
