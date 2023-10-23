@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="88" viewBox="0 0 100 88">
+  <g id="_Access_Delegation" data-name=" Access Delegation" transform="translate(-375 -297)">
+    <g id="Group_716" data-name="Group 716" transform="translate(210.162 126)">
+      <g id="Group_75" data-name="Group 75" transform="translate(0 17)">
+        <circle id="Ellipse_4" data-name="Ellipse 4" cx="12.5" cy="12.5" r="12.5" transform="translate(203.838 193)" fill="#ed5d2b"/>
+        <path id="Intersection_1" data-name="Intersection 1" d="M5,18V11.5C10.453,4.575,19.838,0,30.5,0,40.537,0,49.442,4.053,55,10.309V18Z" transform="translate(186 224)" fill="#ed5d2b"/>
+      </g>
+      <path id="Subtraction_2" data-name="Subtraction 2" d="M-3,100.341l0,0A42,42,0,0,1,57.7,42.3,41.961,41.961,0,0,1,59,100.337l0-6.383A37.709,37.709,0,0,0,66,72,38,38,0,1,0-3,93.955v6.386Z" transform="translate(188 149)" fill="#ed5d2b"/>
+    </g>
+    <g id="Rectangle_21" data-name="Rectangle 21" transform="translate(414.65 297)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <rect width="24" height="24" stroke="none"/>
+      <rect x="2" y="2" width="20" height="20" fill="none"/>
+    </g>
+    <g id="Rectangle_22" data-name="Rectangle 22" transform="translate(451 330)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <rect width="24" height="24" stroke="none"/>
+      <rect x="2" y="2" width="20" height="20" fill="none"/>
+    </g>
+    <g id="Rectangle_23" data-name="Rectangle 23" transform="translate(375 330)" fill="#fff" stroke="#ed5d2b" stroke-width="4">
+      <rect width="24" height="24" stroke="none"/>
+      <rect x="2" y="2" width="20" height="20" fill="none"/>
+    </g>
+    <path id="Path_2540" data-name="Path 2540" d="M433.156,294.771l3.471,3.471,7.75-7.75" transform="translate(-12 14)" fill="none" stroke="#ed5d2b" stroke-width="3"/>
+  </g>
+</svg>
