@@ -27,8 +27,7 @@ paths:
       description: |
         This API is used to trigger the FIDO2 device registration flow.
 
-         <b>Permission required:</b>
-         * /permission/admin/login
+        <b>Permission required:</b> `/permission/admin/login`
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -90,6 +89,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/users/v2/me/webauthn/start-registration' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/x-www-form-urlencoded' \
+            -d '0=%7B&1=%0A&2=%20&3=%20&4=%22&5=a&6=p&7=p&8=I&9=d&10=%22&11=%3A&12=%20&13=%22&14=s&15=t&16=r&17=i&18=n&19=g&20=%22&21=%0A&22=%7D'
   /start-usernameless-registration:
     post:
       tags:
@@ -99,8 +107,7 @@ paths:
       description: |
         This API is used to trigger the FIDO2 usernameless device registration flow.
 
-         <b>Permission required:</b>
-         * /permission/admin/login
+         <b>Permission required:</b> `/permission/admin/login`
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -162,6 +169,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/users/v2/me/webauthn/start-usernameless-registration' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/x-www-form-urlencoded' \
+            -d '0=%7B&1=%0A&2=%20&3=%20&4=%22&5=a&6=p&7=p&8=I&9=d&10=%22&11=%3A&12=%20&13=%22&14=s&15=t&16=r&17=i&18=n&19=g&20=%22&21=%0A&22=%7D'
   /finish-registration:
     post:
       tags:
@@ -171,8 +187,7 @@ paths:
       description: |
         This API is used to complete the FIDO2 device registration flow.
 
-        <b>Permission required:</b>
-         * /permission/admin/login
+        <b>Permission required:</b> `/permission/admin/login`
       requestBody:
         description: Response from the client.
         content:
@@ -224,6 +239,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/users/v2/me/webauthn/finish-registration' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '"{requestId=GzNnMTGdZjfS80BbYmGnXuJBwAV2Qbwb0vws47DCYLk, credential={id=CnLte9JzbTY_NDpGatGAAGD2VfTQHJD8COjAU3w, response={attestationObject=o2b2uUzV0ifaiSsnIPVh3FGSgELyCQJIMIICRDC, clientDataJSON=eyJjaGFsbGVuZ2UiOiJUZ0pfdXVra3FuUG1C}, clientExtensionResults={}, type=public-key}}"'
       x-codegen-request-body-name: challengeResponse
   /{credentialId}:
     delete:
@@ -234,8 +258,7 @@ paths:
       description: |
         This API is used to deregister devices by username and credentialId.
 
-        <b>Permission required:</b>
-         * /permission/admin/login
+        <b>Permission required:</b> `/permission/admin/login`
       parameters:
       - name: credentialId
         in: path
@@ -271,6 +294,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/users/v2/me/webauthn/{credential-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
       tags:
       - me
@@ -279,8 +309,7 @@ paths:
       description: |
         This API is used to update the display name of a device by username and credentialId.
 
-        <b>Permission required:</b>
-         * /permission/admin/login
+        <b>Permission required:</b> `/permission/admin/login`
       parameters:
       - name: credentialId
         in: path
@@ -325,6 +354,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/api/users/v2/me/webauthn/{credential-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/displayName",
+              "value": "Device01"
+            }
+            ]'
       x-codegen-request-body-name: body
   /:
     get:
@@ -335,8 +379,7 @@ paths:
       description: |
         This API is used to get FIDO metadata by username
 
-        <b>Permission required:</b>
-         * /permission/admin/login
+        <b>Permission required:</b> `/permission/admin/login`
       responses:
         200:
           description: All available FIDO metadata for a user.
@@ -362,6 +405,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v2/me/webauthn/' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
   schemas:
     Error:
