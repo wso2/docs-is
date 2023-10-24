@@ -44,6 +44,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/configs' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
       tags:
         - Server Configs
@@ -76,6 +83,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/configs' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/idleSessionTimeoutPeriod",
+              "value": "30"
+            }
+            ]'
       requestBody:
         content:
           application/json:
@@ -119,6 +141,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/configs/provisioning/inbound/scim' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Server Inbound SCIM
@@ -151,6 +180,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/configs/provisioning/inbound/scim' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provisioningUserstore": "PRIMARY",
+            "enableProxyMode": false
+            }'
       requestBody:
         content:
           application/json:
@@ -202,6 +243,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/configs/authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /configs/authenticators/{authenticator-id}:
     get:
       tags:
@@ -246,11 +294,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/configs/authenticators/{authenticator-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /configs/cors:
     get:
       tags:
         - CORS
-      summary: Retrieve the tenant CORS configuration.
+      summary: Retrieve the tenant CORS configuration
       operationId: getCORSConfiguration
       description: Retrieve the tenant CORS configuration.
       responses:
@@ -282,6 +337,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/configs/cors' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
       tags:
         - CORS
@@ -319,6 +381,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/configs/cors' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "ADD",
+              "path": "/allowGenericHttpRequests",
+              "value": "30"
+            }
+            ]'
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
