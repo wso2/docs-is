@@ -50,18 +50,32 @@
                 </div>   
               </div>
               {% for child_nav_item in nav_item.children %}
-                <div class="md-list-item-container">
-                  <div class="md-list-item">
-                      <a href="{{ child_nav_item.url }}">
-                        <div class="md-list-item-icon">
-                            <svg width="11" height="15" viewBox="0 -3 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5.95801 0.0537109L10.748 4.83643L5.95801 9.62646L5.21094 8.88672L8.76318 5.36377L0.0473633 5.34912V4.33105L8.74854 4.31641L5.21094 0.793457L5.95801 0.0537109Z"></path>
-                            </svg>                                                           
-                        </div>
-                        <div class="md-list-item-text">{{ child_nav_item.title }}</div>
-                      </a>
-                  </div>
-                </div> 
+                {% set child = child_nav_item %}
+                
+                {% if child.children %}
+                  {% set first = child.children | first %}
+                  
+                  {% if child.title == first.title %}
+                    {% set child = first %}
+                  {% else %}
+                    {% set child = "" %}
+                  {% endif %}
+                {% endif %}
+
+                {% if child != "" %}
+                  <div class="md-list-item-container">
+                    <div class="md-list-item">
+                        <a href="{{ child.url }}">
+                          <div class="md-list-item-icon">
+                              <svg width="11" height="15" viewBox="0 -3 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.95801 0.0537109L10.748 4.83643L5.95801 9.62646L5.21094 8.88672L8.76318 5.36377L0.0473633 5.34912V4.33105L8.74854 4.31641L5.21094 0.793457L5.95801 0.0537109Z"></path>
+                              </svg>                                                           
+                          </div>
+                          <div class="md-list-item-text">{{ child.title }}</div>
+                        </a>
+                    </div>
+                  </div> 
+                {% endif %}
               {% endfor %}
             </div>
           {% endif %}

@@ -84,7 +84,7 @@ nav:
     - Home: index.md
   - Get Started:
     - Introduction: get-started/quick-start-guide.md
-    - Quickstart:
+    - Quick start:
       - Quick Setup: get-started/sample-use-cases/set-up.md
       - Try a Sample Scenario:
         - Sample Scenario: get-started/sample-use-cases/sample-scenario.md
@@ -111,7 +111,7 @@ nav:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
   - Guides: 
-      - Guides: guides/index.md
+      - Guides - Overview: guides/index.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md
@@ -264,7 +264,7 @@ nav:
   - Integrations:
     - Integrate WSO2 IS into your application: integrations/index.md
   - APIs:
-    - APIs: apis/index.md
+    - APIs - Overview: apis/index.md
     - Authentication API: apis/use-the-authentication-rest-apis.md
     - Session management API: apis/session-mgt-rest-api.md
     - Entitlement management API: apis/entitlement-with-rest-apis.md
@@ -322,7 +322,7 @@ nav:
       - Call admin services: apis/call-admin-services.md
       - One way operations: apis/admin-services-for-one-way-operations.md
   - References:   
-    - References: references/index.md
+    - References - Overview: references/index.md
     - User roles: references/user-management/user-roles.md
     - App configurations:
       - App configurations: references/app-settings/index.md

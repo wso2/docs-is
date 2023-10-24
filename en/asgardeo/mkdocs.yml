@@ -98,7 +98,7 @@ nav:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
   - Guides: 
-      - Guides: guides/index.md
+      - Guides - Overview: guides/index.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md
@@ -255,7 +255,7 @@ nav:
         - Asgardeo events: guides/monitoring/asgardeo-events.md
       - Organization insights: guides/organization-insights.md
   - Tutorials:
-    - Tutorials: tutorials/index.md
+    - Tutorials - Overview: tutorials/index.md
     - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
     - Authenticate users into Flutter applications: tutorials/auth-users-into-flutter-apps.md
     - Connect Asgardeo as an OIDC attribute provider (with Microsoft Entra Verified ID): tutorials/connect-asgardeo-with-ms-entra.md
@@ -264,7 +264,7 @@ nav:
   - Integrations:
     - Integrate Asgardeo into your application: integrations/index.md
   - APIs:
-    - APIs: apis/index.md
+    - APIs - Overview: apis/index.md
     - Authentication: apis/authentication.md
     - Application management API: apis/application-management.md
     - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
@@ -297,7 +297,7 @@ nav:
       - Organization role management API: apis/organization-management/organization-role-management.md
     - Idle account identification API: apis/idle-account-identification.md
   - References:  
-    - References: references/index.md
+    - References - Overview: references/index.md
     - Asgardeo user roles: references/user-management/user-roles.md
     - App configurations:
       - App configurations: references/app-settings/index.md
