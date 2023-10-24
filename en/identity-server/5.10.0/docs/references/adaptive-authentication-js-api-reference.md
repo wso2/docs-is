@@ -80,9 +80,7 @@ The API can be called in either of the following ways:
 
 -   With the `           stepId          `,
     `           options          `, and an empty
-    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` 
-object such as `           authenticationOptions          `, `           authenticatorParams          `,
-`           stepOptions          `. See the following examples:
+    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` object such as `           authenticationOptions          `, `           authenticatorParams          `. See the following two examples:
 
     ``` java
     executeStep(1,{
@@ -103,16 +101,9 @@ object such as `           authenticationOptions          `, `           authent
                 }
             }
         }
-    }, {} );
+    });
     ```
-    ``` java
-    executeStep(1, {
-        stepOptions: {
-            forceAuth: 'true'
-        }
-    }, {} );
-    ```
-
+      
     !!! note
     
         The API cannot be called with only the `           stepId          `
@@ -139,24 +130,6 @@ executeStep(1,{
            // Do something on success
 };
 ```
-
-<a name = "step-options"></a>
-**Authentication step options**
-
-`         stepOptions        ` is an optional property that can be defined in the `         executeStep         `.
-This will allow adding the additional `         forceAuth        ` authentication option. The `         forceAuth        ` option can
-force the authenticator in the steps to prompt again event if it was already authenticated.
-
-**Example code**
-
-``` java
-executeStep(1, {
-    stepOptions: {
-        forceAuth: 'true'
-     }
-}, {});
-```
-
 
 ### Utility functions
 
@@ -291,44 +264,7 @@ if (!isAdmin) {
     When passing error messages to the error page, it is
     recommended to use the i18n key so that it can be internationalized
     easily at the page.
-
-##### fail()
-
-This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow. 
-
-This function takes a map as an optional parameter. When a map is provided as the parameter, the redirect URL will be appended with following properties which should be contained in the map, otherwise the default parameters will be passed. All the properties passed in the map are also optional.
-
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>errorCode </td>
-<td>error code to be appended in the redirect URL</td>
-</tr>
-<tr class="even">
-<td>errorMessage </td>
-<td>error message to be appended in the redirect URL</td>
-</tr>
-<tr class="odd">
-<td>errorURI </td>
-<td>URI of a web page that includes additional information about the error</td>
-</tr>
-</tbody>
-</table>
-
-**Example code**
-
-``` java
-var parameterMap = {'errorCode': 'access_denied', 'errorMessage': 'login could not be completed', "errorURI":'http://www.example.com/error'};
-if (!isAuthenticated) {
-    fail(parameterMap);
-}
-```
+    
 
 ##### setCookie(response, name, value, properties)
 
@@ -492,7 +428,7 @@ var onLoginRequest = function(context) {
    executeStep(1, {
        onSuccess: function (context) {
            var username = context.steps[1].subject.username;
-           prompt("genericForm", {"username":username, "inputs":[{"id":"fname","label":"First Name"},{"id":"lname","label":"Last Name"}]}, {
+           prompt("genericForm", {"username":username, "inputs":[{"id":fname,"label":"First Name"},{"id":lname,"label":"Last Name"}]}, {
              onSuccess : function(context) {
                 var fname = context.request.params.fname[0];
                 var lname = context.request.params.lname[0];
@@ -558,22 +494,14 @@ var state = getValueFromDecodedAssertion(context.request.params.request[0],"stat
 
 #### getUniqueUserWithClaimValues(claimMap, context, profile)
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/references/adaptive-authentication-js-api-reference.md
-The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the first key from the map and get all users with the claim and add them to the list. Then, remove the users that do not have the other claims from that list. Thereby, the order of the map will decide the performance of this function.
-========
 The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the 1st key from the map and get all users with the claim and add to list. Then remove the users from that list not having the other claims. So the order of the map will decide the performance of this function.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/references/adaptive-authentication-js-api-reference.md
 The first claim in this must have a low number of users.
 
 | Parameter            | Description                                                                  |
 |----------------------|------------------------------------------------------------------------------|
 | claimMap  | A map contains the claim URI and claim value.    |
 | context   | The authentication context, which contains the context information about the request.    |
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/references/adaptive-authentication-js-api-reference.md
-| parameterName | (Optional) Profile of the user. The default value is 'default').     |
-========
 | parameterName | Profile of the user. (Optional, the default value is 'default')      |
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/references/adaptive-authentication-js-api-reference.md
 
 ``` java
 var claimMap = {};
@@ -651,14 +579,6 @@ step number.
     (Read/Write) User’s attribute (claim) value for the given
     “local\_claim\_url”. If the user is a federated user, this will be
     the value of the mapped remote claim from the IdP.
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/references/adaptive-authentication-js-api-reference.md
-        
--   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
-
-    !!! note 
-        `          user.localClaims[“<local_claim_url>”]         ` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis.
-
-========
     
 -   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
     
@@ -666,7 +586,6 @@ step number.
         -   To use the `user.claims[“<local_claim_url>”]` property, apply the **0376** WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see [Getting Started with WUM.](../../administer/dminister/getting-wso2-updates)
         -   `          user.localClaims[“<local_claim_url>”]         ` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis only.
         
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/references/adaptive-authentication-js-api-reference.md
 -   `          user.remoteClaims[“<remote_claim_url”]         ` :
     (Read/Write) User’s attribute (claim) as returned by IdP for the
     given “remote\_claim\_url”. Applicable only for federated users.

@@ -1,10 +1,7 @@
 # Enable Mobile Number Verification for an Updated Mobile Number
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
-========
 
 !!! info "Important!"
     This capability is available as an update in WSO2 IS 5.10.0 from update **level 21** onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md
 
 This feature enables mobile number verification when the user updates the user profile with a new mobile number, so that the new mobile number can be taken into consideration for all further activities performed by the user.
 
@@ -16,16 +13,69 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
     -   Sending the SMS OTP verification is skipped in the following instances:
         1. The `verifyMobile` claim is not set to true in the SCIM 2.0 request.
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
-        2. The claim update is invoked by a user other than the claim owner or a non privileged user.
-========
         2. The claim update is invoked by a user other than the claim owner.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
-## Step 01 - Add an event publisher to send SMS
+## Step 01 - Configuring mobile claim verification on update
 
-1. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
+1. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to subscribe the `userMobileVerification` handler to `PRE_SET_USER_CLAIMS` and `POST_SET_USER_CLAIMS` events.
+
+    ```toml 
+    [[event_handler]]
+    name= "userMobileVerification"
+    subscriptions =["PRE_SET_USER_CLAIMS","POST_SET_USER_CLAIMS"]
+    ```
+
+2. Define an attribute for a new claim `pendingMobileNumber` using **Enterprise User Extension** for SCIM2 by adding the following configuration to the `IS_HOME/repository/conf/scim2-schema-extension.config` file.
+(Add this before the last element of the JSON array.)
+
+    ```
+    { 
+    "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:pendingMobileNumber",
+    "attributeName":"pendingMobileNumber",
+    "dataType":"string",
+    "multiValued":"false",
+    "description":"Store user's mobile number to be updated as a temporary claim until mobile number verification happens.",
+    "required":"false",
+    "caseExact":"false",
+    "mutability":"readWrite",
+    "returned":"default",
+    "uniqueness":"none",
+    "subAttributes":"null",
+    "canonicalValues":[],
+    "referenceTypes":[]
+    }
+    ```
+ 
+    Add `pendingMobileNumber` to the `subAttributes` list of `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` attribute (the last element of the JSON array).
+
+       ```
+       {
+       "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+       "attributeName":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+       "dataType":"complex",
+       "multiValued":"false",
+       "description":"Enterprise User",
+       "required":"false",
+       "caseExact":"false",
+       "mutability":"readWrite",
+       "returned":"default",
+       "uniqueness":"none",
+       "subAttributes":"verifyEmail askPassword employeeNumber costCenter organization division department manager pendingEmails pendingMobileNumber",
+       "canonicalValues":[],
+       "referenceTypes":["external"]
+       }
+       ```
+
+3. Add a new SMS template for mobile number verification OTP by adding the below configuration to `sms-templates-admin-config.xml` file in `IS_HOME/repository/conf/sms` directory.
+    
+    ```
+    <configuration type="verifyMobileOnUpdate" display="verifyMobileOnUpdate" locale="en_US">
+        <body>Your Mobile Number Verification Code : {{confirmation-code}}</body>
+    </configuration>
+    ```
+
+4. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
 
     ??? info "Sample Event Publisher"
         ```
@@ -34,19 +84,11 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
             statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
             <from streamName="id_gov_sms_notify_stream" version="1.0.0"/>
             <mapping customMapping="enable" type="json">
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
-                <inline>{"api_key":"4c9374",
-                    "api_secret":"FtqyPggE93",
-                    "from":"NEXMO",
-                    "to":{{send-to}},
-                    "text":{{body}}
-========
                 <inline>{"api_key"="4c9374",
                     "api_secret"="FtqyPggE93",
                     "from"="NEXMO",
                     "to"={{send-to}},
                     "text"={{body}}
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md
                     }</inline>
             </mapping>
             <to eventAdapterType="http">
@@ -60,22 +102,40 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
             This publisher uses [NEXMO](https://www.nexmo.com/) as the SMS REST service provider. For more information 
             on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
             /display/DAS300/HTTP+Event+Publisher). 
+            
+5. Restart the server to apply the configurations.
 
-## Step 02 - Enable the feature via the management console
+## Step 02 - Adding the pending mobile number claim to store verification
 
-1.  On the management console, navigate to **Main > Identity Providers > Resident > Other Settings > User Claim Update**.
+1.  On the management console, navigate to **Main > Claims > Add > Add Local Claim**. Provide the following details and click **Add**.
+    -   **Claim URI:** http://wso2.org/claims/identity/mobileNumber.pendingValue
+    -   **Display Name:** Verification Pending Mobile
+    -   **Description:** To store the updated mobile number until it is verified.
+    -   **Mapped Attribute (s):** pendingMobileNumber
+    -   **Read only:** Ticked
+
+![pending-mobile-claim-config](../assets/img/develop/pending-mobile-claim-config.png)
+
+2.  To map the claim created above to the attribute that was created in **Enterprise User Extension**, navigate to **Main > Claims > Add > Add External Claim**.
+Add the external claim configurations as shown below and click **Add**.
+    -   **Dialect URI:** urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+    -   **External Claim URI:** urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:pendingMobileNumber
+    -   **Mapped Local Claim:** http://wso2.org/claims/identity/mobileNumber.pendingValue
+
+![pending-mobile-external-claim-config](../assets/img/develop/pending-mobile-external-claim-config.png)
+
+## Step 03 - Enable the feature via the management console
+
+1.  On the management console, navigate to **Main > Identity Providers > Resident > Account Management Policies > User Claim Update**.
    
 2.  Enable **Enable user mobile number verification on update**. Additionally, you can define the expiry time (in minutes) for the verification SMS OTP to match your requirement. 
     
-    ![](../assets/img/develop/mobile-verification-on-update-config.png)
+    ![mobile-verification-on-update-config](../assets/img/develop/mobile-verification-on-update-config.png)
 
 3.  Click **Update** to save the changes. 
 
 !!! note 
     To enable this feature server-wide, follow the instructions given below. 
-
-    !!! info
-        Mobile number verification by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 150 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
     
     1.  Shut down the server if it is running.
     2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature and to configure the verification OTP expiry time.
@@ -85,23 +145,6 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         enable_verification = true
         verification_sms_otp_validity = “5”
         ```
-    3. By default, mobile number verification is not allowed for privileged users. Add the following property to the above `deployment.toml` file to enable this server wide.
-        ```toml
-        [identity_mgt.user_claim_update.mobile]
-        enable_verification_by_privileged_user = true
-        ```
-
-    4. Add the following properties to the `deployment.toml` file to allow only privileged users to resend verification codes.
-        ```toml
-        [[resource.access_control]]
-        context = "(.*)/api/identity/user/v1.0/resend-code(.*)"
-        secure = "true"
-        http_method = "all"
-        permissions=["/permission/admin/manage/identity/identitymgt"]
-        scopes=["internal_identity_mgt_view","internal_identity_mgt_update","internal_identity_mgt_create","internal_identity_mgt_delete"]
-        ```
-
-    5. Restart the server.
 
 ## Try it out 
 
@@ -168,11 +211,7 @@ curl -v -k --user bob123:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:
 Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new mobile number. 
 
 To validate the verification code sent to the user, use the existing `validate-code` and `resend-code` APIS of the
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
- [Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/selfregister-v5.11.0/). 
-========
  [Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is510/self-registration/). 
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md
  
 ### Validating the verification code
 
@@ -230,41 +269,8 @@ curl -X POST -H "Authorization: Basic Ym9iMTIzOnBhc3MxMjM=" -H "Content-Type: ap
 "HTTP/1.1 201 Created"
 ```
 
-Additionally, you can use the following curl command to resend a new SMS OTP code by a privileged user.
-
-!!! Note
-    Resending SMS OTP code by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 159 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
-
-**Sample**
-
-!!! abstract ""
-    **Request**
-    ```curl
-    curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user":{},"properties": []}'
-    "https://localhost:9443/api/identity/user/v1.0/resend-code"
-    ```
-
-    The user and the verification scenario should be specified in the request body as follows :
-    ```
-    "user": {"username": "", "realm": ""}
-    "properties": [{"key":"RecoveryScenario", "value":"MOBILE_VERIFICATION_ON_UPDATE"}]}
-    ```
-    ---
-    **Sample Request**
-    ```curl
-    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"MOBILE_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
-    ```
-    ---
-    **Response**
-    ```
-    "HTTP/1.1 201 Created"
-    ```
 
 !!! info "Related Topics"
-    See [SCIM 2.0 Rest APIs](../../develop/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
+    See [Using the SCIM 2.0 Rest APIs](../../develop/using-the-scim-2.0-rest-apis) for instructions on using SCIM 2.0 REST APIs.
     
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/enable-verification-for-updated-mobile-number.md
-    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/selfregister-v5.11.0/).
-========
     For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is510/self-registration/).
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/enable-mobile-verification-for-an-updated-mobile-number.md

@@ -7,7 +7,7 @@ configuring an Identity Provider.
 
 A federated authenticator is used to authenticate a user through an
 external system (e.g. Yahoo, MSN, OpenIDConnect). To write your own
-custom federated authenticator, see [Write a Custom Federated Authenticator]({{base_path}}/extend/federation/write-a-custom-federated-authenticator).
+custom federated authenticator, see [Writing a Custom Federated Authenticator](../../develop/writing-a-custom-federated-authenticator/).
 
 !!! warning
     The `         <federatedAuthenticatorConfigs>        ` and
@@ -20,9 +20,8 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
     there can be multiple `         <federatedAuthenticatorConfigs>        `
     .
     
----
 
-## SAML2 Web SSO configuration
+### SAML2 Web SSO configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -143,9 +142,7 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
 </tbody>
 </table>
 
----
-
-## OAuth2/OpenID Connect configuration
+### OAuth2/OpenID Connect configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -179,6 +176,10 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
    </properties>
 </federatedAuthenticatorConfigs>
 ```
+
+  
+
+  
 
 <table>
 <colgroup>
@@ -219,9 +220,7 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
 </tbody>
 </table>
 
----
-
-## WS-Federation (Passive) configuration
+### WS-Federation (Passive) configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -255,9 +254,8 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
 | commonAuthQueryParams | Additional Query Parameters  |
 
   
----
 
-## Facebook configuration
+### Facebook configuration
 
   
 
@@ -298,9 +296,9 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
 | Scope          | Defines the permission to access particular information from a Facebook profile. See the [Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions) for a list of the different permission groups in Facebook APIs.                                                                                                     |
 | callBackUrl    | Callback URL of the Identity Server.                                                                                                                                                                                                                                                                                                                  |
 
----
+  
 
-## Yahoo configuration
+### Yahoo configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -309,10 +307,10 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
    <name>YahooOpenIDAuthenticator</name>
 </federatedAuthenticatorConfigs>
 ```
-  
----
 
-## Google configuration
+  
+
+### Google configuration
 
 ``` xml
 <federatedAuthenticatorConfigs
@@ -323,9 +321,9 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
 </federatedAuthenticatorConfigs>
 ```
 
----
+  
 
-## Microsoft (Hotmail,MSN,Live) configuration
+### Microsoft (Hotmail,MSN,Live) configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -374,14 +372,14 @@ custom federated authenticator, see [Write a Custom Federated Authenticator]({{b
 </tbody>
 </table>
 
---- 
+  
 
 ## Outbound provisioning connector configuration samples
 
 An outbound provisioning connector is used to provision users to
 external systems (e.g. Google, SalesForce).  To write your own custom
-outbound provisioning connector, see [Write an Outbound Provisioning
-Connector]({{base_path}}/extend/provisioning/write-an-outbound-provisioning-connector).
+outbound provisioning connector, see [Writing an Outbound Provisioning
+Connector](../../develop/writing-an-outbound-provisioning-connector/).
 
 !!! warning
     The `              <provisioningConnectorConfigs>             ` and `              <defaultProvisioningConnectorConfig>             ` tags
@@ -396,9 +394,8 @@ Connector]({{base_path}}/extend/provisioning/write-an-outbound-provisioning-conn
     there can be multiple
     `              <provisioningConnectorConfigs>             ` .
     
----
 
-## SalesForce provisioning configuration
+### SalesForce provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -472,9 +469,9 @@ Connector]({{base_path}}/extend/provisioning/write-an-outbound-provisioning-conn
 </tbody>
 </table>
 
----
+  
 
-## Google provisioning configuration
+### Google provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -554,9 +551,9 @@ Connector]({{base_path}}/extend/provisioning/write-an-outbound-provisioning-conn
 </tbody>
 </table>
 
----
+  
 
-## SCIM provisioning configuration
+### SCIM provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -585,6 +582,8 @@ Connector]({{base_path}}/extend/provisioning/write-an-outbound-provisioning-conn
    </provisioningProperties>
 </provisioningConnectorConfigs>
 ```
+
+  
 
   
 
@@ -623,9 +622,9 @@ Connector]({{base_path}}/extend/provisioning/write-an-outbound-provisioning-conn
 </tbody>
 </table>
 
----  
+  
 
-## SPML provisioning configuration
+### SPML provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">

@@ -9,11 +9,12 @@ database (synchronous and asynchronous token persistence).
 The following sections guide you through the difference between these
 two approaches and how to configure them.
 
----
+-   [Synchronous token persistence](#synchronous-token-persistence)
+-   [Asynchronous token persistence](#asynchronous-token-persistence)
 
 ## Synchronous token persistence
 
-![synchronous-token-persistence]({{base_path}}/assets/img/deploy/token-persistence.png) 
+![synchronous-token-persistence](../assets/img/103329466/103329467.png) 
 
 The flow of synchronous token persistence is as follows:
 
@@ -29,7 +30,8 @@ The flow of synchronous token persistence is as follows:
     returned to the client.
     
 !!! note "Synchronous token persistence configurations" 
-    By default synchronous token persistence is enabled in WSO2 Identity Server 5.9.0
+    By default
+    synchronous token persistence is enabled in WSO2 Identity Server 5.9.0
     onwards. To indicate the number of times to retry in the event of a
     `CONN_APP_KEY` violation when storing the access token, navigate to file
     `<IS_HOME>/repository/conf/deployment.toml` and add the following
@@ -42,9 +44,7 @@ The flow of synchronous token persistence is as follows:
     
     !!! Tip
         To know more about new configurations, 
-        see [New Configuration Model]({{base_path}}/references/new-configuration-model).
-
----
+        see [New Configuration Model](../../references/new-configuration-model).
 
 ## Asynchronous token persistence
 
@@ -59,14 +59,17 @@ added to the queue, the token is returned to the client.There are background thr
     performance in general. Hence, asynchronous token persistence is not
     supported from WSO2 Identity Server 5.9.0 onwards.
 
----
-
 ## Recovery flow for token persistence
 
 This section explains the recovery flow triggered in WSO2 Identity
 Server for exceptional cases that may occur in a production environment
 caused by the client application mishandling the
 `         CON_APP_KEY        ` constraint that is explained below.
+
+-   [CONN\_APP\_KEY constraint](#conn_app_key-constraint)
+-   [Synchronous token persistence](#synchronous-token-persistence_1)
+        -   [The flow](#the-flow_1)
+        -   [The recovery flow](#the-recovery-flow_1)
 
 ### CONN\_APP\_KEY constraint
 
@@ -85,7 +88,7 @@ access tokens so that other threads can retrieve from it.
 
 ### Synchronous token persistence
 
-### The flow
+#### The flow
 
 The flow of the synchronous token persistence when receiving two
 identical access token requests is as follows:
@@ -102,7 +105,7 @@ identical access token requests is as follows:
     to the client but the other node will receive an error due to the
     violation of the `          CON_APP_KEY         ` constraint.
 
-### The recovery flow
+#### The recovery flow
 
 The process flow now moves on to the recovery flow described above in
 order to handle the `         CON_APP_KEY        ` constraint violation
@@ -110,7 +113,7 @@ and is executed as follows:
 
 -   Since the same thread is being used, the OAuth2 component in the
     second node checks the database again for an ACTIVE access token.
--   Since there is now an ACTIVE token which was persisted by the first
+-   Since there is now an ACTIVE token, which was persisted by the first
     node, the second node now returns the access token persisted by the
     first node to the client.
 -   Both access token requests receive the same access token.

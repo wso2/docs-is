@@ -1,92 +1,77 @@
-# Create a new XACML Policy
+# Creating a XACML Policy
 
-The steps below explain how you can create a XACML policy using the
-management console of the WSO2 Identity Server.
+At the root of all XACML policies is a **Policy** or a **PolicySet**. A
+**Policy** represents a single access control policy, expressed through
+a set of rules. A **PolicySet** is a container that can hold other
+Policies or PolicySets, as well as references to policies found in
+remote locations. Each XACML policy document contains exactly one Policy
+or PolicySet root XML tag. Because a Policy or PolicySet may contain
+multiple policies or Rules, each of which may evaluate to different
+access control decisions, XACML needs some way of reconciling the
+decisions each makes. This is done through a collection of Combining
+Algorithms. Each algorithm represents a different way of combining
+multiple decisions into a single decision.
 
-1.  Log in to the management
-    console using your username and password.
-2.  Navigate to  **Main** > **Entitlement** and under **PAP**, click **Policy Administration**.
-3.  Click **Add New Entitlement Policy** to open the **Add New Policy** page.
+WSO2 Identity Server XACML support will provide two methods of writing
+a XACML Policy.
 
+-   Some predefined commonly used XACML Policy template samples where
+    you can use by editing according to your use case.
 
-    ![add a xacml policy]({{base_path}}/assets/img/guides/add-new-xacml-policy.png)
-
-## Policy Creation Methods
-
-The **Add New Policy** page has six ways of creating a XACML 3.0 policy. Each of these methods are explained below.
-
-### Simple Policy Editor
-
-This simple editor lets you create XACML 3.0 policies without any knowledge of XACML, provided that you have some familiarity with access control rules.
-
-![create a xacml policy]({{base_path}}/assets/img/guides/create-xacml-policy.png)
-
-You can create a policy based on four categories.
+    !!! note
     
-- **Resource** - Based on the resource to be protected.
+        To get more details on available XACML templates, [Read
+        me](../../learn/writing-a-xacml-policy-using-a-policy-template).
     
-- **Subject** - Based on the user
+-   A set of UI editors to create a XACML policy using UI
+    configurations.
 
-- **Action** - Based on the action to be performed
+The below steps explain how you can create a XACML policy using the
+management console of WSO2 Identity Server.
 
-- **Environment** - Based on the time, date or domain.
+1.  Sign in. Log in to the [Management
+    Console](../../setup/getting-started-with-the-management-console)
+    using your username and password.
+2.  Navigate to the **Main** menu to access the **Entitlement** menu.
+    Click **Policy Administration** under **PAP**.
+3.  Click **Add New Entitlement Policy**.  
+    ![new-entitlement-policy](../assets/img/tutorials/new-entitlement-policy.png)
 
-You can define multiple permit rules. Deny rule is automatically created as the final rule. Permitted
-rules are evaluated from top to bottom.
+The **Add New Policy** page appears which gives the 6 ways of writing an
+XACML 3.0 policy. You can select one out of the six methods mentioned below to create the
+policy using UI according to your preference.
 
-#### Sample Policy Example
+![add-new-policy](../assets/img/tutorials/add-new-policy.png)
 
-Suppose you are to protect the “foo” resource with the following access control rules.
+#### **Simple Policy Editor**
 
--   **Rule 1**: Resources under “foo” collection can be read, written, edited
-    and deleted by the users belonging to the admin role.
+This simple editor provides you the opportunity to create XACML 3.0
+policies without any knowledge of XACML policy language. You can
+define your rules in a simpler manner and create a XACML 3.0 policy
+out of them. However, you need to have some knowledge about access
+control rules.  
 
--   **Rule 2**: Resources under “foo/wso2″ collection can be read only by
-    the users in WSO2 (i.e whose email addresses match the regex ^(\[a-zA-Z0-9\_.-\])+@wso2.com) between
-    9.00am and 4.00pm ( 09:00:00+05:00, 16:00:00+05:00).
+![create-xacml-policy](../assets/img/tutorials/create-xacml-policy.png)
 
--   **Rule 3**: All other access requests to “foo” resource must be denied (This rule is applied automatically).
+This editor is based on four categories which we are mostly talking
+about access control rules (i.e., User, Resource, Action, and Environment)
+where **User** is the person who is going to access the resource,
+**Resource** is an entity that we are trying to protect with access
+control rules, **Action** is what user is going to perform on Resource
+and **Environment** is the time, domain or any other factors that could
+cause to control the user’s access.
 
-You can build the above policy example using the Simple Policy
-Editor as shown below.
+In the Simple Editor, you can see the following,
 
-![sample xacml policy]({{base_path}}/assets/img/guides/sample-xacml-policy-simple-editor.png)
+**Entitlement Policy Name** : Name of the policy.
 
+**Entitlement Policy Description:** A description of the policy.
+
+**This policy is based on** : Define **based on** what entity, that you
+are going to write this policy.
 
 !!! Note
-    -   If you want to define values as java regexp, you need to
-        embed the values within curly brackets “{ }”
-    
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/authorization/create-a-policy.md
-        - **Ex :** { ^([a-zA-Z0-9_.-])+@wso2.com }
-========
-    Ex : ***{ ^(\[a-zA-Z0-9\_.-\])+@ [wso2.com](https://wso2.com/) }***
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/creating-a-xacml-policy.md
-    
-    -   If you want to define multiple values as OR or AND value sets, you
-        can use “|” or “&” respectively.
-    
-        - **Ex :** read | write | delete
-    
-        - **Ex :** ReadRole & WriteRole
-    
-    -   If you want to define values as greater than or lesser than, you
-        can use "<” or “>” (">=" or "<=" are not supported)    
-    
-        - **Ex :** < 34
-    
-    -   If you want to define a range, have the two comma-separated (",") values within
-        square brackets “[ ]” or round brackets “( )”.
-    
-        - **Ex :** [09:00:00+05:00, 16:00:00+05:00] - time between 09.00am and 04.00 pm
-    
-        - **Ex :** (18, 30] - greater than 18 and less than or equal to 30
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/creating-a-xacml-policy.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/authorization/create-a-policy.md
-### Basic Policy Editor
-========
-========
     If you are writing policy based on web service. You can select
     “Resource” category and continue. Or less, if you are writing policy
     based on email domain of users. You can select “Subject” category and
@@ -130,7 +115,6 @@ rules are **evaluated from top to bottom**.
     Ex: ***(18, 30\]*** *greater than 18 and less than or equal to 30*
     
 
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/creating-a-xacml-policy.md
 ##### Sample Policy Example 
 An example of a policy is given below. This policy is defined for accessing the “foo” resource.
 
@@ -160,32 +144,35 @@ rules.
 -   This editor is based on four categories which we are mostly talking
     about access control rules. i.e Subject, Resource, Action and
     Environment.  
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/creating-a-xacml-policy.md
       
-When setting a policy in the Basic Policy Editor, you can select attribute values from a connected attribute value source rather than filling the text boxes on your own.
-
-![create a xacml policy]({{base_path}}/assets/img/guides/basic-editor-xacml.png)
+-   You can define a target and multiple rules in the policy. Rules can
+    be ordered.  
+      
+-   You can plug any attribute value sources and select those attribute
+    values when creating the policy; rather than filling text boxes by
+    your own. By default, WSO2 registry resources, Roles of the
+    underline user store and some pre-defined actions are the attribute
+    value sources for the resource, subject and action attributes
+    respectively. There are extension points that you can use to extend
+    and bring more attribute values on to the policy editor UI.
+    
+![xacml-basic-policy](../assets/img/tutorials/xacml-basic-policy.png)
 
 !!! Info
-
-	The following are the settings of the Basic Editor.
+	In the Basic Editor, you can see the following,
 
 	**Entitlement Policy Name** : Name of the policy.
 
-	**Rule Combining Algorithm** : *Learn more about rule combining algorithms below.*
+	**Entitlement Policy Description:** A description of the policy.
 
-	**The Policy is going to be evaluated, Only when followings are matched:**
-    Define for what attribute values, this policy is applied to. This is similar to defining the policy target
-	element.
+	**The policy is going to be evaluated Only when following matched:**
+	*You can define; for what attribute values, this policy is going to be
+	applied (or picked). This is similar to defining the policy target
+	element.*
 
-	**Define Entitlement Rule(s):** Define rules which are evaluated
+	**Define Entitlement Rule(s):** You can define rules which you want to
 	evaluate after they are matched with above.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/authorization/create-a-policy.md
-??? tip "Click to view information about policy/rule combining algorithms"
-     **Policy Combining Algorithms** are used by *Policy
-        Sets* and **Rule Combining Algorithms** are used by *Policies*.
-========
 ##### Sample Policy Requirement
 
 -   This access control policy is written for the patient records of
@@ -353,7 +340,6 @@ local machine.
 ??? tip "Click to view information about policy combining algorithms"
     There are **Policy Combining Algorithms** which are used by *Policy
         Sets* and **Rule Combining Algorithms** which are used by *Policies*.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/creating-a-xacml-policy.md
         Each of the algorithms mentioned below has its Policy Combining
         algorithm and its Rule Combining algorithm as follows:
 
@@ -377,11 +363,17 @@ local machine.
      These algorithms are explained in detail as follows:
 
       -   **Deny Overrides:**  
-      If any decision is a Deny, then that decision wins. Deny overrides is one of the safest combining algorithms since it favors a deny decision.
+      This combining algorithm combines decisions in such a way that if
+      any decision is a Deny, then that decision wins.  
+      Deny overrides is one of the safest combining algorithms since it
+      favors a Deny decision. However, if none of the children return a
+      Deny decision, then the combining algorithm will never produce a
+      Deny.  
 
       -   **Permit Overrides:**  
-      If any decision is a Permit, then that decision wins. At least one child must return a Permit for access to be granted regardless of restrictions.
-
+      This combining algorithm combines decisions in such a way that if
+      any decision is a Permit, then that decision wins.
+      The permit overrides combining algorithm can be interesting when at least one child must return a Permit for access to be granted overall regardless of restrictions.
       One wants to return all the reasons why access is being denied. This is
       what one could call a “greedy deny overrides”.For instance, if the reason
       for not being able to view a resource is that
@@ -434,153 +426,6 @@ local machine.
       algorithm stems from the fact the XACML specification does not
       specify whether order matters in the deny-overrides and
       permit-overrides combining algorithms.
-
-By default, the available attribute value sources are WSO2 registry resources, roles of the underline user store and some pre-defined actions.
-
-There are extension points that you can use to extend and bring more attribute values to the policy editor.
-
-
-
-##### Sample Policy Requirement
-
--   This access control policy is written for the patient records of
-    Medi Hospital. Patient records are stored in a location under
-    “/patient/” directory. Therefore we are defining access control
-    rules for “/patient/” directory.  
-      
--   Users can only access patient records from 09.00pm to 04.00pm.  
-      
--   Patient records can be created, deleted by users in MedAdminstrator
-    role.  
-      
--   Patient records can be updated and read by users in MediStaff
-    role.  
-      
--   All other access requests to patient records must be denied.
-
-Let's implement this sample policy using Basic Policy Editor,
-
-**Step1:** Define a name for the policy.
-
-**Step 2:** This is similar to defining the policy target element.
-Configure it such as **“policy is applied for resource attribute value
-/patient//\*  with reg-ex match”**.
-
-**Step 3:** Define the 1st rule. The rule is “Users can only access
-patient records from 09.00pm to 04.00pm”. It means that if the user
-tries to access records any other time, the user must be denied.
-Therefore, we are writing a deny rule for users who are not accessing
-patient records from 09.00pm to 04.00pm. Therefore first, let define a
-rule name and also define the rule effect as “Deny”. Then Select “Time”
-from the environment.  Select functions as “is not” and  “greater than
-and less than”. Write the time with GMT offset value.  After defining
-you can add this rule to the policy.
-
-**Step 4:** Define the 2nd rule. Rule name must be given. Then select
-“Role” as user’s attribute. You can select your “MedAdminstrator” role
-name from user attribute source. So just click on the icon.
-
-**Step 5:** You can do a search for attributes values.
-
-**Step 6:** Select only the “MediAdminstrator” role from the attribute
-source.
-
-
-**Step 7:** You can see, the text box has been filled with the selected
-“MediAdminstrator” role name. Now let define actions. Here let us make
-the function name as “at-least-one”. Then this rule would be satisfied
-even when at least one action is going to perform.  Finally, let us add
-this rule in to the policy
-
-**Step 8:** Let's define the 3rd rule. Which allows “MediStaff” roles to
-access the resource with action read and edit. You can follow same
-**steps 4, 5, 6, 7**. Then finally, add this rule into the policy.
-
-**Step 9:** Finally define the rule to deny all other access,  as
-follows:
-
-**Step 10:** We have defined the target and rules.  Now it is time to
-define the rule-combining algorithm. Let select is as “first
-applicable”. Then rule effect of the 1st rule that is evaluated
-properly, would be the final result of the policy.
-
-You can click on “finish” and finish policy creation.
-
-#### Standard Policy Editor
-
--   The standard policy editor is similar to Basic Policy Editor.
-    However, it is basically designed for creating XACML 3.0 policy rules.
-    Because there are several improvements with Obligation in XACML 3.0
-    when compare to 2.0. In XACML 2.0, obligations can only be added to
-    policies and policy sets. But with XACML 3.0, rules can also contain
-    Obligations. Therefore, if you want to get details of the
-    obligations after the policy evaluated, It is good to use the
-    Standard Policy Editor.  
-      
--   As in Basic Policy Editor, there is a place to define the conditions
-    which make the rules evaluated as **The policy is evaluated only
-    when following are matched** and a place to define entitlement
-    rules.  
-    
--   **Advice** is a newly introduced feature with XACML 3.0 which is
-    similar to Obligations. But only different, when compared to
-    Obligations, PEPs do not have to comply with advice statements. PEPs
-    can consider or discard the statement. A common use case is to
-    explain why something was denied. “User Alex is denied because Alex does
-    not have a valid email”  
-      
--   Here the attribute, **Define Policy Obligation or Advice** is optional.
-
-##### Sample Policy Requirement
-
--   This access control policy is written for the patient records of
-    Medi Hospital. Patient records are stored in a location under
-    “/patient/” directory. Therefore we are defining access control
-    rules for “/patient/” directory.  
-      
--   Users can only access patient records from 09.00pm to 04.00pm.  
-      
--   Patient records can be created, deleted by users in MedAdminstrator
-    role.  
-      
--   Patient records can be updated and read by users in MediStaff
-    role.  
-      
--   All other access requests to patient records must be denied.
-
-Since this editor is very similar to Basic Policy Editor we can use the
-same steps from **Step 1** to **Step 9** to configure the above
-requirement in Advance Policy Editor.
-
-**Step 10** : In advance, if you want to see the details of the
-obligation after the policy is evaluated, you can define a policy
-obligation or advice as follows:
-
-**Step 11:** We have defined the target, rules, and obligation.  Now it
-is time to define the rule-combining algorithm. Let select is as “first
-applicable”. Then rule effect of the 1st rule that is evaluated
-properly,  would be the final result of the policy.
-
-Click "Finish” and finish policy creation.
-
-#### Policy Set Editor
-
-When you want to create a set of policies to evaluate at one time, you
-can create a **Policy Set**. You can add policies as shown in the
-figure and Click "Finish" to create the policy set.  
-
-#### Import Existing Policy
-
-You can add a policy by using a policy XML file.
-
-Write a policy in an XML file and upload it.
-
-Click **Choose File** and browse to the location of the policy in your
-local machine.
-
-#### Write Policy in XML
-
-
     
 Click **Finish** / **Upload** depending on the option you chose to
 create your policy.
@@ -588,4 +433,4 @@ create your policy.
 !!! Info "Related Topics"
 	To evaluate the policy you just created and see a sample request and
 	response to it, see [Evaluating a XACML
-	Policy]({{base_path}}/guides/authorization/evaluate-a-xacml-policy).
+	Policy](../../administer/evaluating-a-xacml-policy).

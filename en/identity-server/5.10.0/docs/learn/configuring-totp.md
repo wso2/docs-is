@@ -19,7 +19,7 @@ password is unique.
 !!! Tip "Before You begin"
 
     1.  Download the WSO2 Identity Server from
-        [here](https://wso2.com/products/identity-server/ ) and
+        [here](http://wso2.com/products/identity-server/ ) and
         [run it](../../setup/running-the-product/#starting-the-server).
         
     2.  Sign in to the [Management Console](../../setup/getting-started-with-the-management-console/) by entering your
@@ -86,13 +86,13 @@ The next step is to configure the service provider.
             down as the second step.  
             ![creating-the-second-authentication-step-totp](../assets/img/tutorials/creating-the-second-authentication-step-totp.png)
             
-Now `totp` is a second step that adds another layer of authentication
+Now `totp' is a second step that adds another layer of authentication
 and security during the authentication for this application.
               
 ## Configuring the user profile
 
 1.  Login to the
-    [My Account user portal](../../learn/my-account) and go to **Personal info**.  
+    [user portal](../../learn/user-portal) and go to **Personal info**.  
 2.  Update your email address in **Profile**(this email address is used to send the
     token).
     ![my-profile-gadget](../assets/img/tutorials/update-email-in-profile.png)
@@ -117,7 +117,6 @@ and security during the authentication for this application.
     password to log in.      
 4.  Enter the verification code from your Google Authenticator Mobile
     Application to authenticate.
-    
     ![](../assets/img/tutorials/enter-totp.png)
      
     !!! Tip 

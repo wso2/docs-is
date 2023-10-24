@@ -4,7 +4,7 @@ User Managed Access (UMA) enables controlled access to a user's protected digita
 
 ## Scenario 
 
-Larry, Alex, and Sam are three users in WSO2 IS. Larry has a photo album in the **Photo-editer** application and wants to share the Family photos album with the family members; Alex and Sam. Alex and Sam can view this photo album using the **Photo-viewer** application. The **Photo-editor** and **Photo-viewer** applications are using WSO2 IS as their identity provider.
+Larry, Alex, and Sam are three users in WSO2 IS. Larry has a photo album in the **Photo-editer** application and wants to share the Family photos album with the family members; Alex and Pam. Alex and Sam can view this photo album using the **Photo-viewer** application. The **Photo-editor** and **Photo-viewer** applications are using WSO2 IS as their identity provider.
     
 ![uma-scenario-diagram](../assets/img/learn/uma-scenario-diagram.png)
 

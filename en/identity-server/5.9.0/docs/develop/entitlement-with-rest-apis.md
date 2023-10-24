@@ -1,12 +1,17 @@
 # Entitlement with REST APIs
 
 Entitlement management is the process that grants, resolves, enforces,
-revokes and administers fine-grained access privileges.
+revokes and administers fine-grained access privileges. The WSO2
+Identity Server supports REST APIs for entitlement management via the
+`         https://{IS_IP}:{IS_PORT}/api/identity/entitlement/decision/        `
+endpoint
 
-The WSO2 Identity Server supports REST APIs for entitlement management via the
-`https://{IS_IP}:{IS_PORT}/api/identity/entitlement/decision/` endpoint.
+-   If your WSO2 Identity Server is running on localhost (127.0.0.1) and
+    on the default port (without offset), the entitlement endpoint is as
+    follows:
 
-If your WSO2 Identity Server is running on localhost (127.0.0.1) and on the default port, the entitlement endpoint is:
+    **Endpoint**
+
     ``` java
     https://localhost:9443/api/identity/entitlement/decision/
     ```
@@ -14,17 +19,20 @@ If your WSO2 Identity Server is running on localhost (127.0.0.1) and on the defa
 !!! note
     The REST APIs are secured with basic authentication. Follow
     the steps below to add a basic auth header when calling these methods.
+    
+        1.  Build a string of the form username:password.
+        2.  [Encode the string](https://www.base64encode.org/) you created
+            above using Base64.
+        3.  Define an authorization header with the term "
+            `             Basic            ` ", followed by the encoded
+            string. For example, the basic auth authorization header using
+            "admin" as both username and password ( **admin:admin** ) is as
+            follows:
 
-    1.  Build a string of the form **username:password** and encode it using **Base64**.
-    2.  Define an authorization header with the term `Basic`, followed by the encoded
-        string. 
-    For example, the basic authorization header for `admin` user with password `admin` is:
-
-        ``` java
-        Authorization: Basic YWRtaW46YWRtaW4=
-        ```    
-
----
+            ``` java
+            Authorization: Basic YWRtaW46YWRtaW4=
+            ```
+    
 
 ####  Get API resource list
 
@@ -168,10 +176,10 @@ A sample request and response is as follows:
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>GET Request: cURL</strong>
+<strong>GET Request: Curl</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -X GET   https:<span class="co">//localhost:9443/api/identity/entitlement/decision/home   -H &#39;accept: application/json&#39;   -H &#39;authorization: Basic YWRtaW46YWRtaW4=&#39;   -H &#39;content-type: application/json&#39;  -k</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -X GET   https:<span class="co">//localhost:9443/api/identity/entitlement/decision/home   -H &#39;accept: application/json&#39;   -H &#39;authorization: Basic YWRtaW46YWRtaW4=&#39;   -H &#39;cache-control: no-cache&#39;   -H &#39;content-type: application/json&#39;   -H &#39;postman-token: e83be84b-61fa-f608-4e22-c22b0812cc8c&#39;  -k</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -202,7 +210,7 @@ A sample request and response is as follows:
 </tbody>
 </table>
 
----
+  
 
 #### Evaluate XACML request
 
@@ -443,7 +451,7 @@ A sample request and response is as follows:
 </tbody>
 </table>
 
----  
+  
 
 #### Evaluate XACML request by attributes
 
@@ -529,7 +537,7 @@ A sample request and response is as follows:
 </tr>
 <tr class="odd">
 <td>body</td>
-<td>body</td>
+<td>bosy</td>
 <td>Decision Request Model</td>
 <td>Yes</td>
 <td><pre style="margin-left: 30.0px;"><code>DecisionRequestModel {
@@ -604,7 +612,7 @@ A sample request and response are as follows,
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request: cURL</strong>
+<strong>Request: Curl</strong>
 </div>
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl --request POST \</a>
@@ -648,7 +656,7 @@ A sample request and response are as follows,
 </tbody>
 </table>
 
----
+  
 
 #### Evaluate XACML request by attributes and receive boolean response
 
@@ -810,7 +818,7 @@ A sample request and response are as follows,
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request: cURL</strong>
+<strong>Request: Curl</strong>
 </div>
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl --request POST \</a>
@@ -843,7 +851,7 @@ A sample request and response are as follows,
 </tbody>
 </table>
 
---- 
+  
 
 #### Get entitled attributes
 
@@ -1025,7 +1033,7 @@ A sample request and response are as follows,
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request: cURL</strong>
+<strong>Request: Curl</strong>
 </div>
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl --request POST \</a>
@@ -1072,8 +1080,6 @@ A sample request and response are as follows,
 </tr>
 </tbody>
 </table>
-
----
 
 #### Get all entitlements
 

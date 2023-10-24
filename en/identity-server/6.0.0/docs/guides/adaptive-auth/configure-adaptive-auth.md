@@ -1,8 +1,8 @@
-# Adaptive authentication - Overview
+# Adaptive Authentication - Overview
 
 This page guides you through setting up [adaptive authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication) for an application.
 
-## Prerequisites for adaptive authentication
+## Prerequisites
 
 You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 
@@ -76,7 +76,8 @@ To add an authentication script to the service provider:
     ```
 
 5. Click **Update** to save changes.
-   
+
 !!! info "Related topics"
-    - [Concept: Adaptive Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)
-    - [Guide: Adaptive authenticaton scenarios - Overview]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview)
+    - [Concept: Adaptive-Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)
+    - [Guide: Ensure Assurance with ACR and AMR]({{base_path}}/guides/adaptive-auth/work-with-acr-amr)
+    - [Guide: Adaptive Authentication Using Function Library]({{base_path}}/guides/adaptive-auth/adaptive-auth-with-function-lib)

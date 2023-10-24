@@ -1,6 +1,5 @@
 # Configure a JDBC Userstore
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 WSO2 identity server uses the embedded H2 database as the primary user store.
 This document will guide to you to change that to an external JDBC userstore.
 By default, the WSO2 Identity Server embedded H2 
@@ -15,18 +14,6 @@ Management Related Tables]({{base_path}}/deploy/user-management-related-tables) 
 ---
 
 ##Configure the internal database as JDBC userstore. 
-========
-WSO2 identity server uses an embedded LDAP as the primary user store.
-This document will guide you to change that to a JDBC user store. By default, the WSO2 Identity Server embedded H2 database contains user store tables. When you configure an RDBMS (JDBC) user store, you can use internal H2 user store tables, or you can use an external database as a user store. If you're going to use default user store tables for the external JDBC user store, see [User Management Related Tables](../../administer/user-management-related-tables) section.
-
-!!! tip 
-    Please read the topic [Configuring User Stores](../../setup/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2 Identity Server (WSO2 IS).
-  
-On this page, you can find the following details related to configuring a
-JDBC user store.
-
-## Configuring the internal database as a JDBC user store
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 
 You can use the default configurations in the `<IS-HOME>/repository/conf/deployment.toml`.
 
@@ -34,7 +21,6 @@ You can use the default configurations in the `<IS-HOME>/repository/conf/deploym
 [user_store]
 type = "database_unique_id"
 ```
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 
 By default, it uses the  `database.shared_db` configurations in the `         deployment.toml       `  file as the datasource configuration.
   
@@ -70,40 +56,9 @@ as the userstore. Refer the following topic for further instructions.
 		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/postgresql.sql` file against the database created.    
 			
 		3. Download the PostgreSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.
-========
-   By default it will use the  `database.shared_db` configurations in the `deployment.toml`  file. As the data source configuration.
-
-   If you require changing the `database.shared_db` configuration see [Working With Databases](../../setup/working-with-databases).
-  
-   `database.shared_db` stores registry and user management related data. Suppose you have a requirement to use a data source specified for user management. In that case, you can externalize the user management related tables to another external database and use that database as the user store. Please see the following topic for further instructions.
-
-## Configuring an external database as a JDBC user store
-
-  1. Create a database on [any supported RDBMS database](../../setup/working-with-databases).
-
-  2. Following are the example configurations for each database type.
-
-??? example "PostgreSQL"
-    1. Add the following configurations to the `deployment.toml` file.
-        ```
-        [database.user]
-        url = "jdbc:postgresql://localhost:5432/userdb"
-        username = "root"
-        password = "root"
-        driver = "org.postgresql.Driver"
-        [realm_manager]
-        data_source = "WSO2USER_DB"
-        ```
-    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.    
-
-          - `<IS-HOME>/dbscripts/postgresql.sql`
-          
-    3. Download the PostgreSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 
 	??? example "MySQL"
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
 
 			```
@@ -121,48 +76,10 @@ as the userstore. Refer the following topic for further instructions.
 			against the database created.        
 
 		3. Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.          
-========
-    1. Add the following configurations to the `deployment.toml` file.
-        ```
-        [database.user]
-        url = "jdbc:mysql://localhost:3306/userdb?useSSL=false"
-        username = "root"
-        password = "root"
-        driver = "com.mysql.jdbc.Driver"
-        
-        [realm_manager]
-        data_source = "WSO2USER_DB"
-        ```
-    
-    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.        
-            
-          - `<IS-HOME>/dbscripts/mysql.sql`
-
-    3. Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder          
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 
 	??? example "DB2"
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
-========
-    1. Add the following configurations to the `deployment.toml` file.
-        ```
-        [database.user]
-        url = "jdbc:db2://192.168.108.31:50000/userdb"
-        username = "root"
-        password = "root"
-        driver = "com.ibm.db2.jcc.DB2Driver"
-        
-        [realm_manager]
-        data_source = "WSO2USER_DB"
-        ```    
-    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.       
-            
-          - `<IS-HOME>/dbscripts/db2.sql`
-   
-    3. Download the DB2 JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 
 			```
 			[database.user]
@@ -175,53 +92,14 @@ as the userstore. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```   
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/db2.sql` file
 			against the database created.       
 	
 		3.	Download the DB2 JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder. 
-========
-    1. Add the following configurations to the `deployment.toml` file.
-        ```
-        [database.user]
-        url = "jdbc:sqlserver://localhost:1433;databaseName=userdb;SendStringParametersAsUnicode=false"
-        username = "root"
-        password = "root"
-        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-        
-        [realm_manager]
-        data_source = "WSO2USER_DB"
-        ```
-    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.        
-            
-          - `<IS-HOME>/dbscripts/mssql.sql`
-          
-    3. Download the MSSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
-
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 
 	??? example "MSSQL"
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
-========
-    1. Add the following configurations to the `deployment.toml` file.
-        ```
-        [database.user]
-        url = "jdbc:oracle:thin:@localhost:1521/userdb"
-        username = "root"
-        password = "root"
-        driver = "oracle.jdbc.OracleDriver"
-        
-        [realm_manager]
-        data_source = "WSO2USER_DB"
-        ```
-    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.      
-            
-          - `<IS-HOME>/dbscripts/oracle.sql`
-          
-    3. Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 
 			```
 			[database.user]
@@ -241,7 +119,6 @@ as the userstore. Refer the following topic for further instructions.
 					copy it to the `<IS_HOME>/repository/components/lib` folder  
 		
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 	??? example "Oracle"
 
 		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
@@ -268,9 +145,6 @@ as the userstore. Refer the following topic for further instructions.
 
 Following are the properties used in JDBC userstore manager. You can configure any of
 those properties as follows. 
-========
-Following are the properties used in JDBC user store manager. You can configure any of those properties as follows. 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 
 Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
@@ -285,13 +159,8 @@ For example :
 read_groups = true
 ```
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 !!! tip 
     The properties given below can be configured for a secondary userstore through the management console.
-========
-!!! tip
-    You can configure the properties below for a secondary user store through the management console.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 
 <table>
 <thead>
@@ -311,13 +180,8 @@ read_groups = true
 <br />
 <p>Default : true <br/>
 Possible values:<br/>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 true: Reads groups from userstore<br />
 false: Does not read groups from userstore</p></td>
-========
-true: Read groups from user store<br />
-false: Do not read groups from user store</p></td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 </tr>
 <tr class="even">
 <td>WriteGroups</td>
@@ -327,19 +191,13 @@ false: Do not read groups from user store</p></td>
 <br />
 <p>Default : true <br/>
 Possible values:<br />
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 true : Writes groups to userstore<br />
 false : Does not write groups to the userstore, so only internal roles can be created. The value of the ReadGroups property determines whether the existing userstore groups can be read or not.</p></td>
-========
-true: Write groups to user store<br />
-false: Do not write groups to the user store, so only internal roles can be created. Depending on the value of ReadGroups property, it will read existing groups from the user store or not</p></td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 </tr>
 <tr class="odd">
 <td>PasswordHashMethod</td>
 <td>password_hash_method</td>
 <td>Password Hashing Algorithm</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td><p>Specifies the Password Hashing Algorithm used to hash the password before storing it in the userstore<br />
 Possible values:<br />
 SHA - Uses SHA digest method including SHA-1 and SHA-256<br />
@@ -348,121 +206,71 @@ PLAIN_TEXT - Plain text passwords</p>
 <p>If you just enter the value `SHA`, it will be considered as `SHA-1`. It is always better to configure an algorithm with a higher bit value so that the digest bit size would be increased.
 <br />
 The default value for JDBC userstores is SHA-256. 
-========
-<td><p>Specifies the Password Hashing Algorithm used to hash the password before storing it in the user store.<br />
-Possible values:<br />
-SHA - Uses SHA digest method. SHA-1, SHA-256 and SHA 512<br />
-MD5 - Uses MD 5 digest method.<br />
-PLAIN_TEXT - Plain text passwords.</p>
-<p>If you just enter the value `SHA`, it will be considered as `SHA-1`. It is always better to configure an algorithm with a higher bit value so that the digest bit size would be increased.
-<br />
-The default value for JDBC user stores is SHA-256. 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 </p></td>
 </tr> 
 <tr class="odd">
 <td>UsernameJavaRegEx</td>
 <td>username_java_regex</td>
 <td>UsernameJavaRegEx</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>This is the regular expression used by the back-end components for username validation. By default, strings with non-empty characters having a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br/>
-========
-<td>The regular expression used by the back-end components for username validation. By default, strings with non-empty characters with a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br/>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 <p>Default: ^[\S]{3,30}$</td></p> <br/>
 </tr>
 <tr class="even">
 <td>UsernameJava<br>ScriptRegEx</td> 
 <td>username_java_<br>script_regex</td>
 <td>UsernameJavaScriptRegEx</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>The regular expression used by the front-end components for username validation
-========
-<td>The regular expression used by the front-end components for username validation.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 <br/><p> Default: ^[\S]{3,30}$  </p></td>
 </tr>
 <tr class="odd">
 <td>UsernameJavaReg<br>ExViolationErrorMsg</td>
 <td>username_java_reg<br>_ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>Error message when the username does not match with username_java_regex 
-========
-<td>Error message when the Username is not matched with username_java_regex 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 <br/><p> Default: Username pattern policy violated  </p></td>
 </tr>
 <tr class="even">
 <td>PasswordJavaRegEx</td>
 <td>password_java_regex</td>
 <td>Password RegEx (Java)</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>This is the regular expression used by the back-end components for password validation. By default, strings with non-empty characters having a length of 5 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br />
-========
-<td>The regular expression used by the back-end components for password validation. By default, strings with non-empty characters with a length of 5 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br />
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="odd">
 <td>PasswordJava<br>ScriptRegEx</td>
 <td>password_java_<br>script_regex</td>
 <td>Password RegEx (Javascript)</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>The regular expression used by the front-end components for password validation<br />
-========
-<td>The regular expression used by the front-end components for password validation.<br />
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 <p>Default: ^[\S]{5,30}$</p></td>
 </tr>
 <tr class="even">
 <td>PasswordJavaReg<br>ExViolationErrorMsg</td>
 <td>password_java_reg<br>ex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>Error message when the Password is not matched with passwordJavaRegEx<br />
 <p>Default: The password length should be within 5 to 30 characters.</p></td>
-========
-<td>Error message when the Password is not matched with passwordJavaRegEx.<br />
-<p>Default: Password length should be within 5 to 30 characters.</p></td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 <tr class="odd">
 <td>RolenameJavaRegEx</td>
 <td>rolename_java_regex</td>
 <td>Role Name RegEx (Java)</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>This is the regular expression used by the back-end components for role name validation. By default, strings with non-empty characters having a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br />
-========
-<td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters with a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br />
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 <p>Default: [a-zA-Z0-9._-|//]{3,30}$</p></td>
 </tr>
 <tr class="odd">
 <td>MultiAttribute<br>Separator</td>
 <td>multi_attribute<br>_separator</td>
 <td>Multiple Attribute Separator</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>This property is used to define a character to separate multiple attributes. This ensures that it will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but you can define ",,," or "..." or a similar character sequence.<br />
-========
-<td>This property is used to define a character to separate multiple attributes. This ensures that it will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but you can define ",,," or "..." or a similar character sequence<br />
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 <p>Default: “,”</p></td>
 </tr>
 <tr class="even">
 <td>MaxUserName<br>ListLength</td>
 <td>max_user_name_<br>list_length</td>
 <td>Maximum User List Length</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>This controls the number of users listed in the userstore of WSO2 Identity Server. This is useful when you have a large number of users and do not want to list them all. Setting this property to 0 displays all users. (Default: 100)<br />
 <br />
 In some userstores, there are policies to limit the number of records that can be returned from a query. By setting the value to 0, it will list the maximum results returned by the userstore. If you need to increase this number, you need to set it in the userstore level.<br />
 Eg: Active directory has the MaxPageSize property with the default value of 100.</td>
-========
-<td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have many users and do not want to list them all. Setting this property to 0 displays all users. (Default: 100)<br />
-<br />
-In some user stores, there are policies to limit the number of records that can be returned from a query. Setting the value to 0 will list the maximum results returned by the user store. To increase this number, you need to set it in the user store level.<br />
-E.g., Active directory has the MaxPageSize property with the default value of 100.</td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 </tr>
 <tr class="odd">
 <td>MaxRoleName<br>ListLength</td>
@@ -470,13 +278,8 @@ E.g., Active directory has the MaxPageSize property with the default value of 10
 <td>Maximum Role List Length</td>
 <td>This controls the number of roles listed in the userstore of WSO2 Identity Server. This is useful when you have a large number of roles and do not want to list them all. Setting this property to 0 displays all roles. (Default: 100)<br />
 <br />
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 In some userstores, there are policies to limit the number of records that can be returned from a query. By setting the value to 0, it will list the maximum results returned by the userstore. If you need to increase this number, you need to set it in the userstore level.<br />
 Eg: Active directory has the MaxPageSize property with the default value of 1000.</td>
-========
-In some user stores, there are policies to limit the number of records that can be returned from a query. Setting the value to 0 will list the maximum results returned by the user store. To increase this number, you need to set it in the user store level.<br />
-E.g., Active directory has the MaxPageSize property with the default value of 1000.</td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 </tr>
 <tr class="even">
 <td>UserRolesCacheEnabled</td>
@@ -485,21 +288,13 @@ E.g., Active directory has the MaxPageSize property with the default value of 10
 <td>This is to indicate whether to cache the role list of a user. (Default: true)<br />
 <br />
 Possible values:<br />
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 false: Set it to <code>false</code> if the user roles are changed by external means and those changes should instantly reflect in the Carbon instance.</td>
-========
-false: Set it to false if the user roles are changed by external means, and those changes should be instantly reflected in the Carbon instance.</td>
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 </tr>
 <tr class="odd">
 <td>CaseInsensitiveUsername</td>
 <td>properties.CaseInsensitiveUsername</td>
 <td>Case Insensitive Username</td>
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 <td>This enables the case insensitivity of the user's username. Default value is <code>true</code> for this configuration. 
-========
-<td>Enables the case insensitivity of the user's username. Default value is <code>true</code> for this configuration. 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
 <br />Eg: If a user's username is <code>test</code>, that user can also use the username as <code>TEST</code>.
 </td>
 </tr>
@@ -507,13 +302,9 @@ false: Set it to false if the user roles are changed by external means, and thos
 </table>
 
 !!! note
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
     In addition to these properties, you can configure SQL queries that are
     used in the JDBC userstore manager and if required can change default
     queries. Those are not listed in the above-mentioned table. However, you can configure these SQL queries in a similar way. 
-========
-    In addition to these properties, you can configure SQL queries used in the JDBC user store manager and, if required, change default queries. Those are not listed under the above property section, but you can do the configuration as same as described above.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md
     
 
 ??? note "JDBC sample property with SQL queries"
@@ -600,7 +391,6 @@ false: Set it to false if the user roles are changed by external means, and thos
     AddUserPropertySQLCaseInsensitive-openedge = "INSERT INTO UM_USER_ATTRIBUTE (UM_USER_ID, UM_ATTR_NAME, UM_ATTR_VALUE, UM_PROFILE_ID, UM_TENANT_ID) SELECT UM_ID, ?, ?, ?, ? FROM UM_USER WHERE LOWER(UM_USER_NAME)=LOWER(?) AND UM_TENANT_ID=?"
     ```
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-a-jdbc-user-store.md
 Restart the server after doing these changes.
 
 ---
@@ -611,11 +401,3 @@ Restart the server after doing these changes.
 
     -   [Deploy: Configure the Primary Userstore]({{base_path}}/deploy/configure-the-primary-user-store)
     -   [Deploy: Configure Secondary Userstores]({{base_path}}/deploy/configure-secondary-user-stores)
-========
-## Special requirements
-You need to restart the server after making these changes.
-
-!!! tip "For more information"
-    - If you want to configure a primary user store for another user store type, you need to follow the steps in [Configuring the Primary User Store](../../setup/configuring-the-primary-user-store).
-    - For configuring a secondary user store please read the topic: [Configuring Secondary UserStores](../../setup/configuring-secondary-user-stores)
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-jdbc-user-store.md

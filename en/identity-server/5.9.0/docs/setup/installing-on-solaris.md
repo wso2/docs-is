@@ -15,12 +15,8 @@ Follow the instructions below to install Identity Server on Solaris.
 
 ### Installing the Identity Server
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/installing-on-solaris.md
-1.  Download WSO2 Identity Server 5.11.0 from the [Previous Releases](https://wso2.com/identity-and-access-management/previous-releases/) page.
-========
 1.  Download the latest version of the Identity Server from
     <https://wso2.com/products/identity-server/> .
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/installing-on-solaris.md
 2.  Extract the archive file to a dedicated directory for the Identity
     Server, which will hereafter be referred to as
     `           <IS_HOME>          ` .
@@ -63,7 +59,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     echo $JAVA_HOME
     ```
 
-    ![Echo command](../assets/img/setup/echo-command.png)
+    ![Echo command](../../assets/img/setup/echo-command.png)
 
 5.  The system returns the JDK installation path.
 

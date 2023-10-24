@@ -24,10 +24,6 @@ notifications. The flow of this method is as follows:
 Follow the steps given below to set up and try out password recovery
 with email notification.
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/password-recovery.md
-========
-
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/password-recovery.md
 1.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
     
@@ -50,20 +46,10 @@ with email notification.
     API](../../develop/using-the-account-recovery-rest-apis)
 .
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/password-recovery.md
     ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery-conf.png)
 
     !!! note
         The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
-========
-    ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery.png)
-
-    !!! note
-        The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/password-recovery.md
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/password-recovery.md
-========
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/password-recovery.md
     
     !!! info 
         - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).

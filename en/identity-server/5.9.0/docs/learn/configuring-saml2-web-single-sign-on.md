@@ -1,6 +1,6 @@
 # Configuring SAML2 Web Single-Sign-On
 
-SAML stands for Security Assertion Markup Language which is an XML based data format for exchanging authentication and authorization data between an identity provider and a service provider. The single most important requirement that SAML addresses is web browser single sign-on (SSO). For more information about SAML2 single-sign-on, see the SAML 2.0 Web SSO topic.
+SAML stands for Security Assertion Markup Language which is a XML based data format for exchanging authentication and authorization data between an identity provider and a service provider. The single most important requirement that SAML addresses is web browser single sign-on (SSO). For more information about SAML2 single-sign-on, see the SAML 2.0 Web SSO topic.
 
 Let's start configuring SAML2 Web SSO.
 
@@ -16,7 +16,7 @@ Let's start configuring SAML2 Web SSO.
 	 
 To configure SAML2 Web SSO:
 
-1.  Expand **SAML2 Web SSO Configuration** under **Inbound Authentication Configuration** and click **Configure**.
+1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
 2.  Select one of the following modes:  
 
 !!! info "Metadata and URL configuration"
@@ -48,7 +48,7 @@ To configure SAML2 Web SSO:
     <tbody>
     <tr class="odd">
     <td><strong>Issuer</strong></td>
-    <td>Specify the <strong>Issuer</strong>. This is the <code>               &lt;saml:Issuer&gt;              </code> element that contains the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. 
+    <td>Specify the <strong>Issuer</strong> . This is the <code>               &lt;saml:Issuer&gt;              </code> element that contains the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. 
     </td>
     <td><code>               travelocity.com              </code></td>
     </tr>
@@ -58,7 +58,7 @@ To configure SAML2 Web SSO:
     <p>This value is needed only if you have to configure multiple SAML SSO inbound authentication configurations for the same Issuer value. When a Service Provider Qualifier is defined here, it will be appended to the end of the Issuer value when registering the SAML SP in the Identity Server.</p> 
     <p>For example, if you specify `travelocity.com` as the Issuer and <strong>sp1</strong> as the Service Provider Qualifier, the configuration will be registered in IS as <code>                                   travelocity.com\:urn:sp:qualifier:sp1                </code></p>
     <p>You can configure a number of SAML SPs with the same Issuer and different Service Provider Qualifiers.</p>
-    <p>When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (ex: `travelocity.com`). The service provider qualifier value should be sent as a query parameter, spQualifier with the HTTP request in the following format.</p>
+    <p>When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (ex : `travelocity.com` ). The service provider qualifier value should be sent as a query parameter, spQualifier with the HTTP request in the following format.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">https:<span class="co">//{Hostname}:{Port}/samlsso?spQualifier={Service Provider Qualifier}</span></a></code></pre></div>
@@ -96,7 +96,7 @@ To configure SAML2 Web SSO:
     <tr class="odd">
     <td><strong>NameID format</strong></td>
     <td><div class="content-wrapper">
-    <p>Specify the <strong>NameID format</strong>. This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
+    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
     <div>
     <div class="admonition info">
     <p class="admonition-title">About NameID formats</p>
@@ -126,7 +126,7 @@ To configure SAML2 Web SSO:
     <p>Select the <strong>Certificate Alias</strong> from the dropdown. This is used to validate the signature of SAML2 requests and is used to generate encryption. Basically the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant specific configuration.</p>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
-    <p>From WSO2 IS 5.5.0 onwards, the .pem certificate can be updated via the Service Provider screen in the management console UI using the <strong>Application Certificate</strong> field. If the certificate has been entered in the Application Certificate field, the system will use the certificate given there and override the certificate alias field.</p>
+    <p>From WSO2 IS 5.5.0 onwards, the .pem certificate can be updated via the Service Provider screen in the management console UI using the <strong>Application Certificate</strong> field. If the certificate has been entered in the Application Certifiate field, the system will use the certificate given there and override the certificate alias field.</p>
     <p>However, if the Application Certificate field has been left blank, the certificate specified in <strong>Certificate Alias</strong> will be used.</p></div>
     </div></td>
     <td><code>               wso2carbon              </code></td>
@@ -138,7 +138,7 @@ To configure SAML2 Web SSO:
     [saml]
     signing_alg="signing algorithm"
     ```
-    If it is not provided the default algorithm is RSA­SHA 1, at URI ‘ http://www.w3.org/2000/09/xmldsig#rsa­-sha1 ' .</p></td>
+    If it is not provided the default algorithm is RSA­SHA 1, at URI ‘ http://www.w3.org/2000/09/xmldsig#rsa­sha1 ' .</p></td>
     <td>http://www.w3.org/2000/09/xmldsig#rsa­sha1</td>
     </tr>
     <tr class="even">
@@ -178,11 +178,7 @@ To configure SAML2 Web SSO:
     </tr>
     <tr class="even">
     <td><strong>Enable Signature Validation in Authentication Requests and Logout Requests</strong></td>
-    <td>Select <strong>Enable Signature Validation in Authentication Requests and Logout Requests</strong> if you need this functionality configured. This specifies whether the identity provider must validate the signature of the SAML2 authentication request and the SAML2 logout request that are sent by the service provider.
-	<div class="admonition tip">
-    <p class="admonition-title">Tip</p>
-    <p>To find the configuration recommended to enable signature validation in Travelocity, refer [Testing with tenants](../../setup/configuring-a-sp-and-idp-using-configuration-files#testing-with-tenants).</p></div>
-    </td>
+    <td>Select <strong>Enable Signature Validation in Authentication Requests and Logout Requests</strong> if you need this functionality configured. This specifies whether the identity provider must validate the signature of the SAML2 authentication request and the SAML2 logout request that are sent by the service provider.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
@@ -271,7 +267,7 @@ instances of entity configuration.
         Therefore, when uploading a metadata file, the **Application
         Certificate** field in the Service Providers screen will
         automatically display the certificate that is embedded in the
-        metadata file. You can update or edit the certificate by editing
+        metatdata file. You can update or edit the certificate by editing
         the content within the Application Certificate field and uploading
         the metadata file again will override the existing certificate.
     
@@ -384,3 +380,6 @@ of entity configuration.
         Server](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     -   [Configuring SAML2 Single-Sign-On Across Different WSO2
         Products](../../learn/configuring-saml2-single-sign-on-across-different-wso2-products)
+
+    See [Using the SAML2
+    Toolkit](../../administer/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.

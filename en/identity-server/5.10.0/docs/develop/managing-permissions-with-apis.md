@@ -1,33 +1,6 @@
-# Manage Permissions with SOAP APIs
+# Managing Permissions with APIs
 
-The following section describes the RemoteAuthorizationManagerService and the operations that come with it.
-
----
-
-## Invoking the admin service
-
-`         RemoteAuthorizationManagerService        ` is an admin service of
-the WSO2 Carbon platform. As admin services are secured to prevent
-anonymous invocations, you cannot view the WSDL of the admin service by
-default. Follow the steps below to view and invoke it:
-
-1.  Set the configuration given below in
-    `           <IS_HOME>/repository/conf/deployment.toml          ` file.
-
-    ``` 
-    [admin_service.wsdl]
-    enable = true
-    ```
-
-2.  Restart the Identity Server.
-3.  If you have started the server with the default configurations, use the
-    following URL in your browser to see the WSDL of the admin service:
-    <https://localhost:9443/services/RemoteAuthorizationManagerService?wsdl>
-
-For more information on WSO2 admin services and how to invoke an admin
-service using either SoapUI or any other client program, see [Call Admin Services]({{base_path}}/apis/call-admin-services).
-
----
+The following section describes the [RemoteAuthorizationManager API](https://localhost:9443/services/RemoteAuthorizationManagerService?wsdl) and the operations that come with it.
 
 ## About permissions 
 
@@ -86,8 +59,6 @@ service using either SoapUI or any other client program, see [Call Admin Service
   - Permissions can be assigned to user roles. 
 
 The following operations are available in this API.
-
----
 
 ## API operations
 
@@ -150,8 +121,6 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
   </tr>
 </table>
 
----
-
 ### clearAllRoleAuthorization
 
 <table>
@@ -197,8 +166,6 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
     </td>
   </tr>
 </table>
-
----
 
 ### clearResourceAuthorizations
 
@@ -246,8 +213,6 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
   </tr>
 </table>
 
----
-
 ### clearRoleActionOnAllResources
 
 <table>
@@ -294,8 +259,6 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
   </tr>
 </table>
 
----
-
 ### clearRoleAuthorization
 
 <table>
@@ -307,7 +270,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
     <th>Input Parameters</th>
     <td>
       <ul>
-        <li><code>roleName  </code>: This is the name of the role, e.g., <code>role1</code>.</li>
+        <li><code>roleName  </code>: This is the name of the role, e.g., <code>role1"</code>.</li>
         <li><code>resourceId</code>: This is the resource path e.g., <code>/permission/admin/login</code>.</li>
         <li><code>action</code>: This is the action name of the action to be performed on the resource, e.g., <code>ui.execute</code>.</li>
       </ul>
@@ -347,8 +310,6 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
     </td>
   </tr>
 </table>
-
----
 
 ### denyRole
 
@@ -401,8 +362,6 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
     </td>
   </tr>
 </table>
-
----
 
 ### getAllowedRolesForResource
 
@@ -466,14 +425,12 @@ xmlns:ax2600="http://api.user.carbon.wso2.org/xsd"&gt;
   </tr>
 </table>
 
----
-
 ### getAllowedUIResourcesForUser
 
 <table>
   <tr>
     <th>Description</th>
-    <td>This operation retrieves the list of UI resources in the specified root path for which the user has authorization.</td>
+    <td>This operation retrieves the list of UI resources in the specified root patch for which the user has authorization.</td>
   </tr>
   <tr>
     <th>Input Parameters</th>
@@ -534,14 +491,6 @@ xmlns:ax2600="http://api.user.carbon.wso2.org/xsd"&gt;
   </tr>
 </table>
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/managing-permissions-with-apis.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/manage-permissions-with-apis.md
----
-
-========
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/managing-permissions-with-apis.md
-========
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/managing-permissions-with-apis.md
 ### getAllowedUIResourcesForRole
 
 <table>
@@ -592,14 +541,6 @@ xmlns:ax2600="http://api.user.carbon.wso2.org/xsd"&gt;
   </tr>
   </table>
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/develop/managing-permissions-with-apis.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/manage-permissions-with-apis.md
----
-
-========
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/managing-permissions-with-apis.md
-========
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/develop/managing-permissions-with-apis.md
 ### isRoleAuthorized
 
 <table>

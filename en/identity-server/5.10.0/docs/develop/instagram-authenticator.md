@@ -76,7 +76,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](https://wso2.com/products/identity-server/).
+    [here](http://wso2.com/products/identity-server/).
 2.  Go to <https://api.instagram.com> in your browser, and then click
     the HTTPS trust icon on the address bar (e.g., the padlock next to
     the URL) to download the certificate. If you are using google chrome

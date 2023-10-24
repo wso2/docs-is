@@ -81,15 +81,7 @@ with the WSO2 IS.
     Notification Internally Management** checkbox.  
     
     !!! note
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/username-recovery.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/username-recovery.md
         The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
-========
-        The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/username-recovery.md
-========
-        The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/username-recovery.md
 
     For more information on the fields seen on this screen, see [Account Recovery REST API](../../develop/using-the-account-recovery-rest-apis).
       

@@ -383,8 +383,4 @@ by the on premises identity provider (i.e., the WSO2 Identity server).
         If you sign out of Office 365, the WSO2 IS will receive a Passive
         STS Logout Request and the user will be logged out of the IdP as
         well.
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/log-into-office365-using-wsfed.md
     <!-- ![office365-logon]({{base_path}}/assets/img/tutorials/office365-logon.png) -->
-========
-    <!-- ![office365-logon]({{base_path}}/assets/img/tutorials/office365-logon.png) -->
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/log-into-office365-using-wsfed.md

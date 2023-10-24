@@ -80,16 +80,16 @@ The code given below shows a sample policy that is written to match the
     on **Add New Entitlement Policy.**
 
 3.  Next click on **Import Existing Policy.**  
-    ![import-existing- policy-xacml]({{base_path}}/assets/img/tutorials/import-existing- policy-xacml.png) 
+    ![import-existing- policy-xacml](../assets/img/tutorials/import-existing- policy-xacml.png) 
 
 4.  Save the above sample policy to a file and import it as follows by
     clicking **upload**.  
-    ![upload-existing-xacml-policy]({{base_path}}/assets/img/tutorials/upload-existing-xacml-policy.png)
+    ![upload-existing-xacml-policy](../assets/img/tutorials/upload-existing-xacml-policy.png)
 
 5.  Once it is uploaded, you can see the added policy in the policy
     view. Publish it to PDP so that we can evaluate the policy with
     sample requests.
-    ![publish-xpath-policy-to-pdp]({{base_path}}/assets/img/tutorials/publish-xpath-policy-to-pdp.png)  
+    ![publish-xpath-policy-to-pdp](../assets/img/tutorials/publish-xpath-policy-to-pdp.png)  
 
 ###    Evaluate the Policy
 
@@ -97,7 +97,7 @@ The easiest way to evaluate the poilcy is to use the **Try It** tool available i
 **Tools** menu in WSO2 Identity Server.
 
 !!! note
-    You can follow the steps given [here]({{base_path}}/administer/evaluating-a-xacml-policy) to try this using the Try It tool.
+    You can follow the steps given [here](../../administer/evaluating-a-xacml-policy) to try this using the Try It tool.
 
 <table>
 <colgroup>

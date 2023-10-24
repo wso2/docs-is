@@ -1,8 +1,16 @@
 openapi: 3.0.1
 info:
-  title: 'FIDO2 Rest API '
+  title: 'WSO2 Identity Server FIDO2 Rest API '
   description: |
-    This document specifies a **FIDO 2 RESTfulAPI** for the WSO2 Identity Server.
+    This document specifies a **FIDO 2 RESTfulAPI** for WSO2 **Identity Server** .
+
+  contact:
+    name: WSO2
+    url: http://wso2.com/products/identity-server/
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v2
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/users/v2/me/webauthn
@@ -23,9 +31,9 @@ paths:
       tags:
       - me
       summary: |
-        Trigger FIDO2 device registration
+        Trigger FIDO2 device registration.
       description: |
-        This API is used to trigger the FIDO2 device registration flow.
+        This API is used to trigger FIDO2 device registration flow.
 
          <b>Permission required:</b>
          * /permission/admin/login
@@ -38,7 +46,7 @@ paths:
               properties:
                 appId:
                   type: string
-                  description: Represents the hostname of the FIDO request initiator.
+                  description: Represents the host name of FIDO request initiator.
         required: true
       responses:
         201:
@@ -95,9 +103,9 @@ paths:
       tags:
       - me
       summary: |
-        Trigger FIDO2 usernameless device registration
+        Trigger FIDO2 usernameless device registration.
       description: |
-        This API is used to trigger the FIDO2 usernameless device registration flow.
+        This API is used to trigger FIDO2 usernameless device registration flow.
 
          <b>Permission required:</b>
          * /permission/admin/login
@@ -110,7 +118,7 @@ paths:
               properties:
                 appId:
                   type: string
-                  description: Represents the hostname of the FIDO request initiator.
+                  description: Represents the host name of FIDO request initiator.
         required: true
       responses:
         201:
@@ -167,9 +175,9 @@ paths:
       tags:
       - me
       summary: |
-        Complete FIDO2 device registration
+        Complete FIDO2 device registration.
       description: |
-        This API is used to complete the FIDO2 device registration flow.
+        This API is used to complete FIDO2 device registration flow.
 
         <b>Permission required:</b>
          * /permission/admin/login
@@ -230,7 +238,7 @@ paths:
       tags:
       - me
       summary: |
-        Deregister devices by username and credentialId
+        Deregister devices by username and credentialId.
       description: |
         This API is used to deregister devices by username and credentialId.
 
@@ -275,9 +283,9 @@ paths:
       tags:
       - me
       summary: |
-        Update display name of device by username and credentialId
+        Update display name of device by username and credentialId.
       description: |
-        This API is used to update the display name of a device by username and credentialId.
+        This API is used to update display name of a device by username and credentialId.
 
         <b>Permission required:</b>
          * /permission/admin/login
@@ -333,13 +341,13 @@ paths:
       summary: |
         Device Metadata
       description: |
-        This API is used to get FIDO metadata by username
+        This API is used to get fido metadata by username.
 
         <b>Permission required:</b>
          * /permission/admin/login
       responses:
         200:
-          description: All available FIDO metadata for a user.
+          description: All available fido metadata for a user.
           content:
             application/json:
               schema:
@@ -402,7 +410,8 @@ components:
           type: string
           description: The value to be used within the operations
           example: Device01
-      description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root-level attributes of an Identity Provider.
+      description: A JSONPatch as defined by RFC 6902. Patch operation is supported
+        only for root level attributes of an Identity Provider.
     RegistrationObject:
       type: array
       items:

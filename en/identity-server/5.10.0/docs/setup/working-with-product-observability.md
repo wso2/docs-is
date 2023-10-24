@@ -1,4 +1,4 @@
-# Work with Product Observability
+# Working with Product Observability
 
 Product observability enables rapid debugging of product issues. WSO2
 Identity Server (WSO2 IS) facilitates product observability by logging
@@ -7,20 +7,18 @@ down any latencies caused by database calls in an instance. The request
 calls and response calls are correlated via a correlation ID that is
 sent in the request call.
 
-![Correleation ID]({{base_path}}/assets/img/deploy/monitor/correlation-id.png) 
+![Correleation ID](../assets/img/using-wso2-identity-server/correlation-id.png) 
 
 !!! note    
     By default, product observability is not enabled as it impacts on the
     product's performance. 
+    
 
----
+Let's explore the following topics to learn more.
 
-## Configure product observability
+### Configuring product observability
 
-### log4j configs
-
-!!! Warning
-    Note that WSO2 Identity Server 5.9.0, 5.10.0, and 5.11.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
+#### log4j configs
 
 !!! Warning
     Note that WSO2 Identity Server 5.9.0, 5.10.0, and 5.11.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
@@ -66,9 +64,8 @@ database calls.
     appender.CORRELATION.filter.threshold.level = INFO
     ```
 
----
 
-## Enable observability
+### Enabling observability
 
 Follow the steps below to enable product observability.
 
@@ -76,18 +73,15 @@ Follow the steps below to enable product observability.
     the command prompt.
 
     ``` java
-    cd <IS_HOME>/bin
+        cd <IS_HOME>/bin
     ```
 
 2.  To set the `           -DenableCorrelationLogs          ` property
     to `           true          `, execute the following command.
 
-    ```tab="Mac OS/Linux"
-    sh wso2server.sh -DenableCorrelationLogs=true start
-    ```
-    
-    ```tab="Windows"
-    wso2server.bat -DenableCorrelationLogs=true start
+    ``` java
+        For Mac/Linux   --> sh wso2server.sh -DenableCorrelationLogs=true start
+        For Windows     --> wso2server.bat -DenableCorrelationLogs=true start
     ```
 
     !!! note    
@@ -98,82 +92,69 @@ Follow the steps below to enable product observability.
     directory.
 
     ``` java
-    cd <IS_HOME>/repository/logs
+        cd <IS_HOME>/repository/logs
     ```
 
     Notice that a separate log file called
     `           correlation.log          ` is created.
 
-    ![Correlation.log]({{base_path}}/assets/img/deploy/monitor/correlation-log.png) 
+    ![Correlation.log](../assets/img/using-wso2-identity-server/correlation-log.png) 
 
 Now you are ready to test the product observability of WSO2 IS.
 
 !!! tip    
     In order to test product observability, make sure you create a service
     provider and generate client key and client secret, with which you can
-    perform a secure database call.
+    perform a secure database call. For more information on creating service
+    providers, see [Adding a Service
+    Provider.](../../learn/adding-and-configuring-a-service-provider#adding-a-service-provider)
+    
 
----
-
-## Log patterns
+### Log patterns
 
 Following are the log patterns that support product observability.
 
-### JDBC database call logging
+#### JDBC database call logging
 
-!!! abstract ""
-    **Format**
-    ``` java
+``` java tab="Format"
     timestamp | correlationID | threadID | duration | callType | startTime | methodName | query | connectionUrl 
-    ```
-    ---
-    **Example**
-    ``` java
+```
+
+``` java tab="Example"
     2018-10-22 17:54:46,869|cf57a4a6-3ba7-46aa-8a2b-f02089d0172c|http-nio-9443-exec-2|4|jdbc|1540211086865|executeQuery|SELECT ID, TENANT_ID, IDP_ID, PROVISIONING_CONNECTOR_TYPE, IS_ENABLED, IS_BLOCKING  FROM IDP_PROVISIONING_CONFIG WHERE IDP_ID=?|jdbc:mysql://localhost:13306/apimgtdb?autoReconnect=true&useSSL=false
-    ```
+```
 
-### LDAP database call logging
+#### LDAP database call logging
 
-!!! abstract ""
-    **Format**
-    ``` java
+``` java tab="Format"
     timestamp | correlationID | threadID | duration | callType | startTime | methodName | providerUrl | principal | argsLengeth | args
-    ```
-    ---
-    **Example**
-    ``` java
+```
+
+``` java tab="Example"
     2018-10-2310:55:02,279|c4eaede8-914d-4712-b630-73f6534b8def|http-nio-9443-exec-18|19|ldap|1540272302260|search|ldap://localhost:10392|uid=admin,ou=system| ou=Users,dc=wso2,dc=org,(&(objectClass=person)(uid=admin)),javax.naming.directory.SearchControls@6359ae3a
-    ```
+```
 
-### Beginning of the request call
+#### Beginning of the request call
 
-!!! abstract ""
-    **Format**
-    ``` java
+``` java tab="Format"
     timestamp | correlationID | threadID | duration | HTTP-In-Request | startTime | methodName | requestQuery | requestPath
-    ```
-    ---
-    **Example**
-    ``` java
+```
+
+``` java tab="Example"
     2018-11-0514:57:06,757|f884a93d-e3a3-431f-a1ea-f6973e125cb6|http-nio-9443-exec-28|0|HTTP-In-Request|1541410026757|GET|null|/carbon/admin/images/favicon.ico
-    ```
+```
 
-### Ending of the request call
+#### Ending of the request call
 
-!!! abstract ""
-    **Format**
-    ``` java
+``` java tab="Format"
     timestamp | correlationID | threadID | totalDurationForRequest | HTTP-In-Response | startTime | methodName | requestQuery | requestPath
-    ```
-    ---
-    **Example**
-    ``` java
+```
+
+``` java tab="Example"
     2018-11-05 14:57:06,764|f884a93d-e3a3-431f-a1ea-f6973e125cb6|http-nio-9443-exec-28|7|HTTP-In-Response|1541410026764|GET|null|/carbon/admin/images/favicon.ico
-    ```
+```
 
----
-
-## Read the logs
+### Reading the logs
 
 Let's analyze the following sample log lines to find if there are any
 timing delays for the JDBC or LDAP calls.
@@ -214,24 +195,18 @@ timing delays for the JDBC or LDAP calls.
     </tr>
 </table>
 
----
-
-## Advanced scenarios
+### Advanced scenarios
 
 Following are a few advance scenarios that are related to product
 observability in WSO2 IS.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/monitor/work-with-product-observability.md
-### Define denylists for the threads
-========
-#### Defining denylists for the threads
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/working-with-product-observability.md
+#### Denylisting the threads
 
-Certain threads continuously print unnecessary logs. Defining denylists
+Certain threads continuously print unnecessary logs. Denylisting
 prevents the unwanted threads from printing logs thereby improving the
 readability of the logs.
 
-Follow the steps below to configure denylists for threads. 
+Follow the steps below to configure thread denylisting.
 
 1.  Open either of the following files in the
     `          <IS_HOME>/bin         ` directory on a command prompt.
@@ -251,7 +226,7 @@ Follow the steps below to configure denylists for threads.
     !!! note
     
         This configuration is not required by default, as all unnecessary
-        threads are already a part of the denylist in the
+        threads are already denylisted by the
         `           MessageDeliveryTaskThreadPool          ` thread. If the
         above configuration is added, the default value will be overridden.
         
@@ -259,8 +234,8 @@ Follow the steps below to configure denylists for threads.
 3.  Restart the WSO2 IS server.
 
     ``` java
-    sh wso2server.sh -DenableCorrelationLogs=true stop
-    sh wso2server.sh -DenableCorrelationLogs=true start
+        sh wso2server.sh -DenableCorrelationLogs=true stop
+        sh wso2server.sh -DenableCorrelationLogs=true start
     ```
 
 
@@ -268,21 +243,21 @@ Follow the steps below to configure denylists for threads.
     command.
 
     ``` java
-    curl -v -k -X POST --basic -u <CLIENT_KEY>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -H "customHeader1:correlationvalue1" -H "customHeader2:correlationvalue2" -d "grant_type=client_credentials" https://localhost:9443/oauth2/token
+        curl -v -k -X POST --basic -u <CLIENT_KEY>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -H "customHeader1:correlationvalue1" -H "customHeader2:correlationvalue2" -d "grant_type=client_credentials" https://localhost:9443/oauth2/token
     ```
 
     !!! tip
     
         Use the `           client key          ` and
         `           client secret          ` of the service provider you
-        created after enabling product observability.
+        created after enabling product observability
     
 
 5.  Open the `           correlation.log          ` on a command prompt
     and notice the related logs.
 
     ``` java
-    tail -f {{base_path}}/repository/logs/correlation.log
+    tail -f ../repository/logs/correlation.log
     ```
 
-    ![Correlation log screenshot]({{base_path}}/assets/img/deploy/monitor/correlation-log-screenshot-2.png)
+    ![Correlation log screenshot](../assets/img/using-wso2-identity-server/correlation-log-screenshot-2.png)

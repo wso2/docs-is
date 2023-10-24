@@ -22,23 +22,14 @@ its role.
     role.
 3.  Click **Add New User**. The following screen appears.  
     ![new-user-in-management-console](../assets/img/using-wso2-identity-server/new-user-in-management-console.png) 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-users.md
 
-========
-    
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-users.md
     !!! warning
     	**Do not** use the special character, "#" while defining any of the user naming attirbutes since it is reserved for a specific functionality. This condition applies across all user stores. 
 	
     !!! info 
          When giving a username, it should not contain backslash (“/”) or any
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-users.md
          special character ("&", "$", "%").  In the
          `             <IS_HOME>/repository/conf/deployment.toml           ` file you can set a simple configuration according to your requirements.
-========
-         special character ("&", "$", "%"). In 
-         `             <IS_HOME>/repository/conf/deployment.toml           ` file, you can set a simple configuration according to your requirements.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-users.md
          
          For example,
          ``` 
@@ -190,15 +181,6 @@ Follow the below instruction to update a user using management console.
 1. On the **Main** tab in the Management Console, click **List** under **Users and Roles**.
 2. Click **Users**. This link is only visible to users with the Admin role.
 3. You will see the list of users that are available and you can click **Update Profile** if you want to update the profile of a particular user.
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-users.md
-========
-
-    ![update-profile-in-console](../assets/img/using-wso2-identity-server/update-profile-in-console.png)
-
-4. There you can update the details of the user and click **Update**.
-
-Other than updating user profile details, you can also change the password of the user and assign more roles to the user.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-users.md
 
     ![update-profile-in-console](../assets/img/using-wso2-identity-server/update-profile-in-console.png)
 

@@ -35,5 +35,6 @@ subsections.
     Some authenticators such as LinkedIn are not provided OOTB with WSO2
     Identity Server but can be downloaded from the [WSO2
     store](https://store.wso2.com/store/) and plugged in to work with WSO2
-    IS.
+    IS. For more information on those authenticators and connectors, see the
+    [WSO2 Identity Server Connectors documentation](../../develop/authenticators-and-connectors).
     

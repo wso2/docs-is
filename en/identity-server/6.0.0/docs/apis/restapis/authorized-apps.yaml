@@ -1,15 +1,22 @@
 openapi: 3.0.1
 info:
-  title: OAuth2 Authorized Apps API
+  title: WSO2 Identity Server - OAuth2 Authorized Apps API
   description: |
     This is the RESTful API for managing OAuth2 Authorized Apps.
 
-    With this API, authenticated users can view and revoke the OAuth2/OIDC applications for which they have permanently provided consent (by clicking on **Approve Always** during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
+    Through this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
 
-    Additionally, privileged users can view and revoke authorized apps of other users using this API.
-  version: v2
+    Additionally, privileged user can view and revoke other users' authorized apps using the API.
+  contact:
+    name: WSO2 Identity Server
+    url: https://wso2.com/identity-and-access-management/
+    email: architecture@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1
 servers:
-- url: https://{serverUrl}/t/{tenantDomain}/api/users/v2
+- url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
   variables:
     serverUrl:
       default: localhost:9443
@@ -20,20 +27,20 @@ security:
 - BasicAuth: []
 tags:
 - name: me
-  description: |
-    Operations for the authenticated user.
+  description: Operations for the authenticated user.
 - name: admin
   description: |
     Operations available for privileged users, to be invoked on behalf of another user.
 
+    **These endpoints are not released in WSO2 Identity Server - 5.9.0 version and will be released in the next product version.**
 paths:
   /{user-id}/authorized-apps:
     get:
       tags:
       - admin
-      summary: List authorized applications of a user
+      summary: list authorized applications of a user
       description: |
-        The list of approved OAuth applications for a given user.
+        List approved OAuth applications for a given user
       operationId: listUserAuthorizedApps
       parameters:
       - name: user-id
@@ -66,7 +73,7 @@ paths:
     delete:
       tags:
       - admin
-      summary: Remove all authorized applications of a user
+      summary: remove all authorized applications of a user
       description: |
         Removes authorization from all OAuth apps of a given user
       operationId: deleteUserAuthorizedApps
@@ -97,9 +104,9 @@ paths:
     get:
       tags:
       - admin
-      summary: Retrieve authorized app by app ID for a user
+      summary: retrieve authorized app by app ID for a user
       description: |
-        Retrieve authorized OAuth apps by an app ID for a given user
+        Retrived autherized OAuth apps by an app ID for a given user
       operationId: listUserAuthorizedAppsByAppId
       parameters:
       - name: user-id
@@ -142,9 +149,9 @@ paths:
     delete:
       tags:
       - admin
-      summary: Removes challenge question answers
+      summary: removes challenge question answers
       description: |
-        Removes authorized OAuth apps by an app ID for a given user
+        Removes autherized OAuth apps by an app ID for a given user
       operationId: deleteUserAuthorizedAppsByAppId
       parameters:
       - name: user-id
@@ -185,10 +192,10 @@ paths:
     get:
       tags:
       - me
-      summary: List authorized applications for the authenticated user
+      summary: list authorized applications for the authenticated user
       description: Lists approved OAuth applications of the authenticated user<br>
-        <b>Permission required:</b> None <br>
-        <b>Scope required:</b> `internal_login`
+        <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> *
+        internal_login
       operationId: listLoggedInUserAuthorizedApps
       responses:
         200:
@@ -214,10 +221,10 @@ paths:
     delete:
       tags:
       - me
-      summary: Removes authorized applications for the authenticated user
-      description: Removes approved OAuth applications of the authenticated user. <br>
-        <b>Permission required:</b> None <br> 
-        <b>Scope required:</b> `internal_login`
+      summary: removes authorized applications for the authenticated user
+      description: Removes approved OAuth applications of the authenticated user<br>
+        <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> *
+        internal_login
       operationId: deleteLoggedInUserAuthorizedApps
       responses:
         204:
@@ -239,11 +246,10 @@ paths:
     get:
       tags:
       - me
-      summary: Retrieve authorized app by app ID for the authenticated user
+      summary: retrieve authorized app by app ID for the authenticated user
       description: Retrieves authorized OAuth app by an app ID for the authenticated
-        user.<br> 
-        <b>Permission required:</b> None <br> 
-        <b>Scope required:</b> `internal_login`
+        user<br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b>
+        <br> * internal_login
       operationId: getLoggedInUserAuthorizedAppByAppId
       parameters:
       - name: application-id
@@ -280,11 +286,10 @@ paths:
     delete:
       tags:
       - me
-      summary: Removes authorized app by app ID for the authenticated user
+      summary: removes authorized app by app ID for the authenticated user
       description: Removes authorized OAuth app by an app ID for the authenticated
-        user. <br> 
-        <b>Permission required:</b> None <br> 
-        <b>Scope required:</b> `internal_login`
+        user<br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b>
+        <br> * internal_login
       operationId: deleteLoggedInUserAuthorizedAppByAppId
       parameters:
       - name: application-id
@@ -319,21 +324,15 @@ components:
   schemas:
     AuthorizedApp:
       required:
+      - appId
       - clientId
-      - id
       type: object
       properties:
-        id:
+        appId:
           type: string
-          description: Unique ID of the application.
-          example: 298c5fd8-01ac-4ada-bc10-1ce37f32140
-        name:
-          type: string
-          description: Name of the application
           example: FooApp
         clientId:
           type: string
-          description: Client ID of the application.
           example: 7y7zPj4wDX3nRtfPKrmt8Auke44a
     Error:
       required:

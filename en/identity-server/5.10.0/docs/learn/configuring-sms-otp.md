@@ -22,8 +22,8 @@ provider.
     on the address bar.  
     
     !!! example
-        If you wish to have Vonage as your SMS provider, navigate to
-        [https://www.vonage.com/communications-apis/](https://www.vonage.com/communications-apis/), and click the
+        If you wish to have NEXMO as your SMS provider, navigate to
+        [https://www.nexmo.com](https://www.nexmo.com/), and click the
         padlock next to the URL on Chrome and download the certificate.
         
 3.  Navigate to the
@@ -32,7 +32,7 @@ provider.
     into the WSO2 IS client keystore.
 
     ``` java
-    keytool -importcert -file <CERTIFICATE_FILE_PATH> -keystore client-truststore.jks -alias "Vonage" 
+    keytool -importcert -file <CERTIFICATE_FILE_PATH> -keystore client-truststore.jks -alias "Nexmo" 
     ```
 
 4.  You are prompted to enter the keystore password. The default
@@ -64,23 +64,22 @@ provider.
 			`              $ctx.msg             ` respectively.
 
 		-   Optionally, enter the HTTP response code the SMS service
-			provider sends when the API is successfully called. Vonage API
+			provider sends when the API is successfully called. Nexmo API
 			and  Bulksms API sends 200 as the code, while Clickatell
 			and Plivo send 202. If this value is unknown, leave it blank and
 			the connector checks if the response is 200, 201 or 202.
 
-    ??? Note "Click here to configure Vonage as the service provider."
+    ??? Note "Click here to configure Nexmo as the service provider."
 
-		"Nexmo" was rebranded to "Vonage", which is why some of the URLs and configurations below still contain the word "Nexmo".
-        Follow the steps given below to use Vonage as the SMS provider:
+		Follow the steps given below if Nexmo is used as the SMS provider:
 
 		1.  Go to <https://dashboard.nexmo.com/sign-up> and sign up.
 		2.  Once you successfully register, the API **key** and **secret**
 			are displayed. Copy and save them as you need them for the next
 			step.  
 			Example:  
-			![vonage-config](../assets/img/tutorials/vonage-config.png)
-		3.  The Vonage API requires the parameters to be encoded in the URL,
+			![nexmo-config](../assets/img/tutorials/nexmo-config.png)
+		3.  The Nexmo API requires the parameters to be encoded in the URL,
 			so the SMS URL would be as follows.
 			<html><table>
 			<tbody>
@@ -253,16 +252,13 @@ The next step is to configure the service provider.
 
 3. Configure Inbound Authentication for the service provider. For instructions, see [Configuring Inbound Authentication for a Service Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
 
-    !!! info 
-        Try out the the sample application. To deploy the pickup-dispatch sample application, follow the steps in [Deploying the SAML2 Pickup-Dispatch Sample App](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp).
-
-4.  Go to **Claim configuration** and select the
+6.  Go to **Claim configuration** and select the
     **`            http://wso2.org/claims/mobile           `** claim for
     the **Subject Claim URI**.
 
     ![subject-claim-uri](../assets/img/tutorials/subject-claim-uri.png)
 
-5.  Go to **Local and Outbound Authentication Configuration** section.
+7.  Go to **Local and Outbound Authentication Configuration** section.
 
     1.  Select the **Advanced configuration** radio button option.
 
@@ -290,7 +286,7 @@ The next step is to configure the service provider.
 
         ![creating-the-second-authentication](../assets/img/tutorials/creating-the-second-authentication.jpeg)
 
-6.  Click **Update** to save the changes.
+8.  Click **Update** to save the changes.
 
 You have now added and configured the service provider.
 
@@ -441,22 +437,12 @@ the various values you can configure for the authenticator.
 			<td>This parameter defines how the username will be retrieved and this has to be configured if the previous authenticator is not a Local Authenticator (eg: Basic Auth). You can configure the following possible values:
 				<ul>
 					<li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.</li>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-sms-otp.md
-					<li><code>association</code>: The federated username must be associated with the local account in advance using the <b>My Account</b> portal. The local username is retrieved from the association. To associate the user, log into the <a href="../../learn/my-account">My Account</a> portal and go to <b>Associated Account</b>  by clicking  <b>View details</b>.</li>
-					<li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the SMSOTP authenticator.</li>
-					<li>
-						<p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the  <code>[authentication.authenticator.sms_otp.parameters]</code> section in the <code>deployment.toml</code> file and put the value, e.g., <code>email</code>, <code>screen_name</code>, <code>id</code>.</p>
-						
-						<code>[authentication.authenticator.sms_otp.parameters]</code><br/>
-				                <code>userAttribute = "email"</code>
-========
 					<li><code>association</code>: The federated username must be associated with the local account in advance in the <b>User Portal</b>. The local username is retrieved from the association. To associate the user, log in to the <a href="../../learn/user-portal">User Portal</a> and go to <b>Associated Account</b>  by clicking <b>View details</b>.</li>
 					<li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the SMSOTP authenticator.</li>
 					<li>
 						<p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is, the local username contained in a federated user's attribute. When using this, add the following parameter under the  <code>[authentication.authenticator.sms_otp.parameters]</code> section in the <code>deployment.toml</code> file and put the value, e.g., <code>email</code>, <code>screen_name</code>, <code>id</code>.</p>
 						<code>[authentication.authenticator.sms_otp.parameters]</code><br/>
 						<code>userAttribute = "email"</code>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/configuring-sms-otp.md
 					</li>
 				</ul>    
 			</td>
@@ -474,11 +460,7 @@ the various values you can configure for the authenticator.
 						<li>If you use a <b>super tenant</b>, set all the parameter values in the <code><IS_HOME>/repository/conf/deployment.toml</code> file.</li>
 						<li>If you use a tenant,
 							<ul>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-sms-otp.md
-								<li>Upload the XML file (<code><IS_HOME>/repository/conf/identity/application-authentication.xml</code>) into a specific registry location (<code>/_system/governance/SMSOTP</code>).</li>
-========
 								<li>Upload the XML file (<code><IS_HOME>/repository/conf/identity/application-authentication.xml</code>) to a specific registry location (<code>/_system/governance/SMSOTP</code>).</li>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/configuring-sms-otp.md
 								<li>Create the collection named <code>SMSOTP</code>, add the resource, and upload the <code>application-authentication.xml</code> file into the registry.</li>
 								<li>While doing the authentication, the system first checks whether there is an XML file uploaded to the registry. If there is, it reads the file from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.</li>
 								<li>You can use the registry or local file to get the property values.</li>
@@ -490,19 +472,15 @@ the various values you can configure for the authenticator.
 		</tr>
         <tr>
             <td>SMSOTPMandatory</td>
-	<td>If the value is <code>true</code>, the second step will be enabled by the admin. The user cannot be 
-            authenticated without SMS OTP authentication. This parameter is used for both the super tenant 
+            <td>If the value is true, the second step will be enabled by the admin. The user cannot be 
+            authenticated without SMS OTP authentication. This parameter is used for both super tenant 
             and tenant in the configuration. The value can be <code>true</code> or <code>false</code>.</td>
         </tr>
 		<tr>
 			<td>SendOtpToFederatedMobile</td>
 			<td>
 				<p>When the <code>SMSOTPMandatory</code> and this parameter are set to <code>true</code> and the user is not found in the active directory, the OTP is sent to the mobile number defined in the federated authenticator claim.</p>
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-sms-otp.md
-				<p>When the <code>SMSOTPMandatory</code> is set to <code>false</code>, an error page is displayed.</p>
-========
 				<p>When the <code>SMSOTPMandatory</code> is set to <code>false</code>, an error page gets displayed.</p>
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/configuring-sms-otp.md
 				<p>When the <code>SMSOTPMandatory</code> is set to <code>false</code> and the user is not found in the active directory, the authentication mechanism terminates at the first step of the 2FA/MFA. This parameter is not required in such a scenario.</p>
 			</td>
 		</tr>
@@ -599,7 +577,7 @@ WSO2 IS.
 
     The SMS provider is the entity that is used to send the SMS. The SMSOTP connector has been configured 
     such that it can be used with most types of SMS APIs. Some use the GET method with the client secret 
-    and API Key encoded in the URL (e.g., Vonage), while some may use the POST method when sending the 
+    and API Key encoded in the URL (e.g., Nexmo), while some may use the POST method when sending the 
     values in the headers and the message and telephone number in the payload (e.g., Clickatell). 
     This could change significantly between different SMS providers. The configuration of the 
     connector in the identity provider would also change based on this.

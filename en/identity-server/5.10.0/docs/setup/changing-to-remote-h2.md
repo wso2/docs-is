@@ -18,16 +18,13 @@ with Remote H2:
 
 ## Datasource configurations
 
-!!! note
-    It is recommended to use the UTC zone for database operations as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially result in an outage (due to the DST shift) when generating OAuth codes or access tokens.
-
 A datasource is used to establish the connection to a database. By
 default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
 to the default  H2 database. 
 
-- `WSO2_SHARED_DB` - The datasource which stores registry and user management
+- `WSO2_SHARED_DB` - The database which stores registry and user management
                      data.
-- `WSO2_IDENTITY_DB` - The datasource specific for the identity server which stores
+- `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
                        identity related data
                        
 After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or 

@@ -1,6 +1,3 @@
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-federation/configure-ws-federation.md
-# Configure WS-Federation
-========
 # Configuring WS-Federation
 
 WS-Federation (Web Services Federation) describes the management and
@@ -19,27 +16,31 @@ providers offer OAuth IdP services.
 
 In most instances it is necessary to secure the Security Token Service.
 According to the Trust Brokering model defined in the WS-Trust
-specification, the subject (user) should authenticate themself to the STS
+specification, the subject (user) should authenticate himself to the STS
 before obtaining a token. STS may use this authentication information
 when constructing the security token. For example, STS may populate the
 required claims based on the user name provided by the subject.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/configuring-ws-federation.md
 
 To navigate to the federated authenticators configuration section, do
 the following.
 
 1.  Sign in. Enter your username and password to log on to the
-    Management Console.
+    [Management
+    Console](../../setup/getting-started-with-the-management-console).
     
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.  
+    For more information, see [Adding and Configuring an Identity
+    Provider](../../learn/adding-and-configuring-an-identity-provider).
     
 3.  Fill in the details in the **Basic Information** section.
 
-4.  Expand the **WS-Federation(Passive) Configuration** form.  
-    ![ws-federation-passive-configuration]({{base_path}}/assets/img/guides/ws-federation-passive-configuration.png)
+<!-- -->
+
+1.  Expand the **WS-Federation(Passive) Configuration** form.  
+    ![ws-federation-passive-configuration](../assets/img/tutorials/ws-federation-passive-configuration.png)
     
-5.  Fill in the following fields where relevant.
+2.  Fill in the following fields where relevant.
 
     <table>
     <colgroup>
@@ -108,8 +109,14 @@ the following.
 
 	!!! info
 	
-		If the certificate is self-signed, import the service
+		- If the certificate is self-signed, import the service
 		provider's public key to the IS client trust store to ensure that the
 		SSL handshake in the SLO request is successful. For more information on
-		how to do this, see [Managing Keystores with the UI]({{base_path}}/deploy/security/manage-keystores-with-the-ui) in
+		how to do this, see [Managing Keystores with the UI](../../administer/managing-keystores-with-the-ui) in
 		the WSO2 Product Administration Guide.
+    
+		- Identity Federation is part of the process of configuring an
+		identity provider. For more information on how to configure an
+		identity provider, see [Configuring an Identity
+		Provider.](../../learn/adding-and-configuring-an-identity-provider)
+

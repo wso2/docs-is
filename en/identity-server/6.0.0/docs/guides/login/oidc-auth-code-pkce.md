@@ -1,14 +1,8 @@
-# Enable login using the Authorization Code flow and PKCE for public clients
+# Enable login using the Authorization Code flow and PKCE
 
 This guide gives you instructions on how to implement login with OpenID Connect in your application by using the [authorization code flow]({{base_path}}/references/concepts/authorization/authorization-code-grant) and PKCE.
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/oidc-auth-code-pkce.md
-Single-page applications and native mobile applications are some examples of public clients.
-
-For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) along with the authorization code grant to mitigate [code interception attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/).
-========
 This method is most suitable for public clients, which are applications that cannot keep the client credentials securely. Refer to [Authorization Code flow and PKCE for public clients]({{base_path}}/guides/login/oidc-auth-code-pkce-public-clients.md) for instructions on how to implement this for public clients.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/oidc-auth-code-pkce.md
 
 ## Register a service provider
 
@@ -20,7 +14,7 @@ This method is most suitable for public clients, which are applications that can
 
 Make the following changes to the created service provider.
 
-1. Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration** and click **Configure**.
+1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
 2. Make sure **Code** is selected from the **Allowed Grant Types** list.
 
@@ -29,14 +23,14 @@ Make the following changes to the created service provider.
     !!! tip
         The **Callback Url** is the exact location in the service provider's application to which an access token will be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
 
-4. Enable **PKCE Mandatory** and **Allow authentication without the client secret** to enable PKCE for your public application.
+4. Select **PKCE Mandatory** to enable PKCE for your application.
 
-    ![enable-pkce]({{base_path}}/assets/img/guides/enable-pkce-public.png)
+    ![enable-pkce]({{base_path}}/assets/img/guides/enable-pkce.png)
 
 5. Click **Update** to save your configurations.
 
     !!! note
-        - Note the generated **OAuth Client Key**. You will need this value later when sending the request.
+        - Note the generated **OAuth Client Key** and **OAuth Client Secret**. You will need these values later when sending the request.
 
         - To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
@@ -125,7 +119,7 @@ This token request takes the following parameters.
 You will receive a response containing the access token, scope, and ID token for the token request.
 
 !!! info "Validate the ID token"
-    The ID token contains basic user information. You can use the [JWT Token Decoder](https://devtoolzone.com/decoder/jwt) tool to check what is encoded within the ID token.
+    The ID token contains basic user information. To check what is encoded within the ID token, you can use the [JWT Token Decoder](https://devtoolzone.com/decoder/jwt) tool.
 
 ----
 

@@ -1,4 +1,4 @@
-# Identity Provider SOAP API
+# Using the Identity Provider API
 
 An Identity Provider (IdP) is responsible for issuing identification
 information for users looking to interact with a system. We can add and
@@ -9,15 +9,14 @@ This is exposed as a web service and the following operations are
 available.
 
 The service contract of this admin service can be found at
-`https://<IS_HOST>:<IS_PORT>/services/IdentityProviderMgtService?wsdl`.
-Replace the tag `<IS_HOST`:`<IS_PORT>` with the relevant host and
+https://<IS_HOST>:<IS_PORT>/services/IdentityProviderMgtService?wsdl.
+Replace the tag \<IS_HOST>:\<IS_PORT> with the relevant host and
 port number, for example:
-`https://localhost:9443/services/IdentityProviderMgtService?wsdl`
+https://localhost:9443/services/IdentityProviderMgtService?wsdl.
   
 !!! note
-    Prior to calling any of these admin services, you need to make them discoverable. See [Call Admin Services]({{base_path}}/apis/call-admin-services) for information on how to do this.
+    Prior to calling any of these admin services, you need to make them discoverable. See [Calling Admin Services](../../develop/calling-admin-services) for information on how to do this.
     
----
 
 ## addIdp
 To add an Identity Provider, you should add some basic Identity Provider
@@ -154,8 +153,6 @@ provisioning connectors details to the addIdp request body. Properties
 related to those configurations are listed below. However, even without
 these details, an IdP can be added and updated later on.
 
----
-
 ### Claim configuration
 
 ``` xml
@@ -170,7 +167,8 @@ When configuring advance claims to the custom claim dialect, the
 following parameters can be added to the
 `         <claimMappings>        ` element. A sample
 `         <claimMappings>        ` element configured with advance claim
-configurations is similar to the following:
+configurations is similiar to the following:
+
 ``` xml
 <xsd:claimConfig>
 <localClaimDialect>true</localClaimDialect>
@@ -198,12 +196,11 @@ configurations is similar to the following:
 </claimMappings>
 </xsd:claimConfig>
 ```
----
 
-### Just-in-time (JIT) provisioning
+### **Just-in-time (JiT) provisioning**
 
-With just-in-time provisioning, you can create users on the fly without
-having to create user accounts in advance. To configure JIT
+With Just-in-Time provisioning, you can create users on the fly without
+having to create user accounts in advance. To configure JiT
 provisioning, add the following snippet to the `         addIdp        `
 request body.
 
@@ -215,9 +212,7 @@ request body.
 </xsd:justInTimeProvisioningConfig>
 ```
 
----
-
-### Role configuration
+### **Role configuration**
 
 ``` xml
 <permissionAndRoleConfig xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -235,13 +230,13 @@ request body.
 
 The `          <federatedAuthenticatorConfigs>         ` parameter can
 be used to configure zero or more federated authenticators. For sample
-federated authenticator configurations, see [Federated Authenticator Configuration Samples]({{base_path}}/apis/identity-provider-configurations-used-with-apis#federated-authenticator-configuration-samples).
+federated authenticator configurations, see [Federated Authenticator Configuration Samples](../../develop/identity-provider-configurations-used-with-apis#federated-authenticator-configuration-samples).
 
 **Outbound provisioning connectors**
 
 The `         <provisioningConnectorConfigs>        ` parameter can be
 used to configure zero or more outbound provisioning connectors. For
-sample outbound provisioning connector configurations, see [Outbound Provisioning Connectors Configuration Samples.]({{base_path}}/apis/identity-provider-configurations-used-with-apis#outbound-provisioning-connector-configuration-samples)
+sample outbound provisioning connector configurations, see [Outbound Provisioning Connectors Configuration Samples.](../../develop/identity-provider-configurations-used-with-apis#outbound-provisioning-connector-configuration-samples)
 
 <table>
 <thead>
@@ -272,8 +267,6 @@ sample outbound provisioning connector configurations, see [Outbound Provisionin
 </tbody>
 </table>
 
----
-
 ## deleteIdp
 
 To delete an identity provider, call the
@@ -282,7 +275,9 @@ included in the request.
 
 Permission Level: `          /permission/admin/manage         `
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:mgt="http://mgt.idp.carbon.wso2.org">
@@ -296,11 +291,13 @@ Permission Level: `          /permission/admin/manage         `
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+  
+
+**Response**
+
+``` xml
 None
 ```
-
----
 
 ## getAllFederatedAuthenticators
 
@@ -310,7 +307,9 @@ Identity Server.
 
 Permission Level: `           /permission/admin/manage          `
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:mgt="http://mgt.idp.carbon.wso2.org">
@@ -321,7 +320,11 @@ Permission Level: `           /permission/admin/manage          `
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+  
+
+**Response:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllFederatedAuthenticatorsResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -402,8 +405,6 @@ Permission Level: `           /permission/admin/manage          `
 </soapenv:Envelope>
 ```
 
----
-
 ## getAllIdPs
 
 Use the `          getAlIdPs()         ` operation to obtain a detailed
@@ -411,7 +412,9 @@ list of Identity Providers registered in WSO2 Identity Server.
 
 Permission Level: `          /permission/admin/login         `
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -420,7 +423,9 @@ Permission Level: `          /permission/admin/login         `
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllIdPsResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -451,8 +456,6 @@ Permission Level: `          /permission/admin/login         `
 </soapenv:Envelope>
 ```
 
----
-
 ## getAllLocalClaimURIs
 
 Use the `           getAlILocalClaimUris()          ` operation to
@@ -460,7 +463,9 @@ obtain a list of local claim URIs available in IS.
 
 Permission Level: `           /permission/admin/manage          `
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -469,7 +474,9 @@ Permission Level: `           /permission/admin/manage          `
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllLocalClaimUrisResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -506,8 +513,6 @@ Permission Level: `           /permission/admin/manage          `
 </soapenv:Envelope>
 ```
 
----
-
 ## getAllProvisioningConnectors
 
 Use the `           getAlIProvisioningConnectors()          ` operation
@@ -517,7 +522,9 @@ in WSO2 Identity Server.
   
 Permission Level: `          /permission/admin/manage         `
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -526,7 +533,9 @@ Permission Level: `          /permission/admin/manage         `
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllProvisioningConnectorsResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -559,8 +568,6 @@ Permission Level: `          /permission/admin/manage         `
 </soapenv:Envelope>
 ```
 
----
-
 ## getEnabledAllIdPs
 
 Use the `         getEnabledAllIdPs()        ` operation to obtain a
@@ -568,7 +575,9 @@ detailed list of IdPs which are enabled in WSO2 Identity Server.
 
 Permission Level: `         /permission/admin/manage        `
 
-```xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -577,7 +586,9 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-```xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getEnabledAllIdPsResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -603,8 +614,6 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
----
-
 ## getIdPByName
 
 Use the `         getIdPByName        ` operation to retrieve an
@@ -612,7 +621,9 @@ identity provider by including the IdP name in the request.
 
 Permission Level: `         /permission/admin/manage        `
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -624,7 +635,9 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getIdPByNameResponse xmlns:ns="http://mgt.idp.carbon.wso2.org">
@@ -808,13 +821,13 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
----
-
 ## getResidentIdP
 
 Permission Level: `         /permission/admin/manage        `
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -823,7 +836,9 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getResidentIdPResponse xmlns:ns="http://mgt.idp.carbon.wso2.org">
@@ -988,8 +1003,6 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
----
-
 ## updateIdP
 
 The `         updateIdP()        ` operation can be used to update an
@@ -999,7 +1012,9 @@ updateIdP request is similar to the parameters in addIdP request.
 
 Permission Level: `         /permission/admin/manage        `
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1049,7 +1064,9 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 None
 ```
 
@@ -1066,7 +1083,9 @@ Permission Level: `         /permission/admin/manage        `
 
 The following request show how to update the above parameters.
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1114,6 +1133,8 @@ The following request show how to update the above parameters.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 None
 ```

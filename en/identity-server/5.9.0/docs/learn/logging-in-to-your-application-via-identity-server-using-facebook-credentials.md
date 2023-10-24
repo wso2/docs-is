@@ -72,7 +72,7 @@ following sections for more information.
 
 10. Scroll down and click **Save Changes** button to save the changes.
 
-11. Click on **Settings > Basic.** You can see the **App ID** and **App
+11. Click on **Dashboard.** You can see the **App ID** and **App
     Secret** as shown in the image below. Click **Show** to view the
     **App Secret**.
 
@@ -215,7 +215,7 @@ provider.](../../learn/adding-and-configuring-a-service-provider)
     
     !!! Tip "Before You Proceed" 
         In the beginning of this guide you have
-        [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1)
+        [registered the `ravelocity.com` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1)
         when setting up the `travelocity.com` sample. If you complete that
         you can skip steps 2 to 5 below.
 

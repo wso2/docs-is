@@ -12,11 +12,7 @@ The California Consumer Privacy Act (CCPA) is a bill passed by the California St
     Moreover, the consumer can request for specific information about them that has been collected and shared, and the business should ensure that the detail 
     requested is hence shared with the customer. 
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/concepts/compliance/ccpa.md
     Users who have given their PIs to the system should be able to, 
-========
-    Users who have given their PIs to the system should have the following capabilities:
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/compliance/california-consumer-privacy-act.md
 
     -   Remove sections of the information
     -   Modify information

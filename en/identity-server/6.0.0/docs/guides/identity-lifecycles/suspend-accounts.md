@@ -106,11 +106,7 @@ task that checks for idle accounts is common to all tenants.
     | Lock Timeout Increment Factor | This specifies the increment factor of the lock timeout. If the lock timeout increment factor is set to 2, then the timeout increments by 2 to the power of the number of failed login attempts. [Timeout increment = (Lock Timeout Increment Factor)<sup>(Number of Failed Attempts)</sup>] (If the number of failed login attempts is 3, timeout increment is 2<sup>3</sup>=8)                                                                                                                                                                                                                                           |  2          |
     | Enable Notification Internally Management | The field is set false if the client application handles notification sending.                                                                                                                                                                                                                                           |False            |
     
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-lifecycles/suspend-accounts.md
     ![account-lock-enabled]({{base_path}}/assets/img/guides/account-lock-enabled.png)
-========
-    ![account-lock-enabled](../assets/img/using-wso2-identity-server/account-lock-enabled.png)
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/user-account-suspension.md
     
 4.  Expand the **Account Management Policies** tab.
 

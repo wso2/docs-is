@@ -128,7 +128,7 @@ Let's get started to configure the service provider you created!
       </tr>
       <tr class="odd">
          <td><strong>Support PKCE 'Plain' Transform Algorithm</strong></td>
-         <td>Select this if you need to use the 'Plain' transformation method.</td>
+         <td>Select this if you are using PKCE.</td>
       </tr>
       <tr class="even">
          <td><strong>Allow Authentication without the client secret</strong></td>
@@ -149,15 +149,6 @@ Let's get started to configure the service provider you created!
                   </ul>
                </td>
             </tr>
-      <tr class="odd">
-         <td>
-            <p><strong>Revoke tokens upon user logout</strong></p>
-            <p><strong><br />
-               </strong>
-            </p>
-         </td>
-         <td> If you have enabled the <strong>Cookie Based</strong> or <strong>SSO Session Based</strong> binding type, you can also enable this configuration to enable revoking access tokens when the access token binding expires. <br/> <br/>When the user logs out of the application, the access tokens of the token binding reference issued for the application, gets revoked. Additionally, issued access tokens for a session that has expired due to a session idle timeout when a user tries to use single sign-on, log in again, or log out after a session has expired, also gets revoked.</td>
-      </tr>
       <tr class="odd">
          <td>
             <p><strong>User Access Token Expiry Time, Application Access Token Expiry Time, Refresh Token Expiry Time, Id Token Expiry Time</strong></p>
@@ -201,7 +192,7 @@ Let's get started to configure the service provider you created!
             <div class="admonition tip">
                <p class="admonition-title">Tip</p>
                <ul>
-                  <li>If you want to enable default token generation for a service provider, select <strong>Default</strong> as the <strong>Token Issuer</strong>. <br />
+                  <li>If you want to enable default token generation for a service provider, select <strong>Default</strong> as the <strong>Token Issuer</strong>. This is the default Token Issuer that is selected when you apply the WUM update.<br />
                      When you enable default token generation, the hash value of the token is stored in the ACCESS_TOKEN_HASH column, and the plain text token is stored in the ACCESS_TOKEN column
                   </li>
                   <li>If you want to enable JWT token generation for a service provider, select <strong>JWT</strong> as the <strong>Token Issuer</strong>.<br />

@@ -49,8 +49,4 @@ Employees leave an organization from time to time. When an employee leaves an or
     - [Guide: Delete an Existing User]({{base_path}}/guides/identity-lifecycles/delete-users)
     - [Concept: Roles and permissions]({{base_path}}/references/concepts/user-management/roles-and-permissions)
     - [Concept: Userstores]({{base_path}}/references/concepts/user-management/userstores)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/concepts/user-management/users.md
     - [Concept: Realms]({{base_path}}/references/concepts/user-management/realm)
-========
-    - [Concept: Realms]({{base_path}}/references/concepts/user-management/realm)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/concepts/user-management/users.md

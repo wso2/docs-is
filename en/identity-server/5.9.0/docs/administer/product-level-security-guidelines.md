@@ -14,7 +14,7 @@ If your WSO2 Identity Server product version is supported by WSO2 Update Manager
 
 !!! note
 
-    WSO2 releases security patch notifications monthly via the **Support Portal** and on the **[WSO2 Security Patch Releases](https://wso2.com/security-patch-releases)** page. 
+    WSO2 releases security patch notifications monthly via the **Support Portal** and on the **[WSO2 Security Patch Releases](http://wso2.com/security-patch-releases)** page. 
 
     -   For highly critical issues, patches are issued immediately to **customers**. 
 
@@ -36,13 +36,10 @@ Change the default key stores and create new keys for all the cryptographic oper
 
     For more information, see [Recommendations for using keystores](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products) and [Creating New Keystores](../../administer/creating-new-keystores).
 
-## Symmetric Encryption Key
-
-Generate a secure secret key by following the instructions given in [Using Symmetric Encryption](../../administer/using-symmetric-encryption/#internal-crypto-provider).
 
 ## Passwords in config files
 
-WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Securing Passwords in Configuration Files](../../setup/encrypting-passwords-with-cipher-tool).
+WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Securing Passwords in Configuration Files](../../administer/encrypting-passwords-with-cipher-tool).
 
 
 ## Default ports
@@ -100,7 +97,7 @@ It is recommended to change this by configuring the server name in the `deployme
 For products based on Carbon 4.4.11 or later versions, HTTP Strict Transport Security (HSTS) is disabled for the applications with which WSO2 Identity Server is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.
 
 
-Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../administer/enabling-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
+Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../setup/enabling-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
 
 
 ## Browser cache
@@ -195,18 +192,6 @@ To enable hostname verification:
 
 By default, XSS attacks are prevented in the latest WSO2 Identity Server versions. This is due to output encoding of the displaying values. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-## Callback URL Regular Expressions
-
-For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
-
-- [Password Recovery](../../learn/password-recovery)
-- [Username Recovery](../../learn/username-recovery)
-- [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
-- [Lite User Registration](../../learn/lite-user-registration/#enable-lite-user-registration)
-
-========
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
 ## JSESSIONID length
 
 If required, increase the `session ID length` by changing the `sessionIDLength` attribute of the session manager in the `context.xml` file in the `<IS_HOME>/repository/conf/tomcat` directory as shown below. The default value is `16 bytes`.
@@ -239,7 +224,7 @@ To change the administrator credentials:
 
 Majority of the users only need to sign in to the connected service providers via WSO2 Identity Server. Such users should not have permissions to sign in to the Management Console.
 
-Make sure that the permission for signing in to the Management Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
+Make sure that the permission for signing in to the Canagement Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
 
 ## Log rotation and monitoring
 
@@ -278,15 +263,8 @@ Log forging can be prevented by appending a UUID to the log message.
     
 - To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-- To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine. 
-
 ## Mutual SSL
 
-========
-## Mutual SSL
-
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
 If mutual SSL is enabled, [enable intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
 
 If mutual SSL authentication capabilities are not required, you can [disable it](../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is).
@@ -298,27 +276,6 @@ The web applications provided out-of-the-box use a set of default credentials to
 
 Follow the steps below to change the default credentials.
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-1.  Shut the server down in case you have already started it. 
-
-2.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
-========
-1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 
-    Update Manager](https://wso2.com/updates/wum)(WUM) to get any
-        fixes or latest updates for this release.
-    
-        !!! note "Important"
-            If you are upgrading to use this version in your production
-            environment, use WSO2 Update Manager to get the latest updates
-            available for WSO2 IS 5.10.0. For more information on how to use WSO2
-            Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
-
-2.  Shut the server down in case you have already started it. 
-
-3.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md
-========
 1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 Update Manager](https://wso2.com/updates/wum)     (WUM) to get any fixes or latest updates for this release.
 
     !!! note "Important"
@@ -327,7 +284,6 @@ Follow the steps below to change the default credentials.
 2.  Shut the server down in case you have already started it. 
 
 3.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
     
     -   Add the `app_password` property and enter a preferred password as the value.
       
@@ -359,15 +315,7 @@ Follow the steps below to change the default credentials.
 
             c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
     
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-3.  Once these changes are configured, restart the server with,
-========
 4.  Once these changes are configured, restart the server with,
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md
-========
-4.  Once these changes are configured, restart the server with,
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
     
     - Linux/Unix : sh wso2server.sh
     - Windows : wso2server.bat
@@ -379,12 +327,6 @@ When configuring intermediate certificate validation for REST APIs, it is recomm
 !!! info
 
     For more information, see the instructions on [configuring intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation). 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
-    
-========
-========
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md
 
 ## Callback URL Regular Expressions
 
@@ -393,7 +335,3 @@ For the scenarios listed below, you can define a regular expression to validate 
 - [Password Recovery](../../learn/password-recovery)
 - [Username Recovery](../../learn/username-recovery)
 - [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/product-level-security-guidelines.md
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/product-level-security-guidelines.md
-========
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/administer/product-level-security-guidelines.md

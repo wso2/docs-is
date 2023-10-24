@@ -1,9 +1,17 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies a **UI Permission Management RESTful API** for **WSO2 Identity Server** 
+    This document specifies a **UI Permission Management RESTful API** for
+    **WSO2 Identity Server** 
   version: "v1"
-  title: Permission Management API
+  title: WSO2 Identity Server - Identity Provider Management API definition
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security:
   - OAuth2: []
   - BasicAuth: []

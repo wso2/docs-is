@@ -17,8 +17,4 @@
         XACML policy. For more information, see [Rule-Based
         Provisioning](../../../../guides/identity-lifecycles/rule-based-provisioning/)
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/includes/resident-sp.md
 4.  Click **Update**.
-========
-4.  Click **Update**.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/includes/resident-sp.md

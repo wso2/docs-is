@@ -55,13 +55,8 @@ above steps.
 Follow the instructions given below to setup two WSO2 Identity Server instances
 for this scenario.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-an-sp-and-idp-using-configuration-files.md
 1.  [Download](http://wso2.com/products/identity-server/) and
     [install]({{base_path}}/deploy/get-started/install/) the two WSO2 Identity Server
-========
-1.  [Download](https://wso2.com/products/identity-server/) and
-    [install](../../setup/installing-the-product) the two Identity Server
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-sp-and-idp-using-configuration-files.md
     instances.
 2. Navigate to `<IDENTITY_PROVIDER_IS_HOME>/repository/conf/deployment.toml`
    and add an `offset` value to increment the port values in the 

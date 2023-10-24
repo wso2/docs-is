@@ -1,4 +1,4 @@
-# Work with the Source Code
+# Working with the Source Code
 
 The source code of all WSO2 products as well as the scripts that are
 used for building WSO2 products are maintained in GitHub repositories.
@@ -7,7 +7,7 @@ Git repositories, and if required, you can do modifications and build a
 customized product on your own.
 
 -   To identify the list of repositories that you require, see [WSO2
-    GitHub
+    Github
     Repositories](https://wso2.github.io/github-repositories.html).
 
     !!! tip     

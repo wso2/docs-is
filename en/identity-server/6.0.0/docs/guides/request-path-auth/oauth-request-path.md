@@ -203,11 +203,7 @@ Now, let's log in to the application.
 
     Once you receive the access token, you can use the following for authorizing.
     ```https://localhost:9443/oauth2/authorize?access_token=<access_token>```
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/request-path-auth/oauth-request-path.md
-         
-========
 
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/request-path-auth/oauth-request-path.md
     Following is a sample cURL command you can use.
     ```
     curl --location --request POST 'https://localhost:9443/oauth2/authorize?access_token=<access_token>' \

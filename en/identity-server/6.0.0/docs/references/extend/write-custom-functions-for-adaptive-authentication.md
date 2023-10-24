@@ -125,10 +125,6 @@ This custom `getUsernameFromContext()` function can be used to retrieve the user
     - [Concept: Multi-Factor Authentication]({{base_path}}/references/concepts/authentication/multi-factor-authentication/)
     - [Concept: Adaptive Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication/)
     - [Guide: Adaptive Authentication]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/extend/write-custom-functions-for-adaptive-authentication.md
-    
-========
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/extend/write-custom-functions-for-adaptive-authentication.md
 
   
 

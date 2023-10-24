@@ -98,9 +98,5 @@ A sample configuration is given below.
 {!./includes/db-advanced-config.md !}
 
 {!./includes/db-config-table.md !}
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/change-to-oracle-rac.md
-========
-
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/deploy/change-to-oracle-rac.md
     
     

@@ -1,11 +1,10 @@
 # Permissions Required to Invoke Admin Services
 
-!!! warning
-    Admin services are deprecated from IS 6.0.0 onwards. You can use REST-based APIs.
+The following table lists out the various operations that can be
+performed with different permission levels.
 
-The following table lists the various operations that can be performed with different permission levels.
+### Tenant level permissions
 
-## Tenant level permissions
 
 <table>
 <tbody>
@@ -606,9 +605,7 @@ The following table lists the various operations that can be performed with diff
 </tbody>
 </table>
 
----
-
-## Super tenant level permissions
+### Super tenant level permissions
 
 <table>
 <tbody>
@@ -691,11 +688,9 @@ The following table lists the various operations that can be performed with diff
 </tbody>
 </table>
 
----
+### Special cases 
 
-## Special cases
-
-The following operations are special cases that require multiple permission levels to perform the operation.
+**These operations require multiple permission levels.**
 
 <table>
 <tbody>

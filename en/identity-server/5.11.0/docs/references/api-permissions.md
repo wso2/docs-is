@@ -1,4 +1,4 @@
-# SOAP API Permissions
+# API Permissions
 
 The following table lists out all the available APIs and their
 operations and specifies the permissions of each operation.
@@ -1650,8 +1650,7 @@ operations and specifies the permissions of each operation.
 <td><br />
 </td>
 <td>getAllRolesNames</td>
-<td>/permission/admin/configure/security/rolemgt<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security/rolemgt,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="odd">
 <td><br />
@@ -1711,9 +1710,7 @@ operations and specifies the permissions of each operation.
 <td><br />
 </td>
 <td>listAllUsers</td>
-<td>/permission/admin/configure/security/usermgt/users<br>
-/permission/admin/configure/security/usermgt/passwords<br>
-/permission/admin/configure/security/usermgt/profiles</td>
+<td>/permission/admin/configure/security/usermgt/users,/permission/admin/configure/security/usermgt/passwords,/permission/admin/configure/security/usermgt/profiles</td>
 </tr>
 <tr class="odd">
 <td><br />
@@ -1725,9 +1722,7 @@ operations and specifies the permissions of each operation.
 <td><br />
 </td>
 <td>listUsers</td>
-<td>/permission/admin/configure/security/usermgt/users<br>
-/permission/admin/configure/security/usermgt/passwords<br>
-/permission/admin/configure/security/usermgt/profiles</td>
+<td>/permission/admin/configure/security/usermgt/users,/permission/admin/configure/security/usermgt/passwords,/permission/admin/configure/security/usermgt/profiles</td>
 </tr>
 <tr class="odd">
 <td><br />
@@ -2224,8 +2219,7 @@ operations and specifies the permissions of each operation.
 <td><br />
 </td>
 <td>getKeyStores</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="even">
 <td><br />
@@ -2329,57 +2323,49 @@ operations and specifies the permissions of each operation.
 <tr class="even">
 <td><strong>DirectoryServerManager</strong></td>
 <td>addServer</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="odd">
 <td><br />
 </td>
 <td>changePassword</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="even">
 <td><br />
 </td>
 <td>getPasswordConformanceRegularExpression</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="odd">
 <td><br />
 </td>
 <td>getServiceNameConformanceRegularExpression</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="even">
 <td><br />
 </td>
 <td>isExistingServicePrinciple</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="odd">
 <td><br />
 </td>
 <td>isKDCEnabled</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="even">
 <td><br />
 </td>
 <td>listServicePrinciples</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="odd">
 <td><br />
 </td>
 <td>removeServer</td>
-<td>/permission/admin/configure/security<br>
-/permission/admin/manage/modify/service</td>
+<td>/permission/admin/configure/security,/permission/admin/manage/modify/service</td>
 </tr>
 <tr class="even">
 <td><br />
@@ -2658,6 +2644,3 @@ operations and specifies the permissions of each operation.
 </tr>
 </tbody>
 </table>
-
-!!! info "Related topics"
-    - [API: SOAP APIs]({{base_path}}/develop/apis/soap-apis)

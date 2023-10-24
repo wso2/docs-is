@@ -6,11 +6,7 @@ WSO2 Identity Server enables resetting user passwords by correctly responding to
 
 **Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Alex** who is a new recruit at Pickup has forgotten the password. 
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/configuring-password-reset-with-challenge.md
-Let's learn how Alex can recover the password by answering to a challenge question!
-========
 Let's learn how Alex can recover the password by answering a challenge question!
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/configuring-password-reset-with-challenge.md
 
 ## Set up
 
@@ -77,35 +73,36 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 3.	To configure the challenge questions:
 
-	1.	Access WSO2 Identity Server My Account Portal at `https://localhost:9443/myaccount/`. 		
+	1.	Access WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`. 		
 
 	2.	Log in with the credentials of the user account that you created.
 
-		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/sign-in-form.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
-	3.	Under **Account Recovery**, click **+** to add or update security questions.
+	3.	Consent to share the shown attributes with the given service provider.
 
-		<img src="../../assets/img/learn/userportal-account-recovery-option.png" alt="Change Passwrod option" width="700
-		" style="border:1px solid grey">
+		<img src="../../assets/img/learn/consent-form.png" alt="Consent form" width="400" style="border:1px solid grey">
 
-	4.	Configure the challenge questions as given below:
+	4.	Under **Account Recovery**, click **View details**.
 
-		-	**Challenge Question 1**: `Name of your first pet?`
-		-	**Your Answer**: `Tom`
-		-	**Challenge Question 2**: `Favourite food?`
-		-	**Your Answer**: `Pizza`
+		<img src="../../assets/img/learn/dashboard-account-recovery-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
 
-		<img src="../../assets/img/learn/userportal-account-recovery-form.png" alt="Challenge Question form" width="700
-		" style="border:1px solid grey">
+	5.	Configure the challenge questions as given below:
 
-	5. Click **Update**.
+		-	**Challenge Question 1**: `City where you were born?`
+		-	**Your Answer**: `Seattle`
+		-	**Challenge Question 2**: `Favourite sport?`
+		-	**Your Answer**: `Baseball`
 
-	6. Sign out.  
+		<img src="../../assets/img/learn/dashboard-account-recovery-form.png" alt="Challenge Question form" width="700" style="border:1px solid grey">
+
+	6. Click **Update**.
+
+	7. Sign out.  
 
 4.	To mimic a forgotten password:
 
-	1.	On the Sign In screen of the WSO2 Identity Server My Account Portal at `https://localhost:9443/myaccount/`, click
-	 **Password**.
+	1.	On the Sign In screen of the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`, click **Password**.
 
 		<img src="../../assets/img/learn/forgotten-password-option.png" alt="Sign In form" width="700" style="border:1px solid grey"> 	
 
@@ -115,11 +112,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	4.	Click **Submit**. 
 
-	5.	Enter the first challenge question answer as `Tom` and click **Submit**.
+	5.	Enter the first challenge question answer as `Seattle` and click **Submit**.
 
 		<img src="../../assets/img/learn/first-security-question.png" alt="First Security Question" width="400" style="border:1px solid grey">
 
-	6.	Enter the second challenge question answer as `Pizza` and click **Submit**.
+	6.	Enter the second challenge question answer as `Baseball` and click **Submit**.
 
 		<img src="../../assets/img/learn/second-security-question.png" alt="First Security Question" width="400" style="border:1px solid grey">  
 

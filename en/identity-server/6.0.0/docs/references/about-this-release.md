@@ -1,10 +1,10 @@
 # About this Release
 
-WSO2 Identity Server (WSO2 IS) 6.1.0 is the latest WSO2 IS release and is the successor of version 6.0.0. WSO2 IS 6.1.0 includes several improvements and new features to strengthen the offerings of the WSO2 IS 6.x.x series.
+WSO2 Identity Server 6.0.0 is the latest WSO2 Identity Server (WSO2 IS) release and is the successor of WSO2 Identity Server 5.11.0.
 
-## What's new in WSO2 IS 6.x.x?
+## What's new in this release?
 
-The following new features and enhancements (introduced in WSO2 IS 6.0.0) are included in WSO2 IS 6.1.0.
+WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 -   **Integration with TypingDNA**
 
@@ -20,19 +20,19 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
 
 -   **Multi-attribute login support** 
 
-    This simplifies user sign-in by allowing users to sign in with their preferred attributes, such as email, phone number, or username, as the login identifier.
+    This simplifies user sign-in by allowing users to sign in with their preferred attributes such as email, phone number, or username as the login identifier.
 
     [Learn more]({{base_path}}/guides/login/multi-attribute-login/)
 
 -   **Device flow support** 
 
-    This expands the range of devices an organization can use within their overall solution by including devices with limited user input capabilities (such as smart TVs, which do not have keyboards). With device flow support, users can leverage other devices, such as smartphones, to complete login on a device with limited input.
+    This expands the range of devices an organization can use within their overall solution by including devices with limited user input capabilities (such as smart TVs which do not have keyboards). With device flow support, users can leverage other devices, such as smartphones, to complete login on a device with limited input.
 
     [Learn more]({{base_path}}/guides/access-delegation/try-device-flow/)
 
 -   **PBKDF2 hashing for user passwords**
 
-    This is a simple cryptographic key derivation function, which is resistant to brute force attacks. PBKDF2 is recommended by NIST, and PBKDF2 is required to achieve FIPS-140 compliance.
+    This is a simple cryptographic key derivation function, which is resistant to brute force attacks. PBKDF2 is recommended by NIST and PBKDF2 is required to achieve FIPS-140 compliance.
 
     [Learn more]({{base_path}}/deploy/secure-userstore-using-pbkdf2/)
 
@@ -64,7 +64,7 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
 
 -   **Federated IDP Initiated OIDC Back-Channel Logout**
 
-    With OIDC identity federation in the identity server, WSO2 IS acts as a Relying Party (RP) to the federated identity provider. However, currently, there is no mechanism to terminate the sessions and revoke tokens in WSO2 IS (RP) whenever there is a session update on the federated IDP (OP) side. 
+    When it comes to OIDC identity federation in identity server, WSO2 IS acts as a Relying Party (RP) to the federated identity provider. However, currently, there is no mechanism to terminate the sessions and revoke tokens in WSO2 IS (RP) whenever there is a session update on the federated IDP (OP) side. 
     
     The OIDC Back Channel Logout v1.0 spec defines a mechanism for communicating logout requests to all RPs that have established sessions with an OP. This mechanism relies upon direct communication of such requests between OP and RPs bypassing the User-Agent. It imposes new requirements that RPs have a logout endpoint that is reachable by the OP. This feature will enable that capability in WSO2 Identity Server.
 
@@ -81,7 +81,7 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
     This is a solution to overcome the restrictions (due to third-party cookie limitations by browsers such as Safari) to extend IDP sessions when application and IDP origins differ from each other. This serves as an alternative to passive authentication requests that would no longer work in impacted browsers.
 
     [Learn more]({{base_path}}/apis/idp-session-extender-endpoint/)
-    
+	
 -   **Auto login after self-registration**
 
     In the self-registration flow, the user is asked to re-enter password credentials after the user is verified using email. With this feature, after the user is verified by clicking the verification mail, the user is logged in immediately without having to re-enter credentials.
@@ -94,13 +94,6 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
 
 -   **reCAPTCHA v3 and invisible reCAPTCHA v2 support**
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/about-this-release.md
-    Improved security against spam and fraudulent activity with an enhanced reCAPTCHA user experience compared to the conventional "I'm not a robot" checkbox.
-
-    [Learn more]({{base_path}}/deploy/configure-recaptcha/)
-
-WSO2 IS 6.1.0 introduces the following new features and enhancements:
-========
     Improved  security against spam and fraudulent activity with an enhanced reCAPTCHA user experience compared to the conventional "I'm not a robot" checkbox.
 
     [Learn more]({{base_path}}/deploy/configure-recaptcha/)
@@ -112,29 +105,10 @@ WSO2 IS 6.1.0 introduces the following new features and enhancements:
     [Learn more]({{base_path}}/references/extend/rebranding/customizable-login-portal/)
 
 ## What has changed in this release?
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/about-this-release.md
 
--   **Google One Tap authentication** 
-    
-    Enabling seamless authentication with Google on authenticated Google sessions with a single tap. A personalized login button will be there for sign-in/sign-up. This option is enabled via the existing Google authenticator.
+If you are moving to WSO2 Identity Server 6.0.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.0.0.
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/about-this-release.md
-    [Learn more]({{base_path}}/guides/identity-federation/google/)
-
--   **Accessibility**
-    
-    The user authentication and recovery pages are now WCAG 2.1 AA compliant, enhancing the accessibility of WSO2 Identity Server to a broader audience.  
-
-    [Learn more]({{base_path}}/references/concepts/compliance/accessibility-compliance-wso2-is/)
-
-## What has changed in WSO2 IS 6.x.x?
-
-If you are moving to WSO2 Identity Server 6.1.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.1.0.
-
-Learn more about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
-========
 Learn moe about [upgrading to WSO2 IS 6.0.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/about-this-release.md
 
 ## Beta features
 
@@ -154,65 +128,46 @@ Learn moe about [upgrading to WSO2 IS 6.0.0]({{base_path}}/deploy/upgrade/upgrad
 
 ## Removed features
 
-The following features are removed from WSO2 IS 6.0.0 onwards.
+The following features are removed from WSO2 Identity Server 6.0.0.
 
-- H2 Console
-- Embedded LDAP user store
-- Carbon metrics
-- Yahoo authenticator
-- reCAPTCHA v2 "I'm not a robot" checkbox
+-   H2 Console
+-   Embedded LDAP user store
+-   Carbon metrics
+-   Yahoo authenticator
+-   reCAPTCHA v2 "I'm not a robot" Checkbox
 
 ## Deprecated features
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/about-this-release.md
-The following capabilities are deprecated from WSO2 IS 6.0.0 onwards, which means they will be removed in a future release.
-========
 The following capabilities are deprecated in WSO2 Identity Server 6.0.0, which means they will be removed in a future release. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/about-this-release.md
 
--   SCIM 1 inbound provisioning
+-   SCIM 1 inbound provisioning 
 
-    **Recommendation:** Use SCIM 2.0 inbound provisioning
+    **Recommendation**: Use SCIM 2.0 inbound provisioning
 
--   SCIM 1 outbound provisioning
+-   SCIM 1 outbound provisioning 
 
-    **Recommendation:** Use SCIM 2.0 outbound provisioning
+    **Recommendation**: Use SCIM 2.0 outbound provisioning 
 
 -   SOAP APIs
 
-    **Recommendation:** Use REST-based APIs
+    **Recommendation**: Use REST-based APIs
 
 -   Legacy DCR endpoint implementation (/identity/register)
 
-    **Recommendation:** Use /identity/oauth2/dcr/v1.1
-
-The following capabilities are deprecated from WSO2 IS 6.1.0 onwards, which means they will be removed in a future release.
-
--   On-prem WSO2 Identity Server Analytics solution (based on WSO2 Streaming Processor)
-
-    **Recommendation**: ELK-based analytics
-
-!!! info
-    Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
-
-## Retired features
-
-User-managed access (UMA) will no longer be available out-of-the-box from WSO2 IS 6.1.0 onwards. It will be available as a connector on demand. [Learn more](https://github.com/wso2-extensions/identity-oauth-uma/blob/master/docs/README.md).
+    **Recommendation**: Use /identity/oauth2/dcr/v1.1
 
 ## Announcements
 
-The Workflow engine available out-of-the-box in WSO2 Identity Server will be made available as a connector in the next release. This connector will be available on demand.
+The following features currently available out-of-the-box in WSO2 Identity Server will be made available as connectors in the next release. These connectors will be available on demand.
+-   Workflow engine 
+-   User managed access (UMA)
+
+The on-prem WSO2 Identity Server Analytics solution (based on WSO2 Streaming Processor) will be deprecated with the next immediate WSO2 Identity Server release. In WSO2 IS 6.0.0, ELK-based analytics is introduced as the alternative analytics solution.
 
 ## Fixed issues
 
-See the complete list of issues fixed in the latest WSO2 IS 6.1.0 release:
-
-- [6.1.0-M1](https://github.com/wso2/product-is/milestone/235?closed=1)
-- [6.1.0-Alpha](https://github.com/wso2/product-is/milestone/237?closed=1)
-- [6.1.0-Alpha2](https://github.com/wso2/product-is/milestone/238?closed=1)
-- [6.1.0-Beta](https://github.com/wso2/product-is/milestone/230?closed=1)
-- [6.1.0-RC](https://github.com/wso2/product-is/milestone/240?closed=1)
-    
+For a complete list of fixed issues related to this release, see [WSO2 IS Runtime - Fixed Issues](https://github.com/wso2/product-is/milestone/229?closed=1).
+	
 ## Known issues
 
 For a complete list of open issues related to the WSO2 Identity Server runtime, see [WSO2 IS Runtime - Open Issues](https://github.com/wso2/product-is/issues).

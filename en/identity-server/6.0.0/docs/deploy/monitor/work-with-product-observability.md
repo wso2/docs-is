@@ -19,9 +19,6 @@ sent in the request call.
 
 ### log4j configs
 
-!!! Warning
-    Note that WSO2 Identity Server 5.9.0, 5.10.0, and 5.11.0 are affected by the **Log4j2 zero-day** vulnerability, which has been reported to WSO2 on 10th December 2021. You can mitigate this vulnerability in your product by following our [instructions and guidelines](https://docs.wso2.com/pages/viewpage.action?pageId=180948677).
-
 Follow the steps below to set up the correlation logs related to the
 database calls.
 
@@ -47,7 +44,7 @@ database calls.
     appender.CORRELATION.type = RollingFile
     appender.CORRELATION.name = CORRELATION
     appender.CORRELATION.fileName =${sys:carbon.home}/repository/logs/correlation.log
-    appender.CORRELATION.filePattern =${sys:carbon.home}/repository/logs/correlation-%d{MM-dd-yyyy}.%i.log
+    appender.CORRELATION.filePattern =${sys:carbon.home}/repository/logs/correlation-%d{MM-dd-yyyy}.log
     appender.CORRELATION.layout.type = PatternLayout
     appender.CORRELATION.layout.pattern = %d{yyyy-MM-dd HH:mm:ss,SSS}|%X{Correlation-ID}|%t|%mm%n
     appender.CORRELATION.policies.type = Policies
@@ -217,11 +214,7 @@ timing delays for the JDBC or LDAP calls.
 Following are a few advance scenarios that are related to product
 observability in WSO2 IS.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/monitor/work-with-product-observability.md
 ### Define denylists for the threads
-========
-#### Defining denylists for the threads
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/working-with-product-observability.md
 
 Certain threads continuously print unnecessary logs. Defining denylists
 prevents the unwanted threads from printing logs thereby improving the

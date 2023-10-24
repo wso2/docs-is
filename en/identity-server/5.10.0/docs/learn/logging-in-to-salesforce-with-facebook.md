@@ -1,57 +1,84 @@
 # Logging in to Salesforce with Facebook
 
-This topic provides instructions on how to log into Salesforce using your Facebook credentials. In this use case Salesforce is the service provider while Facebook is the Identity Provider. If a user needs to log in to Salesforce, WSO2 Identity Server sends the user details to Facebook. Facebook authenticates the user credentials and if the user exits in Facebook, the user is allowed to log in to Salesforce.
+This topic provides instructions on how to log into Salesforce using
+your Facebook credentials. In this use case Salesforce is the service
+provider while Facebook is the Identity Provider. If a user needs to log
+in to Salesforce, WSO2 Identity Server sends the user details to
+Facebook. Facebook authenticates the user credentials and if the user
+exits in Facebook, the user is allowed to log in to Salesforce.
 
 !!! tip "Before you begin!"  
     When you log into Salesforce, you normally use an email address. So, to
     integrate this with the Identity Server, you need to configure WSO2 IS
     to enable users to log in using their email addresses.
-
+    
     ??? note "Click here to get the steps on how configure the email address as the username."
     
+    		
     	!!! note
-        Configuring the email address as the username in an **already running
-        Identity Server** is not the production recommended way. Therefore,
-        **make sure to configure it before you begin working with WSO2 IS**.
+			Configuring the email address as the username in an **already running
+			Identity Server** is not the production recommended way. Therefore,
+			**make sure to configure it before you begin working with WSO2 IS**.
+        
 
-		1.  Open the `<IS_HOME>/repository/conf/deployment.toml` file.
-		2.  Add  `enable_email_domain` as shown below.
+		1.  Open the `              <IS_HOME>/repository/conf/deployment.toml             `
+			file.
+		2.  Add  `               enable_email_domain              ` as shown below.
 
 			```xml
-                [tenant_mgt]
-                enable_email_domain= true
+			[tenant_mgt]
+			enable_email_domain= true
 			```
 
-		3.  Open the `<IS_HOME>/repository/conf/claim-config.xml` file and configure the `AttributeID` property of the `http://wso2.org/claims/username ` claim ID that is under `<Dialect dialectURI="http://wso2.org/claims">` to `mail`.
+		3.  Open the `<IS_HOME>/repository/conf/claim-config.xml              `
+			file and configure the `               AttributeID              `
+			property of the
+			`                               http://wso2.org/claims/username                             `
+			claim ID that is under
+			`               <Dialect dialectURI="                               http://wso2.org/claims                              ">              `
+			to `               mail              `.
 
             !!! warning
-            This file is checked only when WSO2 IS is starting for the first time. Therefore, if you haven't configured this property at the time of starting up the server for the first time, you will get errors at the start up.
+				This file is checked only when WSO2 IS is starting for the first
+				time. Therefore, if you haven't configured this property at the time
+				of starting up the server for the first time, you will get errors at
+				the start up.
 
 			``` java
-                <Claim>
-                <ClaimURI>http://wso2.org/claims/username</ClaimURI>
-                <DisplayName>Username</DisplayName>
-                <AttributeID>mail</AttributeID>
-                <Description>Username</Description>
-                </Claim>
+			<Claim>
+			   <ClaimURI>http://wso2.org/claims/username</ClaimURI>
+			   <DisplayName>Username</DisplayName>
+			   <AttributeID>mail</AttributeID>
+			   <Description>Username</Description>
+			</Claim>
 			```
 
-		4. Open the `<IS_HOME>/repository/conf/identity/identity-mgt.properties` file and set the following property to `true`.
+		4.  Open the `               <IS_HOME>/repository/conf/identity/identity-mgt.properties               `
+			file and set the following property to
+			`               true              `.
 
 			!!! info 
-            This step is required due to a known issue that prevents the confirmation codes from being removed after they are used when email usernames are enabled. This occurs because the '@' character (and some special characters) are not allowed in the registry. To overcome this issue, enable hashed usernames when saving the confirmation codes by configuring the properties below.
+				This step is required due to a known issue that prevents the
+				confirmation codes from being removed after they are used when email
+				usernames are enabled. This occurs because the '@' character (and
+				some special characters) are not allowed in the registry. To
+				overcome this issue, enable hashed usernames when saving the
+				confirmation codes by configuring the properties below.
 
 			``` xml
-			    UserInfoRecovery.UseHashedUserNames=true
+			UserInfoRecovery.UseHashedUserNames=true
 			```
 
-			Optionally, you can also configure the following property to determine which hash algorithm to use.
+			Optionally, you can also configure the following property to
+			determine which hash algorithm to use.
 
 			``` xml
-			    UserInfoRecovery.UsernameHashAlg=SHA-1
+			UserInfoRecovery.UsernameHashAlg=SHA-1
 			```
 
-		5. Configure the following set of parameters in the user store configuration, depending on the type of user store you are connected to (LDAP/Active Directory/ JDBC).
+		5.  Configure the following set of parameters in the user store
+			configuration, depending on the type of user store you are connected
+			to (LDAP/Active Directory/ JDBC).
 
 			<table>
 			<thead>
@@ -138,7 +165,7 @@ This topic provides instructions on how to log into Salesforce using your Facebo
 			<p class="admonition-title">Note</p>
 			<p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
 				<p>After this configuration, the user having the username <strong><code>                      admin@wso2.com                     </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-				<img src="{{base_path}}/assets/img/tutorials/super-admin.png"/></p></div>
+				<img src="../../assets/img/tutorials/super-admin.png"/></p></div>
 			<div class="admonition tip">
 			<p class="admonition-title">Tips</p>
 			<p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>
@@ -157,15 +184,10 @@ This topic provides instructions on how to log into Salesforce using your Facebo
 			
 			!!! info 
 				With these configuration users can log in to super tenant with both
-				email user name ( *[alex@gmal.com](mailto:alex@wso2.com)* ) or
-				non-email user names (larry). But for tenant only email user names
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/login/log-into-salesforce-using-fb.md
+				email user name ( *[bob@gmal.com](mailto:bob@wso2.com)* ) or
+				non-email user names (alice). But for tenant only email user names
 				allowed (tod@ [gmail.com](http://gmail.com) @
 				[wso2.com](http://wso2.com) )
-========
-				allowed (tod@ [gmail.com](https://gmail.com) @
-				[wso2.com](https://wso2.com) )
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/logging-in-to-salesforce-with-facebook.md
 
 			!!! note
 				You can configure email user name without enabling
@@ -180,7 +202,7 @@ This topic provides instructions on how to log into Salesforce using your Facebo
 		!!! info "Related Topics"
 			For more information on how to configure primary and secondary user
 			stores, see [Configuring User
-			Stores]({{base_path}}/setup/configuring-user-stores).
+			Stores](../../setup/configuring-user-stores).
 
 
 Let's get started!
@@ -213,10 +235,10 @@ Let's get started!
         ??? note "Click here to find the steps on how to switch from the classic to the lightning theme."
 			1.  Click your username to expand the drop down.
 			2.  Click **Switch to Lightning Experience**.  
-				<!-- ![switch-to-lightening-experience]({{base_path}}/assets/img/tutorials/switch-to-lightening-experience.png) -->
+				![switch-to-lightening-experience](../assets/img/tutorials/switch-to-lightening-experience.png)
 			3.  Click the settings icon on the top-right-hand corner, and click
 				**Set Up**.  
-				<!-- ![switch-from-classic]({{base_path}}/assets/img/tutorials/switch-from-classic.png) -->
+				![switch-from-classic](../assets/img/tutorials/switch-from-classic.png)
 	
 			Now you are navigated to the lightening theme of Salesforce.
 	
@@ -229,7 +251,7 @@ Let's get started!
 
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
-        <!-- ![my-domain]({{base_path}}/assets/img/tutorials/my-domain.png) -->
+        ![my-domain](../assets/img/tutorials/my-domain.png)
         
     2.  Click **My Domain**.
     
@@ -241,7 +263,7 @@ Let's get started!
 			For the page given below to load on your browser, make sure that
 			the Salesforce cookies are not blocked.
 
-        <!-- ![sales-force-cookies]({{base_path}}/assets/img/tutorials/sales-force-cookies.png) -->
+        ![sales-force-cookies](../assets/img/tutorials/sales-force-cookies.png)
 
     4.  If the domain is available, select **I agree to Terms and
         Conditions** and click **Register Domain** to register your new
@@ -255,7 +277,7 @@ Let's get started!
     
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** check box to enable federated single sign-on using SAML.  
-    <!-- ![saml-enabled]({{base_path}}/assets/img/tutorials/saml-enabled.png) -->
+    ![saml-enabled](../assets/img/tutorials/saml-enabled.png)    
     
 7.  Click **Save** to save this configuration change.
 
@@ -283,7 +305,7 @@ Let's get started!
 
 9.  <a name="samlsinglesignon"></a>Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
-    ![saml-sso-setting]({{base_path}}/assets/img/tutorials/saml-sso-setting.png) -->
+    ![saml-sso-setting](../assets/img/tutorials/saml-sso-setting.png)
     
     Ensure that you configure the following properties.
 
@@ -347,7 +369,7 @@ Let's get started!
     <tr class="even">
     <td>Request Signing Certificate</td>
     <td><div class="content-wrapper">
-    <p>From the dropdown, you must select the public certificatLoggingie of Salesforce you created in <a href="{{base_path}}/learn/logging-in-to-salesforce-with-facebook#salesforce-step8">step 8</a>.<br />
+    <p>From the dropdown, you must select the public certificatLoggingie of Salesforce you created in <a href="../../learn/logging-in-to-salesforce-with-facebook#salesforce-step8">step 8</a>.<br />
     <br />
     If you have not created this already, follow the steps given in <a href="#salesforce-step8">step 8</a> above. After creating the certificate, you need start filling the SAML Single Sign-On Setting form from beginning again.</p>
     </div></td>
@@ -420,7 +442,7 @@ Let's get started!
     
 12. Go to **Domain Management** in the left navigation pane and click
     **My Domain**.  
-    <!-- ![domain-management]({{base_path}}/assets/img/tutorials/domain-management.png) -->
+    ![domain-management](../assets/img/tutorials/domain-management.png)
     
 13. Click **Deploy to Users**. Click **Ok** to the confirmation message
     that appears.
@@ -428,16 +450,16 @@ Let's get started!
 14. In the page that appears, you must configure the **Authentication
     Configuration** section. Scroll down to this section and click
     **Edit**.  
-    <!-- ![edit-authentication-configuration]({{base_path}}/assets/img/tutorials/edit-authentication-configuration.png) -->
+    ![edit-authentication-configuration](../assets/img/tutorials/edit-authentication-configuration.png)
     
 15. Under **Authentication Service** , select **SSO** and deselect
     **Login Page**.  
-    <!-- ![select-sso-in-authentication-service]({{base_path}}/assets/img/tutorials/select-sso-in-authentication-service.png) -->
+    ![select-sso-in-authentication-service](../assets/img/tutorials/select-sso-in-authentication-service.png)
 
     !!! info
 		SSO is the SAML user authentication method you created in
 		salesforce.com, in [step 9
-		above]({{base_path}}/learn/logging-in-to-salesforce-with-facebook#samlsinglesignon). It is
+		above](../../learn/logging-in-to-salesforce-with-facebook#samlsinglesignon). It is
 		configured to direct users to WSO2 Identity server, which in turn
 		direct the request to Facebook as Facebook acts as the IdP.
 
@@ -446,7 +468,7 @@ Let's get started!
 ## Configuring the service provider
 
 1.  Sign in. Enter your username and password to log on to the
-    [management console]({{base_path}}/setup/getting-started-with-the-management-console)
+    [management console](../../setup/getting-started-with-the-management-console)
    .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
@@ -455,7 +477,7 @@ Let's get started!
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
-    <!-- ![define-salesforce-as-sp]({{base_path}}/assets/img/tutorials/define-salesforce-as-sp.png) -->
+    ![define-salesforce-as-sp](../assets/img/tutorials/define-salesforce-as-sp.png)
     
 4.  Click **Register**.
 
@@ -479,10 +501,10 @@ Let's get started!
         value used to identify the user. In cases where you have a user
         store connected to the Identity Server, this **Subject Claim
         URI** value is used to search for the user in the user store.  
-        <!-- ![email-from-subject-claim-uri]({{base_path}}/assets/img/tutorials/email-from-subject-claim-uri.png) -->
+        ![email-from-subject-claim-uri](../assets/img/tutorials/email-from-subject-claim-uri.png)
         
         For more information about claim mapping, see [Claim
-        Management]({{base_path}}/learn/claim-management).
+        Management](../../learn/claim-management).
 
 6.  Expand the **Inbound Authentication Configuration** and the **SAML2
     Web SSO Configuration** and click **Configure**.
@@ -516,8 +538,8 @@ Let's get started!
     <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="#configuring-salesforce">Configuring Salesforce</a>.</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
     <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
-    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong>.</br> <img src="{{base_path}}/assets/img/tutorials/sso-setting-name.png" width="900" /></li>
-    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="{{base_path}}/assets/img/tutorials/login-url-for-salesforce.png" /></li>
+    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong>.</br> <img src="../../assets/img/tutorials/sso-setting-name.png" width="900" /></li>
+    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../../assets/img/tutorials/login-url-for-salesforce.png" /></li>
     </ol>
     </div>
     </div>
@@ -550,38 +572,39 @@ Let's get started!
     Facebook credentials.
     
 2.  Click on **Create App**.  
-    <!-- ![create-app-facebook]({{base_path}}/assets/img/tutorials/create-app-facebook.png) -->
+    ![create-app-facebook](../assets/img/tutorials/create-app-facebook.png)
     
 3.  Enter a **Display Name**, Contact Email, and click **Create App
     ID**.  
-    <!-- ![create-app-id]({{base_path}}/assets/img/tutorials/create-app-id.png)
+    ![create-app-id](../assets/img/tutorials/create-app-id.png)
     
 4.  Enter code for security check, and click **Submit**.
 
-5.  On Select product page, click **Set up** under **Facebook Login**.  
-    <!-- ![setup-facebook]({{base_path}}/assets/img/tutorials/setup-facebook.png) -->
+5.  On Select product page, click **Set up** under **Facebook Login**
+   .  
+    ![setup-facebook](../assets/img/tutorials/setup-facebook.png)
     
 6.  Select **Website** as the platform for the app used in this
     sample.  
-    <!-- ![select-website-as-the-platform]({{base_path}}/assets/img/tutorials/select-website-as-the-platform.png) -->
+    ![select-website-as-the-platform](../assets/img/tutorials/select-website-as-the-platform.png)
     
 7.  Enter **`             https://localhost:9443/            `** as the
     Site URL and click **Save**.
 	
 	!!! info 
 		If you have configured [WSO2 Identity Server to run using the IP or
-		hostname]({{base_path}}/setup/running-the-product#change-ip-or-hostname)
+		hostname](../../setup/running-the-product#change-ip-or-hostname)
 		, you need to provide the IP or hostname instead of
 		`             localhost            `.
 
-    <!-- ![enter-site-url]({{base_path}}/assets/img/tutorials/enter-site-url.png) -->
+    ![enter-site-url](../assets/img/tutorials/enter-site-url.png)
 
 8.  Under Products on the left navigation panel, Click **Facebook
     Login**.
 
 9.  You can configure the **Client OAuth Settings** on the window that
     appears.  
-    <!-- ![client-oauth-setting]({{base_path}}/assets/img/tutorials/client-oauth-setting.png) -->
+    ![client-oauth-setting](../assets/img/tutorials/client-oauth-setting.png)
 
     1.  **Client OAuth Login** should be set to **Yes**.  
         Client OAuth Login is the global on-off switch for using OAuth
@@ -610,7 +633,7 @@ Let's get started!
 		Secret in OAuth terminology. The API Version is Facebook’s API that
 		is used to create the application.
 
-    <!-- ![id-secret-for-facebook]({{base_path}}/assets/img/tutorials/id-secret-for-facebook.png) -->
+    ![id-secret-for-facebook](../assets/img/tutorials/id-secret-for-facebook.png)
 
 12. Click **Settings** on the left menu and navigate to the **Basic**
     tab. Add the **App Domains** (since WSO2 IS is running on localhost,
@@ -635,7 +658,7 @@ Now you have finished configuring Facebook as an Identity Provider.
 	navigation menu of the dashboard and specify the required Facebook users
 	as Developers or Testers.
 
-	<!-- ![submit-fb-app-for-review]({{base_path}}/assets/img/tutorials/submit-fb-app-for-review.png) -->
+	![submit-fb-app-for-review](../assets/img/tutorials/submit-fb-app-for-review.png)
 
 ## Configuring the identity provider
 
@@ -653,7 +676,7 @@ new identity provider.
 	!!! info 
 		For detailed information on the Identity Provider configurations,
 		see [Adding and Configuring an Identity
-		Provider]({{base_path}}/learn/adding-and-configuring-an-identity-provider).
+		Provider](../../learn/adding-and-configuring-an-identity-provider).
 
 4.  Choose the salesforce certificate you downloaded in [step8 under
     Configuring Salesforce](#salesforce-step8) for
@@ -667,7 +690,7 @@ new identity provider.
         Claim mapping Dialect**.
     3.  Click **Add Claim Mapping** to add custom claim mappings as
         follows.  
-        <!-- ![add-claim-mapping-for-facebook]({{base_path}}/assets/img/tutorials/add-claim-mapping-for-facebook.png) -->
+        ![add-claim-mapping-for-facebook](../assets/img/tutorials/add-claim-mapping-for-facebook.png)
 
         Do the following mappings as shown in the above image.
 
@@ -714,7 +737,7 @@ new identity provider.
        . You can map these attributes to any **Local Claim URI** that
         is suitable.  
         For more information about claim mapping, see [Claim
-        Management]({{base_path}}/learn/claim-management).
+        Management](../../learn/claim-management).
 
 6.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -744,7 +767,7 @@ new identity provider.
     <td>This refers to the App ID you received from the Facebook app you created.</td>
     <td><div class="content-wrapper">
     <p>&lt;Application ID of the Facebook App&gt;<br />
-    <img src="{{base_path}}/assets/img/tutorials/app-id-of-fb-app.png" /></p>
+    <img src="../../assets/img/tutorials/app-id-of-fb-app.png" /></p>
     </div></td>
     </tr>
     <tr class="even">
@@ -772,7 +795,7 @@ new identity provider.
     </tbody>
     </table>
 
-    <!-- ![fb-config]({{base_path}}/assets/img/tutorials/fb-config.png) -->
+    ![fb-config](../assets/img/tutorials/fb-config.png)
 
 9.  Click **Register**.
 
@@ -799,7 +822,7 @@ service provider. In this case, the service provider is Salesforce
     selected and select **Facebook** from the dropdown. This is the name
     of the identity provider that you configured.
 
-    <!-- ![fb-federated-authentication]({{base_path}}/assets/img/tutorials/fb-federated-authentication.png) -->
+    ![fb-federated-authentication](../assets/img/tutorials/fb-federated-authentication.png)
 
 7.  Click **Update** to save the changes.
 
@@ -862,18 +885,19 @@ Salesforce and the Identity Server.
 			
 		5.  Click on the name of the Single Sign-On Setting you created. In
 			this use case click **SSO**.  
-			<!-- ![sso-name]({{base_path}}/assets/img/tutorials/sso-name.png)-->
+			![sso-name](../assets/img/tutorials/sso-name.png)
 			
 		6.  Copy the URL that is defined for Login URL to access
 			Salesforce.  
-			<!-- ![login-url-for-salesforce]({{base_path}}/assets/img/tutorials/login-url-for-salesforce.png) -->
+			![login-url-for-salesforce](../assets/img/tutorials/login-url-for-salesforce.png)
 
     You are directed to the **Facebook Login** screen.  
-    <!-- ![fb-login-screen]({{base_path}}/assets/img/tutorials/fb-login-screen.png) -->
+    ![fb-login-screen](../assets/img/tutorials/fb-login-screen.png)
 
-4. Log in using your Facebook credentials. You are then redirected back
+4.  Log in using your Facebook credentials. You are then redirected back
     to Salesforce.  
     Remember to use the same email address as the user in the Salesforce
     account.
 
-Now you have successfully configured WSO2 Identity server so you can login to Salesforce using Facebook as the Identity Provider.
+Now you have successfully configured WSO2 Identity server so you can
+login to Salesforce using Facebook as the Identity Provider.

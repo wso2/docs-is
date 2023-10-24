@@ -1,14 +1,10 @@
 # Enable login using the Authorization Code flow and PKCE for public clients
 
-This guide gives you instructions on how to implement login with OpenID Connect in your application by using the [authorization code flow]({{base_path}}/references/concepts/authorization/authorization-code-grant) and PKCE.
+This guide gives you instructions on how to implement login with OpenID Connect in your application by using the [authorization code flow]({{base_path}}/references/concepts/authorization/authorization-code-grant) and PKCE. This method is most suitable for public clients, which are applications that cannot keep the client credentials securely.
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/oidc-auth-code-pkce.md
 Single-page applications and native mobile applications are some examples of public clients.
 
 For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) along with the authorization code grant to mitigate [code interception attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/).
-========
-This method is most suitable for public clients, which are applications that cannot keep the client credentials securely. Refer to [Authorization Code flow and PKCE for public clients]({{base_path}}/guides/login/oidc-auth-code-pkce-public-clients.md) for instructions on how to implement this for public clients.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/oidc-auth-code-pkce.md
 
 ## Register a service provider
 

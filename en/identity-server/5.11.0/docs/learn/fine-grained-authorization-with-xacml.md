@@ -6,7 +6,7 @@ Language (XACML) 3.0.
 
 ??? abstract "What's XACML?"
 
-	XACML is a standard policy language that supports a standard way to write access control rules and evaluate access requests according to the rules defined in policies. It lets you form a query to ask whether the given action should be allowed or not, and interprets the result. To learn more about XACML, see [Access control and Entitlement management]({{base_path}}/references/concepts/authorization/access-control).
+	XACML is a standard policy language that supports a standard way to write access control rules and evaluate access requests according to the rules defined in policies. It lets you form a query to ask whether the given action should be allowed or not, and interprets the result. To learn more about XACML, see [Working with XACML](../../learn/working-with-xacml).
 
 ## Scenario
 
@@ -17,52 +17,40 @@ Pickup is a cab company that has many employees who use different credentials t
 
 Following are three Pickup employees:
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/fine-grained-authorization-with-xacml.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/authorization/fine-grained-auth-xacml.md
--	**John**: A manager who has permission to view old and current driver allocations via Pickup Dispatch.
--	**Jane**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. Sam also has permission to view old and current driver allocations. 
--	**Richard**: An HR manager who only has access to Pickup Manager.  
-========
 -	**Larry**: A manager who has permission to view old and current driver allocations via Pickup Dispatch.
 -	**Sam**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. Sam also has permission to view old and current driver allocations. 
 -	**Kim**: An HR manager who only has access to Pickup Manager.  
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/fine-grained-authorization-with-xacml.md
-========
--	**Alex**: A manager who has permission to view old and current driver allocations via Pickup Dispatch.
--	**Sam**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. Sam also has permission to view old and current driver allocations. 
--	**Kim**: An HR manager who only has access to Pickup Manager.  
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/fine-grained-authorization-with-xacml.md
 
-<img src="{{base_path}}/assets/img/guides/pickup-access-control-with-xacml.png" alt="Scenario Diagram" width="800">  
+<img src="../../assets/img/learn/pickup-access-control-with-xacml.png" alt="Scenario Diagram" width="800">  
 
 Let's creat a XACML policy that controls access to Pickup Dispatch accordingly!  
 
 ## Set up 
 
-Follow the steps below to create a XACML policy that controls access of Alex, Sam, and Kim.
+Follow the steps below to create a XACML policy that controls access of John, Jane, and Richard.
 
 !!! tip "Before you begin"
 
-	1.	[Run WSO2 Identity Sever]({{base_path}}/setup/running-the-product/).
+	1.	[Run WSO2 Identity Sever](../../setup/running-the-product/).
 
-	2.	Sign in to the WSO2 Identity Server [Management Console]({{base_path}}/setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator.
+	2.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator.
 
 
 1.	On the **Main** menu of the Management Console, click **Entitlement > PAP > Policy Adminisration**.
 
-	<img src="{{base_path}}/assets/img/guides/policy-administration-menu-item.png" alt="Policy Administration menu-item" width="200" style="border:1px solid grey">  
+	<img src="../../assets/img/learn/policy-administration-menu-item.png" alt="Policy Administration menu-item" width="200" style="border:1px solid grey">  
 
 2.	Click **Add New Entitlement Policy**.
 
-	<img src="{{base_path}}/assets/img/guides/add-new-entitlement-policy-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
+	<img src="../../assets/img/learn/add-new-entitlement-policy-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
 
 3.	Click **Standard Policy Editor**. 
 
-	<img src="{{base_path}}/assets/img/guides/standard-policy-editor-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
+	<img src="../../assets/img/learn/standard-policy-editor-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
 
 4.	Enter the required values as given below.
 
-	<img src="{{base_path}}/assets/img/guides/create-a-xacml-policy.png" alt="Create a XACML Policy screen" width="700" style="border:1px solid grey"> 
+	<img src="../../assets/img/learn/create-a-xacml-policy.png" alt="Create a XACML Policy screen" width="700" style="border:1px solid grey"> 
 
 	1.	**Entitlement Policy Name**: This is the XACML policy name. Enter `Pickup_Access_Control`.
 
@@ -80,7 +68,7 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 
 	3.	**Rules**:
 
-		1.	To grant view access to Alex and Sam, add the following rule element values.
+		1.	To grant view access to John and Jane, add the following rule element values.
 
 			-	**Rule Name**: This is the name of the XACML rule. Enter `View_Access`.
 
@@ -98,14 +86,14 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 					</tr>
 				</table> 				
 
-			-	**Your Conditions**: This defines the criteria to pick entities that match with the rule. To grant permissions to either Alex or Sam, when they are sending a GET request, enter the following rule element values.
+			-	**Your Conditions**: This defines the criteria to pick entities that match with the rule. To grant permissions to either Johne or Jane, when they are sending a GET request, enter the following rule element values.
 
 				<table>
 					<tr>
 						<td><code>Subject</code></td>
 						<td><code>is/are</code></td>
 						<td><code>At-least-one-member-of</code></td>
-						<td><code>Alex,Sam</code></td>
+						<td><code>John,Jane</code></td>
 						<td><code>AND</code></td>
 					</tr>
 				</table>
@@ -124,9 +112,9 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 
 				Click **Add**. Note that the rule appears at the bottom of the screen. 
 
-				<img src="{{base_path}}/assets/img/guides/first-xacml-rule.png" alt="First XACML Rule" width="700" style="border:1px solid grey">
+				<img src="../../assets/img/learn/first-xacml-rule.png" alt="First XACML Rule" width="700" style="border:1px solid grey">
 
-		2.	Similarly, to grant edit access to Sam, add the following rule element values and click **Add**.
+		2.	Similarly, to grant edit access to Jane, add the following rule element values and click **Add**.
 
 			-	**Rule Name**: `Edit_Access`
 
@@ -151,7 +139,7 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 						<td><code>Subject</code></td>
 						<td><code>is/are</code></td>
 						<td><code>equal</code></td>
-						<td><code>Sam</code></td>
+						<td><code>Jane</code></td>
 						<td><code>AND</code></td>
 					</tr>
 				</table>
@@ -166,7 +154,7 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 					</tr>
 				</table> 				
 
-		3.	To deny edit access for Alex and Kim, add the following rule element values and click **Add**.
+		3.	To deny edit access for John and Richard, add the following rule element values and click **Add**.
 
 			-	**Rule Name**: `Deny_Edit_Access`
 
@@ -191,7 +179,7 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 						<td><code>Subject</code></td>
 						<td><code>is/are</code></td>
 						<td><code>at-least-one-member</code></td>
-						<td><code>Alex,Kim</code></td>
+						<td><code>John,Richard</code></td>
 						<td><code>AND</code></td>
 					</tr>
 				</table>
@@ -206,7 +194,7 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 					</tr>
 				</table>
 
-		4.	To deny view access for Kim, add the following rule element values and click **Add**.
+		4.	To deny view access for Richard, add the following rule element values and click **Add**.
 
 			-	**Rule Name**: `Deny_View_Access`
 
@@ -231,7 +219,7 @@ Follow the steps below to create a XACML policy that controls access of Alex, Sa
 						<td><code>Subject</code></td>
 						<td><code>is/are</code></td>
 						<td><code>equal</code></td>
-						<td><code>Kim</code></td>
+						<td><code>Richard</code></td>
 						<td><code>AND</code></td>
 					</tr>
 				</table>
@@ -258,22 +246,22 @@ Follow the steps below to test the XACML policy that you created above.
 
 1.	On the **Policy Administration** screen of the Management Console, locate the newly added XACML policy.
 
-	<img src="{{base_path}}/assets/img/guides/xacml-policy-location.png" alt="XACML Policy Location" width="700" style="border:1px solid grey"> 
+	<img src="../../assets/img/learn/xacml-policy-location.png" alt="XACML Policy Location" width="700" style="border:1px solid grey"> 
 
 2.	Click **Try**. Note that the **TryIt** screen appears.
 
-	<img src="{{base_path}}/assets/img/guides/tryit-screen.png" alt="XACML Policy Location" width="700" style="border:1px solid grey">  
+	<img src="../../assets/img/learn/tryit-screen.png" alt="XACML Policy Location" width="700" style="border:1px solid grey">  
 
-3.	To mimic a GET request to the `/pickup-dispatch/protected/index.jsp` resource by Alex, 
+3.	To mimic a GET request to the `/pickup-dispatch/protected/index.jsp` resource by John, 
 	1.	Enter the following request element values. 
 		-	**Resource**: `/pickup-dispatch/protected/index.jsp`
-		-	**Subject Name**: `Alex`
+		-	**Subject Name**: `John`
 		-	**Action Name**: `GET`
 
-	2.	Click **Test Evaluate**. A message indicating that Alex is permitted to perform the GET request to the given resource, appears.
+	2.	Click **Test Evaluate**. A message indicating that John is permitted to perform the GET request to the given resource, appears.
 	
-4.	To mimic a POST request to the `/pickup-dispatch/protected/index.jsp` resource by Alex, change the **Action Name** to `POST` and click **Test Evaluate**.
+4.	To mimic a POST request to the `/pickup-dispatch/protected/index.jsp` resource by John, change the **Action Name** to `POST` and click **Test Evaluate**.
 
-4.	To mimic a POST request by Sam to the same resource, change the **Subject Name** to `Sam` and click **Test Evaluate**. A message indicating that Sam is permitted to send the POST request to the given resource, appears.
+4.	To mimic a POST request by Jane to the same resource, change the **Subject Name** to `Jane` and click **Test Evaluate**. A message indicating that Jane is permitted to send the POST request to the given resource, appears.
 
-5.	To mimic a GET request by Kim, change the **Subject Name** back to `Kim` and **Action Name** to `GET` and click **Test Evaluate**. A message indicating that Kim is not permitted to send the POST request to the given resource appears. 
+5.	To mimic a GET request by Richard, change the **Subject Name** back to `Richard` and **Action Name** to `GET` and click **Test Evaluate**. A message indicating that Richard is not permitted to send the POST request to the given resource appears. 

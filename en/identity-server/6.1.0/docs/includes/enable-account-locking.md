@@ -29,8 +29,4 @@
          
 6.  To enable account locking for other tenants, log out and repeat the
    steps given above from [step 2](#lockingaspecificuseraccount)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/includes/enable-account-locking.md
    onwards.
-========
-   onwards.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/includes/enable-account-locking.md

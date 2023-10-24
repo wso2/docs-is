@@ -4,11 +4,19 @@ This section guides you through setting up password recovery for users
 to recover a lost or forgotten password. There are two methods of
 password recovery:
 
-!!! note
-	WSO2 IS validates whether the user account is locked or disabled prior to account recovery. In addition, if any customization prior to account recovery such as checking the eligibility of the user for account recovery by validating certain conditions/ user claims is needed, WSO2 Identity Server provides an extension for that.
-
-	WSO2 IS triggers the `PRE_ACCOUNT_RECOVERY` event prior to user account recovery using the WSO2 IS eventing framework. A custom event handler can be written upon which the `PRE_ACCOUNT_RECOVERY` event is triggered. For more information on how to write a custom handler and trigger an event, see [Writing a custom handler](../../develop/writing-a-custom-event-handler).
-
+!!! warning
+    From 5.3.0 onwards there is a new implementation for identity management
+    features. The steps given below in this document follows the new
+    implemenation which is the **recommended approach** for password
+    recovery.
+    
+    Alternatively, to see steps on how to enable this identity management
+    feature using the **old implementation**, see [Password Recovery
+    documentation in WSO2 IS
+    5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery). The old
+    implementation has been retained within the WSO2 IS pack for backward
+    compatitbility and can still be used if required.
+    
 
 ### Recovery using notifications
 
@@ -46,27 +54,16 @@ with email notification.
     API](../../develop/using-the-account-recovery-rest-apis)
 .
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/password-recovery.md
-    ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery-conf.png)
-
-    !!! note
-        The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
-========
     ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery.png)
 
     !!! note
         The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/password-recovery.md
     
     !!! info 
-        - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).
-
-        - To enable auto-login after password reset, select the **Enable Auto Login After Password Reset** checkbox. Alternatively, you can enable this server-wide by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
-
-        ```toml
-        [identity_mgt.recovery]
-        enable_auto_login=true
-        ```
+        To enable password recovery with reCaptcha verification, select the
+        **Enable reCaptcha for Password Recovery** checkbox. For more
+        information, see [Configuring reCaptcha for Password
+        Recovery](../../learn/configuring-recaptcha-for-password-recovery).
 
 5.  To enable sending a confirmation email to the user's registered
     email address after the password reset, select the **Notify when
@@ -80,10 +77,8 @@ with email notification.
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails)
-
-6. To allow the users to be redirect to a certain location after the password recovery request is complete, change the
-default configuration in **Recovery callback URL regex** to a specific regular expression that will match the 
-redirect URL that the user needs to be redirected to.
+.
+    
 
 !!! note
     
@@ -116,8 +111,8 @@ redirect URL that the user needs to be redirected to.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given.
-3.  Access the WSO2 Identity Server My Account portal using the following link:
-    `          https://localhost:<port_number>/myaccount         `.
+3.  Access the WSO2 Identity Server user portal using the following link:
+    `          https://localhost:<port_number>/user-portal         `.
 4.  Click the **Forgot Password** link.
 5.  Enter the user's username and select **Recover with Mail**. Click
     **Submit**.  
@@ -167,16 +162,16 @@ feature. To do this, do the following.
     Starts** checkbox to send an email notification to the user when the
     question based recovery starts.
 
-    !!! info 
-        - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).
+    !!! note
+    
+        You can also select the **Enable reCaptcha for Password Recovery**
+        checkbox to enable password recovery with reCaptcha verification.
+        For more information, see Configuring reCaptcha for Password
+        Recovery.
+    
+        ![enable-recaptch-for-password-recovery](../assets/img/using-wso2-identity-server/enable-recaptch-for-password-recovery.png) 
+    
 
-        - To enable auto-login after password reset, select the **Enable Auto Login After Password Reset** checkbox. Alternatively, you can enable this server-wide by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
-
-        ```toml
-        [identity_mgt.recovery]
-        enable_auto_login=true
-        ```
-        
 You can set up challenge questions for users in one of the following
 ways:
 
@@ -198,9 +193,9 @@ To try this out, first create a user in the Identity Server.
     ![add-new-user](../assets/img/using-wso2-identity-server/add-new-user.png) 
 
 4.  Log out of the Identity Server.
-5.  The URL for accessing the My Account portal is the following if the hostname is
+5.  The URL for accessing user portal is the following if the hostname is
     localhost and the Identity Server is running on port 9443:
-    <https://localhost:9443/myaccount/>. Click this link to access the
+    <https://localhost:9443/user-portal/>. Click this link to access the
     user portal and log in using the credentials of the user you just
     created.  
     ![enter-using-credentials](../assets/img/using-wso2-identity-server/enter-using-credentials.png)   

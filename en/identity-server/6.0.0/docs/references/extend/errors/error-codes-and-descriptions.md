@@ -4,17 +4,10 @@ The following topic provides a list of error codes in the WSO2 Identity Server.
 
 | Error Code | Description                                                                                                                                                              |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/errors/error-codes-and-descriptions.md
 | 17001      | The user does not exist.                                                                                                                                  |
 | 17002      | Invalid credentials are provided.                                                                                                                 |
 | 17003      | The [account is locked]({{base_path}}/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts) after multiple incorrect login attempts and the user attempts to log in again. |
 | 17004      | The user account is disabled.                                                                                                                     |
-========
-| 17001      | This occurs if the user does not exist.                                                                                                                                  |
-| 17002      | This error occurs when invalid credentials are provided.                                                                                                                 |
-| 17003      | This error occurs when an [account is locked](../../learn/account-locking-by-failed-login-attempts) after multiple incorrect login attempts and the user attempts to log in again. |
-| 17004      | This error occurs when the user account is disabled.                                                                                                                     |
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/error-codes-and-descriptions.md
 | 17005      | The user account is not confirmed.                                                                                                                     |
 | 17006      | The admin has forced user to reset password via an email link.                                                                                                                     |
 | 17007      | The admin has forced user to reset password via OTP.                                                                                                                     |

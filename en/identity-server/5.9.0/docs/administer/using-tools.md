@@ -6,5 +6,6 @@ to validate the configurations and build sample response.  These tools
 in the [management console](../../setup/getting-started-with-the-management-console) are described in
 the following topics.
 
+-   Using the SAML2 Toolkit
 -   Using the XACML TryIt Tool
 -   Identity Anonymization tool

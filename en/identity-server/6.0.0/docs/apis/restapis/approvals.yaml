@@ -1,8 +1,15 @@
 openapi: 3.0.1
 info:
-  title: Workflow Approval API
+  title: WSO2 Identity Server - Workflow Approval API Definition
   description: |
-    This is the RESTful API for a user to manage pending approvals in the WSO2 Identity Server. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
+    This is the RESTful API for a user to manage pending approvals in WSO2 Identity Server. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
+  contact:
+    name: WSO2 Identity Server
+    url: https://wso2.com/identity-and-access-management/
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v1
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
@@ -29,10 +36,12 @@ paths:
           * RESERVED -  Tasks that are _assigned_ to the user and to be approved by this user.
           * COMPLETED - Tasks that are already _completed_ (approved or denied) by this user.
 
-        <b>Permission required:</b> `/permission/admin/manage/humantask/viewtasks` <br>
-        <b>Scope required:</b> `internal_humantask_view` <br>
+        <b>Permission required:</b>
+            * /permission/admin/manage/humantask/viewtasks
+        <b>Scope required:</b>
+            * internal_humantask_view
 
-        A user can also invoke the endpoint with the following query parameters.
+         A user can also invoke the endpoint with the following query parameters.
       operationId: listApprovalTasksForLoggedInUser
       parameters:
       - name: limit
@@ -130,8 +139,10 @@ paths:
       summary: Retrieve an approval task by the task-id
       description: |
         Retrieves information of a specific approval task identified by the task-id <br/>
-        <b>Permission required:</b> `/permission/admin/manage/humantask/viewtasks`
-        <b>Scope required:</b> `internal_humantask_view`
+        <b>Permission required:</b>
+            * /permission/admin/manage/humantask/viewtasks
+        <b>Scope required:</b>
+            * internal_humantask_view
       operationId: getApprovalTaskInfo
       parameters:
       - name: task-id
@@ -142,7 +153,8 @@ paths:
           type: string
       responses:
         200:
-          description: Detailed information of the approval task identified by the task-id.
+          description: Detailed information of the approval task identified by the
+            task-id
           content:
             '*/*':
               schema:
@@ -151,7 +163,8 @@ paths:
               example:
                 id: "452"
                 subject: Update Claims
-                description: You have a request to approve the claim update action of a user.
+                description: You have a request to approve claim update action of
+                  a user.
                 priority: 0
                 initiator: admin
                 approvalStatus: APPROVE
@@ -214,14 +227,16 @@ paths:
       summary: Changes the state of an approval task
       description: |
         Update the approval task status by defining one of the following actions:
-         * CLAIM - Reserve the task for the user. The status of the task will be changed from READY to RESERVED.
-         * RELEASE - Release the task for other users to claim. The status of the task will be changed from RESERVED to READY.
-         * APPROVE - Approve the task. The status of the task will be changed to COMPLETED.
-         * REJECT - Deny the task. The status of the task will be changed to COMPLETED.
+         * CLAIM - Reserve the task for the user. Status of the task will be changed from READY to RESERVED.
+         * RELEASE - Release the task for other users to claim. Status of the task will be changed from RESERVED to READY.
+         * APPROVE - Approve the task. Status of the task will be changed to COMPLETED.
+         * REJECT - Deny the task. Status of the task will be changed to COMPLETED.
          <br/>
 
-        <b>Permission required:</b> `/permission/admin/manage/humantask/viewtasks`
-        <b>Scope required:</b> `internal_humantask_view`
+        <b>Permission required:</b>
+            * /permission/admin/manage/humantask/viewtasks
+        <b>Scope required:</b>
+            * internal_humantask_view
       operationId: updateStateOfTask
       parameters:
       - name: task-id
@@ -323,28 +338,28 @@ components:
       properties:
         id:
           type: string
-          description: Unique ID to represent an approval task.
+          description: Unique ID to represent a approval task
           example: "451"
         subject:
           type: string
-          description: Subject of the Approval.
+          description: Subject of the Approval
           example: Add new Role
         description:
           type: string
-          description: Description of the Approval task.
-          example: Adds a new role to the system
+          description: Description on the Approval task
+          example: Addes a new role to the system
         priority:
           type: integer
-          description: Priority of the Approval task.
+          description: Priority of the Approval task
           example: 0
         initiator:
           type: string
-          description: The user who initiated the task.
+          description: The user who initiated the task
           example: some-user-name
         approvalStatus:
           type: string
           description: |
-            Available only for the completed Tasks, APPROVED or REJECTED if the task has been completed, PENDING otherwise.
+            Available only for the completed Tasks, APPROVED or REJECTED if the task has been completed, PENDING otherwise
           example: APPROVE
           enum:
           - PENDING

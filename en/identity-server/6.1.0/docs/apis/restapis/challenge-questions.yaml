@@ -1,8 +1,15 @@
 swagger: '2.0'
 info:
-  description: This is the RESTful API for managing challenge questions in the WSO2 Identity Server.
+  description: This is the RESTful API for managing challenge questions in WSO2 Identity Server.
   version: "v1"
-  title: Challenge Question Sets Management API
+  title: WSO2 Identity Server - Challenge Question Sets Management API Definition
+  contact:
+    name: "WSO2 Identity Server"
+    url: "https://wso2.com/identity-and-access-management/"
+    email: "architecture@wso2.com"
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
 - url: https://{server-Url}/t/{tenant-domain}/api/server/v1/challenges
   variables:
@@ -28,7 +35,7 @@ paths:
     post:
       tags:
         - admin
-      summary: Add a new set of challenge questions
+      summary: Add a new set of challenge questions.
       operationId: addChallenges
       description: |
         Adds a new set of challenge questions to the system. A set can have any number of questions.
@@ -59,7 +66,7 @@ paths:
     get:
       tags:
         - admin
-      summary: Retrieve all the challenge questions
+      summary: Retrieve all the challenge questions.
       operationId: searchChallenges
       produces:
       - application/json
@@ -87,7 +94,7 @@ paths:
     get:
       tags:
         - admin
-      summary: Retrieve a set of challenge questions
+      summary: Retrieve a set of challenge questions.
       operationId: getChallengeQuestionSet
       produces:
       - application/json
@@ -117,7 +124,7 @@ paths:
     put:
       tags:
         - admin
-      summary: Update challenge questions of a set
+      summary: Update challenge questions of a set.
       operationId: updateChallengeQuestionSet
       description: |
         Updates an existing challenge question set in the system. This will override the existing challenge questions in the set with new challenge questions.
@@ -149,10 +156,10 @@ paths:
     patch:
       tags:
         - admin
-      summary: Add a challenge question to a set
+      summary: Add a challenge question to a set.
       operationId: addChallengeQuestionToASet
       description: |
-        Add a new challenge question to an existing set.
+        Add new challenge question to an existing set.
 
           <b>Permission required:</b>
             * /permission/admin/manage/identity/challenge/update
@@ -180,7 +187,7 @@ paths:
     delete:
       tags:
         - admin
-      summary: Removes a challenge question set
+      summary: Removes a challenge question set.
       operationId: deleteChallengeQuestionSet
       description: |
         Removes an existing challenge question set from the system. By specifying the locale query parameter, questions of specific locale can be deleted within the set.
@@ -203,7 +210,7 @@ paths:
     delete:
       tags:
         - admin
-      summary: Remove a challenge question in a set
+      summary: Remove a challenge question in a set.
       operationId: deleteChallengeQuestion
       description: |
         Removes a specific question from an existing challenge question set. By specifying the locale query parameter, the locale-specific challenge question entry for the question can be deleted.
@@ -291,12 +298,12 @@ definitions:
         description: The locale of the question.
       question:
         type: string
-        example: What is your favorite travel destination?
+        example: What is your favorite travel destination ?
         description: Challenge question display value.
       questionId:
         type: string
         example: question1
-        description: A unique ID for the challenge question within the set.
+        description: A unique ID for the challenge quesion within the set.
   #-----------------------------------------------------
   # ChallengeAnswer Properties object
   #-----------------------------------------------------
@@ -314,7 +321,7 @@ definitions:
         description:
           Operation to perform on the challenge set.
 
-            Only ['add'] is supported.
+            Only ['add'] is suppored.
 
   #-----------------------------------------------------
   # The Error Response  object
@@ -378,3 +385,4 @@ responses:
 
 host: localhost:9443
 basePath: /t/{tenant-domain}/api/server/v1
+

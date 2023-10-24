@@ -16,20 +16,39 @@ Therefore, the email can be sent through an event handler that is subscribed to 
 
 The following list is a list of sample events. 
 
-- `AUTHENTICATION_STEP_SUCCESS`
-- `AUTHENTICATION_STEP_FAILURE`
-- `AUTHENTICATION_SUCCESS`
-- `AUTHENTICATION_FAILURE`
 - `PRE_AUTHENTICATION`
 - `POST_AUTHENTICATION`
 - `PRE_SET_USER_CLAIMS`
 - `POST_SET_USER_CLAIMS`
 - `PRE_ADD_USER`
 - `POST_ADD_USER`
-
-!!! info
-    The other events available with WSO2 Identity Server can be found from the `Event` class [here](https://github.com/wso2/carbon-identity-framework/blob/master/components/identity-event/org.wso2.carbon.identity.event/src/main/java/org/wso2/carbon/identity/event/IdentityEventConstants.java)
-
+- `PRE_UPDATE_CREDENTIAL`
+- `POST_UPDATE_CREDENTIAL`
+- `PRE_UPDATE_CREDENTIAL_BY_ADMIN`
+- `POST_UPDATE_CREDENTIAL_BY_ADMIN`
+- `PRE_DELETE_USER`
+- `POST_DELETE_USER`
+- `PRE_SET_USER_CLAIM`
+- `PRE_GET_USER_CLAIM`
+- `POST_GET_USER_CLAIMS`
+- `POST_GET_USER_CLAIM`
+- `POST_SET_USER_CLAIM`
+- `PRE_DELETE_USER_CLAIMS`
+- `POST_DELETE_USER_CLAIMS`
+- `PRE_DELETE_USER_CLAIM`
+- `POST_DELETE_USER_CLAIM`
+- `PRE_ADD_ROLE`
+- `POST_ADD_ROLE`
+- `PRE_DELETE_ROLE`
+- `POST_DELETE_ROLE`
+- `PRE_UPDATE_ROLE`
+- `POST_UPDATE_ROLE`
+- `PRE_UPDATE_USER_LIST_OF_ROLE`
+- `POST_UPDATE_USER_LIST_OF_ROLE`
+- `PRE_UPDATE_ROLE_LIST_OF_USER`
+- `POST_UPDATE_ROLE_LIST_OF_USER`
+- `UPDATE_GOVERNANCE_CONFIGURATION`
+- `TRIGGER_NOTIFICATION`
 
 ## Writing an event handler
 
@@ -39,7 +58,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
     ```
     public String getName() {
-    return "customEventHandler";
+    return "emailSender";
     }
 
     @Override
@@ -49,7 +68,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     ```
 
 2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations. 
-   The `handleEvent()` method should be called from the relevant method, which is written to execute a certain operation and the handlers will be executed once the operation is triggered.
+
     ```
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
@@ -85,30 +104,11 @@ Add the event handler configuration to the `<IS_HOME>/repository/conf/deployment
 
 ```
 [[event_handler]]
-name= "customEventHandler"
-subscriptions =["CUSTOM_EVENT"]
+name= "emailSender"
+subscriptions =["POST_ADD_USER"]
 ```
 
-## Try out the sample application
-
-1. Build the custom event handler sample application [here](https://github.com/wso2/samples-is/tree/master/event-handler/custom-identity-event-handler).
-    - Navigate to event-handler/custom-event-handler directory (`cd event-handler/custom-event-handler`).
-    - Run the `mvn clean install` command.
-2. Copy the generated org.wso2.carbon.identity.customhandler-1.0.0.jar file in the target folder into <IS_HOME>/repository/components/dropins/ folder.
-3. Add following configurations to <IS_HOME>/repository/conf/deployement.toml file
-    ```
-    [[event_handler]]
-    name="customUserRegistration"
-    subscriptions=["PRE_ADD_USER","POST_ADD_USER"]
-    ```
-    `name`: The name of the event handler (Name that return from the `getName()` method).
-    `subscriptions`: A list of events that the handler will be subscribed to. In this sample application, we are subscribing to the `PRE_ADD_USER` and `POST_ADD_USER` events.
-4. Restart the server.
-
-!!! note "Note"
-    In this sample application, the event handler just prints the event properties in the console (Username & tenant-domain). But you can customize the event handler to do whatever you want (Ex: Send an email after adding a user).
-
-When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `customUserRegistration` handler is subscribed to the `PRE_ADD_USER, POST_ADD_USER` operations.
+When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `emailSender` handler is subscribed to the `POST_ADD_USER` operation.
 
 !!! info
     The following sample event handlers are available with WSO2 Identity Server.

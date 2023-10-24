@@ -14,7 +14,7 @@ management console using OpenSSO as the IDP.
 		for instructions on how to install OpenAM.
 
 2.  Download the WSO2 Identity Server from
-    [here](https://wso2.com/products/identity-server/) and [run
+    [here](http://wso2.com/products/identity-server/) and [run
     it](../../setup/running-the-product).
 
 WSO2 Identity Server comes with SAML web-SSO authenticators. This page

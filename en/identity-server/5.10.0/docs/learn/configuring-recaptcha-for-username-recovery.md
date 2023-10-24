@@ -45,7 +45,7 @@ reCaptcha for a specific tenant.
 
 7.  You have now successfully configured reCaptcha for the username
     recovery flow. Start the WSO2 Identity Server and log into the end
-    user [My Account portal](https://localhost:9443/myaccount/).
+    user [user portal](https://localhost:9443/user-portal).
 
     !!! tip
     
@@ -94,8 +94,8 @@ username recovery with reCaptcha.
 .
 
 3.  You have now successfully configured reCaptcha for the username
-    recovery flow. Start WSO2 Identity Server and log into the 
-    [My Account portal](https://localhost:9443/myaccount/).
+    recovery flow. Start WSO2 Identity Server and log into the end user
+    [user portal](https://localhost:9443/user-portal).
 
     !!! tip
     

@@ -1,11 +1,9 @@
-# Mitigate Cross Site Request Forgery Attacks
+# Mitigating Cross Site Request Forgery Attacks
 
 The following sections describe the impact of the Cross Site Request
 Forgery (CSRF) attack and how to mitigate it.
 
----
-
-## How can CSRF attacks be harmful?
+### How can CSRF attacks be harmful?
 
 Cross Site Request Forgery (CSRF) attacks trick you to send a malicious
 request, by forcing you to execute unwanted actions on an already
@@ -31,9 +29,7 @@ example:
 -   You may unknowingly click on this URL, which will send a transfer
     request to the bank to transfer money to the malicious bank account.
 
----
-
-## Mitigate CSRF attacks
+### Mitigating CSRF attacks
 
 [OWASPCSRFGuard](https://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project)
 is an OWASP flagship project that provides synchronizer token
@@ -57,9 +53,7 @@ library or by using a JavaScript based automated injection mechanism.
 AJAX requests are protected by injecting an additional header, which
 contains a CSRF token.
 
----
-
-## Configure applications in WSO2 product to mitigate CSRF attacks
+### Configuring applications in WSO2 product to mitigate CSRF attacks
 
 !!! note "Before you begin"   
     For WSO2 Identity Server, the configurations for mitigating CSRF attacks 
@@ -70,9 +64,7 @@ contains a CSRF token.
 See the following for instructions on manually updating CSRF
 configurations in WSO2 products:  
 
----
-
-### Secure web applications
+#### Securing web applications
 
 Follow the steps below to secure web applications.
 
@@ -119,103 +111,20 @@ Follow the steps below to secure web applications.
     template of all pages of the application that you need to protect.
 
     ``` js
-    … 
-    <html>
-        <head>
-            …
-            <script type=”text/javascript” src=”/csrf.js”></script>
-
-            <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
-            <script type=”text/javascript” src=”/main.js”></script>
-            … 
-        </head>
-        <body>
-            ...
-        </body>
-    </html>
-    ```
-
-3.  Create a CSRF configuration properties file (e.g.
-    `          abc.properties         ` ) within your application, and
-    copy the content in the
-    `          <CARBON_HOME>repository/conf/security/Owasp.CsrfGuard.Carbon.properties         ` file to it.
-4.  Use the `           org.owasp.csrfguard.unprotected.          `
-    prefix in the configuration property keys, for the relevant patterns
-    that you need to exclude from CSRF protection. For example;
-
-    ``` js
-    org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
-    org.owasp.csrfguard.unprotected.Default_1=%servletContext%/exampleAction
-    org.owasp.csrfguard.unprotected.Example=%servletContext%/exampleAction/*
-    org.owasp.csrfguard.unprotected.ExampleRegEx=^%servletContext%/.*Public\.do$
-    ```
-
-5.  Change the following configuration properties, to further enhance
-    security. You may need justifiable application level requirements to
-    change them since they will affect performance or user experience.
-
-    | Property                                                                                                   | Description                                                                      |
-    |------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-    | `               org.owasp.csrfguard.PRNG=SHA1PRNG                             `                            | Defines the hashing algorithm used to generate the CSRF token.                   |
-    | `               org.owasp.csrfguard.TokenLength=32              `                                          | Defines the length of the CSRF token.                                            |
-    | `               org.owasp.csrfguard.action.Invalidate=org.owasp.csrfguard.action.Invalidate              ` | Invalidates the user session, if a CSRF attack attempt was blocked by CSRFGuard. |
-
----
-
-### Secure Jaggery applications
-
-Follow the steps below to secure Jaggery applications.
-
-1.  Add the following configurations in the
-    `           jaggery.conf          ` file of your application.
-
-    ``` java
-    "listeners" : [
-    {
-        "class" : "org.owasp.csrfguard.CsrfGuardServletContextListener" 
-    },
-    {
-        "class" : "org.owasp.csrfguard.CsrfGuardHttpSessionListener"    
-    }
-    ],
-    "servlets" : [
-    {
-        "name" : "JavaScriptServlet",
-        "class" : "org.owasp.csrfguard.servlet.JavaScriptServlet"
-    }
-    ],
-    "servletMappings" : [
-    {
-        "name" : "JavaScriptServlet",
-        "url" : "/csrf.js"
-    }
-    ],
-    "contextParams" : [
-    {
-        "name" : "Owasp.CsrfGuard.Config",
-        "value" : "/repository/conf/security/Owasp.CsrfGuard.dashboard.properties"
-    }
-    ]
-    ```
-
-2.  Include the following JavaScriptServlet as the first JavaScript
-    inclusion of the `           <head>          ` element in the HTML
-    template of all pages of the application that you need to protect.
-
-    ``` js
-    <html>
-        <head>
-            …
-            <script type=”text/javascript” src=”/csrf.js”></script>
-
-            <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
-            <script type=”text/javascript” src=”/main.js”></script>
-            … 
-        </head>
-        <body>
-            ...
-        </body>
-    </html>
+        … 
+        <html>
+            <head>
+                …
+                <script type=”text/javascript” src=”/csrf.js”></script>
+    
+                <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
+                <script type=”text/javascript” src=”/main.js”></script>
+                … 
+            </head>
+            <body>
+                ...
+            </body>
+        </html>
     ```
 
 3.  Create a CSRF configuration properties file (e.g.
@@ -228,15 +137,97 @@ Follow the steps below to secure Jaggery applications.
     that you need to exclude from CSRF protection. For example;
 
     ``` js
-    org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
-    org.owasp.csrfguard.unprotected.Default_1=%servletContext%/exampleAction
-    org.owasp.csrfguard.unprotected.Example=%servletContext%/exampleAction/*
-    org.owasp.csrfguard.unprotected.ExampleRegEx=^%servletContext%/.*Public\.do$
+        org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
+        org.owasp.csrfguard.unprotected.Default_1=%servletContext%/exampleAction
+        org.owasp.csrfguard.unprotected.Example=%servletContext%/exampleAction/*
+        org.owasp.csrfguard.unprotected.ExampleRegEx=^%servletContext%/.*Public\.do$
     ```
 
 5.  Change the following configuration properties, to further enhance
     security. You may need justifiable application level requirements to
-    change them since they will affect performance and user experience.
+    change them since they will affect performance or user experience.
+
+    | Property                                                                                                   | Description                                                                      |
+    |------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+    | `               org.owasp.csrfguard.PRNG=SHA1PRNG                             `                            | Defines the hashing algorithm used to generate the CSRF token.                   |
+    | `               org.owasp.csrfguard.TokenLength=32              `                                          | Defines the length of the CSRF token.                                            |
+    | `               org.owasp.csrfguard.action.Invalidate=org.owasp.csrfguard.action.Invalidate              ` | Invalidates the user session, if a CSRF attack attempt was blocked by CSRFGuard. |
+
+#### Securing Jaggery applications
+
+Follow the steps below to secure Jaggery applications.
+
+1.  Add the following configurations in the
+    `           jaggery.conf          ` file of your application.
+
+    ``` java
+         "listeners" : [
+            {
+                "class" : "org.owasp.csrfguard.CsrfGuardServletContextListener" 
+            },
+            {
+                "class" : "org.owasp.csrfguard.CsrfGuardHttpSessionListener"    
+            }
+            ],
+            "servlets" : [
+            {
+                "name" : "JavaScriptServlet",
+                "class" : "org.owasp.csrfguard.servlet.JavaScriptServlet"
+            }
+            ],
+            "servletMappings" : [
+            {
+                "name" : "JavaScriptServlet",
+                "url" : "/csrf.js"
+            }
+            ],
+            "contextParams" : [
+            {
+                "name" : "Owasp.CsrfGuard.Config",
+                "value" : "/repository/conf/security/Owasp.CsrfGuard.dashboard.properties"
+            }
+            ]
+    ```
+
+2.  Include the following JavaScriptServlet as the first JavaScript
+    inclusion of the `           <head>          ` element in the HTML
+    template of all pages of the application that you need to protect.
+
+    ``` js
+        <html>
+            <head>
+                …
+                <script type=”text/javascript” src=”/csrf.js”></script>
+    
+                <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
+                <script type=”text/javascript” src=”/main.js”></script>
+                … 
+            </head>
+            <body>
+                ...
+            </body>
+        </html>
+    ```
+
+3.  Create a CSRF configuration properties file (e.g.
+    `          abc.properties         ` ) within your application, and
+    copy the content in the
+    `          <CARBON_HOME>repository/conf/security/         `
+    `          Owasp.CsrfGuard.Carbon.properties         ` file to it.
+4.  Use the `           org.owasp.csrfguard.unprotected.          `
+    prefix in the configuration property keys, for the relevant patterns
+    that you need to exclude from CSRF protection. For example;
+
+    ``` js
+        org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
+        org.owasp.csrfguard.unprotected.Default_1=%servletContext%/exampleAction
+        org.owasp.csrfguard.unprotected.Example=%servletContext%/exampleAction/*
+        org.owasp.csrfguard.unprotected.ExampleRegEx=^%servletContext%/.*Public\.do$
+    ```
+
+5.  Change the following configuration properties, to further enhance
+    security. You may need justifiable application level requirements to
+    change them since they will affect performance or user experience.
 
     | Property                                                                                                                  | Description                                                                      |
     |---------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|

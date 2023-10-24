@@ -196,11 +196,7 @@ server.
 2.  Click on the shutdown or restart option as applicable. The available
     options are:  
     
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/get-started/run-the-product.md
     ![Shut-Down and Restart screen]({{base_path}}/assets/img/deploy/shutdown-restart.png)  
-========
-    ![Shut-Down and Restart screen](../assets/img/setup/shutdown-restart.png)  
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/running-the-product.md
     
     -   **Graceful shutdown** - Stops accepting new requests, continues
         to process already received requests, and then shuts down the
@@ -224,11 +220,7 @@ To stop the server, press **Ctrl+C** in the command window.
     `           wso2server.sh stop          `command.
 
 !!! note "Restart via the command window"
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/get-started/run-the-product.md
     If you started the server with the `wso2server.sh` command, you will not be able to restart the 
-========
-    If you have started the server with the `wso2server.sh` command, you will not be able to restart the 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/running-the-product.md
     server from the command window.
     
     If you wish to restart the server from the command window, follow the steps given below.
@@ -241,8 +233,4 @@ To stop the server, press **Ctrl+C** in the command window.
     
     2. To restart the server, use `sh wso2server.sh restart`. 
     
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/get-started/run-the-product.md
     2. To stop the server, use `sh wso2server.sh stop`. 
-========
-    2. To stop the server use `sh wso2server.sh stop` command. 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/running-the-product.md

@@ -66,7 +66,6 @@ identity provider in the Identity Server.
 
     -   Select the **User Endpoint** and **Group Endpoint**, which are
         SCIM endpoints.
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-lifecycles/outbound-provisioning-with-scim.md
         - For SCIM 1.1
               ```
               User Endpoint : https://localhost:9443/wso2/scim/Users
@@ -77,12 +76,6 @@ identity provider in the Identity Server.
               User Endpoint : https://localhost:9443/scim2/Users
               Group Endpoint : https://localhost:9443/scim2/Groups
               ```
-========
-        
-            User Endpoint : https://localhost:9443/wso2/scim/Users
-            Group Endpoint : https://localhost:9443/wso2/scim/Groups
-
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/outbound-provisioning-with-scim.md
     -   **User Store Domain** is the user store that you need to
         provision users to.
 
@@ -119,15 +112,9 @@ like Salesforce and Google Apps.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-lifecycles/outbound-provisioning-with-scim.md
         possible. ![outbound-provisioning-icon]({{base_path}}/assets/img/guides/outbound-provisioning-icon.png)
         
         ![config-outbound-provisioning]({{base_path}}/assets/img/guides/config-outbound-provisioning.png) 
-========
-        possible. ![outbound-provisioning-icon](../assets/img/using-wso2-identity-server/outbound-provisioning-icon.png)
-        
-        ![config-outbound-provisioning](../assets/img/using-wso2-identity-server/config-outbound-provisioning.png) 
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/outbound-provisioning-with-scim.md
         
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** for SCIM 1.1 and **SCIM2** for SCIM 2.0 from the drop-down to ensure that the required 
@@ -158,15 +145,9 @@ provider if your application supports OAuth.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-lifecycles/outbound-provisioning-with-scim.md
         possible. ![outbound-provisioning-icon]({{base_path}}/assets/img/guides/outbound-provisioning-icon.png)
         
         ![expand-outbound-provisioning]({{base_path}}/assets/img/guides/expand-outbound-provisioning.png)
-========
-        possible. ![outbound-provisioning-icon](../assets/img/using-wso2-identity-server/outbound-provisioning-icon.png)
-        
-        ![expand-outbound-provisioning](../assets/img/using-wso2-identity-server/expand-outbound-provisioning.png)
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/outbound-provisioning-with-scim.md
         
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** for SCIM 1.1 and **SCIM2** for SCIM 2.0 from the drop-down to ensure that the required
@@ -179,11 +160,7 @@ provider if your application supports OAuth.
         means outbound provisioning request will be executed along with
         the XACML rules enabled.
     5.  You can also enable [just-in-time
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/identity-lifecycles/outbound-provisioning-with-scim.md
-        provisioning]({{base_path}}/guides/identity-federation/jit-workflow/)
-========
         provisioning]({{base_path}}/guides/identity-federation/jit-workflow)
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/identity-lifecycles/outbound-provisioning-with-scim.md
         by selecting the **Enable JIT** checkbox. Once you enable this,
         when a user is JIT provisioned to IS when authenticating from a
         federated authenticator, that user will be outbound provisioned

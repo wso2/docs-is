@@ -93,11 +93,8 @@ A sample configuration is given below.
 {!./includes/db-advanced-config.md !}
 
 {!./includes/db-config-table.md !}
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/deploy/change-to-mysql.md
-========
 
 
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/deploy/change-to-mysql.md
 ---
   
 ## Configure the connection pool behavior on return 

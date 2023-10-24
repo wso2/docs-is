@@ -2,26 +2,29 @@
 
 eIDAS (electronic IDentification, Authentication and Trust Services) is
 an EU regulation on electronic identification and trust services for
-electronic transactions in the internal market. For a set of eIDAS-compliant technical specifications that the member states of the EU need to
-refer to, see [here](https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/2016/12/16/eIDAS+Technical+Specifications+v.+1.1).
+electronic transactions in the internal market. For a set of eIDAS
+compliant technical specifications that the member states of EU to
+refer, see [eIDAS compliant technical
+specifications](https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/2016/12/16/eIDAS+Technical+Specifications+v.+1.1)
+.
 
-If there are cross-border connections within the member states of
-the EU, an eIDAS network that consists of a series of
-eIDAS-nodes implemented at the member state level can be used. An eIDAS-node
+If you want to have cross border connections within the member states of
+EU, you can use an eIDAS network that consists of a series of
+eIDAS-nodes implemented at the member state level. An eIDAS-node
 consists of an eIDAS connector and an eIDAS proxy service or eIDAS
 middleware service.
 
-An eIDAS node can request a cross-border authentication through the
-eIDAS connector and provide a cross-border authentication through the
+An eIDAS node can request a cross border authentication through the
+eIDAS connector and provide a cross border authentication through the
 eIDAS service (an eIDAS service can operate either in an eIDAS proxy
 service or eIDAS middleware service).
 
 Following is an example eIDAS network with proxy to proxy connection
-between two "member states" (MS).
+between two "**member states**"(MS).
 
-![eIDAS diagram]({{base_path}}/assets/img/concepts/eidas-diagram.png)
-
-Following is what happens in the illustration given above.   
+![eidas-diagram](../assets/img/compliance/eidas-diagram.png)
+  
+What happens here is as follows:
 
 1.  The user (citizen) of MS A requests access to a service provider in
     MS B.
@@ -47,4 +50,8 @@ Following is what happens in the illustration given above.
 7.  The service provider grants access to the user.
 
 For more information on how eIDAS works, see [How does eIDAS
-work?](https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=82773030).
+work?](https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=82773030)
+
+!!! Info
+	  For a tutorial that describes how WSO2 Identity Server supports
+	  the eIDAS SAML attribute profile, see [eIDAS SAML Attribute Profile Support via WSO2 Identity Server](../../eidas-saml-attribute-profile-support-via-wso2-identity-server).

@@ -1,4 +1,4 @@
-# Manage Claims with SOAP APIs
+# Managing Claims with APIs
 
 The Claim Management component of WSO2 Carbon allows you to map a set of
 attributes from the underlying user store to a set of defined
@@ -6,7 +6,6 @@ claims. This section guides you through invoking and working with the
 **`          ClaimMetadataManagementService         `** and the
 operations you can work within this service.
 
----
 
 ## Invoking the admin service
 
@@ -34,9 +33,7 @@ admin service:
 
     !!! info
 
-        For more information on WSO2 admin services and how to invoke an admin service using either SoapUI or any other client program, see [Call Admin Services]({{base_path}}/apis/call-admin-services).
-
----
+        For more information on WSO2 admin services and how to invoke an admin service using either SoapUI or any other client program, see [Calling Admin Services](../../develop/calling-admin-services).
 
 ## API operations
 
@@ -89,8 +86,6 @@ The following operations are available in `ClaimMetadataManagementService`.
     </td>
   </tr>
 </table>
-
----
 
 ### getClaimDialects()
 
@@ -159,8 +154,6 @@ The following operations are available in `ClaimMetadataManagementService`.
   </tr>
 </table> 
 
----
-
 ### addExternalClaim()
 
 <table>
@@ -214,8 +207,6 @@ The following operations are available in `ClaimMetadataManagementService`.
     </td>
   </tr>
 </table>
-
----
 
 ### addLocalClaim()
 
@@ -283,7 +274,6 @@ The following operations are available in `ClaimMetadataManagementService`.
   </tr>
 </table>
 
----
 
 ### getExternalClaims()
 
@@ -327,8 +317,6 @@ The following operations are available in `ClaimMetadataManagementService`.
     </td>
   </tr>
 </table>
-
----
 
 ### getLocalClaims()
 
@@ -396,8 +384,6 @@ The following operations are available in `ClaimMetadataManagementService`.
   </tr>
 </table>
 
----
-
 ### removeClaimDialect()
 
 <table>
@@ -446,8 +432,6 @@ The following operations are available in `ClaimMetadataManagementService`.
   </tr>
 </table>
 
----
-
 ### removeExternalClaim()
 
 <table>
@@ -495,7 +479,6 @@ The following operations are available in `ClaimMetadataManagementService`.
   </tr>
 </table>
 
----
 ### removeLocalClaim()
 
 <table>
@@ -540,8 +523,6 @@ The following operations are available in `ClaimMetadataManagementService`.
     </td>
   </tr>
 </table>
-
----
 
 ### renameClaimDialect()
 
@@ -596,8 +577,6 @@ The following operations are available in `ClaimMetadataManagementService`.
   </tr>
 </table>
 
----
-
 ### updateExternalClaim()
 
 <table>
@@ -651,8 +630,6 @@ The following operations are available in `ClaimMetadataManagementService`.
     </td>
   </tr>
 </table>
-
----
 
 ### updateLocalClaim()
 

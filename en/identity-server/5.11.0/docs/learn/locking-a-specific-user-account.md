@@ -193,18 +193,14 @@ below.
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/locking-a-specific-user-account.md
 
 WSO2 Identity Server uses separate email templates for notifying, 
-========
-  
-WSO2 Identity Server uses separate email templates for notifying: 
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/learn/locking-a-specific-user-account.md
 
 - Account locking by administrator
 - Account unlocking by administrator 
 
-Add the following email templates by referring to the instructions in [Customizing Automated Emails](../../learn/customizing-automated-emails).
+Add the following email templates by referring to the instructions in 
+[Customizing AutomatedEmails](../../learn/customizing-automated-emails).
 
 Following are the sample email templates.
 
@@ -370,3 +366,4 @@ Following are the sample email templates.
        </table>]]>
     ```
     - Footer : ---
+

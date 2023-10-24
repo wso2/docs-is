@@ -1,4 +1,4 @@
-# Create a XACML Policy using a Policy Template
+# Writing a XACML Policy using a Policy Template
 
 This section guides you through using and editing the XACML policy
 templates available in WSO2 Identity Server to write your own policy.
@@ -6,7 +6,7 @@ templates available in WSO2 Identity Server to write your own policy.
 1.  Start WSO2 Identity Server and log in to the management console.
 2.  Click on **Policy Administration** under the **Entitlement\>PAP**
     section on the **Main** tab.  
-    ![Defined XACML policies]({{base_path}}/assets/img/guides/xacml-defined-policies.png)
+    ![](../assets/img/103331229/103331230.png)
 
 3.  You will see the following list of available policy templates.
 
@@ -24,7 +24,7 @@ templates available in WSO2 Identity Server to write your own policy.
     | provisioning\_time\_based\_policy\_template                                  																											 | This template policy provides the ability to authorize provisioning requests initiated from a given service provider (defined by `               SP_NAME              ` placeholder) to a given identity provider(defined by `               IDP_NAME              ` placeholder) in the outbound provisioning flow based on the requested time. Any provisioning attempt outside the specified time range(09:00:00 to 17:00:00) will be denied.                                                                                                                                                                                                                                 |
     | provisioning\_user\_claim\_based\_policy\_template                     																													 | This template policy provides ability to authorize provisioning requests initiated from a given service provider (defined by `               SP_NAME              ` placeholder) to a given identity provider (defined by `               IDP_NAME              ` placeholder) in the outbound provisioning flow based on the claim values of the user ( `               CLAIM_URI_1=CLAIM_VALUE_1              ` and `               CLAIM_URI_2=CLAIM_VALUE_2              ` ). Users with the given claim values are permitted and any other users will be denied.                                                                                                            |
 
-4.  Click the corresponding **Edit** button of the policy template that
+4.  Click the corresponding **Edit** button of the policy template that
     you want to use.
 5.  Edit the **Policy ID** with a name relevant to your policy.
 6.  Edit the placeholders with the relevant values and click **Save
@@ -33,19 +33,19 @@ templates available in WSO2 Identity Server to write your own policy.
     original template policy will remain unchanged for later use).
 7.  Click on the **Publish to My PDP** link corresponding to the new
     policy.  
-    ![publish-to-pdp]({{base_path}}/assets/img/guides/publish-to-pdp.png)
+    ![publish-to-pdp](../assets/img/tutorials/publish-to-pdp.png)
 8.  On the UI that appears, leave the default selected values as they
     are and click **Publish**.  
-    ![publishing-a-xacml-policy]({{base_path}}/assets/img/guides/publishing-a-xacml-policy.png)
+    ![publishing-a-xacml-policy](../assets/img/tutorials/publishing-a-xacml-policy.png)
 
     !!! note
     
         For more information on Publishing a XACML policy, click
-        [here]({{base_path}}/guides/authorization/publish-a-policy).
+        [here](../../learn/publishing-a-xacml-policy).
     
 
 9.  Click on **Policy View** under the **Entitlement\>PDP** section on
     the **Main** tab of the management console.
 10. To ensure that the policy has been published successfully, check if
     the policy is listed.
-    ![check-policy-list]({{base_path}}/assets/img/guides/check-policy-list.png)
+    ![check-policy-list](../assets/img/tutorials/check-policy-list.png)

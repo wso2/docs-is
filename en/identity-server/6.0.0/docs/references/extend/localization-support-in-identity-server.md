@@ -37,13 +37,7 @@ directory). The following steps describe how you can configure this:
 6.  Restart the server.  
     To try out, do the following:
     1.  Open up a browser.
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/localization-support-in-identity-server.md
     2.  Type the **My Account** application URL (`https://<IS_HOST>:<IS_PORT>/myaccount`
-========
-    2.  Type the My Account portal URL. (If you are running the server in your
-        localhost, the URL is:
-        `                     https://localhost:9443/myaccount/                   `
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/localization-support-in-identity-server.md
         ). You will see the login screen having the contents in the
         configured language.
 
@@ -74,7 +68,6 @@ starting with the following location.
 
 `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/org/wso2/carbon/identity/mgt/recovery/endpoint/i18n/`
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/references/extend/localization-support-in-identity-server.md
 ## Configuring Localization for My Account and Console
 
 We maintain the i18n (localization) resources for My Account and Console in a separate module inside the
@@ -83,10 +76,3 @@ should be applied according to the instructions provided in the
 [README.md](https://github.com/wso2/identity-apps/blob/v1.0.558/modules/i18n/README.md) file of the same repository.
 For further reference, you can check out the GitHub [pull request](https://github.com/wso2/identity-apps/pull/1225)
 where the French language was introduced to the applications.
-========
-### Configuring Localization for My Account and Console
-
-We maintain the i18n (localization) resources for My Account and the Management Console in a separate module inside the 
-[identity-apps](https://github.com/wso2/identity-apps/tree/v1.0.558) repository. Therefoer, the localization configurations 
-should be applied according to the instructions in the [README.md](https://github.com/wso2/identity-apps/blob/v1.0.558/modules/i18n/README.md) file of the same repository. For more information, check the GitHub [pull request](https://github.com/wso2/identity-apps/pull/1225), which introduced the French language to these applications.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/localization-support-in-identity-server.md

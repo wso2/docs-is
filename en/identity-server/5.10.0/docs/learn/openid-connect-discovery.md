@@ -147,7 +147,7 @@ Sample requests and responses are given below:
 </div></td>
 </tr>
 <tr class="odd">
-<td>Request (for tenant: <a href="https://wso2.com">wso2.com</a> )</td>
+<td>Request (for tenant: <a href="http://wso2.com">wso2.com</a> )</td>
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -271,7 +271,7 @@ OpenID Proivder.
     <a class="sourceLine" id="cb2-50" title="50">    <span class="st">&quot;userinfo_endpoint&quot;</span>: <span class="st">&quot;https://localhost:9443/oauth2/userinfo&quot;</span>,</a>
     <a class="sourceLine" id="cb2-51" title="51">    <span class="st">&quot;jwks_uri&quot;</span>: <span class="st">&quot;https://localhost:9443/oauth2/jwks&quot;</span>,</a>
     <a class="sourceLine" id="cb2-52" title="52">    <span class="st">&quot;subject_types_supported&quot;</span>: [</a>
-    <a class="sourceLine" id="cb2-53" title="53">        <span class="st">&quot;public&quot;</span></a>
+    <a class="sourceLine" id="cb2-53" title="53">        <span class="st">&quot;pairwise&quot;</span></a>
     <a class="sourceLine" id="cb2-54" title="54">    ],</a>
     <a class="sourceLine" id="cb2-55" title="55">    <span class="st">&quot;id_token_signing_alg_values_supported&quot;</span>: [</a>
     <a class="sourceLine" id="cb2-56" title="56">        <span class="st">&quot;RS256&quot;</span></a>

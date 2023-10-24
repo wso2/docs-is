@@ -1,8 +1,7 @@
 swagger: '2.0'
 info:
   description: >
-    This is the RESTful API for a user to manage his/her pending approvals in WSO2 Identity Server. This API can be used to
-    retrieve pending approvals and update the status of the approval tasks for the authenticated user.
+    This is the RESTful API for a user to manage his/her pending approvals in WSO2 Identity Server.
   version: "v1"
   title: WSO2 Identity Server - Workflow Approval API Definition
   contact:
@@ -40,9 +39,7 @@ paths:
           * COMPLETED - Tasks that are already _completed_ (approved or denied) by this user.
 
         <b>Permission required:</b>
-            * /permission/admin/manage/humantask/viewtasks
-        <b>Scope required:</b>
-            * internal_humantask_view
+         * /permission/admin/manage/humantask/viewtasks
 
          A user can also invoke the endpoint with the following query parameters.
       parameters:
@@ -109,9 +106,7 @@ paths:
         <br/>
 
         <b>Permission required:</b>
-            * /permission/admin/manage/humantask/viewtasks
-        <b>Scope required:</b>
-            * internal_humantask_view
+         * /permission/admin/manage/humantask/viewtasks
       parameters:
         - $ref: '#/parameters/taskIdPathParam'
       responses:
@@ -184,9 +179,7 @@ paths:
          <br/>
 
         <b>Permission required:</b>
-            * /permission/admin/manage/humantask/viewtasks
-        <b>Scope required:</b>
-            * internal_humantask_view
+         * /permission/admin/manage/humantask/viewtasks
       parameters:
         - $ref: '#/parameters/taskIdPathParam'
         - in: body
@@ -384,6 +377,8 @@ responses:
       $ref: '#/definitions/Error'
   Unauthorized:
     description: Unauthorized
+    schema:
+      $ref: '#/definitions/Error'
   ServerError:
     description: Internal Server Error
     schema:

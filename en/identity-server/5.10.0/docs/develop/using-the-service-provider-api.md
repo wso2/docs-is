@@ -1,10 +1,10 @@
-# Service Provider SOAP API
+# Using the Service Provider API
 
 This section guides you through using the Identity Application Management API and its operations.
 
 ## About Identity Application Management API
 
-The Identity Application Management API enables creating a service provider, updating it, deleting it, and the different operations you can use to work with it.  
+The Identity Application Management API enables creating a service provider, updating it, deleting it. and the different operations you can use to work with it.  
 
 ## API operations
 
@@ -20,7 +20,7 @@ The Identity Application Management API enables creating a service provider, upd
         https://localhost:9443/services/IdentityApplicationManagementService?wsdl
         ```
 
-    -   To enable the admin service, follow the instructions given in [Call Admin Services]({{base_path}}/apis/call-admin-services).  
+    -   To enable the admin service, follow the instructions given in [Calling Admin Services](../../develop/calling-admin-services).  
 
 
 !!! info "About creating applications"
@@ -34,7 +34,6 @@ The Identity Application Management API enables creating a service provider, upd
 
     2.  Update the service provider with other configurations using the `updateApplication` operation. The service provider's application ID is required for this request.
     
----
 
 ### createApplication
 
@@ -84,7 +83,7 @@ The Identity Application Management API enables creating a service provider, upd
     </tbody>    
 </table>
 
-??? info "Click to view the request and response"
+??? info "Click to view request and response"
 
     ``` xml tab="Request Format"
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -130,7 +129,6 @@ The Identity Application Management API enables creating a service provider, upd
        </soapenv:Body>
     </soapenv:Envelope>
     ```
----
 
 ### updateApplication
 
@@ -184,13 +182,13 @@ The Identity Application Management API enables creating a service provider, upd
                 <li><code>applicationName</code> <code>[String]</code>: This is the Service provider name.</li>
                 <li><code>claimConfig</code> <code>[ClaimConfig]</code>: These are Claims that are related configurations.</li>
                 <li><code>description</code> <code>[String]</code>: This is the description of the SP.</li>
-                <li><code>inboundAuthenticationConfig</code> <code>[InboundAuthenticationConfig]</code>: This is an <!--a href="TBD"-->inbound authentication<!--/a--> related configurations.</li>
+                <li><code>inboundAuthenticationConfig</code> <code>[InboundAuthenticationConfig]</code>: This is an <a href="../../learn/configuring-inbound-authentication-for-a-service-provider">Inbound authentication</a> related configurations.</li>
                 <li><code>inboundProvisioningConfig</code> <code>[InboundProvisioningConfig]</code>: This is an inbound provisioning related configurations.</li>
                 <li><code>localAndOutBoundAuthenticationConfig</code> <code>[LocalAndOutboundAuthenticationConfig]</code>: This is for local and outbound authentication.</li>
                 <li><code>outboundProvisioningConfig</code> <code>[OutboundProvisioningConfig]</code>: This is for outbound provisioning related configurations.</li>
-                <li><code>owner</code> <code>[User]</code>: This is the application owner.</li>
+                <li><code>owner</code> <code>[User]</code>: This is the applicationn owner.</li>
                 <li><code>permissionAndRoleConfig</code> <code>[PermissionsAndRoleConfig]</code>: These are permission and role related configurations.</li>
-                <li><code>requestPathAuthenticatorConfigs</code> <code>[RequestPathAuthenticatorConfig]</code>: These are request path authenticator related configurations.</li>
+                <li><code>requestPathAuthenticatorConfigs</code> <code>[RequestPathAuthenticatorConfig]</code>: These are request patch authenticator related configurationsr.</li>
                 <li><code>saasApp</code>: This is optional. This parameter allows you to determine whether the service provider is a SaaS application (<code>true</code>) or not (<code>false</code>).<br>If no value is passed for this parameter, the service provider is marked as SaaS disabled by default. Thus, the web application is not shared among tenants so only users in the current tenant (the one you are logged in when creating the service provider) are allowed to log into the web application. Alternatively, if you enabled SaaS application, that means this web application is shared among tenants so users from any tenant are allowed to log into the web application.</li>
               </ul>           
             </td>
@@ -408,14 +406,12 @@ The Identity Application Management API enables creating a service provider, upd
     </soapenv:Envelope>
     ```
 
----
-
 #### Claims 
 
 The `<claimConfig>` element  defines all claim configuration level inputs. This element can have zero or more `          <claimMappings>         ` elements that specify claims
 referred by this service provider. A `          <claimMappings>         ` element includes two elements; `          <localClaim>         ` and `          <remoteClaim>         `
 where each is represented by a claimId and a claimURI.  The `          <localClaim>         ` denotes a standard claim which is local to the WSO2 Identity Server and the
-`          <remoteClaim>         ` denotes some remote claim value that maps to the local claim under the same [claim mapping]({{base_path}}/guides/dialects/configure-claims). Remote
+`          <remoteClaim>         ` denotes some remote claim value that maps to the local claim under the same [claim mapping](../../learn/claim-management). Remote
 claims are specifically used with identity federation scenarios to map claims received from the federated Identity Provider to local claims.   
 
 <table>
@@ -440,7 +436,7 @@ claims are specifically used with identity federation scenarios to map claims re
     <p>false - using the custom claim dialect</p>
     <br />
 
-    <p>If it is using the custom claim dialect, the local claim should map with a remote claim in each <a href="{{base_path}}/guides/dialects/add-claim-mapping">claim mapping</a> otherwise, both the local claim URI and the remote claim URI should be the same (i.e. a URI defined under a dialect local to the WSO2 Identity Server).</p></td>
+    <p>If it is using the custom claim dialect, the local claim should map with a remote claim in each <a href="../../learn/claim-management">claim mapping</a> otherwise, both the local claim URI and the remote claim URI should be the same (i.e. a URI defined under a dialect local to the WSO2 Identity Server).</p></td>
     </tr>
     <tr class="odd">
     <td><p>claimMappings.localClaim.claimId</p>
@@ -612,8 +608,6 @@ claims are specifically used with identity federation scenarios to map claims re
     </soapenv:Envelope>
     ```
 
----
-
 #### Roles and permissions
 
 The `          <permissionAndRoleConfig>         ` element defines all permission and role configuration level inputs. Under this element, specific permissions can be specified via zero or more
@@ -757,11 +751,9 @@ Once the permissions are specified, the roles specific to the service provider c
     </soapenv:Envelope>
     ```
 
----
-
 #### Inbound authentication
 
-Inbound Authentication Configuration defines the protocol that the service provider and the
+[Inbound Authentication](../../learn/configuring-inbound-authentication-for-a-service-provider) Configuration defines the protocol that the service provider and the
 Identity Server uses to communicate. You can add a common set of configurations for the service provider for any protocol such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation (passive) that is supported by WSO2 Identity Server.
 
 The `          <inboundAuthenticationConfig>         ` element consists of zero or more `<inboundAuthenticationRequestConfigs\>` elements. The `<inboundAuthenticationRequestConfigs\>` element has following elements (Note: Only the required element are mentioned).
@@ -769,7 +761,7 @@ The `          <inboundAuthenticationConfig>         ` element consists of zero 
 !!! note "Important"
 
     You need to create inbound authenticator configurations
-    accessing the appropriate services (Eg: OAuthAdminService,
+    accessing the appropriate services(Ex: OAuthAdminService,
     IdentitySAMLSSOConfigService, etc.), before updating service provider
     with inbound authenticator configurations.
 
@@ -911,7 +903,6 @@ The `          <inboundAuthenticationConfig>         ` element consists of zero 
         </soapenv:Body>
     </soapenv:Envelope>
     ```
----
 
 #### Inbound provisioning
 
@@ -990,7 +981,6 @@ The inbound provisioning of the service provider can be configured.
        </soapenv:Body>
     </soapenv:Envelope>
     ```  
----
 
 #### Local and outbound authentication  
 
@@ -1024,7 +1014,7 @@ The inbound provisioning of the service provider can be configured.
 <td><p>authenticationSteps.federatedIdentityProviders</p></td>
 <td><p>IdentityProvider</p></td>
 <td><div class="content-wrapper">
-<p>To configure federated IdPs, there should be one or more registered IdPs with at least one <a href="/get-started/architecture/#outboundfederated-authenticators">federated authenticator</a> enabled.</p>
+<p>To configure federated IdPs, there should be one or more registered IdPs with at least one <a href="https://docs.wso2.com/display/IS550/Configuring+Federated+Authentication">federated authenticator</a> enabled.</p>
 <p>With the request, it is necessary to include the IdP name and the federated authenticator name.</p>
 <p>The federated authenticator should be enabled in the IdP. If a federated authenticator is not mentioned, the default federated authenticator for the IdP will be used.</p>
 </div></td>
@@ -1035,7 +1025,7 @@ The inbound provisioning of the service provider can be configured.
 <td><p>Local authentication related configs for the authentication step. For example, you can specify whether to use a basic or an IWA authenticator.</p>
 <br />
 
-<p>To use basic, localAuthenticatorConfigs.name should be 'BasicAuthenticator' while 'IWAAuthenticator' for iwa.</p></td>
+<p>To use basic, <a href="http://localauthenticatorconfigs.name/">localAuthenticatorConfigs.name</a> should be 'BasicAuthenticator' while 'IWAAuthenticator' for iwa.</p></td>
 </tr>
 <tr class="even">
 <td><p>authenticationSteps.stepOrder</p></td>
@@ -1050,7 +1040,7 @@ The inbound provisioning of the service provider can be configured.
 <tr class="even">
 <td><p>authenticationType</p></td>
 <td><p>String</p></td>
-<td><p>Depending on the requirement, the authentication type can be specified. The available types are <code>default</code>, <code>local</code>, and <code>federated</code></p>
+<td><p>Depending on the requirement, the authentication type can be specified. The available types are: <a href="#UsingtheServiceProviderAPI-authtype_D">default</a>, <a href="#UsingtheServiceProviderAPI-authtype_L">local</a>, <a href="#UsingtheServiceProviderAPI-authtype_F">federated</a>, <a href="#UsingtheServiceProviderAPI-authtype_A">flow</a> .</p>
 <br />
 
 <p>Refer the sample requests below on each authentication type configuration.</p></td>
@@ -1474,7 +1464,6 @@ The inbound provisioning of the service provider can be configured.
         </soapenv:Body>
     </soapenv:Envelope>            
     ```
----
 
 #### Request path authenticator
 
@@ -1498,7 +1487,7 @@ Specify configurations related to zero or more request path authenticators.
 <td><p>enabled</p></td>
 <td><p>Boolean</p></td>
 <td><p>true - enable</p>
-<p>false - disable</p></td>
+<p>false - deisable</p></td>
 </tr>
 <tr class="odd">
 <td><p>name</p></td>
@@ -1515,7 +1504,7 @@ Specify configurations related to zero or more request path authenticators.
 <tr class="odd">
 <td><p>properties</p></td>
 <td><p>Property</p></td>
-<td><p>List of properties in an array</p></td>
+<td><p>List of properties in a array</p></td>
 </tr>
 </tbody>
 </table>
@@ -1609,7 +1598,6 @@ Specify configurations related to zero or more request path authenticators.
         </soapenv:Body>
     </soapenv:Envelope>      
     ```
----
 
 #### Outbound provisioning 
 
@@ -1787,8 +1775,6 @@ To configure the outbound provisioning of the service provider, use the followin
     </soapenv:Envelope>
     ```
 
----
-
 ### deleteApplication
 
 <table>
@@ -1842,15 +1828,13 @@ To configure the outbound provisioning of the service provider, use the followin
     </tbody>    
 </table>
 
----
-
 ### getAllApplicationBasicInfo
 
 <table>
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation can be used to get all available service provider names and their descriptions.</td>
+            <td>This operation can use to get all available service provider names and their descriptions.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -1888,8 +1872,6 @@ To configure the outbound provisioning of the service provider, use the followin
         </tr>
     </tbody>     
 </table>  
-
----
 
 ### getAllIdentityProviders
 
@@ -1960,8 +1942,6 @@ To configure the outbound provisioning of the service provider, use the followin
     </tbody>    
 </table>
 
----
-
 ### getAllLocalAuthenticators
 
 <table>
@@ -2015,7 +1995,6 @@ To configure the outbound provisioning of the service provider, use the followin
     </tbody>    
 </table>
 
----
 
 ### getAllLocalClaimUris
 
@@ -2086,15 +2065,13 @@ To configure the outbound provisioning of the service provider, use the followin
     </tbody>    
 </table>
 
----
-
 ### getAllRequestPathAuthenticators
 
 <table>
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation retrieves the available request path authenticators.</td>
+            <td>This operation retrieves the available request patch authenticators.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -2121,13 +2098,13 @@ To configure the outbound provisioning of the service provider, use the followin
  &lt;soapenv:Body&gt;
     &lt;ns:getAllRequestPathAuthenticatorsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2115="http://core.carbon.wso2.org/xsd" xmlns:ax2114="http://mgt.application.identity.carbon.wso2.org/xsd" xmlns:ax2120="http://common.application.identity.carbon.wso2.org/xsd" xmlns:ax2117="http://model.common.application.identity.carbon.wso2.org/xsd"&gt;
        &lt;ns:return xsi:type="ax2117:RequestPathAuthenticatorConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-          &lt;ax2117:displayName&gt;Basic Auth&lt;/ax2117:displayName&gt;
+          &lt;ax2117:displayName&gt;basic-auth&lt;/ax2117:displayName&gt;
           &lt;ax2117:enabled&gt;false&lt;/ax2117:enabled&gt;
           &lt;ax2117:name&gt;BasicAuthRequestPathAuthenticator&lt;/ax2117:name&gt;
           &lt;ax2117:valid&gt;true&lt;/ax2117:valid&gt;
        &lt;/ns:return&gt;
        &lt;ns:return xsi:type="ax2117:RequestPathAuthenticatorConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-          &lt;ax2117:displayName&gt;OAuth Bearer&lt;/ax2117:displayName&gt;
+          &lt;ax2117:displayName&gt;oauth-bearer&lt;/ax2117:displayName&gt;
           &lt;ax2117:enabled&gt;false&lt;/ax2117:enabled&gt;
           &lt;ax2117:name&gt;OAuthRequestPathAuthenticator&lt;/ax2117:name&gt;
           &lt;ax2117:valid&gt;true&lt;/ax2117:valid&gt;
@@ -2141,7 +2118,6 @@ To configure the outbound provisioning of the service provider, use the followin
     </tbody>    
 </table>
  
----
 
 ### getApplication
 
@@ -2221,8 +2197,6 @@ To configure the outbound provisioning of the service provider, use the followin
         </tr>
     </tbody>    
 </table>
-
----
 
 ### getIdentityProvider
 

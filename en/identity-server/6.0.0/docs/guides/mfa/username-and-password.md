@@ -39,11 +39,7 @@ To configure MFA using username and password:
 8. Click **Update** to save your configurations.
 
 !!! note
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/mfa/username-and-password.md
-    The reCAPTCHA validation capability is available for the Identifier First authentication flow handler as an update in WSO2 IS 6.1.0 from update level 32 onwards. See the instructions on how to [upgrade the WSO2 Identity Server]({{base_path}}/deploy/upgrade/upgrade-wso2-is).
-========
     The reCAPTCHA validation capability is available for Identifier First authentication flow handler as an update in WSO2 IS 6.0.0 from update level 75 onwards. See the instructions on how to [Upgrade the WSO2 Identity Server]({{base_path}}/deploy/upgrade/upgrade-wso2-is).
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/mfa/username-and-password.md
 
 ## Configure the server
 

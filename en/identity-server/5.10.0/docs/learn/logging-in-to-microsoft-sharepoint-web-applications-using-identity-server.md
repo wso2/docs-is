@@ -13,4 +13,4 @@ single-sign on for a Sharepoint application using the WSO2 Identity
 Server:
 [\[Tutorial\] SSO for Microsoft Sharepoint Web Applications with WSO2
 Identity
-Server](https://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/)
+Server](http://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/)

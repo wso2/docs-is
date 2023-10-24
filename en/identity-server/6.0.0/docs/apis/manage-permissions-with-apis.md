@@ -534,11 +534,8 @@ xmlns:ax2600="http://api.user.carbon.wso2.org/xsd"&gt;
   </tr>
 </table>
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/manage-permissions-with-apis.md
 ---
 
-========
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/managing-permissions-with-apis.md
 ### getAllowedUIResourcesForRole
 
 <table>
@@ -589,11 +586,8 @@ xmlns:ax2600="http://api.user.carbon.wso2.org/xsd"&gt;
   </tr>
   </table>
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/apis/manage-permissions-with-apis.md
 ---
 
-========
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/develop/managing-permissions-with-apis.md
 ### isRoleAuthorized
 
 <table>

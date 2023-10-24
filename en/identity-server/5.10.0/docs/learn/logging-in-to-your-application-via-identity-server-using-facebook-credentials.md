@@ -127,7 +127,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 in WSO2 Identity Server.
 
 1.  Download the WSO2 Identity Server from
-    [here](https://wso2.com/products/identity-server/) and [run
+    [here](http://wso2.com/products/identity-server/) and [run
     it](../../setup/running-the-product).  
     Log in to the [Management
     Console](../../setup/getting-started-with-the-management-console)
@@ -215,7 +215,7 @@ provider.](../../learn/adding-and-configuring-a-service-provider)
     
     !!! Tip "Before You Proceed" 
         In the beginning of this guide you have
-        [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1)
+        [registered the `ravelocity.com` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1)
         when setting up the `travelocity.com` sample. If you complete that
         you can skip steps 2 to 5 below.
 

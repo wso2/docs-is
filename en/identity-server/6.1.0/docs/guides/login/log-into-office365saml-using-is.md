@@ -356,8 +356,4 @@ provider of WSO2 IS and the Azure Active Directory.
 
 ## What's Next?
 
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/guides/login/log-into-office365saml-using-is.md
 To see how this feature works, try out the [Configuring On-Demand Provisioning with Azure AD]({{base_path}}/guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad) tutorial to provision users directly to Azure AD at the point of authentication.
-========
-To see how this feature works, try out the [Configuring On-Demand Provisioning with Azure AD]({{base_path}}/guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad) tutorial to provision users directly to Azure AD at the point of authentication.
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/guides/login/log-into-office365saml-using-is.md

@@ -33,7 +33,7 @@ necessary system requirements and a compatible environment.
 <tr class="odd">
 <td></td>
 <td><ul>
-<li>4 vCPUs (x86_64 Architecture)</li>
+<li>4 vCPUs</li>
 <li>4 GB RAM</li>
 <li>10 GB Disk Space</li>
 </ul>
@@ -42,9 +42,7 @@ necessary system requirements and a compatible environment.
 </tbody>
 </table>
 !!! note
-    We do not recommend running WSO2 Identity Server on ARM processors. However, official support for this is being considered for future releases.
-    
-    For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites).
+    For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites)
 
 ### Environment compatibility
 
@@ -78,7 +76,7 @@ necessary system requirements and a compatible environment.
 </tr>
 <tr class="even">
 <th>Load balancers</th>
-<td><p>For more information about load balancers, see <a href="../../administer/load-balancing/#types-of-load-balancers">Configuring the load balancer</a> .</p></td>
+<td><p>For more information about load balancers, see <a href="https://docs.wso2.com/display/CLUSTER44x/Setting+up+a+Cluster#SettingupaCluster-Configuringtheloadbalancer">Configuring the load balancer</a> .</p></td>
 </tr>
 </tbody>
 </table>
@@ -148,7 +146,8 @@ includes services, service descriptions, endpoints or data sources.
     see [Working with the Registry](../../administer/working-with-the-registry).
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
-governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server, config and governance registries are mounted by default.
+governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server 
+5.9.0, config and governance registries are mounted by default.
 
 !!! note
     The production recommendation is to set the `<versionResourcesOnChange>` property in the `registry.xml` 
@@ -209,6 +208,11 @@ WSO2 supports the following membership schemes for clustering
             number of potential members. 
             
         ??? tip "Click to see the instructions for AWS ECS membership scheme"  
+            !!! warning
+                 To use this feature, apply the `0017` WUM update for WSO2 Identity Server 5.9.0 using the WSO2 Update Manager 
+                 (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, 
+                 you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating 
+                 WSO2 Identity Server using WUM, see [Updating WSO2 Products](../../administer/getting-wso2-updates) 
                       
             1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
                 -   Note the `name` and `VPC CIDR block` of the cluster as you will require them later for configurations.
@@ -253,100 +257,7 @@ WSO2 supports the following membership schemes for clustering
                 consume this docker image to 
                 create a `Task Definition` and run a new `Service` or a `Task` 
                 on the `AWS ECS cluster` that you created.
-
-        ??? tip "Click to see the instructions for AWS EC2 membership scheme"  
-
-            When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode. Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and do the following changes.
-
-            1. Apply the following configuration parameters and update the values for the server to enable AWS clustering.
-                    ```toml
-                    [clustering]
-                    membership_scheme = "aws"
-                    domain = "wso2.carbon.domain"
-                    local_member_host = "10.0.21.80"
-                    local_member_port = "5701"
-                    ```
-                The port used for communicating cluster messages has to be any port number between 5701 and 5800. The local member host must be set to the IP address bound to the network interface used for communicating with other members in the group (private IP address of EC2 instance).
-
-            2. Apply the following parameters to update the values to configure clustering properties.
-                    ```toml
-                    [clustering.properties]
-                    accessKey = "***"
-                    secretKey = "***"
-                    securityGroup = "security_group_name"
-                    region = "us-east-1"
-                    tagKey = "a_tag_key"
-                    tagValue = "a_tag_value"  
-                    ```
-                It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory. 
-
-            3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
-                See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
-                    Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
-                    ```json
-                    { "Version": "2012-10-17",
-                    "Statement":
-                    [
-                    {
-                        "Effect": "Allow",
-                        "Action":
-                            [
-                            "ec2:DescribeAvailabilityZones",
-                            "ec2:DescribeInstances"
-                            ],
-                            "Resource": [ "*" ]
-                    }
-                    ]
-                    }
-                    ```
-                
-        ??? tip "Click to see the instructions for Kubernetes membership scheme"
-            When IS nodes are deployed in a clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatically discovering these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
-
-            - If not already present, download and copy the [kubernetes-membership-scheme-1.x.x.jar](https://github.com/wso2/kubernetes-common/tags) to the  `<IS_HOME>/repository/components/dropins/` directory.
-
-            - Configure the `<IS_HOME>/repository/conf/deployment.toml` file with the following configurations.
-
-
-                | Parameter                               | Description                                                                                                | Example        |
-                |-----------------------------------------|------------------------------------------------------------------------------------------------------------|----------------|
-                | membershipScheme                        | This is the membership scheme that will be used to manage the membership of nodes in a cluster.            | kubernetes     |
-                | local_member_host                       | This is the hostname or the IP address of the member. Set it to the pod's local IP address.                | 172.17.0.2     |
-                | local_member_port                       | This is the TCP port that is used by this member and through which other members will contact this member. | 4000           |
-                | membershipSchemeClassName               | org.wso2.carbon.membership.scheme.kubernetes.KubernetesMembershipScheme                                    |                |
-                | KUBERNETES_NAMESPACE                    | This is the Kubernetes Namespace in which the pods are deployed,                                           | wso2-is        |
-                | KUBERNETES_SERVICES                     | These are the Kubernetes Services that belong in the cluster.                                              | wso2is-service |
-                | KUBERNETES_MASTER_SKIP_SSL_VERIFICATION | This defines whether the SSL certificate verification of the Kubernetes API should be carried out or not.  | true           |
-                | USE_DNS                                 | This configures the membership scheme to use Kubernetes API for pod IP resolution. Set this to false .     | false          |
-
-
-                ```
-                [clustering]
-                membership_scheme = "kubernetes"
-                local_member_host = "172.17.0.2"
-                local_member_port = "4000"
-
-                [clustering.properties]
-                membershipSchemeClassName = "org.wso2.carbon.membership.scheme.kubernetes.KubernetesMembershipScheme"
-                KUBERNETES_NAMESPACE = "wso2-is"
-                KUBERNETES_SERVICES = "wso2is-service"
-                KUBERNETES_MASTER_SKIP_SSL_VERIFICATION = true
-                USE_DNS = false
-                ```
-            - In order to retrieve the pod IP addresses information from the Kubernetes apiserver, the Kubernetes membership scheme uses the pods service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the Role you bind has the following permissions.
-                ```
-                rules:
-                - apiGroups: [""]
-                verbs: ["get", "list"]
-                resources: ["endpoints"]
-                ```
-            - Optionally, a Kubernetes token or basic authentication can be used to authenticate with the Kubernetes apiserver. The following properties can be set under `[clustering.properties]` accordingly.
-                - KUBERNETES_API_SERVER : This is the Kubernetes API endpoint,e.g., http://172.17.8.101:8080 . Alternatively, an https endpoint can be set via KUBERNETES_SERVICE_HOST and KUBERNETES_SERVICE_PORT_HTTPS.
-                - KUBERNETES_SERVICE_HOST : This is the Kubernetes API host name or IP address, e.g., kuberneteshostname 
-                - KUBERNETES_SERVICE_PORT_HTTPS : This is the Kubernetes API https listening port. This must be an Integer value.
-                - KUBERNETES_API_SERVER_TOKEN : This is the Kubernetes Master token for authentication (optional), e.g., yourkubernetestoken. 
-                - KUBERNETES_API_SERVER_USERNAME : This is the Kubernetes Master username (optional), e.g., admin.
-                - KUBERNETES_API_SERVER_PASSWORD : This is the Kubernetes Master password (optional).                
+            
         
 2. Configure caching.
 
@@ -513,7 +424,7 @@ Identity Server endpoints. The `hostName` should be resolved to the Load Balance
 
     ```
     [server]
-    hostname = "wso2.is"
+    hostname = "wso2.is.com"
     ```
 
     !!! note 
@@ -521,7 +432,7 @@ Identity Server endpoints. The `hostName` should be resolved to the Load Balance
         the `/etc/hosts` file in each node so that internal calls will not be routed through the Load Balancer.
         
         Example: 
-        `192.168.2.1   wso2.is`
+        `192.168.2.1   wso2.is.com`
 
 ## Enabling artifact synchronization
 
@@ -537,15 +448,7 @@ Once you have chosen a file system,
 
 1. Mount it in the nodes that are participating in the cluster.
 2. If the userstores need to be updated at runtime, create a directory called `Userstores` in the shared file system and create a symlink from the `<IS_HOME>/repository/deployment/server/userstores` path to the `Userstores` directory. 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/deployment-guide.md
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/setup/deployment-guide.md
-4. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
-========
 3. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/setup/deployment-guide.md
-========
-3. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/setup/deployment-guide.md
 
 !!! note
     Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment/server/userstores` and
@@ -568,7 +471,7 @@ You can use any load balancer that is available to your system.
 ## Running the cluster
 
 1. Start the load balancer and WSO2 Identity Server nodes.
-2. Access the management console at `https://wso2.is/carbon/`. 
+2. Access the management console at `https://wso2.is.com/carbon/`. 
     Traffic will be served by one of the nodes in the cluster, depending on your load balancer.
 3. Shut down the cluster node 1 and observe that the traffic is served by node 2. 
 3. Start node 1 and shut down node 2. Note that traffic will be served by node 1.

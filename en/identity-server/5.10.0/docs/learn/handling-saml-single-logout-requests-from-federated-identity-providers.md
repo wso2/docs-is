@@ -42,17 +42,19 @@ the sample applications.
 
 4. Click **Add** under **Identity Providers**. 
 
-5. Fill in the details in the **Basic Information** section. Give a suitable name for the Identity Provider.
+4. Fill in the details in the **Basic Information** section. Give a suitable name for the Identity Provider.
 
-6. Expand the **SAML2 Web SSO Configuration** section and fill the required details. 
-    ![saml-slo-federated-idp-config](../assets/img/tutorials/saml-slo-federated-idp-config.png)
+5. Expand the **SAML2 Web SSO Configuration** section and fill the required details. 
+   ![saml-slo-federated-idp-config](../assets/img/tutorials/saml-slo-federated-idp-config.png
    
-    !!! info
-        Select **Specifies if logout request from the identity provider is accepted** to accept single logout requests from the identity provider. Once this is enabled, WSO2 Identity Server accepts and handles the logout requests. This configuration is a must to try this scenario. 
+   !!! info
+       Select **Specifies if logout request from the identity provider is accepted** to accept single logout requests from 
+      the identity provider. Once this is enabled, WSO2 Identity Server accepts and handles the logout requests. 
+      This configuration is a must to try this scenario. 
 
-    ![saml-slo-configuring-slo-requests-accept](../assets/img/tutorials/saml-slo-configuring-slo-requests-accept.png)
+   ![saml-slo-configuring-slo-requests-accept](../assets/img/tutorials/saml-slo-configuring-slo-requests-accept.png)
    
-7. After providing the values for the required fields, click **Register**.
+6. After providing the values for the required fields, click **Register**.
 
 ### Configuring Pickup Dispatch application in the Primary IS
 
@@ -76,12 +78,12 @@ The next step is to configure the Primary IS as a service provider in the Second
 
 2. Log in to the management console of the Secondary IS.
 
-3. Follow the steps in [Configuring Pickup Dispatch application in the Primary IS](#configuring-pickup-dispatch-application-in-the-primary-is) and configure the service provider with the details given below.
+3. Follow the steps in [Configuring Pickup Dispatch application in the Primary IS](configuring-pickup-dispatch-application-in-the-primary-is) and configure the service provider with the details given below.
 
     - Issuer : SP Entity Id of the Secondary IS
     - Assertion Consumer URL : URL of the endpoint which receives SAML responses from the identity provider
-    - Enable Single Logout
-    - SLO Request URL : "https://localhost:9443/identity/saml/slo" 
+    - Enable Single Logout (https://localhost:9443/commonauth)
+    - SLO Request URL ; "http:/localhost:8080/identity/saml/slo" 
 
     !!! info "Note"
         Providing the SLO Request URL is a must. WSO2 IS receives the SAML single logout requests from this URL. For now, only front channel bindings are supported with this feature. For logout method, select one of the front channel bindings.

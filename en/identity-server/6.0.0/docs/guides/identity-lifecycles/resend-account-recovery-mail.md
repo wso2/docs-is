@@ -348,11 +348,4 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
     6. **Email Footer** :  --
 
 !!! tip
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/guides/identity-lifecycles/resend-account-recovery-mail.md
     For information on the REST API for resending confirmation code, see [Resend-Code Using REST API]({{base_path}}/apis/use-the-self-sign-up-rest-apis).
-========
-    For information on the REST API for resending confirmation code, see [Resend-Code Using REST API](https://api-docs.wso2.com/apidocs/is/is590/self-registration/#!/operations#SelfRegister#resendCodePost).
-
-
-            
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/learn/resending-account-recovery-confirmation-emails.md

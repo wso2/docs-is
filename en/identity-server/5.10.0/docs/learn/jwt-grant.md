@@ -165,8 +165,15 @@ When an entity initates a request to gain access to an application:
 	!!! note
 
 		For this verification to work, the identity provider should have been registered as a trusted identity provider in WSO2 Identity Server.
-		The `Identity Provider Name` or the `Identity Provider's Issuer Name` property in the Identity Provider configuration 
-		should match the value in the `iss` claim of the JWT assertion.
+		The `Identity Provider Name` should match the value in the `iss` claim of the JWT assertion.
+		
+	!!! info
+        From WUM update 0224 the `Identity Provider's Issuer Name` property in the Identity Provider configuration can also be used to specify the
+        issuer name of the identity provider. To make this property available, apply the 0224 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
+        (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid
+        subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For
+        more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products](https://is.docs.wso2
+        .com/en/latest/administer/getting-wso2-updates/)
 
 4.	Once the identity provider is identified, WSO2 Identity Server retrieves the corresponding **identity provider configurations** containing the identity provider's `public certificate`.
 

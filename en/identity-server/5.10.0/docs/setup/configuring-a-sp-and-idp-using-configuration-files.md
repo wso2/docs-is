@@ -1,7 +1,7 @@
-# Configure an SP and IdP Using Configuration Files
+# Configuring a SP and IdP Using Configuration Files
 
 This topic provides instructions on how to create a service provider and
-identity provider in WSO2 Identity Server using configuration files
+identity provider in the WSO2 Identity Server using configuration files
 which is typically used during the deployment stage. This is configured so
 that multiple tenants in the Identity Server can have the same identity
 provider.
@@ -12,32 +12,34 @@ solution. This scenario requires two WSO2 Identity Server instances,
 where one acts as the external identity provider, and the other acts as
 the service provider. From this point onwards, the Identity Server
 instance that acts as the external identity provider will be referred to
-as `          identity provider IS         ` and the instance that
-acts as the service provider will be referred to as 
-`          service provider IS         `. Once the configurations 
-are done, the `          service provider IS         ` will
+as **`          identity provider IS         `** and the instance that
+acts as the service provider will be referred to as
+**`          service provider IS         `**. Once the configurations 
+are done, the **`          service provider IS         `** will
 have the `travelocity` application configured as a service provider and an
 identity provider configured and shared across its tenant space. This is
 illustrated via the following diagram.
 
-![configuring an sp and idp using configuration files]({{base_path}}/assets/img/deploy/configuration-files.png)
+![Configuring a SP and IdP Using Configuration Files](../assets/img/103329463/103329465.png)
 
 The following are the high level steps required for this scenario.
 
-1.  Add the `           identity provider IS          ` to the
-    `           service provider IS          ` as an identity
+1.  Add the **`           identity provider IS          `** to the
+    **`           service provider IS          `** as an identity
     provider.
-2.  Add the `           service provider IS          ` to the
-    `           identity provider IS          ` as a service
+2.  Add the **`           service provider IS          `** to the
+    **`           identity provider IS          `** as a service
     provider.
 3.  Add the `travelocity.com` application in the
-    `           service provider IS          ` as a service
+    **`           service provider IS          `** as a service
     provider. This uses the identity provider created earlier (in
     step 1) as a federated authenticator.
 
 !!! note
-    The above processes can be easily done using [WSO2 Identity Server Management Console]({{base_path}}/deploy/get-started/get-started-with-the-management-console/), but the
-    `service provider` and `identity provider` created in `          service provider IS         `, will **only be visible to the
+    The above processes can be easily done using the [Management
+    Console](../../setup/getting-started-with-the-management-console), but the
+    `service provider` and `identity provider` created in
+    **`          service provider IS         `**, will **only be visible to the
     tenant who creates them**. 
     
     Therefore, difference here is that the `identity
@@ -48,20 +50,13 @@ The following are the high level steps required for this scenario.
 The following sections provide instructions on how to carry out the
 above steps.
 
----
-
 ## Before you begin
 
-Follow the instructions given below to setup two WSO2 Identity Server instances
+Do the following steps to setup two WSO2 Identity Server instances
 for this scenario.
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/configure-an-sp-and-idp-using-configuration-files.md
 1.  [Download](http://wso2.com/products/identity-server/) and
-    [install]({{base_path}}/deploy/get-started/install/) the two WSO2 Identity Server
-========
-1.  [Download](https://wso2.com/products/identity-server/) and
     [install](../../setup/installing-the-product) the two Identity Server
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/configuring-a-sp-and-idp-using-configuration-files.md
     instances.
 2. Navigate to `<IDENTITY_PROVIDER_IS_HOME>/repository/conf/deployment.toml`
    and add an `offset` value to increment the port values in the 
@@ -78,29 +73,28 @@ for this scenario.
     
     !!! note
         To read more about new configurations, 
-        see [New Configuration Model]({{base_path}}/references/new-configuration-model).
+        see [New Configuration Model](../../references/new-configuration-model).
 
 You have successfully setup the Identity Server instances. Now you can proceed to the
 the configuration steps.
 
----
+## Configure the Federated Identity Provider
 
-## Configure the federated identity provider
-
-This section involves adding the ` service provider IS ` as a
-service provider in the ` identity provider IS ` from the management
+This section involves adding the **` service provider IS `** as a
+service provider in the **` identity provider IS `** from the management
 console.
 
-1.  Start the `identity provider IS` and access WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). Refer [Run the Product({{base_path}}/deploy/get-started/run-the-product/).
-2.  Navigate to the **Main** > **Identity** > **Service Providers** > Click **Add**.
+1.  [Start the **`identity provider IS`** and access the Management Console](../../setup/running-the-product).
+2.  Navigate to the **Main** -> **Identity** -> **Service Providers** -> Click **Add**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. 
     
-    **NOTE:** For this scenario, enter the **Service Provider Name** as `ServiceProviderSP_IS`.
+    **NOTE:** for this scenario, enter the **Service Provider Name** as `ServiceProviderSP_IS`.
     
 4.  Click **Register** to add the service provider.
-5.  Expand the **Inbound Authentication** and **SAML2 Web SSO Configuration** sections and click **Configure**.
-6.  Configure the following properties.
+5.  Expand the **Inbound Authentication** and **SAML2 Web SSO
+    Configuration** sections and click **Configure**.
+6.  Do the following configurations.
 
     | Configurations to be done                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
     |-------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -110,17 +104,16 @@ console.
 
 7.  Click **Register** to save your changes.
 
----
+## Adding an identity provider
 
-## Add an identity provider
-
-This section involves adding the ` identity provider IS ` as an
-identity provider in the ` service provider IS ` via a file.
+This section involves adding the **` identity provider IS `** as an
+identity provider in the **` service provider IS `** via a file.
 
 Create a file named `         identityProviderIDP_IS.xml        ` inside
 the `<SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/identity­-providers`
 directory and add the following content into it. These configurations
-basically add the identity provider in the `          service provider IS         `. Additionally, this has
+basically add the identity provider in the
+**`          service provider IS         `**. Additionally, this has
 the configurations necessary for a federated authentication scenario.
 
 ??? example "identityProviderIDP\_IS.xml"
@@ -205,10 +198,11 @@ the configurations necessary for a federated authentication scenario.
     
     !!! note
         Here, `         travelocitySP        ` must be the same value as the
-        value configured as the **Issuer** in the `          identity provider IS         `.
+        value configured as the **Issuer** in the
+        **`          identity provider IS         `**.
     
     !!! tip
-        When studying the above configurations, you can identify the
+        **Tip** : When studying the above configurations, you can identify the
         **Service Provider Entity Id** in the following code snippet.
         
         ``` xml
@@ -219,7 +213,7 @@ the configurations necessary for a federated authentication scenario.
         ```
 
     !!! note
-        This configuration will **only** allow the file based identity
+        **Note:** This configuration will **only** allow the file based identity
         provider to be visible in **file based** service providers.
         Additionally, it will only be visible to the super tenant. To make it
         visible across tenants and in the SP registration UI, add the prefix
@@ -235,13 +229,13 @@ the configurations necessary for a federated authentication scenario.
         drop down as a federated identity provider when configuring a service
         provider.
     
-## Add a certificate
+**Adding Certificate**
 Add the certificate value to the `identityProviderIDP_IS.xml` 
 file within the `<Certificate>` tag.
 
 !!! note
-    The following is a sample command to export the public certificate in PEM format 
-    in WSO2 Identity Server. Navigate to the `<IDENTITY_PROVIDER_IS_HOME>/repository/resources/security` folder and
+    The following is a sample command export the public certificate in PEM format 
+    in WSO2 Identity Server. Navigate to `<IDENTITY_PROVIDER_IS_HOME>/repository/resources/security` folder and
     use the following command.
     
     ``` java
@@ -258,12 +252,11 @@ file within the `<Certificate>` tag.
         copy the entire content of the PEM file and place it within the 
         `<Certificate>` tag.
         
----
 
-## Add a service provider
+## Adding a service provider
 
 This section involves adding the `travelocity.com` application as a
-service provider in the ` service provider IS ` via a file.
+service provider in the **` service provider IS `** via a file.
 
 1.  Open the
     `           <SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/sso-idp-config.xml          `
@@ -310,8 +303,8 @@ service provider in the ` service provider IS ` via a file.
 
     !!! Tip 
         If the incoming SAML requests from the client (e.g., `
-        travelocity.com ` ) are signed, and the service provider identity
-        server instance needs to validate the signature included in the
+        travelocity.com ` ) are signed, and the service provider Identity
+        Server instance needs to validate the signature included in the
         authentication and logout requests, do the following:
         
         1.  Import the public certificate of the client to the primary
@@ -334,9 +327,9 @@ service provider in the ` service provider IS ` via a file.
         
         To enable SAML Front-Channel Logout with HTTP POST Binding
             ``` xml
-            <EnableSingleLogout>true</EnableSingleLogout>
-            <EnableFrontChannelLogout>true</EnableFrontChannelLogout>
-            <FrontChannelLogoutBinding>HTTPPostBinding</FrontChannelLogoutBinding>
+                <EnableSingleLogout>true</EnableSingleLogout>
+                <EnableFrontChannelLogout>true</EnableFrontChannelLogout>
+                <FrontChannelLogoutBinding>HTTPPostBinding</FrontChannelLogoutBinding>
             ```
 
 2.  Create a file named `          travelocity.com.xml         ` in the
@@ -424,53 +417,61 @@ service provider in the ` service provider IS ` via a file.
 
     !!! note
     
-        WSO2 Identity Server Management Console will not show the SP-related
+        Please note that the management console will not show the SP related
         configuration information if it is loaded through a file
 
-        ![no-service-providers]({{base_path}}/assets/img/deploy/no-service-providers.png)
+        ![no-service-providers](../assets/img/setup/configuring-sp-Idp-using-configuration-files/no-service-providers.png)
 
 
----
+## Running the travelocity application
 
-## Run the travelocity application
+Do the following steps to run the travelocity application.
 
-{!./includes/travelocity-deploy.md !}
+1.  [Deploy the travelocity](../../learn/deploying-the-sample-app/#download-the-sample)
+    application. No need to register the service provider for
+    travelocity as
+    [we created service provider via a file](#adding-the-service-provider-in-the-service-provider-is).
 
-!!! note
-    Check whether you have enabled following configurations while adding the service provider 
-    in the `identity provider IS`. You can check this by navigating to **Main** > **Identity** > 
-    **Service Providers** > **List** > Click **Edit** in the corresponding SP > 
-    **Inbound Authentication Configuration** > **SAML2 Web SSO Configuration** > **Edit**.
-    
-    ![SAML2 web SSO configuration]({{base_path}}/assets/img/deploy/sp_configs.png)
-    
-    If you have not enabled the configs, add the following configs to travelocity as well.
-    
-    1.  Stop tomcat if it is already running.
-    2.  Navigate to `<TOMCAT_HOME>/webapps/travelocity.com/WEB­INF/classes/travelocity.properties` file 
-    and change the following configs to `false` if they are configured to `true`.
-    
-    ```
-    #Specify if SAMLResponse element is signed
-    SAML2.EnableResponseSigning=false
-    
-    #Specify if SAMLAssertion element is signed
-    SAML2.EnableAssertionSigning=false
-    
-    #Specify if AuthnRequests and LogoutRequests should be signed
-    SAML2.EnableRequestSigning=false
-    ```
-
----
-
-## Test with tenants
-
-Now you can test if the configurations you have done work in a tenant scenario.
-
-1.  [Create new tenants]({{base_path}}/guides/tenants/tenant-mgt/) in the `            service provider IS           `.
+2.  When you access the following link to the travelocity application,
+    you are directed to the identity provider for authentication: `
+    http://wso2is.local:8080/travelocity.com/index.jsp `
 
     !!! note
-        You cannot provide access to the service provider and
+        Check whether you have enabled following configurations while adding the service provider 
+        in the `identity provider IS`. You can check this by navigating to **Main** -> **Identity** -> 
+        **Service Providers** -> List -> Click **Edit** in the corresponding SP -> 
+        **Inbound Authentication Configuration** -> **SAML2 Web SSO Configuration** -> **Edit**.
+        
+        ![SAML2 Web SSO Configuration](../assets/img/setup/configuring-sp-Idp-using-configuration-files/sp_configs.png)
+        
+        If you have `not enabled` the configs, add the following configs to travelocity as well.
+        
+        1.  Stop tomcat if it is already running.
+        2.  Navigate to `<TOMCAT_HOME>/webapps/travelocity.com/WEB­INF/classes/travelocity.properties` file 
+        and change the following configs to `false` if they are configured to `true`.
+        
+        ```
+        #Specify if SAMLResponse element is signed
+        SAML2.EnableResponseSigning=false
+        
+        #Specify if SAMLAssertion element is signed
+        SAML2.EnableAssertionSigning=false
+        
+        #Specify if AuthnRequests and LogoutRequests should be signed
+        SAML2.EnableRequestSigning=false
+        ```
+    
+## Testing with tenants
+
+Now you can test if the configurations you have done work in a tenant
+scenario.
+
+1.  [Create new tenants](../../learn/creating-and-managing-tenants) in the
+    **`            service provider IS           `**.
+
+    !!! note
+    
+        **Note** : You cannot provide access to the service provider and
         identity provider for a specific tenant domain. This is accessible
         to all the tenants configured.
     
@@ -588,7 +589,7 @@ Now you can test if the configurations you have done work in a tenant scenario.
     ```
 
     !!! tip
-        You can uncomment values in this file by removing the
+        **Tip** : You can uncomment values in this file by removing the
         **`\#`**.
     
 
@@ -597,14 +598,15 @@ Now you can test if the configurations you have done work in a tenant scenario.
     of the tenant.
     
     !!! note
-        If you have not enabled signature validation, proceed to the next step.
+        If you have **not enabled** signature validation, proceed to the next step.
     
-    1.  Log in using tenant credentials to WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) and
-        navigate to **Main > Manage > Keystores > List.**
+    1.  Login using tenant credentials to the management console and
+        navigate to
+        `            Main > Manage > Keystores > List.           `
         Click on `            Public Key           ` link to download
         the certificate.  
         
-        ![download public key certificate]({{base_path}}/assets/img/deploy/public-key-certificate.png)
+        ![](../assets/img/103329463/103329464.png)
         
     2.  Now you need to import this public certificate to
         `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/wso2carbon.jks            `
@@ -614,22 +616,22 @@ Now you can test if the configurations you have done work in a tenant scenario.
         keytool -import -alias <key_alias> -file <download_file> -keystore wso2carbon.jks
         ```
 
-        !!! note 
-            Default password of the `wso2carbon.jks` is `wso2carbon`.
+        **NOTE:** Default password of the `wso2carbon.jks` is `wso2carbon`.
 
-    3.  Update the `             IdPPublicCertAlias            `
-        property in `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/travelocity.properties            `
+    3.  Update `             IdPPublicCertAlias            `
+        property in the
+        `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/travelocity.properties            `
         with provided alias in the previous step.
 
         !!! note
             It is possible to disable response signature validation
             from the Travelocity application using the `SAML2.EnableResponseSigning`
-            property available in the `<APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/travelocity.properties`
+            property available in `<APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/travelocity.properties`
             file.
 
 5.  If you have made any changes to the port offset, you must ensure that
     this change is reflected in the port value of the following
-    property in the `travelocity.properties` file.
+    property in the `ravelocity.properties` file.
 
     ``` java
     SAML2.IdPURL=https://localhost:9443/samlsso
@@ -638,16 +640,29 @@ Now you can test if the configurations you have done work in a tenant scenario.
 6.  Restart Apache Tomcat and access the travelocity application. You
     will be able to log in using the identity provider credentials
     regardless of the tenant domain you are using. Access the
-    travelocity application using `http://wso2is.local/travelocity.com/index.jsp`.
+    travelocity application using the following:
+    [http://wso2is.local/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
 
----
+      
 
-!!! info "Related topics"
-    -   [Quick Start: Configure SAML SSO]({{base_path}}/get-started/sample-use-cases/single-sign-on/#try-sso-with-saml-20)
-    -   [Guide: Enable Single Sign-On for a SAML Web Application]({{base_path}}/guides/login/sso-for-saml/)
+**Related links**
 
-<!---   See [Configuring a SP and IdP Using Service
-    Calls](TBD:{{base_path}}/learn/configuring-a-sp-and-idp-using-service-calls) for
+The following links provide additional information that may be relevant
+when attempting the instructions in this topic.
+
+-   See [Configuring SAML SSO](../../learn/configuring-single-sign-on) for
+    information on using the travelocity.com application for single
+    sign-on. This provides insight on some parameters used.
+-   See [Adding and Configuring a Service
+    Provider](../../learn/adding-and-configuring-a-service-provider) for
+    information on creating a service provider using the WSO2 Identity
+    Server management console.
+-   See [Adding and Configuring an Identity
+    Provider](../../learn/adding-and-configuring-an-identity-provider) for
+    information on creating an identity provider using the WSO2 Identity
+    Server management console.
+-   See [Configuring a SP and IdP Using Service
+    Calls](../../learn/configuring-a-sp-and-idp-using-service-calls) for
     information on creating a service provider or identity provider
-    using admin services.-->
+    using admin services.
 

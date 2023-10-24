@@ -26,15 +26,3 @@ The following query parameters are sent to the web application from authenticati
 -   remainingAttempts
 
 The error messages can be customized based on these query parameters in the jsp files as in  `authenticationendpoint/login.jsp`.
-
-If the `showAuthFailureReason` property is enabled, the user will be redirected to the `retry.do` page with the above mentioned query parameters during the authentication flow.
-
-If you want to show the error message on the login page without redirecting the user to any other page, the following properties can be used to show the authentication error message on the login page.
-
-```toml
-[authentication.authenticator.basic.parameters]
-showAuthFailureReason = true
-showAuthFailureReasonOnLoginPage = true
-```
-
-

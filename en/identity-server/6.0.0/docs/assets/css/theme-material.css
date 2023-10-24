@@ -157,7 +157,6 @@
 
 .swagger-ui .opblock .opblock-summary-path, .swagger-ui .opblock .opblock-summary-path__deprecated {
   font-size: 16px;
-  max-width: 600px !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -186,7 +185,7 @@
 }
 
 .swagger-ui .opblock .opblock-summary-path__deprecated {
-  text-decoration: line-through;
+  text-decoration: line-through
 }
 
 .swagger-ui .opblock .opblock-summary-description {

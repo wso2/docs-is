@@ -46,7 +46,7 @@ http://wso2is.local:8080/playground2/ `
 ??? note "Complete the user profile"
     1.  [Create a user](../../learn/configuring-users).
     2.  Log in as the user you created and go to the
-        [My Account Portal](../../learn/user-portal).
+        [dashboard](../../learn/using-the-end-user-dashboard).
     3.  [Update your
         profile](../../learn/configuring-users#update-users)
         filling the user attributes.

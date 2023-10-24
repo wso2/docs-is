@@ -47,8 +47,8 @@ reCaptcha for a specific tenant.
     ![account-recovery](../assets/img/using-wso2-identity-server/account-recovery.png) 
 
 7.  You have now successfully configured reCaptcha for the password
-    recovery flow. Start WSO2 Identity Server and log into the 
-    [My Account portal](https://localhost:9443/myaccount/).
+    recovery flow. Start WSO2 Identity Server and log into the end user
+    [dashboard](https://localhost:9443/dashboard).
 
     !!! tip
     
@@ -58,12 +58,20 @@ reCaptcha for a specific tenant.
 
 8.  Click on **Forgot Password**.
 
-![forgot-password](../assets/img/using-wso2-identity-server/forgotten-password-option.png)
+![forgot-password](../assets/img/using-wso2-identity-server/forgot-password.png)
+  
+
+Enter your username in the page that appears next and select **Proceed
+to Password Recovery**.
+
+![start-password-recovery](../assets/img/using-wso2-identity-server/start-password-recovery.png)
+
+  
 
 You are redirected to the **Recover Password** page where you can select
 the recaptcha option.
 
-![recover-password](../assets/img/using-wso2-identity-server/recover-password-with-recaptcha.png)
+![recover-password](../assets/img/using-wso2-identity-server/recover-password.png)
 
 ### Configuring password recovery with reCaptcha globally
 
@@ -88,8 +96,8 @@ password recovery with reCaptcha.
     ReCaptcha](../../learn/setting-up-recaptcha).
 
 3.  You have now successfully configured reCaptcha for the password
-    recovery flow. Start WSO2 Identity Server and log into the 
-    [My Account portal](https://localhost:9443/myaccount/).  
+    recovery flow. Start WSO2 Identity Server and log into the end user
+    [dashboard.](https://localhost:9443/dashboard)  
 
     !!! tip
     
@@ -99,7 +107,7 @@ password recovery with reCaptcha.
 
 4.  Click on **Forgot Password**.
 
-![forgot-password](../assets/img/using-wso2-identity-server/forgotten-password-option.png)
+![forgot-password](../assets/img/using-wso2-identity-server/forgot-password.png)
 
 You are redirected to the **Recover Password** page where you can choose
 the recaptcha option for password recovery.

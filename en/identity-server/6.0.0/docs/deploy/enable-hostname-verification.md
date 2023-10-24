@@ -19,14 +19,8 @@ process.
 ## Configure hostname verification
 
 
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/enable-hostname-verification.md
 In WSO2 Identity Server, hostname verification is enabled by default. This is
 done using the `         httpclient.hostnameVerifier        ` property in the startup
-========
-In WSO2 Identity Server, hostname verification is **enabled** by default. This is
-done using the `         httpclient        ` 
-`         .hostnameVerifier        ` property in the product's startup
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/administer/enabling-hostname-verification.md
 script ( `         wso2server.sh        ` for Linux and
 `         wso2server.bat        ` for Windows) as shown below. The
 product startup script is stored in the
@@ -76,11 +70,6 @@ options.
         following system properties.
 
         ``` java
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/enable-hostname-verification.md
         -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
         -Dhttpclient.hostnameVerifier="AllowAll" \
-========
-            -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
-            -Dhttpclient.hostnameVerifier="AllowAll" \
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/administer/enabling-hostname-verification.md
         ```

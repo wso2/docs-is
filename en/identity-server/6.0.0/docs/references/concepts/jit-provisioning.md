@@ -36,8 +36,4 @@ JIT provisioning is configured for a particular identity provider. Whenever you 
     - [Concept: Introduction to Provisioning]({{base_path}}/references/concepts/identity-provisioning-intro)
     - [Concept: Provisioning Framework]({{base_path}}/references/concepts/provisioning-framework)
     - [Guide: JIT Inbound Provisioning]({{base_path}}/guides/identity-federation/jit-workflow)
-<<<<<<<< HEAD:en/identity-server/6.1.0/docs/references/concepts/jit-provisioning.md
     <!-- - [Guide: JIT Outbound Provisioning](TODO:link-to-guide)-->
-========
-    <!-- - [Guide: JIT Outbound Provisioning](TODO:link-to-guide)-->
->>>>>>>> 6.0.0-docs-old:en/identity-server/6.0.0/docs/references/concepts/jit-provisioning.md

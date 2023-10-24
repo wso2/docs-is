@@ -41,8 +41,6 @@ To create a sample certificate and create your own Certificate Authority to sign
     - Organization Name (eg, company) [Internet Widgits Pty Ltd]: WSO2
     - Organizational Unit Name (eg, section) [ ]: QA
     - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com 
-        !!! note
-            Note that the **CN** value has to be the same as the **user name** of the user that will try to log in in the future.
     - Email Address [ ]: kim@wso2.com
 
 4.  An OpenSSL CA requires new files and supporting directories. Therefore, create a new directory.
@@ -99,7 +97,7 @@ To create a sample certificate and create your own Certificate Authority to sign
             -  `validation.cnf`
             -  `/usr/lib/ssl/openssl.cnf`
 
-        2.  Set the following properties under `x509_extensions`:
+        2.  Set the following properties under `x509\_extensions`.
 
             ``` java
             crlDistributionPoints = URI:http://pki.google.com/GIAG2.crl
@@ -144,7 +142,7 @@ Once you have done the above steps, you have the keystore (`localcrt.jks`), trus
 
 ## Configuring the X509 certificate for the app
 
-1.  Download the [WSO2 Identity Server](https://wso2.com/products/identity-server/).
+1.  Download the [WSO2 Identity Server](http://wso2.com/products/identity-server/).
 
 2.  Replace your keystore file path, keystore password, trust store file path and trust store password (you can use the keystore and
     truststore, which you created in the [Working with Certificates](#working-with-certificates) section) in the following configuration and add it to the
@@ -266,19 +264,13 @@ For more information on CRL and OCSP certificate validation, see
     3. `name` : This attribute identifies the authenticator that is configured as the second authentication step. 
     4. `enable`: This attribute, when set to true makes the authenticator capable of being involved in the authentication process. 
 
-        ``` toml
-        [authentication.authenticator.x509_certificate.parameters]
-        name ="x509CertificateAuthenticator"
-        enable=true
-        AuthenticationEndpoint="https://localhost:8443/x509-certificate-servlet"
-        username= "CN"
-        ```
-    
-    5.  If users from a secondary user store should be given access, add the following property under `[authentication.authenticator.x509_certificate.parameters]`:
-   
-        ``` toml
-        SearchAllUserStores = true
-        ```
+    ``` toml
+    [authentication.authenticator.x509_certificate.parameters]
+    name ="x509CertificateAuthenticator"
+    enable=true
+    AuthenticationEndpoint="https://localhost:8443/x509-certificate-servlet"
+    username= "CN"
+    ```
 
     !!! note
         When X509 authentication is configured as the second authentication
@@ -333,7 +325,6 @@ retrieved certificate from the request.
     below, e.g., select a mapped attribute for the claim that is
     supported by the underlying database type.
     ![claim-for-certificate](../assets/img/learn/claim-for-certificate.png)
-    **important**: the mapped attribute's name must be "**userCertificate**"
 5.  Click **Add**.
 
 ## Updating the column size of the database for X509 certificates
@@ -404,9 +395,9 @@ The next step is to configure the service provider.
             ![browser-certificate](../assets/img/learn/browser-certificate.png)
 
             !!! note
-                For more information on creating users from the Email address as the username 
-                in management console, refer
-                [here](../../learn/using-email-address-as-the-username).
+                For more information on creating users and assigning roles
+                using management console, refer
+                [here](../../learn/configuring-users-roles-and-permissions).
             
 10. Finally, click on **Update** to finish the service provider
     configurations.

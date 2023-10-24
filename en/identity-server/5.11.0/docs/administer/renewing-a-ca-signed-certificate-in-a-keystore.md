@@ -1,15 +1,16 @@
-# Renew a CA-Signed Certificate in a Keystore
+# Renewing a CA-Signed Certificate in a Keystore
 
 A digital certificate has a validity period, after which the certificate expires. Once a certificate expires, it is no longer valid, and it can cause the client-server communication to fail at the SSL handshake level. Therefore, it is important to plan certificate renewal ahead of time. Neglecting certificate renewal can eventually lead to a catastrophic situation such as major service outage.
 
 Following are the high level steps you need to follow to renew an expired certificate in a keystore.
 
-!!! tip 
+!!! tip
+    Following are a few important points to keep in mind when you are renewing an expired certificate:
     
-    -   Use the same certificate authority that you used when you first got the public certificate. If you use a different certificate authority for certificate renewal, you will have to import the new CA-certificate as well as the intermediate certificates to the keystore and the client’s truststore.
-    -   If the certificate authority’s certificate is not in the keystore, you will get the following error when you try to import the CA-signed certificate to the keystore.
+    -   Use the same certificate authority that you used when you first got the public certificate. If you use a different certificate authority for certificate renewal, you will have to import the new CA-certificate as well as the intermediate certificates to the keystore and the client’s trust store.
+    -   If the certificate authority’s certificate is not in the keystore, you will get the following error when you try to import the CA-signed certificate to the keystore:
     
-        ``` java
+        ``` java tab="Error"
         keytool error: java.lang.Exception: Failed to establish chain from reply
         ```
 
@@ -18,11 +19,9 @@ Following are the high level steps you need to follow to renew an expired certif
 
 Now let's take a look at each high level step in detail.
 
----
-
 ## Step 1: Check the certificate validity period
 
-Follow one of the steps below to view the validity period of a certificate.
+Follow one of the steps below to view the validity period of a certificate:
 
 -   **If you have a public hostname**, go to <https://www.sslshopper.com/ssl-checker.html> and specify your server hostname. SSL hopper lists all the information about the server certificate.
 -   **If you have a java keystore**, execute the following keytool command to view the certificate information:
@@ -31,13 +30,13 @@ Follow one of the steps below to view the validity period of a certificate.
     keytool -list -keystore <keystore_name.jks> -alias <cert_alias> -v
     ```
 
-    This prompts for the keystore password. Once you specify the password, you can view the certificate information in a human readable format where the validity period is displayed as follows.
+    This prompts for the keystore password. Once you specify the password, you can view the certificate information in a human readable format where the validity period is displayed as follows:
 
     ``` java
     Valid from: Sun Jun 18 19:26:25 IST 2017 until: Sat Jun 19 19:26:25 IST 2027
     ```
 
--   **If you have the certificate file**, execute the following openssl command.
+-   **If you have the certificate file**, execute the following openssl command:
 
     ``` java
     x509 -in <certname.cer> -text -noout
@@ -53,26 +52,24 @@ Follow one of the steps below to view the validity period of a certificate.
 
 -   **If it is a website**, you can view the certificate information via the browser. All major browsers provide the capability to view certificate information.
 
-Once you view the validity period of a certificate and if it says that the certificate is about to expire or has already expired, you should generate a Certificate Signing Request (CSR) and get a new certificate generated from the CA.
-
----
+Once you view the validity period of a certificate and if it says that the certificate is about to expire or has already expired, the next step you should generate a Certificate Signing Request (CSR) and get a new certificate generated from the CA.
 
 ## Step 2: Generate a CSR
 
-Depending on the type of keystore you have, follow one of the steps below to generate a Certificate Signing Request (CSR).
+Depending on the type of keystore you have, follow one of the steps below to generate a Certificate Signing Request (CSR):
 
--   **If you have a java keystore**, execute the following command.
+-   **If you have a java keystore**, execute the following command:
 
     ``` java
     keytool -certreq -alias <cert_alias> -file <CSR.csr> -keystore <keystore_name.jks>
     ```
 
     !!! tip
-        If you want to generate a CSR with a subject alternative name (SAN), be sure to use the `-ext` attribute in the keytool command to specify required SAN.
+        If you want generate a CSR with a subject alternative name (SAN), be sure to use the `-ext` attribute in the keytool command to specify required SAN.
     
-        Following is a sample keytool command that includes a SAN.
+        Following is a sample keytool command that includes a SAN:
     
-        ``` java
+        ``` java tab="Example"
         keytool -certreq -alias test -file test.csr -keystore test.jks -ext SAN=dns:test.example.com
         ```
     
@@ -83,32 +80,20 @@ Depending on the type of keystore you have, follow one of the steps below to gen
     openssl x509 -x509toreq -in <cert_name.crt> -out <CSR.csr> -signkey <private_key.key>
     ```
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/administer/renewing-a-ca-signed-certificate-in-a-keystore.md
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md
-Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. <!--For testing purposes, you can go to <http://www.getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.-->
-========
 Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. For testing purposes you can go to <https://getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/administer/renewing-a-ca-signed-certificate-in-a-keystore.md
-========
-Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. For testing purposes you can go to <https://getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.
->>>>>>>> 5.10.0-docs-old:en/identity-server/5.10.0/docs/administer/renewing-a-ca-signed-certificate-in-a-keystore.md
 
 After you obtain a new certificate, you have to import the new certificate to a keystore if you are using a java keystore.
 
----
-
 ## Step 3: Import the new certificate to the keystore
 
-To import a new certificate to a keystore, execute the following command.
+To import a new certificate to a keystore, execute the following command:
 
 ``` java
 keytool -import -v -trustcacerts -alias <current_alias> -file <ca_signed_cert.cer> -keystore <keystore_name.jks>
 ```
 
 !!! tip
-
-    To view infomation related to the renewed certificate, execute the following keytool command.
-
+    To view infomation related to the renewed certificate, execute the following keytool command:
 
     ``` java
     keytool -list -keystore <keystore_name.jks> -alias <cert_alias> -v

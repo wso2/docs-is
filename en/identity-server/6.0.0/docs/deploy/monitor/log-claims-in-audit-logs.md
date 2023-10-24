@@ -32,11 +32,7 @@ the audit logger.
         `           LoggableUserClaim          ` . The **accountLocked** and
         **role** claims have been used here only as examples.
         
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/monitor/log-claims-in-audit-logs.md
 3. Add the following configuration to the `deployment.toml` file to configure the `"LogUpdatedClaimsOnly"` property.
-========
-3. Add the following configuration to `deployment.toml` file to configure the `"LogUpdatedClaimsOnly"` property.
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/logging-claims-in-audit-logs.md
    
    ```
    [event.default_listener.user_claim_audit_logger]     
@@ -44,15 +40,8 @@ the audit logger.
    enable = true
    LogUpdatedClaimsOnly = true
    ```
-<<<<<<<< HEAD:en/identity-server/6.0.0/docs/deploy/monitor/log-claims-in-audit-logs.md
    
    On making the above-mentioned changes, claims will be logged into the `           audit.log          ` file in `<IS_HOME>/repository/log`.
-========
-
-    On making the above mentioned changes, claims will be logged into
-    the `           audit.log          ` file in
-    `           <IS_HOME>/repository/log.          `
->>>>>>>> 5.11.0-docs-old:en/identity-server/5.11.0/docs/setup/logging-claims-in-audit-logs.md
 
       
 

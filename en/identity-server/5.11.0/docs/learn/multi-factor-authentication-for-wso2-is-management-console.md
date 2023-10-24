@@ -81,24 +81,15 @@
     priority="1"
     ```
 
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/multi-factor-authentication-for-wso2-is-management-console.md
 15. Set `assertion_consumer_service_url` and `identity_provider_sso_service_url`.
-========
-14. Set `assertion_consumer_service_url` and `identity_provider_sso_service_url`.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/multi-factor-authentication-for-wso2-is-management-console.md
 
     ``` toml
     [admin_console.authenticator.saml_sso_authenticator]
     assertion_consumer_service_url = "https://localhost:9443/acs"
     identity_provider_sso_service_url = "https://localhost:9443/samlsso"
     ```
-<<<<<<<< HEAD:en/identity-server/5.11.0/docs/learn/multi-factor-authentication-for-wso2-is-management-console.md
 
 16. Save and close the `deployment.toml` file.
-========
-    
-15. Save and close the `deployment.toml` file.
->>>>>>>> 5.9.0-docs-old:en/identity-server/5.9.0/docs/learn/multi-factor-authentication-for-wso2-is-management-console.md
 
 
 ## Try it out
