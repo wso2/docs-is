@@ -79,7 +79,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
       - management
@@ -128,13 +134,42 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "claimURI": "http://wso2.org/claims/username",
+            "description": "Some description of the claim.",
+            "displayOrder": 10,
+            "displayName": "Username",
+            "readOnly": true,
+            "regEx": "^([a-zA-Z)$",
+            "required": true,
+            "supportedByDefault": true,
+            "attributeMapping": [
+              {
+                "mappedAttribute": "username",
+                "userstore": "SECONDARY"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'
       x-codegen-request-body-name: localClaim
   /claim-dialects/local/claims/{claim-id}:
     get:
       tags:
       - management
-      summary: Retrieve local claim
+      summary: Retrieve local claim by ID
       description: Retrieve a local claim matching the given claim ID. <br> 
         <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/view`
         <br> <b>Scope required:</b> `internal_claim_meta_view`
@@ -177,11 +212,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
       - management
-      summary: Update a local claim
+      summary: Update a local claim by ID
       description: Update a local claim. <br> 
         <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/update`
         <br> <b>Scope required:</b> `internal_claim_meta_update`
@@ -228,7 +269,36 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "claimURI": "http://wso2.org/claims/username",
+            "description": "Some description of the claim.",
+            "displayOrder": 10,
+            "displayName": "Username",
+            "readOnly": true,
+            "regEx": "^([a-zA-Z)$",
+            "required": true,
+            "supportedByDefault": true,
+            "attributeMapping": [
+              {
+                "mappedAttribute": "username",
+                "userstore": "SECONDARY"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'
       x-codegen-request-body-name: localClaim
     delete:
       tags:
@@ -267,7 +337,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /claim-dialects:
     get:
       tags:
@@ -324,7 +400,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
       - management
@@ -373,7 +455,17 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "dialectURI": "urn:ietf:params:scim:schemas:core:2.0:User"
+            }'
       x-codegen-request-body-name: claimDialect
   /claim-dialects/{dialect-id}:
     get:
@@ -422,7 +514,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
       - management
@@ -467,7 +565,17 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "dialectURI": "urn:ietf:params:scim:schemas:core:2.0:User"
+            }'
       x-codegen-request-body-name: claimDialect
     delete:
       tags:
@@ -506,7 +614,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /claim-dialects/{dialect-id}/claims:
     get:
       tags:
@@ -575,7 +689,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}/claims' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
       - management
@@ -637,7 +757,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}/claims' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "claimURI": "urn:ietf:params:scim:schemas:core:2.0:User:userName",
+            "mappedLocalClaimURI": "http://wso2.org/claims/username"
+            }'
       x-codegen-request-body-name: externalClaim
   /claim-dialects/{dialect-id}/claims/{claim-id}:
     get:
@@ -651,13 +782,13 @@ paths:
       parameters:
       - name: dialect-id
         in: path
-        description: Id of the claim dialect.
+        description: ID of the claim dialect.
         required: true
         schema:
           type: string
       - name: claim-id
         in: path
-        description: Id of the claim.
+        description: ID of the claim.
         required: true
         schema:
           type: string
@@ -692,7 +823,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
       - management
@@ -749,7 +886,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/dialect-id/claims/claim-id' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "claimURI": "urn:ietf:params:scim:schemas:core:2.0:User:userName",
+            "mappedLocalClaimURI": "http://wso2.org/claims/username"
+            }'
       x-codegen-request-body-name: externalClaim
     delete:
       tags:
@@ -794,7 +942,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
   schemas:
     LocalClaimReq:
