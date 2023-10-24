@@ -58,7 +58,7 @@ paths:
           $ref: '#/responses/ServerError'
       x-codeSamples:
         - lang: Curl
-          sourece: |
+          source: |
             curl -X 'POST' \
             'https://localhost:9443/t/{tenant-domain}/api/server/v1/challenges' \
             -H 'accept: application/json' \
