@@ -1,17 +1,14 @@
 openapi: 3.0.0
 info:
-  description: This is the RESTful API for handling user functionality management in WSO2 Identity Server.
+  description: This is the RESTful API for handling user functionality management in WSO2 Identity Server. 
   version: "1.0.0"
   title: User Functionality Management API
-
-tags:
-  - name: user functionality management
-    description: This REST API handles user functionality management. A functionality can be locked or unlocked for particular users via this API. 
-
 security:
   - OAuth2: []
   - BasicAuth: []
-
+tags:
+  - name: user functionality management
+    description: This REST API handles user functionality management. A functionality can be locked or unlocked for particular users via this API. 
 paths:
   /me/user-functionality/{function-id}:
     get:
@@ -35,34 +32,41 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: Successful Response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/LockStatusResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        '401':
+        401:
           description: Unauthorized
-        '403':
+        403:
           description: Forbidden
-        '404':
+        404:
           description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        '500':
+        500:
           description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/user-functionality/{function-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - user functionality management
@@ -97,7 +101,7 @@ paths:
       responses:
         200:
           description: The function is successfully locked.
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
@@ -106,11 +110,11 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
-        '401':
+        401:
           description: Unauthorized
-        '403':
+        403:
           description: Forbidden
-        '500':
+        500:
           description: Server Error
           content:
             application/json:
@@ -119,6 +123,17 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/user-functionality/{function-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "action": "LOCK"
+            }'
 
   '/{user-id}/user-functionality/{function-id}':
     get:
@@ -148,34 +163,41 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: Successful Response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/LockStatusResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        '401':
+        401:
           description: Unauthorized
-        '403':
+        403:
           description: Forbidden
-        '404':
+        404:
           description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        '500':
+        500:
           description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/user-functionality/{function-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - user functionality management
@@ -219,7 +241,7 @@ paths:
       responses:
         200:
           description: The function is successfully locked.
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
@@ -228,11 +250,11 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
-        '401':
+        401:
           description: Unauthorized
-        '403':
+        403:
           description: Forbidden
-        '500':
+        500:
           description: Server Error
           content:
             application/json:
@@ -241,6 +263,20 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/user-functionality/{function-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "action": "LOCK",
+            "timeToLock": 1594987178,
+            "functionalityLockReason": "SecurityQuestionBasedBased",
+            "functionalityLockReasonCode": "MaxFailedAttempts"
+            }'
 components:
   schemas:
     StatusChangeRequest:
@@ -321,7 +357,6 @@ components:
           authorizationUrl: 'https://localhost:9443/oauth2/authorize'
           tokenUrl: 'http://localhost:9763/oauth2/token'
           scopes: {}
-
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/users/v1'
     variables:
