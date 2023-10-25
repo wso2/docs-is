@@ -622,6 +622,7 @@ nav:
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
+          - 'IdP Session Extending API': develop/idp-session-extender-endpoint.md
       - 'Re-branding User Interfaces':
         - 'Re-branding WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Re-branding the Default Login Page for Your Application': develop/customizing-login-pages-for-service-providers.md
