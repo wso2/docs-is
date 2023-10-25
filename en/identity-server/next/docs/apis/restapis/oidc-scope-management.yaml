@@ -48,6 +48,12 @@ paths:
           $ref: '#/components/responses/NotFound'
         500:
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes' \
+            -H 'accept: application/json'
     post:
       tags:
         - OIDC Scope Endpoint
@@ -74,6 +80,22 @@ paths:
           $ref: '#/components/responses/Conflict'
         500:
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "name": "Scope1",
+            "displayName": "scope1",
+            "description": "Sample scope one",
+            "claims": [
+              "birthdate",
+              "gender"
+            ]
+            }'
   /oidc/scopes/{id}:
     get:
       tags:
@@ -107,6 +129,12 @@ paths:
           $ref: '#/components/responses/NotFound'
         500:
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes/{scope-name}' \
+            -H 'accept: application/json'
     put:
       tags:
         - OIDC Scope Endpoint
@@ -141,6 +169,22 @@ paths:
           $ref: '#/components/responses/NotFound'
         500:
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes/{scope-name}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "displayName": "scopeOne",
+            "description": "Sample updated scope one",
+            "claims": [
+              "birthdate",
+              "gender",
+              "age"
+            ]
+            }'
     delete:
       tags:
         - OIDC Scope Endpoint
@@ -166,6 +210,12 @@ paths:
           $ref: '#/components/responses/Forbidden'
         500:
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes/{scope-name}' \
+            -H 'accept: */*'
 
 components:
   responses:
