@@ -42,6 +42,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -F 'name=script-library-name' \
+            -F 'description=script library description' \
+            -F 'content=@script-library-file-name;type=text/javascript'
       requestBody:
         content:
           multipart/form-data:
@@ -92,6 +102,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries?limit=30&offset=0' \
+            -H 'accept: application/json'                 
   /script-libraries/{script-library-name}:
     get:
       tags:
@@ -137,6 +153,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries/{script-library-name}' \
+            -H 'accept: application/json'                  
     delete:
       tags:
         - Script Libraries
@@ -171,6 +193,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries/{script-library-name}' \
+            -H 'accept: */*'                  
     put:
       tags:
         - Script Libraries
@@ -216,6 +244,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries/{script-library-name}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -F 'description=script library description' \
+            -F 'content=@script-library-file-name;type=text/javascript'                  
       requestBody:
         content:
           multipart/form-data:
@@ -268,6 +305,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries/{script-library-name}/content' \
+            -H 'accept: application/octet-stream'                 
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
