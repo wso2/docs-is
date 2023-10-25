@@ -22,10 +22,8 @@ paths:
         This API is used to retrieve the QR code URL of the authenticated user.
 
 
-        <b>Permission required:</b>
-            * none
-        <b>Scope required:</b>
-            * internal_login
+        <b>Permission required:</b> none <br>
+        <b>Scope required:</b> `internal_login`
       responses:
         200:
           description: OK
@@ -45,6 +43,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/totp' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                
     post:
       tags:
       - me
@@ -56,10 +61,8 @@ paths:
         * <b>REFRESH</b> - Refresh TOTP secret key of the authenticated user
         * <b>VALIDATE</b> - Validate the user entered verification code
 
-        <b>Permission required:</b>
-            * none
-        <b>Scope required:</b>
-            * internal_login
+        <b>Permission required:</b> none <br>
+        <b>Scope required:</b> `internal_login`
       requestBody:
         description: Actions supported by the API. Actions can be INIT, VALIDATE or
           REFRESH
@@ -102,6 +105,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/totp' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "action": "INIT, REFRESH, VALIDATE",
+            "verificationCode": 0
+            }'
       x-codegen-request-body-name: request
     delete:
       tags:
@@ -110,7 +125,7 @@ paths:
       description: |
         This API is used to delete the TOTP credentials of the authenticated user.
 
-        <b>Permission required:</b><br> * none<br> <b>Scope required:</b><br> * internal_login
+        <b>Permission required:</b>none<br> <b>Scope required:</b> `internal_login`
       responses:
         200:
           description: Credentials deleted successfully
@@ -127,6 +142,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/totp' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
   /me/totp/secret:
     get:
       tags:
@@ -135,7 +157,7 @@ paths:
       description: |
         This API is used to retrieve the TOTP secret of the authenticated user.
 
-        <b>Permission required:</b><br> * none<br> <b>Scope required:</b><br> * internal_login
+        <b>Permission required:</b> none<br> <b>Scope required:</b> `internal_login`
       responses:
         200:
           description: OK
@@ -155,6 +177,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/totp/secret' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
 components:
   schemas:
     Error:
