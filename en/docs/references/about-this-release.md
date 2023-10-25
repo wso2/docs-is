@@ -105,7 +105,7 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
     Additionally from IS 7.0.0 onwards, tenanted sessions will also be enabled allowing sessions and caches to be created in a tenanted space.
 
     !!! info
-        It is strongly recommended to use WSO2 Identity Server with these two configs being enabled. However, if you need to disable any of these configs, follow the below steps.
+        If you're migrating from a previous version of Identity Server and have a requirement to disable any of these configs, follow the below steps.
         
         1. Add the following constraint to the "IDN_OAUTH_CONSUMER_APPS" table by executing the following sql command against the identity database (IDENTITY_DB).
 
