@@ -77,6 +77,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenges' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/challenge-answers:
     get:
       tags:
@@ -109,6 +116,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
       - me
@@ -156,6 +170,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '[
+            {
+              "questionSetId": "challengeQuestion1",
+              "challengeQuestion": {
+                "locale": "en_US",
+                "question": "Favorite vacation location?",
+                "questionId": "question1"
+              },
+              "answer": "Colombo"
+            }
+            ]'
       x-codegen-request-body-name: challengeAnswers
     post:
       tags:
@@ -204,6 +237,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '[
+            {
+              "questionSetId": "challengeQuestion1",
+              "challengeQuestion": {
+                "locale": "en_US",
+                "question": "Favorite vacation location?",
+                "questionId": "question1"
+              },
+              "answer": "Colombo"
+            }
+            ]'
       x-codegen-request-body-name: challengeAnswer
     delete:
       tags:
@@ -237,6 +289,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/challenge-answers/{challenge-set-id}:
     put:
       tags:
@@ -290,6 +349,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers/chalenge-set-id' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '{
+            "challengeQuestion": {
+              "locale": "en_US",
+              "question": "Favorite vacation location?",
+              "questionId": "question1"
+            },
+            "answer": "Colombo"
+            }'
       x-codegen-request-body-name: challenge-answer
     post:
       tags:
@@ -349,6 +424,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers/{challenge-set-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '{
+            "challengeQuestion": {
+              "locale": "en_US",
+              "question": "Favorite vacation location?",
+              "questionId": "question1"
+            },
+            "answer": "Colombo"
+            }'
       x-codegen-request-body-name: challengeAnswer
     delete:
       tags:
@@ -389,6 +480,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers/{challenge-set-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/challenges:
     get:
       tags:
@@ -456,6 +554,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenges' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/challenge-answers:
     get:
       tags:
@@ -502,6 +607,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
       - admin
@@ -556,6 +668,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '[
+            {
+              "questionSetId": "challengeQuestion1",
+              "challengeQuestion": {
+                "locale": "en_US",
+                "question": "Favorite vacation location?",
+                "questionId": "question1"
+              },
+              "answer": "Colombo"
+            }
+            ]'
       x-codegen-request-body-name: challengeAnswers
     post:
       tags:
@@ -616,6 +747,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '[
+            {
+              "questionSetId": "challengeQuestion1",
+              "challengeQuestion": {
+                "locale": "en_US",
+                "question": "Favorite vacation location?",
+                "questionId": "question1"
+              },
+              "answer": "Colombo"
+            }
+            ]'
       x-codegen-request-body-name: challenge-answer
     delete:
       tags:
@@ -656,6 +806,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/challenge-answers/{challenge-set-id}:
     put:
       tags:
@@ -715,6 +872,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '{
+            "challengeQuestion": {
+              "locale": "en_US",
+              "question": "Favorite vacation location?",
+              "questionId": "question1"
+            },
+            "answer": "Colombo"
+            }'
       x-codegen-request-body-name: challengeAnswer
     post:
       tags:
@@ -780,6 +953,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: */*' \
+            -d '{
+            "challengeQuestion": {
+              "locale": "en_US",
+              "question": "Favorite vacation location?",
+              "questionId": "question1"
+            },
+            "answer": "Colombo"
+            }'
       x-codegen-request-body-name: challengeAnswer
     delete:
       tags:
@@ -826,6 +1015,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
   schemas:
     ChallengeSet:

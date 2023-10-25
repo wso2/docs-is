@@ -63,6 +63,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Identity Providers
@@ -119,6 +126,107 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "name": "google",
+            "description": "IdP for Google Federation",
+            "image": "google-logo-url",
+            "isPrimary": false,
+            "isFederationHub": false,
+            "homeRealmIdentifier": "localhost",
+            "certificate": {
+              "certificates": [
+                "string"
+              ],
+              "jwksUri": "https://localhost:9444/oauth2/jwks"
+            },
+            "alias": "https://localhost:9444/oauth2/token",
+            "claims": {
+              "userIdClaim": {
+                "uri": "http://wso2.org/claims/username"
+              },
+              "roleClaim": {
+                "uri": "http://wso2.org/claims/username"
+              },
+              "mappings": [
+                {
+                  "idpClaim": "country",
+                  "localClaim": {
+                    "uri": "http://wso2.org/claims/username"
+                  }
+                }
+              ],
+              "provisioningClaims": [
+                {
+                  "claim": {
+                    "uri": "http://wso2.org/claims/username"
+                  },
+                  "defaultValue": "sathya"
+                }
+              ]
+            },
+            "roles": {
+              "mappings": [
+                {
+                  "idpRole": "google-manager",
+                  "localRole": "manager"
+                }
+              ],
+              "outboundProvisioningRoles": [
+                "manager",
+                "hr-admin"
+              ]
+            },
+            "federatedAuthenticators": {
+              "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+              "authenticators": [
+                {
+                  "authenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                  "isEnabled": true,
+                  "isDefault": false,
+                  "properties": [
+                    {
+                      "key": "somePropertyKey",
+                      "value": "somePropertyValue"
+                    }
+                  ]
+                }
+              ]
+            },
+            "provisioning": {
+              "jit": {
+                "isEnabled": true,
+                "scheme": "PROVISION_SILENTLY",
+                "userstore": "PRIMARY",
+                "associateLocalUser": true
+              },
+              "outboundConnectors": {
+                "defaultConnectorId": "U0NJTQ",
+                "connectors": [
+                  {
+                    "connectorId": "U0NJTQ",
+                    "isEnabled": true,
+                    "isDefault": false,
+                    "blockingEnabled": false,
+                    "rulesEnabled": false,
+                    "properties": [
+                      {
+                        "key": "somePropertyKey",
+                        "value": "somePropertyValue"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+            }'
       requestBody:
         content:
           application/json:
@@ -171,7 +279,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/meta/federated-authenticators/{federated-authenticator-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/meta/federated-authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /identity-providers/meta/federated-authenticators/{federated-authenticator-id}:
     get:
       tags:
         - Metadata
@@ -219,13 +334,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/meta/federated-authenticators/{federated-authenticator-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/meta/outbound-provisioning-connectors:
     get:
       tags:
         - Metadata
       summary: >
-        Metadata about supported outbound provisioning connectors by identity
-        providers in the identity server
+        Metadata about supported outbound provisioning connectors by identity providers in the identity server
       description: >-
         This API provides the list of supported federated authenticators for an
         IdP in the identity server. <br>
@@ -263,7 +384,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/meta/outbound-provisioning-connectors' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}:
     get:
       tags:
         - Metadata
@@ -311,7 +439,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/{identity-provider-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /identity-providers/{identity-provider-id}:
     get:
       tags:
         - Identity Providers
@@ -373,6 +508,13 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
       tags:
         - Identity Providers
@@ -424,6 +566,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/homeRealmIdentifier",
+              "value": "google"
+            }
+            ]'
       requestBody:
         content:
           application/json:
@@ -474,7 +631,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/{identity-provider-id}/federated-authenticators':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}?force=false' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /identity-providers/{identity-provider-id}/federated-authenticators:
     get:
       tags:
         - Federated Authenticators
@@ -522,6 +686,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Federated Authenticators
@@ -569,6 +740,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+            "authenticators": [
+              {
+                "authenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                "isEnabled": true,
+                "isDefault": false,
+                "properties": [
+                  {
+                    "key": "somePropertyKey",
+                    "value": "somePropertyValue"
+                  }
+                ]
+              }
+            ]
+            }'
       requestBody:
         content:
           application/json:
@@ -576,7 +771,7 @@ paths:
               $ref: '#/components/schemas/FederatedAuthenticatorRequest'
         description: This represents the federated authenticators to be updated
         required: true
-  '/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}':
+  /identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}:
     get:
       tags:
         - Federated Authenticators
@@ -629,6 +824,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Federated Authenticators
@@ -687,6 +889,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "isEnabled": true,
+            "isDefault": false,
+            "properties": [
+              {
+                "key": "somePropertyKey",
+                "value": "somePropertyValue"
+              }
+            ]
+            }'
       requestBody:
         content:
           application/json:
@@ -743,7 +963,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/{identity-provider-id}/provisioning/outbound-connectors':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /identity-providers/{identity-provider-id}/provisioning/outbound-connectors:
     get:
       tags:
         - Provisioning
@@ -791,6 +1018,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Provisioning
@@ -837,6 +1071,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/identity-provider-id/provisioning/outbound-connectors' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "defaultConnectorId": "U0NJTQ",
+            "connectors": [
+              {
+                "connectorId": "U0NJTQ",
+                "isEnabled": true,
+                "isDefault": false,
+                "blockingEnabled": false,
+                "rulesEnabled": false,
+                "properties": [
+                  {
+                    "key": "somePropertyKey",
+                    "value": "somePropertyValue"
+                  }
+                ]
+              }
+            ]
+            }'                
       requestBody:
         content:
           application/json:
@@ -844,7 +1104,7 @@ paths:
               $ref: '#/components/schemas/OutboundProvisioningRequest'
         description: This represents the outbound provisioning connectors to be updated
         required: true
-  '/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}':
+  /identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}:
     get:
       tags:
         - Provisioning
@@ -899,6 +1159,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Provisioning
@@ -958,6 +1225,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "isEnabled": true,
+            "isDefault": false,
+            "blockingEnabled": false,
+            "rulesEnabled": false,
+            "properties": [
+              {
+                "key": "somePropertyKey",
+                "value": "somePropertyValue"
+              }
+            ]
+            }'      
       requestBody:
         content:
           application/json:
@@ -965,7 +1252,7 @@ paths:
               $ref: '#/components/schemas/OutboundConnectorPUTRequest'
         description: This represents the outbound provisioning connector to be updated
         required: true
-  '/identity-providers/{identity-provider-id}/claims':
+  /identity-providers/{identity-provider-id}/claims:
     get:
       tags:
         - Claims
@@ -1014,6 +1301,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/claims' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Claims
@@ -1066,6 +1360,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/claims' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "userIdClaim": {
+              "uri": "http://wso2.org/claims/username"
+            },
+            "roleClaim": {
+              "uri": "http://wso2.org/claims/username"
+            },
+            "mappings": [
+              {
+                "idpClaim": "country",
+                "localClaim": {
+                  "uri": "http://wso2.org/claims/username"
+                }
+              }
+            ],
+            "provisioningClaims": [
+              {
+                "claim": {
+                  "uri": "http://wso2.org/claims/username"
+                },
+                "defaultValue": "sathya"
+              }
+            ]
+            }'
       requestBody:
         content:
           application/json:
@@ -1122,6 +1448,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/roles' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Roles
@@ -1174,6 +1507,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/identity-provider-id/roles' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "mappings": [
+              {
+                "idpRole": "google-manager",
+                "localRole": "manager"
+              }
+            ],
+            "outboundProvisioningRoles": [
+              "manager",
+              "hr-admin"
+            ]
+            }'
       requestBody:
         content:
           application/json:
@@ -1229,6 +1582,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Provisioning
@@ -1281,6 +1641,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "isEnabled": true,
+            "scheme": "PROVISION_SILENTLY",
+            "userstore": "PRIMARY",
+            "associateLocalUser": true
+            }'
       requestBody:
         content:
           application/json:
@@ -1337,6 +1711,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/connected-apps' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/templates:
     get:
       tags:
@@ -1379,6 +1760,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags :
         - Template management
@@ -1426,6 +1814,114 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "name": "google",
+            "description": "Google federated connector",
+            "image": "google-logo-url",
+            "category": "DEFAULT",
+            "displayOrder": 10,
+            "idp": {
+              "name": "google",
+              "description": "IdP for Google Federation",
+              "image": "google-logo-url",
+              "isPrimary": false,
+              "isFederationHub": false,
+              "homeRealmIdentifier": "localhost",
+              "certificate": {
+                "certificates": [
+                  "string"
+                ],
+                "jwksUri": "https://localhost:9444/oauth2/jwks"
+              },
+              "alias": "https://localhost:9444/oauth2/token",
+              "claims": {
+                "userIdClaim": {
+                  "uri": "http://wso2.org/claims/username"
+                },
+                "roleClaim": {
+                  "uri": "http://wso2.org/claims/username"
+                },
+                "mappings": [
+                  {
+                    "idpClaim": "country",
+                    "localClaim": {
+                      "uri": "http://wso2.org/claims/username"
+                    }
+                  }
+                ],
+                "provisioningClaims": [
+                  {
+                    "claim": {
+                      "uri": "http://wso2.org/claims/username"
+                    },
+                    "defaultValue": "sathya"
+                  }
+                ]
+              },
+              "roles": {
+                "mappings": [
+                  {
+                    "idpRole": "google-manager",
+                    "localRole": "manager"
+                  }
+                ],
+                "outboundProvisioningRoles": [
+                  "manager",
+                  "hr-admin"
+                ]
+              },
+              "federatedAuthenticators": {
+                "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                "authenticators": [
+                  {
+                    "authenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                    "isEnabled": true,
+                    "isDefault": false,
+                    "properties": [
+                      {
+                        "key": "somePropertyKey",
+                        "value": "somePropertyValue"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "provisioning": {
+                "jit": {
+                  "isEnabled": true,
+                  "scheme": "PROVISION_SILENTLY",
+                  "userstore": "PRIMARY",
+                  "associateLocalUser": true
+                },
+                "outboundConnectors": {
+                  "defaultConnectorId": "U0NJTQ",
+                  "connectors": [
+                    {
+                      "connectorId": "U0NJTQ",
+                      "isEnabled": true,
+                      "isDefault": false,
+                      "blockingEnabled": false,
+                      "rulesEnabled": false,
+                      "properties": [
+                        {
+                          "key": "somePropertyKey",
+                          "value": "somePropertyValue"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+            }'
       requestBody:
         content:
           application/json:
@@ -1493,11 +1989,18 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates/{template-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Template management
       summary: |
-        Update the IdP template of a given template ID.
+        Update the IdP template of a given template ID
       description: >
         This API provides the capability to update the IdP template of a given template ID.
       operationId: updateIDPTemplate
@@ -1542,6 +2045,114 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates/{template-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "name": "google",
+            "description": "Google federated connector",
+            "image": "google-logo-url",
+            "category": "DEFAULT",
+            "displayOrder": 10,
+            "idp": {
+              "name": "google",
+              "description": "IdP for Google Federation",
+              "image": "google-logo-url",
+              "isPrimary": false,
+              "isFederationHub": false,
+              "homeRealmIdentifier": "localhost",
+              "certificate": {
+                "certificates": [
+                  "string"
+                ],
+                "jwksUri": "https://localhost:9444/oauth2/jwks"
+              },
+              "alias": "https://localhost:9444/oauth2/token",
+              "claims": {
+                "userIdClaim": {
+                  "uri": "http://wso2.org/claims/username"
+                },
+                "roleClaim": {
+                  "uri": "http://wso2.org/claims/username"
+                },
+                "mappings": [
+                  {
+                    "idpClaim": "country",
+                    "localClaim": {
+                      "uri": "http://wso2.org/claims/username"
+                    }
+                  }
+                ],
+                "provisioningClaims": [
+                  {
+                    "claim": {
+                      "uri": "http://wso2.org/claims/username"
+                    },
+                    "defaultValue": "sathya"
+                  }
+                ]
+              },
+              "roles": {
+                "mappings": [
+                  {
+                    "idpRole": "google-manager",
+                    "localRole": "manager"
+                  }
+                ],
+                "outboundProvisioningRoles": [
+                  "manager",
+                  "hr-admin"
+                ]
+              },
+              "federatedAuthenticators": {
+                "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                "authenticators": [
+                  {
+                    "authenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                    "isEnabled": true,
+                    "isDefault": false,
+                    "properties": [
+                      {
+                        "key": "somePropertyKey",
+                        "value": "somePropertyValue"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "provisioning": {
+                "jit": {
+                  "isEnabled": true,
+                  "scheme": "PROVISION_SILENTLY",
+                  "userstore": "PRIMARY",
+                  "associateLocalUser": true
+                },
+                "outboundConnectors": {
+                  "defaultConnectorId": "U0NJTQ",
+                  "connectors": [
+                    {
+                      "connectorId": "U0NJTQ",
+                      "isEnabled": true,
+                      "isDefault": false,
+                      "blockingEnabled": false,
+                      "rulesEnabled": false,
+                      "properties": [
+                        {
+                          "key": "somePropertyKey",
+                          "value": "somePropertyValue"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+            }'
       requestBody:
         content:
           application/json:
@@ -1592,6 +2203,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates/{template-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:

@@ -47,6 +47,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            -H 'accept: application/scim+json'
     put:
       tags:
       - Me Endpoint
@@ -84,6 +90,38 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "kim",
+            "emails": [
+              {
+                "type": "home",
+                "value": "kim@gmail.com",
+                "primary": true
+              },
+              {
+                "type": "work",
+                "value": "kim@wso2.com"
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "employeeNumber": "1234A",
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'
       x-codegen-request-body-name: body
     post:
       tags:
@@ -136,6 +174,39 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "kim",
+            "password": "abc123",
+            "emails": [
+              {
+                "type": "home",
+                "value": "kim@gmail.com",
+                "primary": true
+              },
+              {
+                "type": "work",
+                "value": "kim@wso2.com"
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "employeeNumber": "1234A",
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'                
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -161,6 +232,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorNotimplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            -H 'accept: */*'                
     patch:
       tags:
       - Me Endpoint
@@ -198,6 +275,26 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "nickName": "shaggy"
+                }
+              }
+            ]
+            }'                
       x-codegen-request-body-name: body
   /Groups:
     get:
@@ -260,6 +357,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/Groups' \
+            -H 'accept: application/scim+json'               
     post:
       tags:
       - Groups Endpoint
@@ -310,6 +413,25 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErroGroupAlreadyAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/scim2/Groups' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:schemas:core:2.0:Group"
+            ],
+            "displayName": "manager",
+            "members": [
+              {
+                "value": "008bba85-451d-414b-87de-c03b5a1f4217",
+                "display": "kim"
+              }
+            ]
+            }'                
       x-codegen-request-body-name: body
   /Groups/.search:
     post:
@@ -345,6 +467,20 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/scim2/Groups/.search' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+            ],
+            "startIndex": 1,
+            "filter": "displayName eq manager"
+            }'                  
       x-codegen-request-body-name: body
   /Groups/{id}:
     get:
@@ -391,6 +527,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json'                 
     put:
       tags:
       - Groups Endpoint
@@ -447,6 +589,22 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "displayName": "manager",
+            "members": [
+              {
+                "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43",
+                "display": "kris"
+              }
+            ]
+            }'                 
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -479,6 +637,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/scim2/Groups/{group-id}' \
+            -H 'accept: */*'                 
     patch:
       tags:
       - Groups Endpoint
@@ -532,6 +696,31 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "members": [
+                    {
+                      "display": "kris",
+                      "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43"
+                    }
+                  ]
+                }
+              }
+            ]
+            }'                 
       x-codegen-request-body-name: body
   /Users:
     get:
@@ -607,6 +796,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/Users' \
+            -H 'accept: application/scim+json'                 
     post:
       tags:
       - Users Endpoint
@@ -663,6 +858,39 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/scim2/Users' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "kim",
+            "password": "abc123",
+            "emails": [
+              {
+                "type": "home",
+                "value": "kim@gmail.com",
+                "primary": true
+              },
+              {
+                "type": "work",
+                "value": "kim@wso2.com"
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "employeeNumber": "1234A",
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'                  
       x-codegen-request-body-name: body
   /Users/.search:
     post:
@@ -698,6 +926,26 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/scim2/Users/.search' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+            ],
+            "attributes": [
+              "name.familyName",
+              "userName"
+            ],
+            "filter": "userName sw ki and name.familyName co err",
+            "domain": "PRIMARY",
+            "startIndex": 1,
+            "count": 10
+            }'                
       x-codegen-request-body-name: body
   /Users/{id}:
     get:
@@ -742,6 +990,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/Users/{user-id}' \
+            -H 'accept: application/scim+json'                  
     put:
       tags:
       - Users Endpoint
@@ -792,6 +1046,38 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/scim2/Users/{user-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "kim",
+            "emails": [
+              {
+                "type": "home",
+                "value": "kim@gmail.com",
+                "primary": true
+              },
+              {
+                "type": "work",
+                "value": "kim@wso2.com"
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "employeeNumber": "1234A",
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'                 
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -824,6 +1110,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/scim2/Users/{user-id}' \
+            -H 'accept: */*'                 
     patch:
       tags:
       - Users Endpoint
@@ -875,6 +1167,26 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/scim2/Users/user-id' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "nickName": "shaggy"
+                }
+              }
+            ]
+            }'                  
       x-codegen-request-body-name: body
   /Roles:
     get:
@@ -922,6 +1234,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/Roles' \
+            -H 'accept: application/scim+json'                 
     post:
       tags:
       - Roles Endpoint
@@ -961,6 +1279,32 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErroRoleAlreadyAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/scim2/Roles' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:schemas:extension:2.0:Role"
+            ],
+            "displayName": "loginRole",
+            "users": [
+              {
+                "value": "008bba85-451d-414b-87de-c03b5a1f4217"
+              }
+            ],
+            "groups": [
+              {
+                "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+              }
+            ],
+            "permissions": [
+              "/permission/admin/login"
+            ]
+            }'                 
       x-codegen-request-body-name: body
   /Roles/.search:
     post:
@@ -996,6 +1340,21 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/scim2/Roles/.search' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+            ],
+            "startIndex": 1,
+            "count": 10,
+            "filter": "displayName eq loginRole"
+            }'                 
       x-codegen-request-body-name: body
   /Roles/{id}:
     get:
@@ -1042,6 +1401,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/Roles/{role-id}' \
+            -H 'accept: application/scim+json'                  
     put:
       tags:
       - Roles Endpoint
@@ -1094,6 +1459,29 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorNotAcceptable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/scim2/Roles/{role-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "displayName": "loginRole",
+            "users": [
+              {
+                "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43"
+              }
+            ],
+            "groups": [
+              {
+                "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+              }
+            ],
+            "permissions": [
+              "/permission/admin/manage/add"
+            ]
+            }'                  
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -1126,6 +1514,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/scim2/Roles/{role-id}' \
+            -H 'accept: */*'                  
     patch:
       tags:
       - Roles Endpoint
@@ -1172,6 +1566,29 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorNotAcceptable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/scim2/Roles/{role-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "path": "groups",
+                "value": [
+                  {
+                    "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+                  }
+                ]
+              }
+            ]
+            }'                  
       x-codegen-request-body-name: body
   /Bulk:
     post:
@@ -1218,6 +1635,33 @@ paths:
         409:
           description: Users already exists
           content: {}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/scim2/Bulk' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "failOnErrors": 1,
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+            ],
+            "Operations": [
+              {
+                "method": "POST",
+                "path": "/Users",
+                "bulkId": "ytrewq",
+                "data": {
+                  "schemas": [
+                    "urn:ietf:params:scim:schemas:core:2.0:User"
+                  ],
+                  "username": "jesse",
+                  "password": "jesspass"
+                }
+              }
+            ]
+            }'           
       x-codegen-request-body-name: body
   /ResourceTypes:
     get:
@@ -1240,6 +1684,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/ResourceTypes' \
+            -H 'accept: application/scim+json'                  
   /ServiceProviderConfig:
     get:
       tags:
@@ -1264,6 +1714,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/scim2/ServiceProviderConfig' \
+            -H 'accept: application/scim+json'                  
 components:
   schemas:
     UserObject:

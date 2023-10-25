@@ -70,8 +70,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username": "isura","realm": "ENGINEERING","tenant-domain":"carbon.super"},"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email¬ify=true"
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X POST 'https://localhost:9443/t/carbon.super/api/identity/recovery/v0.9/recover-password' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "user": {
+                "username": "string",
+                "realm": "string"
+              },
+              "properties": [
+                {
+                  "key": "string",
+                  "value": "string"
+                }
+              ]
+            }'
       x-wso2-response: |
         "HTTP/1.1 202 Accepted"
       x-codegen-request-body-name: RecoveryInitiatingRequest

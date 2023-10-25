@@ -1,11 +1,11 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server Rest API - User
+  title: WSO2 Identity Server - User Self-Sign-Up API
   description: |
     This document specifies a **RESTful API** for WSO2 **Identity Server**.
   version: 1.0.0
 servers:
-- url: https://apis.is.com/t/{tenant-domain}/api/identity/user/v1.0
+- url: https://localhost:9443/t/{tenant-domain}/api/identity/user/v1.0
 paths:
   /me:
     get:
@@ -25,6 +25,12 @@ paths:
         401:
           description: Unauthorized request
           content: {}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me' \
+            -H 'accept: application/json' 
       x-wso2-request: |
         curl -X GET -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/me"
       x-wso2-curl: |
@@ -71,6 +77,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "user": {
+              "username": "string",
+              "realm": "string",
+              "password": "string",
+              "claims": [
+                {
+                  "uri": "string",
+                  "value": "string"
+                }
+              ]
+            },
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'                  
       x-wso2-request: |
         curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user": {"username": "<username>","realm": "<user_store>", "password": "<password>","claims": [{"uri": "<claim_URI>","value": "<claim_value>" },{"uri": "<claim_URI2>","value": "<claim_value2>"},{"uri": "<claim_URI3>","value": "<claim_value3>"},{"uri": "<claim_URI4>","value": "<claim_value4>"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
       x-wso2-curl: |
@@ -113,6 +145,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me/resend-code' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'                 
       x-wso2-request: |
         curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "SCENARIO_NAME"}]}' "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
       x-wso2-curl: |
@@ -152,6 +199,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me/validate-code' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "code": "string",
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'                  
       x-wso2-request: |
         curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Content-Type: application/json"
          -d '{ "code": "<validation_code>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
@@ -202,6 +265,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/lite' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "email": "string",
+            "mobile": "string",
+            "realm": "string",
+            "preferredChannel": "Mobile",
+            "claims": [
+              {
+                "uri": "string",
+                "value": "string"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'                  
       x-wso2-request: |
         curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"email": "<username>","realm": "<user_store>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/lite"
       x-wso2-curl: |
@@ -242,6 +330,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/validate-code' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "code": "string",
+            "verifiedChannel": {
+              "type": "EMAIL",
+              "claim": "http://wso2.org/claims/emailaddress"
+            },
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'                  
       x-wso2-request: |
         curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Content-Type: application/json"
          -d '{ "code": "<validation_code>","verifiedChannel":{"type":<type>, "claim":<claim_uri},
@@ -287,6 +395,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/introspect-code' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "code": "string",
+            "verifiedChannel": {
+              "type": "EMAIL",
+              "claim": "http://wso2.org/claims/emailaddress"
+            },
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'                  
       x-wso2-request: |
         curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "17f00958-a1d7-47b9-8183-be99c08a800f"}' "https://localhost:9443/api/identity/user/v1.0/introspect-code"
       x-wso2-curl: |
@@ -328,6 +456,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/validate-username' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "username": "string",
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'                  
       x-wso2-request: |
         curl -k -v -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{ "username": "<username>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/validate-username"
       x-wso2-curl: |
@@ -371,6 +515,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/resend-code' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "user": {
+              "username": "string",
+              "realm": "string"
+            },
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'                 
       x-wso2-request: |
         curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user":{"username": "<username>","realm": "<user_store_name>"},"properties": []}' "https://localhost:9443/api/identity/user/v1.0/resend-code"
       x-wso2-curl: |
@@ -406,6 +569,12 @@ paths:
         404:
           description: User not found
           content: {}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/pi-info?username={username}' \
+            -H 'accept: application/json'            
       x-wso2-request: |
         curl -X GET -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/pi-info?username=<username>"
       x-wso2-curl: |
@@ -442,6 +611,12 @@ paths:
         404:
           description: User not found
           content: {}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/pi-info/{user-id}' \
+            -H 'accept: application/json'           
       x-wso2-request: |
         curl -X GET -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/pi-info/<Base64&URLEncoded_username>"
       x-wso2-curl: |

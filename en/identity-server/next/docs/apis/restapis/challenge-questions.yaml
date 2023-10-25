@@ -56,6 +56,26 @@ paths:
           $ref: '#/responses/Conflict'
         500:
           $ref: '#/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/challenges' \
+            -H 'accept: application/json' \
+            -H 'authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "questionSetId": "challengeQuestion1",
+              "questions": [
+                {
+                  "locale": "en_US",
+                  "question": "What is your favorite travel destination?",
+                  "questionId": "question1"
+                }
+              ]
+            }
+            ]'
     get:
       tags:
         - admin
@@ -83,6 +103,13 @@ paths:
           $ref: '#/responses/Unauthorized'
         500:
           $ref: '#/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/challenges' \
+            -H 'accept: application/json' \
+            -H 'authorization: Basic YWRtaW46YWRtaW4='
   /challenges/{challenge-set-id}:
     get:
       tags:
@@ -114,6 +141,13 @@ paths:
           $ref: '#/responses/NotFound'
         500:
           $ref: '#/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/challenges/{challenge-set-id}' \
+            -H 'accept: application/json' \
+            -H 'authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - admin
@@ -146,6 +180,21 @@ paths:
           $ref: '#/responses/NotFound'
         500:
           $ref: '#/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/challenges/{challenge-set-id}' \
+            -H 'accept: application/json' \
+            -H 'authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "locale": "en_US",
+              "question": "What is your favorite travel destination?",
+              "questionId": "question1"
+            }
+            ]'
     patch:
       tags:
         - admin
@@ -176,7 +225,22 @@ paths:
           $ref: '#/responses/NotFound'
         500:
           $ref: '#/responses/ServerError'
-      x-wso2-curl: |
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/challenges/{challenge-set-id}' \
+            -H 'accept: application/json' \
+            -H 'authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "challengeQuestion": {
+              "locale": "en_US",
+              "question": "What is your favorite travel destination?",
+              "questionId": "question1"
+            },
+            "operation": "add"
+            }'
     delete:
       tags:
         - admin
@@ -199,6 +263,13 @@ paths:
           $ref: '#/responses/Unauthorized'
         500:
           $ref: '#/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/challenges/{challenge-set-id}' \
+            -H 'accept: application/json' \
+            -H 'authorization: Basic YWRtaW46YWRtaW4='
   /challenges/{challenge-set-id}/questions/{question-id}:
     delete:
       tags:
@@ -223,6 +294,13 @@ paths:
           $ref: '#/responses/Unauthorized'
         500:
           $ref: '#/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/challenges/{challenge-set-id}/questions/{question-id}' \
+            -H 'accept: application/json' \
+            -H 'authorization: Basic YWRtaW46YWRtaW4='
 parameters:
     questionSetIdPathParam:
       in: path
