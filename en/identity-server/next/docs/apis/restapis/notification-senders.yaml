@@ -59,6 +59,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Email Senders
@@ -121,6 +128,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "fromAddress": "iam@gmail.com",
+            "userName": "iam",
+            "password": "iam123",
+            "properties": [
+              {
+                "key": "mail.smtp.starttls.enable",
+                "value": true
+              }
+            ]
+            }'                  
   /notification-senders/email/{sender-name}:
     get:
       tags:
@@ -176,6 +202,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/email/{email-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
     put:
       tags:
         - Email Senders
@@ -243,6 +276,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/email/{email-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "fromAddress": "iam@gmail.com",
+            "userName": "iam",
+            "password": "iam123",
+            "properties": [
+              {
+                "key": "mail.smtp.starttls.enable",
+                "value": true
+              }
+            ]
+            }'                 
     delete:
       tags:
         - Email Senders
@@ -293,6 +345,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/email/{email-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
   /notification-senders/sms:
     get:
       tags:
@@ -338,6 +397,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/sms' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
     post:
       tags:
         - SMS Senders
@@ -406,6 +472,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/sms' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "NEXMO",
+            "providerURL": "https://rest.nexmo.com/sms/json",
+            "key": "123**45",
+            "secret": "5tg**ssd",
+            "sender": "+94 775563324",
+            "type": "json",
+            "properties": [
+              {
+                "key": "body.scope",
+                "value": "internal"
+              },
+              {
+                "key": "http.headers",
+                "value": "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+              }
+            ]
+            }'                 
   /notification-senders/sms/{sender-name}:
     get:
       tags:
@@ -461,6 +553,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
     put:
       tags:
         - SMS Senders
@@ -533,6 +632,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "NEXMO",
+            "providerURL": "https://rest.nexmo.com/sms/json",
+            "key": "123**45",
+            "secret": "5tg**ssd",
+            "sender": "+94 775563324",
+            "type": "json",
+            "properties": [
+              {
+                "key": "body.scope",
+                "value": "internal"
+              },
+              {
+                "key": "http.headers",
+                "value": "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+              }
+            ]
+            }'                 
     delete:
       tags:
         - SMS Senders
@@ -583,6 +708,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
 components:
   schemas:
     Error:
