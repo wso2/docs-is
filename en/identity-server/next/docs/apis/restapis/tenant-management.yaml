@@ -12,7 +12,7 @@ paths:
     get:
       tags:
         - Tenants
-      summary: Retrieve all tenants.
+      summary: Retrieve all tenants
       operationId: retrieveTenants
       description: |
         Retrieve all tenants in the system.
@@ -47,6 +47,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/tenants' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Tenants
@@ -83,7 +90,33 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/tenants' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "domain": "wso2.com",
+            "owners": [
+              {
+                "username": "kim",
+                "password": "kim123",
+                "email": "kim@wso2.com",
+                "firstname": "kim",
+                "lastname": "kim",
+                "provisioningMethod": "inline-password",
+                "additionalClaims": [
+                  {
+                    "claim": "http://wso2.org/claims/telephone",
+                    "value": "+94 562 8723"
+                  }
+                ]
+              }
+            ]
+            }'  
   /channel-verified-tenants:
     post:
       tags:
@@ -124,7 +157,44 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
-  '/tenants/{tenant-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/channel-verified-tenants' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "domain": "wso2.com",
+            "code": "3723dghdg32yt236734563236",
+            "purpose": {
+              "name": "Personal",
+              "attributes": [
+                {
+                  "key": "Organization Name",
+                  "value": "Asgardio"
+                }
+              ]
+            },
+            "owners": [
+              {
+                "username": "kim",
+                "password": "kim123",
+                "email": "kim@wso2.com",
+                "firstname": "kim",
+                "lastname": "kim",
+                "provisioningMethod": "inline-password",
+                "additionalClaims": [
+                  {
+                    "claim": "http://wso2.org/claims/telephone",
+                    "value": "+94 562 8723"
+                  }
+                ]
+              }
+            ]
+            }'          
+  /tenants/{tenant-id}:
     get:
       tags:
         - Tenants
@@ -155,7 +225,14 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
-  '/tenants/domain/{tenant-domain}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/{tenant-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='           
+  /tenants/domain/{tenant-domain}:
     get:
       tags:
         - Tenants
@@ -186,7 +263,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/domain/{tenant-domain}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='  
     head:
       tags:
         - Tenants
@@ -213,8 +296,14 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
-
-  '/tenants/{tenant-id}/lifecycle-status':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'HEAD' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/domain/{tenant-domain}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' 
+  /tenants/{tenant-id}/lifecycle-status:
     put:
       tags:
         - Tenants
@@ -253,7 +342,18 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
-  '/tenants/{tenant-id}/owners':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/{tenant-id}/lifecycle-status' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "activated": false
+            }'          
+  /tenants/{tenant-id}/owners:
     get:
       tags:
         - Tenants
@@ -287,6 +387,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/{tenant-id}/owners' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='           
   '/tenants/{tenant-id}/metadata':
       delete:
         tags:
@@ -326,7 +433,13 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/Error'
-
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl -X 'DELETE' \
+              'https://localhost:9443/t/carbon.super/api/server/v1/tenants/{tenant-id}/metadata' \
+              -H 'accept: */*' \
+              -H 'Authorization: Basic YWRtaW46YWRtaW4='
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
