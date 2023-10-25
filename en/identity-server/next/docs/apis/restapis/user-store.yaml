@@ -24,8 +24,7 @@ paths:
 
           To retrieve the available user store classes/types, use the **api/server/v1/userstores/meta/types** API.
 
-         <b>Permission required:</b>
-          - /permission/admin
+         <b>Permission required:</b> `/permission/admin`
       responses:
         '201':
           description: Successful response
@@ -49,6 +48,25 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "typeId": "VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg",
+            "description": "Some description about the user store.",
+            "name": "JDBC-SECONDARY",
+            "properties": [
+              {
+                "name": "some property name",
+                "value": "some property value"
+              }
+            ]
+            }'
       requestBody:
         content:
           application/json:
@@ -62,8 +80,7 @@ paths:
       operationId: getSecondaryUserStores
       description: >
         This API provides the capability to list the configured secondary user stores.
-        <b>Permission required:</b>
-        */permission/admin
+        <br><b>Permission required:</b> `/permission/admin`
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -87,6 +104,13 @@ paths:
           $ref: '#/components/responses/ServerError'
         '501':
           $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='            
   '/userstores/primary':
     get:
       tags:
@@ -98,8 +122,7 @@ paths:
         This API provides the capability to retrieve the configurations of
         primary user store.
 
-          <b>Permission required:</b>
-        */permission/admin
+          <b>Permission required:</b> `/permission/admin`
       responses:
         '200':
           description: Successful response.
@@ -113,7 +136,14 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
-  '/userstores/{userstore-domain-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/primary' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='           
+  /userstores/{userstore-domain-id}:
     get:
       tags:
         - User Store
@@ -124,8 +154,7 @@ paths:
         This API provides the capability to retrieve the configurations of
         secondary user store based on its domain id.
 
-          <b>Permission required:</b>
-        */permission/admin
+          <b>Permission required:</b> `/permission/admin`
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -141,6 +170,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/{userstore-domain-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='          
     delete:
       tags:
         - User Store
@@ -150,8 +186,7 @@ paths:
         This API provides the capability to delete a secondary user store
         matching to the given user store domain id.
 
-         <b>Permission required:</b>
-         */permission/admin
+         <b>Permission required:</b> `/permission/admin`
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -163,6 +198,13 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/{userstore-domain-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='           
     put:
       tags:
         - User Store
@@ -172,8 +214,7 @@ paths:
         This API provides the capability to edit a user store based on its
         domain id.
 
-         <b>Permission required:</b>
-          */permission/admin
+         <b>Permission required:</b> `/permission/admin`
       parameters:
         - in: path
           name: userstore-domain-id
@@ -199,6 +240,25 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/{userstore-domain-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "typeId": "VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg",
+            "description": "Some description about the user store.",
+            "name": "JDBC-SECONDARY",
+            "properties": [
+              {
+                "name": "some property name",
+                "value": "some property value"
+              }
+            ]
+            }'          
       requestBody:
         content:
           application/json:
@@ -217,8 +277,7 @@ paths:
         This API provides the capability to update the secondary user store's
         property using patch request by using its domain id.
 
-         <b>Permission required:</b>
-         */permission/admin
+         <b>Permission required:</b> `/permission/admin`
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -238,6 +297,21 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/userstore-domain-id' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/properties/disabled",
+              "value": "true"
+            }
+            ]'            
       requestBody:
         content:
           application/json:
@@ -254,9 +328,7 @@ paths:
         This API provides the capability to retrieve the available user store
         types.
 
-         <b>Permission required:</b>
-
-        */permission/admin
+         <b>Permission required:</b> `/permission/admin`
       responses:
         '200':
           description: Successful Response.
@@ -270,7 +342,14 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '500':
           $ref: '#/components/responses/ServerError'
-  '/userstores/meta/types/{type-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/meta/types' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='         
+  /userstores/meta/types/{type-id}:
     get:
       tags:
         - Meta
@@ -281,9 +360,7 @@ paths:
         This API provides the capability to retrieve the properties of secondary
         user store of a given class name.
 
-         <b>Permission required:</b>
-
-        */permission/admin
+         <b>Permission required:</b> `/permission/admin`
       parameters:
         - in: path
           name: type-id
@@ -308,6 +385,13 @@ paths:
           $ref: '#/components/responses/ServerError'
         '501':
           $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/meta/types/{user-store-type-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='          
   /userstores/test-connection:
     post:
       tags:
@@ -318,8 +402,7 @@ paths:
         This API provides the capability to test the connection to the
         datasource used by a JDBC user store manager.
 
-          <b>Permission required:</b>
-          */permission/admin
+          <b>Permission required:</b> `/permission/admin`
       responses:
         '200':
           description: Successful response.
@@ -333,6 +416,20 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/test-connection' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "driverName": "com.mysql.jdbc.Driver",
+            "connectionURL": "jdbc:mysql://192.168.48.154:3306/test",
+            "username": "root",
+            "connectionPassword": "root"
+            }'          
       requestBody:
         content:
           application/json:
