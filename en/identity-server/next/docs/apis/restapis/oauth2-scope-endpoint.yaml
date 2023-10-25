@@ -68,6 +68,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/identity/oauth2/v1.0/scopes' \
+            -H 'accept: application/json'
       x-wso2-request: |
         curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/oauth2/v1.0/scopes"
       x-wso2-response: |
@@ -118,6 +124,29 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/identity/oauth2/v1.0/scopes' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "name": "string",
+            "displayName": "string",
+            "description": "string",
+            "bindings": [
+              "string"
+            ],
+            "scopeBindings": [
+              {
+                "bindingType": "string",
+                "binding": [
+                  "string"
+                ]
+              }
+            ]
+            }'                 
       x-wso2-request: |
         curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"name": "profile", "displayName": "profile", "description": "get all profile information", "bindings": ["role1", "role2"]}' "https://localhost:9443/api/identity/oauth2/v1.0/scopes"
       x-wso2-response: |
@@ -165,6 +194,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/{scope-name}' \
+            -H 'accept: application/json'                  
       x-wso2-request: |
         curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/profile"
       x-wso2-response: |
@@ -216,6 +251,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/{scope-name}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "displayName": "string",
+            "description": "string",
+            "bindings": [
+              "string"
+            ],
+            "scopeBindings": [
+              {
+                "bindingType": "string",
+                "binding": [
+                  "string"
+                ]
+              }
+            ]
+            }'                 
       x-wso2-request: |
         curl -X PUT -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"description": "get all profile information", "displayName": "profile", "bindings": ["role3", "role4"]}' "https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/profile"
       x-wso2-response: |
@@ -263,6 +320,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/{scope-name}' \
+            -H 'accept: application/json'                  
       x-wso2-request: |
         curl -X DELETE -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/profile"
       x-wso2-response: |
@@ -308,6 +371,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'HEAD' \
+            'https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/{scope-name}' \
+            -H 'accept: application/json'                 
       x-wso2-request: |
         curl -I -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/profile"
       x-wso2-response: |
