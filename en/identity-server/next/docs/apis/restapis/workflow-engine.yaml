@@ -23,8 +23,7 @@ paths:
       description: |
         Retrieve metadata information of all the workflow engines in the system.
 
-          <b>Permission required:</b>
-            * /permission/admin/manage/humantask/viewtasks
+        <br><b>Permission required:</b> `/permission/admin/manage/humantask/viewtasks`
       operationId: searchWorkFlowEngines
       responses:
         200:
@@ -53,6 +52,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://%7Bserverurl%7D/t/carbon.super/api/server/v1/workflow-engines' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
   schemas:
     WorkFlowEngine:
