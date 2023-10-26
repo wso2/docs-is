@@ -51,6 +51,32 @@
         {% endif %}
       </div>
     </div>
+    {% if config.extra.product != "asgardeo" %}
+      {% set is_version = config.extra.is_version %}
+      <div class="md-header__version-select-dropdown">
+        <a class="dropdown-link" href="#!">
+          {% if is_version == 'versions' %}
+            Switch Version
+          {% else %}
+            {{ is_version }}
+          {% endif %}
+          <span class="icon">
+            {% set chevron_icon = "fontawesome/solid/chevron-down" %}
+            {% include ".icons/" ~ chevron_icon ~ ".svg" %}
+          </span>
+        </a>
+        <ul class="dropdown-content" tabindex="0">
+          {% for list_version in config.extra.versions.list %}
+            {% for version in config.extra.versions.all if version.name == list_version %} 
+              <li><a href="{{ version.doc }}">{{ version.name }}</a></li>
+            {% endfor %}
+          {% endfor %}
+          {% if is_version != 'versions' %}
+            <li><a href="{{ config.extra.doc_base }}/versions">Show all</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    {% endif %}
     {% if not config.theme.palette is mapping %}
       <form class="md-header__option" data-md-component="palette">
         {% for option in config.theme.palette %}
