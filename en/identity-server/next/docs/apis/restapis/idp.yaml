@@ -638,6 +638,205 @@ paths:
             'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}?force=false' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /identity-providers/{identity-provider-id}/export:
+    get:
+      tags:
+        - Identity Providers
+      summary: |
+        Export identity provider in XML, YAML, or JSON file formats
+      description: |
+        This API provides the capability to retrieve the identity provider by ID. The identity provider is retrieved as an `XML`, `YAML`, or `JSON` file. Use `LOCAL` as the ID to export resident IdP configurations.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/idpmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_idp_view
+      operationId: exportIDPToFile
+      parameters:
+        - name: identity-provider-id
+          in: path
+          description: ID of the identity provider.
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/excludeSecretsQueryParam'
+        - $ref: '#/components/parameters/fileTypeHeaderParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: string
+              example: 'Sample application configuration in the requested format'
+            application/yaml:
+              schema:
+                type: string
+              example: 'Sample application configuration in the requested format'
+            application/xml:
+              schema:
+                type: string
+              example: 'Sample application configuration in the requested format'
+            application/octet-stream:
+              schema:
+                type: string
+              example: 'Sample application configuration in the requested format'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/export?excludeSecrets=true' \
+            -H 'accept: application/json'
+  '/identity-providers/{identity-provider-id}/import':
+    put:
+      tags:
+        - Identity Providers
+      summary: |
+        Update identity provider from an exported YAML, XML or JSON file
+      description: >
+        This API provides the capability to update an existing identity provider from
+        the information provided as a file. Use `LOCAL` as the ID to update resident IDP configurations.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/idpmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_idp_update
+      operationId: updateIDPFromFile
+      parameters:
+        - name: identity-provider-id
+          in: path
+          description: ID of the identity provider.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUpload'
+        description: This represents the application to be updated.
+      responses:
+        '200':
+          description: Successfully Updated.
+          headers:
+            Location:
+              description: Location of the updated application.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/import' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -F 'file=@file-name.xml;type=text/xml'
+  /identity-providers/import:
+    post:
+      tags:
+        - Identity Providers
+      summary: |
+        Create an IdP from an exported XML, YAML, or JSON file
+      description: >
+        This API provides the capability to import an identity provider from
+        the information provided as a file.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/idpmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_idp_create
+      operationId: importIDPFromFile
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUpload'
+        description: This represents the identity provider to be created.
+      responses:
+        '201':
+          description: Successfully created.
+          headers:
+            Location:
+              description: Location of the newly created identity provider.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/import' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -F 'file=@file-name.xml;type=text/xml' 
   /identity-providers/{identity-provider-id}/federated-authenticators:
     get:
       tags:
@@ -2288,6 +2487,32 @@ components:
       schema:
         type: boolean
         default: false
+    excludeSecretsQueryParam:
+      in: query
+      name: excludeSecrets
+      required: false
+      description: |
+        Specifies whether to exclude secrets when exporting an identity provider.
+      schema:
+        type: boolean
+        default: true
+    fileTypeHeaderParam:
+      in: header
+      name: Accept
+      required: false
+      description: |
+        Content type of the file.
+      schema:
+        type: string
+        default: application/yaml
+        enum:
+          - application/json
+          - application/xml
+          - application/yaml
+          - application/x-yaml
+          - text/yaml
+          - text/xml
+          - text/json
   securitySchemes:
     BasicAuth:
       type: http
@@ -3060,3 +3285,10 @@ components:
     Service:
       type: string
       example: 'Authentication'
+    FileUpload:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+          description: file to upload
