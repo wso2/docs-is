@@ -197,11 +197,10 @@ nav:
         - Configure the email sender: guides/branding/configure-email-sender.md
       - User management:
         - User management: guides/users/index.md
-        - Manage administrators: guides/users/manage-collaborators.md
-        - Manage users: guides/users/manage-customers.md
+        - Manage administrators: guides/users/manage-administrators.md
+        - Manage users: guides/users/manage-users.md
         - Manage groups: guides/users/manage-groups.md
         - Manage active sessions: guides/users/manage-sessions.md
-        - Migrate users to WSO2 Identity Server: guides/users/migrate-users.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -386,7 +385,8 @@ plugins:
   - include-markdown
   - redirects:
       redirect_maps:
-        'apis/idp-rest-api.md': 'https://is.docs.wso2.com/en/next//apis/idp/'
+        'apis/idp-rest-api.md': 'https://is.docs.wso2.com/en/next/apis/idp/'
+        'guides/users/manage-collaborators.md': 'https://is.docs.wso2.com/en/next/guides/docs/manage-administrators/'
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css
@@ -398,8 +398,8 @@ extra:
   #   - icon: fontawesome/brands/github
   #     link: https://github.com/wso2
   # site_version: 1.0.0
-  # base_path: http://127.0.0.1:8000/en/7.0.0
-  base_path: https://is.docs.wso2.com/en/next
+  base_path: http://127.0.0.1:8000/en/7.0.0
+  #base_path: https://is.docs.wso2.com/en/next
   product: is
   nav_list:
     - Get Started
