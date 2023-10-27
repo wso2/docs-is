@@ -38,6 +38,12 @@
     box-shadow: var(--md-default-box-shadow);
 }
 
+.md-header__button.md-logo img, 
+.md-header__button.md-logo svg {
+    height: 1.4rem;
+    padding: .1rem 0;
+}
+
 .md-tabs__link--active,
 .md-tabs__link:focus,
 .md-tabs__link:hover {
