@@ -82,7 +82,7 @@ Listed below are the default OpenID Connect scopes that applications can request
 
 To add new scopes to your organization:
 
-1. In the {{ product_name }} Console, go to **Scopes**
+1. In the {{ product_name }} Console, go to {{ attribute_path }} > **Scopes**
 2. Click **New OIDC Scope** to open the **Create OpenID Connect Scope** dialog box.
   
     ![Create OpenID Connect scopes]({{base_path}}/assets/img/guides/organization/scopes/create-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
@@ -110,23 +110,27 @@ To add new scopes to your organization:
 
 ## Edit Scopes
 
-You can add or delete attributes to scopes based on your requirement.
+You can add attrbutes to scopes or delete them by following the steps below.
 
-1. On the {{ product_name }} Console, go to **Scopes**
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Scopes**.
+
 2. Select the scope to edit.
+
 3. To add a new attribute to the scope:
     1. Click **New Attribute**.
     2. Select the attribute you wish to add and click **Save**.
-4. To delete an attributes from the scope, click the trash icon next to it.
+
+4. To delete an attributes from a scope, click the trash icon next to it.
+
 5. Click **Save Changes** to save the updates.
 
 ## Use scopes to request attributes
 
 As an application developer, you can follow the steps given below to configure your applications to request user attributes using scopes.
 
-1. First, go to the {{ product_name }} Console and see that your application has the [required attributes enabled]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-user-attributes).
+1. First, go to the {{ product_name }} Console and [select user attributes for your application]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-user-attributes).
 
-2. Copy the scopes listed at the end of the **User Attributes** section. You may have [default OIDC scopes](#default-oidc-scopes) or [custom scopes](#create-custom-scopes) listed.
+2. Copy the scopes listed at the end of the **User Attributes** section.
 
     ![Selected Scopes]({{base_path}}/assets/img/guides/organization/scopes/selected-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -137,7 +141,7 @@ As an application developer, you can follow the steps given below to configure y
         ``` json hl_lines="6"
         {
           "clientID": "<client ID>",
-          "baseUrl": "https://api.asgardeo.io/t/<organization_name>",
+          "baseUrl": "{{api_path}}",
           "signInRedirectURL": "https://localhost:3000",
           "signOutRedirectURL": "https://localhost:3000",
           "scope": [ "openid", "address", "phone", "profile" ]
@@ -151,7 +155,7 @@ As an application developer, you can follow the steps given below to configure y
 
         ``` js hl_lines="6"
         curl -X GET \
-        https://api.asgardeo.io/t/<organization_name>/oauth2/authorize \
+        {{api_path}}/oauth2/authorize \
           -d 'client_id={client_id}'
           -d 'response_type=code'
           -d 'redirect_uri={redirect_uri}'

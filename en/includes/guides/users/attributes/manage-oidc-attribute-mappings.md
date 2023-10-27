@@ -1,11 +1,11 @@
 # Manage OpenID Connect attribute mappings
 
-You can map OpenID Connect attributes to [default attributes]({{base_path}}/guides/users/attributes/manage-attributes/) in the organization. This allows applications that implement OpenID Connect login to receive user information in the ID token.
+You can map OpenID Connect attributes to default attributes in the organization. This allows applications that implement OpenID Connect login to receive user information in the ID token.
 
 ## View OpenID Connect attributes
 To view the OpenID Connect attributes available for your organization:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings**.
 2. Click **OpenID Connect**.
 
    ![View OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/view-oidc-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
@@ -15,7 +15,7 @@ You can find the mapped OpenID Connect attributes.
 ## Add an OpenID Connect attribute
 {{ product_name }} supports some OpenID Connect attributes by default. You can add new OpenID Connect attributes as follows:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings**.
 2. Click **OpenID Connect** > **New Attribute**.
 3. Enter values for the following properties:
 
@@ -64,7 +64,7 @@ After user authentication, you can find the `email_home` claim in the ID token, 
   "amr": [
     "BasicAuthenticator"
   ],
-  "iss": "https://accounts.asgardeo.io/t/bitfrost/oauth2/token",
+  "iss": "{{iss_path}}",
   "given_name": "alice",
   "sid": "5580be2b-a12d-43a4-823a-9d1352b88269",
   "aud": "UEP40cZTZfxJfGdDWFmTrwqluxoa",
@@ -82,7 +82,8 @@ After user authentication, you can find the `email_home` claim in the ID token, 
 ## Delete an OpenID Connect attribute
 To delete the OpenID Connect attributes available in your organization:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
-2. Click **OpenID Connect** and select the attribute to delete.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
+2. Under **Manage Attribute Mappings**, click **OpenID Connect**.
+3. Select the attribute you wish to delete.
 3. Click **Delete** and select the checkbox to confirm your action.
 4. Click **Confirm**.
