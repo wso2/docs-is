@@ -372,8 +372,8 @@ extra:
   #   - icon: fontawesome/brands/github
   #     link: https://github.com/wso2
   # site_version: 1.0.0
-  base_path: http://127.0.0.1:8000/en/7.0.0
-  #base_path: https://is.docs.wso2.com/en/next
+  #base_path: http://127.0.0.1:8000/en/7.0.0
+  base_path: https://is.docs.wso2.com/en/next
   product: is
   nav_list:
     - Get Started
