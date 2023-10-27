@@ -12,17 +12,17 @@ The attributes in the core, user, and enterprise schemas are well-defined in the
 ## View SCIM 2.0 attributes
 To view the SCIM 2 attributes mapped to user attributes in your organization:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
-2. Click **SCIM 2.0**.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
+2. Under **Manage Attribute Mappings**, click **SCIM 2.0**.
 
     ![View SCIM2 attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/view-scim2-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Add a SCIM 2.0 custom schema attribute
 You can add new SCIM 2.0 custom schema attributes as follows:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** >  **Attributes** > **Manage Attribute Mappings**.
-2. Click **SCIM 2.0** and click **New Attribute**.
-3. Enter values for the following properties:
+1. On the {{ product_name }} Console, go to {{ attribute_path }} >  **Attributes**.
+2. Under **Manage Attribute Mappings**, click **SCIM 2.0**.
+3. Click **New Attribute** and enter values for the following properties:
 
     ![Add OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/add-scim2-attribute-mapping.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -44,7 +44,8 @@ You can add new SCIM 2.0 custom schema attributes as follows:
 ## Delete a SCIM 2.0 custom schema attribute
 To delete the SCIM 2.0 custom schema attributes available in your organization:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** > **Manage Attribute Mappings**.
-2. Click **SCIM 2.0 > Custom Schema** and select the attribute to delete.
-3. Click **Delete** and enable the checkbox to confirm you action.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
+2. Under **Manage Attribute Mappings**, click **SCIM 2.0**.
+3. Navigate to the **Custom Schema** tab and select the attribute to delete.
+3. Click **Delete** and select the checkbox to confirm you action.
 4. Click **Confirm**.
