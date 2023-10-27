@@ -1,87 +1,79 @@
 # Install WSO2 Identity Server
 
 ## Prerequisites
-Prior to installing any WSO2 Identity Server, it is necessary to
-have the appropriate prerequisite software installed on your system.
-Verify that the computer has the supported operating system and
-development platforms before starting the installation.
+Before installing any WSO2 Identity Server, it is necessary to have the appropriate prerequisite software installed on your system. Verify that the computer has the supported operating system and development platforms before starting the installation.
 
 ### System requirements
 
-!!! Note
-
+!!! note
     The below recommendations can change based on the expected concurrency & performance.
 
 <table>
-<tbody>
-<tr class="odd">
-<th><p>CPU</p></th>
-<td><p>4 vCPUs (x86_64 Architecture)</p></td>
-</tr>
-<tr class="even">
-<th><p>Memory</p></th>
-<td><p>4 GB RAM</p></td>
-</tr>
-<tr class="odd">
-<th><p>Disk</p></th>
-<td><p>~ 10 GB disk space, excluding space allocated for log files and databases.</p></td>
-</tr>
-</tbody>
+    <tbody>
+        <tr class="odd">
+            <th><p>CPU</p></th>
+            <td><p>4 vCPUs (x86_64 Architecture)</p></td>
+        </tr>
+        <tr class="even">
+            <th><p>Memory</p></th>
+            <td><p>4 GB RAM</p></td>
+        </tr>
+        <tr class="odd">
+            <th><p>Disk</p></th>
+            <td><p>~ 10 GB disk space, excluding space allocated for log files and databases.</p></td>
+        </tr>
+    </tbody>
 </table>
 
 ### Environment compatibility
 
 <table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 86%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<th><p>Operating Systems/ Databases/ Userstores</p></th>
-<td><div class="content-wrapper">
-<ul>
-<li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 17 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 17.</strong> .</li>
-<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="{{base_path}}/deploy/work-with-databases">Working with Databases</a>.</li>
-<li>WSO2 Identity Server supports using any of the following as a user store :
-<ul>
-<li>RDBMS</li>
-<li>An LDAP such as OpenLDAP</li>
-<li>Active Directory</li>
-<li><a href="{{base_path}}/deploy/configure-user-stores">Custom Userstores</a></li>
-</ul></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>
-<ul>
-<li>WSO2 does not recommend using the H2 database as a user store in production environments. However, you can use the H2 database for development purposes if necessary.</li>
-</ul>
-</p>
-</div>
-<ul> 
-<li>For environments that WSO2 products are tested with, see <a href="{{base_path}}/deploy/environment-compatibility">Environment Compatibility</a> .</li>
-<li>If you have difficulty setting up any WSO2 product in a specific platform or database, <a href="https://wso2.com/contact/">contact WSO2</a>.</li>
-</ul>
-</div></td>
-</tr>
-</tbody>
+    <colgroup>
+        <col style="width: 13%" />
+        <col style="width: 86%" />
+    </colgroup>
+    <tbody>
+        <tr class="odd">
+        <th><p>Operating Systems/ Databases/ Userstores</p></th>
+        <td><div class="content-wrapper">
+        <ul>
+        <li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 17 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 17.</strong> .</li>
+        <li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. <!--For more information, see <a href="{{base_path}}/deploy/work-with-databases">Working with Databases</a>-->.</li>
+        <li>WSO2 Identity Server supports using any of the following as a user store :
+        <ul>
+        <li>RDBMS</li>
+        <li>An LDAP such as OpenLDAP</li>
+        <li>Active Directory</li>
+        <li>Custom Userstores</li>
+        </ul></li>
+        </ul>
+        <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>
+        <ul>
+        <li>WSO2 does not recommend using the H2 database as a user store in production environments. However, you can use the H2 database for development purposes if necessary.</li>
+        </ul>
+        </p>
+        </div>
+        <ul>
+        <li>For environments that WSO2 products are tested with, see <a href="{{base_path}}/deploy/environment-compatibility">Environment Compatibility</a> .</li>
+        <li>If you have difficulty setting up any WSO2 product in a specific platform or database, <a href="https://wso2.com/contact/">contact WSO2</a>.</li>
+        </ul>
+        </div></td>
+        </tr>
+    </tbody>
 </table>
 
 ### Required applications
 
-The following applications are required for running the product and its
-samples or for building from the source code.
+The following applications are required for running the product and its samples or for building from the source code.
 
 !!! note
-    
     The applications marked with an asterisk \* are mandatory.
 
 #### Required applications to run the product
 
-These applications are mandatory and are required to run the binary
-distribution of the WSO2 product. The binary distribution contains the
-binary files for both MS Windows, and Linux-based operating systems.
+These applications are mandatory and are required to run the binary distribution of the WSO2 product. The binary distribution contains the binary files for both MS Windows and Linux-based operating systems.
 
 <table>
 <colgroup>
@@ -121,7 +113,7 @@ binary files for both MS Windows, and Linux-based operating systems.
 <td><p><strong>Web Browser*</strong></p></td>
 <td><div class="content-wrapper">
 <ul>
-<li>To access the product's Management Console, the Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
+<li>To access the product's Console, the Web Browser must be JavaScript enabled to take full advantage of the console.</li>
 </ul>
 <div class="admonition note">
 <p><strong>Note:</strong> On Windows Server 2003, you must not go below the medium security level in Internet Explorer 6.x.</p>
@@ -137,12 +129,9 @@ binary files for both MS Windows, and Linux-based operating systems.
 
 #### Required applications to run samples and build from source
 
-These applications are required for [building the product from the
-source distribution](https://wso2.github.io/using-maven.html),
-and compiling and running product samples.
+These applications are required for [building the product from the source distribution](https://wso2.github.io/using-maven.html), and compiling and running product samples.
 
 !!! warning
-
     If you are installing by downloading and extracting the binary distribution (as recommended for most users) instead of building from the source code, you do not need to install Maven.
 
 <table style="width:100%;">
@@ -175,39 +164,35 @@ and compiling and running product samples.
 </tbody>
 </table>
 
-----
+## Install on different platforms
 
-## Install on different platforms 
+This section of the guide helps you to install WSO2 Identity Server on different operating systems.
 
 ### Install on Linux or OS X
 
-Follow the instructions below to install WSO2 Identity Server on Linux
-or Mac OS X.
+Follow the instructions below to install WSO2 Identity Server on Linux or Mac OS X.
 
 #### Install the required applications
 
-1.  Log in to the command line (Terminal on Mac).
+1. Log in to the command line (Terminal on Mac).
 
-2.  Ensure that your system meets the [Installation Prerequisites](#prerequisites).  Java Development Kit
-    (JDK) is essential to run the product.
+2. Ensure that your system meets the [Installation Prerequisites](#prerequisites).  Java Development Kit (JDK) is essential to run the product.
 
 #### Install WSO2 Identity Server
 
-{!./includes/install-is.md !}
+1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
+2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
     !!! warning
-    
-        If you are using Mac OS with High Sierra, you may encounter the
-        following warning message when logging in to the management console
-        due to a compression issue that exists in the High Sierra SDK.
+        If you are using Mac OS with High Sierra, you may encounter the following warning message when logging in to the console due to a compression issue that exists in the High Sierra SDK.
     
         ``` toml
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
         ```
     
         To avoid this issue,    
-        1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.   
-		2. 	Set the `compression` element under the HTTPS connector configuration to `off` and restart WSO2 Identity Server.
+        1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.   
+        2. Set the `compression` element under the HTTPS connector configuration to `off` and restart the WSO2 Identity Server.
 
         ``` toml
         [transport.https]
@@ -218,49 +203,45 @@ or Mac OS X.
         !!! note
             If the above configuration is not listed in `deployment.toml`, add the above configuration manually.
 
-    
-
 #### Set up JAVA_HOME
 
-You must set your `         JAVA_HOME        ` environment variable to
-point to the directory where the Java Development Kit (JDK) is installed
-on the computer.
+You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
 
 Setting `JAVA_HOME` is a standard practice when you are using Java-based programs. You may not need to do this manually depending on your Java installer, as this variable is usually set by the Java installer itself. This guide is provided in case the `JAVA_HOME` variable has not been set or is incorrectly set on your machine.
 
 !!! info
     Environment variables are global system variables accessible by all the processes running in the operating system.
 
-1.  In your home directory, open the BASHRC file (.bash\_profile file 
-    on Mac) using a text editor such as vi, emacs, pico, or mcedit.
-2.  Assuming you have JDK 11.0.14 in your system, add the following
-    two lines at the bottom of the file (Replace `/usr/java/jdk-11.0.14` with the path of your JDK installation).
-    directory where the JDK is installed.
+1. In your home directory, open the BASHRC file (.bash\_profile file� on Mac) using a text editor such as vi, emacs, pico, or mcedit.
+2. Assuming you have JDK 11.0.14 in your system, add the following two lines at the bottom of the file (Replace `/usr/java/jdk-11.0.14` with the path of your JDK installation). directory where the JDK is installed.
 
-    ```java tab="Linux"
-    export JAVA_HOME=/usr/java/jdk-11.0.14
-    export PATH=${JAVA_HOME}/bin:${PATH}
-	```
-    
-	```java tab="OS X"
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.14/Contents/Home
-    ```
+    === "Linux"
+        ```java
+        export JAVA_HOME=/usr/java/jdk-11.0.14
+        export PATH=${JAVA_HOME}/bin:${PATH}
+        ```
 
-3.  Save the file.
+    === "OSx"
+        ```java
+        export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.14/Contents/Home
+        ```
+
+3. Save the file.
 
     !!! info
-        If you are not familiar with text editors in a Linux SSH session, run the `cat >> .bashrc.` command on a terminal, paste the string from the clipboard and press Ctrl+D.
+        If you are not familiar with text editors in a Linux SSH session, run the `cat >> .bashrc.` command on a terminal, paste the string from the clipboard, and press Ctrl+D.
 
-4.  To verify that the `           JAVA_HOME          ` variable is set
-    correctly, execute the following command:
+4. To verify that the `JAVA_HOME` variable is set correctly, execute the following command:
 
-    ```	tab="Linux"
-    echo $JAVA_HOME
-	```
-    
-    ``` tab="OS X"
-    which java
-    ```
+    === "Linux"
+        ```
+        echo $JAVA_HOME
+        ```
+
+    === "OSx"
+        ```
+        which java
+        ```
 
     If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
     
@@ -268,13 +249,17 @@ Setting `JAVA_HOME` is a standard practice when you are using Java-based program
     ls -l `which java`
     ```
 
-5.  The system returns the JDK installation path.
+5. The system returns the JDK installation path.
 
 #### Set system properties
 
-{!./includes/set-system-properties.md !}
+If you need to set additional system properties when the server starts, you can take the following approaches:
 
----
+- **Set the properties from a script** : Setting your system properties in the startup script is ideal, because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, create your own startup script that wraps the WSO2 startup script and add the properties you want to set, rather than editing the WSO2 startup script directly.
+
+- **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a properties file instead of in the Java code and secure the properties file with the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
+
+You are now ready to [run the product]({{base_path}}/deploy/get-started/run-the-product).
 
 ### Install on Solaris
 
@@ -282,93 +267,79 @@ Follow the instructions below to install Identity Server on Solaris.
 
 #### Install the required applications
 
-1.  Establish an SSH connection to the Solaris machine or log in on the
-    text console.
-2.  Be sure your system meets the [Installation Prerequisites](#prerequisites).  Java Development Kit (JDK) is essential to run the product.
+1. Establish an SSH connection to the Solaris machine or log in on the text console.
+2. Be sure your system meets the [Installation Prerequisites](#prerequisites).  Java Development Kit (JDK) is essential to run the product.
 
 #### Install WSO2 Identity Server
 
-{!./includes/install-is.md !}
+1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
+2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
 #### Set up JAVA_HOME
 
-You must set your `         JAVA_HOME        ` environment variable to
+You must set your `JAVA_HOME` environment variable to
 point to the directory where the Java Development Kit (JDK) is installed
 on the computer.
 
-Setting `JAVA_HOME` is a standard practice when you are using Java based programs. You may not need to do this manually depending on your Java Installer, as this variable is usually set by the Java installer itself. This guide is provided in case the `JAVA_HOME variable` has not been set or is incorrectly set on your machine.
+Setting `JAVA_HOME` is a standard practice when you are using Java-based programs. You may not need to do this manually depending on your Java Installer, as this variable is usually set by the Java installer itself. This guide is provided in case the `JAVA_HOME variable` has not been set or is incorrectly set on your machine.
 
 !!! info
     Environment variables are global system variables accessible by all the processes running under the operating system.
 
-1.  In your home directory, open the BASHRC file in your favorite text
-    editor, such as vi, emacs, pico, or mcedit.
-2.  Assuming you have JDK 1.8.0_141 in your system, add the following
-    two lines at the bottom of the file, replacing
-    `/usr/java/jdk-11.0.14` with the actual
-    directory where the JDK is installed.
+1. In your home directory, open the BASHRC file.
+2. Add the following two lines at the bottom of the file, replacing `/usr/java/jdk-11.0.14` with the actual directory where the JDK is installed.
 
     ``` java
     export JAVA_HOME=/usr/java/jdk-11.0.14
     export PATH=${JAVA_HOME}/bin:${PATH}
     ```
 
-3.  Save the file.
+3. Save the file.
 
     !!! info
         If you do not know how to work with text editors in an SSH session, run the following command.
         ```
         cat >> .bashrc
-        ``` 
+        ```
         Paste the string from the clipboard and press "Ctrl+D".
 
-4.  If `JAVA_HOME` variable is set
-    correctly, following command will return the JDK installation path.
+4. If `JAVA_HOME` variable is set correctly, the following command will return the JDK installation path.
+
     ```
     echo $JAVA_HOME
     ```
 
 #### Set system properties
 
-{!./includes/set-system-properties.md !}
+If you need to set additional system properties when the server starts, you can take the following approaches:
 
-----
+- **Set the properties from a script** : Setting your system properties in the startup script is ideal, because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, create your own startup script that wraps the WSO2 startup script and add the properties you want to set, rather than editing the WSO2 startup script directly.
 
-### Install on Windows   
+- **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a properties file instead of in the Java code and secure the properties file with the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
-Follow the instructions below to install the WSO2 Identity Server on
-Windows.
+You are now ready to [run the product]({{base_path}}/deploy/get-started/run-the-product).
+
+### Install on Windows
+
+Follow the instructions below to install the WSO2 Identity Server on Windows.
 
 #### Install the required applications
 
-1.  Ensure that your system meets the requirements specified in the
-    [Installation Prerequisites](#prerequisites).  Java
-    Development Kit (JDK) is essential to run the product.
-2.  Ensure that the `          PATH         ` environment variable is
-    set to `          C:\Windows\System32         `, because the
-    `          findstr         ` Windows.exe file is stored in this
-    path.
+1. Ensure that your system meets the requirements specified in the [Installation Prerequisites](#prerequisites).  Java Development Kit (JDK) is essential to run the product.
+2. Ensure that the `PATH` environment variable is set to `C:\Windows\System32`, because the `findstr` Windows.exe file is stored in this path.
 
 #### Install WSO2 Identity Server
 
-{!./includes/install-is.md !}
+1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
+2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
-3.  Set the `          CARBON_HOME         ` environment variable by
-    pointing it to the directory where you download WSO2 Identity Server
-    into. For more information on how to do this, see
-    [here](https://www.java.com/en/download/help/path.xml).
+3. Set the `CARBON_HOME` environment variable by pointing it to the directory where you download the WSO2 Identity Server. For more information on how to do this, see [here](https://www.java.com/en/download/help/path.xml).
 
 #### Set up JAVA_HOME
 
-You must set your `         JAVA_HOME        ` environment variable to
-point to the directory where the Java Development Kit (JDK) is installed
-on the computer. Typically, the JDK is installed in a directory under
-`         C:/Program Files/Java        `, such as
-`C:/Program Files/Java/jdk-11.0.14` . If you have
-multiple versions installed, choose the latest one, which you can find
-by sorting by date.
+You must set your `AVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer. Typically, the JDK is installed in a directory under `C:/Program Files/Java`, such as `C:/Program Files/Java/jdk-11.0.14` . If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
 
-!!! info 
+!!! note
     Environment variables are global system variables accessible by all the
     processes running under the operating system. You can define an
     environment variable as a system variable, which applies to all users,
@@ -382,60 +353,37 @@ prompt](#java-home).
 
 ##### Set up JAVA_HOME using the system properties
 
-1.  Right-click the **My Computer** icon on the desktop and choose
-    **Properties**.  
+1. Right-click on **My Computer** icon on the desktop and choose **Properties**.  
 
-    ![Properties option]({{base_path}}/assets/img/deploy/properties-option.png) 
+2. In the **System Properties** window, click the **Advanced**, and then click **Environment Variables**.  
 
-2.  In the System Properties window, click the **Advanced** tab, and
-    then click the **Environment Variables** button.  
+3. Click **New** under **System variables** (for all users) or under **User variables** (just for the user who is currently logged in).  
 
-    ![Advanced tab]({{base_path}}/assets/img/deploy/advanced-tab.png) 
+4. Enter the following information:
 
-3.  Click the **New** button under **System variables** (for all users) or
-    under **User variables** (just for the user who is currently logged
-    in).  
+    | Field | Description   | Value |
+    |-------|---------------|-------|
+    | Variable name | Variable used to define the Java home. | `JAVA_HOME`   |
+    | Variable value    | The installation path of the Java Development Kit. | `c:/Program Files/Java`   |
 
-    ![New button]({{base_path}}/assets/img/deploy/new-button.png) 
+The `JAVA_HOME` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the JAVA_HOME variable to take effect, or manually set the JAVA_HOME variable in those command prompt windows as described in the next section.
 
-4.  Enter the following information:  
-    -   In the **Variable name** field, enter:
-        `            JAVA_HOME           `
-    -   In the **Variable value** field, enter the installation path of
-        the Java Development Kit, such as:
-        `            c:/Program Files/Java           `
-        `            jdk-11.0.14           `
-
-The `JAVA_HOME` variable is now set and will apply to any subsequent
-command prompt windows you open. If you have existing command prompt
-windows running, you must close and reopen them for the JAVA_HOME
-variable to take effect, or manually set the JAVA_HOME variable in
-those command prompt windows as described in the next section. To verify
-that the `         JAVA_HOME        ` variable is set correctly, open a
-command window (from the **Start** menu, click **Run**, and then type
-`         CMD        ` and click **Enter** ) and execute the following
-command.
+To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and click **Enter** ) and execute the following command.
 
 ```java
 set JAVA_HOME
 ```
 
-The system returns the JDK installation path. You are now ready to [run
-the product.]({{base_path}}/deploy/get-started/run-the-product)
+The system returns the JDK installation path. You are now ready to [run the product.]({{base_path}}/deploy/get-started/run-the-product)
 
 <a name="java-home"></a>
 
 ##### Set JAVA_HOME temporarily using the Windows command prompt (CMD)
 
-You can temporarily set the `         JAVA_HOME        ` environment
-variable within a Windows command prompt window (CMD). This is useful
-when you have an existing command prompt window running and you do not
-want to restart it.
+You can temporarily set the `JAVA_HOME` environment variable within a Windows command prompt window (CMD). This is useful when you have an existing command prompt window running and you do not want to restart it.
 
-1.  In the command prompt window, enter the following command where
-    `           <JDK_INSTALLATION_PATH>          ` is the JDK
-    installation directory and press **Enter.**
-    
+1. In the command prompt window, enter the following command where `<JDK_INSTALLATION_PATH>` is the JDK installation directory and press **Enter.**
+
     !!! abstract ""
         **Format**
         ```java
@@ -447,45 +395,41 @@ want to restart it.
         set JAVA_HOME=c:/Program Files/java/jdk-11.0.14
         ```
 
-    The `JAVA_HOME variable is now set for the current CMD session only.
+    The `JAVA_HOME` variable is now set for the current CMD session only.
 
-2.  To verify that the `          JAVA_HOME         ` variable is set
-    correctly, execute the following command:  
+2. To verify that the `JAVA_HOME` variable is set correctly, execute the following command:  
 
     ```java
     set JAVA_HOME
     ```
 
-3.  The system returns the JDK installation path.
+3. The system returns the JDK installation path.
 
 #### Set system properties
 
-{!./includes/set-system-properties.md !}
+If you need to set additional system properties when the server starts, you can take the following approaches:
 
----
+- **Set the properties from a script** : Setting your system properties in the startup script is ideal, because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, create your own startup script that wraps the WSO2 startup script and add the properties you want to set, rather than editing the WSO2 startup script directly.
+
+- **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a properties file instead of in the Java code and secure the properties file with the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
+
+You are now ready to [run the product]({{base_path}}/deploy/get-started/run-the-product).
 
 ### Install as a Linux Service
 
-WSO2 Carbon and any Carbon-based product can be run as a Linux service
-as described in the following sections:
+WSO2 Carbon and any Carbon-based product can be run as a Linux service as described in the following sections:
 
 #### Prerequisites
 
-Install JDK and set up the `         JAVA_HOME        ` environment
-variable. For more information, see
-[Installation Prerequisites](#prerequisites).
+Install JDK and set up the `JAVA_HOME` environment variable. For more information, see [Installation Prerequisites](#prerequisites).
 
 #### Set up CARBON_HOME
 
-Extract the WSO2 product that you want to run as a Linux service and set
-the environment variable `         CARBON_HOME        ` to the extracted
-product directory location.
+Extract the WSO2 product that you want to run as a Linux service and set the environment variable `CARBON_HOME` to the extracted product directory location.
 
 #### Run the product as a Linux service
 
-1.  To run the product as a service, create a startup script and add it
-    to the boot sequence. The basic structure of the startup script has
-    three parts (i.e., start, stop and restart) as follows:
+1. To run the product as a service, create a startup script and add it to the boot sequence. The basic structure of the startup script has three parts (i.e., start, stop, and restart) as follows:
 
     ``` bash
     #!/bin/bash
@@ -506,7 +450,7 @@ product directory location.
     esac
     ```
 
-    ??? note "Click to view an example startup script written for WSO2 Identity Server 5.9.0"
+    ??? note "Example startup script written for WSO2 Identity Server 5.9.0"
         ``` java
         #! /bin/sh
         ### BEGIN INIT INFO
@@ -542,106 +486,62 @@ product directory location.
         esac
         ```
 
-    In the above script, the server is started as a user by the name
-    user1 rather than the root user. For example,
-    `           su -c "${startcmd}" user1          `
+    In the above script, the server is started as a user by the name user1 rather than the root user. For example, `su -c "${startcmd}" user1`
 
-2.  Add the script to `           /etc/init.d/          ` directory.
+2. Add the script to `/etc/init.d/` directory.
 
-    !!! info
+    !!! note
+        If you want to keep the scripts in a location other than `/etc/init.d/` folder, you can add a symbolic link to the script in `/etc/init.d/` and keep the actual script in a separate location. Say your script name is `identityserver` and it is in `/opt/WSO2/` folder, then the commands for adding a link to `/etc/init.d/` is as follows:
 
-        If you want to keep the scripts in a location other than
-        `            /etc/init.d/           ` folder, you can add a symbolic
-        link to the script in `            /etc/init.d/           ` and keep
-        the actual script in a separate location. Say your script name is
-        `identityserver` and it is in `            /opt/WSO2/           `
-        folder, then the commands for adding a link to
-        `            /etc/init.d/           ` is as follows:
+        - Make your script executable: `sudo chmod a+x /opt/WSO2/identityserver`
 
-        -   Make your script executable:
-            `              sudo chmod a+x /opt/WSO2/identityserver             `
+        - Add a link to `/etc/init.d/` : `sudo ln -snf /opt/WSO2/identityserver /etc/init.d/identityserver`
 
-        -   Add a link to `             /etc/init.d/            ` :
-            `             sudo ln -snf /opt/WSO2/identityserver /etc/init.d/identityserver            `
+3. Install the startup script to respective runlevels using the command `update-rc.d`.
 
-3.  Install the startup script to respective runlevels using the command
-    `           update-rc.d          ` .
-    
-    For example, give the following
-    command for the sample script shown in step1:
+    For example, give the following command for the sample script shown in step1:
 
     ``` java
     sudo update-rc.d identityserver  defaults 
     ```
-     The `           defaults          ` option in the above command
-    makes the service to start in runlevels 2,3,4 and 5 and to stop in
-    runlevels 0,1 and 6.
 
-    !!! info 
-        A **runlevel** is a mode of operation in Linux (or any Unix-style
-        operating system). There are several runlevels in a Linux server and
-        each of these runlevels is represented by a single digit integer.
-        Each runlevel designates a different system configuration and allows
-        access to a different combination of processes.
+    The `defaults` option in the above command makes the service start in runlevels 2,3,4 and 5 and stop in runlevels 0,1 and 6.
 
-4.  You can now start, stop and restart the server using
-    `service <service name> {start|stop|restart}`
-    command.
+    !!! note
+        **Runlevel** is a mode of operation in Linux (or any Unix-style operating system). There are several runlevels in a Linux server and each of these runlevels is represented by a single-digit integer. Each runlevel designates a different system configuration and allows access to a different combination of processes.
 
----
+4. You can now start, stop and restart the server using `service <service name> {start|stop|restart}` command.
 
 ### Install as a Windows Service
 
-Any Java-based application, including WSO2 Carbon and Carbon-based
-products, can be run as a Windows service by using a bridging tool such
-as _Yet Another Java Service Wrapper (YAJSW)_.
+Any Java-based application, including WSO2 Carbon and Carbon-based products, can be run as a Windows service by using a bridging tool such as _Yet Another Java Service Wrapper (YAJSW)_.
 
 !!! info
-    As YAJSW is distributed under the LGPL license and WSO2 is
-    distributed under the Apache2 license, these two cannot be packed
-    together in a distribution. However, any end-user or customer can freely
-    combine components under these two licenses as long as the combined work
-    is not distributed. The following instructions will guide you on the process
-    of using YAJSW to install WSO2 Identity Server as a Windows Service.
+    As YAJSW is distributed under the LGPL license and WSO2 is distributed under the Apache2 license, these two cannot be packed together in a distribution. However, any end-user or customer can freely combine components under these two licenses as long as the combined work is not distributed.
+    The following instructions will guide you on the process of using YAJSW to install the WSO2 Identity Server as a Windows Service.
 
 Follow the instructions in the sections below to set it up.
 
 #### Prerequisites
 
--   Install JDK and set up the `          JAVA_HOME         `
-    environment variable. For more information, see
-    [Installation Prerequisites](#prerequisites).
--   Download and install a service wrapper library for running
-    WSO2 Identity Server as a Windows service. WSO2 recommends _Yet Another
-    Java Service Wrapper_ (
-    [YAJSW](http://sourceforge.net/projects/yajsw/) ) version 13.03, and
-    several WSO2 products provide a default
-    `          wrapper.conf         ` file in their
-    `          <PRODUCT_HOME>/bin/yajsw/         ` directory. The
-    following instructions describe how to set up this file.
+- Install JDK and set up the `JAVA_HOME` environment variable. For more information, see [Installation Prerequisites](#prerequisites).
+
+- Download and install a service wrapper library for running WSO2 Identity Server as a Windows service. WSO2 recommends _Yet Another Java Service Wrapper_ ([YAJSW](http://sourceforge.net/projects/yajsw/)) version 13.03, and several WSO2 products provide a default `wrapper.conf` file in their `<PRODUCT_HOME>/bin/yajsw/` directory. The following instructions describe how to set up this file.
 
 #### Set up the YAJSW wrapper configuration file
 
-`         wrapper.conf        ` file is used for wrapping Java Applications by YAJSW.
- The `         wrapper.conf        ` file found in the
-`         <IS_HOME>/bin/yajsw/        ` directory holds the minimal
+The `wrapper.conf` file is used for wrapping Java Applications by YAJSW. The `wrapper.conf` file found in the `<IS_HOME>/bin/yajsw/` directory holds the minimal
 configuration for running a WSO2 product as a Windows Service.
 
-1.  Copy the `           wrapper.conf          ` file found in the
-    `           <IS_HOME>/bin/yajsw/          ` directory and paste
-    it in the `           <YAJSW_HOME>/conf/          ` directory.  
-    A sample `           wrapper.conf          ` file that is
-    packed with the WSO2 product is given below.
+Copy the `wrapper.conf` file found in the `<IS_HOME>/bin/yajsw/` directory and paste it into the `<YAJSW_HOME>/conf/` directory. A sample `wrapper.conf` file that is packed with the WSO2 product is given below.
 
-    !!! info
-        If you wish to set additional properties from an external registry
-        at runtime, store sensitive information like usernames and passwords
-        for connecting to the registry in a properties file, and secure it
-        with the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
+!!! note
+    If you wish to set additional properties from an external registry at runtime, store sensitive information like usernames and passwords for connecting to the registry in a properties file, and secure it with the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
-    ??? note "Click to view a sample"
+??? note "Sample wrapper.conf file"
 
-        ```bash tab="Minimal wrapper.conf configuration"
+    === "Minimal wrapper.conf configuration"
+        ```bash
         #********************************************************************
         # working directory
         #********************************************************************
@@ -752,91 +652,61 @@ configuration for running a WSO2 product as a Windows Service.
         wrapper.java.additional.28 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
         ```
 
-#### Set up carbon_home
+#### Set up `carbon_home`
 
-Extract the Carbon-based product that you want to run as a Windows
-service, and then set the Windows environment variable ` carbon_home `
-to the directory that you extracted the product. For example, if you want to
-run WSO2 IS 6.1.0 as a Windows service, you would set ` carbon_home ` to the
-extracted ` wso2is-6.1.0 ` directory.
-
-![Edit System Variable window]({{base_path}}/assets/img/deploy/add-carbon-home-system-variable-window.png)
+Extract the Carbon-based product that you want to run as a Windows service, and then set the Windows environment variable `carbon_home` to the directory from which you extracted the product. For example, if you want to run WSO2 IS 7.0.0 as a Windows service, you would set ` carbon_home ` to the extracted `wso2is-7.0.0` directory.
 
 #### Run the product in console mode
 
-You will now verify that YAJSW is configured correctly for running the
-Carbon-based product as a Windows service.
+You will now verify that YAJSW is configured correctly for running the Carbon-based product as a Windows service.
 
-1.  Open a Windows command prompt and go to the
-    `           <YAJSW_HOME>/bat/          ` directory. For example:
+1. Open a Windows command prompt and go to the `<YAJSW_HOME>/bat/` directory. For example:
 
     ``` java
     cd C:\Documents and Settings\yajsw_home\bat
     ```
 
-2.  Start the wrapper in console mode using the following command:
+2. Start the wrapper in console mode using the following command:
 
     ``` java
     runConsole.bat
     ```
 
-    If the configurations are set properly for YAJSW, you will see console
-    output similar to the following. Now you can access the WSO2 management
-    console from your web browser via <https://localhost:9443/carbon>.
+    If the configurations are set properly for YAJSW, you will see console output similar to the following. Now you can access the WSO2 IS console from your web browser via <https://localhost:9443/console>.
 
-    ![Console output]({{base_path}}/assets/img/deploy/console-output.png)
+#### Work with the WSO2CARBON service
 
-#### Work with the WSO2CARBON service
+- To install the Carbon-based product as a Windows service, open a console with administrative privileges and execute the following command in the `<YAJSW_HOME>/bat/` directory:
 
-To install the Carbon-based product as a Windows service, open a console with administrative privileges and execute the
-following command in the `         <YAJSW_HOME>/bat/        ` directory:
+    ``` java
+    installService.bat
+    ```
 
-``` java
-installService.bat
-```
+    The console will display a message confirming that the WSO2CARBON service has been installed.
 
-The console will display a message confirming that
-the WSO2CARBON service has been installed.
+- To start the service, execute the following command in the same console window (with administrative privileges):
 
-![Service installation confirmation]({{base_path}}/assets/img/deploy/service-installation-confirmation.png)
+    ``` java
+    startService.bat
+    ```
 
-To start the service, execute the following command in the same console
-window (with administrative privileges):
+    The console will display a message confirming that the WSO2CARBON service has been started.
 
-``` java
-startService.bat
-```
+- To stop the service, execute the following command in the same console window (with administrative privileges):
 
-The console will display a message confirming that
-the WSO2CARBON service has been started.
+    ``` java
+    stopService.bat
+    ```
 
-![Service startup message]({{base_path}}/assets/img/deploy/service-startup-message.png)
+    The console will display a message confirming that the WSO2CARBON service has been stopped.
 
-To stop the service, execute the following command in the same console
-window (with administrative privileges):
+- To uninstall the service, execute the following command in the same console window (with administrative privileges):
 
-``` java
-stopService.bat
-```
+    ``` java
+    uninstallService.bat
+    ```
 
-The console will display a message confirming that
-the WSO2CARBON service has been stopped.
-
-![Service stop message]({{base_path}}/assets/img/deploy/service-stop-message.png)
-
-To uninstall the service, execute the following command in the same
-console window (with administrative privileges):
-
-``` java
-uninstallService.bat
-```
-
-The console will display a message confirming that
-the WSO2CARBON service has been removed.
-
-![Service removal message]({{base_path}}/assets/img/deploy/service-removal-message.png)
-
----
+    The console will display a message confirming that the WSO2CARBON service has been removed.
 
 ## Uninstall the product
 
