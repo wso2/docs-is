@@ -120,7 +120,7 @@ Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/r
     </tr>
     <tr>
       <td><code>IdPPublicCert</code></td>
-      <td>This specifies the public certificate of the WSO2 Identity Server. You can obtain the publiccertificate from the Console. See [how to get SAML configurations from the WSO2 Identity Server Console]({base_path}}/guides/authentication/saml/discover-saml-configs/#discover-saml-configurations-of-asgardeo).<td>
+      <td>This specifies the public certificate of the WSO2 Identity Server. You can obtain the publiccertificate from the Console. See [how to get SAML configurations from the WSO2 Identity Server Console]({{base_path}}/guides/authentication/saml/discover-saml-configs/#discover-saml-configurations-of-asgardeo).<td>
     </tr>
     <tr>
       <td><code>skipURIs</code></td>

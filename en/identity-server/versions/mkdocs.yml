@@ -1,6 +1,6 @@
-# Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+# Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
 #
-# WSO2 Inc. licenses this file to you under the Apache License,
+# WSO2 LLC. licenses this file to you under the Apache License,
 # Version 2.0 (the "License"); you may not use this file except
 # in compliance with the License.
 # You may obtain a copy of the License at
@@ -14,54 +14,23 @@
 # specific language governing permissions and limitations
 # under the License.
 
+INHERIT: ../../base.yml
+
 # Project information
-site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
-site_author: WSO2
-site_url: https://is.docs.wso2.com/en/latest/
-
-# Repository
-repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
-
-# Copyright
-copyright: WSO2 Identity Server - Documentation
+site_url: &site_url https://is.docs.wso2.com/en/versions
 
 # Configuration
-theme: material
 theme:
-  name: material
-  palette:
-    primary: deep-orange
-    accent: deep-orange
-  custom_dir: theme/material
-  logo: images/logo.svg
-  highlightjs: true
-  feature:
-    tabs: true
-  language: 'en'
-
-# Extensions
-markdown_extensions:
-    - fenced_code
-    - codehilite
-    
-# Customization
-extra_css:
-  - assets/lib/highlightjs/default.min.css
-  - assets/css/theme.css
-  - assets/css/versions.css
-extra_javascript:
-  - assets/lib/highlightjs/highlight.min.js
-  - assets/js/theme.js
+  custom_dir: ../../theme/material
+  logo: assets/images/identity-server-docs-logo-dark.svg
+  logo_light: assets/images/identity-server-docs-logo.svg
+  favicon: assets/images/identity-server-favicon.png
 
 extra:
-  social:
-    - type: github
-      link: https://github.com/wso2
-    - type: twitter
-      link: https://twitter.com/wso2
-    - type: linkedin
-      link: https://www.linkedin.com/company/wso2
-  site_version: versions
+  base_path: *site_url
+  product: is
+  is_version: versions
+
+watch:
+  - ../../theme/material
