@@ -1,6 +1,6 @@
 # Organization management
 
-When you [create an account](../../get-started/create-asgardeo-account/) in {{ product_name }}, you define your first organization, which functions as the super organization or tenant in your {{ product_name }} subscription. From thereon, you (the account owner) or other delegated administrators can create multiple organizations via the {{ product_name }} Console and switch between them.
+When you [create an account]({../..}/get-started/create-asgardeo-account/) in {{ product_name }}, you define your first organization, which functions as the super organization or tenant in your {{ product_name }} subscription. From thereon, you (the account owner) or other delegated administrators can create multiple organizations via the {{ product_name }} Console and switch between them.
 
 Listed below are the main characteristics of an organization.
 - An organization contains applications, external identity providers, and user identities belonging to a single domain.
