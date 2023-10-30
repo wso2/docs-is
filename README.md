@@ -3,7 +3,7 @@
 This is the WSO2 Identity Server and Asgardeo documentation repository. This repository is open and we welcome your contributions!
 
 To see the documentation site, go to:
-WSO2 Identity Server: [https://wso2.com/identity-server/docs/](https://wso2.com/identity-server/docs/)
+WSO2 Identity Server: [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
 Asgardeo: [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
 
 ## Contribute to documentation
@@ -17,8 +17,6 @@ Before you contribute, read the following guidelines to understand how you can s
     If the CLA changes for some (unlikely) reason, you'll have to accept the new CLA text when you send your first PR after the change.
 
 2. Fork this repository, make your changes, and send in a pull request.
-
-   For an overview of the general voice, tone, content style, and text formatting to follow when contributing to Choreo documentation, see [Choreo Documentation Guidelines and Best Practices](https://github.com/wso2/docs-choreo-dev/wiki/Choreo-Documentation-Guidelines-and-Best-Practices)
 
 We look forward to your contributions.
 
