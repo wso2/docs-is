@@ -239,10 +239,10 @@ nav:
         - Get WSO2 Updates: deploy/get-started/get-wso2-updates.md
       - Secure:
         - Mitigate Attacks:
-          - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
-          - Mitigate Authorization Code Interception Attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
-          - Mitigate Brute Force Attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
-          - Mitigate Replay Attacks: deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
+          - Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
+          - Authorization Code Interception Attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
+          - Brute Force Attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
+          - Replay Attacks: deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
           - SameSite Attribute Support: deploy/samesite-attribute-support.md
           - Prevent Browser Caching: deploy/security/prevent-browser-caching.md
         - Work with Tokens: 
@@ -399,6 +399,7 @@ nav:
       - FIPS: references/compliance/fips.md
       - Accessibility compliance: references/compliance/accessibility.md
     - Localization in  WSO2 Identity Server: references/localization.md
+    - Default ports: references/default-ports.md
     #- Extenstions:
       #- Authentication:
         #- Write a Custom OAuth 2.0 grant: references/extend/write-a-custom-oauth-2.0-grant-type.md
