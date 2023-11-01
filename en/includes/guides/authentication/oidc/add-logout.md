@@ -13,7 +13,7 @@ successfully logged out, the user is redirected to the `post_logout_redirect_uri
 
 ``` curl
 curl -X POST "{{ product_url_sample }}/oidc/logout" \
---data-urlencode "id_token_hint=<id_token>" \
+--data-urlencode "client_id=<client_id_of_the_application>" \
 --data-urlencode "post_logout_redirect_uri=<redirect URI>" \
 --data-urlencode "state=<state>"
 ```
@@ -29,8 +29,12 @@ The logout request has the following parameters:
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>id_token_hint</code><Badge text="Recommended" type="recommended"/></td>
-    <td>The ID token returned by {{ product_name }} (in response to the token request) is passed to the logout endpoint with a hint about the user's current authenticated session on the application.</td>
+    <td><code>client_id</code><Badge text="Recommended" type="recommended"/></td>
+    <td>The client ID obtained when registering the application in {{ product_name }}.</td>
+  </tr>
+  <tr>
+    <td><code>id_token_hint</code><Badge text="Optional" type="optional"/></td>
+    <td>The ID token returned by {{ product_name }} (in response to the token request) is passed to the logout endpoint with a hint about the user's current authenticated session on the application. This can be used instead of the <code>client_id</code> parameter.</td>
   </tr>
   <tr>
     <td><code>post_logout_redirect_uri</code><Badge text="Optional" type="optional"/></td>
