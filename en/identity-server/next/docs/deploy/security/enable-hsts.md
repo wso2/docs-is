@@ -1,15 +1,14 @@
 # Enable HTTP Strict Transport Security (HSTS) Headers
 
-Enable HTTP Strict Transport Security (HSTS) headers for the applications deployed in your server, to confirm that the relevant headers are present in the HTTP response. HSTS is not enabled for applications in WSO2 Identity Server by default. 
+Enable HTTP Strict Transport Security (HSTS) headers for the applications deployed in your server, to confirm that the relevant headers are present in the HTTP response. HSTS is not enabled for applications in the WSO2 Identity Server by default.
 
-!!! note 
-	HSTS should not be enabled in development environments because transport security validations can interrupt the development processes by validating signatures of self-signed certificates. 
+!!! note
+    HSTS should not be enabled in development environments because transport security validations can interrupt the development processes by validating signatures of self-signed certificates.
 
----
+## Enable for Console
 
-## Enable for Management Console 
-
-If the `HttpHeaderSecurityFilter` element is available in the `<IS_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml` file as shown below, it implies that security headers are by default configured for the WSO2 Management Consoles of all of your profiles. However, in a production deployment, Strict-Transport-Security needs to be explicitly enabled by replacing the default <init-param> values of the `HttpHeaderSecurityFilter` filter.
+If the `HttpHeaderSecurityFilter` element is available in the `<IS_HOME>/repository/conf/tomcat/console/WEB-INF/web.xml` file as shown below, it implies that security headers are by default configured for the WSO2 Management Consoles of all of your profiles.
+However, in a production deployment, Strict-Transport-Security needs to be explicitly enabled by replacing the default <init-param> values of the `HttpHeaderSecurityFilter` filter.
 
 Following is the default filter configuration.
 
@@ -40,11 +39,9 @@ Shown below is how you should explicitly enable HSTS.
 </filter>
 ```
 
----
-
 ## Enable for web applications
 
-Similar to the WSO2 Identity Server Management Console, check whether `HttpHeaderSecurityFilter` stored in the `<IS_HOME>/repository/deployment/server/webapps/` directory is available in the `web.xml` file of that particular web application. If the filter is available, enable HSTS as shown below.
+Similar to the WSO2 Identity Server Console, check whether the `HttpHeaderSecurityFilter` stored in the `<IS_HOME>/repository/deployment/server/webapps/` directory is available in the `web.xml` file of that particular web application. If the filter is available, enable HSTS as shown below.
 
 ```
 <filter>
@@ -60,7 +57,9 @@ Similar to the WSO2 Identity Server Management Console, check whether `HttpHeade
 
 <!--## Enable for Jaggery applications
 
-For Jaggery applications, the `HttpHeaderSecurityFilter` element should be configured in the `<IS_HOME>/repository/deployment/server/jaggeryapps/jaggery.conf` file. <!--This filter configuration is applicable to the /dashboard jaggery applications in this location-->. To enable HSTS for a Jaggery application, change the default filter configuration as shown below.
+For Jaggery applications, the `HttpHeaderSecurityFilter` element should be configured in the `<IS_HOME>/repository/deployment/server/jaggeryapps/jaggery.conf` file. This filter configuration is applicable to the /dashboard jaggery applications in this location.
+
+To enable HSTS for a Jaggery application, change the default filter configuration as shown below.
 
 Given below is the default filter configuration.
 
@@ -75,7 +74,6 @@ This is the filter configuration after enabling HSTS.
 ```
 
 !!! note
-
-	Returning HTTP security headers could also be achieved by configuring the headers from the `Proxy/LB` configuration.
+    Returning HTTP security headers could also be achieved by configuring the headers from the `Proxy/LB` configuration.
 
 -->
