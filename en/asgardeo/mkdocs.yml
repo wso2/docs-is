@@ -234,6 +234,7 @@ nav:
         - Manage subscriptions: guides/your-asgardeo/manage-subscriptions.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
+        - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
         - Diagnostic logs: guides/monitoring/diagnostic-logs.md
         - Asgardeo events: guides/monitoring/asgardeo-events.md
       - Organization insights: guides/organization-insights.md
@@ -358,7 +359,7 @@ extra_css:
   # - assets/css/blue-palette-alt2.css
   # - assets/lib/json-formatter/json-formatter.css
   # - assets/css/config-catalog.css
-extra_javascript:
+#extra_javascript:
   # TODO: Need to verify if below js files are still needed. And clean those.
   # - assets/lib/json-formatter/json-formatter.umd.js
   # - assets/lib/highlightjs/highlight.min.js
