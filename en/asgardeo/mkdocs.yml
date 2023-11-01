@@ -56,7 +56,7 @@ plugins:
   - redirects:
       redirect_maps:
         'references/grant-types-in-asgardeo.md': 'https://wso2.com/asgardeo/docs/references/grant-types/'
-        '/guides/your-asgardeo/manage-subscriptions': 'https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal'
+        '/guides/your-asgardeo/manage-subscriptions': 'https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/'
 
 # Navigation
 nav:
@@ -198,6 +198,7 @@ nav:
           - Configure password validation: guides/user-accounts/account-security/password-validation.md
         - Manage account login:
           - Configure username validation: guides/user-accounts/account-login/username-validation.md
+          - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
