@@ -7,7 +7,7 @@ Enable HTTP Strict Transport Security (HSTS) headers for the applications deploy
 
 ## Enable for Console
 
-If the `HttpHeaderSecurityFilter` element is available in the `<IS_HOME>/repository/conf/tomcat/console/WEB-INF/web.xml` file as shown below, it implies that security headers are by default configured for the WSO2 Management Consoles of all of your profiles.
+If the `HttpHeaderSecurityFilter` element is available in the `<IS_HOME>/repository/conf/tomcat/console/WEB-INF/web.xml` file as shown below, it implies that security headers are by default configured for the WSO2 Identity Server Consoles of all of your profiles.
 However, in a production deployment, Strict-Transport-Security needs to be explicitly enabled by replacing the default <init-param> values of the `HttpHeaderSecurityFilter` filter.
 
 Following is the default filter configuration.
