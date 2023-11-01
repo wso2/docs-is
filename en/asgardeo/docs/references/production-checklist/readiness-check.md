@@ -95,4 +95,4 @@ By default, all the emails triggered by Asgardeo for your end users have Asgarde
     If you wish to use that capability for older organizations, you can send a request to the Asgardeo team at `asgardeo-support@wso2.com`.
 
 ## Manage subscriptions
-Make sure to check the resource limits to verify the allowed Monthly Active User (MAU) limits, groups, etc., to ensure your scaling requirements are within the range of your subscription. [Learn more]({{base_path}}/guides/your-asgardeo/manage-subscriptions/)
+Make sure to check the resource limits to verify the allowed Monthly Active User (MAU) limits, groups, etc., to ensure your scaling requirements are within the range of your subscription. [Learn more]({{base_path}}/guides/your-asgardeo/subscribe-to-asgardeo/)
