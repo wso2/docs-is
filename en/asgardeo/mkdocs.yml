@@ -56,6 +56,7 @@ plugins:
   - redirects:
       redirect_maps:
         'references/grant-types-in-asgardeo.md': 'https://wso2.com/asgardeo/docs/references/grant-types/'
+        '/guides/your-asgardeo/manage-subscriptions': 'https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal'
 
 # Navigation
 nav:
@@ -231,7 +232,10 @@ nav:
         - Self-service: guides/your-asgardeo/asgardeo-self-service.md
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
-        - Manage subscriptions: guides/your-asgardeo/manage-subscriptions.md
+        - Subscribe to Asgardeo:
+          - Subscribe to Asgardeo: guides/your-asgardeo/subscribe-to-asgardeo/index.md
+          - via Billing Portal: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal.md
+          - via Azure Marketplace: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-azure-marketplace.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
