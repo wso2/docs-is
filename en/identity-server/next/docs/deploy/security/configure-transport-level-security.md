@@ -1,8 +1,6 @@
 # Configure Transport Level Security
 
-Given below are the various transport-level security configurations that are required for WSO2 Identity Server.
-
----
+Given below are the various transport-level security configurations that are required for the WSO2 Identity Server.
 
 ## Enabling SSL protocols in the WSO2 IS
 
@@ -10,17 +8,15 @@ Follow the instructions given below to enable SSL protocols in the WSO2 Identity
 
 1. Add the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-     ```toml
-     [transport.https.sslHostConfig.properties]
-     protocols="+TLSv1, +TLSv1.1, +TLSv1.2, +TLSv1.3"
-     ```
+    ```toml
+    [transport.https.sslHostConfig.properties]
+    protocols="+TLSv1, +TLSv1.1, +TLSv1.2, +TLSv1.3"
+    ```
 
     You can configure multiple TLS versions or a single TLS version according to your preference.
     To achieve high security, use the latest TLS version by removing `+TLSv1`, `+TLSv1.1`, and `+TLSv1.2` from the `protocols` property of the configuration.
 
 2. Restart the server.
-
----
 
 ## Disable weak ciphers
 
@@ -54,25 +50,20 @@ Therefore, to disable the weak ciphers, you must ensure that only the ciphers yo
 
     !!! note
         Note the following when you run `TestSSLServer.jar` :
+
+        - The "Supported cipher suites" section in the output does not contain any EXPORT ciphers.
     
-        -   The "Supported cipher suites" section in the output does not
-            contain any EXPORT ciphers.
-    
-        -   When you use the supported cipher suites, the BEAST attack status will
-            be shown as vulnerable. This is a client-side
-            vulnerability caused by the TLSv1 protocol. You can protect the BEAST status by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended to resolve this on the client side.
+        - When you use the supported cipher suites, the BEAST attack status will be shown as vulnerable. This is a client-side vulnerability caused by the TLSv1 protocol. You can protect the BEAST status by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended to resolve this on the client side.
 
 From **Firefox 39.0** onwards, the browser does not allow access to websites that support DHE with keys less than `1023` bits (not just `DHE\_EXPORT`). `768/1024` bits are considered too small and vulnerable to attacks if the hacker has enough computing resources.
 
 !!! tip
     To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
     
-    From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048`. It rejects all algorithms that have key sizes less than `2048` for `MD2`, `DSA` and `RSA`.
+    From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048`. It rejects all algorithms that have key sizes less than `2048` for `MD2`, `DSA`, and `RSA`.
 
     !!! note
-        This tip is not applicable when disabling weak ciphers in WSO2 Identity Server.
-
----
+        This tip is not applicable when disabling weak ciphers in the WSO2 Identity Server.
 
 ## Enable SSL protocols and ciphers in ThriftAuthenticationService
 
@@ -89,7 +80,7 @@ Follow the instructions given below to enable SSL protocols and ciphers in `Thri
     ```
 
     !!! tip
-        You can add the following cipher suites to the `<Ciphers>` property if JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
+        You can add the following cipher suites to the `<Ciphers>` property if the JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
 
         ``` java
         TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
@@ -99,14 +90,12 @@ Follow the instructions given below to enable SSL protocols and ciphers in `Thri
 
 
 2. Restart the server.
-
----
   
 ## Change the server name in HTTP response headers
 
-By default, WSO2 Identity Server pass `WSO2 WSO2 IS server` as the server value in HTTP headers when sending HTTP responses. This means that information about the WSO2 Identity Server stack will be exposed through HTTP responses. It is recommended to change this by configuring the server name in the `deployment.toml` file.
+By default, the WSO2 Identity Server passes `WSO2 WSO2 IS server` as the server value in HTTP headers when sending HTTP responses. This means that information about the WSO2 Identity Server stack will be exposed through HTTP responses. It is recommended to change this by configuring the server name in the `deployment.toml` file.
 
-1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 2. Add a new server name by adding the following property under the relevant Tomcat connector configuration.
 
     ```
@@ -116,11 +105,9 @@ By default, WSO2 Identity Server pass `WSO2 WSO2 IS server` as the server value 
     server="WSO2 WSO2 IS server"
     ```
 
----
-
 ## Enable/disable http/https transport
 
-By default, both the http and https connectors are enabled. To disable either the http or https connector, add the corresponding configuration to `<IS-HOME>/repository/conf/deployment.toml` as shown below. 
+By default, both the `http` and `https` connectors are enabled. To disable either the `http` or `https` connector, add the corresponding configuration to `<IS-HOME>/repository/conf/deployment.toml` as shown below. 
 
 ```toml
 [transport]
