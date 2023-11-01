@@ -1,5 +1,8 @@
 # Configure alternative login identifiers
 
+!!! note
+    The feature is in the Beta stage. We are working on adding more capabilities for this feature.
+
 You can now configure alternative login identifiers so that the users of your Asgardeo organization have the capability to use these identifiers to log in.
 
 !!! note
