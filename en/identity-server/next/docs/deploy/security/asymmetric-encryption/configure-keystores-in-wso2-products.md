@@ -38,7 +38,7 @@ This feature allows you to create a separate keystore for encrypting data in int
 
 
 To configure the new keystore add the following configuration block to the `keystore.internal` tag of the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
-    
+
 !!! note
     The values of the properties such as passwords must be changed based on the keystore.
 
