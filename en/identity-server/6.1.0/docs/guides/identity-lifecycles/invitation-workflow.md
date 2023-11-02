@@ -76,11 +76,10 @@ password is invalid after the time specified here has elapsed.
 enable_email_verification = true
 verification_email_validity = "1440"
 lock_on_creation=true
-[identity_mgt] 
-email_sender= "internal"
-[identity_mgt.user_onboarding]
 ask_password_email_validity = "1440"
 password_generator = "org.wso2.carbon.user.mgt.common.DefaultPasswordGenerator"
+[identity_mgt] 
+email_sender= "internal"
 ```
     
 !!! info "Configure Ask Password Feature for tenants" 
