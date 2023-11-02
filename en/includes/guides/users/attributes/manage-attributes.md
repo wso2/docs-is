@@ -11,7 +11,7 @@ See the information given below to manage attributes in your organization.
 ## View attributes
 To view the attributes available for your organization:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes**.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
 2. Click **Attributes** again under the **Manage Attributes** section.
 
    ![View attributes]({{base_path}}/assets/img/guides/organization/attributes/view-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
@@ -22,7 +22,7 @@ You can now see the complete list of attributes along with **Attribute Display N
 
 To add a custom attribute:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes**.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
 2. Click **Attributes** to see the list of attributes.
 3. Click **New Attribute** and enter values for the following properties:
 
@@ -50,7 +50,7 @@ To add a custom attribute:
 ## Update attributes
 To update the properties of a user attribute:
 
-1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes**.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
 2. Click **Attributes** to see the list of attributes.
 3. Click **Edit** for the attribute you want to update.
 

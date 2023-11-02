@@ -171,11 +171,10 @@ nav:
         - Configure the email sender: guides/branding/configure-email-sender.md
       - User management:
         - User management: guides/users/index.md
-        - Manage administrators: guides/users/manage-collaborators.md
-        - Manage users: guides/users/manage-customers.md
+        - Manage administrators: guides/users/manage-administrators.md
+        - Manage users: guides/users/manage-users.md
         - Manage groups: guides/users/manage-groups.md
         - Manage active sessions: guides/users/manage-sessions.md
-        - Migrate users to WSO2 Identity Server: guides/users/migrate-users.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -318,6 +317,6 @@ nav:
       - FIPS: references/compliance/fips.md
       - Accessibility compliance: references/compliance/accessibility.md
     - Localization in  WSO2 Identity Server: references/localization.md
-    # - Extensions:
+    # - Extenstions:
       # - Authentication:
         # - Write a Custom OAuth 2.0 grant: references/extend/write-a-custom-oauth-2.0-grant-type.md

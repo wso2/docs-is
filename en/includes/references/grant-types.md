@@ -141,7 +141,7 @@ The following diagram illustrates this flow.
 1. The user visits the client application and requests login through the root organization.
 2. The client application redirects the authorization code request to the root organization.
 3. {{ product_name }} prompts the login page of the root organization's application.
-4. The user selects the **Organization Login** authentication option.
+4. The user selects the **SSO** authentication option.
 5. The root organization prompts the user to enter the suborganization name.
 6. The user enters the suborganization name.
 7. The root organization sends an authorization code request to the suborganization.

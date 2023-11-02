@@ -57,7 +57,7 @@ Now, let's generate a client secret for the application.
 3. Click **Add** to add the client secret.
 
     !!! note "Important"
-        Take note of the generated **Secret ID**. Azure will allow copying this value only once.
+        Take note of the generated **Value**. Azure will allow copying this value only once. This value is the newly generated client secret for your Microsoft connection in Asgardeo.
 
 
 ## Register the Microsoft IdP
