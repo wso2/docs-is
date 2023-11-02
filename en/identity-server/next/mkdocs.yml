@@ -269,16 +269,16 @@ nav:
           - Network-Level: deploy/security/security-guidelines/network-level-security-guidelines.md
         - Encryption:
           - Asymmetric Encryption:
-            - Use Asymmetric Encryption: deploy/security/use-asymmetric-encryption.md
-            - Create New Keystores: deploy/security/create-new-keystores.md
-            - Configure Keystores: deploy/security/configure-keystores-in-wso2-products.md
-            - Renew a CA-Signed Certificate in a Keystore: deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md
-            - Manage Keystores via UI: deploy/security/manage-keystores-with-the-ui.md
-            - Add Multiple Keys to the Primary Keystore: deploy/security/add-multiple-keys-to-the-primary-keystore.md
+            - Use Asymmetric Encryption: deploy/security/asymmetric-encryption/use-asymmetric-encryption.md
+            - Create New Keystores: deploy/security/asymmetric-encryption/create-new-keystores.md
+            - Configure Keystores: deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md
+            - Renew a CA-Signed Certificate in a Keystore: deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md
+            #- Manage Keystores via UI: deploy/security/asymmetric-encryption/manage-keystores-with-the-ui.md
+            - Add Multiple Keys to the Primary Keystore: deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md
           - Symmetric Encryption:
-            - Overview: deploy/security/symmetric-overview.md
-            - Configurations Related to Symmetric Key Encryption: deploy/security/use-symmetric-encryption.md
-            - Symmetric Data Encryption Key Rotation: deploy/security/blue-green-data-encryption-keyrotation.md
+            - Symmetric Encryption: deploy/security/symmetric-encryption/index.md
+            - Configurations Related to Symmetric Key Encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
+            - Symmetric Data Encryption Key Rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
       - Deploy:
         - Deployment Patterns: deploy/deployment-guide.md
         - Set up WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
@@ -448,6 +448,14 @@ plugins:
         'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
         'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'
         'deploy/security/product-level-security-guidelines.md': 'deploy/security/security-guidelines/product-level-security-guidelines.md'
+        'deploy/security/use-asymmetric-encryption.md': deploy/security/asymmetric-encryption/use-asymmetric-encryption.md
+        'deploy/security/create-new-keystores.md': deploy/security/asymmetric-encryption/create-new-keystores.md
+        'deploy/security/configure-keystores-in-wso2-products.md': deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md
+        'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md
+        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md
+        'deploy/security/symmetric-overview.md': deploy/security/symmetric-encryption/index.md
+        'deploy/security/use-symmetric-encryption.md': deploy/security/symmetric-encryption/use-symmetric-encryption.md
+        'deploy/security/blue-green-data-encryption-keyrotation.md': deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css
