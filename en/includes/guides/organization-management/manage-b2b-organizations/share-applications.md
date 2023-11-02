@@ -27,10 +27,10 @@ Follow the steps below to share your primary applications with sub organizations
 
 Note the following:
 
-- Go to the **Sign-in Method** tab of the application and ensure that the **Organization Login** authenticator is added.
+- Go to the **Sign-in Method** tab of the application and ensure that the **SSO** authenticator is added.
 
     !!! note
-        This adds the **Sign in with Organization Login** option to the application login screen so that sub organization users can log in using their credentials.
+        This adds the **Sign in with SSO** option to the application login screen so that sub organization users can log in using their credentials.
 
     ![Sign-in-method-options]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-signin-method.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -40,6 +40,6 @@ Note the following:
 
 - Go to the **Sign-in Method** tab of the shared app and see that login with username and password is enabled.
 
-Once an application is shared with a sub organization, its users can use the **Sign In with Organization Login** option to log in using their credentials.
+Once an application is shared with a sub organization, its users can use the **Sign In with SSO** option to log in using their credentials.
 
 To try out a complete use case, see [Try a B2B use case]({{base_path}}/guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case/).

@@ -20,7 +20,7 @@ Follow the steps given below to configure the branding preferences for your orga
 
     ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-asgardeo-console-ui.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, and **Advanced** tabs.
+2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
 
     !!! note
         - If you leave any of the branding preferences empty, {{ product_name }} defaults will be used.
@@ -64,16 +64,6 @@ Listed below are the branding preferences that you can use to customize the {{ p
 Listed below are general branding preferences you can apply to the interfaces.
 
 <table>
-   <tr>
-      <td><b>Site Title</b></td>
-      <td>The site title may appear in browser tabs, search engine results, social shares, etc. You can use any meaningful text here.</td>
-   </tr>
-   <tr>
-      <td><b>Copyright Text</b></td>
-      <td>The copyright text is a short description that informs users about the copyright law protecting your applications.</br></br>
-      In {{ product_name }}, the copyright text will appear on the footer of the login screens and on the footer of emails.
-      </td>
-   </tr>
    <tr>
       <td><b>Contact Email</b></td>
       <td>This email address will appear on emails, error pages and, other pages where users would require support from the organization admin.</td>
@@ -574,5 +564,61 @@ Listed below are some advanced branding preferences you can apply to the user re
       <td>
          This is a link to a document or a webpage with detailed information on all cookies used by your applications and the purpose of each of them.
       </td>
+   </tr>
+</table>
+
+### Text preferences
+
+You can add text branding to screens of your organization in a language listed under the `Locale` list of **Text** branding.
+
+Listed below are the text branding preferences you can apply to the screens in your organization.
+
+<table>
+   <tr>
+      <th>Screen</th>
+      <th>Field</th>
+      <th>Description</th>
+   </tr>
+   <tr>
+      <td rowspan="2"><b>Common</b></td>
+      <td><code>copyright</code></td>
+      <td>This text is displayed at the footer of all login screens within your organization and in emails from your organization, providing essential legal or branding information.</td>
+   </tr>
+   <tr>
+      <td><code>site.title</code></td>
+      <td>The site title may appear in browser tabs, search engine results, social shares, etc. You can use any meaningful text here.</td>
+   </tr>
+   <tr>
+      <td rowspan="2"><b>Login</b></td>
+      <td><code>login.button</code></td>
+      <td>This is the text that appears on the main action button of the login box for your organization. </td>
+   </tr>
+   <tr>
+      <td><code>login.heading</code></td>
+      <td>This is the main heading of the login box, serving as a concise introduction to the login page.</td>
+   </tr>
+   <tr>
+      <td><b>SMS OTP</b></td>
+      <td><code>sms.otp.heading</code></td>
+      <td>This is the heading of the SMS OTP box.</td>
+   </tr>
+   <tr>
+      <td><b>Email OTP</b></td>
+      <td><code>email.otp.heading</code></td>
+      <td>The heading of the Email OTP box.</td>
+   </tr>
+   <tr>
+      <td><b>TOTP</b></td>
+      <td><code>totp.heading</code></td>
+      <td>This is the heading of the TOTP box.</td>
+   </tr>
+   <tr>
+      <td rowspan="2"><b>Sign Up</b></td>
+      <td><code>sign.up.button</code></td>
+      <td>The text on the primary action button within the sign-up box.</td>
+   </tr>
+   <tr>
+      <td><code>sign.up.heading</code></td>
+      <td>This is the main heading of the sign-up box, providing a brief introduction to the registration page within your organization.</td>
    </tr>
 </table>

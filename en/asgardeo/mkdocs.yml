@@ -56,6 +56,7 @@ plugins:
   - redirects:
       redirect_maps:
         'references/grant-types-in-asgardeo.md': 'https://wso2.com/asgardeo/docs/references/grant-types/'
+        '/guides/your-asgardeo/manage-subscriptions': 'https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/'
 
 # Navigation
 nav:
@@ -197,6 +198,7 @@ nav:
           - Configure password validation: guides/user-accounts/account-security/password-validation.md
         - Manage account login:
           - Configure username validation: guides/user-accounts/account-login/username-validation.md
+          - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -231,9 +233,13 @@ nav:
         - Self-service: guides/your-asgardeo/asgardeo-self-service.md
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
-        - Manage subscriptions: guides/your-asgardeo/manage-subscriptions.md
+        - Subscribe to Asgardeo:
+          - Subscribe to Asgardeo: guides/your-asgardeo/subscribe-to-asgardeo/index.md
+          - via Billing Portal: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal.md
+          - via Azure Marketplace: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-azure-marketplace.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
+        - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
         - Diagnostic logs: guides/monitoring/diagnostic-logs.md
         - Asgardeo events: guides/monitoring/asgardeo-events.md
       - Organization insights: guides/organization-insights.md
@@ -358,7 +364,7 @@ extra_css:
   # - assets/css/blue-palette-alt2.css
   # - assets/lib/json-formatter/json-formatter.css
   # - assets/css/config-catalog.css
-extra_javascript:
+#extra_javascript:
   # TODO: Need to verify if below js files are still needed. And clean those.
   # - assets/lib/json-formatter/json-formatter.umd.js
   # - assets/lib/highlightjs/highlight.min.js

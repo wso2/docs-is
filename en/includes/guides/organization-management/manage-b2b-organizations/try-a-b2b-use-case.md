@@ -51,7 +51,7 @@ As the administrator of **Guardio Insurance**, you need to first set up a sub or
 </table>
 
 ## Set up the app
-The following guides explain how you can share an application with sub organizations and allow sub organization users to log in to it using **Organization Login**.
+The following guides explain how you can share an application with sub organizations and allow sub organization users to log in to it using **SSO**.
 
 Let's use the sample application, [Guardio Insurance app](https://github.com/wso2/samples-is/releases/download/v4.5.3/b2b-sample.zip), to explore this use case.
 
@@ -85,7 +85,7 @@ Follow the steps given below to register the Guardio Insurance App with {{ produ
 
 Share the <b>Guardio Insurance app</b> with your <b>Best Car Mart</b> sub organization. See instructions on how to [share applications with sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/share-applications/).
 
-By doing so, you enable **Sign In with Organization Login** as a login option in the application login screen, which sub organization users can use to log in.
+By doing so, you enable **Sign In with SSO** as a login option in the application login screen, which sub organization users can use to log in.
 
 ### Step 3: Configure the app on {{ product_name }}
 To configure the registered application on {{ product_name }}:
@@ -215,11 +215,11 @@ Follow the steps below to see how organization login works for a user in the **B
 
 2. Click **Sign In** and see that you are diverted to the {{ product_name }} login screen.
 
-3. Click **Sign In with Organization Login** to specify the organization to which you are signing in.
+3. Click **Sign In with SSO** to specify the organization to which you are signing in.
 
 4. Enter **Best Car Mart** as the organization name and click **Submit**.
-    
-    ![Sign in with organization login]({{base_path}}/assets/img/guides/organization/manage-organizations/sign-in-with-organization-login.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+    ![Sign in with SSO]({{base_path}}/assets/img/guides/organization/manage-organizations/sign-in-with-organization-login.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Enter the username and password of a user who you have onboarded to Best Car Mart.
 
