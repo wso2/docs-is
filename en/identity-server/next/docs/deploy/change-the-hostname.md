@@ -15,19 +15,17 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
 
     Add `localhost` as SAN for the certificate (-ext SAN=dns:localhost) as the internal hostname is by default `localhost`. For that, navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and use the following command to create a new keystore with `CN=is.dev.wso2.com` and `localhost` as SAN.
 
-    **Format**
+    === "Format"
 
-    ``` java
-    keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost
-    ```
+        ``` java
+        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost
+        ```
 
-    Replace the values enclosed within `<>` in the command given above with a value you prefer. Following is a sample command.
+    === "Sample keytool command"
 
-    **Sample keytool command**
-
-    ``` java
-    keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
-    ```
+        ``` java
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
+        ```
 
     **Option 2**
 
@@ -41,19 +39,17 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
 
     Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and use the following command to create a new keystore with `CN=is.dev.wso2.com`.
 
-    **Format**
+    === "Format"
 
-    ``` java
-    keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password>
-    ```
+        ``` java
+        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password>
+        ```
 
-    Replace the values enclosed within `<>` in the command given above with a value you prefer. Following is a sample command.
+    === "Sample keytool command"
 
-    **Sample keytool command**
-
-    ``` java
-    keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
-    ```
+        ``` java
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
+        ```
 
 2. If the keystore name and password is changed, all the references to it within the WSO2 Identity Server must also be updated. Add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
@@ -67,35 +63,31 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
 
 3. Export the public key from your keystore .jks file using the following command.
 
-    **Format**
+    === "Format"
 
-    ``` java
-    keytool -export -alias <alias_name> -keystore <keystore_name>.jks -file <public_key_name>.pem
-    ```
+        ``` java
+        keytool -export -alias <alias_name> -keystore <keystore_name>.jks -file <public_key_name>.pem
+        ```
 
-    Replace the values enclosed within `<>` in the command given above with a value you prefer, as shown in the sample command below.
+    === "Sample keytool command"
 
-    **Sample keytool command**
-
-    ``` java
-    keytool -export -alias newcert -keystore newkeystore.jks -file pkn.pem
-    ```
+        ``` java
+        keytool -export -alias newcert -keystore newkeystore.jks -file pkn.pem
+        ```
 
 4. Import the public key you extracted in the previous step to the `client-truststore.jks` file using the following command.
 
-    **Format**
+    === "Format"
 
-    ``` java
-    keytool -import -alias <alias_name> -file <public_key_name>.pem -keystore client-truststore.jks -storepass <keystore_password>
-    ```
+        ``` java
+        keytool -import -alias <alias_name> -file <public_key_name>.pem -keystore client-truststore.jks -storepass <keystore_password>
+        ```
 
-    Replace the values enclosed within `<>` in the command given above with a value you prefer. Following is a sample command.
+    === "Sample keytool command"
 
-    **Sample keytool command**
-
-    ``` java
-    keytool -import -alias newcert -file pkn.pem -keystore client-truststore.jks -storepass wso2carbon
-    ```
+        ``` java
+        keytool -import -alias newcert -file pkn.pem -keystore client-truststore.jks -storepass wso2carbon
+        ```
 
     !!! note
         If you create a new client truststore, in place of the default `client-truststore.jks`, place the new truststore in the `<IS_HOME>/repository/resources/security/` folder and add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
@@ -133,7 +125,8 @@ The secondary keystore with the new hostname will only be used for Tomcat SSL/TL
 Once this is done, you need to change all `localhost` references. The following points would be where the references should be changed.
 
 - The configurations in the `<IS_HOME>/repository/conf/deployment.toml` file reference localhost.
-- Update the **Identity Provider Entity ID**
+
+<!-- TODO - Update the **Identity Provider Entity ID**
 
     On the Management Console, go to **Identity Provider** > **Resident Identity Provider** > **Inbound Authentication Configuration** > **OAuth2/OpenID Connect Configuration** and update the **Identity Provider Entity ID** with any one of the following values:
 
@@ -144,7 +137,7 @@ Once this is done, you need to change all `localhost` references. The following 
         proxyPort = 443
         ```
 
-    - Else, use `https://<DOMAIN>:<PORT>/oauth2/token` as the entity ID value.
+    - Else, use `https://<DOMAIN>:<PORT>/oauth2/token` as the entity ID value.-->
 
 - The callback URLs of the federated identity providers.
 - The callback URLs of the default system applications such as My Account and Console.
