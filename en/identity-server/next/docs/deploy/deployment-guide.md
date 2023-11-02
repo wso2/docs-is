@@ -1,20 +1,15 @@
 # Deployment Patterns
 
-The following sections provide high-level information on the recommended deployment pattern. 
-
-
-## Introduction
+This section provides high-level information on the recommended deployment pattern.
 
 You can run multiple nodes of WSO2 Identity Server in a cluster mode to achieve two requirements.
 
-1. Handle requests seamlessly: If one node becomes unavailable or is experiencing high traffic, another node will seamlessly handle the requests.
-2. Balancing traffic handling: Multiple nodes can handle the traffic together, so that cluster throughput is higher than the throughput of a single node.
+1. **Handle requests seamlessly**: If one node becomes unavailable or is experiencing high traffic, another node will seamlessly handle the requests.
+2. **Balancing traffic handling**: Multiple nodes can handle the traffic together so that cluster throughput is higher than the throughput of a single node.
 
 <!--For complete information on clustering concepts, see [Clustering Overview]({{base_path}}/deploy/clustering-overview). -->
 
-The following sections guide you through setting up the deployment pattern, which is an HA Clustered Deployment of two WSO2 Identity Server nodes.
-
----
+The following sections guide you through setting up the deployment pattern, which is a HA Clustered Deployment of two WSO2 Identity Server nodes.
 
 ## Deployment prerequisites
 
@@ -44,8 +39,6 @@ The above recommendations can change based on the expected concurrency and perfo
 
 !!! note
     For more information on prerequisites, see [Installation Prerequisites]({{base_path}}/deploy/get-started/install).
-
----
 
 ## Environment compatibility
 
@@ -84,8 +77,6 @@ The above recommendations can change based on the expected concurrency and perfo
 </tbody>
 </table>
 
----
-
 ## Configure databases
 
 In a clustered deployment, all WSO2 Identity Server nodes are pointed to the same databases to ensure the integrity of the data. Also, you can configure multiple logical databases if you require to keep your data logically separated in the environment. The following tutorial demonstrates deployment with an identity database (`IDENTITY_DB`) and a user database (`UM_DB`).
@@ -97,7 +88,7 @@ In a clustered deployment, all WSO2 Identity Server nodes are pointed to the sam
 
 !!! tip
     If you have configured the shared database correctly, the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory should have the following configurations.
-    
+
     Following is a sample configuration. Therefore parameter values might be different.
     
     ```toml
@@ -120,12 +111,10 @@ In a clustered deployment, all WSO2 Identity Server nodes are pointed to the sam
 
 The following diagram is a high-level component diagram showing how the system would look when two databases are used.
 
-![Component diagram]({{base_path}}/assets/img/deploy/component-diagram.png)
+![Component diagram]({{base_path}}/assets/img/setup/deploy/component-diagram.png)
 
-!!! note
-    For instructions on how to configure the data sources for other databases and more information related to databases, see [Work with Databases]({{base_path}}/deploy/work-with-databases)
-
----
+<!-- TODO !!! note
+    For instructions on how to configure the data sources for other databases and more information related to databases, see [Work with Databases]({{base_path}}/deploy/work-with-databases)-->
 
 ## Mount the shared registry
 
@@ -136,7 +125,6 @@ WSO2 Identity Server comprises three different registry repositories.
 2. **Configuration Repository**: Stores product-specific configurations.
 
 3. **Governance Repository**: This stores configuration and data that are shared across the whole platform. This typically includes services, service descriptions, endpoints, or data sources.
-
 
 <!--!!! info
     For more information about the registry, 
@@ -151,7 +139,7 @@ In this cluster setup, we use the default h2 database as the local registry in e
     <versionResourcesOnChange>false</versionResourcesOnChange>
     ```
 
-To make sure the configurations were applied correctly,
+<!-- TODO To make sure the configurations were applied correctly,
 
 <ol>
     <li>Log in to the WSO2 Identity Server Management Console (<code>https://&lt;IS_HOST&gt;:&lt;PORT&gt;/carbon</code>).</li>
@@ -160,9 +148,7 @@ To make sure the configurations were applied correctly,
         <p><img src="{{base_path}}/assets/img/deploy/registry-browser-2.png" alt="Registry browser"></p>
         <p>Note that the governance collection is shown with the symlink icon.</p>
     </li>
-</ol>
-
----
+</ol> -->
 
 ## Clustering-related configurations
 
@@ -184,7 +170,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
         Configurations for each membership scheme are listed below.
         
         ??? tip "Click to see the instructions for the WKA scheme"            
-            Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add following configurations.
+            Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add the following configurations.
             Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
                     ```
                     [clustering]
@@ -197,7 +183,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
             
             You can also use IP address ranges for the `hostName`. For example, `192.168.1.2-10`. This should ensure that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define a range only for the last portion of the IP address. You should also keep in mind that the smaller the range, the faster it discovers members since each node has to scan fewer potential members. 
             
-        ??? tip "Click to see the instructions for AWS ECS membership scheme"  
+        ??? tip "Click to see the instructions for the AWS ECS membership scheme"  
                       
             1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
                 -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
@@ -236,9 +222,9 @@ The following configurations need to be done in both the WSO2 Identity Server no
             !!! note
                 Once all the configurations are complete, build a docker image including the configurations. You can consume this docker image to create a `Task Definition` and run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
 
-        ??? tip "Click to see the instructions for AWS EC2 membership scheme"  
+        ??? tip "Click to see the instructions for the AWS EC2 membership scheme"  
 
-            When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode. Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and do the following changes.
+            When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode. Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and make the following changes.
 
             1. Apply the following configuration parameters and update the values for the server to enable AWS clustering.
                     ```toml
@@ -282,8 +268,8 @@ The following configurations need to be done in both the WSO2 Identity Server no
                     }
                     ```
 
-        ??? tip "Click to see the instructions for Kubernetes membership scheme"
-            When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatically discovering these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
+        ??? tip "Click to see the instructions for the Kubernetes membership scheme"
+            When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables the automatic discovery of these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
 
             - If not already present, download and copy the <a href=https://github.com/wso2/kubernetes-common/tags>kubernetes-membership-scheme-1.x.x.jar</a> to the `<IS_HOME>/repository/components/dropins/` directory.
 
@@ -340,7 +326,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
 
     ??? info "About Caching"
         <ul>
-            <li><b>Why caching</b></br>Caching is an additional layer on top of the databases. It enables keeping the recently used data fetched from the database in local memory so that for subsequent data requests, ,the data can be served from the local memory instead of fetching from the database. You need to evaluate certain advantages and disadvantages when deciding on your caching strategy.</li>
+            <li><b>Why caching</b></br>Caching is an additional layer on top of the databases. It enables keeping the recently used data fetched from the database in local memory so that for subsequent data requests, , the data can be served from the local memory instead of fetching from the database. You need to evaluate certain advantages and disadvantages when deciding on your caching strategy.</li>
             <li><b>Advantages</b>
                 <ul>
                     <li>The load on the underlying database or LDAP is reduced as data is served from already fetched data in memory.</li>
@@ -357,7 +343,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
 
     ??? tip "Caching in WSO2 Identity Server"
         Historically WSO2 Identity Server used distributed caching to utilize the advantages mentioned above and minimize the coherence problem. However, in newer deployment patterns where the network is not tightly controlled, distributed caching fails in unexpected ways. Hence, we **no longer recommend using distributed caching**. Instead, it is **recommended to have local caches** (if required) and **cache invalidation messages** (if required) by considering the information given below.
-        
+
         **The ForceLocalCache property**
 
         When Hazelcast clustering is enabled, certain caches act as distributed caches. The `force_local_cache` property in the `<IS_HOME>/repository/conf/deployment.toml` directory marks that all the caches should act like local caches even in a clustered setup. (This is by default set to `true`).
@@ -476,21 +462,19 @@ The following configurations need to be done in both the WSO2 Identity Server no
     hostname = "wso2.is"
     ```
 
-    !!! note 
+    !!! note
         The WSO2 Identity Server cluster uses this hostname and therefore it must be specified in the `/etc/hosts` file in each node so that internal calls will not be routed through the Load Balancer.
-        
+
         Example: 
         `192.168.2.1   wso2.is`
-
----
 
 ## Enable artifact synchronization
 
 You must have a shared file system to enable synchronization for runtime artifacts. You can use one of the following depending on your environment.
 
-   - **Network File System (NFS)**: This is one of the most commonly known shared file systems and can be used in a Linux environment.
-   - **Server Message Block (SMB) file system**: This can be used in a Windows environment.
-   - **Amazon EFS**: This can be used in an AWS environment.
+- **Network File System (NFS)**: This is one of the most commonly known shared file systems and can be used in a Linux environment.
+- **Server Message Block (SMB) file system**: This can be used in a Windows environment.
+- **Amazon EFS**: This can be used in an AWS environment.
 
 Once you have chosen a file system:
 
@@ -500,8 +484,6 @@ Once you have chosen a file system:
 
 !!! note
     Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment/server/userstores` and `<IS_HOME>/repository/tenants` paths, a symlink is created. Otherwise, if you delete the product to redeploy it, the file system will get mounted to a non-existing path.
- 
----
 
 ## Front with a load balancer
 
@@ -511,12 +493,10 @@ You can use any load balancer that is available to your system.
 !!! info
     To learn how to front the two-node cluster with an Nginx load balance, see [Set up WSO2 clusters with Nginx]({{base_path}}/deploy/front-with-the-nginx-load-balancer). If you’ve changed the hostnames of nodes, make sure to keep that in mind when you’re configuring your load balancer.
 
----
-
 ## Run the cluster
 
 1. Start the load balancer and WSO2 Identity Server nodes.
-2. Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
+2. Access the WSO2 Identity Server Console.
     Depending on your load balancer, traffic will be served by one of the cluster nodes.
-3. Shut down cluster node one and observe that the traffic is served by node two. 
+3. Shut down cluster node one and observe that the traffic is served by node two.
 4. Start node one and shut down node two. Note that traffic will be served by node one.
