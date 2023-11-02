@@ -442,12 +442,12 @@ plugins:
   - include-markdown
   - redirects:
       redirect_maps:
-        'apis/idp-rest-api.md': 'https://is.docs.wso2.com/en/next/apis/idp/'
-        'guides/users/manage-collaborators.md': 'https://is.docs.wso2.com/en/next/guides/docs/manage-administrators/'
-        'deploy/security/security-guidelines-for-production-deployment.md': 'https://is.docs.wso2.com/en/next/deploy/security/security-guidelines/'
-        'deploy/security/network-level-security-guidelines.md': 'https://is.docs.wso2.com/en/next/deploy/security/security-guidelines/network-level-security-guidelines/'
-        'deploy/security/os-level-security-guidelines.md': 'https://is.docs.wso2.com/en/next/deploy/security/security-guidelines/os-level-security-guidelines/'
-        'deploy/security/product-level-security-guidelines.md': 'https://is.docs.wso2.com/en/next/deploy/security/security-guidelines/product-level-security-guidelines'
+        'apis/idp-rest-api.md': 'apis/idp.md'
+        'guides/users/manage-collaborators.md': 'guides/docs/manage-administrators.md'
+        'deploy/security/security-guidelines-for-production-deployment.md': 'deploy/security/security-guidelines.md'
+        'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
+        'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'
+        'deploy/security/product-level-security-guidelines.md': 'deploy/security/security-guidelines/product-level-security-guidelines.md'
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css
