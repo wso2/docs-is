@@ -39,7 +39,7 @@ body[data-md-color-scheme=slate] {
 
 .md-home-sections {
     max-width: 1400px;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem !important;
 }
 
 .md-column-grid {
