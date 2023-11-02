@@ -37,6 +37,11 @@ body[data-md-color-scheme=slate] {
     font-weight: 500 !important;
 }
 
+.md-home-sections {
+    max-width: 1400px;
+    margin-bottom: 5rem !important;
+}
+
 .md-column-grid {
     -webkit-column-count: 3;
     -webkit-column-gap: 2rem;
@@ -44,13 +49,12 @@ body[data-md-color-scheme=slate] {
     -moz-column-gap: 2rem;
     column-count: 3;
     column-gap: 2rem;
-    max-width: 1100px;
     margin: auto;
 }
   
 .md-column-grid-item {
     background-color: var(--md-default-bg-color);
-    box-shadow: 0 0 0.2rem #0000001a, 0 0.2rem 0.4rem #0003;
+    box-shadow: var(--md-default-box-shadow);
     margin: 0 0 20px 0;
     padding: 20px;
     border-radius: 12px;

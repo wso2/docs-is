@@ -317,6 +317,7 @@ nav:
       - FIPS: references/compliance/fips.md
       - Accessibility compliance: references/compliance/accessibility.md
     - Localization in  WSO2 Identity Server: references/localization.md
+
     #- Extenstions:
       #- Authentication:
         #- Write a Custom OAuth 2.0 grant: references/extend/write-a-custom-oauth-2.0-grant-type.md
