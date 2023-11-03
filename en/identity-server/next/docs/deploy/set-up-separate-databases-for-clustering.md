@@ -1,4 +1,4 @@
-# Set Up Separate Databases for Clustering
+# Seperate Databases for Clustering
 
 WSO2 Identity Server uses a database to store information such as user management details and identity data. By default, WSO2 Identity Server is shipped with an embedded H2 database that works for all types of data.
 

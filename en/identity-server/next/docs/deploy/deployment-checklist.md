@@ -10,40 +10,23 @@
      <tbody>
           <tr class="odd">
                <td>Security hardening</td>
-               <td><div class="content-wrapper">
+               <td>
                     Guidelines for hardening the security of a WSO2 Identity Server deployment in a production environment can be discussed under three high-level categories:
                     <ul>
                          <li>Product-level security</li>
                          <li>OS-level security</li>
-                         <li>Network-level security<br /><br /></li>
+                         <li>Network-level security</li>
                     </ul>
-                    <div class="panel" style="border-width: 1px;">
-                    <div class="panelHeader" style="border-bottom-width: 1px;">
-                    <strong>Related topics</strong>
-                    </div>
-                    <div class="panelContent">
+                    <b> Related Topics </b>
                     <li><a href="{{base_path}}/deploy/security/security-guidelines/">Security Guidelines for Production Deployment</a></li>
-                    </div>
-                    </div>
-                    </div>
                </td>
           </tr>
           <tr class="even">
                <td>Hostname</td>
                <td>
-                    <div class="content-wrapper">
-                    By default, WSO2 Identity Server identifies the hostname of the current machine through the Java API. However, this value sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname by setting the relavent parameter in the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file.
-                    <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="panel" style="border-width: 1px;">
-                    <div class="panelHeader" style="border-bottom-width: 1px;">
-                    <strong>Related topics</strong>
-                    </div>
-                    <div class="panelContent">
+                    By default, WSO2 Identity Server identifies the hostname of the current machine through the Java API. However, this value sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname by setting the relavent parameter in the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file. <br />
+                    <b> Related Topics </b>
                     <li><a href="{{base_path}}/deploy/change-the-hostname">Change the hostname</a></li>
-                    </ul></li>
-                    </div>
-                    </div>
-                    </div>
                </td>
           </tr>
           <tr class="even">
@@ -71,17 +54,9 @@
           <tr class="odd">
                <td>Tuning WSO2 products</td>
                <td>
-                    <div class="content-wrapper">
-                    WSO2 Identity Server has additional guidelines for optimizing the performance of product-specific features.
-                    <div class="panel" style="border-width: 1px;">
-                    <div class="panelHeader" style="border-bottom-width: 1px;">
-                    <strong>Related topics</strong>
-                    </div>
-                    <div class="panelContent">
-                    <div>
-                    <ul>
+                    WSO2 Identity Server has additional guidelines for optimizing the performance of product-specific features. <br />
+                    <b>Related Topics</b>
                     <li><a href="{{base_path}}/deploy/performance/performance-tuning-recommendations">Performance Tuning Recommendations</a> </li>
-                    </div>
                </td>
           </tr>
           <tr class="odd">

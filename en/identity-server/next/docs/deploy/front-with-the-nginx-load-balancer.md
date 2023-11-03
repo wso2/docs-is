@@ -1,4 +1,4 @@
-# Set up WSO2 clusters with Nginx
+# WSO2 clusters with Nginx
 
 When setting up the WSO2 Identity Server cluster with Nginx, follow the instructions given below.
 
