@@ -7,7 +7,7 @@ All UIs are available in the `authenticationendpoint`, `accountrecoveryendpoint`
 ## General components of the UI
 
 All pages of WSO2 Identity Server are separated into three general components as shown below. You can reference these components when you write the custom layout using a special notation.
-    
+
 - Login page
     ![Login Page]({{base_path}}/assets/img/references/login-page-labelled.png)
 
@@ -20,31 +20,31 @@ All pages of WSO2 Identity Server are separated into three general components as
 This section includes details about the special syntax that can be used when writing a custom layout code.
 
 - **Condition block**
-    
+
     ![Condition Block]({{base_path}}/assets/img/references/condition-block.png)
 
     This is similar to an `IF` block. This condition block will activate or deactivate according to the value of the `isPolicyPage` variable.
-    
+
     - If the value of `isPolicyPage` is `true` or any non-empty string, then the content inside the block will be executed.
     - For all other values including null and undefined, the content of the block will not be executed.
 
 - **Not Condition Block**
 
     ![Not Condition Block]({{base_path}}/assets/img/references/not-condition-block.png)
-    
+
     This is similar to an `IF` block with a NOT condition. 
-    
+
     - If the value of `isPolicyPage` is `false`, an empty string, null or undefined, the content inside the block will be executed. 
     - For all other values, the content of the block will not be executed.
 
 - **Component Syntax**
-    
+
     ![Component Syntax]({{base_path}}/assets/img/references/component-syntax.png)
 
     This syntax will be used to indicate the position of the general component in the custom layout code. The component syntaxes will be replaced with actual content at runtime.
 
 - **Data Syntax**
-    
+
     ![Data Syntax]({{base_path}}/assets/img/references/data-syntax.png)
 
     This syntax can be used to add data to the layout code. The value stored in the `containerSize` variable will be converted to a string and placed in the corresponding location at runtime. All data syntax values will be sanitized before adding to the layout code.
@@ -96,32 +96,38 @@ To add a custom layout to the login page:
 
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/` and follow the instructions provided below:
 
-    1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/body.html) into the `body.html` file.
+    1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/body.html) into the `body.html` file.
 
-    2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/style.css) into the `styles.css` file.
+    2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/style.css) into the `styles.css` file.
 
-    3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/script.js) into the `script.js` file.
+    3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/script.js) into the `script.js` file.
 
-    4. Copy the [illustration.svg](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
+    4. Copy the [illustration.svg](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
 
-2. Navigate to the `webapps/authenticationendpoint/includes` folder and copy the `product-title.jsp` and `product-footer.jsp` files to the `webapps/authenticationendpoint/extensions` folder as follows:
+2. Navigate to the `webapps/authenticationendpoint/includes` folder and copy the `product-title.jsp`, `product-footer.jsp`, and `localize.jsp` files to the `webapps/authenticationendpoint/extensions` folder as follows:
 
-    1. Copy content from the [`jsp` file containing the project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/project-title-1.jsp) to the `webapps/authenticationendpoint/extensions/product-title.jsp` file of the app.
+    1. Copy content from the [`jsp` file containing the project title](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/project-title-1.jsp) to the `webapps/authenticationendpoint/extensions/product-title.jsp` file of the app.
 
-    2. Copy content from the [`jsp` file containing the project footer](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/product-footer-1.jsp) to the `webapps/authenticationendpoint/extensions/product-footer.jsp` file of the app.
+    2. Copy content from the [`jsp` file containing the project footer](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/product-footer-1.jsp) to the `webapps/authenticationendpoint/extensions/product-footer.jsp` file of the app.
+
+    3. Copy content from the [`jsp` file containing the localization data](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/localize.jsp) to the `webapps/authenticationendpoint/extensions/localize.jsp` file of the app.
 
 
     !!! note
         Repeat the above steps for `accountrecoveryendpoint` and `x509certificateauthenticationendpoint` as well. You will be copying the following files:
-        
 
-        - [Project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/product-title-2.jsp).
+        - [Project title](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/product-title-2.jsp)
 
-        - [Project footer](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/product-footer-2.jsp)
+        - [Project footer](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/product-footer-2.jsp)
+
+        - [Localize](https://github.com/wso2/docs-is/tree/master/en/identity-server/6.1.0/docs/assets/code-samples/localize.jsp)
+
+    !!! note "Adding extra customization"
+        If you require further customization for additional branding features, you can incorporate any of the files located within the [includes](https://github.com/wso2/identity-apps/tree/b749362e912c6be8c79794b2769c758f0403e66d/identity-apps-core/apps/authentication-portal/src/main/webapp/includes) folder.
 
 3. Build the source code.
 
-    1. Copy the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts/custom` directory and place it into the `<IDENTITY-APPS-HOME>/components/login-portal-layouts/layouts `directory.
+    1. Copy the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts/custom` directory and place it into the `<IDENTITY-APPS-HOME>/components/login-portal-layouts/layouts` directory.
 
     2. Navigate to `<IDENTITY-APPS-HOME>/components/login-portal-layouts` directory and build the source code using `mvn clean install` command (Build should be succeeded for further steps).
 
