@@ -293,23 +293,17 @@ nav:
           - Configure cache layers: deploy/performance/configure-cache-layers.md
         - Environment compatibility: deploy/environment-compatibility.md
       - Monitor:
-        - Overview: deploy/monitor/monitor-the-identity-server.md
-        - Monitor Logs:
+        - Monitor: deploy/monitor/index.md
+        - Monitor logs:
           - Overview: deploy/monitor/monitor-logs.md
-          - HTTP Access Logging: deploy/monitor/http-access-logging.md
-          - Mask Sensitive Information in Logs:
+          - HTTP access logs: deploy/monitor/http-access-logging.md
+          - Mask sensitive info:
             - Overview: deploy/monitor/mask-sensitive-information-in-logs.md
-            - Configure Log Masking with Filebeat: deploy/monitor/elk-mask-sensitive-information-in-logs.md
-            - Configure Log Masking with Log4j: deploy/monitor/log4j-mask-sensitive-information-in-logs.md
-          - Log Claims in Audit Logs: deploy/monitor/log-claims-in-audit-logs.md
-        - System Statistics: deploy/monitor/system-statistics.md
-        - Monitor TCP-Based Messages:
-          - Monitor TCP-based Messages: deploy/monitor/monitor-tcp-based-messages.md
-          - Message Monitoring with TCPMon: deploy/monitor/message-monitoring-with-tcpmon.md
-          - Other Usages of TCPMon: deploy/monitor/other-usages-of-tcpmon.md
-        - Monitor Server Health: deploy/monitor/monitor-server-health.md
-        - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
-        - Work with Product Observability: deploy/monitor/work-with-product-observability.md
+            - Log masking with Filebeat: deploy/monitor/elk-mask-sensitive-information-in-logs.md
+            - Log masking with Log4j: deploy/monitor/log4j-mask-sensitive-information-in-logs.md
+          - Log claims in audit logs: deploy/monitor/log-claims-in-audit-logs.md
+        - Monitor server health: deploy/monitor/monitor-server-health.md
+        - Work with product observability: deploy/monitor/work-with-product-observability.md
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md  
   - Integrations:
     - Integrate WSO2 IS into your application: integrations/index.md
@@ -445,14 +439,15 @@ plugins:
         'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
         'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'
         'deploy/security/product-level-security-guidelines.md': 'deploy/security/security-guidelines/product-level-security-guidelines.md'
-        'deploy/security/use-asymmetric-encryption.md': deploy/security/asymmetric-encryption/use-asymmetric-encryption.md
-        'deploy/security/create-new-keystores.md': deploy/security/asymmetric-encryption/create-new-keystores.md
-        'deploy/security/configure-keystores-in-wso2-products.md': deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md
-        'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md
-        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md
-        'deploy/security/symmetric-overview.md': deploy/security/symmetric-encryption/index.md
-        'deploy/security/use-symmetric-encryption.md': deploy/security/symmetric-encryption/use-symmetric-encryption.md
-        'deploy/security/blue-green-data-encryption-keyrotation.md': deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
+        'deploy/security/use-asymmetric-encryption.md': 'deploy/security/asymmetric-encryption/use-asymmetric-encryption.md'
+        'deploy/security/create-new-keystores.md': 'deploy/security/asymmetric-encryption/create-new-keystores.md'
+        'deploy/security/configure-keystores-in-wso2-products.md': 'deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md'
+        'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md'
+        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md'
+        'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
+        'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
+        'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
+        'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css
