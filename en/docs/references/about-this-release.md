@@ -104,25 +104,6 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
 
     Additionally from IS 7.0.0 onwards, tenanted sessions will also be enabled allowing sessions and caches to be created in a tenanted space.
 
-    !!! info
-        It is strongly recommended to use WSO2 Identity Server with these two configs being enabled. However, if you need to disable any of these configs, follow the below steps.
-        
-        1. Add the following constraint to the "IDN_OAUTH_CONSUMER_APPS" table by executing the following sql command against the identity database (IDENTITY_DB).
-
-            ```
-            ALTER TABLE IDN_OAUTH_CONSUMER_APPS ADD CONSTRAINT UNIQUE_CONSUMER_KEY_CONSTRAINT UNIQUE (CONSUMER_KEY);
-            ```
-
-        2. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and add the following configuration.
-        
-            ```
-            [tenant_context]
-            enable_tenant_qualified_urls = false
-            enable_tenanted_sessions = false
-            ```
-
-        3. Restart WSO2 Identity Server.
-
 -   **OAuth client ID tenant unification**
 
     OAuth consumer application client IDs are now tenant unique allowing same client ID to exist in multiple tenants. This feature requires enabling tenant qualified URLs and tenanted sessions which are by default enabled in IS 7.0.0 onwards.
