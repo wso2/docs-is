@@ -56,11 +56,9 @@ Follow the steps below to obtain an API token.
     <!-- ![Select the permission level for the access token]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-permissions-api-token.png) -->
 
 5. Take a note of the API token that you have created.
-    
+
     !!! warning
         The token is only shown once.
-
-{{ authenticator_setup}}
 
 ## Set up the authenticator
 The HYPR authenticator has been introduced as a connector for IS 6.2.0. In order to use this authenticator, first, you should download the connector from the WSO2 Connector Store.
@@ -145,6 +143,8 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
     ---
     === "Classic Editor"
+        To add passwordless login with HYPR using the Classic Editor:
+
         1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
 
         2. Click **Add Authentication** on the same step and select your HYPR connection.
