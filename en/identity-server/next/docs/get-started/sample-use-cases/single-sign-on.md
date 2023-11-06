@@ -78,7 +78,7 @@ First, let's set up and run the sample applications.
     !!! note
 
         Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. 
-        To learn more about GDPR and how WSO2 Identity Server handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
+        To learn more about GDPR and how WSO2 Identity Server handles consent, see [Consent Management]({{base_path}}/references/compliance/gdpr/#consent-management-in-wso2-is).
 
     Note that the **Pickup-Dispatch** application home screen appears.
 

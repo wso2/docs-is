@@ -4,7 +4,7 @@
 
 !!! note
 
-    - You can customize all available email templates to match your organization's preferences using the [Email Templates API]({{base_path}}/apis/email-template/).
+    - You can customize all available email templates to match your organization's preferences using the [Email Templates API]({{base_path}}/apis/{{ api_path }}/).
     - You can also use the Console to change some of the most frequently used email templates in {{ product_name }}. Learn how to [customize email content from the Console]({{base_path}}/guides/branding/customize-email-templates/#customize-email-content).
 
 
