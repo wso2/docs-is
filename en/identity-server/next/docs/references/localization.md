@@ -1,4 +1,4 @@
-# Localization in Asgardeo
+# Localization in WSO2 Identity Server
 
 Asgardeo enables a language picker on the following interfaces exposed to business users, allowing business users to select their preferred language.
 

@@ -434,7 +434,8 @@ plugins:
   - redirects:
       redirect_maps:
         'apis/idp-rest-api.md': 'apis/idp.md'
-        'guides/users/manage-collaborators.md': 'guides/docs/manage-administrators.md'
+        'guides/users/manage-collaborators.md': 'guides/users/manage-administrators.md'
+        'guides/users/manage-customers.md': 'guides/users/manage-users.md'
         'deploy/security/security-guidelines-for-production-deployment.md': 'deploy/security/security-guidelines.md'
         'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
         'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'

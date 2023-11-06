@@ -1,5 +1,6 @@
-{% set product_name = "WSO2 Identity Server" %}
-{% set product_url = "https://localhost:9443" %}
-{% set product_url_format = "https://localhost:9443" %}
-{% set product_url_sample = "https://localhost:9443" %}
-{% include "../../../../../../includes/guides/authentication/conditional-auth/access-control.md" %}
+# Add access control
+
+Use authentication scripts to control access to your applications.
+
+- [User age-based]({{base_path}}/guides/authentication/conditional-auth/user-age-based-template/) access control
+- [Concurrent session-based]({{base_path}}/guides/authentication/conditional-auth/concurrent-session-based-template) access control
