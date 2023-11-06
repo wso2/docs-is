@@ -2,19 +2,17 @@
 
 You can configure a custom email provider to send emails with your own email address to your organization users during the flows such as sign-up and account recovery.
 
-By configuring a custom email provider with your organization domain, users will get a familiar email address as the sender when they receive emails from your {{ product_name }} organization.
+By configuring a custom email provider with your organization domain, users will get a familiar email address as the sender when they receive emails from {{ product_name }}.
 
-## Prerequisites
+## Prerequisite
 
-- You need to have an organization in {{ product_name }}. [Create an organization]({{base_path}}/get-started/create-asgardeo-account/) if you don't have one.
-
-- You need to have a **custom email provider (SMTP server)**, which you have control over and can use to send emails to your users.
+A **custom email provider (SMTP server)**, which you have control over and can use to send emails to your users.
 
 ## Update the email provider
 
 Follow the steps given below to configure the email provider for your organization.
 
-1. On the {{ product_name }}, go to **Organizational Settings** > **Email Provider**.
+1. On the {{ product_name }}, go to **Branding** > **Notification Channels** > **Email Provider** and click **Configure**.
 
     ![{{ product_name }} Console - Email Provider UI]({{base_path}}/assets/img/guides/branding/email-provider-console-ui.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -82,4 +80,4 @@ To revert your email provider configurations,
 2. Select the checkbox to confirm your action.
 3. Click **Confirm**.
 
-The email provider configurations will now be restored to {{ product_name }}'s default configurations.
+The email provider configurations will then be restored to {{ product_name }}'s default configurations.
