@@ -8,115 +8,133 @@ Follow the guide below to connect a remote user store to WSO2 Identity Server.
 To configure a remote user store for your organization:
 
 1. On the WSO2 Identity Server Console, go to **User Attributes & Stores** > **User Stores**.
-2. Click **New User Store** to open the following:
+2. Click **New User Store** and select the user store type.
 
-    ![Register remote user store to WSO2 Identity Server]({{base_path}}/assets/img/guides/user-stores/register-user-store.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register remote user store to WSO2 Identity Server]({{base_path}}/assets/img/guides/user-stores/user-store-types.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-3. Enter the following details about the user store.
-    <table>
+3. Enter the following details according to the user store type and click **Finish**.
+
+### Configure a Read Only LDAP user store
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
         <tr>
             <td>Name</td>
-            <td>A unique name to identify your user store.</td>
+            <td>Provide a name for the user store</td>
         </tr>
         <tr>
             <td>Description</td>
-            <td>A description for the user store.</td>
+            <td>Provide a description for the user store</td>
         </tr>
         <tr>
-            <td>Remote user store type</td>
-            <td>Select your user store type</td>
+            <td>Connection URL</td>
+            <td>This is the connection URL to the user store server. </br>
+
+                Sample values:
+                <ul>
+                <li>ldap://10.100.1.100:389</li>
+                <li>ldaps://10.100.1.102:639</li>
+                </ul>
+                
+                <div class="admonition note"><p class="admonition-title">note
+                </p>If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to </br><code>{​IS_HOME}/repository/resources/security/client-truststore.jks</code>. </br>
+                For information on how to add certificates to the truststore and how keystores are configured and used in a system, see <a href="{{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption/">Use asymmetric encryption</a></br></br>
+
+                If LDAP connection pooling is used, see <a>performance tuning ldaps pooling</a>.
+                </p></p></div>
+</td>
         </tr>
-        <tr>
-            <td>Access Type</td>
-            <td>
-            Select the access type of the user store. It can be any one of the following: <br> - Read-only
-            <br> - Read/Write <br> Note : The access type of the user store cannot be modified after creation.
-        </td>
-        </tr>
-    </table>
 
-4. Click **Next** and under **Map Attributes**, map **Username** and **User ID** attributes to that of your user store.
+<tr>
 
-    !!! warning
-        These two attributes need to be mapped correctly for proper authentication.
+<td>Connection Name</td>
+<td> This is the username used to connect to the user store and perform various operations.</br>
 
-        - `Username` - This attribute is used as the user identifier. Provide an attribute that identifies your user in your on-premise user store. For the best experience, use a username that satisfies validation rules in [Username Validation]({{base_path}}/guides/user-accounts/account-login/username-validation/) section.
-        - `User ID` - This attribute is used to uniquely identify a user entry. Provide an attribute that uniquely identifies a user entry in your user store.
+Sample values: uid=admin,ou=system
+</br>
+<div class="admonition note"><p class="admonition-title">note</p><p>This user must have sufficient permissions to read the user list and users' attributes and to perform search operations on the user store. The value you specify is used as the DN (Distinguished Name) attribute of the user.</p>
+ </div></br>
 
-5. Click **Finish** to complete the registration.
+</td>
+</tr>
 
-## Set up the remote user store
+<tr>
+<td>Connection Password</td>
+<td> Password for the above user</td>
+</tr>
 
-After registering the user store, you'll be redirected to the **Setup Guide** of the user store agent.
+</tbody>
+</table>
 
-To assemble and configure the user store agent bundle:
+Apart from the above configurations, you can configure the following advanced configurations.
 
-1. Download the user store agent.
+<table>
+<thead>
+    <th>Name</th>
+    <th>Description</th>
+</thead>
+<tbody>
+    <tr>
+        <td>User Search Base</td>
+        <td>This is the DN of the context or object under which the user entries are stored in the user store. When the user store searches for users, it will start from this location of the directory. </br>
+        Sample values: ou=Users,dc=wso2,dc=org</td>
+    </tr>
+    <tr>
+        <td>Username Attribute</td>
+        <td>This is a uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. </br>
 
-2. Configure the properties and connection details of the local user store by following these steps:
+        Default: uid </br>
+   </tr>
+   <tr>
+        <td>User Search Filter</td>
+        <td>Filtering criteria used to search for a particular user entry.</br>
+            Default : (&amp;(objectClass=person)(uid=?)) </br>
+   </tr>
+   <tr>
+        <td>User List Filter</td>
+        <td>This is the filtering criteria for searching user entries in the user store.</br>
 
-    1. Unzip the downloaded user store agent.
-    2. Go to the root directory of the user store agent and open the `deployment.toml` file.
-    3. Update the configurations of the `deployment.toml` file according to your user store settings. A sample configuration is given below for reference.
+        Default: (objectClass=person) - In this case, the search operation only provides the objects created from the person object class.
+   </tr>
+   <tr>
+        <td>User ID Attribute</td>
+        <td>This is the attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID. </br>
 
-        ```conf 
-        [user_store]
-        type = "ldap"
-        base_dn = "dc=wso2,dc=org"
-        connection_url = "ldap://localhost:10391"
-        connection_name = "cn=admin,dc=example,dc=org"
-        connection_password = "adminpassword"
-        user_id_search_filter = "(&amp;(objectClass=inetOrgperson)(uid=?))"
-        user_name_list_filter = "(objectClass=inetOrgperson)"
-        user_id_attribute = "uid"
-        user_name_attribute = "cn"
-        user_name_search_filter = "(&amp;(objectClass=inetOrgperson)(cn=?))"
-        password_hash_method = "PLAIN_TEXT"
-        group_search_base = "ou=Groups,dc=example,dc=org"
-        group_name_attribute = "cn"
-        group_name_search_filter = "(&amp;(objectClass=groupOfNames)(cn=?))"
-        group_name_list_filter = "(objectClass=groupOfNames)"
-        group_id_attribute = "gid"
-        membership_attribute = "member"
-        ```
+        Default: scimId
+   </tr>
+   <tr>
+        <td>User ID Search Filter</td>
+        <td>Filtering criteria used to search for a particular user. </br>
+            Default : (&amp;(objectClass=person)(scimId=?))
+   </tr>
+   <tr>
+        <td>Enable Group Unique Id</td>
+        <td>Assign unique IDs to each group entry. </br>
+            Default : false
+   </tr>
+   <tr>
+        <td>Group Id Attribute</td>
+        <td>Attribute that holds the unique identifier for each group entry. </br>
+            Default : entryUUID
+   </tr>
+   <tr>
+        <td>Group Search Base</td>
+        <td>This is the DN of the context or object under which the group entries are stored in the userstore. When the userstore searches for groups, it will start from this location of the directory.</br>
 
-        !!! note
-            Refer [remote user store properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) for the complete list of user store configurations.
-
-3. Return to the WSO2 Identity Server Console and, click **Generate Token** to create an installation token. The installation token is essential to run the user store agent.
-
-    !!! warning
-        - Copy the installation token and save it in a safe location. You won't be able to see it again!
-        - This token has no expiry time, but in case you lose or forget it, you can [regenerate an installation token]({{base_path}}/guides/users/user-stores/update-user-stores/#regenerate-the-installation-token).
-
-4. To start the user store agent, navigate to its root directory and run one of the following commands based on your operating system:
-
-    === "Linux/OSx"
-        ``` json 
-        sh wso2agent.sh
-        ```
-
-    === "Windows"
-        ``` json 
-        wso2agent.bat -- run
-        ```
-
-    Enter the installation token generated in the previous step when prompted.
+        Default: ou=Groups,dc=wso2,dc=org
+   </tr>
 
 
-    ??? note "(Optional) Run the user store agent as a background process"
-        1. Create a file named `accessToken` in the root directory of the agent.
-        2. Add the installation token obtained from the previous step.
-        3. Run the user store agent.
+</tbody>
+</table>
 
-            === "Linux/OSx"
-                ``` json
-                sh wso2agent.sh start
-                ```
-            === "Windows"
-                ``` json
-                wso2agent.bat start
-                ```
+
+
+
 
 ## What's Next
 
