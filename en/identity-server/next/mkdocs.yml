@@ -234,13 +234,12 @@ nav:
         - Manage organizations: guides/organization-management/manage-organizations.md
         - Manage B2B organizations:
           - Manage B2B organizations: guides/organization-management/manage-b2b-organizations/index.md
-          - Set up sub organizations: guides/organization-management/manage-b2b-organizations/manage-suborganizations.md
-          - Onboard sub organization admins: guides/organization-management/manage-b2b-organizations/onboard-sub-org-admins.md
-          - Administration of sub organizations: guides/organization-management/manage-b2b-organizations/manage-b2b-administration.md
+          - Set up organizations: guides/organization-management/manage-b2b-organizations/manage-suborganizations.md
+          - Onboard organization admins: guides/organization-management/manage-b2b-organizations/onboard-sub-org-admins.md
+          - Administration of organizations: guides/organization-management/manage-b2b-organizations/manage-b2b-administration.md
           - Share applications: guides/organization-management/manage-b2b-organizations/share-applications.md
           - Try a B2B use case: guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case.md
-          - API authorization for sub organizations: guides/organization-management/manage-b2b-organizations/api-authorization-for-b2b.md
-        - Manage environments: guides/organization-management/manage-environments.md
+          - API authorization for organizations: guides/organization-management/manage-b2b-organizations/api-authorization-for-b2b.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Self-service: guides/your-is/is-self-service.md
