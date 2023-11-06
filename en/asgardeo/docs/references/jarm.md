@@ -4,7 +4,7 @@ The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification]
 
 ## Authorization flow
 
-Below is a sample authorization request sent to the authorization endpoint of the WSO2 Identity Server.
+Below is a sample authorization request sent to the authorization endpoint of Asgardeo.
 
 ```bash
 https://api.asgardeo.io/t/{organization-name}/oauth2/authorize?prompt=login&scope=openid&redirect_uri=https://<CLIENT_HOST>/redirects/redirect1&client_id=<CLIENT_ID>&response_type=<RESPONSE_TYPE>&response_mode=<RESPONSE_MODE>
@@ -22,7 +22,7 @@ The parameters used in the authorization request are defined below.
             <code>reponse_type</code>
         </th>
         <td>
-            Informs the WSO2 Identity Server of the desired OAuth2 authorization processing flow, which determines the type of authorization information that should be returned.</br></br>
+            Informs Asgardeo of the desired OAuth2 authorization processing flow, which determines the type of authorization information that should be returned.</br></br>
             Possible values:
             <ul>
                 <li>
@@ -42,7 +42,7 @@ The parameters used in the authorization request are defined below.
             <code>response_mode</code>
         </th>
         <td>
-            Specifies how the authorization information should be returned to the client. By default, the following response modes are supported in WSO2 Identity Server:
+            Specifies how the authorization information should be returned to the client. By default, the following response modes are supported in Asgardeo:
             <ul>
                 <li><code>query</code></li>
                 <li><code>fragment</code></li>
@@ -57,7 +57,7 @@ The parameters used in the authorization request are defined below.
 
 ## Using JARM
 
-When [JARM is enabled](#enable-jarm), clients can request authorization response parameters along with additional data in JWT format instead of plain text.
+With JARM, clients can request authorization response parameters along with additional data in JWT format instead of plain text.
 
 The specification defines the following response modes, which you can specify using the `response_mode` parameter in the authorization request.
 
@@ -134,7 +134,7 @@ The default response modes for each response type are shown below.
 Given below is a sample JARM response <JWT>:
 
 ```bash
-eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ5VDJmQ0FpY1E4M1FZeW1FakMwYTBmcGplYzhhIiwiY29kZSI6IjQ0Y2U1NzU3LTdmNTQtM2IxZS1hMzNmLTE4YTMwNjE1NTA1MyIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTY4MDA5MDUwMiwic2Vzc2lvbl9zdGF0ZSI6IjdkODUyN2E2Y2YwNTY3ZTI0OTFmMThiZGZlYTZlOTBiMTQ5ZmEyOTUwZDkyZGJiMzEwYjU0MjE5YjczM2U0ODEuc3B1RVlVQm1QX0VMZVRkS1BfZTdKQSJ9.wYIBpEIhYdFq4W3mrx4gcAI2kSgJ5viQ6qGntHsIRMT2wg9F4d-DzMEkMvy4tOup2dlZNby80Sf1djuG44Z-1xbellcuk7hRfotlMOjSLc7fmkzy0b4HvwcN66U9wETWQfixUTbWbOvmqMqzdMQKtSB2b7oWEh5EHOlQQ6vrGJc2eSxquMN_O17PlYKF0smXSgoESIunf8k5sGydO8MvwVZ4-qfqnx7Lx7Huk36CfW-CFI0IXIehi017onOx0FOXwRaizMM45M0zfzyvg4CbZUaGPeGuyO7DVsUPwjdkrjkhiKcXR61S01uqj8-_AAgtZMJHMI3yJQmvWM4ezNe9_Q
+eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ5VDJmQ0FpY1E4M1FZeW1FakMwYTBmcGplYzhhIiwiY29kZSI6IjQ0Y2U1NzU3LTdmNTQtM2IxZS1hMzNmLTE4YTMwNjE1NTA1MyIsImlzcyI6Imh0dHBzOi8vYXBpLmFzZ2FyZGVvLmlvL3QvdGVzdC9vYXV0aDIvdG9rZW4iLCJleHAiOjE2ODAwOTA1MDIsInNlc3Npb25fc3RhdGUiOiI3ZDg1MjdhNmNmMDU2N2UyNDkxZjE4YmRmZWE2ZTkwYjE0OWZhMjk1MGQ5MmRiYjMxMGI1NDIxOWI3MzNlNDgxLnNwdUVZVUJtUF9FTGVUZEtQX2U3SkEifQ.GZUeGUBptOADYNYVL7CRH5Js6moc4cp-gyUBQNRBuljj2vCFnHoJuBeJXJa3t11X-b1AuK8C0aJelWDOBKAtKxKf9cXCffeVkepZNGMNc4H6-rnIDtnaxbPGQl3MURhTTc4vsxMwhadx_Nc-F7j87cgO-lfeFLhEim71oke4Gnr5_NNGMx6F-BP103qqiu4bGUPjXVLBrdV93_EyUZpT3qFdyS73UYo1EySceRi3xhnQNWxYRHXmlXhuDdP6u--olbbT-CYRWDZN0qj3dz9KtA_0Rz2hx2T4jrAB_R3sh9DHedL-GQKCtxDFWmejSKO0fc86XC1WiqlrJ9QRB2xWDQ
 ```
 
 Decoded payload:
