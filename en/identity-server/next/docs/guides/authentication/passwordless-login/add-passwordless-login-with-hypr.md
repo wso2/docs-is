@@ -91,6 +91,9 @@ To deploy the HYPR Rest API:
     enable_tenant_qualified_urls = "true"
     enable_tenanted_sessions = "true"
     rewrite.custom_webapps=["/api/hypr/"]
+
+    [console.ui]
+    hiddenConnectionTemplates = []
     ```
 
 ### Deploy the HYPR login page
