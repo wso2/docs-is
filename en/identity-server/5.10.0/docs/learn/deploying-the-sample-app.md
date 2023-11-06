@@ -752,8 +752,11 @@ The next step is to configure the service provider.
 
         1.  **Passive STS Realm:** : `               PassiveSTSSampleApp             `
 
-        2.  **Assertion Consumer URL** : `
+        2.  **Passive STS WReply URL** : `
             http://localhost:8080/PassiveSTSSampleApp/index.jsp`
+        
+        3. **Passive STS WReply Logout URL** : `
+           http://localhost:8080/PassiveSTSSampleApp/index.jsp`
                  
             Click Yes, in the message that appears.
 
