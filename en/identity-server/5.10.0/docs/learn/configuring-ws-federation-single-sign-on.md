@@ -30,6 +30,10 @@ To configure WS-Federation SSO:
     -   **Passive STS WReply URL** - Provide the URL of the web app you
         are configuring WS-Federation for.  This endpoint URL will
         handle the token response.
+    
+    - **Passive STS WReply Logout URL** - Provide the URL of the web app to which 
+      users will be redirected to upon logout.  This URL will
+      be used to validate the wreply url sent in the logout request.
 
         !!! tip
         
