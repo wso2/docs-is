@@ -1,6 +1,6 @@
 # SCIM2 Patch Operations
 
-Follow the topics given below to understand how **Patch** operations can be used when you invoke the [SCIM2 API](scim2-rest-apis/).
+Follow the topics given below to understand how **Patch** operations can be used when you invoke the [SCIM2 API]({{base_path}}/apis/scim2-rest-apis/).
 
 ## Introduction
 

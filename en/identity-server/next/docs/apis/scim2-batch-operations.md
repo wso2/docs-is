@@ -1,6 +1,6 @@
 # SCIM2 Bulk Operations
  
-Follow the topics given below to understand how **Bulk** operations can be used when you manage resources in the [SCIM2 API](scim2-rest-apis/).
+Follow the topics given below to understand how **Bulk** operations can be used when you manage resources in the [SCIM2 API]({{base_path}}/apis/scim2-rest-apis/).
  
 The SCIM2 API allows you to send multiple resource operations in a single request. That is, you can add new records (POST data), replace an existing record (PUT data), update elements of an existing record (PATCH data), and delete records (DELETE data) in bulk. These bulk operations are supported for managing users and groups with the SCIM API in WSO2 Identity Server.
  
