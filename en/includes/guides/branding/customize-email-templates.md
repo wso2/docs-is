@@ -78,7 +78,7 @@ The branding variables that affect the email templates are as follows:
 You can tailor the **subject**, **body**, and **footer** of email notifications to your preferences by following the steps below.
 
 !!! note
-    This feature is only available for the most frequently used email templates. You can customize [all available email templates]({{base_path}}/references/email-templates/) using the [Email Templates API]({{base_path}}/apis/email-template/).
+    This feature is only available for the most frequently used email templates. You can customize [all available email templates]({{base_path}}/references/email-templates/) using the [Email Templates API]({{base_path}}/apis/{{ email_templates_api_path }}/).
 
 1. On the {{ product_name }}, go to **Customization** > **Email Templates**.
 2. Select the email template and the relevant locale that you wish to modify.
@@ -97,13 +97,13 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 
     1. Display the `local` attribute on the user's profile. Learn more on [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
 
-    2. Update the `local` attribute value with the [required locale code]({{base_path}}/references/localization-in-asgardeo/#supported-languages).
+    2. Update the `local` attribute value with the [required locale code]({{base_path}}/references/{{ localization_doc_path }}/#supported-languages).
 
         - If the admin onboards the user to the organization, the admin is responsible for updating the locale code.
 
         - If the user self-registers, they should update the locale code by themselves at the time of registration.
 
-Alternatively, you can customize the content of email templates using the [Email Templates API]({{base_path}}/apis/email-template/) provided by {{ product_name }}.
+Alternatively, you can customize the content of email templates using the [Email Templates API]({{base_path}}/apis/{{ email_templates_api_path }}/) provided by {{ product_name }}.
 
 {{customize_email_settings}}
 

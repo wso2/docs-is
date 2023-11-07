@@ -55,4 +55,4 @@ For example, let’s assume there are two WSO2 IS nodes deployed, and node A iss
 
 Now the old access token will still be valid according to node A even though it is already revoked by node B until the access token cache object in node A expires.
 
-If there are multiple WSO2 IS nodes in the deployment, the cache coherence problem is inevitable. One could think of disabling all the cache layers. But it is a huge sacrifice of performance. It is not only about access tokens, but there are multiple cache layers [Configuring Cache Layers]({{base_path}}/setup/performance/configure-cache-layers), and it could lead to unexpected scenarios with any of them.
+If there are multiple WSO2 IS nodes in the deployment, the cache coherence problem is inevitable. One could think of disabling all the cache layers. But it is a huge sacrifice of performance. It is not only about access tokens, but there are multiple cache layers [Configuring Cache Layers]({{base_path}}/deploy/performance/configure-cache-layers/), and it could lead to unexpected scenarios with any of them.

@@ -1,6 +1,6 @@
 # Mitigate Authorization Code Interception Attacks
 
-The following sections describe the impact of the code interception attack and the approaches you can use to mitigate it. You may need to mitigate these kinds of attacks when creating an OAuth application that uses the [Authorization Code Grant]({{base_path}}/references/concepts/authorization/authorization-code-grant) type for authentication.
+The following sections describe the impact of the code interception attack and the approaches you can use to mitigate it. You may need to mitigate these kinds of attacks when creating an OAuth application that uses the [Authorization Code Grant]({{base_path}}/references/grant-types/#authorization-code-grant) type for authentication.
 
 ## How can code interception attacks be harmful?
 

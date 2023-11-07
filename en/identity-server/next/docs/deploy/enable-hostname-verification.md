@@ -3,7 +3,7 @@
 The possibility to configure hostname verification is available for the WSO2 Identity Server. If hostname verification is disabled, the hostnames (that are accessed by a particular client) will not be verified against the hostnames specified in the product's SSL certificate. If hostname verification is enabled, you will be able to configure how hostnames are filtered during the verification process.
 
 !!! note "Important"  
-    Be sure to enable hostname verification for your production environment. This is necessary to avoid security issues in production. See the full list of [security recommendations for production]({{base_path}}/deploy/security/security-guidelines-for-production-deployment) environments.
+    Be sure to enable hostname verification for your production environment. This is necessary to avoid security issues in production. See the full list of [security recommendations for production]({{base_path}}/deploy/security/security-guidelines/) environments.
 
 ## Configure hostname verification
 

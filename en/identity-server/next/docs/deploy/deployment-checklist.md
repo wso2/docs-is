@@ -72,7 +72,7 @@
                     <strong>Related topics</strong>
                     </div>
                     <div class="panelContent">
-                    <li><a href="{{base_path}}/references/default-ports-of-wso2-products">Default Ports of WSO2 Identity Server</a> </li>
+                    <li><a href="{{base_path}}/references/default-ports">Default Ports of WSO2 Identity Server</a> </li>
                     </div>
                     </div>
                     </div>
