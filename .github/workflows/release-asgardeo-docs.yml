@@ -1,0 +1,114 @@
+name: Asgardeo Docs Release
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:  # Global environment variables
+  GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+  GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+  GITHUB_TOKEN: ${{ secrets.IAM_DOCS_GITHUB_BOT_TOKEN }}
+  GIT_ORG_NAME: ${{ secrets.GIT_ORG_NAME }}
+  GIT_REPO_NAME: ${{ secrets.GIT_REPO_NAME }}
+  GIT_BRANCH_NAME: ${{ secrets.GIT_BRANCH_NAME }}
+
+jobs:
+  release-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.IAM_DOCS_GITHUB_BOT_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r en/asgardeo/requirements.txt
+
+      - name: Get the current version
+        run: |
+          echo "CURRENT_VERSION=$(cat VERSION)" >> $GITHUB_ENV
+
+      - name: Increment version
+        run: |
+          CURRENT_VERSION=$(cat VERSION)
+          PARTS=(${CURRENT_VERSION//./ })
+          ((PARTS[2]++))
+          NEW_VERSION="${PARTS[0]}.${PARTS[1]}.${PARTS[2]}"
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "$NEW_VERSION" > VERSION
+
+      - name: Build MkDocs Documentation
+        run: |
+          cd en/asgardeo
+          mkdocs build
+          cd ../../
+
+      - name: Zip the Documentation
+        run: |
+          mkdir -p out/asgardeo/docs
+          cp -r ./en/asgardeo/site/* out/asgardeo/docs/
+          zip -r asgardeo-docs-$NEW_VERSION.zip ./out
+
+      - name: Create git tag
+        run: |
+          git config user.name $GIT_USERNAME
+          git config user.email $GIT_USER_EMAIL
+          git tag "v$NEW_VERSION"
+          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "v$NEW_VERSION"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v$NEW_VERSION
+          release_name: Asgardeo Docs - v$NEW_VERSION
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./asgardeo-docs-$NEW_VERSION.zip
+          asset_name: asgardeo-docs-$NEW_VERSION.zip
+          asset_content_type: application/zip
+
+      - name: Commit and push new version
+        run: |
+          git add VERSION
+          git commit -m "Increment release version to $NEW_VERSION"
+          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" master
+
+      - name: Update Downstream Repository Version
+        run: |
+          VERSION_FILE_PATH="${GIT_REPO_NAME}/cd-pipelines/docs/dev-setup-variables.yaml"
+          VERSION_LINE_PREFIX='GITHUB_RELEASE_TAG: v' # Line prefix to identify the version line
+
+          # Clone the downstream repository
+          git clone "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/$GIT_ORG_NAME/$GIT_REPO_NAME.git"
+          cd $GIT_REPO_NAME
+          git checkout $GIT_BRANCH_NAME
+
+          # Extracting the current version line from the YAML file
+          CURRENT_VERSION_LINE=$(grep "$VERSION_LINE_PREFIX" "$VERSION_FILE_PATH")
+
+          # Replacing the current version line with the new version line
+          NEW_VERSION_LINE="${VERSION_LINE_PREFIX}$NEW_VERSION"
+          sed -i "s|$CURRENT_VERSION_LINE|$NEW_VERSION_LINE|" "$VERSION_FILE_PATH"
+
+          # Verifying if the file has changed, and if so, committing and pushing it
+          if git status --porcelain; then
+            git config user.name $GIT_USERNAME
+            git config user.email $GIT_USER_EMAIL
+            git add "$VERSION_FILE_PATH"
+            git commit -m "[Dev] Update asgardeo-docs release version to $NEW_VERSION"
+            git push origin $GIT_BRANCH_NAME 
