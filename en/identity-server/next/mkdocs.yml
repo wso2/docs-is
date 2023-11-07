@@ -391,6 +391,10 @@ nav:
       - Accessibility compliance: references/compliance/accessibility.md
     - Localization in  WSO2 Identity Server: references/localization.md
     - Default ports: references/default-ports.md
+    - Troubleshoot:
+      - Troubleshoot: references/troubleshoot/index.md
+      - Error catalog: references/troubleshoot/error-codes.md
+      - API error catalog: references/troubleshoot/api-error-codes.md
     #- Extenstions:
       #- Authentication:
         #- Write a Custom OAuth 2.0 grant: references/extend/write-a-custom-oauth-2.0-grant-type.md
