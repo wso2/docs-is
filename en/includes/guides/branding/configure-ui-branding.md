@@ -573,56 +573,37 @@ By default, Asgardeo automatically appends the `ui_locales` parameter with the s
 
 ##### Supported placeholders:
 
-::: v-pre
-
 - **`{{locale}}`**: This placeholder represents the complete locale tag, including both the language and country, separated by a hyphen. For example, `ja-JP`.
 - **`{{country}}`**: Use this placeholder to insert the country code. For example, `JP`.
 - **`{{lang}}`**: This placeholder is for the language code. For example, `ja`.
-:::
 
 These placeholders provide flexibility in constructing URLs that adapt to different regions, languages, and countries. Customize your URLs to deliver a personalized user experience.
 
 ##### Examples of customized URLs:
 
-::: v-pre
-
 1. Constructing a URL with the complete locale tag:
+    - URL Pattern
+        - `https://example.com/{{locale}}/page`
+    - Result (if the selected locale is `ja-JP`)
+        - `https://example.com/ja-JP/page`
 
-   - URL Pattern
-      - `https://example.com/{{locale}}/page`
-   - Result (if the selected locale is `ja-JP`)
-      - `https://example.com/ja-JP/page`
-:::
-
-::: v-pre
-
-2. Inserting the country code into the URL:
-
-   - URL Pattern
-      - `https://example.com/country/{{country}}/page`
-   - Result (if the selected country code is `JP`)
-      - `https://example.com/country/JP/page`
-:::
-
-::: v-pre
+2. Inserting the country code into the URL:\
+    - URL Pattern
+        - `https://example.com/country/{{country}}/page`
+    - Result (if the selected country code is `JP`)
+        - `https://example.com/country/JP/page`
 
 3. Using the language code in the URL:
-
-   - URL Pattern
-      - `https://example.com/lang/{{lang}}/page`
-   - Result (if the selected language code is `ja`)
-      - `https://example.com/lang/ja/page`
-:::
-
-::: v-pre
+    - URL Pattern
+        - `https://example.com/lang/{{lang}}/page`
+    - Result (if the selected language code is `ja`)
+        - `https://example.com/lang/ja/page`
 
 4. Combining language and country codes:
-
-   - URL Pattern
-      - `https://example.com/{{lang}}_{{country}}/page`
-   - Result (if the selected language code is `ja`, the country code is `JP` and the delimiter is underscore)
-      - `https://example.com/ja_JP/page`
-:::
+    - URL Pattern
+        - `https://example.com/{{lang}}_{{country}}/page`
+    - Result (if the selected language code is `ja`, the country code is `JP` and the delimiter is underscore)
+        - `https://example.com/ja_JP/page`
 
 ### Text preferences
 
