@@ -38,7 +38,7 @@ exchanged and also protected with Basic Auth Authentication.
     The following requests use Basic Auth authentication to demonstrate
     sending requests to the REST endpoints of WSO2 Identity Server as a
     quick start. **In a production environment, we recommend that you use
-    OAuth Authentication instead.** For instructions, see [Setting Up Service Provider for Inbound Provisioning]({{base_path}}/guides/applications/inbound-provisioning-for-sp/).
+    OAuth Authentication instead.** <!-- TODO For instructions, see [Setting Up Service Provider for Inbound Provisioning]({{base_path}}/guides/applications/inbound-provisioning-for-sp/).-->
 
 -   **Create User** : The following command can be used to create a
     user. In this request, authentication is done using Basic Auth and the payload is sent in JSON format adhering to the SCIM 1.1 specification. You receive a response with 201 CREATED status and the payload response as follows:
@@ -59,19 +59,10 @@ exchanged and also protected with Basic Auth Authentication.
 
     Do the following to test this.
 
-    -   Log in to the WSO2 Identity Server [management
-        console]({{base_path}}/setup/getting-started-with-the-management-console) using
-        admin credentials (admin/admin).
-    -   Click **List** under the **Users and Roles** section on the
-        **Main** tab and then select **Users**. You will see that
-        the user created above is listed.
-    -   Click on **User Profile** to view the user profile of the user
-        you created. You will see that only the user's first and last
-        names have been set properly but the other fields remain empty.
-        This is because the Carbon platform uses a different set of
-        attributes in LDAP than the SCIM specific dialect. However,
-        those attributes are stored in the underlying user store. You
-        can verify this using a GET request on the particular user.
+    1. On the WSO2 Identity Server console, go to **Users**.
+        You will see that the user created above is listed.
+    
+    2. Click on the newly added user to view the user profile of the user you created. You will see that only the user's first and last names have been set properly but the other fields remain empty. This is because the Carbon platform uses a different set of attributes in LDAP than the SCIM specific dialect. However, those attributes are stored in the underlying user store. You can verify this using a GET request on the particular user.
 
 <!-- -->
 
@@ -104,7 +95,7 @@ exchanged and also protected with Basic Auth Authentication.
 <!-- -->
 
 -   **List Users** : Now create some users through the WSO2 Identity
-    Server management console and fill in their profile details. The
+    Server console and fill in their profile details. The
     following code snippets show the response received after a new user
     called "pulasthim" was created and the user profile was updated. The following is the response you would receive.
 
@@ -171,7 +162,7 @@ exchanged and also protected with Basic Auth Authentication.
         ```
 
 -   **Delete User** : Delete the user with username 'pulasthim' that was
-    created through the WSO2 Identity Server management console.
+    created through the WSO2 Identity Server console.
 
     ```curl tab="Request"
     curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID} -H "Accept: application/json"
@@ -229,12 +220,12 @@ exchanged and also protected with Basic Auth Authentication.
     {"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","schemas":["urn:scim:schemas:core:1.0"],"displayName":"PRIMARY/engineer","members":[{"value":"0032fd29-55a9-4fb9-be82-b1c97c073f02","display":"hasinitg"}],"meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}
     ```
 
-    You can observe in the management console of IS, that the new group
+    You can observe in the IS console, that the new group
     is listed under roles and user 'adam' is listed under users of that
     group.
 
 -   **List Groups:** Now create another role through the Identity Server
-    Management Console and list all the groups. Create a group named:
+    Console and list all the groups. Create a group named:
     'manager' without any users added to it. The following command lists
     the groups. When you list the groups, you can see both groups are listed.
 

@@ -12,7 +12,7 @@ For more information on the fundamentals of this regulation, see [Defining a Win
 Generally, identity data are scattered over several systems within an organization. To reach GDPR compliance, it is required to review, redesign, and modify each of these systems. This is a maintenance overhead that consumes a significant portion of the annual IT budget and requires a specialized set of skills for continuous review
 and modification processes. Considering the amount of data available within an organization and the intensity of adverse impact on the organization in case of failure to comply with GDPR, skilled staff working in a centralized, secure environment for data processing is vital.
 
-A GDPR-compliant IAM solution ensures that all identity profiles are managed centrally and shares only required data with other systems in an on-demand manner through well-known security standards such as [SAML]({{base_path}}/references/concepts/authentication/intro-saml) and [OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc).
+A GDPR-compliant IAM solution ensures that all identity profiles are managed centrally and shares only required data with other systems in an on-demand manner through well-known security standards such as SAML and OpenID Connect <!-- TODO: IAM Topics[SAML]({{base_path}}/references/concepts/authentication/intro-saml) and [OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc)-->.
 Any efficient IAM solution supports anonymization to remove PII data from datasets, and pseudonymization to set artificial identifiers to uniquely identify the user, instead of their personal data. This mitigates the risk of exposing the personal data of individuals to compromised environments.
 
 ## Ensure compliance
@@ -62,26 +62,26 @@ The following features are supported as part of **My Account**:
 
 - **The right to be forgotten -** This is one of the most important individual rights defined in GDPR. In simple terms, an individual can request to completely remove their personal data from the processing organizations. According to GDPR, unless there is a clear and valid legal background, processing organizations should fulfill such *forget me* requests.
 
-WSO2 IS provides an out-of-the-box privacy toolkit to remove all identifying data from related databases and log files. This toolkit can be run manually by organization administrators or can be automated so that whenever a user profile gets deleted from the system, all the related PII data gets removed from the system.
+    WSO2 IS provides an out-of-the-box privacy toolkit to remove all identifying data from related databases and log files. This toolkit can be run manually by organization administrators or can be automated so that whenever a user profile gets deleted from the system, all the related PII data gets removed from the system.
 
-By considering performance overhead and automation flexibility, this privacy toolkit is run separately from WSO2 IS runtime. For older versions of WSO2 IS, it is required to download the WSO2 Privacy Toolkit from [here](https://github.com/wso2/identity-anonymization-tool) separately.
+    By considering performance overhead and automation flexibility, this privacy toolkit is run separately from WSO2 IS runtime. For older versions of WSO2 IS, it is required to download the WSO2 Privacy Toolkit from [here](https://github.com/wso2/identity-anonymization-tool) separately.
 
-When it comes to **Right to be forgotten**, WSO2 IS supports the following features.
+    When it comes to **Right to be forgotten**, WSO2 IS supports the following features.
 
-- Delete the user by “Identity Admin” of the tenant. This will remove the user from any underlying “Read/Write” user store (JDBC/LDAP/AD).
+    - Delete the user by “Identity Admin” of the tenant. This will remove the user from any underlying “Read/Write” user store (JDBC/LDAP/AD).
 
-- Anonymize any retained traces of the user activity.  
+    - Anonymize any retained traces of the user activity.  
 
-    - Log files
-    - Analytics data, related to login, session, key validation, etc.
-    - Key/token data held at the database layer.
+        - Log files
+        - Analytics data, related to login, session, key validation, etc.
+        - Key/token data held at the database layer.
 
-- Delete any unwanted data retained in the database(due to performance reasons)
+    - Delete any unwanted data retained in the database (due to performance reasons)
 
-    - Token(s) issued,
-    - Password History information.
+        - Token(s) issued,
+        - Password History information.
 
-For more information on the topic, see [Remove References to Deleted User Identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities).
+    <!-- TODO: DATASTORES For more information on the topic, see [Remove References to Deleted User Identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities).-->
 
 - **The right for notification obligation -** The **My Account** application can be extended to act as the notification center for individuals.  
 

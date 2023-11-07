@@ -17,14 +17,14 @@ The flow of synchronous token persistence is as follows:
 
 !!! note "Synchronous token persistence configurations"
     By default synchronous token persistence is enabled in WSO2 Identity Server 5.9.0 onwards. To indicate the number of times to retry in the event of a `CONN_APP_KEY` violation when storing the access token, navigate to file `<IS_HOME>/repository/conf/deployment.toml` and add the following configuration.
-        
+
     ```
     [oauth.token_generation]
     "retry_count_on_persistence_failures"=5
     ```
     
-    !!! Tip
-        To know more about new configurations, see [New Configuration Model]({{base_path}}/references/new-configuration-model).
+    <!-- TODO !!! Tip
+        To know more about new configurations, see [New Configuration Model]({{base_path}}/references/new-configuration-model).-->
 
 ---
 

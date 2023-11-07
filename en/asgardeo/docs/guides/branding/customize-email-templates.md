@@ -10,4 +10,8 @@
 
 You can customize the default settings set by Asgardeo for email parameters such as `from address` and `replyTo` by contacting the Asgardeo team at **asgardeo-help@wso2.com**." %}
 
+{% set email_templates_api_path = "email-template" %}
+
+{% set localization_doc_path = "localization-in-asgardeo" %}
+
 {% include "../../../../includes/guides/branding/customize-email-templates.md" %}

@@ -21,12 +21,12 @@ WSO2 products that provide a WSO2 IS console use the following servlet transport
 - `9763` - HTTP servlet transport
 
 
-## JMX monitoring ports
+<!-- TODO ## JMX monitoring ports
 
 WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance using a JMX client such as JConsole. By default, JMX is enabled in all products. To disable it, see [Disable JMX for the server]({{base_path}}/deploy/monitor/jmx-based-monitoring/#disable-jmx-for-the-server).
 
 - `11111` - RMIRegistry port. Used to monitor Carbon remotely
-- `9999` - RMIServer port. Used along with the RMIRegistry port when Carbon is monitored from a JMX client that is behind a firewall
+- `9999` - RMIServer port. Used along with the RMIRegistry port when Carbon is monitored from a JMX client that is behind a firewall-->
 
 
 ## Clustering ports
