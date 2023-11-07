@@ -16,9 +16,9 @@ You can use the following {{ product_name }} APIs to enable self-service capabil
 
 - SCIM/Me Endpoint
 
-    - [List user details](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/paths/~1Me/get)
-    - [Update user profile](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/operation/patchUserMe)
-    - [Update user password](https://wso2.com/asgardeo/docs/apis/scim2/#tag/Me-Endpoint/operation/patchUserMe)
+    - [List user details]({{base_path}}/apis/{{ scim_list_user }}/)
+    - [Update user profile]({{base_path}}/apis/{{ scim_update_user_prof }}/)
+    - [Update user password]({{base_path}}/apis/{{ scim_update_pass }}/)
 
         !!! note
             To update the password of a user, update the `value` parameter of the API payload as follows:
@@ -41,11 +41,11 @@ You can use the following {{ product_name }} APIs to enable self-service capabil
 
 - Manage MFA settings and recovery
   
-    - [TOTP]({{base_path}}/apis/register-mfa/totp/)
-    - [Backup codes]({{base_path}}/apis/register-mfa/backup-code/)
+    - [TOTP]({{base_path}}/apis/{{ totp_api }}/)
+    - [Backup codes]({{base_path}}/apis/{{ backup_codes_api }}/)
 
-- [Export user profile]({{base_path}}/apis/register-mfa/export-user-info/)
-- [Manage consent of users]({{base_path}}/apis/consent-management/)
+- [Export user profile]({{base_path}}/apis/{{ export_user_prof }}/)
+- [Manage consent of users]({{base_path}}/apis/{{ manage_consent }}/)
 
 ## Prerequisites
 

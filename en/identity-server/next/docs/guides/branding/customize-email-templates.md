@@ -4,4 +4,8 @@
 
 {% set customize_email_settings = "" %}
 
+{% set email_templates_api_path = "email-templates-rest-api" %}
+
+{% set localization_doc_path = "localization" %}
+
 {% include "../../../../../includes/guides/branding/customize-email-templates.md" %}

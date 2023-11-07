@@ -1,6 +1,6 @@
 # Configure the Email Sending Module
 
-This document explains the steps to configure WSO2 Identity Server to send emails during multiple email-related customer identity and access management tasks such as [email OTP]({{base_path}}/guides/mfa/2fa-email-otp/), email notifications, and account recovery.
+This document explains the steps to configure WSO2 Identity Server to send emails during multiple email-related customer identity and access management tasks such as [email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/), email notifications, and account recovery.
 
 ## Configure the email sender (globally)
 
@@ -45,6 +45,9 @@ Follow the steps given below to enable the email sender globally for all tenants
         ```
 
 3. Save the configurations and start the server.
+
+<!-- TODO 
+Reason for commenting: Tenant configs are not promoted in IS 7
 
 ## Configure the email sender (per tenant)
 
@@ -153,6 +156,6 @@ Follow the steps given below to enable the email sender per tenant.
         </to>
     </eventPublisher>
     ```  
-    
+
 5.	Since these configurations will be applicable during the tenant loading process, [configure tenant loading and 
-unloading for your tenant]({{base_path}}/guides/tenants/configure-the-tenant-loading-policy).
+unloading for your tenant]({{base_path}}/guides/tenants/configure-the-tenant-loading-policy).-->

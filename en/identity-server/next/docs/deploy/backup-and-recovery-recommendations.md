@@ -19,7 +19,7 @@ WSO2 Identity server recommends you to back up the following:
 
 We recommend that you use a proper artifact management system such as [Puppet](https://puppet.com/) to back up and manage your artifacts before deploying them in the WSO2 Carbon runtime. Also, use the [WSO2 Update Manager(WUM)]({{base_path}}/deploy/get-started/get-wso2-updates) tool, which is a command-line utility that allows you to get the latest updates (bug fixes and security fixes) of a particular product release. The following diagram depicts how you can manage your artifacts using a configuration management system.
 
-![Managing artifacts]({{base_path}}/assets/img/deploy/puppet.png)
+![Managing artifacts]({{base_path}}/assets/img/setup/deploy/puppet.png)
 
 ## Recovery recommendations
 

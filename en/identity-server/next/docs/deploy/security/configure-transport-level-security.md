@@ -120,4 +120,4 @@ https.enabled=false
 ```
 
 !!! info "Related topics"
-    [Deploy: Security Guidelines for Production Deployment]({{base_path}}/deploy/security/security-guidelines-for-production-deployment)
+    [Deploy: Security Guidelines for Production Deployment]({{base_path}}/deploy/security/security-guidelines/)
