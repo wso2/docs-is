@@ -6,4 +6,4 @@ By default, the business applications of your organization in WSO2 Identity Serv
 
 - [Customize email notifications]({{base_path}}/guides/branding/customize-email-templates/)
 
-- [Configure email sender]({{base_path}}/guides/branding/configure-email-sender/)
+- [Configure email provider]({{base_path}}/guides/branding/configure-email-providers/)
