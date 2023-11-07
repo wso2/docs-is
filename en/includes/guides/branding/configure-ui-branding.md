@@ -582,28 +582,36 @@ These placeholders provide flexibility in constructing URLs that adapt to differ
 ##### Examples of customized URLs:
 
 1. Constructing a URL with the complete locale tag:
-    - URL Pattern
-        - `https://example.com/{{locale}}/page`
-    - Result (if the selected locale is `ja-JP`)
-        - `https://example.com/ja-JP/page`
 
-2. Inserting the country code into the URL:\
-    - URL Pattern
-        - `https://example.com/country/{{country}}/page`
-    - Result (if the selected country code is `JP`)
-        - `https://example.com/country/JP/page`
+    === "URL format"
+        `https://example.com/{{locale}}/page`
+
+    === "Sample"
+        Assume `ja-JP` is selected as the locale: `https://example.com/ja-JP/page`
+
+2. Inserting the country code into the URL:
+
+    === "URL format"
+        `https://example.com/country/{{country}}/page`
+
+    === "Sample"
+        If the selected country code is `JP`: `https://example.com/country/JP/page`
 
 3. Using the language code in the URL:
-    - URL Pattern
-        - `https://example.com/lang/{{lang}}/page`
-    - Result (if the selected language code is `ja`)
-        - `https://example.com/lang/ja/page`
+
+    === "URL format"
+        `https://example.com/lang/{{lang}}/page`
+
+    === "Sample"
+        If the selected language code is `ja`: `https://example.com/lang/ja/page`
 
 4. Combining language and country codes:
-    - URL Pattern
-        - `https://example.com/{{lang}}_{{country}}/page`
-    - Result (if the selected language code is `ja`, the country code is `JP` and the delimiter is underscore)
-        - `https://example.com/ja_JP/page`
+
+    === "URL format"
+        `https://example.com/{{lang}}_{{country}}/page`
+
+    === "Sample"
+        If the selected language code is `ja`, the country code is `JP`, and the delimiter is underscore: `https://example.com/ja_JP/page`
 
 ### Text preferences
 
