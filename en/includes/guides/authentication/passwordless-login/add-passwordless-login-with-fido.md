@@ -1,6 +1,6 @@
-# Add FIDO2 login
+# Add Passkey login
 
-FIDO2 adds passwordless login to your applications, which allows users to replace traditional passwords with FIDO2-supported hardware security keys or built-in authenticators on their devices.
+Passkey adds passwordless login to your applications, which allows users to replace traditional passwords with FIDO2-supported hardware security keys or built-in authenticators on their devices.
 
 There are two types of authenticators that you can use with FIDO2 passwordless authentication in {{ product_name }}.
 
@@ -22,29 +22,29 @@ Follow the steps given below to enable **passwordless** login for your applicati
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select the application to which you wish to add FIDO login.
+2. Select the application to which you wish to add Passkey login.
 
-3. Go to the **Sign-in Method** tab of the application and add FIDO login from your preferred editor:
+3. Go to the **Sign-in Method** tab of the application and add Passkey login from your preferred editor:
 
 
     ---
     === "Classic Editor"
-        - If you haven't already built a login flow for your application, select **FIDO2** to build one.
+        - If you haven't already built a login flow for your application, select **Add Passkey Login** to build one.
 
             ![Configuring fido2 login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-        - If you have an already built login flow, you can add FIDO2 as an additional authenticator for the first step.
+        - If you have an already built login flow, you can add Passkey as an additional authenticator for the first step.
 
             ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/fido2/fido-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
-        To add passwordless login with FIDO using the Visual Editor:
+        To add passwordless login with Passkey using the Visual Editor:
 
         1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Passwordless login**.
 
-        2. Select `Username & Password + FIDO2`.
+        2. Select `Username & Password + Passkey`.
 
-        3. Click **Confirm** to add passwordless login with FIDO to the sign-in flow.
+        3. Click **Confirm** to add passwordless login with Passkey to the sign-in flow.
 
             ![Configuring fido2 login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/fido2/add-fido-login-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -73,12 +73,12 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 ## Try it out
 
 !!! note
-    - FIDO2 passwordless login with platform authenticators will NOT work on the Firefox browser in macOS Catalina, Big Sur and Monterey due to browser limitations.
-    - FIDO2 passwordless login with roaming authenticators will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
+    - Passkey login with platform authenticators will NOT work on the Firefox browser in macOS Catalina, Big Sur and Monterey due to browser limitations.
+    - Passkey login with roaming authenticators will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
 
 1. Access the application URL.
 2. Click **Login** to open the {{ product_name }} login page.
-3. On the {{ product_name }} login page, click **Sign In With Security Key**. You will be redirected to the FIDO2 login page.
+3. On the {{ product_name }} login page, click **Sign In With Passkey**. You will be redirected to the FIDO2 login page.
   
     ![Sign In With Security Key in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
