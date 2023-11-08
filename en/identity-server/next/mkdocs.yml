@@ -246,7 +246,6 @@ nav:
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
         - Delete your user account: guides/your-is/delete-your-user-account.md
-        - Manage subscriptions: guides/your-is/manage-subscriptions.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
