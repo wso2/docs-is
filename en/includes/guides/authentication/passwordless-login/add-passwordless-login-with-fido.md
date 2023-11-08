@@ -4,11 +4,11 @@ Passkey adds passwordless login to your applications, which allows users to repl
 
 There are two types of authenticators that you can use with FIDO2 passwordless authentication in {{ product_name }}.
 
-- **Platform authenticators** (also known as `internal` authenticators): Authenticators like fingerprint scanners, TouchID, FaceID or Windows Hello which are bound to a particular device.
+- **Platform authenticators** (also known as `internal` authenticators): Authenticators like fingerprint scanners, TouchID, FaceID, or Windows Hello which are bound to a particular device.
 - **Roaming authenticators** (also known as `cross-platform` or `external` authenticators): Authenticators like hardware security keys which are external and not bound to any specific device.
 
 !!! note "What is FIDO2?"
-    The FIDO Alliance, whose mission is to reduce the world's reliance on passwords, introduced its latest specifications, collectively called FIDO2. FIDO2 specifications are the World Wide Web Consortium's (W3C) Web Authentication specification (WebAuthn) and FIDO alliance's corresponding Client to Authenticator Protocol (CTAP).
+    The FIDO Alliance, whose mission is to reduce the world's reliance on passwords, introduced its latest specifications, collectively called FIDO2. FIDO2 specifications are the World Wide Web Consortium's (W3C) Web Authentication specification (WebAuthn) and the FIDO alliance's corresponding Client to Authenticator Protocol (CTAP).
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ Passkeys resolve this issue by allowing FIDO2 credentials to sync across multipl
 
 - If you are an Apple user, your passkeys will be synced across all the devices signed into the same Apple ID and iCloud Keychain. Refer to the [Apple documentation](https://developer.apple.com/passkeys/) for more information.
 
-- If you are an Android user, your  passkeys will be synced across all the devices signed into your Google account. Refer to the [Google documentation](https://developers.google.com/identity/passkeys) for more information.
+- If you are an Android user, your passkeys will be synced across all the devices signed into your Google account. Refer to the [Google documentation](https://developers.google.com/identity/passkeys) for more information.
 
 **If your devices do not sync through the cloud**, you can use your device with passkeys to scan a QR code generated in the device from which you are trying to log in.
 
@@ -73,7 +73,7 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 ## Try it out
 
 !!! note
-    - Passkey login with platform authenticators will NOT work on the Firefox browser in macOS Catalina, Big Sur and Monterey due to browser limitations.
+    - Passkey login with platform authenticators will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
     - Passkey login with roaming authenticators will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
 
 1. Access the application URL.
@@ -85,3 +85,7 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 4. Follow the instructions given by your browser or device to login.
   
     ![Sign In With Security Key page in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
+
+    If you wish to log in using a USB security key, click **Use a different device** and select **USB security key**.
+
+    ![Sign In With Security Key in {{ product_name }} - option 2]({{base_path}}/assets/img/guides/passwordless/fido2/fido2-passkey-options.png){: width="300" style="border: 0.3px solid lightgrey;"}
