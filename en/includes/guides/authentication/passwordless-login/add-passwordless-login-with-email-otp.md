@@ -10,6 +10,8 @@ Email OTP is a form of passwordless authentication. It allows users to log in by
     !!! note
         You cannot use an administrator account to log in to an application.
 
+{{ configure_email_sender }}
+
 ## Enable Email OTP login for an app
 
 Follow the steps given below to enable **Email OTP** login to the login flow of your application.
