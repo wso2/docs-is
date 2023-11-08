@@ -15,7 +15,7 @@ env:  # Global environment variables
   GIT_BRANCH_NAME: ${{ secrets.GIT_BRANCH_NAME }}
 
 jobs:
-  release-docs:
+  release-asgardeo-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -39,13 +39,14 @@ jobs:
 
       - name: Increment version
         run: |
-          CURRENT_VERSION=$(cat VERSION)
-          PARTS=(${CURRENT_VERSION//./ })
+          set -eox pipefail
+          IFS='.' read -ra PARTS <<< "${{ env.CURRENT_VERSION }}"
           ((PARTS[2]++))
           NEW_VERSION="${PARTS[0]}.${PARTS[1]}.${PARTS[2]}"
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
           echo "$NEW_VERSION" > VERSION
-
+        shell: bash
+      
       - name: Build MkDocs Documentation
         run: |
           cd en/asgardeo
