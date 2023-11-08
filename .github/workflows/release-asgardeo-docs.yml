@@ -16,6 +16,7 @@ env:  # Global environment variables
 
 jobs:
   release-asgardeo-docs:
+    if: ${{ github.actor != '${{ env.GIT_USERNAME }}' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -39,7 +40,7 @@ jobs:
 
       - name: Increment version
         run: |
-          set -eo pipefail
+          set -euxo pipefail
           IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
           echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
           PATCH=$((PATCH+1))
@@ -97,6 +98,9 @@ jobs:
           VERSION_LINE_PREFIX='GITHUB_RELEASE_TAG: v' # Line prefix to identify the version line
 
           # Clone the downstream repository
+          echo "GIT_ORG_NAME: $GIT_ORG_NAME"
+          echo "GIT_REPO_NAME: $GIT_REPO_NAME"
+          echo "GIT_BRANCH_NAME: $GIT_BRANCH_NAME"
           git clone "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/$GIT_ORG_NAME/$GIT_REPO_NAME.git"
           cd $GIT_REPO_NAME
           git checkout $GIT_BRANCH_NAME
