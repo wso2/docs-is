@@ -39,6 +39,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/api/event-configurations/v1/events' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                      
     put:
       tags:
         - Events Configurations
@@ -78,7 +85,24 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
-  '/events/{eventName}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/api/event-configurations/v1/events' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "eventName": "registrations.addUser",
+              "eventSchema": "urn:ietf:params:registrations:addUser",
+              "displayName": "Add user event",
+              "category": "Registration events",
+              "publish": true
+            }
+            ]'                      
+  /events/{eventName}:
     get:
       tags:
         - Event Configurations
@@ -117,6 +141,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/api/event-configurations/v1/events/{event-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Event Configurations
@@ -163,6 +194,23 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/api/event-configurations/v1/events/{event-name}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "publish": true,
+            "properties": [
+              {
+                "key": "attribute1",
+                "value": "value1"
+              }
+            ]
+            }'                      
 components:
   schemas:
     Event:
