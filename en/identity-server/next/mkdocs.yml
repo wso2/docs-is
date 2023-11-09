@@ -116,7 +116,7 @@ nav:
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
-            - Add login with FIDO2: guides/authentication/passwordless-login/add-passwordless-login-with-fido.md
+            - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-fido.md
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
           - Enable user attributes:
