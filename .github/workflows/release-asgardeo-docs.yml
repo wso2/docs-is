@@ -95,13 +95,11 @@ jobs:
 
       - name: Update Downstream Repository Version
         run: |
+          set -euxo pipefail
           VERSION_FILE_PATH="${GIT_REPO_NAME}/cd-pipelines/docs/dev-setup-variables.yaml"
           VERSION_LINE_PREFIX='GITHUB_RELEASE_TAG: v' # Line prefix to identify the version line
 
           # Clone the downstream repository
-          echo "GIT_ORG_NAME: $GIT_ORG_NAME"
-          echo "GIT_REPO_NAME: $GIT_REPO_NAME"
-          echo "GIT_BRANCH_NAME: $GIT_BRANCH_NAME"
           git clone "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/$GIT_ORG_NAME/$GIT_REPO_NAME.git"
           cd $GIT_REPO_NAME
           git checkout $GIT_BRANCH_NAME
@@ -120,3 +118,4 @@ jobs:
             git add "$VERSION_FILE_PATH"
             git commit -m "[Dev] Update asgardeo-docs release version to ${{ env.NEW_VERSION }}"
             git push origin $GIT_BRANCH_NAME 
+        shell: bash
