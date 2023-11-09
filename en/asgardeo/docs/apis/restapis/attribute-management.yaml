@@ -71,7 +71,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
       - Claims (local)
@@ -119,7 +125,36 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "claimURI": "http://wso2.org/claims/username",
+            "description": "Some description about the claim.",
+            "displayOrder": 10,
+            "displayName": "Username",
+            "readOnly": true,
+            "regEx": "^([a-zA-Z)$",
+            "required": true,
+            "supportedByDefault": true,
+            "attributeMapping": [
+              {
+                "mappedAttribute": "username",
+                "userstore": "SECONDARY"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'
       x-codegen-request-body-name: localClaim
   /claim-dialects/local/claims/{claim-id}:
     get:
@@ -166,7 +201,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
       - Claims (local)
@@ -215,7 +256,36 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "claimURI": "http://wso2.org/claims/username",
+            "description": "Some description about the claim.",
+            "displayOrder": 10,
+            "displayName": "Username",
+            "readOnly": true,
+            "regEx": "^([a-zA-Z)$",
+            "required": true,
+            "supportedByDefault": true,
+            "attributeMapping": [
+              {
+                "mappedAttribute": "username",
+                "userstore": "SECONDARY"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'
       x-codegen-request-body-name: localClaim
     delete:
       tags:
@@ -252,7 +322,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
   /claim-dialects:
     get:
       tags:
@@ -307,7 +384,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
       - Claim dialects
@@ -354,7 +437,17 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "dialectURI": "urn:ietf:params:scim:schemas:core:2.0:User"
+            }'
       x-codegen-request-body-name: claimDialect
   /claim-dialects/{dialect-id}:
     get:
@@ -401,7 +494,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
       - Claim dialects
@@ -444,7 +543,17 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "dialectURI": "urn:ietf:params:scim:schemas:core:2.0:User"
+            }' 
       x-codegen-request-body-name: claimDialect
     delete:
       tags:
@@ -481,7 +590,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
   /claim-dialects/{dialect-id}/claims:
     get:
       tags:
@@ -548,7 +664,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/export' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
     post:
       tags:
       - Claims (External)
@@ -608,7 +731,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/claims' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "claimURI": "urn:ietf:params:scim:schemas:core:2.0:User:userName",
+            "mappedLocalClaimURI": "http://wso2.org/claims/username"
+            }'
       x-codegen-request-body-name: externalClaim
   /claim-dialects/{dialect-id}/claims/{claim-id}:
     get:
@@ -662,7 +796,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
     put:
       tags:
       - Claims (External)
@@ -717,7 +858,19 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "claimURI": "urn:ietf:params:scim:schemas:core:2.0:User:userName",
+            "mappedLocalClaimURI": "http://wso2.org/claims/username"
+            }'
+            
       x-codegen-request-body-name: externalClaim
     delete:
       tags:
@@ -760,7 +913,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
   /claim-dialects/{dialect-id}/export:
     get:
       tags:
@@ -799,6 +959,14 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/export' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+                      
   /claim-dialects/import:
     put:
       tags:
@@ -826,6 +994,15 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/import?preserveClaims=false' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -H 'Authorization: Bearer {bearer_token}'
+                      
     post:
       tags:
       - Claim dialects
@@ -851,6 +1028,14 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/import' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   schemas:
     LocalClaimReq:
