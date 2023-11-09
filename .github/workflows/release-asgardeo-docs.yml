@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - 'VERSION'  # This will ignore changes only to the VERSION file.
   workflow_dispatch:
 
 env:  # Global environment variables
@@ -16,7 +18,6 @@ env:  # Global environment variables
 
 jobs:
   release-asgardeo-docs:
-    if: ${{ github.actor != '${{ env.GIT_USERNAME }}' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
