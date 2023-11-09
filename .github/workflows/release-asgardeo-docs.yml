@@ -97,6 +97,7 @@ jobs:
         run: |
           set -euxo pipefail
           VERSION_FILE_PATH="${GIT_REPO_NAME}/cd-pipelines/docs/dev-setup-variables.yaml"
+          echo "VERSION_FILE_PATH: $VERSION_FILE_PATH"
           VERSION_LINE_PREFIX='GITHUB_RELEASE_TAG: v' # Line prefix to identify the version line
 
           # Clone the downstream repository
