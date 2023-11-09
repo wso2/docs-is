@@ -40,6 +40,13 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/idle-account-identification/v1/inactive-users?inactiveAfter=2023-01-31&excludeBefore=2023-01-01' \
+            -H 'accept: application/json'
+            -H 'Authorization: Bearer {bearer_token}'          
 components:
   schemas:
     Error:
