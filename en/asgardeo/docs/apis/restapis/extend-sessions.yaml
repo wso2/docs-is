@@ -27,14 +27,11 @@ paths:
           required: true
           schema:
             type: string
-          example: curl --location --request GET 'https://api.asgardeo.io/t/{organization-name}/identity/extend-session?idpSessionKey=<session_identifier_isk>'
         - name: commonAuthId
           in: cookie
           description: Use the commonAuthId value as the session identifier in the cookie section of the request. This value can be obtained from the session cookie generated for the session. 
           schema:
             type: string
-          example: |
-            curl --location --request GET 'https://api.asgardeo.io/t/{organization-name}/identity/extend-session' \ --header 'Cookie: commonAuthId=<session_identifier_commonAuthId>'
       responses:
         '200':
           description: Successful response.
@@ -55,6 +52,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorServer'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/identity/extend-session?idpSessionKey={isk}' \
+            -H 'accept: */*' \
+            -H 'Cookie: commonAuthId={common-auth-id}' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   schemas:
     ErrorServer:
