@@ -80,12 +80,8 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 2. Click **Login** to open the {{ product_name }} login page.
 3. On the {{ product_name }} login page, click **Sign In With Passkey**. You will be redirected to the Passkey login page.
   
-    ![Sign In With Security Key in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Sign In With Passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 4. Follow the instructions given by your browser or device to login.
   
-    ![Sign In With Security Key page in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
-
-    If you wish to log in using a USB security key, click **Use a different device** and select **USB security key**.
-
-    ![Sign In With Security Key in {{ product_name }} - option 2]({{base_path}}/assets/img/guides/passwordless/fido2/fido2-passkey-options.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Sign In With Passkey login page in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/fido2-passkey-login-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
