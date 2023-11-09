@@ -78,7 +78,7 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 
 1. Access the application URL.
 2. Click **Login** to open the {{ product_name }} login page.
-3. On the {{ product_name }} login page, click **Sign In With Passkey**. You will be redirected to the FIDO2 login page.
+3. On the {{ product_name }} login page, click **Sign In With Passkey**. You will be redirected to the Passkey login page.
   
     ![Sign In With Security Key in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/fido2/sign-in-with-security-key.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
