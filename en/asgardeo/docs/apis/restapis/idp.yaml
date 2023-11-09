@@ -59,6 +59,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     post:
       tags:
         - Identity Providers
@@ -112,6 +119,109 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "name": "google",
+            "description": "IdP for Google Federation",
+            "image": "google-logo-url",
+            "isPrimary": false,
+            "isFederationHub": false,
+            "homeRealmIdentifier": "localhost",
+            "certificate": {
+              "certificates": [
+                "string"
+              ],
+              "jwksUri": "https://api.asgardeo.io/t/{org-name}/oauth2/jwks"
+            },
+            "alias": "https://api.asgardeo.io/t/{org-name}/oauth2/token",
+            "claims": {
+              "userIdClaim": {
+                "uri": "http://wso2.org/claims/username"
+              },
+              "roleClaim": {
+                "uri": "http://wso2.org/claims/username"
+              },
+              "mappings": [
+                {
+                  "idpClaim": "country",
+                  "localClaim": {
+                    "uri": "http://wso2.org/claims/username"
+                  }
+                }
+              ],
+              "provisioningClaims": [
+                {
+                  "claim": {
+                    "uri": "http://wso2.org/claims/username"
+                  },
+                  "defaultValue": "sathya"
+                }
+              ]
+            },
+            "roles": {
+              "mappings": [
+                {
+                  "idpRole": "google-manager",
+                  "localRole": "manager"
+                }
+              ],
+              "outboundProvisioningRoles": [
+                "manager",
+                "hr-admin"
+              ]
+            },
+            "federatedAuthenticators": {
+              "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+              "authenticators": [
+                {
+                  "authenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                  "isEnabled": true,
+                  "isDefault": false,
+                  "properties": [
+                    {
+                      "key": "somePropertyKey",
+                      "value": "somePropertyValue"
+                    }
+                  ]
+                }
+              ]
+            },
+            "provisioning": {
+              "jit": {
+                "isEnabled": true,
+                "scheme": "PROVISION_SILENTLY",
+                "userstore": "PRIMARY",
+                "associateLocalUser": true,
+                "attributeSyncMethod": "OVERRIDE_ALL"
+              },
+              "outboundConnectors": {
+                "defaultConnectorId": "U0NJTQ",
+                "connectors": [
+                  {
+                    "connectorId": "U0NJTQ",
+                    "isEnabled": true,
+                    "isDefault": false,
+                    "blockingEnabled": false,
+                    "rulesEnabled": false,
+                    "properties": [
+                      {
+                        "key": "somePropertyKey",
+                        "value": "somePropertyValue"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+            }'
+                          
       requestBody:
         content:
           application/json:
@@ -161,7 +271,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/meta/federated-authenticators/{federated-authenticator-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/meta/federated-authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                   
+  /identity-providers/meta/federated-authenticators/{federated-authenticator-id}:
     get:
       tags:
         - Metadata
@@ -205,13 +322,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/meta/federated-authenticators/{federated-authenticator-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
   /identity-providers/meta/outbound-provisioning-connectors:
     get:
       tags:
         - Metadata
       summary: >
         List supported outbound provisioning connectors of IdPs
-      description: "This API provides the list of supported federated authenticators for an identity provider (IdP) in the Asgardeo. \n\n <b>Scope required:</b> `nternal_idp_view`"
+      description: "This API provides the list of supported federated authenticators for an identity provider (IdP) in the Asgardeo. \n\n <b>Scope required:</b> `internal_idp_view`"
       operationId: getMetaOutboundConnectors
       responses:
         '200':
@@ -244,7 +368,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/meta/outbound-provisioning-connectors' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
+  /identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}:
     get:
       tags:
         - Metadata
@@ -288,7 +419,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/{identity-provider-id}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
+  /identity-providers/{identity-provider-id}:
     get:
       tags:
         - Identity Providers
@@ -344,6 +482,13 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     patch:
       tags:
         - Identity Providers
@@ -392,6 +537,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/homeRealmIdentifier",
+              "value": "google"
+            }
+            ]'                
       requestBody:
         content:
           application/json:
@@ -438,7 +598,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/{identity-provider-id}/federated-authenticators':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}?force=false' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
+  /identity-providers/{identity-provider-id}/federated-authenticators:
     get:
       tags:
         - Federated Authenticators
@@ -482,6 +649,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
         - Federated Authenticators
@@ -525,6 +699,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+            "authenticators": [
+              {
+                "authenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                "isEnabled": true,
+                "isDefault": false,
+                "properties": [
+                  {
+                    "key": "somePropertyKey",
+                    "value": "somePropertyValue"
+                  }
+                ]
+              }
+            ]
+            }'                
       requestBody:
         content:
           application/json:
@@ -582,6 +780,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
         - Federated Authenticators
@@ -636,6 +841,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "isEnabled": true,
+            "isDefault": false,
+            "properties": [
+              {
+                "key": "somePropertyKey",
+                "value": "somePropertyValue"
+              }
+            ]
+            }'                
       requestBody:
         content:
           application/json:
@@ -687,7 +910,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/{identity-provider-id}/provisioning/outbound-connectors':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
+  /identity-providers/{identity-provider-id}/provisioning/outbound-connectors:
     get:
       tags:
         - Provisioning
@@ -731,6 +961,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
         - Provisioning
@@ -774,6 +1011,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "defaultConnectorId": "U0NJTQ",
+            "connectors": [
+              {
+                "connectorId": "U0NJTQ",
+                "isEnabled": true,
+                "isDefault": false,
+                "blockingEnabled": false,
+                "rulesEnabled": false,
+                "properties": [
+                  {
+                    "key": "somePropertyKey",
+                    "value": "somePropertyValue"
+                  }
+                ]
+              }
+            ]
+            }'                
       requestBody:
         content:
           application/json:
@@ -831,6 +1094,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
         - Provisioning
@@ -885,6 +1155,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/identity-provider-id/provisioning/outbound-connectors/outbound-provisioning-connector-id' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "isEnabled": true,
+            "isDefault": false,
+            "blockingEnabled": false,
+            "rulesEnabled": false,
+            "properties": [
+              {
+                "key": "somePropertyKey",
+                "value": "somePropertyValue"
+              }
+            ]
+            }'
       requestBody:
         content:
           application/json:
@@ -936,6 +1226,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/claims' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
         - Claims
@@ -984,6 +1281,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/claims' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "userIdClaim": {
+              "uri": "http://wso2.org/claims/username"
+            },
+            "roleClaim": {
+              "uri": "http://wso2.org/claims/username"
+            },
+            "mappings": [
+              {
+                "idpClaim": "country",
+                "localClaim": {
+                  "uri": "http://wso2.org/claims/username"
+                }
+              }
+            ],
+            "provisioningClaims": [
+              {
+                "claim": {
+                  "uri": "http://wso2.org/claims/username"
+                },
+                "defaultValue": "sathya"
+              }
+            ]
+            }'                
       requestBody:
         content:
           application/json:
@@ -1035,6 +1364,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/identity-provider-id/roles' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
         - Roles
@@ -1083,6 +1419,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/roles' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "mappings": [
+              {
+                "idpRole": "google-manager",
+                "localRole": "manager"
+              }
+            ],
+            "outboundProvisioningRoles": [
+              "manager",
+              "hr-admin"
+            ]
+            }'               
       requestBody:
         content:
           application/json:
@@ -1090,7 +1446,7 @@ paths:
               $ref: '#/components/schemas/Roles'
         description: This represents the role config to be updated.
         required: true
-  '/identity-providers/{identity-provider-id}/provisioning/jit':
+  /identity-providers/{identity-provider-id}/provisioning/jit:
     get:
       tags:
         - Provisioning
@@ -1134,6 +1490,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
         - Provisioning
@@ -1182,6 +1545,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "isEnabled": true,
+            "scheme": "PROVISION_SILENTLY",
+            "userstore": "PRIMARY",
+            "associateLocalUser": true,
+            "attributeSyncMethod": "OVERRIDE_ALL"
+            }'
+                           
       requestBody:
         content:
           application/json:
@@ -1235,6 +1614,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/connected-apps' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
   '/trusted-token-issuers':
     get:
       tags:
@@ -1275,6 +1661,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     post:
       tags:
         - Trusted Token Issuers
@@ -1328,6 +1721,52 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "name": "google",
+            "description": "Trusted Token Issuer",
+            "image": "issuer-logo-url",
+            "templateId": "8ea23303-49c0-4253-b81f-82c0fe6fb4a0",
+            "certificate": {
+              "certificates": [
+                "string"
+              ],
+              "jwksUri": "https://api.asgardeo.io/t/{org-name}/oauth2/jwks"
+            },
+            "alias": "https://api.asgardeo.io/t/{org-name}/oauth2/token",
+            "issuer": "https://www.issuer.com",
+            "claims": {
+              "userIdClaim": {
+                "uri": "http://wso2.org/claims/username"
+              },
+              "roleClaim": {
+                "uri": "http://wso2.org/claims/username"
+              },
+              "mappings": [
+                {
+                  "idpClaim": "country",
+                  "localClaim": {
+                    "uri": "http://wso2.org/claims/username"
+                  }
+                }
+              ],
+              "provisioningClaims": [
+                {
+                  "claim": {
+                    "uri": "http://wso2.org/claims/username"
+                  },
+                  "defaultValue": "sathya"
+                }
+              ]
+            }
+            }'               
       requestBody:
         content:
           application/json:
@@ -1392,6 +1831,13 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/{trusted-token-issuer-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     patch:
       tags:
         - Trusted Token Issuers
@@ -1440,6 +1886,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/{trusted-token-issuer-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/homeRealmIdentifier",
+              "value": "google"
+            }
+            ]'             
       requestBody:
         content:
           application/json:
@@ -1486,6 +1947,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/t{rusted-token-issuer-id}?force=false' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
 components:
   parameters:
     limitQueryParam:
