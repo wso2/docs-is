@@ -107,11 +107,10 @@ jobs:
           git checkout $GIT_BRANCH_NAME
 
           # Extracting the current version line from the YAML file
-          CURRENT_VERSION_LINE=$(grep "$VERSION_LINE_PREFIX" "$VERSION_FILE_PATH" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          CURRENT_VERSION_LINE=$(grep "$VERSION_LINE_PREFIX" "$VERSION_FILE_PATH")
 
           # Replacing the current version line with the new version line
-          NEW_VERSION_LINE="${VERSION_LINE_PREFIX}${{ env.NEW_VERSION }}"
-          sed -i 's|'"${CURRENT_VERSION_LINE}"'|'"${NEW_VERSION_LINE}"'|' "$VERSION_FILE_PATH"
+          sed -i 's|'"${CURRENT_VERSION_LINE}"'|  GITHUB_RELEASE_TAG: v'"${{ env.NEW_VERSION }}"'|' "$VERSION_FILE_PATH"
 
           # Verifying if the file has changed, and if so, committing and pushing it
           if git status --porcelain; then
