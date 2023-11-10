@@ -1,30 +1,26 @@
 {% set product_name = "WSO2 Identity Server" %}
-# Organization management
+# Organizations
 
-Listed below are the main characteristics of an organization(root).
+If you have a business that offers Business-to-Business (B2B) solutions, you need to define the structure of your organization in {{ product_name }} so as to represent all your partner/supplier organizations. You can then share your applications and services with your partner/supplier organizations and allow them to manage their own identity and access management requirements.
 
-- An organization(root) contains applications, external identity providers, and user identities belonging to a single domain.
-- Users or applications created in one organization(root) cannot access the resources of another organization(root) unless they are onboarded to that organization(root).
-- The administrator who creates the organization(root) is the owner of the organization(root).
+- All partner/supplier organizations of your business should be set up as organizations of your organization (root) in {{ product_name }}.
 
-The organizations you create in {{ product_name }} can be structured according to your business needs as follows:
+    !!! note
+        See [Manage organizations]({{base_path}}/guides/organization-management/manage-organizations/manage-organizations/) for instructions.
 
-**B2C organizations**
+- Once the organizations are set up, you should onboard administrators to them. These Administrators can then use a separate administration portal created using {{ product_name }}'s B2B APIs to manage their respective organizations.
 
-In a B2C scenario,
+    !!! note
+        See [Manage administration]({{base_path}}/guides/organization-management/manage-b2b-administration/) for instructions.
 
-- the organization(root) represents your business.
+- The organization (root) needs to share applications with its organizations so that the users managed by the organizations can log in and use them.
 
-- the organization(root) manages the identity and access management requirements of your B2C applications and the user identities of your direct consumers.
+    !!! note
+        See [Share applications]({{base_path}}/guides/organization-management/share-applications/) for instructions.
 
-**B2B organizations**
+- Try out a complete B2B use case.
 
-In a B2B scenario,
+    !!! note
+        See  [Try a B2B use case]({{base_path}}/guides/organization-management/try-a-b2b-use-case/) for instructions.
 
-- the organization(root) represents your business.
-
-- you will create subordinate organizations to onboard other business organizations (partners, suppliers, customer organizations, etc.) to your platform.
-
-- administrators of each subordinate organization manage the respective organization's user base and define login experiences for applications according to the organization's requirements.
-
-    <!-- Learn more about how {{ product_name }} supports B2B platforms. -->
+<!-- Learn more about how {{ product_name }} supports B2B platforms. -->
