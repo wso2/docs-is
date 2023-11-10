@@ -111,7 +111,7 @@ jobs:
 
           # Replacing the current version line with the new version line
           NEW_VERSION_LINE="${VERSION_LINE_PREFIX}${{ env.NEW_VERSION }}"
-          sed -i "s|$CURRENT_VERSION_LINE|$NEW_VERSION_LINE|" "$VERSION_FILE_PATH"
+          sed -i 's|'"${CURRENT_VERSION_LINE}"'|'"${NEW_VERSION_LINE}"'|' "$VERSION_FILE_PATH"
 
           # Verifying if the file has changed, and if so, committing and pushing it
           if git status --porcelain; then
