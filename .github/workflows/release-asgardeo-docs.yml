@@ -107,7 +107,7 @@ jobs:
           git checkout $GIT_BRANCH_NAME
 
           # Extracting the current version line from the YAML file
-          CURRENT_VERSION_LINE=$(grep "$VERSION_LINE_PREFIX" "$VERSION_FILE_PATH")
+          CURRENT_VERSION_LINE=$(grep "$VERSION_LINE_PREFIX" "$VERSION_FILE_PATH" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 
           # Replacing the current version line with the new version line
           NEW_VERSION_LINE="${VERSION_LINE_PREFIX}${{ env.NEW_VERSION }}"
