@@ -48,7 +48,7 @@ To create a new sub organization user:
 
 5. Click **Finish** to add the new user.
 
-### Step 2: Assign the user to the Administrator role
+### Step 2: Assign the user to the {{ admin_role_name }} role
 
 The Administrator role is available in sub organizations by default. To assign the created user to this role:
 
@@ -99,7 +99,7 @@ Before creating admins using the APIs, you need to obtain the required access to
 
     ``` curl
     curl --location --request PATCH 
-    'https://api.asgardeo.io/o/{root-org-id}/api/server/v1/self-service/preferences' \
+    'https://{{ host_name }}/o/{root-org-id}/api/server/v1/self-service/preferences' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <access-token-obtained-from-step-1>' \
     -d '{
@@ -131,7 +131,7 @@ Before creating admins using the APIs, you need to obtain the required access to
 
     ``` curl
     curl -X POST \
-    https://api.asgardeo.io/t/<root_org_name>/oauth2/token \
+    https://{{ host_name }}/t/<root_org_name>/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d 'grant_type=client_credentials&scope=openid internal_identity_mgt_create internal_identity_mgt_delete internal_identity_mgt_update internal_identity_mgt_view internal_organization_admin internal_organization_create internal_organization_view internal_user_mgt_create internal_user_mgt_list internal_user_mgt_view'
@@ -149,7 +149,7 @@ To create and maintain admins in the sub organization:
 
 1. Use the following cURL to check if the name of sub organization you wish to create is already available.
     ``` curl
-    curl --location 'https://api.asgardeo.io/o/{root-org-id}/api/server/v1/organizations/check-name' \
+    curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application }' 
     --header 'Content-Type: application/json' \
     --data '{
@@ -163,7 +163,7 @@ To create and maintain admins in the sub organization:
 2. If the required organization name is available for use, use the following cURL to create the sub organization.
 
     ``` curl
-    curl --location 'https://api.asgardeo.io/o/{root-org-id}/api/server/v1/organizations' \
+    curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application}' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -180,7 +180,7 @@ To create and maintain admins in the sub organization:
 4. Create a user in the sub organization using the following cURL.
 
     ``` curl
-    curl --location 'https://api.asgardeo.io/o/{organization-id-obtained-in-step-2}/scim2/Users' \
+    curl --location 'https://{{ host_name }}/o/{organization-id-obtained-in-step-2}/scim2/Users' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer {token obtained in step 3}' \
     --data-raw '{
@@ -202,18 +202,18 @@ To create and maintain admins in the sub organization:
     !!! note
         Take note of the `user-id` returned in the response of the above cURL.
 
-6. Use the following cURL to obtain the `id` of the Administrator role.
+6. Use the following cURL to obtain the `id` of the {{ admin_role_name }} role.
 
     ``` curl
-    curl --location 'https://api.asgardeo.io/o/{sub-org-id}/api/server/v1/organizations/{sub-org-id}/roles?filter=name%20eq%20Administrator' ' \
+    curl --location 'https://{{ host_name }}/o/{sub-org-id}/api/server/v1/organizations/{sub-org-id}/roles?filter=name%20eq%20{{ admin_role_name }}' ' \
     --header 'Accept: application/json' \
     --header 'Authorization: Bearer {access-token-obtained-for-the-sub-organization}' \
     ```
 
-7. Create a user and assign the user to the administrator role by using the following cURL.
+7. Create a user and assign the user to the {{ admin_role_name }} role by using the following cURL.
 
     ``` curl
-    curl --location --request PATCH 'https://api.asgardeo.io/o/{sub-org-id}/api/server/v1/organizations/{sub-org-id}/roles/{administrator-role-id}' \
+    curl --location --request PATCH 'https://{{ host_name }}/o/{sub-org-id}/api/server/v1/organizations/{sub-org-id}/roles/{administrator-role-id}' \
     --header 'Authorization: Bearer {Sub-org access token}' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -239,7 +239,7 @@ To create and maintain admins in the root organization:
 
 1. Create a user in the root organization using {{ product_name }}'s SCIM APIs.
     ``` curl
-    curl --location 'https://api.asgardeo.io/o/{root-org-id}/scim2/Users' \
+    curl --location 'https://{{ host_name }}/o/{root-org-id}/scim2/Users' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application}' \
     --data-raw '{
@@ -264,7 +264,7 @@ To create and maintain admins in the root organization:
 2. Use the following cURL to check if the name of sub organization you wish to create is already available.
 
     ``` curl
-    curl --location 'https://api.asgardeo.io/o/{root-org-id}/api/server/v1/organizations/check-name' \
+    curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application }' 
     --header 'Content-Type: application/json' \
     --data '{
@@ -277,7 +277,7 @@ To create and maintain admins in the root organization:
 
 3. If the required organization name is available for use, use the following cURL to create the sub organization and assign the user created in step 1 as the organization's admin.
     ``` curl
-    curl --location 'https://api.asgardeo.io/o/{root-org-id}/api/server/v1/organizations' \
+    curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application  }' \
     --header 'Content-Type: application/json' \
     --data-raw '{

@@ -229,18 +229,14 @@ nav:
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
-      - Organization management:
+      - Organizations:
         - Organization management: guides/organization-management/index.md
-        - Manage organizations: guides/organization-management/manage-organizations.md
-        - Manage B2B organizations:
-          - Manage B2B organizations: guides/organization-management/manage-b2b-organizations/index.md
-          - Set up sub organizations: guides/organization-management/manage-b2b-organizations/manage-suborganizations.md
-          - Onboard sub organization admins: guides/organization-management/manage-b2b-organizations/onboard-sub-org-admins.md
-          - Administration of sub organizations: guides/organization-management/manage-b2b-organizations/manage-b2b-administration.md
-          - Share applications: guides/organization-management/manage-b2b-organizations/share-applications.md
-          - Try a B2B use case: guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case.md
-          - API authorization for sub organizations: guides/organization-management/manage-b2b-organizations/api-authorization-for-b2b.md
-        - Manage environments: guides/organization-management/manage-environments.md
+        - Set up organizations: guides/organization-management/manage-organizations.md
+        - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
+        - Administration of organizations: guides/organization-management/manage-b2b-administration.md
+        - Share applications: guides/organization-management/share-applications.md
+        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+        - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Self-service: guides/your-is/is-self-service.md
@@ -253,13 +249,13 @@ nav:
         - Get WSO2 updates: deploy/get-started/get-wso2-updates.md
       - Secure:
         - Mitigate attacks:
-          - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
+          - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md
           - Authorization Code Interception attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
           - Brute Force attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
           - Replay attacks: deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
           - SameSite attribute support: deploy/samesite-attribute-support.md
           - Prevent browser caching: deploy/security/prevent-browser-caching.md
-        - Work with tokens: 
+        - Work with tokens:
           - Add logs for tokens: deploy/add-logs-for-tokens.md
           - Token persistence: deploy/token-persistence.md
           - Remove unused tokens from the database: deploy/remove-unused-tokens-from-the-database.md
@@ -269,7 +265,7 @@ nav:
         - Configure TLS: deploy/security/configure-transport-level-security.md
         - Configure TLS termination: deploy/configure-tls-termination.md
         - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
-        - Secure passwords in configuration files: 
+        - Secure passwords in configuration files:
           - Encrypt passwords with Cipher Tool: deploy/security/encrypt-passwords-with-cipher-tool.md
           - Resolve encrypted passwords: deploy/security/resolve-encrypted-passwords.md
           - Customize secure vault: deploy/security/customize-secure-vault.md
@@ -279,7 +275,7 @@ nav:
         - Security guidelines:
           - Security guidelines: deploy/security/security-guidelines/index.md
           - Product-level: deploy/security/security-guidelines/product-level-security-guidelines.md
-          - OS-level: deploy/security/security-guidelines/os-level-security-guidelines.md 
+          - OS-level: deploy/security/security-guidelines/os-level-security-guidelines.md
           - Network-level: deploy/security/security-guidelines/network-level-security-guidelines.md
         - Encryption:
           - Asymmetric encryption:
@@ -319,7 +315,7 @@ nav:
           - Log claims in audit logs: deploy/monitor/log-claims-in-audit-logs.md
         - Monitor server health: deploy/monitor/monitor-server-health.md
         - Work with product observability: deploy/monitor/work-with-product-observability.md
-      - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md  
+      - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
   - Integrations:
     - Integrate WSO2 IS into your application: integrations/index.md
   - APIs:
