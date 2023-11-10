@@ -20,7 +20,7 @@ You need to [create an organization]({{base_path}}/guides/organization-managemen
 
 !!! note
     - The organization creator, invited parent organization users who have user management and role management permissions can onboard administrators for the organization switching to the organization on the {{ product_name }} Console.
-    - Organization users with user management and role management permissions can onboard organization administrators by login to the organization on the {{ product_name }} Console via SSO option.
+    - Organization users with user management and role management permissions can onboard organization administrators by logging into the organization on the {{ product_name }} Console via the SSO option.
 
 ### Step 1: Create a user
 
@@ -54,7 +54,7 @@ To create a new organization user:
 
       - **Set a temporary password for the user**: If this option is selected, the administrator can set a temporary password for the user.
 
-      - **Invite user to set their own password**: If option is selected, an email with a confirmation link will be sent to the provided email address for the user to set their own password.
+      - **Invite user to set their own password**: If this option is selected, an email with a confirmation link will be sent to the provided email address for the user to set their own password.
 
 5. Click **Finish** to add the new user.
 
@@ -68,7 +68,7 @@ The {{ admin_role_name }} role is available in organizations by default. To assi
 
 3. Select the **{{ admin_role_name }}** role and go to the **Users** tab.
 
-4. Select the user from drop down.
+4. Select the user from drop-down.
 
     !!! note
         See details of all the available [administrator permissions]({{base_path}}/references/user-management/user-roles/) you are granting the organization administrator.
@@ -120,7 +120,7 @@ Before creating admins using the APIs, you need to obtain the required access to
 
     !!! note
         Enabling self-service will create an M2M(Machine to Machine) application named `B2B-Self-Service-Mgt-Application`. 
-        This application is authorized to limited set of APIs to facilitate subsequent API calls. 
+        This application is authorized to a limited set of APIs to facilitate subsequent API calls. 
         You will be able to see this application on the {{ product_name }} console.
 
 3. Get an access token for the `B2B-Self-Service-Mgt-Application` using the following cURL.
@@ -146,7 +146,7 @@ This approach is suitable when you want organizations to govern themselves with 
 
 To create and maintain admins in the organization:
 
-1. Use the following cURL to check if the name of organization you wish to create is available.
+1. Use the following cURL to check if the name of the organization you wish to create is available.
     ``` curl
     curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application }' 
@@ -261,7 +261,7 @@ To create and maintain admins in the organization (root):
     !!! note
         Take note of the user-id received in the response of the above cURL.
 
-2. Use the following cURL to check if the name of organization you wish to create is available.
+2. Use the following cURL to check if the name of the organization you wish to create is available.
 
     ``` curl
     curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
@@ -295,4 +295,4 @@ To create and maintain admins in the organization (root):
     }'
     ```
 
-Now, you have created a new organization. A shadow user account is created in the new organization for organization creator in organization (root). The organization creator is the {{ admin_role_name }} of the new organization.
+Now, you have created a new organization. A shadow user account is created in the new organization for the organization creator in the organization (root). The organization creator is the {{ admin_role_name }} of the new organization.

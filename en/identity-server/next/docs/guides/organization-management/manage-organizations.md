@@ -10,9 +10,7 @@ If you are a business having a B2B (Business-to-Business) platform, you can crea
 
 ## Prerequisites
 
-To create organizations:
-
-- You need to have organization management privileges in the organization (root).
+To create organizations, you need to have organization management privileges in the organization (root).
 
 ## Create an organization
 
