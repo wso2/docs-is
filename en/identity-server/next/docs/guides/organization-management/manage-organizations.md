@@ -19,7 +19,7 @@ To create organizations:
 Follow the steps given below to create an organization.
 
 1. First, login to your organization (root) from the {{ product_name }} Console.
-2. On the {{ product_name }} Console, go to **Organizations** under **Organization Management** and click **Add Organization**.
+2. On the {{ product_name }} Console, go to **Organization Management** > **Organizations** and click **Add Organization**.
 3. In the **Add Organization** dialog box that opens, enter a name and description for your organization.
 
     ![Create organization]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
@@ -28,7 +28,7 @@ Follow the steps given below to create an organization.
 
     ![The list of organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-list.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-5. Click the **Switch** icon next to the organization to go to the organization console.
+5. Click **Switch** next to the organization name to switch to the new organization's console.
 
 !!! note
     As the creator of the organization, you will be assigned to the {{ admin_role_name }} role of the organization by default, which grants you the following privileges from the console.
@@ -47,7 +47,7 @@ Follow the steps given below to create an organization.
 
 For example, you can add information about the organization's location, country, number of employees, etc.
 
-To add additional information about your organizations:
+To add additional attributes of your organization:
 
 1. Login to the organization (root) and go to **Organizations**.
 2. Select the organization to which you wish to add additional attributes.
@@ -63,7 +63,6 @@ To add additional information about your organizations:
 When you have multiple [organizations]({{base_path}}/guides/organization-management/manage-organizations/) for your primary business organization, you can switch between them on the {{ product_name }} Console by selecting the required organization from the list as shown below.
 
 ![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organizations.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
 
 ## Create an organization for your organization
 
