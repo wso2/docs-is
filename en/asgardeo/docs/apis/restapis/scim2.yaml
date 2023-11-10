@@ -60,6 +60,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
       - Me Endpoint
@@ -104,6 +111,33 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "DEFAULT/kim@gmail.com",
+            "emails": [
+              {
+                "value": "kim@gmail.com",
+                "primary": true
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'                
     patch:
       tags:
       - Me Endpoint
@@ -148,6 +182,27 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "nickName": "shaggy"
+                }
+              }
+            ]
+            }'                
       x-codegen-request-body-name: body
   /Groups:
     get:
@@ -210,6 +265,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     post:
       tags:
       - Groups Endpoint
@@ -266,6 +328,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErroGroupAlreadyAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'                 
       x-codegen-request-body-name: body
   /Groups/.search:
     post:
@@ -301,6 +370,21 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/.search' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+            ],
+            "startIndex": 1,
+            "filter": "displayName eq manager"
+            }'                         
       x-codegen-request-body-name: body
   /Groups/{id}:
     get:
@@ -353,6 +437,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorNoGroupAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'                  
     put:
       tags:
       - Groups Endpoint
@@ -415,6 +506,23 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorNoGroupAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "displayName": "manager",
+            "members": [
+              {
+                "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43",
+                "display": "kris"
+              }
+            ]
+            }'                  
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -453,6 +561,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorNoGroupAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/{group-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                   
     patch:
       tags:
       - Groups Endpoint
@@ -509,6 +624,32 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorNoGroupAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "members": [
+                    {
+                      "display": "kris",
+                      "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43"
+                    }
+                  ]
+                }
+              }
+            ]
+            }'                 
       x-codegen-request-body-name: body
   /Users:
     get:
@@ -571,6 +712,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Users' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'                 
     post:
       tags:
       - Users Endpoint
@@ -629,6 +777,37 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Users' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "DEFAULT/kim@gmail.com",
+            "password": "aBcd!23#",
+            "emails": [
+              {
+                "value": "kim@gmail.com",
+                "primary": true
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "manager": {
+                "value": "Taylor"
+              }
+            },
+            "urn:scim:wso2:schema": {
+              "verifyEmail": true
+            }
+            }'                 
       x-codegen-request-body-name: body
   /Users/.search:
     post:
@@ -664,6 +843,27 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/.search' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+            ],
+            "attributes": [
+              "name.familyName",
+              "userName"
+            ],
+            "filter": "userName sw ki and name.familyName co err",
+            "domain": "PRIMARY",
+            "startIndex": 1,
+            "count": 10
+            }'                   
       x-codegen-request-body-name: body
   /Users/{id}:
     get:
@@ -716,6 +916,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/{user-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'                   
     put:
       tags:
       - Users Endpoint
@@ -772,6 +979,33 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/{user-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "DEFAULT/kim@gmail.com",
+            "emails": [
+              {
+                "value": "kim@gmail.com",
+                "primary": true
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'                   
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -810,6 +1044,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/{user-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                 
     patch:
       tags:
       - Users Endpoint
@@ -867,6 +1108,27 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/{user-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "nickName": "shaggy"
+                }
+              }
+            ]
+            }'                  
       x-codegen-request-body-name: body
   /Bulk:
     post:
@@ -877,7 +1139,7 @@ paths:
                       </br>
                     - **POST** operation: Adds new resources. </br>
                     - **PUT** operation: Replaces an existing resource. </br>
-                    - **PATCH** opearation: Updates attribues of an existing resource. </br>
+                    - **PATCH** operation: Updates attribues of an existing resource. </br>
                     - **DELETE** operation: Removes an existing resource. </br>
                    
                    - <b>Scopes required:</b> ``internal_user_mgt_create`` ``internal_user_mgt_list`` ``internal_user_mgt_view``
@@ -919,6 +1181,34 @@ paths:
         409:
           description: Users already exists
           content: {}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Bulk' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "failOnErrors": 1,
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+            ],
+            "Operations": [
+              {
+                "method": "POST",
+                "path": "/Users",
+                "bulkId": "ytrewq",
+                "data": {
+                  "schemas": [
+                    "urn:ietf:params:scim:schemas:core:2.0:User"
+                  ],
+                  "userName": "DEFAULT/kim@gmail.com",
+                  "password": "Pass@kim1"
+                }
+              }
+            ]
+            }'         
       x-codegen-request-body-name: body
   /ResourceTypes:
     get:
@@ -946,6 +1236,13 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorSchemaNotFound'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/ResourceTypes' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'                
   /ServiceProviderConfig:
     get:
       tags:
@@ -972,6 +1269,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorSchemaNotFound'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/ServiceProviderConfig' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
 components:
   schemas:
     UserObject:
