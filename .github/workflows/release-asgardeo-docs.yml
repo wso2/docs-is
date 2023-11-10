@@ -48,7 +48,6 @@ jobs:
           NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
           echo "New version: $NEW_VERSION"
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-          echo "$NEW_VERSION" > VERSION
         shell: bash
       
       - name: Build MkDocs Documentation
@@ -95,10 +94,8 @@ jobs:
 
       - name: Update Downstream Repository Version
         run: |
-          set -uxo pipefail
+          set -euxo pipefail
           VERSION_FILE_PATH="$GITHUB_WORKSPACE/$GIT_REPO_NAME/cd-pipelines/docs/dev-setup-variables.yaml"
-
-          echo "VERSION_FILE_PATH: $VERSION_FILE_PATH"
           VERSION_LINE_PREFIX='GITHUB_RELEASE_TAG: v' # Line prefix to identify the version line
 
           # Clone the downstream repository
@@ -111,8 +108,6 @@ jobs:
 
           # Replacing the current version line with the new version line
           sed -i 's|'"${CURRENT_VERSION_LINE}"'|  GITHUB_RELEASE_TAG: v'"${{ env.NEW_VERSION }}"'|' "$VERSION_FILE_PATH"
-
-          echo "Updated the downstream version file to ${{ env.NEW_VERSION }}"
 
           # Verifying if the file has changed, and if so, committing and pushing it
           if git status --porcelain; then
