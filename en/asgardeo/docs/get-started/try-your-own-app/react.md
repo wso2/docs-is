@@ -9,7 +9,7 @@ Follow the steps given below to authenticate users to your React SPA with OpenID
 
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm) in your local environment.
-- [Register an application](../../guides/applications/register-single-page-app/) in Asgardeo.
+- [Register an application]({{base_path}}/guides/applications/register-single-page-app/) in Asgardeo.
 
 !!! note
     In the tutorial,
@@ -220,7 +220,7 @@ getBasicUserInfo().then((basicUserDetails) => {
 }
 ```
 
-You can get additional information from the user by [requesting user information from Asgardeo using scopes](../../guides/users/attributes/manage-scopes/#use-scopes-to-request-attributes)
+You can get additional information from the user by [requesting user information from Asgardeo using scopes]({{base_path}}/guides/users/attributes/manage-scopes/#use-scopes-to-request-attributes)
 
 ### Get decoded ID token
 
