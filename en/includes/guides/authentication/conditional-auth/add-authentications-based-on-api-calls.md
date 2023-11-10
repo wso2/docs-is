@@ -139,7 +139,8 @@ Follow the steps given below.
     var connectionMetadata = {
     "url": "<Choreo API URL>",
     "consumerKey": "<Consumer key of the Choreo application>",
-    "consumerSecret": "<Consumer secret of the Choreo application>"
+    "consumerSecret": "<Consumer secret of the Choreo application>",
+    "asgardeoTokenEndpoint": "<Token endpoint of the tenant in Asgardeo>"
     };    
     var onLoginRequest = function(context) {
     executeStep(1, {
@@ -188,6 +189,10 @@ Follow the steps given below.
           <tr>
                <td><code>consumerSecret</code></td>
                <td>The consumer secret of the Choreo application.</td>
+          </tr>
+          <tr>
+               <td><code>asgardeoTokenEndpoint</code></td>
+               <td>Token endpoint of the organization in Asgardeo. For example: <code>https://api.asgardeo.io/t/{org_name}/oauth2/token</code></td>
           </tr>
      </table>
 
