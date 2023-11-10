@@ -183,9 +183,21 @@ nav:
           - OIDC scopes: guides/users/attributes/manage-scopes.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
-          - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
-          - Configure high availability: guides/users/user-stores/configure-high-availability.md
-          - Manage remote user stores: guides/users/user-stores/update-user-stores.md
+          - Configure the primary user store:
+            - Configure the primary user store: guides/users/user-stores/primary-user-store/index.md
+            - Configure a JDBC user store: guides/users/user-stores/primary-user-store/configure-a-jdbc-user-store.md
+            - Configure a read-only LDAP user store: guides/users/user-stores/primary-user-store/configure-a-read-only-ldap-user-store.md
+            - Configure a read-Write Active Directory user store: guides/users/user-stores/primary-user-store/configure-a-read-write-active-directory-user-store.md
+            - Configure a read-write LDAP user store: guides/users/user-stores/primary-user-store/configure-a-read-write-ldap-user-store.md
+          - Configure secondary user stores: guides/users/user-stores/configure-secondary-user-stores.md
+          - User store properties: 
+            - User store properties: guides/users/user-stores/user-store-properties/index.md
+            - Properties used in JDBC user store manager: guides/users/user-stores/user-store-properties/properties-jdbc-user-store.md
+            - Properties used in read-only LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-only-ldap-user-store.md
+            - Properties used in read-Write Active Directory user store manager: guides/users/user-stores/user-store-properties/properties-read-write-active-directory-user-store.md
+            - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
+          - Add high availability for LDAP: guides/users/user-stores/configure-high-availability-ldap.md
+          - Secure a JDBC user store with PBKDF2 hashing: guides/users/user-stores/secure-userstore-using-pbkdf2.md
       - Account management:
         - Account management: guides/user-accounts/index.md
         - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
