@@ -40,6 +40,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/api/identity/user/v1.0/me' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
 components:
   schemas:
     Error:

@@ -27,6 +27,13 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
     put:
       tags:
         - Validation Rules
@@ -72,6 +79,34 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "field": "password/username",
+              "rules": [
+                {
+                  "validator": "LengthValidator",
+                  "properties": [
+                    {
+                      "key": "min.length",
+                      "value": 5
+                    },
+                    {
+                      "key": "max.length",
+                      "value": 15
+                    }
+                  ]
+                }
+              ]
+            }
+            ]'         
   /validation-rules/{field}:
     get:
       tags:
@@ -100,6 +135,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules/{field-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
     put:
       tags:
         - Validation Rules for a specific field
@@ -145,6 +187,31 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules/field-name' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "rules": [
+              {
+                "validator": "LengthValidator",
+                "properties": [
+                  {
+                    "key": "min.length",
+                    "value": 5
+                  },
+                  {
+                    "key": "max.length",
+                    "value": 15
+                  }
+                ]
+              }
+            ]
+            }'         
   /validation-rules/validators:
     get:
       tags:
@@ -168,6 +235,13 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules/validators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
 components:
   schemas:
     ValidatorModel:

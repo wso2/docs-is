@@ -57,6 +57,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/identity-providers' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     post:
       tags:
         - Identity Providers
@@ -110,6 +117,108 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/identity-providers' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "name": "google",
+            "description": "IdP for Google Federation",
+            "image": "google-logo-url",
+            "isPrimary": false,
+            "isFederationHub": false,
+            "homeRealmIdentifier": "localhost",
+            "certificate": {
+              "certificates": [
+                "string"
+              ],
+              "jwksUri": "https://api.asgardeo.io/t/{org-name}/oauth2/jwks"
+            },
+            "alias": "https://api.asgardeo.io/t/{org-name}/oauth2/token",
+            "claims": {
+              "userIdClaim": {
+                "uri": "http://wso2.org/claims/username"
+              },
+              "roleClaim": {
+                "uri": "http://wso2.org/claims/username"
+              },
+              "mappings": [
+                {
+                  "idpClaim": "country",
+                  "localClaim": {
+                    "uri": "http://wso2.org/claims/username"
+                  }
+                }
+              ],
+              "provisioningClaims": [
+                {
+                  "claim": {
+                    "uri": "http://wso2.org/claims/username"
+                  },
+                  "defaultValue": "sathya"
+                }
+              ]
+            },
+            "roles": {
+              "mappings": [
+                {
+                  "idpRole": "google-manager",
+                  "localRole": "manager"
+                }
+              ],
+              "outboundProvisioningRoles": [
+                "manager",
+                "hr-admin"
+              ]
+            },
+            "federatedAuthenticators": {
+              "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+              "authenticators": [
+                {
+                  "authenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
+                  "isEnabled": true,
+                  "isDefault": false,
+                  "properties": [
+                    {
+                      "key": "somePropertyKey",
+                      "value": "somePropertyValue"
+                    }
+                  ]
+                }
+              ]
+            },
+            "provisioning": {
+              "jit": {
+                "isEnabled": true,
+                "scheme": "PROVISION_SILENTLY",
+                "userstore": "PRIMARY",
+                "associateLocalUser": true,
+                "attributeSyncMethod": "OVERRIDE_ALL"
+              },
+              "outboundConnectors": {
+                "defaultConnectorId": "U0NJTQ",
+                "connectors": [
+                  {
+                    "connectorId": "U0NJTQ",
+                    "isEnabled": true,
+                    "isDefault": false,
+                    "blockingEnabled": false,
+                    "rulesEnabled": false,
+                    "properties": [
+                      {
+                        "key": "somePropertyKey",
+                        "value": "somePropertyValue"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+            }'               
       requestBody:
         content:
           application/json:
@@ -176,6 +285,13 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/identity-providers/{identity-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     patch:
       tags:
         - Identity Providers
@@ -224,6 +340,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/identity-providers/{identity-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/homeRealmIdentifier",
+              "value": "google"
+            }
+            ]'               
       requestBody:
         content:
           application/json:
@@ -270,6 +401,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/identity-providers/{identity-provider-id}?force=false' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
 servers:
   - url: 'https://api.asgardeo.io/o/{suborganization-id}/api/server/v1'
     variables:

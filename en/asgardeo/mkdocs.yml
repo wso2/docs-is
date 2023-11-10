@@ -284,6 +284,7 @@ nav:
       - Identity providers API: apis/organization-management/org-idp.md
       - Organization management API: apis/organization-management/org-management.md
       - Organization role management API: apis/organization-management/organization-role-management.md
+      - Idle account identification API: apis/organization-management/org-idle-account-identification.md
     - Idle account identification API: apis/idle-account-identification.md
   - References:  
     - References - Overview: references/index.md

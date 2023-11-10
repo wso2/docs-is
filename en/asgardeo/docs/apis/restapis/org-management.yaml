@@ -2,20 +2,19 @@ openapi: 3.0.0
 info:
   version: "v1"
   title: 'Asgardeo - Organization Management API Definition'
-  description: 'This is the RESTful API for organization management in Asgardeo. This API allows users to create, 
-  update, retrieve and delete organizations. <br><br>
+  description: |
+    'This is the RESTful API for organization management in Asgardeo. This API allows users to create, 
+    update, retrieve and delete organizations. <br><br>
 
-  <b>Important</b>:<br>
-  You need a paid Asgardeo subscription to create hierarchical organizations. If you don’t already have one, 
-  view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.
-  '
+    <b>Important</b>:<br>
+    You need a paid Asgardeo subscription to create hierarchical organizations. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.'
 servers:
   - url: 'https://api.asgardeo.io/o/{organization-id}/api/server/v1/organizations'
     variables:
       server-url:
         default: https://api.asgardeo.io/o/{organization-id}
       organization-id:
-        default: {organization-id}
+        default: organization-id
 security:
   - OAuth2: []
 paths:
@@ -54,6 +53,26 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/o/{organization-id}/api/server/v1/organizations/' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "name": "ABC Builders",
+            "description": "Building constructions",
+            "type": "TENANT",
+            "parentId": "b4526d91-a8bf-43d2-8b14-c548cf73065b",
+            "attributes": [
+              {
+                "key": "Country",
+                "value": "Sri Lanka"
+              }
+            ]
+            }'          
     get:
       description: "This API is used to search and retrieve organizations created for this organization.<br> \n\n <b>Scope required:</b> `internal_organization_view`"
       summary:
@@ -82,6 +101,13 @@ paths:
           $ref: '#/components/responses/ServerError'
         '501':
           $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{organization-id}/api/server/v1/organizations/?recursive=false' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
       tags:
         - Organization
 
@@ -115,6 +141,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{organization-id}/api/server/v1/organizations/{organization-id}?includePermissions=false' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
       tags:
         - Organization
     patch:
@@ -151,6 +184,21 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/o/{organization-id}/api/server/v1/organizations/{organization-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/name",
+              "value": "XYZ Builders"
+            }
+            ]'          
       tags:
         - Organization
     put:
@@ -187,6 +235,25 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/o/{organization-id}/api/server/v1/organizations/{organization-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "name": "ABC Builders",
+            "description": "Building constructions",
+            "status": "ACTIVE",
+            "attributes": [
+              {
+                "key": "Country",
+                "value": "Sri Lanka"
+              }
+            ]
+            }'         
       tags:
         - Organization
     delete:
@@ -213,6 +280,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/o/{organization-id}/api/server/v1/organizations/{organization-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'          
       tags:
         - Organization
 components:
