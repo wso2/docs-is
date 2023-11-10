@@ -95,7 +95,7 @@ jobs:
 
       - name: Update Downstream Repository Version
         run: |
-          set -euxo pipefail
+          set -uxo pipefail
           VERSION_FILE_PATH="$GITHUB_WORKSPACE/$GIT_REPO_NAME/cd-pipelines/docs/dev-setup-variables.yaml"
 
           echo "VERSION_FILE_PATH: $VERSION_FILE_PATH"
@@ -112,11 +112,17 @@ jobs:
           # Replacing the current version line with the new version line
           sed -i 's|'"${CURRENT_VERSION_LINE}"'|  GITHUB_RELEASE_TAG: v'"${{ env.NEW_VERSION }}"'|' "$VERSION_FILE_PATH"
 
+          echo "Updated the downstream version file to ${{ env.NEW_VERSION }}"
+
           # Verifying if the file has changed, and if so, committing and pushing it
           if git status --porcelain; then
             git config user.name $GIT_USERNAME
             git config user.email $GIT_USER_EMAIL
             git add "$VERSION_FILE_PATH"
             git commit -m "[Dev] Update asgardeo-docs release version to ${{ env.NEW_VERSION }}"
-            git push origin $GIT_BRANCH_NAME 
-        shell: bash
+            git push origin $GIT_BRANCH_NAME
+
+          echo "Updated the downstream repository version to ${{ env.NEW_VERSION }}"
+          else
+            echo "No changes to the downstream repository version"
+          fi
