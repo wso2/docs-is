@@ -299,6 +299,7 @@ nav:
         - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
+        - Enable FIPS 140-2-compliant mode: deploy/enable-fips-for-is.md
         - Configure Hazelcast: deploy/configure-hazelcast.md
         - Backup and recovery recommendations: deploy/backup-and-recovery-recommendations.md
         - Troubleshoot in production environments: deploy/monitor/troubleshoot-in-production-environments.md
