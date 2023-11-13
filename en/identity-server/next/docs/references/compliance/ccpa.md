@@ -18,7 +18,7 @@ This includes a broader spectrum of identifiers such as purchase events or downl
     - Download any kind of information stored in the system in a human-readable manner
 
     To facilitate this, WSO2 Identity Server published an API that can be used to download profile details of consumers stored in the server, in a well-structured and machine-readable JSON format. Consumers can download their profiles by logging into the self-care portal called **My Account**.
-    Any organization can integrate this capability into existing applications and portals with the help of the RESTful personal data export API exposed by the WSO2 Identity Server. For more information, refer to [Personal Information Export REST APIs]({{base_path}}/apis/use-the-personal-information-export-rest-apis).
+    Any organization can integrate this capability into existing applications and portals with the help of the RESTful personal data export API exposed by the WSO2 Identity Server. For more information, refer to [Personal Information Export REST APIs](https://api-docs.wso2.com/apidocs/is/is511/user-export-v5.11.0/).
 
 2. **The right to have PI deleted**
     The customers have the right to request the business to delete their personal information available with the business.

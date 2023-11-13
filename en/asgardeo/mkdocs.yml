@@ -284,6 +284,7 @@ nav:
       - Identity providers API: apis/organization-management/org-idp.md
       - Organization management API: apis/organization-management/org-management.md
       - Organization role management API: apis/organization-management/organization-role-management.md
+      - Idle account identification API: apis/organization-management/org-idle-account-identification.md
     - Idle account identification API: apis/idle-account-identification.md
   - References:  
     - References - Overview: references/index.md
@@ -298,6 +299,7 @@ nav:
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
     - OAuth2 grant types of Asgardeo: references/grant-types.md
     - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
+    - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: references/jarm.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md

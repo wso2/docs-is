@@ -1,5 +1,11 @@
-{% set product_name = "WSO2 Identity Server" %}
-{% set product_url = "https://localhost:9443" %}
-{% set product_url_format = "https://localhost:9443" %}
-{% set product_url_sample = "https://localhost:9443" %}
-{% include "../../../../../../includes/guides/authentication/conditional-auth/adaptive-mfa.md" %}
+# Add adaptive MFA
+
+Use authentication scripts to enforce adaptive MFA in the login flow of your applications.
+
+- [User role based]({{base_path}}/guides/authentication/conditional-auth/role-based-template/) adaptive MFA
+- [User store based]({{base_path}}/guides/authentication/conditional-auth/user-store-based-template/) adaptive MFA
+- [Login attempts based]({{base_path}}/guides/authentication/conditional-auth/login-attempt-based-template/) adaptive MFA
+- [User group based]({{base_path}}/guides/authentication/conditional-auth/group-based-template/) adaptive MFA.
+- [User device based]({{base_path}}/guides/authentication/conditional-auth/new-device-based-template/) adaptive MFA.
+- [IP address based]({{base_path}}/guides/authentication/conditional-auth/ip-based-template/) adaptive MFA.
+- Adaptive MFA [based on API calls]({{base_path}}/guides/authentication/conditional-auth/add-authentications-based-on-api-calls/)

@@ -3,13 +3,6 @@ openapi: 3.0.0
 info:
   title: Asgardeo - Organizational Role Management
   description: This is the RESTful API for managing organizational roles in Asgardeo. This API allows users to create, update, retrieve, and delete organization roles.
-  #contact:
-  #  name: WSO2
-  #  url: http://wso2.com/products/identity-server
-  #  email: iam-dev@wso2.org
-  #license:
-  #  name: Apache 2.0
-  #  url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v1
 servers:
 - url: https://api.asgardeo.io/o/{suborganization-id}/api/server/v1/organizations
@@ -85,6 +78,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/organizations/{organization-id}/roles' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     post:
       tags:
       - Organization Role Management
@@ -142,6 +142,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/organizations/{organization-id}/roles' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "displayName": "loginRole",
+            "users": [
+              {
+                "value": "008bba85-451d-414b-87de-c03b5a1f4217"
+              }
+            ],
+            "groups": [
+              {
+                "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+              }
+            ],
+            "permissions": [
+              "/permission/admin/login"
+            ]
+            }'               
   /{organization-id}/roles/{role-id}:
     get:
       tags:
@@ -188,6 +212,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/organizations/{organization-id}/roles/{role-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     put:
       tags:
       - Organization Role Management
@@ -246,6 +277,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/organizations/{organization-id}/roles/{role-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "displayName": "loginRole",
+            "users": [
+              {
+                "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43"
+              }
+            ],
+            "groups": [
+              {
+                "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+              }
+            ],
+            "permissions": [
+              "/permission/admin/manage/add"
+            ]
+            }'                
     delete:
       tags:
       - Organization Role Management
@@ -287,6 +342,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/organizations/{organization-id}/roles/{role-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
     patch:
       tags:
       - Organization Role Management
@@ -345,6 +407,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/organizations/{organization-id}/roles/{role-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "operations": [
+              {
+                "op": "ADD",
+                "path": "groups",
+                "value": [
+                  "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+                ]
+              }
+            ]
+            }'               
 components:
   schemas:
     Error:

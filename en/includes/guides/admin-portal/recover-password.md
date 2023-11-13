@@ -4,7 +4,7 @@ If you are an owner or an administrator in an {{ product_name }} organization, y
 
 To recover your password:
 
-1. Go to the sign-in page via the [My Account Portal]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#access-my-account-portal).
+1. Go to the sign-in page via the [My Account Portal]({{base_path}}/guides/{{ myacc_doc_url }}/#access-my-account-portal).
 
     ![Recover your password]({{base_path}}/assets/img/guides/organization/self-service/customer/recover-your-password.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 

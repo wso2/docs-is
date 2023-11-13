@@ -7,8 +7,9 @@ Email OTP is a form of passwordless authentication. It allows users to log in by
 
 - You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in {{ product_name }}.
 
-    !!! note
-        You cannot use an administrator account to log in to an application.
+{{ admin_login_note}}
+
+{{ configure_email_sender }}
 
 ## Enable Email OTP login for an app
 

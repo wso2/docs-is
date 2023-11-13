@@ -29,7 +29,7 @@ Follow the steps given below to create a sub organization.
 5. Click the **Switch** icon next to the sub organization to go to the sub organization console.
 
 !!! note
-    As the creator of the sub organization, you will be assigned to the Administrator role of the sub organization by default, which grants you the following privileges from the console.
+    As the creator of the sub organization, you will be assigned to the {{ admin_role_name }} role of the sub organization by default, which grants you the following privileges from the console.
 
     - Update / Delete users.
     - Create a group and assign users.

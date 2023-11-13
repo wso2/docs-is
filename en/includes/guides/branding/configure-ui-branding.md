@@ -567,6 +567,52 @@ Listed below are some advanced branding preferences you can apply to the user re
    </tr>
 </table>
 
+#### Locale-aware URLs
+
+By default, Asgardeo automatically appends the `ui_locales` parameter with the selected locale to URLs. However, if you need to tailor your URL structure to meet specific requirements, you can use the following placeholders to create a more customized URL:
+
+##### Supported placeholders:
+
+- **`{{locale}}`**: This placeholder represents the complete locale tag, including both the language and country, separated by a hyphen. For example, `ja-JP`.
+- **`{{country}}`**: Use this placeholder to insert the country code. For example, `JP`.
+- **`{{lang}}`**: This placeholder is for the language code. For example, `ja`.
+
+These placeholders provide flexibility in constructing URLs that adapt to different regions, languages, and countries. Customize your URLs to deliver a personalized user experience.
+
+##### Examples of customized URLs:
+
+1. Constructing a URL with the complete locale tag:
+
+    === "URL format"
+        `https://example.com/{{locale}}/page`
+
+    === "Sample"
+        Assume `ja-JP` is selected as the locale: `https://example.com/ja-JP/page`
+
+2. Inserting the country code into the URL:
+
+    === "URL format"
+        `https://example.com/country/{{country}}/page`
+
+    === "Sample"
+        If the selected country code is `JP`: `https://example.com/country/JP/page`
+
+3. Using the language code in the URL:
+
+    === "URL format"
+        `https://example.com/lang/{{lang}}/page`
+
+    === "Sample"
+        If the selected language code is `ja`: `https://example.com/lang/ja/page`
+
+4. Combining language and country codes:
+
+    === "URL format"
+        `https://example.com/{{lang}}_{{country}}/page`
+
+    === "Sample"
+        If the selected language code is `ja`, the country code is `JP`, and the delimiter is underscore: `https://example.com/ja_JP/page`
+
 ### Text preferences
 
 You can add text branding to screens of your organization in a language listed under the `Locale` list of **Text** branding.

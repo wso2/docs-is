@@ -20,6 +20,12 @@
 hs_err_pid*
 .idea/
 .DS_Store
-en/site
+en/identity-server/versions/site
+en/identity-server/5.9.0/site
+en/identity-server/5.10.0/site
+en/identity-server/5.11.0/site
+en/identity-server/6.0.0/site
+en/identity-server/6.1.0/site
 en/identity-server/7.0.0/site
+en/identity-server/next/site
 en/asgardeo/site

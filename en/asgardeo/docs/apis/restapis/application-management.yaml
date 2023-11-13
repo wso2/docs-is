@@ -12,10 +12,6 @@ paths:
       tags:
         - Applications
       operationId: getAllApplications
-      x-code-samples:
-        - lang: Shell
-          source: |-
-            curl -k -H "Authorization: Bearer <bearer_token>" "https://api.asgardeo.io/t/<organization-name>/api/server/v1/applications"
       summary: |
         List applications
       description: "This API provides the capability to retrieve the list of applications.\n\n <b>Scope required:</b> ``internal_application_mgt_view``"
@@ -61,6 +57,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications?limit=30&offset=0' \
+            -H 'accept: application/json'
+            -H 'Authorization: Bearer {bearer_token>}'                      
   /applications/:  
     post:
       tags:
@@ -130,6 +133,144 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/?template={template-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "name": "pickup-dispatch",
+            "description": "This is the configuration for Pickup-dispatch application.",
+            "imageUrl": "https://example.com/logo/my-logo.png",
+            "accessUrl": "https://example.com/login",
+            "templateId": "b9c5e11e-fc78-484b-9bec-015d247561b8",
+            "isManagementApp": false,
+            "claimConfiguration": {
+              "dialect": "LOCAL",
+              "claimMappings": [
+                {
+                  "applicationClaim": "firstname",
+                  "localClaim": {
+                    "uri": "http://wso2.org/claims/username"
+                  }
+                }
+              ],
+              "requestedClaims": [
+                {
+                  "claim": {
+                    "uri": "http://wso2.org/claims/username"
+                  },
+                  "mandatory": false
+                }
+              ],
+              "subject": {
+                "claim": {
+                  "uri": "http://wso2.org/claims/username"
+                },
+                "includeUserDomain": false,
+                "includeTenantDomain": false,
+                "useMappedLocalSubject": false
+              },
+              "role": {
+                "mappings": [
+                  {
+                    "localRole": "admin",
+                    "applicationRole": "Administrator"
+                  }
+                ],
+                "includeUserDomain": true,
+                "claim": {
+                  "uri": "http://wso2.org/claims/username"
+                }
+              }
+            },
+            "inboundProtocolConfiguration": {
+              "oidc": {
+                "clientId": "rMfbPgCi5oWljNhv8c4Pugfuo8Aa",
+                "clientSecret": "MkHGGiTdAPfTyUKfXLdyOwelMywt",
+                "grantTypes": [
+                  "authorization_code",
+                  "password"
+                ],
+                "callbackURLs": [
+                  "regexp=(https://app.example.com/callback1|https://app.example.com/callback2)"
+                ],
+                "allowedOrigins": [
+                  "https://app.example.com"
+                ],
+                "publicClient": false,
+                "pkce": {
+                  "mandatory": false,
+                  "supportPlainTransformAlgorithm": true
+                },
+                "accessToken": {
+                  "type": "JWT",
+                  "userAccessTokenExpiryInSeconds": 3600,
+                  "applicationAccessTokenExpiryInSeconds": 3600,
+                  "bindingType": "cookie",
+                  "revokeTokensWhenIDPSessionTerminated": true,
+                  "validateTokenBinding": true
+                },
+                "refreshToken": {
+                  "expiryInSeconds": 86400,
+                  "renewRefreshToken": true
+                },
+                "idToken": {
+                  "expiryInSeconds": 3600,
+                  "audience": [
+                    "http://idp.xyz.com",
+                    "http://idp.abc.com"
+                  ],
+                  "encryption": {
+                    "enabled": false,
+                    "algorithm": "RSA-OAEP",
+                    "method": "A128CBC+HS256"
+                  }
+                },
+                "logout": {
+                  "backChannelLogoutUrl": "https://app.example.com/backchannel/callback",
+                  "frontChannelLogoutUrl": "https://app.example.com/frontchannel/callback"
+                },
+                "validateRequestObjectSignature": false,
+                "scopeValidators": [
+                  "Role based scope validator"
+                ]
+              }
+            },
+            "authenticationSequence": {
+              "type": "DEFAULT",
+              "steps": [
+                {
+                  "id": 1,
+                  "options": [
+                    {
+                      "idp": "LOCAL",
+                      "authenticator": "basic"
+                    }
+                  ]
+                }
+              ],
+              "script": "string",
+              "subjectStepId": 1,
+              "attributeStepId": 1
+            },
+            "advancedConfigurations": {
+              "saas": false,
+              "discoverableByEndUsers": false,
+              "certificate": {
+                "type": "string",
+                "value": "string"
+              },
+              "skipLoginConsent": false,
+              "skipLogoutConsent": false,
+              "useExternalConsentPage": false,
+              "returnAuthenticatedIdpList": false,
+              "enableAuthorization": true
+            }
+            }'                 
   /applications/import:
     post:
       tags:
@@ -174,6 +315,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/import' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -F 'file=@file-name.xml;type=text/xml'                  
     put:
       tags:
         - Applications
@@ -223,7 +373,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/applications/{applicationId}':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/import' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -H 'Authorization: Bearer {bearer_token>}' \
+            -F 'file=@file-name.xml;type=text/xml'                   
+  /applications/{applicationId}:
     get:
       tags:
         - Applications
@@ -276,7 +435,13 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'   
     patch:
       tags:
         - Applications
@@ -323,6 +488,90 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "name": "pickup",
+            "description": "This is the configuration for Pickup-dispatch application.",
+            "imageUrl": "https://example.com/logo/my-logo.png",
+            "accessUrl": "https://example.com/login",
+            "templateId": "adwefi2429asdfdf94444rraf44",
+            "claimConfiguration": {
+              "dialect": "LOCAL",
+              "claimMappings": [
+                {
+                  "applicationClaim": "firstname",
+                  "localClaim": {
+                    "uri": "http://wso2.org/claims/username"
+                  }
+                }
+              ],
+              "requestedClaims": [
+                {
+                  "claim": {
+                    "uri": "http://wso2.org/claims/username"
+                  },
+                  "mandatory": false
+                }
+              ],
+              "subject": {
+                "claim": {
+                  "uri": "http://wso2.org/claims/username"
+                },
+                "includeUserDomain": false,
+                "includeTenantDomain": false,
+                "useMappedLocalSubject": false
+              },
+              "role": {
+                "mappings": [
+                  {
+                    "localRole": "admin",
+                    "applicationRole": "Administrator"
+                  }
+                ],
+                "includeUserDomain": true,
+                "claim": {
+                  "uri": "http://wso2.org/claims/username"
+                }
+              }
+            },
+            "authenticationSequence": {
+              "type": "DEFAULT",
+              "steps": [
+                {
+                  "id": 1,
+                  "options": [
+                    {
+                      "idp": "LOCAL",
+                      "authenticator": "basic"
+                    }
+                  ]
+                }
+              ],
+              "script": "string",
+              "subjectStepId": 1,
+              "attributeStepId": 1
+            },
+            "advancedConfigurations": {
+              "saas": false,
+              "discoverableByEndUsers": false,
+              "certificate": {
+                "type": "string",
+                "value": "string"
+              },
+              "skipLoginConsent": false,
+              "skipLogoutConsent": false,
+              "useExternalConsentPage": false,
+              "returnAuthenticatedIdpList": false,
+              "enableAuthorization": true
+            }
+            }'                   
     delete:
       tags:
         - Applications
@@ -362,6 +611,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                   
   /applications/{applicationId}/export:
     get:
       tags:
@@ -407,6 +663,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/export?exportSecrets=false' \
+            -H 'accept: application/octet-stream' \
+            -H 'Authorization: Bearer {bearer_token}'                  
 #  /applications/{applicationId}/owner:
 #   put:
 #     tags:
@@ -498,6 +761,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                  
   /applications/resident:
     get:
       tags:
@@ -535,6 +805,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/resident' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                  
     put:
       tags:
         - Resident application
@@ -582,6 +859,29 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/resident' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "inboundProvisioning": {
+              "proxyMode": false,
+              "provisioningUserstoreDomain": "PRIMARY"
+            },
+            "outboundProvisioningIdps": [
+              {
+                "idp": "Google",
+                "connector": "googleapps",
+                "blocking": false,
+                "rules": false,
+                "jit": false
+              }
+            ]
+            }'                 
       requestBody:
         content:
           application/json:
@@ -635,7 +935,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/applications/{applicationId}/inbound-protocols/saml':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                  
+  /applications/{applicationId}/inbound-protocols/saml:
     get:
       tags:
         - Inbound Protocols - SAML
@@ -679,7 +986,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'  
     put:
       tags:
         - Inbound Protocols - SAML
@@ -739,6 +1052,80 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "manualConfiguration": {
+              "issuer": "travelocity_460",
+              "serviceProviderQualifier": "serviceProviderQualifierValue",
+              "assertionConsumerUrls": [
+                [
+                  "http://localhost:8080/travelocity_460.com/home.jsp",
+                  "http://localhost:8080/travelocity_460.com/home1.jsp"
+                ]
+              ],
+              "defaultAssertionConsumerUrl": "http://localhost:8080/travelocity_460.com/home1.jsp",
+              "idpEntityIdAlias": "https://localhost.com",
+              "singleSignOnProfile": {
+                "bindings": [
+                  [
+                    "HTTP_POST",
+                    "HTTP_REDIRECT"
+                  ]
+                ],
+                "enableSignatureValidationForArtifactBinding": false,
+                "enableIdpInitiatedSingleSignOn": false,
+                "assertion": {
+                  "nameIdFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+                  "audiences": [
+                    "https://app.example.com/saml"
+                  ],
+                  "recipients": [
+                    "https://app.example.com/saml"
+                  ],
+                  "digestAlgorithm": "http://www.w3.org/2000/09/xmldsig#sha1",
+                  "encryption": {
+                    "enabled": false,
+                    "assertionEncryptionAlgorithm": "http://www.w3.org/2001/04/xmlenc#aes256-cbc",
+                    "keyEncryptionAlgorithm": "http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"
+                  }
+                }
+              },
+              "attributeProfile": {
+                "enabled": false,
+                "alwaysIncludeAttributesInResponse": false
+              },
+              "singleLogoutProfile": {
+                "enabled": true,
+                "logoutRequestUrl": "https://localhost.com",
+                "logoutResponseUrl": "https://localhost.com",
+                "logoutMethod": "BACKCHANNEL",
+                "idpInitiatedSingleLogout": {
+                  "enabled": false,
+                  "returnToUrls": [
+                    [
+                      "https://localhost.com"
+                    ]
+                  ]
+                }
+              },
+              "requestValidation": {
+                "enableSignatureValidation": true,
+                "signatureValidationCertAlias": "string"
+              },
+              "responseSigning": {
+                "enabled": true,
+                "signingAlgorithm": "http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160"
+              },
+              "enableAssertionQueryProfile": false
+            }
+            }'                  
       requestBody:
         content:
           application/json:
@@ -786,9 +1173,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-
-  '/applications/{applicationId}/inbound-protocols/oidc':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'  
+  /applications/{applicationId}/inbound-protocols/oidc:
     get:
       tags:
         - Inbound Protocols - OAuth / OIDC
@@ -832,6 +1224,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                  
     put:
       tags:
         - Inbound Protocols - OAuth / OIDC
@@ -884,6 +1283,65 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{appplication-id}/inbound-protocols/oidc' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'\
+            -d '{
+            "clientId": "rMfbPgCi5oWljNhv8c4Pugfuo8Aa",
+            "clientSecret": "MkHGGiTdAPfTyUKfXLdyOwelMywt",
+            "grantTypes": [
+              "authorization_code",
+              "password"
+            ],
+            "callbackURLs": [
+              "regexp=(https://app.example.com/callback1|https://app.example.com/callback2)"
+            ],
+            "allowedOrigins": [
+              "https://app.example.com"
+            ],
+            "publicClient": false,
+            "pkce": {
+              "mandatory": false,
+              "supportPlainTransformAlgorithm": true
+            },
+            "accessToken": {
+              "type": "JWT",
+              "userAccessTokenExpiryInSeconds": 3600,
+              "applicationAccessTokenExpiryInSeconds": 3600,
+              "bindingType": "cookie",
+              "revokeTokensWhenIDPSessionTerminated": true,
+              "validateTokenBinding": true
+            },
+            "refreshToken": {
+              "expiryInSeconds": 86400,
+              "renewRefreshToken": true
+            },
+            "idToken": {
+              "expiryInSeconds": 3600,
+              "audience": [
+                "http://idp.xyz.com",
+                "http://idp.abc.com"
+              ],
+              "encryption": {
+                "enabled": false,
+                "algorithm": "RSA-OAEP",
+                "method": "A128CBC+HS256"
+              }
+            },
+            "logout": {
+              "backChannelLogoutUrl": "https://app.example.com/backchannel/callback",
+              "frontChannelLogoutUrl": "https://app.example.com/frontchannel/callback"
+            },
+            "validateRequestObjectSignature": false,
+            "scopeValidators": [
+              "Role based scope validator"
+            ]
+            }'                  
       requestBody:
         content:
           application/json:
@@ -933,9 +1391,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-
-  '/applications/{applicationId}/inbound-protocols/oidc/regenerate-secret':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'  
+  /applications/{applicationId}/inbound-protocols/oidc/regenerate-secret:
     post:
       tags:
         - Inbound Protocols - OAuth / OIDC
@@ -979,8 +1442,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-  '/applications/{applicationId}/inbound-protocols/oidc/revoke':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/oidc/regenerate-secret' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d ''
+  /applications/{applicationId}/inbound-protocols/oidc/revoke:
     post:
       tags:
         - Inbound Protocols - OAuth / OIDC
@@ -1020,8 +1490,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-  '/applications/{applicationId}/inbound-protocols/passive-sts':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/application-id/inbound-protocols/oidc/revoke' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '' 
+  /applications/{applicationId}/inbound-protocols/passive-sts:
     get:
       tags:
         - Inbound Protocols - Passive STS
@@ -1066,7 +1543,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'  
     put:
       tags:
         - Inbound Protocols - Passive STS
@@ -1122,7 +1605,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "realm": "string",
+            "replyTo": "string"
+            }' 
       requestBody:
         content:
           application/json:
@@ -1172,7 +1666,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'  
 # '/applications/{applicationId}/inbound-protocols/ws-trust':
 #   get:
 #     tags:
@@ -1376,6 +1876,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                  
     put:
       tags:
         - Inbound Protocols - Custom
@@ -1436,6 +1943,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "name": "cas",
+            "configName": "cas",
+            "properties": [
+              {
+                "key": "app-identifier",
+                "value": "http://app.wso2.com/employeeApp",
+                "friendlyName": "Application Identifier"
+              }
+            ]
+            }'                 
       requestBody:
         content:
           application/json:
@@ -1490,8 +2016,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-  '/applications/meta/inbound-protocols':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'  
+  /applications/meta/inbound-protocols:
     get:
       tags:
         - Application Metadata
@@ -1531,8 +2063,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-  '/applications/meta/inbound-protocols/saml':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/meta/inbound-protocols?customOnly=true' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'  
+  /applications/meta/inbound-protocols/saml:
     get:
       tags:
         - Application Metadata
@@ -1571,7 +2109,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/meta/inbound-protocols/saml' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'  
   '/applications/meta/inbound-protocols/oidc':
     get:
       tags:
@@ -1603,7 +2147,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/meta/inbound-protocols/oidc' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'  
 # '/applications/meta/inbound-protocols/ws-trust':
 #   get:
 #     tags:
@@ -1675,8 +2225,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-  '/applications/meta/adaptive-auth-templates':
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/meta/inbound-protocols/{inbound-protocol-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'  
+  /applications/meta/adaptive-auth-templates:
     get:
       tags:
         - Application Metadata
@@ -1707,7 +2263,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/meta/adaptive-auth-templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'  
 components:
   parameters:
     limitQueryParam:

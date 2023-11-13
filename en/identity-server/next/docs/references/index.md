@@ -14,8 +14,6 @@ See the topics in this section for references that will help you while working w
 
 - [Remote user store properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) you need for configuring WSO2 IS user store agent.
 
-- [Monitor logs]({{base_path}}/references/application-logs/) in WSO2 IS.
-
 - [Email templates]({{base_path}}/references/email-templates/) in WSO2 IS.
 
 - [Compliance]({{base_path}}/references/compliance) in WSO2 IS.

@@ -15,8 +15,7 @@ To get started, you need to
 
 - [update the user profile of the users]({{base_path}}/guides/users/manage-customers/#update-the-profile) with an email address to which the user will receive the OTP.
 
-<!-- ADD CONTENT -->
-- [configure the email sending module]() in WSO2 Identity Server.
+- [configure the email sending module]({{base_path}}/deploy/configure-email-sending/) in WSO2 Identity Server.
 
 !!! note "Info"
     You can use Email OTP for multi-factor authentication only if a previous authentication step is configured with **username and password** or another factor that can validate user credentials.

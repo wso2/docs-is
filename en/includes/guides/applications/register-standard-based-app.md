@@ -26,7 +26,7 @@ To register an application:
 
     !!! note
         - You can choose OIDC or SAML as the standard protocol for your application. See the complete list of [OIDC]({{base_path}}/references/app-settings/oidc-settings-for-app/) and [SAML]({{base_path}}/references/app-settings/saml-settings-for-app/)  configurations.
-        - If you use OIDC, you can configure a management app, which can access the management APIs in {{ product_name }}. Learn about [invoking management APIs]({{base_path}}/apis/authentication/).
+        - If you use OIDC, you can configure a management app, which can access the management APIs in {{ product_name }}. Learn about [invoking management APIs]({{base_path}}/apis/{{ api_authentication_path }}/).
 
 4. Click **Register** to complete the registration.
 

@@ -80,11 +80,11 @@ Details of the parameters are given below.
   </tr>
   <tr>
     <td><code>signInRedirectURL</code></td>
-    <td>This is the URL the app redirects to after user login. See <a href="../../references/app-settings/oidc-settings-for-app/#authorized-redirect-urls">Authorized redirect URLs</a></td>
+    <td>This is the URL the app redirects to after user login. See <a href="{{base_path}}/references/app-settings/oidc-settings-for-app/#authorized-redirect-urls">Authorized redirect URLs</a></td>
   </tr>
   <tr>
     <td><code>signOutRedirectURL</code></td>
-    <td>This is the URL the app redirects to after user logout. See <a href="../../references/app-settings/oidc-settings-for-app/#authorized-redirect-urls">Authorized redirect URLs</a></td>
+    <td>This is the URL the app redirects to after user logout. See <a href="{{base_path}}/references/app-settings/oidc-settings-for-app/#authorized-redirect-urls">Authorized redirect URLs</a></td>
   </tr>
   <tr>
     <td><code>scope</code></td>
