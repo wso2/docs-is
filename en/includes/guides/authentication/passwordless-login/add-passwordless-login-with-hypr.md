@@ -6,7 +6,13 @@ This guide explains how you can use  HYPR to add passwordless login to applicati
 
 ## Prerequisites
 
-You need to configure the HYPR environment and have access to the HYPR control center. Learn how to do it in the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std).
+- To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
+
+- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in {{ product_name }}.
+
+{{ admin_login_note}}
+
+- You need to configure the HYPR environment and have access to the HYPR control center. Learn how to do it in the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std).
 
 ## Register application in HYPR
 
