@@ -12,9 +12,13 @@ There are two types of authenticators that you can use with FIDO2 passwordless a
 
 ## Prerequisites
 
-1. To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
+- To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-2. [Application users]({{base_path}}/guides/users/manage-customers/#onboard-a-user) need to register their security keys/biometrics via the My Account app prior to using passwordless login. Be sure to educate your users on how to [register a security key/biometrics via My Account.]({{base_path}}/guides/user-self-service/register-security-key/)
+- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in {{ product_name }}.
+
+{{ admin_login_note}}
+
+- [Application users]({{base_path}}/guides/users/manage-customers/#onboard-a-user) need to register their security keys/biometrics via the My Account app prior to using passwordless login. Be sure to educate your users on how to [register a security key/biometrics via My Account.]({{base_path}}/guides/user-self-service/register-security-key/)
 
 ## Enable passwordless login for an app
 
