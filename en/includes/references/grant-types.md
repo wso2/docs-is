@@ -16,6 +16,8 @@ The grant types supported by {{ product_name }} applications are as follows:
 
 - [Organization switch grant](#organization-switch-grant)
 
+{{grant_type_configs_note}}
+
 ## Authorization code grant
 
 The Authorization code flow provides a secure way for a client application to obtain an access token without exposing the user's credentials to the client application. The user only authenticates with the authorization server, which then issues an authorization code that can be exchanged for an access token.
