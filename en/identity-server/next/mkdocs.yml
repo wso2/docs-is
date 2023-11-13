@@ -145,6 +145,7 @@ nav:
               #- MFA based on sign-in option: guides/authentication/conditional-auth/sign-in-option-based-template.md
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
+              - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure OIDC flows:
@@ -214,6 +215,12 @@ nav:
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+      - Analytics:
+        - Overview: guides/analytics/elk-analytics.md
+        - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
+        - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
+        - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
+        - ELK Alerts: guides/analytics/elk-alert-types.md
       - Organization management:
         - Organization management: guides/organization-management/index.md
         - Manage organizations: guides/organization-management/manage-organizations.md
@@ -292,6 +299,11 @@ nav:
           - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure cache layers: deploy/performance/configure-cache-layers.md
         - Environment compatibility: deploy/environment-compatibility.md
+      - Analytics:
+        - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
+        - Configure SSO with ELK analytics: deploy/elk-analytics-sso-guide.md
+        - Configure ELK alerts: deploy/elk-configuring-alerts.md
+        - Configure ELK analytics for adaptive authentication: deploy/elk-analytics-for-adaptive-authentication.md
       - Monitor:
         - Monitor: deploy/monitor/index.md
         - Monitor logs:

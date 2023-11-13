@@ -2,6 +2,12 @@
 
 Given below are the high-level steps for enabling conditional authentication in your application.
 
+## Prerequisites
+
+[Register your application]({{base_path}}/guides/authentication/add-login-to-apps/) on the WSO2 Identity Server Console.
+
+{{jdk_version_message}}
+
 ## Enable conditional authentication
 
 {% include "../../fragments/manage-app/conditional-auth/configure-conditional-auth.md" %}
