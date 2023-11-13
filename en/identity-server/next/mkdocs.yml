@@ -230,7 +230,7 @@ nav:
           - Discover applications: guides/user-self-service/discover-applications.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
-        - Organization management: guides/organization-management/index.md
+        - Organizations: guides/organization-management/index.md
         - Set up organizations: guides/organization-management/manage-organizations.md
         - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
