@@ -65,7 +65,7 @@ Follow the steps below to obtain an API token.
         The token is only shown once.
 
 ## Set up the authenticator
-The HYPR authenticator has been introduced as a connector for IS 6.2.0. In order to use this authenticator, first, you should download the connector from the WSO2 Connector Store.
+The HYPR authenticator has been introduced as a connector for IS 7.0.0. In order to use this authenticator, first, you should download the connector from the WSO2 Connector Store.
 
 ### Download and install the HYPR authenticator
 
