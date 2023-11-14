@@ -5,7 +5,7 @@ Follow the steps given below to set up and install WSO2 Identity Server (WSO2 IS
 !!! info
     For detailed instructions on other installation options and deployments, see the [installation guide]({{base_path}}/deploy/get-started/install/).
 
-## Install WSO2 IS
+## Install the WSO2 Identity Server
 
 Follow the steps given below.
 
@@ -27,25 +27,7 @@ Follow the steps given below.
 
 -->
 
-## Configure the server
-
-Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` folder) and add the following configuration to enable CORS:
-
-``` toml
-[cors]
-allow_generic_http_requests = true
-allow_any_origin = true
-supported_methods = [
-    "POST",
-    "HEAD",
-    "OPTIONS"
-]
-supports_credentials = false
-max_age = 3600
-tag_requests = false
-```
-
-## Start WSO2 IS
+## Start the WSO2 Identity Server
 
 To start WSO2 IS, open a terminal, navigate to the `<IS_HOME>/bin` folder, and execute one of the following commands:
 
@@ -71,8 +53,19 @@ Note that the following log appears in the command prompt when the server starts
 
     ![QSG stop server]({{base_path}}/assets/img/get-started/qsg-stop-server.png)
 
+## Access the Console
+
+Once the server has started, you can access the WSO2 Identity Server console by navigating to the following URL.
+
+`https://{Server Host}:{Port}`
+
+For example, if you are using default settings, the console URL will be `https://localhost:9443`.
+
+You will then be presented with the login screen for the WSO2 Identity Server. Enter `admin` for both username and password fields to login as the admin user.
+
+![Login screen of IS]({{base_path}}/assets/img/get-started/login-to-is.png){: width="400" style="display: block; margin: 0 auto;"}
+
 ## What's next?
 
-Try out the [sample IAM scenarios]({{base_path}}/get-started/sample-use-cases/sample-scenario) to get familiar with WSO2 IS and its capabilities.
-
+Add login to your application using WSO2 Identity Server or try it on a sample application. [Try integrating IS into apps]({{base_path}}/get-started/try-samples).
 
