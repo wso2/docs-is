@@ -7,14 +7,7 @@ you need to follow in order to use MariaDB.
 
 ## Datasource configurations
 
-A datasource is used to establish the connection to a database. By
-default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
-to the default H2 database. 
-
-- `WSO2_SHARED_DB` - The datasource which stores registry and user management
-                     data.
-- `WSO2_IDENTITY_DB` - The datasource specific to the identity server which stores
-                       identity related data.
+{% include "../../../../includes/datasource-config.md" %}
                        
 After setting up the MariaDB database, you can point `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to the MariaDB database by following the instructions given below.
