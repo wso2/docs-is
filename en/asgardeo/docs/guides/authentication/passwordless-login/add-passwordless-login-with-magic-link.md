@@ -8,4 +8,6 @@
 
 {% set configure_email_sender = "" %}
 
+{% set disable_cross_browser_support = "" %}
+
 {% include "../../../../../includes/guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md" %}
