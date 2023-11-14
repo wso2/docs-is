@@ -4,6 +4,8 @@ See the topics in this section for references that will help you while working w
 
 - [User roles]({{base_path}}/references/user-management/user-roles/) and their associated permissions.
 
+- [Track user deletion]({{base_path}}/references/user-management/track-deletion/) in WSO2 IS.
+
 - [OpenID Connect and SAML settings]({{base_path}}/references/app-settings/) for applications.
 
 - [OpenID Connect and SAML settings]({{base_path}}/references/idp-settings/) for enterprise identity providers in WSO2 IS.
@@ -11,6 +13,8 @@ See the topics in this section for references that will help you while working w
 - [Grant types]({{base_path}}/references/grant-types/) used in WSO2 IS.
 
 - The [API references]({{base_path}}/references/conditional-auth/api-reference/) you need for writing conditional authentication scripts.
+
+- [Custom user store managers]({{base_path}}/references/user-stores/write-a-custom-user-store-manager/) in WSO2 IS.
 
 - [Email templates]({{base_path}}/references/email-templates/) in WSO2 IS.
 

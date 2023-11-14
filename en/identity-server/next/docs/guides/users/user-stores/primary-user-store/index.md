@@ -1,10 +1,10 @@
 # Configure the Primary User store
 
-This is the main user store that is shared among all the tenants in the
+This is the main user store that is used in the
 system. Only one user store can be configured as the primary user store.
 This documentation explains the process of setting up a primary user
 store. If you need more information on WSO2 Carbon user stores, see
-[Configure user stores]({{base_path}}/guides/users/user-stores/).
+[Manage user stores]({{base_path}}/guides/users/user-stores/).
 
 !!! note 
     WSO2 Identity Server uses the embedded H2 database as its primary user store.
@@ -59,7 +59,7 @@ There are two steps involved in setting up the primary user store:
     </tbody>
     </table>
 
-    You can configure your own custom user store manager. For more information, see [Write a custom user store manager]({{base_path}}/references/extend/write-a-custom-user-store-manager).
+    You can configure your own custom user store manager. For more information, see [Write a custom user store manager]({{base_path}}/references/user-stores/write-a-custom-user-store-manager).
 
     !!! tip
         From WSO2 IS 5.10.0 onwards, all user store managers have `UniqueID` included as part of the user store manager name (e.g.,`UniqueIDJDBCUserStoreManager`). Use one of these when selecting the user store manager. 
@@ -92,6 +92,6 @@ There are two steps involved in setting up the primary user store:
     !!! warning
         Server system administrator who is capable of all the actions in the
         system is configured within the `deployment.toml` file. If you have not
-        configured the system administrator yet, see [Configure the System Administrator]({{base_path}}/deploy/configure-the-system-administrator).
+        configured the system administrator yet, see [Configure the System Administrator]({{base_path}}/references/user-stores/configure-system-administrator).
 
 3.  Restart the server.
