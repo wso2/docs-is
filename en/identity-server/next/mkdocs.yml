@@ -18,8 +18,8 @@ INHERIT: ../../base.yml
 
 # Project information
 site_description: Documentation for WSO2 Identity Server
-#site_url: &site_url https://is.docs.wso2.com/en/next
-site_url: &site_url http://127.0.0.1:8000/en/next
+site_url: &site_url https://is.docs.wso2.com/en/next
+#site_url: &site_url http://127.0.0.1:8000/en/next
 
 # Configuration
 theme:
