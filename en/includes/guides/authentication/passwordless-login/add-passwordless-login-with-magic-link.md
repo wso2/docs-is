@@ -68,3 +68,4 @@ Follow the steps given below.
 
     !!! note
         Magic links support cross-browser functionality, allowing you to open the link and log in from any browser of your choice even if it is different from the one you used to initiate the login process.
+        {{ disable_cross_browser_support }}
