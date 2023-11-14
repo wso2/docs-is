@@ -64,4 +64,7 @@ Follow the steps given below.
 
     ![Magic link email]({{base_path}}/assets/img/guides/passwordless/magic-link/magic-link-email.png){: width="400" style="border: 0.3px solid lightgrey;"}
 
-5. Open the magic link by clicking **Sign In** on the **same browser** as your application.
+5. Open the magic link by clicking the **Sign In** button.
+
+    !!! note
+        Magic links support cross-browser functionality, allowing you to open the link and log in from any browser of your choice even if it is different from the one you used to initiate the login process.
