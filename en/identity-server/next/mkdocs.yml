@@ -196,8 +196,6 @@ nav:
             - Properties used in read-only LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-only-ldap-user-store.md
             - Properties used in read-Write Active Directory user store manager: guides/users/user-stores/user-store-properties/properties-read-write-active-directory-user-store.md
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
-          - Add high availability for LDAP: guides/users/user-stores/configure-high-availability-ldap.md
-          - Secure a JDBC user store with PBKDF2 hashing: guides/users/user-stores/secure-userstore-using-pbkdf2.md
       - Account management:
         - Account management: guides/user-accounts/index.md
         - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
@@ -249,6 +247,36 @@ nav:
         - Install: deploy/get-started/install.md
         - Run: deploy/get-started/run-the-product.md
         - Get WSO2 updates: deploy/get-started/get-wso2-updates.md
+      - Configure:
+        - User Stores: 
+          - deploy/configure/user-stores/index.md
+          - Add high availability for LDAP: deploy/configure/user-stores/configure-high-availability-ldap.md
+          - Secure a JDBC user store with PBKDF2 hashing: deploy/configure/user-stores/secure-userstore-using-pbkdf2.md
+          - Configure the Authorization Manager: deploy/configure/user-stores/configure-authorization-manager.md
+          - Configure the System Administrator: deploy/configure/user-stores/configure-system-administrator.md
+        - Databases:
+          - Databases: deploy/configure/databases/index.md
+          - Change the Carbon Database:
+            - Change the Carbon Database: deploy/configure/databases/carbon-database/index.md
+            - Change to IBM DB2: deploy/configure/databases/carbon-database/change-to-ibm-db2.md
+            - Change to MariaDB: deploy/configure/databases/carbon-database/change-to-mariadb.md
+            - Change to MSSQL: deploy/configure/databases/carbon-database/change-to-mssql.md
+            - Change to MySQL: deploy/configure/databases/carbon-database/change-to-mysql.md
+            - Change to Oracle: deploy/configure/databases/carbon-database/change-to-oracle.md
+            - Change to Oracle RAC: deploy/configure/databases/carbon-database/change-to-oracle-rac.md
+            - Change to PostgreSQL: deploy/configure/databases/carbon-database/change-to-postgresql.md
+            - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
+            - Change the Default Datasource for BPS: deploy/configure/databases/carbon-database/change-datasource-bpsds.md
+            - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
+          - Data Dictionary: 
+            - Registry Related Tables: deploy/configure/databases/data-dictionary/registry-related-tables.md
+            - User Management Related Tables: deploy/configure/databases/data-dictionary/user-management-related-tables.md
+            - Identity Related Tables: deploy/configure/databases/data-dictionary/identity-related-tables.md
+            - Service Provider Related Tables: deploy/configure/databases/data-dictionary/service-provider-related-tables.md
+            - Identity Provider Related Tables: deploy/configure/databases/data-dictionary/identity-provider-related-tables.md
+          - Data Purging: deploy/configure/databases/data-purging.md
+          - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
+        - Session Persistence: deploy/configure/session-persistence.md
       - Secure:
         - Mitigate attacks:
           - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
@@ -379,7 +407,9 @@ nav:
       - One way operations: apis/admin-services-for-one-way-operations.md
   - References:   
     - References: references/index.md
-    - User roles: references/user-management/user-roles.md
+    - User Management:
+      - User roles: references/user-management/user-roles.md
+      - Track user deletion: references/user-management/track-deletion.md
     - App configurations:
       - App configurations: references/app-settings/index.md
       - OIDC configurations: references/app-settings/oidc-settings-for-app.md
@@ -393,6 +423,8 @@ nav:
     - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: references/jarm.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
+    - User Stores: 
+      - Write a custom user store manager: references/user-stores/write-a-custom-user-store-manager.md
     - Email templates: references/email-templates.md
     - Compliance:
       - references/compliance/index.md

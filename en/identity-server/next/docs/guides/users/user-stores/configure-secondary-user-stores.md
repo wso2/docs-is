@@ -99,11 +99,7 @@ You can use either the WSO2 Identity Server Console to create secondary user sto
 7.  After adding it to the server, you can edit the properties of the new
     secondary user store and enable/disable it dynamically.  
     This will be saved to an XML file with the same name as the domain
-    name, under the
-    `<IS_HOME>/repository/deployment/server/userstores`
-    directory for a super tenant and the
-    `<IS_HOME>/repository/tenants/<tenantid>/userstores`
-    directory for tenants.
+    name, under `<IS_HOME>/repository/deployment/server/userstores` directory.
 
 ---
 
@@ -116,14 +112,8 @@ If you prefer to configure the user store manually, follow the steps given below
     configure a user store without specifying a domain name, the server
     throws an exception at start up.
 
-2.  If the configuration is done for the super tenant, save the
-    secondary user store definitions in the
+2.  Save the secondary user store definitions in the
     `<IS_HOME>/repository/deployment/server/userstores`      
-    directory.
-
-3.  If the configuration is done for the tenant, save the configuration
-    in the
-    `<IS_HOME>/repository/tenants/<tenantid>/userstores`
     directory.
 
     !!! note
