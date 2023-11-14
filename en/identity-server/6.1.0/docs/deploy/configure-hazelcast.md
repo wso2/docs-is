@@ -7,7 +7,7 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
 ```toml
 [hazelcast]
 "hazelcast.shutdownhook.enabled" = "false"
-"hazelcast.logging.type"= "log4j"
+"hazelcast.logging.type"= "log4j2"
 ```
 
 The configurations are as follows:
