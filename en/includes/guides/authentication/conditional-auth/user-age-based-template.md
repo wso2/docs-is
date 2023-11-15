@@ -43,8 +43,7 @@ Consider a scenario where users who are younger than 18 years should be prevente
 
     ---
 
-    !!! warning "Important"
-        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+{{asgardeo_auth_script_warning}}
 
 4. Update the following parameter in the script.
 

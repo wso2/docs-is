@@ -58,9 +58,6 @@ To enable conditional authentication:
 
     ---
 
-    !!! warning "Important"
-        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
-
 4. Verify that the login flow is now updated with the following two authentication steps:
 
     - Step 1: Username and Password

@@ -132,8 +132,7 @@ Follow the steps given below.
 
 4. Add the following authentication script.
 
-    !!! warning Important
-        As a security measure, {{ product_name }} does not allow the usage of two consecutive full stops (`..`) in authentication scripts.
+{{asgardeo_auth_script_warning}}
 
     ```js
     var connectionMetadata = {
