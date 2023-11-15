@@ -23,7 +23,7 @@ As the administrator of **Guardio Insurance**, you need to first set up a sub or
 
 [Create a sub  organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#create-a-suborganization) on the {{ product_name }} Console with `Best Car Mart` as the **Sub organization Name**.
 
-### Step 2: Onboard a sub organziation administrator
+### Step 2: Onboard a sub organization administrator
 
 [Onboard an administrator]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-b2b-administration/#onboard-suborganization-administrators) to the Best Car Mart organization using the values given below.
 
@@ -143,7 +143,7 @@ To set up the client application:
         <tr>
             <td><code>BaseOrganizationUrl</code></td>
             <td>The base URL of the organization.</td>
-            <td><code>https://api.asgardeo.io/t/{organization-name}</code>
+            <td><code>https://{{ host_name }}/t/{organization-name}</code>
             </td>
         </tr>
         <tr>
@@ -173,7 +173,7 @@ To set up the client application:
         </tr>
         <tr>
             <td><code>Branding.tag</code></td>
-            <td>A branding tag line for your apllication.</td>
+            <td>A branding tag line for your application.</td>
             <td><code>Anytime . Anywhere</code></td>
         </tr>
         <tr>
