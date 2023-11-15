@@ -21,11 +21,11 @@ As the administrator of **Guardio Insurance**, you need to first set up a sub or
 
 ### Step 1: Onboard the sub organization
 
-[Create a sub  organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#create-a-suborganization) on the {{ product_name }} Console with `Best Car Mart` as the **Sub organization Name**.
+[Create a sub  organization]({{base_path}}/guides/organization-management/manage-suborganizations/#create-a-suborganization) on the {{ product_name }} Console with `Best Car Mart` as the **Sub organization Name**.
 
 ### Step 2: Onboard a sub organization administrator
 
-[Onboard an administrator]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-b2b-administration/#onboard-suborganization-administrators) to the Best Car Mart organization using the values given below.
+[Onboard an administrator]({{base_path}}/guides/organization-management/manage-b2b-administration/#onboard-suborganization-administrators) to the Best Car Mart organization using the values given below.
 
 <table>
     <tr>
@@ -83,7 +83,7 @@ Follow the steps given below to register the Guardio Insurance App with {{ produ
 
 ### Step 2: Share the app with sub organizations
 
-Share the <b>Guardio Insurance app</b> with your <b>Best Car Mart</b> sub organization. See instructions on how to [share applications with sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/share-applications/).
+Share the <b>Guardio Insurance app</b> with your <b>Best Car Mart</b> sub organization. See instructions on how to [share applications with sub organizations]({{base_path}}/guides/organization-management/share-applications/).
 
 By doing so, you enable **Sign In with SSO** as a login option in the application login screen, which sub organization users can use to log in.
 
@@ -230,7 +230,7 @@ Follow the steps below to see how organization login works for a user in the **B
 ### Try out the administration portal
 
 !!! note
-    Learn how to build an administration portal for your B2B application in the [implement an administration portal]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-b2b-administration/#implement-an-administration-portal) section.
+    Learn how to build an administration portal for your B2B application in the [implement an administration portal]({{base_path}}/guides/organization-management/manage-b2b-administration/#implement-an-administration-portal) section.
 
 **Best Car Mart** needs to manage its employees through an external IdP. As the administrator of Best Car Mart, Alex, is tasked with enabling login from the external IdP for Best Car Mart employees.
 

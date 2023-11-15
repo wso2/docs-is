@@ -42,4 +42,4 @@ Note the following:
 
 Once an application is shared with a sub organization, its users can use the **Sign In with SSO** option to log in using their credentials.
 
-To try out a complete use case, see [Try a B2B use case]({{base_path}}/guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case/).
+To try out a complete use case, see [Try a B2B use case]({{base_path}}/guides/organization-management/try-a-b2b-use-case/).

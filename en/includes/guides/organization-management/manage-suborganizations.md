@@ -34,7 +34,7 @@ Follow the steps given below to create a sub organization.
     - Update / Delete users.
     - Create a group and assign users.
     - Create identity providers.
-    - Update the login options and general information of the applications shared from the primary organization. Learn more about [shared applications]({{base_path}}/guides/organization-management/manage-b2b-organizations/share-applications/).
+    - Update the login options and general information of the applications shared from the primary organization. Learn more about [shared applications]({{base_path}}/guides/organization-management/share-applications/).
 
 ## Add sub organization attributes
 
@@ -55,7 +55,7 @@ To add additional information about your sub organizations:
 
 ## Switch between sub organizations
 
-When you have multiple [sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/) for your primary business organization, you can switch between them on the {{ product_name }} Console by selecting the required sub organization from the list as shown below.
+When you have multiple [sub organizations]({{base_path}}/guides/organization-management/manage-suborganizations/) for your primary business organization, you can switch between them on the {{ product_name }} Console by selecting the required sub organization from the list as shown below.
 
 ![suborganizations]({{base_path}}/assets/img/guides/organization/manage-organizations/sub-organizations.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 

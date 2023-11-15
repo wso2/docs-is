@@ -1,17 +1,16 @@
 # Manage environments
 
-You can manage the development lifecycle of your applications by setting up the required environments as separate organizations.
+You can manage the development lifecycle of your applications by setting up the required environments as separate root organizations.
 
 For example, you may require a development environment and a preprod environment in addition to your organization's production environment. These environments will be used during the development and testing phases before you go into production.
 
-
 ## Define your environments
 
-Follow the steps below to create a separate organization to represent each environment you require.
+Follow the steps below to create a separate organization (root) to represent each environment you require.
 
-1. Go to the organization list and click **New**.
+1. Go to the root organization list and click **New**.
 
-2. Enter a name and description for your organization and click **Create**.
+2. Enter a name and description for your organization (root) and click **Create**.
 
     Use unique organization names to identify the environments. For example, if your business organization is Bifrost, you may use the following convention:
 
@@ -55,4 +54,3 @@ You can do this manually by recreating the artifacts in the higher environments.
 
 !!! note "Important"
     Some configurations, such as client IDs, secrets, URLs, and connection configurations, will be specific to the business environment, while other functional attributes, such as adaptive authentication scripts, remain the same in all environments.
-

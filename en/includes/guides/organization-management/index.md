@@ -1,32 +1,23 @@
-# Organization management
+# Organizations
 
-When you [create an account]({{base_path}}/get-started/create-asgardeo-account/) in {{ product_name }}, you define your first organization, which functions as the super organization or tenant in your {{ product_name }} subscription. From thereon, you (the account owner) or other delegated administrators can create multiple organizations via the {{ product_name }} Console and switch between them.
+If you have a business that offers Business-to-Business (B2B) solutions, you need to define the structure of your organization in {{ product_name }} so as to represent all your partner/supplier organizations. You can then share your applications and services with your partner/supplier organizations and allow them to manage their own identity and access management requirements.
 
-Listed below are the main characteristics of an organization.
-- An organization contains applications, external identity providers, and user identities belonging to a single domain.
-- Users or applications created in one organization cannot access the resources of another organization unless they are onboarded to that organization.
-- The administrator who creates the organization is the owner of the organization.
+- All partner/supplier organizations of your business should be set up as sub organizations of your primary organization in {{ product_name }}.
 
-The organizations you create in {{ product_name }} can be structured according to your business needs as follows:
+    !!! note
+        See [Manage sub organizations]({{base_path}}/guides/organization-management/manage-suborganizations/) for instructions.
 
-**B2C organizations**
+- Once the sub organizations are set up, you should onboard administrators to them. These Administrators can then use a separate administration portal created using {{ product_name }}'s B2B APIs to manage their respective sub organizations.
 
-In a B2C scenario,
+    !!! note
+        See [Manage administration]({{base_path}}/guides/organization-management/manage-b2b-administration/) for instructions.
 
-- you will create an organization to represent your business.
+- The primary business organization needs to share applications with its sub organizations so that the users managed by the sub organizations can log in and use them.
 
-- the organization manages the identity and access management requirements of your B2C applications and the user identities of your direct consumers.
+    !!! note
+        See [Share applications]({{base_path}}/guides/organization-management/share-applications/) for instructions.
 
-- You may create separate organizations to replicate the environments of the application development lifecycle.
+- Try out a complete B2B use case.
 
-**B2B organizations**
-
-In a B2B scenario,
-
-- you will create an organization to represent your business, which functions as your primary organization.
-
-- you will create subordinate organizations to onboard other business organizations (partners, suppliers, customer organizations, etc.) to your platform.
-
-- administrators of each subordinate organization manage the respective organization's user base and define login experiences for applications according to the organization's requirements.
-
-    <!-- Learn more about how {{ product_name }} supports B2B platforms. -->
+    !!! note
+        See  [Try a B2B use case]({{base_path}}/guides/organization-management/try-a-b2b-use-case/) for instructions.
