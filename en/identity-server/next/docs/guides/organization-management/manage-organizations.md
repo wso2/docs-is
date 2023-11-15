@@ -35,7 +35,7 @@ Follow the steps given below to create an organization.
     - Create a group and assign users.
     - Assign users and groups to roles.
     - Create identity providers.
-    - Update the login options and general information of the applications shared from the organization (root). Learn more about [shared applications]({{base_path}}/guides/organization-management/manage-b2b-organizations/share-applications/).
+    - Update the login options and general information of the applications shared from the organization (root). Learn more about [shared applications]({{base_path}}/guides/organization-management/share-applications/).
     - Configure the branding of the organization. Learn more about [branding]({{base_path}}/guides/branding/configure-ui-branding/).
     - Create organizations.
 

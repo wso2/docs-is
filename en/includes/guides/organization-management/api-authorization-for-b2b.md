@@ -33,7 +33,7 @@ sub organizations maintain the following three types of groups, and you can assi
 ### Assign user groups to application roles
 To assign application roles to user groups of the sub organization:
 
-1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
+1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-suborganizations/#switch-between-suborganizations).
 2. Go to **User Management** > **Roles** > **Application Roles** and click **Configure**.
 3. Expand the shared application and click `+` on the application role you wish to assign to a group.
 4. Go to Groups and click **+ Assign Groups**.
@@ -51,7 +51,7 @@ To assign application roles to External Groups:
     - You should [register, configure, and create groups for a connection]({{base_path}}/guides/authentication/#manage-connections) in your sub organization.
     - You should add this connection to the sign-in flow of the application to which the application roles belong.
 
-1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
+1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-suborganizations/#switch-between-suborganizations).
 2. Go to **User Management** > **Roles** > **Application Roles** and click **Configure**.
 3. Expand the fragmented application and click `+` on the application role you wish to assign to a group.
 4. Go to the **External groups** tab and expand the connection from which you select groups.
@@ -125,7 +125,7 @@ Once the above cURL is executed successfully, the application role of the sub or
 
 To view the group-to-role assignment:
 
-1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#switch-between-suborganizations).
+1. On the {{ product_name }} Console, [switch to the sub organization]({{base_path}}/guides/organization-management/manage-suborganizations/#switch-between-suborganizations).
 2. Go to **User Management** > **Roles** > **Application Roles** and click **Configure**.
 3. Expand the shared application and click `+` on the application role to which you assigned the invited user group.
 4. Go to the **Invited User Groups** tab. You will now see the invited user group assigned to the application role.
@@ -135,7 +135,7 @@ To view the group-to-role assignment:
 Follow the steps given below to try out the RBAC flow:
 
 !!! note
-    Note that we are using {{ product_name }}'s [B2B Guardio insurance application]({{base_path}}/guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case/) for this scenario.
+    Note that we are using {{ product_name }}'s [B2B Guardio insurance application]({{base_path}}/guides/organization-management/try-a-b2b-use-case/) for this scenario.
 
 To request scopes for the user:
 

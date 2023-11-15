@@ -12,7 +12,7 @@ In this approach, the admin of the root organization creates the sub organizatio
 Follow the steps below to onboard sub organization administrators using the {{ product_name }} Console.
 
 ### Prerequisites
-You need to [create a sub organization]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#create-a-sub-organization) and switch to the created sub organization.
+You need to [create a sub organization]({{base_path}}/guides/organization-management/manage-suborganizations/#create-a-sub-organization) and switch to the created sub organization.
 
 !!! note
     Only sub organization creators can onboard administrators for their sub organizations using the {{ product_name }} Console.
@@ -72,7 +72,7 @@ The Administrator role is available in sub organizations by default. To assign t
 You have now onboarded an administrator to the sub organization. From thereon, the sub organization administrator can manage that organization's identity and access management requirements.
 
 !!! note
-    Note that sub organization administrators do not have access to the {{ product_name }} Console as they are not direct users of {{ product_name }}. A separate administration portal is required to carry out these functions. Learn more about [implementing an administration portal]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-b2b-administration/#implement-an-administration-portal).
+    Note that sub organization administrators do not have access to the {{ product_name }} Console as they are not direct users of {{ product_name }}. A separate administration portal is required to carry out these functions. Learn more about [implementing an administration portal]({{base_path}}/guides/organization-management/manage-b2b-administration/#implement-an-administration-portal).
 
 ## Self-service approach
 In this approach, sub organization users can self-subscribe to the B2B application and easily create their own sub-organizations. This method empowers sub organization users to take control of the onboarding process, making it quick and convenient.

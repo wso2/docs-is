@@ -216,20 +216,18 @@ nav:
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
-      - Organization management:
-        - Organization management: guides/organization-management/index.md
-        - Manage organizations: guides/organization-management/manage-organizations.md
-        - Manage B2B organizations:
-          - Manage B2B organizations: guides/organization-management/manage-b2b-organizations/index.md
-          - Set up sub organizations: guides/organization-management/manage-b2b-organizations/manage-suborganizations.md
-          - Onboard sub organization admins: guides/organization-management/manage-b2b-organizations/onboard-sub-org-admins.md
-          - Administration of sub organizations: guides/organization-management/manage-b2b-organizations/manage-b2b-administration.md
-          - Share applications: guides/organization-management/manage-b2b-organizations/share-applications.md
-          - Try a B2B use case: guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case.md
-          - API authorization for sub organizations: guides/organization-management/manage-b2b-organizations/api-authorization-for-b2b.md
-        - Manage environments: guides/organization-management/manage-environments.md
+      - Organizations:
+        - Organizations: guides/organization-management/index.md
+        - Set up organizations: guides/organization-management/manage-suborganizations.md
+        - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
+        - Administration of organizations: guides/organization-management/manage-b2b-administration.md
+        - Share applications: guides/organization-management/share-applications.md
+        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+        - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
+        - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
+        - Manage environments: guides/your-asgardeo/manage-environments.md
         - Self-service: guides/your-asgardeo/asgardeo-self-service.md
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md

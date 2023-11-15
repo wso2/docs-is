@@ -6,7 +6,7 @@ If you have a requirement to delete your own user account from {{ product_name }
 
 If you are the owner of one or multiple {{ product_name }} organizations, you will have user accounts (of type **Owner**) in each organization. Currently, you are not allowed to remove your owner accounts or to transfer your ownership of organizations to other users.
 
-To delete your owner account(s), you need to [remove the organizations that you own]({{base_path}}/guides/organization-management/manage-organizations/#delete-organizations).
+To delete your owner account(s), you need to [remove the organizations that you own]({{base_path}}/guides/{{ path }}/#delete-root-organizations).
 
 ## Administrators
 
