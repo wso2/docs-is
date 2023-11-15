@@ -18,4 +18,5 @@
     1.   Stop the server if running
     2.   Run adaptive.sh (adaptive.bat for Windows) with DISABLE parameter (eg: `sh adaptive.sh DISABLE`)
     3.   Restart the server" %}
+{% set asgardeo_auth_script_warning = "" %}
 {% include "../../../../../../includes/guides/authentication/conditional-auth/configure-conditional-auth.md" %}
