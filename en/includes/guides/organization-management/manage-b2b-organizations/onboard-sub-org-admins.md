@@ -93,7 +93,7 @@ Before creating admins using the APIs, you need to obtain the required access to
     !!! note "Required scopes"
         Include the following scopes when requesting for the access token:
 
-        `openid` `internal_application_mgt_create` `internal_application_mgt_view` `internal_organization_view` `internal_organization_update` `internal_governance_view` `internal_governance_update` `internal_email_mgt_view` `internal_email_mgt_update`` internal_email_mgt_delete` `internal_email_mgt_create` `internal_userstore_view` `internal_userstore_update` `internal_userstore_delete`
+        `openid` `internal_application_mgt_create` `internal_application_mgt_view` `internal_organization_view` `internal_organization_update` `internal_governance_view` `internal_governance_update` `internal_email_mgt_view` `internal_email_mgt_update` internal_email_mgt_delete` `internal_email_mgt_create` `internal_userstore_view` `internal_userstore_update` `internal_userstore_delete`
 
 2. Enable self-service for the root organization.
 
@@ -120,7 +120,7 @@ Before creating admins using the APIs, you need to obtain the required access to
     
         - A system user named `B2B-SS-System-User`.
         - A system role named `B2B-SS-System-Role`.
-        - A system application named `B2B-Self-Service-Mgt-Application`. This application has     limited permissions to facilitate subsequent API calls.
+        - A system application named `B2B-Self-Service-Mgt-Application`. This application has limited permissions to facilitate subsequent API calls.
     
         You will be able to see these entities on the {{ product_name }} console.
 
@@ -148,6 +148,7 @@ This approach is suitable when you want sub organizations to govern themselves w
 To create and maintain admins in the sub organization:
 
 1. Use the following cURL to check if the name of sub organization you wish to create is already available.
+
     ``` curl
     curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application }' 
@@ -158,7 +159,7 @@ To create and maintain admins in the sub organization:
     ```
 
     !!! note
-        If the sub organization name is available for use, the response will be `"available": true`, else it will be `"available": false`.
+        If the sub organization name is available for use, the response will be `"available": true`, or else it will be `"available": false`.
 
 2. If the required organization name is available for use, use the following cURL to create the sub organization.
 
@@ -238,6 +239,7 @@ This approach is particularly suitable when a sub organization user prefers to m
 To create and maintain admins in the root organization:
 
 1. Create a user in the root organization using {{ product_name }}'s SCIM APIs.
+
     ``` curl
     curl --location 'https://{{ host_name }}/o/{root-org-id}/scim2/Users' \
     --header 'Content-Type: application/json' \
@@ -273,9 +275,10 @@ To create and maintain admins in the root organization:
     ```
 
     !!! note
-        If the sub organization name is available for use, the response will be `"available": true`, else it will be `"available": false`.
+        If the sub organization name is available for use, the response will be `"available": true`, or else it will be `"available": false`.
 
 3. If the required organization name is available for use, use the following cURL to create the sub organization and assign the user created in step 1 as the organization's admin.
+
     ``` curl
     curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application  }' \
