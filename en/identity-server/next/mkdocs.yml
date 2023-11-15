@@ -19,6 +19,7 @@ INHERIT: ../../base.yml
 # Project information
 site_description: Documentation for WSO2 Identity Server
 site_url: &site_url https://is.docs.wso2.com/en/next
+#site_url: &site_url http://127.0.0.1:8000/en/next
 
 # Configuration
 theme:
@@ -71,15 +72,7 @@ nav:
     - Home: index.md
   - Get Started:
     - Introduction: get-started/quick-start-guide.md
-    - Quickstart:
-      - Quick Setup: get-started/sample-use-cases/set-up.md
-      - Try a Sample Scenario:
-        - Sample Scenario: get-started/sample-use-cases/sample-scenario.md
-        - Use Cases:
-          - Single Sign-On: get-started/sample-use-cases/single-sign-on.md
-          - Multi-Factor Authentication: get-started/sample-use-cases/multi-factor-authentication.md
-          - Federated Authentication: get-started/sample-use-cases/federated-authentication.md
-          - Self Sign-Up: get-started/sample-use-cases/self-sign-up.md
+    - Quick Setup: get-started/quick-set-up.md
     - Start integrating IS into apps:
       - Try for a sample app:
         - get-started/try-samples/index.md
