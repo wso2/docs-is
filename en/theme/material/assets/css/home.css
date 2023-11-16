@@ -247,19 +247,10 @@ body[data-md-color-scheme=slate] {
     top: 0.8rem;
 }
 
-.md-header__button.md-logo {
-    display: inline-block !important;
-}
-
-.md-header__button[for=__drawer] {
-    display: none !important;
-}
-
 .md-search__scrollwrap {
     width: 100% !important;
 }
 
-.md-sidebar,
 .md-sidebar--secondary {
     display: none !important;
 }

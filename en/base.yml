@@ -104,7 +104,7 @@ markdown_extensions:
 
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
-  - assets/css/overrides.css
+  - assets/css/theme.css
   # TODO: Need to verify if below css files are still needed. And clean those.
   # - assets/lib/highlightjs/default.min.css
   # - assets/css/theme.css

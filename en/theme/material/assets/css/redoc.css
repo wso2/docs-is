@@ -20,10 +20,6 @@
     margin: 0 auto;
 }
 
-.md-sidebar--secondary {
-    display: none !important;
-}
-
 .md-main__inner.md-grid {
     width: 100%;
     display: block;
