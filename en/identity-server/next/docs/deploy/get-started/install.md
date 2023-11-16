@@ -183,26 +183,6 @@ Follow the instructions below to install WSO2 Identity Server on Linux or Mac OS
 1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
 2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
-    !!! warning
-        If you are using Mac OS with High Sierra, you may encounter the following warning message when logging in to the console due to a compression issue that exists in the High Sierra SDK.
-    
-        ``` toml
-        WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
-        ```
-    
-        To avoid this issue,    
-        1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.   
-        2. Set the `compression` element under the HTTPS connector configuration to `off` and restart the WSO2 Identity Server.
-
-        ``` toml
-        [transport.https]
-        ...
-        compression="off"
-        ...           
-        ```  
-        !!! note
-            If the above configuration is not listed in `deployment.toml`, add the above configuration manually.
-
 #### Set up JAVA_HOME
 
 You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
