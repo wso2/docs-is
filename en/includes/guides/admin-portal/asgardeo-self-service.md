@@ -10,9 +10,7 @@ You can perform the following activities on this portal:
 
 ## Access My Account portal
 
-You can access the My Account portal using the following URL:
-
-[https://myaccount.asgardeo.io](https://myaccount.asgardeo.io)
+{{my_account_url_note}}
 
 You can also switch to My Account from the {{ product_name }}. Click your profile icon as shown below and select **My Account**.
 
