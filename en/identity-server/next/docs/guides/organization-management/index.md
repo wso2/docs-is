@@ -6,7 +6,7 @@ If you have a business that offers Business-to-Business (B2B) solutions, you nee
 - All partner/supplier organizations of your business should be set up as organizations of your organization (root) in {{ product_name }}.
 
     !!! note
-        See [Manage organizations]({{base_path}}/guides/organization-management/manage-organizations/manage-organizations/) for instructions.
+        See [Manage organizations]({{base_path}}/guides/organization-management/manage-organizations/) for instructions.
 
 - Once the organizations are set up, you should onboard administrators to them. These Administrators can then use a separate administration portal created using {{ product_name }}'s B2B APIs to manage their respective organizations.
 
