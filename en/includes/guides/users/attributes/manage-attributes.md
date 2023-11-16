@@ -54,12 +54,12 @@ To update the properties of a user attribute:
 2. Click **Attributes** to see the list of attributes.
 3. Click **Edit** for the attribute you want to update.
 
-    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! note
         The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
 
-4. Update the following values.
+4. In the **General** tab, update the following values.
 
     <table>
        <tbody>
@@ -86,4 +86,10 @@ To update the properties of a user attribute:
      </tbody>
     </table>
 
-6. Click **Update**.
+5. Go to the **Mapped Attributes** tab and enter the attribute from each user store that you need to map.
+
+    ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+6. Go to the **Additional Properties** tab and add additional properties that can be used when writing an extension.
+
+    ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
