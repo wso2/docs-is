@@ -43,13 +43,20 @@ body[data-md-color-scheme=slate] {
 }
 
 .md-column-grid {
-    -webkit-column-count: 3;
-    -webkit-column-gap: 2rem;
-    -moz-column-count: 3;
-    -moz-column-gap: 2rem;
-    column-count: 3;
-    column-gap: 2rem;
     margin: auto;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.md-grid-column {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.md-grid-column:last-child {
+    margin-right: 0;
 }
   
 .md-column-grid-item {
