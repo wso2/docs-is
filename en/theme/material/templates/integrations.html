@@ -37,7 +37,9 @@
                 <p><img src="{{ integration.icon | url }}" /></p>
               </div>
               <div class="flex-column">
-                <p class="sdk-description">{{ integration.description }}</p>
+                {% set description = integration.description %}
+                {% set description = description.replace('{{ config.extra.product_name }}', config.extra.product_name) %}
+                <p class="sdk-description">{{ description }}</p>
               </div>
               <div class="flex-column source-links">
                 {% if integration.documentation_link %}
