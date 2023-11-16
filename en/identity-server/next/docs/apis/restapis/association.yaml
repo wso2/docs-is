@@ -59,7 +59,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/associations' \
+            'https://localhost:9443/api/users/v1/me/associations' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -111,7 +111,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/associations' \
+            'https://localhost:9443/api/users/v1/me/associations' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -154,7 +154,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/associations' \
+            'https://localhost:9443/api/users/v1/me/associations' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/associations/{associated-user-id}:
@@ -192,7 +192,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/associations/{associated-user-id}' \
+            'https://localhost:9443/api/users/v1/me/associations/{associated-user-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/federated-associations:
@@ -232,7 +232,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/federated-associations' \
+            'https://localhost:9443/api/users/v1/me/federated-associations' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
@@ -263,7 +263,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/federated-associations' \
+            'https://localhost:9443/api/users/v1/me/federated-associations' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/federated-associations/{id}:
@@ -307,7 +307,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/federated-associations/{federated-association-id}' \
+            'https://localhost:9443/api/users/v1/me/federated-associations/{federated-association-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/associations:
@@ -360,7 +360,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/associations' \
+            'https://localhost:9443/api/users/v1/{user-id}/associations' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
@@ -403,7 +403,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/associations' \
+            'https://localhost:9443/api/users/v1/{user-id}/associations' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/federated-associations:
@@ -456,7 +456,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/federated-associations' \
+            'https://localhost:9443/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
@@ -499,7 +499,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/federated-associations' \
+            'https://localhost:9443/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/federated-associations/{id}:
@@ -548,7 +548,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/user-id/federated-associations/federated-association-id' \
+            'https://localhost:9443/api/users/v1/user-id/federated-associations/federated-association-id' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:

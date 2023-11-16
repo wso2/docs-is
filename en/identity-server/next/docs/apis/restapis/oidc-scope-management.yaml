@@ -52,7 +52,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes' \
+            'https://localhost:9443/api/server/v1/oidc/scopes' \
             -H 'accept: application/json'
     post:
       tags:
@@ -84,7 +84,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes' \
+            'https://localhost:9443/api/server/v1/oidc/scopes' \
             -H 'accept: */*' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -133,7 +133,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes/{scope-name}' \
+            'https://localhost:9443/api/server/v1/oidc/scopes/{scope-name}' \
             -H 'accept: application/json'
     put:
       tags:
@@ -173,7 +173,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes/{scope-name}' \
+            'https://localhost:9443/api/server/v1/oidc/scopes/{scope-name}' \
             -H 'accept: */*' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -214,7 +214,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/oidc/scopes/{scope-name}' \
+            'https://localhost:9443/api/server/v1/oidc/scopes/{scope-name}' \
             -H 'accept: */*'
 
 components:

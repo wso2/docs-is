@@ -51,7 +51,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            'https://localhost:9443/scim2/Me' \
             -H 'accept: application/scim+json'
     put:
       tags:
@@ -94,7 +94,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            'https://localhost:9443/scim2/Me' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -178,7 +178,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            'https://localhost:9443/scim2/Me' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -236,7 +236,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            'https://localhost:9443/scim2/Me' \
             -H 'accept: */*'                
     patch:
       tags:
@@ -279,7 +279,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/t/carbon.super/scim2/Me' \
+            'https://localhost:9443/scim2/Me' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -361,7 +361,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/Groups' \
+            'https://localhost:9443/scim2/Groups' \
             -H 'accept: application/scim+json'               
     post:
       tags:
@@ -417,7 +417,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/scim2/Groups' \
+            'https://localhost:9443/scim2/Groups' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -471,7 +471,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/scim2/Groups/.search' \
+            'https://localhost:9443/scim2/Groups/.search' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -531,7 +531,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/Groups/{group-id}' \
+            'https://localhost:9443/scim2/Groups/{group-id}' \
             -H 'accept: application/scim+json'                 
     put:
       tags:
@@ -593,7 +593,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/scim2/Groups/{group-id}' \
+            'https://localhost:9443/scim2/Groups/{group-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -641,7 +641,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/scim2/Groups/{group-id}' \
+            'https://localhost:9443/scim2/Groups/{group-id}' \
             -H 'accept: */*'                 
     patch:
       tags:
@@ -700,7 +700,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/t/carbon.super/scim2/Groups/{group-id}' \
+            'https://localhost:9443/scim2/Groups/{group-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -800,7 +800,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/Users' \
+            'https://localhost:9443/scim2/Users' \
             -H 'accept: application/scim+json'                 
     post:
       tags:
@@ -862,7 +862,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/scim2/Users' \
+            'https://localhost:9443/scim2/Users' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -930,7 +930,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/scim2/Users/.search' \
+            'https://localhost:9443/scim2/Users/.search' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -994,7 +994,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/Users/{user-id}' \
+            'https://localhost:9443/scim2/Users/{user-id}' \
             -H 'accept: application/scim+json'                  
     put:
       tags:
@@ -1050,7 +1050,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/scim2/Users/{user-id}' \
+            'https://localhost:9443/scim2/Users/{user-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -1114,7 +1114,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/scim2/Users/{user-id}' \
+            'https://localhost:9443/scim2/Users/{user-id}' \
             -H 'accept: */*'                 
     patch:
       tags:
@@ -1171,7 +1171,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/t/carbon.super/scim2/Users/user-id' \
+            'https://localhost:9443/scim2/Users/user-id' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -1238,7 +1238,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/Roles' \
+            'https://localhost:9443/scim2/Roles' \
             -H 'accept: application/scim+json'                 
     post:
       tags:
@@ -1283,7 +1283,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/scim2/Roles' \
+            'https://localhost:9443/scim2/Roles' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -1344,7 +1344,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/scim2/Roles/.search' \
+            'https://localhost:9443/scim2/Roles/.search' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -1405,7 +1405,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/Roles/{role-id}' \
+            'https://localhost:9443/scim2/Roles/{role-id}' \
             -H 'accept: application/scim+json'                  
     put:
       tags:
@@ -1463,7 +1463,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/scim2/Roles/{role-id}' \
+            'https://localhost:9443/scim2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -1518,7 +1518,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/scim2/Roles/{role-id}' \
+            'https://localhost:9443/scim2/Roles/{role-id}' \
             -H 'accept: */*'                  
     patch:
       tags:
@@ -1570,7 +1570,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/t/carbon.super/scim2/Roles/{role-id}' \
+            'https://localhost:9443/scim2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -1639,7 +1639,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/scim2/Bulk' \
+            'https://localhost:9443/scim2/Bulk' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -d '{
@@ -1688,7 +1688,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/ResourceTypes' \
+            'https://localhost:9443/scim2/ResourceTypes' \
             -H 'accept: application/scim+json'                  
   /ServiceProviderConfig:
     get:
@@ -1718,7 +1718,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/scim2/ServiceProviderConfig' \
+            'https://localhost:9443/scim2/ServiceProviderConfig' \
             -H 'accept: application/scim+json'                  
 components:
   schemas:

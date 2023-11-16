@@ -85,7 +85,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents?limit=<Limit_Number>&offset=<Offset_Number>&piiPrincipalId=<PII_Principal_Name>&spTenantDomain=<Tenant_Domain>&service=<Service_Name>*&state=<ACTIVE/REVOKED>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -147,7 +147,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -246,7 +246,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/receipts/{receipt-ID}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/receipts/{receipt-ID}' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/receipts/<Consent_Receipt_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -300,7 +300,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/receipts/{receipt-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/receipts/{receipt-id}' \
             -H 'accept: */*'
       x-wso2-request: |
         curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/receipts/<Consent_Receipt_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -372,7 +372,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/purposes' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes?group=<Group>&groupType=<Group_Type>limit=<Limit_Number>&offset=<Offset_Number>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json"
@@ -434,7 +434,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/purposes' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -506,7 +506,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/purposes/{purpose-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes/{purpose-id}' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes/<Purpose_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json"
@@ -560,7 +560,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/purposes/{purpose-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes/{purpose-id}' \
             -H 'accept: */*'
       x-wso2-request: |
         curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purposes/<Purpose_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -622,7 +622,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/purpose-categories' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories?limit=<LimitNumber>&offset=<OffsetNumber>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -684,7 +684,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/purpose-categories' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -748,7 +748,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-catergory-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-catergory-id}' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/<Purpose_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -802,7 +802,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-catergory-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-catergory-id}' \
             -H 'accept: */*'
       x-wso2-request: |
         curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/<Purpose_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -864,7 +864,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/pii-categories' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories?limit=<Limit_Number>&offset=<Offset_Number>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -926,7 +926,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/pii-categories' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -992,7 +992,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-catergory-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-catergory-id}' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/<PII_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -1046,7 +1046,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-catergory-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-catergory-id}' \
             -H 'accept: */*'
       x-wso2-request: |
         curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/<PII_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"

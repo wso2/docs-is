@@ -64,7 +64,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/user-functionality/{function-id}' \
+            'https://localhost:9443/api/users/v1/me/user-functionality/{function-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -127,7 +127,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/user-functionality/{function-id}' \
+            'https://localhost:9443/api/users/v1/me/user-functionality/{function-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -195,7 +195,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/user-functionality/{function-id}' \
+            'https://localhost:9443/api/users/v1/{user-id}/user-functionality/{function-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -267,7 +267,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/user-functionality/{function-id}' \
+            'https://localhost:9443/api/users/v1/{user-id}/user-functionality/{function-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \

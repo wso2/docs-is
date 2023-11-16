@@ -120,7 +120,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/approval-tasks' \
+            'https://localhost:9443/api/users/v1/me/approval-tasks' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/approval-tasks/{task-id}:
@@ -204,7 +204,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/approval-tasks/451' \
+            'https://localhost:9443/api/users/v1/me/approval-tasks/451' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/approval-tasks/{task-id}/state:
@@ -269,7 +269,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/approval-tasks/451/state' \
+            'https://localhost:9443/api/users/v1/me/approval-tasks/451/state' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \

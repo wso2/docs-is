@@ -53,7 +53,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores' \
+            'https://localhost:9443/api/server/v1/userstores' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -110,7 +110,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores' \
+            'https://localhost:9443/api/server/v1/userstores' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='  
   /userstores/import:
@@ -156,7 +156,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/import' \
+            'https://localhost:9443/api/server/v1/userstores/import' \
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -F 'file=@file-name.xml;type=text/xml'
@@ -189,7 +189,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/primary' \
+            'https://localhost:9443/api/server/v1/userstores/primary' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='           
   /userstores/{userstore-domain-id}:
@@ -223,7 +223,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/{userstore-domain-id}' \
+            'https://localhost:9443/api/server/v1/userstores/{userstore-domain-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='          
     delete:
@@ -251,7 +251,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/{userstore-domain-id}' \
+            'https://localhost:9443/api/server/v1/userstores/{userstore-domain-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='           
     put:
@@ -293,7 +293,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/{userstore-domain-id}' \
+            'https://localhost:9443/api/server/v1/userstores/{userstore-domain-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -350,7 +350,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/userstore-domain-id' \
+            'https://localhost:9443/api/server/v1/userstores/userstore-domain-id' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -424,7 +424,7 @@ paths:
           - lang: Curl
             source: |
               curl -X 'GET' \
-              'https://localhost:9443/t/carbon.super/api/server/v1/userstores/{domain-id}/export' \
+              'https://localhost:9443/api/server/v1/userstores/{domain-id}/export' \
               -H 'accept: application/json' 
   /userstores/{userstore-domain-id}/import:
     put:
@@ -474,7 +474,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/{userstore-domain-id}/import' \
+            'https://localhost:9443/api/server/v1/userstores/{userstore-domain-id}/import' \
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -F 'file=@file-name.xml;type=text/xml'
@@ -507,7 +507,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/meta/types' \
+            'https://localhost:9443/api/server/v1/userstores/meta/types' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='         
   /userstores/meta/types/{type-id}:
@@ -551,7 +551,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/meta/types/{user-store-type-id}' \
+            'https://localhost:9443/api/server/v1/userstores/meta/types/{user-store-type-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='          
   /userstores/test-connection:
@@ -583,7 +583,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/userstores/test-connection' \
+            'https://localhost:9443/api/server/v1/userstores/test-connection' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \

@@ -81,7 +81,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenges' \
+            'https://localhost:9443/api/users/v1/me/challenges' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/challenge-answers:
@@ -120,7 +120,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers' \
+            'https://localhost:9443/api/users/v1/me/challenge-answers' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -174,7 +174,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers' \
+            'https://localhost:9443/api/users/v1/me/challenge-answers' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \
@@ -241,7 +241,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers' \
+            'https://localhost:9443/api/users/v1/me/challenge-answers' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \
@@ -293,7 +293,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers' \
+            'https://localhost:9443/api/users/v1/me/challenge-answers' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/challenge-answers/{challenge-set-id}:
@@ -353,7 +353,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers/chalenge-set-id' \
+            'https://localhost:9443/api/users/v1/me/challenge-answers/chalenge-set-id' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \
@@ -428,7 +428,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers/{challenge-set-id}' \
+            'https://localhost:9443/api/users/v1/me/challenge-answers/{challenge-set-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \
@@ -484,7 +484,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/challenge-answers/{challenge-set-id}' \
+            'https://localhost:9443/api/users/v1/me/challenge-answers/{challenge-set-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/challenges:
@@ -558,7 +558,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenges' \
+            'https://localhost:9443/api/users/v1/{user-id}/challenges' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/challenge-answers:
@@ -611,7 +611,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers' \
+            'https://localhost:9443/api/users/v1/{user-id}/challenge-answers' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -672,7 +672,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers' \
+            'https://localhost:9443/api/users/v1/{user-id}/challenge-answers' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \
@@ -751,7 +751,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers' \
+            'https://localhost:9443/api/users/v1/{user-id}/challenge-answers' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \
@@ -810,7 +810,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers' \
+            'https://localhost:9443/api/users/v1/{user-id}/challenge-answers' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/challenge-answers/{challenge-set-id}:
@@ -876,7 +876,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
+            'https://localhost:9443/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \
@@ -957,7 +957,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
+            'https://localhost:9443/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: */*' \
@@ -1019,7 +1019,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
+            'https://localhost:9443/api/users/v1/{user-id}/challenge-answers/{challenge-set-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:

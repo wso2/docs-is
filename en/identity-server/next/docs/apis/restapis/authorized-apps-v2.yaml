@@ -67,7 +67,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v2/{user-id}/authorized-apps' \
+            'https://localhost:9443/api/users/v2/{user-id}/authorized-apps' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
@@ -104,7 +104,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v2/{user-id}/authorized-apps' \
+            'https://localhost:9443/api/users/v2/{user-id}/authorized-apps' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/authorized-apps/{application-id}:
@@ -157,7 +157,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v2/{user-id}/authorized-apps/{app-id}' \
+            'https://localhost:9443/api/users/v2/{user-id}/authorized-apps/{app-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
@@ -206,7 +206,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v2/{user-id}/authorized-apps/{app-id}' \
+            'https://localhost:9443/api/users/v2/{user-id}/authorized-apps/{app-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/authorized-apps:
@@ -243,7 +243,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v2/me/authorized-apps' \
+            'https://localhost:9443/api/users/v2/me/authorized-apps' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
@@ -274,7 +274,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v2/me/authorized-apps' \
+            'https://localhost:9443/api/users/v2/me/authorized-apps' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/authorized-apps/{application-id}:
@@ -323,7 +323,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v2/me/authorized-apps/{app-id}' \
+            'https://localhost:9443/api/users/v2/me/authorized-apps/{app-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
@@ -368,7 +368,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v2/me/authorized-apps/%7Bapp-id%7D' \
+            'https://localhost:9443/api/users/v2/me/authorized-apps/%7Bapp-id%7D' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:

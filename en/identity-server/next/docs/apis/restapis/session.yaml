@@ -75,12 +75,12 @@ paths:
             examples:
               Using basic authentication:
                 value: | 
-                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" 
+                  curl -X GET "https://localhost:9443/api/users/v1/me/sessions" 
                   -H "accept: application/json" 
                   -H "Authorization: Basic <base64(username:password)>"
               Using OAuth based authentication:
                 value: |
-                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" 
+                  curl -X GET "https://localhost:9443/api/users/v1/me/sessions" 
                   -H "accept: application/json" 
                   -H "Authorization: Bearer <access-token>"
       responses:
@@ -144,12 +144,12 @@ paths:
             examples:
               Using basic authentication:
                 value: | 
-                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions"
+                  curl -X DELETE "https://localhost:9443/api/users/v1/me/sessions"
                   -H "accept: */*" 
                   -H "Authorization: Basic <base64(username:password)>"
               Using OAuth based authentication:
                 value: |
-                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions"
+                  curl -X DELETE "https://localhost:9443/api/users/v1/me/sessions"
                   -H "accept: */*" 
                   -H "Authorization: Bearer <access-token>"
       responses:
@@ -184,12 +184,12 @@ paths:
             examples:
               Using basic authentication:
                 value: |  
-                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions/<session_id>"
+                  curl -X DELETE "https://localhost:9443/api/users/v1/me/sessions/<session_id>"
                   -H "accept: */*" 
                   -H "Authorization: Basic <base64(username:password)>"
               Using OAuth based authentication:
                 value: |
-                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions/<session_id>"
+                  curl -X DELETE "https://localhost:9443/api/users/v1/me/sessions/<session_id>"
                   -H "accept: */*" 
                   -H "Authorization: Bearer <access-token>"
       responses:
@@ -229,12 +229,12 @@ paths:
             examples:
               Using basic authentication:
                 value: | 
-                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  curl -X GET "https://localhost:9443/api/users/v1/<user_id>/sessions" 
                   -H "accept: application/json"
                   -H "Authorization: Basic <base64(username:password)>"
               Using OAuth based authentication:
                 value: |
-                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  curl -X GET "https://localhost:9443/api/users/v1/<user_id>/sessions" 
                   -H "accept: application/json"
                   -H "Authorization: Bearer <access-token>"
       responses:
@@ -271,12 +271,12 @@ paths:
             examples:
               Using basic authentication:
                 value: |
-                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  curl -X DELETE "https://localhost:9443/api/users/v1/<user_id>/sessions" 
                   -H "accept: */*"
                   -H "Authorization: Basic <base64(username:password)>"
               Using OAuth based authentication:
                 value: |
-                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  curl -X DELETE "https://localhost:9443/api/users/v1/<user_id>/sessions" 
                   -H "accept: */*"
                   -H "Authorization: Bearer <access-token>"
       responses:
@@ -337,12 +337,12 @@ paths:
             examples:
               Using basic authentication:
                 value: |
-                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions/<session_id>" 
+                  curl -X DELETE "https://localhost:9443/api/users/v1/<user_id>/sessions/<session_id>" 
                   -H "accept: */*"
                   -H "Authorization: Basic <base64(username:password)>"
               Using OAuth based authentication:
                 value: |
-                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions/<session_id>" 
+                  curl -X DELETE "https://localhost:9443/api/users/v1/<user_id>/sessions/<session_id>" 
                   -H "accept: */*"
                   -H "Authorization: Bearer <access-token>"
       responses:

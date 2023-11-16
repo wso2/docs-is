@@ -51,7 +51,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types' \
+            'https://localhost:9443/api/server/v1/email/template-types' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -99,7 +99,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types' \
+            'https://localhost:9443/api/server/v1/email/template-types' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -153,7 +153,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types/{template-type-id}' \
+            'https://localhost:9443/api/server/v1/email/template-types/{template-type-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -201,7 +201,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types/{template-type-id}' \
+            'https://localhost:9443/api/server/v1/email/template-types/{template-type-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -249,7 +249,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types/template-type-id' \
+            'https://localhost:9443/api/server/v1/email/template-types/template-type-id' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -292,7 +292,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types/{template-type-id}' \
+            'https://localhost:9443/api/server/v1/email/template-types/{template-type-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /email/template-types/{template-type-id}/templates:
@@ -335,7 +335,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types/{template-type-id}/templates' \
+            'https://localhost:9443/api/server/v1/email/template-types/{template-type-id}/templates' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /email/template-types/{template-type-id}/templates/{template-id}:
@@ -377,7 +377,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types/{template-type-id}/templates/{template-id}' \
+            'https://localhost:9443/api/server/v1/email/template-types/{template-type-id}/templates/{template-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -416,7 +416,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types/{template-type-id}/templates/{template-id}' \
+            'https://localhost:9443/api/server/v1/email/template-types/{template-type-id}/templates/{template-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -457,7 +457,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/email/template-types/template-type-id/templates/template-id' \
+            'https://localhost:9443/api/server/v1/email/template-types/template-type-id/templates/template-id' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 servers:

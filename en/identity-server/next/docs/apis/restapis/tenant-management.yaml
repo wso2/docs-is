@@ -51,7 +51,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/tenants' \
+            'https://localhost:9443/api/server/v1/tenants' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -94,7 +94,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/tenants' \
+            'https://localhost:9443/api/server/v1/tenants' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -131,7 +131,7 @@ paths:
         <b>scope required:</b> `internal_list_tenants`
 
         <b> cURL</b>
-        curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "domain":"lanka.com", "purpose":"Personal", "code":"2d962a0b-9280-4394-8652-0137a25d9bac", "owners":[ { "username":"lanka@wso2.com", "email":"lanka@wso2.com","password":"Pass#word2", "firstname":"Lanka", "lastname":"Jaya", "provisioningMethod":"verified-lite-user", "additionalClaims":[ { "claim":"http://wso2.org/claims/telephone", "value":"+94 562 8723" } ] } ] }' "https://localhost:9443/t/carbon.super/api/server/v1/channel-verified-tenants"
+        curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "domain":"lanka.com", "purpose":"Personal", "code":"2d962a0b-9280-4394-8652-0137a25d9bac", "owners":[ { "username":"lanka@wso2.com", "email":"lanka@wso2.com","password":"Pass#word2", "firstname":"Lanka", "lastname":"Jaya", "provisioningMethod":"verified-lite-user", "additionalClaims":[ { "claim":"http://wso2.org/claims/telephone", "value":"+94 562 8723" } ] } ] }' "https://localhost:9443/api/server/v1/channel-verified-tenants"
       requestBody:
         content:
           application/json:
@@ -161,7 +161,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/channel-verified-tenants' \
+            'https://localhost:9443/api/server/v1/channel-verified-tenants' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -229,7 +229,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/{tenant-id}' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='           
   /tenants/domain/{tenant-domain}:
@@ -267,7 +267,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/domain/{tenant-domain}' \
+            'https://localhost:9443/api/server/v1/tenants/domain/{tenant-domain}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='  
     head:
@@ -300,7 +300,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'HEAD' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/domain/{tenant-domain}' \
+            'https://localhost:9443/api/server/v1/tenants/domain/{tenant-domain}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' 
   /tenants/{tenant-id}/lifecycle-status:
@@ -346,7 +346,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/{tenant-id}/lifecycle-status' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}/lifecycle-status' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -391,7 +391,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/tenants/{tenant-id}/owners' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}/owners' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='           
   '/tenants/{tenant-id}/metadata':
@@ -437,7 +437,7 @@ paths:
           - lang: Curl
             source: |
               curl -X 'DELETE' \
-              'https://localhost:9443/t/carbon.super/api/server/v1/tenants/{tenant-id}/metadata' \
+              'https://localhost:9443/api/server/v1/tenants/{tenant-id}/metadata' \
               -H 'accept: */*' \
               -H 'Authorization: Basic YWRtaW46YWRtaW4='
 servers:
@@ -644,10 +644,10 @@ components:
           example:
             [
                 {
-                    "href": "/t/carbon.super/api/server/v1/tenants?offset=50&limit=10",
+                    "href": "/api/server/v1/tenants?offset=50&limit=10",
                     "rel": "next",
                 },  {
-                    "href": "/t/carbon.super/api/server/v1/tenants?offset=30&limit=10",
+                    "href": "/api/server/v1/tenants?offset=30&limit=10",
                     "rel": "previous",
                 }
             ]
@@ -796,7 +796,7 @@ components:
           type: string
           description: Path to the target resource.
           example: >-
-            '/t/carbon.super/api/server/v1/tenants/394b8adcce24c64a8a09a8d80abf8c337bd253de'
+            '/api/server/v1/tenants/394b8adcce24c64a8a09a8d80abf8c337bd253de'
         rel:
           type: string
           description: Describes how the current context is related to the target resource

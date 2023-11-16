@@ -67,7 +67,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers' \
+            'https://localhost:9443/api/server/v1/identity-providers' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -130,7 +130,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers' \
+            'https://localhost:9443/api/server/v1/identity-providers' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -283,7 +283,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/meta/federated-authenticators' \
+            'https://localhost:9443/api/server/v1/identity-providers/meta/federated-authenticators' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/meta/federated-authenticators/{federated-authenticator-id}:
@@ -338,7 +338,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/meta/federated-authenticators/{federated-authenticator-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/meta/federated-authenticators/{federated-authenticator-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/meta/outbound-provisioning-connectors:
@@ -388,7 +388,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/meta/outbound-provisioning-connectors' \
+            'https://localhost:9443/api/server/v1/identity-providers/meta/outbound-provisioning-connectors' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}:
@@ -443,7 +443,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/{identity-provider-id}:
@@ -512,7 +512,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
@@ -570,7 +570,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -635,7 +635,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}?force=false' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}?force=false' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/{identity-provider-id}/export:
@@ -706,7 +706,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/export?excludeSecrets=true' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/export?excludeSecrets=true' \
             -H 'accept: application/json'
   '/identity-providers/{identity-provider-id}/import':
     put:
@@ -775,7 +775,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/import' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/import' \
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -F 'file=@file-name.xml;type=text/xml'
@@ -833,7 +833,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/import' \
+            'https://localhost:9443/api/server/v1/identity-providers/import' \
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -F 'file=@file-name.xml;type=text/xml' 
@@ -889,7 +889,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -943,7 +943,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1027,7 +1027,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1092,7 +1092,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1166,7 +1166,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/provisioning' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/{identity-provider-id}/provisioning/outbound-connectors:
@@ -1221,7 +1221,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1274,7 +1274,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/identity-provider-id/provisioning/outbound-connectors' \
+            'https://localhost:9443/api/server/v1/identity-providers/identity-provider-id/provisioning/outbound-connectors' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1362,7 +1362,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1428,7 +1428,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1504,7 +1504,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/claims' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/claims' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1563,7 +1563,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/claims' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/claims' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1651,7 +1651,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/roles' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/roles' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1710,7 +1710,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/identity-provider-id/roles' \
+            'https://localhost:9443/api/server/v1/identity-providers/identity-provider-id/roles' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1785,7 +1785,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1844,7 +1844,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1914,7 +1914,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/{identity-provider-id}/connected-apps' \
+            'https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/connected-apps' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-providers/templates:
@@ -1963,7 +1963,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates' \
+            'https://localhost:9443/api/server/v1/identity-providers/templates' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -2017,7 +2017,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates' \
+            'https://localhost:9443/api/server/v1/identity-providers/templates' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -2192,7 +2192,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates/{template-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/templates/{template-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -2248,7 +2248,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates/{template-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/templates/{template-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -2406,7 +2406,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-providers/templates/{template-id}' \
+            'https://localhost:9443/api/server/v1/identity-providers/templates/{template-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 servers:
@@ -2631,7 +2631,7 @@ components:
           type: string
           description: Path to the target resource.
           example: >-
-            '/t/carbon.super/api/server/v1/identity-providers/394b8adcce24c64a8a09a8d80abf8c337bd253de'
+            '/api/server/v1/identity-providers/394b8adcce24c64a8a09a8d80abf8c337bd253de'
         rel:
           type: string
           description: Describes how the current context is related to the target resource.
@@ -2796,7 +2796,7 @@ components:
           $ref: '#/components/schemas/ProvisioningResponse'
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000
+          example: /api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000
     MetaFederatedAuthenticatorListItem:
       type: object
       properties:
@@ -2808,7 +2808,7 @@ components:
           example: SAML2Authenticator
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/identity-providers/meta/federated-authenticators/U0FNTFNTT0F1dGhlbnRpY2F0b3I
+          example: /api/server/v1/identity-providers/meta/federated-authenticators/U0FNTFNTT0F1dGhlbnRpY2F0b3I
     MetaFederatedAuthenticator:
       type: object
       properties:
@@ -2915,7 +2915,7 @@ components:
           example: true
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y
+          example: /api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y
     MetaOutboundConnectorListItem:
       type: object
       properties:
@@ -2927,7 +2927,7 @@ components:
           example: SCIM
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/identity-providers/meta/outbound-provisioning-connectos/U0NJTQ
+          example: /api/server/v1/identity-providers/meta/outbound-provisioning-connectos/U0NJTQ
     MetaOutboundConnector:
       type: object
       properties:
@@ -3059,7 +3059,7 @@ components:
           example: true
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/provisioning/outbound-connectors/U0NJTQ
+          example: /api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/provisioning/outbound-connectors/U0NJTQ
     Roles:
       type: object
       properties:
@@ -3253,7 +3253,7 @@ components:
             $ref: '#/components/schemas/Service'
         self:
           type: string
-          example: '/t/carbon.super/api/server/v1/identity-providers/templates/123e4567-e89b-12d3-a456-556642440000'
+          example: '/api/server/v1/identity-providers/templates/123e4567-e89b-12d3-a456-556642440000'
     IdentityProviderTemplate:
       type: object
       properties:

@@ -47,7 +47,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/totp' \
+            'https://localhost:9443/api/users/v1/me/totp' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='                
     post:
@@ -109,7 +109,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/totp' \
+            'https://localhost:9443/api/users/v1/me/totp' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -146,7 +146,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/totp' \
+            'https://localhost:9443/api/users/v1/me/totp' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
   /me/totp/secret:
@@ -181,7 +181,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/totp/secret' \
+            'https://localhost:9443/api/users/v1/me/totp/secret' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
 components:

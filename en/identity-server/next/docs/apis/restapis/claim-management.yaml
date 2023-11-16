@@ -83,7 +83,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims' \
+            'https://localhost:9443/api/server/v1/claim-dialects/local/claims' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -138,7 +138,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims' \
+            'https://localhost:9443/api/server/v1/claim-dialects/local/claims' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -216,7 +216,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            'https://localhost:9443/api/server/v1/claim-dialects/local/claims/{claim-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -273,7 +273,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            'https://localhost:9443/api/server/v1/claim-dialects/local/claims/{claim-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -341,7 +341,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            'https://localhost:9443/api/server/v1/claim-dialects/local/claims/{claim-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /claim-dialects:
@@ -404,7 +404,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects' \
+            'https://localhost:9443/api/server/v1/claim-dialects' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -459,7 +459,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects' \
+            'https://localhost:9443/api/server/v1/claim-dialects' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -518,7 +518,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}' \
+            'https://localhost:9443/api/server/v1/claim-dialects/{dialect-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -569,7 +569,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}' \
+            'https://localhost:9443/api/server/v1/claim-dialects/{dialect-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -618,7 +618,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}' \
+            'https://localhost:9443/api/server/v1/claim-dialects/{dialect-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /claim-dialects/{dialect-id}/claims:
@@ -693,7 +693,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}/claims' \
+            'https://localhost:9443/api/server/v1/claim-dialects/{dialect-id}/claims' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -761,7 +761,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}/claims' \
+            'https://localhost:9443/api/server/v1/claim-dialects/{dialect-id}/claims' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -827,7 +827,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            'https://localhost:9443/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -890,7 +890,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/dialect-id/claims/claim-id' \
+            'https://localhost:9443/api/server/v1/claim-dialects/dialect-id/claims/claim-id' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -946,7 +946,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            'https://localhost:9443/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
