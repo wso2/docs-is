@@ -254,3 +254,9 @@ body[data-md-color-scheme=slate] {
 .md-sidebar--secondary {
     display: none !important;
 }
+
+@media screen and (min-width: 76.25em) {
+    .md-sidebar {
+        display: none;
+    }
+}
