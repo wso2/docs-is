@@ -267,7 +267,8 @@ nav:
             - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
             - Change the Default Datasource for BPS: deploy/configure/databases/carbon-database/change-datasource-bpsds.md
             - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
-          - Data Dictionary: 
+            - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
+          - Data Dictionary:
             - Registry Related Tables: deploy/configure/databases/data-dictionary/registry-related-tables.md
             - User Management Related Tables: deploy/configure/databases/data-dictionary/user-management-related-tables.md
             - Identity Related Tables: deploy/configure/databases/data-dictionary/identity-related-tables.md
@@ -333,6 +334,10 @@ nav:
           - Configure cache layers: deploy/performance/configure-cache-layers.md
         - Environment compatibility: deploy/environment-compatibility.md
         - Propagate configurations across environments: deploy/propagate-configurations.md
+        - Disaster recovery:
+          - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
+          - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
+          - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
       - Analytics:
         - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
         - Configure SSO with ELK analytics: deploy/elk-analytics-sso-guide.md
