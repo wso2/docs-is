@@ -10,7 +10,7 @@ There are two types of user stores - Primary User store (Mandatory) and
 Secondary user stores (Optional). All the supported user stores can be
 configured under these two types.
 
-![user-store-types]({{base_path}}/assets/img/deploy/user-store-types.png) 
+![user-store-types]({{base_path}}/assets/img/guides/user-stores/user-store-types.png){: width="600" style="display: block; margin: 0 auto;"}
 
 ---
 

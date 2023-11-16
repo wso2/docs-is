@@ -15,7 +15,7 @@ You can use either the WSO2 Identity Server Console to create secondary user sto
 1. On the WSO2 Identity Server Console, go to **User Attributes & Stores** > **User Stores**.
 2. Click **New User Store** and select the user store type.
 
-    ![Register secondary user store to WSO2 Identity Server]({{base_path}}/assets/img/guides/user-stores/user-store-types.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register secondary user store to WSO2 Identity Server]({{base_path}}/assets/img/guides/user-stores/secondary-user-store-types.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! info 
         You cannot update the primary user store at runtime, so it is not
