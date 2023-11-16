@@ -1,0 +1,150 @@
+# Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+#
+# WSO2 LLC. licenses this file to you under the Apache License,
+# Version 2.0 (the "License"); you may not use this file except
+# in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+INHERIT: ../base.yml
+
+site_description: Documentation for WSO2 Identity Server
+
+extra:
+  product: is
+  product_name: WSO2 Identity Server
+  nav_list:
+    - Get Started
+    - Guides
+    - Setup
+    - Integrations
+    - APIs
+    - References
+  home_page_cards:
+    - section:
+      - title: Get Started
+        list_items:
+          - title: Introduction
+            url: Get Started|Introduction
+          - title: Quick Setup
+            url: Get Started|Quickstart|Quick Setup
+          - title: Try a sample app
+            url: Get Started|Quickstart|Try a Sample Scenario|Sample Scenario
+      - title: Community and Support
+        list_items:
+          - title: Contributing to the Project
+            url: https://github.com/wso2/product-is/wiki/Contributing-to-Identity-Server
+          - title: Community help
+            url: https://discord.com/invite/wso2
+          - title: Enterprise Support
+            url: https://wso2.com/subscription/
+    - section:
+      - title: Developer Resources
+        list_items:
+          - title: APIs
+            url: APIs|APIs
+          - title: Sample Apps
+            url: Get Started|Start integrating IS into apps|Try for a sample app
+          - title: SDKs and Integrations
+            url: Integrations|Integrate WSO2 IS into your application
+      - title: Setup
+        list_items:
+          - title: Install
+            url: Setup|Install|Install
+          - title: Secure
+            url: 
+          - title: Deploy
+            url: Setup|Deploy|Deployment patterns
+          - title: Monitor
+            url: Setup|Monitor|Monitor
+          - title: Upgrade WSO2 Identity Server
+            url: Setup|Upgrade WSO2 Identity Server
+    - section:
+      - title: Guides
+        list_items:
+          - title: Applications
+            url: Guides|Applications|Applications
+          - title: Authentication
+            url: Guides|Authentication|Authentication
+          - title: API authorization
+            url: Guides|API authorization
+          - title: Branding
+            url: Guides|Branding|Branding
+          - title: User management
+            url: Guides|User management|User management
+          - title: User self-service
+            url: Guides|User self-service|User self-service
+          - title: Organizations
+            url: Guides|Organization management|Organization management
+  versions:
+    current: 6.1.0
+    list: 
+      - 6.1.0
+      - 6.0.0
+      - 5.11.0
+    all:
+      - name: 6.1.0
+        doc: https://is.docs.wso2.com/en/6.1.0
+        notes: https://is.docs.wso2.com/en/6.1.0/references/about-this-release
+      - name: 6.0.0
+        doc: https://is.docs.wso2.com/en/6.0.0
+        notes: https://is.docs.wso2.com/en/6.0.0/references/about-this-release
+      - name: 5.11.0
+        doc: https://is.docs.wso2.com/en/5.11.0
+        notes: https://is.docs.wso2.com/en/5.11.0/get-started/about-this-release
+      - name: 5.10.0
+        doc: https://is.docs.wso2.com/en/5.10.0
+        notes: https://is.docs.wso2.com/en/5.10.0/get-started/about-this-release
+      - name: 5.9.0
+        doc: https://is.docs.wso2.com/en/5.9.0
+        notes: https://is.docs.wso2.com/en/5.9.0/get-started/about-this-release
+      - name: 5.8.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS580/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS580/pages/41124119/About+this+release
+      - name: 5.7.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS570/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS570/pages/38174879/About+this+Release
+      - name: 5.6.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS560/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS560/pages/31817769/About+this+Release
+      - name: 5.5.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS550/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS550/pages/29720727/About+this+Release
+      - name: 5.4.1
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS541/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS541/pages/42827813/About+this+Release
+      - name: 5.4.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS540/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS540/pages/45645861/About+this+Release
+      - name: 5.3.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS530/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS530/pages/25559702/About+this+Release
+      - name: 5.2.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS520/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS520/pages/47022087/About+this+Release
+      - name: 5.1.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS510/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS510/pages/25722900/About+this+Release
+      - name: 5.0.0
+        doc: https://wso2docs.atlassian.net/wiki/spaces/IS500/overview
+        notes: https://wso2docs.atlassian.net/wiki/spaces/IS500/pages/32342518/About+this+Release
+
+# Configuration
+theme:
+  custom_dir: ../../theme/material
+  logo: assets/images/identity-server-docs-logo-dark.svg
+  logo_light: assets/images/identity-server-docs-logo.svg
+  favicon: assets/images/identity-server-favicon.png
+
+watch:
+  - ../../theme/material
+  - ../../base.yml
+  - ../is_common.yml

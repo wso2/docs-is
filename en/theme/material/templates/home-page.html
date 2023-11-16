@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="{{ 'assets/css/home.css' | url }}">
 {% endblock %}
 
-{% block site_nav %}<!-- Removed Nav -->{% endblock %}
+{% block site_nav %}<!-- Remove Side Nav -->{% endblock %}
 
 {% block container %}
   <div class="md-content">
@@ -38,47 +38,104 @@
       {{ page.content }}
 
       <div class="md-home-sections md-column-grid">
-        {% for nav_item in nav %}
-          {% if nav_item.title != "Home" %}
-            <div class="md-column-grid-item">
-              <div class="md-column-grid-item-header-container">
-                <div class="md-column-grid-item-header-text">{{ nav_item.title }}</div>
-                <div class="md-column-grid-item-header-icon">
+        {% for columns in config.extra.home_page_cards %}
+          <div class="md-grid-column">
+            {% for column in columns.section %}
+              <div class="md-column-grid-item">
+                <div class="md-column-grid-item-header-container">
+                  <div class="md-column-grid-item-header-text">{{ column.title }}</div>
+                  <div class="md-column-grid-item-header-icon">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M9.94686 5.82054L8.00011 0.5L6.05337 5.82054L0.391663 6.02786L4.85022 9.52346L3.29783 14.9721L8.00011 11.812L12.7024 14.9721L11.15 9.52346L15.6086 6.02786L9.94686 5.82054ZM12.8408 6.92718L9.23867 6.79527L8.00011 3.41024L6.76156 6.79527L3.15947 6.92718L5.99609 9.15115L5.00843 12.6177L8.00011 10.6072L10.9918 12.6177L10.0041 9.15115L12.8408 6.92718Z" fill="#40404B"></path>
                     </svg>                       
-                </div>   
-              </div>
-              {% for child_nav_item in nav_item.children %}
-                {% set child = child_nav_item %}
-                
-                {% if child.children %}
-                  {% set first = child.children | first %}
-                  
-                  {% if child.title == first.title %}
-                    {% set child = first %}
-                  {% else %}
-                    {% set child = "" %}
-                  {% endif %}
-                {% endif %}
-
-                {% if child != "" %}
+                  </div>   
+                </div>
+                {% for item in column.list_items %}
                   <div class="md-list-item-container">
                     <div class="md-list-item">
-                        <a href="{{ child.url }}">
+                      {% if item.url %}
+
+                        {% set link = item.url %}
+
+                        {% if link.startswith("http") %}
+
+                          {% set link_url = item.url %}
+                          {% set target = '_blank' %}
+ 
+                        {% else %}
+                          {% set nav_path_keys = link.split('|') %}
+
+                          {% set glob = {
+                            'nav_config': nav,
+                            'break_loop': false,
+                            'item_url': None
+                          } %}
+
+                          {% macro loop_children(key) %}
+
+                            {% set _ = glob.update({ 'nav_config': glob.nav_config }) %}
+
+                            {% if not glob.nav_config.url %}
+                              {% for nav_item in glob.nav_config %}
+                                {% if glob.break_loop == false %}
+                                  {% if nav_item.title == key %}
+
+                                    {% if nav_item.url %}
+                                      {% set _ = glob.update({ 'item_url': nav_item.url }) %}
+                                    {% endif %}
+
+                                    {% if nav_item.children %}
+                                      {% set _ = glob.update({ 'nav_config': nav_item.children }) %}
+
+                                      {% set first = nav_item.children | first %}
+                                      {% if first.title == 'Index' %}
+                                        {% set _ = glob.update({ 'item_url': first.url }) %}
+                                      {% endif %}
+                                    {% else %}
+                                      {% set _ = glob.update({ 'item_url': nav_item.url }) %}
+                                      {% set _ = glob.update({ 'nav_config': nav_item }) %}
+                                    {% endif %}
+
+                                    {% set _ = glob.update({ 'break_loop': true }) %}
+
+                                  {% endif %}
+                                {% endif %}
+                              {% endfor %}
+                              
+                              {% set _ = glob.update({ 'break_loop': false }) %}
+                            {% else %}
+                              {% set _ = glob.update({ 'item_url': glob.nav_config.url }) %}
+                            {% endif %}
+
+                            {% if glob.break_loop == true %}
+                              {{ loop_children(key) }}
+                            {% endif %}
+                          {% endmacro %}
+
+                          {% for key in nav_path_keys %}
+                            {{ loop_children(key) }}
+                          {% endfor %}
+
+                          {% set link_url = glob.item_url | replace('index.md', '') | replace('.md', '/') %}
+                          {% set target = '_self' %}
+
+                        {% endif %}
+
+                        <a href="{{ link_url }}" target="{{ target }}">
                           <div class="md-list-item-icon">
                               <svg width="11" height="15" viewBox="0 -3 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.95801 0.0537109L10.748 4.83643L5.95801 9.62646L5.21094 8.88672L8.76318 5.36377L0.0473633 5.34912V4.33105L8.74854 4.31641L5.21094 0.793457L5.95801 0.0537109Z"></path>
                               </svg>                                                           
                           </div>
-                          <div class="md-list-item-text">{{ child.title }}</div>
+                          <div class="md-list-item-text">{{ item.title }}</div>
                         </a>
+                      {% endif %}
                     </div>
-                  </div> 
-                {% endif %}
-              {% endfor %}
-            </div>
-          {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
         {% endfor %}
       </div>
     </article>

@@ -14,23 +14,11 @@
 # specific language governing permissions and limitations
 # under the License.
 
-INHERIT: ../../base.yml
+INHERIT: ../is_common.yml
 
 # Project information
-site_description: Documentation for WSO2 Identity Server
 site_url: &site_url https://is.docs.wso2.com/en/versions
-
-# Configuration
-theme:
-  custom_dir: ../../theme/material
-  logo: assets/images/identity-server-docs-logo-dark.svg
-  logo_light: assets/images/identity-server-docs-logo.svg
-  favicon: assets/images/identity-server-favicon.png
 
 extra:
   base_path: *site_url
-  product: is
   is_version: versions
-
-watch:
-  - ../../theme/material

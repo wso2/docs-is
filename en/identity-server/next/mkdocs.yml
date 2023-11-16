@@ -14,34 +14,15 @@
 # specific language governing permissions and limitations
 # under the License.
 
-INHERIT: ../../base.yml
+INHERIT: ../is_common.yml
 
 # Project information
-site_description: Documentation for WSO2 Identity Server
 site_url: &site_url https://is.docs.wso2.com/en/next
 #site_url: &site_url http://127.0.0.1:8000/en/next
 
-# Configuration
-theme:
-  custom_dir: ../../theme/material
-  logo: assets/images/identity-server-docs-logo-dark.svg
-  logo_light: assets/images/identity-server-docs-logo.svg
-  favicon: assets/images/identity-server-favicon.png
-
 extra:
   base_path: *site_url
-  product: is
   is_version: 7.0.0
-  nav_list:
-    - Get Started
-    - Guides
-    - Setup
-    - Integrations
-    - APIs
-    - References
-
-watch:
-  - ../../theme/material
 
 plugins:
   - search
@@ -134,7 +115,7 @@ nav:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
             - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
-            #- Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
+            # - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
             - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
