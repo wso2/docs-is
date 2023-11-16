@@ -64,7 +64,7 @@ related to user deletion each time you delete a user:
 By default all logs related to user deletion are written in CSV format
     to a specified log file. You can extend this functionality to log the
     details in any other format that you want, and you can also extend the
-    functionality to write the details to a text file, database, or any
+    functionality to write the details to a text file, database or any
     other file depending on your requirement.
 
 Follow the steps below if you want to extend the functionality of the
