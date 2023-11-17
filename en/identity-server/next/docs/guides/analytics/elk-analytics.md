@@ -16,7 +16,7 @@ The ELK based on-premise analytics architecture has 4 main components.
 
 4. **Kibana** is a visualization layer that works on top of Elasticsearch, providing users with the ability to analyze and visualize the data.
 
-![ELK Analytics structure]( {{base_path}}/assets/img/elkanalytics/elk-analytics-architecture.png)
+![ELK Analytics structure]( {{base_path}}/assets/img/elk-analytics/elk-analytics-architecture.png)
 
 
 ELK-based Analytics provides three types of dashboards:
