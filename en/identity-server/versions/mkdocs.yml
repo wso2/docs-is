@@ -17,8 +17,7 @@
 INHERIT: ../is_common.yml
 
 # Project information
-site_url: &site_url https://is.docs.wso2.com/en/versions
+site_url: https://is.docs.wso2.com/en/versions
 
 extra:
-  base_path: *site_url
   is_version: versions
