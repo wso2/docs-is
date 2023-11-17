@@ -16,6 +16,7 @@
 
 INHERIT: ../base.yml
 
+site_name: &site_name WSO2 Identity Server
 site_description: Documentation for WSO2 Identity Server
 
 # Configuration
@@ -32,7 +33,7 @@ watch:
 
 extra:
   product: is
-  product_name: WSO2 Identity Server
+  product_name: *site_name
   nav_list:
     - Get Started
     - Guides

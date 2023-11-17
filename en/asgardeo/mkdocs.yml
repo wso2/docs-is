@@ -17,6 +17,7 @@
 INHERIT: ../base.yml
 
 # Project information
+site_name: &site_name Asgardeo
 site_description: Asgardeo Learning Center
 site_url: https://wso2.com/asgardeo/docs
 
@@ -30,7 +31,7 @@ theme:
 extra:
   base_path: /asgardeo/docs
   product: asgardeo
-  product_name: Asgardeo
+  product_name: *site_name
   nav_list:
     - Get Started
     - Guides
