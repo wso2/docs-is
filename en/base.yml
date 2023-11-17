@@ -14,7 +14,6 @@
 # specific language governing permissions and limitations
 # under the License.
 
-site_name: ""
 site_author: WSO2
 
 dev_addr: localhost:8000
