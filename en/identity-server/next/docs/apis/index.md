@@ -26,7 +26,7 @@ This authentication method uses the user's credentials to invoke the APIs. If th
 This is a sample cURL command template for the request.
 
 ``` curl
-curl -X GET "https://localhost:9443/t/carbon.super/api/server/v1/applications?limit=30&offset=0" -H "accept: application/json" -H "Authorization: Basic <Base64(username:password)>"
+curl -X GET "https://localhost:9443/api/server/v1/applications?limit=30&offset=0" -H "accept: application/json" -H "Authorization: Basic <Base64(username:password)>"
 ```
 
 ---
@@ -73,7 +73,7 @@ You can now use the access token as an Authorization Bearer header to access the
 This is a sample cURL command template for the request.
 
 ```curl
-curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" -H "accept: application/json” -H Authorization: Bearer <access_token>"
+curl -X GET "https://localhost:9443/api/users/v1/me/sessions" -H "accept: application/json” -H Authorization: Bearer <access_token>"
 ```
 
 ---

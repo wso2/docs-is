@@ -46,7 +46,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-governance/' \
+            'https://localhost:9443/api/server/v1/identity-governance/' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-governance/{category-id}:
@@ -78,7 +78,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-governance/{catergory-id}' \
+            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-governance/{category-id}/connectors:
@@ -112,7 +112,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-governance/{catergory-id}/connectors' \
+            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /identity-governance/{category-id}/connectors/{connector-id}:
@@ -145,7 +145,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
+            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
@@ -175,7 +175,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
+            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -303,7 +303,7 @@ components:
         self:
           type: string
           description: Path to retrieve the full connector information.
-          example: /t/carbon.super/api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz
+          example: /api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz
         connectors:
           type: array
           description: Connectors of the category with minimal attributes.
@@ -320,7 +320,7 @@ components:
         self:
           type: string
           description: Path to retrieve the full connector information.
-          example: /t/carbon.super/api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz/connectors/c3VzcGVuc2lvbi5ub3RpZmljYXRpb24
+          example: /api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz/connectors/c3VzcGVuc2lvbi5ub3RpZmljYXRpb24
     CategoryRes:
       type: object
       description: Governance connector category response.

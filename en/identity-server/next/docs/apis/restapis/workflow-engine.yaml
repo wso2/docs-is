@@ -56,7 +56,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://%7Bserverurl%7D/t/carbon.super/api/server/v1/workflow-engines' \
+            'https://localhost:9443/api/server/v1/workflow-engines' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:

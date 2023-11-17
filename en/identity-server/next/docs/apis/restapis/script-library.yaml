@@ -46,7 +46,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries' \
+            'https://localhost:9443/api/server/v1/script-libraries' \
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -F 'name=script-library-name' \
@@ -106,7 +106,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries?limit=30&offset=0' \
+            'https://localhost:9443/api/server/v1/script-libraries?limit=30&offset=0' \
             -H 'accept: application/json'                 
   /script-libraries/{script-library-name}:
     get:
@@ -157,7 +157,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries/{script-library-name}' \
+            'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
             -H 'accept: application/json'                  
     delete:
       tags:
@@ -197,7 +197,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries/{script-library-name}' \
+            'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
             -H 'accept: */*'                  
     put:
       tags:
@@ -248,7 +248,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries/{script-library-name}' \
+            'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -F 'description=script library description' \
@@ -309,7 +309,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/script-libraries/{script-library-name}/content' \
+            'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}/content' \
             -H 'accept: application/octet-stream'                 
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'

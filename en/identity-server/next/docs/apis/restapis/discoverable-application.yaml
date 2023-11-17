@@ -54,7 +54,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/applications?attributes=name%2C%20description%2C%20logo&limit=10&offset=5&filter=name%20sw%20sales&sortOrder=asc&sortBy=name' \
+            'https://localhost:9443/api/users/v1/me/applications?attributes=name%2C%20description%2C%20logo&limit=10&offset=5&filter=name%20sw%20sales&sortOrder=asc&sortBy=name' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/me/applications/{applicationId}':
@@ -91,7 +91,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/users/v1/me/applications/{application-id}' \
+            'https://localhost:9443/api/users/v1/me/applications/{application-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
@@ -240,13 +240,13 @@ components:
           items:
             $ref: '#/components/schemas/Link'
           example:
-            - href: '/t/carbon.super/api/user/v1/me/applications?offset=10&limit=10'
+            - href: '/api/user/v1/me/applications?offset=10&limit=10'
               rel: 'next'
-            - href: '/t/carbon.super/api/user/v1/me/applications?offset=0&limit=5'
+            - href: '/api/user/v1/me/applications?offset=0&limit=5'
               rel: 'previous'
-            - href: '/t/carbon.super/api/user/v1/me/applications?offset=0&limit=10'
+            - href: '/api/user/v1/me/applications?offset=0&limit=10'
               rel: 'first'
-            - href: '/t/carbon.super/api/user/v1/me/applications?offset=20&limit=10'
+            - href: '/api/user/v1/me/applications?offset=20&limit=10'
               rel: 'last'
 
     ApplicationResponse:

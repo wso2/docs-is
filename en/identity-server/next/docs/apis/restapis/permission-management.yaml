@@ -38,7 +38,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/permission-management/permissions' \
+            'https://localhost:9443/api/server/v1/permission-management/permissions' \
             -H 'accept: application/json'
       x-wso2-request: ''
       x-wso2-response: |

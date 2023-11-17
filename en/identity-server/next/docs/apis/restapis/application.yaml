@@ -66,7 +66,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications?limit=30&offset=0' \
+            'https://localhost:9443/api/server/v1/applications?limit=30&offset=0' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='          
     post:
@@ -135,7 +135,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications' \
+            'https://localhost:9443/api/server/v1/applications' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -427,7 +427,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/import' \
+            'https://localhost:9443/api/server/v1/applications/import' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: multipart/form-data' \
@@ -488,7 +488,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/import' \
+            'https://localhost:9443/api/server/v1/applications/import' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: multipart/form-data' \
@@ -554,7 +554,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
@@ -610,7 +610,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -761,7 +761,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/export:
@@ -816,7 +816,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/export?exportSecrets=false' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/export?exportSecrets=false' \
             -H 'accept: application/octet-stream' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/owner:
@@ -871,7 +871,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/owner' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/owner' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -931,7 +931,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/authenticators' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/authenticators' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/resident:
@@ -979,7 +979,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/resident' \
+            'https://localhost:9443/api/server/v1/applications/resident' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1036,7 +1036,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/resident' \
+            'https://localhost:9443/api/server/v1/applications/resident' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1116,7 +1116,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/inbound-protocols/saml:
@@ -1171,7 +1171,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1239,7 +1239,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1357,7 +1357,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/inbound-protocols/oidc:
@@ -1412,7 +1412,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1475,7 +1475,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1587,7 +1587,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/inbound-protocols/oidc/regenerate-secret:
@@ -1641,7 +1641,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/oidc/regenerate-secret' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc/regenerate-secret' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d ''
@@ -1692,7 +1692,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/oidc/revoke' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc/revoke' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d ''
@@ -1748,7 +1748,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1813,7 +1813,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -1877,7 +1877,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/inbound-protocols/ws-trust:
@@ -1932,7 +1932,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/ws-trust' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/ws-trust' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -1997,7 +1997,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/ws-trust' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/ws-trust' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -2061,7 +2061,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/ws-trust' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/ws-trust' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/inbound-protocols/{inboundProtocolId}:
@@ -2122,7 +2122,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -2193,7 +2193,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -2269,7 +2269,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/{inbound-protocol-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/meta/inbound-protocols:
@@ -2319,7 +2319,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/meta/inbound-protocols?customOnly=true' \
+            'https://localhost:9443/api/server/v1/applications/meta/inbound-protocols?customOnly=true' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/meta/inbound-protocols/saml:
@@ -2368,7 +2368,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/meta/inbound-protocols/saml' \
+            'https://localhost:9443/api/server/v1/applications/meta/inbound-protocols/saml' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/meta/inbound-protocols/oidc:
@@ -2409,7 +2409,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/meta/inbound-protocols/oidc' \
+            'https://localhost:9443/api/server/v1/applications/meta/inbound-protocols/oidc' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/meta/inbound-protocols/ws-trust:
@@ -2450,7 +2450,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/meta/inbound-protocols/ws-trust' \
+            'https://localhost:9443/api/server/v1/applications/meta/inbound-protocols/ws-trust' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/meta/inbound-protocols/{inboundProtocolId}:
@@ -2499,7 +2499,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/meta/inbound-protocols/{inbound-protocol-id}' \
+            'https://localhost:9443/api/server/v1/applications/meta/inbound-protocols/{inbound-protocol-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/meta/adaptive-auth-templates:
@@ -2540,7 +2540,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/meta/adaptive-auth-templates' \
+            'https://localhost:9443/api/server/v1/applications/meta/adaptive-auth-templates' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/templates:
@@ -2595,7 +2595,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/templates' \
+            'https://localhost:9443/api/server/v1/applications/templates' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -2654,7 +2654,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/templates' \
+            'https://localhost:9443/api/server/v1/applications/templates' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -2961,7 +2961,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/templates/{template-id}' \
+            'https://localhost:9443/api/server/v1/applications/templates/{template-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
@@ -3016,7 +3016,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/templates/{template-id}' \
+            'https://localhost:9443/api/server/v1/applications/templates/{template-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -3312,7 +3312,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/t/carbon.super/api/server/v1/applications/templates/{template-id}' \
+            'https://localhost:9443/api/server/v1/applications/templates/{template-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
@@ -3802,7 +3802,7 @@ components:
           example: "SAML2 Inbound"
         self:
           type: string
-          example: "/t/carbon.super/api/server/v1/applications/29048810-1447-4ea0-a348-30d15ab65fa3/inbound-protocols/saml"
+          example: "/api/server/v1/applications/29048810-1447-4ea0-a348-30d15ab65fa3/inbound-protocols/saml"
 
     ClaimConfiguration:
       type: object

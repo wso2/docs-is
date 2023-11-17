@@ -39,7 +39,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me' \
+            'https://localhost:9443/api/identity/user/v1.0/me' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
       x-wso2-request: |
@@ -177,7 +177,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me' \
+            'https://localhost:9443/api/identity/user/v1.0/me' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -246,7 +246,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me/resend-code' \
+            'https://localhost:9443/api/identity/user/v1.0/me/resend-code' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -301,7 +301,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/validate-code' \
+            'https://localhost:9443/api/identity/user/v1.0/validate-code' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -372,7 +372,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/lite' \
+            'https://localhost:9443/api/identity/user/v1.0/lite' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -448,7 +448,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/validate-code' \
+            'https://localhost:9443/api/identity/user/v1.0/validate-code' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -514,7 +514,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/introspect-code' \
+            'https://localhost:9443/api/identity/user/v1.0/introspect-code' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -576,7 +576,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/validate-username' \
+            'https://localhost:9443/api/identity/user/v1.0/validate-username' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -636,7 +636,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/resend-code' \
+            'https://localhost:9443/api/identity/user/v1.0/resend-code' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -691,7 +691,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/pi-info?username={username}' \
+            'https://localhost:9443/api/identity/user/v1.0/pi-info?username={username}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \         
       x-wso2-request: |
@@ -733,7 +733,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/pi-info/{user-id}' \
+            'https://localhost:9443/api/identity/user/v1.0/pi-info/{user-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \         
       x-wso2-request: |
