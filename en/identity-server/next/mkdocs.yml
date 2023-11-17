@@ -432,3 +432,15 @@ nav:
       - Troubleshoot: references/troubleshoot/index.md
       - Error catalog: references/troubleshoot/error-codes.md
       - API error catalog: references/troubleshoot/api-error-codes.md
+
+not_in_nav: |
+  /page-not-found.md
+  /deploy/configure-email-sending.md
+  /guides/authentication/add-identifier-first-login.md
+  /includes/commit-pending.md
+  /includes/connection-pool-behavior.md
+  /includes/datasource-config.md
+  /includes/db-advanced-config.md
+  /includes/db-basic-config.md
+  /includes/db-config-table.md
+  /includes/rollback-pending.md
