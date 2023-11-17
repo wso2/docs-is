@@ -211,7 +211,7 @@ nav:
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
           - Register FIDO2 security key/biometrics: guides/user-self-service/register-security-key.md
-          - Password recovery: guides/user-self-service/customer-password-recovery.md
+          - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
@@ -354,6 +354,7 @@ plugins:
         'references/grant-types-in-asgardeo.md': 'https://wso2.com/asgardeo/docs/references/grant-types/'
         'guides/users/manage-collaborators.md': 'https://wso2.com/asgardeo/docs/guides/docs/manage-administrators/'
         'guides/users/manage-customers.md': 'https://wso2.com/asgardeo/docs/guides/docs/manage-users/'
+        'guides/user-self-service/customer-password-recovery.md': 'https://wso2.com/asgardeo/docs/guides/user-self-service/user-password-recovery'
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/overrides.css

@@ -219,7 +219,7 @@ nav:
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
-          - guides/user-self-service/customer-self-service-portal.md
+          - User self-service portal: guides/user-self-service/customer-self-service-portal.md
           - Update profile information: guides/user-self-service/update-profile-info.md
           - Change password: guides/user-self-service/change-password.md
           - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
@@ -227,8 +227,8 @@ nav:
           - Manage consents: guides/user-self-service/manage-consents.md
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
-          - Register FIDO2 security key/biometrics: guides/user-self-service/register-security-key.md
-          - Password recovery: guides/user-self-service/customer-password-recovery.md
+          - Register passkeys: guides/user-self-service/register-passkey.md
+          - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md

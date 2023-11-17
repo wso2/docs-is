@@ -39,9 +39,6 @@ In case you have lost the backup codes or have used them all, follow the steps b
 
 5. Click **Close** once you have securely stored the backup codes.
 
-!!! note
-    The backup codes will not be valid for your currently active sessions. Therefore it is recommended to terminate your active sessions.
-
 ## Remove backup codes
 To remove the backup codes:
 
@@ -52,6 +49,3 @@ To remove the backup codes:
     ![Remove backup codes]({{base_path}}/assets/img/guides/mfa/backup-codes/remove-backup-codes.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 3. On the confirmation window, click **Remove** to confirm your action.
-
-!!! note
-    The backup codes will not be valid for your currently active sessions. Therefore it is recommended to terminate your active sessions.

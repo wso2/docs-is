@@ -1,6 +1,16 @@
 # Self-service portal for users
 
-Users in your organization can access self-service features from the **My Account** self-service portal in Asgardeo.
+Users and administrators in your organization can access the **My Account portal**, a self-service portal offered by {{product_name}} for users to manage their accounts and information.
+
+## Access the My Account portal
+
+Users can access the My Account portal using the following link.
+
+{{my_account_link}}
+
+!!! info
+
+    Learn more about [configuring the self-service portal]({{base_path}}/guides/user-accounts/configure-self-service-portal/)
 
 ## Self-service capabilities for users
 
