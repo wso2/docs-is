@@ -17,11 +17,10 @@
 INHERIT: ../is_common.yml
 
 # Project information
-site_url: &site_url https://is.docs.wso2.com/en/next
-#site_url: &site_url http://127.0.0.1:8000/en/next
+site_url: https://is.docs.wso2.com/en/next
 
 extra:
-  base_path: *site_url
+  base_path: /en/next
   is_version: 7.0.0
 
 plugins:
