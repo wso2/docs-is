@@ -49,7 +49,7 @@ extra:
           - title: Quick Setup
             url: Get Started|Quickstart|Quick Setup
           - title: Try a sample app
-            url: Get Started|Quickstart|Try a Sample Scenario|Sample Scenario
+            url: Get Started|Start integrating IS into apps|Try for a sample app
       - title: Community and Support
         list_items:
           - title: Contributing to the Project
@@ -95,7 +95,7 @@ extra:
           - title: User self-service
             url: Guides|User self-service|User self-service
           - title: Organizations
-            url: Guides|Organization management|Organization management
+            url: Guides|Organizations|Organizations
   versions:
     current: 6.1.0
     list: 

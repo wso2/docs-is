@@ -68,7 +68,7 @@ extra:
           - title: User self-service
             url: Guides|User self-service|User self-service
           - title: Organizations
-            url: Guides|Organization management|Organization management
+            url: Guides|Organizations|Organizations
     - section:
       - title: Developer Resources
         list_items:
