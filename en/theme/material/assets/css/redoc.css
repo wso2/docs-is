@@ -20,10 +20,6 @@
     margin: 0 auto;
 }
 
-.md-sidebar--secondary {
-    display: none !important;
-}
-
 .md-main__inner.md-grid {
     width: 100%;
     display: block;
@@ -52,6 +48,7 @@
 }
 
 .menu-content {
+    padding: 1.6rem 0.8rem 0;
     top: 48px !important;
     height: calc(100vh - 48px) !important;
     background-color: var(--md-default-bg-color) !important;
@@ -83,6 +80,7 @@
 }
 
 .menu-content div[role=search] > svg {
+    left: 1.7rem;
     height: 3em;
 }
 
@@ -132,6 +130,7 @@
 
 .api-content > div > div > div:first-child  {
     background: var(--md-default-bg-color) !important;
+    padding: 0px 25px;
 }
 
 .api-content > div > div > div:last-child h3 {
@@ -166,18 +165,26 @@
 
 @media screen and (min-width: 76.25em) {
     .menu-content {
-        top: 105.5px !important;
-        height: calc(100vh - 105.5px) !important;
+        top: 52px !important;
+        height: calc(100vh - 52px) !important;
     }
 
     .md-sidebar {
         display: none !important;
     }
+
+    .api-content > div > div > div:first-child  {
+        padding: 0px 50px;
+    }
 }
 
 @media screen and (min-width: 100em) {
     .menu-content {
-        top: 119.2px !important;
-        height: calc(100vh - 119.2px) !important;
+        top: 57.2px !important;
+        height: calc(100vh - 57.2px) !important;
+    }
+
+    .api-content > div > div > div:first-child  {
+        padding: 0px 80px;
     }
 }

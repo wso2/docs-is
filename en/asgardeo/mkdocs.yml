@@ -18,9 +18,7 @@ INHERIT: ../base.yml
 
 # Project information
 site_description: Asgardeo Learning Center
-site_url: https://wso2.com/asgardeo/docs
-
-dev_addr: localhost:8000
+site_url: &site_url https://wso2.com/asgardeo/docs
 
 # Copyright
 copyright: © 2023 WSO2 LLC.
@@ -33,8 +31,9 @@ theme:
   favicon: assets/images/asgardeo-favicon.svg
 
 extra:
-  base_path: http://localhost:8000/asgardeo/docs
+  base_path: *site_url
   product: asgardeo
+  product_name: Asgardeo
   nav_list:
     - Get Started
     - Guides
@@ -48,6 +47,7 @@ markdown_extensions:
 
 watch:
   - ../theme/material
+  - ../base.yml
 
 plugins:
   - search
@@ -388,61 +388,43 @@ extra:
     - Integrations
     - APIs
     - References
-  integrations:
-    - name: Asgardeo Auth React SDK
-      icon: assets/img/logo/react-logo.svg
-      description: An Asgardeo SDK to integrate Asgardeo into React applications
-      documentation_link: get-started/try-your-own-app/javascript/
-      download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip
-      source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
-    - name: Asgardeo Auth SPA SDK
-      icon: assets/img/logo/javascript-logo.svg
-      description: An Asgardeo SDK to integrate Asgardeo into single page applications
-      documentation_link: get-started/try-your-own-app/javascript/
-      download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
-      source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
-    - name: Angular OAuth2 OIDC
-      icon: assets/img/logo/angular-logo.svg
-      description: A library for implementing OAuth2 and OIDC in Angular applications
-      source_link: https://github.com/manfredsteyer/angular-oauth2-oidc
-    - name: Next Auth
-      icon: assets/img/logo/nextjs-logo.svg
-      description: A library for implementing OAuth2 and OIDC in NextJS applications
-      source_link: https://github.com/nextauthjs/next-auth
-    - name: Asgardeo Auth Node SDK
-      icon: assets/img/logo/expressjs-logo.svg
-      description: An Asgardeo SDK to integrate Asgardeo into JS/TS-based frameworks such as ExpressJS
-      source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
-    - name: Asgardeo Tomcat OIDC Agent
-      icon: assets/img/logo/java-logo.svg
-      description: An Asgardeo Tomcat agent for implementing login/logout for Tomcat web apps
-      documentation_link: get-started/try-your-own-app/java-ee-oidc/
-      download_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war
-      source_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent
-    - name: Asgardeo Tomcat SAML Agent
-      icon: assets/img/logo/java-logo.svg
-      description: An Asgardeo SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
-      documentation_link: get-started/try-your-own-app/java-ee-saml/
-      download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
-      source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
-    - name: Flutter AppAuth
-      icon: assets/img/logo/flutter-logo.svg
-      description: A wrapper for native AppAuth SDKs to integrate OAuth2 and OIDC providers into Flutter apps
-      source_link: https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth
-    - name: React Native AppAuth
-      icon: assets/img/logo/react-logo.svg
-      description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
-      source_link: https://github.com/FormidableLabs/react-native-app-auth
-    - name: AppAuth Android
-      icon: assets/img/logo/android-logo.svg
-      description: A client SDK to integrate OAuth2 and OIDC providers into Android applications
-      source_link: https://github.com/openid/AppAuth-Android
-    - name: AppAuth iOS
-      icon: assets/img/logo/apple-idp-illustration.svg
-      description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
-      source_link: https://github.com/openid/AppAuth-iOS
-  redoc_theme: '{
-    "colors": {
-      "primary": { "main": "#ff7300" }
-    }
-  }'
+  home_page_cards:
+    - section:
+      - title: Get Started
+        list_items:
+          - title: Create your Asgardeo account
+            url: Get Started|Create your Asgardeo account
+          - title: Try login with Asgardeo
+            url: Get Started|Try login with Asgardeo
+      - title: Community and Support
+        list_items:
+          - title: Community help
+            url: https://discord.com/invite/wso2
+          - title: Enterprise Support
+            url: https://wso2.com/asgardeo/pricing/
+    - section:
+      - title: Guides
+        list_items:
+          - title: Applications
+            url: Guides|Applications|Applications
+          - title: Authentication
+            url: Guides|Authentication|Authentication
+          - title: API authorization
+            url: Guides|API authorization
+          - title: Branding
+            url: Guides|Branding|Branding
+          - title: User management
+            url: Guides|User management|User management
+          - title: User self-service
+            url: Guides|User self-service|User self-service
+          - title: Organizations
+            url: Guides|Organization management|Organization management
+    - section:
+      - title: Developer Resources
+        list_items:
+          - title: APIs
+            url: APIs|APIs - Overview
+          - title: Tutorials
+            url: Tutorials|Tutorials - Overview
+          - title: SDKs and Integrations
+            url: Integrations|Integrate Asgardeo into your application

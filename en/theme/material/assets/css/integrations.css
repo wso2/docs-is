@@ -16,13 +16,9 @@
  * under the License.
  */
 
-.md-sidebar--secondary {
-    display: none !important;
-}
-
 .integrations-list-container {
     margin: auto;
-    max-width: 1000px;
+    max-width: 1240px;
 }
 
 [data-md-color-scheme=slate] .integrations-list-item {
@@ -127,6 +123,10 @@
 .source-link {
     flex: 1;
     margin: 0 20px 0 0;
+}
+
+.md-sidebar--secondary {
+    display: none !important;
 }
 
 @media screen and (min-width: 76.25em) {

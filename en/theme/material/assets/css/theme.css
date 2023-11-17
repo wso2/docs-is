@@ -38,6 +38,10 @@
     box-shadow: var(--md-default-box-shadow);
 }
 
+.md-header__inner {
+    padding: 0 1rem;
+}
+
 .md-header__topic {
     font-size: .7rem;
 }
@@ -46,6 +50,13 @@
 .md-header__button.md-logo svg {
     height: 1.4rem;
     padding: .1rem 0;
+}
+
+.md-tabs {
+    width: auto;
+    margin-left: 3.5rem;
+    line-height: 1.2;
+    z-index: 0;
 }
 
 .md-tabs__link--active,
@@ -70,11 +81,13 @@
     background-color: #7a7a7a42;
 }
 
-@media screen and (max-width: 76.1875em) {
-    .md-nav--primary .md-nav__title[for=__drawer] {
-        background-color: var(--md-default-bg-color);
-        height: 4.2rem;
-    }
+.md-sidebar__scrollwrap {
+    margin: 0 1rem;
+}
+
+.md-copyright {
+    margin-top: 0.1rem;
+    padding: 0.4rem 1rem;
 }
 
 .center-all {
@@ -221,6 +234,19 @@
     background-color: var(--md-default-bg-color);
 }
 
+.md-header .md-tabs {
+    position: relative;
+    overflow: visible;
+    height: 48px;
+    z-index: 1;
+}
+
+.md-header .md-tabs .md-tabs__list {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 [data-md-color-scheme=slate] img[data-md-component=logo][data-md-color=slate] {
     display: inline-block !important;
 }
@@ -231,4 +257,62 @@
 
 [data-md-color-scheme=slate] .asgardeo-community-icon path.black {
     fill: #fff;
+}
+
+/* Media query breakpoints
+
+    $base_px: 16px;
+
+    $break-devices:
+        mobile:
+            portrait:  220px - 479px
+            landscape: 480px - 719px
+        tablet:
+            portrait:  720px - 959px
+            landscape: 960px - 1219px
+        screen:
+            small:     1220px - 1599px
+            medium:    1600px - 1999px
+            large:     2000px
+
+    https://github.com/squidfunk/mkdocs-material/blob/master/src/templates/assets/stylesheets/_config.scss        
+
+    https://www.w3schools.com/tags/ref_pxtoemconversion.asp
+
+*/
+
+@media screen and (max-width: 76.1875em) {
+    .md-nav--primary .md-nav__title[for=__drawer] {
+        background-color: var(--md-default-bg-color);
+        height: 4.2rem;
+    }
+}
+
+@media screen and (min-width: 76.25em) {
+    [dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
+    [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
+        margin: 0 2rem 3rem;
+    }
+
+    [data-md-toggle=search]:checked~.md-header .md-tabs {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 76.25em) and (max-width: 99.9375em) {
+    .md-source label {
+        display: none;
+    }
+
+    .md-tabs {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 100em) {
+    .md-header .md-tabs {
+        position: relative;
+        overflow: visible;
+        height: 53px;
+    }
 }

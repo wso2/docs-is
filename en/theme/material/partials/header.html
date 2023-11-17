@@ -31,6 +31,13 @@
       {% set icon = config.theme.icon.menu or "material/menu" %}
       {% include ".icons/" ~ icon ~ ".svg" %}
     </label>
+    {% if config.extra.is_version != 'versions' %}
+      {% if "navigation.tabs.sticky" in features %}
+          {% if "navigation.tabs" in features %}
+          {% include "partials/tabs.html" %}
+          {% endif %}
+      {% endif %}
+    {% endif %}
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
@@ -38,17 +45,7 @@
             {{ config.site_name }}
           </span>
         </div>
-        {% if page.title != "Home" %}
-          <div class="md-header__topic" data-md-component="header-topic">
-            <span class="md-ellipsis">
-                {% if page.meta and page.meta.title %}
-                  {{ page.meta.title }}
-                {% else %}
-                  {{ page.title }}
-                {% endif %}
-            </span>
-          </div>
-        {% endif %}
+        
       </div>
     </div>
     {% if config.extra.product != "asgardeo" %}
@@ -129,11 +126,4 @@
       </div>
     {% endif %}
   </nav>
-  {% if page.title != "Home" %}
-    {% if "navigation.tabs.sticky" in features %}
-        {% if "navigation.tabs" in features %}
-        {% include "partials/tabs.html" %}
-        {% endif %}
-    {% endif %}
-  {% endif %}
 </header>

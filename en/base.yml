@@ -17,6 +17,8 @@
 site_name: ""
 site_author: WSO2
 
+dev_addr: localhost:8000
+
 # Repository
 repo_name: wso2/docs-is
 # repo_url: https://github.com/wso2/docs-is
@@ -102,7 +104,7 @@ markdown_extensions:
 
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
-  - assets/css/overrides.css
+  - assets/css/theme.css
   # TODO: Need to verify if below css files are still needed. And clean those.
   # - assets/lib/highlightjs/default.min.css
   # - assets/css/theme.css
@@ -117,15 +119,6 @@ extra_javascript:
   # TODO: Need to verify if below js files are still needed. And clean those.
   # - assets/lib/json-formatter/json-formatter.umd.js
   # - assets/lib/highlightjs/highlight.min.js
-# validation:
-#   nav:
-#     omitted_files: info
-#     not_found: warn
-#     absolute_links: info
-#   links:
-#     not_found: warn
-#     absolute_links: info
-#     unrecognized_links: info
 extra:
   doc_base: &doc_base https://is.docs.wso2.com/en
   material:
@@ -137,13 +130,13 @@ extra:
   integrations:
     - name: Asgardeo Auth React SDK
       icon: assets/img/logo/react-logo.svg
-      description: An Asgardeo SDK to integrate Asgardeo into React applications
+      description: An Asgardeo SDK to integrate {{ config.extra.product_name }} into React applications
       documentation_link: get-started/try-your-own-app/javascript/
       download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip
       source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
     - name: Asgardeo Auth SPA SDK
       icon: assets/img/logo/javascript-logo.svg
-      description: An Asgardeo SDK to integrate Asgardeo into single page applications
+      description: An Asgardeo SDK to integrate {{ config.extra.product_name }} into single page applications
       documentation_link: get-started/try-your-own-app/javascript/
       download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
       source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
@@ -157,7 +150,7 @@ extra:
       source_link: https://github.com/nextauthjs/next-auth
     - name: Asgardeo Auth Node SDK
       icon: assets/img/logo/expressjs-logo.svg
-      description: An Asgardeo SDK to integrate WSO2 IS into JS/TS-based frameworks such as ExpressJS
+      description: An Asgardeo SDK to integrate {{ config.extra.product_name }} into JS/TS-based frameworks such as ExpressJS
       source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
     - name: Asgardeo Tomcat OIDC Agent
       icon: assets/img/logo/java-logo.svg
@@ -187,58 +180,6 @@ extra:
       icon: assets/img/logo/apple-idp-illustration.svg
       description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
       source_link: https://github.com/openid/AppAuth-iOS
-  versions:
-    current: 6.1.0
-    list: 
-      - 6.1.0
-      - 6.0.0
-      - 5.11.0
-    all:
-      - name: 6.1.0
-        doc: https://is.docs.wso2.com/en/6.1.0
-        notes: https://is.docs.wso2.com/en/6.1.0/references/about-this-release
-      - name: 6.0.0
-        doc: https://is.docs.wso2.com/en/6.0.0
-        notes: https://is.docs.wso2.com/en/6.0.0/references/about-this-release
-      - name: 5.11.0
-        doc: https://is.docs.wso2.com/en/5.11.0
-        notes: https://is.docs.wso2.com/en/5.11.0/get-started/about-this-release
-      - name: 5.10.0
-        doc: https://is.docs.wso2.com/en/5.10.0
-        notes: https://is.docs.wso2.com/en/5.10.0/get-started/about-this-release
-      - name: 5.9.0
-        doc: https://is.docs.wso2.com/en/5.9.0
-        notes: https://is.docs.wso2.com/en/5.9.0/get-started/about-this-release
-      - name: 5.8.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS580/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS580/pages/41124119/About+this+release
-      - name: 5.7.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS570/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS570/pages/38174879/About+this+Release
-      - name: 5.6.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS560/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS560/pages/31817769/About+this+Release
-      - name: 5.5.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS550/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS550/pages/29720727/About+this+Release
-      - name: 5.4.1
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS541/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS541/pages/42827813/About+this+Release
-      - name: 5.4.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS540/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS540/pages/45645861/About+this+Release
-      - name: 5.3.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS530/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS530/pages/25559702/About+this+Release
-      - name: 5.2.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS520/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS520/pages/47022087/About+this+Release
-      - name: 5.1.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS510/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS510/pages/25722900/About+this+Release
-      - name: 5.0.0
-        doc: https://wso2docs.atlassian.net/wiki/spaces/IS500/overview
-        notes: https://wso2docs.atlassian.net/wiki/spaces/IS500/pages/32342518/About+this+Release
   redoc_theme: '{
     "colors": {
       "primary": { "main": "#ff7300" }
