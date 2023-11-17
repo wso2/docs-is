@@ -21,7 +21,7 @@ The guides listed below will help you understand the OIDC login flow using the a
 
 ## Implement login using Pushed Authorization Requests
 
-WSO2 Identity Server provides the '/par' endpoint which returns a reference to the authorization payload called the request_uri. This authorization payload is sent by the back-channel during a PAR initiated login.
+{{ product_name }} provides the '/par' endpoint which returns a reference to the authorization payload called the request_uri. This authorization payload is sent by the back-channel during a PAR initiated login.
 
 - [Implement login using Pushed Authorization Requests]({{base_path}}/guides/authentication/oidc/implement-login-with-par/) has detailed instructions on this.
 
