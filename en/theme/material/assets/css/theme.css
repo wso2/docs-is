@@ -294,8 +294,10 @@
         margin: 0 2rem 3rem;
     }
 
-    [data-md-toggle=search]:checked~.md-header .md-tabs {
-        display: none;
+    [data-md-toggle=search]:checked~.md-header .md-tabs,
+    [data-md-toggle=search]:checked~.md-header .md-header__version-select-dropdown {
+        transition: opacity .25s;
+        opacity: 0;
     }
 }
 

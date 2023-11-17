@@ -18,6 +18,18 @@ INHERIT: ../base.yml
 
 site_description: Documentation for WSO2 Identity Server
 
+# Configuration
+theme:
+  custom_dir: ../../theme/material
+  logo: assets/images/identity-server-docs-logo-dark.svg
+  logo_light: assets/images/identity-server-docs-logo.svg
+  favicon: assets/images/identity-server-favicon.png
+
+watch:
+  - ../../theme/material
+  - ../../base.yml
+  - ../is_common.yml
+
 extra:
   product: is
   product_name: WSO2 Identity Server
@@ -136,15 +148,3 @@ extra:
       - name: 5.0.0
         doc: https://wso2docs.atlassian.net/wiki/spaces/IS500/overview
         notes: https://wso2docs.atlassian.net/wiki/spaces/IS500/pages/32342518/About+this+Release
-
-# Configuration
-theme:
-  custom_dir: ../../theme/material
-  logo: assets/images/identity-server-docs-logo-dark.svg
-  logo_light: assets/images/identity-server-docs-logo.svg
-  favicon: assets/images/identity-server-favicon.png
-
-watch:
-  - ../../theme/material
-  - ../../base.yml
-  - ../is_common.yml

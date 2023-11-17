@@ -259,4 +259,9 @@ body[data-md-color-scheme=slate] {
     .md-sidebar {
         display: none;
     }
+
+    [data-md-toggle=search]:checked~.md-header .md-tabs,
+    [data-md-toggle=search]:checked~.md-header .md-header__version-select-dropdown {
+        opacity: 1 !important;
+    }
 }

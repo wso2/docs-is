@@ -19,11 +19,6 @@ site_author: WSO2
 
 dev_addr: localhost:8000
 
-# Repository
-repo_name: wso2/docs-is
-# repo_url: https://github.com/wso2/docs-is
-# edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
-
 # Copyright
 copyright: © 2023 WSO2 LLC.
 
@@ -68,8 +63,12 @@ theme:
         name: Switch to system preference
   icon:
     logo: logo
-#Breaks build if there's a warning
+
+# Breaks build if there's a warning
 strict: false
+
+validation:
+  absolute_links: ignore
 
 # Extensions
 markdown_extensions:
@@ -105,28 +104,14 @@ markdown_extensions:
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css 
   - assets/css/theme.css
-  # TODO: Need to verify if below css files are still needed. And clean those.
-  # - assets/lib/highlightjs/default.min.css
-  # - assets/css/theme.css
-  # - assets/css/prism.css
-  # - assets/lib/json-formatter/json-formatter.css
-  # - assets/lib/highlightjs/styles/vs.min.css
-  # - assets/css/blue-palette-alt2.css
-  # - assets/lib/json-formatter/json-formatter.css
-  # - assets/css/config-catalog.css
+
 extra_javascript:
   - assets/js/theme.js
-  # TODO: Need to verify if below js files are still needed. And clean those.
-  # - assets/lib/json-formatter/json-formatter.umd.js
-  # - assets/lib/highlightjs/highlight.min.js
+
 extra:
-  doc_base: &doc_base https://is.docs.wso2.com/en
   material:
     jinja2content: true
   generator: false
-  # social:
-  #   - icon: fontawesome/brands/github
-  #     link: https://github.com/wso2
   integrations:
     - name: Asgardeo Auth React SDK
       icon: assets/img/logo/react-logo.svg
