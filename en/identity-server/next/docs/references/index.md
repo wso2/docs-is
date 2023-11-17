@@ -12,6 +12,8 @@ See the topics in this section for references that will help you while working w
 
 - [Grant types]({{base_path}}/references/grant-types/) used in WSO2 IS.
 
+- [Pushed Authorization Requests]({{base_path}}/references/pushed-authorization-requests/) in WSO2 IS.
+
 - The [API references]({{base_path}}/references/conditional-auth/api-reference/) you need for writing conditional authentication scripts.
 
 - [Custom user store managers]({{base_path}}/references/user-stores/write-a-custom-user-store-manager/) in WSO2 IS.
