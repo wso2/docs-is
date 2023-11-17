@@ -248,6 +248,24 @@ Note the following before you begin.
     allow_cross_tenant = true
     ```
 
+    !!! Info "Important"
+        To enable cross tenant token validation using client credentials, apply the following configurations to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory) and restart the server.
+
+        ```toml
+        [[resource.access_control]]
+        context="(.*)/oauth2/introspect(.*)"
+        http_method = "all"
+        secure = true
+        allowed_auth_handlers="BasicClientAuthentication"
+        cross_tenant = true
+        ```
+
+        Additionally you can restrict cross tenant access only for a selected set of tenants by appending the below configuration to the above resource access control.
+
+        ```toml
+        cross_access_allowed_tenants="carbon.super"
+        ```
+
 ### Get a valid token (without scopes)
 
 First, you need to get a valid access token as follows:
@@ -328,6 +346,15 @@ You can send a token validation request using one of the following authenticatio
         **Sample Request**
         ```curl
         curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
+        ```
+
+    !!! Info "Important"
+        If you're performing a cross tenant token validation, it is recommended to invoke the introspection endpoint for the application's tenant path from which the client credentials are obtained.
+
+        However if you're required to send a introspection request to the token's tenant path, following query param should be appended to the introspection request.
+
+        ```curl
+        appTenant=<TENANT_DOMAIN>
         ```
 
 You will receive one of the following responses:

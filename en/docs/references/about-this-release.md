@@ -98,6 +98,19 @@ The following new features and enhancements (introduced in WSO2 IS 6.0.0) are in
 
     [Learn more]({{base_path}}/deploy/configure-recaptcha/)
 
+-  **Tenant qualified URLs and tenanted sessions**
+
+    From IS 7.0.0 onwards, tenant qualified URLs will be enabled by default, which consistently qualifies every URL/ endpoint of WSO2 Identity Server with the tenant in a path parameter. This improves flexibility for tenant-wise sharding and branding compared to previous releases.
+
+    Additionally from IS 7.0.0 onwards, tenanted sessions will also be enabled allowing sessions and caches to be created in a tenanted space.
+
+-   **OAuth client ID tenant unification**
+
+    OAuth consumer application client IDs are now tenant unique allowing same client ID to exist in multiple tenants. This feature requires tenant qualified URLs and tenanted sessions.
+
+    !!! info
+        Once you start the identity server with tenant qualified URLs and tenanted sessions being enabled, you cannot disable them back as it could led to inconsistencies with this feature.
+
 WSO2 IS 6.1.0 introduces the following new features and enhancements:
 
 -   **Google One Tap authentication** 
@@ -125,10 +138,6 @@ Learn more about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/migrate/upgra
     Includes developer and administrator views to manage and maintain the features offered by WSO2 Identity Server. This is an ongoing effort to improve the user experience with the product. 
     
     To try out the React-based console, start WSO2 Identity Server, and access the following URL: `https://localhost:9443/console`.
-
--   **Tenant-qualified URLs**
-    
-    Provides the option of switching to tenant-qualified endpoints, which consistently qualifies every URL/endpoint of WSO2 Identity Server with the tenant in a path parameter. This improves flexibility for tenant-wise sharding and branding compared to previous releases.
 
 -   **Managing CORS configurations tenant-wise**
 
