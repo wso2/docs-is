@@ -1,0 +1,25 @@
+<!--
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2.33333 1H7.66667C7.85076 1 8 1.14924 8 1.33333V10C8.24431 9.72319 8.60177 9 9 9V1.33333C9 0.596954 8.40305 0 7.66667 0H2.33333C1.59695 0 1 0.596953 1 1.33333V16H8.5C8.14191 15.795 7.55057 15.4286 7.5 15H2V1.33333C2 1.14924 2.14924 1 2.33333 1Z" fill="black"/>
+  <path d="M7 3.16667H3V2.16667H7V3.16667Z" fill="black"/>
+  <path d="M3 5.83333H7V4.83333H3V5.83333Z" fill="black"/>
+  <path d="M11.5 9C9.5701 9 8 10.5701 8 12.5C8 14.4299 9.5701 16 11.5 16C13.4299 16 15 14.4299 15 12.5C15 10.5701 13.4299 9 11.5 9ZM11.5 15C10.0654 15.0397 9.05822 13.9778 9 12.5C9.07828 10.9988 10.0414 10.0464 11.5 10C12.9506 10.0117 13.9001 10.9687 14 12.5C13.9487 13.9381 12.9883 14.9588 11.5 15Z" fill="black"/>
+  <path d="M12.1854 11.5669C12.1837 11.569 12.182 11.5713 12.1805 11.5737L11.3256 12.9359L10.8105 12.2913C10.7755 12.2505 10.7292 12.2283 10.6814 12.2294C10.6335 12.2304 10.5879 12.2547 10.5541 12.297C10.5202 12.3393 10.5009 12.3963 10.5 12.4561C10.4992 12.516 10.5169 12.5739 10.5495 12.6176L11.2008 13.4325C11.2184 13.4544 11.2393 13.4717 11.2623 13.4833C11.2853 13.4949 11.3099 13.5005 11.3347 13.5C11.3595 13.4994 11.3839 13.4926 11.4065 13.4799C11.4292 13.4673 11.4496 13.4491 11.4664 13.4264L12.449 11.8902C12.4825 11.8462 12.5008 11.7876 12.5 11.727C12.4991 11.6663 12.4793 11.6085 12.4446 11.566C12.41 11.5235 12.3634 11.4998 12.3149 11.5C12.2664 11.5002 12.2199 11.5242 12.1854 11.5669Z" fill="black" stroke="black" stroke-width="0.6"/>
+</svg>
