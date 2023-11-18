@@ -1,0 +1,24 @@
+<!--
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.33333 1H6.66667C6.85076 1 7 1.14924 7 1.33333V5.78473C7.24432 5.50792 7.60177 5.33333 8 5.33333V1.33333C8 0.596954 7.40305 0 6.66667 0H1.33333C0.596954 0 0 0.596953 0 1.33333V16H4.67177C4.31369 15.795 4.05982 15.4286 4.00925 15H1V1.33333C1 1.14924 1.14924 1 1.33333 1Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.66667 7V8H6C5.26362 8 4.66667 8.59695 4.66667 9.33333V14.6667C4.66667 15.403 5.26362 16 6 16H14.6667C15.403 16 16 15.403 16 14.6667V9.33333C16 8.59695 15.403 8 14.6667 8H13V7C13 6.26362 12.403 5.66667 11.6667 5.66667H9C8.26362 5.66667 7.66667 6.26362 7.66667 7ZM11.6667 6.66667H9C8.81591 6.66667 8.66667 6.81591 8.66667 7V8H12V7C12 6.81591 11.8508 6.66667 11.6667 6.66667ZM14.6667 9C14.8508 9 15 9.14924 15 9.33333V11.3333C15 11.5174 14.8508 11.6667 14.6667 11.6667H6C5.81591 11.6667 5.66667 11.5174 5.66667 11.3333V9.33333C5.66667 9.14924 5.81591 9 6 9H14.6667ZM15 12.6247V14.6667C15 14.8508 14.8508 15 14.6667 15H6C5.81591 15 5.66667 14.8508 5.66667 14.6667V12.6247C5.77321 12.6521 5.8849 12.6667 6 12.6667H14.6667C14.7818 12.6667 14.8935 12.6521 15 12.6247Z" fill="black"/>
+<path d="M6 3.16667H2V2.16667H6V3.16667Z" fill="black"/>
+<path d="M2 5.83333H6V4.83333H2V5.83333Z" fill="black"/>
+</svg>

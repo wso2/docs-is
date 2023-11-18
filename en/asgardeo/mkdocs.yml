@@ -42,12 +42,14 @@ extra:
   home_page_cards:
     - section:
       - title: Get Started
+        icon: assets/libs/oxygen-ui-icons/1.7.3/bolt-16.svg
         list_items:
           - title: Create your Asgardeo account
             url: Get Started|Create your Asgardeo account
           - title: Try login with Asgardeo
             url: Get Started|Try login with Asgardeo
       - title: Community and Support
+        icon: assets/libs/oxygen-ui-icons/1.7.3/lightbulb-on-16.svg
         list_items:
           - title: Community help
             url: https://discord.com/invite/wso2
@@ -55,6 +57,7 @@ extra:
             url: https://wso2.com/asgardeo/pricing/
     - section:
       - title: Guides
+        icon: assets/libs/oxygen-ui-icons/1.7.3/document-16.svg
         list_items:
           - title: Applications
             url: Guides|Applications|Applications
@@ -72,6 +75,7 @@ extra:
             url: Guides|Organizations|Organizations
     - section:
       - title: Developer Resources
+        icon: assets/libs/oxygen-ui-icons/1.7.3/user-gear-16.svg
         list_items:
           - title: APIs
             url: APIs|APIs - Overview

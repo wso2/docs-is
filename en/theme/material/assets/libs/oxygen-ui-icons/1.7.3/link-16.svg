@@ -1,0 +1,28 @@
+<!--
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1_3243)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.2962 6.19085C3.49603 5.99102 3.82003 5.99102 4.01986 6.19085C4.19749 6.36848 4.21722 6.64421 4.07907 6.84364L4.01986 6.91451L2.57254 8.36183C1.1737 9.76067 1.1737 12.0286 2.57254 13.4275C3.92474 14.7797 6.0891 14.8247 7.49545 13.5627L7.63816 13.4275L9.08548 11.9801C9.28532 11.7803 9.60931 11.7803 9.80914 11.9801C9.98677 12.1578 10.0065 12.4335 9.86835 12.6329L9.80914 12.7038L8.36182 14.1511C6.56332 15.9496 3.64738 15.9496 1.84888 14.1511C0.101761 12.404 0.0518429 9.60239 1.69912 7.79501L1.84888 7.63817L3.2962 6.19085ZM7.63817 1.84888C9.43667 0.0503749 12.3526 0.0503749 14.1511 1.84888C15.8982 3.59599 15.9482 6.39761 14.3009 8.20498L14.1511 8.36182L12.7038 9.80914C12.504 10.009 12.18 10.009 11.9801 9.80914C11.8025 9.63151 11.7828 9.35578 11.9209 9.15635L11.9801 9.08548L13.4275 7.63816C14.8263 6.23933 14.8263 3.97137 13.4275 2.57254C12.0753 1.22033 9.9109 1.17526 8.50455 2.43732L8.36183 2.57254L6.91451 4.01986C6.71468 4.21969 6.39068 4.21969 6.19085 4.01986C6.01322 3.84223 5.99348 3.5665 6.13164 3.36707L6.19085 3.2962L7.63817 1.84888ZM11.4322 4.56808C11.2324 4.36817 10.9084 4.36805 10.7085 4.5678L4.56343 10.7083L4.50419 10.7791C4.36596 10.9785 4.38559 11.2542 4.56316 11.4319C4.76292 11.6318 5.08691 11.632 5.28682 11.4322L11.4319 5.29174L11.4911 5.22089C11.6294 5.02151 11.6097 4.74577 11.4322 4.56808Z" fill="#40404B"/>
+</g>
+<defs>
+<clipPath id="clip0_1_3243">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

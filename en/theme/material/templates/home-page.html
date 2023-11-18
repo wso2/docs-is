@@ -43,10 +43,12 @@
                 <div class="md-column-grid-item-header-container">
                   <div class="md-column-grid-item-header-text">{{ column.title }}</div>
                   <div class="md-column-grid-item-header-icon">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.94686 5.82054L8.00011 0.5L6.05337 5.82054L0.391663 6.02786L4.85022 9.52346L3.29783 14.9721L8.00011 11.812L12.7024 14.9721L11.15 9.52346L15.6086 6.02786L9.94686 5.82054ZM12.8408 6.92718L9.23867 6.79527L8.00011 3.41024L6.76156 6.79527L3.15947 6.92718L5.99609 9.15115L5.00843 12.6177L8.00011 10.6072L10.9918 12.6177L10.0041 9.15115L12.8408 6.92718Z" fill="#40404B"></path>
-                    </svg>                       
-                  </div>   
+                    {% if column.icon %}
+                      {% include column.icon %}
+                    {% else %}
+                      {% include "assets/libs/oxygen-ui-icons/1.7.3/star-16.svg" %}
+                    {% endif %}
+                  </div>
                 </div>
                 {% for item in column.list_items %}
                   <div class="md-list-item-container">

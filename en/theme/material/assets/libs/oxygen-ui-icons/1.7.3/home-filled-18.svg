@@ -1,0 +1,30 @@
+<!--
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_358_2197)">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M9.00001 0.092453L17.6723 5.00147C18.0146 5.2347 18.103 5.70127 17.8698 6.04358C17.6578 6.35477 17.2529 6.45613 16.9239 6.29676L16.8277 6.24107L16.2499 5.92145L16.25 15.25C16.25 16.7125 15.1083 17.9084 13.6675 17.995L13.5 18H4.50001C3.03748 18 1.84161 16.8583 1.75503 15.4175L1.75001 15.25L1.74994 5.92045L1.17232 6.24107C0.861135 6.4531 0.447251 6.39931 0.199337 6.13059L0.130211 6.04358C-0.081822 5.73239 -0.028024 5.31851 0.24069 5.0706L0.327701 5.00147L9.00001 0.092453Z"
+      fill="#40404B" />
+  </g>
+  <defs>
+    <clipPath id="clip0_358_2197">
+      <rect width="18" height="18" fill="white" />
+    </clipPath>
+  </defs>
+</svg>
