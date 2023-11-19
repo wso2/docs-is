@@ -11,7 +11,7 @@ Some of these APIs are used for organization management purposes, and they have 
 - [Suborganization user management API (SCIM2)]({{base_path}}/apis/organization-management/org-scim2/)
   
     - ```users``` endpoint
-    - ```group``` endpoint
+    - ```groups``` endpoint
 
 - [Suborganization application management API]({{base_path}}/apis/organization-management/org-application-management)
 
@@ -21,10 +21,11 @@ Some of these APIs are used for organization management purposes, and they have 
 
 - [Suborganization level organization management API]({{base_path}}/apis/organization-management/org-management)
 
+!!! warning
+    You need a paid Asgardeo subscription to use Suborganization level organization management feature. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.
+
 - [Idle account identification API]({{base_path}}/apis/organization-management/org-idle-account-identification/)
   
-!!! warning
-    You need a paid Asgardeo subscription to use this feature. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.
 
 ## Authentication
 

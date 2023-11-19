@@ -398,6 +398,13 @@ nav:
     - Server configuration API: apis/configs-rest-api.md
     - Permission management API : apis/permission-management-rest-api.md
     - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+    - Organization management API: apis/organization-mgt-rest-api.md
+    - Organization APIs:
+      - Organization APIs: apis/organization-apis/index.md
+      - Get access for organization APIs: apis/organization-apis/authentication.md
+      - User management API: apis/organization-apis/org-user-mgt.md
+      - Group management API: apis/organization-apis/org-group-mgt.md
+      - Identity providers API: apis/organization-apis/org-idp.md
   - References:   
     - References: references/index.md
     - User Management:
