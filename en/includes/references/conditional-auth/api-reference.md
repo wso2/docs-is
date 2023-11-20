@@ -727,28 +727,50 @@ This function returns the local user associated with the federate username given
 
 Contains the authentication context information. The information can be accessed as follows:
 
-| | |
-|-|-|
-| context.steps[n] | Access the authentication step information, where 'n' is the step number (1-based). See [step](#step) for more information.  |
+<table>
+  <tr>
+    <td><code>context.steps[n]</code></td>
+    <td>Access the authentication step information, where 'n' is the step number (1-based). See <a href="#step">step</a> for more information.</td>
+  </tr>
+</table>
 
 The step number is the one configured at the step configuration, not the actual order in which they get executed.
 
-| | |
-|-|-|
-| context.request | Access the HTTP authentication request information. See [request](#request) for more information. |
-| context.response  | Access the HTTP response, which will be sent back to the client. See [response](#response) for more information.  |
-| context.serviceProviderName | Get the application name. |
+<table>
+  <tr>
+    <td><code>context.request</code></td>
+    <td>Access the HTTP authentication request information. See <a href="#request">request</a> for more information.</td>
+  </tr>
+  <tr>
+    <td><code>context.response</code></td>
+    <td>Access the HTTP response, which will be sent back to the client. See <a href="#response">response</a> for more information.</td>
+  </tr>
+  <tr>
+    <td><code>context.serviceProviderName</code></td>
+    <td>Get the application name.</td>
+  </tr>
+</table>
+
 
 
 ### Step
 
 Contains the authentication step information. It may be a null or invalid step number.
 
-| | |
-|-|-|
-| step.subject  | Contains the authenticated user's information from this step. It may be null if the step is not yet executed. See [user](#user) for more information. |
-| step.idp  | Gives the name of the federated connection that is used to authenticate the user. |
-| step.authenticator  | Give the name of the authenticator that is used for authenticating te user. You can find the authenticator names from the [connection names table](#authenticatorNames). |
+<table>
+  <tr>
+    <td><code>step.subject</code></td>
+    <td>Contains the authenticated user's information from this step. It may be null if the step is not yet executed. See <a href="#user">user</a> for more information.</td>
+  </tr>
+  <tr>
+    <td><code>step.idp</code></td>
+    <td>Gives the name of the federated connection that is used to authenticate the user.</td>
+  </tr>
+  <tr>
+    <td><code>step.authenticator</code></td>
+    <td>Give the name of the authenticator that is used for authenticating te user. You can find the authenticator names from the <a href="#authenticatorNames">connection names table</a>.</td>
+  </tr>
+</table>
 
 ### User
 
@@ -815,13 +837,28 @@ Contains the authentication step information. It may be a null or invalid step n
 
 ### Session
 
-  | | |
-  |-|-|
-  | session.userAgent | This is the userAgent object of the user session. See [userAgent](#user-agent) for more information.  |
-  | session.ip  | This is the session's IP address. |
-  | session.loginTime | This is the session's last login time.  |
-  | session.lastAccessTime  | This is the session's last accessed time.  |
-  | session.id  | This is the list of application objects in the session. See [application](#application) for more information. |
+  <table>
+    <tr>
+    <td><code>session.userAgent</code></td>
+    <td>The user agent object of the user session. See <a href="#user-agent">userAgent</a> for more information.</td>
+    </tr>
+    <tr>
+      <td><code>session.ip</code></td>
+      <td>The session's IP address.</td>
+    </tr>
+    <tr>
+      <td><code>session.loginTime</code></td>
+      <td>The session's last login time.</td>
+    </tr>
+    <tr>
+      <td><code>session.lastAccessTime</code></td>
+      <td>The session's last accessed time.</td>
+    </tr>
+    <tr>
+      <td><code>session.id</code></td>
+      <td>The list of application objects in the session. See <a href="#application">application</a> for more information.</td>
+    </tr>
+  </table>
 
 ### Application
 
@@ -892,4 +929,4 @@ If the consumer key and the consumer secret are added as secrets, they should be
     <td><code>connectionMetadata.consumerSecretAlias</code></td>
     <td>The name of the secret that stores the consumer secret.</td>
   </tr>
-</table>  
+</table>
