@@ -7,7 +7,6 @@ info:
   title: Identity Provider Management API
 security:
   - OAuth2: []
-  - BasicAuth: []
 paths:
   /identity-providers:
     get:
@@ -1858,9 +1857,6 @@ components:
           - text/xml
           - text/json
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
