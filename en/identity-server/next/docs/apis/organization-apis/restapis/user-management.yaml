@@ -13,7 +13,6 @@ servers:
         default: carbon.super
 security:
   - OAuth2: []
-  - BasicAuth: []
 paths:
   /Users:
     get:
@@ -769,9 +768,6 @@ components:
           type: string
           example: Internal Server Error.
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
