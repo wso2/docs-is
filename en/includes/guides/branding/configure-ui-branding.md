@@ -567,6 +567,13 @@ Listed below are some advanced branding preferences you can apply to the user re
          This is a link to a document or a webpage with detailed information on all cookies used by your applications and the purpose of each of them.
       </td>
    </tr>
+   </tr>
+      <tr>
+      <td><b>Self Signup</b></td>
+      <td>
+         This is a link to your organization's external self signup page.
+      </td>
+   </tr>
 </table>
 
 #### Locale-aware URLs
