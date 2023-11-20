@@ -20,7 +20,7 @@ You can choose to replace the **username and password** authentication with soci
 
 ## Configure multi-factor authentication
 
-Asgardeo provides two modes to configure multi-factor authentication, namely the **Classic Editor** and the **Visual Editor**.
+{{product_name}} provides two modes to configure multi-factor authentication, namely the **Classic Editor** and the **Visual Editor**.
 
 Given below are the main steps you will follow when enabling MFA in your login flow.
 
@@ -32,11 +32,11 @@ Given below are the main steps you will follow when enabling MFA in your login f
 
     - Using the classic editor
 
-        ![Configuring MFA in Asgardeo using the classic editor]({{base_path}}/assets/img/guides/mfa/add-mfa-authenticator.png)
+        ![Configuring MFA in {{product_name}} using the classic editor]({{base_path}}/assets/img/guides/mfa/add-mfa-authenticator.png)
 
     - Using the classic editor
 
-        ![Configuring MFA in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/add-mfa-authenticator-visual-editor.png)
+        ![Configuring MFA in {{product_name}} using the visual editor]({{base_path}}/assets/img/guides/mfa/add-mfa-authenticator-visual-editor.png)
 
 ## What's next?
 

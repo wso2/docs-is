@@ -173,7 +173,7 @@ When your application is a confidential client, it needs to identify itself to t
 - Use a **private key JWT**: A secured JWT assertion with the data required for client authentication is sent in the token request. See the example given below.
 
     !!! note
-        Learn more about [private key JWT client authentication]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/) in Asgardeo.
+        Learn more about [private key JWT client authentication]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/) in {{ product_name }}.
 
     ```bash
     --header 'Content-Type: application/x-www-form-urlencoded' \

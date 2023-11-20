@@ -78,12 +78,14 @@ Listed below are the design changes you can apply to the user registration and l
 
 Select one of the available layouts for your login interfaces. {{ product_name }} uses the **Centered** layout by default.
 
+{% if product_name == "Asgardeo" %}
 !!! note "Custom layout"
-    If you want to use the **Custom** layout from the list (shown below), contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
+    If you want to use the **Custom** layout from the list (shown below), contact Asgardeo support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
 
     ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-    Note that these requests should be sent from the account of an administrator in the organization.
+    Note that these requests should be sent from the account of an administrator in the organization.     
+{% endif %}
 
 #### Theme variations
 
@@ -569,7 +571,7 @@ Listed below are some advanced branding preferences you can apply to the user re
 
 #### Locale-aware URLs
 
-By default, Asgardeo automatically appends the `ui_locales` parameter with the selected locale to URLs. However, if you need to tailor your URL structure to meet specific requirements, you can use the following placeholders to create a more customized URL:
+By default, {{product_name}} automatically appends the `ui_locales` parameter with the selected locale to URLs. However, if you need to tailor your URL structure to meet specific requirements, you can use the following placeholders to create a more customized URL:
 
 ##### Supported placeholders:
 
