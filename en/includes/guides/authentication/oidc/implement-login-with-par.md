@@ -19,10 +19,10 @@ To get started, you need to have an application registered in {{ product_name }}
 
 ## Get a request_uri
 
-The request_uri functions as a reference to your authorization payload. You can receive a request_uri by invoking the following endpoint in Asgardeo.
+The request_uri functions as a reference to your authorization payload. You can receive a request_uri by invoking the following endpoint in {{ product_name }}.
 
 ```
-https://api.asgardeo.io/t/{organization_name}/oauth2/par
+{{ product_url_format }}/oauth2/par
 ```
 
 The following example shows how you can initiate an authorization code flow using the `/par` endpoint.
@@ -30,7 +30,7 @@ The following example shows how you can initiate an authorization code flow usin
 **Request format**
 
 ```bash
-curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/par' \
+curl --location '{{ product_url_format }}/oauth2/par' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'accept: application/json' \
     --header 'Authorization: Basic -u {CLIENT_ID}:{CLIENT_SECRET}' \
@@ -43,7 +43,7 @@ curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/par' \
 **Sample request**
 
 ```bash
-curl --location 'https://api.asgardeo.io/t/bifrost/oauth2/par' \
+curl --location '{{ product_url_sample }}/oauth2/par' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'accept: application/json' \
     --header 'Authorization: Basic -u YWRtaW46YWRtaW4=' \
@@ -64,7 +64,7 @@ You will receive a response with the request_uri and the time of expiry.
 
 !!! note
 
-    - Asgardeo uses the prefix, `urn:ietf:params:oauth:par:request_uri:` for the request_uri. The `/authorize` endpoint processes the request as initiated with PAR, only if the request_uri is of this format.
+    - {{ product_name }} uses the prefix, `urn:ietf:params:oauth:par:request_uri:` for the request_uri. The `/authorize` endpoint processes the request as initiated with PAR, only if the request_uri is of this format.
     - The request_uri expires after 60 seconds.
 
 ## Start the authorization flow
@@ -74,14 +74,14 @@ You can use the `request_uri` that you received above, along with the client ID 
 **Request Format**
 
 ``` json
-https://api.asgardeo.io/t/{organization_name}/oauth2/authorize?
+{{ product_url_format }}/oauth2/authorize?
 client_id={CLIENT_ID}&request_uri={request_uri}
 ```
 
 **Sample Request**
 
 ``` json
-https://api.asgardeo.io/t/bifrost/oauth2/authorize?
+{{ product_url_sample }}/oauth2/authorize?
 client_id=DUBCMGolTZQNg6mmE9GvfQ3qfq8a
 &request_uri=urn:ietf:params:oauth:par:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f
 ```

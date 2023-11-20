@@ -19,6 +19,18 @@ The guides listed below will help you understand the OIDC login flow using the a
 
 - [Implement private key JWT client authentication for OIDC]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/)
 
+## Implement login using Pushed Authorization Requests
+
+{{ product_name }} provides the '/par' endpoint which returns a reference to the authorization payload called the request_uri. This authorization payload is sent by the back-channel during a PAR initiated login.
+
+- [Implement login using Pushed Authorization Requests]({{base_path}}/guides/authentication/oidc/implement-login-with-par/) has detailed instructions on this.
+
+## JWT Secured Authorization Response Mode (JARM) for OAuth 2.0
+
+With JWT Secured Authorization Response Mode, clients can request authorization response parameters in JWT format instead of plain text.
+
+- [JWT Secured Authorization Response Mode (JARM) for OAuth 2.0]({{base_path}}/guides/authentication/oidc/jarm/) has detailed instructions on this.
+
 ## Validate ID tokens
 
 This section explains how the signature and the claims are verifieed in the ID token that is sent by {{ product_name }} to an application.

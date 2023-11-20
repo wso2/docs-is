@@ -190,8 +190,9 @@ nav:
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
             - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
             - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
-            - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
             - Implement private key JWT client authentication: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
+            - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
@@ -337,7 +338,6 @@ nav:
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
     - OAuth2 grant types of Asgardeo: references/grant-types.md
     - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
-    - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: references/jarm.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
