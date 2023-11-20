@@ -29,7 +29,7 @@ Consider a scenario with two user stores, `EMPLOYEES` and `CONTRACTORS`. For use
 
 To enable conditional authentication:
 
-1. On the Asgardeo Console, click **Applications**.
+1. On the {{product_name}} Console, click **Applications**.
 
 2. Select the relevant application and go to it's **Sign-in Method** tab.
 

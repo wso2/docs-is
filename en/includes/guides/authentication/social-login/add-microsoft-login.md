@@ -57,7 +57,7 @@ Now, let's generate a client secret for the application.
 3. Click **Add** to add the client secret.
 
     !!! note "Important"
-        Take note of the generated **Value**. Azure will allow copying this value only once. This value is the newly generated client secret for your Microsoft connection in Asgardeo.
+        Take note of the generated **Value**. Azure will allow copying this value only once. This value is the newly generated client secret for your Microsoft connection in {{ product_name }}.
 
 
 ## Register the Microsoft IdP
@@ -131,7 +131,7 @@ To enable Microsoft login:
 
         2. Click **Add Authentication** on the step, select your Microsoft identity provider, and click **Add**.
 
-            ![Add Microsoft login in Asgardeo]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Microsoft login in {{ product_name }}]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Microsoft login using the Visual Editor:
@@ -140,7 +140,7 @@ To enable Microsoft login:
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Microsoft connection.
 
-            ![Add Microsoft login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Microsoft login in {{ product_name }} using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 

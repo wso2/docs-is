@@ -29,7 +29,7 @@ Secrets securely store values associated with external APIs. These secret values
 
 To add a new secret:
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Select your application and go to the **Sign-in Method** tab .
 
@@ -79,7 +79,7 @@ To add a new secret:
 
 To delete an existing secret:
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Select your application and go to the **Sign-in Method** tab .
 
