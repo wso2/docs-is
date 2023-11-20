@@ -568,7 +568,7 @@ Listed below are some advanced branding preferences you can apply to the user re
       </td>
    </tr>
    </tr>
-      <tr>
+   <tr>
       <td><b>Self Signup</b></td>
       <td>
          This is a link to your organization's external self signup page.
