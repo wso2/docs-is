@@ -410,7 +410,8 @@ nav:
       - Group management API: apis/organization-apis/org-group-mgt.md
       - Role management API: apis/organization-apis/org-role-mgt.md
       - Identity providers API: apis/organization-apis/org-idp.md
-  - References:   
+      - Applications API: apis/organization-apis/org-application.md
+  - References:
     - References: references/index.md
     - User Management:
       - User roles: references/user-management/user-roles.md
