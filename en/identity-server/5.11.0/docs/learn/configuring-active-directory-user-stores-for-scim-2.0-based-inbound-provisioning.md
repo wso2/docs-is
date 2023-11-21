@@ -1,4 +1,4 @@
-# Configure Active Directory Userstores for SCIM 2.0 based Inbound Provisioning
+# Configuring Active Directory User Stores for SCIM 2.0 based Inbound Provisioning
 
 WSO2 Identity Server can act both as a SCIM Provider and a SCIM consumer at the same time. You can test the WSO2 Identity Server's SCIM 2.0 Provider API as described here.
 
@@ -208,7 +208,6 @@ To configure the claim mappings:
 5. Repeat steps three and four for the remaining mandatory local claims.
 
 Learn more on [how to configure claim mappings](../editing-claim-mapping/).
-
 
 ## Step 4: Configure additional properties
 
