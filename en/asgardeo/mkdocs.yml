@@ -97,6 +97,7 @@ plugins:
         'references/grant-types-in-asgardeo.md': 'https://wso2.com/asgardeo/docs/references/grant-types/'
         'guides/users/manage-collaborators.md': 'https://wso2.com/asgardeo/docs/guides/docs/manage-administrators/'
         'guides/users/manage-customers.md': 'https://wso2.com/asgardeo/docs/guides/docs/manage-users/'
+        'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey/'
 
 # Navigation
 nav:

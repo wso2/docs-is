@@ -45,6 +45,8 @@ plugins:
         'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
         'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
         'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
+        'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey.md'
+
 
 # Navigation
 nav:
