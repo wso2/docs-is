@@ -16,7 +16,7 @@ Some of these APIs are used for organization management purposes, and they have 
 
 - [Organization application management API]({{base_path}}/apis/organization-apis/org-application-mgt/)
 
-- [Organization identity provider management API]({{base_path}}/apis/organization-apis/org-idp/)
+- [Organization identity provider management API]({{base_path}}/apis/organization-apis/org-idp-mgt/)
 
 - [Organization level organization management API]({{base_path}}/apis/organization-apis/org-management/)
 
