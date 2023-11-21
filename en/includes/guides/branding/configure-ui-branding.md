@@ -570,7 +570,7 @@ Listed below are some advanced branding preferences you can apply to the user re
    <tr>
       <td><b>Self Signup</b></td>
       <td>
-         This is a link to your organization's external self signup page.
+         This is a link to your organization's self signup page.
       </td>
    </tr>
 </table>
