@@ -1,6 +1,6 @@
 # Configuring User Stores for SCIM 2.0 based inbound provisioning
 
-WSO2 Identity server supports inbound provisioning based on both SCIM 1.1 and SCIM 2.0. This document provides the additional steps that need to be followed if you're using **SCIM 2.0** for inbound provisioning. If you need more information on SCIM 2.0 APIs, see [SCIM 2.0 APIs](../../develop/using-the-scim-2.0-rest-apis/).
+WSO2 Identity server supports inbound provisioning based on both SCIM 1.1 and SCIM 2.0. This document provides the additional steps that need to be followed if you're using **SCIM 2.0** for inbound provisioning. If you need more information on SCIM 2.0 APIs, see [SCIM 2.0 APIs](../../develop/scim2-rest-apis/).
 
 When a user or a group is created with SCIM 2.0, there are set of mandatory claim values that need to be saved along with the user or group. Some of these values are as follows.
 
