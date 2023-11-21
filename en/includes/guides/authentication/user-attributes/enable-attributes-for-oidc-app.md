@@ -84,7 +84,7 @@ _A sample ID token is given below:_
 {
   "isk": "69b37037a2349763dc48e2a30a62c3feebf0b5823cf869e149352737ddc0ca63",
   "at_hash": "7qgloEmkz3kGBTtH7RI4qw",
-  "sub": "user@sample.com",
+  "sub": "e46ffa67-100d-4329-9460-b8251d446518",
   "amr": [
     "BasicAuthenticator"
   ],
