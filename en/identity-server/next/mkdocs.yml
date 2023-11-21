@@ -187,6 +187,8 @@ nav:
             - Properties used in read-only LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-only-ldap-user-store.md
             - Properties used in read-Write Active Directory user store manager: guides/users/user-stores/user-store-properties/properties-read-write-active-directory-user-store.md
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
+          - Configure user stores for SCIM 2.0: guides/users/user-stores/configure-user-stores-for-scim2.md
+          - Configure Active Directory user stores for SCIM 2.0: guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md
       - Account management:
         - Account management: guides/user-accounts/index.md
         - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
