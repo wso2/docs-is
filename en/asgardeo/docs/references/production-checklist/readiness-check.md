@@ -80,6 +80,7 @@ To ensure the readiness of the advanced branding of your organizations:
 - Configure the Cookie Policy.
 - Configure the Privacy Policy.
 - Configure the Terms of Service.
+- Configure the Self Signup.
 
 ### Using a custom domain
 By default, the interfaces provided by Asgardeo (such as the login page) are presented to your end users over Asgardeo domains. You can customize the URL domain to your organization-preferred host. [Learn more]({{base_path}}/guides/branding/configure-custom-domains/)
