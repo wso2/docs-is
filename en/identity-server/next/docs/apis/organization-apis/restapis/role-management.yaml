@@ -1,22 +1,16 @@
 openapi: 3.0.0
 info:
-  version: "1.0.0"
-  title: SCIM 2.0 Endpoint Swagger Definition
+  title: SCIM 2.0 Role Management API
   description: |
-    SCIM 2.0 endpoints
-    It is written with [swagger 2](http://swagger.io/).
-  contact:
-    name: WSO2 Identity Server Team
-    url: 'http://wso2.com/products/identity-server'
-    email: "iam-dev@wso2.org"
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0'
-
-# The base path of the SCIM2 API.
-# If the tenant domain is carbon.super then basepath can be /scim2.
-# host: localhost:9443
-# basePath: /t/{tenant-domain}/scim2
+    SCIM 2.0 Role Management endpoints
+  version: 2.0.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/scim2
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
 
 schemes:
   - https

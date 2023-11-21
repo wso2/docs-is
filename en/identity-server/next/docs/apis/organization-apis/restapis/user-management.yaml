@@ -32,7 +32,7 @@ paths:
         \ number of users per page as the `totalResults`. This is only applicable\
         \ for the LDAP user store. The JDBC user store is working according to the\
         \ specification.\n\n[scim2]\nremove_duplicate_users_in_users_response = true\n\
-        \n<b>Scope(Permission) required:</b>`internal_user_mgt_list`"
+        \n<b>Scope(Permission) required:</b>`internal_org_user_mgt_list`"
       operationId: getUser
       parameters:
         - name: attributes
@@ -100,7 +100,7 @@ paths:
       summary: Create user
       description: "This API creates a user and returns the user details along with\
         \ the user's unique ID.\n
-        \n<b>Scope(Permission) required:</b>`internal_user_mgt_create`\n    \n"
+        \n<b>Scope(Permission) required:</b>`internal_org_user_mgt_create`\n    \n"
       operationId: createUser
       parameters:
         - name: attributes
@@ -192,7 +192,7 @@ paths:
       summary: Search users
       description: "This API returns users according to the filter, sort and pagination\
         \ parameters.\n\n
-        \  \n  <b>Scope(Permission) required:</b>`internal_user_mgt_list`\n    \n"
+        \  \n  <b>Scope(Permission) required:</b>`internal_org_user_mgt_list`\n    \n"
       operationId: getUsersByPost
       requestBody:
         content:
@@ -246,7 +246,7 @@ paths:
       tags:
         - Users Endpoint
       summary: Get user by ID
-      description: "Return user details if a user found.\n\n<b>Scope(Permission) required:</b>`internal_user_mgt_view`\n    \n"
+      description: "Return user details if a user found.\n\n<b>Scope(Permission) required:</b>`internal_org_user_mgt_view`\n    \n"
       operationId: getUser by id
       parameters:
         - name: id
@@ -297,7 +297,7 @@ paths:
       summary: Update user - PUT
       description: "This API updates user details and returns the updated user details\
         \ using a PUT operation.\n
-        \  \n  <b>Scope(Permission) required:</b>`internal_user_mgt_update`\n"
+        \  \n  <b>Scope(Permission) required:</b>`internal_org_user_mgt_update`\n"
       operationId: updateUser
       parameters:
         - name: id
@@ -380,7 +380,7 @@ paths:
         - Users Endpoint
       summary: Delete user by ID
       description: "This API deletes a user using the user's unique ID.\n\n
-        \ <b>Scope(Permission) required:</b>`internal_user_mgt_delete`\n"
+        \ <b>Scope(Permission) required:</b>`internal_org_user_mgt_delete`\n"
       operationId: deleteUser
       parameters:
         - name: id
@@ -418,7 +418,7 @@ paths:
       summary: Update user - PATCH
       description: "This API updates user details and returns the updated user details\
         \ using a PATCH operation.\n
-        \ \n <b>Scope(Permission) required:</b>`internal_user_mgt_update`\n\n<b>Supported\
+        \ \n <b>Scope(Permission) required:</b>`internal_org_user_mgt_update`\n\n<b>Supported\
         \ Operations:</b>    `add`, `replace`, `remove`\n    \n"
       operationId: patchUser
       parameters:
