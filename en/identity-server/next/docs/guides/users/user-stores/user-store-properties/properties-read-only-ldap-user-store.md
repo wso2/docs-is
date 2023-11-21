@@ -94,7 +94,7 @@ Apart from the properties mentioned above, WSO2 Identity Server also supports ad
 <td><p>This is a uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in, if you want to set the email address as username, see <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username/">Enable using email address as the username.</a></p></td>
+Note: email address is considered as a special case in, if you want to set the email address as username, see <a href="{{base_path}}/guides/users/attributes/enable-email-as-username/">Enable using email address as the username.</a></p></td>
 </tr>
 <tr class="odd">
 <td>UserIDAttribute</td>
