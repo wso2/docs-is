@@ -1,6 +1,6 @@
 # Configure userstores for SCIM 2.0-Based Inbound Provisioning 
 
-When a user or a group is created with SCIM 2.0, there are set of mandatory claim values that need to be saved along with the user or group. Some of these values are as follows.
+When a user or a group is created with SCIM 2.0, there are set of mandatory attributes that need to be saved along with the user or group. Some of these values are as follows.
 
 -   urn:ietf:params:scim:schemas:core:2.0:meta.location 
 -   urn:ietf:params:scim:schemas:core:2.0:meta.resourceType 
@@ -10,11 +10,11 @@ When a user or a group is created with SCIM 2.0, there are set of mandatory clai
 -   urn:ietf:params:scim:schemas:core:2.0:meta.lastModified 
 -   urn:ietf:params:scim:schemas:core:2.0:User:userName
 
-Unless your user store is a JDBC user store, you need to map how these values are stored in your user store. This mapping can be done using the claim mapping setup in WSO2 Identity Server. You can find Active directory specific claim configurations when you [configure Active Directory user stores for inbound provisioning]({{base_path}}/guides/users/user-stores/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning/).
+Unless your user store is a JDBC user store, you need to map how these values are stored in your user store. This mapping can be done using the attribute mapping setup in WSO2 Identity Server. You can find Active directory specific attribute configurations when you [configure Active Directory user stores for SCIM 2.0]({{base_path}}/guides/users/user-stores/configure-active-directory-user-stores-for-scim2/).
 
-Now let's assume you have an AD userstore as the primary userstore and you have done the claim mappings for the SCIM attributes. 
+Now let's assume you have an AD userstore as the primary userstore and you have done the attribute mappings for the SCIM attributes. 
 
-Now suppose you need to add a secondary userstore, OpenLDAP. In this scenario, claim mappings done for AD may not be the same for OpenLDAP attributes. Therefore, it should be possible to map the claim attributes to the secondary userstore as well. Follow the instructions given below to do this.
+Now suppose you need to add a secondary userstore, OpenLDAP. In this scenario, attribute mappings done for AD may not be the same for OpenLDAP attributes. Therefore, it should be possible to map the attributes to the secondary userstore as well. Follow the instructions given below to do this.
 
 ---
 

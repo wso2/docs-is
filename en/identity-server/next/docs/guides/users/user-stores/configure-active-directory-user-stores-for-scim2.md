@@ -192,7 +192,7 @@ You can configure the immutable attributes using the following methods:
 
 ### ObjectGUID attribute
 
-The `objectGUID` attribute serves as the immutable identifier within Active Directory and is widely utilized as the primary identifier for many applications. In certain scenarios, you may find it necessary to leverage the `objectGUID` attribute as a distinct and unique attribute. This attribute can then be mapped into a local claim within the WSO2 Identity Server.
+The `objectGUID` attribute serves as the immutable identifier within Active Directory and is widely utilized as the primary identifier for many applications. In certain scenarios, you may find it necessary to leverage the `objectGUID` attribute as a distinct and unique attribute. This attribute can then be mapped into a local attribute within the WSO2 Identity Server.
 
 To do this you need to [add objectGUID under immutable Attributes](#immutable-attributes) and configure the LDAP binary attributes using the following methods:
 
