@@ -71,10 +71,6 @@ The following table lists the advanced properties used in Read-write Active
 Directory and their descriptions.
 
 <table> 
-<col width="50">
-<col width="50">
-<col width="50">
-<col width="100">
 <thead>
 <tr class="header">
 <th>Property Id</th>
