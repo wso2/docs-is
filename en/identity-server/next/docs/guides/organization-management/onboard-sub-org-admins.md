@@ -173,7 +173,7 @@ To create and maintain admins in the organization:
     !!! note
         Take note of the `id` parameter in the response. This is the organization-id of the newly created organization and you will need it in the following steps.
 
-3. [Get an access token for the created organization]({{base_path}}/apis/organization-management/authentication/#step-2-for-the-suborganization) by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
+3. [Get an access token for the created organization]({{base_path}}/apis/organization-apis/authentication/#step-2-for-the-suborganization) by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
 
 4. Create a user in the organization using the following cURL.
 
