@@ -315,18 +315,18 @@ nav:
     - Consent management API: apis/consent-management.md
     - Attribute management API: apis/attribute-management.md
     - Validation API: apis/validation.md
-    - Suborganization APIs:
-      - Suborganization APIs: apis/organization-management/index.md
-      - Get access for suborganization APIs: apis/organization-management/authentication.md
-      - User management - SCIM2 API: apis/organization-management/org-scim2.md
-      - B2B self service management API: apis/organization-management/onboard-admins-self-service.md
-      - Application management API: apis/organization-management/org-application-management.md
-      - Identity providers API: apis/organization-management/org-idp.md
-      - Organization management API: apis/organization-management/org-management.md
-      - Organization role management API: apis/organization-management/organization-role-management.md
-      - Idle account identification API: apis/organization-management/org-idle-account-identification.md
     - Idle account identification API: apis/idle-account-identification.md
-  - References:  
+    - B2B self service management API: apis/onboard-admins-self-service.md
+    - Organization APIs:
+      - Organization APIs: apis/organization-apis/index.md
+      - Get access for organization APIs: apis/organization-apis/authentication.md
+      - User management API: apis/organization-apis/org-user-mgt.md
+      - Group management API: apis/organization-apis/org-group-mgt.md
+      - Application management API: apis/organization-apis/org-application-management.md
+      - Identity provider management API: apis/organization-apis/org-idp.md
+      - Organization management API: apis/organization-apis/org-management.md
+      - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
+  - References:
     - References - Overview: references/index.md
     - Asgardeo user roles: references/user-management/user-roles.md
     - App configurations:

@@ -1,12 +1,71 @@
 openapi: 3.0.0
 info:
   description: >
-    This document explains the RESTful API for application management of suborganizations in Asgardeo.
+    This document explains the RESTful API for application management of organizations in Asgardeo.
   version: "v1"
   title: Asgardeo - Application Management Rest API
 security:
   - OAuth2: []
 paths:
+  /applications:
+    get:
+      tags:
+        - Applications
+      operationId: getAllApplications
+      summary: |
+        List applications
+      description: |
+        This API provides the capability to retrieve the list of applications.<br>
+          <b>Scope required:</b> `internal_org_application_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+        - $ref: '#/components/parameters/attributesQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/applications?limit=30&offset=0' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
   /applications/{applicationId}:
     get:
       tags:
@@ -14,7 +73,10 @@ paths:
       summary: |
         Retrieve application by ID
       operationId: getApplication
-      description: "This API provides the capability to retrieve the application information by ID. \n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      description: >
+        This API provides the capability to retrieve the application information
+        by ID. <br>
+          <b>Scope required:</b> `internal_org_application_mgt_view`
       parameters:
         - name: applicationId
           in: path
@@ -64,16 +126,18 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/applications/{application-id}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/applications/{application-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     patch:
       tags:
         - Applications
       summary: |
         Partially update application by ID
       operationId: patchApplication
-      description: "This API provides the capability to partially update an application by ID.\n\n<b>Scope required:</b> ``internal_application_mgt_update``"
+      description: |
+        This API provides the capability to partially update an application by ID.<br>
+        <b>Scope required:</b> `internal_org_application_mgt_update`
       parameters:
         - name: applicationId
           in: path
@@ -117,89 +181,85 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://api.asgardeo.io/o/{sub-organization-id}/api/server/v1/applications/{application-id}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/applications/{application-id}' \
             -H 'accept: */*' \
-            -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
             -d '{
-            "name": "pickup",
-            "description": "This is the configuration for Pickup-dispatch application.",
-            "imageUrl": "https://example.com/logo/my-logo.png",
-            "accessUrl": "https://example.com/login",
-            "templateId": "adwefi2429asdfdf94444rraf44",
-            "claimConfiguration": {
-              "dialect": "LOCAL",
-              "claimMappings": [
-                {
-                  "applicationClaim": "firstname",
-                  "localClaim": {
-                    "uri": "http://wso2.org/claims/username"
-                  }
+              "authenticationSequence": {
+                  "attributeStepId": 1,
+                  "steps": [
+                      {
+                          "id": 1,
+                          "options": [
+                              {
+                                  "authenticator": "OpenIDConnectAuthenticator",
+                                  "idp": "Enterprise IDP"
+                              }
+                          ]
+                      }
+                  ],
+                  "subjectStepId": 1,
+                  "type": "USER_DEFINED",
+                  "script": ""
                 }
-              ],
-              "requestedClaims": [
-                {
-                  "claim": {
-                    "uri": "http://wso2.org/claims/username"
-                  },
-                  "mandatory": false
-                }
-              ],
-              "subject": {
-                "claim": {
-                  "uri": "http://wso2.org/claims/username"
-                },
-                "includeUserDomain": false,
-                "includeTenantDomain": false,
-                "useMappedLocalSubject": false
-              },
-              "role": {
-                "mappings": [
-                  {
-                    "localRole": "admin",
-                    "applicationRole": "Administrator"
-                  }
-                ],
-                "includeUserDomain": true,
-                "claim": {
-                  "uri": "http://wso2.org/claims/username"
-                }
-              }
-            },
-            "authenticationSequence": {
-              "type": "DEFAULT",
-              "steps": [
-                {
-                  "id": 1,
-                  "options": [
-                    {
-                      "idp": "LOCAL",
-                      "authenticator": "basic"
-                    }
-                  ]
-                }
-              ],
-              "requestPathAuthenticators": [
-                "string"
-              ],
-              "script": "string",
-              "subjectStepId": 1,
-              "attributeStepId": 1
-            },
-            "advancedConfigurations": {
-              "saas": false,
-              "discoverableByEndUsers": false,
-              "certificate": {
-                "type": "string",
-                "value": "string"
-              },
-              "skipLoginConsent": false,
-              "skipLogoutConsent": false,
-              "useExternalConsentPage": false,
-              "returnAuthenticatedIdpList": false,
-              "enableAuthorization": true
-            }
-            }'               
+            }'
+  /applications/{applicationId}/authenticators:
+    get:
+      tags:
+        - Authenticators
+      summary: |
+        Get configured authenticators
+      operationId: getConfiguredAuthenticators
+      description: |
+        This API provides the capability to retrieve the configured authenticators.
+        
+        <b>Scope required:</b> `internal_org_application_mgt_view`
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConfiguredAuthenticatorsModal'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/applications/{application-id}/authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   parameters:
     limitQueryParam:
@@ -327,6 +387,30 @@ components:
           type: string
           example: "next"
 
+    ApplicationListResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          description: "Number of results that match the listing operation."
+          example: 1
+        startIndex:
+          type: integer
+          description: "Index of the first element of the page, which will be equal to offset + 1."
+          example: 1
+        count:
+          type: integer
+          description: "Number of elements in the returned page."
+          example: 10
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationListItem'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+
     ApplicationListItem:
       type: object
       properties:
@@ -359,7 +443,7 @@ components:
           default: READ
         self:
           type: string
-          example: "/o/99b8800f-b506-443a-aff5-33742e313c1b/api/server/v1/applications/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+          example: "/t/{root-organization-name}/o/api/server/v1/applications/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
         advancedConfigurations:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
         templateId:
@@ -377,10 +461,10 @@ components:
           readOnly: true
         name:
           type: string
-          example: pickup-dispatch
+          example: pickup
         description:
           type: string
-          example: This is the configuration for Pickup-dispatch application.
+          example: This is the configuration for Pickup application.
         imageUrl:
           type: string
           example: 'https://example.com/logo/my-logo.png'
@@ -394,7 +478,9 @@ components:
           default: false
           type: boolean
           example: false
-          description: Decides whether the application is used to access System APIs.
+          description: Decides whether the application used to access System APIs
+        claimConfiguration:
+          $ref: '#/components/schemas/ClaimConfiguration'
         inboundProtocolConfiguration:
           $ref: '#/components/schemas/InboundProtocols'
         authenticationSequence:
@@ -415,10 +501,10 @@ components:
           readOnly: true
         name:
           type: string
-          example: pickup-dispatch
+          example: pickup
         description:
           type: string
-          example: This is the configuration for Pickup-dispatch application.
+          example: This is the configuration for Pickup application.
         imageUrl:
           type: string
           example: 'https://example.com/logo/my-logo.png'
@@ -437,7 +523,9 @@ components:
         isManagementApp:
           type: boolean
           example: false
-          description: Decides whether the application is used to access System APIs.
+          description: Decides whether the application used to access System APIs
+        claimConfiguration:
+          $ref: '#/components/schemas/ClaimConfiguration'
         inboundProtocols:
           $ref: '#/components/schemas/InboundProtocolsListResponse'
         authenticationSequence:
@@ -456,41 +544,8 @@ components:
     ApplicationPatchModel:
       type: object
       properties:
-        name:
-          type: string
-          example: pickup
-          description: The name of the application.
-        description:
-          type: string
-          example: This is the configuration for Pickup-dispatch application.
-          description: The detailed description for your application.
-        imageUrl:
-          type: string
-          example: 'https://example.com/logo/my-logo.png'
-          description: The URL to the logo of your application.
-        accessUrl:
-          type: string
-          example: 'https://example.com/login'
-          description: The URL through which the users can access the application.
-        templateId:
-          description: "Pre-defined template to use when creating the application.
-            <br><br>The pre-defined template IDs are as follows:
-            <ul>
-              <li>SAML - `776a73da-fd8e-490b-84ff-93009f8ede85`</li>
-              <li>OIDC - `b9c5e11e-fc78-484b-9bec-015d247561b8`</li>
-              <li>Single Page App - `6a90e4b0-fbff-42d7-bfde-1efd98f07cd7`</li>
-              <li>Android Mobile - `44a2d9d9-bc0c-4b54-85df-1cf08f4002ec`</li>
-            </ul>"
-          type: string
-          example: "adwefi2429asdfdf94444rraf44"
-        claimConfiguration:
-          $ref: '#/components/schemas/ClaimConfiguration'
         authenticationSequence:
           $ref: '#/components/schemas/AuthenticationSequence'
-        advancedConfigurations:
-          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
-#       provisioningConfigurations:
-#         $ref: '#/components/schemas/ProvisioningConfiguration'
 
     ProvisioningConfiguration:
       type: object
@@ -511,7 +566,7 @@ components:
           type: string
           example: PRIMARY
           description: >-
-            This property becomes applicable only if the proxy-mode config is
+            This property becomes only applicable if the proxy-mode config is
             set to false
 
     OutboundProvisioningConfiguration:
@@ -532,6 +587,38 @@ components:
         jit:
           type: boolean
           example: false
+    ConfiguredAuthenticatorsModal:
+      type: object
+      properties:
+        stepId:
+          type: integer
+          example: 1
+        localAuthenticators:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalConfiguredAuthenticator'
+        federatedAuthenticators:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfiguredAuthenticator'
+    LocalConfiguredAuthenticator:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Username & Password
+        type:
+          type: string
+          example: BasicAuthenticator
+    ConfiguredAuthenticator:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Enterprise IDP
+        type:
+          type: string
+          example: OpenIDConnectAuthenticator
     AdvancedApplicationConfiguration:
       type: object
       properties:
@@ -556,18 +643,20 @@ components:
         useExternalConsentPage:
           type: boolean
           example: false
-          description: Decides whether user needs to use external consent page.
+          description: Decides whether users should be presented with an external consent page.
         returnAuthenticatedIdpList:
           type: boolean
           example: false
-          description: Decides whether the list of authenticated identity providers needs to be returned in the authentication response.
+          description: Decides whether the list of authenticated identity providers need to be returned in the authentication response.
         enableAuthorization:
           type: boolean
-          description: Decides whether authorization policies need to be engaged during authentication flows.
+          description: Decides whether authorization policies needs to be engaged during authentication flows.
           example: true
+        additionalSpProperties:
+          $ref: '#/components/schemas/AdditionalProperties'
     AdditionalProperties:
       type: array
-      description: Denotes additional properties of the application. It is only supported by `getApplication` and `getAllApplications` requests.
+      description: Denotes additional properties of the application. It is only supported by getApplication and getAllApplications request.
       items:
         $ref: "#/components/schemas/AdditionalSpProperty"
     AdditionalSpProperty:
@@ -595,8 +684,8 @@ components:
         value:
           type: string
           description: >-
-            Certificate value. If the type is `JWKS`, the value should be `jwks` URL. If the
-            type is `PEM`, the value should be the certificate in `PEM` format.
+            Certificate value. If type is JWKS, value should be jwks URL. If
+            type is PEM, value should be the certificate in PEM format.
     InboundProtocols:
       type: object
       properties:
@@ -632,7 +721,7 @@ components:
           example: "SAML2 Inbound"
         self:
           type: string
-          example: "/o/99b8800f-b506-443a-aff5-33742e313c1b/api/server/v1/applications/29048810-1447-4ea0-a348-30d15ab65fa3/inbound-protocols/saml"
+          example: "/t/{root-organization-name}/o/api/server/v1/applications/29048810-1447-4ea0-a348-30d15ab65fa3/inbound-protocols/saml"
 
     ClaimConfiguration:
       type: object
@@ -715,7 +804,7 @@ components:
       properties:
         applicationClaim:
           type: string
-          description: Claim URI recieved by the application
+          description: Claim URI received by the application
           example: firstname
         localClaim:
           $ref: '#/components/schemas/Claim'
@@ -836,7 +925,7 @@ components:
 
         recipients:
           type: array
-          description: Additional recipient values to be added to the SAML Assertions.
+          description: Additional recipient values to be added to the SAML Assertions
           example:
             - 'https://app.example.com/saml'
           items:
@@ -955,7 +1044,7 @@ components:
             type: string
         allowedOrigins:
           type: array
-          description: Authorized JavaScript origins. CORS requests are allowed for these origins.
+          description: Authorized JavaScript origins. CORS requests will be allowed to these origins.
           example:
             - 'https://app.example.com'
           items:
@@ -985,7 +1074,6 @@ components:
           type: array
           example:
             - Role based scope validator
-            - XACML scope validator
           items:
             type: string
     OAuth2PKCEConfiguration:
@@ -1013,14 +1101,18 @@ components:
           example: 3600
         bindingType:
           type: string
-          description: OAuth2 access token and refresh token can be bound to an external attribute during the token generation so that it can be optionally validated during API invocation.
+          description: "OAuth2 access token and refresh token can be bound to an external attribute during the token
+          generation so that it can be optionally validated during the API invocation."
+          default: "None"
           example: cookie
         revokeTokensWhenIDPSessionTerminated:
           type: boolean
-          description: If enabled, when the IDP session is terminated, all the access tokens bound to the session will get revoked.
+          description: "If enabled, when the IDP session is terminated, all the access tokens bound to the session
+          will get revoked."
         validateTokenBinding:
           type: boolean
-          description: If enabled, both access token and the token binding needs to be present for a successful API invocation.
+          description: "If enabled, both access token and the token binding needs to be present for a successful API
+          invocation."
     RefreshTokenConfiguration:
       type: object
       properties:
@@ -1127,7 +1219,7 @@ components:
         type:
           type: string
           description: "
-          - DEFAULT type indicates that the application will use the default authentication sequence specified at the tenant level. When the DEFAULT type is used, the information given in the other fields of the `AuthenticationSequence` will be ignored and overriden with values defined at the tenant level.
+          - DEFAULT type indicates that the application will use the default authentication sequence specified at the tenant level. When the DEFAULT type is used, the information given in the other fields of the AuthenticationSequence will be ignored and overriden with values defined at the tenant level.
 
            - USER_DEFINED type indicates that the application will use a user-defined authentication sequence."
           enum:
@@ -1138,12 +1230,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AuthenticationStepModel'
-        requestPathAuthenticators:
-          type: array
-          items:
-            type: string
         script:
           type: string
+          example: ""
         subjectStepId:
           type: integer
           default: 1
@@ -1176,10 +1265,10 @@ components:
       properties:
         idp:
           type: string
-          example: LOCAL
+          example: Enterprise IDP
         authenticator:
           type: string
-          example: basic
+          example: OpenIDConnectAuthenticator
     Error:
       type: object
       properties:
@@ -1197,9 +1286,9 @@ components:
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
 
 servers:
-  - url: 'https://api.asgardeo.io/o/{suborganization-id}/api/server/v1'
+  - url: 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1'
     variables:
       server-url:
-        default: https://api.asgardeo.io/o/{suborganization-id}
-      suborganization-id:
-        default: {suborganization-id}
+        default: "https://api.asgardeo.io/t/{root-organization-name}/o/"
+      root-organization-name:
+        default: "{root-organization-name}"

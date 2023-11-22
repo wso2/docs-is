@@ -1,12 +1,12 @@
 {% set host_name = "api.asgardeo.io" %}
 
-# Authentication for suborganization APIs
+# Authentication for organization APIs
 
-To access the management APIs of suborganizations in {{ product_name }}, you must first get an access token from your suborganization for the API operations you want to execute. You can then use this access token to invoke those API operations securely.
+To access the management APIs of organizations in {{ product_name }}, you must first get an access token from your organization for the API operations you want to execute. You can then use this access token to invoke those API operations securely.
 
-The following is a high-level diagram of how to authenticate to suborganization APIs.
+The following is a high-level diagram of how to authenticate to organization APIs.
 
-![Get access to for suborganization APIs]({{base_path}}/assets/img/apis/organization-apis/organization-authentication.png){: style="display: block; margin: 0 auto;"}
+![Get access to for organization APIs]({{base_path}}/assets/img/apis/organization-apis/organization-authentication.png){: style="display: block; margin: 0 auto;"}
 
 Follow the steps given below to get an access token with the required permissions.
 
