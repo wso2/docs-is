@@ -1,0 +1,137 @@
+name: Broken Link Checker
+
+on:
+  workflow_dispatch:
+    inputs:
+        siteUrl:
+          description: 'Site URL to Check'
+          default: 'https://is.docs.wso2.com/en/next/'
+          required: true
+  schedule:
+    - cron: '30 2 * * *' # Schedule to run once daily at 02:30 UTC
+
+env:
+  DEFAULT_URL: 'https://is.docs.wso2.com/en/next/'
+
+jobs:
+  linkchecker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check repository
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$GITHUB_REPOSITORY" != "wso2/docs-is" ]; then
+            echo "This scheduled action is disabled for forks."
+            exit 0
+          fi
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install linkchecker
+          pip install beautifulsoup4
+
+      - name: Run Link Checker
+        run: |
+          SITE_URL=${{ github.event.inputs.siteUrl || env.DEFAULT_URL }}
+          linkchecker -F html $SITE_URL --threads=100
+        continue-on-error: true
+
+      - name: Filter HTML for specific string and preserve page structure
+        id: filter_html
+        run: |
+          echo "import sys" > filter_script.py
+          echo "from bs4 import BeautifulSoup" >> filter_script.py
+          echo "website_url = 'https://is.docs.wso2.com/en/next/'" >> filter_script.py
+          echo "with open('linkchecker-out.html', 'r') as file:" >> filter_script.py
+          echo "    soup = BeautifulSoup(file, 'html.parser')" >> filter_script.py
+          echo "string_to_filter = 'https://is.docs.wso2.com/en/latest/page-not-found'" >> filter_script.py
+          echo "final_soup = BeautifulSoup('<!DOCTYPE html><html><head></head><body></body></html>', 'html.parser')" >> filter_script.py
+          echo "final_soup.head.append(soup.head)" >> filter_script.py
+          echo "# Add custom header, broken link count and spacing" >> filter_script.py
+          echo "header_tag = final_soup.new_tag('h1')" >> filter_script.py
+          echo "header_tag.string = 'Broken Link Checker - ' + website_url" >> filter_script.py
+          echo "final_soup.body.append(header_tag)" >> filter_script.py
+          echo "# Count and append the number of broken links found" >> filter_script.py
+          echo "tables = soup.find_all('table')" >> filter_script.py
+          echo "broken_link_count = sum(string_to_filter in str(table) for table in tables)" >> filter_script.py
+          echo "with open('broken_link_count.txt', 'w') as count_file:" >> filter_script.py
+          echo "    count_file.write(str(broken_link_count))" >> filter_script.py
+          echo "count_tag = final_soup.new_tag('p')" >> filter_script.py
+          echo "count_tag.string = 'Number of broken links found: ' + str(broken_link_count)" >> filter_script.py
+          echo "final_soup.body.append(count_tag)" >> filter_script.py
+          echo "final_soup.body.append(final_soup.new_tag('br'))" >> filter_script.py
+          echo "# Append filtered tables" >> filter_script.py
+          echo "for table in tables:" >> filter_script.py
+          echo "    if string_to_filter in str(table):" >> filter_script.py
+          echo "        final_soup.body.append(table)" >> filter_script.py
+          echo "        final_soup.body.append(final_soup.new_tag('br'))" >> filter_script.py
+          echo "final_soup.body.append(final_soup.new_tag('br'))" >> filter_script.py
+          echo "with open('broken_links_report_IS.html', 'w') as file:" >> filter_script.py
+          echo "    file.write(str(final_soup))" >> filter_script.py
+          python filter_script.py
+  
+          BROKEN_LINKS_COUNT=$(cat broken_link_count.txt)
+          echo "broken_links_count=$BROKEN_LINKS_COUNT" >> $GITHUB_ENV
+
+      - name: Upload HTML as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: broken_links_report_IS
+          path: broken_links_report_IS.html
+
+      - name: Notify Google Chat
+        env:
+          WEBHOOK_URL: ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
+          SITE_URL: ${{ github.event.inputs.siteUrl || env.DEFAULT_URL }}
+          THREAD_NAME: "BrokenLinkCheckerWSO2IS"
+          BROKEN_LINKS_COUNT: ${{ env.broken_links_count }}
+        run: |
+          MESSAGE_JSON=$(cat <<EOF
+          {
+            "cards": [
+              {
+                "header": {
+                  "title": "Broken Link Checker Report - WSO2 IS",
+                  "subtitle": "${SITE_URL}",
+                  "imageUrl": "https://biq.cloud/wp-content/uploads/2021/01/broken-link-building.gif"
+                },
+                "sections": [
+                  {
+                    "widgets": [
+                      {
+                        "keyValue": {
+                          "topLabel": "Report Details",
+                          "content": "Broken Links Found: ${BROKEN_LINKS_COUNT}"
+                        }
+                      },
+                      {
+                        "buttons": [
+                          {
+                            "textButton": {
+                              "text": "VIEW REPORT",
+                              "onClick": {
+                                "openLink": {
+                                  "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+          EOF
+          )
+          curl -X POST -H 'Content-Type: application/json' -d "$MESSAGE_JSON" "$WEBHOOK_URL&threadKey=$THREAD_NAME&messageReplyOption=REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD"
