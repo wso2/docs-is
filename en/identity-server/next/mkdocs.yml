@@ -56,8 +56,9 @@ nav:
     - Introduction: get-started/quick-start-guide.md
     - Quick Setup: get-started/quick-set-up.md
     - Start integrating IS into apps:
+      - Start integrating IS into apps: get-started/start-integrating-apps/index.md
       - Try for a sample app:
-        - get-started/try-samples/index.md
+        - Try for a sample app: get-started/try-samples/index.md
         - Single Page apps:
           - React: get-started/try-samples/qsg-spa-react.md
           - JavaScript: get-started/try-samples/qsg-spa-javascript.md
@@ -65,7 +66,7 @@ nav:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
       - Try for your own app:
-        - get-started/try-your-own-app/index.md
+        - Try for your own app: get-started/try-your-own-app/index.md
         - Single Page apps:
           - React: get-started/try-your-own-app/react.md
           - Javascript: get-started/try-your-own-app/javascript.md
@@ -84,7 +85,7 @@ nav:
       - Authentication:
           - Authentication: guides/authentication/index.md
           - Add login to apps:
-            - guides/authentication/add-login-to-apps.md
+            - Add login to apps: guides/authentication/add-login-to-apps.md
             - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
             - Add login to a web app: guides/authentication/add-login-to-web-app.md
             - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
@@ -122,12 +123,12 @@ nav:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
             - Add access control:
-              - guides/authentication/conditional-auth/access-control.md
+              - Add access control: guides/authentication/conditional-auth/access-control.md
               - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
               - Concurrent session-based access: guides/authentication/conditional-auth/concurrent-session-based-template.md
               #- Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
             - Add adaptive MFA:
-              - guides/authentication/conditional-auth/adaptive-mfa.md
+              - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md
               - MFA based on user role: guides/authentication/conditional-auth/role-based-template.md
               - MFA based on user store: guides/authentication/conditional-auth/user-store-based-template.md
               - MFA based on login-attempts: guides/authentication/conditional-auth/login-attempt-based-template.md
@@ -246,7 +247,7 @@ nav:
         - Get WSO2 updates: deploy/get-started/get-wso2-updates.md
       - Configure:
         - User Stores: 
-          - deploy/configure/user-stores/index.md
+          - User Stores: deploy/configure/user-stores/index.md
           - Add high availability for LDAP: deploy/configure/user-stores/configure-high-availability-ldap.md
           - Secure a JDBC user store with PBKDF2 hashing: deploy/configure/user-stores/secure-userstore-using-pbkdf2.md
           - Configure the Authorization Manager: deploy/configure/user-stores/configure-authorization-manager.md
