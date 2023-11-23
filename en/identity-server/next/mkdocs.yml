@@ -173,6 +173,7 @@ nav:
           - User attributes: guides/users/attributes/manage-attributes.md
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
+          - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
