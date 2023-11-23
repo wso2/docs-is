@@ -108,6 +108,7 @@ nav:
     - Create your Asgardeo account: get-started/create-asgardeo-account.md
     - Try login with Asgardeo: get-started/try-it-application.md
     - Start integrating Asgardeo into apps:
+      - Start integrating Asgardeo into apps: get-started/start-integrating-apps/index.md
       - Try for a sample app:
         - Single Page apps:
           - React: get-started/try-samples/qsg-spa-react.md
