@@ -1,8 +1,5 @@
 # Manage application roles
 
-!!! note
-    This feature is not yet available in the EU region. We are working on making it accessible in the future.
-
 An application role is a way of limiting access for users to access API resources of your application.
 
 You can create roles for an application, assign permissions to your application roles and assign [user groups in Asgardeo]({{base_path}}/guides/users/manage-groups/) to those roles.
