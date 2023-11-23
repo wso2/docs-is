@@ -1,6 +1,7 @@
 {% set product_name = "WSO2 Identity Server" %}
 {% set admin_role_name = "admin" %}
 {% set host_name = "localhost:9443" %}
+{% set scim_schema_for_wso2_custom_claims = "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" %}
 
 # Onboard organization administrators
 
@@ -89,16 +90,18 @@ Using the self-service approach, the organization users can maintain their admin
 - [Maintain admins in the organization (root)](#maintain-admins-in-the-organization-root):
   You can create the user in the organization (root) if the same user can manage multiple organizations.
 
+### Prerequisites
+- You need to have registered your B2B application in the organization (root).
+- Create an administrator role required for your B2B application and associate it to the application.
+
 ### Initial setup: Get access tokens
 
 Before creating admins using the APIs, you need to obtain the required access tokens and enable self-service. Follow the steps below to set up the initial requirements to create organization admins.
 
-1. [Get an access token]({{base_path}}/apis/authentication/#get-an-access-token) from your root organization.
+1. [Get an access token]({{base_path}}/apis/#oauth-based-authentication) from your root organization.
 
-    !!! note "Required scopes"
-        Include the following scopes when requesting for the access token:
-
-        `openid` `internal_application_mgt_create` `internal_application_mgt_view` `internal_organization_view` `internal_organization_update` `internal_governance_view` `internal_governance_update` `internal_email_mgt_view` `internal_email_mgt_update`` internal_email_mgt_delete` `internal_email_mgt_create` `internal_userstore_view` `internal_userstore_update` `internal_userstore_delete`
+    !!! note "Required APIs and scopes to authorize to the application"
+        Authorize to SYSTEM API named **Self Service API**(`/api/server/v1/self-service`) with `internal_self_service_view` and `internal_self_service_update` scopes.
 
 2. Enable self-service for the organization (root).
 
@@ -133,7 +136,7 @@ Before creating admins using the APIs, you need to obtain the required access to
     https://{{ host_name }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d 'grant_type=client_credentials&scope=openid internal_identity_mgt_create internal_identity_mgt_delete internal_identity_mgt_update internal_identity_mgt_view internal_organization_admin internal_organization_create internal_organization_view internal_user_mgt_create internal_user_mgt_list internal_user_mgt_view'
+    -d 'grant_type=client_credentials&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_organization_view internal_organization_create internal_user_mgt_view internal_user_mgt_create'
     ```
 
     The access token expiration time is set to `3600` seconds by default. If you wish to modify this duration, you can do so via the console. Go to the `B2B-Self-Service-Mgt-Application application`'s protocol section and update the **Application access token expiry time**.
@@ -173,8 +176,16 @@ To create and maintain admins in the organization:
     !!! note
         Take note of the `id` parameter in the response. This is the organization-id of the newly created organization and you will need it in the following steps.
 
-3. [Get an access token for the created organization]({{base_path}}/apis/organization-apis/authentication/#step-2-for-the-suborganization) by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
+3. Get an access token for the created organization by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
 
+    ``` curl
+    curl -X POST \
+    https://{{ host_name }}/oauth2/token \
+    -u  '<client_id>:<client_secret>' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -d 'grant_type=organization_switch_cc&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create'
+    ```
+   
 4. Create a user in the organization using the following cURL.
 
     ``` curl
@@ -192,26 +203,45 @@ To create and maintain admins in the organization:
             "familyName": "{customer-family-name}",
             "givenName": "{customer-given-name}"
         },
-        "password": "{customer-password}",
-        "userName": "{customer-username}"
+        "userName": "{customer-username}",
+        "{{ scim_schema_for_wso2_custom_claims }}": { 
+            "askPassword" : "true"
+        }
     }'
     ```
 
     !!! note
         Take note of the `user-id` returned in the response of the above cURL.
 
-6. Use the following cURL to obtain the `id` of the {{ admin_role_name }} role.
+5. Use the following cURL to obtain the `id` of the administrator role defined for your B2B application.
+
+    !!!note
+        Share the B2B application in organization(root) enabling `share with all organizations` or share the application to the created organization before the role operation.
+        The roles associated to the B2B application will be shared with the organization only if the application is shared to the organization.
 
     ``` curl
-    curl --location 'https://{{ host_name }}/o/scim2/v2/Roles?filter=name%20eq%20{{ admin_role_name }}' ' \
+    curl --location 'https://{{ host_name }}/o/scim2/v2/Roles?filter=displayName%20eq%20{ admin-role-name }%20and%20audience.value%20eq%20{ role-audience-value }' ' \
     --header 'Accept: application/json' \
-    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}'
     ```
 
-7. Create a user and assign the user to the {{ admin_role_name }} role by using the following cURL.
+    !!! note
+        Refer following details to get your B2B application's administrator role:
+        <table>
+            <tr>
+                <th>admin-role-name</th>
+                <td>Name of the administrator role associated to your B2B application.</td>
+            </tr>
+            <tr>
+               <th>role-audience-value</th>
+               <td>If your B2B application has associated to application audience roles give the id of the shared application in organization. Otherwise, created organization id.</td>
+            </tr>
+        </table>
+
+6. Create a user and assign the user to the administrator role of your B2B application by using the following cURL.
 
     ``` curl
-    curl --location --request PATCH 'https://l{{ host_name }}/o/scim2/v2/Roles/{admin-role-id}' \
+    curl --location --request PATCH 'https://{{ host_name }}/o/scim2/v2/Roles/{admin-role-id}' \
     --header 'Authorization: Bearer {access-token-obtained-for-the-organization}' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -253,8 +283,10 @@ To create and maintain admins in the organization (root):
             "familyName": "{customer-family-name}",
             "givenName": "{customer-given-name}"
         },
-        "password": "{customer-password}",
-        "userName": "{customer-username}"
+        "userName": "{customer-username}",
+        "{{ scim_schema_for_wso2_custom_claims }}": { 
+            "askPassword" : "true"
+        }
     }'
     ```
 
