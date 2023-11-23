@@ -694,18 +694,18 @@ components:
     InboundProtocols:
       type: object
       properties:
-        saml:
-          $ref: '#/components/schemas/SAML2Configuration'
         oidc:
           $ref: '#/components/schemas/OpenIDConnectConfiguration'
-        passiveSts:
-          $ref: '#/components/schemas/PassiveStsConfiguration'
-        wsTrust:
-          $ref: '#/components/schemas/WSTrustConfiguration'
-        custom:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
+#        saml:
+#          $ref: '#/components/schemas/SAML2Configuration'
+#        passiveSts:
+#          $ref: '#/components/schemas/PassiveStsConfiguration'
+#        wsTrust:
+#          $ref: '#/components/schemas/WSTrustConfiguration'
+#        custom:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
 
     InboundProtocolsListResponse:
       type: array
