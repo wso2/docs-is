@@ -2,7 +2,7 @@
 
 # Share applications with organizations
 
-Applications in the organization (root) will become available to organizations when you share them. Once an application is shared with an organization, its users can log in to the application using [SSO]({{base_path}}/guides/authentication/add-organization-login/) login option.
+Applications in the organization (root) will become available to organizations when you share them. Once an application is shared with an organization, its users can log in to the application using [SSO]({{base_path}}/guides/organization-management/try-a-b2b-use-case) login option.
 
 Follow the steps below to share your applications with organizations.
 

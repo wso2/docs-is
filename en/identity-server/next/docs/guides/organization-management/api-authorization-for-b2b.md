@@ -73,7 +73,7 @@ To assign roles to federated IdP Groups:
 Follow the steps given below to try out the RBAC flow:
 
 !!! note
-    Note that we are using {{ product_name }}'s [B2B Guardio insurance application]({{base_path}}/guides/organization-management/manage-b2b-organizations/try-a-b2b-use-case/) for this scenario.
+    Note that we are using {{ product_name }}'s [B2B Guardio insurance application]({{base_path}}/guides/organization-management/try-a-b2b-use-case/) for this scenario.
 
 To request scopes for the user:
 
