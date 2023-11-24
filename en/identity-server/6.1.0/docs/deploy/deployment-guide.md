@@ -71,7 +71,7 @@ The above recommendations can change based on the expected concurrency and perfo
 </tr>
 <tr class="even">
 <th>Java</th>
-<td>Oracle JDK 1.8</td>
+<td><p>For information on tested JDKs, see <a href="{{base_path}}/deploy/environment-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a>
 </tr>
 <tr class="odd">
 <th>Web browsers</th>
