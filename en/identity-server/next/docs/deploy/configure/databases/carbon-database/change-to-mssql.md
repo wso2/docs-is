@@ -66,6 +66,26 @@ A sample configuration is given below.
     2.  Execute database scripts.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
+
+!!! note
+    If Microsoft SQL Server is used since they are case-insensitive by default (subject to confirmation with the current collation of the DB), 
+    it is recommended to disable the case-insensitive behavior of WSO2 IS. This is because case insensitivity will be handled at the DB layer itself, 
+    leading to performance improvements by eliminating the need for lower queries performed by WSO2 IS.
+
+    For Primary Userstores
+
+    ``` toml
+    [user_store.properties]
+    CaseInsensitiveUsername = false
+    UseCaseSensitiveUsernameForCacheKeys = false
+    ```  
+    
+    For Secondary Userstores
+
+    ``` xml
+    <Property name="CaseInsensitiveUsername">false</Property>
+    <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
+    ```
         
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
