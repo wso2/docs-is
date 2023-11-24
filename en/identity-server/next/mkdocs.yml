@@ -331,6 +331,7 @@ nav:
           - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure cache layers: deploy/performance/configure-cache-layers.md
         - Environment compatibility: deploy/environment-compatibility.md
+        - Propagate configurations across environments: deploy/propagate-configurations.md
       - Analytics:
         - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
         - Configure SSO with ELK analytics: deploy/elk-analytics-sso-guide.md
