@@ -1,6 +1,6 @@
 # Register a Machine-to-Machine (M2M) application
 
-To integrate your machine-to-machine(M2M) application with {{ product_name }}, you need to first register your application from the {{ product_name }} Console. 
+To integrate your machine-to-machine (M2M) application with {{ product_name }}, you need to first register your application from the {{ product_name }} Console. 
 Then you can authorize your M2M applications to access management APIs of {{ product_name }} or your business APIs.
 A client ID and client secret are issued to the application upon registration.
 
