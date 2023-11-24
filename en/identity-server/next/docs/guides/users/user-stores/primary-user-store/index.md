@@ -61,11 +61,6 @@ There are two steps involved in setting up the primary user store:
 
     You can configure your own custom user store manager. For more information, see [Write a custom user store manager]({{base_path}}/references/user-stores/write-a-custom-user-store-manager).
 
-    !!! tip
-        From WSO2 IS 5.10.0 onwards, all user store managers have `UniqueID` included as part of the user store manager name (e.g.,`UniqueIDJDBCUserStoreManager`). Use one of these when selecting the user store manager. 
-        
-        The user store managers that do not have `UniqueID` as part of the user store manager name are **only** available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server. 
-
 2.  Configure user store manager properties.
 
     In the `deployment.toml` file, you can configure the user store manager by adding the relevant properties of the seleted user store manager type.
