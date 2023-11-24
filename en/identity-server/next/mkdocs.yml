@@ -82,6 +82,7 @@ nav:
           - Register web app with SAML: guides/applications/register-saml-web-app.md
           - Register a standard-based app: guides/applications/register-standard-based-app.md
           - Register a mobile app: guides/applications/register-mobile-app.md
+          - Register a machine-to-machine (M2M) app: guides/applications/register-machine-to-machine-app.md
       - Authentication:
           - Authentication: guides/authentication/index.md
           - Add login to apps:

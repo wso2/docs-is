@@ -34,17 +34,17 @@ To register the app:
             <td>The URL to which the authorization code is sent upon user authentication and where the user is redirected upon logout. </br> Click <b>Add Now</b> if you want to try a sample app.</td>
         </tr>
         <tr>
-            <td>Allow sharing with sub-organizations</td>
-            <td>Enable this to share the new application with all or any selected suborganizations that belong to your root organization.</td>
+            <td>Allow sharing with organizations</td>
+            <td>Enable this to share the new application with all or any selected organizations that belong to your organization (root).</td>
         </tr>
     </table>
 
 4. Click **Register** to complete the registration.
 
     !!! note
-        If you have enabled **Allow sharing with sub-organizations** while registering the application, you will see a popup window with the following options.
+        If you have enabled **Allow sharing with organizations** while registering the application, you will see a popup window with the following options.
 
-        ![Share the application with suborganizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Share the application with organizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         <table>
             <tr>
@@ -52,12 +52,12 @@ To register the app:
                 <th>Description</th>
             </tr>
             <tr>
-                <td>Share with all sub-organizations</td>
-                <td>If selected, the application will be shared with all existing suborganizations and any new suborganizations you may create in the future.</td>
+                <td>Share with all organizations</td>
+                <td>If selected, the application will be shared with all existing organizations and any new organizations you may create in the future.</td>
             </tr>
             <tr>
-                <td>Share with only selected sub-organizations</td>
-                <td>If selected, you can select the suborganizations you wish to share the application with.</td>
+                <td>Share with only selected organizations</td>
+                <td>If selected, you can select the organizations you wish to share the application with.</td>
             </tr>
         </table>
 
