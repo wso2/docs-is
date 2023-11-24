@@ -92,6 +92,6 @@ There are two steps involved in setting up the primary user store:
     !!! warning
         Server system administrator who is capable of all the actions in the
         system is configured within the `deployment.toml` file. If you have not
-        configured the system administrator yet, see [Configure the System Administrator]({{base_path}}/references/user-stores/configure-system-administrator).
+        configured the system administrator yet, see [Configure the System Administrator]({{base_path}}/deploy/configure/user-stores/configure-system-administrator).
 
 3.  Restart the server.

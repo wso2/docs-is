@@ -3,7 +3,7 @@
 When you configure an RDBMS (JDBC) user store, you can
 use internal H2 user store tables or you can use an external database as a
 user store. If you're going to use default user store tables for the external JDBC user store, see [User
-Management Related Tables]({{base_path}}/deploy/user-management-related-tables) section.
+Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) section.
 
 ## Configure the internal database as JDBC user store
 
@@ -19,14 +19,14 @@ Refer [properties for a JDBC user store]({{base_path}}/guides/users/user-stores/
 By default, it uses the  `database.shared_db` configurations in the `deployment.toml`  file as the datasource configuration.
   
 If you have a requirement of changing the `database.shared_db` configuration, see 
-[Work With Databases]({{base_path}}/deploy/work-with-databases).
+[Work With Databases]({{base_path}}/deploy/configure/databases).
 
 `database.shared_db` is used to store both registry and user management related data. If you need to use a datasource specified for user management, you can externalize the user management related tables to another external database and use that database
 as the user store. Refer the following topic for further instructions.
 
 ## Configure an external database as JDBC user store
 
-1.	Create a database on [any supported RDBMS database]({{base_path}}/deploy/work-with-databases). 
+1.	Create a database on [any supported RDBMS database]({{base_path}}/deploy/configure/databases). 
     
 2.	Following are the example configurations for each database type.
         
@@ -45,7 +45,7 @@ as the user store. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```
 			
-		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/postgresql.sql` file against the database created.    
+		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/postgresql.sql` file against the database created.    
 			
 		3. Download the PostgreSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.
 
@@ -64,8 +64,7 @@ as the user store. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```
 		
-		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/mysql.sql` file
-			against the database created.        
+		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/mysql.sql` file against the database created.        
 
 		3. Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.          
 
@@ -84,7 +83,7 @@ as the user store. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```   
 
-		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/db2.sql` file
+		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/db2.sql` file
 			against the database created.       
 	
 		3.	Download the DB2 JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder. 
@@ -104,7 +103,7 @@ as the user store. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```
 		2. 	Execute the scripts of 
-			[User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/mssql.sql` file
+			[User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/mssql.sql` file
 			against the database created.        
 			
 		3. Download the MSSQL JDBC driver for the version you are using and
@@ -125,7 +124,7 @@ as the user store. Refer the following topic for further instructions.
 			[realm_manager]
 			data_source = "WSO2USER_DB"
 			```
-		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/oracle.sql` file
+		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/oracle.sql` file
 			against the database created.      
 			
 		3. Download the Oracle JDBC driver for the version you are using and

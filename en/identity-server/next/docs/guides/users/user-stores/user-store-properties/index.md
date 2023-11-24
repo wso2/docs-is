@@ -75,7 +75,7 @@ to configure primary userstores.
 <div>
 <p>The name of the attribute is considered as the username.</p>
 </div>
-<p>For information on using email address to authenticate users, click <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username">here</a> .</p>
+<p>For information on using email address to authenticate users, click <a href="{{base_path}}/guides/users/attributes/enable-email-as-username">here</a> .</p>
 </div></td>
 </tr>
 <tr class="odd">
