@@ -51,4 +51,4 @@ user store, you have to set the user store manager class name.
     the default configurations, permissions are stored in the embedded H2
     database. For information on how to set up a RDBMS repository for
     storing permission, see [Configure the Authorization
-    Manager]({{base_path}}/references/user-stores/configure-authorization-manager).
+    Manager]({{base_path}}/deploy/configure/user-stores/configure-authorization-manager).
