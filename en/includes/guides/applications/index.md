@@ -2,7 +2,7 @@
 
 Regardless of the application type or the development technology, you can connect your application with {{ product_name }} and control the way users log in to your app.
 
-Currently, {{ product_name }} supports integrating four application types. When you select an application type, {{ product_name }} provides all the recommended configs in place by default which you can change as needed later.
+Currently, {{ product_name }} supports integrating {{ no_of_supported_app_types }} application types. When you select an application type, {{ product_name }} provides all the recommended configs in place by default which you can change as needed later.
 
 ## Single-page applications
 
@@ -34,6 +34,15 @@ Mobile applications are apps that run on mobile devices. Android and iOS are som
 Standard-based applications allow users to configure the application protocol settings (OIDC or SAML) from scratch.
 
 - [Register a standard-based application]({{base_path}}/guides/applications/register-standard-based-app)
+
+{% if product_name == "WSO2 Identity Server" %}
+## Machine-to-Machine (M2M) applications
+
+Machine-to-Machine applications, often referred to as M2M applications, are a category of applications designed for automated communication and interaction between devices or services without direct human intervention.
+Unlike user-centric applications, M2M applications cater to non-interactive scenarios, including command-line tools, daemons, IoT (Internet of Things) devices, or services running on the backend.
+
+- [Register a machine-to-machine application]({{base_path}}/guides/applications/register-machine-to-machine-app/)
+{% endif %}
 
 ## Self-Service (My Account) portal
 
