@@ -94,13 +94,18 @@ Follow the steps given below.
 
 ## How it works
 
-When Email OTP is enabled in the login flow of your application, the application user will be prompted with the Email OTP authentication step once the first authentication step is completed. Given below are the high-level steps that follow:
+When Email OTP is enabled for the organization and added to the login flow of your application, the user is prompted to enter an Email OTP after the preceding authentication steps are complete.
 
-1. {{ product_name }} sends the OTP to the user's verified email address.
-2. {{ product_name }} prompts the user to enter the OTP code.
-  
-    ![Authenticate with email OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/emailotp/enter-email-otp.png){: width="300" style="border: 0.3px solid lightgrey;"}
+Given below are the steps involving Email OTP.
 
-3. If required, the user can request {{ product_name }} to resend the OTP. The new OTP invalidates the previously sent OTP.
+1. {{product_name}} sends the OTP to the user's registered email address.
+
+2. {{product_name}} prompts the user to enter the OTP code.
+
+   ![Authenticate with email OTP in {{product_name}}]({{base_path}}/assets/img/guides/mfa/emailotp/enter-email-otp.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+3. The user can request {{product_name}} to resend a new OTP. The new OTP invalidates the previously sent OTP.
+
 4. The user enters the OTP and clicks **Continue**.
-5. If the authentication is successful, the user can access the application.
+
+5. On successful authentication, the user can access the application.
