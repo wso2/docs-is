@@ -6,10 +6,10 @@ This guide walks you through how you can manage user accounts as an administrato
 There are three ways to onboard a user:
 
 - The user can self-register via the My Account portal or the login page of an application if self-registration is enabled in the organization. Learn how to [configure self-registration]({{base_path}}/guides/user-accounts/configure-self-registration/).
-- An administrator can onboard users from an on-premise user store by [connecting a remote user store to WSO2 Identity Server]({{base_path}}/guides/users/user-stores/configure-a-user-store/).
+- An administrator can onboard users from a secondary user store by [configuring a secondary user store in WSO2 Identity Server]({{base_path}}/guides/users/user-stores/configure-secondary-user-stores/).
 
     !!! note
-        If the remote user store access type is read-only, you cannot update the user profiles of users onboarded from this read-only user store.
+        If the secondary user store access type is read-only, you cannot update the user profiles of users onboarded from this read-only user store.
 
 - An administrator can onboard users from the WSO2 Identity Server Console.
 
