@@ -1,4 +1,3 @@
-{% set product_name = "WSO2 Identity Server" %}
 {% set host_name = "localhost:9443" %}
 
 # Try a B2B use case (login through organization)
@@ -13,7 +12,7 @@ You are an administrator of **Guardio Insurance**, which is a company that provi
 
 The employees of Best Car Mart should be able to log in to the Guardio Insurance App to consume its services. The administrators of Best Car Mart will manage the users of its organization and also determine the login experience that their users should have.
 
-![Organizatoin login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-scenario.png){: width="600" style="display: block; margin: 0 auto;"}
+![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-scenario.png){: width="600" style="display: block; margin: 0 auto;"}
 
 ## Set up the organization
 

@@ -1,5 +1,3 @@
-{% set product_name = "WSO2 Identity Server" %}
-
 # API authorization for organizations
 {{ product_name }} allows organizations to authorize user access to an application's API resources based on the API permissions, roles, and groups assigned to the users. See [API authorization]({{base_path}}/guides/api-authorization/) for more information.
 
@@ -61,7 +59,7 @@ To assign roles to federated IdP Groups:
     - You should [register, configure, and create groups for a connection]({{base_path}}/guides/authentication/#manage-connections) in your organization.
     - You should add this connection to the sign-in flow of the application to which the roles are associated.
 
-1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-suborganizations/#switch-between-organizations).
+1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations).
 2. Go to **User Management** > **Roles**.
 3. Select the role you wish to assign to a group and click **Edit**.
 4. Select the federated IdP from which you select groups.

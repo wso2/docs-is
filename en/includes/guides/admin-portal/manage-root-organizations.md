@@ -25,7 +25,7 @@ In a B2B scenario,
 If you have a B2C (Business-to-Consumer) platform offering services to direct consumers, you can use an {{ product_name }} organization (root) to manage the identities and access requirements of your users. Note that your first organization on {{ product_name }} is created when you [sign up to {{ product_name }}]({{base_path}}/get-started/create-asgardeo-account/).
 
 !!! note
-    If you have a B2B platform, this will also be the organization (root) of your platform. Your root organization will work with other businesses to make your applications available to their users. Such businesses should be defined as [organizations]({{base_path}}/guides/organization-management/manage-suborganizations/) in your organization (root).
+    If you have a B2B platform, this will also be the organization (root) of your platform. Your root organization will work with other businesses to make your applications available to their users. Such businesses should be defined as [organizations]({{base_path}}/guides/organization-management/manage-organizations/) in your organization (root).
 
 The following guides explain how you can create and manage these root organizations in {{ product_name }}.
 
@@ -43,7 +43,7 @@ To create a new organization (root) in {{ product_name }}:
 The new organization (root) is now available in the root organization list.
 
 !!! note
-    If you a have B2B platform, you can now onboard your organizations. See the instructions on [setting up organizations]({{base_path}}/guides/organization-management/manage-suborganizations/) and build your B2B organization structure.
+    If you a have B2B platform, you can now onboard your organizations. See the instructions on [setting up organizations]({{base_path}}/guides/organization-management/manage-organizations/) and build your B2B organization structure.
 
 ## Switch between root organizations
 
@@ -64,7 +64,7 @@ To obtain the organization ID of your root organization, expand the organization
 ## Delete root organizations
 
 You cannot remove root organizations using the {{ product_name }} Console. If you have such a requirement, contact the {{ product_name }} team at **asgardeo-help@wso2.com**.
-If you are a B2B platform and you want to remove organization in your organization (root), see the instructions on [deleting organizations]({{base_path}}/guides/organization-management/manage-suborganizations/#delete-sub-organizations).
+If you are a B2B platform and you want to remove organization in your organization (root), see the instructions on [deleting organizations]({{base_path}}/guides/organization-management/manage-organizations/#delete-sub-organizations).
 
 !!! note "Before you begin"
     Note the following before you proceed to delete an organization (root): </br>
