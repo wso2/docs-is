@@ -21,7 +21,7 @@ As the administrator of **Guardio Insurance**, you need to first set up a sub or
 
 ### Step 1: Onboard the sub organization
 
-[Create a sub  organization]({{base_path}}/guides/organization-management/manage-suborganizations/#create-a-suborganization) on the {{ product_name }} Console with `Best Car Mart` as the **Sub organization Name**.
+[Create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-a-suborganization) on the {{ product_name }} Console with `Best Car Mart` as the **Sub organization Name**.
 
 ### Step 2: Onboard a sub organization administrator
 

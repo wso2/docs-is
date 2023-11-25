@@ -3,7 +3,7 @@
 You can customize the user interfaces (UIs) presented to your users during the login, sign-up, and account recovery flows, and on the My Account portal according to the theming guidelines of your organization.
 
 !!! note "UI Branding for B2B applications"
-    If you have created [suborganizations]({{base_path}}/guides/organization-management/manage-suborganizations/), note that you can configure separate UI branding for your suborganizations. If you have not configured UI branding for your suborganization, the UI branding of your root organization will be applied to the suborganization.
+    If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/), note that you can configure separate UI branding for your organizations. If you have not configured UI branding for your organization, the UI branding of your organization (root) will be applied to the organization.
 
 By branding these interfaces, users will get a familiar and consistent user experience.
 

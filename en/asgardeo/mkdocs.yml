@@ -261,7 +261,7 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
-        - Set up organizations: guides/organization-management/manage-suborganizations.md
+        - Set up organizations: guides/organization-management/manage-organizations.md
         - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
         - Share applications: guides/organization-management/share-applications.md
