@@ -203,8 +203,6 @@ nav:
           - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
           - Configure bot detection: guides/user-accounts/account-security/bot-detection.md
           - Configure password validation: guides/user-accounts/account-security/password-validation.md
-        - Manage account login:
-          - Configure username validation: guides/user-accounts/account-login/username-validation.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
