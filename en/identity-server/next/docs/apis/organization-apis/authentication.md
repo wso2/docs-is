@@ -13,8 +13,8 @@ Follow the steps given below to get an access token with the required permission
 1. [Register an OIDC application](#register-an-oidc-application)
 2. [Authorize APIs to application](#authorize-apis-to-application)
 3. [Request for authorization code](#get-the-authorization-code)
-4. [Request an access token against the organization (root)](#step-1-for-the-root-organization)
-5. [Request an access token against the organization](#step-2-for-the-suborganization)
+4. [Request an access token against the organization (root)](#step-1-for-the-organization-root)
+5. [Request an access token against the organization](#step-2-for-the-organization)
 
 ## Register an OIDC application
 
@@ -23,13 +23,13 @@ Use the **standard-based** app type to register an OIDC app:
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Click **New Application** and select **Standard-Based Application** to open the following:
 
-   ![Register a standard based application]({{base_path}}/assets/img/apis/management-apis/register-a-sba.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Register a standard based application]({{base_path}}/assets/img/apis/management-apis/register-a-sba.png){: width="600" style="display: block; margin: 0 auto;"}
 
 3. Provide an application name.
 4. Select **OIDC Standard-Based Application** as the application type.
 
-!!! note
-    Learn more about [OIDC configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/).
+    !!! note
+        Learn more about [OIDC configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/).
 
 5. Click **Register** to complete the registration.
 6. Click **Share Application** to share the application with organizations.
@@ -41,7 +41,7 @@ The client credentials for your application are displayed in the protocol tab, a
 ![Obtain the client ID and client secret of the app]({{base_path}}/assets/img/apis/management-apis/obtain-client-credentials.png){: width="600" style="display: block; margin: 0 auto;"}
 
 !!! note
-   The client ID and client secret are sensitive information that must be protected. See the [best practices](#best-practices) before you proceed.
+    The client ID and client secret are sensitive information that must be protected. See the [best practices](#best-practices) before you proceed.
 
 ## Authorize APIs to application
 

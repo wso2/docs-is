@@ -37,8 +37,8 @@ Follow the steps given below to register the sample React SPA in Asgardeo.
             </td>
         </tr>
         <tr>
-            <td>Allow sharing with sub-organizations</td>
-            <td>Enable this to share the new application with all or any selected suborganizations that belong to your root organization.</td>
+            <td>Allow sharing with organizations</td>
+            <td>Enable this to share the new application with all or any selected organizations that belong to your organization (root).</td>
         </tr>
     </table>
 
