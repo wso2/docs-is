@@ -23,7 +23,7 @@ Let's look at how administrators can onboard users from the WSO2 Identity Server
     !!! note
 
         - A username is always unique to the organization and you can't change the username once it is created.
-        - Instead of using a username to login, you can [configure the email address as the login identifier]({{base_path}}/guides/user-accounts/account-login/username-validation/). Then, you will be asked to enter the email address when logging in.
+        - Instead of using a username to login, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, you will be asked to enter the email address when logging in.
         - The user can change the password set by the administrator from the [My Account Portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
 
 4. Click **Next**.
@@ -83,7 +83,7 @@ Administrators can reset a user's password or initiate the password reset proces
 
 To reset the password:
 
-1. Click **Reset password** at the top of the user's profile.
+1. Click **Reset password** at the bottom of the user's profile.
 
 2. Select a method to reset the user password:
 
@@ -94,7 +94,7 @@ To reset the password:
         If this option is selected, a password reset request can be sent to the user using one of the password recovery methods you have enabled for the organization.
 
         !!! note
-            Enable the relevant password recovery methods by navigating to **Login & Registration** > **Account Management** > **Password Reset**.
+            Enable the relevant password recovery methods by navigating to **Login & Registration** > **Password Recovery**.
 
     ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 

@@ -8,8 +8,7 @@ The admins can grant users access to resources in your organization and control 
 
 Shown below are some main user management capabilities available in WSO2 Identity Server.
 
-![User management]({{base_path}}/assets/img/guides/users/user-management-overview.png)
-
+![User management]({{base_path}}/assets/img/guides/users/user-management-overview.png){: width="800" style="display: block; margin: 0 auto;"}
 ## User accounts
 
 WSO2 Identity Server supports the following types of user accounts based on their relationship to the organization.
@@ -22,13 +21,13 @@ An administrator can manage the organization and has access to the organization'
 * manage users, roles and groups
 * manage applications
 
-Refer [Managing administrators]({{base_path}}/guides/users/manage-collaborators/) for more information.
+Refer [Manage administrators]({{base_path}}/guides/users/manage-collaborators/) for more information.
 
 ### User
 
 A user registered in an organization can login and use applications in that organization.
 
-Refer [Managing users]({{base_path}}/guides/users/manage-customers/) for more information.
+Refer [Manage users]({{base_path}}/guides/users/manage-customers/) for more information.
 
 ## What's next?
 
