@@ -94,7 +94,7 @@ To reset the password:
         If this option is selected, a password reset request can be sent to the user using one of the password recovery methods you have enabled for the organization.
 
         !!! note
-            Enable the relevant password recovery methods by navigating to **Login & Registration**. Click on  **Password Recovery** under **Account Recovery** section.
+            Enable the relevant password recovery methods by navigating to **Login & Registration** > **Password Recovery**.
 
     ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
