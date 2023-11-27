@@ -33,7 +33,7 @@ sub organizations maintain the following three types of groups, and you can assi
 ### Assign user groups to application roles
 To assign application roles to user groups of the sub organization:
 
-1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-suborganizations).
+1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations).
 2. Go to **User Management** > **Roles** > **Application Roles** and click **Configure**.
 3. Expand the shared application and click `+` on the application role you wish to assign to a group.
 4. Go to Groups and click **+ Assign Groups**.

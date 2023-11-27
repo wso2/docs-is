@@ -47,7 +47,7 @@ This will determine how the application communicates with the token service. Web
     </tr>
     <tr>
       <td>Organization Switch</td>
-      <td>A custom OAuth2 grant type that allows clients to get access to suborganization APIs in {{ product_name }}. The client can exchange the access token received from the root organization for an access token of the suborganization.  </td>
+      <td>A custom OAuth2 grant type that allows clients to get access to organization APIs in {{ product_name }}. The client can exchange the access token received from the organization (root) for an access token of the organization.  </td>
     </tr>
   </tbody>
 </table>

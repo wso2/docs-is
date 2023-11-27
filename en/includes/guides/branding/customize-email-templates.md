@@ -11,7 +11,7 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 The branding variables that affect the email templates are as follows:
 
 !!! note "Email branding for B2B applications"
-    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured, note that the email branding you configure for your primary organization also applies to your suborganizations.
+    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured, note that the email branding you configure for your organization (root) also applies to your organizations.
 
 ![Branding email templates]({{base_path}}/assets/img/guides/branding/email-branding.png)
 
