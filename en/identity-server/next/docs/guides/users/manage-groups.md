@@ -7,10 +7,10 @@ Applications can get details about groups a user belongs to as a user attribute 
 ## Onboard a group
 There are two ways to onboard a group:
 
-- An administrator can onboard users from an on-premise user store by [connecting a remote user store to WSO2 Identity Server]({{base_path}}/guides/users/user-stores/configure-a-user-store/).
+- An administrator can onboard users from a secondary user store by [configuring a secondary user store in WSO2 Identity Server]({{base_path}}/guides/users/user-stores/configure-secondary-user-stores/).
 
     !!! note
-        If the remote user store access type is read-only, you cannot update the user groups onboarded from this read-only user store.
+        If the secondary user store access type is read-only, you cannot update the user groups onboarded from this read-only user store.
 
 - Administrators can add groups via the WSO2 Identity Server Console.
 
