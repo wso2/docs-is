@@ -35,7 +35,7 @@ to be replicated immediately with more certainty, other database specific replic
 such as Oracle GoldenGate, MySQL Replication, etc, could be set up with prioritized table level
 replication configured for the more frequently updated tables.
 
-However, **it is recommended to configure a separate database to store session data** as this provides
+However, **it is recommended to [configure a separate database to store session data]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-session)** as this provides
 flexibility to handle the very frequently updated session data. Having replication enabled for 
 such a database will incur very high costs. Therefore, separating out the session database from
 the identity database, and disabling geo-replication for the session database will help drive down
@@ -75,66 +75,72 @@ it does not offer GRS replication. The Automation task can help to reduce the RT
 These replication configurations of this deployment can be altered to achieve various combinations
 of RPO/RTO at different costs. 
 
-### **Pattern Variant 1**: Total Replication
+---
+=== "Variant 1"
+    <div class="image-text-wrapped-container">
+        <div class="wrapping-text">
+            <h3><b>Pattern Variant 1</b>: Total Replication</h3>
+            <p>
+                This pattern is suitable when a fully fledged Identity Server system which <b>makes use of
+                multi-tenancy and secondary userstores</b>, and when <b>retaining sessions is critical</b> even in
+                the event of a disaster, is required.
+            </p>
+        </div>
+        <div class="wrapped-image">
+            <img src="{{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pattern-1.png" alt="Pattern 1" width=300><br>
+        </div>
+    </div>
 
-<div class="centered-container">
-  <div class="border-text">
-    This pattern is suitable when a fully fledged Identity Server system which <b>makes use of
-    multi-tenancy and secondary userstores</b>, and when <b>retaining sessions is critical</b> even in 
-    the event of a disaster, is required.
-  </div>
+=== "Variant 2"
+    <div class="image-text-wrapped-container">
+        <div class="wrapping-text">
+            <h3><b>Pattern Variant 2</b>: Disregard Session Database Replication</h3>
+            <p>
+                This pattern is applicable for a fully fledged Identity Server system which <b>makes
+                use of multi-tenancy and secondary userstores</b>, where <b>losing session data</b> in the event
+                of a disaster is deemed acceptable.
+                This is the <b>most commonly used</b> pattern as it preserves all functionality of the Identity
+                Server with good RPO/RTO values, and losing session data during disaster recovery, which
+                occurs rarely, could be acceptable to most businesses.
+            </p>
+        </div>
+        <div class="wrapped-image">
+            <img src="{{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pattern-2.png" alt="Pattern 2" width=300><br>
+        </div>
+    </div>
 
-  <div class="border-text">
-    <img src="{{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pattern-1.png" alt="Pattern 1" width=300><br>
-  </div>
-</div>
+=== "Variant 3"
+    <div class="image-text-wrapped-container">
+        <div class="wrapping-text">
+            <h3><b>Pattern Variant 3</b>: Disregard File Artifacts Replication</h3>
+            <p>
+                This pattern is applicable for an Identity Server system which <b>does not make use
+                of multi-tenancy or secondary userstores</b>, but <b>session retention even during
+                disaster events is critical</b>.
+            </p>
+        </div>
+        <div class="wrapped-image">
+            <img src="{{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pattern-3.png" alt="Pattern 3" width=300><br>
+        </div>
+    </div>
 
-### **Pattern Variant 2**: Disregard Session Database Replication
-
-<div class="centered-container">
-  <div class="border-text">
-    This pattern is applicable for a fully fledged Identity Server system which <b>makes 
-    use of multi-tenancy and secondary userstores</b>, where <b>losing session data</b> in the event 
-    of a disaster is deemed acceptable. 
-    This is the <b>most commonly used</b> pattern as it preserves all functionality of the Identity
-    Server with good RPO/RTO values, and losing session data during disaster recovery, which
-    occurs rarely, could be acceptable to most businesses.
-  </div>
-
-  <div class="border-text">
-    <img src="{{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pattern-2.png" alt="Pattern 2" width=300><br>
-  </div>
-</div>
-
-### **Pattern Variant 3**: Disregard File Artifacts Replication
-
-<div class="centered-container">
-  <div class="border-text">
-    This pattern is applicable for an Identity Server system which <b>does not make use 
-    of multi-tenancy or secondary userstores</b>, but <b>session retention even during 
-    disaster events is critical</b>. 
-  </div>
-
-  <div class="border-text">
-    <img src="{{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pattern-3.png" alt="Pattern 3" width=300><br>
-  </div>
-</div>
-
-### **Pattern Variant 4**: Disregard both Session Database and File Artifacts Replication
-
-<div class="centered-container">
-  <div class="border-text">
-    This pattern is suitable for an Identity Server system which <b>does not make use of 
-    multi-tenancy or secondary userstores</b>, and <b>session retention during disaster events 
-    is not required</b>. 
-    This is the cheapest option, and it also offers the lowest RPO/RTO values at the
-    cost of some functionality.
-  </div>
-
-  <div class="border-text">
-    <img src="{{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pattern-4.png" alt="Pattern 4" width=300><br>
-  </div>
-</div>
+=== "Variant 4"
+    <div class="image-text-wrapped-container">
+        <div class="wrapping-text">
+            <h3><b>Pattern Variant 4</b>: Disregard both Session Database and File Artifacts Replication</h3>
+            <p>
+                This pattern is suitable for an Identity Server system which <b>does not make use of
+                multi-tenancy or secondary userstores</b>, and <b>session retention during disaster events
+                is not required</b>.
+                This is the cheapest option, and it also offers the lowest RPO/RTO values at the
+                cost of some functionality.
+            </p>
+        </div>
+        <div class="wrapped-image">
+            <img src="{{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pattern-4.png" alt="Pattern 4" width=300><br>
+        </div>
+    </div>
+---
 
 ### Failover Completion
 

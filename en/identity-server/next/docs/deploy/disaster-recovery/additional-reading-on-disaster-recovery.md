@@ -4,15 +4,13 @@
 The diagram below depicts a spectrum of DR strategies that have been established for
 achieving certain levels of RPO/RTO combinations. 
 
-![Disaster recovery spectrum]({{base_path}}/assets/img/setup/deploy/disaster-recovery/aws-disaster-recovery-spectrum.png){: width="800" style="display: block; margin: 0 auto;"}
+![Disaster recovery spectrum]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-strategy-spectrum.png){: width="800" style="display: block; margin: 0 auto;"}
 
 The reference points in the spectrum can be used when designing the deployment architecture to achieve the required service level.
 
 !!! note
-    - The diagram above has been extracted from AWS documentation. Refer to [Disaster recovery options in the cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html){target="_blank"}
-    for more information.
-    - It is currently **not** possible to deploy a fully-fledged WSO2 Identity Server in an 
-    active-active deployment pattern due certain limitations in the product.
+    It is currently **not** possible to deploy a fully-fledged WSO2 Identity Server in an 
+    active-active (multi-site) deployment pattern due certain limitations in the product.
 
 ## Failover Mechanism Explained
 

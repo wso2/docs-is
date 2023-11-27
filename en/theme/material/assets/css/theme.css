@@ -208,6 +208,35 @@
     background-color: var(--md-default-fg-color--lightest);
 }
 
+.image-text-wrapped-container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.image-text-wrapped-container > h2 {
+    margin-top: 1em;
+}
+
+.image-text-wrapped-container .wrapping-text {
+  flex: 1;
+  padding: 20px;
+  margin-bottom: 1em;
+}
+
+.image-text-wrapped-container .wrapped-image {
+  flex-shrink: 0;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.image-text-wrapped-container .wrapped-image > img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Default/Light theme styles  */
 [data-md-color-scheme=default] .md-header,
 [data-md-color-scheme=default] .md-tabs  {
