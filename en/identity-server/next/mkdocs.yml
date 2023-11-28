@@ -174,16 +174,16 @@ nav:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
+          - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
-          - OIDC scopes: guides/users/attributes/manage-scopes.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Configure the primary user store:
             - Configure the primary user store: guides/users/user-stores/primary-user-store/index.md
             - Configure a JDBC user store: guides/users/user-stores/primary-user-store/configure-a-jdbc-user-store.md
             - Configure a read-only LDAP user store: guides/users/user-stores/primary-user-store/configure-a-read-only-ldap-user-store.md
-            - Configure a read-Write Active Directory user store: guides/users/user-stores/primary-user-store/configure-a-read-write-active-directory-user-store.md
+            - Configure a read-write Active Directory user store: guides/users/user-stores/primary-user-store/configure-a-read-write-active-directory-user-store.md
             - Configure a read-write LDAP user store: guides/users/user-stores/primary-user-store/configure-a-read-write-ldap-user-store.md
           - Configure secondary user stores: guides/users/user-stores/configure-secondary-user-stores.md
           - User store properties: 

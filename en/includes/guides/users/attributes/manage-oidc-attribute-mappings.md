@@ -8,7 +8,7 @@ To view the OpenID Connect attributes available for your organization:
 1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings**.
 2. Click **OpenID Connect**.
 
-   ![View OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/view-oidc-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+   ![View OpenID Connect attributes]({{base_path}}/assets/img/guides/organization/attributes/attribute-mappings/view-oidc-attributes.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 You can find the mapped OpenID Connect attributes.
 

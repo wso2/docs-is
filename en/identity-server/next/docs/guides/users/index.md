@@ -9,6 +9,7 @@ The admins can grant users access to resources in your organization and control 
 Shown below are some main user management capabilities available in WSO2 Identity Server.
 
 ![User management]({{base_path}}/assets/img/guides/users/user-management-overview.png){: width="800" style="display: block; margin: 0 auto;"}
+
 ## User accounts
 
 WSO2 Identity Server supports the following types of user accounts based on their relationship to the organization.
