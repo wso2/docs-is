@@ -153,7 +153,7 @@ Follow the steps given below.
 !!! note
     When a user successfully logs in with Facebook for the first time, a **user** account is created in the {{ product_name }} Console with the Facebook username. This new user account will be managed by Facebook.
 
-## Add groups to the connection
+## Map groups with {{product_name}}
 
 {% include "../../fragments/manage-connection/add-groups.md" %}
 

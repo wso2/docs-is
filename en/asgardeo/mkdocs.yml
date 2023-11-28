@@ -20,6 +20,7 @@ INHERIT: ../base.yml
 site_name: &site_name Asgardeo
 site_description: Asgardeo Learning Center
 site_url: https://wso2.com/asgardeo/docs
+#site_url: http://localhost:8000/asgardeo/docs
 
 # Configuration
 theme:

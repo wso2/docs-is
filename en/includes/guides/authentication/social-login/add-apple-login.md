@@ -230,7 +230,7 @@ Follow the steps given below.
     - Apple will prompt you to create an account for the Apple IDP application.
     - A user account is created in the {{ product_name }} Console with the Apple username. Apple will manage this new user account.
 
-## Add groups to the connection
+## Map groups with {{product_name}}
 
 {% include "../../fragments/manage-connection/add-groups.md" %}
 

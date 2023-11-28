@@ -1,4 +1,4 @@
-To add groups to a connection on {{ product_name }}:
+Follow the steps below to map the groups attribute of your connection with {{product_name}}:
 
 1. On the {{ product_name }} Console, go to **Connections**.
 2. Select your connection and go to the **Groups** tab.
