@@ -63,22 +63,21 @@ A sample configuration is given below.
         port = "3306"
         ```
         
-    1.  Execute database scripts.
+    2.  Execute database scripts.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/mysql.sql` file against the database created.
                          
-!!! note     
-    Instead of defining `hostname`, `port`, and `name` separately, you can define the `url`
-    of the database in the following format.
-                
-    ``` toml
-    type = "mysql"
-    url = "jdbc:mysql://localhost:3306/regdb"
-    username = "regadmin"
-    password = "regadmin"
-    ```  
-            
-        
+    !!! note     
+        Instead of defining `hostname`, `port`, and `name` separately, you can define the `url`
+        of the database in the following format.
+                    
+        ``` toml
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/regdb"
+        username = "regadmin"
+        password = "regadmin"
+        ```  
+
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
     
