@@ -17,7 +17,7 @@ Elasticsearch transforms are used to capture the alert events from the raw event
 
         !!! info
             Replace {ELASTICSEARCH_HOST}, {ELASTICSEARCH_BASIC_AUTH_HEADER}, {PERCENTAGE}, and {DURATION} to match your   settings
-        
+
 
         !!! abstract ""
             **Request Format**

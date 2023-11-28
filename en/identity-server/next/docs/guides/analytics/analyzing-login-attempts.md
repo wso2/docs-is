@@ -6,7 +6,7 @@ Auth Dashboard displays analytics for resident and federated authentication scen
 
 You can use the **Auth Type** filter to view analytics based on authentication type.
 
- ![Auth Type]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-7.png){: width="400" style="display: block; margin: 0 auto;"}
+![Auth Type]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-7.png){: width="400" style="display: block; margin: 0 auto;"}
 
 ## Analyze Overall Login Attempts
 
