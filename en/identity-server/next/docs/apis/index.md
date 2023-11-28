@@ -35,7 +35,7 @@ curl -X GET "https://localhost:9443/api/server/v1/applications?limit=30&offset=0
 This authentication method requires users to obtain an OAuth2 token and then use it to invoke the APIs. If the API you wish to invoke has `Password`, `Client-credentials`, or `AuthorizationCode` as the authentication requirement, use the following request format to obtain a bearer token.
 
 !!! info "Before you begin"
-    - You need to [create a standard-based application or M2M application]({{base_path}}/guides/applications) based on the requirement.
+    - You need to [create a standard-based application or an M2M application]({{base_path}}/guides/applications) based on the requirement.
     - Expand the relevant API definition on the docs and obtain the **scope** required to invoke the API.
     - [Authorize the relevant API and required scopes]({{base_path}}/guides/api-authorization/) to the created application.
     - If you are using a grant type other than `client credentials` grant, ensure that you've configured the relevant roles for the application with the necessary permissions to access the API. Additionally, assign these roles to the user who wants to obtain the token.
