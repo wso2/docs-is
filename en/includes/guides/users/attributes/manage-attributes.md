@@ -88,8 +88,8 @@ To update the properties of a user attribute:
 
 5. Go to the **Mapped Attributes** tab and enter the attribute from each user store that you need to map.
 
-    ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 6. Go to the **Additional Properties** tab and add additional properties that can be used when writing an extension.
 
-    ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}

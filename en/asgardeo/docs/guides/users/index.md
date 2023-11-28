@@ -8,7 +8,7 @@ The admins can grant users access to resources in your organization and control 
 
 Shown below are some main user management capabilities available in Asgardeo.
 
-![User management]({{base_path}}/assets/img/guides/users/user-management-overview.png)
+![User management]({{base_path}}/assets/img/guides/users/user-management-overview.png){: width="800" style="display: block; margin: 0 auto;"}
 
 ## User accounts
 
@@ -33,13 +33,13 @@ An owner is always assigned the **Administrator** role. It cannot be changed by 
 
 An administrator can manage the organization and has access to the organization's administrative operations. An administrator can be invited to the organization and assigned with the Administrator user role.
 
-Refer [Managing administrators]({{base_path}}/guides/users/manage-collaborators/) for more information.
+Refer [Manage administrators]({{base_path}}/guides/users/manage-collaborators/) for more information.
 
 ### User
 
 A user registered in an organization can login and use applications in that organization.
 
-Refer [Managing users]({{base_path}}/guides/users/manage-customers/) for more information.
+Refer [Manage users]({{base_path}}/guides/users/manage-customers/) for more information.
 
 ### Comparing User Accounts
 
@@ -90,6 +90,6 @@ The source of the user account determines which entity manages the user's creden
 ## What's next?
 
 Following are the main components that are required for user management.
+
 - [Groups]({{base_path}}/guides/users/manage-groups/)
 - [Roles]({{base_path}}/references/user-management/user-roles/)
-

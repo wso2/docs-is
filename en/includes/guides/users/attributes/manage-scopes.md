@@ -82,7 +82,7 @@ Listed below are the default OpenID Connect scopes that applications can request
 
 To add new scopes to your organization:
 
-1. In the {{ product_name }} Console, go to {{ attribute_path }} > **Scopes**
+1. In the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings** > **OpenID Connect** > **Scopes**.
 2. Click **New OIDC Scope** to open the **Create OpenID Connect Scope** dialog box.
   
     ![Create OpenID Connect scopes]({{base_path}}/assets/img/guides/organization/scopes/create-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
@@ -112,7 +112,7 @@ To add new scopes to your organization:
 
 You can add attrbutes to scopes or delete them by following the steps below.
 
-1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Scopes**.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings** > **OpenID Connect** > **Scopes**.
 
 2. Select the scope to edit.
 
@@ -163,14 +163,3 @@ As an application developer, you can follow the steps given below to configure y
         ```
 
 When the user logs in, {{ product_name }} will prompt the user with a consent screen to authorize access to the user attributes. Once the user consents, your application will have access to the requested user attributes.
-
-
-
-
-
-
-
-
-
-
-
