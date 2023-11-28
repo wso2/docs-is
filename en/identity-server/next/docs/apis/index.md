@@ -35,11 +35,13 @@ curl -X GET "https://localhost:9443/api/server/v1/applications?limit=30&offset=0
 This authentication method requires users to obtain an OAuth2 token and then use it to invoke the APIs. If the API you wish to invoke has `Password`, `Client-credentials`, or `AuthorizationCode` as the authentication requirement, use the following request format to obtain a bearer token.
 
 !!! info "Before you begin"
-    - You need to [create an application]({{base_path}}/guides/applications/register-standard-based-app) with **Management Application** enabled.
+    - You need to [create a standard-based application or M2M application]({{base_path}}/guides/applications) based on the requirement.
     - Expand the relevant API definition on the docs and obtain the **scope** required to invoke the API.
+    - [Authorize the relevant API and required scopes]({{base_path}}/guides/api-authorization/) to the created application.
+    - If you are using a grant type other than `client credentials` grant, ensure that you've configured the relevant roles for the application with the necessary permissions to access the API. Additionally, assign these roles to the user who wants to obtain the token.
 
 !!! abstract
-    **Request**
+    **Password Grant Request**
     ```
     curl https://localhost:9443/oauth2/token -k -H "Authorization: Basic Base64 (<clientid>:<client-secret>)" -d "grant_type=password&username=<username>&password=<password>&scope=<scope>"
     ```
@@ -56,16 +58,35 @@ This authentication method requires users to obtain an OAuth2 token and then use
     }
     ```
 
+!!! abstract
+    **Client Credentials Grant Request**
+    ```
+    curl https://localhost:9443/oauth2/token -k -H "Authorization: Basic Base64 (<clientid>:<client-secret>)" -H "Content-Type: application/x-www-form-urlencoded" \--data-urlencode '"grant_type=client_credentials" --data-urlencode "scope=<scope>"
+    ```
+    **Sample request**
+    ```
+    curl https://localhost:9443/oauth2/token -k -H "Authorization: Basic d21VRm5oY2xlWFJNSFFZb29iUkx5VGY0TUxFYTowc0doU0dOOG4zMXJFQnpSRjkyYlN1dG5IRUFh" -H "Content-Type: application/x-www-form-urlencoded" \--data-urlencode '"grant_type=client_credentials" --data-urlencode "scope=internal_application_mgt_view"
+    ```
+    **Sample response**
+    ```
+    {
+        "access_token": "decc891e-4bee-3831-a321-38b1db1fece0",
+        "scope": "internal_application_mgt_view",
+        "token_type": "Bearer",
+        "expires_in": 3600
+    }
+    ```
+
 The variables used in the cURL request are as follows: 
 
-| Variable  | Description   | Sample value  |
-|-----------|---------------|---------------|
-| `clientid`    | Client ID of your application. This is generated when registering the service provider on IS.  | `wmUFnhcleXRMHQYoobRLyTf4MLEa`   |
-| `clientsecret`    | Client secret of your application. This is generated when registering the service provider on IS.  | `0sGhSGN8n31rEBzRF92bSutnHEAa`   |
-| `Base64 (<clientid>:<client-secret>)` | The base64 encoded value of `clientid:clientsecret`.  | `d21VRm5oY2xlWFJNSFFZb29iUkx5VGY0TUxFYTowc0doU0dOOG4zMXJFQnpSRjkyYlN1dG5IRUFh`    |
-| `username`    | Username of the user trying to invoke the API.  | `alex`  |
-| `password`    | Password of the user trying to invoke the API.  | `alex@123`  |
-| `scope`   | The scope corresponding to the API you want to use. See the relevant API reference docs for each API's list of internal scopes.  | `internal_login`   |
+| Variable  | Description                                                                                                                                                                                               | Sample value  |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `clientid`    | Client ID of your application. This is generated when registering the service provider on IS.                                                                                                             | `wmUFnhcleXRMHQYoobRLyTf4MLEa`   |
+| `clientsecret`    | Client secret of your application. This is generated when registering the service provider on IS.                                                                                                         | `0sGhSGN8n31rEBzRF92bSutnHEAa`   |
+| `Base64 (<clientid>:<client-secret>)` | The base64 encoded value of `clientid:clientsecret`.                                                                                                                                                      | `d21VRm5oY2xlWFJNSFFZb29iUkx5VGY0TUxFYTowc0doU0dOOG4zMXJFQnpSRjkyYlN1dG5IRUFh`    |
+| `username`    | Username of the user trying to invoke the API.                                                                                                                                                            | `alex`  |
+| `password`    | Password of the user trying to invoke the API.                                                                                                                                                            | `alex@123`  |
+| `scope`   | The scope corresponding to the API you want to use. See the relevant API reference docs for each API's list of internal scopes. To request multiple scopes, include them in the request, separating each scope with spaces. | `internal_login`   |
 
 #### Access the API
 You can now use the access token as an Authorization Bearer header to access the APIs.
