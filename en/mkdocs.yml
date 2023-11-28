@@ -383,6 +383,7 @@ nav:
               - Configure a Read-write LDAP User store: deploy/configure-a-read-write-ldap-user-store.md
             - Add High Availability for LDAP: deploy/add-high-availability-for-ldap.md
             - Configure Secondary User stores: deploy/configure-secondary-user-stores.md
+            - Configure user store preference order: deploy/configure-user-store-preference-order.md
             #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
             - Work with Properties of User stores: deploy/work-with-properties-of-user-stores.md
             #- Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
