@@ -31,4 +31,4 @@ To configure password recovery:
 
 6. Click **Update** once you configure the required settings.  
 
-[Try self-service password recovery]({{base_path}}/guides/user-self-service/customer-password-recovery/).
+[Try self-service password recovery]({{base_path}}/guides/user-self-service/user-password-recovery/).

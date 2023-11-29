@@ -8,7 +8,7 @@ the spectrum, and is **based on services provided by Microsoft Azure**.
 !!! note
     This document **only** describes how to apply disaster recovery strategies to a WSO2 Identity
     Server deployment, and does not provide information on how to set up the deployment.
-    For information on how to deploy WSO2 Identity Server, see [here]({{base_path}}/deploy/deployment-guide.md).
+    For information on how to deploy WSO2 Identity Server, see [here]({{base_path}}/deploy/deployment-guide).
 
 ![Disaster recovery normal operation in Azure]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-azure-normal-operation.png){: width="800" style="display: block; margin: 0 auto;"}
 

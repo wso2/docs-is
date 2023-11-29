@@ -49,8 +49,9 @@ The user can follow the steps below to sign up using an email.
     !!! note
 
         - Administrators can change which attributes users need to enter during the sign up process. Learn how to [update user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) so that they are displayed in the user profile.
-
+        {% if product_name == "Asgardeo" %}
         - Users can either be allowed to use the email as the username or be asked to enter a separate username. Learn how to [configure username requirements]({{base_path}}/guides/user-accounts/account-login/username-validation/).
+        {% endif %}
 
 3. Click **Sign Up** to create the account.
 

@@ -239,7 +239,6 @@ nav:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
-        - Delete your user account: guides/your-is/delete-your-user-account.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md

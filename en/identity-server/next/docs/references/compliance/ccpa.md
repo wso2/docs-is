@@ -44,7 +44,7 @@ This includes a broader spectrum of identifiers such as purchase events or downl
          - Password history information
 
     Additionally, the WSO2 Privacy Toolkit can be extended to clear personal data in any relational database or any textual log file.
-    For further information on the WSO2 privacy toolkit, refer to [Remove References to Deleted User Identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities).
+    For further information on the WSO2 privacy toolkit, refer to [Remove References to Deleted User Identities]({{base_path}}/deploy/configure/databases/remove-references-to-deleted-user-identities/).
 
 3. **The right of disclosure**
     Companies collecting consumers’ personal information for commercial purposes (sell or disclose to a third party) should disclose the categories of PI collected, the sources through which the PI was collected, the purpose for the collection, the entities which the PI was shared with or sold to, and the specific pieces of PI that were collected or sold.
@@ -76,7 +76,7 @@ Currently, there is an open standard regarding [Consent Receipt Management](http
 
 WSO2 Identity Server comes with an extensive consent management solution that enables users to conveniently manage the consents of their consumers and third-party applications. WSO2 Identity Server’s consent management module consists of the following key features.
 
-- Has RESTful consent APIs to manage consents remotely. For more information on consent management, refer to [Consent Management]({{base_path}}/references/concepts/consent-management/).
+- Has RESTful consent APIs to manage consents remotely. For more information on consent management, refer to [Consent Management]({{base_path}}/apis/use-the-consent-management-rest-apis).
 
 - Provides an admin portal support for organizations to define and manage consent, data processing purposes, and user attributes per consent.
 
