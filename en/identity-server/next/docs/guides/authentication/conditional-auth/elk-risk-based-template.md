@@ -33,7 +33,7 @@ works to assess the risk of the user.
 
 - See the [general prerequisites]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#prerequisites) for all adaptive authenticaiton scenarios.
 
-- [Configure ELK analytics for adaptive authentication]({{base_path}}/deploy/using-elk-analytics-for-adaptive-authentication), and run the following command to create an index named `transaction` to store transaction data.
+- [Configure ELK analytics for adaptive authentication]({{base_path}}/deploy/elk-analytics-for-adaptive-authentication), and run the following command to create an index named `transaction` to store transaction data.
 
     !!! info
         Replace `{ELASTICSEARCH_HOST}` and `{ELASTICSEARCH_BASIC_AUTH_HEADER}` to match your settings.
