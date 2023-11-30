@@ -13,6 +13,6 @@ You can recover the password using any of the following methods:
 - Using the [password recovery]({{base_path}}/guides/user-accounts/password-recovery/) option available on the WSO2 IS console.
 
 ## Log in with an email address
-You can configure the WSO2 Identity Server to authenticate users using an email address instead of a username. Refer to [Enable Using Email Address as the Username]({{base_path}}/guides/user-accounts/account-login/username-validation/) for further information.
+You can configure the WSO2 Identity Server to authenticate users using an email address instead of a username. Refer to [Enable Using Email Address as the Username]({{base_path}}/guides/users/attributes/enable-email-as-username/) for further information.
 
 
