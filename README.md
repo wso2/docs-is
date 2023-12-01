@@ -115,6 +115,14 @@ If you are getting an error that says mkdocs command is not found, try the follo
 python3 -m mkdocs serve
 ```
 
+## Survey On Open Source Community Communication
+
+WSO2 wants to learn more about our open source software (OSS) community and your communication preferences to serve you better.
+
+In addition, we may reach out to a small number of respondents to ask additional questions and offer a small gift.
+
+Link to survey: https://forms.gle/h5q4M3K7vyXba3bK6
+
 ## License
 
 Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
