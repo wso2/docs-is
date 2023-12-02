@@ -409,7 +409,7 @@ As the administrator of **Guardio Insurance**, next you need to set up an organi
 The following guides explain how an organization user who has admin privileges of **Guardio Insurance Administrative App** login and use the administration portal.
 Also, this guide explain how other organization users consume the **Guardio Insurance Business App**.
 
-### Try out organization login
+### Try out Sign In with SSO
 
 Follow the steps below to see how organization login works for a user in the **Best Car Mart** organization when logging into **Guardio Insurance Business App**.
 
@@ -440,7 +440,7 @@ Follow the steps below to see how organization login works for a user in the **B
 
 To configure an identity provider for **Guardio Insurance Business App**:
 
-1. [Log in to the application](#try-out-organization-login) with the credentials of Alex.
+1. [Log in to the application](#try-out-sign-in-with-sso) with the credentials of Alex.
 
 2. On the application, go to **Settings** > **Identity Providers** and click **Add Identity Provider**.
 
@@ -461,4 +461,4 @@ To configure an identity provider for **Guardio Insurance Business App**:
    
     ![Guardio Business Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/guardio-app-login.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-7. [Log in to the business application through SSO option](#try-out-organization-login). Now, the users in the configured external IdP can be logged into the application.
+7. [Log in to the business application through SSO option](#try-out-sign-in-with-sso). Now, the users in the configured external IdP can be logged into the application.
