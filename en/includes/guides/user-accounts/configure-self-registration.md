@@ -6,14 +6,13 @@
 
 To disable this capability in your organization or to change the default configurations, see the following instructions:
 
-1. On the {{ product_name }} Console, click **Self Registration**.
+1. On the {{ product_name }} Console, go to **Login & Registration** > **User Onboarding** and click **Self Registration**.
 
     ![Configure self registration]({{base_path}}/assets/img/guides/organization/self-registration/configure-self-registration.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     The **Self Registration** section indicates whether or not it is already enabled.
 
-2. Click **Configure** to open the **Self Registration** page.
-3. Configure the below settings.
+2. Configure the below settings.
 
     - To disable self-registration, turn off the toggle.
     - To configure self-registration, update the following settings and click **Update**.
