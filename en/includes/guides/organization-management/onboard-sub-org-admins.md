@@ -164,7 +164,7 @@ To create and maintain admins in the organization:
     https://{{ host_name }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d 'grant_type=organization_switch_cc&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create'
+    -d 'grant_type=organization_switch_cc&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create&token=<access token obtained for the B2B-Self-Service-Mgt-Application>&switching_organization=<created organization id>'
     ```
 
 4. Create a user in the organization using the following cURL.
