@@ -9,13 +9,13 @@ Follow the steps given below to authenticate users to your React SPA with OpenID
 
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm){:target="_blank"} in your local environment.
-- [Register an application]({{base_path}}/guides/applications/register-single-page-app/) in the WSO2 Identity Server.
+- [Register an application]({{base_path}}/guides/applications/register-single-page-app/) in the {{ product_name }}.
 
 !!! note
     In the tutorial,
 
     - your organization name is referred to as `{org_name}`.
-    - `{client_id}` refers to the client credential that you obtain once you register your application in the WSO2 Identity Server.
+    - `{client_id}` refers to the client credential that you obtain once you register your application in the {{ product_name }}.
 
 ## Install the SDK
 
@@ -31,7 +31,7 @@ npm install @asgardeo/auth-react react-router-dom --save
 ## Configure the SDK
 
 SDK uses the [React Context API](https://react.dev/learn/passing-data-deeply-with-context) under the hood to share the data between components.
-You can easily integrate the WSO2 Identity Server in your application by using `AuthProvider` as the wrapper element to inject configurations.
+You can easily integrate the {{ product_name }} in your application by using `AuthProvider` as the wrapper element to inject configurations.
 
 `AuthProvider` will provide the session state which contains information such as the authenticated user's display name, email address etc. as well as the methods required to implement authentication in the React app.
 
@@ -76,7 +76,7 @@ Details of the parameters are given below.
   </tr>
   <tr>
     <td><code>baseUrl</code></td>
-    <td>This is the WSO2 Identity server's URL in the form <code>https://{host}:{port}</code>.</td>
+    <td>This is the {{ product_name }}'s URL in the form <code>https://{host}:{port}</code>.</td>
   </tr>
   <tr>
     <td><code>signInRedirectURL</code></td>
@@ -113,9 +113,9 @@ Few common methods that you can access with `useAuthContext()` are listed below.
 
 - `state` object - This will contain attributes such as whether a user is currently logged in, the username of the currently logged-in user etc.
 
-- `signIn` - Initiate a login request to the WSO2 Identity Server, process the response to obtain authentication response.
+- `signIn` - Initiate a login request to the {{ product_name }}, process the response to obtain authentication response.
 
-- `signOut` - Logout the user from the WSO2 Identity Server and clear any authentication data from the SDK storage.
+- `signOut` - Logout the user from the {{ product_name }} and clear any authentication data from the SDK storage.
 
 - `isAuthenticated` - Check whether there is an authenticated user session. Based on the result you can decide to change the application view/behaviour.
 
@@ -152,7 +152,7 @@ The `state` object contains attributes of a user. Its structure is as follows.
 }
 ```
 !!! note
-    The `isAuthenticated` attribute checks whether a user is currently logged in via the WSO2 Identity Server or not.
+    The `isAuthenticated` attribute checks whether a user is currently logged in via the {{ product_name }} or not.
 
 ### Add login to your application
 You can use the `useAuthContext` hook from the Asgardeo React SDK to easily authenticate your React application.
@@ -162,11 +162,11 @@ Implement a login button as follows using the `signIn()` function in the `useAut
 ```js 
 <button onClick={ () => signIn() }>Login</button>
 ```
-Clicking on the **Login** button will take the user to the the WSO2 Identity Server login page. Once `signIn()` succeeds, the user will be redirected to the app (based on the `signInRedirectURL` specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `true`.
+Clicking on the **Login** button will take the user to the the {{ product_name }} login page. Once `signIn()` succeeds, the user will be redirected to the app (based on the `signInRedirectURL` specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `true`.
 
 ### Get access token
 
-Once the user is logged in, the application can get the access token issued by the WSO2 Identity Server .
+Once the user is logged in, the application can get the access token issued by the {{ product_name }} .
 
 See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#getaccesstoken) for more information.
 
@@ -224,7 +224,7 @@ You can get additional information from the user by [requesting user information
 
 ### Get decoded ID token
 
-Once the user is logged in, the application can get the ID token issued by the WSO2 Identity Server.
+Once the user is logged in, the application can get the ID token issued by the {{ product_name }}.
 
 The SDK provides the `getDecodedIDToken()` API to get the decoded token. You can use this decoded token to obtain user claims as below.
 
@@ -294,7 +294,7 @@ Clicking on the **Logout** button will sign out the user. The user will then be 
     You can use the `state.isAuthenticated` attribute to check the authentication status of the user.
 
 ### Add Routing
-If your application needs routing, the SDK provides a component called ``SecureRoute``, which is implemented with ``react-router-dom``. This component allows you to easily secure your routes with the WSO2 Identity Server. You can learn more about routing [here](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#securing-routes-with-asgardeo).
+If your application needs routing, the SDK provides a component called ``SecureRoute``, which is implemented with ``react-router-dom``. This component allows you to easily secure your routes with the {{ product_name }}. You can learn more about routing [here](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#securing-routes-with-asgardeo).
 
 
 ## More Information

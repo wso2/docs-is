@@ -4,7 +4,7 @@ template: templates/no-right-sidebar.html
 
 <div class="center-all">
   <h1>Try a sample app</h1>
-  <h3>Pick a technology and try a sample application with WSO2 Identity Server login.</h3>
+  <h3>Pick a technology and try a sample application with {{ product_name }}r login.</h3>
 
   <div class="cards-container">
     <a href="../../get-started/try-samples/qsg-spa-react/" class="card square">

@@ -1,12 +1,12 @@
-# What is WSO2 Identity Server?
+# What is {{ product_name }}?
 
-Are you new to **WSO2 Identity Server**? Let's get to know what we are all about!
+Are you new to **{{ product_name }}**? Let's get to know what we are all about!
 
-**WSO2 Identity Server (WSO2 IS)** simplifies the Customer Identity and Access Management (CIAM) needs of your organization. The product ensures easy integration with a variety of applications to facilitate single sign-on (SSO), social login, identity federation, API security, strong authentication, account management, privacy compliance, and so much more.
+**{{ product_name }} (WSO2 IS)** simplifies the Customer Identity and Access Management (CIAM) needs of your organization. The product ensures easy integration with a variety of applications to facilitate single sign-on (SSO), social login, identity federation, API security, strong authentication, account management, privacy compliance, and so much more.
 
 <iframe width="800" height="250" src="https://www.youtube.com/embed/QUlcGOOdXU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Who uses WSO2 Identity Server?
+## Who uses {{ product_name }}?
 
 - **Application developers** who build extensive IAM solutions for organizations.
 
@@ -18,7 +18,7 @@ Are you new to **WSO2 Identity Server**? Let's get to know what we are all about
 
 ---
 
-## Why WSO2 Identity Server?
+## Why {{ product_name }}?
 
 ![IAM functionality]({{base_path}}/assets/img/get-started/iam-functionality.png)
 
@@ -26,15 +26,15 @@ Are you new to **WSO2 Identity Server**? Let's get to know what we are all about
 
 - **Give the right access to the right people** - Control access to applications based on permission levels of users or groups.
 
-- **Enforce strong authentication** - WSO2 Identity Server offers multi-factor capabilities such as Email OTP, SMS OTP, FIDO Passkeys etc. It also enables adaptive authentication which means you can define the level of authentication based on user device, location, and usage context.
+- **Enforce strong authentication** - {{ product_name }} offers multi-factor capabilities such as Email OTP, SMS OTP, FIDO Passkeys etc. It also enables adaptive authentication which means you can define the level of authentication based on user device, location, and usage context.
 
 - **Empower users to manage their own accounts** - Enable self-registration to applications and let users view, and manage their own profiles.
 
 - **Manage users and their accounts** - Take control of the entire identity lifecycle management of your organization. Provision users to or from trusted identity providers and integrate heterogeneous userstores such as LDAP, Active Directory, and JDBC.
 
-- **Secure ever-growing APIs** - WSO2 Identity Server plays a key role as the authorization server that supports several OAuth related standards or profiles. It supports open standards such as OAuth, OpenID Connect and SAML 2.0. It also enables high availability, failover, and performance for a smooth operation.
+- **Secure ever-growing APIs** - {{ product_name }} plays a key role as the authorization server that supports several OAuth related standards or profiles. It supports open standards such as OAuth, OpenID Connect and SAML 2.0. It also enables high availability, failover, and performance for a smooth operation.
 
 
-- **To safeguard user data and give them control over it** - WSO2 Identity Server enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards imposed by GDPR and similar privacy laws such as CCPA and LGDP.
+- **To safeguard user data and give them control over it** - {{ product_name }} enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards imposed by GDPR and similar privacy laws such as CCPA and LGDP.
 
 ---

@@ -8,15 +8,15 @@ By following this guide, you will be able to deploy a Java EE web application lo
 
     If you don't have it, install [Apache tomcat](https://tomcat.apache.org/tomcat-9.0-doc/setup.html){target="_blank"}.
 
-- **A user account in the WSO2 Identity Server**
+- **A user account in the {{ product_name }}**
 
-    If you don't already have one, create a user account in the WSO2 Identity Server.
+    If you don't already have one, create a user account in the {{ product_name }}.
 
 ## Register the app
 
-Follow the steps given below to register the sample Java EE web application in Asgardeo.
+Follow the steps given below to register the sample Java EE web application in {{ product_name }}.
 
-1. On the WSO2 Identity Server Console, go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Click **New Application** and select **Traditional Web Application**:
 
@@ -150,7 +150,7 @@ Follow the steps given below to configure the sample app.
             <code>issuer</code>
         </td>
         <td>
-            Issuer endpoint of the WSO2 Identity Server used for id token validation:
+            Issuer endpoint of the {{ product_name }} used for id token validation:
             <code>https://localhost:9443/oauth2/token</code>
         </td>
       </tr>
@@ -158,7 +158,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <code>authorizeEndpoint</code>
         </td>
-        <td>The authorization endpoint of the WSO2 Identity Server:
+        <td>The authorization endpoint of the {{ product_name }}:
             <code>https://localhost:9443/oauth2/authorize</code>
         </td>
       </tr>
@@ -166,7 +166,7 @@ Follow the steps given below to configure the sample app.
         <td>
           <code>logoutEndpoint</code>
         </td>
-        <td>The logout endpoint of the WSO2 Identity Server:
+        <td>The logout endpoint of the {{ product_name }}:
           <code>https://localhost:9443/oidc/logout</code>
         </td>
       </tr>
@@ -174,7 +174,7 @@ Follow the steps given below to configure the sample app.
           <td>
             <code>tokenEndpoint</code>
           </td>
-          <td>The token endpoint of the WSO2 Identity Server:
+          <td>The token endpoint of the {{ product_name }}:
             <code>https://localhost:9443/oauth2/token</code>
           </td>
       </tr>
@@ -182,7 +182,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <code>jwksEndpoint</code>
         </td>
-        <td>The jwks endpoint of the WSO2 Identity Server:
+        <td>The jwks endpoint of the {{ product_name }}:
             <code>https://localhost:9443/oauth2/jwks</code>
         </td>
     </tr>
@@ -201,7 +201,7 @@ Follow the steps given below to run the sample.
 
 1. Access the application using the following URL: `http://localhost:8080/oidc-sample-app/index.html`.
 
-2. Click **Login**. You will be redirected to the Asgardeo login page.
+2. Click **Login**. You will be redirected to the {{ product_name }} login page.
 
     ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
