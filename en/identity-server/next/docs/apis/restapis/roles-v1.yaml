@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
-  title: SCIM 2.0 Roles v1 Endpoint API
+  title: SCIM 2.0 Roles API
   description: |
-    SCIM 2.0 Roles v1 endpoint
-  version: 1.0.0
+    SCIM 2.0 Roles v1 API
+  version: "v1"
 servers:
   - url: https://{serverUrl}/t/{tenantDomain}/scim2
     variables:
@@ -808,9 +808,10 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth/authorize
-          tokenUrl: https://localhost:9443/oauth/token
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
           scopes:
-            read: Grants read access
-            write: Grants write access
-            admin: Grants read and write access to administrative information
+            view: internal_role_mgt_view
+            create: internal_role_mgt_create
+            update: internal_role_mgt_update
+            delete: internal_role_mgt_delete
