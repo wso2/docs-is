@@ -1,17 +1,15 @@
-openapi: 3.0.0
+swagger: '2.0'
 info:
-  title: SCIM 2.0 Role Management API
+  version: "2.0.0"
+  title: SCIM 2.0 Roles v2 Endpoint Swagger Definition
   description: |
-    SCIM 2.0 Role Management endpoints
-  version: 2.0.0
-servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/scim2
-    variables:
-      serverUrl:
-        default: localhost:9443
-      tenantDomain:
-        default: carbon.super
+    SCIM 2.0  Roles v2 endpoint
+    It is written with [swagger 2](http://swagger.io/).
 
+# The base path of the SCIM2 API.
+# If the tenant domain is carbon.super then basepath can be /scim2.
+# host: localhost:9443
+# basePath: /t/{tenant-domain}/scim2
 schemes:
   - https
 
@@ -21,6 +19,7 @@ produces:
 # Applicable authentication mechanisms.
 security:
   - OAuth2: []
+  - BasicAuth: []
 
 paths:
   /v2/Roles:
@@ -30,8 +29,8 @@ paths:
       summary: Filter Roles
       description: |
         This API returns roles according to the specified filter, sort and pagination parameters.
-        
-        <b>Scope(Permission) required:</b> `internal_org_role_mgt_view`
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_view`
       operationId: getRoleV2
       produces:
         - application/scim+json
@@ -55,7 +54,7 @@ paths:
           format: int32
         - name: sortBy
           in: query
-          description: |
+          description: |-
             Specifies the attribute whose value
             SHALL be used to order the returned responses
           required: false
@@ -86,9 +85,84 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/o/scim2/v2/Roles' \
+            'https://localhost:9443/scim2/v2/Roles' \
             -H 'accept: application/scim+json' \
-            -H 'Authorization: Bearer {bearer_token}'
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - Roles Endpoint
+      summary: Create Role
+      description: |
+        This API creates a role and returns the details of the created role including its unique ID.
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_create`
+      operationId: createRoleV2
+      consumes:
+        - application/scim+json
+      produces:
+        - application/scim+json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RoleCreationObjectV2'
+      responses:
+        201:
+          description: Valid role is created
+          schema:
+            $ref: '#/definitions/RolePostResponseObjectV2'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Role is not found
+          schema:
+            $ref: '#/definitions/ErrorRoleNotAvailable'
+        409:
+          description: Role already exist
+          schema:
+            $ref: '#/definitions/ErroRoleAlreadyAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/scim2/v2/Roles' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "schemas": [
+                "urn:ietf:params:scim:schemas:extension:2.0:Role"
+              ],
+              "displayName": "loginRole",
+              "audience": {
+                "value": "3645709f-ea8d-5595-7690-e1fa0efe3df9",
+                "type": "application"
+              },
+              "users": [
+                {
+                  "value": "008bba85-451d-414b-87de-c03b5a1f4217"
+                }
+              ],
+              "groups": [
+                {
+                  "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+                }
+              ],
+              "permissions": [
+                {
+                  "value": "internal_login",
+                  "display": "Internal Login"
+                }
+              ]
+            }'
+      x-codegen-request-body-name: body
   /v2/Roles/.search:
     post:
       tags:
@@ -97,7 +171,7 @@ paths:
       description: |
         This API returns roles according to the specified filter, sort and pagination parameters.
 
-        <b>Scope(Permission) required:</b> `internal_org_role_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_role_mgt_view`
       operationId: getRolesByPostV2
       consumes:
         - application/scim+json
@@ -130,10 +204,10 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/o/scim2/v2/Roles/.search' \
+            'https://localhost:9443/scim2/v2/Roles/.search' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
             "schemas": [
               "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
@@ -141,7 +215,7 @@ paths:
             "startIndex": 1,
             "filter": "displayName eq loginRole"
             }'
-    x-codegen-request-body-name: body
+      x-codegen-request-body-name: body
   /v2/Roles/{id}:
     get:
       tags:
@@ -150,7 +224,7 @@ paths:
       description: |
         This API returns the role details of a particular role using its unique ID.
 
-        <b>Scope(Permission) required:</b> `internal_org_role_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_role_mgt_view`
       operationId: getRolebyIdV2
       produces:
         - application/scim+json
@@ -191,18 +265,17 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/o/scim2/v2/Roles/{role-id}' \
+            'https://localhost:9443/scim2/v2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
-            -H 'Authorization: Bearer {bearer_token}'
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Roles Endpoint
       summary: Update Role - PUT
       description: |
-        This API updates the **assigned users and groups** of the role. 
-        **Role name, role audience, role permissions and associated applications** cannot be updated through this API.
-        
-        <b>Scope(Permission) required:</b> `internal_org_role_mgt_update`
+        This API updates the role details and returns the updated role details using a PUT operation.
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_update`
       operationId: updateRoleV2
       consumes:
         - application/scim+json
@@ -248,54 +321,77 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/o/scim2/v2/Roles/{role-id}' \
+            'https://localhost:9443/scim2/v2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
-            "displayName": "loginRole",
-            "audience": {
-              "value": "3645709f-ea8d-5595-7690-e1fa0efe3df9",
-              "display": "My Org",
-              "type": "organization"
-            },
-            "users": [
-              {
-                "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43"
-              }
-            ],
-            "groups": [
-              {
-                "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
-              }
-            ],
-            "permissions": [
-              {
-                "value": "internal_login",
-                "display": "Internal Login"
-              }
-            ],
-            "associatedApplications": [
-              {
-                "value": "9bbc6a86-1f21-4937-9fb1-5be4a93ef499",
-                "display": "XY Web Application"
-              },
-              {
-                "value": "67bc6a86-1f21-4937-9fb1-5be4a93ef488",
-                "display": "XY Mobile Application"
-              }
-            ]
+              "displayName": "loginRole",
+              "users": [
+                {
+                  "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43"
+                }
+              ],
+              "groups": [
+                {
+                  "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+                }
+              ],
+              "permissions": [
+                {
+                  "value": "internal_login",
+                  "display": "Internal Login"
+                }
+              ]
             }'
       x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Roles Endpoint
+      summary: Delete Role
+      description: |
+        This API deletes a particular role using its unique ID.
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_delete`
+      operationId: deleteRoleV2
+      produces:
+        - application/scim+json
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          type: string
+      responses:
+        204:
+          description: Role is deleted
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Valid role is not found
+          schema:
+            $ref: '#/definitions/ErrorNoRoleAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/scim2/v2/Roles/{role-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
       tags:
         - Roles Endpoint
       summary: Update Role - PATCH
       description: |
-        This API updates the **assigned users and groups** of the role. 
-        **Role name, role audience, role permissions and associated applications** cannot be updated through this API.
+        This API updates the role details and returns the updated role details using a PATCH operation.
 
-        <b>Scope(Permission) required:</b> `internal_org_role_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_role_mgt_update`
       operationId: patchRole
       consumes:
         - application/scim+json
@@ -337,10 +433,10 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/o/scim2/v2/Roles/{role-id}' \
+            'https://localhost:9443/scim2/v2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
               "schemas": [
                 "urn:ietf:params:scim:api:messages:2.0:PatchOp"
@@ -371,7 +467,17 @@ paths:
                   {
                     "op": "remove",
                     "path": "groups[value eq 9065f445-265e-4rfg3-83ad-666c66ed4a55]"
+                  },
+                  {
+                    "op": "replace",
+                    "value": {
+                      "permissions": [
+                        {
+                          "value": "internal_group_mgt_view"
+                        }
+                    ]
                   }
+                }
               ]
             }'
       x-codegen-request-body-name: body
@@ -379,6 +485,8 @@ paths:
 # Security Definitions
 #-----------------------------------------------------
 securityDefinitions:
+  BasicAuth:
+    type: basic
   OAuth2:
     type: oauth2
     flow: accessCode
@@ -487,10 +595,60 @@ definitions:
             example: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
           display:
             type: string
-            example: 'My Org'
+            example: 'My App'
           type:
             type: string
-            example: 'organization'
+            example: 'application'
+  #-----------------------------------------------------
+  # The Role Creation Object
+  #-----------------------------------------------------
+  RoleCreationObjectV2:
+    type: object
+    required:
+      - displayName
+      - schemas
+    properties:
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:schemas:extension:2.0:Role"
+      displayName:
+        type: string
+        example: "loginRole"
+      audience:
+        type: object
+        properties:
+          value:
+            type: string
+            example: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
+          type:
+            type: string
+            enum: ['applciation', 'organization']
+            example: 'application'
+      users:
+        type: array
+        items:
+          type: object
+          example:
+            value: "008bba85-451d-414b-87de-c03b5a1f4217"
+      groups:
+        type: array
+        items:
+          type: object
+          example:
+            value: "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+      permissions:
+        type: array
+        items:
+          type: object
+          properties:
+            value:
+              type: string
+              example: "internal_login"
+            display:
+              type: string
+              example: "Internal Login"
   #-----------------------------------------------------
   # The Role GET Response Object
   #-----------------------------------------------------
@@ -525,11 +683,11 @@ definitions:
             example: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
           display:
             type: string
-            example: 'My Org'
+            example: 'My App'
           type:
             type: string
             enum: [application, organization]
-            example: 'organization'
+            example: 'application'
       users:
         type: array
         items:
@@ -579,10 +737,47 @@ definitions:
             display:
               type: string
         example:
-          - value: '9bbc6a86-1f21-4937-9fb1-5be4a93ef499'
-            display: 'XY Web Application'
-          - value: '67bc6a86-1f21-4937-9fb1-5be4a93ef488'
-            display: 'XY Mobile Application'
+          - value: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
+            display: 'My App'
+  #-----------------------------------------------------
+  # The Role Post Response Object
+  #-----------------------------------------------------
+  RolePostResponseObjectV2:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: 'loginRole'
+      meta:
+        type: object
+        properties:
+          location:
+            type: string
+            example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
+          resourceType:
+            type: string
+            example: Role
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:schemas:extension:2.0:Role"
+      id:
+        type: string
+        example: "4645709c-ea8c-4495-8590-e1fa0efe3de0"
+      audience:
+        type: object
+        properties:
+          value:
+            type: string
+            example: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
+          display:
+            type: string
+            example: 'My App'
+          type:
+            type: string
+            enum: [application, organization]
+            example: 'application'
   #-----------------------------------------------------
   # The Role PUT request object
   #-----------------------------------------------------
@@ -592,18 +787,6 @@ definitions:
       displayName:
         type: string
         example: "loginRole"
-      audience:
-        type: object
-        properties:
-          value:
-            type: string
-            example: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
-          display:
-            type: string
-            example: 'My Org'
-          type:
-            type: string
-            example: 'organization'
       users:
         type: array
         items:
@@ -627,20 +810,6 @@ definitions:
             display:
               type: string
               example: 'Internal Login'
-      associatedApplications:
-        type: array
-        items:
-          type: object
-          properties:
-            value:
-              type: string
-            display:
-              type: string
-        example:
-          - value: '9bbc6a86-1f21-4937-9fb1-5be4a93ef499'
-            display: 'XY Web Application'
-          - value: '67bc6a86-1f21-4937-9fb1-5be4a93ef488'
-            display: 'XY Mobile Application'
   #-----------------------------------------------------
   # The Role PUT response object
   #-----------------------------------------------------
@@ -675,11 +844,11 @@ definitions:
             example: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
           display:
             type: string
-            example: 'My Org'
+            example: 'My App'
           type:
             type: string
             enum: ['application', 'organization']
-            example: 'organization'
+            example: 'application'
   #-----------------------------------------------------
   # The Patch Role Operation Input
   #-----------------------------------------------------
@@ -695,19 +864,7 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/RolePatchOperationobjV2"
-        example:
-          - op: 'add'
-            path: 'groups'
-            value:
-              - value: '7bac6a86-1f21-4937-9fb1-5be4a93ef469'
-          - op: 'add'
-            path: 'users'
-            value:
-              - value: '9cac6a86-1f21-4937-9fb1-5be4a93ef349'
-          - op: 'remove'
-            path: 'users[value eq 0565f472-28fe-4d93-83ad-096c66ed4a47]'
-          - op: 'remove'
-            path: 'groups[value eq 9065f445-265e-4rfg3-83ad-666c66ed4a55]'
+
   #-----------------------------------------------------
   # The Role Patch Operation Object
   #-----------------------------------------------------
@@ -726,6 +883,17 @@ definitions:
           properties:
             value:
               type: string
+    example:
+      - op: 'add'
+        path: 'groups'
+        value:
+          - value: '7bac6a86-1f21-4937-9fb1-5be4a93ef469'
+      - op: 'add'
+        path: 'users'
+        value:
+          - value: '9cac6a86-1f21-4937-9fb1-5be4a93ef349'
+      - op: 'remove'
+        path: 'users[value eq 0565f472-28fe-4d93-83ad-096c66ed4a47]'
   #-----------------------------------------------------
   # The Patch Role Operation Output - Role
   #-----------------------------------------------------
@@ -759,11 +927,11 @@ definitions:
             example: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
           display:
             type: string
-            example: 'My Org'
+            example: 'My App'
           type:
             type: string
             enum: ['application', 'organization']
-            example: 'organization'
+            example: 'application'
   #-----------------------------------------------------
   # The Error Invalid Input
   #-----------------------------------------------------
@@ -840,7 +1008,6 @@ definitions:
       scimType:
         type: string
         example: "Forbidden"
-
   #-----------------------------------------------------
   # The Error No roles found
   #-----------------------------------------------------
@@ -862,6 +1029,44 @@ definitions:
       detail:
         type: string
         example: "Role not found in the system."
+  #-----------------------------------------------------
+  # The Error Role Not Available
+  #-----------------------------------------------------
+  ErrorRoleNotAvailable:
+    type : object
+    required:
+      - status
+      - schema
+      - detail
+    properties:
+      status:
+        type: string
+        example: "404"
+      schemas:
+        type: string
+        example: "urn:ietf:params:scim:api:messages:2.0:Error"
+      detail:
+        type: string
+        example: "No Role with the id : 4645709c-ea8c-4495-8590-e1fa0efe3de0 in the system."
+  #-----------------------------------------------------
+  # The Error Role Already Available
+  #-----------------------------------------------------
+  ErroRoleAlreadyAvailable:
+    type : object
+    required:
+      - status
+      - schema
+      - detail
+    properties:
+      status:
+        type: string
+        example: "409"
+      schemas:
+        type: string
+        example: "urn:ietf:params:scim:api:messages:2.0:Error"
+      detail:
+        type: string
+        example: "Role with name: Internal/loginRole already exists in the system."
   #-----------------------------------------------------
   # The Error No roles found from search
   #-----------------------------------------------------

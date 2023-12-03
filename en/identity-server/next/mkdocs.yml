@@ -372,6 +372,9 @@ nav:
         - Challenge question API: apis/challenge-questions.md
         - Challenge answers API: apis/challenge-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
+    - Role management:
+        - Roles v2 API: apis/roles-v2-rest-api.md
+        - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
     - Identity provider API: apis/idp.md
     - IdP session extension API: apis/idp-session-extender-endpoint.md
     - Self-service:
