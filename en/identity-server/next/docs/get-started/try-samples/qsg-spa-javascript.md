@@ -106,7 +106,7 @@ Follow the steps given below to configure the sample app.
             <code>clientID</code>
         </td>
         <td>
-            The client id that you received when you registered the application in the WSO2 Identity Server.
+            The client id that you received when you registered the application in the {{ product_name }}.
         </td>
       </tr>
       <tr>
@@ -114,7 +114,7 @@ Follow the steps given below to configure the sample app.
             <code>baseUrl</code>
         </td>
         <td>
-            <p>All authentication requests that the client application makes to the WSO2 Identity Server will be appended to this base URL.:</p>
+            <p>All authentication requests that the client application makes to the {{ product_name }} will be appended to this base URL.:</p>
             <code>https://localhost:9443</code>
         </td>
       </tr>
@@ -125,7 +125,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <p>The list of OIDC scopes that are used for requesting user information. You can add OIDC scopes such as <code>profile</code> and <code>email</code> in a comma-separated list as follows: </p>
             <code>"scope": ["profile", "email"]</code>
-            <p>Learn more about [OIDC scopes in the WSO2 Identity Server]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
+            <p>Learn more about [OIDC scopes in the {{ product_name }}]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
         </td>
       </tr>
     </tbody>
@@ -143,9 +143,9 @@ Follow the steps given below to run the sample.
 
 2. Once the app is successfully compiled, it is accessible at `https://localhost:3000`.
 
-3. Click **Login**. You will be redirected to the WSO2 Identity Server login page.
+3. Click **Login**. You will be redirected to the {{ product_name }} login page.
 
-    ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Enter the credentials of your user account and click **Sign In**.
 
