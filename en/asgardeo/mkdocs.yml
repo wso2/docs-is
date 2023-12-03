@@ -301,6 +301,7 @@ nav:
     - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
     - Identity provider API: apis/idp.md
     - User management (SCIM 2.0) API: apis/scim2.md
+    - Role management (SCIM 2.0) API: apis/roles.md
     - Email templates API: apis/email-template.md
     - Identity governance API: apis/identity-governance.md
     - User sessions:

@@ -1,21 +1,18 @@
 openapi: 3.0.0
 info:
   version: "v2"
-  title: SCIM 2.0 Roles API
+  title:  Asgardeo - SCIM 2.0 Roles API
   description: |
-    SCIM 2.0 Roles v2 API
+    "This is the RESTful API for SCIM 2.0 Roles API in WSO2 Asgardeo. 
+    This API allows creating, deleting, listing, roles and updating role name, permissions, users and groups of the roles.
+    \n To access the SCIM 2.0 Roles APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
 servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/scim2
-    variables:
-      serverUrl:
-        default: localhost:9443
-      tenantDomain:
-        default: carbon.super
+  - url: https://api.asgardeo.io/t/{organization-name}/scim2/v2
 security:
   - OAuth2: []
-  - BasicAuth: []
+
 paths:
-  /v2/Roles:
+  /Roles:
     get:
       tags:
         - Roles Endpoint
@@ -91,9 +88,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/scim2/v2/Roles' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles' \
             -H 'accept: application/scim+json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
         - Roles Endpoint
@@ -145,10 +142,10 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/scim2/v2/Roles' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "schemas": [
                 "urn:ietf:params:scim:schemas:extension:2.0:Role"
@@ -176,7 +173,7 @@ paths:
               ]
             }'
       x-codegen-request-body-name: body
-  /v2/Roles/.search:
+  /Roles/.search:
     post:
       tags:
         - Roles Endpoint
@@ -222,10 +219,10 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/scim2/v2/Roles/.search' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/.search' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "schemas": [
               "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
@@ -234,7 +231,7 @@ paths:
             "filter": "displayName eq loginRole"
             }'
       x-codegen-request-body-name: body
-  /v2/Roles/{id}:
+  /Roles/{id}:
     get:
       tags:
         - Roles Endpoint
@@ -294,9 +291,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/scim2/v2/Roles/{role-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Roles Endpoint
@@ -361,10 +358,10 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/scim2/v2/Roles/{role-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "displayName": "loginRole",
               "users": [
@@ -426,9 +423,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/scim2/v2/Roles/{role-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
     patch:
       tags:
         - Roles Endpoint
@@ -487,10 +484,10 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/scim2/v2/Roles/{role-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/{role-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "schemas": [
                 "urn:ietf:params:scim:api:messages:2.0:PatchOp"
@@ -527,7 +524,7 @@ paths:
                     "value": {
                       "permissions": [
                         {
-                          "value": "internal_role_mgt_view"
+                          "value": "internal_group_mgt_view"
                         }
                     ]
                   }
@@ -537,15 +534,12 @@ paths:
       x-codegen-request-body-name: body
 components:
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth2/authorize
-          tokenUrl: https://localhost:9443/oauth2/token
+          authorizationUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/authorize
+          tokenUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/token
           scopes:
             view: internal_role_mgt_view
             create: internal_role_mgt_create
@@ -622,7 +616,7 @@ components:
             location:
               type: string
               example: >-
-                https://localhost:9443/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
         id:
           type: string
           example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
@@ -699,7 +693,7 @@ components:
             location:
               type: string
               example: >-
-                https://localhost:9443/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
             resourceType:
               type: string
               example: Role
@@ -734,7 +728,7 @@ components:
               $ref:
                 type: string
                 example: >-
-                  https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
+                  https://api.asgardeo.io/t/{org-name}/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
               display:
                 type: string
                 example: kim
@@ -749,7 +743,7 @@ components:
               $ref:
                 type: string
                 example: >-
-                  https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+                  https://api.asgardeo.io/t/{org-name}/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
               display:
                 type: string
                 example: PRIMARY/manager
@@ -791,7 +785,7 @@ components:
             location:
               type: string
               example: >-
-                https://localhost:9443/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
             resourceType:
               type: string
               example: Role
@@ -859,7 +853,7 @@ components:
             location:
               type: string
               example: >-
-                https://localhost:9443/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
             resourceType:
               type: string
               example: Role
@@ -939,7 +933,7 @@ components:
             location:
               type: string
               example: >-
-                https://localhost:9443/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
             resourceType:
               type: string
               example: Role
