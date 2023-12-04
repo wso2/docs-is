@@ -93,7 +93,7 @@ nav:
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
-            - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-fido.md
+            - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
           - Enable user attributes:
@@ -118,6 +118,7 @@ nav:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
             - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
+            - Add Passkey: guides/authentication/mfa/add-passkey-login.md
             # - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
             - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
@@ -139,6 +140,7 @@ nav:
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
+            - Add Passkey Progressive Enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md

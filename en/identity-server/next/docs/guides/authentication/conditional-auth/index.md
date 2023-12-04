@@ -76,6 +76,7 @@ The pre-defined templates are listed below.
 | [Concurrent Session-Based]({{base_path}}/guides/authentication/conditional-auth/concurrent-session-based-template/) | This login flow prompts adaptive authentication for users who have exceeded the maximum number of allowed sessions.|
 | [New-Device-Based]({{base_path}}/guides/authentication/conditional-auth/new-device-based-template/) | This login flow sends an email notification and/or prompts two-factor authentication for users who are logged in from a previously unused device. |
 | [IP-Based]({{base_path}}/guides/authentication/conditional-auth/ip-based-template/) | This login flow prompts two-factor authentication for users who log in from outside the given IP range. |
+| [Passkey-Progressive-Enrollment-Based]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) | This login flow permits users to seamlessly enroll their passkey on-the-fly, when Passkey is designated as the first authentication factor. |
 
 If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement. See the instructions on [writing a custom authentication script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 

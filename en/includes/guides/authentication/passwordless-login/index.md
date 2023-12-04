@@ -8,11 +8,11 @@ Magic link lets users log in by clicking a link sent to their email instead of e
 
 [Add Magic Link login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-magic-link/) has detailed instructions on this.
 
-## FIDO2 login
+## Passkey login
 
-FIDO2 is a standard that lets users use hardware security keys or biometrics to log in.
+Passkey lets users use hardware security keys or biometrics to log in.
 
-[Add login with FIDO2]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-fido/) has detailed instructions on this.
+[Add login with Passkey]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/) has detailed instructions on this.
 
 ## HYPR login
 
