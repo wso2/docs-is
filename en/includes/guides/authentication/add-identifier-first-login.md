@@ -5,13 +5,13 @@ Identifier first login separates the authentication flow into two steps. The fir
 This allows you to personalize the experience for users based on their unique identifier. For example, based on the domain name of a user's email address, you can redirect the user to an external identity provider.
 
 ## Prerequisites
-To get started, you need to [register an application with Asgardeo]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
+To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 ## Enable Identifier First for an app
 
 Follow the steps below to enable **Identifier First** as an authenticator in the login flow of your application.
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Select your application, go to its **Sign-in Method** tab and create an Identifier First based authentication flow as described below.
 
@@ -27,7 +27,7 @@ Follow the steps below to enable **Identifier First** as an authenticator in the
 
         2. Add a second authentication step by clicking the **+** icon and add your preferred authenticators to this step.
             
-            ![Add Identifier First login in Asgardeo]({{base_path}}/assets/img/guides/identifier-first/add-identifier-first-login.png){: width="600" style="display: block; margin: 0 auto;"}
+            ![Add Identifier First login in {{ product_name }}]({{base_path}}/assets/img/guides/identifier-first/add-identifier-first-login.png){: width="600" style="display: block; margin: 0 auto;"}
 
         3. Use conditional authentication to [customize the authentication flow](#customize-the-authentication-flow).
             
@@ -46,7 +46,7 @@ Follow the steps below to enable **Identifier First** as an authenticator in the
 
         3. Add a second authentication step by clicking the **+** icon and add your preferred authenticators to this step.
 
-            ![Add Identifier First login in Asgardeo]({{base_path}}/assets/img/guides/identifier-first/add-identifier-first-loin-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
+            ![Add Identifier First login in {{ product_name }}]({{base_path}}/assets/img/guides/identifier-first/add-identifier-first-loin-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
 
         4. Use conditional authentication to [customize the authentication flow](#customize-the-authentication-flow).
         
@@ -158,7 +158,7 @@ Follow the steps given below.
 
 1. Access the application URL.
 
-2. Click **Login** to open the Asgardeo login page.
+2. Click **Login** to open the {{ product_name }} login page.
 
 3. Enter a user identifier that does not end with `@gmail.com`. You will be redirected to the basic authenticator.
 
