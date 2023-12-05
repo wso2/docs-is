@@ -75,6 +75,7 @@ To download and install the HYPR connector:
 2. Copy and paste the downloaded `.jar` file to `<IS_HOME>/repository/components/dropins`.
 3. Download the [HYPR artifacts](https://store.wso2.com/store/assets/isconnector/details/9fae98d3-26a6-4b1f-a356-f58b08d060ed) from the WSO2 connector store and extract the `.zip` file.
 4. Copy the `org.wso2.carbon.identity.application.authenticator.hypr.common-1.0.3.jar` file from the extracted folder and paste it to `<IS_HOME>/repository/components/lib`.
+5. Copy the `hypr` folder from the extracted folder and paste it to `<IS_HOME>/repository/resources/identity/extensions/connections`.
 
 ### Deploy the HYPR Rest API
 
