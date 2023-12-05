@@ -76,6 +76,8 @@ extra:
         list_items:
           - title: Install
             url: Setup|Install|Install
+          - title: Configure
+            url: Setup|Configure|User Stores|User Stores
           - title: Secure
             url: 
           - title: Deploy
