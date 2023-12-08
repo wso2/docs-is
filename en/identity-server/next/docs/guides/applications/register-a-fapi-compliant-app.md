@@ -1,6 +1,6 @@
-# Register a FAPI compliant application
+# Register a FAPI-compliant application
 
-Financial-Grade API (FAPI) is a standard that extends the OAuth and OIDC frameworks to provide enhanced security to applications. Although this is a standard initially defined for financial services, any developer that has integrated OAuth and OIDC protocols into their applications should consider making those applications FAPI compliant to incorporate the highest level of security.
+Financial-Grade API (FAPI) is a standard that extends the OAuth and OIDC frameworks to provide enhanced security to applications. Despite being a standard initially defined for financial services, developers that have integrated OAuth and OIDC protocols into their applications may consider making them FAPI compliant to incorporate the highest level of security.
 
 ## Overview
 
@@ -38,6 +38,62 @@ The following diagram illustrates how the features mentioned above combine to cr
 
 ![Fapi compliant application flow]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-application.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
+This guide explains how you can create a FAPI-compliant application and implement FAPI-compliant specifications within your application.
+
+## Prerequisite
+
+To enforce FAPI-compliance in {{product_name}}, follow the steps below to include the necessary configurations.
+
+1. Shut down the {{product_name}}
+
+2. Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder.
+
+3. Enter the following configurations:
+
+    - Enforce FAPI compliance for Dynamic Client Registration (DCR).
+
+        ```bash
+        [oauth.dcr]
+        enable_fapi_enforcement=true
+        ```
+
+    - Limit cipher suites for TLSv1.2.
+
+        ```bash
+        [transport.https.sslHostConfig.properties]
+        ciphers="TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+        ```
+
+    - Specify a FAPI-compliant signing algorithm for ID tokens (PS256, ES256).
+
+        ```bash
+        [oauth.oidc]
+        id_token.signature_algorithm="PS256"
+        ```
+
+    - Specify a signing algorithm for tokens issued at the token endpoint.
+
+        ```bash
+        [oauth.oidc.token_endpoint]
+        signing_algorithms=["PS256","ES256"]
+        ```
+
+    - Specify a signing algorithm for the userinfo response.
+
+        ```bash
+        [oauth.oidc.user_info]
+        jwt_signature_algorithm="PS256"
+        ```
+
+    - If your implementation involves TLS termination, specify the following MTLS header name.
+
+        ```bash
+         [oauth.mutualtls]
+         client_certificate_header = "x-wso2-mtls-cert"
+        ```
+
+4. Restart the {{product_name}}.
+
 ## Register the application
 
 Follow the steps below to register a FAPI compliant application:
@@ -56,6 +112,7 @@ Follow the steps below to register a FAPI compliant application:
     ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/register-a-fapi-application.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Click **Register** to complete the registration.
+
 
 ## Secure client-server communication
 
@@ -104,7 +161,7 @@ Follow the steps below to configure a FAPI-compliant request object:
     - a FAPI-compliant asymmetric key encryption algorithm under **Request object encryption algorithm**
     - a FAPI-compliant symmetric key encryption method under **Request object encryption method**.
 
-![Choose fapi compliant request object configurations]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-request-object-configurations.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Choose fapi compliant request object configurations]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-request-object-configurations.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 5. Click **Update** to save the changes.
 
@@ -120,7 +177,7 @@ Follow the steps below to configure a FAPI-compliant OIDC response:
 
 3. Select a FAPI-compliant signing algorithm under **ID token response signing algorithm**.
 
-![Choose fapi compliant ID token signing algorithm]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-id-token-response.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Choose fapi compliant ID token signing algorithm]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-id-token-response.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save the changes.
 
@@ -152,6 +209,9 @@ Follow the steps below to configure a FAPI-compliant subject identifier:
 Applications can achieve a higher level of security by defining risk levels for authentication. The authorization server can then assess the risk associated with a given activity or user and dynamically adjust the strength of authentication.
 
  {{product_name}} enables you to define these risk levels and adjust authentication steps dynamically using Authentication Context Reference (ACR) based adaptive authentication. <!--add-the-link -->
+
+
+
 
 
 
