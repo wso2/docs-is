@@ -351,6 +351,7 @@ nav:
         - Monitor logs:
           - Overview: deploy/monitor/monitor-logs.md
           - HTTP access logs: deploy/monitor/http-access-logging.md
+          - Remote log publishing: deploy/monitor/remote-log-publishing.md
           - Mask sensitive info:
             - Overview: deploy/monitor/mask-sensitive-information-in-logs.md
             - Log masking with Filebeat: deploy/monitor/elk-mask-sensitive-information-in-logs.md
