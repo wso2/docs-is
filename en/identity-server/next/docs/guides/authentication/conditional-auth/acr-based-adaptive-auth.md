@@ -8,9 +8,9 @@ Let's look at a scenario where you want to dynamically adjust the authentication
 
 For example, imagine a financial institution that wants to send ACR values in the authentication request based on activities.
 
-- For a high value transaction, the application may request for an ACR value of 'ACR2' from the identity provider which generally include a stronger authentication mechanism.
+- For a high value transaction, the application may request for an ACR value of `ACR2` from the identity provider which generally include a stronger authentication mechanism.
 
-- For a balance inquiry, the application may request for an ACR value of 'ACR1' from the identity provider which generally include a basic authentication mechanism.
+- For a balance inquiry, the application may request for an ACR value of `ACR1` from the identity provider which generally include a basic authentication mechanism.
 
 
 The guides below explain how you can leverage an adaptive authentication script in {{product_name}} to achieve this.
@@ -86,7 +86,7 @@ To receive ACR values from a SAML application, developers can add the following 
 
 ## Configure the login flow
 
-To enable conditional authentication:
+The steps below explain how you can set up an ACR-based conditional authentication script to define the necessary logic for the received ACR values.
 
 1. On the {{product_name}} Console, click **Applications**.
 
@@ -127,7 +127,7 @@ To enable conditional authentication:
 
 ## How it works
 
-Shown below is the script of the ACR-based conditional authentication template.
+Shown below is the default script for ACR-based conditional authentication.
 
 ```js
 // Define conditional authentication by passing one or many Authentication Context Class References 
@@ -181,8 +181,8 @@ Let's look at how this script works.
 
 1. The ordered list, `supportedAcrValues`, contains comma separated ACR values accepted from the application.
 2. The `selectAcrFrom` function dynamically and adaptively determines the strongest ACR value from the received and configured ACR values.
-3. `context.selectedAcr` is set with the selected ACR value to be returned in the authentication response.
-4. Based on the selected ACR value, authentication level is determined. In this case,
+3. `context.selectedAcr` sets the selected ACR value to be returned in the authentication response.
+4. Based on the selected ACR value, authentication level is determined in the `switch` cases. In this case,
     - `acr1` - step 1 (basic authentication)
     - `acr2` - step 1 and 2 (basic authentication and TOTP)
     - `acr3` - step 1 and 3 (basic authentication and Passkeys)
@@ -190,28 +190,35 @@ Let's look at how this script works.
 !!! note
       Find out more about the scripting language in the [Conditional Authentication API Reference]({{base_path}}/references/conditional-auth/api-reference/).
 
-
 ## Try it out
 
-1. Access the following sample Playground application URL: `http://wso2is.local:8080/playground2/index.jsp`
+Follow the steps given below to try out ACR-based adaptive authentication with the playground2 sample application.
+
+1. Access the application URL: `http://wso2is.local:8080/playground2/index.jsp`
 
 2. Click **Import Photos**.  
 
-3. Enter the `client ID` of the OAuth service provider application you registered above and enter 'acr2' as the **Authentication Context Class** value.  
+3. Enter the `client ID` of the OAuth service provider application you registered above and enter `acr2` as the **Authentication Context Class** value.  
 
-    Leave the rest of the configurations as they are.  
+    ![Authentication context class]({{base_path}}/assets/img/samples/authentication-context-class.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-    ![Authentication context class]({{base_path}}/assets/img/samples/authentication-context-class.png)
+4. You are now prompted for basic authentication followed by TOTP authentication which corresponds to the received `acr2` ACR value.
 
-4. You are now prompted for basic authentication followed by TOTP authentication. Step 1 and Step 2 are prompted as the ACR value entered was `acr2`.
+    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+6. Enter the TOTP and click **Continue**.
+    ![ACR-based login successful]({{base_path}}/assets/img/samples/login-successful-acr-based.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+7. Click `Get Access Token` and proceed to obtain the access token.
+
+    ![ACR-based access token]({{base_path}}/assets/img/samples/acr-based-access-token.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+    !!! note
+        Authentication Method Reference (AMR) value found in the access token provides information about the authentication methods that are used to assert the authenticity of the user.
+
+        The AMR values for the relevant request are `BasicAuthenticator` and `totp` which were the methods used for authenticaion.
+
+8. Logout from the application and try this flow with different ACR values.
 
     !!! tip
-        You can re-try this flow using the ACR value 'acr3'. Note that you
-        are then prompted for steps 1 and 3 (basic authentication and Security Key/Biometrics (FIDO) authentication).
-
-    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png)
-
-6. Enter the TOTP code and click **Continue**.
-    ![ACR-based login successful]({{base_path}}/assets/img/samples/login-successful-acr-based.png)
-
-7. Logout from the application and try this flow with different ACR values.
+        Try this flow using the ACR value `acr3` which will then prompt the user for steps 1 and 3 (basic authentication and passkeys).

@@ -1,46 +1,66 @@
 # Enable user attributes for OpenID Connect apps
 
-{{ product_name }} can share user attributes with applications. This guide explains how you share user attributes with OpenID Connect applications.
+User attributes are pieces of information about the identity of a user such as an email address, birth date or the user's country etc.. Applications may request user attributes from the identity provider to personalize the experience of the logged in user.
 
-## Configure user attributes to share
-Follow the steps below to configure the user attributes from the {{ product_name }} Console and share them with the application.
+The following guides explain how you can configure OpenID Connect applications to request attributes from {{product_name}}.
 
-### Select user attributes
+## Select user attributes
 
-You need to first specify the user attributes required for an application. This ensures that when a user logs in, the application can only get access to the user information exposed through these attributes.
+You can specify the necessary user attributes for an application. This ensures that when a user logs in, the application is only granted access to the user information associated with these attributes.
 
-The user attributes are grouped by their specific scopes to ease the user attribute configuration process. You can add user attributes individually or all the attributes in the scope at once.
+To request user attributes from an application:
 
-To add user attributes to the app:
-
-1. On the {{ product_name }}, go to **Applications**.
-2. Select your application and go to its **User Attributes** tab. Here, the user attributes are listed under their relevant scopes.
+1. On the {{ product_name }} console, go to **Applications**.
+2. Select your application and go to its **User Attributes** tab. The most common user attributes are listed according to the relevant scope.
 
     ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attributes-list-grouped-user-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-3. You can add user attributes using the following methods:
+3. You can select user attributes using the following methods:
 
-    - Add a group of user attributes by selecting the checkbox in front of the required scope. This will add all the user attributes grouped under the selected scope.
+    - Add all user attributes for a given scope by selecting the checkbox in front of that scope.
 
         ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-scope.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-    - Add a single user attribute by expanding the required scope and selecting the user attribute you need from the expanded list.
+    - Add user attributes by expanding a scope and selecting only the necessary user attributes.
 
         ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-user-attribute.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** once you are done.
 
-### Define mandatory user attributes
+## Select mandatory user attributes
 
 {% include "../../fragments/manage-app/manage-user-attributes/select-mandatory-attributes.md" %}
 
 ![Add madatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
+## Configure the subject identifier
+
+{{product_name}} uses a subject attribute to uniquely identify users logging into OIDC applications. This is set to be the **user ID** of the user which can be found in the user's profile in **User Management** > **Users**.
+
+However, having a single subject identifier for multiple applications may enable external entities to track the activity of a user across applications based on a single attribute.
+
+You can opt for a pairwise subject identifier to mitigate this issue. With a pairwise subject identifier, {{product_name}} generates a unique pseudonymous ID for each user-application pair protecting the user's identity when accessing multiple applications.
+
+Follow the steps below to configure the subject identifier type:
+
+1. On the {{ product_name }} Console, go to **Applications**.
+
+2. Select the application and go to its **User Attributes** tab.
+
+3. Under **Subject type**, select **Pairwise**.
+
+4. Enter a **Sector Identifier URI**.
+
+    !!! info
+        The sector identifier URI is used to group clients belonging to the same security domain so that the same pairwise identifier is used for a given user accessing these clients.
+
+    ![Enter a suctor identifier for pairwise subject identifier]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-subject-identifier.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+4. Click **Update** to save the changes.
+
 ## How it works
 
-Let's see how this flow works in {{ product_name }}.
-
-Once you have configured the user attributes that are required for your application, {{ product_name }} implements the following process when a user tries to log in to your app.
+The following diagram depicts the process {{ product_name }} implements when a user tries to log in to an application.
 
 ![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800" style="display: block; margin: 0 auto;"}
 

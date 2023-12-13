@@ -10,12 +10,12 @@ WSO2 Identity Server supports your applications to be FAPI compliant by offering
 
 - **Support for certificate bound access tokens** - Enhance security of tokens by associating the access token with the user’s public key.
 
-- **Support for pairwise subject identifiers** - Generate a unique identifier for a user for each client user combination so that the user cannot be tracked across multiple services based on a single identifier.
+- **Support for pairwise subject identifiers** - Generate a unique identifier for a user for each client-user combination so that the user cannot be tracked across multiple services based on a single identifier.
 
-- **Support for FAPI compliant additional object validations**.
+- **Support for FAPI compliant additional request object validations**.
     - Mandate the authorization request object to be passed via the `request` or the `request_uri` parameter.
 
-    - Pushed authorization requests (PAR) must send the PKCE code in the S256 code challenge method.
+    - Pushed authorization requests (PAR) must send the PKCE code with the S256 code challenge method.
     
     - The request object must contain the following mandatory fields.
         - nbf
@@ -96,7 +96,10 @@ To enforce FAPI-compliance in {{product_name}}, follow the steps below to includ
 
 ## Register the application
 
-Follow the steps below to register a FAPI compliant application:
+Follow the steps below to register a FAPI compliant application from the console:
+
+!!! note
+    Alternatively, refer to the [Dynamic Client Registration (DCR) API documentation]({{base_path}}/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/) to learn how to register an application.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
@@ -167,9 +170,15 @@ Follow the steps below to configure a FAPI-compliant request object:
 
 ### Configure the response
 
-JWT Secured Authorization Response Mode (JARM) is a FAPI-compliant method to secure authorization responses in OIDC and OAuth 2.0 flows. If the client supports JARM, the authorization server includes the details of the response such as the authorization code and the access token in a JWT, signs it using the authorization server's public key and sends it to the client.
+If you are using the authorization code grant type, FAPI specifies that your response type should be set to JWT Secured Authorization Response Mode (JARM).
 
-Follow the steps below to configure a FAPI-compliant OIDC response:
+By using JARM, the authorization server includes the authorization code along with the other details in the response, signs the response using the authorization server's public key and sends it to the client.
+
+Follow the steps below to configure a FAPI-compliant authorization response:
+
+!!! Prerequisite
+
+    Enable [JARM for OAuth 2.0]({{base_path}}/guides/authentication/oidc/jarm/) in {{product_name}}.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
@@ -181,34 +190,15 @@ Follow the steps below to configure a FAPI-compliant OIDC response:
 
 4. Click **Update** to save the changes.
 
-### Configure the subject identifier
+### Configure a pairwise subject identifier
 
-{{product_name}} uses a subject attribute to uniquely identify the user logging into different applications. Having a single subject identifier for multiple clients poses several risks such as external entities being able to track the activity of an individual based on a single attribute.
+Configuring a pairwise subject identifier means that external entities will not be able to track user activities across applications based on a single user attribute. Learn about user attributes and how to [configure the subject identifier]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#configure-the-subject-identifier).
 
-FAPI specification strongly recommends using pairwise subject identifiers to mitigate these risks. With a pairwise subject identifier, {{product_name}} generates a unique pseudonymous ID for each user-client pair protecting the user's identity when accessing multiple applications.
+### Configure levels of assurance
 
-Follow the steps below to configure a FAPI-compliant subject identifier:
+Applications can achieve a higher level of security by defining Authentication Context Reference (ACR) values, also known as levels of assurance. The authorization server can then receive ACR values from the application and dynamically adjust the strength of authentication.
 
-1. On the {{ product_name }} Console, go to **Applications**.
-
-2. Select the created FAPI-compliant application and go to its **User Attributes** tab.
-
-3. Under **Subject type**, select **Pairwise**.
-
-4. Enter a **Sector Identifier URI**.
-
-    !!! info
-        The sector identifier URI is used to group clients belonging to the same security domain so that the same pairwise identifier is used for a given user accessing these clients.
-
-    ![Enter a suctor identifier for pairwise subject identifier]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-subject-identifier.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-4. Click **Update** to save the changes.
-
-### Configure risk levels
-
-Applications can achieve a higher level of security by defining risk levels for authentication. The authorization server can then assess the risk associated with a given activity or user and dynamically adjust the strength of authentication.
-
- {{product_name}} enables you to define these risk levels and adjust authentication steps dynamically using Authentication Context Reference (ACR) based adaptive authentication. <!--add-the-link -->
+Learn about how to set up applications to send ACR values and how you can use an adaptive authentication script to dynamically adjust the authentication steps based on the received ACR value in the [Configure ACR-based adaptive authentication]({{base_path}}/guides/authentication/conditional-auth/acr-based-adaptive-auth/) section.
 
 
 
