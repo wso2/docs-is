@@ -1,6 +1,10 @@
 <!-- markdownlint-disable-next-line -->
-You can configure the mandatory attributes that are essential for application functionalities. That is, when a user logs in, the user information linked to these attributes are required to be shared with the application.
+If your application needs certain attributes for the successful function of the application, you can make them mandatory attributes. Users logging into the application should then have the mandatory attributes either pre-filled in their profiles or provide the required information when prompted during the login flow.
 
-If the user does not have this information entered in the user profile, the user will be prompted to enter the information during the login flow.
+To make an attribute mandatory:
 
-From the attributes that are enabled for the application in the **Attributes** tab, you can expand the scopes and select the attributes that are mandatory for the application:
+1. On the {{product_name}} console, go to **Applications**.
+
+2. Select the application and go to its **User attributes** tab.
+
+3. Expand the relevant scope and out of the selected attributes for the application, select the mandatory attributes by selecting the **Mandatory** checkbox next to them.

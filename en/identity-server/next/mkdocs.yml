@@ -134,6 +134,7 @@ nav:
             - Add adaptive MFA:
               - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md
               - MFA based on user role: guides/authentication/conditional-auth/role-based-template.md
+              - MFA based on auth context: guides/authentication/conditional-auth/acr-based-adaptive-auth.md
               - MFA based on user store: guides/authentication/conditional-auth/user-store-based-template.md
               - MFA based on login-attempts: guides/authentication/conditional-auth/login-attempt-based-template.md
               - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
