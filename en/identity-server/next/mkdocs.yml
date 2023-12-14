@@ -298,6 +298,7 @@ nav:
         - Configure TLS: deploy/security/configure-transport-level-security.md
         - Configure TLS termination: deploy/configure-tls-termination.md
         - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
+        - Configure Admin Advisory Banner: deploy/security/configure-admin-advisory-banner.md
         - Secure passwords in configuration files:
           - Encrypt passwords with Cipher Tool: deploy/security/encrypt-passwords-with-cipher-tool.md
           - Resolve encrypted passwords: deploy/security/resolve-encrypted-passwords.md
