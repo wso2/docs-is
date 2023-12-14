@@ -1753,7 +1753,7 @@ paths:
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
 servers:
-  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
+  - url: 'https://{serverUrl}/t/{tenantDomain}/o/api/server/v1'
     variables:
       serverUrl:
         default: localhost:9443

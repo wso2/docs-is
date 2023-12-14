@@ -5,7 +5,7 @@ info:
     SCIM 2.0 User Management endpoints
   version: 1.0.0
 servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/scim2
+  - url: https://{serverUrl}/t/{tenantDomain}/o/scim2
     variables:
       serverUrl:
         default: localhost:9443
