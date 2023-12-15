@@ -155,7 +155,19 @@ For a description of the parameters included in the HTML form, see [logout reque
 </tr>
 <tr class="even">
 <td><code>               client_id              </code></td>
-<td>The client ID obtained when registering the application in WSO2 Identity Server.</td>
+<td>The client ID obtained when registering the application in WSO2 Identity Server.
+<div class="content-wrapper">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use the <code> client_id </code> as a logout parameter, add the following configurations to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file.
+    ```toml
+    [oauth.oidc.logout_params]
+    use_client_id=true
+    ```
+</p>
+</div>
+</div>
+</td>
 <td>Yes (if the <code>id_token_hint</code> is not included)</td>
 </tr>
 <tr class="odd">

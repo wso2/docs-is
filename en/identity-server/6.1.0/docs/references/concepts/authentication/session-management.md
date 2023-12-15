@@ -80,7 +80,7 @@ This is the client ID obtained when registering the application in WSO2 Identity
 
 !!! note
 
-    To use the client_id as a logout parameter, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
+    To use the `client_id` as a logout parameter, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ```toml
     [oauth.oidc.logout_params]
