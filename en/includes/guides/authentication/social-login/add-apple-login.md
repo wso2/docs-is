@@ -88,6 +88,8 @@ To register {{ product_name }} on Apple, you need to create the following compon
             </tr>
         </table>
 
+        {{ localhost_warning_note }}
+
     9. Click **Continue** and then click **Save**.
 
 ??? note "Step 3: Register a new key"

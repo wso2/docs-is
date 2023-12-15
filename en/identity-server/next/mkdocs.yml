@@ -431,6 +431,7 @@ nav:
       - Role management API: apis/organization-apis/org-role-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Application management API: apis/organization-apis/org-application-mgt.md
+      - Organization management API: apis/organization-apis/org-organization-mgt.md
   - References:
     - References: references/index.md
     - User Management:
@@ -452,6 +453,9 @@ nav:
     - User Stores: 
       - Write a custom user store manager: references/user-stores/write-a-custom-user-store-manager.md
     - Email templates: references/email-templates.md
+    - IS Extensions:
+      - Identity Federation:
+        - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
     - Compliance:
       - references/compliance/index.md
       - GDPR: references/compliance/gdpr.md
