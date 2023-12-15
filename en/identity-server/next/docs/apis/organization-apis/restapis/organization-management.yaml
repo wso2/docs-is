@@ -627,17 +627,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attribute'
-    ApplicationSharePOSTRequest:
-      type: object
-      properties:
-        shareWithAllChildren:
-          type: boolean
-          default: false
-        sharedOrganizations:
-          type: array
-          items:
-            type: string
-            example: "682edf68-4835-4bb8-961f-0a16bc6cc866"
     OrganizationNameCheckPOSTRequest:
       type: object
       properties:
@@ -846,61 +835,6 @@ components:
           type: string
           description: The value to be used within the operations.
           example: 'XYZ Builders'
-    #-----------------------------------------------------
-    # Get Application shared organizations
-    #-----------------------------------------------------
-    SharedOrganizationsResponse:
-      type: object
-      properties:
-        organizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/BasicOrganizationResponse'
-    #-----------------------------------------------------
-    # Get shared applications of a given application
-    #-----------------------------------------------------
-    SharedApplicationsResponse:
-      type: object
-      properties:
-        sharedApplications:
-          type: array
-          items:
-            $ref: '#/components/schemas/SharedApplicationResponse'
-    SharedApplicationResponse:
-      type: object
-      properties:
-        applicationId:
-          type: string
-          description: Shared application's id.
-          example: 'ca322554-fe79-4c04-9c94-492855ef92a3'
-        organizationId:
-          type: string
-          description: Shared application residing organization id.
-          example: '682edf68-4835-4bb8-961f-0a16bc6cc866'
-
-    OrganizationDiscoveryPostRequest:
-      type: object
-      required:
-        - organizationId
-        - attributes
-      properties:
-        organizationId:
-          type: string
-          description: The ID of the organization whose discovery attributes are to be added.
-          example: '06c1f4e2-3339-44e4-a825-96585e3653b1'
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DiscoveryAttribute'
-    OrganizationDiscoveryAttributes:
-      type: object
-      required:
-        - attributes
-      properties:
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DiscoveryAttribute'
     DiscoveryAttribute:
       type: object
       required:
@@ -915,55 +849,6 @@ components:
           items:
             type: string
             example: 'abc.com'
-    OrganizationsDiscoveryResponse:
-      type: object
-      properties:
-        totalResults:
-          type: integer
-          example: 10
-        startIndex:
-          type: integer
-          example: 1
-        count:
-          type: integer
-          example: 10
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-          example:
-            [
-              {
-                "href": "/o/api/server/v1/organizations/discovery?filter=attributes.type+eq+emailDomain&limit=10&offset=50",
-                "rel": "next",
-              },  {
-              "href": "/o/api/server/v1/organizations/discovery?filter=attributes.type+eq+emailDomain&limit=10&offset=30",
-              "rel": "previous",
-            }
-            ]
-        organizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationDiscoveryResponse'
-    OrganizationDiscoveryResponse:
-      type: object
-      required:
-        - organizationId
-        - organizationName
-        - attributes
-      properties:
-        organizationId:
-          type: string
-          description: The ID of the organization.
-          example: '06c1f4e2-3339-44e4-a825-96585e3653b1'
-        organizationName:
-          type: string
-          description: The name of the organization.
-          example: 'ABC Builders'
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DiscoveryAttribute'
     OrganizationDiscoveryCheckPOSTRequest:
       required:
         - type
