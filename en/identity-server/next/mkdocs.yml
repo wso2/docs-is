@@ -367,6 +367,7 @@ nav:
   - APIs:
     - APIs: apis/index.md
     - Authentication API: apis/use-the-authentication-rest-apis.md
+    - Application Native Authentication API: apis/application-native-authentication.md
     - Session management API: apis/session-mgt-rest-api.md
     - Entitlement management API: apis/entitlement-with-rest-apis.md
     - User management:
