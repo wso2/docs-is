@@ -124,7 +124,7 @@ nav:
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
             - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
             - Add Passkey: guides/authentication/mfa/add-passkey-login.md
-            # - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
+            - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
             - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
