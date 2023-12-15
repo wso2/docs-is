@@ -441,9 +441,9 @@ nav:
       - IdP configurations: references/idp-settings/index.md
       - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
-    - OAuth2 grant types of WSO2 Identity Server: references/grant-types.md
+    - OAuth2 grant types: references/grant-types.md
     - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
-    - Secure API-based authentication: references/secure-api-based-authentication.md
+    - Application-native authentication: references/app-native-authentication.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - User Stores: 
@@ -456,7 +456,7 @@ nav:
       - CCPA: references/compliance/ccpa.md
       - FIPS: references/compliance/fips.md
       - Accessibility compliance: references/compliance/accessibility.md
-    - Localization in  WSO2 Identity Server: references/localization.md
+    - Localization support: references/localization.md
     - Default ports: references/default-ports.md
     - Troubleshoot:
       - Troubleshoot: references/troubleshoot/index.md

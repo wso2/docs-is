@@ -1,14 +1,14 @@
 # Add application-native login
 
-In a conventional mobile application, users are typically redirected to an external web browser during login. However, with application-native authentication, developers can integrate a seamless api-based authentication mechanism within the application itself so that users are never taken out of the context of the application.
+In a conventional mobile application, users are typically redirected to an external web browser during login. However, with app-native authentication, developers can integrate a seamless api-based authentication mechanism within the application itself so that users are never taken out of the context of the application.
 
-As application-native authentication is an extension to OAuth 2.0, it also offers many of the flexibility and security features that the OAuth 2.0 protocol offers.
+As app-native authentication is an extension to OAuth 2.0, it also offers many of the flexibility and security features that the OAuth 2.0 protocol offers.
 
-!!! warning "Limitations of application-native authentication"
+!!! warning "Limitations of app-native authentication"
 
-	application-native authentication has the following limitations compared to a browser-based OAuth 2.0 flow:
+	App-native authentication has the following limitations compared to a browser-based OAuth 2.0 flow:
 
-	application-native authentication,
+	App-native authentication,
 	<ul>
 	<li>does not prompt the user to provide consent to share user attributes with the application.</li>
 	<li>does not prompt the user to provide missing mandatory attributes.</li>
@@ -17,7 +17,7 @@ As application-native authentication is an extension to OAuth 2.0, it also offer
 	<li>cannot enroll authenticators (e.g. TOTP authenticator) during authentication.</li>
 	</ul>
 
-The following guide explains how you can implement application-native authentication for your application using {{product_name}}.
+The following guide explains how you can implement app-native authentication for your application using {{product_name}}.
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ The following guide explains how you can implement application-native authentica
 
 - You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in {{ product_name }}.
 
-## Enable API-based authentication
+## Enable app-native authentication
 
-Follow the steps below to enable API-based authentication for your application.
+Follow the steps below to enable app-native authentication for your application.
 
 1. On the WSO2 Identity Server Console, go to **Applications**.
 
@@ -35,40 +35,45 @@ Follow the steps below to enable API-based authentication for your application.
 
 3. Go to the **Advanced** tab of your application and select **Enable app-native authentication API**.
 
-  ![Enable application-native authentication]({{base_path}}/assets/img/guides/app-native-authentication/enable-app-native-authentication){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+	![Enable app-native authentication]({{base_path}}/assets/img/guides/app-native-authentication/enable-app-native-authentication.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-4. Click **Update** to save the changes.
+4. Configure client attestation settings according to the platform that hosts your application.
 
-## Initiate an API-based authentication request
-API-based authentication is an extension to the OAuth 2.0 protocol. Therefore, the initial request made by the application to the WSO2 Identity Server is similar to a regular OAuth 2.0 authorization code grant request with one main difference, the `response_mode` parameter is set to `direct`.
+   	!!! note
+       	Learn more about client attestation in the [secure app-native authentication]({{base_path}}/references/secure-app-native-authentication/) documentation.
+
+5. Click **Update** to save the changes.
+
+## Initiate an app-native authentication request
+App-native authentication is an extension to the OAuth 2.0 protocol. Therefore, the initial request made by the application is similar to a typical OAuth 2.0 authorization code request with a single difference; the `response_mode` parameter is set to `direct`.
 
 The request made by the client to the WSO2 Identity Server will be as shown below.
 
 === "Sample request"
 
 	```java
-	curl --location 'https://localhost:9443/oauth2/authorize/' \
-	--header 'Accept: application/json' \
-	--header 'Content-Type: application/x-www-form-urlencoded' \
-	--data-urlencode 'client_id=<client_Ii> \
-	--data-urlencode 'response_type=<response_type> \
-	--data-urlencode 'redirect_uri=<redircet_url>' \
-	--data-urlencode 'state=<state> \
-	--data-urlencode 'scope=<space separated scopes>' \
+	curl --location 'https://localhost:9443/oauth2/authorize/'
+	--header 'Accept: application/json'
+	--header 'Content-Type: application/x-www-form-urlencoded'
+	--data-urlencode 'client_id=<client_id>'
+	--data-urlencode 'response_type=<response_type>'
+	--data-urlencode 'redirect_uri=<redircet_url>'
+	--data-urlencode 'state=<state>'
+	--data-urlencode 'scope=<space separated scopes>'
 	--data-urlencode 'response_mode=direct'
 	```
 
 === "Example"
 
 	```java
-	curl --location 'https://localhost:9443/oauth2/authorize/' \
-	--header 'Accept: application/json' \
-	--header 'Content-Type: application/x-www-form-urlencoded' \
-	--data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa' \
-	--data-urlencode 'response_type=code' \
-	--data-urlencode 'redirect_uri=https://example-app.com/redirect' \
-	--data-urlencode 'state=logpg' \
-	--data-urlencode 'scope=openid internal_login' \
+	curl --location 'https://localhost:9443/oauth2/authorize/'
+	--header 'Accept: application/json'
+	--header 'Content-Type: application/x-www-form-urlencoded'
+	--data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
+	--data-urlencode 'response_type=code'
+	--data-urlencode 'redirect_uri=https://example-app.com/redirect'
+	--data-urlencode 'state=logpg'
+	--data-urlencode 'scope=openid internal_login'
 	--data-urlencode 'response_mode=direct'
 	```
 
@@ -78,13 +83,16 @@ The request made by the client to the WSO2 Identity Server will be as shown belo
 
 When the `response_mode` is set to `direct` as shown above, all subsequent requests after the initial request to the `/authorize` endpoint will be directed to the `/authn` endpoint.
 
+!!! note
+	App-native authentication uses the authentication API which is an open API that does not require any form of authentication. Learn about this API and the methods you can implement in the [application-native authentication]({{base_path}}/references/app-native-authentication/) documentation.
 
-## Handle SSO with API-based authentication
-With API-based authentication there are two ways that Single Sign-On (SSO) can be handled for user sessions.
+
+## Handle SSO with app-native authentication
+With app-native authentication there are two ways that Single Sign-On (SSO) can be handled for user sessions.
 
 ### Cookie based SSO
 
-API-based authentication, similar to the OAuth authorization code flow, sets an SSO cookie (commonAuthId). If the cookie is preserved, any subsequent authorization request that occurs with this cookie will automatically perform SSO.
+App-native authentication, just as the OAuth authorization code flow, sets an SSO cookie (commonAuthId). If the cookie is preserved, any subsequent authorization request that occurs with this cookie will automatically perform SSO.
 
 ### SessionId based SSO
 
