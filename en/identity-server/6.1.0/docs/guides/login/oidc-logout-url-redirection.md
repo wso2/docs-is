@@ -154,11 +154,16 @@ For a description of the parameters included in the HTML form, see [logout reque
 <td>Yes</td>
 </tr>
 <tr class="even">
-<td><code>               id_token_hint              </code></td>
-<td>The <code>               id_token              </code> returned by the identity provider.</td>
-<td>Yes</td>
+<td><code>               client_id              </code></td>
+<td>The client ID obtained when registering the application in WSO2 Identity Server.</td>
+<td>Yes (if the <code>id_token_hint</code> is not included)</td>
 </tr>
 <tr class="odd">
+<td><code>               id_token_hint              </code></td>
+<td>The <code>               id_token              </code> returned by the identity provider.</td>
+<td>Yes (if the <code>client_id</code> is not included)</td>
+</tr>
+<tr class="even">
 <td><code>               post_logout_redirect_uri              </code></td>
 <td><div class="content-wrapper">
 <p>The URL to be redirected to when logging out. The value defined here should be the same as the <code>                 callbackURI                </code> of the client application.</p>
@@ -169,7 +174,7 @@ For a description of the parameters included in the HTML form, see [logout reque
 </div></td>
 <td>Yes</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>               state              </code></td>
 <td>The parameter passed from the application to the identity provider to maintain any state information. This is used to correlate the logout requests and responses. If the state parameter is defined as <code>               state_1              </code>, the logout request and response both have <code>               state_1              </code> in them. This makes it easy for the client to identify the request and responses.</td>
 <td>No</td>
