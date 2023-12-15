@@ -17,8 +17,8 @@
 INHERIT: ../is_common.yml
 
 # Project information
-#site_url: https://is.docs.wso2.com/en/next
-site_url: http://localhost:8000/en/next
+site_url: https://is.docs.wso2.com/en/next
+
 
 extra:
   base_path: /en/next
