@@ -166,6 +166,7 @@ nav:
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
           - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
+          - Configure a custom connector:  guides/authentication/configure-custom-connector.md
       - API authorization: guides/api-authorization.md
       - Branding:
         - Branding: guides/branding/index.md
