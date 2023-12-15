@@ -19,6 +19,7 @@ INHERIT: ../is_common.yml
 # Project information
 site_url: https://is.docs.wso2.com/en/next
 
+
 extra:
   base_path: /en/next
   is_version: 7.0.0
@@ -117,6 +118,7 @@ nav:
             - Add standard-based login: guides/authentication/enterprise-login/index.md
             - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
             - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+          - Add application-native authentication: guides/authentication/add-application-native-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
@@ -446,8 +448,9 @@ nav:
       - IdP configurations: references/idp-settings/index.md
       - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
-    - OAuth2 grant types of WSO2 Identity Server: references/grant-types.md
+    - OAuth2 grant types: references/grant-types.md
     - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
+    - Application-native authentication: references/app-native-authentication.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - User Stores: 
@@ -463,7 +466,7 @@ nav:
       - CCPA: references/compliance/ccpa.md
       - FIPS: references/compliance/fips.md
       - Accessibility compliance: references/compliance/accessibility.md
-    - Localization in  WSO2 Identity Server: references/localization.md
+    - Localization support: references/localization.md
     - Default ports: references/default-ports.md
     - Troubleshoot:
       - Troubleshoot: references/troubleshoot/index.md
