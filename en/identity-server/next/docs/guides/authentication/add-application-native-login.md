@@ -40,7 +40,7 @@ Follow the steps below to enable app-native authentication for your application.
 4. Configure client attestation settings according to the platform that hosts your application.
 
    	!!! note
-       	Learn more about client attestation in the [secure app-native authentication]({{base_path}}/references/secure-app-native-authentication/) documentation.
+       	Learn more about client attestation in the [secure app-native authentication]({{base_path}}/references/app-native-authentication/) documentation.
 
 5. Click **Update** to save the changes.
 
