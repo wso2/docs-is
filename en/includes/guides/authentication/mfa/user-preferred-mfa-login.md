@@ -82,7 +82,7 @@ To set preferred MFA options for users:
             </tr>-->
         </table>
 
-2. Set the preferred MFA option for each user using a [SCIM2/Me patch API]({{base_path}}/{{ patch_user_path }}) call.
+2. Set the preferred MFA option for each user using a [SCIM2/Me patch API]({{base_path}}/{{ patch_me_path }}) call.
 
     !!! note
         Update the `preferredMFAOption.authenticationOption` value for each user according to their choice in step 1.
@@ -95,36 +95,36 @@ To set preferred MFA options for users:
         --data '
             {"Operations":[
                 {
-                    "op":"replace","value":
-                        {"name":
-                            {"givenName":"liya"}
+                    "op": "replace",
+                    "value": {
+                        "name": {
+                            "givenName":"liya"
                         }
-                },
-                {
-                    "op":"replace",
-                    "value":
-                    {
-                        "name":
-                        {"familyName":"shaggy"}
                     }
                 },
                 {
-                    "op":
-                        "replace",
-                        "value":{"phoneNumbers":[]}
+                    "op": "replace",
+                    "value": {
+                        "name": {
+                            "familyName":"shaggy"
+                        }
+                    }
                 },
                 {
-                    "op":
-                    "replace",
-                    "value":
-                        {"urn:scim:wso2:schema":
-                            {
-                                "country":"Andorra",
-                                "dateOfBirth":"",
-                                "preferredMFAOption":"
-                                    {\"authenticationOption\":\"email-otp-authenticator\"}"
+                    "op": "replace",
+                    "value": {
+                        "phoneNumbers":[]
+                    }
+                },
+                {
+                    "op": "replace",
+                    "value": {
+                        "urn:scim:wso2:schema": {
+                            "preferredMFAOption": {
+                                "authenticationOption": "email-otp-authenticator"
                             }
                         }
+                    }
                 }
             ],
             "schemas":[
