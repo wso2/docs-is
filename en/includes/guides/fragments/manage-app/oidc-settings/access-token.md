@@ -29,7 +29,7 @@
 
 #### Token binding type
 
-Token binding securely links authentication tokens to client devices to prevent unauthorized token theft and replay attacks. It is a vital mechanism, especially when dealing with unsecure netoworks, as it provides an additional layer of security against unauthorized access.
+Token binding securely links authentication tokens to client devices to prevent unauthorized token theft and replay attacks. It is a vital mechanism, especially when dealing with unsecure networks, as it provides an additional layer of security against unauthorized access.
 
 {{product_name}} offers the following token binding types.
 
