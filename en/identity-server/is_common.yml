@@ -68,7 +68,7 @@ extra:
           - title: APIs
             url: APIs|APIs
           - title: Sample Apps
-            url: Get Started|Start integrating IS into apps|Try for a sample app|Try for a sample app
+            url: Get Started|Start integrating apps|Try for a sample app|Try for a sample app
           - title: SDKs and Integrations
             url: Integrations|Integrate WSO2 IS into your application
       - title: Setup
