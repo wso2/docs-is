@@ -5,11 +5,11 @@
 
 # Add MFA based on user roles
 
-You can enable a more secure login flow for users that belong to specific roles associated to the application by applying the **Role-Based** conditional authentication template for Adaptive MFA. This template enables two-factor authentication with TOTP or Passkey for users who belong to the user role you specify.
+You can enable a more secure login flow for users that belong to specific roles associated with the application by applying the **Role-Based** conditional authentication template for Adaptive MFA. This template enables two-factor authentication with TOTP or passkeys for users who belong to the user role you specify.
 
 ## Scenario
 
-Consider a scenario with two roles, `admin` and `manager` associated to an application. For users assigned to these roles, the login flow in the application should be stepped up with TOTP or Passkey as follows:
+Consider a scenario with two roles, `admin` and `manager` associated with an application. For users assigned to these roles, the login flow in the application should be stepped up with TOTP or passkeys as follows:
 
 1. Username and password
 2. TOTP or Passkey
