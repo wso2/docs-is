@@ -310,8 +310,7 @@ This function redirects the user to an error page. It includes the parameters li
     It is recommended to use an i18n key to describe the error messages so that they can be internationalized easily on the error page.
 
     ```js
-    var user = context.steps[1].subject;
-    var isAdmin = hasRole(user, 'admin');
+    var isAdmin = hasAnyOfTheRolesV2(context, ['admin']);
     if (!isAdmin) {
         sendError('http://www.example.com/error',{'status':'000403','statusMsg':'You are not allowed to login to this app.', 'i18nkey':'not.allowed.error'});
     }
