@@ -55,8 +55,8 @@ nav:
   - Get Started:
     - Introduction: get-started/quick-start-guide.md
     - Quick Setup: get-started/quick-set-up.md
-    - Start integrating IS into apps:
-      - Start integrating IS into apps: get-started/start-integrating-apps/index.md
+    - Start integrating apps:
+      - Start integrating apps: get-started/start-integrating-apps/index.md
       - Try for a sample app:
         - Try for a sample app: get-started/try-samples/index.md
         - Single Page apps:
