@@ -111,7 +111,6 @@ If the application is hosted either in the App Store or the Google Play Store, f
 4. Provide details about the attestation service.
 
 	![How JIT user provisioning works]({{base_path}}/assets/img/references/enable-client-attestation.png){: width="600" style="display: block; margin: 0 auto;"}
-	
 
 	a. **For android**:
 
@@ -132,16 +131,16 @@ If the application is hosted either in the App Store or the Google Play Store, f
 	    By leveraging DCAppAttestService, WSO2 Identity Server adds an extra layer of security to Application Native Authentication for iOS apps. It actively detects and responds to potential threats, safeguarding against unauthorized access and malicious activities.
 	    Learn more about [Apple's DeviceCheck Attest Service](https://developer.apple.com/documentation/devicecheck/dcappattestservice)
 
-	- Provide the app ID of your application.
+	- Provide the app ID of your application which consists of the Team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
 
 5. Click **Update** to save the changes.
 
 ### Secure request authentication
 Confidential clients that are able to securely store a secret can implement the following methods to secure authentication requests.
 
-- Choose a `client authentication method` to secure the `/token` endpoint when making the authorization request to the `/authorize` endpoint. See [implement login using the authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/) for more details.
+- Choose a `client authentication method` to secure the `/token` endpoint. See [client authentication methods]({{base_path}}/references/app-settings/oidc-settings-for-app/#client-authentication) for more details.
 
-- Follow the steps below to make Pushed Authorization Requests (PAR) mandatory for the application. (See Pushed authorization Requests for more details.)
+- Follow the steps below to make Pushed Authorization Requests (PAR) mandatory for the application. See [Implement login using Pushed Authorization Requests]({{base_path}}/guides/authentication/oidc/implement-login-with-par/) for more details.
 
 	1. On the WSO2 Identity Server Console, go to **Applications**.
 
