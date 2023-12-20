@@ -21,7 +21,7 @@ and user Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should be
 ## Enable email domain based organization discovery
 
 !!! note
-    - This feature is can only be used when email address is configured as the username.
+    - This feature can only be used when email address is configured as the username.
     - Enabling email domain based organization discovery feature, and adding email domain mapping against the organizations is permitted only for the organization (root).
 
 ### Using the Console
