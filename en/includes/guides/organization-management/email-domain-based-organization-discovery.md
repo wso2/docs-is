@@ -80,7 +80,7 @@ You need to:
         During the onboarding process of a user to an organization, the user's username (which is an email) undergoes a check against the assigned email domains of that organization. 
         If there's a match, the user is successfully onboarded to the organization. However, if there is no match, the user onboarding process will fail.
     - While the organization (root) have enabled email domain based organization discovery, it is not compulsory to configure an email domain mapping for every organization in the hierarchy. 
-        If an organization doesn't have an email domain mapping, the user onboarded to that organization can have any email domain other than an email domain of organizations in the hierarchy.
+        If an organization doesn't have an email domain mapping, the user onboarded to that organization can have any email domain other than email domains of organizations in the hierarchy.
 
 ### Using the API
 
