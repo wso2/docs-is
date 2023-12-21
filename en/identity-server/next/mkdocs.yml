@@ -203,15 +203,13 @@ nav:
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
           - Configure user stores for SCIM 2.0: guides/users/user-stores/configure-user-stores-for-scim2.md
           - Configure Active Directory user stores for SCIM 2.0: guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md
-      - Account management:
-        - Account management: guides/user-accounts/index.md
-        - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
-        - Configure password recovery: guides/user-accounts/password-recovery.md
-        - Configure self-registration: guides/user-accounts/configure-self-registration.md
-        - Manage account security:
-          - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
-          - Configure bot detection: guides/user-accounts/account-security/bot-detection.md
-          - Configure password validation: guides/user-accounts/account-security/password-validation.md
+      - Account Configurations:
+        - Account Configurations: guides/account-configurations/index.md
+        - Login security:
+          - Password validation: guides/account-configurations/login-security/password-validation.md
+          - Login attempts: guides/account-configurations/login-security/login-attempts.md
+          - Bot detection: guides/account-configurations/login-security/bot-detection.md
+          - Session management: guides/account-configurations/login-security/session-management.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -455,10 +453,9 @@ nav:
     - Application-native authentication: references/app-native-authentication.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - User Stores: 
-      - Write a custom user store manager: references/user-stores/write-a-custom-user-store-manager.md
     - Email templates: references/email-templates.md
     - IS Extensions:
+      - references/extend/index.md
       - Authentication:
         - OAuth2:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
@@ -466,6 +463,8 @@ nav:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
+      - User Stores: 
+        - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Compliance:
       - references/compliance/index.md
       - GDPR: references/compliance/gdpr.md
