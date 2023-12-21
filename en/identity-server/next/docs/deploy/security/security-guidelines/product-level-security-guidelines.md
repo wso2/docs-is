@@ -291,7 +291,7 @@ Follow the steps below to change the default credentials.
 
 For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
 
-- [Password Recovery]({{base_path}}/guides/user-accounts/password-recovery/)
+- [Password Recovery]({{base_path}}/guides/account-configurations/account-recovery/password-recovery/)
 <!-- TODO - [Username Recovery]({{base_path}}/guides/identity-lifecycles/recover-username/#enable-username-recovery)-->
-- [Self User Registration]({{base_path}}/guides/user-accounts/configure-self-registration/)
+- [Self User Registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/)
 <!-- TODO - [Lite User Registration]({{base_path}}/guides/identity-lifecycles/lite-user-registration) -->

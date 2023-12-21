@@ -213,6 +213,10 @@ nav:
         - User Onboarding:
           - Self registration: guides/account-configurations/user-onboarding/self-registration.md
           - Invite user to set password: guides/account-configurations/user-onboarding/invite-user-to-set-password.md
+        - Account recovery:
+          - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
+          - Username recovery: guides/account-configurations/account-recovery/username-recovery.md
+          - Admin Initiated Password Reset: guides/account-configurations/account-recovery/admin-initiated-password-reset.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:

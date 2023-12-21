@@ -1,8 +1,8 @@
-# Invite User to Set Password
+# Invite user to set password
 
 Allow administrative personnel to invite users to set their own passwords during the onboarding process in {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 For inviting users to set their password, follow these instructions:
 

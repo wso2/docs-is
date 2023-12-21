@@ -1,8 +1,8 @@
-# Session Management
+# Session management
 
 Customize session timeout and remember me settings to maintain optimal security and user experience in {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 To adjust session management settings, follow these steps:
 
