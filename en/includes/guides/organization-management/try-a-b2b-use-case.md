@@ -17,7 +17,7 @@ its **Guardio Insurance Business App** and **Guardio Insurance Administrative Ap
 
 The employees of Best Car Mart should be able to log in to the Guardio Insurance applications to consume its services. The administrators of Best Car Mart will manage the users of its organization and also determine the login experience that their users should have.
 
-![Organizatoin login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-scenario.png){: width="600" style="display: block; margin: 0 auto;"}
+![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-scenario.png){: width="600" style="display: block; margin: 0 auto;"}
 
 {% if product_name == "Asgardeo" %}
 ## Prerequisites

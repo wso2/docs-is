@@ -130,7 +130,7 @@ You can also use WSO2 Identity Server's [SCIM API]({{base_path}}/apis/scim2-rest
     }'
     ```
 
-Upon successful execution of the cURL the user will recieve an email to reset their password.
+Upon successful execution of the cURL the user will receive an email to reset their password.
 
 ## Lock a user account
 

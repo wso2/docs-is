@@ -243,6 +243,7 @@ nav:
         - Share applications: guides/organization-management/share-applications.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+        - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Self-service: guides/your-is/is-self-service.md
@@ -457,6 +458,9 @@ nav:
     - Email templates: references/email-templates.md
     - IS Extensions:
       - references/extend/index.md
+      - Authentication:
+        - OAuth2:
+          - Write a custom OAuth2 grant type: references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Stores: 
