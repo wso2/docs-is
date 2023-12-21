@@ -203,15 +203,13 @@ nav:
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
           - Configure user stores for SCIM 2.0: guides/users/user-stores/configure-user-stores-for-scim2.md
           - Configure Active Directory user stores for SCIM 2.0: guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md
-      - Account management:
-        - Account management: guides/user-accounts/index.md
-        - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
-        - Configure password recovery: guides/user-accounts/password-recovery.md
-        - Configure self-registration: guides/user-accounts/configure-self-registration.md
-        - Manage account security:
-          - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
-          - Configure bot detection: guides/user-accounts/account-security/bot-detection.md
-          - Configure password validation: guides/user-accounts/account-security/password-validation.md
+      - Account Configurations:
+        - Account Configurations: guides/account-configurations/index.md
+        - Login security:
+          - Password validation: guides/account-configurations/login-security/password-validation.md
+          - Login attempts: guides/account-configurations/login-security/login-attempts.md
+          - Bot detection: guides/account-configurations/login-security/bot-detection.md
+          - Session management: guides/account-configurations/login-security/session-management.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
