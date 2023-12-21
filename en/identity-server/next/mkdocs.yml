@@ -210,6 +210,9 @@ nav:
           - Login attempts: guides/account-configurations/login-security/login-attempts.md
           - Bot detection: guides/account-configurations/login-security/bot-detection.md
           - Session management: guides/account-configurations/login-security/session-management.md
+        - User Onboarding:
+          - Self registration: guides/account-configurations/user-onboarding/self-registration.md
+          - Invite user to set password: guides/account-configurations/user-onboarding/invite-user-to-set-password.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
