@@ -455,15 +455,16 @@ nav:
     - Application-native authentication: references/app-native-authentication.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - User Stores: 
-      - Write a custom user store manager: references/user-stores/write-a-custom-user-store-manager.md
     - Email templates: references/email-templates.md
     - IS Extensions:
+      - references/extend/index.md
       - Authentication:
         - OAuth2:
           - Write a custom OAuth2 grant type: references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
+      - User Stores: 
+        - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Compliance:
       - references/compliance/index.md
       - GDPR: references/compliance/gdpr.md
