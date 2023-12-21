@@ -270,6 +270,7 @@ nav:
         - Share applications: guides/organization-management/share-applications.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+        - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -322,6 +323,7 @@ nav:
     - Validation API: apis/validation.md
     - Idle account identification API: apis/idle-account-identification.md
     - B2B self service management API: apis/onboard-admins-self-service.md
+    - Organization management API: apis/organization-management.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md

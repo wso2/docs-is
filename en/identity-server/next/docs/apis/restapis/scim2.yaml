@@ -412,7 +412,7 @@ paths:
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/ErroGroupAlreadyAvailable'
+                $ref: '#/components/schemas/ErrorGroupAlreadyAvailable'
       x-codeSamples:
         - lang: Curl
           source: |
@@ -2120,7 +2120,7 @@ components:
         scimType:
           type: string
           example: Forbidden
-    ErroGroupAlreadyAvailable:
+    ErrorGroupAlreadyAvailable:
       required:
       - detail
       - status

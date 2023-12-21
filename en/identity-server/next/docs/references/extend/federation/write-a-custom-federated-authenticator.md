@@ -200,11 +200,11 @@ To register and configure the application on the partner IS:
 
 6. Go to the **Protocol** tab and take note of the **Client ID** and the **Client secret**.
 
-!!! info "Download and deploy the application"
+!!! info "Download and configure the application"
     On the partner identity server:
     
     - Download the [sample](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war) application.
-    - [Deploy the sample OIDC]({{base_path}}/get-started/try-samples/qsg-oidc-webapp-java-ee) application on the partner identity server.
+    - [Configure the sample OIDC]({{base_path}}/get-started/try-samples/qsg-oidc-webapp-java-ee/#configure-the-sample) application on the partner identity server.
 
 ### Add a new user
 
@@ -291,9 +291,11 @@ To configure the custom federated authenticator for the application:
 
 1. Access the application URL.
 
-2. Try to log in using the credentials of the the new user created in the partner identity server.
+2. Click **Login**. You will be redirected to the WSO2 Identity Server login page.
 
-3. Provide the required consent. You will be redirected to the application home page.
+3. Select the sign in option configured.
+
+4. Enter the credentials of the the new user created in the partner identity server.
 
 The user is successfully authenticated by the partner Identity Server.
 

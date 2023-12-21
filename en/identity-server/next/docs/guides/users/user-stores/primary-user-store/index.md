@@ -59,7 +59,7 @@ There are two steps involved in setting up the primary user store:
     </tbody>
     </table>
 
-    You can configure your own custom user store manager. For more information, see [Write a custom user store manager]({{base_path}}/references/user-stores/write-a-custom-user-store-manager).
+    You can configure your own custom user store manager. For more information, see [Write a custom user store manager]({{base_path}}/references/extend/user-stores/write-a-custom-user-store-manager).
 
 2.  Configure user store manager properties.
 

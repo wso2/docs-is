@@ -142,7 +142,7 @@ paths:
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/ErroGroupAlreadyAvailable'
+                $ref: '#/components/schemas/ErrorGroupAlreadyAvailable'
       x-codeSamples:
         - lang: Curl
           source: |
@@ -916,7 +916,7 @@ components:
         detail:
           type: string
           example: Group not found in the user store.
-    ErroGroupAlreadyAvailable:
+    ErrorGroupAlreadyAvailable:
       required:
         - detail
         - status

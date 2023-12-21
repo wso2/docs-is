@@ -327,7 +327,7 @@ paths:
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/ErroGroupAlreadyAvailable'
+                $ref: '#/components/schemas/ErrorGroupAlreadyAvailable'
       x-codeSamples:
         - lang: Curl
           source: |
@@ -2656,7 +2656,7 @@ components:
           items:
             type: object
             example: urn:ietf:params:scim:api:messages:2.0:ListResponse
-    ErroGroupAlreadyAvailable:
+    ErrorGroupAlreadyAvailable:
       required:
       - detail
       - status
