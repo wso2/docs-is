@@ -117,7 +117,7 @@ Before creating admins using the APIs, you need to obtain the required access to
     https://{{ host_name }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d 'grant_type=client_credentials&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_organization_view internal_organization_create internal_user_mgt_view internal_user_mgt_create'
+    -d 'grant_type=client_credentials&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view internal_organization_view internal_organization_create internal_user_mgt_view internal_user_mgt_create'
     ```
 
    The access token expiration time is set to `3600` seconds by default. If you wish to modify this duration, you can do so via the console. Go to the `B2B-Self-Service-Mgt-Application application`'s protocol section and update the **Application access token expiry time**.
@@ -164,7 +164,7 @@ To create and maintain admins in the organization:
     https://{{ host_name }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d 'grant_type=organization_switch_cc&token=<access token obtained for the B2B-Self-Service-Mgt-Application>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create'
+    -d 'grant_type=organization_switch_cc&token=<access token obtained for the B2B-Self-Service-Mgt-Application>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
     ```
 
 4. Create a user in the organization using the following cURL.
@@ -215,11 +215,16 @@ To create and maintain admins in the organization:
             </tr>
             <tr>
              <th>role-audience-value</th>
-             <td>If your B2B application has associated to application audience roles give the id of the shared application in organization. Otherwise, created organization id.</td>
-            </tr>
-         </table>
+             <td>If your B2B application has associated to application audience roles give the id of the shared application in organization. 
+             ``` curl
+             curl --location 'https://{{ host_name }}/o/api/server/v1/applications?filter=name%20eq%20{B2B-application-name}' \
+             --header 'Authorization: Bearer {access-token-obtained-for-the-organization}'
+             ```
+             Otherwise, created organization id.</td>
+         </tr>
+      </table>
 
-6. Create a user and assign the user to the administrator role of your B2B application by using the following cURL.
+6. Assign the user created in step 4 to the administrator role of your B2B application by using the following cURL.
 
     ``` curl
     curl --location --request PATCH 'https://{{ host_name }}/o/scim2/v2/Roles/{admin-role-id}' \
@@ -307,5 +312,72 @@ To create and maintain admins in the organization (root):
         ]
     }'
     ```
+   
+4. Get an access token for the created organization by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
 
-Now, you have created a new organization. A shadow user account is created in the new organization for the organization creator in the organization (root). The organization creator is the {{ admin_role_name }} of the new organization.
+    ``` curl
+    curl -X POST \
+    https://{{ host_name }}/oauth2/token \
+    -u  '<client_id>:<client_secret>' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -d 'grant_type=organization_switch_cc&token=<access token obtained for the B2B-Self-Service-Mgt-Application>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
+    ```
+   
+5. A shadow user account should have been created in the new organization for the organization creator in the organization (root). Get the shadow account's user id using the following cURL.
+
+    ``` curl
+    curl --location 'https://{{ host_name }}/o/scim2/Users?filter=userName%20eq%20{username of the user created in step 1}' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}' \
+    --header 'Content-Type: application/json'
+    ```
+   
+6. Use the following cURL to obtain the `id` of the administrator role defined for your B2B application. 
+
+    !!!note
+        Share the B2B application in organization(root) enabling `share with all organizations` or share the application to the created organization before the role operation.
+        The roles associated to the B2B application will be shared with the organization only if the application is shared to the organization.
+
+    ``` curl
+    curl --location 'https://{{ host_name }}/o/scim2/v2/Roles?filter=displayName%20eq%20{ admin-role-name }%20and%20audience.value%20eq%20{ role-audience-value }' ' \
+    --header 'Accept: application/json' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}'
+    ```
+
+    !!! note
+        Refer following details to get your B2B application's administrator role:
+        <table>
+            <tr>
+             <th>admin-role-name</th>
+             <td>Name of the administrator role associated to your B2B application.</td>
+            </tr>
+            <tr>
+             <th>role-audience-value</th>
+             <td>If your B2B application has associated to application audience roles give the id of the shared application in organization.
+             ``` curl
+             curl --location 'https://{{ host_name }}/o/api/server/v1/applications?filter=name%20eq%20{B2B-application-name}' \
+             --header 'Authorization: Bearer {access-token-obtained-for-the-organization}'
+             ```
+             Otherwise, created organization id.</td>            
+             </tr>
+         </table>
+
+7. To give B2B application's administrative privileges of new onboarded organization to the organization creator, assign the shadow account to the administrator role of your B2B application by using the following cURL.
+
+    ``` curl
+    curl --location --request PATCH 'https://{{ host_name }}/o/scim2/v2/Roles/{admin-role-id}' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "Operations": [
+            {
+                "op": "add",
+                "path": "users",
+                "value": [
+                    {
+                        "value": "{user-id obtained from step 4}"
+                    }
+                ]
+            }
+        ]
+    }'
+    ```
