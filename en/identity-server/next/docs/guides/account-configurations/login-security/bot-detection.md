@@ -1,8 +1,8 @@
-# Bot Detection
+# Bot detection
 
 Implement bot detection features like reCAPTCHA to protect your application from automated abuse in {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 To enable bot detection, proceed with the following:
 

@@ -1,8 +1,8 @@
-# Password Recovery
+# Password recovery
 
 Enable self-service password recovery for users, providing a secure method to reset passwords on the login page of {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 To configure password recovery, follow these steps:
 

@@ -1,8 +1,8 @@
-# Self Registration
+# Self registration
 
 Enable users to self-register and create their own accounts within the organization on {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 To set up self-registration, follow these steps:
 

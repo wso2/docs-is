@@ -1,8 +1,8 @@
-# Admin Initiated Password Reset
+# Admin initiated password reset
 
 Provide administrators with the ability to initiate a password reset process for users in {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 To set up admin initiated password reset, follow these instructions:
 

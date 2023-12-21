@@ -1,8 +1,8 @@
-# Username Recovery
+# Username recovery
 
 Allow users to retrieve their usernames through a self-service process on the login page in {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 To enable username recovery, take the following steps:
 

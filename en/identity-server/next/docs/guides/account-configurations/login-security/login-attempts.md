@@ -1,8 +1,8 @@
-# Login Attempts
+# Login attempts
 
 Secure user accounts from unauthorized access by configuring the login attempts policy in {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 To manage login attempts settings, do the following:
 

@@ -1,8 +1,8 @@
-# Password Validation
+# Password validation
 
 Customize password validation rules to enhance the security of user accounts in {{product_name}}.
 
-## Configuration Instructions
+## Configuration instructions
 
 To configure password validation rules, follow the steps below:
 
