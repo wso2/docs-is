@@ -243,6 +243,7 @@ nav:
         - Share applications: guides/organization-management/share-applications.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+        - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Self-service: guides/your-is/is-self-service.md
