@@ -460,7 +460,7 @@ nav:
       - references/extend/index.md
       - Authentication:
         - OAuth2:
-          - Write a custom OAuth2 grant type: references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
+          - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Stores: 
