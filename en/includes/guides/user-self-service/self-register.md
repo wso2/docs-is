@@ -3,7 +3,7 @@
 If an administrator has enabled self-registration for an organization, users can sign up and create their own accounts without the involvement of an administrator.
 
 !!! note
-    Learn how administrators can [enable self-registration]({{base_path}}/guides/user-accounts/configure-self-registration/) in an organization.
+    Learn how administrators can [enable self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/) in an organization.
 
 ## Self-registration methods
 

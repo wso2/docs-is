@@ -203,8 +203,8 @@ nav:
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
           - Configure user stores for SCIM 2.0: guides/users/user-stores/configure-user-stores-for-scim2.md
           - Configure Active Directory user stores for SCIM 2.0: guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md
-      - Account Configurations:
-        - Account Configurations: guides/account-configurations/index.md
+      - Account configurations:
+        - Account configurations: guides/account-configurations/index.md
         - Login security:
           - Password validation: guides/account-configurations/login-security/password-validation.md
           - Login attempts: guides/account-configurations/login-security/login-attempts.md
