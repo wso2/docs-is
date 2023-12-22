@@ -13,7 +13,7 @@ See the following sections for details:
 
 ## Administration guide
 
-The adminstration guides cover the topics related to managing the users in your organizations and other organization settings.
+The administration guides cover the topics related to managing the users in your organizations and other organization settings.
 
 - [User Management]({{base_path}}/guides/users/)
 - [Account Configurations]({{base_path}}/guides/account-configurations/)
