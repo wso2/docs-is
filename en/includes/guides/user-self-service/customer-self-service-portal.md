@@ -8,10 +8,6 @@ Users can access the My Account portal using the following link.
 
 {{my_account_link}}
 
-!!! info
-
-    Learn more about [configuring the self-service portal]({{base_path}}/guides/user-accounts/configure-self-service-portal/)
-
 ## Self-service capabilities for users
 
 Listed below are self-service features that are available for the user in the **My Account portal**.
