@@ -213,7 +213,6 @@ nav:
         - Configure UI branding: guides/branding/configure-ui-branding.md
         - Configure custom domains: guides/branding/configure-custom-domains.md
         - Customize email templates: guides/branding/customize-email-templates.md
-        - Configure the email sender: guides/branding/configure-email-providers.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
