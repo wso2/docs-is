@@ -233,21 +233,21 @@ nav:
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+      - Organizations:
+          - Organizations: guides/organization-management/index.md
+          - Set up organizations: guides/organization-management/manage-organizations.md
+          - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
+          - Administration of organizations: guides/organization-management/manage-b2b-administration.md
+          - Share applications: guides/organization-management/share-applications.md
+          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+          - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+          - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Analytics:
         - Overview: guides/analytics/elk-analytics.md
         - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
         - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
         - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
         - ELK Alerts: guides/analytics/elk-alert-types.md
-      - Organizations:
-        - Organizations: guides/organization-management/index.md
-        - Set up organizations: guides/organization-management/manage-organizations.md
-        - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
-        - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-        - Share applications: guides/organization-management/share-applications.md
-        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
-        - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-        - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Self-service: guides/your-is/is-self-service.md
