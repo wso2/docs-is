@@ -1,6 +1,6 @@
 # Integrate with your React SPA
 
-Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README/).
+Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme).
 
 <div class="border-text">
   <img src="{{base_path}}/assets/img/logo/react-logo.svg" alt="React" width=50><br>
@@ -155,7 +155,7 @@ The `state` object contains attributes of a user. Its structure is as follows.
     The `isAuthenticated` attribute checks whether a user is currently logged in via the {{ product_name }} or not.
 
 ### Add login to your application
-You can use the `useAuthContext` hook from the Asgardeo React SDK to easily authenticate your React application.
+You can use the `useAuthContext` hook from the React SDK to easily authenticate your React application.
 
 Implement a login button as follows using the `signIn()` function in the `useAuthContext` hook.
 
@@ -298,4 +298,4 @@ If your application needs routing, the SDK provides a component called ``SecureR
 
 
 ## More Information
-If you want to learn in-depth about the Asgardeo React SDK, you can refer to the [Asgardeo React SDK documentation](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme).
+If you want to learn in-depth about the React SDK, you can refer to the [React SDK documentation](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme).

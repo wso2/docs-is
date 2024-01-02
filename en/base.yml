@@ -112,15 +112,15 @@ extra:
     jinja2content: true
   generator: false
   integrations:
-    - name: Asgardeo Auth React SDK
+    - name: Auth React SDK
       icon: assets/img/logo/react-logo.svg
-      description: An Asgardeo SDK to integrate {{ config.extra.product_name }} into React applications
+      description: An SDK to integrate {{ config.extra.product_name }} into React applications
       documentation_link: get-started/try-your-own-app/javascript/
       download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip
       source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
-    - name: Asgardeo Auth SPA SDK
+    - name: Auth SPA SDK
       icon: assets/img/logo/javascript-logo.svg
-      description: An Asgardeo SDK to integrate {{ config.extra.product_name }} into single page applications
+      description: An SDK to integrate {{ config.extra.product_name }} into single page applications
       documentation_link: get-started/try-your-own-app/javascript/
       download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
       source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
@@ -132,19 +132,19 @@ extra:
       icon: assets/img/logo/nextjs-logo.svg
       description: A library for implementing OAuth2 and OIDC in NextJS applications
       source_link: https://github.com/nextauthjs/next-auth
-    - name: Asgardeo Auth Node SDK
+    - name: Auth Node SDK
       icon: assets/img/logo/expressjs-logo.svg
-      description: An Asgardeo SDK to integrate {{ config.extra.product_name }} into JS/TS-based frameworks such as ExpressJS
+      description: An SDK to integrate {{ config.extra.product_name }} into JS/TS-based frameworks such as ExpressJS
       source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
-    - name: Asgardeo Tomcat OIDC Agent
+    - name: Tomcat OIDC Agent
       icon: assets/img/logo/java-logo.svg
-      description: An Asgardeo Tomcat agent for implementing login/logout for Tomcat web apps
+      description: A Tomcat agent for implementing login/logout for Tomcat web apps
       documentation_link: get-started/try-your-own-app/java-ee-oidc/
       download_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war
       source_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent
-    - name: Asgardeo Tomcat SAML Agent
+    - name: Tomcat SAML Agent
       icon: assets/img/logo/java-logo.svg
-      description: An Asgardeo SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
+      description: A SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
       documentation_link: get-started/try-your-own-app/java-ee-saml/
       download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
       source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent

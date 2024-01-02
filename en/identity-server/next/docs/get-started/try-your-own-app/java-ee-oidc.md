@@ -1,6 +1,6 @@
 # Integrate OIDC with your Java EE webapp
 
-Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Asgardeo Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent) which enables OIDC-based login and logout.
+Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent) which enables OIDC-based login and logout.
 
 <div class="border-text">
   <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="React" width=50><br>
@@ -43,7 +43,7 @@ The Agent is hosted at **WSO2 Internal Repository**. To resolve the dependency m
 
 ## Initialize the SDK
 
-To initialize the OIDC agent, you need a property file with the configurations such as the {{ product_name }} endpoints. The Asgardeo OIDC agent reads the configurations from this file.
+To initialize the OIDC agent, you need a property file with the configurations such as the {{ product_name }} endpoints. The OIDC agent reads the configurations from this file.
 
 Create a file named `oidc-sample-app.properties` in the _<YOUR_APP>/src/main/resources_ directory, using the content
 below.
@@ -131,4 +131,4 @@ When the user initiates the logout, the local authenticated application session 
 </form>
 ```
 
-See the [Asgardeo Tomcat OIDC Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent#how-it-works) for more information on how it works.
+See the [Tomcat OIDC Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent#how-it-works) for more information on how it works.
