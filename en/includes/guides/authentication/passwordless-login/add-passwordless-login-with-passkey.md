@@ -1,24 +1,35 @@
 # Add Passkey login
 
-Passkey adds passwordless login to your applications, which allows users to replace traditional passwords with FIDO2-supported hardware security keys or built-in authenticators on their devices. This advanced technology also enables credentials to sync across multiple devices, allowing users to log into applications from any device, even if their credentials are stored on another. 
+Based on FIDO concepts, **Passkeys** are a replacement for traditional passwords that allows users to log in to applications using the following methods.
+    <ul>
+    <li><b>Roaming authenticators</b> - platform-independant FIDO2-supported hardware security keys such as YubiKey.</li>
+    <li><b>Platform authenticators</b> - built-in biometrics bound to a single device such as fingerprint scanners or facial recognition features.</li>
+    </ul>
+
+Passkeys are phishing resistant and they provide an enhanced user experience as users are not required to manage and remember multiple passwords.
 
 !!! note "What is FIDO2?"
-    The FIDO Alliance, whose mission is to reduce the world's reliance on passwords, introduced its latest specifications, collectively called FIDO2. FIDO2 specifications are the World Wide Web Consortium's (W3C) Web Authentication specification (WebAuthn) and FIDO alliance's corresponding Client to Authenticator Protocol (CTAP).
+    The FIDO Alliance, whose mission is to reduce the world's reliance on passwords, introduced its latest specifications, collectively called FIDO2. FIDO2 specifications are the World Wide Web Consortium's (W3C) Web Authentication specification (WebAuthn) and FIDO alliance's corresponding Client to Authenticator Protocol (CTAP). Learn more about [FIDO2](https://fidoalliance.org/fido2/){: target="#"}.
 
-Two key developments in this area are the concepts of **single-device passkeys** and **multi-device passkeys**, both aimed at reducing reliance on passwords and improving phishing resistance.
+There are two types of passkeys based on how they are synchronized.
 
-### Single-Device Passkey: 
+- **Single-Device Passkeys**
 
-A single-device passkey is a type of FIDO credential that is bound to a single device. This type of passkey is created and stored on the user's device, like a smartphone or a laptop, and is used for authenticating the user on that specific device. It leverages the device's built-in security features, such as biometrics or secure elements, to provide a high level of security. However, since the passkey is tied to a single device, it cannot be used for authentication if the user switches to a new device or loses the existing one.
+    These passkeys are bound to a single device and are not meant to be shared across multiple devices. Single-device passkeys are useful if you want to reduce the impact of an attack if the credentials are compromised.
 
-###  Multi-Device Passkey:
+- **Multi-Device Passkeys**
 
-Multi-device passkeys are a significant advancement in FIDO credentials, designed to address the limitations of single-device passkeys. These passkeys enable synchronization across multiple devices owned by the same user. This synchronization, typically managed by the device's operating system, securely transfers the cryptographic keys of the FIDO credential from one device to another. Such an approach not only enhances usability but also maintains high security standards, making it a practical choice for various consumer applications.
-With the implementation of multi-device passkeys, users gain the flexibility to log into applications from any device, even when their credentials are stored on a different device. This is particularly useful when devices are synced through the cloud. For instance, Apple users will find their passkeys synced across all devices that are signed into the same Apple ID and iCloud Keychain. Android users, similarly, will have their passkeys synced across all devices linked to their Google account. Refer to the [Apple documentation](https://developer.apple.com/passkeys/) and [Google documentation](https://developers.google.com/identity/passkeys) for more information.
+    These passkeys enable synchronization across multiple devices allowing users to log into an application from any device, even when their credentials are stored on another.
 
-In scenarios where devices do not sync through the cloud, an alternative method involves using a device with passkeys to scan a QR code generated on the device from which the user intends to log in. For example, to log into a web application from a PC using FIDO2 credentials stored on a mobile device, a user can simply scan a QR code and select the relevant passkey on their mobile device for authentication. 
+    Major vendors have already introduced their passkey implementations.
 
-Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to stay up-to-date with the device support for FIDO2 passkeys.
+    - Apple users will find their passkeys synced across all devices that are signed into the same Apple ID and iCloud Keychain. Refer to the [Apple documentation](https://developer.apple.com/passkeys/){: target="#"} for more information.
+
+    - Android users will have their passkeys synced across all devices linked to their Google account.  Refer to the [Google documentation](https://developers.google.com/identity/passkeys){: target="#"} for more information.
+
+    If the devices do not sync through the cloud, a user can generate a QR code in the other device and scan it using the device that stores the passkeys to successfully log into the application.
+
+    Refer to the [passkeys documentation](https://passkeys.dev/device-support/){: target="#"} to stay up-to-date with the device support for FIDO2 passkeys.
 
 !!! info
     - {{ product_name }} uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.
@@ -26,9 +37,10 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
         - Chrome 67 and above
         - Firefox 60 and above
         - Edge 17723 and above
-    - Passkey login with [platform authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=types%20of%20authenticators%3A-,Platform%20authenticators,-%2C%20also%20known%20as) will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
-    - Passkey login with [roaming authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=Roaming%20authenticators) will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
+    - Passkey login with platform authenticators will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
+    - Passkey login with roaming authenticators will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
 
+The following guide explains how you can enable log in with passkeys in your application.
 
 ## Prerequisites
 
@@ -36,13 +48,9 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 
 - You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in {{ product_name }}.
 
-{{ admin_login_note}}
+## Enable passkey login
 
-- If Passkey progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-customers/#onboard-a-user) need to register their passkeys via the My Account app prior to using passkey login. Be sure to educate your users on how to [enroll a passkey via My Account.]({{base_path}}/guides/user-self-service/register-security-key/)
-
-## Enable passkey login for an app
-
-Follow the steps given below to enable **Passkey** login for your application.
+Follow the steps given below to enable login with passkeys for your application.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
@@ -77,39 +85,41 @@ Follow the steps given below to enable **Passkey** login for your application.
 4. Click **Update** to save your changes.
 
 !!! note
-    By default, the system supports passkey authentication without the need for a username. To activate username-based passkey authentication, please refer to the steps outlined in the section [Enable Passkey usernameless authentication](#enable-passkey-usernameless-authentication).
+    By default, a user is not required to enter the username during login with passkeys. Learn how you can change this behavior in the [enable passkey usernameless authentication](#enable-passkey-usernameless-authentication) section.
 
 
-## Enable Passkey progressive enrollment
+## Enable passkey progressive enrollment
 
-This feature allows users to enroll their passkey seamlessly during the usual login flow, offering a blend of convenience and security. Follow the steps given below to enable **Passkey** progressive enrollment for your application.
+With passkey progressive enrollment, users can enroll their passkeys on the fly when logging in, offering a blend of convenience and security.
+
+Follow the steps given below to enable passkey progressive enrollment for your application.
 
 1. On the {{ product_name }} Console, go to **Connections**.
 
-2. Select the `Passkey` connection.
+2. Select the `Passkey` connection and go to its **Settings** tab.
 
-3. Go to the **Settings** tab of the connection.
+3. Select the **Allow passkey progressive enrollment** checkbox.
 
-4. Enable the option for **Allow passkey progressive enrollment** by checking its checkbox.
+    ![Enable passkey progressive enrollment in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/enable-passkey-progressive-enrollment.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-    ![Enable passkey progressive enrollment in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/enable-passkey-progressive-enrollment.png){: width="500" style="border: 0.3px solid lightgrey;"}
+4. Click **Update** to save your changes.
 
-5. Click **Update** to save your changes.
+5. Navigate back to **Applications** on the {{ product_name }} Console.
 
-6. Navigate back to **Applications** on the {{ product_name }} Console.
+6. Select the application to which you have added Passkey login.
 
-7. Select the application to which you have added Passkey login.
+7. Go to the **Sign-in Method** tab of the application and add the passkey based adaptive script from your preferred editor.
 
-8. Go to the **Sign-in Method** tab of the application and add a passkey based adaptive script from your preferred editor. Refer [Add Passkey Progressive Enrollment]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) for more information:
-
+    !!! note
+        For the progressive enrollment adaptive script to function, you need to configure at least one additional authenticator to the first step of the authentication flow. Refer to [Passkey Progressive Enrollment]({{base_path}}/references/conditional-auth/passkey-progressive-enrollment-based-template/) for more information.
 
     ---
     === "Classic Editor"
         To add the adaptive script using the Classic Editor:
 
-        1. Switch on the **Conditional Authentication** toggle located at the bottom of the editor.
+        1. Enable the **Conditional Authentication** toggle located at the bottom of the editor.
 
-        2. In the **Templates** section, go to **Passkey Enrollment** and  click on the **+** corresponding to the **Passkey Progressive Enrollment** template.
+        2. In the **Templates** section, go to **Passkey Enrollment** and click the **+** sign corresponding to the **Passkey Progressive Enrollment** template.
         
         3. Click **Confirm** to add the script.
 
@@ -120,22 +130,23 @@ This feature allows users to enroll their passkey seamlessly during the usual lo
 
         1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Conditional Login Flows** > **Passkey Enrollment**.
 
-        2. Click on the **ADD** corresponding to the **Passkey Progressive Enrollment** template.
+        2. Click the **ADD** button corresponding to the **Passkey Progressive Enrollment** template.
 
         3. Click **Confirm** to add the script.
 
             ![Add adaptive script with Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
     ---
 
 4. Click **Update** to save your changes.
 
 !!! note
-    Passkey progressive enrollment can only be configured at the organizational level and cannot be modified at the application level.
+    - If progressive enrollment is disabled, users need to pre-register their passkeys from the MyAccount portal. Learn how to do so in [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/).
 
-## Enable Passkey usernameless  authentication
+    - Passkey progressive enrollment can only be configured at the organizational level and cannot be modified at the application level.
 
-This feature streamlines the login process by eliminating the need for usernames, enabling a faster and more secure authentication method. Follow the steps given below to enable **Passkey** usernameless authentication for your application.
+## Configure passkey usernameless authentication
+
+Usernameless authentication enhances user experience by eliminating the need for users to enter a username during login with passkeys. This is the default behavior in {{product_name}}. Follow the steps given below to configure passkey usernameless authentication for your application.
 
 1. On the {{ product_name }} Console, go to **Connections**.
 
@@ -143,9 +154,12 @@ This feature streamlines the login process by eliminating the need for usernames
 
 3. Go to the **Settings** tab of the connection.
 
-4. Enable the option for **Allow passkey usernameless authentication** by checking its checkbox.
+4. Select the **Allow passkey usernameless authentication** checkbox to enable usernameless authentication.
 
-    ![Enable passkey usernameless authentication in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/enable-passkey-usernameless-authentication.png){: width="500" style="border: 0.3px solid lightgrey;"}
+    !!! note
+        If this option is disabled, users are prompted to enter the username during login with passkeys.
+
+    ![Enable passkey usernameless authentication in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/enable-passkey-usernameless-authentication.png){: width="500" style="display: block; margin: 0 auto;border: 0.3px solid lightgrey;"}
 
 5. Click **Update** to save your changes.
 
@@ -154,9 +168,11 @@ This feature streamlines the login process by eliminating the need for usernames
 
 ## Try it out
 
-In this section, let’s try out the scenario where Passkey progressive enrollment is enabled and Passkey usernameless authentication is disabled. The following steps will guide you through enrolling a passkey on-the-fly and then using it to sign in.
+The following guides let you try out a scenario where, passkey progressive enrollment is **enabled** and passkey usernameless authentication is **disabled**.
 
-**Step 1: Enroll a passkey**
+### Enroll a passkey
+
+Follow the steps below to enroll a passkey on the fly during login.
 
 1. Access the application URL.
 
@@ -164,37 +180,39 @@ In this section, let’s try out the scenario where Passkey progressive enrollme
 
 3. Select **Sign In With Passkey**.
 
-    ![Sign In with passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Sign In with passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. To enroll a new passkey, enter your username and select **Create a passkey**.
 
-    ![Create a passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/create-passkey.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Create a passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/create-passkey.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-5. Enter your username and password, then click **Sign In**.
+5. Enter the corresponding password for the user and click **Sign In**.
 
-    ![Basic authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/basic-authenticator.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Basic authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/basic-authenticator.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 6. Follow the instructions given by your browser or device to enroll the passkey.
 
-    ![Create a passkey browser prompt in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/create-passkey-browser-prompt.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Create a passkey browser prompt in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/create-passkey-browser-prompt.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-7. Enter a unique name to your passkey for identification.
+7. Provide a name to uniquely identify your passkey.
 
-    ![Rename passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/rename-passkey.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Rename passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/rename-passkey.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 8. Click **Submit** to complete the enrollment. You'll be authenticated in the application.
 
 
-**Step 2: Sign in with the enrolled passkey**
+### Sign in with passkey
 
-1. Log out from the application.
+Follow the steps below to use an enrolled passkey to sign in to an application.
 
-2. Click **Login** to revisit the {{ product_name }} login page.
+1. Navigate to the login page of the application.
+
+1. Click  **Login** to access the {{ product_name }} login page.
 
 3. Select **Sign In With Passkey**.
 
 4. Enter your username and select **Continue**.
 
-5. Follow your browser's or device's instructions to log in using the Passkey.
+5. Follow the browser/device instructions to log in with a passkey.
 
-    ![Sign In with passkey browser prompt {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey-browser-prompt.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Sign In with passkey browser prompt {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey-browser-prompt.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
