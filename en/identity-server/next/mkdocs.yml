@@ -171,7 +171,6 @@ nav:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
         - Customize email templates: guides/branding/customize-email-templates.md
-        - Configure the email provider: guides/branding/configure-email-providers.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -203,15 +202,20 @@ nav:
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
           - Configure user stores for SCIM 2.0: guides/users/user-stores/configure-user-stores-for-scim2.md
           - Configure Active Directory user stores for SCIM 2.0: guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md
-      - Account management:
-        - Account management: guides/user-accounts/index.md
-        - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
-        - Configure password recovery: guides/user-accounts/password-recovery.md
-        - Configure self-registration: guides/user-accounts/configure-self-registration.md
-        - Manage account security:
-          - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
-          - Configure bot detection: guides/user-accounts/account-security/bot-detection.md
-          - Configure password validation: guides/user-accounts/account-security/password-validation.md
+      - Account configurations:
+        - Account configurations: guides/account-configurations/index.md
+        - Login security:
+          - Password validation: guides/account-configurations/login-security/password-validation.md
+          - Login attempts: guides/account-configurations/login-security/login-attempts.md
+          - Bot detection: guides/account-configurations/login-security/bot-detection.md
+          - Session management: guides/account-configurations/login-security/session-management.md
+        - User Onboarding:
+          - Self registration: guides/account-configurations/user-onboarding/self-registration.md
+          - Invite user to set password: guides/account-configurations/user-onboarding/invite-user-to-set-password.md
+        - Account recovery:
+          - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
+          - Username recovery: guides/account-configurations/account-recovery/username-recovery.md
+          - Admin Initiated Password Reset: guides/account-configurations/account-recovery/admin-initiated-password-reset.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -229,21 +233,21 @@ nav:
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+      - Organizations:
+          - Organizations: guides/organization-management/index.md
+          - Set up organizations: guides/organization-management/manage-organizations.md
+          - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
+          - Administration of organizations: guides/organization-management/manage-b2b-administration.md
+          - Share applications: guides/organization-management/share-applications.md
+          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+          - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+          - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Analytics:
         - Overview: guides/analytics/elk-analytics.md
         - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
         - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
         - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
         - ELK Alerts: guides/analytics/elk-alert-types.md
-      - Organizations:
-        - Organizations: guides/organization-management/index.md
-        - Set up organizations: guides/organization-management/manage-organizations.md
-        - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
-        - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-        - Share applications: guides/organization-management/share-applications.md
-        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
-        - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-        - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Self-service: guides/your-is/is-self-service.md
@@ -427,6 +431,7 @@ nav:
     - Permission management API : apis/permission-management-rest-api.md
     - User Functionality management API: apis/user-functionality-mgt-rest-api.md
     - Organization management API: apis/organization-mgt-rest-api.md
+    - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
@@ -461,6 +466,8 @@ nav:
       - Authentication:
         - OAuth2:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
+        - Conditional authentication:
+          - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Stores: 

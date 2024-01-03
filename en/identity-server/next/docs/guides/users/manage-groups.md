@@ -62,13 +62,3 @@ To delete a group:
 1. On the WSO2 Identity Server Console, go to **User Management** > **Groups**.
 2. Click the trash icon next to the group you wish to delete.
 3. Select the checkbox and confirm your action.
-
-## View remote user store groups
-Once you connect a remote user store to Asgardeo, you can view the onboarded groups and the members of the groups.
-To view the onboarded groups:
-
-1. On the Asgardeo Console, go to **User Management** >  **Groups**.
-2. Select the preferred user store from the drop-down menu.
-
-!!! note
-    Remote groups are read-only in the WSO2 Identity Server console. Administrators can only view the group details and its members.

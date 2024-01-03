@@ -4,7 +4,7 @@ Users can recover a forgotten password from an application sign-in page by follo
 
 ## Prerequisites
 
-Administrators should [enable password recovery]({{base_path}}/guides/user-accounts/password-recovery/) for users in the organization.
+Administrators should [enable password recovery]({{base_path}}/guides/account-configurations/account-recovery/password-recovery/) for users in the organization.
 
 ## Recover a forgotten password
 

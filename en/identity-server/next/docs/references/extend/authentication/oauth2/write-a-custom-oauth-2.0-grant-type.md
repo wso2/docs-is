@@ -100,10 +100,10 @@ directly used as well.
     mvn clean install
     ```
     
-2.  Copy the .jar file in target directory into the
+1.  Copy the .jar file in target directory into the
     `          <IS_HOME>/repository/component/lib         `
     directory. 
-3.  Configure the following in the 
+2.  Configure the following in the 
 `           <IS_HOME>/repository/conf/deployment.toml          `
     file. 
     ```toml
@@ -115,7 +115,7 @@ directly used as well.
     IdTokenAllowed=true
     ```
 
-4.  Restart the server.
+3.  Restart the server.
 
 ###  Configure an application with the custom grant type
 
