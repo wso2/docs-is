@@ -470,6 +470,8 @@ nav:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
+      - User Management:
+        - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Compliance:
