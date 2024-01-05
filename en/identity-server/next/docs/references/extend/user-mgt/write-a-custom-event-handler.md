@@ -1,4 +1,4 @@
-# Write a Custom Event Handler
+# Write a custom event handler
 
 The WSO2 Identity Server eventing framework can be used to trigger events such as user operation events like `PRE_SET_USER_CLAIMS`,`POST_ADD_USER`. A full list of the sample events can be found below. The eventing framework also supports handlers which can be used to do operations upon a triggered event. For instance, an event handler can be used to validate the changed user password against previously used entries when a `PRE_UPDATE_CREDENTIAL` event is triggered. 
 
@@ -43,7 +43,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
     ```java
     public String getName() {
-    return "customEventHandler";
+        return "customEventHandler";
     }
 
     @Override
@@ -58,14 +58,14 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
 
-    Map<String, Object> eventProperties = event.getEventProperties();
-    String userName = (String) eventProperties.get(IdentityEventConstants.EventProperty.USER_NAME);
-    UserStoreManager userStoreManager = (UserStoreManager) eventProperties.get(IdentityEventConstants.EventProperty.USER_STORE_MANAGER);
+        Map<String, Object> eventProperties = event.getEventProperties();
+        String userName = (String) eventProperties.get(IdentityEventConstants.EventProperty.USER_NAME);
+        UserStoreManager userStoreManager = (UserStoreManager) eventProperties.get(IdentityEventConstants.EventProperty.USER_STORE_MANAGER);
 
-    String tenantDomain = (String) eventProperties.get(IdentityEventConstants.EventProperty.TENANT_DOMAIN);
-    String domainName = userStoreManager.getRealmConfiguration().getUserStoreProperty(UserCoreConstants.RealmConfig.PROPERTY_DOMAIN_NAME);
+        String tenantDomain = (String) eventProperties.get(IdentityEventConstants.EventProperty.TENANT_DOMAIN);
+        String domainName = userStoreManager.getRealmConfiguration().getUserStoreProperty(UserCoreConstants.RealmConfig.PROPERTY_DOMAIN_NAME);
 
-    String[] roleList = (String[]) eventProperties.get(IdentityEventConstants.EventProperty.ROLE_LIST);
+        String[] roleList = (String[]) eventProperties.get(IdentityEventConstants.EventProperty.ROLE_LIST);
     ```
 
 ---
@@ -109,7 +109,7 @@ subscriptions =["CUSTOM_EVENT"]
     `name`: The name of the event handler (Name that return from the `getName()` method).
 
     `subscriptions`: A list of events that the handler will be subscribed to. In this sample application, we are subscribing to the `PRE_ADD_USER` and `POST_ADD_USER` events.
-    
+
 4. Restart the server.
 
 !!! note "Note"
