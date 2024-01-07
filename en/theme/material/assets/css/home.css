@@ -265,3 +265,14 @@ body[data-md-color-scheme=slate] {
         opacity: 1 !important;
     }
 }
+
+@media screen and (max-width: 76.1875em) {
+    .md-column-grid {
+        flex-direction: column;
+    }
+    
+    .md-grid-column {
+        width: 100%;
+        display: block;
+    }
+}
