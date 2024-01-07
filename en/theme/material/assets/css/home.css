@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2023-2024, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -29,12 +29,20 @@ body[data-md-color-scheme=slate] {
 }
 
 .md-home-search-container {
-    margin: 60px auto 30px;
+    margin: 40px auto 10px;
 }
 
 .md-home-search-input-label {
     text-align: center;
+    margin-bottom: 0.5em;
     font-weight: 500 !important;
+}
+
+.md-home-search-input-description {
+    text-align: center;
+    display: block;
+    max-width: 800px;
+    margin: 2em auto 5em;
 }
 
 .md-home-sections {
@@ -50,7 +58,7 @@ body[data-md-color-scheme=slate] {
 }
 
 .md-grid-column {
-    width: 30%;
+    width: 32%;
     display: inline-block;
     vertical-align: top;
 }
@@ -63,7 +71,7 @@ body[data-md-color-scheme=slate] {
     background-color: var(--md-default-bg-color);
     box-shadow: var(--md-default-box-shadow);
     margin: 0 0 20px 0;
-    padding: 20px;
+    padding: 30px;
     border-radius: 12px;
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
@@ -132,7 +140,7 @@ body[data-md-color-scheme=slate] {
 }
 
 .md-search__inner {
-    margin: 0 auto 60px;
+    margin: 0 auto;
 }
 
 .md-search__icon[for=__search] {
