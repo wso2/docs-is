@@ -43,6 +43,7 @@ extra:
     - section:
       - title: Get Started
         icon: assets/libs/oxygen-ui-icons/1.7.3/bolt-16.svg
+        icon_color: icon-color-1
         list_items:
           - title: Create your Asgardeo account
             url: Get Started|Create your Asgardeo account
@@ -50,6 +51,7 @@ extra:
             url: Get Started|Try login with Asgardeo
       - title: Community and Support
         icon: assets/libs/oxygen-ui-icons/1.7.3/lightbulb-on-16.svg
+        icon_color: icon-color-2
         list_items:
           - title: Community help
             url: https://discord.com/invite/wso2
@@ -58,6 +60,7 @@ extra:
     - section:
       - title: Guides
         icon: assets/libs/oxygen-ui-icons/1.7.3/document-16.svg
+        icon_color: icon-color-4
         list_items:
           - title: Applications
             url: Guides|Applications|Applications
@@ -76,6 +79,7 @@ extra:
     - section:
       - title: Developer Resources
         icon: assets/libs/oxygen-ui-icons/1.7.3/user-gear-16.svg
+        icon_color: icon-color-3
         list_items:
           - title: APIs
             url: APIs|APIs - Overview
