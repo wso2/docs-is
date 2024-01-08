@@ -28,7 +28,7 @@ Change the default keystores and create new keys for all the cryptographic opera
 
 
 !!! info
-    For more information, see [Recommendations for using keystores]({{base_path}}/deploy/security/use-asymmetric-encryption##recommendations-for-setting-up-keystores) and [Create New Keystores]({{base_path}}/deploy/security/create-new-keystores).
+    For more information, see [Recommendations for using keystores]({{base_path}}/deploy/security/use-asymmetric-encryption##recommendations-for-setting-up-keystores) and [Create New Keystores]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores).
 
 ## Passwords in config files
 

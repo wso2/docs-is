@@ -69,7 +69,7 @@ Follow the recommendations given below when you set up your keystores.
         The primary keystore will also be used for signing messages when the product communicates with external parties (such as SAML, OIDC id_token signing).
 
     !!! tip
-        You can have separate keystores for encrypting sensitive information for internal data encryption as a recommended practice. See [Configuring Keystores in WSO2 Identity Server]({{base_path}}/deploy/security/configure-keystores-in-wso2-products) for details.
+        You can have separate keystores for encrypting sensitive information for internal data encryption as a recommended practice. See [Configuring Keystores in WSO2 Identity Server]({{base_path}}/deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products) for details.
 
 - Maintain another secondary keystore, containing the server’s public key certificate for authenticating communication over SSL/TLS (for both Tomcat and Axis2 level HTTP connections).
 

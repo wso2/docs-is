@@ -35,4 +35,4 @@ However, this release uses symmetric key encryption as the default encryption me
     Symmetric key encryption is used as an accepted industry-wide mechanism for encrypting internal sensitive data. This included both on-premise as well as cloud platforms. 
 
 !!! info
-    For more information on how to configure the properties related to symmetric key encryption, see [Configurations Related to Symmetric Key Encryption]({{base_path}}/deploy/security/use-symmetric-encryption).
+    For more information on how to configure the properties related to symmetric key encryption, see [Configurations Related to Symmetric Key Encryption]({{base_path}}/deploy/security/symmetric-encryption/use-symmetric-encryption).

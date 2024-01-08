@@ -38,7 +38,7 @@ Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to s
 
 {{ admin_login_note}}
 
-- If Passkey progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-customers/#onboard-a-user) need to register their passkeys via the My Account app prior to using passkey login. Be sure to educate your users on how to [enroll a passkey via My Account.]({{base_path}}/guides/user-self-service/register-security-key/)
+- If Passkey progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-customers/#onboard-a-user) need to register their passkeys via the My Account app prior to using passkey login. Be sure to educate your users on how to [enroll a passkey via My Account.]({{base_path}}/guides/user-self-service/register-passkey/)
 
 ## Enable passkey login for an app
 
