@@ -228,8 +228,7 @@ To stop the server, press **Ctrl+C** in the command window.
     1. Navigate to `<IS_HOME>/bin` and start the server with the `sh wso2server.sh start` 
     command. **NOTE:** This will run the server without displaying the debug logs. 
     
-        If you wish to see the logs, use the `tail -f {{base_path}}/repository/logs/wso2carbon.log` command. **NOTE** 
-        the given path in the command, `{{base_path}}/repository/logs/` is relative to the `bin` folder.
+        If you wish to see the logs, use the `tail -f <IS_HOME>/repository/logs/wso2carbon.log` command.
     
     2. To restart the server, use `sh wso2server.sh restart`. 
     
