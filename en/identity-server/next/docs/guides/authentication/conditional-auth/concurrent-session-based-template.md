@@ -20,7 +20,7 @@ Consider a scenario with two user groups, `admin` and `manager`. Users belonging
 
 - Create two user groups named `admin` and `manager` and assign user accounts to them. For instructions, see the following:
 
-      - [Managing users]({{base_path}}/guides/users/manage-customers/)
+      - [Managing users]({{base_path}}/guides/users/manage-users/)
 
 
 ## Configure the login flow

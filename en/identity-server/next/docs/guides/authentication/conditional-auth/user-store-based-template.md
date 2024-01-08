@@ -23,7 +23,7 @@ Consider a scenario with two user stores, `EMPLOYEES` and `CONTRACTORS`. For use
 - Create two user stores named `EMPLOYEES` and `CONTRACTORS` and add user accounts to them. For instructions, see the following:
 
     - [Managing user stores]({{base_path}}/guides/users/user-stores/)
-    - [Managing users]({{base_path}}/guides/users/manage-customers/)
+    - [Managing users]({{base_path}}/guides/users/manage-users/)
 
 ## Configure the login flow
 

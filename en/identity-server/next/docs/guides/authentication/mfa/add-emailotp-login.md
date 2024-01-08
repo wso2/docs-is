@@ -12,7 +12,7 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 
 - [Register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- [Update the user profile of the users]({{base_path}}/guides/users/manage-customers/#update-the-profile) with an email address to which the user will receive the OTP.
+- [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with an email address to which the user will receive the OTP.
 
 - [Configure the email sending module]({{base_path}}/deploy/configure-email-sending/) in WSO2 Identity Server.
 

@@ -8,7 +8,7 @@ When WSO2 Identity Server is clustered, you need to regularly monitor the health
 You can also make decisions about network routing changes that you need to do in order to avoid server downtime.
 
 !!! note
-    For information on WSO2 Identity Server monitoring options, see [Monitor WSO2 Identity Server]({{base_path}}/deploy/monitor/monitor-the-identity-server).
+    For information on WSO2 Identity Server monitoring options, see [Monitor WSO2 Identity Server]({{base_path}}/deploy/monitor/index).
 
     <!--For information on configuring failover, [Deployment and Clustering Key Concepts]({{base_path}}/deploy/set-up-separate-databases-for-clustering).-->
 
