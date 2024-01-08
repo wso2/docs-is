@@ -59,7 +59,7 @@ extra:
         list_items:
           - title: Contributing to the Project
             url: https://github.com/wso2/product-is/wiki/Contributing-to-Identity-Server
-          - title: Community help
+          - title: Community Help
             url: https://discord.com/invite/wso2
           - title: Enterprise Support
             url: https://wso2.com/subscription/
