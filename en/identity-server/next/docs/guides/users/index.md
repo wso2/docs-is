@@ -22,13 +22,13 @@ An administrator can manage the organization and has access to the organization'
 * manage users, roles and groups
 * manage applications
 
-Refer [Manage administrators]({{base_path}}/guides/users/manage-collaborators/) for more information.
+Refer [Manage administrators]({{base_path}}/guides/users/manage-administrators/) for more information.
 
 ### User
 
 A user registered in an organization can login and use applications in that organization.
 
-Refer [Manage users]({{base_path}}/guides/users/manage-customers/) for more information.
+Refer [Manage users]({{base_path}}/guides/users/manage-users/) for more information.
 
 ## What's next?
 
