@@ -27,5 +27,3 @@ See the topics in this section for references that will help you while working w
     - [CCPA]({{base_path}}/references/compliance/ccpa)
     - [FIPS]({{base_path}}/references/compliance/fips)
     - [Accessibility Compliance]({{base_path}}/references/compliance/accessibility)
-
-- [Localization]({{base_path}}/references/localization/) in WSO2 IS.

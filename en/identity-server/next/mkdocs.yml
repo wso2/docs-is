@@ -171,6 +171,7 @@ nav:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
         - Customize email templates: guides/branding/customize-email-templates.md
+        - Localization support: guides/branding/localization.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -481,7 +482,6 @@ nav:
       - CCPA: references/compliance/ccpa.md
       - FIPS: references/compliance/fips.md
       - Accessibility compliance: references/compliance/accessibility.md
-    - Localization support: references/localization.md
     - Default ports: references/default-ports.md
     - Troubleshoot:
       - Troubleshoot: references/troubleshoot/index.md
