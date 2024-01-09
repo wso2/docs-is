@@ -21,7 +21,9 @@
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
     - [`getAssociatedLocalUser()`](#get-associated-user)
-
+    - [`httpGet()`](#http-get)
+    - [`httpPost()`](#http-post)
+  
 - [Object references](#object-reference): You can use objects to capture user behaviors and set attributes. For example, you can use the **user** and **request** objects and write the login conditions accordingly. Listed below are the object references that can be used in conditional authentication scripts.
   
     - [`context`](#context)
@@ -165,7 +167,7 @@ This section describes the **options** you can use to configure the `executeStep
           <td>Magic Link</td><td>MagicLinkAuthenticator</td>
         </tr>
         <tr>
-          <td>Security Key/Biometrics</td><td>FIDOAuthenticator</td>
+          <td>Passkeys</td><td>FIDOAuthenticator</td>
         </tr>
         <tr>
           <td>SMS OTP</td><td>sms-otp-authenticator</td>
@@ -635,8 +637,7 @@ The utility function will search the underlying user stores and return a unique 
 
     ``` js
     var claimMap = {};
-    claimMap[MAPPED_FEDERATED_USER_NAME_CLAIM] = federatedUserName;
-    claimMap[MAPPED_FEDERATED_IDP_NAME_CLAIM] = idpName;
+    claimMap["http://wso2.org/claims/username"] = federatedUserName;
     var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
     ```
 
@@ -656,6 +657,114 @@ This function returns the local user associated with the federate username given
         </tr>
       </tbody>
     </table>
+
+### HTTP GET
+
+`httpGet(url, headers)`
+
+The HTTP GET function enables sending HTTP GET requests to specified endpoints as part of the adaptive authentication scripts in WSO2 Identity Server. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>The URL of the endpoint to which the HTTP GET request should be sent.</td>
+        </tr>
+        <tr>
+          <td><code>headers</code></td>
+          <td>HTTP request headers to be included in the GET request (optional).</td>
+        </tr>
+      </tbody>
+    </table>
+
+  - **Example**
+
+  ``` js
+      function onLoginRequest(context) {
+          httpGet('https://example.com/resource', {
+              "Authorization": "Bearer token",
+              "Accept": "application/json"
+          }, {
+              onSuccess: function(context, data) {
+                  Log.info('httpGet call succeeded');
+                  context.selectedAcr = data.status;
+                  executeStep(1);
+              },
+              onFail: function(context, data) {
+                  Log.info('httpGet call failed');
+                  context.selectedAcr = 'FAILED';
+                  executeStep(2);
+              }
+          });
+      }
+  ```
+
+!!! note     
+    To restrict HTTP GET requests to certain domains, configure the `deployment.toml` file as follows:
+
+    ``` toml
+    [authentication.adaptive]
+    http_function_allowed_domains = ["example.com", "api.example.org"]
+    ```  
+
+### HTTP POST
+
+`httpPost(url, body, headers)`
+
+The HTTP POST function enables sending HTTP POST requests to specified endpoints as part of the adaptive authentication scripts in WSO2 Identity Server. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>The URL of the endpoint to which the HTTP POST request should be sent.</td>
+        </tr>
+        <tr>
+          <td><code>body</code></td>
+          <td>HTTP request body to be included in the POST request.</td>
+        </tr>
+        <tr>
+          <td><code>headers</code></td>
+          <td>HTTP request headers to be included in the POST request (optional).</td>
+        </tr>
+      </tbody>
+    </table>
+
+  - **Example**
+
+  ``` js
+      function onLoginRequest(context) {
+          httpPost('https://example.com/resource', {
+              "email": "test@wso2.com"
+          }, {
+              "Authorization": "Bearer token",
+              "Accept": "application/json"
+          }, {
+              onSuccess: function(context, data) {
+                  Log.info('httpPost call succeeded');
+                  context.selectedAcr = data.status;
+                  executeStep(1);
+              },
+              onFail: function(context, data) {
+                  Log.info('httpPost call failed');
+                  context.selectedAcr = 'FAILED';
+                  executeStep(2);
+              }
+          });
+      }
+  ```
+  
+!!! note     
+    To restrict HTTP POST requests to certain domains, configure the `deployment.toml` file as follows:
+
+    ``` toml
+    [authentication.adaptive]
+    http_function_allowed_domains = ["example.com", "api.example.org"]
+    ```
 
 ## Object reference
 
