@@ -328,7 +328,7 @@ nav:
           - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure cache layers: deploy/performance/configure-cache-layers.md
         - Environment compatibility: deploy/environment-compatibility.md
-        - Propagate configurations across environments: deploy/propagate-configurations.md
+        - Promote configurations across environments: deploy/promote-configurations.md
         - Disaster recovery:
           - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
           - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
