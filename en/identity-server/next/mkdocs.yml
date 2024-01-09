@@ -333,6 +333,13 @@ nav:
           - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
           - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
           - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+      - Compliance:
+          - Compliance: deploy/compliance/index.md
+          - GDPR: deploy/compliance/gdpr.md
+          - eIDAS: deploy/compliance/eidas.md
+          - CCPA: deploy/compliance/ccpa.md
+          - FIPS: deploy/compliance/fips.md
+          - Accessibility compliance: deploy/compliance/accessibility.md
       - Analytics:
         - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
         - Configure SSO with ELK analytics: deploy/elk-analytics-sso-guide.md
@@ -457,13 +464,6 @@ nav:
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
-    - Compliance:
-      - references/compliance/index.md
-      - GDPR: references/compliance/gdpr.md
-      - eIDAS: references/compliance/eidas.md
-      - CCPA: references/compliance/ccpa.md
-      - FIPS: references/compliance/fips.md
-      - Accessibility compliance: references/compliance/accessibility.md
     - Default ports: references/default-ports.md
     - Troubleshoot:
       - Troubleshoot: references/troubleshoot/index.md
