@@ -82,9 +82,9 @@ Now that you have assigned the application roles to the relevant user groups in 
 
 To do so,
 
-1. [Onboard users to Asgardeo]({{base_path}}/guides/users/manage-customers/#onboard-a-user).
+1. [Onboard users to Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-a-user).
 
-2. [Assign users to relevant groups]({{base_path}}/guides/users/manage-customers/#assign-groups).
+2. [Assign users to relevant groups]({{base_path}}/guides/users/manage-users/#assign-groups).
 
 ## Step 3: Configure Spring Security
 

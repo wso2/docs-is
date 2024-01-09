@@ -33,13 +33,13 @@ An owner is always assigned the **Administrator** role. It cannot be changed by 
 
 An administrator can manage the organization and has access to the organization's administrative operations. An administrator can be invited to the organization and assigned with the Administrator user role.
 
-Refer [Manage administrators]({{base_path}}/guides/users/manage-collaborators/) for more information.
+Refer [Manage administrators]({{base_path}}/guides/users/manage-administrators/) for more information.
 
 ### User
 
 A user registered in an organization can login and use applications in that organization.
 
-Refer [Manage users]({{base_path}}/guides/users/manage-customers/) for more information.
+Refer [Manage users]({{base_path}}/guides/users/manage-users/) for more information.
 
 ### Comparing User Accounts
 

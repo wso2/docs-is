@@ -10,7 +10,7 @@ By default, Asgardeo has the **Administrator** user role. This role includes all
 
 3. **Administrative auditor**: This role includes list and view permissions to Asgardeo resources, which is useful in troubleshooting issues and providing support for other users in the organization. This role provides users read only access to the organization.
 
-Only [Administrators](../../guides/users/manage-collaborators/) can be assigned to Asgardeo roles, and an administrator can be assigned only with one role.
+Only [Administrators](../../guides/users/manage-administrators/) can be assigned to Asgardeo roles, and an administrator can be assigned only with one role.
 
 The following tables list the permissions enabled for roles in the organization. -->
 The following list contains the permissions enabled for an Administrator:

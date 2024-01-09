@@ -10,7 +10,8 @@ To delete your owner account(s), you need to [remove the organizations that you 
 
 ## Administrators
 
-If you want to remove your administrator account from an organization, you need to send a request to another administrator in the organization. See the instruction on [deleting administrators]({{base_path}}/guides/users/manage-collaborators/#delete-a-collaborator).
+If you want to remove your administrator account from an organization, you need to send a request to another 
+administrator in the organization. See the instruction on [deleting administrators]({{base_path}}/guides/users/manage-administrators/#delete-an-administrator).
 
 !!! note
     Note that removing your administrator account from one organization only removes your association with that organization. Your administrator account will continue to persist in other organizations that you are associated with.
