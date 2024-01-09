@@ -260,7 +260,7 @@ nav:
           - Manage consents: guides/user-self-service/manage-consents.md
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
-          - Register FIDO2 security key/biometrics: guides/user-self-service/register-security-key.md
+          - Register passkeys: guides/user-self-service/register-passkey.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md

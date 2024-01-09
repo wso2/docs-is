@@ -8,7 +8,7 @@ The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, 
 
 !!! info "Before you begin"
 
-    1. Make sure to go through the [recommendations for setting up keystores]({{base_path}}/deploy/security/use-asymmetric-encryption#recommendations-for-setting-up-keystores) to understand the various keystores you will need.
+    1. Make sure to go through the [recommendations for setting up keystores]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption#recommendations-for-setting-up-keystores) to understand the various keystores you will need.
 
     2. If you have not already created the keystores required for your system, see [creating new keystores]({{base_path}}/deploy/security/create-new-keystores).
 
