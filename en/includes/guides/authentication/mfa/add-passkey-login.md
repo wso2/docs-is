@@ -22,7 +22,8 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 
 {{ admin_login_note}}
 
-- If Passkey progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-customers/#onboard-a-user) need to register their passkeys via the My Account app prior to using passkey login. Be sure to educate your users on how to [enroll passkeys via My Account.]({{base_path}}/guides/user-self-service/register-security-key/)
+- If Passkey progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-customers/#onboard-a-user) need to register their passkeys via the My Account app prior to 
+  using passkey login. Be sure to educate your users on how to [enroll passkeys via My Account.]({{base_path}}/guides/user-self-service/register-passkey/)
 
 ## Enable passkey login for an app
 

@@ -1,6 +1,6 @@
 # An Overview of Symmetric Encryption
 
-With symmetric encryption, a single key will be shared for encryption and decryption of information. In this version of WSO2 Identity Server, symmetric encryption is used by default. You can switch to [asymmetric key encryption]({{base_path}}/deploy/security/use-asymmetric-encryption) if required.
+With symmetric encryption, a single key will be shared for encryption and decryption of information. In this version of WSO2 Identity Server, symmetric encryption is used by default. You can switch to [asymmetric key encryption]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption) if required.
 
 
 !!! note

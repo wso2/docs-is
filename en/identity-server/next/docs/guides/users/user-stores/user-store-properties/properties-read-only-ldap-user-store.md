@@ -46,7 +46,7 @@ Following are the minimum user store properties that are required to configure t
 <br />
 If you are connecting over ldaps (secured LDAP).<br />
 you need to import the certificate of the user store to <code><&ZeroWidthSpace;IS_HOME>/repository/resources/security/client-truststore.jks</code>. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see <br />
-<a href="{{base_path}}/deploy/security/use-asymmetric-encryption">Use asymmetric encryption</a><br />
+<a href="{{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption">Use asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see<br />
 <a href="{{base_path}}/deploy/performance/performance-tuning-recommendations/#pool-ldaps-connections/">performance tuning ldaps pooling.</a></p></td>

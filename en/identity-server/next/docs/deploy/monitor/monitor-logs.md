@@ -17,7 +17,7 @@ Following are the various log types that are used in the WSO2 Identity Server—
 - **HTTP access logs:** HTTP requests/responses are logged in access logs to monitor the activities related to an application's usage. These logs are configured in the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
 !!! note
-    WSO2 Identity Server generates other log files in addition to the Carbon logs, Audit logs, HTTP access logs, Patch logs, and Service/Event logs. For more information, see [Monitor WSO2 Identity Server]({{base_path}}/deploy/monitor/index).
+    WSO2 Identity Server generates other log files in addition to the Carbon logs, Audit logs, HTTP access logs, Patch logs, and Service/Event logs. For more information, see [Monitor WSO2 Identity Server]({{base_path}}/deploy/monitor).
 
 ## Configure WSO2 Identity Server for log monitoring
 
