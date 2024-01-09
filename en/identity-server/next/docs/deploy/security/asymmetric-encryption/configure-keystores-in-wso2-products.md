@@ -1,6 +1,6 @@
 # Configure Keystores
 
-After you have [created a new keystore]({{base_path}}/deploy/security/create-new-keystores) and updated the `client-truststore.jks` file, you need to update a few configuration files in order to make the keystores work.
+After you have [created a new keystore]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores) and updated the `client-truststore.jks` file, you need to update a few configuration files in order to make the keystores work.
 Note that keystores are used for multiple functions in WSO2 Identity Server, which includes authenticating communication over SSL/TLS, encrypting passwords, and other confidential information in configuration files, etc. Therefore, you must update the specific configuration files with the updated keystore information.
 For example, you may have separate keystores for encrypting passwords in configuration files, and for authenticating communication over SSL/TLS.
 
@@ -10,7 +10,7 @@ The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, 
 
     1. Make sure to go through the [recommendations for setting up keystores]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption#recommendations-for-setting-up-keystores) to understand the various keystores you will need.
 
-    2. If you have not already created the keystores required for your system, see [creating new keystores]({{base_path}}/deploy/security/create-new-keystores).
+    2. If you have not already created the keystores required for your system, see [creating new keystores]({{base_path}}/deploy/asymmetric-encryption/create-new-keystores).
 
 
 ## Configure the primary keystore

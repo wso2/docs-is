@@ -9,7 +9,7 @@ Follow the steps below to add new keys to the **super tenant**
 1. Locate the `wso2carbon.jks` file in the `<IS_HOME>/repository/resources/security` directory in a command prompt.
 
     !!! info
-        wso2carbon is the default keystore. To learn how to change the default keystore, see [Create New Keystores]({{base_path}}/deploy/security/create-new-keystores) and [Configure Keystores]({{base_path}}/deploy/security/configure-keystores-in-wso2-products).
+        wso2carbon is the default keystore. To learn how to change the default keystore, see [Create New Keystores]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores) and [Configure Keystores]({{base_path}}/deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products).
 
 2. Follow the steps given below to generate the new keys and add them to the keystore.
 

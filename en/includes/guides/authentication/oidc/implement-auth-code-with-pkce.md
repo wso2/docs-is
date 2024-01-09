@@ -17,7 +17,7 @@ As shown above, you need to configure your application to get the authorization 
 To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, register a [single-page application]({{base_path}}/guides/applications/register-single-page-app/#register-app) or [mobile application]({{base_path}}/guides/applications/register-mobile-app/#register-app).
 
 !!! note
-    Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account]({{base_path}}/guides/users/manage-customers/).
+    Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account]({{base_path}}/guides/users/manage-users/).
 
 ## Get authorization code
 
