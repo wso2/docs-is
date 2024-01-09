@@ -1,7 +1,7 @@
 # Enable FIPS 140-2-compliant mode
 
 The [FIPS 140-2 standard](https://csrc.nist.gov/publications/detail/fips/140/2/final) is a standard created by the National Institute of Standards and Technology’s (NIST’s) Computer Security Division. It defines the requirements for cryptographic modules used to protect sensitive information in computer and telecommunication systems.
-See [FIPS 140-2 compliance reference]({{base_path}}/references/compliance/fips) for more information.
+See [FIPS 140-2 compliance reference]({{base_path}}/deploy/compliance/fips) for more information.
 
 From IS 7.0.0 release onwards, the Identity server supports running in a FIPS 140-2-compliant mode. When setting up in FIPS 140-2-compliant mode, the identity server uses the [Bouncy Castle FIPS Java API](https://www.bouncycastle.org/fips-java/).
 
