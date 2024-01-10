@@ -1,4 +1,4 @@
-# Extend SCIM 2.0 User Schemas
+# Extend SCIM 2.0 user schemas
  
 The System for Cross-domain Identity Management (SCIM) is a specification that is designed to manage user identities in cloud-based applications and services in a standardized way to enable interoperability, security, and scalability. It is an emerging open standard which provides RESTful APIs for easier, cheaper, and faster way for creating, provisioning, and maintaining identities. The latest version SCIM 2.0 was released as IETF RFC in September 2015.
 
