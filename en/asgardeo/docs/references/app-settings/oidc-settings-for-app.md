@@ -21,7 +21,7 @@
       <td>Binds the access token to the login session. {{product_name}} will issue a new access token for each new login and revoke the token upon logout. Supported with the <b>authorization_code</b> grant type.</td>
     </tr>
       <td>client-request</td>
-      <td>Binds the token to the instance identifier as requested by the client through the <code>tokenBindingReference</code> token request parameter. Supported with <b>all</b> grant types. Specifically designed for applications that involve multiple instances and have to use back-channel grant types such as <b>token exchange</b> or <b>password</b>.</td>.
+      <td>Binds the token to the instance identifier as requested by the client through the <code>tokenBindingId</code> token request parameter. Supported with <b>all</b> grant types. Specifically designed for applications that involve multiple instances and have to use back-channel grant types such as <b>token exchange</b> or <b>password</b>.</td>.
     </tr>
   </tbody>
 </table>" %}
