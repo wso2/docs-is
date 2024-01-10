@@ -15,7 +15,7 @@ paths:
         - Identity Providers
       summary: |
         List identity providers
-      description: "This API provides the capability to retrieve the list of identity providers. \n\n <b>Scope required:</b> ``internal_idp_view``"
+      description: "This API provides the capability to retrieve the list of identity providers. \n\n <b>Scope(Permission) required:</b> ``internal_idp_view``"
       operationId: getIDPs
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -71,7 +71,7 @@ paths:
         - Identity Providers
       summary: |
         Add a new identity provider
-      description: "This API provides the capability to create a new identity provider. \n\n <b>Scope required:</b> ``internal_idp_create``"
+      description: "This API provides the capability to create a new identity provider. \n\n <b>Scope(Permission) required:</b> ``internal_idp_create``"
       operationId: addIDP
       responses:
         '201':
@@ -238,7 +238,7 @@ paths:
         - Metadata
       summary: |
         List supported federated authenticators of IdPs
-      description: "This API provides the list of supported federated authenticators for an identity provider in Asgardeo. \n\n<b>Scope required:</b> <br>`internal_idp_view`"
+      description: "This API provides the list of supported federated authenticators for an identity provider in Asgardeo. \n\n<b>Scope(Permission) required:</b> <br>`internal_idp_view`"
       operationId: getMetaFederatedAuthenticators
       responses:
         '200':
@@ -284,7 +284,7 @@ paths:
         - Metadata
       summary: |
         Get metadata of a supported federated authenticator
-      description: "This API provides the details of a single supported federated authenticator for an identity provider in Asgardeo. \n\n<b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the details of a single supported federated authenticator for an identity provider in Asgardeo. \n\n<b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getMetaFederatedAuthenticator
       parameters:
         - name: federated-authenticator-id
@@ -335,7 +335,7 @@ paths:
         - Metadata
       summary: >
         List supported outbound provisioning connectors of IdPs
-      description: "This API provides the list of supported federated authenticators for an identity provider (IdP) in the Asgardeo. \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the list of supported federated authenticators for an identity provider (IdP) in the Asgardeo. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getMetaOutboundConnectors
       responses:
         '200':
@@ -381,7 +381,7 @@ paths:
         - Metadata
       summary: |
         Get metadata of a supported outbound provisioning connector
-      description: "This API provides the details of a single supported outbound provisioning connector for an identity provider (IdP) in the Asgardeo. \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the details of a single supported outbound provisioning connector for an identity provider (IdP) in the Asgardeo. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getMetaOutboundConnector
       parameters:
         - name: outbound-provisioning-connector-id
@@ -432,7 +432,7 @@ paths:
         - Identity Providers
       summary: |
         Retrieve IdP by ID
-      description: "This API provides the capability to retrieve the identity provider details using its ID. Furthermore, specifying the ``Accept : application/xml`` header provides the ability to export identity provider (IdP) data as XML. \n\n <b>Scope required:</b> ``internal_idp_view``"
+      description: "This API provides the capability to retrieve the identity provider details using its ID. Furthermore, specifying the ``Accept : application/xml`` header provides the ability to export identity provider (IdP) data as XML. \n\n <b>Scope(Permission) required:</b> ``internal_idp_view``"
       operationId: getIDP
       parameters:
         - name: identity-provider-id
@@ -494,7 +494,7 @@ paths:
         - Identity Providers
       summary: >
         Patch an IdP property by ID
-      description: "This API provides the capability to update an identity provider property using patch request. identity provider (IdP) patch is supported only for key-value pairs. \n\n <b>Scope required:</b> ``internal_idp_update``"
+      description: "This API provides the capability to update an identity provider property using patch request. identity provider (IdP) patch is supported only for key-value pairs. \n\n <b>Scope(Permission) required:</b> ``internal_idp_update``"
       operationId: patchIDP
       parameters:
         - name: identity-provider-id
@@ -563,7 +563,7 @@ paths:
         - Identity Providers
       summary: |
         Delete an identity provider by ID
-      description: "This API provides the capability to delete an identity provider by giving its ID. \n\n <b>Scope required:</b> ``internal_idp_delete``"
+      description: "This API provides the capability to delete an identity provider by giving its ID. \n\n <b>Scope(Permission) required:</b> ``internal_idp_delete``"
       operationId: deleteIDP
       parameters:
         - name: identity-provider-id
@@ -611,7 +611,7 @@ paths:
         - Federated Authenticators
       summary: |
         List federated authenticators of an IdP
-      description: "This API provides a list of federated authenticators enabled for a specific identity provider identified by its ID. \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides a list of federated authenticators enabled for a specific identity provider identified by its ID. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getFederatedAuthenticators
       parameters:
         - name: identity-provider-id
@@ -661,7 +661,7 @@ paths:
         - Federated Authenticators
       summary: |
         Update federated authenticators of an IdP
-      description: "This API updates federated authenticators enabled for a specific identity provider identified by its ID. \n\n <b>Scope required:</b> `internal_idp_update`"
+      description: "This API updates federated authenticators enabled for a specific identity provider identified by its ID. \n\n <b>Scope(Permission) required:</b> `internal_idp_update`"
       operationId: updateFederatedAuthenticators
       parameters:
         - name: identity-provider-id
@@ -736,7 +736,7 @@ paths:
         - Federated Authenticators
       summary: |
         Retrieve federated authenticator config of an IdP
-      description: "This API provides the capability to retrieve the federated authenticator information of an identity provider by giving the federated authenticator's ID. \n\n<b>Scope required:</b>`internal_idp_view`"
+      description: "This API provides the capability to retrieve the federated authenticator information of an identity provider by giving the federated authenticator's ID. \n\n<b>Scope(Permission) required:</b>`internal_idp_view`"
       operationId: getFederatedAuthenticator
       parameters:
         - name: identity-provider-id
@@ -792,7 +792,7 @@ paths:
         - Federated Authenticators
       summary: >
         Update a federated authenticator of an IdP
-      description: "This API provides the capability to update an identity provider's federated authenticator config by specifying the authenticator ID. \n\n <b>Scope required:</b> `internal_idp_update`"
+      description: "This API provides the capability to update an identity provider's federated authenticator config by specifying the authenticator ID. \n\n <b>Scope(Permission) required:</b> `internal_idp_update`"
       operationId: updateFederatedAuthenticator
       parameters:
         - name: identity-provider-id
@@ -872,7 +872,7 @@ paths:
         - Provisioning
       summary: |
         List provisioning entities of an IdP
-      description: "This API provides a list of available provisioning entities for an identity provider. This includes just-in-time provisioning config and outbound provisioning connectors \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides a list of available provisioning entities for an identity provider. This includes just-in-time provisioning config and outbound provisioning connectors \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getProvisioningConfig
       parameters:
         - name: identity-provider-id
@@ -923,7 +923,7 @@ paths:
         - Provisioning
       summary: |
         List outbound provisioning connectors of an IdP
-      description: "This API provides a list of outbound provisioning connectors enabled for an identity provider. \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides a list of outbound provisioning connectors enabled for an identity provider. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getOutboundConnectors
       parameters:
         - name: identity-provider-id
@@ -973,7 +973,7 @@ paths:
         - Provisioning
       summary: |
         Update outbound provisioning connectors of an IdP
-      description: "This API updates the list of outbound provisioning connectors enabled for an identity provider. \n\n <b>Scope required:</b> `internal_idp_update`"
+      description: "This API updates the list of outbound provisioning connectors enabled for an identity provider. \n\n <b>Scope(Permission) required:</b> `internal_idp_update`"
       operationId: updateOutboundConnectors
       parameters:
         - name: identity-provider-id
@@ -1050,7 +1050,7 @@ paths:
         - Provisioning
       summary: |
         Retrieve outbound provisioning connector of an IdP
-      description: "This API provides the capability to retrieve an identity provider's outbound provisioning connector information by specifying the provisioning connector's ID. \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the capability to retrieve an identity provider's outbound provisioning connector information by specifying the provisioning connector's ID. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getOutboundConnector
       parameters:
         - name: identity-provider-id
@@ -1106,7 +1106,7 @@ paths:
         - Provisioning
       summary: |
         Update outbound provisioning connector of an IdP
-      description: "This API provides the capability to update an outbound provisioning connector config of an identity provider by specifying the provisioning connector's ID. \n\n <b>Scope required:</b> `internal_idp_update`"
+      description: "This API provides the capability to update an outbound provisioning connector config of an identity provider by specifying the provisioning connector's ID. \n\n <b>Scope(Permission) required:</b> `internal_idp_update`"
       operationId: updateOutboundConnector
       parameters:
         - name: identity-provider-id
@@ -1188,7 +1188,7 @@ paths:
         - Claims
       summary: |
         Get claim config of an IdP
-      description: "This API provides the claim config for an identity provider. This includes idp-to-local claim mappings, claims to be outbound provisioned, userID claim URI, and role claim URI. \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the claim config for an identity provider. This includes idp-to-local claim mappings, claims to be outbound provisioned, userID claim URI, and role claim URI. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getClaimConfig
       parameters:
         - name: identity-provider-id
@@ -1238,7 +1238,7 @@ paths:
         - Claims
       summary: |
         Update claims of an IdP
-      description: "This API provides the capability to update the claim config of an existing identity provider.\n\n <b>Scope required:</b> `internal_idp_update`"
+      description: "This API provides the capability to update the claim config of an existing identity provider.\n\n <b>Scope(Permission) required:</b> `internal_idp_update`"
       operationId: updateClaimConfig
       parameters:
         - name: identity-provider-id
@@ -1326,7 +1326,7 @@ paths:
         - Roles
       summary: |
         Get role config of an IdP
-      description: "This API provides the role config of an identity provider. This includes idp-to-local role mappings and/or a list of roles to be outbound-provisioned \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the role config of an identity provider. This includes idp-to-local role mappings and/or a list of roles to be outbound-provisioned \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getRoleConfig
       parameters:
         - name: identity-provider-id
@@ -1376,7 +1376,7 @@ paths:
         - Roles
       summary: |
         Update role config of an IdP
-      description: "This API provides the capability to update the role config of an identity provider by specifying the identity provider ID. \n\n <b>Scope required:</b> `internal_idp_update`"
+      description: "This API provides the capability to update the role config of an identity provider by specifying the identity provider ID. \n\n <b>Scope(Permission) required:</b> `internal_idp_update`"
       operationId: updateRoleConfig
       parameters:
         - name: identity-provider-id
@@ -1452,7 +1452,7 @@ paths:
         - Provisioning
       summary: |
         Just-In-Time provisioning config of an IdP
-      description: "This API retrieves the Just-In-Time provisioning config of an identity provider by specifying the identity provider ID. \n\n <b>Scope required:</b> `internal_idp_view`"
+      description: "This API retrieves the Just-In-Time provisioning config of an identity provider by specifying the identity provider ID. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getJITConfig
       parameters:
         - name: identity-provider-id
@@ -1502,7 +1502,7 @@ paths:
         - Provisioning
       summary: |
         Update the just-in-time provisioning config of an IdP
-      description: "This API provides the capability to update the just-in-time provisioning config of an identity provider by specifying the identity provider's ID. This includes the ability to enable/disable JIT provisioning, change the provisioning user store and enable/disable user prompts for username, password, and consent. \n\n <b>Scope required:</b> `internal_idp_update`"
+      description: "This API provides the capability to update the just-in-time provisioning config of an identity provider by specifying the identity provider's ID. This includes the ability to enable/disable JIT provisioning, change the provisioning user store and enable/disable user prompts for username, password, and consent. \n\n <b>Scope(Permission) required:</b> `internal_idp_update`"
       operationId: updateJITConfig
       parameters:
         - name: identity-provider-id
@@ -1574,7 +1574,7 @@ paths:
         - Connected Apps
       summary: |
         List connected apps of the IdP
-      description: "This API provides the list of applications that use this identity provider for federated authentication/provisioning.\n\n<b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the list of applications that use this identity provider for federated authentication/provisioning.\n\n<b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getConnectedApps
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -1627,7 +1627,7 @@ paths:
         - Trusted Token Issuers
       summary: |
         List trusted token issuers
-      description: "This API provides the capability to retrieve the list of token issuers.\n\n<b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the capability to retrieve the list of token issuers.\n\n<b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getTrustedTokenIssuers
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -1673,7 +1673,7 @@ paths:
         - Trusted Token Issuers
       summary: |
         Add a new trusted token issuer
-      description: "This API provides the capability to create a token issuer. \n\n<b>Scope required:</b> `internal_idp_create`"
+      description: "This API provides the capability to create a token issuer. \n\n<b>Scope(Permission) required:</b> `internal_idp_create`"
       operationId: addTrustedTokenIssuer
       responses:
         '201':
@@ -1781,7 +1781,7 @@ paths:
         - Trusted Token Issuers
       summary: |
         Retrieve IdP by trusted token issuer's ID
-      description: "This API provides the capability to retrieve the trusted token issuer details by using its ID.\n\n<b>Scope required:</b> `internal_idp_view`"
+      description: "This API provides the capability to retrieve the trusted token issuer details by using its ID.\n\n<b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getTrustedTokenIssuer
       parameters:
         - name: trusted-token-issuer-id
@@ -1843,7 +1843,7 @@ paths:
         - Trusted Token Issuers
       summary: >
         Patch a trusted token issuer property by ID
-      description: "This API provides the capability to update a trusted token issuer property using patch request. Trusted token issuer patch is supported only for key-value pairs.\n\n<b>Scope required:</b> `internal_idp_update`"
+      description: "This API provides the capability to update a trusted token issuer property using patch request. Trusted token issuer patch is supported only for key-value pairs.\n\n<b>Scope(Permission) required:</b> `internal_idp_update`"
       operationId: patchTrustedTokenIssuer
       parameters:
         - name: trusted-token-issuer-id
@@ -1912,7 +1912,7 @@ paths:
         - Trusted Token Issuers
       summary: |
         Delete a trusted token issuer by ID
-      description: "This API provides the capability to delete a trusted token issuer by giving its ID. \n\n<b>Scope required:</b> ` internal_idp_delete`"
+      description: "This API provides the capability to delete a trusted token issuer by giving its ID. \n\n<b>Scope(Permission) required:</b> ` internal_idp_delete`"
       operationId: deleteTrustedTokenIssuer
       parameters:
         - name: trusted-token-issuer-id
