@@ -210,42 +210,65 @@ Shown below are ways to define a login flow using the core functions.
 
 - <b>Example 3: Use all parameters</b>
 
-    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be defined by the `options` object, such as `authenticationOptions` and `authenticatorParams`. However, you cannot write a script with only the `stepId` and `options`. See the following two examples:
+    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be 
+    defined by the `options` object, such as `authenticationOptions`, `authenticatorParams` and `stepOptions`. However, you cannot write a script with only the `stepId` and `options`. 
+
+    See the following examples:
 
     ``` js
-    executeStep(1, {
+     executeStep(1, {
         authenticationOptions:[{
-            authenticator: 'totp'
+           authenticator: 'totp'
         }]}, {}
-    );
+     );
     ```
     ``` js
     executeStep(1, {
         authenticatorParams: {
             local: {
-                email-otp-authenticator: {
-                      enableRetryFromAuthenticator: 'true'
-                }
+               email-otp-authenticator: {
+                    enableRetryFromAuthenticator: 'true'
+               }
             }
         }, {}
     );
     ```
-
+    ``` js
+     executeStep(1, {
+         stepOptions: {
+             forceAuth: 'true'
+         }, {}
+     );
+    ```
+  
 - <b>Example 4: Filter connections in a step</b>
   
     The `authenticationOptions` array filters out connections (local authenticators and federated identity providers) of a step based on a condition.
 
     This can be achieved by specifying an array named `authenticationOptions` to the `options` map.  You can have `idp` as an array item for federated connections and `authenticator` as an array item for local connections, as shown below.
 
-      ``` js
+    ``` js
       executeStep(1,{
         authenticationOptions:[{authenticator:'BasicAuthenticator'},{idp:'google'}]
         },{
             onSuccess: function (context) {
                 // Do something on success
       };
-      ```
+    ```
+  
+- <b>Example 5: Force authentication with <code>stepOptions</code></b>
+   
+     The `stepOptions` is an optional property that can be defined in the `executeStep`. This allows the addition of 
+     the `forceAuth` authentication option, which can prompt the authenticator in the steps to re-authenticate, even 
+     if it was already authenticated.
 
+    ``` js
+      executeStep(1,{
+         stepOptions: {
+            forceAuth: 'true'
+        }, {}
+      };
+    ```
 
 ### Fail the login flow
 
