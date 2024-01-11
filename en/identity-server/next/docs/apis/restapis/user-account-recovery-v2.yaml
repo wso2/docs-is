@@ -124,7 +124,7 @@ paths:
             'https://localhost:9443/api/users/v2/recovery/username/init' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
               "claims": [
                 {
@@ -250,6 +250,7 @@ paths:
             'https://localhost:9443/api/users/v2/recovery/username/recover' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
               "recoveryCode": "1234-5678-2455-3433",
               "channelId": "1",
@@ -394,6 +395,7 @@ paths:
             'https://localhost:9443/api/users/v2/recovery/password/init' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
               "claims": [
                 {
@@ -563,6 +565,7 @@ paths:
             'https://localhost:9443/api/users/v2/recovery/password/recover' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
               "recoveryCode": "1234-5678-2455-3433",
               "channelId": "1",
@@ -710,6 +713,7 @@ paths:
             'https://localhost:9443/api/users/v2/recovery/password/resend' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
               "resendCode": "1234-2ws34-1234",
               "properties": [
@@ -823,6 +827,7 @@ paths:
             'https://localhost:9443/api/users/v2/recovery/password/confirm' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
               "confirmationCode": "1234-2ws34-12345",
               "otp": "wi8Ivm",
@@ -944,6 +949,7 @@ paths:
             'https://localhost:9443/api/users/v2/recovery/password/reset' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d '{
               "resetCode": "string",
               "flowConfirmationCode": "string",
