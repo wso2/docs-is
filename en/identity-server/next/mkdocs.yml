@@ -463,6 +463,8 @@ nav:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
+        - User provisioning:
+          - Extend SCIM 2.0 user schemas: references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Default ports: references/default-ports.md
