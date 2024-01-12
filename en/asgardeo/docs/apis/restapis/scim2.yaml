@@ -28,7 +28,7 @@ paths:
       - Me Endpoint
       summary: Get Me
       description: "This API returns the user details of the currently authenticated user.\n\n
-      - <b>Scope required:</b> ``internal_login`` \n\n
+      - <b>Scope(Permission) required:</b> ``internal_login`` \n\n
       - <b>Flow type:</b> Authorization Code OAuth Flow"
       parameters:
       - name: attributes
@@ -72,7 +72,7 @@ paths:
       - Me Endpoint
       summary: Update Me
       description: "This API uses a PUT operation to update user details.\n\n  
-      - <b>Scope required:</b>``internal_login``\n\n
+      - <b>Scope(Permission) required:</b>``internal_login``\n\n
       - <b>Flow type:</b> Authorization Code OAuth Flow"
       operationId: updateUserMe
       parameters:
@@ -143,7 +143,7 @@ paths:
       - Me Endpoint
       summary: Update Me - PATCH
       description: "This API uses a PATCH operation to update user details.\n\n
-      - <b>Scope required:</b> ``internal_login`` \n\n
+      - <b>Scope(Permission) required:</b> ``internal_login`` \n\n
       - <b>Flow type:</b> Authorization Code OAuth Flow"
       operationId: patchUserMe
       parameters:
@@ -210,7 +210,7 @@ paths:
       - Groups Endpoint
       summary: Filter Groups
       description: "This API returns groups according to the specified filter, sort, and pagination parameters.\n\n  
-      - <b>Scope required:</b> ``internal_group_mgt_view`` \n\n
+      - <b>Scope(Permission) required:</b> ``internal_group_mgt_view`` \n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: getGroup
       parameters:
@@ -277,7 +277,7 @@ paths:
       - Groups Endpoint
       summary: Create Group
       description: "This API creates a group and returns the details of the created group including its unique ID.\n\n
-      - <b>Scope required:</b> ``internal_group_mgt_create``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_group_mgt_create``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: createGroup
       parameters:
@@ -342,7 +342,7 @@ paths:
       - Groups Endpoint
       summary: Search Groups
       description: "This API returns groups according to the specified filter, sort, and pagination parameters.\n\n
-      - <b>Scope required:</b> ``internal_group_mgt_view``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_group_mgt_view``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: getGroupsByPost
       requestBody:
@@ -392,7 +392,7 @@ paths:
       - Groups Endpoint
       summary: Get Group by ID
       description: "This API returns the group details of a particular group using its unique ID.\n\n
-        - <b>Scope required:</b> ``internal_group_mgt_view``\n\n
+        - <b>Scope(Permission) required:</b> ``internal_group_mgt_view``\n\n
         - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: getGroup by id
       parameters:
@@ -449,7 +449,7 @@ paths:
       - Groups Endpoint
       summary: Update Group - PUT
       description: "This API updates the group details and returns the updated group details using a PUT operation.\n\n
-      - <b>Scope required:</b> ``internal_group_mgt_update`` \n\n
+      - <b>Scope(Permission) required:</b> ``internal_group_mgt_update`` \n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: updateGroup
       parameters:
@@ -529,7 +529,7 @@ paths:
       - Groups Endpoint
       summary: Delete Group
       description: "This API deletes a particular group using its unique ID.\n\n 
-      - <b>Scope required:</b> ``internal_group_mgt_delete``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_group_mgt_delete``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: deleteGroup
       parameters:
@@ -573,7 +573,7 @@ paths:
       - Groups Endpoint
       summary: Update Group - PATCH
       description: "This API updates the group details and returns the updated group details using a PATCH operation.\n\n 
-      - <b>Scope required:</b> ``internal_group_mgt_update``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_group_mgt_update``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: patchGroup
       parameters:
@@ -657,7 +657,7 @@ paths:
       - Users Endpoint
       summary: Filter Users
       description: "This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores.\n\n
-      - <b>Scope required:</b> ``internal_user_mgt_list``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_user_mgt_list``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: getUser
       parameters:
@@ -724,7 +724,7 @@ paths:
       - Users Endpoint
       summary: Create User
       description: "This API creates a user and returns the user details along with the user's unique ID.\n\n
-      - <b>Scope required:</b> ``internal_user_mgt_create``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_user_mgt_create``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: createUser
       parameters:
@@ -815,7 +815,7 @@ paths:
       - Users Endpoint
       summary: Search Users
       description: "This API returns users according to the filter, sort and pagination parameters.\n\n 
-      - <b>Scope required:</b> ``internal_user_mgt_list``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_user_mgt_list``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: getUsersByPost
       requestBody:
@@ -871,7 +871,7 @@ paths:
       - Users Endpoint
       summary: Get User by ID
       description: "Return user details if a user found.\n\n
-      - <b>Scope required:</b> ``internal_user_mgt_view``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_user_mgt_view``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: getUser by id
       parameters:
@@ -928,7 +928,7 @@ paths:
       - Users Endpoint
       summary: Update User - PUT
       description: "This API updates user details and return the updated user details using a PUT operation.\n\n 
-      - <b>Scope required:</b> ``internal_user_mgt_update``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_user_mgt_update``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: updateUser
       parameters:
@@ -1012,7 +1012,7 @@ paths:
       - Users Endpoint
       summary: Delete User by ID
       description: "This API deletes a user using the user's unique ID.\n\n 
-      - <b>Scope required:</b> ``internal_user_mgt_delete``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_user_mgt_delete``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: deleteUser
       parameters:
@@ -1056,7 +1056,7 @@ paths:
       - Users Endpoint
       summary: Update User - PATCH
       description: "This API updates user details and returns the updated user details using a PATCH operation.\n\n 
-      - <b>Scope required:</b> ``internal_user_mgt_update``\n\n
+      - <b>Scope(Permission) required:</b> ``internal_user_mgt_update``\n\n
       - <b>Supported Operations:</b>``add``, ``replace``, ``remove``\n\n
       - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: patchUser
@@ -1142,8 +1142,7 @@ paths:
                     - **PATCH** operation: Updates attribues of an existing resource. </br>
                     - **DELETE** operation: Removes an existing resource. </br>
                    
-                   - <b>Scopes required:</b> ``internal_user_mgt_create`` ``internal_user_mgt_list`` ``internal_user_mgt_view``
-                  ``internal_user_mgt_delete``\n\n
+                   - <b>Scopes required:</b> ``internal_bulk_mgt_create``\n\n
                    - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: createBulkUsers
       requestBody:
@@ -1215,7 +1214,8 @@ paths:
       tags:
       - Resource Type Endpoint
       summary: Get Resource Types
-      description: "This API lists and returns metadata about resource types."
+      description: "This API lists and returns metadata about resource types.\n\n
+              <b>No Scope(Permission) required.</b>"
       operationId: getResourceType
       responses:
         200:
@@ -1248,7 +1248,8 @@ paths:
       tags:
       - Service Provider Config Endpoint
       summary: Get Service Provider Config
-      description: This API returns the service provider's configuration details.
+      description: "This API returns the service provider's configuration details.\n\n
+              <b>No Scope(Permission) required.</b>"
       operationId: getServiceProviderConfig
       responses:
         200:
@@ -2117,7 +2118,7 @@ components:
             schemas:
               type: array
               description: Specify the list of SCIM2 user schemas to which the new user should be linked.
-              examples:
+              example:
                 - urn:ietf:params:scim:schemas:core:2.0:User
                 - urn:ietf:params:scim:schemas:enterprise:2.0:User
                 - urn:scim:wso2:schema
@@ -2163,7 +2164,7 @@ components:
             op:
               type: string
               description: The operation that should be applied to the existing user data.
-              examples:
+              example:
                 - add
                 - replace
                 - remove
@@ -2205,7 +2206,7 @@ components:
             schemas:
               type: array
               description: Specify the list of SCIM2 user schemas to which the new user should be linked.
-              examples:
+              example:
                 - urn:ietf:params:scim:schemas:core:2.0:User
                 - urn:ietf:params:scim:schemas:enterprise:2.0:User
                 - urn:scim:wso2:schema
@@ -2312,7 +2313,7 @@ components:
             op:
               type: string
               description: The operation that should be applied to the existing user group.
-              examples: 
+              example:
                 - add
                 - replace
                 - remove
@@ -2686,21 +2687,6 @@ components:
         detail:
           type: string
           example: Internal Server Error.
-    ErrorNotimplemented:
-      required:
-      - detail
-      - status
-      type: object
-      properties:
-        status:
-          type: string
-          example: "501"
-        schemas:
-          type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
-        detail:
-          type: string
-          example: Self delete is not supported.
   securitySchemes:
     OAuth2:
       type: oauth2
