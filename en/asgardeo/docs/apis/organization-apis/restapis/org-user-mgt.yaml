@@ -26,7 +26,7 @@ paths:
       summary: Filter Users
       description: "This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores.\n\n
       
-      <b>Scope required:</b> ``internal_org_user_mgt_list``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_user_mgt_list``\n\n"
       operationId: getUser
       parameters:
         - name: attributes
@@ -93,7 +93,7 @@ paths:
       summary: Create User
       description: "This API creates a user and returns the user details along with the user's unique ID.\n\n
       
-      <b>Scope required:</b> ``internal_org_user_mgt_create``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_user_mgt_create``\n\n"
       operationId: createUser
       parameters:
         - name: attributes
@@ -184,7 +184,7 @@ paths:
       summary: Search Users
       description: "This API returns users according to the filter, sort and pagination parameters.\n\n 
       
-      <b>Scope required:</b> ``internal_org_user_mgt_list``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_user_mgt_list``\n\n"
       operationId: getUsersByPost
       requestBody:
         content:
@@ -240,7 +240,7 @@ paths:
       summary: Get User by ID
       description: "Return user details if a user found.\n\n
       
-      <b>Scope required:</b> ``internal_org_user_mgt_view``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_user_mgt_view``\n\n"
       operationId: getUser by id
       parameters:
         - name: id
@@ -297,7 +297,7 @@ paths:
       summary: Update User - PUT
       description: "This API updates user details and return the updated user details using a PUT operation.\n\n 
       
-      <b>Scope required:</b> ``internal_org_user_mgt_update``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_user_mgt_update``\n\n"
       operationId: updateUser
       parameters:
         - name: id
@@ -381,7 +381,7 @@ paths:
       summary: Delete User by ID
       description: "This API deletes a user using the user's unique ID.\n\n 
       
-      <b>Scope required:</b> ``internal_org_user_mgt_delete``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_user_mgt_delete``\n\n"
       operationId: deleteUser
       parameters:
         - name: id
@@ -425,7 +425,7 @@ paths:
       summary: Update User - PATCH
       description: "This API updates user details and returns the updated user details using a PATCH operation.\n\n 
       
-      <b>Scope required:</b> ``internal_org_user_mgt_update``\n\n
+      <b>Scope(Permission) required:</b> ``internal_org_user_mgt_update``\n\n
       
       <b>Supported Operations:</b>``add``, ``replace``, ``remove``\n\n"
       operationId: patchUser
