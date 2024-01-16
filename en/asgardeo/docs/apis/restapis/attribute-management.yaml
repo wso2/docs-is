@@ -15,7 +15,7 @@ paths:
       tags:
       - Claims (local)
       summary: Retrieve local claims.
-      description: Retrieve local claims. </br></br><b>Scope required:</b>
+      description: Retrieve local claims. </br></br><b>Scope(Permission) required:</b>
         ``internal_claim_meta_view``
       operationId: getLocalClaims
       parameters:
@@ -83,7 +83,7 @@ paths:
       - Claims (local)
       summary: Add a local claim.
       description: Add a new claim. <br>
-        <br> <b>Scope required:</b> ``internal_claim_meta_create``
+        <br> <b>Scope(Permission) required:</b> ``internal_claim_meta_create``
       operationId: addLocalClaim
       requestBody:
         description: Local claim to be added.
@@ -161,7 +161,7 @@ paths:
       tags:
       - Claims (local)
       summary: Retrieve a local claim.
-      description: Retrieve a local claim matching the given claim ID. </br></br><b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve a local claim matching the given claim ID. </br></br><b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getLocalClaim
       parameters:
       - name: claim-id
@@ -212,7 +212,7 @@ paths:
       tags:
       - Claims (local)
       summary: Update a local claim.
-      description: Update a local claim. </br></br> <b>Scope required:</b> ``internal_claim_meta_update``
+      description: Update a local claim. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_update``
       operationId: updateLocalClaim
       parameters:
       - name: claim-id
@@ -291,7 +291,7 @@ paths:
       tags:
       - Claims (local)
       summary: Delete a local claim.
-      description: Delete a claim by claim ID. </br></br> <b>Scope required:</b> ``internal_claim_meta_delete``
+      description: Delete a claim by claim ID. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_delete``
       operationId: deleteLocalClaim
       parameters:
       - name: claim-id
@@ -335,7 +335,7 @@ paths:
       tags:
       - Claim dialects
       summary: Retrieve claim dialects.
-      description: Retrieve claim dialects. </br></br> <b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve claim dialects. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getClaimDialects
       parameters:
       - name: limit
@@ -395,7 +395,7 @@ paths:
       tags:
       - Claim dialects
       summary: Add a claim dialect.
-      description: Add a new claim dialect. </br></br> <b>Scope required:</b>``internal_claim_meta_create``
+      description: Add a new claim dialect. </br></br> <b>Scope(Permission) required:</b>``internal_claim_meta_create``
       operationId: addClaimDialect
       requestBody:
         description: claim dialect to add.
@@ -454,7 +454,7 @@ paths:
       tags:
       - Claim dialects
       summary: Retrieve a claim dialect.
-      description: Retrieve a claim dialect matching the given dialect id. </br></br><b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve a claim dialect matching the given dialect id. </br></br><b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getClaimDialect
       parameters:
       - name: dialect-id
@@ -505,7 +505,7 @@ paths:
       tags:
       - Claim dialects
       summary: Update a claim dialect.
-      description: Update a claim dialect. </br></br> <b>Scope required:</b>``internal_claim_meta_update``
+      description: Update a claim dialect. </br></br> <b>Scope(Permission) required:</b>``internal_claim_meta_update``
       operationId: updateClaimDialect
       parameters:
       - name: dialect-id
@@ -559,7 +559,7 @@ paths:
       tags:
       - Claim dialects
       summary: Delete a claim dialect.
-      description: Delete a claim dialect by claim ID. </br></br> <b>Scope required:</b> ``internal_claim_meta_delete``
+      description: Delete a claim dialect by claim ID. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_delete``
       operationId: deleteClaimDialect
       parameters:
       - name: dialect-id
@@ -603,7 +603,7 @@ paths:
       tags:
       - Claims (external)
       summary: Retrieve external claims.
-      description: Retrieve External claims.</br></br><b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve External claims.</br></br><b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getExternalClaims
       parameters:
       - name: dialect-id
@@ -676,7 +676,7 @@ paths:
       tags:
       - Claims (External)
       summary: Add an external claim.
-      description: Add a new external claim. </br></br> <b>Scope required:</b> ``internal_claim_meta_create``
+      description: Add a new external claim. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_create``
       operationId: addExternalClaim
       parameters:
       - name: dialect-id
@@ -750,7 +750,7 @@ paths:
       - Claims (External)
       summary: Retrieve an external claim.
       description: Retrieve an external claim matching the given dialect ID and claim
-        ID. </br></br> <b>Scope required:</b> ``internal_claim_meta_view``
+        ID. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getExternalClaim
       parameters:
       - name: dialect-id
@@ -808,7 +808,7 @@ paths:
       tags:
       - Claims (External)
       summary: Update an external claim.
-      description: Update an external claim. </br></br> <b>Scope required:</b> ``internal_claim_meta_update``
+      description: Update an external claim. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_update``
       operationId: updateExternalClaim
       parameters:
       - name: dialect-id
@@ -876,7 +876,7 @@ paths:
       tags:
       - Claims (External)
       summary: Delete an external claim.
-      description: Delete a claim by dialect ID and claim ID. </br></br><b>Scope required:</b> ``internal_claim_meta_delete``
+      description: Delete a claim by dialect ID and claim ID. </br></br><b>Scope(Permission) required:</b> ``internal_claim_meta_delete``
       operationId: deleteExternalClaim
       parameters:
       - name: dialect-id
@@ -926,9 +926,9 @@ paths:
       tags:
         - Claim dialects
       summary: Export a claim dialect with claims.
-      description: Retrieve a claim dialect for a given dialect ID along with all 
-        related claims as a XML, YAML, or JSON file. 
-        </br></br> <b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve a claim dialect for a given dialect ID along with all
+        related claims as a XML, YAML, or JSON file.
+        </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: exportClaimDialectToFile
       parameters:
         - $ref: '#/components/parameters/dialectIdPathParam'
@@ -972,9 +972,9 @@ paths:
       tags:
       - Claim dialects
       summary: Update a claim dialect with claims.
-      description: Update a claim dialect and all related claims from a file 
-        in XML, YAML, or JSON format. 
-        </br></br> <b>Scope required:</b> ``internal_claim_meta_create``
+      description: Update a claim dialect and all related claims from a file
+        in XML, YAML, or JSON format.
+        </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_create``
       operationId: updateClaimDialectFromFile
       parameters:
         - $ref: '#/components/parameters/preserveClaimsParam'
@@ -1007,9 +1007,9 @@ paths:
       tags:
       - Claim dialects
       summary: Import an external claim dialect with claims.
-      description: Import a external claim dialect with related claims from a file 
+      description: Import a external claim dialect with related claims from a file
         in XML, YAML, or JSON format. </br>
-        <b>Scope required:</b> ``internal_claim_meta_create``
+        <b>Scope(Permission) required:</b> ``internal_claim_meta_create``
       operationId: importClaimDialectFromFile
       requestBody:
         required: true

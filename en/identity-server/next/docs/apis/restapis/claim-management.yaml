@@ -22,9 +22,8 @@ paths:
       tags:
       - management
       summary: Retrieve local claims
-      description: Retrieve local claims. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/view` <br>
-        <b>Scope required:</b> `internal_claim_meta_view`
+      description: Retrieve local claims. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_claim_meta_view`
       operationId: getLocalClaims
       parameters:
       - name: attributes
@@ -90,9 +89,8 @@ paths:
       tags:
       - management
       summary: Add a local claim
-      description: Add a new claim. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/create` <br> 
-        <b>Scope required:</b> `internal_claim_meta_create`
+      description: Add a new claim. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_claim_meta_create`
       operationId: addLocalClaim
       requestBody:
         description: Local claim to be added.
@@ -170,9 +168,8 @@ paths:
       tags:
       - management
       summary: Retrieve local claim by ID
-      description: Retrieve a local claim matching the given claim ID. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/view`
-        <br> <b>Scope required:</b> `internal_claim_meta_view`
+      description: Retrieve a local claim matching the given claim ID. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_claim_meta_view`
       operationId: getLocalClaim
       parameters:
       - name: claim-id
@@ -223,9 +220,8 @@ paths:
       tags:
       - management
       summary: Update a local claim by ID
-      description: Update a local claim. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/update`
-        <br> <b>Scope required:</b> `internal_claim_meta_update`
+      description: Update a local claim. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_claim_meta_update`
       operationId: updateLocalClaim
       parameters:
       - name: claim-id
@@ -304,9 +300,8 @@ paths:
       tags:
       - management
       summary: Delete a local claim
-      description: Delete a claim by claim ID. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/delete` <br> 
-        <b>Scope required:</b> `internal_claim_meta_delete`
+      description: Delete a claim by claim ID. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_claim_meta_delete`
       operationId: deleteLocalClaim
       parameters:
       - name: claim-id
@@ -349,9 +344,8 @@ paths:
       tags:
       - management
       summary: Retrieve claim dialects
-      description: Retrieve claim dialects. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/view` <br> 
-        <b>Scope required:</b> `internal_claim_meta_view`
+      description: Retrieve claim dialects. <br>
+        <br><b>Scope(Permission) required:</b> `internal_claim_meta_view`
       operationId: getClaimDialects
       parameters:
       - name: limit
@@ -411,9 +405,8 @@ paths:
       tags:
       - management
       summary: Add a claim dialect
-      description: Add a new claim dialect. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/create` <br> 
-        <b>Scope required:</b> `internal_claim_meta_create`
+      description: Add a new claim dialect. <br>
+        <br><b>Scope(Permission) required:</b> `internal_claim_meta_create`
       operationId: addClaimDialect
       requestBody:
         description: claim dialect to add.
@@ -472,9 +465,8 @@ paths:
       tags:
       - management
       summary: Retrieve claim dialect
-      description: Retrieve a claim dialect matching the given dialect id. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/view`
-        <br> <b>Scope required:</b> `internal_claim_meta_view` <br>
+      description: Retrieve a claim dialect matching the given dialect id. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_claim_meta_view` <br>
       operationId: getClaimDialect
       parameters:
       - name: dialect-id
@@ -525,9 +517,8 @@ paths:
       tags:
       - management
       summary: Update a claim dialect
-      description: Update a claim dialect. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/update` <br> 
-        <b>Scope required:</b> `internal_claim_meta_update`
+      description: Update a claim dialect. <br>
+        <br><b>Scope(Permission) required:</b> `internal_claim_meta_update`
       operationId: updateClaimDialect
       parameters:
       - name: dialect-id
@@ -581,9 +572,8 @@ paths:
       tags:
       - management
       summary: Delete a claim dialect
-      description: Delete a claim dialect by claim ID. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/delete` <br> 
-        <b>Scope required:</b> `internal_claim_meta_delete`
+      description: Delete a claim dialect by claim ID. <br>
+        <br><b>Scope(Permission) required:</b> `internal_claim_meta_delete`
       operationId: deleteClaimDialect
       parameters:
       - name: dialect-id
@@ -626,9 +616,8 @@ paths:
       tags:
       - management
       summary: Retrieve external claims
-      description: Retrieve External claims. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/view` <br> 
-        <b>Scope required:</b> `internal_claim_meta_view`
+      description: Retrieve External claims. <br>
+        <br><b>Scope(Permission) required:</b> `internal_claim_meta_view`
       operationId: getExternalClaims
       parameters:
       - name: dialect-id
@@ -700,9 +689,8 @@ paths:
       tags:
       - management
       summary: Add an external claim
-      description: Add a new external claim. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/create` <br> 
-        <b>Scope required:</b> `internal_claim_meta_create`
+      description: Add a new external claim. <br>
+        <br><b>Scope(Permission) required:</b> `internal_claim_meta_create`
       operationId: addExternalClaim
       parameters:
       - name: dialect-id
@@ -775,9 +763,8 @@ paths:
       tags:
       - management
       summary: Retrieve external claim
-      description: Retrieve an external claim matching the given dialect ID and claim ID. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/view`
-        <br> <b>Scope required:</b> `internal_claim_meta_view`
+      description: Retrieve an external claim matching the given dialect ID and claim ID. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_claim_meta_view`
       operationId: getExternalClaim
       parameters:
       - name: dialect-id
@@ -834,9 +821,8 @@ paths:
       tags:
       - management
       summary: Update an external claim
-      description: Update an external claim. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/update` <br> 
-        <b>Scope required:</b> `internal_claim_meta_update`
+      description: Update an external claim. <br>
+        <br><b>Scope(Permission) required:</b> `internal_claim_meta_update`
       operationId: updateExternalClaim
       parameters:
       - name: dialect-id
@@ -903,9 +889,8 @@ paths:
       tags:
       - management
       summary: Delete an external claim
-      description: Delete a claim by dialect ID and claim ID. <br> 
-        <b>Permission required:</b> `/permission/admin/manage/identity/claimmgt/metadata/delete` <br> 
-        <b>Scope required:</b> `internal_claim_meta_delete`
+      description: Delete a claim by dialect ID and claim ID. <br>
+        <br>  <b>Scope(Permission) required:</b> `internal_claim_meta_delete`
       operationId: deleteExternalClaim
       parameters:
       - name: dialect-id
