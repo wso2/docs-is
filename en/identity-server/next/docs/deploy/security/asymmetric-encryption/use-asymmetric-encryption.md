@@ -69,7 +69,7 @@ Follow the recommendations given below when you set up your keystores.
         The primary keystore will also be used for signing messages when the product communicates with external parties (such as SAML, OIDC id_token signing).
 
     !!! tip
-        You can have separate keystores for encrypting sensitive information for internal data encryption as a recommended practice. See [Configuring Keystores in WSO2 Identity Server]({{base_path}}/deploy/security/configure-keystores-in-wso2-products) for details.
+        You can have separate keystores for encrypting sensitive information for internal data encryption as a recommended practice. See [Configuring Keystores in WSO2 Identity Server]({{base_path}}/deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products) for details.
 
 - Maintain another secondary keystore, containing the server’s public key certificate for authenticating communication over SSL/TLS (for both Tomcat and Axis2 level HTTP connections).
 
@@ -90,8 +90,8 @@ Follow the recommendations given below when you set up your keystores.
 
 - Optionally, you can set up separate keystores for message-level data encryption in WS-Security.
 
-- If you already have the required keystores, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Add CA-signed certificates]({{base_path}}/deploy/security/create-new-keystores#add-ca-signed-certificates-to-keystores) to keystores for instructions.
+- If you already have the required keystores, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Add CA-signed certificates]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores#add-ca-signed-certificates-to-keystores) to keystores for instructions.
 
 !!! info "Related topics"
-    -   [Deploy: Create New Keystores]({{base_path}}/deploy/security/create-new-keystores)
-    -   [Deploy: Configure Keystores]({{base_path}}/deploy/security/configure-keystores-in-wso2-products)
+    -   [Deploy: Create New Keystores]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores)
+    -   [Deploy: Configure Keystores]({{base_path}}/deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products)

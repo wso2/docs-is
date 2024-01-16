@@ -36,4 +36,4 @@ create_admin_account = false
     Update the `         username       ` section of your configuration as shown above. You do not have to update the password element as it is already set in the user store.  
 
 For information about the system administrator user, see [Configure the System Administrator]({{base_path}}/deploy/configure/user-stores/configure-system-administrator), and for
-information on how keystores are used in WSO2 Identity Server, see [Use Asymmetric Encryption]({{base_path}}/deploy/security/use-asymmetric-encryption).  
+information on how keystores are used in WSO2 Identity Server, see [Use Asymmetric Encryption]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption).  

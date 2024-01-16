@@ -24,7 +24,7 @@ Administrators of your organization can follow the steps below to add another ad
 6. Review the summary and click **Finish**.
 
     !!! note
-        The created administrator will be listed in the **Console Settings** page under the **Members** tab.
+        The created administrator will be listed in the **Console Settings** page under the **Administrators** tab.
 
         ![Administrator page]({{base_path}}/assets/img/guides/users/administrator-list.png){: width="1000"}
 

@@ -23,7 +23,7 @@ Consider a scenario with two user groups, `manager` and `employee`. For users as
 - Create two user groups named `manager` and `employee` and assign user accounts to them. For instructions, see the following:
 
       - [Managing groups]({{base_path}}/guides/users/manage-groups/)
-      - [Managing users]({{base_path}}/guides/users/manage-customers/)
+      - [Managing users]({{base_path}}/guides/users/manage-users/)
 
 ## Configure the login flow
 

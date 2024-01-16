@@ -103,7 +103,7 @@ Note that {{ product_name }} will remember the language selected from this switc
 
 ### Browser-level settings
 
-The language preference specified in the user's browser is applied to {{ product_name }} interfaces by default, provided it is an {{ product_name }}-supported language. However, the user can still change the language on the {{ product_name }} interfaces by using the [language switcher](#language-switcher).
+{{ product_name }} interfaces automatically adapt to the language preference set in the user's browser, as long as the language is supported by {{ product_name }}. However, the user can still change the language on the {{ product_name }} interfaces by using the [language switcher](#language-switcher).
 
 ### Application-level settings
 

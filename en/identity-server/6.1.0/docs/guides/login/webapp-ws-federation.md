@@ -69,7 +69,7 @@ To configure additional properties for the sample application:
     | Field name | Value | Description  |
     |------------|-------|--------------|
     | **Passive STS Realm** | `PassiveSTSSampleApp`  | This should be a unique identifier for the web app. Provide the same realm name given to the web app you are configuring WS-Federation for. |
-    | **Assertion Consumer URL**    | `http://localhost:8080/PassiveSTSSampleApp/index.jsp`    | Provide the URL of the web app you are configuring WS-Federation for. This endpoint URL will handle the token response. |
+    | **Passive STS WReply URL**    | `http://localhost:8080/PassiveSTSSampleApp/index.jsp`    | Provide the URL of the web app you are configuring WS-Federation for. This endpoint URL will handle the token response. |
 
 4. Expand **Claim Configuration** and click **Add Claim URI** next to **Requested Claims**, and add the following claims:
 

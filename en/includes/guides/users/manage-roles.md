@@ -44,7 +44,7 @@ To create a role and assign permissions to it:
    
     !!! note
         - If you have selected `Applciation` audience, you can select permissions from only the [APIs authorized to the selected application]({{base_path}}/guides/api-authorization/#authorize-the-api-resources-for-an-app).
-        - If you have selected `Organization` audience, you can select permissions from management and organization APIS of {{ product_name }}, and [registered business specific APIs]({{base_path}}/guides/api-authorization/#register-an-api-resource).
+        - If you have selected `Organization` audience, you can select permissions from management and organization APIs of {{ product_name }}, and [registered business specific APIs]({{base_path}}/guides/api-authorization/#register-an-api-resource).
 
     ![Assign permission on role creation]({{base_path}}/assets/img/guides/roles/assign-permissions-to-role-on-creation.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -176,3 +176,24 @@ If the selected role's audience is:
 
  - `Application` - Deleting the role will also delete its association with the respective application.
  - `Organization` - If the role is linked to one or more applications, the deletion process will fail.
+
+## Associate roles to an application
+
+!!! note
+    If you create a role with the `Application` audience, the role will be associated to the selected application during role creation. That role can't be associated with any other application.
+    This section describes how to associate a role in organization audience to an application.
+
+To associate a role in organization audience to an application:
+
+1. On the {{ product_name }} Console, go to **Applications**.
+2. Select the application to which you wish to associate the role.
+3. Click **Edit** and navigate to **Roles** tab.
+4. Select **Organization** as Role Audience, and select the roles from the dropdown.
+   
+    !!! warning
+        If you have previously selected `application` as the allowed audience for associating roles in this application, and now switching to `organization` audience,
+        the application roles currently associated with the application will be permanently deleted.
+
+    ![Associate organization audience roles to app]({{base_path}}/assets/img/guides/roles/associate-org-audience-roles-to-app.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+5. Click **Update**.

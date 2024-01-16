@@ -21,7 +21,9 @@
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
     - [`getAssociatedLocalUser()`](#get-associated-user)
-
+    - [`httpGet()`](#http-get)
+    - [`httpPost()`](#http-post)
+  
 - [Object references](#object-reference): You can use objects to capture user behaviors and set attributes. For example, you can use the **user** and **request** objects and write the login conditions accordingly. Listed below are the object references that can be used in conditional authentication scripts.
   
     - [`context`](#context)
@@ -165,7 +167,7 @@ This section describes the **options** you can use to configure the `executeStep
           <td>Magic Link</td><td>MagicLinkAuthenticator</td>
         </tr>
         <tr>
-          <td>Security Key/Biometrics</td><td>FIDOAuthenticator</td>
+          <td>Passkeys</td><td>FIDOAuthenticator</td>
         </tr>
         <tr>
           <td>SMS OTP</td><td>sms-otp-authenticator</td>
@@ -208,42 +210,65 @@ Shown below are ways to define a login flow using the core functions.
 
 - <b>Example 3: Use all parameters</b>
 
-    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be defined by the `options` object, such as `authenticationOptions` and `authenticatorParams`. However, you cannot write a script with only the `stepId` and `options`. See the following two examples:
+    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be 
+    defined by the `options` object, such as `authenticationOptions`, `authenticatorParams` and `stepOptions`. However, you cannot write a script with only the `stepId` and `options`. 
+
+    See the following examples:
 
     ``` js
-    executeStep(1, {
+     executeStep(1, {
         authenticationOptions:[{
-            authenticator: 'totp'
+           authenticator: 'totp'
         }]}, {}
-    );
+     );
     ```
     ``` js
     executeStep(1, {
         authenticatorParams: {
             local: {
-                email-otp-authenticator: {
-                      enableRetryFromAuthenticator: 'true'
-                }
+               email-otp-authenticator: {
+                    enableRetryFromAuthenticator: 'true'
+               }
             }
         }, {}
     );
     ```
-
+    ``` js
+     executeStep(1, {
+         stepOptions: {
+             forceAuth: 'true'
+         }, {}
+     );
+    ```
+  
 - <b>Example 4: Filter connections in a step</b>
   
     The `authenticationOptions` array filters out connections (local authenticators and federated identity providers) of a step based on a condition.
 
     This can be achieved by specifying an array named `authenticationOptions` to the `options` map.  You can have `idp` as an array item for federated connections and `authenticator` as an array item for local connections, as shown below.
 
-      ``` js
+    ``` js
       executeStep(1,{
         authenticationOptions:[{authenticator:'BasicAuthenticator'},{idp:'google'}]
         },{
             onSuccess: function (context) {
                 // Do something on success
       };
-      ```
+    ```
+  
+- <b>Example 5: Force authentication with <code>stepOptions</code></b>
+   
+     The `stepOptions` is an optional property that can be defined in the `executeStep`. This allows the addition of 
+     the `forceAuth` authentication option, which can prompt the authenticator in the steps to re-authenticate, even 
+     if it was already authenticated.
 
+    ``` js
+      executeStep(1,{
+         stepOptions: {
+            forceAuth: 'true'
+        }, {}
+      };
+    ```
 
 ### Fail the login flow
 
@@ -635,8 +660,7 @@ The utility function will search the underlying user stores and return a unique 
 
     ``` js
     var claimMap = {};
-    claimMap[MAPPED_FEDERATED_USER_NAME_CLAIM] = federatedUserName;
-    claimMap[MAPPED_FEDERATED_IDP_NAME_CLAIM] = idpName;
+    claimMap["http://wso2.org/claims/username"] = federatedUserName;
     var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
     ```
 
@@ -656,6 +680,114 @@ This function returns the local user associated with the federate username given
         </tr>
       </tbody>
     </table>
+
+### HTTP GET
+
+`httpGet(url, headers)`
+
+The HTTP GET function enables sending HTTP GET requests to specified endpoints as part of the adaptive authentication scripts in WSO2 Identity Server. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>The URL of the endpoint to which the HTTP GET request should be sent.</td>
+        </tr>
+        <tr>
+          <td><code>headers</code></td>
+          <td>HTTP request headers to be included in the GET request (optional).</td>
+        </tr>
+      </tbody>
+    </table>
+
+  - **Example**
+
+  ``` js
+      function onLoginRequest(context) {
+          httpGet('https://example.com/resource', {
+              "Authorization": "Bearer token",
+              "Accept": "application/json"
+          }, {
+              onSuccess: function(context, data) {
+                  Log.info('httpGet call succeeded');
+                  context.selectedAcr = data.status;
+                  executeStep(1);
+              },
+              onFail: function(context, data) {
+                  Log.info('httpGet call failed');
+                  context.selectedAcr = 'FAILED';
+                  executeStep(2);
+              }
+          });
+      }
+  ```
+
+!!! note     
+    To restrict HTTP GET requests to certain domains, configure the `deployment.toml` file as follows:
+
+    ``` toml
+    [authentication.adaptive]
+    http_function_allowed_domains = ["example.com", "api.example.org"]
+    ```  
+
+### HTTP POST
+
+`httpPost(url, body, headers)`
+
+The HTTP POST function enables sending HTTP POST requests to specified endpoints as part of the adaptive authentication scripts in WSO2 Identity Server. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>The URL of the endpoint to which the HTTP POST request should be sent.</td>
+        </tr>
+        <tr>
+          <td><code>body</code></td>
+          <td>HTTP request body to be included in the POST request.</td>
+        </tr>
+        <tr>
+          <td><code>headers</code></td>
+          <td>HTTP request headers to be included in the POST request (optional).</td>
+        </tr>
+      </tbody>
+    </table>
+
+  - **Example**
+
+  ``` js
+      function onLoginRequest(context) {
+          httpPost('https://example.com/resource', {
+              "email": "test@wso2.com"
+          }, {
+              "Authorization": "Bearer token",
+              "Accept": "application/json"
+          }, {
+              onSuccess: function(context, data) {
+                  Log.info('httpPost call succeeded');
+                  context.selectedAcr = data.status;
+                  executeStep(1);
+              },
+              onFail: function(context, data) {
+                  Log.info('httpPost call failed');
+                  context.selectedAcr = 'FAILED';
+                  executeStep(2);
+              }
+          });
+      }
+  ```
+  
+!!! note     
+    To restrict HTTP POST requests to certain domains, configure the `deployment.toml` file as follows:
+
+    ``` toml
+    [authentication.adaptive]
+    http_function_allowed_domains = ["example.com", "api.example.org"]
+    ```
 
 ## Object reference
 

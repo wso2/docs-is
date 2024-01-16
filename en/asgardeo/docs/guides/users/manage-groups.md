@@ -41,7 +41,7 @@ To assign users to groups:
 6. Click **Save**.
 
 ## Remove users from groups
-[Users]({{base_path}}/guides/users/manage-customers/) can be removed from the assigned groups by administrators.
+[Users]({{base_path}}/guides/users/manage-users/) can be removed from the assigned groups by administrators.
 
 To remove users from groups:
 

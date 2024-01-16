@@ -1,6 +1,6 @@
 # Configure self-registration
 
-[Users]({{base_path}}/guides/users/manage-customers/) can self-register to an organization in {{ product_name }} via an application's login page. This creates a new user account in the organization.
+[Users]({{base_path}}/guides/users/manage-users/) can self-register to an organization in {{ product_name }} via an application's login page. This creates a new user account in the organization.
 
 ## Enable/Disable self-registration
 

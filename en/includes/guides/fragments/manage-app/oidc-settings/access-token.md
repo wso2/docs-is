@@ -33,39 +33,7 @@ Token binding securely links authentication tokens to client devices to prevent 
 
 {{product_name}} offers the following token binding types.
 
-<table>
-  <thead>
-    <th>Binding Type</th>
-    <th>Description</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>none</td>
-      <td>Does not establish any specific binding between the token and the client device. Suitable for scenarios where token binding is not required or implemented separately. This is the default token binding type of any application.
-      </td>
-    </tr>
-    <tr>
-      <td>cookie</td>
-      <td>Binds the token to the cookie named <b>atbv</b> with Secure and httpOnly parameters. Supported with the <b>authorization_code</b> grant type.</td>
-    </tr>
-    <tr>
-      <td>sso-session</td>
-      <td>Binds the access token to the login session. {{product_name}} will issue a new access token for each new login and revoke the token upon logout. Supported with the <b>authorization_code</b> grant type.</td>
-    </tr>
-    <tr>
-      <td>certificate</td>
-      <td>Binds the token to the hash of the TLS certificate passed in the request. Supports all grant types.</td>
-    </tr>
-    <tr>
-      <td>device-flow</td>
-      <td>Binds the token to the <b>device_code</b> sent in the <b>device_flow</b> grant type token call. </td>
-    </tr>
-    <tr>
-      <td>client-request</td>
-      <td>Binds the token to a specific instance identified by the instance identifier. The client requests this binding type using the <code>tokenBindingReference</code> token request parameter. Supports all grant types, but generally for applications that involve multiple instances and have to use back-channel grant types such as <b>token exchange</b> or <b>password</b>.
-    </tr>
-  </tbody>
-</table>
+{{token_binding_types}}
 
 #### User access token expiry time
 This option specifies the validity period of an access token issued to a user in seconds. The default expiry time is 3600 seconds.

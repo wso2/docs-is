@@ -97,7 +97,7 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 
     1. Display the `local` attribute on the user's profile. Learn more on [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
 
-    2. Update the `local` attribute value with the [required locale code]({{base_path}}/references/{{ localization_doc_path }}/#supported-languages).
+    2. Update the `local` attribute value with the [required locale code]({{base_path}}/guides/branding/{{ localization_doc_path }}/#supported-languages).
 
         - If the admin onboards the user to the organization, the admin is responsible for updating the locale code.
 

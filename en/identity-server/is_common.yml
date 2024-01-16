@@ -45,6 +45,7 @@ extra:
     - section:
       - title: Get Started
         icon: assets/libs/oxygen-ui-icons/1.7.3/bolt-16.svg
+        icon_color: icon-color-1
         list_items:
           - title: Introduction
             url: Get Started|Introduction
@@ -54,16 +55,18 @@ extra:
             url: Get Started|Start integrating apps|Start integrating apps
       - title: Community and Support
         icon: assets/libs/oxygen-ui-icons/1.7.3/lightbulb-on-16.svg
+        icon_color: icon-color-2
         list_items:
           - title: Contributing to the Project
             url: https://github.com/wso2/product-is/wiki/Contributing-to-Identity-Server
-          - title: Community help
+          - title: Community Help
             url: https://discord.com/invite/wso2
           - title: Enterprise Support
             url: https://wso2.com/subscription/
     - section:
       - title: Developer Resources
         icon: assets/libs/oxygen-ui-icons/1.7.3/user-gear-16.svg
+        icon_color: icon-color-3
         list_items:
           - title: APIs
             url: APIs|APIs
@@ -73,6 +76,7 @@ extra:
             url: Integrations|Integrate WSO2 IS into your application
       - title: Setup
         icon: assets/libs/oxygen-ui-icons/1.7.3/verticle-filter-bars-16.svg
+        icon_color: icon-color-1
         list_items:
           - title: Install
             url: Setup|Install|Install
@@ -89,6 +93,7 @@ extra:
     - section:
       - title: Guides
         icon: assets/libs/oxygen-ui-icons/1.7.3/document-16.svg
+        icon_color: icon-color-4
         list_items:
           - title: Applications
             url: Guides|Applications|Applications

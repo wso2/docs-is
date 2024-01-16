@@ -23,7 +23,7 @@ The following guide explains how you can implement app-native authentication for
 
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/).
 
-- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in {{ product_name }}.
+- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
 
 ## Enable app-native authentication
 

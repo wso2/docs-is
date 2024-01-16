@@ -30,24 +30,6 @@ plugins:
   - include-markdown
   - redirects:
       redirect_maps:
-        'apis/idp-rest-api.md': 'apis/idp.md'
-        'guides/users/manage-collaborators.md': 'guides/users/manage-administrators.md'
-        'guides/users/manage-customers.md': 'guides/users/manage-users.md'
-        'deploy/security/security-guidelines-for-production-deployment.md': 'deploy/security/security-guidelines/index.md'
-        'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
-        'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'
-        'deploy/security/product-level-security-guidelines.md': 'deploy/security/security-guidelines/product-level-security-guidelines.md'
-        'deploy/security/use-asymmetric-encryption.md': 'deploy/security/asymmetric-encryption/use-asymmetric-encryption.md'
-        'deploy/security/create-new-keystores.md': 'deploy/security/asymmetric-encryption/create-new-keystores.md'
-        'deploy/security/configure-keystores-in-wso2-products.md': 'deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md'
-        'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md'
-        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md'
-        'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
-        'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
-        'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
-        'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
-        'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey.md'
-
 
 # Navigation
 nav:
@@ -145,7 +127,7 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
-            - Add Passkey Progressive Enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+            - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
@@ -171,6 +153,7 @@ nav:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
         - Customize email templates: guides/branding/customize-email-templates.md
+        - Localization support: guides/branding/localization.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -345,11 +328,18 @@ nav:
           - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure cache layers: deploy/performance/configure-cache-layers.md
         - Environment compatibility: deploy/environment-compatibility.md
-        - Propagate configurations across environments: deploy/propagate-configurations.md
+        - Promote configurations across environments: deploy/promote-configurations.md
         - Disaster recovery:
           - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
           - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
           - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+      - Compliance:
+          - Compliance: deploy/compliance/index.md
+          - GDPR: deploy/compliance/gdpr.md
+          - eIDAS: deploy/compliance/eidas.md
+          - CCPA: deploy/compliance/ccpa.md
+          - FIPS: deploy/compliance/fips.md
+          - Accessibility compliance: deploy/compliance/accessibility.md
       - Analytics:
         - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
         - Configure SSO with ELK analytics: deploy/elk-analytics-sso-guide.md
@@ -384,6 +374,8 @@ nav:
           - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
           - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
         - Account recovery API: apis/use-the-account-recovery-rest-apis.md
+        - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
+        - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
         - Associated accounts API: apis/association-rest-api.md
         - Challenge question API: apis/challenge-questions.md
         - Challenge answers API: apis/challenge-rest-api.md
@@ -470,16 +462,12 @@ nav:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
+      - User Management:
+        - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
+        - User provisioning:
+          - Extend SCIM 2.0 user schemas: references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
-    - Compliance:
-      - references/compliance/index.md
-      - GDPR: references/compliance/gdpr.md
-      - eIDAS: references/compliance/eidas.md
-      - CCPA: references/compliance/ccpa.md
-      - FIPS: references/compliance/fips.md
-      - Accessibility compliance: references/compliance/accessibility.md
-    - Localization support: references/localization.md
     - Default ports: references/default-ports.md
     - Troubleshoot:
       - Troubleshoot: references/troubleshoot/index.md
