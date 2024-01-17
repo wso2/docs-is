@@ -39,11 +39,11 @@ The elements in the above configuration are described below:
     For more information on other parameters that can be defined in
     the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
-??? note "Support for Case Sensitive Usernames"
+??? note "Support for case-sensitive usernames"
 
-    If you are going to have case-sensitive usernames, 
+    WSO2 Identity Server supports case-insensitive usernames by default. Hence, if you need to have case-sensitive usernames, you need to configure the following properties.
     
-    For Primary Userstores
+    For the primary user store, add the following configurations to the `<IS-HOME>/repository/conf/deployment.toml` file.
 
     ``` toml
     [user_store.properties]
@@ -51,13 +51,13 @@ The elements in the above configuration are described below:
     UseCaseSensitiveUsernameForCacheKeys = false
     ```  
     
-    For Secondary Userstores
+    For secondary user stores, add the following configurations to the `<userstore>.xml` file in the `<IS_HOME>/repository/deployment/server/userstores` folder.
 
     ``` xml
     <Property name="CaseInsensitiveUsername">false</Property>
     <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
     ```
-    Since by default IS supports case insensitive usernames, from the database level we created lower indexes for the related tables.
+    The database indexes have been created using lower functions to support case-insensitive usernames for the related tables. Therefore, remove the lower functions from the related index creation queries in the scripts at `<IS_HOME>/dbscripts/`.
     
     Eg:
 
