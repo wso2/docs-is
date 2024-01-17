@@ -73,20 +73,20 @@ A sample configuration is given below.
         Disabling this feature in WSO2 IS eliminates unnecessary processing, thereby potentially enhancing overall system performance.
 
 
-    For the primary user store, add the following configurations to the `<IS-HOME>/repository/conf/deployment.toml` file.
+        For the primary user store, add the following configurations to the `<IS-HOME>/repository/conf/deployment.` file.
 
-    ``` toml
-    [user_store.properties]
-    CaseInsensitiveUsername = false
-    UseCaseSensitiveUsernameForCacheKeys = false
-    ```  
+        ``` toml
+        [user_store.properties]
+        CaseInsensitiveUsername = false
+        UseCaseSensitiveUsernameForCacheKeys = false
+        ```  
     
-    For secondary user stores, add the following configurations to the `<userstore>.xml` file in the `<IS_HOME>/repository/deployment/server/userstores` folder.
+        For secondary user stores, add the following configurations to the `<userstore>.xml` file in the `<IS_HOME>/repository/deployment/server/userstores` folder.
 
-    ``` xml
-    <Property name="CaseInsensitiveUsername">false</Property>
-    <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
-    ```
+        ``` xml
+        <Property name="CaseInsensitiveUsername">false</Property>
+        <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
+        ```
         
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
