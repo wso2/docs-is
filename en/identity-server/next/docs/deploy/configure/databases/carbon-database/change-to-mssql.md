@@ -80,7 +80,7 @@ A sample configuration is given below.
     UseCaseSensitiveUsernameForCacheKeys = false
     ```  
     
-    For Secondary Userstores
+    For secondary user stores, add the following configurations to the `<userstore>.xml` file in the `<IS_HOME>/repository/deployment/server/userstores` folder.
 
     ``` xml
     <Property name="CaseInsensitiveUsername">false</Property>
