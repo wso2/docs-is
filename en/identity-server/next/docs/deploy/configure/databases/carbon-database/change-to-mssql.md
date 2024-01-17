@@ -68,7 +68,7 @@ A sample configuration is given below.
         Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
 
     !!! note
-        When integrating WSO2 Identity Server with Microsoft SQL Server, it is advisable to deactivate the case-insensitive functionality within WSO2 IS.
+        As Microsoft SQL Server is inherently case-insensitive, it is recommended to deactivate the case-insensitive functionality of {{product_name}} when integrating with the Microsoft SQL Server.
         This recommendation is based on the inherent case-insensitivity of Microsoft SQL Server, which renders the similar feature in WSO2 IS redundant.
         Disabling this feature in WSO2 IS eliminates unnecessary processing, thereby potentially enhancing overall system performance.
 
