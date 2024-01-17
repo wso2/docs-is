@@ -39,7 +39,7 @@ The elements in the above configuration are described below:
     For more information on other parameters that can be defined in
     the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
-??? note "Support for Case Sensitive Usernames"
+??? note "Support for case-sensitive usernames"
 
     If you are going to have case-sensitive usernames, 
     you need to add the following properties to the deployment.toml file.
