@@ -42,7 +42,6 @@ The elements in the above configuration are described below:
 ??? note "Support for Case Sensitive Usernames"
 
     If you are going to have case-sensitive usernames, 
-    you need to add the following properties to the deployment.toml file.
     
     For Primary Userstores
 
@@ -58,10 +57,7 @@ The elements in the above configuration are described below:
     <Property name="CaseInsensitiveUsername">false</Property>
     <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
     ```
-    Since by default IS supports case insensitive usernames, from the database level we created lower indexes for the related tables. 
-    Therefore remove those lower function when creating the indexes from the relevant db scripts.
-    
-    For example, in the `database script` files in the `dbscripts` directory, remove the `lower` function from the queries.
+    Since by default IS supports case insensitive usernames, from the database level we created lower indexes for the related tables.
     
     Eg:
 

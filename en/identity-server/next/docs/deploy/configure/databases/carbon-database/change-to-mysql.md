@@ -63,40 +63,32 @@ A sample configuration is given below.
         port = "3306"
         ```
         
-    1.  Execute database scripts.
+    2.  Execute database scripts.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/mysql.sql` file against the database created.
-                         
-!!! note     
-    Instead of defining `hostname`, `port`, and `name` separately, you can define the `url`
-    of the database in the following format.
-                
-    ``` toml
-    type = "mysql"
-    url = "jdbc:mysql://localhost:3306/regdb"
-    username = "regadmin"
-    password = "regadmin"
-    ```  
-    
-    If MySQL DB is used since they are case-insensitive by default (subject to confirmation with the current collation of the DB), 
-    it is recommended to disable the case-insensitive behavior of WSO2 IS. This is because case insensitivity will be handled at the DB layer itself, 
-    leading to performance improvements by eliminating the need for lower queries performed by WSO2 IS. 
-    
-    For Primary Userstores
 
-    ``` toml
-    [user_store.properties]
-    CaseInsensitiveUsername = false
-    UseCaseSensitiveUsernameForCacheKeys = false
-    ```  
-    
-    For Secondary Userstores
+    !!! note
+        When integrating WSO2 Identity Server with MySQL DB, it is advisable to deactivate the case-insensitive functionality within WSO2 IS.
+        This recommendation is based on the inherent case-insensitivity of MySQL DB, which renders the similar feature in WSO2 IS redundant.
+        Disabling this feature in WSO2 IS eliminates unnecessary processing, thereby potentially enhancing overall system performance.
 
-    ``` xml
-    <Property name="CaseInsensitiveUsername">false</Property>
-    <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
-    ```  
-        
+        To disable case-insensitivity, use the following configurations.
+
+        For Primary Userstores
+
+        ``` toml
+        [user_store.properties]
+        CaseInsensitiveUsername = false
+        UseCaseSensitiveUsernameForCacheKeys = false
+        ```  
+
+        For Secondary Userstores
+
+        ``` xml
+        <Property name="CaseInsensitiveUsername">false</Property>
+        <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
+        ```
+
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
     

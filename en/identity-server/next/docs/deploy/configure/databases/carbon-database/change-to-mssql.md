@@ -67,25 +67,27 @@ A sample configuration is given below.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
 
-!!! note
-    If Microsoft SQL Server is used since they are case-insensitive by default (subject to confirmation with the current collation of the DB), 
-    it is recommended to disable the case-insensitive behavior of WSO2 IS. This is because case insensitivity will be handled at the DB layer itself, 
-    leading to performance improvements by eliminating the need for lower queries performed by WSO2 IS.
+    !!! note
+        When integrating WSO2 Identity Server with Microsoft SQL Server, it is advisable to deactivate the case-insensitive functionality within WSO2 IS.
+        This recommendation is based on the inherent case-insensitivity of Microsoft SQL Server, which renders the similar feature in WSO2 IS redundant.
+        Disabling this feature in WSO2 IS eliminates unnecessary processing, thereby potentially enhancing overall system performance.
+        
+        To disable case-insensitivity, use the following configurations.
 
-    For Primary Userstores
+        For Primary Userstores
 
-    ``` toml
-    [user_store.properties]
-    CaseInsensitiveUsername = false
-    UseCaseSensitiveUsernameForCacheKeys = false
-    ```  
+        ``` toml
+        [user_store.properties]
+        CaseInsensitiveUsername = false
+        UseCaseSensitiveUsernameForCacheKeys = false
+        ```  
     
-    For Secondary Userstores
+        For Secondary Userstores
 
-    ``` xml
-    <Property name="CaseInsensitiveUsername">false</Property>
-    <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
-    ```
+        ``` xml
+        <Property name="CaseInsensitiveUsername">false</Property>
+        <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
+        ```
         
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
