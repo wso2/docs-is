@@ -43,7 +43,7 @@ See, [Configure a Secondary User Store]({{base_path}}/guides/users/user-stores/c
 
 Adapters used to connect with different user stores are called *User store Managers*. By default, there are user store managers for JDBC,
 LDAP and Active Directory user stores. If you need to add a new user store implementation, see [Write a Custom User store
-Manager]({{base_path}}/references/user-stores/write-a-custom-user-store-manager). When you configure the
+Manager]({{base_path}}/references/extend/user-stores/write-a-custom-user-store-manager). When you configure the
 user store, you have to set the user store manager class name.
 
 !!! note 
@@ -51,4 +51,4 @@ user store, you have to set the user store manager class name.
     the default configurations, permissions are stored in the embedded H2
     database. For information on how to set up a RDBMS repository for
     storing permission, see [Configure the Authorization
-    Manager]({{base_path}}/references/user-stores/configure-authorization-manager).
+    Manager]({{base_path}}/deploy/configure/user-stores/configure-authorization-manager).

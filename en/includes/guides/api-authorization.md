@@ -1,9 +1,6 @@
 # API authorization
 
-!!! note
-    This feature is not yet available in the EU region. We are working on making it accessible in the future.
-
-{{ product_name }} allows organizations to authorize user access to an application's API resources based on the application roles assigned to the users.
+{{ product_name }} allows organizations to authorize user access to an application's API resources based on the application associated roles assigned to the users.
 
 ![The relationship between terms]({{base_path}}/assets/img/guides/api-authorization/API-resource-high-level.png){: width="700" style="display: block; margin: 0 auto;"}
 
@@ -23,20 +20,31 @@ The following are the terms used in the API authorization context:
         <td>Interchangeably known as scopes. Permissions represent an action an application can perform on behalf of a user. These are the scopes an application need to request to obtain a token capable of accessing the API resource.</td>
     </tr>
     <tr>
-        <td>Application roles</td>
-        <td>Used to map the permissions of the API resource to a persona in the application. An application role is application specific.</td>
+        <td>Roles</td>
+        <td>Used to map the permissions of the API resource to a persona in the application.
+            See <a href="{{base_path}}/guides/users/manage-roles">manage roles</a> for more information.
     </tr>
     <tr>
-        <td>Group</td>
-        <td>A collection of users with the same privileges to access resources in an organization. A group is organization specific.</td>
+        <td>User Groups</td>
+        <td>A collection of users with the same privileges to access resources in an organization. A group is user store specific.
+            See <a href="{{base_path}}/guides/users/manage-groups">manage groups</a> for more information.
+        </td>
+    </tr>
+    <tr>
+    <td>IdP Groups</td>
+        <td>Groups of the configured external identity providers.
+            See <a href="{{base_path}}/guides/authentication/#add-groups-to-connections">IdP groups</a> for more information.
+        </td>
     </tr>
 </table>
 
 The relationship between these entities is as follows:
 
-- An API resource has permissions/scopes.
-- An application has application roles, and the permissions of the API resource authorized to the application can be assigned to an application role.
-- An {{ product_name }} organization has user groups with users assigned to each group, and application roles can be assigned to user groups.
+- API resources come with specific scopes(permissions). 
+- Roles are formed by collecting scopes (permissions) from different APIs. 
+- Applications can be linked to specific sets of roles and set of API resources.
+- Roles can be assigned to individual users, user groups or external IdP groups.
+- Users get access to an application's API resources based on the resolved user assigned roles based on the authenticated mechanism and the application.
 
 ## How it works
 
@@ -47,20 +55,19 @@ If administrators choose to skip authorization, all application users will be au
 However, if authorization is mandated for the API resources, the following flow occurs:
 
 1. The user attempts to access an application with controlled access to API resources.
-2. {{ product_name }} verifies the user's group assignment.
-3. {{ product_name }} retrieves the user's roles by checking the group-to-role mappings.
-4. {{ product_name }} evaluates the permissions associated with the user's roles.
-5. Based on the assigned permissions, {{ product_name }} grants or denies the user with controlled access to the API resources.
+2. {{ product_name }} retrieves the user's roles associated to the application by checking the direct user-to-roles assignments and user's group-to-role assignments.
+3. {{ product_name }} evaluates the permissions associated with the user's roles.
+4. Based on the assigned permissions, {{ product_name }} grants or denies the user with controlled access to the API resources.
 
-To summarize, {{ product_name }} validates the user's group assignment, determines the roles based on the group-to-role mappings, examines the permissions associated with the roles, and decides whether to permit or restrict the user's access to the API resources.
+To summarize, {{ product_name }} validates the user's role assignment (direct or via groups), examines the permissions associated with the roles, and decides whether to permit or restrict the user's access to the API resources.
 
 ## Register an API resource
-{{ product_name }} allows administrators to register API resources with scopes/permissions.
+{{ product_name }} allows administrators to register API resources with scopes(permissions).
 
 To register an API resource on {{ product_name }},
 
 1. On the {{ product_name }} Console, go to **API Resources**.
-2. Click **+ New API Resource** to register a new API resource.
+2. Click **+ New API** to register a new API resource.
 3. Enter the following details:
     <table>
         <tr>
@@ -84,27 +91,29 @@ To register an API resource on {{ product_name }},
             <th>Description</th>
         </tr>
         <tr>
-            <td><b>Permission (Scope)</b></td>
+            <td><b>Scope (Permission)</b></td>
             <td>The value that acts as the scope when requesting an access token. This value should be similar to the scope value in your application.</td>
         </tr>
         <tr>
             <td><b>Display Name</b></td>
-            <td>A meaningful name for your permission. This will be displayed on your application's user consent page.</td>
+            <td>A meaningful name for your scope (permission). This will be displayed on your application's user consent page.</td>
         </tr>
         <tr>
             <td><b>Description</b></td>
-            <td>A description for your permission. This will be displayed on your application's user consent page.</td>
+            <td>A description for your scope (permission). This will be displayed on your application's user consent page.</td>
         </tr>
     </table>
 
-5. Click **+ Add Permission**. Note that you can add multiple permissions according to your requirements.
+5. Click **+ Add Scope**. Note that you can add multiple scopes according to your requirements.
 
 6. Click **Next** and enable **Requires authorization** if the users consuming your API should be authorized before they get access, else you can proceed without an authorization policy.
 
 7. Click **Finish** to complete the API resource registration.
 
-
 ## Authorize the API resources for an app
+
+!!! note
+    Before you register any APIs in the organization (root), **Management APIs** and **Organization APIs** are already exist. To learn more about the features and endpoint of the Management and Organization API, see [API section]({{base_path}}/apis/).
 
 Once you have registered API resources in your organization, you can authorize applications in your organization to access those API resources. This is done by connecting the API resources to the relevant applications. Users of an application will have access to the API resource depending on the authorization settings you have configured.
 If an API resource requires authorization, RBAC will be applied before granting users access.
@@ -132,7 +141,7 @@ If an API resource requires authorization, RBAC will be applied before granting 
         </tr>
         <tr>
             <td><b>Authorized Scopes</b></td>
-            <td>Select the permissions.</td>
+            <td>Select the scopes.</td>
         </tr>
         <tr>
             <td><b>Authorization Policy</b></td>
@@ -147,64 +156,42 @@ If an API resource requires authorization, RBAC will be applied before granting 
 ## Configure RBAC for API resources
 If RBAC is enabled as the authorization policy for the API resource, users accessing the API through an application will have role-based access.
 
-### Define permissions for an API resource
+### Define scopes for an API resource
 If you didn't specify all the permissions for the API resource when [registering the API resource](#register-an-api-resource), follow the steps given below to add permissions.
 
-1. On the Asgradeo Console, go to **API Resources**.
-2. Select the API resource and go to the **Permissions** tab.
-3. Click **+ Add Permissions** and enter the following details:
+1. On the {{ product_name }} Console, go to **API Resources**.
+2. Select the API resource and go to the **Scopes** tab.
+3. Click **+ Add Scope** and enter the following details:
     <table>
         <tr>
             <th>Parameter</th>
             <th>Description</th>
         </tr>
         <tr>
-            <td><b>Permission (Scope)</b></td>
+            <td><b>Scope (Permission)</b></td>
             <td>The value that acts as the scope when requesting an access token. This value should be similar to the scope value in your application.</td>
         </tr>
         <tr>
             <td><b>Display Name</b></td>
-            <td>A meaningful name for your permission. This will be displayed on your application's user consent page.</td>
+            <td>A meaningful name for your scope (permission). This will be displayed on your application's user consent page.</td>
         </tr>
         <tr>
             <td><b>Description</b></td>
-            <td>A description for your permission. This will be displayed on your application's user consent page.</td>
+            <td>A description for your scope (permission). This will be displayed on your application's user consent page.</td>
         </tr>
     </table>
 4. Click **Finish**.
 
-### Create application roles
+### Associate roles to the application
 
-The permissions of your API resource should be assigned to a role. These roles are application specific.
+The scopes (permissions) of your API resource should be assigned to a role and associate that role to the application. 
 
-To create a role and assign permissions to the scope:
+1. Create a role and assign scopes (permissions) to the role. See [create a role]({{base_path}}/guides/users/manage-roles/#create-a-role) for more information.
+2. If you create a role with the `Application` audience, the role will be associated to the selected application during role creation. If you create a role in `Organization` audience, you need to associate the role to the application. See [associate roles to an application]({{base_path}}/guides/users/manage-roles/#associate-roles-to-an-application) for more information.
 
-1. On the {{ product_name }} Console, go to **Applications**.
-2. Select the application to which you wish to authorize the registered API resource and go to **User Management** > **Roles**.
-3. Click **+ New Role**.
-4. Enter a **Role Name** and click **Next**.
-5. Select the permissions you wish to assign for the newly created application role.
+### Assign users or groups to roles
 
-    !!! note
-        Roles are application-specific but not resource specific. You can add permissions from multiple API resources to a single role.
-
-    ![Map API permissions to the created application role]({{base_path}}/assets/img/guides/api-authorization/map-permissions-to-role.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-6. Click **Save** to add the new application role.
-
-    ![Create application roles]({{base_path}}/assets/img/guides/api-authorization/create-roles.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-### Assign roles to groups
-
-You need to assign the created application roles to groups so that the business users belonging to a particular group will have permission to access the application with the scopes assigned.
-
-To assign roles to groups:
-
-1. On the {{ product_name }} Console, go to **User Management** >  **Groups**.
-2. Select the group to which you wish to assign roles and go to **Roles** tab.
-3. Click **+ Assign Roles**.
-4. Select the application roles you wish to assign to the group.
-5. Click **Save**.
+Grant permissions of the roles to users by [assign users to role]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role) or [assign user's groups to roles]({{base_path}}/guides/users/manage-roles/#assign-user-groups-to-a-role).
 
 ## Try it out
 
@@ -230,15 +217,14 @@ To request scopes for the user:
         When you add scopes to the configuration file of your SDK, add them as comma-separated values.
 
 2. Access the application URL.
-3. Try to log in as a user who has a group and has permissions to access the API resource.
+3. Try to log in as a user who has permissions to access the API resource.
 
-    Upon successful login, you will see the permission/scopes allowed for the user on the user consent page.
+    If you have disabled `Skip login consent` in your application's settings, upon successful login you will see the permission (scopes) allowed for the user on the user consent page.
 
     ![Permission of the user shown on the user consent page]({{base_path}}/assets/img/guides/api-authorization/user-consent-for-developer.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-4. Click **Allow**. You will now be redirected to the application.
+    Click **Allow**. You will now be redirected to the application.
 
-    You will be able to see the assigned permissions on the `allowedScopes` parameter of the authentication response.
+4. You will be able to see the assigned scopes (permissions) on the `allowedScopes` parameter of the authentication response.
 
     ![Authentication response of the developer group user]({{base_path}}/assets/img/guides/api-authorization/allowed-scopes-for-developer.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-

@@ -111,4 +111,4 @@ Apart from the above basic configurations, WSO2 Identity Server supports the fol
    validationQuery = "SELECT 1; COMMIT"
    ```
 
-The descriptions for the advanceded configurations can be found in the [Performance Tuning]({{base_path}}/deploy/performance/performance-tuning-recommendations/#jdbc-pool-configuration) documentation.
+The descriptions for the advanced configurations can be found in the [Performance Tuning]({{base_path}}/deploy/performance/performance-tuning-recommendations/#jdbc-pool-configuration) documentation.

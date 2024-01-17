@@ -9,10 +9,10 @@ You can enable a more secure login flow for users that belong to specific groups
 
 ## Scenario
 
-Consider a scenario with two user groups, `manager` and `employee`. For users assigned to these groups, the login flow in applications should be stepped up with TOTP or FIDO as follows:
+Consider a scenario with two user groups, `manager` and `employee`. For users assigned to these groups, the login flow in applications should be stepped up with TOTP or passkeys as follows:
 
 1. Username and password
-2. TOTP or FIDO
+2. TOTP or Passkey
 
 ![Group based adaptive authentication]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-auth.png)
 
@@ -23,7 +23,7 @@ Consider a scenario with two user groups, `manager` and `employee`. For users as
 - Create two user groups named `manager` and `employee` and assign user accounts to them. For instructions, see the following:
 
       - [Managing groups]({{base_path}}/guides/users/manage-groups/)
-      - [Managing users]({{base_path}}/guides/users/manage-customers/)
+      - [Managing users]({{base_path}}/guides/users/manage-users/)
 
 ## Configure the login flow
 
@@ -61,7 +61,7 @@ To enable conditional authentication:
 4. Verify that the login flow is now updated with the following two authentication steps:
 
     - Step 1: Username and Password
-    - Step 2: TOTP and FIDO
+    - Step 2: TOTP and Passkey
 
 5. Update the following parameter in the script.
 
@@ -127,4 +127,4 @@ Follow the steps given below.
 
     The user will be prompted to select the step-up method, and the sign-in flow will be stepped up according to the user's preference.
 
-    ![group-based-2fa-conditional-auth-stepup-page]({{base_path}}/assets/img/guides/conditional-auth/totp-fido-step-up.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![group-based-2fa-conditional-auth-stepup-page]({{base_path}}/assets/img/guides/conditional-auth/totp-passkey-step-up.png){: width="300" style="border: 0.3px solid lightgrey;"}

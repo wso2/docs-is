@@ -74,7 +74,7 @@ After registering your application with Asgardeo, you can enable [user attribute
 !!! note
       If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes/) and retrieve them through the `profile` scope.
 
-Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-customers/#onboard-a-user).
+Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-a-user).
 
 ## Step 3: Install dependencies
 

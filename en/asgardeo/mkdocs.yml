@@ -43,6 +43,7 @@ extra:
     - section:
       - title: Get Started
         icon: assets/libs/oxygen-ui-icons/1.7.3/bolt-16.svg
+        icon_color: icon-color-1
         list_items:
           - title: Create your Asgardeo account
             url: Get Started|Create your Asgardeo account
@@ -50,14 +51,16 @@ extra:
             url: Get Started|Try login with Asgardeo
       - title: Community and Support
         icon: assets/libs/oxygen-ui-icons/1.7.3/lightbulb-on-16.svg
+        icon_color: icon-color-2
         list_items:
-          - title: Community help
+          - title: Community Help
             url: https://discord.com/invite/wso2
           - title: Enterprise Support
             url: https://wso2.com/asgardeo/pricing/
     - section:
       - title: Guides
         icon: assets/libs/oxygen-ui-icons/1.7.3/document-16.svg
+        icon_color: icon-color-4
         list_items:
           - title: Applications
             url: Guides|Applications|Applications
@@ -76,6 +79,7 @@ extra:
     - section:
       - title: Developer Resources
         icon: assets/libs/oxygen-ui-icons/1.7.3/user-gear-16.svg
+        icon_color: icon-color-3
         list_items:
           - title: APIs
             url: APIs|APIs - Overview
@@ -108,6 +112,7 @@ nav:
     - Create your Asgardeo account: get-started/create-asgardeo-account.md
     - Try login with Asgardeo: get-started/try-it-application.md
     - Start integrating Asgardeo into apps:
+      - Start integrating Asgardeo into apps: get-started/start-integrating-apps/index.md
       - Try for a sample app:
         - Single Page apps:
           - React: get-started/try-samples/qsg-spa-react.md
@@ -142,7 +147,7 @@ nav:
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
-            - Add login with FIDO2: guides/authentication/passwordless-login/add-passwordless-login-with-fido.md
+            - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
           - Enable user attributes:
@@ -170,6 +175,7 @@ nav:
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
             - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
             - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
+            - Add Passkey: guides/authentication/mfa/add-passkey-login.md
             - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
@@ -185,6 +191,7 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
+            - Add Passkey Progressive Enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
@@ -210,20 +217,21 @@ nav:
         - Configure UI branding: guides/branding/configure-ui-branding.md
         - Configure custom domains: guides/branding/configure-custom-domains.md
         - Customize email templates: guides/branding/customize-email-templates.md
-        - Configure the email sender: guides/branding/configure-email-providers.md
+        - Localization in Asgardeo: references/localization-in-asgardeo.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
         - Manage users: guides/users/manage-users.md
         - Manage groups: guides/users/manage-groups.md
+        - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
         - Migrate users to Asgardeo: guides/users/migrate-users.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
-          - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
+          - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
@@ -244,7 +252,7 @@ nav:
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
-          - guides/user-self-service/customer-self-service-portal.md
+          - User self-service portal: guides/user-self-service/customer-self-service-portal.md
           - Update profile information: guides/user-self-service/update-profile-info.md
           - Change password: guides/user-self-service/change-password.md
           - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
@@ -252,7 +260,7 @@ nav:
           - Manage consents: guides/user-self-service/manage-consents.md
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
-          - Register FIDO2 security key/biometrics: guides/user-self-service/register-security-key.md
+          - Register passkeys: guides/user-self-service/register-passkey.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
@@ -260,12 +268,13 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
-        - Set up organizations: guides/organization-management/manage-suborganizations.md
+        - Set up organizations: guides/organization-management/manage-organizations.md
         - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
         - Share applications: guides/organization-management/share-applications.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+        - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -299,6 +308,7 @@ nav:
     - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
     - Identity provider API: apis/idp.md
     - User management (SCIM 2.0) API: apis/scim2.md
+    - Role management (SCIM 2.0) API: apis/roles.md
     - Email templates API: apis/email-template.md
     - Identity governance API: apis/identity-governance.md
     - User sessions:
@@ -315,18 +325,20 @@ nav:
     - Consent management API: apis/consent-management.md
     - Attribute management API: apis/attribute-management.md
     - Validation API: apis/validation.md
-    - Suborganization APIs:
-      - Suborganization APIs: apis/organization-management/index.md
-      - Get access for suborganization APIs: apis/organization-management/authentication.md
-      - User management - SCIM2 API: apis/organization-management/org-scim2.md
-      - B2B self service management API: apis/organization-management/onboard-admins-self-service.md
-      - Application management API: apis/organization-management/org-application-management.md
-      - Identity providers API: apis/organization-management/org-idp.md
-      - Organization management API: apis/organization-management/org-management.md
-      - Organization role management API: apis/organization-management/organization-role-management.md
-      - Idle account identification API: apis/organization-management/org-idle-account-identification.md
     - Idle account identification API: apis/idle-account-identification.md
-  - References:  
+    - B2B self service management API: apis/onboard-admins-self-service.md
+    - Organization management API: apis/organization-management.md
+    - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
+    - Organization APIs:
+      - Organization APIs: apis/organization-apis/index.md
+      - Get access for organization APIs: apis/organization-apis/authentication.md
+      - User management API: apis/organization-apis/org-user-mgt.md
+      - Group management API: apis/organization-apis/org-group-mgt.md
+      - Application management API: apis/organization-apis/org-application-management.md
+      - Identity provider management API: apis/organization-apis/org-idp.md
+      - Organization management API: apis/organization-apis/org-management.md
+      - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
+  - References:
     - References - Overview: references/index.md
     - Asgardeo user roles: references/user-management/user-roles.md
     - App configurations:
@@ -345,7 +357,6 @@ nav:
     - Email templates: references/email-templates.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
-    - Localization in Asgardeo: references/localization-in-asgardeo.md
     - Production checklist:
       - references/production-checklist/index.md
       - Readiness check: references/production-checklist/readiness-check.md

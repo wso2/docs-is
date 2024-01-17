@@ -1,6 +1,6 @@
 # Configurations Related to Symmetric Key Encryption
 
-This section explains the configurations related to [symmetric key encryption]({{base_path}}/deploy/security/symmetric-overview). This version of WSO2 Identity Server uses symmetric encryption by default. You can switch to [asymmetric key encryption]({{base_path}}/deploy/security/use-asymmetric-encryption) if required.
+This section explains the configurations related to [symmetric key encryption]({{base_path}}/deploy/security/symmetric-encryption). This version of WSO2 Identity Server uses symmetric encryption by default. You can switch to [asymmetric key encryption]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption) if required.
 
 ## Algorithm used
 
@@ -35,7 +35,7 @@ The corresponding xml configuration can be found in the `<IS_HOME>/repository/co
 The `encryption.key` or `<Secret>` value above is a sample value. Generate a unique secret key of 128 bytes using a tool like OpenSSL as shown below.
 
 ```xml
-openssl rand 16 -hex
+openssl rand -hex 16
 ```
 
 Once a secure secret key is generated, configure it using the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.

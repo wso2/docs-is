@@ -1,68 +1,219 @@
 # Add MFA with SMS OTP
 
-SMS OTP is a One-Time Password (OTP) sent to the user's registered mobile number on {{ product_name }}. The OTP is typically valid for a short period, preventing unauthorized users from accessing the OTP and thereby adding an extra layer of security to the authentication process.
+SMS OTP (One-Time Password) is a security mechanism where a password is sent to the user's registered mobile number, which they must enter during the login process. This password is typically valid for a short period.
 
-Follow the instructions below to configure MFA using SMS OTP in {{ product_name }}.
+During SMS OTP authentication, the user must access their mobile device to retrieve the OTP. This method ensures that only the person who has access to the registered mobile number can log in, providing an additional layer of security.
+
+Follow the instructions given below to configure Multi-Factor Authentication (MFA) using SMS OTP in {{ product_name }}.
 
 ## Prerequisites
-To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-!!! note
-    - You can use SMS OTP for multi-factor authentication only if a previous authentication step is configured with `username and password`, `magic link`, or any federated authenticator.
-    - SMS OTP cannot be used as the first step in your login flow.
-    - {{ product_name }} SMS OTP uses {{ product_name }} events to publish the OTP Notification data.
+- To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
+- [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with an mobile number to which the user will receive the OTP.
 
+!!! note "Info"
+    You can use SMS OTP for multi-factor authentication only if a previous authentication step is configured with **username and password** or another factor that can validate user credentials.
+  
 ## Set up SMS OTP
+{{ product_name }} has some default settings for SMS OTP, which are sufficient for most cases. If required, you can change the default settings, as explained below.
 
-To enable SMS OTP for the organization:
+To update the default SMS OTP settings:
 
-1. On the {{ product_name }}, go to **Connections** and select **SMS OTP**.
+1. On the {{ product_name }} Console, go to **Connections** and select **SMS OTP**.
 2. Update the following parameters in the **Settings** tab:
 
-    ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/configure-sms-otp-settings.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/setup-sms-otp.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     <table>
-        <tr>
-            <th>Field</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>SMS OTP expiry time</td>
-            <td>The generated OTP will not be valid after this expiry time.</td>
-        </tr>
-        <tr>
-            <td>Use only numeric characters for OTP</td>
-            <td>If this checkbox is checked, the generated OTP will only contain digits (0-9).
-                If the checkbox is unchecked, the OTP will contain alphanumeric characters.
-            </td>
-        </tr>
-        <tr>
-            <td>SMS OTP length</td>
-            <td>Specifies the number of characters allowed in the OTP.</td>
-        </tr>
+      <tr>
+        <th>Field</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>SMS OTP expiry time</td>
+        <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
+      </tr>
+      <tr>
+        <td>Use only numeric characters for OTP</td>
+        <td>
+            Specifies whether to use only numeric characters in the OTP. If this is selected, the generated OTP contains only digits (0-9).
+            If this option is not selected, the OTP will contain alphanumeric characters.
+        </td>
+      </tr>
+      <tr>
+        <td>SMS OTP length</td>
+        <td>Specifies the number of characters allowed in the OTP.</td>
+      </tr>
+    </table>
+3. Once you update the SMS OTP settings, click **Update**.
+
+## Configuring SMS Providers
+
+Configurations related to SMS providers are located under the **Email & SMS** section.
+
+### Supported Providers
+
+{{ product_name }} supports Twilio, Vonage, or custom SMS providers by default. To learn how to configure each provider, please see the relevant section.
+
+??? note "Configuring Twilio"
+    To configure Twilio as your SMS provider, follow the steps below:
+
+    - Go to [Twilio](https://www.twilio.com/try-twilio) and create an account.
+    - After signing up for your account, navigate to the Phone Numbers page in your console. You’ll see the phone number that has been selected for you. Note the phone number’s capabilities, such as "Voice", "SMS", and "MMS".
+    - After signing up, navigate to the Phone Numbers page in your console and note the phone number’s capabilities.
+    - Get your first Twilio phone number and use that as the “Sender” in the settings. For more information, see this tutorial in the Twilio documentation.
+    - Copy the Account SID and Auth Token from the Twilio console dashboard.
+    - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Twilio** tab and fill the required fields.
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>Twilio Account SID</td>
+        <td>Account SID received in the previous step.</td>
+        <td><code>YourAccountSID</code></td>
+      </tr>
+      <tr>
+        <td>Twilio Auth Token</td>
+        <td>Auth token received in the previous step.</td>
+        <td><code>YourAuthToken</code></td>
+      </tr>
+      <tr>
+        <td>Sender</td>
+        <td>Phone number that you received when creating the Twilio account.</td>
+        <td><code>+1234567890</code></td>
+      </tr>
     </table>
 
-3. Click **update** to save your configurations.
+??? note "Configuring Vonage"
+    To configure Vonage as your SMS provider, follow the steps below:
 
-## Add SMS OTP for an app
-To add **SMS OTP** to the authentication flow of the app:
+    - Login to [Vonage](https://www.vonage.com/) and create an account.
+    - Fill in the required fields and create the account.
+    - Login to the Vonage dashboard and copy the API Key and API Secret.
+    - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Vonage** tab and fill the required fields.
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>Vonage API Key</td>
+        <td>Use the API Key from the previous step.</td>
+        <td><code>YourAPIKey</code></td>
+      </tr>
+      <tr>
+        <td>Vonage API Secret</td>
+        <td>Use the API Secret from the previous step.</td>
+        <td><code>YourAPISecret</code></td>
+      </tr>
+      <tr>
+        <td>Sender</td>
+        <td>The number that the receiver will see when you send an SMS.</td>
+        <td><code>+1234567890</code></td>
+      </tr>
+    </table>
+
+??? note "Configuring a Custom Provider"
+    If you are not using either Twilio or Vonage as the SMS provider, you can configure a custom SMS provider. Custom SMS provider configuration will pass the SMS data to the given URL as an HTTP request.
+
+    To configure a custom SMS provider, in the  **SMS Provider** section click the **Custom** tab and fill the required fields.
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>SMS Provider Name</td>
+        <td>Display name for the SMS provider.</td>
+        <td><code>MySMSProvider</code></td>
+      </tr>
+      <tr>
+        <td>SMS Provider URL</td>
+        <td>URL of the SMS gateway where the payload should be published.</td>
+        <td><code>YourProviderURL</code></td>
+      </tr>
+      <tr>
+        <td>SMS Provider Auth Key</td>
+        <td>Authorization key if required.</td>
+        <td><code>abcdefghijklmnopqrstuvwxyz</code></td>
+      </tr>
+      <tr>
+        <td>SMS Provider Auth Secret</td>
+        <td>Authorization secret if required.</td>
+        <td><code>qwer1234asdfzxcv</code></td>
+      </tr>
+      <tr>
+        <td>Sender</td>
+        <td>Sender’s identification.</td>
+        <td><code>+1098765432</code></td>
+      </tr>
+      <tr>
+        <td>Content Type</td>
+        <td>Content type of the payload.</td>
+        <td><code>JSON</code></td>
+      </tr>
+      <tr>
+        <td>HTTP Method</td>
+        <td>HTTP method that should be used when publishing the payload to the provider URL.</td>
+        <td><code>POST</code></td>
+      </tr>
+      <tr>
+        <td>Payload</td>
+        <td>Optional static payload that needs to be added.</td>
+        <td><code>{"smsBody": "Your OTP is: 123456"}</code></td>
+      </tr>
+      <tr>
+        <td>Headers</td>
+        <td>Custom static headers needed to be passed.</td>
+        <td><code>{"Authorization": "Bearer YourAuthToken"}</code></td>
+      </tr>
+    </table>
+
+    Example Payload Structure:
+    ```json
+    {
+      "toNumber": "+1234567890",
+      "fromNumber": "+1098765432",
+      "smsBody": "Your OTP will be: 123456",
+      "smsMetadata": {
+        "key": "abcdefghijklmnop",
+        "secret": "qwer1234asdfzxcv",
+        "sender": "+1098765432",
+        "contentType": "JSON",
+        "tenantDomain": "my-organisation"
+      }
+    }
+    ```
+
+## Enable SMS OTP for an app
+
+To enable SMS OTP for MFA, you need to add **SMS OTP** in the authentication flow of the application.
+
+Follow the steps given below.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select the application to which you wish to add SMS OTP.
-
 3. Go to the **Sign-in Method** tab of the application and add the SMS OTP authenticator from your preferred editor:
 
     ---
     === "Classic Editor"
         - If you don't have a customized login flow, you can click **Add SMS OTP as a second factor**.
 
-            ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/sms-otp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         This opens the customized login flow with SMS OTP as a second-factor authenticator:
 
         - If you have an already customized login flow, you can add a second step and add SMS OTP as the authenticator.
 
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/smsotp/view-smsotp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add SMS OTP as a second-factor authenticator using the Visual Editor:
@@ -81,222 +232,24 @@ To add **SMS OTP** to the authentication flow of the app:
         Once the SMS OTP authenticator is added, select **Enable backup codes**. This allows users to use their backup codes to log in to the application when they cannot obtain the required MFA codes.
 
         === "Using the classic editor"
-            ![Enable backup codes for SMS otp authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Enable backup codes for SMS otp authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes.png){: width="500" style="border: 0.3px solid lightgrey;"}
         
         === "Using the visual editor"
-            ![Enable backup codes for SMS otp authenticator using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Enable backup codes for SMS otp authenticator using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes-with-visual-editor.png){: width="500" style="border: 0.3px solid lightgrey;"}
 
         Learn more about [configuring backup codes for business users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
 
 4. Click **Update** to save your changes.
 
-## Create a webhook to consume OTP notifications
-
-{{ product_name }}'s SMS OTP authenticator uses {{ product_name }} events to publish the OTP Notification data. You can consume these notifications by creating webhooks in [Choreo](https://console.choreo.dev/login).
-
-To create a webhook on Choreo:
-
-1. Create an organization in [Choreo](https://console.choreo.dev/login) with the same name and email address you used to create your {{ product_name }} organization.
-
-    !!! note
-        Organizations in {{ product_name }} and Choreo will synchronize based on the organization name.
-
-2. Select the **Default Project** under **All Projects**. Alternatively, you can create a new project or use an existing project.
-
-3. Start creating a webhook in Choreo from the list of components. Learn more about webhooks in the Choreo [documentation](https://wso2.com/choreo/docs/develop/components/webhook/#develop-a-webhook).
-
-    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-4. Provide general details of the webhook and click **Next**
-
-    ![General details of the choreo webhook.]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-add-details.png){: width="600"}
-
-5. Authorize and connect the GitHub repository that you want your webhook code to be hosted on and click **Next**.
-
-    !!! note
-        Be sure to select **Start with a sample**, which will create a pull request in your GitHub repository with the starter code required for the webhook.
-
-    ![Configure repository for choreo webhook.]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-configure-repository.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-6. Select **{{ product_name }}** as the **Trigger Type** and click **Next**.
-
-    ![Select {{ product_name }} trigger type]({{base_path}}/assets/img/guides/asgardeo-events/choreo-select-asgardeo-trigger-type.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-7. Select **NotificationService** as the **Trigger Channel** and click **Create**.
-
-    !!! note
-        The `NotificationService` trigger channel listens to all notification events from the organization in {{ product_name }}.
-
-    ![Select NotificationService as the webhook trigger channel.]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-trigger-channel.png){: width="550" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-8. After the webhook is created, Choreo will create a pull request in your connected Github repository with the sample starter code. Go to your repository and merge this code to complete the setup.
-
-
-## Define the business logic
-
-1. Navigate to your connected GitHub repository and open the **webhook.bal** file. Your boilerplate code may look as below.
-
-    ``` java
-    import ballerinax/trigger.asgardeo;
-    import ballerina/http;
-
-    configurable asgardeo:ListenerConfig config = ?;
-
-    listener http:Listener httpListener = new(8090);
-    listener asgardeo:Listener webhookListener =  new(config,httpListener);
-
-    service asgardeo:NotificationService on webhookListener {
-  
-        remote function onSmsOtp(asgardeo:SmsOtpNotificationEvent event ) returns error? {
-        //Not Implemented
-        }
-    }
-
-    service /ignore on httpListener {}
-
-    ```
-
-2. Define your business logic in the webhook.bal file.
-
-    !!! note
-        The following sample logic is defined on an {{ product_name }} webhook that uses the `NotificationService` trigger channel. This webhook is programmed to send the SMS Message via an SMS Gateway.
-
-    ``` java
-    import ballerinax/trigger.asgardeo;
-    import ballerina/http;
-    import ballerina/log;
-    import wso2/choreo.sendsms;
-    
-    configurable asgardeo:ListenerConfig config = ?;
-    
-    listener http:Listener httpListener = new(8090);
-    listener asgardeo:Listener webhookListener =  new(config,httpListener);
-
-    sendsms:Client sendSmsClient = check new ();
-    
-    service asgardeo:NotificationService on webhookListener {
-        
-        remote function onSmsOtp(asgardeo:SmsOtpNotificationEvent event) returns error? {
-          
-          //logging the event.
-          log:printInfo(event.toJsonString());
-
-          //read required data from the event.
-          asgardeo:SmsOtpNotificationData? eventData = event.eventData;
-          string toNumber = <string> check eventData.toJson().sendTo;
-          string message = <string> check eventData.toJson().messageBody;
-
-          string response = check sendSmsClient -> sendSms(toNumber, message);
-          log:printInfo(response);
-        } 
-    }
-    
-    service /ignore on httpListener {}
-    ```
-
-    ??? note "SmsOtpNotificationEvent Metadata"
-        The payload of the `SmsOtpNotificationEvent` contains the following metadata:
-
-        - **Security Data** object: The security data object is the same as all other [{{ product_name }} events](https://wso2.com/asgardeo/docs/guides/asgardeo-events). This contains the following security metadata about the event.
-        <table>
-            <thead>
-                <tr>
-                    <th><b>Property Name</b></th>
-                    <th><b>Type</b></th>
-                    <th><b>Description</b></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>iss</code></td>
-                    <td>String</td>
-                    <td>Issuer of the event</td>
-                </tr>
-                <tr>
-                    <td><code>iat</code></td>
-                    <td>String</td>
-                    <td>Event published timestamp.</td>
-                </tr>
-                <tr>
-                    <td><code>jti</code></td>
-                    <td>String</td>
-                    <td>Unique identifier for the event.</td>
-                </tr>
-                <tr>
-                    <td><code>aud</code></td>
-                    <td>String</td>
-                    <td>Audience of the event.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        Sample security data object:
-
-        ``` js
-        {
-            "iss": "Asgardeo",
-            "jti": "3b69b103-fa6c-424a-bbf4-a974d0c2d2a3",
-            "iat": 1659732032884,
-            "aud": "https://websubhub/topics/myorg/NOTIFICATIONS"
-        }
-        ```
-
-        - **Event Data** object - The event data object contains the details of the event. This contains the following metadata about the notification event.
-    
-        <table>
-            <thead>
-                <tr>
-                    <th><b>Property Name</b></th>
-                    <th><b>Type</b></th>
-                    <th><b>Description</b></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>organizationId</code></td>
-                    <td>int</td>
-                    <td>Organization Identifier</td>
-                </tr>
-                <tr>
-                    <td><code>organizationName</code></td>
-                    <td>String</td>
-                    <td>Organization name</td>
-                </tr>
-                <tr>
-                    <td><code>sendTo</code></td>
-                    <td>String</td>
-                    <td>Mobile number receiving the SMS OTP.</td>
-                </tr>
-                <tr>
-                    <td><code>messageBody</code></td>
-                    <td>String</td>
-                    <td>Content of the SMS OTP Message</td>
-                </tr>
-            </tbody>
-        </table>
-
-        Sample event data object:
-
-        ``` js
-        {
-        "organizationId": 3,
-        "organizationName": "myorg",
-        "sendTo": "+1234567890"
-        "messageBody": "Your one-time password for the myapp is 075052. This expires in 5 minutes.",
-        }
-        ```
-
-3. Once you have defined your logic, you can [deploy your webhook](https://wso2.com/choreo/docs/webhook/#deploy-a-webhook) to capture {{ product_name }} notification events.
-
 ## How it works
 
-When SMS OTP is enabled for the organization and added to the login flow of your application, the application user will be prompted with the SMS OTP authentication step once the first authentication step is completed. Given below are the high-level steps that follow:
+When SMS OTP is enabled in the login flow of your application, the application user will be prompted with the SMS OTP authentication step once the first authentication step is completed. Given below are the high-level steps that follow:
 
-1. {{ product_name }} sends the OTP to the user's registered mobile number.
+1. {{ product_name }} sends the OTP to the user's mobile number.
 2. {{ product_name }} prompts the user to enter the OTP code.
-
+  
     ![Authenticate with SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/enter-sms-otp.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
-3. If required, the user can request {{ product_name }} to resend the OTP. A new OTP will be sent if the current resend attempt count is less than the maximum allowed resend attempt count. The new OTP invalidates the previously sent OTP.
+3. If required, the user can request {{ product_name }} to resend the OTP. The new OTP invalidates the previously sent OTP.
 4. The user enters the OTP and clicks **Continue**.
-5. On successful authentication, the user can access the application.
+5. If the authentication is successful, the user can access the application.

@@ -16,16 +16,6 @@ See the topics in this section for references that will help you while working w
 
 - The [API references]({{base_path}}/references/conditional-auth/api-reference/) you need for writing conditional authentication scripts.
 
-- [Custom user store managers]({{base_path}}/references/user-stores/write-a-custom-user-store-manager/) in WSO2 IS.
-
 - [Email templates]({{base_path}}/references/email-templates/) in WSO2 IS.
 
-- [Compliance]({{base_path}}/references/compliance) in WSO2 IS.
-
-    - [GDPR]({{base_path}}/references/compliance/gdpr)
-    - [eIDAS]({{base_path}}/references/compliance/eidas)
-    - [CCPA]({{base_path}}/references/compliance/ccpa)
-    - [FIPS]({{base_path}}/references/compliance/fips)
-    - [Accessibility Compliance]({{base_path}}/references/compliance/accessibility)
-
-- [Localization]({{base_path}}/references/localization/) in WSO2 IS.
+- [Extensions]({{base_path}}/references/extend) in WSO2 IS.

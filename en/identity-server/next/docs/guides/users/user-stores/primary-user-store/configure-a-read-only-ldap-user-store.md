@@ -35,5 +35,5 @@ create_admin_account = false
     primary user store, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. For example, say a valid username is AdminSOA.
     Update the `         username       ` section of your configuration as shown above. You do not have to update the password element as it is already set in the user store.  
 
-For information about the system administrator user, see [Configure the System Administrator]({{base_path}}/deploy/configure-the-system-administrator), and for
-information on how keystores are used in WSO2 Identity Server, see [Use Asymmetric Encryption]({{base_path}}/deploy/security/use-asymmetric-encryption).  
+For information about the system administrator user, see [Configure the System Administrator]({{base_path}}/deploy/configure/user-stores/configure-system-administrator), and for
+information on how keystores are used in WSO2 Identity Server, see [Use Asymmetric Encryption]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption).  

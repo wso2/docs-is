@@ -9,7 +9,7 @@ This guide explains how you can use  HYPR to add passwordless login to applicati
 
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in {{ product_name }}.
+- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
 
 - You need to configure the HYPR environment and have access to the HYPR control center. Learn how to do it in the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std).
 
@@ -65,7 +65,7 @@ Follow the steps below to obtain an API token.
         The token is only shown once.
 
 ## Set up the authenticator
-The HYPR authenticator has been introduced as a connector for IS 6.2.0. In order to use this authenticator, first, you should download the connector from the WSO2 Connector Store.
+The HYPR authenticator has been introduced as a connector for IS 7.0.0. In order to use this authenticator, first, you should download the connector from the WSO2 Connector Store.
 
 ### Download and install the HYPR authenticator
 
@@ -75,6 +75,7 @@ To download and install the HYPR connector:
 2. Copy and paste the downloaded `.jar` file to `<IS_HOME>/repository/components/dropins`.
 3. Download the [HYPR artifacts](https://store.wso2.com/store/assets/isconnector/details/9fae98d3-26a6-4b1f-a356-f58b08d060ed) from the WSO2 connector store and extract the `.zip` file.
 4. Copy the `org.wso2.carbon.identity.application.authenticator.hypr.common-1.0.3.jar` file from the extracted folder and paste it to `<IS_HOME>/repository/components/lib`.
+5. Copy the `hypr` folder from the extracted folder and paste it to `<IS_HOME>/repository/resources/identity/extensions/connections`.
 
 ### Deploy the HYPR Rest API
 

@@ -694,18 +694,18 @@ components:
     InboundProtocols:
       type: object
       properties:
-        saml:
-          $ref: '#/components/schemas/SAML2Configuration'
         oidc:
           $ref: '#/components/schemas/OpenIDConnectConfiguration'
-        passiveSts:
-          $ref: '#/components/schemas/PassiveStsConfiguration'
-        wsTrust:
-          $ref: '#/components/schemas/WSTrustConfiguration'
-        custom:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
+#        saml:
+#          $ref: '#/components/schemas/SAML2Configuration'
+#        passiveSts:
+#          $ref: '#/components/schemas/PassiveStsConfiguration'
+#        wsTrust:
+#          $ref: '#/components/schemas/WSTrustConfiguration'
+#        custom:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
 
     InboundProtocolsListResponse:
       type: array
@@ -1293,7 +1293,7 @@ components:
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
 
 servers:
-  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
+  - url: 'https://{serverUrl}/t/{tenantDomain}/o/api/server/v1'
     variables:
       serverUrl:
         default: "localhost:9443"

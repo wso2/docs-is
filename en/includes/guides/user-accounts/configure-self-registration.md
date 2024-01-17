@@ -1,19 +1,18 @@
 # Configure self-registration
 
-[Users]({{base_path}}/guides/users/manage-customers/) can self-register to an organization in {{ product_name }} via an application's login page. This creates a new user account in the organization.
+[Users]({{base_path}}/guides/users/manage-users/) can self-register to an organization in {{ product_name }} via an application's login page. This creates a new user account in the organization.
 
 ## Enable/Disable self-registration
 
 To disable this capability in your organization or to change the default configurations, see the following instructions:
 
-1. On the {{ product_name }} Console, click **Self Registration**.
+1. On the {{ product_name }} Console, go to **Login & Registration** > **User Onboarding** and click **Self Registration**.
 
     ![Configure self registration]({{base_path}}/assets/img/guides/organization/self-registration/configure-self-registration.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     The **Self Registration** section indicates whether or not it is already enabled.
 
-2. Click **Configure** to open the **Self Registration** page.
-3. Configure the below settings.
+2. Configure the below settings.
 
     - To disable self-registration, turn off the toggle.
     - To configure self-registration, update the following settings and click **Update**.
@@ -96,42 +95,45 @@ This capability is beneficial when you have self-registered users. For example, 
         To implement this scenario, you must enforce account verification for self-registered users and also allow the same users to access your applications before account verification is completed.</br></br>
         That is, both **Account verification** and **Activate account immediately** configurations should be enabled for self-registration in your organization.
 
-You can get the account verification status of users through the [SCIM2 API]({{base_path}}/apis/scim2/) in {{ product_name }}.
+You can get the account verification status of users through the [SCIM2 API]({{base_path}}/apis/{{scim2_api_path}}/) in {{ product_name }}.
 Invoke the following SCIM2 endpoints:
 
 - To get your own information, invoke the `/scim2/Me` endpoint:
 
     ```bash 
-    https://api.asgardeo.io/t/<organization_name>/scim2/Me
+    https://{{ host_name }}{{ organization_path_param }}/scim2/Me
     ```
 
 - To get information about other users in your organization, invoke the `/scim2/Users/<user_id>` endpoint:
 
     ```bash 
-    https://api.asgardeo.io/t/<organization_name>/scim2/Users/<user_id>
+    https://{{ host_name }}{{ organization_path_param }}/scim2/Users/<user_id>
     ```
 
 Note the following details in the response payload:
 
 !!! note
     - If the `role.display` parameter is set to `selfsignup`, the user has self-registered.
-    - Under the `urn:scim:wso2:schema` schema, if the `emailVerified` parameter is available, the user has already verified the account through email. This parameter will have the following values:
+    - Under the `{{ scim_schema_for_wso2_custom_claims }}` schema, if the `emailVerified` parameter is available, the user has already verified the account through email. This parameter will have the following values:
 
         - `true` - User has successfully verified the account.
         - `false` - User's account verification attempt has failed.
 
-    - Under the `urn:scim:wso2:schema` schema, the `accountConfirmedTime` parameter will only be available when email verification is successful for self-registered users.
+    - Under the `{{ scim_schema_for_wso2_custom_claims }}` schema, the `accountConfirmedTime` parameter will only be available when email verification is successful for self-registered users.
 
 ``` text
 "roles": [
     {
         "display": "selfsignup",
         "value": "a85d4baf-2e7a-37b1-a722-d4d427039736",
-        "$ref": "https://api.asgardeo.io/t/<organization_name>/scim2/Roles/16ba9acb-fa30-42ef-8e25-29b557862124"
+        "$ref": "https://{{ host_name }}{{ organization_path_param }}/scim2/v2/Roles/16ba9acb-fa30-42ef-8e25-29b557862124",
+        "audienceValue": "<organization id>",
+        "audienceType": "organization",
+        "audienceDisplay": "<organization name>"
     },
     ......
     ],
-"urn:scim:wso2:schema": {
+"{{ scim_schema_for_wso2_custom_claims }}": {
     "emailVerified": "true",
     "accountConfirmedTime": "2023-02-16T03:07:34.392293Z"
     .....

@@ -61,7 +61,7 @@ You need to register your application in Asgardeo and connect your API resources
 
 Let's define the various roles of your application and give each role appropriate permissions.
 
-To do so, [create application roles]({{base_path}}/guides/api-authorization/#create-application-roles) with the following details:
+To do so, [create roles and associate to the application]({{base_path}}/guides/api-authorization/#associate-roles-to-the-application) with the following details:
 
 - Reporter - Assign `create:isses` and `view:issues` permissions.
 - Fix-Verifier - Assign all permissions.
@@ -82,9 +82,9 @@ Now that you have assigned the application roles to the relevant user groups in 
 
 To do so,
 
-1. [Onboard users to Asgardeo]({{base_path}}/guides/users/manage-customers/#onboard-a-user).
+1. [Onboard users to Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-a-user).
 
-2. [Assign users to relevant groups]({{base_path}}/guides/users/manage-customers/#assign-groups).
+2. [Assign users to relevant groups]({{base_path}}/guides/users/manage-users/#assign-groups).
 
 ## Step 3: Configure Spring Security
 

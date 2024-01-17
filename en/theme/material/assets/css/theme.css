@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2023-2024, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -22,12 +22,34 @@
     --md-accent-fg-color: #e46700;
     --md-redoc-example-bg-color: #2b3339;
     --md-default-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15), inset 0px -1px 0px #E1E2E7;
+
+    --icon-color-1-bg: #e9f6fc;
+    --icon-color-1-fg: #27aae1;
+    --icon-color-2-bg: #ffecf6;
+    --icon-color-2-fg: #cf3b89;
+    --icon-color-3-bg: #e7f6f5;
+    --icon-color-3-fg: #15a79e;
+    --icon-color-4-bg: #fff7ef;
+    --icon-color-4-fg: #f7931e;
 }
+
+.icon-color-1 { background-color: var(--icon-color-1-bg); }
+.icon-color-1 svg path { fill: var(--icon-color-1-fg) !important; }
+.icon-color-2 { background-color: var(--icon-color-2-bg); }
+.icon-color-2 svg path { fill: var(--icon-color-2-fg) !important; }
+.icon-color-3 { background-color: var(--icon-color-3-bg); }
+.icon-color-3 svg path { fill: var(--icon-color-3-fg) !important; }
+.icon-color-4 { background-color: var(--icon-color-4-bg); }
+.icon-color-4 svg path { fill: var(--icon-color-4-fg) !important; }
 
 [data-md-color-scheme=slate] {
     --md-default-bg-color: #232327;
     --md-redoc-example-bg-color: #36363b;
     --md-default-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), inset 0px -1px 0px #161616;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .md-grid {
@@ -140,8 +162,8 @@
 }
 
 .cards-container .card.square {
-    width: 170px;
-    height: 170px;
+    width: 185px;
+    height: 185px;
 }
 
 .cards-container a.card:hover {
@@ -206,6 +228,35 @@
 
 .md-header__version-select-dropdown.open .dropdown-content li:hover a {
     background-color: var(--md-default-fg-color--lightest);
+}
+
+.image-text-wrapped-container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.image-text-wrapped-container > h2 {
+    margin-top: 1em;
+}
+
+.image-text-wrapped-container .wrapping-text {
+  flex: 1;
+  padding: 20px;
+  margin-bottom: 1em;
+}
+
+.image-text-wrapped-container .wrapped-image {
+  flex-shrink: 0;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.image-text-wrapped-container .wrapped-image > img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Default/Light theme styles  */

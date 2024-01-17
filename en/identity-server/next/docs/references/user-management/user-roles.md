@@ -1,2 +1,2 @@
-{% set product_name = "WSO2 Identity Server" %}
+{% set admin_role_name = "admin" %}
 {% include "../../../../../includes/references/user-management/user-roles.md" %}

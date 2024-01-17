@@ -66,6 +66,18 @@ A sample configuration is given below.
     2.  Execute database scripts.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/mysql.sql` file against the database created.
+                         
+    !!! note     
+        Instead of defining `hostname`, `port`, and `name` separately, you can define the `url`
+        of the database in the following format.
+                    
+        ``` toml
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/regdb"
+        username = "regadmin"
+        password = "regadmin"
+        ```  
+
 
     !!! note
         When integrating WSO2 Identity Server with MySQL DB, it is advisable to deactivate the case-insensitive functionality within WSO2 IS.

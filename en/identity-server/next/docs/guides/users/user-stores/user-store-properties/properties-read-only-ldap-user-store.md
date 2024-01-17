@@ -46,7 +46,7 @@ Following are the minimum user store properties that are required to configure t
 <br />
 If you are connecting over ldaps (secured LDAP).<br />
 you need to import the certificate of the user store to <code><&ZeroWidthSpace;IS_HOME>/repository/resources/security/client-truststore.jks</code>. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see <br />
-<a href="{{base_path}}/deploy/security/use-asymmetric-encryption">Use asymmetric encryption</a><br />
+<a href="{{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption">Use asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see<br />
 <a href="{{base_path}}/deploy/performance/performance-tuning-recommendations/#pool-ldaps-connections/">performance tuning ldaps pooling.</a></p></td>
@@ -94,7 +94,7 @@ Apart from the properties mentioned above, WSO2 Identity Server also supports ad
 <td><p>This is a uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in, if you want to set the email address as username, see <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username/">Enable using email address as the username.</a></p></td>
+Note: email address is considered as a special case in, if you want to set the email address as username, see <a href="{{base_path}}/guides/users/attributes/enable-email-as-username/">Enable using email address as the username.</a></p></td>
 </tr>
 <tr class="odd">
 <td>UserIDAttribute</td>

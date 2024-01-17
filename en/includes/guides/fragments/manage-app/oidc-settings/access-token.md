@@ -1,10 +1,10 @@
 <!-- markdownlint-disable-next-line -->
 #### Token type  
-In additional to usual opaque tokens, {{ product_name }} supports self-contained JWT tokens as well.
+{{product_name}} supports the following token types.
 
-1. **Opaque**: These types of tokens are plain text tokens. If a resource server wants to know information related to opaque token, it has to query introspection endpoint and get the information related to tokens.
+- *Opaque*: Opaque tokens are plain text tokens. If a resource server wants to know information related to an opaque token, it has to call the introspection endpoint and receive information related to tokens. An example for a opaque token response is shown below.
 
-    ```json 
+    ```json
     {
     "access_token": "9fac7747-bb2d-46be-bef2-a95b2f69f8b2",
     "scope": "openid",
@@ -14,9 +14,9 @@ In additional to usual opaque tokens, {{ product_name }} supports self-contained
     }
     ```
 
-2. **JWT token**: JWT tokens are self-contained verifiable access tokens. They contain information related to tokens. If a resource server wants to know the information related to that token, it can decode the token and get the required information without any additional network calls.
+- *JWT token*: JWT tokens are self-contained verifiable access tokens. If a resource server wants to know the information related to that token, it can decode the token and get the required information without any additional network calls. An example for a JWT token response is shown below.
 
-    ```json 
+    ```json
     {
     "access_token": "eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJBbGljYUBiaWZyb3N0LmNvbSIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwibmJmIjoxNjIzOTA0ODA1LCJhenAiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwic2NvcGUiOiJvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuYXNnYXJkZW8uaW9cL3RcL2JpZnJvc3RcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MjM5MDg0MDUsImlhdCI6MTYyMzkwNDgwNSwianRpIjoiOWZhYzc3NDctYmIyZC00NmJlLWJlZjItYTk1YjJmNjlmOGIyIn0.ETimDfsoXiV2wqkCy7ZWZ-cO3mK8VaGKXvbBeFd8hh5TceGppRvrOs_0Kxez6p8gVRTrCbv-iBIrJFikl_I_euqTk30-JfPxvh0ox5RxY_4nsXs8GGycJwL40XfssE5BLlFSff2YIsbvy6Mbih8_Jerb-RA6j7cAZSII_T-4ATD7mk9DeXmK_-jwqBoyH0UNtAxJKLgfIs8G2yIiioaS4rSnX8tEGGvPvcaDzeTdNx2RNKod_EYlWDNJVtJHUf61lstu4WSA0pdHyP5_Fpbhe4pu_FaXeSMyAwsHYIENWVarB8kknvyUnL51lkoOrIJaSHRjqIbSNteIJ3QyEQ-a8Q",
     "scope": "openid",
@@ -27,8 +27,16 @@ In additional to usual opaque tokens, {{ product_name }} supports self-contained
     ```
     <br>
 
+#### Token binding type
+
+Token binding securely links authentication tokens to client devices to prevent unauthorized token theft and replay attacks. It is a vital mechanism, especially when dealing with unsecured networks, as it provides an additional layer of security against unauthorized access.
+
+{{product_name}} offers the following token binding types.
+
+{{token_binding_types}}
+
 #### User access token expiry time
-This provides the validity period of access tokens issued to a user in seconds. The default expiry time is 3600 seconds.
+This option specifies the validity period of an access token issued to a user in seconds. The default expiry time is 3600 seconds.
 
 #### Application access token expiry time
-This specifies the validity period of the access tokens issued to an application with the ``Client Credentials`` grant in seconds.
+This option specifies the validity period of an access token issued to an application when using the `Client Credentials` grant type in seconds.

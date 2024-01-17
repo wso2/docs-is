@@ -45,37 +45,43 @@ extra:
     - section:
       - title: Get Started
         icon: assets/libs/oxygen-ui-icons/1.7.3/bolt-16.svg
+        icon_color: icon-color-1
         list_items:
           - title: Introduction
             url: Get Started|Introduction
           - title: Quick Setup
             url: Get Started|Quickstart|Quick Setup
-          - title: Try a sample app
-            url: Get Started|Start integrating IS into apps|Try for a sample app
+          - title: Start Integrating Apps
+            url: Get Started|Start integrating apps|Start integrating apps
       - title: Community and Support
         icon: assets/libs/oxygen-ui-icons/1.7.3/lightbulb-on-16.svg
+        icon_color: icon-color-2
         list_items:
           - title: Contributing to the Project
             url: https://github.com/wso2/product-is/wiki/Contributing-to-Identity-Server
-          - title: Community help
+          - title: Community Help
             url: https://discord.com/invite/wso2
           - title: Enterprise Support
             url: https://wso2.com/subscription/
     - section:
       - title: Developer Resources
         icon: assets/libs/oxygen-ui-icons/1.7.3/user-gear-16.svg
+        icon_color: icon-color-3
         list_items:
           - title: APIs
             url: APIs|APIs
           - title: Sample Apps
-            url: Get Started|Start integrating IS into apps|Try for a sample app
+            url: Get Started|Start integrating apps|Try for a sample app|Try for a sample app
           - title: SDKs and Integrations
             url: Integrations|Integrate WSO2 IS into your application
       - title: Setup
         icon: assets/libs/oxygen-ui-icons/1.7.3/verticle-filter-bars-16.svg
+        icon_color: icon-color-1
         list_items:
           - title: Install
             url: Setup|Install|Install
+          - title: Configure
+            url: Setup|Configure|User Stores|User Stores
           - title: Secure
             url: 
           - title: Deploy
@@ -87,6 +93,7 @@ extra:
     - section:
       - title: Guides
         icon: assets/libs/oxygen-ui-icons/1.7.3/document-16.svg
+        icon_color: icon-color-4
         list_items:
           - title: Applications
             url: Guides|Applications|Applications

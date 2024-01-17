@@ -259,7 +259,8 @@ For more information on CRL and OCSP certificate validation, see
     1.  `            authentication_endpoint           ` : This is the
         URL with the port that is secured with the certificate, e.g.,
         `                         https://localhost:8443/x509-certificate-servlet                       `
-       . Update this based on your host name.
+       . This value will be taken to extract the certificate from the browser by redirecting the user to the specified endpoint. 
+       Update this based on your host name.
     2.  `            username           ` : This attribute value will be
         taken as the authenticated user subject identifier. Update this
         with any of the certificate attributes, e.g., CN and Email.

@@ -15,7 +15,7 @@ With domain branding, you can customize the above endpoints to have hostnames sp
 - **Services**: `https://api.foo.com`
 
 !!! note "Custom domain branding for B2B applications"
-    If you have configured [suborganizations]({{base_path}}/guides/organization-management/manage-suborganizations/), note that the custom domain you configure for your root organization also applies to your suborganizations.
+    If you have configured [organizations]({{base_path}}/guides/organization-management/manage-organizations/), note that the custom domain you configure for your root organization also applies to your organizations.
 
 If you have a paid Asgardeo subscription and wish to implement a custom domain for your organization, contact Asgardeo support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
 Note that email and support portal requests should be sent from the respective account of an administrator.

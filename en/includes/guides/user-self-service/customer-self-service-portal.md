@@ -8,10 +8,6 @@ Users can access the My Account portal using the following link.
 
 {{my_account_link}}
 
-!!! info
-
-    Learn more about [configuring the self-service portal]({{base_path}}/guides/user-accounts/configure-self-service-portal/)
-
 ## Self-service capabilities for users
 
 Listed below are self-service features that are available for the user in the **My Account portal**.
@@ -24,6 +20,6 @@ Listed below are self-service features that are available for the user in the **
 - [Manage linked social accounts]({{base_path}}/guides/user-self-service/manage-linked-accounts/)
 - [Export profile information]({{base_path}}/guides/user-self-service/export-profile-information/)
 - [View and revoke login sessions]({{base_path}}/guides/user-self-service/manage-login-sessions/)
-- [Manage password recovery]({{base_path}}/guides/user-self-service/customer-password-recovery/)
+- [Manage password recovery]({{base_path}}/guides/user-self-service/user-password-recovery/)
 - [Discover and maintain applications]({{base_path}}/guides/user-self-service/discover-applications/)
-- [Register FIDO2 security key/biometrics]({{base_path}}/guides/user-self-service/register-security-key/)
+- [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/)

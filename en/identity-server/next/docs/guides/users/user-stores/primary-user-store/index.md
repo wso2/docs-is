@@ -59,12 +59,7 @@ There are two steps involved in setting up the primary user store:
     </tbody>
     </table>
 
-    You can configure your own custom user store manager. For more information, see [Write a custom user store manager]({{base_path}}/references/user-stores/write-a-custom-user-store-manager).
-
-    !!! tip
-        From WSO2 IS 5.10.0 onwards, all user store managers have `UniqueID` included as part of the user store manager name (e.g.,`UniqueIDJDBCUserStoreManager`). Use one of these when selecting the user store manager. 
-        
-        The user store managers that do not have `UniqueID` as part of the user store manager name are **only** available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server. 
+    You can configure your own custom user store manager. For more information, see [Write a custom user store manager]({{base_path}}/references/extend/user-stores/write-a-custom-user-store-manager).
 
 2.  Configure user store manager properties.
 
@@ -92,6 +87,6 @@ There are two steps involved in setting up the primary user store:
     !!! warning
         Server system administrator who is capable of all the actions in the
         system is configured within the `deployment.toml` file. If you have not
-        configured the system administrator yet, see [Configure the System Administrator]({{base_path}}/references/user-stores/configure-system-administrator).
+        configured the system administrator yet, see [Configure the System Administrator]({{base_path}}/deploy/configure/user-stores/configure-system-administrator).
 
 3.  Restart the server.

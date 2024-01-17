@@ -10,7 +10,7 @@ By following this guide, you will be able to deploy a Javascript single-page app
 
 - **A user account in Asgardeo**
 
-    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in Asgardeo.
+    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in Asgardeo.
 
 ## Register the app
 
@@ -37,8 +37,8 @@ Follow the steps given below to register the sample Javascript SPA in Asgardeo.
             </td>
         </tr>
         <tr>
-            <td>Allow sharing with sub-organizations</td>
-            <td>Enable this to share the new application with all or any selected suborganizations that belong to your root organization.</td>
+            <td>Allow sharing with organizations</td>
+            <td>Enable this to share the new application with all or any selected organizations that belong to your organization (root).</td>
         </tr>
     </table>
 

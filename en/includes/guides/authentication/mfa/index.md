@@ -45,3 +45,4 @@ Learn how to enable MFA using the following authenticators:
 - [TOTP]({{base_path}}/guides/authentication/mfa/add-totp-login/)
 - [Email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/)
 - [SMS OTP]({{base_path}}/guides/authentication/mfa/add-smsotp-login/)
+- [Passkey]({{base_path}}/guides/authentication/mfa/add-passkey-login/)

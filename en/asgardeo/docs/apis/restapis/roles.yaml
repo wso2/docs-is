@@ -1,0 +1,1098 @@
+openapi: 3.0.0
+info:
+  version: "v2"
+  title:  Asgardeo - SCIM 2.0 Roles API
+  description: |
+    "This is the RESTful API for SCIM 2.0 Roles API in WSO2 Asgardeo. 
+    This API allows creating, deleting, listing, roles and updating role name, permissions, users and groups of the roles.
+    \n To access the SCIM 2.0 Roles APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
+servers:
+  - url: https://api.asgardeo.io/t/{organization-name}/scim2/v2
+security:
+  - OAuth2: []
+
+paths:
+  /Roles:
+    get:
+      tags:
+        - Roles Endpoint
+      summary: Filter Roles
+      description: >
+        This API returns roles according to the specified filter, sort and
+        pagination parameters.
+
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_view`
+      operationId: getRoleV2
+      parameters:
+        - name: filter
+          in: query
+          description: Filter expression for filtering
+          required: false
+          schema:
+            type: string
+        - name: startIndex
+          in: query
+          description: The 1-based index of the first query result
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: count
+          in: query
+          description: Specifies the desired maximum number of query results per page.
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: sortBy
+          in: query
+          description: |-
+            Specifies the attribute whose value
+            SHALL be used to order the returned responses
+          required: false
+          schema:
+            type: string
+        - name: sortOder
+          in: query
+          description: The order in which the "sortBy" parameter is applied.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Valid roles are found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RolesListResponseObjectV2'
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: No Role found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNoRoleAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    post:
+      tags:
+        - Roles Endpoint
+      summary: Create Role
+      description: >
+        This API creates a role and returns the details of the created role
+        including its unique ID.
+
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_create`
+      operationId: createRoleV2
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/RoleCreationObjectV2'
+      responses:
+        '201':
+          description: Valid role is created
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RolePostResponseObjectV2'
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Role is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorRoleNotAvailable'
+        '409':
+          description: Role already exist
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErroRoleAlreadyAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "schemas": [
+                "urn:ietf:params:scim:schemas:extension:2.0:Role"
+              ],
+              "displayName": "loginRole",
+              "audience": {
+                "value": "3645709f-ea8d-5595-7690-e1fa0efe3df9",
+                "type": "application"
+              },
+              "users": [
+                {
+                  "value": "008bba85-451d-414b-87de-c03b5a1f4217"
+                }
+              ],
+              "groups": [
+                {
+                  "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+                }
+              ],
+              "permissions": [
+                {
+                  "value": "internal_login",
+                  "display": "Internal Login"
+                }
+              ]
+            }'
+      x-codegen-request-body-name: body
+  /Roles/.search:
+    post:
+      tags:
+        - Roles Endpoint
+      summary: Search Roles
+      description: >
+        This API returns roles according to the specified filter, sort and
+        pagination parameters.
+
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_view`
+      operationId: getRolesByPostV2
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/RoleSearchRequestObjectV2'
+      responses:
+        '200':
+          description: Valid roles are found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RoleSearchResponseObjectV2'
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Valid roles are not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RoleSearchErrorResponseObject'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/.search' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+            ],
+            "startIndex": 1,
+            "filter": "displayName eq loginRole"
+            }'
+      x-codegen-request-body-name: body
+  /Roles/{id}:
+    get:
+      tags:
+        - Roles Endpoint
+      summary: Get Role by ID
+      description: >
+        This API returns the role details of a particular role using its unique
+        ID.
+
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_view`
+      operationId: getRolebyIdV2
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          schema:
+            type: string
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          required: false
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Valid role is found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RoleGetResponseObjectV2'
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Valid role is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNoRoleAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/{role-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    put:
+      tags:
+        - Roles Endpoint
+      summary: Update Role - PUT
+      description: >
+        This API updates the role details and returns the updated role details
+        using a PUT operation.
+
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_update`
+      operationId: updateRoleV2
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/RolePutRequestObjectV2'
+      responses:
+        '200':
+          description: Role is updated
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RolePutResponseObjectV2'
+        '400':
+          description: Invalid Input
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Valid role is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNoRoleAvailable'
+        '406':
+          description: Not Acceptable
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotAcceptable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/{role-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "displayName": "loginRole",
+              "users": [
+                {
+                  "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43"
+                }
+              ],
+              "groups": [
+                {
+                  "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+                }
+              ],
+              "permissions": [
+                {
+                  "value": "internal_login",
+                  "display": "Internal Login"
+                }
+              ]
+            }'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Roles Endpoint
+      summary: Delete Role
+      description: |
+        This API deletes a particular role using its unique ID.
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_delete`
+      operationId: deleteRoleV2
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Role is deleted
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Valid role is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNoRoleAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/{role-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    patch:
+      tags:
+        - Roles Endpoint
+      summary: Update Role - PATCH
+      description: >
+        This API updates the role details and returns the updated role details
+        using a PATCH operation.
+
+
+        <b>Scope(Permission) required:</b> `internal_role_mgt_update`
+      operationId: patchRole
+      parameters:
+        - name: id
+          in: path
+          description: Unique id of the resource type.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/PatchRoleOperationRequestObjectV2'
+      responses:
+        '200':
+          description: Role is updated
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/PatchRoleOperationResponseObjectV2'
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Valid role is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNoRoleAvailable'
+        '406':
+          description: Not Acceptable
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotAcceptable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/{role-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "schemas": [
+                "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+              ],
+              "Operations": [
+                  {
+                    "op": "add",
+                    "path": "groups",
+                    "value": [
+                      {
+                        "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "path": "users",
+                    "value": [
+                      {
+                        "value": "9cac6a86-1f21-4937-9fb1-5be4a93ef349"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "remove",
+                    "path": "users[value eq 0565f472-28fe-4d93-83ad-096c66ed4a47]"
+                  },
+                  {
+                    "op": "remove",
+                    "path": "groups[value eq 9065f445-265e-4rfg3-83ad-666c66ed4a55]"
+                  },
+                  {
+                    "op": "replace",
+                    "value": {
+                      "permissions": [
+                        {
+                          "value": "internal_group_mgt_view"
+                        }
+                    ]
+                  }
+                }
+              ]
+            }'
+      x-codegen-request-body-name: body
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/authorize
+          tokenUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/token
+          scopes:
+            view: internal_role_mgt_view
+            create: internal_role_mgt_create
+            update: internal_role_mgt_update
+            delete: internal_role_mgt_delete
+  schemas:
+    RolesListResponseObjectV2:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          example: 3
+        startIndex:
+          type: integer
+          example: 1
+        itemsPerPage:
+          type: integer
+          example: 3
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:api:messages:2.0:ListResponse
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleObV2'
+    RoleSearchRequestObjectV2:
+      type: object
+      properties:
+        schemas:
+          type: object
+          example:
+            - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+        startIndex:
+          type: integer
+          example: 1
+        count:
+          type: integer
+          example: 10
+        filter:
+          type: string
+          example: displayName eq loginRole
+    RoleSearchResponseObjectV2:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          example: 1
+        startIndex:
+          type: integer
+          example: 1
+        itemsPerPage:
+          type: integer
+          example: 3
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:api:messages:2.0:ListResponse
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleObV2'
+    RoleObV2:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: loginRole
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              example: >-
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+        id:
+          type: string
+          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        audience:
+          type: object
+          properties:
+            value:
+              type: string
+              example: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+            display:
+              type: string
+              example: My App
+            type:
+              type: string
+              example: application
+    RoleCreationObjectV2:
+      type: object
+      required:
+        - displayName
+        - schemas
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+        displayName:
+          type: string
+          example: loginRole
+        audience:
+          type: object
+          properties:
+            value:
+              type: string
+              example: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+            type:
+              type: string
+              enum:
+                - applciation
+                - organization
+              example: application
+        users:
+          type: array
+          items:
+            type: object
+            example:
+              value: 008bba85-451d-414b-87de-c03b5a1f4217
+        groups:
+          type: array
+          items:
+            type: object
+            example:
+              value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+        permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                example: internal_login
+              display:
+                type: string
+                example: Internal Login
+    RoleGetResponseObjectV2:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: loginRole
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              example: >-
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+            resourceType:
+              type: string
+              example: Role
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+        id:
+          type: string
+          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        audience:
+          type: object
+          properties:
+            value:
+              type: string
+              example: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+            display:
+              type: string
+              example: My App
+            type:
+              type: string
+              enum:
+                - application
+                - organization
+              example: application
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                example: >-
+                  https://api.asgardeo.io/t/{org-name}/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
+              display:
+                type: string
+                example: kim
+              value:
+                type: string
+                example: 008bba85-451d-414b-87de-c03b5a1f4217
+        groups:
+          type: array
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                example: >-
+                  https://api.asgardeo.io/t/{org-name}/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+              display:
+                type: string
+                example: PRIMARY/manager
+              value:
+                type: string
+                example: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+        permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                example: internal_login
+              display:
+                type: string
+                example: Internal Login
+        associatedApplications:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              display:
+                type: string
+          example:
+            - value: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+              display: My App
+    RolePostResponseObjectV2:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: loginRole
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              example: >-
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+            resourceType:
+              type: string
+              example: Role
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+        id:
+          type: string
+          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        audience:
+          type: object
+          properties:
+            value:
+              type: string
+              example: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+            display:
+              type: string
+              example: My App
+            type:
+              type: string
+              enum:
+                - application
+                - organization
+              example: application
+    RolePutRequestObjectV2:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: loginRole
+        users:
+          type: array
+          items:
+            type: object
+            example:
+              value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+        groups:
+          type: array
+          items:
+            type: object
+            example:
+              value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+        permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                example: internal_login
+              display:
+                type: string
+                example: Internal Login
+    RolePutResponseObjectV2:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: loginRole
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              example: >-
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+            resourceType:
+              type: string
+              example: Role
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+        id:
+          type: string
+          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        audience:
+          type: object
+          properties:
+            value:
+              type: string
+              example: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+            display:
+              type: string
+              example: My App
+            type:
+              type: string
+              enum:
+                - application
+                - organization
+              example: application
+    PatchRoleOperationRequestObjectV2:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:api:messages:2.0:PatchOp
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/RolePatchOperationobjV2'
+    RolePatchOperationobjV2:
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+            - add
+            - remove
+            - replace
+        path:
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+      example:
+        - op: add
+          path: groups
+          value:
+            - value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+        - op: add
+          path: users
+          value:
+            - value: 9cac6a86-1f21-4937-9fb1-5be4a93ef349
+        - op: remove
+          path: users[value eq 0565f472-28fe-4d93-83ad-096c66ed4a47]
+    PatchRoleOperationResponseObjectV2:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: loginRole
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              example: >-
+                https://api.asgardeo.io/t/{org-name}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+            resourceType:
+              type: string
+              example: Role
+        schemas:
+          type: object
+          example:
+            - urn:ietf:params:scim:schemas:extension:2.0:Role
+        id:
+          type: string
+          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        audience:
+          type: object
+          properties:
+            value:
+              type: string
+              example: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+            display:
+              type: string
+              example: My App
+            type:
+              type: string
+              enum:
+                - application
+                - organization
+              example: application
+    ErrorInvalidInput:
+      type: object
+      required:
+        - status
+        - schema
+        - detail
+      properties:
+        status:
+          type: string
+          example: '400'
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: invalidSyntax
+        detail:
+          type: string
+          example: Request is unparsable, syntactically incorrect, or violates schema.
+    ErrorUnauthorized:
+      type: object
+      required:
+        - status
+        - schema
+      properties:
+        status:
+          type: string
+          example: '401'
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: Unauthorized
+    ErrorNotAcceptable:
+      type: object
+      required:
+        - status
+        - schema
+      properties:
+        status:
+          type: string
+          example: '406'
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: Not Acceptable
+    ErrorForbidden:
+      type: object
+      required:
+        - status
+        - schema
+      properties:
+        status:
+          type: string
+          example: '403'
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: Forbidden
+    ErrorNoRoleAvailable:
+      type: object
+      required:
+        - status
+        - schema
+        - detail
+      properties:
+        status:
+          type: string
+          example: '404'
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: Role not found in the system.
+    ErrorRoleNotAvailable:
+      type: object
+      required:
+        - status
+        - schema
+        - detail
+      properties:
+        status:
+          type: string
+          example: '404'
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: >-
+            No Role with the id : 4645709c-ea8c-4495-8590-e1fa0efe3de0 in the
+            system.
+    ErroRoleAlreadyAvailable:
+      type: object
+      required:
+        - status
+        - schema
+        - detail
+      properties:
+        status:
+          type: string
+          example: '409'
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: 'Role with name: Internal/loginRole already exists in the system.'
+    RoleSearchErrorResponseObject:
+      type: object
+      required:
+        - totalResults
+        - startIndex
+        - itemsPerPage
+        - schemas
+      properties:
+        totalResults:
+          type: integer
+          example: 0
+        startIndex:
+          type: integer
+          example: 1
+        itemsPerPage:
+          type: integer
+          example: 0
+        schemas:
+          type: array
+          items:
+            example: urn:ietf:params:scim:api:messages:2.0:ListResponse

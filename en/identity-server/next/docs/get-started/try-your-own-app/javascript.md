@@ -1,6 +1,6 @@
 # Integrate with your JavaScript SPA
 
-Follow the steps given below to authenticate users to your JavaScript SPA with OpenID Connect using the [Asgardeo JavaScript SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk/blob/main/README/).
+Follow the steps given below to authenticate users to your JavaScript SPA with OpenID Connect using the [JavaScript SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk#readme).
 
 <div class="border-text">
     <img src="{{base_path}}/assets/img/logo/javascript-logo.svg" alt="JavaScript" width=50><br>
@@ -9,7 +9,7 @@ Follow the steps given below to authenticate users to your JavaScript SPA with O
 
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm) in your local environment.
-- <a href="{{base_path}}/guides/applications/register-single-page-app">Register an application</a> in the WSO2 Identity Server.
+- <a href="{{base_path}}/guides/applications/register-single-page-app">Register an application</a> in the {{ product_name }}.
 
 ## Install the SDK
 
@@ -46,7 +46,7 @@ To initialize the SDK, use the `getInstance()` function in the SDK and provide t
   </tr>
   <tr>
     <td><code>baseUrl</code></td>
-    <td>This is the WSO2 Identity server's URL in the form <code>https://{host}:{port}</code>.</td>
+    <td>This is the {{ product_name }}'s URL in the form <code>https://{host}:{port}</code>.</td>
   </tr>
   <tr>
     <td><code>signInRedirectURL</code></td>
@@ -72,7 +72,7 @@ auth.initialize({
    signInRedirectURL: "https://localhost:3000",
    signOutRedirectURL: "https://localhost:3000",
    clientID: "{clientId}",
-   baseUrl: "https://api.asgardeo.io/t/{organization_name}",
+   baseUrl: "https://localhost:9443",
    scope: [ "openid","profile" ]
 });
 </script>
@@ -147,7 +147,7 @@ function getDecodedIdToken(){
  "amr": [
    "BasicAuthenticator"
  ],
- "iss": "https://api.asgardeo.io/t/bifrost/oauth2/token",
+ "iss": "https://localhost:9443/oauth2/token",
  "sid": "dd1621a7-bb3e-48cf-adae-861e261410e1",
  "aud": "SmLpPiRube64JmkAf4nhZVD_6V8a",
  "c_hash": "b15Dl_wI3rkoK0vukXYJew",
@@ -235,7 +235,7 @@ You can loop through the user info response(`userinfoResponse`), and get the fol
 
 ### Add logout
 
-In the previous steps, you implemented login for your app and enabled your app to get some information about the user that is logged in. Now you need a way to log users out of your application and remove the user sessions from Asgardeo.
+In the previous steps, you implemented login for your app and enabled your app to get some information about the user that is logged in. Now you need a way to log users out of your application and remove the user sessions from {{ product_name }}.
 
 See the [signOut API reference](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signout) for advanced usages.
 

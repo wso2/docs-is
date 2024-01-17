@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: OAuth2 Dynamic Client Registration Endpoint
   description: |
-    This document specifies an OAuth2 Dyanmic Client Registration Endpoint for WSO2 Identity Server.
+    This document specifies an OAuth2 Dynamic Client Registration Endpoint for WSO2 Identity Server.
   version: 1.1.0
 servers:
 - url: https:/{serverUrl}/api/identity/oauth2/dcr/v1.1
@@ -396,6 +396,60 @@ components:
           type: string
         backchannel_logout_session_required:
           type: boolean
+        ext_application_display_name:
+          type: string
+        token_type_extension:
+          type: string
+        ext_application_owner:
+          type: string
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+        ext_pkce_mandatory:
+          type: boolean
+        ext_pkce_support_plain:
+          type: boolean
+        ext_public_client:
+          type: boolean
+        token_endpoint_auth_method:
+          type: string
+        token_endpoint_auth_signing_alg:
+          type: string
+        sector_identifier_uri:
+          type: string
+        id_token_signed_response_alg:
+          type: string
+        id_token_encrypted_response_alg:
+          type: string
+        id_token_encrypted_response_enc:
+          type: string
+        software_statement:
+          type: string
+        request_object_signing_alg:
+          type: string
+        tls_client_auth_subject_dn:
+          type: string
+        require_signed_request_object:
+          type: boolean
+        require_pushed_authorization_requests:
+          type: boolean
+        tls_client_certificate_bound_access_tokens:
+          type: boolean
+        subject_type:
+          type: string
+        request_object_encryption_alg:
+          type: string
+        request_object_encryption_enc:
+          type: string
     updateRequest:
       type: object
       properties:
@@ -417,6 +471,60 @@ components:
           type: string
         backchannel_logout_session_required:
           type: boolean
+        ext_application_display_name:
+          type: string
+        token_type_extension:
+          type: string
+        ext_application_owner:
+          type: string
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+        ext_pkce_mandatory:
+          type: boolean
+        ext_pkce_support_plain:
+          type: boolean
+        ext_public_client:
+          type: boolean
+        token_endpoint_auth_method:
+          type: string
+        token_endpoint_auth_signing_alg:
+          type: string
+        sector_identifier_uri:
+          type: string
+        id_token_signed_response_alg:
+          type: string
+        id_token_encrypted_response_alg:
+          type: string
+        id_token_encrypted_response_enc:
+          type: string
+        software_statement:
+          type: string
+        request_object_signing_alg:
+          type: string
+        tls_client_auth_subject_dn:
+            type: string
+        require_signed_request_object:
+          type: boolean
+        require_pushed_authorization_requests:
+          type: boolean
+        tls_client_certificate_bound_access_tokens:
+          type: boolean
+        subject_type:
+          type: string
+        request_object_encryption_alg:
+          type: string
+        request_object_encryption_enc:
+          type: string
     application:
       type: object
       properties:
@@ -425,7 +533,8 @@ components:
         client_secret:
           type: string
         client_secret_expires_at:
-          type: string
+          type: integer
+          format: int64
         redirect_uris:
           type: array
           items:
@@ -436,12 +545,34 @@ components:
             type: string
         client_name:
           type: string
+        ext_application_owner:
+          type: string
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+        ext_pkce_mandatory:
+          type: boolean
+        ext_pkce_support_plain:
+          type: boolean
+        ext_public_client:
+          type: boolean
     error:
       type: object
       properties:
         error:
           type: string
         error_description:
+          type: string
+        traceId:
           type: string
   securitySchemes:
     BasicAuth:

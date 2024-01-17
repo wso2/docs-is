@@ -1,105 +1,94 @@
-# Onboard sub organization administrators
+# Onboard organization administrators
 
-You can onboard sub organization administrators using any of the following approaches:
+You can onboard organization administrators using any of the following approaches:
 
 - [Sales-led approach](#sales-led-approach)
 - [Self-service approach](#self-service-approach)
 
 ## Sales-led approach
 
-In this approach, the admin of the root organization creates the sub organization and adds a user as an admin of the created sub organization. This method is typically used when the root organization should regulate the creation of sub-organizations, and the administrator's supervision is required to ensure proper setup.
+In this approach, the admin of the organization (root) creates the organization and adds a user as an admin of the created organization. This method is typically used when the organization (root) should regulate the creation of organizations, and the administrator's supervision is required to ensure proper setup.
 
-Follow the steps below to onboard sub organization administrators using the {{ product_name }} Console.
+Follow the steps below to onboard organization administrators using the {{ product_name }} Console.
 
 ### Prerequisites
-You need to [create a sub organization]({{base_path}}/guides/organization-management/manage-suborganizations/#create-a-sub-organization) and switch to the created sub organization.
+You need to:
 
-!!! note
-    Only sub organization creators can onboard administrators for their sub organizations using the {{ product_name }} Console.
+  - register your B2B application in the organization (root).
+  - create an administrator role required for your B2B application and associate it to the application.
+  - [create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) and switch to the created organization.
+  - [share the B2B application]({{base_path}}/guides/organization-management/share-applications/) with required organizations.
+
+!!! note 
+    The organization creator, invited parent organization users who have user management and role management permissions can onboard administrators for the organization switching to the organization on the {{ product_name }} Console.
 
 ### Step 1: Create a user
 
-To create a new sub organization user:
+To create a new organization user:
 
-1. Switch to the sub organization on the {{ product_name }} Console.
+1. Switch to the organization on the {{ product_name }} Console.
 
 2. Go to **User Management** > **Users** and click **Add User**.
 
 3. Enter the following details:
-    <table>
-        <tr>
-            <th>Email (Username)</th>
-            <td>A unique email address to identify the user.</td>
-        </tr>
-        <tr>
-            <th>First Name</th>
-            <td>First name of the user. You can add/change this later.</td>
-        </tr>
-        <tr>
-            <th>Last Name</th>
-            <td>Last name of the user. You can add/change this later.</td>
-        </tr>
-    </table>
+    {{ admin_user_details }}
 
-4. You can either request the user to set the password or set one on the user's behalf.
-    - **Invite user to set their own password**: If this option is selected, an email with a confirmation link will be sent to the provided email address for the user to set their own password.
+4. You can either set a password on the user's behalf or request the user to set the password.
 
     - **Set a temporary password for the user**: If this option is selected, the administrator can set a temporary password for the user.
 
+    - **Invite user to set their own password**: If this option is selected, an email with a confirmation link will be sent to the provided email address for the user to set their own password.
+
 5. Click **Finish** to add the new user.
 
-### Step 2: Assign the user to the {{ admin_role_name }} role
+### Step 2: Assign the user to the {{ admin_role_name }} role of B2B application
 
-The Administrator role is available in sub organizations by default. To assign the created user to this role:
+If you have created an {{ admin_role_name }} role in the organization (root) and associated it with the shared B2B application, the B2B application's {{ admin_role_name }} role is available in the organization by default. To assign the created user to this role:
 
-1. Switch to the sub organization on the {{ product_name }} Console.
+1. Switch to the organization on the {{ product_name }} Console.
 
-2. Go to **User Management** > **Roles** and click **Configure** in the **Organization Roles** section.
+2. Go to **User Management** > **Roles**.
 
-3. Select the **Administrator** role and go to the **Users** tab.
+3. Select the **{{ admin_role_name }}** role of the B2B application and go to the **Users** tab.
 
-4. Click the edit button to open the **Manage Users** dialog box.
+4. Select the user from drop-down.
 
-5. Assign the user to the role by selecting the user and moving to the box on the right.
+    ![Assign admin permission to organization user]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-admin-permissions.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
-    !!! note
-        See details of all the available [administrator permissions]({{base_path}}/references/user-management/user-roles/) you are granting the sub organization administrator.
+5. Click **Update**.
 
-    ![Assign admin permission to suborganization user]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-admin-permissions.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-6. Click **Save**.
-
-You have now onboarded an administrator to the sub organization. From thereon, the sub organization administrator can manage that organization's identity and access management requirements.
-
-!!! note
-    Note that sub organization administrators do not have access to the {{ product_name }} Console as they are not direct users of {{ product_name }}. A separate administration portal is required to carry out these functions. Learn more about [implementing an administration portal]({{base_path}}/guides/organization-management/manage-b2b-administration/#implement-an-administration-portal).
+You have now onboarded an administrator to the organization. From thereon, the organization administrator can manage that organization's identity and access management requirements through the B2B administration portal.
 
 ## Self-service approach
-In this approach, sub organization users can self-subscribe to the B2B application and easily create their own sub-organizations. This method empowers sub organization users to take control of the onboarding process, making it quick and convenient.
+In this approach, organization users can self-subscribe to the B2B application and easily create their own organizations. This method empowers organization users to take control of the onboarding process, making it quick and convenient.
 
-Using the self-service approach, the sub organization users can maintain their administrators either in the sub organization itself or the root organization. The selection of the creation place depends on the organization's business requirements.
+Using the self-service approach, the organization users can maintain their administrators either in the organization itself or the organization (root). The selection of the creation place depends on the organization's business requirements.
 
-- [Maintain admins in the sub organization](#maintain-admins-in-the-sub-organization):
-    You can create the user in the sub organization if the user needs to be isolated into one organization.
-- [Maintain admins in the root organization](#maintain-admins-in-the-root-organization):
-    You can create the user in the root organization if the same user can manage multiple organizations.
+- [Maintain admins in the organization](#maintain-admins-in-the-organization):
+  You can create the user in the organization if the user needs to be isolated into one organization.
+- [Maintain admins in the organization (root)](#maintain-admins-in-the-organization-root):
+  You can create the user in the organization (root) if the same user can manage multiple organizations.
+
+### Prerequisites
+You need to:
+
+   - register your B2B application in the organization (root).
+   - create an administrator role required for your B2B application and associate it to the application.
 
 ### Initial setup: Get access tokens
 
-Before creating admins using the APIs, you need to obtain the required access tokens and enable self-service. Follow the steps below to set up the initial requirements to create sub organization admins.
+Before creating admins using the APIs, you need to obtain the required access tokens and enable self-service. Follow the steps below to set up the initial requirements to create organization admins.
 
-1. [Get an access token]({{base_path}}/apis/authentication/#get-an-access-token) from your root organization.
+1. [Get an access token]({{base_path}}/apis/{{api_authentication_path}}) from your root organization.
 
-    !!! note "Required scopes"
-        Include the following scopes when requesting for the access token:
+    !!! note "Required APIs and scopes to authorize to the application"
+        Authorize to SYSTEM API named **Self Service API**(`/api/server/v1/self-service`) with `internal_self_service_view` and `internal_self_service_update` scopes.
 
-        `openid` `internal_application_mgt_create` `internal_application_mgt_view` `internal_organization_view` `internal_organization_update` `internal_governance_view` `internal_governance_update` `internal_email_mgt_view` `internal_email_mgt_update` internal_email_mgt_delete` `internal_email_mgt_create` `internal_userstore_view` `internal_userstore_update` `internal_userstore_delete`
-
-2. Enable self-service for the root organization.
+2. Enable self-service for the organization (root).
 
     ``` curl
     curl --location --request PATCH 
-    'https://{{ host_name }}/o/{root-org-id}/api/server/v1/self-service/preferences' \
+    'https://{{ host_name }}/api/server/v1/self-service/preferences' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <access-token-obtained-from-step-1>' \
     -d '{
@@ -113,75 +102,75 @@ Before creating admins using the APIs, you need to obtain the required access to
     }'
     ```
 
-    The `{root-org-id}` is the organization ID of the root organization. To obtain the organization ID of your root organization, copy the provided organization ID from the organization drop-down. [Learn more]({{base_path}}/guides/organization-management/manage-organizations/#obtain-the-organization-id).
+    !!! note
+        Enabling self-service will create an Machine-to-Machine(M2M) application named `B2B-Self-Service-Mgt-Application`.
+        This application is authorized to a limited set of APIs to facilitate subsequent API calls.
+        You will be able to see this application on the {{ product_name }} console.
+
+3. Get an access token for the `B2B-Self-Service-Mgt-Application` using the following cURL.
 
     !!! note
-        Enabling self-service will create the following in the root organization:
-    
-        - A system user named `B2B-SS-System-User`.
-        - A system role named `B2B-SS-System-Role`.
-        - A system application named `B2B-Self-Service-Mgt-Application`. This application has limited permissions to facilitate subsequent API calls.
-    
-        You will be able to see these entities on the {{ product_name }} console.
-
-4. Get an access token for the `B2B-Self-Service-Mgt-Application` using the following cURL.
-
-    !!! note
-        Take note of the system application's **Client ID** and **Client Secret** created on the {{ product_name }} console, as it will be required in the next steps.
+        Take note of the M2M application's **Client ID** and **Client Secret** created on the {{ product_name }} console, as it will be required in the next steps.
 
     ``` curl
     curl -X POST \
-    https://{{ host_name }}/t/<root_org_name>/oauth2/token \
+    https://{{ host_name }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d 'grant_type=client_credentials&scope=openid internal_identity_mgt_create internal_identity_mgt_delete internal_identity_mgt_update internal_identity_mgt_view internal_organization_admin internal_organization_create internal_organization_view internal_user_mgt_create internal_user_mgt_list internal_user_mgt_view'
+    -d 'grant_type=client_credentials&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view internal_organization_view internal_organization_create internal_user_mgt_view internal_user_mgt_create'
     ```
 
-    The access token expiration time is set to `7200` seconds by default. If you wish to modify this duration, you can do so via the console. Go to the `B2B-Self-Service-Mgt-Application application`'s protocol section and update the **User access token expiry time**.
+   The access token expiration time is set to `3600` seconds by default. If you wish to modify this duration, you can do so via the console. Go to the `B2B-Self-Service-Mgt-Application application`'s protocol section and update the **Application access token expiry time**.
 
-### Maintain admins in the sub organization
-This approach is suitable when you want sub organizations to govern themselves with minimal interaction from the root organization. Additionally, if you have a B2C user, this approach will help you to separate them from B2B users easily.
+### Maintain admins in the organization
+This approach is suitable when you want organizations to govern themselves with minimal interaction from the organization (root). Additionally, if you have a B2C user, this approach will help you to separate them from B2B users easily.
 
 !!! warning
     If a user wants to create multiple organizations, they will need to register a new account for each organization. Thus they will have separate identities in each organization.
 
-To create and maintain admins in the sub organization:
+To create and maintain admins in the organization:
 
-1. Use the following cURL to check if the name of sub organization you wish to create is already available.
-
+1. Use the following cURL to check if the name of the organization you wish to create is available.
     ``` curl
-    curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations/check-name' \
+    curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application }' 
     --header 'Content-Type: application/json' \
     --data '{
-    "name": "{sub-organization name}"
+        "name": "{organization name}"
     }'
     ```
 
     !!! note
-        If the sub organization name is available for use, the response will be `"available": true`, or else it will be `"available": false`.
+        If the organization name is available for use, the response will be `"available": true`, else it will be `"available": false`.
 
-2. If the required organization name is available for use, use the following cURL to create the sub organization.
+2. If the required organization name is available for use, use the following cURL to create the organization.
 
     ``` curl
-    curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations' \
+    curl --location 'https://{{ host_name }}/api/server/v1/organizations' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application}' \
     --header 'Content-Type: application/json' \
     --data '{
-        "name": "{sub-organization name}",
-        "parentId": "{root-org-id}"
+        "name": "{organization name}"
     }'
     ```
 
     !!! note
-        Take note of the `id` parameter in the response. This is the organization-id of the newly created sub organization and you will need it in the following steps.
+        Take note of the `id` parameter in the response. This is the organization-id of the newly created organization and you will need it in the following steps.
 
-3. [Get an access token for the created sub organization]({{base_path}}/apis/organization-management/authentication/#step-2-for-the-suborganization) by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
-
-4. Create a user in the sub organization using the following cURL.
+3. Get an access token for the created organization by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
 
     ``` curl
-    curl --location 'https://{{ host_name }}/o/{organization-id-obtained-in-step-2}/scim2/Users' \
+    curl -X POST \
+    https://{{ host_name }}/oauth2/token \
+    -u  '<client_id>:<client_secret>' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -d 'grant_type=organization_switch_cc&token=<access token obtained for the B2B-Self-Service-Mgt-Application>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
+    ```
+
+4. Create a user in the organization using the following cURL.
+
+    ``` curl
+    curl --location 'https://{{ host_name }}/o/scim2/Users' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer {token obtained in step 3}' \
     --data-raw '{
@@ -195,53 +184,78 @@ To create and maintain admins in the sub organization:
             "familyName": "{customer-family-name}",
             "givenName": "{customer-given-name}"
         },
-        "password": "{customer-password}",
-        "userName": "{customer-username}"
+        "userName": "{customer-username}",
+        "{{ scim_schema_for_wso2_custom_claims }}": { 
+            "askPassword" : "true"
+        }
     }'
     ```
 
     !!! note
         Take note of the `user-id` returned in the response of the above cURL.
 
-6. Use the following cURL to obtain the `id` of the {{ admin_role_name }} role.
+5. Use the following cURL to obtain the `id` of the administrator role defined for your B2B application.
+
+    !!!note 
+        Share the B2B application in organization(root) enabling `share with all organizations` or share the application to the created organization before the role operation.
+        The roles associated to the B2B application will be shared with the organization only if the application is shared to the organization.
 
     ``` curl
-    curl --location 'https://{{ host_name }}/o/{sub-org-id}/api/server/v1/organizations/{sub-org-id}/roles?filter=name%20eq%20{{ admin_role_name }}' ' \
+    curl --location 'https://{{ host_name }}/o/scim2/v2/Roles?filter=displayName%20eq%20{ admin-role-name }%20and%20audience.value%20eq%20{ role-audience-value }' ' \
     --header 'Accept: application/json' \
-    --header 'Authorization: Bearer {access-token-obtained-for-the-sub-organization}' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}'
     ```
 
-7. Create a user and assign the user to the {{ admin_role_name }} role by using the following cURL.
+    !!! note
+        Refer following details to get your B2B application's administrator role:
+        <table>
+            <tr>
+             <th>admin-role-name</th>
+             <td>Name of the administrator role associated to your B2B application.</td>
+            </tr>
+            <tr>
+             <th>role-audience-value</th>
+             <td>If your B2B application has associated to application audience roles give the id of the shared application in organization. 
+             ``` curl
+             curl --location 'https://{{ host_name }}/o/api/server/v1/applications?filter=name%20eq%20{B2B-application-name}' \
+             --header 'Authorization: Bearer {access-token-obtained-for-the-organization}'
+             ```
+             Otherwise, created organization id.</td>
+         </tr>
+      </table>
+
+6. Assign the user created in step 4 to the administrator role of your B2B application by using the following cURL.
 
     ``` curl
-    curl --location --request PATCH 'https://{{ host_name }}/o/{sub-org-id}/api/server/v1/organizations/{sub-org-id}/roles/{administrator-role-id}' \
-    --header 'Authorization: Bearer {Sub-org access token}' \
+    curl --location --request PATCH 'https://{{ host_name }}/o/scim2/v2/Roles/{admin-role-id}' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}' \
     --header 'Content-Type: application/json' \
     --data '{
-        "operations": [
+        "Operations": [
             {
-                "op": "ADD",
+                "op": "add",
                 "path": "users",
                 "value": [
-                    "{user-id obtained from step 4}"
+                    {
+                        "value": "{user-id obtained from step 4}"
+                    }
                 ]
             }
         ]
     }'
     ```
 
-### Maintain admins in the root organization
-This approach is particularly suitable when a sub organization user prefers to maintain a single identity linked to multiple sub-organizations. Under this approach, sub organization users are treated as business users (B2C users) within the organization. It grants sub organization users the capability to access various B2C applications, such as billing portals, within the Business organization.
+### Maintain admins in the organization (root)
+This approach is particularly suitable when an organization user prefers to maintain a single identity linked to multiple organizations. Under this approach, organization users are treated as business users (B2C users) within the organization (root).
 
 !!! warning
     Separating B2C and B2B users will be more complicated.
 
-To create and maintain admins in the root organization:
+To create and maintain admins in the organization (root):
 
-1. Create a user in the root organization using {{ product_name }}'s SCIM APIs.
-
+1. Create a user in the organization (root) using {{ product_name }}'s SCIM APIs.
     ``` curl
-    curl --location 'https://{{ host_name }}/o/{root-org-id}/scim2/Users' \
+    curl --location 'https://{{ host_name }}/scim2/Users' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application}' \
     --data-raw '{
@@ -255,37 +269,37 @@ To create and maintain admins in the root organization:
             "familyName": "{customer-family-name}",
             "givenName": "{customer-given-name}"
         },
-        "password": "{customer-password}",
-        "userName": "{customer-username}"
+        "userName": "{customer-username}",
+        "{{ scim_schema_for_wso2_custom_claims }}": { 
+            "askPassword" : "true"
+        }
     }'
     ```
 
     !!! note
-        Take note of the user-id received in the response of the above cURL.
+        Take note of the `user-id` received in the response of the above cURL.
 
-2. Use the following cURL to check if the name of sub organization you wish to create is already available.
+2. Use the following cURL to check if the name of the organization you wish to create is available.
 
     ``` curl
-    curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations/check-name' \
+    curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application }' 
     --header 'Content-Type: application/json' \
     --data '{
-    "name": "{sub-organization-name}"
+        "name": "{organization name}"
     }'
     ```
 
     !!! note
-        If the sub organization name is available for use, the response will be `"available": true`, or else it will be `"available": false`.
+        If the organization name is available for use, the response will be `"available": true`, else it will be `"available": false`.
 
-3. If the required organization name is available for use, use the following cURL to create the sub organization and assign the user created in step 1 as the organization's admin.
-
+3. If the required organization name is available for use, use the following cURL to create the organization and assign the user created in step 1 as the organization's admin.
     ``` curl
-    curl --location 'https://{{ host_name }}/o/{root-org-id}/api/server/v1/organizations' \
+    curl --location 'https://{{ host_name }}/api/server/v1/organizations' \
     --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application  }' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "name": "{sub-organization name}",
-        "parentId": "{root-org-id}",
+        "name": "{organization name}",
         "attributes": [
             {
                 "key": "creator.id",
@@ -298,5 +312,72 @@ To create and maintain admins in the root organization:
         ]
     }'
     ```
+   
+4. Get an access token for the created organization by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
 
-Now, you have created a new sub organization and assigned a user from the root organization as the admin of it. This admin will be maintained in the root organization.
+    ``` curl
+    curl -X POST \
+    https://{{ host_name }}/oauth2/token \
+    -u  '<client_id>:<client_secret>' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -d 'grant_type=organization_switch_cc&token=<access token obtained for the B2B-Self-Service-Mgt-Application>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
+    ```
+   
+5. A shadow user account should have been created in the new organization for the organization creator in the organization (root). Get the shadow account's user id using the following cURL.
+
+    ``` curl
+    curl --location 'https://{{ host_name }}/o/scim2/Users?filter=userName%20eq%20{username of the user created in step 1}' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}' \
+    --header 'Content-Type: application/json'
+    ```
+   
+6. Use the following cURL to obtain the `id` of the administrator role defined for your B2B application. 
+
+    !!!note
+        Share the B2B application in organization(root) enabling `share with all organizations` or share the application to the created organization before the role operation.
+        The roles associated to the B2B application will be shared with the organization only if the application is shared to the organization.
+
+    ``` curl
+    curl --location 'https://{{ host_name }}/o/scim2/v2/Roles?filter=displayName%20eq%20{ admin-role-name }%20and%20audience.value%20eq%20{ role-audience-value }' ' \
+    --header 'Accept: application/json' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}'
+    ```
+
+    !!! note
+        Refer following details to get your B2B application's administrator role:
+        <table>
+            <tr>
+             <th>admin-role-name</th>
+             <td>Name of the administrator role associated to your B2B application.</td>
+            </tr>
+            <tr>
+             <th>role-audience-value</th>
+             <td>If your B2B application has associated to application audience roles give the id of the shared application in organization.
+             ``` curl
+             curl --location 'https://{{ host_name }}/o/api/server/v1/applications?filter=name%20eq%20{B2B-application-name}' \
+             --header 'Authorization: Bearer {access-token-obtained-for-the-organization}'
+             ```
+             Otherwise, created organization id.</td>            
+             </tr>
+         </table>
+
+7. To give B2B application's administrative privileges of new onboarded organization to the organization creator, assign the shadow account to the administrator role of your B2B application by using the following cURL.
+
+    ``` curl
+    curl --location --request PATCH 'https://{{ host_name }}/o/scim2/v2/Roles/{admin-role-id}' \
+    --header 'Authorization: Bearer {access-token-obtained-for-the-organization}' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "Operations": [
+            {
+                "op": "add",
+                "path": "users",
+                "value": [
+                    {
+                        "value": "{user-id obtained from step 4}"
+                    }
+                ]
+            }
+        ]
+    }'
+    ```

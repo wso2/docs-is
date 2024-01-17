@@ -3,7 +3,7 @@
 You can customize the user interfaces (UIs) presented to your users during the login, sign-up, and account recovery flows, and on the My Account portal according to the theming guidelines of your organization.
 
 !!! note "UI Branding for B2B applications"
-    If you have created [suborganizations]({{base_path}}/guides/organization-management/manage-suborganizations/), note that you can configure separate UI branding for your suborganizations. If you have not configured UI branding for your suborganization, the UI branding of your root organization will be applied to the suborganization.
+    If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/), note that you can configure separate UI branding for your organizations. If you have not configured UI branding for your organization, the UI branding of your organization (root) will be applied to the organization.
 
 By branding these interfaces, users will get a familiar and consistent user experience.
 
@@ -16,9 +16,9 @@ By branding these interfaces, users will get a familiar and consistent user expe
 
 Follow the steps given below to configure the branding preferences for your organization.
 
-1. On the {{ product_name }}, go to **Customization** > **Branding**.
+1. On the {{ product_name }}, go to **Branding** > **Styles & Text**.
 
-    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-asgardeo-console-ui.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-asgardeo-console-ui.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
 
@@ -26,9 +26,9 @@ Follow the steps given below to configure the branding preferences for your orga
         - If you leave any of the branding preferences empty, {{ product_name }} defaults will be used.
         - The real-time preview will show you a sample view as you update the values.
 
-4. Click **Save & Publish** to publish your branding configurations.
+3. Click **Save & Publish** to publish your branding configurations.
 
-The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Branding email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
+The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Customize email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
 
 {{ powered_by_note }}
 

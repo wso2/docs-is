@@ -8,15 +8,15 @@ By following this guide, you will be able to deploy a React single-page applicat
 
     If you don't have it, [install npm and node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){target="_blank"} in your local environment.
 
-- **A user account in the WSO2 Identity Server**
+- **A user account in the {{ product_name }}**
 
-    If you don't already have one, create a user account in the WSO2 Identity Server.
+    If you don't already have one, create a user account in the {{ product_name }}.
 
 ## Register the app
 
-Follow the steps given below to register the sample React SPA in the WSO2 Identity Server.
+Follow the steps given below to register the sample React SPA in the {{ product_name }}.
 
-1. On the WSO2 Identity Server Console, go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Click **New Application** and select **Single-Page Application**
 
@@ -37,8 +37,8 @@ Follow the steps given below to register the sample React SPA in the WSO2 Identi
             </td>
         </tr>
         <tr>
-            <td>Allow sharing with sub-organizations</td>
-            <td>Enable this to share the new application with all or any selected suborganizations that belong to your primary organization.</td>
+            <td>Allow sharing with organizations</td>
+            <td>Enable this to share the new application with all or any selected organizations that belong to your organization (root).</td>
         </tr>
     </table>
 
@@ -110,7 +110,7 @@ Follow the steps given below to configure the sample app.
             <code>clientID</code>
         </td>
         <td>
-            The client id that you received when you registered the application in the WSO2 Identity Server.
+            The client id that you received when you registered the application in the {{ product_name }}.
         </td>
       </tr>
       <tr>
@@ -118,7 +118,7 @@ Follow the steps given below to configure the sample app.
             <code>baseUrl</code>
         </td>
         <td>
-            <p>All authentication requests that the client application makes to the WSO2 Identity Server will be appended to this base URL.:</p>
+            <p>All authentication requests that the client application makes to the {{ product_name }} will be appended to this base URL.:</p>
             <code>https://localhost:9443</code>
         </td>
       </tr>
@@ -129,7 +129,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <p>The list of OIDC scopes that are used for requesting user information. You can add OIDC scopes such as <code>profile</code> and <code>email</code> in a comma-separated list as follows: </p>
             <code>"scope": ["profile", "email"]</code>
-            <p>Learn more about [OIDC scopes in the WSO2 Identity Server]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
+            <p>Learn more about [OIDC scopes in the {{ product_name }}]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
         </td>
       </tr>
     </tbody>
@@ -147,7 +147,7 @@ Follow the steps given below to run the sample.
 
 2. Once the app is successfully compiled, it is accessible at `https://localhost:3000`.
 
-3. Click **Login**. You will be redirected to the WSO2 Identity Server login page.
+3. Click **Login**. You will be redirected to the {{ product_name }} login page.
 
     ![Identity Server Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 

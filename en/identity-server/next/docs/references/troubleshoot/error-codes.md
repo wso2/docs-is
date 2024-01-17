@@ -6,7 +6,7 @@ This document provides a list of error codes in the WSO2 Identity Server.
 |------------|--------------|
 | 17001      | The user does not exist. |
 | 17002      | Invalid credentials are provided.    |
-| 17003      | The [account is locked]({{base_path}}/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts) after multiple incorrect login attempts and the user attempts to log in again.  |
+| 17003      | The [account is locked]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/) after multiple incorrect login attempts and the user attempts to log in again.  |
 | 17004      | The user account is disabled.    |
 | 17005      | The user account is not confirmed.   |
 | 17006      | The admin has forced the user to reset the password via an email link.   |

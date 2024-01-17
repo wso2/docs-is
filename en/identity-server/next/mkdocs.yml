@@ -19,6 +19,7 @@ INHERIT: ../is_common.yml
 # Project information
 site_url: https://is.docs.wso2.com/en/next
 
+
 extra:
   base_path: /en/next
   is_version: 7.0.0
@@ -29,24 +30,6 @@ plugins:
   - include-markdown
   - redirects:
       redirect_maps:
-        'apis/idp-rest-api.md': 'apis/idp.md'
-        'guides/users/manage-collaborators.md': 'guides/users/manage-administrators.md'
-        'guides/users/manage-customers.md': 'guides/users/manage-users.md'
-        'deploy/security/security-guidelines-for-production-deployment.md': 'deploy/security/security-guidelines/index.md'
-        'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
-        'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'
-        'deploy/security/product-level-security-guidelines.md': 'deploy/security/security-guidelines/product-level-security-guidelines.md'
-        'deploy/security/use-asymmetric-encryption.md': 'deploy/security/asymmetric-encryption/use-asymmetric-encryption.md'
-        'deploy/security/create-new-keystores.md': 'deploy/security/asymmetric-encryption/create-new-keystores.md'
-        'deploy/security/configure-keystores-in-wso2-products.md': 'deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md'
-        'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md'
-        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md'
-        'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
-        'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
-        'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
-        'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
-        'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey.md'
-
 
 # Navigation
 nav:
@@ -55,17 +38,19 @@ nav:
   - Get Started:
     - Introduction: get-started/quick-start-guide.md
     - Quick Setup: get-started/quick-set-up.md
-    - Start integrating IS into apps:
+    - Start integrating apps:
+      - Start integrating apps: get-started/start-integrating-apps/index.md
       - Try for a sample app:
-        - get-started/try-samples/index.md
+        - Try for a sample app: get-started/try-samples/index.md
         - Single Page apps:
           - React: get-started/try-samples/qsg-spa-react.md
           - JavaScript: get-started/try-samples/qsg-spa-javascript.md
         - Web apps:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+          - Passive STS: get-started/try-samples/passive-sts-webapp.md
       - Try for your own app:
-        - get-started/try-your-own-app/index.md
+        - Try for your own app: get-started/try-your-own-app/index.md
         - Single Page apps:
           - React: get-started/try-your-own-app/react.md
           - Javascript: get-started/try-your-own-app/javascript.md
@@ -81,17 +66,19 @@ nav:
           - Register web app with SAML: guides/applications/register-saml-web-app.md
           - Register a standard-based app: guides/applications/register-standard-based-app.md
           - Register a mobile app: guides/applications/register-mobile-app.md
+          - Register a machine-to-machine (M2M) app: guides/applications/register-machine-to-machine-app.md
+          - Register a FAPI compliant app: guides/applications/register-a-fapi-compliant-app.md
       - Authentication:
           - Authentication: guides/authentication/index.md
           - Add login to apps:
-            - guides/authentication/add-login-to-apps.md
+            - Add login to apps: guides/authentication/add-login-to-apps.md
             - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
             - Add login to a web app: guides/authentication/add-login-to-web-app.md
             - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
-            - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-fido.md
+            - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
           - Enable user attributes:
@@ -103,6 +90,7 @@ nav:
             - Add social login: guides/authentication/social-login/index.md
             - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
             - Add Google login: guides/authentication/social-login/add-google-login.md
+            - Add Github login: guides/authentication/social-login/add-github-login.md
             - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
             - Add Apple login: guides/authentication/social-login/add-apple-login.md
           - Add decentralized login:
@@ -112,23 +100,26 @@ nav:
             - Add standard-based login: guides/authentication/enterprise-login/index.md
             - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
             - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+          - Add application-native authentication: guides/authentication/add-application-native-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
             - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
-            # - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
+            - Add Passkey: guides/authentication/mfa/add-passkey-login.md
+            - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
             - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
             - Add access control:
-              - guides/authentication/conditional-auth/access-control.md
+              - Add access control: guides/authentication/conditional-auth/access-control.md
               - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
               - Concurrent session-based access: guides/authentication/conditional-auth/concurrent-session-based-template.md
               #- Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
             - Add adaptive MFA:
-              - guides/authentication/conditional-auth/adaptive-mfa.md
+              - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md
               - MFA based on user role: guides/authentication/conditional-auth/role-based-template.md
+              - MFA based on auth context: guides/authentication/conditional-auth/acr-based-adaptive-auth.md
               - MFA based on user store: guides/authentication/conditional-auth/user-store-based-template.md
               - MFA based on login-attempts: guides/authentication/conditional-auth/login-attempt-based-template.md
               - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
@@ -136,7 +127,7 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
-              - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
+            - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
@@ -156,31 +147,34 @@ nav:
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
           - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
+          - Configure a custom connector:  guides/authentication/configure-custom-connector.md
       - API authorization: guides/api-authorization.md
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
         - Customize email templates: guides/branding/customize-email-templates.md
-        - Configure the email provider: guides/branding/configure-email-providers.md
+        - Localization support: guides/branding/localization.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
         - Manage users: guides/users/manage-users.md
         - Manage groups: guides/users/manage-groups.md
+        - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
-          - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
+          - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
+          - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Configure the primary user store:
             - Configure the primary user store: guides/users/user-stores/primary-user-store/index.md
             - Configure a JDBC user store: guides/users/user-stores/primary-user-store/configure-a-jdbc-user-store.md
             - Configure a read-only LDAP user store: guides/users/user-stores/primary-user-store/configure-a-read-only-ldap-user-store.md
-            - Configure a read-Write Active Directory user store: guides/users/user-stores/primary-user-store/configure-a-read-write-active-directory-user-store.md
+            - Configure a read-write Active Directory user store: guides/users/user-stores/primary-user-store/configure-a-read-write-active-directory-user-store.md
             - Configure a read-write LDAP user store: guides/users/user-stores/primary-user-store/configure-a-read-write-ldap-user-store.md
           - Configure secondary user stores: guides/users/user-stores/configure-secondary-user-stores.md
           - User store properties: 
@@ -191,17 +185,20 @@ nav:
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
           - Configure user stores for SCIM 2.0: guides/users/user-stores/configure-user-stores-for-scim2.md
           - Configure Active Directory user stores for SCIM 2.0: guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md
-      - Account management:
-        - Account management: guides/user-accounts/index.md
-        - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
-        - Configure password recovery: guides/user-accounts/password-recovery.md
-        - Configure self-registration: guides/user-accounts/configure-self-registration.md
-        - Manage account security:
-          - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
-          - Configure bot detection: guides/user-accounts/account-security/bot-detection.md
-          - Configure password validation: guides/user-accounts/account-security/password-validation.md
-        - Manage account login:
-          - Configure username validation: guides/user-accounts/account-login/username-validation.md
+      - Account configurations:
+        - Account configurations: guides/account-configurations/index.md
+        - Login security:
+          - Password validation: guides/account-configurations/login-security/password-validation.md
+          - Login attempts: guides/account-configurations/login-security/login-attempts.md
+          - Bot detection: guides/account-configurations/login-security/bot-detection.md
+          - Session management: guides/account-configurations/login-security/session-management.md
+        - User Onboarding:
+          - Self registration: guides/account-configurations/user-onboarding/self-registration.md
+          - Invite user to set password: guides/account-configurations/user-onboarding/invite-user-to-set-password.md
+        - Account recovery:
+          - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
+          - Username recovery: guides/account-configurations/account-recovery/username-recovery.md
+          - Admin Initiated Password Reset: guides/account-configurations/account-recovery/admin-initiated-password-reset.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -219,25 +216,25 @@ nav:
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+      - Organizations:
+          - Organizations: guides/organization-management/index.md
+          - Set up organizations: guides/organization-management/manage-organizations.md
+          - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
+          - Administration of organizations: guides/organization-management/manage-b2b-administration.md
+          - Share applications: guides/organization-management/share-applications.md
+          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+          - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+          - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Analytics:
         - Overview: guides/analytics/elk-analytics.md
         - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
         - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
         - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
         - ELK Alerts: guides/analytics/elk-alert-types.md
-      - Organizations:
-        - Organizations: guides/organization-management/index.md
-        - Set up organizations: guides/organization-management/manage-organizations.md
-        - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
-        - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-        - Share applications: guides/organization-management/share-applications.md
-        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
-        - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
-        - Delete your user account: guides/your-is/delete-your-user-account.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -245,7 +242,7 @@ nav:
         - Get WSO2 updates: deploy/get-started/get-wso2-updates.md
       - Configure:
         - User Stores: 
-          - deploy/configure/user-stores/index.md
+          - User Stores: deploy/configure/user-stores/index.md
           - Add high availability for LDAP: deploy/configure/user-stores/configure-high-availability-ldap.md
           - Secure a JDBC user store with PBKDF2 hashing: deploy/configure/user-stores/secure-userstore-using-pbkdf2.md
           - Configure the Authorization Manager: deploy/configure/user-stores/configure-authorization-manager.md
@@ -264,7 +261,8 @@ nav:
             - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
             - Change the Default Datasource for BPS: deploy/configure/databases/carbon-database/change-datasource-bpsds.md
             - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
-          - Data Dictionary: 
+            - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
+          - Data Dictionary:
             - Registry Related Tables: deploy/configure/databases/data-dictionary/registry-related-tables.md
             - User Management Related Tables: deploy/configure/databases/data-dictionary/user-management-related-tables.md
             - Identity Related Tables: deploy/configure/databases/data-dictionary/identity-related-tables.md
@@ -291,6 +289,7 @@ nav:
         - Configure TLS: deploy/security/configure-transport-level-security.md
         - Configure TLS termination: deploy/configure-tls-termination.md
         - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
+        - Configure Admin Advisory Banner: deploy/security/configure-admin-advisory-banner.md
         - Secure passwords in configuration files:
           - Encrypt passwords with Cipher Tool: deploy/security/encrypt-passwords-with-cipher-tool.md
           - Resolve encrypted passwords: deploy/security/resolve-encrypted-passwords.md
@@ -329,6 +328,18 @@ nav:
           - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure cache layers: deploy/performance/configure-cache-layers.md
         - Environment compatibility: deploy/environment-compatibility.md
+        - Promote configurations across environments: deploy/promote-configurations.md
+        - Disaster recovery:
+          - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
+          - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
+          - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+      - Compliance:
+          - Compliance: deploy/compliance/index.md
+          - GDPR: deploy/compliance/gdpr.md
+          - eIDAS: deploy/compliance/eidas.md
+          - CCPA: deploy/compliance/ccpa.md
+          - FIPS: deploy/compliance/fips.md
+          - Accessibility compliance: deploy/compliance/accessibility.md
       - Analytics:
         - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
         - Configure SSO with ELK analytics: deploy/elk-analytics-sso-guide.md
@@ -339,6 +350,7 @@ nav:
         - Monitor logs:
           - Overview: deploy/monitor/monitor-logs.md
           - HTTP access logs: deploy/monitor/http-access-logging.md
+          - Remote log publishing: deploy/monitor/remote-log-publishing.md
           - Mask sensitive info:
             - Overview: deploy/monitor/mask-sensitive-information-in-logs.md
             - Log masking with Filebeat: deploy/monitor/elk-mask-sensitive-information-in-logs.md
@@ -352,6 +364,7 @@ nav:
   - APIs:
     - APIs: apis/index.md
     - Authentication API: apis/use-the-authentication-rest-apis.md
+    - Branding Preferences API: apis/branding-preference-rest-api.md
     - Session management API: apis/session-mgt-rest-api.md
     - Entitlement management API: apis/entitlement-with-rest-apis.md
     - User management:
@@ -361,10 +374,15 @@ nav:
           - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
           - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
         - Account recovery API: apis/use-the-account-recovery-rest-apis.md
+        - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
+        - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
         - Associated accounts API: apis/association-rest-api.md
         - Challenge question API: apis/challenge-questions.md
         - Challenge answers API: apis/challenge-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
+    - Role management:
+        - Roles v2 API: apis/roles-v2-rest-api.md
+        - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
     - Identity provider API: apis/idp.md
     - IdP session extension API: apis/idp-session-extender-endpoint.md
     - Self-service:
@@ -405,6 +423,7 @@ nav:
     - Permission management API : apis/permission-management-rest-api.md
     - User Functionality management API: apis/user-functionality-mgt-rest-api.md
     - Organization management API: apis/organization-mgt-rest-api.md
+    - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
@@ -413,6 +432,7 @@ nav:
       - Role management API: apis/organization-apis/org-role-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Application management API: apis/organization-apis/org-application-mgt.md
+      - Organization management API: apis/organization-apis/org-organization-mgt.md
   - References:
     - References: references/index.md
     - User Management:
@@ -422,25 +442,32 @@ nav:
       - App configurations: references/app-settings/index.md
       - OIDC configurations: references/app-settings/oidc-settings-for-app.md
       - SAML configurations: references/app-settings/saml-settings-for-app.md
+      - Passive STS configurations: references/app-settings/passive-sts-settings-for-app.md
     - IdP configurations:
       - IdP configurations: references/idp-settings/index.md
       - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
-    - OAuth2 grant types of WSO2 Identity Server: references/grant-types.md
+    - OAuth2 grant types: references/grant-types.md
     - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
+    - Application-native authentication: references/app-native-authentication.md
     - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - User Stores: 
-      - Write a custom user store manager: references/user-stores/write-a-custom-user-store-manager.md
     - Email templates: references/email-templates.md
-    - Compliance:
-      - references/compliance/index.md
-      - GDPR: references/compliance/gdpr.md
-      - eIDAS: references/compliance/eidas.md
-      - CCPA: references/compliance/ccpa.md
-      - FIPS: references/compliance/fips.md
-      - Accessibility compliance: references/compliance/accessibility.md
-    - Localization in  WSO2 Identity Server: references/localization.md
+    - IS Extensions:
+      - references/extend/index.md
+      - Authentication:
+        - OAuth2:
+          - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
+        - Conditional authentication:
+          - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
+      - Identity Federation:
+        - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
+      - User Management:
+        - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
+        - User provisioning:
+          - Extend SCIM 2.0 user schemas: references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md
+      - User Stores: 
+        - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Default ports: references/default-ports.md
     - Troubleshoot:
       - Troubleshoot: references/troubleshoot/index.md

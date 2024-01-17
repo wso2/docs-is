@@ -4,7 +4,7 @@ To add groups to a connection on {{ product_name }}:
 2. Select your connection and go to the **Groups** tab.
 
     !!! note
-        Note that the **Groups** tab is only available for enterprise and social login connections.
+        Note that the **Groups** tab is only available for enterprise, social login and custom connections.
 
 3. Enter the name of the connection's group attribute you wish to map to the group attribute of {{ product_name }}.
 

@@ -1,6 +1,6 @@
 # Configure password recovery
 
-{{ product_name }} provides the support for self-service password recovery option for [users]({{base_path}}/guides/users/manage-customers/) on the login page. The user will receive a password reset link via email upon request.
+{{ product_name }} provides the support for self-service password recovery option for [users]({{base_path}}/guides/users/manage-users/) on the login page. The user will receive a password reset link via email upon request.
 This guide walks you through setting up password recovery for users to recover a lost or forgotten password.
 
 To configure password recovery:
@@ -31,4 +31,4 @@ To configure password recovery:
 
 6. Click **Update** once you configure the required settings.  
 
-[Try self-service password recovery]({{base_path}}/guides/user-self-service/customer-password-recovery/).
+[Try self-service password recovery]({{base_path}}/guides/user-self-service/user-password-recovery/).

@@ -16,5 +16,5 @@ Users can use the My Account portal to change the password by following the step
 
 !!! note
 
-    - Alternatively, users can [reset a forgotten password from the login page of an application]({{base_path}}/guides/user-self-service/customer-password-recovery/). </br></br>
+    - Alternatively, users can [reset a forgotten password from the login page of an application]({{base_path}}/guides/user-self-service/user-password-recovery/). </br></br>
     - Users onboarded from a read-only remote user store do not have the capability of changing their password through the My Account portal.
