@@ -41,7 +41,7 @@ The elements in the above configuration are described below:
 
 ??? note "Support for case-sensitive usernames"
 
-    If you are going to have case-sensitive usernames, 
+    WSO2 Identity Server supports case-insensitive usernames by default. Hence, if you need to have case-sensitive usernames, you need to configure the following properties.
     you need to add the following properties to the deployment.toml file.
     
     For Primary Userstores
