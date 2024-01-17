@@ -52,13 +52,13 @@ The elements in the above configuration are described below:
     UseCaseSensitiveUsernameForCacheKeys = false
     ```  
     
-    For Secondary Userstores
+    For secondary user stores, add the following configurations to the `<userstore>.xml` file in the `<IS_HOME>/repository/deployment/server/userstores` folder.
 
     ``` xml
     <Property name="CaseInsensitiveUsername">false</Property>
     <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
     ```
-    Since by default IS supports case insensitive usernames, from the database level we created lower indexes for the related tables. 
+    The database indexes have been created using lower functions to support case-insensitive usernames for the related tables. Therefore, remove the lower functions from the related index creation queries in the scripts at `<IS_HOME>/dbscripts/`.
     Therefore remove those lower function when creating the indexes from the relevant db scripts.
     
     For example, in the `database script` files in the `dbscripts` directory, remove the `lower` function from the queries.
