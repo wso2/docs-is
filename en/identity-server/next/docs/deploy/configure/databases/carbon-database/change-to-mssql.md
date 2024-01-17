@@ -72,7 +72,7 @@ A sample configuration is given below.
     it is recommended to disable the case-insensitive behavior of WSO2 IS. This is because case insensitivity will be handled at the DB layer itself, 
     leading to performance improvements by eliminating the need for lower queries performed by WSO2 IS.
 
-    For Primary Userstores
+    For the primary user store, add the following configurations to the `<IS-HOME>/repository/conf/deployment.toml` file.
 
     ``` toml
     [user_store.properties]
