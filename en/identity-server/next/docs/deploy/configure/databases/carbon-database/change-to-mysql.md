@@ -76,25 +76,21 @@ A sample configuration is given below.
         url = "jdbc:mysql://localhost:3306/regdb"
         username = "regadmin"
         password = "regadmin"
-        ```  
-
+        ```
 
     !!! note
-        When integrating WSO2 Identity Server with MySQL DB, it is advisable to deactivate the case-insensitive functionality within WSO2 IS.
-        This recommendation is based on the inherent case-insensitivity of MySQL DB, which renders the similar feature in WSO2 IS redundant.
-        Disabling this feature in WSO2 IS eliminates unnecessary processing, thereby potentially enhancing overall system performance.
+        As MySQL DB is inherently case-insensitive, it is recommended to deactivate the case-insensitive functionality of {{product_name}} when integrating with the Microsoft SQL Server.
+        Disabling this feature in {{product_name}} eliminates unnecessary processing, thereby potentially enhancing overall system performance.
 
-        To disable case-insensitivity, use the following configurations.
-
-        For Primary Userstores
+        To disable case-insensitivity for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configurations to the primary user store.
 
         ``` toml
         [user_store.properties]
         CaseInsensitiveUsername = false
         UseCaseSensitiveUsernameForCacheKeys = false
         ```  
-
-        For Secondary Userstores
+    
+        For secondary user stores, add the following configurations to the `<userstore>.xml` file found in the `<IS_HOME>/repository/deployment/server/userstores` directory.
 
         ``` xml
         <Property name="CaseInsensitiveUsername">false</Property>
