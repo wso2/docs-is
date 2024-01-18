@@ -305,6 +305,7 @@ nav:
     - APIs - Overview: apis/index.md
     - Authentication: apis/authentication.md
     - Application management API: apis/application-management.md
+    - Branding Preferences API: apis/branding-preference-rest-api.md
     - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
     - Identity provider API: apis/idp.md
     - User management (SCIM 2.0) API: apis/scim2.md
