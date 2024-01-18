@@ -71,8 +71,7 @@ A sample configuration is given below.
         As Microsoft SQL Server is inherently case-insensitive, it is recommended to deactivate the case-insensitive functionality of {{product_name}} when integrating with the Microsoft SQL Server.
         Disabling this feature in {{product_name}} eliminates unnecessary processing, thereby potentially enhancing overall system performance.
 
-
-        To disable this functionality, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configurations to the primary user store.
+        To disable case-insensitivity for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configurations to the primary user store.
 
         ``` toml
         [user_store.properties]
