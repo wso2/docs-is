@@ -212,6 +212,7 @@ Specifies whether you want to enable single-logout to your application. By defau
 
 #### Logout method
 Specifies the logout method that is supported by the application. {{ product_name }} supports below logout methods:
+
 - Back Channel logout
 - Front Channel HTTP Redirect
 - Front Channel HTTP Post
