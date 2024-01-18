@@ -48,9 +48,8 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/branding-preference?type=ORG&name=WSO2&locale=en-US' \
-            -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference?type=ORG&name=WSO2&locale=en-US' \
+            -H 'accept: application/json'
     post:
       tags:
         - Branding Preference
@@ -91,10 +90,10 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/branding-preference' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "type": "ORG",
               "name": "WSO2",
@@ -168,10 +167,10 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/api/server/v1/branding-preference' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "type": "ORG",
               "name": "WSO2",
@@ -238,9 +237,8 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/branding-preference?type=ORG&name=WSO2&locale=en-US' \
-            -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference?type=ORG&name=WSO2&locale=en-US' \
+            -H 'accept: */*'
   '/branding-preference/resolve':
     get:
       tags:
@@ -278,9 +276,8 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/branding-preference/resolve?type=ORG&name=WSO2&locale=en-US' \
-            -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference/resolve?type=ORG&name=WSO2&locale=en-US' \
+            -H 'accept: application/json'
   '/branding-preference/text':
     get:
       tags:
@@ -314,9 +311,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/branding-preference/text?type=ORG&name=WSO2&locale=en-US&screen=login' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference/text?type=ORG&name=WSO2&locale=en-US&screen=login' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
         - Custom Text
@@ -356,7 +353,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/branding-preference/text' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference/text' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -375,7 +372,7 @@ paths:
                 "dont.have.an.account": "Don'\''t have an account?"
               }
             }' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Custom Text
@@ -413,7 +410,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/api/server/v1/branding-preference/text' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference/text' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -432,7 +429,7 @@ paths:
                 "dont.have.an.account": "Don'\''t have an account?"
               }
             }' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
     delete:
       tags:
         - Custom Text
@@ -463,9 +460,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/branding-preference/text?type=ORG&name=WSO2&locale=en-US&screen=login' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference/text?type=ORG&name=WSO2&locale=en-US&screen=login' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   '/branding-preference/text/resolve':
     get:
       tags:
@@ -500,9 +497,8 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/branding-preference/text/resolve?type=ORG&name=WSO2&locale=en-US&screen=login' \
-            -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/branding-preference/text/resolve?type=ORG&name=WSO2&locale=en-US&screen=login' \
+            -H 'accept: application/json'
 components:
   parameters:
     typeQueryParam:
@@ -702,6 +698,6 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
-          tokenUrl: 'https://localhost:9443/oauth2/token'
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
           scopes: {}
