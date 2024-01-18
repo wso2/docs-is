@@ -1,19 +1,15 @@
 openapi: 3.0.0
 info:
-  title: Branding Preferences API
+  title: Asgardeo - Branding Preferences API
   description: >-
-    This document specifies a RESTful API for **Managing Branding Preferences of Organizations** in WSO2 Identity Server.
+    This is the RESTful API to manage Branding Preferences of root organizations in Asgardeo.
   version: v1
 servers:
-  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
-    variables:
-      server-url:
-        default: "localhost:9443"
-      tenant-domain:
-        default: "carbon.super"
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
+
 security:
   - OAuth2: []
-  - BasicAuth: []
+
 paths:
   '/branding-preference':
     get:
@@ -25,7 +21,7 @@ paths:
         This API provides the capability to retrieve the branding preference of a tenant/specific application.<br>
         If there is no branding preference available for the requested locale, API will check for the default locale('en-US') and return it.<br>
         If there is no branding preference available for the requested application, API will check for the tenant's branding preference and return it.<br>
-          
+        
           <b>Scope(Permission) required:</b> None
       parameters:
         - $ref: '#/components/parameters/typeQueryParam'
@@ -63,7 +59,7 @@ paths:
       description: |
         This API provides the capability to add a custom branding preference for a tenant/application.<br>
         Currently this API provides the capability to only configure tenant wise branding preference for 'en-US' locale.<br>
-          
+        
           <b>Scope(Permission) required:</b> `internal_branding_preference_update`
       requestBody:
         content:
@@ -142,7 +138,7 @@ paths:
       summary: Update branding preferences of a tenant.
       description: |
         This API provides the capability to update the branding preference of a tenant/application.<br>
-          
+        
           <b>Scope(Permission) required:</b> `internal_branding_preference_update`
       requestBody:
         content:
@@ -219,7 +215,7 @@ paths:
       summary: Deletes branding preferences of a tenant.
       description: |
         This API provides the capability to delete the branding preferences of a tenant/application.<br>
-          
+        
           <b>Scope(Permission) required:</b> `internal_branding_preference_update`
       parameters:
         - $ref: '#/components/parameters/typeQueryParam'
@@ -255,7 +251,7 @@ paths:
         This API provides the capability to retrieve the branding preference of an organization/specific application.<br>
         If there is no branding preference available for the requested locale, API will check for the default locale('en-US') and return it.<br>
         If there is no branding preference available for the requested application, API will check for the organization's branding preference and return it.<br>
-          
+        
           <b>Scope(Permission) required:</b> None
       parameters:
         - $ref: '#/components/parameters/typeQueryParam'
@@ -294,7 +290,7 @@ paths:
       description: |
         This API provides the capability to retrieve the existing custom text configurations of a tenant for the specified screen and locale.<br>
         If there is no custom texts available for the requested locale, API will check for the default locale('en-US') and return it.<br>
-          
+        
           <b>Scope(Permission) required:</b> None
       parameters:
         - $ref: '#/components/parameters/typeQueryParam'
@@ -328,7 +324,7 @@ paths:
       summary: Add custom text for a tenant.
       description: |
         This API provides the capability to add custom texts for the specified screen & locale.<br>
-          
+        
           <b>Scope(Permission) required:</b> `internal_branding_preference_update`
       requestBody:
         content:
@@ -387,7 +383,7 @@ paths:
       summary: Update custom text of a tenant.
       description: |
         This API provides the capability to update the custom texts for the specified screen & locale.<br>
-          
+        
           <b>Scope(Permission) required:</b> `internal_branding_preference_update`
       requestBody:
         content:
@@ -445,7 +441,7 @@ paths:
       description: |
         This API provides the capability to delete the custom texts for the specified screen & locale of a tenant.<br>
         If no query parameter was specified in the delete request, all the custom texts configured in the tenant will be deleted.<br>
-          
+        
           <b>Scope(Permission) required:</b> `internal_branding_preference_update`
       parameters:
         - $ref: '#/components/parameters/typeQueryParam'
@@ -480,7 +476,7 @@ paths:
         This API provides the capability to retrieve the custom text configurations of an organization/specific application.<br>
         If there is no custom text available for the requested locale, API will check for the default locale('en-US') and return it.<br>
         If there is no custom text available for the requested organization, API will check for the parent organization's custom text configurations and return it.<br>
-          
+        
           <b>Scope(Permission) required:</b> None
       parameters:
         - $ref: '#/components/parameters/typeQueryParam'
@@ -702,9 +698,6 @@ components:
   # Applicable authentication mechanisms.
   #-----------------------------------------------------
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
