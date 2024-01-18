@@ -139,7 +139,7 @@ To delete a role:
 
 ## Manage administrators
 
-Users who have one or more roles created for the Console application [above](#create-a-role), are considered to be administrators. You can manage administrators by going to the **Administrators** tab in **Console Settings**.
+Users who are assigned to one or more roles created for the Console application [above](#create-a-role), are considered to be administrators. You can manage administrators by going to the **Administrators** tab in **Console Settings**.
 
 For instructions on managing administrators, refer to [manage administrators]({{base_path}}/guides/users/manage-administrators/).
 
