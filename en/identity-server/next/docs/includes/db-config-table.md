@@ -41,7 +41,7 @@ The elements in the above configuration are described below:
 
 ??? note "Support for case-sensitive usernames"
 
-    WSO2 Identity Server supports case-insensitive usernames by default. Hence, if you need to have case-sensitive usernames, you need to configure the following properties.
+    Usernames in {{product_name}} are case-insensitive by default. If you wish to enable case-sensitive usernames, configure the following properties.
     
     For the primary user store, add the following configurations to the `<IS-HOME>/repository/conf/deployment.toml` file.
 
@@ -57,7 +57,7 @@ The elements in the above configuration are described below:
     <Property name="CaseInsensitiveUsername">false</Property>
     <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
     ```
-    The database indexes have been created using lower functions to support case-insensitive usernames for the related tables. Therefore, remove the lower functions from the related index creation queries in the scripts at `<IS_HOME>/dbscripts/`.
+    The database indexes are created using LOWER() functions to support case-insensitive usernames for the related tables. Therefore, remove the LOWER() functions from the related index creation queries in the scripts at `<IS_HOME>/dbscripts/`.
     
     Eg:
 
