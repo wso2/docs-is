@@ -69,7 +69,6 @@ A sample configuration is given below.
 
     !!! note
         As Microsoft SQL Server is inherently case-insensitive, it is recommended to deactivate the case-insensitive functionality of {{product_name}} when integrating with the Microsoft SQL Server.
-        This recommendation is based on the inherent case-insensitivity of Microsoft SQL Server, which renders the similar feature in WSO2 IS redundant.
         Disabling this feature in {{product_name}} eliminates unnecessary processing, thereby potentially enhancing overall system performance.
 
 
