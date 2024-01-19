@@ -146,6 +146,7 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
+          - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
           - Configure a custom connector:  guides/authentication/configure-custom-connector.md
       - API authorization: guides/api-authorization.md
@@ -168,6 +169,7 @@ nav:
           - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
+          - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Configure the primary user store:
