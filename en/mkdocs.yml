@@ -125,6 +125,7 @@ nav:
           - OIDC Applications: guides/login/sso-for-oidc.md
           - SAML Applications: guides/login/sso-for-saml.md
           - reCAPTCHA for SSO: guides/login/configure-recaptcha-for-single-sign-on.md
+          - Federated IdP-Initiated SSO: guides/login/federated-idp-initiated-sso.md
         - Single Logout:
           - Overview: guides/login/single-logout-overview.md
           - OIDC Flows:
