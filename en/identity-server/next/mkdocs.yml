@@ -147,6 +147,7 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
+            - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
@@ -461,7 +462,6 @@ nav:
     - Application-native authentication: references/app-native-authentication.md
     - Conditional authentication:
       - Conditional auth - API: references/conditional-auth/api-reference.md
-      - Passkey Progressive Enrollment: references/conditional-auth/passkey-progressive-enrollment-based-template.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
     - IS Extensions:

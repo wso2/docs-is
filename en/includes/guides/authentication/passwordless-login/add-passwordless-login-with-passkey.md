@@ -85,7 +85,7 @@ Follow the steps given below to enable login with passkeys for your application.
 4. Click **Update** to save your changes.
 
 !!! note
-    By default, a user is not required to enter the username during login with passkeys. Learn how you can change this behavior in the [enable passkey usernameless authentication](#enable-passkey-usernameless-authentication) section.
+    By default, a user is not required to enter the username during login with passkeys. Learn how you can change this behavior in the [configure passkey usernameless authentication](#configure-passkey-usernameless-authentication) section.
 
 
 ## Enable passkey progressive enrollment
@@ -111,7 +111,7 @@ Follow the steps given below to enable passkey progressive enrollment for your a
 7. Go to the **Sign-in Method** tab of the application and add the passkey based adaptive script from your preferred editor.
 
     !!! note
-        For the progressive enrollment adaptive script to function, you need to configure at least one additional authenticator to the first step of the authentication flow. Refer to [Passkey Progressive Enrollment]({{base_path}}/references/conditional-auth/passkey-progressive-enrollment-based-template/) for more information.
+        For the progressive enrollment adaptive script to function, you need to configure at least one additional authenticator to the first step of the authentication flow. Refer to [Passkey Progressive Enrollment]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) for more information.
 
     ---
     === "Classic Editor"
@@ -180,23 +180,23 @@ Follow the steps below to enroll a passkey on the fly during login.
 
 3. Select **Sign In With Passkey**.
 
-    ![Sign In with passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Sign In with passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. To enroll a new passkey, enter your username and select **Create a passkey**.
 
-    ![Create a passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/create-passkey.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/create-passkey.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Enter the corresponding password for the user and click **Sign In**.
 
-    ![Basic authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/basic-authenticator.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Basic authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/basic-authenticator.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Follow the instructions given by your browser or device to enroll the passkey.
 
-    ![Create a passkey browser prompt in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/create-passkey-browser-prompt.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a passkey browser prompt in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/create-passkey-browser-prompt.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 7. Provide a name to uniquely identify your passkey.
 
-    ![Rename passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/rename-passkey.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Rename passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/rename-passkey.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 8. Click **Submit** to complete the enrollment. You'll be authenticated in the application.
 
@@ -215,4 +215,4 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 
 5. Follow the browser/device instructions to log in with a passkey.
 
-    ![Sign In with passkey browser prompt {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey-browser-prompt.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Sign In with passkey browser prompt {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey-browser-prompt.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

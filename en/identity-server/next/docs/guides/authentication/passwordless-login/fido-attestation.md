@@ -5,7 +5,7 @@ FIDO2 attestation is used to verify the authenticity of the authenticator, such 
 {{product_name}} provides two means of validating the authenticator data during registration.
 
 - **Advanced validations**: {{product_name}} performs attestation type specific validations, certificate related validations etc.
-- **Security Key/Biometrics (FIDO) metadata based validations**: {{product_name}} validates the device registration data against FIDO alliance’s metadata.
+- **FIDO metadata based validations**: {{product_name}} validates the device registration data against FIDO alliance’s metadata.
 
 Advanced validations are enabled, by default, for the organization. The following guide explains how you can enable further attestation validations in {{product_name}}.
 
@@ -14,6 +14,8 @@ Advanced validations are enabled, by default, for the organization. The followin
 FIDO2 Metadata Service (MDS) is a repository that can be used by {{product_name}} to validate the authenticity of the authenticators during device registration. MDS validations verify the genuineness of the device model as well as check for the device certification status and found security issues.
 
 Moreover, FIDO2 metadata service can be configured to validate the authenticator attestation against a set of manually provided metadata statements. For example, if your organization distributes hardware keys to members, to allow registering those keys, you can enable FIDO2 metadata service and upload the relevant metadata statements.
+
+Follow the steps below to enable MDS validations.
 
 ## Prerequisites
 
