@@ -235,6 +235,7 @@ nav:
         - ELK Alerts: guides/analytics/elk-alert-types.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
+        - Manage your Console: guides/your-is/manage-your-console.md
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
   - Setup:
