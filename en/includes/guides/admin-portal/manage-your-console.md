@@ -1,22 +1,22 @@
 # Manage your {{product_name}} Console
 
-The following sections explain the access control mechanisms available for the {{product_name}} Console so that you can customize who can access the Console and what actions the logged in users can perform.  
+The following sections explain how you can configure the {{product_name}} Console so that users are provided limited access to its features based on their roles.
 
 ## Configure Console login
 
-Just like any other application registered in {{product_name}}, you can customize the login flow of the Console using any configured connection. Console login also supports Multi-Factor Authentication (MFA) and adaptive authentication.
+Just like any other application registered in {{product_name}}, you can customize the login flow of the Console using any configured connection.
 
 !!! note
-    Learn about the authentication methods supported in {{product_name}} and how to configure them in the [Authentication]({{base_path}}/guides/authentication) section.
+    Learn about the connections supported in {{product_name}} and how to configure them in the [Authentication]({{base_path}}/guides/authentication) section.
 
 To customize login for the Console,
 
-1. Sign in to the Asgardeo Console as an administrator and click **Console Settings**.
+1. Sign in to the Asgardeo Console and click **Console Settings**.
 
 2. Go to the **Login Flow** tab and configure the login flow from your preferred editor:
 
     === "Classic Editor"
-        - Click **Add Authentication** on a step and select a connection from the list. You can add multiple authentication methods to the same step.
+        - Click **Add Authentication** on a step, select a connection from the list and click **Add**. You can add multiple connections to the same step.
 
             ![Configure the Console login flow using the classic editor]({{base_path}}/assets/img/guides/organization/console/login-flow-classic.png){: width: "600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -31,9 +31,11 @@ To customize login for the Console,
 
         - Switch to the **Visual Editor** tab.
         
-        - Click **Add Sign In Option** and select a connection from the list. You can add multiple authentication methods. (Alternatively, go to **Predefined Flows** > **Basic Flows** to quickly add a login flow.)
+        - Click **Add Sign In Option**, select a connection from the list and click **Add**. You can add multiple authentication methods to the same step. (Alternatively, go to **Predefined Flows** > **Basic Flows** to quickly add a login flow.)
 
             ![Configure the Console login flow using the Visual Editor]({{base_path}}/assets/img/guides/organization/console/login-flow-visual.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        
+        - Click the **+** icon on the login flow if you wish to add an additional authentication step and repeat the above.
 
         - Turn on the **Conditional Authentication** toggle if you wish to customize authentication using a script.
 
@@ -45,12 +47,12 @@ To customize login for the Console,
 
 ## Manage Console roles
 
-Roles are a collection of permissions. You can create roles and assign users to them so that users gain limited access to Console features. Follow the sections below to learn how to manage Console roles.
+Roles are a collection of permissions. You can create roles and assign users and groups to them so that they gain limited access to Console features. Follow the sections below to learn about managing Console roles.
 
 ### Create a role
 
 !!! warning "Important"
-    Roles created here are application roles for the Console application. These roles are solely for the purpose of limiting features of the Console. You can define organization level roles and roles for other applications registered in {{product_name}} from **User Management** > **Roles**. Refer to [Manage roles]({{base_path}}/guides/users/manage-roles) to learn more.
+    Roles created here are roles for the Console application which are solely for the purpose of limiting features of the Console. You can define organization level roles and roles for other applications in **User Management** > **Roles**. Refer to [Manage roles]({{base_path}}/guides/users/manage-roles) to learn more.
 
 To create a role for the Console,
 
@@ -89,7 +91,7 @@ To create a role for the Console,
 
     !!! note
 
-        When choosing tenant and organization permissions, selecting **View** or **Edit** for a given component gives access to several scopes pertaining to the functionality of the selected component. For example, if you select `Applications` and provide `View` permissions to it, the role will be assigned the following scopes.
+        When choosing tenant and organization permissions, selecting **View** or **Edit** for a given Console component gives the role access to several scopes pertaining to it. For example, if you select `Applications` and assign the `View` permission, the role will be assigned the following scopes.
 
         ![Scopes assigned for a given permission for a Conosle component]({{base_path}}/assets/img/guides/organization/console/console-role-permissions.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
@@ -139,8 +141,6 @@ To delete a role:
 
 ## Manage administrators
 
-Users who are assigned to one or more roles created for the Console application [above](#create-a-role), are considered to be administrators. You can manage administrators by going to the **Administrators** tab in **Console Settings**.
-
-For instructions on managing administrators, refer to [manage administrators]({{base_path}}/guides/users/manage-administrators/).
+Users who are assigned to one or more Console roles created [above](#create-a-role), are listed under the **Administrators** tab in **Console Settings**. For instructions on managing administrators, refer to [manage administrators]({{base_path}}/guides/users/manage-administrators/).
 
 
