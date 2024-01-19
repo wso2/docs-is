@@ -18,7 +18,7 @@ To customize login for the Console,
     === "Classic Editor"
         - Click **Add Authentication** on a step, select a connection from the list and click **Add**. You can add multiple connections to the same step.
 
-            ![Configure the Console login flow using the classic editor]({{base_path}}/assets/img/guides/organization/console/login-flow-classic.png){: width: "600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configure the Console login flow using the classic editor]({{base_path}}/assets/img/guides/organization/console/login-flow-classic.png){: width:"600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
         - Click the **+** icon on the login flow if you wish to add an additional authentication step and repeat the above.
 
@@ -33,7 +33,7 @@ To customize login for the Console,
         
         - Click **Add Sign In Option**, select a connection from the list and click **Add**. You can add multiple authentication methods to the same step. (Alternatively, go to **Predefined Flows** > **Basic Flows** to quickly add a login flow.)
 
-            ![Configure the Console login flow using the Visual Editor]({{base_path}}/assets/img/guides/organization/console/login-flow-visual.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configure the Console login flow using the Visual Editor]({{base_path}}/assets/img/guides/organization/console/login-flow-visual.png){: width:"600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
         
         - Click the **+** icon on the login flow if you wish to add an additional authentication step and repeat the above.
 
