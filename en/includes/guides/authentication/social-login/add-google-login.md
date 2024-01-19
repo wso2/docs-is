@@ -131,14 +131,58 @@ Follow the steps given below.
 2. Click **Login** to open the {{ product_name }} login page.
 3. On the {{ product_name }} login page, **Sign in with Google**.
 
-    ![Login with Google]({{base_path}}/assets/img/guides/idp/google-idp/sign-in-with-google.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Login with Google]({{base_path}}/assets/img/guides/idp/google-idp/sign-in-with-google.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 4. Log in to Google with an existing user account.
 
 !!! note
     When a user successfully logs in with Google for the first time, a **user** account is created in the {{ product_name }} Console with the Google username. This new user account will be managed by Google.
 
-## Add groups to the connection
+## Enable Google One Tap
+
+Google One Tap allows users to login to an application with a single click using their existing Google credentials. Since users can sign in with Google without being taken away from the context of the application, it allows for a more simple and a seamless login experience.
+
+### Configure Google One Tap
+
+You can enable Google One Tap for your application by following the steps below.
+
+1. On the Google Developer Console,
+
+    1. {{product_name_url}}
+
+    2. Select the created web application on the Google Developer Console, and provide the following URL as an authorized JavaScript origin:
+
+        {{authorized_javascript_origin}}
+
+        ![Add authorized JavaScript origins in Google developer console]({{base_path}}/assets/img/guides/idp/google-idp/authorized-javascript-origins.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+    3. Click **Save** to update the changes.
+
+2. On the Asgardeo Console,
+
+    1. Follow the above guide to [Register the Google IdP](#register-the-google-idp).
+
+    2. Go to **Connections**, and select your created Google connection.
+
+    3. Go to its **Settings** tab and enable **Google One Tap**.
+
+    4. Click **Update** to save the changes.
+
+3. In your application, follow the guide above to [enable login with Google](#enable-google-login).
+
+!!! warning "Warning"
+    Google One Tap prompt appears for Chrome and Firefox browsers across Android, iOS, Linux and Windows 10. Safari and Edge users will not see the prompt.
+
+
+### Try out Google One Tap
+
+Once you [configure Google One Tap](#configure-google-one-tap) for your application, access the application from a browser with an existing Google session. Your Asgardeo login page will look as follows.
+
+![Add Google login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/google-idp/sign-in-google-one-tap.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
+Click **Continue as <user>** and the user will be logged in to the application with the existing Google session.
+
+## Map groups with {{product_name}}
 
 {% include "../../fragments/manage-connection/add-groups.md" %}
 
