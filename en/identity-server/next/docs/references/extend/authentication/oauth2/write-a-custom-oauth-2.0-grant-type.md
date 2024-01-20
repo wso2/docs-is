@@ -50,6 +50,7 @@ Follow the steps given below to implement a new grant type.
     grant_validator="full qualified class name of grant validator"
     [oauth.custom_grant_type.properties]
     IdTokenAllowed=true
+    PublicClientAllowed=true
     ```
 
     !!! info 
@@ -57,7 +58,13 @@ Follow the steps given below to implement a new grant type.
         `            true           `, provides flexibility to control the
         issuing of IDtoken for each grant, and also allows the OIDC scope
         validator to validate the grant types that should support the openid
-        scope.
+        scope. 
+        
+        Setting the `            <PublicClientAllowed>           ` parameter to
+        `            true           `, provides the capability to configure 
+        whether the grant type can be used by public clients or not. Failing to 
+        set this parameter will result in the grant type being not supported for
+        public clients.
 
 4. Restart the server to apply changes.
 
@@ -113,6 +120,7 @@ directly used as well.
     grant_validator="org.wso2.sample.identity.oauth2.grant.mobile.MobileGrantValidator"
     [oauth.custom_grant_type.properties]
     IdTokenAllowed=true
+    PublicClientAllowed=true
     ```
 
 3.  Restart the server.
