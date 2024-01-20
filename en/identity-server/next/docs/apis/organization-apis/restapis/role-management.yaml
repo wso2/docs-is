@@ -145,7 +145,6 @@ paths:
             "filter": "displayName eq loginRole"
             }'
       x-codegen-request-body-name: body
-    x-codegen-request-body-name: body
   /v2/Roles/{id}:
     get:
       tags:

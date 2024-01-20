@@ -339,6 +339,7 @@ nav:
       - Identity provider management API: apis/organization-apis/org-idp.md
       - Organization management API: apis/organization-apis/org-management.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
+      - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
   - References:
     - References - Overview: references/index.md
     - Asgardeo user roles: references/user-management/user-roles.md

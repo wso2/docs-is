@@ -436,6 +436,7 @@ nav:
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Application management API: apis/organization-apis/org-application-mgt.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
+      - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
   - References:
     - References: references/index.md
     - User Management:
