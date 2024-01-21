@@ -335,6 +335,7 @@ nav:
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - User management API: apis/organization-apis/org-user-mgt.md
       - Group management API: apis/organization-apis/org-group-mgt.md
+      - Role management API: apis/organization-apis/org-role-mgt.md
       - Application management API: apis/organization-apis/org-application-management.md
       - Identity provider management API: apis/organization-apis/org-idp.md
       - Organization management API: apis/organization-apis/org-management.md
