@@ -12,6 +12,8 @@ Some of these APIs are used for organization management purposes, and they have 
 
 - [Organization group management API (SCIM2)]({{base_path}}/apis/organization-apis/org-group-mgt/)
 
+- [Organization roles management API (SCIM2)]({{base_path}}/apis/organization-apis/org-role-mgt/)
+
 - [Organization application management API]({{base_path}}/apis/organization-apis/org-application-management)
 
 - [Organization identity provider management API]({{base_path}}/apis/organization-apis/org-idp/)
