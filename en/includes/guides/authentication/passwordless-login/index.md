@@ -1,6 +1,6 @@
 # Add passwordless login
 
-These sections provide instructions on how to add passwordless login to your SPAs or web applications.
+Passwordless login represents a modern authentication approach that enhances security and user convenience by eliminating traditional password requirements. This section introduces various passwordless methods such as Magic Links, Passkeys, HYPR, and Email OTP, offering a secure and user-friendly alternative for accessing SPAs and web applications.
 
 ## Magic link login
 

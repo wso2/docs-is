@@ -1,5 +1,5 @@
 {% set product_name = "WSO2 Identity Server" %}
-{% set product_url = "https://wso2is.example.com" %}
+{% set product_domain = "wso2is.example.com" %}
 {% set product_url_format = "https://wso2is.example.com" %}
 {% set localhost_warning_note = 
         '!!! warning "Restrictions with Sign in with Apple on Localhost"
