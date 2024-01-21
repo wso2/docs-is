@@ -80,7 +80,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
             </tr>
             <tr>
                 <td><b>Domain</b></td>
-                <td><code>{{ product_url }}</code></td>
+                <td><code>{{ product_domain }}</code></td>
             </tr>
             <tr>
                 <td><b>Return URL</b></td>
