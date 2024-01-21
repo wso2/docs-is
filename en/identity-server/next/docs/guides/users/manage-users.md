@@ -13,23 +13,36 @@ There are three ways to onboard a user:
 
 - An administrator can onboard users from the WSO2 Identity Server Console.
 
-Let's look at how administrators can onboard users from the WSO2 Identity Server Console.
+Let's look at how administrators can onboard users from the {{ product_name }} Console.
 
-1. On the WSO2 Identity Server Console, go to **User Management** > **Users**.
-2. Click  **Add User** and provide the following details:
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
+2. Click **Add User** and provide the following details:
 
-    ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
+           - A username is always unique to the organization and you can't change the username once it is created.
+           - Instead of using a username to login, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, you will be asked to enter the email address when logging in.
+           - The user can change the password set by the administrator from the [My Account Portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
 
-        - A username is always unique to the organization and you can't change the username once it is created.
-        - Instead of using a username to login, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, you will be asked to enter the email address when logging in.
-        - The user can change the password set by the administrator from the [My Account Portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
+3. You can either request the user to set the password or set one on the user's behalf.
 
-4. Click **Next**.
-5. Add the user to a group, if necessary, and click **Next**.
-6. Assign the user a role, if necessary, and click **Next**.
+    - **Invite user to set their own password:**
+
+        - **Invite via email:** If this option is selected, an email with a confirmation link will be sent to the provided email address. The user can use this link to set up a new password.
+        
+            !!! note
+                  You need to enable the **Invite user to set password** feature if you haven't done so already to use this option. Learn how to [configure invite user to set password]({{base_path}}/guides/account-configurations/user-onboarding/invite-user-to-set-password/).
+
+        - **Invite offline:** If this option is selected, the administrator will receive an invitation link at the end of the user registration process. This link can then be shared with the user.
+
+    - **Set a password for the user:** If this option is selected, the administrator can set a password for the user. The user will have the option to change this password from the [My Account Portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
+
+4. Add the user to a group in the next step. You will not see this option if you haven't created any groups in {{ product_name }}.
 5. Review the summary and click **Finish**.
+
+    !!! note
+        If you have selected **Invite offline** or decided to **set a password for the user**, you can copy the corresponding information at the **Summary** page of the wizard and share with the user.
 
 ## Assign groups
 Groups are useful when you wish to assign a certain permission level to multiple users. A user can be a member of multiple groups in the organization. Learn how to [manage groups]({{base_path}}/guides/users/manage-groups/).
@@ -41,7 +54,7 @@ To assign users to groups:
 3. Go to the **Groups** tab and click **+ Assign Group**.
 4. Select the relevant groups and click **Save**.
 
-    ![Add user]({{base_path}}/assets/img/guides/users/assign-groups-to-users.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add user]({{base_path}}/assets/img/guides/users/assign-groups-to-users.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Manage user profiles
 
@@ -61,7 +74,7 @@ Administrators can view the user profile of any user as follows:
 
 2. Select the user to view the profile.
 
-    ![view-user-profile]({{base_path}}/assets/img/guides/users/view-user-profile.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![view-user-profile]({{base_path}}/assets/img/guides/users/view-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Update the profile
 
@@ -96,7 +109,7 @@ To reset the password:
         !!! note
             Enable the relevant password recovery methods by navigating to **Login & Registration** > **Password Recovery**.
 
-    ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Reset Password**.
 
@@ -141,13 +154,13 @@ To lock a user account:
 1. On the WSO2 Identity Server Console, go to **User Management** > **Users** and select the user.
 2. Enable the **Lock user** toggle at the bottom of the user's profile.
   
-    ![Lock user]({{base_path}}/assets/img/guides/users/lock-user.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Lock user]({{base_path}}/assets/img/guides/users/lock-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.
 
-!!! note
-    You can unlock a user account by switching the **Lock user** toggle off.
+    !!! note
+        You can unlock a user account by switching the **Lock user** toggle off.
 
 ## Delete a user
 A user account can be deleted by administrators. Once an account is deleted, the action is irreversible.
@@ -157,7 +170,7 @@ To delete a user account:
 1. On the WSO2 Identity Server Console, go to **User Management** > **Users** and select the user.
 2. Click **Delete User** at the bottom of the user's profile.
 
-    ![Lock user]({{base_path}}/assets/img/guides/users/delete-user.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Lock user]({{base_path}}/assets/img/guides/users/delete-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.
