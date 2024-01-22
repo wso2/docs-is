@@ -3,7 +3,7 @@ info:
   version: "v2"
   title:  Asgardeo - SCIM 2.0 Roles API
   description: |
-    "This is the RESTful API for SCIM 2.0 Roles API in WSO2 Asgardeo. 
+    "This is the RESTful API for SCIM 2.0 Roles API in Asgardeo. 
     This API allows creating, deleting, listing, roles and updating role name, permissions, users and groups of the roles.
     \n To access the SCIM 2.0 Roles APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
 servers:

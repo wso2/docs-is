@@ -23,5 +23,3 @@ See the topics in this section for references that will help you while working w
 - [Accessibility compliance]({{base_path}}/references/accessibility/) in Asgardeo.
 
 - [Data residency]({{base_path}}/references/data-residency-in-asgardeo/) in Asgardeo.
-
-- [Localization]({{base_path}}/references/localization-in-asgardeo/) in Asgardeo.

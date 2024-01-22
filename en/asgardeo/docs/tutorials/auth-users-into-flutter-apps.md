@@ -78,7 +78,7 @@ After registering your application with Asgardeo, you can enable [user attribute
 
 In this tutorial, you will retrieve the First Name, Last Name, Mobile, Country, Birth Date, and Photo URL as profile information.
 
-Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-customers/#onboard-a-user).
+Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-a-user).
 
 ## Step 3: Install dependencies
 

@@ -1,5 +1,5 @@
 <!--
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2023-2024, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -31,6 +31,12 @@
         <h1 class="md-home-search-input-label">How can we help?</h1>
 
         {% include "partials/search.html" %}
+
+        <p class="md-home-search-input-description">
+          {{ config.extra.product_name }} documentation! Within these pages, 
+          you will learn how to build a seamless login experience for your applications using 
+          {{ config.extra.product_name }}.
+        </p>
       </div>
 
       {{ page.content }}
@@ -42,7 +48,13 @@
               <div class="md-column-grid-item">
                 <div class="md-column-grid-item-header-container">
                   <div class="md-column-grid-item-header-text">{{ column.title }}</div>
-                  <div class="md-column-grid-item-header-icon">
+
+                  {% set header_icon_class = "md-column-grid-item-header-icon" %}
+                  {% if column.icon_color %}
+                    {% set header_icon_class = header_icon_class ~ " " ~ column.icon_color %}
+                  {% endif %}
+
+                  <div class="{{ header_icon_class }}">
                     {% if column.icon %}
                       {% include column.icon %}
                     {% else %}

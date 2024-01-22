@@ -21,12 +21,10 @@ Consider a scenario with two roles, `admin` and `manager` associated with an app
 - You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 - Create two roles named `admin` and `manager` in application audience selecting the created application or create roles in organization audience and associate to the created application. 
-    <!-- ADD CONTENT -->
 
     - [Managing roles]({{base_path}}/guides/users/manage-roles/)
   
 - Assign user accounts to the created roles. For instructions, see the following:
-    <!-- ADD CONTENT -->
 
     - [Managing users]({{base_path}}/guides/users/manage-users/#onboard-a-user)
     - [Assigning users to roles]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role)

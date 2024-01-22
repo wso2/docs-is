@@ -9,7 +9,7 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 ## Prerequisites
 
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
-- [Update the user profile of the users]({{base_path}}/guides/users/manage-customers/#update-the-profile) with an mobile number to which the user will receive the OTP.
+- [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with an mobile number to which the user will receive the OTP.
 
 !!! note "Info"
     You can use SMS OTP for multi-factor authentication only if a previous authentication step is configured with **username and password** or another factor that can validate user credentials.

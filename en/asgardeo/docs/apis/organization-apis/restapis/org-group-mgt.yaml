@@ -26,7 +26,7 @@ paths:
       summary: Filter Groups
       description: "This API returns groups according to the specified filter, sort, and pagination parameters.\n\n  
       
-      <b>Scope required:</b> ``internal_org_group_mgt_view`` \n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_group_mgt_view`` \n\n"
       operationId: getGroup
       parameters:
         - name: attributes
@@ -93,7 +93,7 @@ paths:
       summary: Create Group
       description: "This API creates a group and returns the details of the created group including its unique ID.\n\n
       
-      <b>Scope required:</b> ``internal_org_group_mgt_create``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_group_mgt_create``\n\n"
       operationId: createGroup
       parameters:
         - name: attributes
@@ -158,7 +158,7 @@ paths:
       summary: Search Groups
       description: "This API returns groups according to the specified filter, sort, and pagination parameters.\n\n
       
-      <b>Scope required:</b> ``internal_org_group_mgt_view``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_group_mgt_view``\n\n"
       operationId: getGroupsByPost
       requestBody:
         content:
@@ -208,7 +208,7 @@ paths:
       summary: Get Group by ID
       description: "This API returns the group details of a particular group using its unique ID.\n\n
       
-      <b>Scope required:</b> ``internal_org_group_mgt_view``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_group_mgt_view``\n\n"
       operationId: getGroup by id
       parameters:
         - name: id
@@ -265,7 +265,7 @@ paths:
       summary: Update Group - PUT
       description: "This API updates the group details and returns the updated group details using a PUT operation.\n\n
       
-      <b>Scope required:</b> ``internal_org_group_mgt_update`` \n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_group_mgt_update`` \n\n"
       operationId: updateGroup
       parameters:
         - name: id
@@ -345,7 +345,7 @@ paths:
       summary: Delete Group
       description: "This API deletes a particular group using its unique ID.\n\n 
       
-      <b>Scope required:</b> ``internal_org_group_mgt_delete``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_group_mgt_delete``\n\n"
       operationId: deleteGroup
       parameters:
         - name: id
@@ -389,7 +389,7 @@ paths:
       summary: Update Group - PATCH
       description: "This API updates the group details and returns the updated group details using a PATCH operation.\n\n 
       
-      <b>Scope required:</b> ``internal_org_group_mgt_update``\n\n"
+      <b>Scope(Permission) required:</b> ``internal_org_group_mgt_update``\n\n"
       operationId: patchGroup
       parameters:
         - name: id

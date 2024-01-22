@@ -38,12 +38,11 @@ Follow the steps given below to configure the application login to prompt the us
                 var preferredClaimURI = 'http://wso2.org/claims/identity/preferredMFAOption';
                 var user = context.steps[1].subject;
                 var preferredClaim = user.localClaims[preferredClaimURI];
-                
-                var jsonObj = JSON.parse(preferredClaim);
-                var authenticationOption = jsonObj.authenticationOption;
-                Log.info("preferredClaim authenticationOption " + authenticationOption);
-
-                if(preferredClaim != null) {   
+    
+                if(preferredClaim != null) {  
+                    var jsonObj = JSON.parse(preferredClaim);
+                    var authenticationOption = jsonObj.authenticationOption;
+                    Log.info("preferredClaim authenticationOption " + authenticationOption); 
                     executeStep(2, {authenticationOptions: [{authenticator: authenticationOption}]}, {});
                 } else {
                     executeStep(2);
@@ -119,10 +118,8 @@ To set preferred MFA options for users:
                 {
                     "op": "replace",
                     "value": {
-                        "urn:scim:wso2:schema": {
-                            "preferredMFAOption": {
-                                "authenticationOption": "email-otp-authenticator"
-                            }
+                        "{{ scim_schema_for_wso2_custom_claims }}": {
+                            "preferredMFAOption": "{\"authenticationOption\":\"email-otp-authenticator\"}"
                         }
                     }
                 }

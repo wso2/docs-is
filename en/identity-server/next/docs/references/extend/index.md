@@ -6,4 +6,6 @@ This section discuss how WSO2 Identity Server can be extended related to followi
 
 - [Identity Federation]({{base_path}}/references/extend/federation/write-a-custom-federated-authenticator)
 
+- [User Management]({{base_path}}/references/extend/user-mgt/write-a-custom-event-handler)
+
 - [User Stores]({{base_path}}/references/extend/user-stores/write-a-custom-user-store-manager)

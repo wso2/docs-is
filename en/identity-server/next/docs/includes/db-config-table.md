@@ -38,3 +38,29 @@ The elements in the above configuration are described below:
 !!! info 
     For more information on other parameters that can be defined in
     the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+
+??? note "Support for case-sensitive usernames"
+
+    Usernames in {{product_name}} are case-insensitive by default. If you wish to enable case-sensitive usernames, configure the following properties.
+    
+    To enable the case-sensitivity for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configurations to the primary user store.
+
+    ``` toml
+    [user_store.properties]
+    CaseInsensitiveUsername = false
+    UseCaseSensitiveUsernameForCacheKeys = false
+    ```  
+    
+    For secondary user stores, add the following configurations to the `<userstore>.xml` file found in the `<IS_HOME>/repository/deployment/server/userstores` directory.
+
+    ``` xml
+    <Property name="CaseInsensitiveUsername">false</Property>
+    <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
+    ```
+    The database indexes are created using LOWER() functions to support case-insensitive usernames for the related tables. Therefore, remove the LOWER() functions from the related index creation queries in the scripts at `<IS_HOME>/dbscripts/`.
+    
+    Eg:
+
+    ``` sql
+    CREATE UNIQUE INDEX INDEX_UM_USERNAME_UM_TENANT_ID ON UM_USER(LOWER(UM_USER_NAME), UM_TENANT_ID);
+    ```

@@ -9,7 +9,8 @@ You can effectively control the number of concurrent user sessions for an applic
 
 ## Scenario
 
-Consider a scenario with two user groups, `admin` and `manager`. Users belonging to these groups are limited to having only one active session at a time. If they try to initiate a second session, they will be presented with a list of their current sessions and offered with the following two options:
+Consider a scenario with two roles, `admin` and `manager`. Users belonging to these roles are limited to having only 
+one active session at a time. If they try to initiate a second session, they will be presented with a list of their current sessions and offered with the following two options:
 
 - Terminate any of their existing sessions.
 - Cancel their current authentication attempt.
@@ -18,9 +19,15 @@ Consider a scenario with two user groups, `admin` and `manager`. Users belonging
 
 - You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- Create two user groups named `admin` and `manager` and assign user accounts to them. For instructions, see the following:
+- Create two roles named `admin` and `manager` in application audience selecting the created application or create roles in organization audience and associate to the created application.
 
-      - [Managing users]({{base_path}}/guides/users/manage-customers/)
+      - [Managing roles]({{base_path}}/guides/users/manage-roles/)
+
+- Assign user accounts to the created roles. For instructions, see the following:
+
+      - [Managing users]({{base_path}}/guides/users/manage-users/#onboard-a-user)
+      - [Assigning users to roles]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role)
+
 
 
 ## Configure the login flow
@@ -99,7 +106,7 @@ var onLoginRequest = function(context) {
        // Extracting authenticated subject from the first step
            var user = context.currentKnownSubject;
            // Checking if the user is assigned to one of the given roles
-           var hasRole = hasAnyOfTheRoles(user, rolesToStepUp);
+           var hasRole = hasAnyOfTheRolesV2(context, rolesToStepUp);
 
            if (hasRole) {
                Log.info(user.username + ' Has one of Roles: ' + rolesToStepUp.toString());
@@ -121,7 +128,7 @@ var onLoginRequest = function(context) {
 Let's look at how this script works.
 
 1. When step 1 of the authentication flow is complete, the onLoginRequest function retrieves the authenticating user from the context.
-2. The function verifies whether the authenticating user is a member of the groups listed in `rolesToStepUp`.
+2. The function verifies whether the authenticating user is a member of the roles listed in `rolesToStepUp`.
 3. If the authenticating user is assigned to one or more roles in `rolesToStepUp`, authentication step 2 is prompted with `maxSessionCount` being passed as a parameter to the Active Sessions Limit handler.
 
 !!! note

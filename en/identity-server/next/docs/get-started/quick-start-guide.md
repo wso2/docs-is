@@ -4,7 +4,11 @@ Are you new to **{{ product_name }}**? Let's get to know what we are all about!
 
 **{{ product_name }} (WSO2 IS)** simplifies the Customer Identity and Access Management (CIAM) needs of your organization. The product ensures easy integration with a variety of applications to facilitate single sign-on (SSO), social login, identity federation, API security, strong authentication, account management, privacy compliance, and so much more.
 
-<iframe width="800" height="250" src="https://www.youtube.com/embed/QUlcGOOdXU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="width: 100%; min-width: 300px; max-width: 700px;">
+<div style="position: relative; width: 100%; overflow: hidden; padding-top: 56.25%;">
+<p><iframe style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/QUlcGOOdXU8" width="560" height="315" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></p>
+</div>
+</div>
 
 ## Who uses {{ product_name }}?
 

@@ -66,6 +66,25 @@ A sample configuration is given below.
     2.  Execute database scripts.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
+
+    !!! note
+        As Microsoft SQL Server is inherently case-insensitive, it is recommended to deactivate the case-insensitive functionality of {{product_name}} when integrating with the Microsoft SQL Server.
+        Disabling this feature in {{product_name}} eliminates unnecessary processing, thereby potentially enhancing overall system performance.
+
+        To disable case-insensitivity for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configurations to the primary user store.
+
+        ``` toml
+        [user_store.properties]
+        CaseInsensitiveUsername = false
+        UseCaseSensitiveUsernameForCacheKeys = false
+        ```  
+    
+        For secondary user stores, add the following configurations to the `<userstore>.xml` file found in the `<IS_HOME>/repository/deployment/server/userstores` directory.
+
+        ``` xml
+        <Property name="CaseInsensitiveUsername">false</Property>
+        <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
+        ```
         
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)

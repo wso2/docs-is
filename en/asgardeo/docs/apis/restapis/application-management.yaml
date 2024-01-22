@@ -14,7 +14,7 @@ paths:
       operationId: getAllApplications
       summary: |
         List applications
-      description: "This API provides the capability to retrieve the list of applications.\n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      description: "This API provides the capability to retrieve the list of applications.\n\n <b>Scope(Permission) required:</b> ``internal_application_mgt_view``"
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -71,7 +71,7 @@ paths:
       summary: |
         Add application
       operationId: createApplication
-      description: "This API provides the capability to store application information provided by users.\n\n <b>Scope required:</b> `internal_application_mgt_create`"
+      description: "This API provides the capability to store application information provided by users.\n\n <b>Scope(Permission) required:</b> `internal_application_mgt_create`"
       parameters:
         - in: query
           name: template
@@ -278,7 +278,7 @@ paths:
       summary: |
         Create application from an exported XML file
       operationId: importApplication
-      description: "This API provides the ability to store the application information as a file. \n\n <b>Scope required:</b> `internal_application_mgt_create`"
+      description: "This API provides the ability to store the application information as a file. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_create`"
       requestBody:
         content:
           multipart/form-data:
@@ -330,7 +330,7 @@ paths:
       summary: |
         Update application from an exported XML file
       operationId: importApplicationForUpdate
-      description: "This API provides the capability to update an application from information that has been exported as an XML file.<br> \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+      description: "This API provides the capability to update an application from information that has been exported as an XML file.<br> \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_update`"
       requestBody:
         content:
           multipart/form-data:
@@ -389,7 +389,7 @@ paths:
       summary: |
         Retrieve application by ID
       operationId: getApplication
-      description: "This API provides the capability to retrieve the application information by ID. \n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      description: "This API provides the capability to retrieve the application information by ID. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_view`"
       parameters:
         - name: applicationId
           in: path
@@ -448,7 +448,7 @@ paths:
       summary: |
         Partially update application by ID
       operationId: patchApplication
-      description: "This API provides the capability to partially update an application by ID.\n\n<b>Scope required:</b> ``internal_application_mgt_update``"
+      description: "This API provides the capability to partially update an application by ID.\n\n<b>Scope(Permission) required:</b> ``internal_application_mgt_update``"
       parameters:
         - name: applicationId
           in: path
@@ -578,7 +578,7 @@ paths:
       summary: |
         Delete application by ID
       operationId: deleteApplication
-      description: "This API provides the capability to delete an application by ID. \n\n <b>Scope required:</b> ``internal_application_mgt_delete`"
+      description: "This API provides the capability to delete an application by ID. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_delete`"
       parameters:
         - name: applicationId
           in: path
@@ -625,7 +625,7 @@ paths:
       operationId: exportApplication
       summary: |
         Export application as an XML file
-      description: "This API provides the capability to retrieve the application as an XML file. \n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      description: "This API provides the capability to retrieve the application as an XML file. \n\n <b>Scope(Permission) required:</b> ``internal_application_mgt_view``"
       parameters:
         - name: applicationId
           in: path
@@ -722,7 +722,7 @@ paths:
       summary: |
         Get configured authenticators
       operationId: getConfiguredAuthenticators
-      description: "This API provides the capability to retrieve the configured authenticators. \n\n <b>Scope required:</b> ``internal_application_mgt_view``"
+      description: "This API provides the capability to retrieve the configured authenticators. \n\n <b>Scope(Permission) required:</b> ``internal_application_mgt_view``"
       parameters:
         - name: applicationId
           in: path
@@ -775,7 +775,7 @@ paths:
       summary: |
         Get resident application
       operationId: getResidentApplication
-      description: "This API provides the capability to retrieve the resident application information.\n\n<b>Scope required:</b>`internal_application_mgt_view`"
+      description: "This API provides the capability to retrieve the resident application information.\n\n<b>Scope(Permission) required:</b>`internal_application_mgt_view`"
       responses:
         '200':
           description: OK
@@ -818,7 +818,7 @@ paths:
       summary: |
         Update resident application
       operationId: updateResidentApplication
-      description: "This API provides the capability to update the Resident Application Configuration.\n\n <b>Scope required:</b>`internal_application_mgt_update`"
+      description: "This API provides the capability to update the Resident Application Configuration.\n\n <b>Scope(Permission) required:</b>`internal_application_mgt_update`"
       responses:
         '200':
           description: Successful
@@ -898,7 +898,7 @@ paths:
       summary: |
         Retrieve inbound protocol configurations of the application
       operationId: getInboundAuthenticationConfigurations
-      description: "This API provides the capability to retrieve authentication protocol configurations of an application.\n\n<b>Scope required:</b>`internal_application_mgt_view`"
+      description: "This API provides the capability to retrieve authentication protocol configurations of an application.\n\n<b>Scope(Permission) required:</b>`internal_application_mgt_view`"
       parameters:
         - name: applicationId
           in: path
@@ -949,7 +949,7 @@ paths:
       summary: |
         Retrieve SAML2 authentication parameters of app
       operationId: getInboundSAMLConfiguration
-      description: "This API provides the capability to retrieve SAML2 authentication protocol parameters of an application. \n\n<b>Scope required:</b>`internal_application_mgt_view`"
+      description: "This API provides the capability to retrieve SAML2 authentication protocol parameters of an application. \n\n<b>Scope(Permission) required:</b>`internal_application_mgt_view`"
       parameters:
         - name: applicationId
           in: path
@@ -999,7 +999,7 @@ paths:
       summary: |
         Update SAML2 authentication parameters of app
       operationId: updateInboundSAMLConfiguration
-      description: "This API provides the capability to store SAML2 authentication protocol parameters of an application.\n\n<b>Scope required:</b>`internal_application_mgt_update`
+      description: "This API provides the capability to store SAML2 authentication protocol parameters of an application.\n\n<b>Scope(Permission) required:</b>`internal_application_mgt_update`
 
         - There are three methods to create/update SAML2 authentication protocol configuration.
             <ol>
@@ -1140,7 +1140,7 @@ paths:
         Delete SAML2 authentication parameters of app
       operationId: deleteInboundSAMLConfiguration
       description: "This API provides the capability to delete SAML2 authentication protocol
-        parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
+        parameters of an application. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_delete`"
       parameters:
         - name: applicationId
           in: path
@@ -1186,7 +1186,7 @@ paths:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Retrieve OIDC authentication parameters of app
-      description: "This API provides the capability to retrieve OIDC authentication protocol parameters of an application. \n\n >Scope required:</b> `internal_application_mgt_view`"
+      description: "This API provides the capability to retrieve OIDC authentication protocol parameters of an application. \n\n >Scope(Permission) required:</b> `internal_application_mgt_view`"
       operationId: getInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -1236,7 +1236,7 @@ paths:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Update OIDC authentication parameters of app
-      description: "This API provides the capability to store OIDC authentication protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+      description: "This API provides the capability to store OIDC authentication protocol parameters of an application. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_update`"
       operationId: updateInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -1356,8 +1356,9 @@ paths:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Delete OIDC authentication parameters of app
-      description: "This API provides the capability to delete OIDC authentication protocol
-        parameters of an application. \n\n<b>Scope required:</b> `internal_application_mgt_delete"
+      description: |
+        This API provides the capability to delete OIDC authentication protocol
+        parameters of an application. \n\n<b>Scope(Permission) required:</b> `internal_application_mgt_delete`
       operationId: deleteInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -1404,7 +1405,7 @@ paths:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Regenerate the OAuth2/OIDC client secret of application
-      description: "This API regenerates the OAuth2/OIDC client secret. \n\n <b>Scope required:</b> `nternal_application_mgt_create`"
+      description: "This API regenerates the OAuth2/OIDC client secret. \n\n <b>Scope(Permission) required:</b> `nternal_application_mgt_create`"
       operationId: regenerateOAuthClientSecret
       parameters:
         - name: applicationId
@@ -1456,7 +1457,7 @@ paths:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Revoke the OAuth2/OIDC client secret
-      description: "This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated.\n\n <b>Scope required:</b> `internal_application_mgt_create`"
+      description: "This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated.\n\n <b>Scope(Permission) required:</b> `internal_application_mgt_create`"
       operationId: revokeOAuthClient
       parameters:
         - name: applicationId
@@ -1505,7 +1506,7 @@ paths:
       summary: >
         Retrieve Passive STS authentication parameters of app
       description: "This API provides the capability to retrieve Passive STS authentication
-        protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+        protocol parameters of an application. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_view`"
       operationId: getPassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1556,7 +1557,7 @@ paths:
       summary: |
         Update Passive STS authentication parameters of app
       description: "This API provides the capability to store passive STS authentication
-        protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+        protocol parameters of an application. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_update`"
       operationId: updatePassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1632,7 +1633,7 @@ paths:
       summary: |
         Delete Passive STS authentication parameters of app
       description: "This API provides the capability to delete Passive STS authentication
-        protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
+        protocol parameters of an application. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_delete`"
       operationId: deletePassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1832,7 +1833,7 @@ paths:
       summary: >
         Retrieve custom Inbound authentication parameters of app
       description: "This API provides the capability to retrieve custom inbound
-        authentication protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+        authentication protocol parameters of an application. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_view`"
       operationId: getCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -1888,7 +1889,7 @@ paths:
         - Inbound Protocols - Custom
       summary: |
         Update custom inbound authentication parameters of app
-      description: "This API provides the capability to store custom inbound authentication protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+      description: "This API provides the capability to store custom inbound authentication protocol parameters of an application. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_update`"
       operationId: updateCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -1976,7 +1977,7 @@ paths:
         - Inbound Protocols - Custom
       summary: >
         Delete custom inbound authentication parameters of app
-      description: "This API provides the capability to delete custom inbound authentication protocol of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
+      description: "This API provides the capability to delete custom inbound authentication protocol of an application. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_delete`"
       operationId: deleteCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -2031,7 +2032,7 @@ paths:
         Retrieve the list of inbound authentication protocols available
       description: "This API provides the capability to retrieve the list of inbound authentication protocols available.
         If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed.
-        \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+        \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_view`"
       operationId: getInboundProtocols
       parameters:
         - $ref: '#/components/parameters/inboundProtocolsCustomOnly'
@@ -2076,7 +2077,7 @@ paths:
         - Application Metadata
       summary: |
         Retrieve all the metadata related to the auth protocol SAML
-      description: "This API provides the capability to retrieve all the metadata related to the auth protocol SAML. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+      description: "This API provides the capability to retrieve all the metadata related to the auth protocol SAML. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_view`"
       operationId: getSAMLMetadata
       responses:
         '200':
@@ -2122,7 +2123,7 @@ paths:
         - Application Metadata
       summary: |
         Retrieve all the metadata related to the authentication protocol OAuth / OIDC
-      description: "This API provides the capability to retrieve all the metadata related to the authentication protocol OAuth / OIDC. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+      description: "This API provides the capability to retrieve all the metadata related to the authentication protocol OAuth / OIDC. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_view`"
       operationId: getOIDCMetadata
       responses:
         '200':
@@ -2193,7 +2194,7 @@ paths:
       summary: |
         Retrieve all the metadata related to the custom auth protocol identified by the inboundProtocolId
       description: "This API provides the capability to retrieve all the metadata related to the custom auth protocol
-        identified by the `inboundProtocolId`. The URL encoded inbound protocol name is used as `inboundProtocolId`. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+        identified by the `inboundProtocolId`. The URL encoded inbound protocol name is used as `inboundProtocolId`. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_view`"
       operationId: getCustomProtocolMetadata
       parameters:
         - name: inboundProtocolId
@@ -2238,7 +2239,7 @@ paths:
         - Application Metadata
       summary: |
         Retrieve the sample adaptive authentication templates.
-      description: "This API provides the capability to retrieve the sample adaptive authentication templates. \n\n<b>Scope required:</b> `internal_application_mgt_view`"
+      description: "This API provides the capability to retrieve the sample adaptive authentication templates. \n\n<b>Scope(Permission) required:</b> `internal_application_mgt_view`"
       operationId: getAdaptiveAuthTemplates
       responses:
         '200':
@@ -2269,7 +2270,285 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/meta/adaptive-auth-templates' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'  
+            -H 'Authorization: Bearer {bearer_token}'
+  /applications/{applicationId}/share:
+    post:
+      summary: |
+        Share the application from the root organization to the given organization(s).
+      description: |
+        This API provides the capability to share an application with organizations.
+        <br>
+        
+        <b>Scope(Permission) required:</b> `internal_shared_application_create`
+      operationId: shareOrgApplication
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application which will be shared to organizations.
+          required: true
+          schema:
+            type: string
+            example: c75e27f9-98c7-4518-a968-c6cd59f0ac6b
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationSharePOSTRequest'
+        required: true
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Application Sharing
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/share' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "shareWithAllChildren": false,
+              "sharedOrganizations": [
+                "682edf68-4835-4bb8-961f-0a16bc6cc866",
+                "ghfbctgf-4318-46d4-8ee1-7t3s38e23098"
+              ]
+            }'
+          x-codegen-request-body-name: body
+    get:
+      summary: |
+        List of organizations that the application is shared to.
+      description: |
+        This API returns the list of organizations that the application is shared to.
+        <br><br>
+        
+        <b>Scope(Permission) required:</b> `internal_shared_application_view`
+      operationId: shareOrgApplicationGet
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application which is shared to organizations.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedOrganizationsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Application Sharing
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/share' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+  /applications/{applicationId}/shared-apps:
+    get:
+      summary: |
+        List of shared applications along with its organization.
+      description: |
+        This API returns the list of shared app ids along with the shared organization id.
+        <br><br>
+        
+        <b>Scope(Permission) required:</b> `internal_shared_application_view`
+      operationId: sharedApplicationsGet
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application which is shared to organizations.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedApplicationsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Application Sharing
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/shared-apps' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    delete:
+      description: |
+        This API provides the capability to stop sharing an application to all organizations the application is shared to.
+        <br><br>
+        
+        <b>Scope(Permission) required:</b> `internal_shared_application_delete`
+      summary: |
+        Stop sharing an application with all organizations.
+      operationId: sharedApplicationsAllDelete
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Application Sharing
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/shared-apps' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+  /applications/{applicationId}/share/{shared-organization-id}:
+    delete:
+      description: |
+        This API provides the capability to stop sharing an application to an organization by providing its ID.
+        <br><br>
+        
+        <b>Scope(Permission) required:</b> `internal_shared_application_delete`
+      summary: |
+        Stop sharing an application to a organization.
+      operationId: shareOrgApplicationDelete
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+        - name: shared-organization-id
+          in: path
+          description: ID of the organization to stop sharing.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Application Sharing
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/share/{shared-organization-id}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   parameters:
     limitQueryParam:
@@ -4001,6 +4280,64 @@ components:
         traceId:
           type: string
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
-
+    ApplicationSharePOSTRequest:
+      type: object
+      properties:
+        shareWithAllChildren:
+          type: boolean
+          default: false
+        sharedOrganizations:
+          type: array
+          items:
+            type: string
+          example:
+            - 682edf68-4835-4bb8-961f-0a16bc6cc866
+            - ghfbctgf-4318-46d4-8ee1-7t3s38e23098
+    SharedOrganizationsResponse:
+      type: object
+      properties:
+        organizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/BasicOrganizationResponse'
+    SharedApplicationsResponse:
+      type: object
+      properties:
+        sharedApplications:
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedApplicationResponse'
+    SharedApplicationResponse:
+      type: object
+      properties:
+        applicationId:
+          type: string
+          description: Shared application's id.
+          example: 'ca322554-fe79-4c04-9c94-492855ef92a3'
+        organizationId:
+          type: string
+          description: Shared application residing organization id.
+          example: '682edf68-4835-4bb8-961f-0a16bc6cc866'
+    BasicOrganizationResponse:
+      type: object
+      required:
+        - id
+        - name
+        - status
+        - ref
+      properties:
+        id:
+          type: string
+          example: 'b4526d91-a8bf-43d2-8b14-c548cf73065b'
+        name:
+          type: string
+          example: 'ABC Builders'
+        status:
+          type: string
+          enum: [ ACTIVE, DISABLED ]
+          example: ACTIVE
+        ref:
+          type: string
+          example: '/t/<org-name>/api/server/v1/organizations/b4526d91-a8bf-43d2-8b14-c548cf73065b'
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
