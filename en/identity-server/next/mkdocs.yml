@@ -78,7 +78,9 @@ nav:
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
-            - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md
+            - Passkeys:
+              - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md
+              - Validate FIDO attestations: guides/authentication/passwordless-login/fido-attestation.md
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
           - Enable user attributes:
@@ -454,7 +456,8 @@ nav:
     - OAuth2 grant types: references/grant-types.md
     - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
     - Application-native authentication: references/app-native-authentication.md
-    - Conditional auth - API: references/conditional-auth/api-reference.md
+    - Conditional authentication:
+      - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
     - IS Extensions:

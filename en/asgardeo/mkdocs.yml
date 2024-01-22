@@ -191,7 +191,7 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
-            - Add Passkey Progressive Enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+            - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
@@ -354,7 +354,8 @@ nav:
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
     - OAuth2 grant types of Asgardeo: references/grant-types.md
     - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
-    - Conditional auth - API: references/conditional-auth/api-reference.md
+    - Conditional authentication:
+      - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md

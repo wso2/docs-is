@@ -1,22 +1,22 @@
-# Add Passkey Progressive Enrollment
+# Passkey Progressive Enrollment
 
-This document provides a comprehensive guide on implementing Passkey progressive enrollment in {{ product_name }} using an adaptive script. The primary objective of this script is to ensure a smooth transition for users to adopt Passkey as their primary authentication method.
+The passkey progressive enrollment adaptive script is only required if **Passkey** is set as a first authentication factor and you wish to enable passkey progressive enrollment. This enables users to enroll their passkeys at the moment they are signing in to the application.
 
-!!! note "Important"
-    This adaptive script will only be required if Passkey is set as a first authentication factor and there is a need to enable progressive Passkey enrollment.
+The primary objective of this script is to smoothly transition users to use passkeys as their primary authentication method.
 
-## Overview of the Script's Functionality
+!!! info
+    Learn how to set up passkey login and enable passkey progressive enrollment for applications in [Add Passkey Login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/).
 
-The script is designed to execute during the authentication flow. When a user initiates passkey enrollment, the system prompts them with first-factor authentication methods, excluding Passkey. After successful authentication using one of these methods, the user is guided to the passkey enrollment stage. A successful enrollment results in user authentication within the system.
+## Overview
 
-To configure Passkey progressive enrollment for your application, refer to the [Add Passkey Login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/) documentation.
+The script is designed to execute during the authentication flow. When a user initiates passkey enrollment, the system prompts the user to log in with one of the other configured first-factor authentication methods. After successfully logging in, the user is guided through the passkey enrollment.
 
 !!! warning
-    - For the script to function correctly, you must have Passkey configured alongside another set of authenticators in the first step.
+    For the script to properly function, you must have one or more additional authenticators configured in the first step alongside **Passkey**.
 
-## How the Script Works
+## How it works
 
-Shown below is the script of the Passkey progressive enrollment conditional authentication template.
+Shown below is the conditional authentication template for passkey progressive enrollment.
 
 ```javascript
 var onLoginRequest = function(context) {
@@ -52,21 +52,12 @@ var onLoginRequest = function(context) {
 };
 ```
 
-### Detailed Explanation
+Let's look at how this script works:
 
-1. **Initial Authentication Display:**
-    - All authenticators configured in the first step of the authentication flow are displayed to the user.
+1. If the user chooses **Sign In With Passkey** and consents to passkey enrollment, an `onFail` event is triggered. The parameter `scenario` returns the value `INIT_FIDO_ENROLL`, uniquely identifying the passkey enrollment request.
 
-2. **Triggering Passkey Enrollment:**
-    - If the user chooses Passkey authentication and consents to enrollment, an `onFail` event is triggered.
-    - A parameter `scenario` with the value `INIT_FIDO_ENROLL` is returned, uniquely identifying the passkey enrollment request.
+2. The `filterAuthenticators()` method takes the configured list of authenticators in the first step and the authenticator to be excluded and returns the list of authenticators excluding the Passkey authenticator(`FIDOAuthenticator`).
 
-3. **Executing the Conditional Script:**
-    - The `filterAuthenticators()` method takes the configured list of authenticators in the first step and the authenticator to be excluded (`FIDOAuthenticator`) and returns the list of authenticators excluding the Passkey authenticator.
-    - This step ensures user authenticates using an alternative authenticator (like `Username & Password`, `Email OTP`, or federated authenticators like `Google`, `Facebook`, etc.) before enrolling in passkey.
+3. The user is then prompted for the first step of the authentication flow with `authenticationOptions` set to the list of filtered authenticators from the above step.
 
-4. **Re-triggering Passkey(FIDO) Authenticator:**
-    - After successful authentication with an alternative authenticator, the script re-triggers the Passkey Authenticator.
-    - This allows users to proceed with passkey enrollment seamlessly.
-
-By following these steps, {{ product_name }} streamlines a user-friendly and secure authentication process. This approach not only encourages the adoption of Passkey as a primary authentication method but also enables on-the-fly passkey enrollment during the authentication phase. This dual functionality enhances both the security and the convenience of the user experience.
+4. After successful authentication with an alternative authenticator, the script re-triggers the passkey authenticator. This allows users to seamlessly proceed with passkey enrollment.
