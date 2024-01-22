@@ -1,22 +1,22 @@
 # Passkey Progressive Enrollment
 
-The passkey progressive enrollment adaptive script is only required if **Passkey** is set as a first authentication factor and there is a need to enable progressive passkey enrollment. The primary objective of this script is to smoothly transition users to adopt **Passkey** as their primary authentication method.
+The passkey progressive enrollment adaptive script is only required if **Passkey** is set as a first authentication factor and you wish to enable passkey progressive enrollment. This enables users to enroll their passkeys at the moment they are signing in to the application.
+
+The primary objective of this script is to smoothly transition users to use passkeys as their primary authentication method.
 
 !!! info
-    Learn how to enable login with passkeys for applications in [Add Passkey Login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/).
+    Learn how to set up passkey login and enable passkey progressive enrollment for applications in [Add Passkey Login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/).
 
 ## Overview
 
-The script is designed to execute during the authentication flow. When a user initiates passkey enrollment, the system prompts the user to log in with one of the other configured first-factor authentication methods. After successful authentication using one of those methods, the user is guided to passkey enrollment.
-
-A successful enrollment results in the user being authenticated within the system.
+The script is designed to execute during the authentication flow. When a user initiates passkey enrollment, the system prompts the user to log in with one of the other configured first-factor authentication methods. After successfully logging in, the user is guided through the passkey enrollment.
 
 !!! warning
-    For the script to function, you must have one or more additional authenticators configured in the first step alongside **Passkey**.
+    For the script to properly function, you must have one or more additional authenticators configured in the first step alongside **Passkey**.
 
 ## How it works
 
-Shown below is the script of the passkey progressive enrollment conditional authentication template.
+Shown below is the conditional authentication template for passkey progressive enrollment.
 
 ```javascript
 var onLoginRequest = function(context) {
@@ -61,5 +61,3 @@ Let's look at how this script works:
 3. The user is then prompted for the first step of the authentication flow with `authenticationOptions` set to the list of filtered authenticators from the above step.
 
 4. After successful authentication with an alternative authenticator, the script re-triggers the passkey authenticator. This allows users to seamlessly proceed with passkey enrollment.
-
-Progressive enrollment of passkeys not only encourages the adoption of passkeys as a primary authentication method but also enables on the fly passkey enrollment during the authentication phase. This dual functionality enhances both the security and the convenience for the user.

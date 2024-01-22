@@ -1,6 +1,6 @@
 # Add Passkey login
 
-Based on FIDO concepts, **Passkeys** are a replacement for traditional passwords that allows users to log in to applications using the following methods.
+Based on FIDO concepts, **Passkeys** are a replacement for traditional passwords that allows users to log in to applications without a password using the following methods.
     <ul>
     <li><b>Roaming authenticators</b> - platform-independant FIDO2-supported hardware security keys such as YubiKey.</li>
     <li><b>Platform authenticators</b> - built-in biometrics bound to a single device such as fingerprint scanners or facial recognition features.</li>
@@ -110,9 +110,6 @@ Follow the steps given below to enable passkey progressive enrollment for your a
 
 7. Go to the **Sign-in Method** tab of the application and add the passkey based adaptive script from your preferred editor.
 
-    !!! note
-        For the progressive enrollment adaptive script to function, you need to configure at least one additional authenticator to the first step of the authentication flow. Refer to [Passkey Progressive Enrollment]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) for more information.
-
     ---
     === "Classic Editor"
         To add the adaptive script using the Classic Editor:
@@ -136,6 +133,9 @@ Follow the steps given below to enable passkey progressive enrollment for your a
 
             ![Add adaptive script with Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
     ---
+
+    !!! warning "Important"
+        For the progressive enrollment adaptive script to function, you need to configure at least one additional authenticator to the first step of the authentication flow. Refer to [Passkey Progressive Enrollment]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) for more information.
 
 4. Click **Update** to save your changes.
 
