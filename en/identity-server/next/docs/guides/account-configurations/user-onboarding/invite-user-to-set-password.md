@@ -1,6 +1,6 @@
 # Invite user to set password
 
-Allow administrative personnel to invite users to set their own passwords during the onboarding process in {{product_name}}.
+Allow administrator to invite users to set their own passwords during the onboarding process in {{product_name}}.
 
 ## Configuration instructions
 
@@ -23,23 +23,23 @@ For inviting users to set their password, follow these instructions:
     <th>Description</th>
   </tr>
   <tr>
-    <td>User Email Verification</td>
+    <td>Enable user email verification</td>
     <td>Triggers a verification notification during user creation if enabled.</td>
   </tr>
   <tr>
-    <td>Account Lock on Creation</td>
+    <td>Enable account lock on creation</td>
     <td>Locks the user account during creation to prevent unauthorized access.</td>
   </tr>
   <tr>
-    <td>Account Activation Email</td>
+    <td>Send account activation email</td>
     <td>Sends an email to users for account activation if enabled.</td>
   </tr>
   <tr>
-    <td>Verification Code Expiry Time</td>
+    <td>Email verification code expiry time</td>
     <td>The duration in minutes for which the email verification code remains valid.</td>
   </tr>
   <tr>
-    <td>Password Code Expiry Time</td>
-    <td>Defines the validity period in minutes for the password setup code sent to users.</td>
+    <td>Password Setup Invitation Code Expiration Time</td>
+    <td>Defines the validity period in minutes for the password setup code sent to users. For infinite validity period, set -1.</td>
   </tr>
 </table>
