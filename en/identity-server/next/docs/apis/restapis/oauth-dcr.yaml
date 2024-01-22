@@ -187,8 +187,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/application'
-        404:
-          description: Not Found
+        401:
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -319,8 +319,8 @@ paths:
         204:
           description: Successfully deleted
           content: {}
-        404:
-          description: Not Found
+        401:
+          description: Unauthorized
           content:
             application/json:
               schema:
