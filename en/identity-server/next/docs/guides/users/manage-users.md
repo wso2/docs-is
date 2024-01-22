@@ -2,7 +2,7 @@
 
 This guide walks you through how you can manage user accounts as an administrator.
 
-## Onboard a user
+## Onboard users
 There are three ways to onboard a user:
 
 - The user can self-register via the My Account portal or the login page of an application if self-registration is enabled in the organization. Learn how to [configure self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/).
@@ -15,8 +15,10 @@ There are three ways to onboard a user:
 
 Let's look at how administrators can onboard users from the {{ product_name }} Console.
 
+### Onboard single user
+
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
-2. Click **Add User** and provide the following details:
+2. Click **Add User** button and select **Single User** option and provide the following details:
 
     ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -43,6 +45,44 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
 
     !!! note
         If you have selected **Invite offline** or decided to **set a password for the user**, you can copy the corresponding information at the **Summary** page of the wizard and share with the user.
+
+### Onboard multiple users
+
+In addition to adding a single user, you can onboard multiple users at once, either manually or by using a CSV file. This is especially useful for large organizations where bulk operations can save time and reduce the effort of adding users one by one.
+
+!!! note
+    You need to enable the **Invite user to set password** feature if you haven't done so already to add multiple users. Learn how to [configure invite user to set password]({{base_path}}/guides/account-configurations/user-onboarding/invite-user-to-set-password/).
+
+![Add multiple users]({{base_path}}/assets/img/guides/users/add-multiple-users-form.png){: width="800" style="display: block; margin: 0; border: 0.1px solid lightgrey;"}
+
+#### Add multiple users manually
+
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
+2. Click on the **Add User** button and select **Multiple Users** option.
+3. Switch to the **Manual** tab.
+4. Enter the email addresses of the users you want to invite. Press **Enter** after each email to add it to the list.
+5. Specify the groups for the users by entering the group names. Press **Enter** after each group to add it to the list.
+6. Click **Add** to send out the invitations.
+7. An email with a confirmation link will be sent to the provided email addresses, allowing the users to set their own passwords.
+
+#### Add multiple users using a CSV file
+
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
+2. Click on the **Add User** button and select **Multiple Users** option.
+3. Switch to the **File Based** tab.
+4. Click **Upload CSV File** or drag and drop a CSV file into the designated area.
+5. Ensure your CSV file is formatted correctly, with headers that correspond to user attributes. These attributes must be mapped to local attributes.
+    - A sample CSV file format would include: `username, givenname, emailaddress, groups`
+    - For example:
+      ```
+      username,givenname,emailaddress,groups
+      user1,john,john@test.com,group1|group2
+      user2,jake,jake@test.com,group2
+      user3,jane,jane@test.com,group1
+      ```
+6. Click **Import** to add the users to the system.
+7. An email with a confirmation link will be sent to the provided email addresses, allowing the users to set their own passwords.
+
 
 ## Assign groups
 Groups are useful when you wish to assign a certain permission level to multiple users. A user can be a member of multiple groups in the organization. Learn how to [manage groups]({{base_path}}/guides/users/manage-groups/).
