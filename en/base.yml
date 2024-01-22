@@ -18,9 +18,6 @@ site_author: WSO2
 
 dev_addr: localhost:8000
 
-# Copyright
-copyright: © 2023 WSO2 LLC.
-
 # Configuration
 theme:
   name: material
