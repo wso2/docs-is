@@ -26,19 +26,19 @@ To set up self-registration, follow these steps:
     <td>When enabled, requires users to verify their accounts as part of registration.</td>
   </tr>
   <tr>
-    <td>Auto Login</td>
-    <td>Automatically logs in the user after successful registration if enabled.</td>
+    <td>Account verification link expiry time</td>
+    <td>Time in minutes until the account verification link expires.</td>
   </tr>
   <tr>
-    <td>Sign Up Confirmation Email</td>
-    <td>Send a confirmation email to users upon successful sign-up if enabled.</td>
+    <td>Activate account immediately</td>
+    <td>If selected, the new account is activated immediately after registration without waiting for account confirmation.</td>
   </tr>
   <tr>
-    <td>SMS OTP Expiry Time</td>
-    <td>The validity period of the SMS OTP for account verification.</td>
+    <td>Enable auto login</td>
+    <td>If selected, the user will be automatically logged in after registration.</td>
   </tr>
   <tr>
-    <td>Callback URL Regex</td>
-    <td>Regular expression to validate the callback URL for user registration.</td>
+    <td>Send sign up confirmation email</td>
+    <td>A confirmation email is sent upon successful self-registration if this option is enabled.</td>
   </tr>
 </table>
