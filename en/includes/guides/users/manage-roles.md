@@ -39,7 +39,7 @@ To create a role and assign permissions to it:
 
 5. Select the API for which you wish to assign permissions and select the permissions(scopes) from the dropdown.
 
-    - If you selected the **Applciation** audience, select permissions from the [APIs authorized for the selected application]({{base_path}}/guides/api-authorization/authorize-the-api-resources-for-an-app).
+    - If you selected the **Applciation** audience, select permissions from the [APIs authorized for the selected application]({{base_path}}/guides/api-authorization/#authorize-the-api-resources-for-an-app).
 
     - If you selected the **Organization** audience, select permissions from the management and organization APIs of {{ product_name }}, and [registered business specific APIs]({{base_path}}/guides/api-authorization/#register-an-api-resource).
 
@@ -84,7 +84,7 @@ You can assign groups of an external Identity Provider (IdP) to an application r
 
     - Register an IdP in {{ product_name }} and add the IdP to the sign-in flow of the application. Refer to [Add Standard-based login]({{base_path}}/guides/authentication/enterprise-login/) to learn more.
     
-    - [Configure groups for the IdP](({{base_path}}/guides/authentication/#add-groups-to-connections)).
+    - [Configure groups for the IdP]({{base_path}}/guides/authentication/#add-groups-to-connections).
 
 To assign external groups to an application role:
 
