@@ -233,6 +233,7 @@ nav:
         - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
         - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
         - ELK Alerts: guides/analytics/elk-alert-types.md
+        - Web analytic solutions: guides/analytics/web-analytics-solutions.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage your Console: guides/your-is/manage-your-console.md
