@@ -67,7 +67,7 @@ nav:
           - Register a standard-based app: guides/applications/register-standard-based-app.md
           - Register a mobile app: guides/applications/register-mobile-app.md
           - Register a machine-to-machine (M2M) app: guides/applications/register-machine-to-machine-app.md
-          - Register a FAPI compliant app: guides/applications/register-a-fapi-compliant-app.md
+          - Register a FAPI-compliant app: guides/applications/register-a-fapi-compliant-app.md
       - Authentication:
           - Authentication: guides/authentication/index.md
           - Add login to apps:
@@ -455,6 +455,7 @@ nav:
       - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
     - OAuth2 grant types: references/grant-types.md
+    - Financial-grade API: references/financial-grade-api.md
     - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
     - Application-native authentication: references/app-native-authentication.md
     - Conditional authentication:

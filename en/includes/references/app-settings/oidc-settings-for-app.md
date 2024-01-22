@@ -224,7 +224,7 @@ For applications that rely on a client secret, client authentication method is t
 
 ### Pushed Authorization Requests (PAR)
 
-When an application initiates an authorization request with Pushed Authorization Reqeusts (PAR), the application first, sends the details of the information from the back-channel to the `/par` endpoint. It then includes a reference to the information when making the front-channel request, thereby mitigating the exposure of sensitive information.
+When an application initiates an authorization request with Pushed Authorization Reqeusts (PAR), it sends the payload to the `/par` endpoint from the back channel, and includes a reference to the payload in the authorization request.
 
 Selecting the **Mandatory** option enforces the application to initiate an authorization request with PAR.
 
