@@ -38,7 +38,7 @@ Pushed Authorization Requests (PAR) introduces the `/par` endpoint to which a cl
 FAPI specifies that when using the `code` grant type, PAR requests must send the Proof Key Code Exchange (PKCE) code with the `S256` code challenge method.
 
 !!! note
-    Learn about [PAR]({{base_path}}/guides/authentication/oidc/implement-login-with-par/) and [PKCE]({{base_path}}/authentication/oidc/implement-auth-code-with-pkce/).
+    Learn about [PAR]({{base_path}}/guides/authentication/oidc/implement-login-with-par/) and [PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/).
 
 Follow the steps below to implement FAPI-compliant PAR requests for the `code` grant type.
 
