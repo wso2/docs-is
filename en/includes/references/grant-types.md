@@ -12,6 +12,7 @@ The grant types supported by {{ product_name }} applications are as follows:
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
 - [Token exchange grant](#token-exchange-grant)
+- [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 
 **{{ product_name }}'s custom grants**
 
@@ -130,6 +131,24 @@ The following diagram shows how the token exchange grant flow works.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
 See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-the-token-exchange-flow) for more details.
+
+## SAML 2.0 bearer grant
+
+SAML 2.0 bearer grant is a grant type in the OAuth 2.0 framework that enables the exchange of a SAML 2.0 assertion for an OAuth 2.0 access token. This grant type is defined in the [SAML 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants specification (RFC 7522)](https://datatracker.ietf.org/doc/html/rfc7522)
+
+The SAML 2.0 bearer grant is a secure method that allows clients to obtain an OAuth 2.0 access token by presenting a SAML 2.0 assertion. This grant type is particularly useful in scenarios where the client already has a SAML assertion from a trusted identity provider and seeks to exchange it for an access token. It offers significant advantages in systems that already utilize SAML for Single Sign-On (SSO), as it enables the client to obtain an access token without requiring the user to re-authenticate. To use this grant type, the client submits a request with the SAML assertion to the token endpoint, and following successful authentication and validation, the server issues an access token.
+
+The following diagram shows how the token exchange grant flow works.
+
+![How the token exchange grant works]({{base_path}}/assets/img/references/grants/saml2-bearer-grant.png)
+
+1. The user sends a login request to the client application.
+2. The client application sends an authentication request to the third-party IdP using SAML 2.0.
+3. Upon successful user authentication, the third-party IdP issues a SAML 2.0 assertion to the client application.
+4. The client application makes a token exchange request to the authorization server, specifying the SAML 2.0 bearer grant type and providing the necessary parameters, such as the original SAML 2.0 assertion.
+5. The Authorization Server validates the SAML 2.0 assertion and if valid, generates a new access token of the requested type based on the provided parameters and the server's policy, and responds to the client with the new access token.
+6. The client application can now request resources from the resource server by providing the access token.
+7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
 ## Organization switch grant
 
