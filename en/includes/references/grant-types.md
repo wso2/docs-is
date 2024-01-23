@@ -11,6 +11,7 @@ The grant types supported by {{ product_name }} applications are as follows:
 - [Client credentials grant](#client-credentials-grant)
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
+- [Token exchange grant](#token-exchange-grant)
 
 **{{ product_name }}'s custom grants**
 
