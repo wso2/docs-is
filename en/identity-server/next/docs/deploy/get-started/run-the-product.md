@@ -72,58 +72,28 @@ Alternatively, you can install and run the server [as a Windows service]({{base_
 
 Once the server has started, the operation log will display `WSO2 Carbon started in 'n' seconds`.
 
----
 
-### Start on Solaris
+## Access the WSO2 Identity Server Console
 
-To start the server, navigate to `<IS_HOME>/bin` and run `wso2server.sh`  from the command prompt. The required steps are as follows.
-
-!!! note
-    The following instructions are tested for an Oracle Solaris 10 8/11 x86 environment.
-
-1. Get Command Prompt: **Launch -\>** **Run Applications -\>** enter `dtterm` **-\>** click **Enter**.
-
-2. Execute the following command to start the server
-
-    `<IS_HOME>/bin/          bash          wso2server.sh.`
-
-3. The operation log appears in the command window. When the product server has successfully started, the log displays the message "WSO2 Carbon started in 'n' seconds".
-
-!!! info
-    To start the product as a service/nohup mode in Solaris, modify the `<IS_HOME>/bin/wso2server.sh` file as mentioned below.
-
-    1.  Open the `<IS_HOME>/bin/wso2server.sh` file in a text editor.
-    2.  Search for the occurrences `nohup sh "$CARBON\_HOME"/bin/wso2server.sh $args \> /dev/null 2\>&1 &`
-    3.  Replace those occurrences with `nohup <span class="underline">bash</span> "$CARBON\_HOME"/bin/wso2server.sh $args \> /dev/null 2\>&1 &`
-        
-        !!! tip
-            Replace `sh` with `bash` in the above occurrences.
-            
-    4.  Start the product.
-
----
-
-## Access the WSO2 IS console
-
-Once the server has started, you can access the WSO2 IS console by navigating to the URL of the WSO2 IS console. The URL is displayed towards the end of the server start script's console and log. The URL should be in the following format.
+Once the server has started, you can access the WSO2 Identity Server console by navigating to the URL of the WSO2 Identity Server console. The URL is displayed towards the end of the server start script's console and log. The URL should be in the following format.
 
 `https://<Server Host>:9443/console`
 
-Use the above URL to access the WSO2 IS console via any computer connected to the Internet or LAN. When accessing the WSO2 IS console from the same server where it is installed, enter "localhost" instead of the IP address. Use **admin** as both the username and password to log in to the WSO2 IS console.
+Use the above URL to access the WSO2 Identity Server console via any computer connected to the Internet or LAN. When accessing the WSO2 Identity Server console from the same server where it is installed, enter "localhost" instead of the IP address. Use **admin** as both the username and password to log in to the WSO2 Identity Server console.
 
 Example: `https://localhost:9443/console`.
 
 !!! tip
-    If you wish to change the url of the WSO2 IS console, click [here.]({{base_path}}/deploy/change-the-hostname/)
+    If you wish to change the url of the WSO2 Identity Server console, click [here.]({{base_path}}/deploy/change-the-hostname/)
 
 !!! info
-    When the WSO2 IS console sign-in page appears, the web browser displays an "Insecure Connection" message, since the IS is packed with a self-signed certificate. Accept the certificate and proceed to the sign-in page.
+    When the WSO2 Identity Server console sign-in page appears, the web browser displays an "Insecure Connection" message, since the IS is packed with a self-signed certificate. Accept the certificate and proceed to the sign-in page.
 
     !!! warning 
-        This scenario is suitable for testing purposes, or for running a program on the internal networks of a company. If you want to make the WSO2 IS console available to external users, obtain a certificate signed by a well-known certificate authority.
+        This scenario is suitable for testing purposes, or for running a program on the internal networks of a company. If you want to make the WSO2 Identity Server console available to external users, obtain a certificate signed by a well-known certificate authority.
 
 !!! note
-    If you leave the WSO2 IS console unattended, the session will time out. The **default timeout value** is `15` minutes, but you can change this in the `<IS_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml` file as follows.
+    If you leave the WSO2 Identity Server console unattended, the session will time out. The **default timeout value** is `15` minutes, but you can change this in the `<IS_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml` file as follows.
 
     ```
     <session-config>
@@ -131,8 +101,8 @@ Example: `https://localhost:9443/console`.
     </session-config>
     ```
 
-!!! info "Restrict Access to the WSO2 IS console and Web Applications"
-    You can restrict access to the WSO2 IS console by binding the WSO2 IS console with selected IP addresses. You can achieve this by having a load balancer in your deployment before the server.
+!!! info "Restrict Access to the WSO2 Identity Server console and Web Applications"
+    You can restrict access to the WSO2 Identity Server console by binding the WSO2 Identity Server console with selected IP addresses. You can achieve this by having a load balancer in your deployment before the server.
 
 ## Shut the server down and restart the server
 
