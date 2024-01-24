@@ -576,7 +576,7 @@ Copy the `wrapper.conf` file found in the `<IS_HOME>/bin/yajsw/` directory and p
 
 #### Set up `carbon_home`
 
-Extract the Carbon-based product that you want to run as a Windows service, and then set the Windows environment variable `carbon_home` to the directory from which you extracted the product. For example, if you want to run WSO2 Identity Server as a Windows service, you would set ` carbon_home ` to the extracted `wso2is-7.0.0` directory.
+Extract the Carbon-based product that you want to run as a Windows service, and then set the Windows environment variable `carbon_home` to the directory from which you extracted the product. For example, if you want to run WSO2 Identity Server as a Windows service, you would set `carbon_home` to the extracted `wso2is-7.0.0` directory.
 
 #### Run the product in console mode
 
