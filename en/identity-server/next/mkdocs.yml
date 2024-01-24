@@ -482,6 +482,8 @@ nav:
       - Troubleshoot: references/troubleshoot/index.md
       - Error catalog: references/troubleshoot/error-codes.md
       - API error catalog: references/troubleshoot/api-error-codes.md
+    - Tutorials:
+      - Verifiable credentials with Microsoft Entra Verified ID: references/tutorials/connect-asgardeo-with-ms-entra.md
 
 not_in_nav: |
   /page-not-found.md
