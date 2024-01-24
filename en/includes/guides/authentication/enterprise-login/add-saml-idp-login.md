@@ -15,6 +15,9 @@ You can use the following URL as the **Assertion Consumer Service URL** (also kn
 {{ product_url_format }}/commonauth
 ```
 
+!!!note 
+    To configure an Identity Server instance as the external identity provider, see [register a SAML web app]({{base_path}}guides/applications/register-saml-web-app)
+
 After you register the app, you should get the required configurations, as explained below.
 
 - If you are manually applying the IdP configurations to {{ product_name }}, you need the following configurations:

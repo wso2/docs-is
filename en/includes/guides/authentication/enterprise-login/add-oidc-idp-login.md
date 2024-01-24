@@ -8,11 +8,15 @@ Follow this guide to register an OIDC IdP in {{ product_name }} and add it to th
 
 You need to register an OpenID Connect application with the external identity provider. Follow the identity provider's documentation to know how to register an OIDC application.
 
-You can use the following URL as the **callbackURL** of the application.
+You can use the following URL as the **Authorized redirect URL** (also known as callback URL) of the application.
 
 ```bash 
 {{ product_url_format }}/commonauth
 ```
+
+!!!note 
+    To configure an Identity Server instance as the external identity provider, see [register an OpenID Connect web app]({{base_path}}guides/applications/register-oidc-web-app)
+
 Once you register an application, you will receive the following:
 
 - **client_id** (also known as `app_id` or `application_id`)
