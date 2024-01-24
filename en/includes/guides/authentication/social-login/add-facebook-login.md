@@ -1,6 +1,6 @@
 # Add Facebook login
 
-You can add Facebook login to your applications using {{ product_name }} and enable users to log in with their Facebook account.
+You can add Facebook login to your applications using {{ product_name }} and enable users to log in with their Facebook accounts.
 
 Follow this guide for instructions.
 

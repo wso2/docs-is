@@ -95,6 +95,7 @@ nav:
             - Add Github login: guides/authentication/social-login/add-github-login.md
             - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
             - Add Apple login: guides/authentication/social-login/add-apple-login.md
+            - Add X login: guides/authentication/social-login/add-x-login.md
           - Add decentralized login:
             - Add decentralized login: guides/authentication/decentralized-login/index.md
             - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
