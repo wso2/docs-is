@@ -48,10 +48,6 @@
     --md-default-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), inset 0px -1px 0px #161616;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 .md-grid {
     max-width: 100%;
 }
