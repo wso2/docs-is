@@ -372,6 +372,7 @@ nav:
     - System APIs:
       - Tenant management API: apis/tenant-management-rest-api.md
     - Management APIs:
+      - API resource management: apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API: apis/application-rest-api.md
         - Authorized apps:

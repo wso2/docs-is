@@ -305,6 +305,7 @@ nav:
     - APIs - Overview: apis/index.md
     - Authentication: apis/authentication.md
     - Application management API: apis/application-management.md
+    - API resource management API: apis/api-resource-management-rest-api.md
     - Branding Preferences API: apis/branding-preference-rest-api.md
     - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
     - Identity provider API: apis/idp.md

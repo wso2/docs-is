@@ -63,7 +63,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications?limit=30&offset=0' \
             -H 'accept: application/json'
-            -H 'Authorization: Bearer {bearer_token>}'                      
+            -H 'Authorization: Bearer {bearer_token}'
   /applications/:  
     post:
       tags:
