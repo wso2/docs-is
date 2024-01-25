@@ -1,6 +1,6 @@
 # Organization APIs
 
-This is the REST API documentation for organizations in {{ product_name }}.
+This is the REST API documentation for APIs that are consumed by the B2B SaaS applications for organization-level operations.
 
 ## APIs in {{ product_name }}
 

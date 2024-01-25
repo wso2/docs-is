@@ -369,34 +369,10 @@ nav:
     - Integrate WSO2 IS into your application: integrations/index.md
   - APIs:
     - APIs: apis/index.md
-    - Authentication API: apis/use-the-authentication-rest-apis.md
-    - Branding Preferences API: apis/branding-preference-rest-api.md
-    - Session management API: apis/session-mgt-rest-api.md
-    - Entitlement management API: apis/entitlement-with-rest-apis.md
-    - User management:
-        - SCIM 1.1 API: apis/scim-1.1-apis.md
-        - SCIM 2.0 API: 
-          - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
-          - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
-          - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-        - Account recovery API: apis/use-the-account-recovery-rest-apis.md
-        - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
-        - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
-        - Associated accounts API: apis/association-rest-api.md
-        - Challenge question API: apis/challenge-questions.md
-        - Challenge answers API: apis/challenge-rest-api.md
-        - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
-    - Role management:
-        - Roles v2 API: apis/roles-v2-rest-api.md
-        - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
-    - Identity provider API: apis/idp.md
-    - IdP session extension API: apis/idp-session-extender-endpoint.md
-    - Self-service:
-        - FIDO API: apis/fido-rest-api.md
-        - TOTP API: apis/totp-rest-api.md
-        - User discoverable application API: apis/user-discoverable-applications.md
-        - Approvals management API: apis/approvals-rest-api.md
-    - Application management:
+    - System APIs:
+      - Tenant management API: apis/tenant-management-rest-api.md
+    - Management APIs:
+      - Application management:
         - Application management API: apis/application-rest-api.md
         - Authorized apps:
             - Authorized apps API V1: apis/authorized-apps-rest-api.md
@@ -405,41 +381,65 @@ nav:
         - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
         - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
         - Script Library management API: apis/script-library-rest-api.md
-    - Claim management API: apis/claim-management-rest-api.md
-    - Server management:
+      - Authentication API: apis/use-the-authentication-rest-apis.md
+      - Branding Preferences API: apis/branding-preference-rest-api.md
+      - Claim management API: apis/claim-management-rest-api.md
+      - Entitlement management API: apis/entitlement-with-rest-apis.md
+      - Identity provider API: apis/idp.md
+      - IdP session extension API: apis/idp-session-extender-endpoint.md
+      - Notification sender management:
+        - Notification sender configurations: apis/notification-sender.md
+        - Notification sender API: apis/notification-sender-rest-api.md
+      - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
+      - Organization management API: apis/organization-mgt-rest-api.md
+      - Role management:
+          - Roles v2 API: apis/roles-v2-rest-api.md
+          - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
+      - Self-service:
+        - FIDO API: apis/fido-rest-api.md
+        - TOTP API: apis/totp-rest-api.md
+        - User discoverable application API: apis/user-discoverable-applications.md
+        - Approvals management API: apis/approvals-rest-api.md
+      - Server management:
         - Configuration management:
             - Configuration management API: apis/use-the-configuration-management-rest-apis.md
             - Retrieve Tenant Resources Based on Search Parameters: apis/retrieve-tenant-resources-based-on-search-parameters.md
-        - Identity governance: 
+        - Identity governance:
           - Identity Governance API introduction: apis/governance-connectors.md
           - Identity governance API: apis/identity-governance-rest-api.md
         - Keystore management API: apis/keystore-rest-api.md
         - User store management API: apis/user-store-rest-api.md
-        - Tenant management API: apis/tenant-management-rest-api.md
         - CORS API: apis/cors-rest-api.md
         - Consent management:
           - Overview: apis/use-the-consent-management-rest-apis.md
           - Consent management API: apis/consent-management-api-definition.md
         - Email templates API: apis/email-templates-rest-api.md
         - Workflow engine management API: apis/workflow-engine-rest-api.md
-    - Notification sender management:
-      - Notification sender configurations: apis/notification-sender.md
-      - Notification sender API: apis/notification-sender-rest-api.md
-    - Server configuration API: apis/configs-rest-api.md
-    - Permission management API : apis/permission-management-rest-api.md
-    - User Functionality management API: apis/user-functionality-mgt-rest-api.md
-    - Organization management API: apis/organization-mgt-rest-api.md
-    - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
+      - Session management API: apis/session-mgt-rest-api.md
+      - Server configuration API: apis/configs-rest-api.md
+      - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+      - User management:
+        - SCIM 2.0 API:
+           - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
+           - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
+           - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
+        - Account recovery API: apis/use-the-account-recovery-rest-apis.md
+        - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
+        - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
+        - Associated accounts API: apis/association-rest-api.md
+        - Challenge question API: apis/challenge-questions.md
+        - Challenge answers API: apis/challenge-rest-api.md
+        - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
-      - User management API: apis/organization-apis/org-user-mgt.md
-      - Group management API: apis/organization-apis/org-group-mgt.md
-      - Role management API: apis/organization-apis/org-role-mgt.md
-      - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Application management API: apis/organization-apis/org-application-mgt.md
-      - Organization management API: apis/organization-apis/org-organization-mgt.md
+      - Group management API: apis/organization-apis/org-group-mgt.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
+      - Identity provider management API: apis/organization-apis/org-idp-mgt.md
+      - Organization management API: apis/organization-apis/org-organization-mgt.md
+      - Role management API: apis/organization-apis/org-role-mgt.md
+      - User management API: apis/organization-apis/org-user-mgt.md
   - References:
     - References: references/index.md
     - User Management:
