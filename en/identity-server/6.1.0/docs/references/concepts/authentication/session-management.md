@@ -74,12 +74,25 @@ This URL is obtained via the end_session_endpoint described above.
 
 Following parameters are optional and recommended to be passed as query parameters in the logout request.
 
+- **client_id**
+
+This is the client ID obtained when registering the application in WSO2 Identity Server.
+
+!!! note
+
+    To use the `client_id` as a logout parameter, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+    ```toml
+    [oauth.oidc.logout_params]
+    use_client_id=true
+    ```
+
 - **id_token_hint**
 
 This is the previously issued ID Token. This should be passed to the logout endpoint as a hint about the end-user’s current
 authenticated session with the client. This is used as an indication of the identity of the end-user that the RP is 
 requesting to be logged out by the OP. The OP need not be listed as an audience of the ID Token 
-when it is used as an id_token_hint value.
+when it is used as an id_token_hint value. This can be used instead of the client_id parameter.
 
 - **post_logout_redirect_uri**
 
