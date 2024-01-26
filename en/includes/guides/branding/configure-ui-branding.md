@@ -630,7 +630,7 @@ Listed below are the text branding preferences you can apply to the screens in y
 <table>
    <tr>
       <th>Screen</th>
-      <th>Field</th>
+      <th style="width: 200px;">Field</th>
       <th>Description</th>
    </tr>
    <tr>
