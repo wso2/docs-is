@@ -61,6 +61,7 @@ You have now onboarded an administrator to the organization. From thereon, the o
 
 ## Self-service approach
 In this approach, organization users can self-subscribe to the B2B application and easily create their own organizations. This method empowers organization users to take control of the onboarding process, making it quick and convenient.
+B2B service providing organization has to build their portal to support the self organization onboarding service by consuming the {{ product_name }} APIs.
 
 Using the self-service approach, the organization users can maintain their administrators either in the organization itself or the organization (root). The selection of the creation place depends on the organization's business requirements.
 
@@ -79,38 +80,74 @@ You need to:
 
 Before creating admins using the APIs, you need to obtain the required access tokens and enable self-service. Follow the steps below to set up the initial requirements to create organization admins.
 
-1. [Get an access token]({{base_path}}/apis/{{api_authentication_path}}) from your root organization.
-
-    !!! note "Required APIs and scopes to authorize to the application"
-        Authorize to SYSTEM API named **Self Service API**(`/api/server/v1/self-service`) with `internal_self_service_view` and `internal_self_service_update` scopes.
-
-2. Enable self-service for the organization (root).
-
-    ``` curl
-    curl --location --request PATCH 
-    'https://{{ host_name }}/api/server/v1/self-service/preferences' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <access-token-obtained-from-step-1>' \
-    -d '{
-        "operation": "UPDATE",
-        "properties": [
-            {
-                "name": "Organization.SelfService.Enable",
-                "value": "true"
-            }
-        ]
-    }'
-    ```
-
+1. If your B2B application is OAuth2.0/OpenID Connect supported web application, you can use the same application. Otherwise, create a [standard based application]({{base_path}}/guides/applications/register-standard-based-app/) selecting OAuth2.0/OpenID Connect as the protocol.
+2. Share the application with all organizations by enabling `share with all organizations`.
+3. Go to the **Protocol** tab of the application and enable the following grant types, and click **Update**.
+    - Client Credential
+    - Organization Switch
+    
     !!! note
-        Enabling self-service will create an Machine-to-Machine(M2M) application named `B2B-Self-Service-Mgt-Application`.
-        This application is authorized to a limited set of APIs to facilitate subsequent API calls.
-        You will be able to see this application on the {{ product_name }} console.
+        Take note of the application's **Client ID** and **Client Secret**, as it will be required in the next steps.
 
-3. Get an access token for the `B2B-Self-Service-Mgt-Application` using the following cURL.
+4. Go to the **API Authorization** tab of the application and authorize the following APIs including the mentioned scopes.
 
-    !!! note
-        Take note of the M2M application's **Client ID** and **Client Secret** created on the {{ product_name }} console, as it will be required in the next steps.
+    <table>
+      <tr>
+        <th>API Category</th>
+        <th>API</th>
+        <th>Scopes</th>
+      </tr>
+      <tr>
+        <td>Management API</td>
+        <td>Organization Management API </br> 
+            <code>/api/server/v1/organizations</code></td>
+        <td>
+            - Create Organizations</br> 
+            - View Organizations</br> 
+        </td>
+      </tr>
+      <tr>
+        <td>Organization API</td>
+        <td>SCIM2 Roles API </br> 
+            <code>/o/scim2/Roles</code></td>
+        <td>
+            - Update Role</br> 
+            - View Role</br> 
+        </td>
+      </tr>
+      <tr>
+        <td>Organization API</td>
+        <td>Application Management API </br>
+            <code>/o/api/server/v1/applications</code></td>
+        <td>
+            - View Application
+        </td>
+      </tr>
+      <tr>
+        <td>Organization API</td>
+        <td>SCIM2 Users API </br>
+            <code>/o/scim2/Users</code> </br>
+            (If you want to manage the user at the created organization level)
+        </td>
+        <td>
+            - Create User</br> 
+            - List Users</br> 
+        </td>
+      </tr>
+      <tr>
+        <td>Management API</td>
+        <td>SCIM2 Users API</br> 
+            <code>/scim2/Users</code> </br>
+            (If you want to manage the user at the root organization)
+         </td>
+        <td>            
+            - Create User</br> 
+            - View User</br> 
+        </td>
+      </tr>
+    </table>
+   
+5. Get an access token for the created application using the following cURL.
 
     ``` curl
     curl -X POST \
@@ -120,7 +157,7 @@ Before creating admins using the APIs, you need to obtain the required access to
     -d 'grant_type=client_credentials&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view internal_organization_view internal_organization_create internal_user_mgt_view internal_user_mgt_create'
     ```
 
-   The access token expiration time is set to `3600` seconds by default. If you wish to modify this duration, you can do so via the console. Go to the `B2B-Self-Service-Mgt-Application application`'s protocol section and update the **Application access token expiry time**.
+   The access token expiration time is set to `3600` seconds by default. If you wish to modify this duration, you can do so via the console. Go to the application's protocol section and update the **User access token expiry time**.
 
 ### Maintain admins in the organization
 This approach is suitable when you want organizations to govern themselves with minimal interaction from the organization (root). Additionally, if you have a B2C user, this approach will help you to separate them from B2B users easily.
@@ -133,7 +170,7 @@ To create and maintain admins in the organization:
 1. Use the following cURL to check if the name of the organization you wish to create is available.
     ``` curl
     curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
-    --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application }' 
+    --header 'Authorization: Bearer { access token }' 
     --header 'Content-Type: application/json' \
     --data '{
         "name": "{organization name}"
@@ -147,7 +184,7 @@ To create and maintain admins in the organization:
 
     ``` curl
     curl --location 'https://{{ host_name }}/api/server/v1/organizations' \
-    --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application}' \
+    --header 'Authorization: Bearer { access token }' \
     --header 'Content-Type: application/json' \
     --data '{
         "name": "{organization name}"
@@ -157,14 +194,14 @@ To create and maintain admins in the organization:
     !!! note
         Take note of the `id` parameter in the response. This is the organization-id of the newly created organization and you will need it in the following steps.
 
-3. Get an access token for the created organization by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
+3. Get an access token for the created organization by exchanging the access token obtained for the root organization. Use credentials of the shared oauth2 application to execute the cURL.
 
     ``` curl
     curl -X POST \
     https://{{ host_name }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d 'grant_type=organization_switch_cc&token=<access token obtained for the B2B-Self-Service-Mgt-Application>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
+    -d 'grant_type=organization_switch&token=<access token obtained for root organization>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
     ```
 
 4. Create a user in the organization using the following cURL.
@@ -257,7 +294,7 @@ To create and maintain admins in the organization (root):
     ``` curl
     curl --location 'https://{{ host_name }}/scim2/Users' \
     --header 'Content-Type: application/json' \
-    --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application}' \
+    --header 'Authorization: Bearer { access token }' \
     --data-raw '{
         "emails": [
             {
@@ -283,7 +320,7 @@ To create and maintain admins in the organization (root):
 
     ``` curl
     curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
-    --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application }' 
+    --header 'Authorization: Bearer { access token }' 
     --header 'Content-Type: application/json' \
     --data '{
         "name": "{organization name}"
@@ -296,7 +333,7 @@ To create and maintain admins in the organization (root):
 3. If the required organization name is available for use, use the following cURL to create the organization and assign the user created in step 1 as the organization's admin.
     ``` curl
     curl --location 'https://{{ host_name }}/api/server/v1/organizations' \
-    --header 'Authorization: Bearer {access token obtained for the B2B-Self-Service-Mgt-Application  }' \
+    --header 'Authorization: Bearer { access token }' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "name": "{organization name}",
@@ -313,14 +350,14 @@ To create and maintain admins in the organization (root):
     }'
     ```
    
-4. Get an access token for the created organization by exchanging the access token obtained for the `B2B-Self-Service-Mgt-Application`. Use credentials of the `B2B-Self-Service-Mgt-Application` to execute the cURL.
+4. Get an access token for the created organization by exchanging the access token obtained for the root organization. Use credentials of the shared oauth2 application to execute the cURL.
 
     ``` curl
     curl -X POST \
     https://{{ host_name }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d 'grant_type=organization_switch_cc&token=<access token obtained for the B2B-Self-Service-Mgt-Application>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
+    -d 'grant_type=organization_switch&token=<access token obtained for root organization>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
     ```
    
 5. A shadow user account should have been created in the new organization for the organization creator in the organization (root). Get the shadow account's user id using the following cURL.
