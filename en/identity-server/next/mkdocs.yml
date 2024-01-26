@@ -224,6 +224,7 @@ nav:
           - Organizations: guides/organization-management/index.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
+          - Invite users from parent organization: guides/organization-management/invite-parent-organization-users.md
           - Administration of organizations: guides/organization-management/manage-b2b-administration.md
           - Share applications: guides/organization-management/share-applications.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
