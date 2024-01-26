@@ -372,7 +372,7 @@ The following design preferences apply to the theme you select. You can configur
           <td><b>Border Radius</b></td>
           <td>
              This is the border radius of the primary action buttons.</br></br>
-             By default, {{ product_name }} uses <b>four</b> pixels as the border-radius for primary     buttons.
+             By default, {{ product_name }} uses <b>22</b> pixels as the border-radius for primary     buttons.
           </td>
        </tr>
     </table>
@@ -384,14 +384,14 @@ The following design preferences apply to the theme you select. You can configur
           <td><b>Font Color</b></td>
           <td>
              This is the font color of the text inside the secondary action buttons.</br></br>
-             By default, {{ product_name }} uses a dark gray shade as the font color for secondary     buttons.
+             By default, {{ product_name }} uses black as the font color for secondary     buttons.
           </td>
        </tr>
        <tr>
           <td><b>Border Radius</b></td>
           <td>
              This is the border radius of the secondary action buttons.</br></br>
-             By default, {{ product_name }} uses <b>four</b> pixels as the border-radius for secondary     buttons.
+             By default, {{ product_name }} uses <b>22</b> pixels as the border-radius for secondary     buttons.
           </td>
        </tr>
     </table>
@@ -405,21 +405,21 @@ The following design preferences apply to the theme you select. You can configur
           <td><b>Background Color</b></td>
           <td>
              This is the background color for external-connection buttons.</br></br>
-             By default, {{ product_name }} uses a light gray shade as the font color for     external-connection buttons.
+             By default, {{ product_name }} uses white as the font color for     external-connection buttons.
           </td>
        </tr>
        <tr>
           <td><b>Font Color</b></td>
           <td>
              This is the font color of the text inside the external-connection buttons.</br></br>
-             By default, {{ product_name }} uses a dark gray shade as the font color for     external-connection buttons.
+             By default, {{ product_name }} uses black as the font color for     external-connection buttons.
           </td>
        </tr>
        <tr>
           <td><b>Border Radius</b></td>
           <td>
              This is the border radius of the external-connection buttons.</br></br>
-             By default, {{ product_name }} uses <b>four</b> pixels as the border-radius for     external-connection buttons.
+             By default, {{ product_name }} uses <b>22</b> pixels as the border-radius for     external-connection buttons.
           </td>
        </tr>
     </table>
@@ -451,17 +451,10 @@ The following design preferences apply to the theme you select. You can configur
           </td>
        </tr>
        <tr>
-          <td><b>Border Width</b></td>
-          <td>
-             This is the border radius of the inputs on the login screens.</br></br>
-             By default, {{ product_name }} uses <code>four</code> pixels as the border-radius for the     login box.
-          </td>
-       </tr>
-       <tr>
           <td><b>Border Radius</b></td>
           <td>
              This is the border radius of the login box.</br></br>
-             By default, {{ product_name }} uses <b>12</b> pixels as the border-radius for the login box.
+             By default, {{ product_name }} uses <b>8</b> pixels as the border-radius for the login box.
           </td>
        </tr>
     </table>
