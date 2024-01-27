@@ -65,6 +65,10 @@ Listed below are general branding preferences you can apply to the interfaces.
 
 <table>
    <tr>
+      <td><b>Organization Display Name</b></td>
+      <td>This name will appear as the organization name in the emails that send to your users. If not set, {{ product_name }} defaults are used.</td>
+   </tr>   
+    <tr>
       <td><b>Contact Email</b></td>
       <td>This email address will appear on emails, error pages and, other pages where users would require support from the organization admin.</td>
    </tr>
@@ -72,11 +76,11 @@ Listed below are general branding preferences you can apply to the interfaces.
 
 ### Design preferences
 
-Listed below are the design changes you can apply to the user registration and login interfaces.
+Listed below are the design changes you can apply to the user registration interface, login interfaces and My Account portal.
 
 #### Layout variations
 
-Select one of the available layouts for your login interfaces. {{ product_name }} uses the **Centered** layout by default.
+Select one of the available layouts for your user registration and login interfaces. {{ product_name }} uses the **Centered** layout by default.
 
 {% if product_name == "Asgardeo" %}
 !!! note "Custom layout"
@@ -89,7 +93,7 @@ Select one of the available layouts for your login interfaces. {{ product_name }
 
 #### Theme variations
 
-Select from either **Dark** or **Light** theme variations to modify the styling of your login screens. {{ product_name }} uses the **Light** theme by default.
+Select from either **Dark** or **Light** theme variations to modify the styling of your user registration screen, login screen and My Account portal. {{ product_name }} uses the **Light** theme by default.
 
 #### Theme preferences
 
