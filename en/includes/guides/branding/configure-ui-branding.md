@@ -18,7 +18,7 @@ Follow the steps given below to configure the branding preferences for your orga
 
 1. On the {{ product_name }}, go to **Branding** > **Styles & Text**.
 
-    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-asgardeo-console-ui.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-console-ui.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
 
@@ -32,6 +32,14 @@ The email templates of the organization will be automatically updated according 
 
 {{ powered_by_note }}
 
+## Preview branding
+
+You can preview how your branding preferences will look once they are saved and published.
+
+To preview your branding configurations for different flows, on the **Preview** window, select the screen you wish to preview from the **Screen** list.
+
+![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+
 ## Disable branding
 
 You can temporarily disable your branding preferences by clicking **Unpublish** in the **Danger Zone**. Your progress will be preserved up to the point and you can choose to publish them again later by clicking on the **Save & Publish** button.
@@ -44,14 +52,6 @@ If you want to revert your branding preferences, scroll down to the **Danger Zon
 
 !!! warning
     Note that this permanently removes all the branding options that you have saved and the {{ product_name }} defaults will immediately apply.
-
-## Preview branding
-
-You can preview how your branding preferences will look once they are saved and published.
-
-To preview your branding configurations for different flows, on the **Preview** window, select the screen you wish to preview from the **Screen** list.
-
-![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 {{ asgardeo_help }}
 
