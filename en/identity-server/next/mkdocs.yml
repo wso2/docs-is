@@ -371,6 +371,7 @@ nav:
   - APIs:
     - APIs: apis/index.md
     - System APIs:
+      - Admin advisory management API: apis/admin-advisory-management-rest-api.md
       - Tenant management API: apis/tenant-management-rest-api.md
     - Management APIs:
       - API resource management: apis/api-resource-management-rest-api.md
