@@ -1,0 +1,146 @@
+openapi: 3.0.0
+info:
+  description: >-
+    This document specifies an **Admin Advisory Management RESTful API** for WSO2 Identity Server.
+  version: "v1"
+  title: Admin Advisory Management API
+
+paths:
+  /admin-advisory-management/banner:
+    get:
+      tags:
+        - Management
+      summary: Retrieve admin advisory banner related configurations.
+      operationId: getAdminAdvisoryConfig
+      description: |
+        Retrieve admin advisory banner related configurations.<br>
+
+        <b>Scope(Permission) required:</b> None
+      responses:
+        '200':
+          description: Admin advisory banner configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminAdvisoryConfig'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/admin-advisory-management/banner' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    patch:
+      tags:
+        - Management
+      summary: Update admin advisory banner related configurations.
+      operationId: updateAdminAdvisoryConfig
+      description: |
+        Update admin advisory banner related configurations.<br>
+
+        <b>Scope(Permission) required:</b> `internal_admin_advisory_mgt_update`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminAdvisoryConfig'
+        required: true
+      responses:
+        '200':
+          description: Admin advisory banner configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminAdvisoryConfig'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/admin-advisory-management/banner' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "bannerContent": "Warning - unauthorized use of this tool is strictly prohibited. All activities performed using this tool are logged and monitored.",
+                "enableBanner": true
+            }'
+      x-codegen-request-body-name: body
+
+servers:
+  - url: https://localhost:9443/t/{tenant-domain}/api/server/v1/
+components:
+  responses:
+    BadRequest:
+      description: Invalid input in the request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized.
+    Forbidden:
+      description: Resource Forbidden
+    ServerError:
+      description: Internal Server Error.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Not Found.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Bad Request.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    OK:
+      description: OK.
+  schemas:
+    AdminAdvisoryConfig:
+      type: object
+      description: Admin advisory banner configuration response.
+      properties:
+        enableBanner:
+          type: boolean
+          description: Admin banner enabled status.
+          example: true
+        bannerContent:
+          type: string
+          description: Admin banner content.
+          example: Warning - unauthorized use of this tool is strictly prohibited.
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: ADV-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
