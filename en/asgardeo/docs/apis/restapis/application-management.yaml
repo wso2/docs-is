@@ -767,7 +767,215 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/authenticators' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                  
+            -H 'Authorization: Bearer {bearer_token}'
+  /applications/{applicationId}/authorized-apis:
+    get:
+      tags:
+        - Authorized APIs
+      summary: |
+        Get authorized APIs of the application.
+      operationId: getAuthorizedAPIs
+      description: |
+        This API provides the capability to retrieve all the authorized APIs of the application.<br>
+
+          <b>Scope(Permission) required:</b> `internal_application_mgt_view`
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuthorizedAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/authorized-apis' \
+            -H 'Authorization: Bearer {bearer_token}'
+    post:
+      tags:
+        - Authorized APIs
+      summary: |
+        Authorized an API to the application
+      operationId: addAuthorizedAPI
+      description: |
+        This API provides the capability to authorized an API to the application.<br>
+
+          <b>Scope(Permission) required:</b> `internal_application_mgt_create`
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorizedAPICreationModel'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/authorized-apis' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+                "id": "65b52595-9ca1-4539-aca2-56178643c58b",
+                "policyIdentifier": "RBAC",
+                "scopes": [
+                    "bookings:read"
+                ]
+            }'
+      x-codegen-request-body-name: body
+
+  /applications/{applicationId}/authorized-apis/{apiId}:
+    patch:
+      tags:
+        - Authorized APIs
+      summary: |
+        Update authorized API scopes
+      operationId: patchAuthorizedAPI
+      description: |
+        This API provides the capability to update an authorized API of the application.<br>
+
+          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+        - name: apiId
+          in: path
+          description: ID of the API resource.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorizedAPIPatchModel'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/authorized-apis/{api-id}' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+                "addedScopes": [
+                    "bookings:write"
+                ],
+                "removedScopes": [
+                    "bookings:read"
+                ]
+            }'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Authorized APIs
+      summary: |
+        Remove API authorization from the application
+      operationId: deleteAuthorizedAPI
+      description: |
+        This API provides the capability to delete an authorized API of the application.<br>
+
+          <b>Scope(Permission) required:</b> `internal_application_mgt_delete`
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+        - name: apiId
+          in: path
+          description: ID of the API resource.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/authorized-apis/{api-id}' \
+            -H 'Authorization: Bearer {bearer_token}'
   /applications/resident:
     get:
       tags:
@@ -4265,6 +4473,70 @@ components:
           example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
       required:
         - id
+    AuthorizedAPIResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 65b52595-9ca1-4539-aca2-56178643c58b
+        identifier:
+          type: string
+          example: https://greetings.io/v1/greet
+        displayName:
+          type: string
+          example: Greetings API
+        policyId:
+          type: string
+          example: RBAC
+        type:
+          type: string
+          example: BUSINESS
+        authorizedScopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthorizedScope'
+
+    AuthorizedScope:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 65b52595-9ca1-4539-aca2-56178643c58b
+        name:
+          type: string
+          example: bookings:read
+        displayName:
+          type: string
+          example: Read Bookings
+
+    AuthorizedAPICreationModel:
+      type: object
+      properties:
+        id :
+          type: string
+          example: 65b52595-9ca1-4539-aca2-56178643c58b
+        policyIdentifier:
+          type: string
+          example: RBAC
+        scopes:
+          type: array
+          items:
+            type: string
+            example: bookings:read
+
+    AuthorizedAPIPatchModel:
+      type: object
+      properties:
+        addedScopes:
+          type: array
+          items:
+            type: string
+            example: bookings:write
+        removedScopes:
+          type: array
+          items:
+            type: string
+            example: bookings:read
     Error:
       type: object
       properties:
