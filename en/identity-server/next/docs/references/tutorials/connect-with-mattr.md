@@ -6,10 +6,10 @@ It allows the holder to own, control, and manage the credentials and to address 
 
 If you or your organization are already managing user accounts in an OpenID Connect (OIDC) attribute provider (such as {{ product_name }}), you can use OIDC login to share user attributes to offer verifiable credentials.
 
-Issuing verifiable credentials
+#### Issuing verifiable credentials
 ![issue verifiable credentials diagram]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/issue-verifiable-credentials-diagram.png){: width="900" style="display: block; margin: 0;"}
 
-Verifying credentials
+#### Verifying credentials
 ![verify credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verify-credentials-diagram.png){: width="880" style="display: block; margin: 0;"}
 
 This tutorial explains how this is done using MATTR and {{ product_name }}, where MATTR acts as a decentralized identity management platform for issuing verifiable credentials, management, and verification, while {{ product_name }} acts as the OIDC identity provider. Given below are the high-level steps you will follow:
