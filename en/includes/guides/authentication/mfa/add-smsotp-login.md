@@ -91,7 +91,7 @@ Configurations related to SMS providers are located under the **Email & SMS** se
 ??? note "Configuring Vonage"
     To configure Vonage as your SMS provider, follow the steps below:
 
-    - Login to [Vonage](https://www.vonage.com/) and create an account.
+    - Login to [Vonage](https://dashboard.nexmo.com/sign-in) and create an account.
     - Fill in the required fields and create the account.
     - Login to the Vonage dashboard and copy the API Key and API Secret.
     - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Vonage** tab and fill the required fields.
