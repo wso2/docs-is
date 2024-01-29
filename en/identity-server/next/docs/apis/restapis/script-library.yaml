@@ -1,12 +1,13 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies a Script Library Management RESTful API for WSO2 Identity Server.
-  version: "1.0.0-oas3"
+    This document specifies a **Script Library Management RESTful API** for **WSO2 Identity Server**.
+  version: "v1"
   title: Script Library Management API
 security:
   - OAuth2: []
   - BasicAuth: []
+
 paths:
   /script-libraries:
     post:
@@ -14,8 +15,10 @@ paths:
         - Script Libraries
       summary: |
         Add a new script library
-      description: >
+      description: |
         This API provides the capability to create a new Script library.
+        
+        <b>Scope(Permission) required:</b> `internal_functional_lib_create`
       operationId: addScriptLibrary
       responses:
         '201':
@@ -45,13 +48,12 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/script-libraries' \
+            curl -X --location 'https://localhost:9443/api/server/v1/script-libraries' \
             -H 'accept: */*' \
-            -H 'Content-Type: multipart/form-data' \
-            -F 'name=script-library-name' \
-            -F 'description=script library description' \
-            -F 'content=@script-library-file-name;type=text/javascript'
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            --form 'name="networkUtils.js"' \
+            --form 'description="Network utils functions"' \
+            --form 'content=@"{path}/networkutils.js"'
       requestBody:
         content:
           multipart/form-data:
@@ -64,8 +66,10 @@ paths:
         - Script Libraries
       summary: |
         List script libraries
-      description: >
+      description: |
         This API provides the capability to list Script Libraries.
+        
+        <b>Scope(Permission) required:</b> `internal_functional_lib_view`
       operationId: getScriptLibraries
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -105,17 +109,19 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/script-libraries?limit=30&offset=0' \
-            -H 'accept: application/json'                 
+            curl --location 'https://localhost:9443/api/server/v1/script-libraries' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /script-libraries/{script-library-name}:
     get:
       tags:
         - Script Libraries
       summary: |
         Get script library
-      description: >
+      description: |
         This API provides the capability to retrive the script library details by using its name.
+        
+        <b>Scope(Permission) required:</b> `internal_functional_lib_view`
       operationId: getScriptLibraryByName
       parameters:
         - name: script-library-name
@@ -156,16 +162,18 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
-            -H 'accept: application/json'                  
+            curl --location 'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
       tags:
         - Script Libraries
       summary: |
         Delete a script library
-      description: >
+      description: |
         This API provides the capability to delete an script library by  giving its name.
+        
+        <b>Scope(Permission) required:</b> `internal_functional_lib_delete`
       operationId: deleteScriptLibrary
       parameters:
         - name: script-library-name
@@ -196,16 +204,18 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
-            -H 'accept: */*'                  
+            curl --location --request DELETE 'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Script Libraries
       summary: |
         Update a script library
-      description: >
+      description: |
         This API provides the capability to Update a script library of an script library by using name.
+        
+        <b>Scope(Permission) required:</b> `internal_functional_lib_update`
       operationId: updateScriptLibrary
       parameters:
         - name: script-library-name
@@ -247,12 +257,12 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'PUT' \
-            'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
-            -H 'accept: */*' \
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}' \
             -H 'Content-Type: multipart/form-data' \
-            -F 'description=script library description' \
-            -F 'content=@script-library-file-name;type=text/javascript'                  
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            --form 'content=@"{path}/networkutils.js"' \
+            --form 'description="Util functions"'
       requestBody:
         content:
           multipart/form-data:
@@ -266,8 +276,10 @@ paths:
         - Script Libraries
       summary: |
         Get the content of the script library
-      description: >
+      description: |
         This API provides the capability to retrive the content of script library by using its name.
+        
+        <b>Scope(Permission) required:</b> `internal_functional_lib_view`
       operationId: getScriptLibraryContentByName
       parameters:
         - name: script-library-name
@@ -308,9 +320,9 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}/content' \
-            -H 'accept: application/octet-stream'                 
+            curl --location 'https://localhost:9443/api/server/v1/script-libraries/{script-library-name}/content' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
@@ -352,7 +364,7 @@ components:
           example: 'script library description'
         self:
           type: string
-          example: "/t/wso2.com/api/server/v1/script-libraries/test.js"
+          example: "/api/server/v1/script-libraries/test.js"
 
     ScriptLibraryResponse:
       type: object
@@ -426,3 +438,14 @@ components:
         traceId:
           type: string
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'http://localhost:9443/oauth2/token'
+          scopes: {}
