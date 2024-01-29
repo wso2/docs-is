@@ -10,7 +10,7 @@ Issue verifiable credentials using MATTR Wallet
 ![issue verifiable credentials diagram]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/issue-verifiable-credentials-diagram.png){: width="900" style="display: block; margin: 0;"}
 
 Verifying credentials using MATTR Wallet
-![verify credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verify-credentials-diagram.png){: width="900" style="display: block; margin: 0;"}
+![verify credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verify-credentials-diagram.png){: width="880" style="display: block; margin: 0;"}
 
 This tutorial explains how this is done using MATTR and {{ product_name }}, where MATTR acts as a decentralized identity management platform for issuing verifiable credentials, management, and verification, while {{ product_name }} acts as the OIDC identity provider. Given below are the high-level steps you will follow:
 

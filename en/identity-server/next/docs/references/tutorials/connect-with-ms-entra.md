@@ -5,10 +5,10 @@
 Microsoft allows configuring an IDP (such as {{ product_name }}) as an OpenID Connect (OIDC) attribute provider for verifiable credentials using their `idTokens` attestation in which the claims provided through the OIDC id token is used to generate the verifiable credential.
 
 Issue verifiable credentials using MS Entra Wallet
-![issue verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/issue-verifiable-credentials.png){: width="850" style="display: block; margin: 0;"}
+![issue verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/issue-verifiable-credentials.png){: width="900" style="display: block; margin: 0;"}
 
 Verifying credentials using MS Entra Wallet
-![verify credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/verify-credentials-diagram.png){: width="720" style="display: block; margin: 0;"}
+![verify credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/verify-credentials-diagram.png){: width="880" style="display: block; margin: 0;"}
 
 This tutorial explains how this is done using {{ product_name }} and Microsoft Entra. Given below are the high-level steps you will follow:
 
