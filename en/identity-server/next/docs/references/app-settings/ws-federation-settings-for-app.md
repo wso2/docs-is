@@ -1,13 +1,13 @@
-# Passive STS settings for apps
+# WS-Federation settings for apps
 
-You can find the Passive STS protocol related settings under **protocol** section of the selected Passive STS application.
+You can find the WS-Federation protocol related settings under **protocol** section of the selected WS-Federation application.
   
-![Passive STS settings]({{base_path}}/assets/img/guides/applications/passive-sts/passive-sts-settings.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![WS-Federation settings]({{base_path}}/assets/img/guides/applications/ws-federation/ws-federation-settings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Basic settings
 
 ### Realm
-Passive STS realm is a unique identifier for the web app.
+WS-Federation realm is a unique identifier for the web app.
 
 ### Reply URL
 This should be the Relying Party (RP) endpoint URL that handles the response.
@@ -28,7 +28,7 @@ Follow the steps given below to Provide Certificate.
 
 1. Select <b>Provide Certificate</b> and click <b>New Certificate</b>.
 
-    ![Upload app certificate]({{base_path}}/assets/img/guides/applications/passive-sts/upload-certificate-of-app.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Upload app certificate]({{base_path}}/assets/img/guides/applications/ws-federation/upload-certificate-of-app.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Upload the certificate file or copy the certificate contents
 <br>

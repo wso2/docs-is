@@ -5,7 +5,7 @@ OpenID Connect protocol related settings are under the **Protocol** section of t
 !!! note
     Configurations mentioned in this reference may vary based on the type of application that you register.
   
-![OIDC settings]({{base_path}}/assets/img/guides/applications/app-protocol-settings.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![OIDC settings]({{base_path}}/assets/img/guides/applications/app-protocol-settings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Basic settings
 
@@ -15,7 +15,7 @@ The following are the minimum configurations that are required for OIDC applicat
 
 When your application is registered in {{ product_name }}, a client ID is generated as the identifier of the application. If your application is not a public client, a client secret is generated in addition to the client ID as shown below.
 
-![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Allowed grant types
 This option determines how the application communicates with the token service. Web application template supports the following grant types:
