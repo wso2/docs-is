@@ -1,6 +1,6 @@
 This section describes the recommended workflow that can be used to promote WSO2 Identity Server resource configurations from one environment to another. 
 
-The IAM-CTL tool is developed to manage the WSO2 Identity Server configurations from the command line. It is written in [GO](https://go.dev/) and uses the management REST APIs of WSO2 Identity Server to manage configurations of the supported resources. 
+The [IAM-CTL](https://github.com/wso2-extensions/identity-tools-cli) tool is developed to manage the WSO2 Identity Server configurations from the command line. It is written in [GO](https://go.dev/) and uses the management REST APIs of WSO2 Identity Server to manage configurations of the supported resources. 
 
 Follow the instructions given [here](https://github.com/wso2-extensions/identity-tools-cli/tree/master) to setup and use the tool.
 
