@@ -48,7 +48,7 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
-          - Passive STS: get-started/try-samples/passive-sts-webapp.md
+          - WS-Federation: get-started/try-samples/ws-federation-webapp.md
       - Try for your own app:
         - Try for your own app: get-started/try-your-own-app/index.md
         - Single Page apps:
@@ -449,7 +449,7 @@ nav:
       - App configurations: references/app-settings/index.md
       - OIDC configurations: references/app-settings/oidc-settings-for-app.md
       - SAML configurations: references/app-settings/saml-settings-for-app.md
-      - Passive STS configurations: references/app-settings/passive-sts-settings-for-app.md
+      - WS-Federation configurations: references/app-settings/ws-federation-settings-for-app.md
     - IdP configurations:
       - IdP configurations: references/idp-settings/index.md
       - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md

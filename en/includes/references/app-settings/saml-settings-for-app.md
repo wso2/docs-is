@@ -2,7 +2,7 @@
 
 You can find the SAML protocol related settings under **protocol** section of the selected SAML application.
   
-![SAML settings]({{base_path}}/assets/img/guides/applications/saml-app/saml-settings.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![SAML settings]({{base_path}}/assets/img/guides/applications/saml-app/saml-settings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Basic settings
 

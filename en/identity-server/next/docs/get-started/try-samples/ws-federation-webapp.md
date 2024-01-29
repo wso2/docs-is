@@ -1,6 +1,6 @@
-# Sample Passive STS web app
+# Sample WS-Federation web app
 
-This page guides you through enabling login for a WS-Federation-based web application.
+This guide provides step-by-step instructions to enable login for a WS-Federation-based web application using WSO2 Identity Server's Passive Security Token Service (Passive STS).
 
 !!! info
     WSO2 Identity Server's passive security token service (Passive STS) is used as the WS-Federation implementation.
@@ -16,7 +16,7 @@ This page guides you through enabling login for a WS-Federation-based web applic
     !!! info
         Note that `wso2is.local` is used in this documentation as an example, but you must modify this when configuring the authenticators or connectors with this sample application.
 
-- Download the [PassiveSTSSample application](https://github.com/wso2/samples-is/releases/download/v4.5.2/PassiveSTSSampleApp.war) from the latest release assets.
+- Download the [Passive STS Sample application](https://github.com/wso2/samples-is/releases/download/v4.5.2/PassiveSTSSampleApp.war) from the latest release assets.
 
 ### Deploy the sample app
 
@@ -65,7 +65,7 @@ To configure additional properties for the sample application:
 
 3. Enter the following details:
 
-    ![Create a new Passice STS app]({{base_path}}/assets/img/guides/applications/create-new-passivests-app.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a new Passice STS app]({{base_path}}/assets/img/guides/applications/create-new-ws-federation-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -77,7 +77,7 @@ To configure additional properties for the sample application:
         </tr>
         <tr>
             <td>Protocol</td>
-            <td>Select <b>Passive STS</b>.</td>
+            <td>Select <b>WS-Federation</b>.</td>
         </tr>
         <tr>
             <td>Realm</td>
@@ -107,7 +107,7 @@ To configure additional properties for the sample application:
 6. Click **Update** to save your configurations.
 
 !!! tip
-    Currently, the signing algorithm used for passive STS by default is `rsa-sha1`, and the digest algorithm used is `sha1`. 
+    Currently, the signing algorithm used for WS-Federation by default is `rsa-sha1`, and the digest algorithm used is `sha1`. 
     To change the default algorithms, add the following configuration in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory.
     The example given below sets the signing algorithm to `rsa-sha256` and the digest algorithm to `sha256`.
 
@@ -134,6 +134,6 @@ To configure additional properties for the sample application:
 
 2. Login using your credentials.
 
-3. Provide the required consent. You will be redirected to the WSO2 IS Passive STS Service and then redirected back to the configured `replyUrl`.
+3. Provide the required consent. You will be redirected to the WSO2 IS WS-Federation Service and then redirected back to the configured `replyUrl`.
 
-You will see the passive STS response with the requested claims on the screen.
+You will see the WS-Federation response with the requested claims on the screen.

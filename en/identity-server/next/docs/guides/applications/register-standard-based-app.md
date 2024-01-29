@@ -1,5 +1,5 @@
 # Register a standard-based application
-When you integrate an application with {{ product_name }}, the first step is to register your app from the {{ product_name }} Console. If you choose the standard-based application type when you register your app, it allows you to configure the protocol settings (OIDC, SAML or Passive STS) from scratch.
+When you integrate an application with {{ product_name }}, the first step is to register your app from the {{ product_name }} Console. If you choose the standard-based application type when you register your app, it allows you to configure the protocol settings (OIDC, SAML or WS-Federation) from scratch.
 
 You can also use the standard-based application type in the following scenarios:
 
@@ -20,12 +20,12 @@ To register an application:
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Click **New Application** and select **Standard-Based Application**.
 
-    ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/register-an-sba.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/register-an-sba.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Provide an application name and select the other options based on your requirements.
 
     !!! note
-        - You can choose OIDC, SAML or Passive STS as the standard protocol for your application. See the complete list of [OIDC]({{base_path}}/references/app-settings/oidc-settings-for-app/), [SAML]({{base_path}}/references/app-settings/saml-settings-for-app/) and [Passive STS]({{base_path}}/references/app-settings/passive-sts-settings-for-app/) configurations.
+        - You can choose OIDC, SAML or WS-Federation as the standard protocol for your application. See the complete list of [OIDC]({{base_path}}/references/app-settings/oidc-settings-for-app/), [SAML]({{base_path}}/references/app-settings/saml-settings-for-app/) and [WS-Federation]({{base_path}}/references/app-settings/ws-federation-settings-for-app/) configurations.
         - If you use OIDC, you can configure a management app, which can access the management APIs in {{ product_name }}. Learn about [invoking management APIs]({{base_path}}/apis/#get-access-to-apis/).
 
 4. Click **Register** to complete the registration.
@@ -54,4 +54,4 @@ To register an application:
 
 - [Configuring an OIDC application]({{base_path}}/references/app-settings/oidc-settings-for-app/)
 - [Configuring a SAML application]({{base_path}}/references/app-settings/saml-settings-for-app/)
-- [Configuring a Passive STS application]({{base_path}}/references/app-settings/passive-sts-settings-for-app/)
+- [Configuring a WS-Federation application]({{base_path}}/references/app-settings/ws-federation-settings-for-app/)
