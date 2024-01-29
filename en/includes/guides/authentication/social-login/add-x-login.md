@@ -90,7 +90,7 @@ Now, let's register the Microsoft IdP in {{product_name}}.
 
         1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
     
-        2. Click **Add Authentication** on the step, select your X identity provider, and click **Add**.
+        2. Click **Add Authentication** on the step, select your X connection, and click **Add**.
 
             ![Add X login in {{product_name}}]({{base_path}}/assets/img/guides/idp/x-idp/add-x-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
