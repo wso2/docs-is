@@ -977,7 +977,7 @@ paths:
       description: |
         This API provides the capability to authorized an API to the application.<br>
 
-          <b>Scope(Permission) required:</b> `internal_application_mgt_create`
+          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       parameters:
         - name: applicationId
           in: path
@@ -1100,7 +1100,7 @@ paths:
       description: |
         This API provides the capability to delete an authorized API of the application.<br>
 
-          <b>Scope(Permission) required:</b> `internal_application_mgt_delete`
+          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       parameters:
         - name: applicationId
           in: path
