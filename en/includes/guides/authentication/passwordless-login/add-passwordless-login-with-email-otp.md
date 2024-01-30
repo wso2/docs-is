@@ -15,11 +15,9 @@ Email OTP is a form of passwordless authentication. It allows users to log in by
 
 Follow the steps given below to enable **Email OTP** login to the login flow of your application.
 
-1. On the {{ product_name }} Console, use one of the following options to start:
-    - Option 1: Go to **Applications**.
-    - Option 2: Go to **Connections > Passwordless** and for the Email OTP connection, click **Set up**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select the application for which Email OTP login needs to be enabled.
+2. Select the application to which you wish to add Email OTP login.
 
 3. Go to the **Sign-in Method** tab of the application and add Email OTP login from your preferred editor:
 

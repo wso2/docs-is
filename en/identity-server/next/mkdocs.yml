@@ -83,6 +83,7 @@ nav:
               - Validate FIDO attestations: guides/authentication/passwordless-login/fido-attestation.md
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
+            - Add login with SMS OTP: guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp.md
           - Enable user attributes:
             - Enable user attributes: guides/authentication/user-attributes/index.md
             - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md

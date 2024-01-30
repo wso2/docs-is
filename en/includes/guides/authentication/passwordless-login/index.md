@@ -25,3 +25,9 @@ HYPR is a FIDO-certified platform that lets users use biometrics to log in.
 Email OTP allows users to log in by providing a one-time passcode sent to their email instead of entering a password.
 
 [Add Email OTP login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-email-otp/) has detailed instructions on this.
+
+## SMS OTP login
+
+SMS OTP allows users to log in by providing a one-time passcode sent to their mobile phone instead of entering a password.
+
+[Add SMS OTP login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp/) has detailed instructions on this.
