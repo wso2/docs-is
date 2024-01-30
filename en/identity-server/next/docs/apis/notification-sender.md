@@ -6,11 +6,11 @@ The following section provides the instructions to contruct requests for each no
 
 !!! warning "Important"
 
-    * This API is not supported for notification sender configuration for carbon.super tenant.
+    * The email notification sender configuration is not supported for carbon.super tenant via this API.
 
-        If you want to configure event publishers in carbon.super tenant, add or modify event publishers in 
-        `IS_HOME/repository/deployment/server/eventpublishers`.
-        For more information on writing an event publisher, see [Event Publisher Types](https://docs.wso2.com/display/DAS300/Event+Publisher+Types).
+        Refer [email sending module configuration]({{base_path}}/deploy/configure-email-sending/) to setup email notification sender for carbon.super tenant.
+        Underlying, the event publishers in `IS_HOME/repository/deployment/server/eventpublishers` will send the notifications.
+        For more information on writing an event publisher, see [Event Publisher Types](https://wso2docs.atlassian.net/wiki/spaces/DAS300/pages/52462033/Event+Publisher+Types).
 
     * The following properties are used for internal operations. Therefore, avoid using these properties when configuring notification senders.
 
@@ -23,7 +23,7 @@ The following section provides the instructions to contruct requests for each no
 ??? "Email Sender Configuration"
 
     * If you want to add properties related to email adaptor configurations (eg: SMTP configurations),
-    define property keys with the exact names given in the [Email Event Publisher](https://docs.wso2.com/display/DAS300/Email+Event+Publisher) documentation. 
+    define property keys with the exact names given in the [Email Event Publisher](https://wso2docs.atlassian.net/wiki/spaces/DAS300/pages/52462036/Email+Event+Publisher) documentation. 
 
 ??? "SMS Sender Configuration"
 

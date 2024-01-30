@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Notification Senders API
-  description: This document specifies a **RESTful API** for **WSO2 Identity Server Notification Senders**
+  description: This document specifies the **Email and SMS notification sender RESTful API** for **WSO2 Identity Server**
   version: "v1"
 servers:
   - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
@@ -21,8 +21,8 @@ paths:
       summary: Get a list of email senders
       description: |
         This API provides the capability to retrieve the list of email senders. <br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/view` <br>
-          <b>Scope required:</b> `internal_config_mgt_view`
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getEmailSenders
       responses:
         "200":
@@ -63,7 +63,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification-senders/email' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/notification-senders/email' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -72,8 +72,8 @@ paths:
       summary: Create an email sender
       description: |
         This API provides the capability to create an email sender.\n\nIf the 'name' is not not defined, 'EmailPublisher' is taken as the default name. <br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/add` <br>
-          <b>Scope required:</b> `internal_config_mgt_add`
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
       operationId: createEmailSender
       requestBody:
         content:
@@ -132,7 +132,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/notification-senders/email' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/notification-senders/email' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -155,8 +155,8 @@ paths:
       description: |
         This API provides the capability to retrieve an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/view` <br>
-          <b>Scope required:</b> `internal_config_mgt_view`
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getEmailSender
       parameters:
         - name: sender-name
@@ -206,9 +206,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification-senders/email/{email-sender-name}' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/notification-senders/email/{email-sender-name}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Email Senders
@@ -216,8 +216,8 @@ paths:
       description: |
         This API provides the capability to update an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/update` <br>
-          <b>Scope required:</b> `internal_config_mgt_update`
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_update`
       operationId: updateEmailSender
       parameters:
         - name: sender-name
@@ -280,7 +280,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/api/server/v1/notification-senders/email/{email-sender-name}' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/notification-senders/email/{email-sender-name}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -302,8 +302,8 @@ paths:
       description: |
         This API provides the capability to delete an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/delete` <br>
-          <b>Scope required:</b> `internal_config_mgt_delete`
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
       operationId: deleteEmailSender
       parameters:
         - name: sender-name
@@ -349,7 +349,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/notification-senders/email/{email-sender-name}' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v1/notification-senders/email/{email-sender-name}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
   /notification-senders/sms:
@@ -359,8 +359,8 @@ paths:
       summary: Get a list of SMS senders
       description: |
         This API provides the capability to retrieve a list of SMS notification senders.<br>
-          <b>Permission required:</b> `permission/admin/manage/identity/configmgt/view` <br>
-          <b>Scope required:</b> `internal_config_mgt_view`
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getSMSSenders
       responses:
         "200":
@@ -411,8 +411,8 @@ paths:
       description: |
         This API provides the capability to create a SMS sender.
         If the 'name' is not not defined, 'SMSPublisher' is taken as the default name.<br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/add` <br>
-          <b>Scope required:</b> `internal_config_mgt_add`
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
       operationId: createSMSSender
       requestBody:
         content:
@@ -506,8 +506,8 @@ paths:
       description: |
         This API provides the capability to retrieve a SMS notification sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/view` <br>
-          <b>Scope required:</b> `internal_config_mgt_view`
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getSMSSender
       parameters:
         - name: sender-name
@@ -567,8 +567,9 @@ paths:
       description: |
         This API provides the capability to update a SMS Sender.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/update` <br>
-          <b>Scope required:</b> `internal_config_mgt_update`
+        
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_update`
       operationId: updateSMSSender
       parameters:
         - name: sender-name
@@ -665,8 +666,8 @@ paths:
       description: |
         This API provides the capability to delete a SMS sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/configmgt/delete` <br>
-          <b>Scope required:</b> `internal_config_mgt_delete`
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
       operationId: deleteSMSSender
       parameters:
         - name: sender-name
