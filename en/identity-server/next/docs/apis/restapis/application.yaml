@@ -3891,7 +3891,7 @@ components:
       flows:
         authorizationCode:
           authorizationUrl: 'https://localhost:9443/oauth2/authorize'
-          tokenUrl: 'http://localhost:9763/oauth2/token'
+          tokenUrl: 'http://localhost:9443/oauth2/token'
           scopes: {}
   schemas:
     Link:
