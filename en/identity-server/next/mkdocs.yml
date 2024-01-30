@@ -95,13 +95,16 @@ nav:
             - Add Github login: guides/authentication/social-login/add-github-login.md
             - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
             - Add Apple login: guides/authentication/social-login/add-apple-login.md
-          - Add decentralized login:
-            - Add decentralized login: guides/authentication/decentralized-login/index.md
-            - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+            - Add X login: guides/authentication/social-login/add-x-login.md
           - Add standard-based login:
             - Add standard-based login: guides/authentication/enterprise-login/index.md
             - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
             - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+          - Add enterprise login:
+            - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
+          - Add decentralized login:
+            - Add decentralized login: guides/authentication/decentralized-login/index.md
+            - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
           - Add application-native authentication: guides/authentication/add-application-native-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md

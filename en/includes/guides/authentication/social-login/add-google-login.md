@@ -1,6 +1,6 @@
 # Add Google login
 
-You can add Google login to your applications using {{ product_name }} and enable users to log in with their Google account.  
+You can add Google login to your applications using {{ product_name }} and enable users to log in with their Google accounts.  
 
 Follow this guide for instructions.
 
@@ -108,7 +108,7 @@ After the Google identity provider is created, go to the **Settings** tab and se
     
         2. Click **Add Authentication** on the step, select your Google identity provider, and click **Add**.
 
-            ![Add Google login in Asgardeo]({{base_path}}/assets/img/guides/idp/google-idp/add-google-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Google login in {{product_name}}]({{base_path}}/assets/img/guides/idp/google-idp/add-google-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Google login using the Visual Editor:
@@ -117,7 +117,7 @@ After the Google identity provider is created, go to the **Settings** tab and se
     
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Google connection.
 
-            ![dd Google login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/google-idp/add-google-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![dd Google login in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/google-idp/add-google-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 

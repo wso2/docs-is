@@ -1,6 +1,6 @@
 # Add Github login
 
-You can add Github login to your applications using {{ product_name }} and enable users to log in with their Github account.
+You can add Github login to your applications using {{ product_name }} and enable users to log in with their Github accounts.
 
 Follow this guide for instructions.
 
