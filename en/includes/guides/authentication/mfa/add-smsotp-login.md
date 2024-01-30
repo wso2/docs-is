@@ -22,29 +22,29 @@ To update the default SMS OTP settings:
 1. On the {{ product_name }} Console, go to **Connections** and select **SMS OTP**.
 2. Update the following parameters in the **Settings** tab:
 
-    ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/setup-sms-otp.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/setup-sms-otp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
-      <tr>
-        <th>Field</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>SMS OTP expiry time</td>
-        <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
-      </tr>
-      <tr>
-        <td>Use only numeric characters for OTP</td>
-        <td>
-            Specifies whether to use only numeric characters in the OTP. If this is selected, the generated OTP contains only digits (0-9).
-            If this option is not selected, the OTP will contain alphanumeric characters.
-        </td>
-      </tr>
-      <tr>
-        <td>SMS OTP length</td>
-        <td>Specifies the number of characters allowed in the OTP.</td>
-      </tr>
-    </table>
+         <tr>
+           <th style="width: 350px;">Field</th>
+           <th>Description</th>
+         </tr>
+         <tr>
+           <td><code>SMS OTP expiry time</code></td>
+           <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
+         </tr>
+         <tr>
+           <td><code>Use only numeric characters for OTP</code></td>
+           <td>
+               Specifies whether to use only numeric characters in the OTP. If this is selected, the generated OTP contains only digits (0-9).
+               If this option is not selected, the OTP will contain alphanumeric characters.
+           </td>
+         </tr>
+         <tr>
+           <td><code>SMS OTP length</code></td>
+           <td>Specifies the number of characters allowed in the OTP.</td>
+         </tr>
+   </table>
 3. Once you update the SMS OTP settings, click **Update**.
 
 ## Configuring SMS Providers
@@ -207,13 +207,13 @@ Follow the steps given below.
     === "Classic Editor"
         - If you don't have a customized login flow, you can click **Add SMS OTP as a second factor**.
 
-            ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         This opens the customized login flow with SMS OTP as a second-factor authenticator:
 
         - If you have an already customized login flow, you can add a second step and add SMS OTP as the authenticator.
 
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/smsotp/view-smsotp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/smsotp/view-smsotp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add SMS OTP as a second-factor authenticator using the Visual Editor:
@@ -224,7 +224,7 @@ Follow the steps given below.
 
         3. Click **Confirm** to add SMS OTP as a second factor to the sign-in flow.
 
-            ![Configuring SMS OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring SMS OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 
