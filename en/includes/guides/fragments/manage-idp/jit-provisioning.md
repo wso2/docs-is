@@ -1,0 +1,4 @@
+!!! note "Attribute syncing for JIT-provisioned users"
+    If a user logs in using an external identity provider with the same email address registered in the local {{product_name}} account, JIT provisioning overrides attributes of the local user account with the attributes received from the external identity provider.
+
+    {{product_name}}, by default, disables this functionality. Learn how you can enable JIT provisioning in [configure JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) and how you can customize the syncing behavior in [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig).

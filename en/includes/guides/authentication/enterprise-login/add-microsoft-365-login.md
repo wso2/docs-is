@@ -1,6 +1,6 @@
-# Add Microsoft login
+# Add Microsoft 365 login
 
-You can add Microsoft login to your applications using {{ product_name }} and enable users to log in with their Microsoft accounts.
+You can add Microsoft 365 login to your applications using {{ product_name }} and enable users to log in with their Microsoft 365 accounts.
 
 Follow this guide for instructions.
 
@@ -22,7 +22,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
 
 4. Provide the required information for app registration.
 
-    ![Register an application on the Azure Portal]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Register an application on the Azure Portal]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application-microsoft-365.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -35,11 +35,11 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
         </tr>
         <tr>
             <td>Supported Account Type</td>
-            <td>Select the supported account type. <br><b>Value: </b><code>Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g., Skype, Xbox)</code></td>
+            <td>Select the supported account type. If you wish for users to use only Microsoft 365 accounts, select either the first or the second option. Learn more about account types in the [Microsoft documentation](https://learn.microsoft.com/en-us/security/zero-trust/develop/identity-supported-account-types).
         </tr>
         <tr>
             <td>Redirect URI</td>
-            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>https://localhost:9443/commonauth</code></td>
+             <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>https://localhost:9443/commonauth</code></td>
         </tr>
     </table>
 
@@ -51,22 +51,34 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
 Now, let's generate a client secret for the application.
 
 1. Go to **Certificates & secrets** on the left navigation and click **+ New client secret**.
+
 2. Enter a description for the client secret and select the expiry time.
+
 3. Click **Add** to add the client secret.
 
     !!! note "Important"
         Take note of the generated **Value**. Azure will allow copying this value only once. This value is the newly generated client secret for your Microsoft connection in {{ product_name }}.
 
 
-## Register the Microsoft IdP
+## Register the Microsoft 365 IdP
 
 Now, let's register the Microsoft IdP in {{ product_name }}.
 
 1. On the {{ product_name }} Console, go to **Connections**.
-2. Click **New Connections** and select **Microsoft**.
-3. Enter the following details of the Microsoft identity provider and click **Finish**:
 
-    ![Add Microsoft IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-idp.png){: width="600" style="border: 0.3px solid lightgrey;"}
+2. Click **Create Connection** and select **Custom Connector**.
+
+3. Provide a name and a description for the connector and click **Finish**.
+
+      ![Create a custom connector]({{base_path}}/assets/img/samples/microsoft-365-custom-connector.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+4. On the created custom connector, go to the **Settings** tab.
+
+5. Click **New Authenticator**, select **Office 365** and click **Next**.
+
+6. Enter the following details of the Microsoft identity provider and click **Finish**:
+
+    ![Add Microsoft IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-365-idp.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -85,23 +97,17 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
           <td>Client secret</td>
           <td>The client secret obtained from Microsoft.</td>
       </tr>
-    </table>  
+      <tr>
+          <td>Additional Query Parameters</td>
+          <td>Additional parameters that will be sent in the authorization request. Learn more about URI parameters in the [Microsoft documentation](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/65aeaef4-5553-43cd-b778-6e89f126717c){: target="#"}.
 
-<!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->  
+      </tr>
+    </table>  
 
 {% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
 
-After the Microsoft identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Microsoft has granted permissions.
 
-- **email**: Allows to view the user's email address.
-- **openid**: Allows authentication using OpenID Connect and to obtain the ID token.
-- **profile**: Allows to view the user's basic profile data.
-
-!!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Microsoft to the app. You can read the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/scopes-oidc#openid-connect-scopes) to learn more.
-
-
-## Enable Microsoft login
+## Enable Microsoft 365 login
 
 !!! note "Before you begin"
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
@@ -109,6 +115,7 @@ After the Microsoft identity provider is created, go to the **Settings** tab and
 To enable Microsoft login:
 
 1. On the {{ product_name }} Console, go to **Applications**.
+
 2. Select your application, go to the **Sign-in Method** tab and add Microsoft login from your preferred editor:
 
     !!! note "Recommendations"
@@ -116,22 +123,22 @@ To enable Microsoft login:
 
     ---
     === "Classic Editor"
-        To add Microsoft login using the Classic Editor:
+        To add Microsoft 365 login using the Classic Editor:
 
         1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
 
-        2. Click **Add Authentication** on the step, select your Microsoft identity provider, and click **Add**.
+        2. Click **Add Authentication** on the step, select your Microsoft 365 connection, and click **Add**.
 
-            ![Add Microsoft login in {{ product_name }}]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Microsoft 365 login in {{ product_name }}]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-365-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Microsoft login using the Visual Editor:
 
         1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
 
-        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Microsoft connection.
+        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Microsoft 365 connection.
 
-            ![Add Microsoft login in {{ product_name }} using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Microsoft 365 login in {{ product_name }} using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-365-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -142,15 +149,17 @@ To enable Microsoft login:
 Follow the steps given below.
 
 1. Access the application URL.
+
 2. Click **Login** to open the {{ product_name }} login page.
-3. On the {{ product_name }} login page, **Sign in with Microsoft**.
 
-    ![Login with Microsoft]({{base_path}}/assets/img/guides/idp/microsoft-idp/sign-in-with-microsoft.png){: width="300" style="border: 0.3px solid lightgrey;"}
+3. On the {{ product_name }} login page, **Sign in with Microsoft 365**.
 
-4. Log in to Microsoft with an existing user account.
+    ![Login with Microsoft]({{base_path}}/assets/img/guides/idp/microsoft-idp/sign-in-with-microsoft-365.png){: width="300" style="border: 0.3px solid lightgrey;"}
+
+4. Log in using an existing Microsoft 365 account.
 
 !!! note
-    When a user successfully logs in with Microsoft for the first time, a **user** account is created in the {{ product_name }} Console with the Microsoft username. Microsoft will manage this new user account.
+    When a user successfully logs in with Microsoft 365 for the first time, a **user** account is created in the {{ product_name }} Console with the Microsoft 365 username. Microsoft will manage this new user account.
 
 ## Add groups to the connection
 
