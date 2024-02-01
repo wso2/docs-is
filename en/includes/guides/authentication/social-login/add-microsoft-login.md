@@ -87,8 +87,6 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
       </tr>
     </table>  
 
-<!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->  
-
 {% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
 
 After the Microsoft identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Microsoft has granted permissions.

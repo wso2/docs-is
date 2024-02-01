@@ -104,7 +104,16 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
       </tr>
     </table>  
 
-{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
+{% if product_name == 'Asgardeo' %}
+!!! note "Attribute syncing for JIT-provisioned users"
+    If a user logs in using an external identity provider with the same email address registered in the local {{product_name}} account, JIT provisioning overrides attributes of the local user account with the attributes received from the external identity provider.
+
+    {{product_name}}, by default, disables this functionality. Learn about JIT provisioning how you can enable it in [configure JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). Learn how you can customize the syncing behavior in [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig).
+{% else %}
+!!! note "A"
+    Example
+{% endif %}
+
 
 
 ## Enable Microsoft 365 login

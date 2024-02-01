@@ -67,18 +67,9 @@ Now, let's register the Google IdP in {{ product_name }}.
           <td>Client secret</td>
           <td>The client secret obtained from Google.</td>
       </tr>
-    </table>  
+    </table>
 
-<!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->  
-
-??? note "Claim syncing for JIT-provisioned users"
-    {{product_name}}, by default, enables Just-In-Time (JIT) user provisioning for your external identity provider.
-
-    With JIT provisioning enabled, when a user with a local {{ product_name }} account uses the same email address to log in with an external identity provider, user attributes of the local user account are overridden by the attributes received from the external identity provider.
-
-    You can learn more about JIT provisioning and how to enable/disable it in [configure JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/).
-
-    You can use the [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig) to customize the claim syncing behavior between the external identity provider and {{product_name}}.
+{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
 
 After the Google identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Google has granted permissions.
 
