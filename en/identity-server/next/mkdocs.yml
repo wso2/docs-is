@@ -82,6 +82,7 @@ nav:
               - Validate FIDO attestations: guides/authentication/passwordless-login/fido-attestation.md
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
+            - Add login with SMS OTP: guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp.md
           - Enable user attributes:
             - Enable user attributes: guides/authentication/user-attributes/index.md
             - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
@@ -242,7 +243,7 @@ nav:
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
-        - Manage your Console: guides/your-is/manage-your-console.md
+        - Manage Console access: guides/your-is/manage-console-access.md
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
   - Setup:
@@ -475,6 +476,7 @@ nav:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
+        - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
