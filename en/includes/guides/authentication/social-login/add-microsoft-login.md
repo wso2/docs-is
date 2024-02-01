@@ -16,15 +16,13 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
     !!! note
         You must use an account in the same Microsoft 365 subscription (tenant) with which you intend to register the app.
 
-2. On the Azure portal, go to **Azure Services > Azure Active Directory**.
-
-    ![Azure Active Directory service]({{base_path}}/assets/img/guides/idp/microsoft-idp/azure-active-directory.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+2. On the Azure portal, go to **Azure Services** > **Microsoft Entra ID**.
 
 3. Click **Add** and select **App registration** from the list.
 
 4. Provide the required information for app registration.
 
-    ![Register an application on the Azure Portal]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register an application on the Azure Portal]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -41,7 +39,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
         </tr>
         <tr>
             <td>Redirect URI</td>
-            <td>Select a platform according to your application and enter the redirect URI. <br><b>Value:</b> <code>{{ product_url_format }}/commonauth</code></td>
+            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>https://localhost:9443/commonauth</code></td>
         </tr>
     </table>
 
@@ -89,16 +87,7 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
       </tr>
     </table>  
 
-<!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->  
-
-??? note "Claim syncing for JIT-provisioned users"
-    [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
-
-    When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
-
-    According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
-
-    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
 
 After the Microsoft identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Microsoft has granted permissions.
 

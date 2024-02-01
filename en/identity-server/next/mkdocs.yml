@@ -19,7 +19,6 @@ INHERIT: ../is_common.yml
 # Project information
 site_url: https://is.docs.wso2.com/en/next
 
-
 extra:
   base_path: /en/next
   is_version: 7.0.0
@@ -103,6 +102,7 @@ nav:
             - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
           - Add enterprise login:
             - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
+            - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
           - Add decentralized login:
             - Add decentralized login: guides/authentication/decentralized-login/index.md
             - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md

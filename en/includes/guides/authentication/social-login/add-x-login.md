@@ -56,6 +56,10 @@ Now, let's register the Microsoft IdP in {{product_name}}.
 
       <table>
          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+        </tr>
+         <tr>
             <td>API Key</td>
             <td>The <code>API key</code> generated when registering {{product_name}} in X.<br>
                e.g. <code>wuerRmdgwlqX0oE1WNDdsh17o</code></td>
@@ -72,6 +76,8 @@ Now, let's register the Microsoft IdP in {{product_name}}.
             e.g. <code>https://localhost:9443/commonauth</code></td>
        </tr>
        </table>
+
+{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
 
 ## Enable X login
 
