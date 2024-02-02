@@ -2,4 +2,4 @@
 {% set product_url = "https://localhost:9443" %}
 {% set product_url_format = "https://localhost:9443" %}
 {% set product_url_sample = "https://localhost:9443" %}
-{% include "../../../../../../includes/guides/authentication/enterprise-login/add-saml-idp-login.md" %}
+{% include "../../../../../../includes/guides/authentication/standard-based-login/add-oidc-idp-login.md" %}
