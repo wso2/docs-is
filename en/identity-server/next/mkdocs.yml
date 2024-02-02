@@ -100,6 +100,7 @@ nav:
             - Add standard-based login: guides/authentication/enterprise-login/index.md
             - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
             - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+            - Add WS-Federation login: guides/authentication/enterprise-login/add-ws-federation.md
           - Add enterprise login:
             - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
             - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md

@@ -1,6 +1,8 @@
 # Add login with a SAML identity provider
 
-You can add standard [SAML login](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf) to your applications using an external SAML identity provider (IdP) and enable users to log in to your applications while maintaining their accounts in the external identity providers.
+You can add standard SAML login to your applications using an external OIDC Identity Provider (IdP) and enable users to log in with their external identities.
+
+Follow this guide to register an OIDC IdP in {{ product_name }} and add it to the login flow of your application.
 
 ![Configure SAML Enterprise IDP login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/configure-login.png){: width=600"}
 
@@ -210,7 +212,7 @@ You may want to convert them to the local attribute URI so that the application 
 
 **Sample subject attribute** in the assertion looks as shown below:
 
-```xml 
+```xml
 <saml2:Subject>
     <saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">John</saml2:NameID>
     <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
