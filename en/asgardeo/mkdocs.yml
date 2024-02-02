@@ -102,6 +102,9 @@ plugins:
         'guides/users/manage-collaborators.md': 'https://wso2.com/asgardeo/docs/guides/docs/manage-administrators/'
         'guides/users/manage-customers.md': 'https://wso2.com/asgardeo/docs/guides/docs/manage-users/'
         'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey/'
+        'guides/authentication/enterprise-login/index.md': 'guides/authentication/standard-based-login/index.md'
+        'guides/authentication/enterprise-login/add-oidc-idp-login.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
+        'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
 
 # Navigation
 nav:
@@ -167,9 +170,9 @@ nav:
             - Add decentralized login: guides/authentication/decentralized-login/index.md
             - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
           - Add standard-based login:
-            - Add standard-based login: guides/authentication/enterprise-login/index.md
-            - Add login with OIDC IdP: guides/authentication/enterprise-login/add-oidc-idp-login.md
-            - Add login with SAML IdP: guides/authentication/enterprise-login/add-saml-idp-login.md
+            - Add standard-based login: guides/authentication/standard-based-login/index.md
+            - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
+            - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
           - Add identifier first login: guides/authentication/add-identifier-first-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md

@@ -30,8 +30,8 @@ First, the external IdP should be registered in {{ product_name }} as a connecti
     - [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/)
     - [Google]({{base_path}}/guides/authentication/social-login/add-google-login/)
     - [Github]({{base_path}}/guides/authentication/social-login/add-github-login/)
-    - [OIDC connections]({{base_path}}/guides/authentication/enterprise-login/add-oidc-idp-login/)
-    - [SAML connections]({{base_path}}/guides/authentication/enterprise-login/add-saml-idp-login/)
+    - [OIDC connections]({{base_path}}/guides/authentication/standard-based-login/add-oidc-idp-login/)
+    - [SAML connections]({{base_path}}/guides/authentication/standard-based-login/add-saml-idp-login/)
 
 ## Enable/Disable JIT user provisioning
 
