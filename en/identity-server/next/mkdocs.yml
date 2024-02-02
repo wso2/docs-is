@@ -385,6 +385,7 @@ nav:
             - Add standard-based login: guides/authentication/standard-based-login/index.md
             - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
             - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
+            - Add login with WS-Federation: guides/authentication/standard-based-login/add-ws-federation.md
           - Add enterprise login:
             - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
             - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md

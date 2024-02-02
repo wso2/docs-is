@@ -1,6 +1,6 @@
 # Add login with an OpenID Connect identity provider
 
-You can add standard OpenID Connect login <!-- [OpenID Connect login](https://openid.net/specs/openid-connect-core-1_0.html#)--> to your applications using an external OpenID Connect (OIDC) identity provider (IdP) and enable users to log in to your applications while maintaining their accounts in the external identity providers.
+You can add standard OpenID Connect (OIDC) login to your applications using an external OIDC Identity Provider (IdP) and enable users to log in with their external identities.
 
 Follow this guide to register an OIDC IdP in {{ product_name }} and add it to the login flow of your application.
 
@@ -10,7 +10,7 @@ You need to register an OpenID Connect application with the external identity pr
 
 You can use the following URL as the **callbackURL** of the application.
 
-```bash 
+```bash
 {{ product_url_format }}/commonauth
 ```
 Once you register an application, you will receive the following:
@@ -139,8 +139,3 @@ To provide this login capability, {{ product_name }} uses the standard OpenID Co
 ## Delete a connection
 
 {% include "../../fragments/manage-connection/delete-connection.md" %}
-
-## Related links
-
-- [Configure JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/)
-- [Configure OIDC IdP settings]({{base_path}}/references/idp-settings/oidc-settings-for-idp/)
