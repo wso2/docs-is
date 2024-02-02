@@ -252,7 +252,13 @@ plugins:
 
         'apis/overview.md': 'apis/index.md'
         'apis/idp-rest-api.md': 'apis/idp.md'
+        'apis/scim-1.1-apis.md': 'apis/scim2-rest-apis.md'
+
         'sdks/sdk-overview.md': 'integrations/index.md'
+        'sdks/start-integrating-apps/integrate-a-react-app.md': 'integrations/index.md'
+        'sdks/start-integrating-apps/integrate-an-angular-app.md': 'integrations/index.md'
+        'sdks/start-integrating-apps/integrate-a-js-app.md': 'integrations/index.md'
+        'sdks/spring-boot.md': 'integrations/index.md'
 
         'deploy/security/security-guidelines-for-production-deployment.md': 'deploy/security/security-guidelines/index.md'
         'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
