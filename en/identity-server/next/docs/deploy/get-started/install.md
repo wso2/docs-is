@@ -259,7 +259,7 @@ Follow the instructions below to install the WSO2 Identity Server on Windows.
 
 #### Set up JAVA_HOME
 
-You must set your `AVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer. Typically, the JDK is installed in a directory under `C:/Program Files/Java`, such as `C:/Program Files/Java/jdk-11.0.14` . If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
+You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer. Typically, the JDK is installed in a directory under `C:/Program Files/Java`, such as `C:/Program Files/Java/jdk-11.0.14` . If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
 
 !!! note
     Environment variables are global system variables accessible by all the
