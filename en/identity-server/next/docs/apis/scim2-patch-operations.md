@@ -60,7 +60,7 @@ The structure of a patch request payload is as follows:
 ```json
 {
     "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-    "operations":[
+    "Operations":[
         {
         "op": "add|replace|remove",
         "path": "attribute_path|value_path|sub_attribute_path"
