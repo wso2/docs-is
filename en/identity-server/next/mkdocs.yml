@@ -155,7 +155,12 @@ nav:
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
           - Configure a custom connector:  guides/authentication/configure-custom-connector.md
-      - API authorization: guides/api-authorization.md
+      - Authorization:
+        - API authorization:
+          - Role-based access control: guides/authorization/api-authorization/api-authorization.md
+          - Attribute-based access control: guides/authorization/api-authorization/attribute-based-access-control.md
+        - Fine-grained authorization:
+            - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
