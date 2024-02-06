@@ -399,6 +399,7 @@ nav:
         - Notification sender API: apis/notification-sender-rest-api.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
+      - Password expiring users identification API: apis/password-expiring-users-identification-rest-api.md
       - Role management:
           - Roles v2 API: apis/roles-v2-rest-api.md
           - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
