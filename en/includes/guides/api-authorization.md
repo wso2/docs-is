@@ -211,7 +211,7 @@ To request scopes for the user:
     1. On the {{ product_name }} Console, go to **Applications** and select your application.
     2. Copy the scopes listed at the end of the **API Authorization** section.
 
-        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/authorization.api-authorization/additional-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/authorization/api-authorization/additional-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! tip
         When you add scopes to the configuration file of your SDK, add them as comma-separated values.
