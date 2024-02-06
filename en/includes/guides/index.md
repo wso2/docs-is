@@ -10,6 +10,9 @@ See the following sections for details:
 
 - [Applications]({{base_path}}/guides/applications/)
 - [Authentication]({{base_path}}/guides/authentication/)
+- [API Authorization]({{base_path}}/guides/api-authorization/)
+- [Branding]({{base_path}}/guides/branding/)
+
 
 ## Administration guide
 
@@ -18,6 +21,8 @@ The administration guides cover the topics related to managing the users in your
 - [User Management]({{base_path}}/guides/users/)
 - [Account Configurations]({{base_path}}/guides/account-configurations/)
 - [User Self-Service]({{base_path}}/guides/user-self-service/)
+- [Organizations]({{base_path}}/guides/organization-management/)
+- [Analytics]({{base_path}}/guides/analytics/elk-analytics/)
 
 ## Your {{ product_name }} guide
 

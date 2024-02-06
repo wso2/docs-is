@@ -10,7 +10,7 @@ When you register an application, you can customize the login flow.
 
 - Add [social login]({{base_path}}/guides/authentication/social-login/) options such as [Google]({{base_path}}/guides/authentication/social-login/add-google-login/), [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/), [Apple]({{base_path}}/guides/authentication/social-login/add-apple-login/), and [Microsoft]({{base_path}}/guides/authentication/social-login/add-microsoft-login/).
 
-- Add other [enterprise identity providers]({{base_path}}/guides/authentication/enterprise-login/) as login options.
+- Add other [enterprise identity providers]({{base_path}}/guides/authentication/standard-based-login/) as login options.
 
 - Configure the number of factors (2FA or MFA) in the login flow to enforce [multi-factor authentication]({{base_path}}/guides/authentication/mfa/).
 
@@ -46,7 +46,7 @@ There are several benefits of using identity federation:
 {{ product_name }} supports a variety of external identity providers with various open-standard protocols (such as OAuth2.0, OpenID Connect, and SAML).
 
 - [Social identity providers]({{base_path}}/guides/authentication/social-login/)
-- [Enterprise identity providers]({{base_path}}/guides/authentication/enterprise-login/)
+- [Enterprise identity providers]({{base_path}}/guides/authentication/standard-based-login/)
 
 You can configure any number of external connections for your application via {{ product_name }}.
 

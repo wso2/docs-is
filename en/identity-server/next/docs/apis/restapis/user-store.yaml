@@ -1,12 +1,10 @@
 openapi: 3.0.0
 info:
   description: >
-    This is the RESTful API for user store management related operations in WSO2 Identity Server
+    This document specifies the **Userstore Management RESTful API** for **WSO2 Identity Server**
   version: "v1"
-  title: User Store Rest API
-tags:
-  - name: admin
-    description: Secured Admin-only calls
+  title: UserStore Management Rest API
+
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -15,7 +13,7 @@ paths:
     post:
       tags:
         - User Store
-      summary: Add a secondary user store
+      summary: Add a secondary user store.
       operationId: addUserStore
       description: |
         This API provides the capability to add a secondary user store.
@@ -23,9 +21,9 @@ paths:
         **NOTE:**
 
           To retrieve the available user store classes/types, use the **api/server/v1/userstores/meta/types** API.
-
-         <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/create` <br>
-         <b>Scope Required:</b> `internal_userstore_create`
+        
+        
+        <b>Scope(Permission) required:</b> `internal_userstore_create`
       responses:
         '201':
           description: Successful response
@@ -79,10 +77,10 @@ paths:
         - User Store
       summary: Retrieve the list of secondary user stores
       operationId: getSecondaryUserStores
-      description: >
+      description: |
         This API provides the capability to list the configured secondary user stores.<br>
-        <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/view` <br>
-        <b>Scope required:</b> `internal_userstore_view`
+        
+        <b>Scope(Permission) required:</b> `internal_userstore_view`
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -119,13 +117,11 @@ paths:
         - User Store
       summary: |
         Import a secondary user store from a file
-      description: >
+      description: |
         This API provides the capability to import a user store from
-        the configurations provided as a `YAML`, `JSON`, or `XML` file.<br>
-          <b>Permission required:</b> <br>
-              * /permission/admin/manage/identity/userstore/config/create <br>
-          <b>Scope required:</b> <br>
-              * internal_userstore_create
+        the configurations provided as a `YAML`, `JSON` or `XML` file.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_userstore_create`
       operationId: importUserStoreFromFile
       requestBody:
         content:
@@ -167,11 +163,10 @@ paths:
       summary: >-
         Retrieve the configurations of primary user store
       operationId: getPrimaryUserStore
-      description: >
-        This API provides the capability to retrieve the configurations of the primary user store.
+      description: |
+        This API provides the capability to retrieve the configurations of the primary user store.<br>
 
-          <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/view` <br>
-          <b>Scopes Required:</b> `internal_userstore_view`
+        <b>Scope(Permission) required:</b> `internal_userstore_view`
       responses:
         '200':
           description: Successful response.
@@ -199,11 +194,11 @@ paths:
       summary: >-
         Retrieve the configurations of secondary user store based on its domain id
       operationId: getUserStoreByDomainId
-      description: >
-        This API provides the capability to retrieve the configurations of a secondary user store based on its domain id. <br>
+      description: |
+        This API provides the capability to retrieve the configurations of
+        a secondary user store based on its domain id.<br>
 
-          <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/view` <br>
-          <b>Scope required:</b> `internal_userstore_view`
+        <b>Scope(Permission) required:</b> `internal_userstore_view`
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -231,11 +226,11 @@ paths:
         - User Store
       summary: Delete a secondary user store
       operationId: deleteUserStore
-      description: >
-        This API provides the capability to delete a secondary user store based on the given user store domain id.<br>
+      description: |
+        This API provides the capability to delete a secondary user store based on
+        matching to the given user store domain id.<br>
 
-         <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/delete` <br>
-         <b>Scope required:</b> `internal_userstore_delete`
+        <b>Scope(Permission) required:</b> `internal_userstore_delete`
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -259,11 +254,11 @@ paths:
         - User Store
       summary: Update a user store by its domain id
       operationId: updateUserStore
-      description: >
-        This API provides the capability to edit a user store based on its domain id. <br>
+      description: |
+        This API provides the capability to edit a user store based on its
+        domain id<br>
 
-         <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/update` <br>
-         <b>Permission required:</b> `internal_userstore_update`
+        <b>Scope(Permission) required:</b> `internal_userstore_update`
       parameters:
         - in: path
           name: userstore-domain-id
@@ -322,11 +317,11 @@ paths:
         - User Store
       summary: Patch the secondary user store by it's domain id
       operationId: patchUserStore
-      description: >
+      description: |
         This API provides the capability to update the secondary user store's
         property using patch request by using its domain id.
 
-         <b>Permission required:</b> `/permission/admin`
+        <b>Scope(Permission) required:</b> `internal_userstore_update`
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -368,75 +363,75 @@ paths:
               $ref: '#/components/schemas/PatchRequest'
         required: true
   /userstores/{userstore-domain-id}/export:
-      get:
-        tags:
-          - User Store
-        summary: |
-          Export a secondary user store by its domain id
-        description: |
-          This API provides the capability to retrieve the configurations of a
-          secondary user store based on its domain id as an `XML`, `YAML`, or `JSON` file.<br>
-          <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/view` <br>
-          <b>Scope required:</b> `internal_userstore_view`
-        operationId: exportUserStoreToFile
-        parameters:
-          - name: userstore-domain-id
-            in: path
-            description: ID of the user store domain.
-            required: true
-            schema:
-              type: string
-              example: SkRCQy1TRUNPTkRBUlk
-          - $ref: '#/components/parameters/fileTypeHeaderParam'
-        responses:
-          '200':
-            description: Successful response.
-            content:
-              application/json:
-                schema:
-                  type: string
-                example: 'Sample userstore configuration in the requested format'
-              application/yaml:
-                schema:
-                  type: string
-                example: 'Sample userstore configuration in the requested format'
-              application/xml:
-                schema:
-                  type: string
-                example: 'Sample userstore configuration in the requested format'
-              application/octet-stream:
-                schema:
-                  type: string
-                example: 'Sample userstore configuration in the requested format'
-          '400':
-            $ref: '#/components/responses/InvalidInput'
-          '401':
-            $ref: '#/components/responses/Unauthorized'
-          '403':
-            $ref: '#/components/responses/Forbidden'
-          '404':
-            $ref: '#/components/responses/NotFound'
-          '409':
-            $ref: '#/components/responses/Conflict'
-          '500':
-            $ref: '#/components/responses/ServerError'
-        x-codeSamples:
-          - lang: Curl
-            source: |
-              curl -X 'GET' \
-              'https://localhost:9443/api/server/v1/userstores/{domain-id}/export' \
-              -H 'accept: application/json' 
+    get:
+      tags:
+        - User Store
+      summary: |
+        Export a secondary user store by its domain id
+      description: |
+        This API provides the capability to retrieve the configurations of a
+        secondary user store based on its domain id as an `XML`, `YAML`, or `JSON` file.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_userstore_view`
+      operationId: exportUserStoreToFile
+      parameters:
+        - name: userstore-domain-id
+          in: path
+          description: ID of the user store domain.
+          required: true
+          schema:
+            type: string
+            example: SkRCQy1TRUNPTkRBUlk
+        - $ref: '#/components/parameters/fileTypeHeaderParam'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: string
+              example: 'Sample userstore configuration in the requested format'
+            application/yaml:
+              schema:
+                type: string
+              example: 'Sample userstore configuration in the requested format'
+            application/xml:
+              schema:
+                type: string
+              example: 'Sample userstore configuration in the requested format'
+            application/octet-stream:
+              schema:
+                type: string
+              example: 'Sample userstore configuration in the requested format'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/userstores/{domain-id}/export' \
+            -H 'accept: application/json'
   /userstores/{userstore-domain-id}/import:
     put:
       tags:
         - User Store
       summary: |
         Update an existing user store by importing configs from a file
-      description: >
+      description: |
         This API provides the capability to update an existing user store by importing
         user store configurations provided as a YAML, JSON or XML file.<br>
-          <b>Permission required:</b> `permission/admin/manage/identity/userstore/config/update` <br>
-          <b>Scope required:</b> `internal_userstore_update`
+
+        <b>Scope(Permission) required:</b> `internal_userstore_update`
       operationId: updateUserStoreFromFile
       parameters:
         - name: userstore-domain-id
@@ -478,18 +473,61 @@ paths:
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -F 'file=@file-name.xml;type=text/xml'
+  /userstores/{userstore-domain-id}/attribute-mappings:
+    patch:
+      tags:
+        - User Store
+      summary: Update the secondary user store attribute mappings by it's domain id.
+      operationId: updateAttributeMappings
+      description: |
+        This API provides the capability to update the secondary user store's attribute mappings using patch request by using its domain id.<br>
+
+        <b>Scope(Permission) required:</b> `internal_userstore_update`
+      parameters:
+        - $ref: '#/components/parameters/domainNamePathParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/OK'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttributeMappingsReq'
+        required: true
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/userstores/{userstore-domain-id}/attribute-mappings' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '[
+              {
+                "claimURI": "http://wso2.org/claims/username",
+                "mappedAttribute": "username"
+              }
+            ]'
   /userstores/meta/types:
     get:
       tags:
         - Meta
       summary: Retrieve the available user store classes/types
       operationId: getAvailableUserStoreTypes
-      description: >
-        This API provides the capability to retrieve the available user store types. <br>
+      description: |
+        This API provides the capability to retrieve the available user store
+        types<br>
 
-         <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/view` <br>
-         <b>Scope required:</b> `internal_userstore_view`
-
+        <b>Scope(Permission) required:</b> `internal_userstore_view`
       responses:
         '200':
           description: Successful Response.
@@ -517,12 +555,11 @@ paths:
       summary: >-
         Retrieve the properties of secondary user store of a given user store type
       operationId: getUserStoreManagerProperties
-      description: >
-        This API provides the capability to retrieve the properties of secondary user store of a given class name. <br>
+      description: |
+        This API provides the capability to retrieve the properties of secondary
+        user store of a given class name.<br>
 
-         <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/view` <br>
-         <b>Scope required:</b> `internal_userstore_view`
-
+        <b>Scope(Permission) required:</b> `internal_userstore_view`
       parameters:
         - in: path
           name: type-id
@@ -553,19 +590,62 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/api/server/v1/userstores/meta/types/{user-store-type-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='          
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  '/userstores/meta/types/{type-id}/attributes':
+    get:
+      tags:
+        - Meta
+      summary: >-
+        Retrieve the meta attributes of a user store of a given user store type.
+      operationId: getUserStoreAttributeMappings
+      description: |
+        This API provides the capability to retrieve the attribute mappings
+        of a given user store type.<br>
+
+        <b>Scope(Permission) required:</b> `internal_userstore_view`
+      parameters:
+        - in: path
+          name: type-id
+          required: true
+          description: Id of the user store type
+          schema:
+            type: string
+        - $ref: '#/components/parameters/includeIdentityClaimsQueryParam'
+      responses:
+        '200':
+          description: Successful Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStoreAttributeMappingResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/userstores/meta/types/{user-store-type-id}/attributes' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /userstores/test-connection:
     post:
       tags:
         - User Store
-      summary: Test the connection to the datasource used by a JDBC user store manager
+      summary: Test the connection to the datasource used by a JDBC user store manager.
       operationId: testRDBMSConnection
-      description: >
+      description: |
         This API provides the capability to test the connection to the
-        datasource used by a JDBC user store manager. <br>
+        datasource used by a JDBC user store manager.<br>
 
-          <b>Permission required:</b> `/permission/admin/manage/identity/userstore/config/view` <br>
-          <b>Permission required:</b> `internal_userstore_view`
+        <b>Scope(Permission) required:</b> `internal_userstore_view`
       responses:
         '200':
           description: Successful response.
@@ -618,6 +698,14 @@ components:
       schema:
         type: string
         example: SkRCQy1TRUNPTkRBUlk
+    includeIdentityClaimsQueryParam:
+      in: query
+      name: includeIdentityClaimMappings
+      required: false
+      description: Whether to include the identity claim mappings with user store attributes.
+      example: true
+      schema:
+        type: boolean
     limitQueryParam:
       in: query
       name: limit
@@ -760,6 +848,11 @@ components:
             connection password etc.
           items:
             $ref: '#/components/schemas/Property'
+        claimAttributeMappings:
+          type: array
+          description: Claim attribute mappings.
+          items:
+            $ref: '#/components/schemas/ClaimAttributeMapping'
     PatchRequest:
       type: array
       items:
@@ -800,6 +893,10 @@ components:
         - connectionPassword
       description: RDBMS Connection Request.
       properties:
+        domain:
+          type: string
+          description: User store domain name.
+          example: PRIMARY
         driverName:
           type: string
           description: Driver Name.
@@ -816,6 +913,25 @@ components:
           type: string
           description: The password.
           example: root
+    ClaimAttributeMapping:
+      type: object
+      required:
+        - claimURI
+        - mappedAttribute
+      properties:
+        claimURI:
+          type: string
+          description: A unique URI specific to the claim.
+          example: "http://wso2.org/claims/username"
+        mappedAttribute:
+          type: string
+          description: Userstore attribute to be mapped to.
+          example: "username"
+    AttributeMappingsReq:
+      type: array
+      description: Array of ClaimURI attribute mappings.
+      items:
+        $ref: '#/components/schemas/ClaimAttributeMapping'
     Error:
       type: object
       required:
@@ -861,10 +977,18 @@ components:
         description:
           type: string
           example: Some description of the user store
+        isLocal:
+          type: boolean
+          example: true
+          description: Whether the user store is local or not.
         self:
           type: string
           example: /t/{tenant-domain}/api/server/v1/userstores/SkRCQy1TRUNPTkRBUlk
           description: Location of the created/updated resource.
+        typeName:
+          type: string
+          example: UniqueIDJDBCUserStoreManager
+          description: User store type name.
         properties:
           type: array
           description: Requested configured user store property for the set
@@ -882,6 +1006,10 @@ components:
         className:
           type: string
           example: org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager
+        isLocal:
+          type: boolean
+          example: true
+          description: Whether the user store is local or not.
         properties:
           $ref: '#/components/schemas/UserStorePropertiesRes'
     UserStoreResponse:
@@ -909,6 +1037,11 @@ components:
           description: Configured user store proper for the set.
           items:
             $ref: '#/components/schemas/AddUserStorePropertiesRes'
+        claimAttributeMappings:
+          type: array
+          description: Configured user store claim attribute mappings
+          items:
+            $ref: '#/components/schemas/ClaimAttributeMapping'
     AvailableUserStoreClassesRes:
       type: object
       description: Available User Store Classes Response.
@@ -922,6 +1055,10 @@ components:
         className:
           type: string
           example: org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager
+        isLocal:
+          type: boolean
+          example: true
+          description: Whether the user store is local or not.
         self:
           type: string
           example: /t/{tenant-domain}/api/server/v1/userstores/meta/types/VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg
@@ -944,11 +1081,20 @@ components:
         className:
           type: string
           example: org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager
+        isLocal:
+          type: boolean
+          example: true
+          description: Whether the user store is local or not.
         properties:
           type: array
           description: Configured user store property for the set
           items:
             $ref: '#/components/schemas/AddUserStorePropertiesRes'
+        claimAttributeMappings:
+          type: array
+          description: Requested configured user store claim attribute mappings.
+          items:
+            $ref: '#/components/schemas/ClaimAttributeMapping'
     AddUserStorePropertiesRes:
       type: object
       description: Available User Store Properties.
@@ -1001,10 +1147,49 @@ components:
         value:
           type: string
           example: basic
+    UserStoreAttributeMappingResponse:
+      type: object
+      properties:
+        typeName:
+          type: string
+          description: Type name of the user store.
+          example: org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager
+        typeId:
+          type: string
+          description: Type id of the user store.
+          example: b3JnLndzbzIuY2FyYm9uLnVzZXIuY29yZS5qZGJjLkpEQkNVc2VyU3RvcmVNYW5hZ2Vy
+        isLocal:
+          type: boolean
+          description: Whether the user store is local or not.
+          example: true
+        attributeMappings:
+          type: array
+          description: User store attribute mappings.
+          items:
+            $ref: '#/components/schemas/UserStoreAttributeResponse'
+    UserStoreAttributeResponse:
+      type: object
+      properties:
+        claimId:
+          type: string
+          description: Claim id of the attribute.
+          example: bzIuY2FyYm9uLnVzZXIuY29yZS5qZG
+        claimURI:
+          type: string
+          description: Claim URI of the attribute.
+          example: http://wso2.org/claims/givenname
+        mappedAttribute:
+          type: string
+          description: Mapped attribute name.
+          example: givenName
+        displayName:
+          type: string
+          description: Display name of the attribute.
+          example: First Name
     FileUpload:
       type: object
       properties:
         file:
           type: string
           format: binary
-          description: File uploaded during import.          
+          description: File uploaded during import.

@@ -153,14 +153,7 @@ Now, let's register the Apple IdP in {{ product_name }}.
       </tr>
     </table>  
 
-??? note "Claim syncing for JIT-provisioned users"
-    [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
-
-    When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
-
-    According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
-
-    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
 
 After creating the Apple identity provider, go to the **Settings** tab and see the list of **scopes** to which Apple has granted permissions.
 
