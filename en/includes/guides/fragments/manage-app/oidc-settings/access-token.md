@@ -39,7 +39,7 @@ Token binding securely links authentication tokens to client devices to prevent 
 
     You can configure the following properties related to token binding:
 
-    - **Validate token bindings** - Enabled by default. When enabled, {{product_name}} uses the selected binding type to validate the access token based on the binding information sent in the cookie.
+    - **Validate token bindings** - When enabled, {{product_name}} uses the selected binding type to validate the access token based on the binding information sent in the cookie.
     
     - **Revoke token upon user logout** - When enabled, a user logout from a session causes access tokens to be revoked provided the logout request contains either `client_id` or `id_token_hint`. Learn more about [logout requests]({{base_path}}/guides/authentication/oidc/add-logout/).
 
