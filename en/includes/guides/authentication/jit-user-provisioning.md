@@ -30,8 +30,8 @@ First, the external IdP should be registered in {{ product_name }} as a connecti
     - [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/)
     - [Google]({{base_path}}/guides/authentication/social-login/add-google-login/)
     - [Github]({{base_path}}/guides/authentication/social-login/add-github-login/)
-    - [OIDC connections]({{base_path}}/guides/authentication/enterprise-login/add-oidc-idp-login/)
-    - [SAML connections]({{base_path}}/guides/authentication/enterprise-login/add-saml-idp-login/)
+    - [OIDC connections]({{base_path}}/guides/authentication/standard-based-login/add-oidc-idp-login/)
+    - [SAML connections]({{base_path}}/guides/authentication/standard-based-login/add-saml-idp-login/)
 
 ## Enable/Disable JIT user provisioning
 
@@ -41,7 +41,7 @@ To enable/disable JIT user provisioning for an external Identity provider:
 
 2. Go to the **Advanced** tab of the selected connection.
 
-3. JIT provisioning is enabled by default. You can uncheck the **Just-in-Time (JIT) User Provisioning** checkbox to disable it.
+3. Check/Uncheck the **Just-in-Time (JIT) User Provisioning** checkbox to enable/disable it.
 
     ![JIT user provisioning configuration is enabled]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 

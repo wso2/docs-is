@@ -1,7 +1,8 @@
 openapi: 3.0.0
 info:
   description: >-
-    This is the RESTful API for identity governance configurations in the WSO2 Identity Server.
+    This document specifies **Identity Governance Configurations RESTful API** for **WSO2
+    Identity Server**.
   version: "v1"
   title: Governance connectors Admin API
 tags:
@@ -20,8 +21,7 @@ paths:
       description: |
         Retrieve governance connector categories.
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/idpmgt/view` <br>
-        <b>Scope required:</b> `internal_idp_view`
+        <b>Scope(Permission) required:</b> `internal_governance_view`
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -57,8 +57,8 @@ paths:
       operationId: getConnectorCategory
       description: |
         Retrieve governance connectors of a category. <br>
-        <b>Permission required:</b> `/permission/admin/manage/identity/idpmgt/view` <br>
-        <b>Scope required:</b> ` internal_idp_view`
+
+        <b>Scope(Permission) required:</b> ` internal_governance_view`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
       responses:
@@ -89,8 +89,8 @@ paths:
       operationId: getConnectorsOfCategory
       description: |
         Retrieve governance connectors of a category.<br>
-        <b>Permission required:</b> `/permission/admin/manage/identity/idpmgt/view` <br>
-        <b>Scope required:</b> `internal_idp_view`
+
+        <b>Scope(Permission) required:</b> `internal_governance_view`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
       responses:
@@ -123,8 +123,8 @@ paths:
       operationId: getConnector
       description: |
         Retrieve governance connector.<br>
-        <b>Permission required:</b> `/permission/admin/manage/identity/idpmgt/view` <br>
-        <b>Scope required:</b> `internal_idp_view`
+
+        <b>Scope(Permission) required:</b> `internal_governance_view`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: '#/components/parameters/connectorIdPathParam'
@@ -155,8 +155,8 @@ paths:
       operationId: patchConnector
       description: |
         Patch governance connector.<br>
-        <b>Permission required:</b> `/permission/admin/manage/identity/idpmgt/update` <br>
-        <b>Scope required:</b> `internal_idp_update`
+
+        <b>Scope(Permission) required:</b> `internal_governance_update`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: '#/components/parameters/connectorIdPathParam'

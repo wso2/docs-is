@@ -1,4 +1,4 @@
-# Manage your {{product_name}} Console
+# Manage {{product_name}} Console access
 
 The following sections explain how you can configure the {{product_name}} Console so that users are provided limited access to its features based on their roles.
 

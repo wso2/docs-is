@@ -3,7 +3,7 @@ info:
   version: "v1"
   title: Email Template API
   description: >-
-    This is the RESTful API for managing email templates in the WSO2 Identity Server. This API allows adding, retrieving, replacing, and removing email templates and template types.
+    This document specifies a RESTful API for **Managing Email Templates** in WSO2 Identity Server. This API allows adding, retrieving, replacing, and removing email templates and template types.
 tags:
   - name: Email Template Types
     description: An email template type can have multiple email templates for different languages.
@@ -22,8 +22,7 @@ paths:
       description: |
         Retrieves all the email template types in the system, with limited details of the email templates.
 
-        <b>Permission required:</b>`/permission/admin/manage/identity/emailmgt/view` <br> 
-        <b>Scopes required:</b> `internal_email_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -64,9 +63,7 @@ paths:
 
         * Attribute _**displayName**_ of the template type should be unique. <br>
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/emailmgt/create`
-        <br> 
-        <b>Scopes required:</b> `internal_email_mgt_create`
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create`
       requestBody:
         content:
           application/json:
@@ -124,8 +121,7 @@ paths:
       description: |
         Retrieves the email template type in the system identified by the template-type-id. <br>
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/emailmgt/view`
-        <br><b>Scopes required:</b> `internal_email_mgt_view`
+        <br><b>Scope(Permission) required:</b> `internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/limitQueryParam'
@@ -164,9 +160,8 @@ paths:
       description: |
         Another email template with the same locale should not already exist in the
         respective email template type. <br>
-  
-        <b>Permission required:</b> `/permission/admin/manage/identity/emailmgt/create`<br>
-        <b>Scopes required:</b> `internal_email_mgt_create`
+        
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       requestBody:
@@ -220,8 +215,7 @@ paths:
       description: |
         Replace all email templates of the respective email template type with the newly provided email templates. <br>
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/emailmgt/updat`e <br>
-        <b>Scopes required:</b> `internal_email_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_email_mgt_update`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       requestBody:
@@ -271,8 +265,7 @@ paths:
         Removes an existing email template type with all its email templates
         from the system. <br>
 
-        <b>Permission required:</b>`/permission/admin/manage/identity/emailmgt/delete` <br>
-        <b>Scopes required:</b>`internal_email_mgt_delete`
+        <b>Scope(Permission) required:</b>`internal_email_mgt_delete`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       responses:
@@ -304,8 +297,7 @@ paths:
       description: |
         Retrieves the list of email templates in the template type ID. <br>
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/emailmgt/view` <br>
-        <b>Scopes required:</b>`internal_email_mgt_view`
+        <b>Scope(Permission) required:</b>`internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/limitQueryParam'
@@ -347,8 +339,7 @@ paths:
       description: |
         Retrieves the email template that matches the `template-type-id` and the `template-id`. <br>
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/emailmgt/view` <br>
-        <b>Scopes required:</b>`internal_email_mgt_view`
+        <b>Scope(Permission) required:</b>`internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/templateIdPathParam'
@@ -388,8 +379,7 @@ paths:
       description: |
         Replace the email template identified by the `template-type-id` and the `template-id`. <br>
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/emailmgt/update` <br>
-        <b>Scopes required:</b>`internal_email_mgt_update`
+        <b>Scope(Permission) required:</b>`internal_email_mgt_update`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/templateIdPathParam'
@@ -435,8 +425,7 @@ paths:
       description: |
         Removes an email template identified by the template-type-id and the template-id. <br>
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/emailmgt/delete` <br>
-        <b>Scopes required:</b>`internal_email_mgt_delete`
+        <b>Scope(Permission) required:</b>`internal_email_mgt_delete`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/templateIdPathParam'

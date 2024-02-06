@@ -1,10 +1,10 @@
 # Sample WS-Federation web app
 
-This guide provides step-by-step instructions to enable login for a WS-Federation-based web application using WSO2 Identity Server's Passive Security Token Service (Passive STS).
+By following this guide, you will be able to deploy a WS-Federation-based web application and enable login for it using the Passive Security Token Service (Passive STS) of {{product_name}}.
 
 !!! info
-    WSO2 Identity Server's passive security token service (Passive STS) is used as the WS-Federation implementation.
-    The Passive STS is capable of issuing SAML 1.1 and 2.0 security tokens. To request a SAML 2.0 security token, the Request Security Token (RST) should be sent to the passive STS endpoint with the TokenType `SAMLV2.0` when sending the token request. If no RST is specified, WSO2 Identity Server will issue a SAML 1.1 token by default.
+    {{product_name}} uses its passive security token service (Passive STS) as its WS-Federation implementation.
+    Passive STS is capable of issuing SAML 1.1 and 2.0 security tokens. To request a SAML 2.0 security token, the Request Security Token (RST) should be sent to the passive STS endpoint with the token type, `SAMLV2.0`. If no RST is specified, {{product_name}} issued a SAML 1.1 token by default.
 ---
 
 ### Prerequisites
