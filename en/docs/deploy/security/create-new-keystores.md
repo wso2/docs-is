@@ -106,7 +106,7 @@ certificates. These certificates certify the ownership of a public key.
     
     Now you will be prompted to provide the `keystore password`. Once the password is given, the command will output the `newcertreq.csr` file to the `<IS_HOME>/repository/resources/security/` directory. This is the CSR that you must submit to a CA.
 
-2.  You must provide this CSR file to the CA. For testing purposes, try the [90 days trial SSL certificate from Comodo](https://www.ssldragon.com/product/comodo-trial-ssl/).
+2.  You must provide this CSR file to the CA. For testing purposes, try the [90 days trial SSL certificate from Comodo](https://www.ssldragon.com/trial-ssl-certificate/).
 
     !!! tip
         It is preferable to have a wildcard certificate or multiple domain certificates if you wish to have multiple subdomains for deployment. For such requirements, you must modify the
