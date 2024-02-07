@@ -83,7 +83,6 @@ A sample configuration is given below.
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files against the database created.
         
         - `<IS-HOME>/dbscripts/identity/h2.sql`
-        - `<IS-HOME>/dbscripts/identity/uma/h2.sql`
         - `<IS-HOME>/dbscripts/consent/h2.sql`
         
 2. `WSO2_SHARED_DB`
