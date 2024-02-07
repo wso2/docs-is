@@ -649,11 +649,6 @@ nav:
       - Role management:
           - Roles v2 API: apis/roles-v2-rest-api.md
           - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
-      - Self-service:
-        - FIDO API: apis/fido-rest-api.md
-        - TOTP API: apis/totp-rest-api.md
-        - User discoverable application API: apis/user-discoverable-applications.md
-        - Approvals management API: apis/approvals-rest-api.md
       - Server management:
         - Configuration management:
             - Configuration management API: apis/use-the-configuration-management-rest-apis.md
@@ -694,6 +689,10 @@ nav:
       - Organization management API: apis/organization-apis/org-organization-mgt.md
       - Role management API: apis/organization-apis/org-role-mgt.md
       - User management API: apis/organization-apis/org-user-mgt.md
+    - End User APIs:
+        - FIDO API: apis/fido-rest-api.md
+        - TOTP API: apis/totp-rest-api.md
+        - User discoverable application API: apis/user-discoverable-applications.md
   - References:
     - References: references/index.md
     - User Management:

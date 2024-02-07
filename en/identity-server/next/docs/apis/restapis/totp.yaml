@@ -2,28 +2,27 @@ openapi: 3.0.1
 info:
   title: TOTP API Definition
   description: |
-    This is the RESTful API for a user to manage his/her TOTP QR URLs/secrets in WSO2 Identity Server. Going forward this will be the API for user portal as well as external parties.
+    This is the RESTful API for a user to manage his/her TOTP QR URLs/secrets in **WSO2 Identity Server**. Going forward this will be the API for user portal as well as external parties.
   version: v1
 servers:
-- url: https://localhost:9443/t/{tenant-domain}/api/users/v1
+  - url: https://localhost:9443/t/{tenant-domain}/api/users/v1
 security:
-- OAuth2: []
-- BasicAuth: []
+  - OAuth2: []
+  - BasicAuth: []
 tags:
-- name: me
-  description: Operations for the authenticated user.
+  - name: me
+    description: Operations for the authenticated user.
 paths:
   /me/totp:
     get:
       tags:
-      - me
+        - me
       summary: Retrieve the QR Code URL of the authenticated user
       description: |
         This API is used to retrieve the QR code URL of the authenticated user.
 
 
-        <b>Permission required:</b> none <br>
-        <b>Scope required:</b> `internal_login`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         200:
           description: OK
@@ -49,10 +48,10 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/api/users/v1/me/totp' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='                
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
-      - me
+        - me
       summary: |
         Refresh, validate the QR code URL
       description: |
@@ -61,8 +60,7 @@ paths:
         * <b>REFRESH</b> - Refresh TOTP secret key of the authenticated user
         * <b>VALIDATE</b> - Validate the user entered verification code
 
-        <b>Permission required:</b> none <br>
-        <b>Scope required:</b> `internal_login`
+        <b>Scope(Permission) required:</b> `internal_login`
       requestBody:
         description: Actions supported by the API. Actions can be INIT, VALIDATE or
           REFRESH
@@ -120,12 +118,12 @@ paths:
       x-codegen-request-body-name: request
     delete:
       tags:
-      - me
+        - me
       summary: Resets TOTP credentials of the authenticated user
       description: |
         This API is used to delete the TOTP credentials of the authenticated user.
 
-        <b>Permission required:</b>none<br> <b>Scope required:</b> `internal_login`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         200:
           description: Credentials deleted successfully
@@ -148,16 +146,16 @@ paths:
             curl -X 'DELETE' \
             'https://localhost:9443/api/users/v1/me/totp' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /me/totp/secret:
     get:
       tags:
-      - me
+        - me
       summary: Retrieve the TOTP secret of the authenticated user
       description: |
         This API is used to retrieve the TOTP secret of the authenticated user.
 
-        <b>Permission required:</b> none<br> <b>Scope required:</b> `internal_login`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         200:
           description: OK
@@ -188,8 +186,8 @@ components:
   schemas:
     Error:
       required:
-      - code
-      - message
+        - code
+        - message
       type: object
       properties:
         code:
@@ -206,16 +204,16 @@ components:
           example: Some Correlation for Error Instance
     UserRequest:
       required:
-      - action
+        - action
       type: object
       properties:
         action:
           type: string
           example: INIT, REFRESH, VALIDATE
           enum:
-          - INIT
-          - REFRESH
-          - VALIDATE
+            - INIT
+            - REFRESH
+            - VALIDATE
         verificationCode:
           type: integer
     TOTPResponse:
