@@ -674,7 +674,7 @@ nav:
         - Account recovery API: apis/use-the-account-recovery-rest-apis.md
         - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
         - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
-        - Associated accounts API: apis/association-rest-api.md
+        - User Account Association API: apis/association-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
@@ -687,6 +687,7 @@ nav:
       - Role management API: apis/organization-apis/org-role-mgt.md
       - User management API: apis/organization-apis/org-user-mgt.md
     - End User APIs:
+        - User Account Association API: apis/me-association-rest-api.md
         - FIDO API: apis/fido-rest-api.md
         - TOTP API: apis/totp-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
