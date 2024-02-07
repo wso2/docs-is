@@ -663,7 +663,6 @@ nav:
           - Overview: apis/use-the-consent-management-rest-apis.md
           - Consent management API: apis/consent-management-api-definition.md
         - Email templates API: apis/email-templates-rest-api.md
-        - Workflow engine management API: apis/workflow-engine-rest-api.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
@@ -676,8 +675,6 @@ nav:
         - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
         - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
         - Associated accounts API: apis/association-rest-api.md
-        - Challenge question API: apis/challenge-questions.md
-        - Challenge answers API: apis/challenge-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
