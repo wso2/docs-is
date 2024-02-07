@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   description: >-
-    This is the RESTful API for user-visible application management in the WSO2 Identity Server.
+    This document specifies the **User-visible application management RESTful API** for **WSO2 Identity Server**.
   version: "v1"
   title: User Application Management API
 servers:
@@ -23,6 +23,8 @@ paths:
       description: |
         This API provides the capability to retrieve
         the list of applications to an authorized user.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getApplications
       parameters:
         - $ref: '#/components/parameters/attributesQueryParam'
@@ -62,8 +64,10 @@ paths:
       tags:
         - Application Listing
       summary: Get application by ID
-      description: >
+      description: |
         This API provides the capability to retrieve an application to an authorized user. 
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getApplication
       parameters:
         - name: applicationId

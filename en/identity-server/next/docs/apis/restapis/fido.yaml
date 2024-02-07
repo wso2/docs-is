@@ -2,38 +2,38 @@ openapi: 3.0.1
 info:
   title: 'FIDO2 Rest API '
   description: |
-    This document specifies a **FIDO 2 RESTfulAPI** for the WSO2 Identity Server.
+    This document specifies a **FIDO 2 RESTfulAPI** for the **WSO2 Identity Server**.
   version: v2
 servers:
-- url: https://{serverUrl}/t/{tenantDomain}/api/users/v2/me/webauthn
-  variables:
-    serverUrl:
-      default: localhost:9443
-    tenantDomain:
-      default: carbon.super
+  - url: https://{serverUrl}/t/{tenantDomain}/api/users/v2/me/webauthn
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
 security:
-- OAuth2: []
-- BasicAuth: []
+  - OAuth2: []
+  - BasicAuth: []
 tags:
-- name: me
-  description: Operations for the authenticated user.
+  - name: me
+    description: Operations for the authenticated user.
 paths:
   /start-registration:
     post:
       tags:
-      - me
+        - me
       summary: |
         Trigger FIDO2 device registration
       description: |
         This API is used to trigger the FIDO2 device registration flow.
 
-        <b>Permission required:</b> `/permission/admin/login`
+        <b>Scope(Permission) required:</b> `internal_login`
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
               required:
-              - appId
+                - appId
               properties:
                 appId:
                   type: string
@@ -58,10 +58,10 @@ paths:
                       id: iAgKlKucOIjxUoUq510BXTI9_p3NENmQo2ZM5gQMcoA
                     challenge: tvyJuz16drO390L5VPheOG5zpY9zEcSVbc1QNeFv0Fs
                     pubKeyCredParams:
-                    - alg: -7
-                      type: public-key
-                    - alg: -257
-                      type: public-key
+                      - alg: -7
+                        type: public-key
+                      - alg: -257
+                        type: public-key
                     excludeCredentials: []
                     attestation: none
                     extensions: {}
@@ -101,19 +101,19 @@ paths:
   /start-usernameless-registration:
     post:
       tags:
-      - me
+        - me
       summary: |
         Trigger FIDO2 usernameless device registration
       description: |
         This API is used to trigger the FIDO2 usernameless device registration flow.
 
-         <b>Permission required:</b> `/permission/admin/login`
+        <b>Scope(Permission) required:</b> `internal_login`
       requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
               required:
-              - appId
+                - appId
               properties:
                 appId:
                   type: string
@@ -138,10 +138,10 @@ paths:
                       id: iAgKlKucOIjxUoUq510BXTI9_p3NENmQo2ZM5gQMcoA
                     challenge: tvyJuz16drO390L5VPheOG5zpY9zEcSVbc1QNeFv0Fs
                     pubKeyCredParams:
-                    - alg: -7
-                      type: public-key
-                    - alg: -257
-                      type: public-key
+                      - alg: -7
+                        type: public-key
+                      - alg: -257
+                        type: public-key
                     excludeCredentials: []
                     attestation: none
                     extensions: {}
@@ -181,13 +181,13 @@ paths:
   /finish-registration:
     post:
       tags:
-      - me
+        - me
       summary: |
         Complete FIDO2 device registration
       description: |
         This API is used to complete the FIDO2 device registration flow.
 
-        <b>Permission required:</b> `/permission/admin/login`
+        <b>Scope(Permission) required:</b> `internal_login`
       requestBody:
         description: Response from the client.
         content:
@@ -252,20 +252,20 @@ paths:
   /{credentialId}:
     delete:
       tags:
-      - me
+        - me
       summary: |
         Deregister devices by username and credentialId
       description: |
         This API is used to deregister devices by username and credentialId.
 
-        <b>Permission required:</b> `/permission/admin/login`
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
-      - name: credentialId
-        in: path
-        description: credentialId
-        required: true
-        schema:
-          type: string
+        - name: credentialId
+          in: path
+          description: credentialId
+          required: true
+          schema:
+            type: string
       responses:
         204:
           description: No Content
@@ -303,20 +303,20 @@ paths:
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
       tags:
-      - me
+        - me
       summary: |
         Update display name of device by username and credentialId
       description: |
         This API is used to update the display name of a device by username and credentialId.
 
-        <b>Permission required:</b> `/permission/admin/login`
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
-      - name: credentialId
-        in: path
-        description: credentialId
-        required: true
-        schema:
-          type: string
+        - name: credentialId
+          in: path
+          description: credentialId
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -373,13 +373,13 @@ paths:
   /:
     get:
       tags:
-      - me
+        - me
       summary: |
         Device Metadata
       description: |
         This API is used to get FIDO metadata by username
 
-        <b>Permission required:</b> `/permission/admin/login`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         200:
           description: All available FIDO metadata for a user.
@@ -432,8 +432,8 @@ components:
         $ref: '#/components/schemas/Patch'
     Patch:
       required:
-      - operation
-      - path
+        - operation
+        - path
       type: object
       properties:
         operation:
@@ -441,9 +441,9 @@ components:
           description: The operation to be performed
           example: REPLACE
           enum:
-          - ADD
-          - REMOVE
-          - REPLACE
+            - ADD
+            - REMOVE
+            - REPLACE
         path:
           type: string
           description: A JSON-Pointer
