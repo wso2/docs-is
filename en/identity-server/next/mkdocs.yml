@@ -138,7 +138,7 @@ plugins:
         'guides/identity-lifecycles/outbound-provisioning-with-salesforce.md': 'guides/users/user-stores/configure-secondary-user-stores.md'
         'guides/identity-lifecycles/hubspot-provisioning.md': 'guides/users/user-stores/configure-secondary-user-stores.md'
         'guides/identity-lifecycles/inbound-provisioning.md': 'guides/users/manage-users.md'
-        'guides/identity-lifecycles/configure-user-stores-for-scim1.1-based-inbound-provisioning.md': 'guides/users/user-stores/configure-secondary-user-stores.md'
+        'guides/identity-lifecycles/configure-user-stores-for-scim1.1-based-inbound-provisioning.md': 'guides/users/user-stores/configure-user-stores-for-scim2.md'
         'guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md': 'guides/users/user-stores/configure-user-stores-for-scim2.md'
         'guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md': 'guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md'
         'guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md': 'guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md'
@@ -265,10 +265,18 @@ plugins:
         'references/concepts/introduction-to-multitenancy.md': 'guides/multitenancy/index.md'
         'references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md': 'references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md'
         'references/extend/write-custom-functions-for-adaptive-authentication.md': 'references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md'
-        'references/extend/federation/write-a-custom-federated-authenticator.md': 'references/extend/federation/write-a-custom-federated-authenticator.md'
-        'references/extend/user-mgt/write-a-custom-event-handler.md': 'references/extend/user-mgt/write-a-custom-event-handler.md'
         'references/extend/provisioning/extend-scim2-user-schemas.md': 'references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md'
         'references/extend/write-a-custom-user-store-manager.md': 'references/extend/user-stores/write-a-custom-user-store-manager.md'
+
+        'references/extend/myaccount/customize-my-account-ui.md': 'guides/branding/configure-ui-branding.md'
+        'references/extend/myaccount/configure-my-account.md': 'guides/branding/configure-ui-branding.md'
+        'references/extend/rebranding/rebrand-identity-server-uis.md': 'guides/branding/configure-ui-branding.md'
+        'references/extend/rebranding/rebrand-login-pages-for-service-providers.md': 'guides/branding/configure-ui-branding.md'
+        'references/extend/rebranding/rebrand-the-sso-redirection-page.md': 'guides/branding/configure-ui-branding.md'
+        'references/extend/rebranding/customizable-login-portal.md': 'guides/branding/configure-ui-branding.md'
+        'references/adaptive-authentication-js-api-reference.md': 'references/conditional-auth/api-reference.md'
+        'guides/authorization/xacml-engine.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
+        'guides/authorization/fine-grained-auth-xacml.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
 
 # Navigation
 nav:
