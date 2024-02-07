@@ -1,8 +1,8 @@
-# API authorization
+# Role Based Access Control (RBAC) for API Authorization
 
 {{ product_name }} allows organizations to authorize user access to an application's API resources based on the application associated roles assigned to the users.
 
-![The relationship between terms]({{base_path}}/assets/img/guides/api-authorization/API-resource-high-level.png){: width="700" style="display: block; margin: 0 auto;"}
+![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/API-resource-high-level.png){: width="700" style="display: block; margin: 0 auto;"}
 
 The following are the terms used in the API authorization context:
 
@@ -151,7 +151,7 @@ If an API resource requires authorization, RBAC will be applied before granting 
 
 5. Click **Finish**.
 
-    ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/api-authorization/authorize-an-api-resource.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/authorization/api-authorization/authorize-an-api-resource.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
 ## Configure RBAC for API resources
 If RBAC is enabled as the authorization policy for the API resource, users accessing the API through an application will have role-based access.
@@ -211,7 +211,7 @@ To request scopes for the user:
     1. On the {{ product_name }} Console, go to **Applications** and select your application.
     2. Copy the scopes listed at the end of the **API Authorization** section.
 
-        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/api-authorization/additional-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/authorization/api-authorization/additional-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     !!! tip
         When you add scopes to the configuration file of your SDK, add them as comma-separated values.
@@ -221,10 +221,10 @@ To request scopes for the user:
 
     If you have disabled `Skip login consent` in your application's settings, upon successful login you will see the permission (scopes) allowed for the user on the user consent page.
 
-    ![Permission of the user shown on the user consent page]({{base_path}}/assets/img/guides/api-authorization/user-consent-for-developer.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Permission of the user shown on the user consent page]({{base_path}}/assets/img/guides/authorization/api-authorization/user-consent-for-developer.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 
     Click **Allow**. You will now be redirected to the application.
 
 4. You will be able to see the assigned scopes (permissions) on the `allowedScopes` parameter of the authentication response.
 
-    ![Authentication response of the developer group user]({{base_path}}/assets/img/guides/api-authorization/allowed-scopes-for-developer.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Authentication response of the developer group user]({{base_path}}/assets/img/guides/authorization/api-authorization/allowed-scopes-for-developer.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
