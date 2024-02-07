@@ -46,7 +46,6 @@ A sample configuration is given below.
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files against the database created.
         
         - `<IS-HOME>/dbscripts/identity/mssql.sql`
-        - `<IS-HOME>/dbscripts/identity/uma/mssql.sql`
         - `<IS-HOME>/dbscripts/consent/mssql.sql`
         
 2. `WSO2_SHARED_DB`
