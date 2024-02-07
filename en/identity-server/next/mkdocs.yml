@@ -639,6 +639,7 @@ nav:
       - Claim management API: apis/claim-management-rest-api.md
       - Entitlement management API: apis/entitlement-with-rest-apis.md
       - Identity provider API: apis/idp.md
+      - Idle accounts identification API: apis/idle-accounts-identification-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
       - Notification sender management:
         - Notification sender configurations: apis/notification-sender.md
