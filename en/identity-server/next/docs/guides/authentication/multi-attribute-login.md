@@ -18,9 +18,9 @@ The following section explains how to configure WSO2 identity server for multi-a
 
 To configure multi-attribute login, follow the steps below:
 
-1. On the {{product_name}} Console, go to **Login & Registration** > **Multi Attribute Login**.
-2. Toggle the Enabled switch to enable multi attribute login.
-4. Add attribute URIs for attribute that users are allowed to use as login identifiers.
+1. On the {{product_name}} Console, go to **Login & Registration** > **Login Identifier** > **Multi Attribute Login**.
+2. Toggle the switch to enable multi attribute login.
+4. Add attribute URIs for attributes that users are allowed to use as login identifiers.
 5. Click **Update** to save the changes.
 
 ![adding-attributes-for-multi-attribute-login]({{base_path}}/assets/img/guides/users/adding-attributes-for-multi-attribute-login.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -61,6 +61,8 @@ Here are a few examples of regex patterns.
   </tr>
 </table>
 
+!!! note
+    Username regex configuration is already available in the user store configurations. You can update the regex pattern as needed. Refer to [User Store Properties]({{base_path}}/guides/users/user-stores/user-store-properties/) to learn more.
 
 You have now successfully set up {{product_name}} to allow multi-attribute login.
 

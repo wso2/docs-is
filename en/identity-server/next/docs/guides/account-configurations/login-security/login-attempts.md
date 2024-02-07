@@ -10,8 +10,7 @@ To manage login attempts settings, do the following:
 2. Adjust the settings according to your security requirements.
 3. Click **Update** to save the changes.
 
-![Login Attempts Configuration]({{base_path}}/assets/img/guides/account-configurations/login-attempts.png)
-{: width="600" style="display: block; margin: 0 auto;"}
+![Login Attempts Configuration]({{base_path}}/assets/img/guides/account-configurations/login-attempts.png){: width="900" style="display: block; margin: 0;"}
 
 ## Parameters
 
@@ -21,15 +20,15 @@ To manage login attempts settings, do the following:
     <th>Description</th>
   </tr>
   <tr>
-    <td>Number of Consecutive Failed Login Attempts</td>
+    <td><code>Number of Consecutive Failed Login Attempts</code></td>
     <td>The count of consecutive incorrect login attempts before locking the account.</td>
   </tr>
   <tr>
-    <td>Account Lock Duration</td>
+    <td><code>Account Lock Duration</code></td>
     <td>The time in minutes an account stays locked after reaching the failed attempt limit.</td>
   </tr>
   <tr>
-    <td>Account Lock Duration Increment Factor</td>
+    <td><code>Account Lock Duration Increment Factor</code></td>
     <td>The rate at which the lock duration increases after successive lockouts.</td>
   </tr>
 </table>

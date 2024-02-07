@@ -11,7 +11,7 @@ To set up admin initiated password reset, follow these instructions:
 2. Check the option to **Enable password reset via recovery email** if you want users to reset their password through a recovery link sent via email.
 3. Click **Update** to save the changes.
 
-![Admin Initiated Password Reset Configuration]({{base_path}}/assets/img/guides/account-configurations/admin-initiated-password-reset.png)
+![Admin Initiated Password Reset Configuration]({{base_path}}/assets/img/guides/account-configurations/admin-initiated-password-reset.png){: width="600" style="display: block; margin: 0;"}
 
 ## Parameters
 
@@ -21,7 +21,7 @@ To set up admin initiated password reset, follow these instructions:
     <th>Description</th>
   </tr>
   <tr>
-    <td>Enable Password Reset via Recovery Email</td>
+    <td><code>Enable Password Reset via Recovery Email</code></td>
     <td>When enabled, allows users to reset their password through a link sent to their email.</td>
   </tr>
 </table>
