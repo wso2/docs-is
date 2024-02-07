@@ -123,9 +123,6 @@ paths:
         This API provides the capability to create new channel verified tenants.
 
         <b>Scope(Permission) required:</b> `internal_list_tenants`
-
-        <b> cURL</b>
-        curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "domain":"lanka.com", "purpose":"Personal", "code":"2d962a0b-9280-4394-8652-0137a25d9bac", "owners":[ { "username":"lanka@wso2.com", "email":"lanka@wso2.com","password":"Pass#word2", "firstname":"Lanka", "lastname":"Jaya", "provisioningMethod":"verified-lite-user", "additionalClaims":[ { "claim":"http://wso2.org/claims/telephone", "value":"+94 562 8723" } ] } ] }' "https://localhost:9443/api/server/v1/channel-verified-tenants"
       requestBody:
         content:
           application/json:
@@ -167,7 +164,7 @@ paths:
               "attributes": [
                 {
                   "key": "Organization Name",
-                  "value": "Asgardio"
+                  "value": "WSO2"
                 }
               ]
             },
@@ -748,7 +745,7 @@ components:
           description: Name of the organization.
         value:
           type: string
-          example: "Asgardio"
+          example: "WSO2"
           description: Name of the organization.
 
     Purpose:
