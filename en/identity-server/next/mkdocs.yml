@@ -30,9 +30,9 @@ plugins:
   - redirects:
       redirect_maps:
         'get-started/sample-use-cases/set-up.md': 'get-started/quick-set-up.md'
-        'guides/before-you-start.md': 'guides.md'
-        'guides/authentication-overview/.md': 'guides/authentication/index.md'
-        'guides/login/login-overview.md': 'guides/authentication/add-login-to-app.md'
+        'guides/before-you-start.md': 'guides/index.md'
+        'guides/authentication-overview.md': 'guides/authentication/index.md'
+        'guides/login/login-overview.md': 'guides/authentication/add-login-to-apps.md'
         'guides/login/webapp-oidc.md': 'guides/authentication/add-login-to-web-app.md'
         'guides/login/webapp-saml.md': 'guides/authentication/add-login-to-web-app.md'
         'guides/login/webapp-ws-federation.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
