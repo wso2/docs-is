@@ -683,8 +683,9 @@ nav:
         - Account recovery API: apis/use-the-account-recovery-rest-apis.md
         - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
         - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
-        - User Account Association API: apis/association-rest-api.md
+        - Offline user onboard management API: apis/offline-user-onboard-mgt-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
+        - User Account Association API: apis/association-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
