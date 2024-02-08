@@ -6,7 +6,7 @@ Given below are the various transport-level security configurations that are req
 
 Follow the instructions given below to configure SSL/TLS protocols in the WSO2 Identity Server.
 
-1. You can configure multiple TLS versions or a single TLS version according to your preference. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. Note that the list of protocols needs to be seperated by `+` sign.
+1. You can configure multiple TLS versions or a single TLS version by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. Note that the list of protocols needs to be seperated by `+` sign.
 
     ```toml
     [transport.https.sslHostConfig.properties]
