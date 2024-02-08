@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: 'Consent Management Rest API'
   description: |
-    This document specifies a **Consent Management RESTfulAPI** for WSO2 Identity Server.
+    This document specifies a **Consent Management RESTfulAPI** for **WSO2 Identity Server**.
   version: 1.0.0
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/identity/consent-mgt/v1.0
@@ -20,6 +20,8 @@ paths:
         List consents
       description: |
         This API is used to list consent elements based on the filtered attributes.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: limit
         in: query
@@ -100,6 +102,8 @@ paths:
         Add consent
       description: |
         This API is used to store consent information given by the user.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: This represents the consent element that needs to be stored.
         content:
@@ -204,6 +208,8 @@ paths:
         Retrieve a consent receipt
       description: |
         This API is used to retrieve consent using the consent receipt ID.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: receiptId
         in: path
@@ -261,6 +267,8 @@ paths:
         Revoke consent
       description: |
         This API is used to revoke consent.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: receiptId
         in: path
@@ -316,6 +324,8 @@ paths:
         Retrieve all purposes
       description: |
         This API is used to retrieve all purposes.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: group
         in: query
@@ -387,6 +397,8 @@ paths:
         Add purpose
       description: |
         This API is used to add a new purpose for consent management.
+        
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_add`
       requestBody:
         description: This represents the purpose element that needs to be stored.
         content:
@@ -464,6 +476,8 @@ paths:
         Retrieve a purpose
       description: |
         This API is used to retrieve a specific purpose using the purpose ID.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: purposeId
         in: path
@@ -521,6 +535,8 @@ paths:
         Delete a purpose
       description: |
         This API is used to delete a purpose.
+        
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_delete`
       parameters:
       - name: purposeId
         in: path
@@ -576,6 +592,8 @@ paths:
         Retrieve all purpose categories
       description: |
         This API is used to retrieve all purpose categories.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: limit
         in: query
@@ -637,6 +655,8 @@ paths:
         Add purpose category
       description: |
         This API is used to add a new purpose category for consent management.
+        
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_add`
       requestBody:
         description: This represents the purpose category name.
         content:
@@ -706,6 +726,8 @@ paths:
         Retrieve a purpose category
       description: |
         This API is used to retrieve a purpose category using the purpose category ID.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: purposeCategoryId
         in: path
@@ -763,6 +785,8 @@ paths:
         Delete purpose category
       description: |
         This API is used to delete a purpose category.
+        
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_delete`
       parameters:
       - name: purposeCategoryId
         in: path
@@ -818,6 +842,8 @@ paths:
         Retrieve all PII categories
       description: |
         This API is used to retrieve all PII categories.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: limit
         in: query
@@ -879,6 +905,8 @@ paths:
         Add PII category
       description: |
         This API is used to add a new PII category for consent management.
+        
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_add`
       requestBody:
         description: This represents the PII category name.
         content:
@@ -950,6 +978,8 @@ paths:
         Retrieve a PII category
       description: |
         This API is used to retrieve a specific PII category using the PII category ID.
+        
+        <b>Scope(Permission) required:</b> None
       parameters:
       - name: piiCategoryId
         in: path
@@ -1007,6 +1037,8 @@ paths:
         Delete PII category
       description: |
         This API is used to delete a PII category.
+        
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_delete`
       parameters:
       - name: piiCategoryId
         in: path
