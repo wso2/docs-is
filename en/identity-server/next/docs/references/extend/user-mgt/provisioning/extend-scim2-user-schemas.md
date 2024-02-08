@@ -22,7 +22,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
         {
         "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:customAttribute",
         "attributeName":"customAttribute",
-        "dataType":"boolean",
+        "dataType":"string",
         "multiValued":"false",
         "description":"customAttribute",
         "required":"false",
