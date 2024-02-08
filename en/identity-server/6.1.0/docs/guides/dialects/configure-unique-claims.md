@@ -1,21 +1,20 @@
 # Configure unique claims
 
-WSO2 Identity Server can be configured to retain the uniqueness of user claims. This allows you to keep a user claim value as a unique value within all user stores.
+WSO2 Identity Server can be configured to retain the uniqueness of user claims. This allows you to keep a user claim value as a unique value within or across all userstores.
 
 Follow the steps below to configure WSO2 Identity Server.
 
 1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder and add the following configurations.
 
     ``` toml
-    [[event_listener]]
-    id = "unique_claim_user_operation_event_listener" 
-    type = "org.wso2.carbon.user.core.listener.UserOperationEventListener"
-    name = "org.wso2.carbon.identity.unique.claim.mgt.listener.UniqueClaimUserOperationEventListener" 
-    order = 2 
+    [identity_mgt.user_claim_update.uniqueness]
     enable = true
+    scope_within_userstore = false # Optional.
     ```
 
-2.  Restart WSO2 identity server and access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) .
+    To keep the uniqueness within a userstore, set `scope_within_userstore` as `true`.
+
+2.  Restart WSO2 Identity Server and access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) .
 
 3.  From the list of claims, select the claim you want to configure to keep it unique.
 
