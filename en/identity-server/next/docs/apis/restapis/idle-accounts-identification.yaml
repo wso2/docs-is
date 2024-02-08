@@ -1,7 +1,13 @@
 openapi: 3.0.0
 info:
-  description: >
+  description: |
     This document specifies an **Idle Accounts Identification RESTful API** for **WSO2 Identity server**.
+    
+    Add the following config to the `deployment.toml` file in `<IS_HOME>/repository/conf/` to track users' last logon time. Idle Accounts Identification API uses this information to identify inactive users.
+    ```
+    [identity_mgt.events.schemes.identityUserMetadataMgtHandler.properties]
+    enable=true
+    ```
   version: "v1"
   title: Idle Accounts Identification API
 
