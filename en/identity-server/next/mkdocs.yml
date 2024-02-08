@@ -697,9 +697,10 @@ nav:
       - Role management API: apis/organization-apis/org-role-mgt.md
       - User management API: apis/organization-apis/org-user-mgt.md
     - End User APIs:
-        - User Account Association API: apis/me-association-rest-api.md
         - FIDO API: apis/fido-rest-api.md
+        - Session management API: apis/session-mgt-by-user-rest-api.md
         - TOTP API: apis/totp-rest-api.md
+        - User account association API: apis/me-association-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
   - References:
     - References: references/index.md
