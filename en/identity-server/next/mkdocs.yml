@@ -500,6 +500,10 @@ nav:
         - Manage Console access: guides/your-is/manage-console-access.md
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
+      - Multitenancy:
+        - Multitenancy: guides/multitenancy/index.md
+        - Manage tenants: guides/multitenancy/manage-tenants.md
+        - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
