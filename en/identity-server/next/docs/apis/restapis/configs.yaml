@@ -1,8 +1,9 @@
 openapi: 3.0.0
 info:
-  version: "1.0.0"
+  version: "v1"
   title: 'Configurations API'
-  description: 'This document specifies a RESTful API for WSO2 Identity Server Configurations'
+  description: |
+    This document specifies a **Server related Configurations RESTful API** for **WSO2 Identity Server**.
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -15,6 +16,8 @@ paths:
       operationId: getConfigs
       description: |
         Retrieve Server Configs
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -57,6 +60,8 @@ paths:
       summary: Patch server configs
       description: |
         Patch Server Configs. Patch operation is supported only for primary attributes (`homeRealmIdentifier`, `idleSessionTimeoutPeriod`, and `rememberMePeriod`)
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
       operationId: patchConfigs
       responses:
         '200':
@@ -112,6 +117,8 @@ paths:
       operationId: getInboundScimConfigs
       description: |
         Retrieve Server Inbound SCIM Configs
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -155,6 +162,8 @@ paths:
       operationId: updateInboundScimConfigs
       description: |
         Update Server Inbound SCIM configs
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
       responses:
         '200':
           description: Successful Response
@@ -206,6 +215,8 @@ paths:
       operationId: listAuthenticators
       description: |
         List available local authenticators of the server
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - $ref: '#/components/parameters/typeQueryParam'
       responses:
@@ -258,6 +269,8 @@ paths:
       operationId: getAuthenticator
       description: |
         By passing in the appropriate authenticator ID, you can retrieve authenticator details
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - name: authenticator-id
           in: path
@@ -307,7 +320,10 @@ paths:
         - CORS
       summary: Retrieve the tenant CORS configuration
       operationId: getCORSConfiguration
-      description: Retrieve the tenant CORS configuration.
+      description: |
+        Retrieve the tenant CORS configuration.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -444,7 +460,10 @@ paths:
         - Private Key JWY validation Authenticators
       summary: Patch the tenant private key jwt authentication configuration
       operationId: patchPrivatKeyJWTValidationConfiguration
-      description: Patch the tenant private key jwt authentication configuration.  A JSONPatch as defined by RFC 6902.
+      description: |
+        Patch the tenant private key jwt authentication configuration.  A JSONPatch as defined by RFC 6902.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
       requestBody:
         content:
           application/json:
@@ -497,7 +516,10 @@ paths:
         - Home Realm Identifiers
       summary: Retrieve the Home Realm Identifiers.
       operationId: getHomeRealmIdentifiers
-      description: Retrieve the Home Realm Identifiers.
+      description: |
+        Retrieve the Home Realm Identifiers.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -542,6 +564,8 @@ paths:
       operationId: getSchemas
       description: |
         Retrieve Schemas supported by Server.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -589,6 +613,8 @@ paths:
       operationId: getSchema
       description: |
         By passing in the appropriate schema ID, you can retrieve attributes of a schema supported by the Server.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - name: schema-id
           in: path
@@ -640,6 +666,8 @@ paths:
       operationId: getRemoteLoggingConfigs
       description: |
         Retrieve Remote Logging Configurations
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -685,6 +713,8 @@ paths:
       operationId: updateRemoteLoggingConfigs
       description: |
         Update Remote Logging Configuration
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
       responses:
         '202':
           description: Accepted
@@ -746,8 +776,10 @@ paths:
       summary: |
         Restore Server Remote Logging Configuration to defaults
       operationId: restoreServerRemoteLoggingConfigurations
-      description: >
-        Restore Remote Logging Configuration to Default Configuration
+      description: |
+        Restore Remote Logging Configuration to Default Configuration.
+        
+        <b>Scope(Permission) required:</b> `internal_config_delete`
       responses:
         '204':
           description: Delete successful
@@ -787,7 +819,9 @@ paths:
       summary: Retrieve Remote Logging Configuration by log type
       operationId: getRemoteLoggingConfig
       description: |
-        Retrieve Remote Logging Configurations by log type
+        Retrieve Remote Logging Configurations by log type.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - name: log-type
           in: path
@@ -837,7 +871,9 @@ paths:
       summary: Update Remote Logging Configuration by log type
       operationId: updateRemoteLoggingConfig
       description: |
-        Update Remote Logging Configuration by log type
+        Update Remote Logging Configuration by log type.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
       parameters:
         - name: log-type
           in: path
@@ -901,8 +937,10 @@ paths:
       summary: |
         Restore Server Remote Logging Configuration to defaults
       operationId: restoreServerRemoteLoggingConfiguration
-      description: >
+      description: |
         Restore Remote Logging Configuration of a specific log type to default configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_config_delete`
       parameters:
         - name: log-type
           in: path
@@ -949,6 +987,8 @@ paths:
       summary: Retrieve SAML2 inbound authentication configurations
       description: |
         Retrieve server SAML2 inbound authentication configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getSAMLInboundAuthConfig
       responses:
         '200':
@@ -992,6 +1032,8 @@ paths:
       summary: Update SAML2 inbound authentication configurations
       description: |
         Patch server SAML2 inbound authentication configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
       operationId: updateSAMLInboundAuthConfig
       requestBody:
         content:
@@ -1045,6 +1087,8 @@ paths:
       summary: Retrieve WS Federation (Passive STS) inbound authentication configurations
       description: |
         Retrieve WS Federation (Passive STS) inbound authentication configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getPassiveSTSInboundAuthConfig
       responses:
         '200':
@@ -1088,6 +1132,8 @@ paths:
       summary: Update WS Federation (Passive STS) inbound authentication configurations
       description: |
         Patch WS Federation (Passive STS) inbound authentication configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
       operationId: updatePassiveSTSInboundAuthConfig
       requestBody:
         content:
