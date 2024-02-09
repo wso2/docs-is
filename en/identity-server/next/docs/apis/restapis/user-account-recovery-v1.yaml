@@ -3,7 +3,7 @@ info:
   version: "v1"
   title: User Account Recovery API
   description: |
-    This document specifies **User initiated Username and Password Recovery related RESTfull API** for **WSO2 Identity Server**. <br>
+    This document specifies **User initiated Username and Password Recovery related RESTful API** for **WSO2 Identity Server**. <br>
 
     User Account Recovery v1 API is disabled by default, and it is **recommended to migrate to the [User Account Recovery v2 API](../user-account-recovery-v2-rest-api)**.
 

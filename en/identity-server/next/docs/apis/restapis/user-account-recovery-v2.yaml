@@ -3,7 +3,7 @@ info:
   version: "v2"
   title: User Account Recovery API
   description: >
-    This document specifies **User initiated Username and Password Recovery related RESTfull API** for **WSO2 Identity Server**.
+    This document specifies **User initiated Username and Password Recovery related RESTful API** for **WSO2 Identity Server**.
 paths:
   /recovery/username/init:
     post:
