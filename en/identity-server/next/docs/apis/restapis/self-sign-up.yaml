@@ -23,7 +23,10 @@ paths:
       tags:
       - Get User Info
       summary: Export self user information
-      description: This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
+      description: |
+        This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
+        
+        <b>Scope(Permission) required:</b> None
       operationId: getMe
       responses:
         200:
@@ -55,6 +58,8 @@ paths:
         Self register user
       description: |
         This API is used for user self-registration. <br><br> In addition to the basic self-register API, WSO2 provides extensions for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+        
+          <b>Scope(Permission) required:</b> None
       requestBody:
         description: Sends optional property parameters over email based on an email
           template.
@@ -215,6 +220,8 @@ paths:
         Self resend code
       description: |
         This API is used to resend the confirmation code to the authenticated user if it is missing.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: Sends property parameters such as the recovery scenario.
         content:
@@ -273,6 +280,8 @@ paths:
         Self validate code
       description: |
         This API is used to validate the code submitted by the authenticated user in a verification scenario.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: The validation code retrieved for the verification scenario,
           and optional property parameters.
@@ -335,6 +344,8 @@ paths:
         Lite register user
       description: |
         This API is used for lite user self registration.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: Sends optional property parameters over email based on an email
           template.
@@ -410,6 +421,8 @@ paths:
         Validate code
       description: |
         This API is used to validate the code used by self registered users. <br><br> In addition to the basic code validation, WSO2 provides extensions for account confirmation. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/#account-confirmation">account confirmation</a> process.
+        
+        <b>Scope(Permission) required:</b> `internal_user_code_mgt_create`
       requestBody:
         description: The validation code retrieved after user self registration, and
           optional property parameters.
@@ -483,6 +496,8 @@ paths:
         Introspect code
       description: |
         This API is used to validate the code used by self registered users and retrieve the details.
+        
+        <b>Scope(Permission) required:</b> `internal_user_code_mgt_view`
       requestBody:
         description: The validation code retrieved after user self registration, and
           optional property parameters.
@@ -546,6 +561,8 @@ paths:
         Validate username
       description: |
         This API is used to check whether a given username is available for self registration.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: Username for validation.
         content:
@@ -604,6 +621,8 @@ paths:
         Resend code
       description: |
         This API is used to resend the confirmation code if it is missing.
+        
+        <b>Scope(Permission) required:</b> `internal_user_code_mgt_create`
       requestBody:
         description: Sends optional property parameters over email based on an email
           template.
@@ -664,8 +683,11 @@ paths:
       tags:
       - Get User Info
       summary: Search user ID by username
-      description: Returns the user ID of the given username. This ID can be used
+      description: |
+        Returns the user ID of the given username. This ID can be used
         with the /pi-info endpoint.
+        
+        <b>Scope(Permission) required:</b> `internal_pi_info_view`
       operationId: searchUserByName
       parameters:
       - name: username
@@ -705,7 +727,10 @@ paths:
       tags:
       - Get User Info
       summary: Export user information by ID
-      description: This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
+      description: |
+        This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
+        
+        <b>Scope(Permission) required:</b> `internal_pi_info_view`
       operationId: getUserById
       parameters:
       - name: userId
