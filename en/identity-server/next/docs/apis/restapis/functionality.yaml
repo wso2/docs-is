@@ -19,10 +19,7 @@ paths:
       description: |
         Get the status of a functionality for the authenticated user. <br>
 
-        <b>Permission required:</b> none <br>
-
-        <b>Scope required:</b> `internal_login` <br>
-
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getLockStatusOfLoggedInUser
       parameters:
         - name: function-id
@@ -75,10 +72,7 @@ paths:
       description: |
         This API is used to lock or unlock a function for the authenticated user. <br>
 
-        <b>Permission required:</b> none <br>
-
-        <b>Scope required:</b> `internal_login`
-
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - name: function-id
           in: path
@@ -144,10 +138,7 @@ paths:
       description: |
         Get the status of a functionality for a particular user.
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/identitymgt/view` <br>
-
-        <b>Scope required:</b> `internal_identity_mgt_view`
-
+        <b>Scope(Permission) required:</b> `internal_user_fucntionality_view`
       operationId: getLockStatus
       parameters:
         - name: function-id
@@ -206,10 +197,7 @@ paths:
       description: |
         This API is used to lock or unlock a function for a particular user. <br>
 
-        <b>Permission required:</b> `/permission/admin/manage/identity/identitymgt/update` <br>
-
-        <b>Scope required:</b> `internal_identity_mgt_update`
-
+        <b>Scope(Permission) required:</b> `internal_user_fucntionality_create`
       parameters:
         - name: function-id
           in: path
