@@ -138,60 +138,29 @@ Configurations related to SMS providers are located under the **Email & SMS** se
       <tr>
         <td>SMS Provider URL</td>
         <td>URL of the SMS gateway where the payload should be published.</td>
-        <td><code>YourProviderURL</code></td>
-      </tr>
-      <tr>
-        <td>SMS Provider Auth Key</td>
-        <td>Authorization key if required.</td>
-        <td><code>abcdefghijklmnopqrstuvwxyz</code></td>
-      </tr>
-      <tr>
-        <td>SMS Provider Auth Secret</td>
-        <td>Authorization secret if required.</td>
-        <td><code>qwer1234asdfzxcv</code></td>
-      </tr>
-      <tr>
-        <td>Sender</td>
-        <td>Sender’s identification.</td>
-        <td><code>+1098765432</code></td>
+        <td><code>https://api.example.com/api/v1</code></td>
       </tr>
       <tr>
         <td>Content Type</td>
-        <td>Content type of the payload.</td>
+        <td>Content type of the payload. Possible values are <code>JSON</code> or <code>FORM</code> (Optional).</td>
         <td><code>JSON</code></td>
       </tr>
       <tr>
         <td>HTTP Method</td>
-        <td>HTTP method that should be used when publishing the payload to the provider URL.</td>
+        <td>HTTP method that should be used when publishing the payload to the provider URL. Possible values: <code>PUT</code>, <code>POST</code> (Optional). </td>
         <td><code>POST</code></td>
       </tr>
       <tr>
-        <td>Payload</td>
-        <td>Optional static payload that needs to be added.</td>
-        <td><code>{"smsBody": "Your OTP is: 123456"}</code></td>
+        <td>Payload Template</td>
+        <td>How the payload template should be. </br>Placeholders: </br><code>{{body}}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>{{mobile}}</code> - Number that this sms should be sent to.</td>
+        <td>Example JSON payload template: </br><code>{“content”: {{body}},“to”: {{mobile}}}}</code></br></br>(<code>{{mobile}}</code> and <code>{{body}}</code> will be replaced with the corresponding values at the runtime.)</td>
       </tr>
       <tr>
         <td>Headers</td>
-        <td>Custom static headers needed to be passed.</td>
-        <td><code>{"Authorization": "Bearer YourAuthToken"}</code></td>
+        <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
+        <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
       </tr>
     </table>
-
-    Example Payload Structure:
-    ```json
-    {
-      "toNumber": "+1234567890",
-      "fromNumber": "+1098765432",
-      "smsBody": "Your OTP will be: 123456",
-      "smsMetadata": {
-        "key": "abcdefghijklmnop",
-        "secret": "qwer1234asdfzxcv",
-        "sender": "+1098765432",
-        "contentType": "JSON",
-        "tenantDomain": "my-organisation"
-      }
-    }
-    ```
 
 ## Enable SMS OTP for an app
 
