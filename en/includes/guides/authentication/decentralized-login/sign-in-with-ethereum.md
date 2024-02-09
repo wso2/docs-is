@@ -139,10 +139,6 @@ Follow the steps given below.
 
     ![Sign-In With Ethereum request signing]({{base_path}}/assets/img/guides/idp/siwe-idp/siwe-request-signing.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
-## Add groups to the connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
-
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.

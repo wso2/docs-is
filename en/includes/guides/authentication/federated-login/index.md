@@ -1,0 +1,80 @@
+# Add federated login
+
+{{product_name}} lets you add and configure external Identity Providers (IdP) so that users can bring their identities in these external IdPs and log in to applications. Follow the guides below to learn how you can integrate the external IdP of your choice with {{product_name}}.
+
+## Create a connection
+
+You can register an external IdP in {{product_name}} by creating a connection. {{product_name}} supports a variety of connections for your convenience. Select your preferred connection and follow the guide to learn how to configure it.
+
+<div class="center-all">
+  <div class="cards-container">
+    <a href="../../../guides/authentication/social-login/add-facebook-login" class="card square">
+      <img src="../../../assets/img/logo/facebook-logo.svg" alt="Facebook" />
+      <span>Facebook</span>
+    </a>
+    <a href="../../../guides/authentication/decentralized-login/add-github-login" class="card square">
+      <img src="../../../assets/img/logo/github-logo.svg" alt="Github" />
+      <span>Github</span>
+    </a>
+    <a href="../../../guides/authentication/social-login/add-google-login" class="card square">
+      <img src="../../../assets/img/logo/google-logo.svg" alt="Google" />
+      <span>Google</span>
+    </a>
+    <a href="{{base_path}}/guides/authentication/social-login/add-apple-login/" class="card square">
+      <img src="../../../assets/img/logo/apple-logo.svg" alt="Apple" />
+      <span>Apple</span>
+    </a>
+    <a href="../../../guides/authentication/social-login/add-microsoft-login" class="card square">
+      <img src="../../../assets/img/logo/microsoft-logo.svg" alt="Microsoft" />
+      <span>Microsoft</span>
+    </a>
+    <a href="../../../guides/authentication/enterprise-login/add-microsoft-365-login" class="card square">
+      <img src="../../../assets/img/logo/microsoft-logo.svg" alt="Microsoft 365" />
+      <span>Microsoft 365</span>
+    </a>
+    <a href="../../../guides/authentication/enterprise-login/add-iwa-login" class="card square">
+      <img src="../../../assets/img/logo/microsoft-logo.svg" alt="Microsoft IWA" /></br>
+      <span>IWA</span>
+    </a>
+    <a href="{{base_path}}/guides/authentication/social-login/add-x-login/" class="card square">
+      <img src="../../../assets/img/logo/x-logo.svg" alt="X" /></br>
+      <span>X</span>
+    </a>
+    <a href="../../../guides/authentication/standard-based-login/add-oidc-idp-login" class="card square">
+      <img src="../../../assets/img/logo/oidc-logo.svg" alt="OIDC" />
+      <span>OpenID Connect</span>
+    </a>
+    <a href="../../../guides/authentication/standard-based-login/add-saml-idp-login" class="card square">
+      <img src="../../../assets/img/logo/saml-logo.svg" alt="SAML" />
+      <span>SAML</span>
+    </a>
+    <a href="../../../guides/authentication/standard-based-login/add-ws-federation" class="card square">
+      <img src="../../../assets/img/logo/ws-fed.svg" alt="WS-Fed" /></br></br></br>
+      <span>WS-Federation</span>
+    </a>
+    <a href="../../../guides/authentication/decentralized-login/sign-in-with-ethereum" class="card square">
+      <img src="../../../assets/img/logo/ethereum.svg" alt="Ethereum" /></br>
+      <span>Sign-in with Ethereum</span>
+    </a>
+  </div>
+</div>
+
+## Configure JIT provisioning
+
+{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
+
+## Add groups to a connection
+
+{% include "../../fragments/manage-connection/add-groups.md" %}
+
+## Add outbound provisioning
+
+{% include "../../fragments/manage-connection/add-outbound-provisioning.md" %}
+
+## Add connections to federation hub
+
+{% include "../../fragments/manage-connection/federation-hub.md" %}
+
+## Delete a connection
+
+{% include "../../fragments/manage-connection/delete-connection.md" %}

@@ -95,11 +95,6 @@ Let's register the WS-Fed IdP in {{product_name}}.
 
 3. Click **Update** to save your changes.
 
+## Configure user attributes
 
-## Add groups to the connection
-
-{% include "../../fragments/manage-connection/add-groups.md" %}
-
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+{% include "../../fragments/manage-connection/manage-attributes.md" %}

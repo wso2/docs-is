@@ -132,10 +132,8 @@ To provide this login capability, {{ product_name }} uses the standard OpenID Co
 
 ![Add OIDC enterprise login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/oidc-enterprise-login-flow.png){: width="700" style="display: block; margin: 0 auto;"}
 
-## Add groups to the connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
+- To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
 
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+- To learn more about OIDC settings available for the IdP, refer to the [OIDC settings]({{base_path}}/references/idp-settings/oidc-settings-for-idp/) documentation.

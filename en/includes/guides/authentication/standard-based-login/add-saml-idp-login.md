@@ -139,39 +139,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
 
 3. Click **Update** to save your changes.
 
-## Configure user attributes
-
-Configuring attributes for an identity provider involves mapping the attributes available in the external SAML IdP to attributes that are local to {{ product_name }}.
-This is done so that {{ product_name }} can identify the user attributes in the response sent from the external SAML IdP.
-
-1. On the {{ product_name }} Console, click **Connections**.
-2. Select the SAML IdP connection from the list and click **Set up**.
-3. Go to the **Attributes** tab and click **Add IdP Attributes**.
-
-    ![Go to attributes section in SAML IdP]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/go-to-user-attribute-page.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-4. Provide the following values and click **Add Attribute Mapping**.
-
-    ![Map SAML IdP attributes]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/map-saml-idp-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    <table>
-        <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>External IdP Attribute</td>
-            <td>The attribute from the external IdP that should be mapped to the local attribute.</td>
-        </tr>
-        <tr>
-            <td>Maps to</td>
-            <td>The local attribute to which the external IdP attribute is mapped.</td>
-        </tr>
-    </table>
-
-5. Select one of the mapped attributes as the **subject attribute** for your application and click **Update**.
-
-    ![select a subject attribute]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/select-subject-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+{% include "../../fragments/manage-connection/manage-attributes.md" %}
 
     !!! note
         By default, {{ product_name }} uses the subject attribute sent by the external SAML IdP as the subject identifier. To configure a different attribute as the subject, enable the **Find user ID from requests** from the **Settings** tab of the SAML IdP.
@@ -222,15 +190,10 @@ You may want to convert them to the local attribute URI so that the application 
                                         />
     </saml2:SubjectConfirmation>
 </saml2:Subject>
-```  
-## Add groups to the connection
+```
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
+## Configure connection
 
-## Delete a connection
+- To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
 
-{% include "../../fragments/manage-connection/delete-connection.md" %}
-
-## Related links
-- [Configure JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/)
-- [Configure SAML IdP settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/)
+- To learn more about SAML settings available for the IdP, refer to the [SAML settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/) documentation.

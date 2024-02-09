@@ -193,6 +193,14 @@ Follow the steps given below.
 
     ![Login with IWA]({{base_path}}/assets/img/guides/idp/iwa-idp/sign-in-with-iwa.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
+## Configure user attributes
+
+{% include "../../fragments/manage-connection/manage-attributes.md" %}
+
+## Configure connection
+
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
+
 ## Troubleshooting tips
 
 - Use hostnames only (no IP addresses).

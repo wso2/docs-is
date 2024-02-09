@@ -12,7 +12,7 @@
     4. Repeat steps 2 and 3 for all listed applications.
     5. Proceed to delete the connection.
 
-To delete a connection that does not have any applications using it:
+To delete a connection:
 
 1. On the {{ product_name }} Console, go to **Connections**.
 2. Click **Set up** and navigate to the **General** tab.
