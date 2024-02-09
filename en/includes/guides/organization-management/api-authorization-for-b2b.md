@@ -3,7 +3,11 @@
 
 API resources are created and authorized for applications on the organization (root). If the application consuming the API resources is shared with the organization, all application-specific configurations of API resources are inherited by the organization.
 
+{% if product_name == "Asgardeo" %}
 ![The relationship between terms]({{base_path}}/assets/img/guides/api-authorization/b2b-api-authorization.png){: width="700" style="display: block; margin: 0 auto;"}
+{% else %}
+![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-api-authorization.png){: width="700" style="display: block; margin: 0 auto;"}
+{% endif %}
 
 ## Prerequisites
 You need to configure your API resources on the organization (root)
@@ -17,9 +21,12 @@ Organizations have the roles associated with their shared applications. Shared r
 !!! note "Roles of an organization"
     The shared roles in organizations will inherit the permission to role assignments from the organization (root). 
     Users and group assignment to the roles should be done separately for the organization, as the organization does not inherit the users or groups from the organization (root).
-    ![Roles inherited from the organization (root)]({{base_path}}/assets/img/guides/api-authorization/b2b-inherited-roles.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-Organization administrators cannot create new roles, modify name or permissions of the shared roles, or delete the shared roles, but you can assign these roles to your organization users and groups.
+    {% if product_name == "Asgardeo" %}
+    ![Roles inherited from the organization (root)]({{base_path}}/assets/img/guides/api-authorization/b2b-inherited-roles.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    {% else %}
+    ![Roles inherited from the organization (root)]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-inherited-roles.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    {% endif %}
+    Organization administrators cannot create new roles, modify name or permissions of the shared roles, or delete the shared roles, but you can assign these roles to your organization users and groups.
 
 ## Assign organization users to roles
 To assign roles to users of the organization:
@@ -81,7 +88,11 @@ To request scopes for the user:
    2. Go to **Applications** and select your application.
    3. Copy the scopes listed at the end of the **API Authorization** section
 
-      ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/api-authorization/additional-scopes.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+      {% if product_name == "Asgardeo" %}
+      ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/api-authorization/additional-scopes.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+      {% else %}
+      ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/authorization/api-authorization/additional-scopes.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+      {% endif %}
 
     !!! tip
             When you add scopes to the configuration file, add them as comma-separated values.

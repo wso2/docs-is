@@ -278,6 +278,9 @@ plugins:
         'guides/authorization/xacml-engine.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
         'guides/authorization/fine-grained-auth-xacml.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
 
+        # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
+        'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
+
 # Navigation
 nav:
   - Home:
@@ -405,6 +408,7 @@ nav:
           - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
           - Configure a custom connector:  guides/authentication/configure-custom-connector.md
       - Authorization:
+        - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
           - Attribute-based access control: guides/authorization/api-authorization/attribute-based-access-control.md
