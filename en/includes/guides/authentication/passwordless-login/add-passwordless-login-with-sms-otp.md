@@ -123,75 +123,44 @@ Configurations related to SMS providers are located under the **Email & SMS** se
       If you are not using either Twilio or Vonage as the SMS provider, you can configure a custom SMS provider. Custom SMS provider configuration will pass the SMS data to the given URL as an HTTP request.
 
       To configure a custom SMS provider, in the  **SMS Provider** section click the **Custom** tab and fill the required fields.
-
-      <table>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Example</th>
-            </tr>
-            <tr>
-              <td><code>SMS Provider Name</code></td>
-              <td>Display name for the SMS provider.</td>
-              <td><code>MySMSProvider</code></td>
-            </tr>
-            <tr>
-              <td><code>SMS Provider URL</code></td>
-              <td>URL of the SMS gateway where the payload should be published.</td>
-              <td><code>YourProviderURL</code></td>
-            </tr>
-            <tr>
-              <td><code>SMS Provider Auth Key</code></td>
-              <td>Authorization key if required.</td>
-              <td><code>abcdefghijklmnopqrstuvwxyz</code></td>
-            </tr>
-            <tr>
-              <td><code>SMS Provider Auth Secret</code></td>
-              <td>Authorization secret if required.</td>
-              <td><code>qwer1234asdfzxcv</code></td>
-            </tr>
-            <tr>
-              <td><code>Sender</code></td>
-              <td>Sender’s identification.</td>
-              <td><code>+1098765432</code></td>
-            </tr>
-            <tr>
-              <td><code>Content Type</code></td>
-              <td>Content type of the payload.</td>
-              <td><code>JSON</code></td>
-            </tr>
-            <tr>
-              <td><code>HTTP Method</code></td>
-              <td>HTTP method that should be used when publishing the payload to the provider URL.</td>
-              <td><code>POST</code></td>
-            </tr>
-            <tr>
-              <td><code>Payload</code></td>
-              <td>Optional static payload that needs to be added.</td>
-              <td><code>{"smsBody": "Your OTP is: 123456"}</code></td>
-            </tr>
-            <tr>
-              <td><code>Headers</code></td>
-              <td>Custom static headers needed to be passed.</td>
-              <td><code>{"Authorization": "Bearer YourAuthToken"}</code></td>
-            </tr>
-          </table>
       
-          Example Payload Structure:
-          ```json
-          {
-            "toNumber": "+1234567890",
-            "fromNumber": "+1098765432",
-            "smsBody": "Your OTP will be: 123456",
-            "smsMetadata": {
-              "key": "abcdefghijklmnop",
-              "secret": "qwer1234asdfzxcv",
-              "sender": "+1098765432",
-              "contentType": "JSON",
-              "tenantDomain": "my-organisation"
-            }
-          }
-          ```
+      <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>SMS Provider Name</td>
+        <td>Display name for the SMS provider.</td>
+        <td><code>MySMSProvider</code></td>
+      </tr>
+      <tr>
+        <td>SMS Provider URL</td>
+        <td>URL of the SMS gateway where the payload should be published.</td>
+        <td><code>https://api.example.com/api/v1</code></td>
+      </tr>
+      <tr>
+        <td>Content Type</td>
+        <td>Content type of the payload. Possible values are <code>JSON</code> or <code>FORM</code> (Optional).</td>
+        <td><code>JSON</code></td>
+      </tr>
+      <tr>
+        <td>HTTP Method</td>
+        <td>HTTP method that should be used when publishing the payload to the provider URL. Possible values: <code>PUT</code>, <code>POST</code> (Optional). </td>
+        <td><code>POST</code></td>
+      </tr>
+      <tr>
+        <td>Payload Template</td>
+        <td>How the payload template should be. </br>Placeholders: </br><code>{{body}}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>{{mobile}}</code> - Number that this sms should be sent to.</td>
+        <td>Example JSON payload template: </br><code>{“content”: {{body}},“to”: {{mobile}}}}</code></br></br>(<code>{{mobile}}</code> and <code>{{body}}</code> will be replaced with the corresponding values at the runtime.)</td>
+      </tr>
+      <tr>
+        <td>Headers</td>
+        <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
+        <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
+      </tr>
+    </table>
 
 ## Enable SMS OTP Login for Your App
 
