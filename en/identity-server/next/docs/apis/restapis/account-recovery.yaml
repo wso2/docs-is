@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Recovery API
   description: |
-    This document specifies a RESTful API for the WSO2 Identity Server.
+    This document specifies a **Recovery related RESTful API** for **WSO2 Identity Server**.
   version: 0.9.0
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/identity/recovery/v0.9
@@ -24,6 +24,8 @@ paths:
         Send recovery notification
       description: |
         This API is used to send password recovery confirmation over defined channels like email/SMS.
+        
+         <b>Scope(Permission) required:</b> `internal_recovery_create`
       parameters:
       - name: type
         in: query
@@ -77,6 +79,8 @@ paths:
         Update password
       description: |
         This API is used to reset the user password using the confirmation key received through the recovery process. You need to input the `key` and the new `password`.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
       requestBody:
         description: Key, password, and optional metadata properties.
         content:
@@ -120,6 +124,8 @@ paths:
         Validate confirmation code
       description: |
         This API is used to validate confirmation codes sent in account recovery scenarios and self-signup. You need to input the confirmation `code` and recovery `step` as parameters.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
       requestBody:
         description: Code, recovery step, and optional parameters. <br/> For recovery **step**,
           you can use one of the following according to the recovery scenario that you want to validate the code. 
@@ -165,6 +171,8 @@ paths:
         Get challenge question of user
       description: |
         This API is used to initiate password recovery using user challenge questions. The response will be a random challenge question with a confirmation key.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_view`
       parameters:
       - name: username
         in: query
@@ -219,6 +227,8 @@ paths:
         Get challenge questions of user
       description: |
         This API is used to initiate password recovery using user challenge questions at once. The response will be a random challenge question with a confirmation key.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_view`
       parameters:
       - name: username
         in: query
@@ -273,6 +283,8 @@ paths:
         Validate user challenge answer/answers
       description: |
         This is used to validate the user challenge answer. If the user challenge answer is valid, it sends another challenge question to answer until the status becomes `COMPLETE`. If the answer is wrong, the user can retry the answer.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
       requestBody:
         description: User answers verification with the key returned in the previous step.
         content:
@@ -304,7 +316,7 @@ paths:
       x-wso2-response: |
         {"key":"c45d7251-59f1-468d-9844-8a6d7c5fe9d9","question":null,"link":{"rel":"set-password","uri":"/api/identity/recovery/v0.9"}}
       x-codegen-request-body-name: AnswerVerificationRequest
-  /recover-username/:
+  /recover-username:
     post:
       tags:
       - Username Recovery
@@ -313,6 +325,8 @@ paths:
         Recover username
       description: |
         This API can be used to recover a forgotten username.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
       parameters:
       - name: tenant-domain
         in: query
@@ -365,6 +379,8 @@ paths:
         Get supported claims
       description: |
         Return the recovery-supported claims in the given tenant.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_view`
       parameters:
       - name: tenant-domain
         in: query
@@ -405,6 +421,8 @@ paths:
         Get CAPTCHA
       description: |
         Return the reCaptcha information if it's supported for the given tenant.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_view`
       operationId: getCaptcha
       parameters:
       - name: tenant-domain
@@ -455,6 +473,8 @@ paths:
         Verify CAPTCHA
       description: |
         Return true or false after verifying the captcha response.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
       operationId: verifyCaptcha
       parameters:
       - name: tenant-domain

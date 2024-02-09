@@ -2,13 +2,12 @@ openapi: 3.0.0
 info:
   version: "v1"
   title: User Account Recovery API
-  description: >
-    This is the RESTful API for username and password recovery initated by the
-    user. \
+  description: |
+    This document specifies **User initiated Username and Password Recovery related RESTful API** for **WSO2 Identity Server**. <br>
 
-    User Account Recovery v1 API is disabled by default, and it is recommended to migrate to the User Account Recovery v2 API. \
+    User Account Recovery v1 API is disabled by default, and it is **recommended to migrate to the [User Account Recovery v2 API](../user-account-recovery-v2-rest-api)**.
 
-    If you need to enable the v1 API, add the following configuration to the deployment.toml file.
+    If you need to enable the v1 API, add the following configuration to the `deployment.toml` file.
 
       ```
       [identity_mgt.recovery]
@@ -22,14 +21,16 @@ paths:
         - Username Recovery
       summary: Initiate Username Recovery
       operationId: initiateUsernameRecovery
-      description: >
+      description: |
         - This API is used to initiate username recovery by user. The API will
         return available recovery information for username recovery with
         notifications.
 
         - Use the returned __recoveryCode__ and the __channelId__ with
         __username recover api__ to confirm the the username recovery and to
-        recieve recovery notifications via the channel specified by the user.
+        receive recovery notifications via the channel specified by the user.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
       responses:
         '200':
           description: >-
@@ -89,7 +90,7 @@ paths:
         '404':
           description: >-
             No user found for the given set of claims or no recovery channels
-            are availabe for the user.
+            are available for the user.
           content:
             application/json:
               schema:
@@ -155,7 +156,7 @@ paths:
             schema:
               $ref: '#/components/schemas/InitRequest'
         description: >-
-          Request to initate username recovery process. The request should
+          Request to initiate username recovery process. The request should
           contain the claims to identify the user. User claims are `REQUIRED`.
         required: true
   /recovery/username/recover:
@@ -164,11 +165,13 @@ paths:
         - Username Recovery
       summary: Get Recovery Information
       operationId: recoverUsername
-      description: >
+      description: |
         - This API is used to confirm username recovery and send username
         recovery information to the user who matches the recovery code via the
         channel specified by the channel Id.
          - __NOTE__: If the notification channel is __EXTERNAL__, the API will return the username of the user.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
       responses:
         '200':
           description: >-
@@ -291,7 +294,7 @@ paths:
       summary: |
         Initiate password recovery
       operationId: initiatePasswordRecovery
-      description: >
+      description: |
         - This API is used to initiate password recovery by user. The API will
         return recovery information for password recovery with challenge
         questions and password recovery with notifications.
@@ -308,6 +311,8 @@ paths:
 
         - If `password recovery with challenge questions` is not enabled, the
         response will not contain __recoverWithChallengeQuestions__ mode.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
       responses:
         '200':
           description: >-
@@ -360,7 +365,7 @@ paths:
         '404':
           description: >-
             No user found for the given set of claims or no recovery channels
-            are availabe for the user.
+            are available for the user.
           content:
             application/json:
               schema:
@@ -426,7 +431,7 @@ paths:
             schema:
               $ref: '#/components/schemas/InitRequest'
         description: >-
-          Request to initate password recovery process. The request should
+          Request to initiate password recovery process. The request should
           contain the claims to identify the user. User claims are `REQUIRED`.
         required: true
   /recovery/password/recover:
@@ -436,7 +441,7 @@ paths:
       summary: |
         Get Recovery Information
       operationId: recoverPassword
-      description: >
+      description: |
         - This API is used to send recovery information to the user who matches
         the recovery code via the channel specified by the channel Id.
 
@@ -447,6 +452,8 @@ paths:
         API__ to verify the password recovery process.
 
         - The API will return the next API call.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
       responses:
         '200':
           description: >
@@ -601,7 +608,7 @@ paths:
       summary: |
         Resend password recovery confirmation details
       operationId: resendConfirmation
-      description: >
+      description: |
         - This API is used to resend a confirmation code to the user via a user
         preferred channel defined at password recovery.
 
@@ -609,6 +616,8 @@ paths:
         external.
 
         - The API will return the next API calls.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
       responses:
         '200':
           description: >
@@ -747,7 +756,7 @@ paths:
       summary: |
         Confirm password recovery
       operationId: confirmRecovery
-      description: >
+      description: |
         - This API is used to validate the __confirmationCode__ given at
         password recovery.
 
@@ -755,6 +764,8 @@ paths:
         reset the password.
 
         - The API will return the next API call.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
       responses:
         '200':
           description: |
@@ -859,9 +870,11 @@ paths:
       summary: |
         Reset password
       operationId: resetPassword
-      description: >
+      description: |
         This API is used to reset the password of the user who matches the
         resetCode given by the confirmation API.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
       responses:
         '200':
           description: Successful password reset.
@@ -983,7 +996,7 @@ components:
   schemas:
     InitRequest:
       type: object
-      description: Request to initate an account recovery
+      description: Request to initiate an account recovery
       properties:
         claims:
           type: array
@@ -1010,7 +1023,7 @@ components:
         channelId:
           type: string
           description: >-
-            Id of the notification channel that user preferrs to get recovery
+            Id of the notification channel that user prefers to get recovery
             notifications.
           example: '1'
         properties:
@@ -1053,7 +1066,7 @@ components:
       properties:
         resetCode:
           type: string
-          description: resetCode given by the confim API
+          description: resetCode given by the confirm API
         password:
           type: string
           description: New password given by the user
@@ -1299,7 +1312,7 @@ components:
           example: 1234-55678-5668-2345
         channels:
           type: array
-          description: Availabel recovery channels for the user
+          description: Available recovery channels for the user
           items:
             $ref: '#/components/schemas/RecoveryChannel'
     RecoveryChannel:
@@ -1340,7 +1353,7 @@ components:
       properties:
         key:
           type: string
-          description: Unique identifier as the key of the peroperty
+          description: Unique identifier as the key of the property
           example: key
         value:
           type: string

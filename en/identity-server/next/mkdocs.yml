@@ -688,9 +688,10 @@ nav:
            - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
            - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
            - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-        - Account recovery API: apis/use-the-account-recovery-rest-apis.md
-        - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
-        - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
+        - Account recovery APIs:
+          - Account recovery v0.9 API: apis/use-the-account-recovery-rest-apis.md
+          - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
+          - Account recovery v2 API: apis/user-account-recovery-v2-rest-api.md
         - Offline user onboard management API: apis/offline-user-onboard-mgt-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
         - User Account Association API: apis/association-rest-api.md
