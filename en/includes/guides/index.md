@@ -22,7 +22,6 @@ The administration guides cover the topics related to managing the users in your
 - [Account Configurations]({{base_path}}/guides/account-configurations/)
 - [User Self-Service]({{base_path}}/guides/user-self-service/)
 - [Organizations]({{base_path}}/guides/organization-management/)
-- [Analytics]({{base_path}}/guides/analytics/elk-analytics/)
 
 ## Your {{ product_name }} guide
 

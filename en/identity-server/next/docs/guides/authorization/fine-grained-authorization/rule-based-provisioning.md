@@ -1,4 +1,4 @@
-# Configure Rule-Based Provisioning
+# Configure rule-based provisioning
 
 This page guides you through provisioning users based on defined XACML rules.
 
@@ -6,18 +6,14 @@ To get a better understanding of rule-based provisioning, consider a scenario wh
 
 Follow the steps given below to configure rule-based provisioning in WSO2 Identity Server.
 
----
 ## Sample scenario
 
 Let's assume we need to provision users based on their email domain and restrict the provisioning of users who do not have the email attribute with the permitted domain (`@abc.com`). Let's create a XACML policy to implement this scenario.
 
----
-
-## Setting up the identity server
+## Setting up the {{ product_name }}
 
 ### Prerequisites
 Setup outbound provisioning using the desired outbound provisioning connector ([Google](https://is.docs.wso2.com/en/latest/guides/identity-lifecycles/outbound-provisioning-with-google/), [Salesforce](https://is.docs.wso2.com/en/latest/guides/identity-lifecycles/outbound-provisioning-with-salesforce/) or [SCIM2](https://is.docs.wso2.com/en/latest/guides/identity-lifecycles/outbound-provisioning-with-scim/)).
-
 
 ### Configure the resident service provider
 
@@ -72,7 +68,6 @@ Replace the `<IDP_NAME>` with the name of the outbound provisioning connector yo
 Use the [application API](https://is.docs.wso2.com/en/next/apis/application-rest-api/#tag/Applications/operation/getAllApplications) to find the application ID of your application and replace the `<APPLICATION-ID>` with it.
 
 
----
 ## Set up XACML rules
 
 1. Log in to the Management Console(`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials.
@@ -187,7 +182,6 @@ Use the [application API](https://is.docs.wso2.com/en/next/apis/application-rest
     ![Published policy]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy-published.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
 12. To test out whether the policy works, follow the **Try it** out section.
 
----
 
 ## Try it out
 Once the policies are published to PDP, they are ready to execute during outbound provisioning. You can test rule-based provisioning by creating a user in WSO2 Identity Server that matches the rules you enforced. 

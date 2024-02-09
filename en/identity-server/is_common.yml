@@ -99,8 +99,8 @@ extra:
             url: Guides|Applications|Applications
           - title: Authentication
             url: Guides|Authentication|Authentication
-          - title: API authorization
-            url: Guides|API authorization
+          - title: Authorization
+            url: Guides|Authorization|Authorization
           - title: Branding
             url: Guides|Branding|Branding
           - title: User management
