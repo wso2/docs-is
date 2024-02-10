@@ -26,4 +26,4 @@ The administration guides cover the topics related to managing the users in your
 
 ## Your {{ product_name }} guide
 
-Manage your {{ product_name }} organization and your administration user account. See the topics in the [Your {{ product_name }}]({{base_path}}/guides/{{ myacc_doc_url }}/) section for details.
+Manage your {{ product_name }} organization and your administration user account. See the topics in the [Your {{ product_name }}]({{base_path}}/guides/your-is/) section for details.
