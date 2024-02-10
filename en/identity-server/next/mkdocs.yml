@@ -685,9 +685,12 @@ nav:
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
       - User management:
         - SCIM 2.0 API:
-           - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
+           - SCIM 2.0 User management API: apis/scim2-users-rest-apis.md
+           - SCIM 2.0 Group management API: apis/scim2-groups-rest-apis.md
            - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
+           - SCIM 2.0 Bulk API: apis/scim2-bulk-rest-apis.md
            - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
+           - SCIM 2.0 Service provider configuration API: apis/scim2-sp-config-rest-apis.md
         - Account recovery APIs:
           - Account recovery v0.9 API: apis/use-the-account-recovery-rest-apis.md
           - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
@@ -708,6 +711,7 @@ nav:
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
+        - SCIM 2.0 Me API: apis/scim2-me-rest-apis.md
         - TOTP API: apis/totp-rest-api.md
         - User account association API: apis/me-association-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
