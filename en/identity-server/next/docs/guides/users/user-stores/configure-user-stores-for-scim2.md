@@ -35,4 +35,4 @@ Now suppose you need to add a secondary userstore, OpenLDAP. In this scenario, a
 
 
 !!! info "Related topics"
-    -	You can see the sample cURL commands for all SCIM 2.0 operations [here]({{base_path}}/apis/scim2-rest-apis). 
+    -	You can see the sample cURL commands for SCIM 2.0 user operations [here]({{base_path}}/apis/scim2-users-rest-apis) and SCIM 2.0 group operations [here]({{base_path}}/apis/scim2-groups-rest-apis). 
