@@ -10,7 +10,7 @@ The instructions on this page explain how plain text passwords in configuration 
 
 To encrypt passwords on the WSO2 Identity Server:
 
-1. Add the following `[secrets]` configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
+1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
 
     ```toml
     [secrets]
