@@ -543,7 +543,8 @@ nav:
             - Identity Provider Related Tables: deploy/configure/databases/data-dictionary/identity-provider-related-tables.md
           - Data Purging: deploy/configure/databases/data-purging.md
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
-        - Session Persistence: deploy/configure/session-persistence.md
+        - Session persistence: deploy/configure/session-persistence.md
+        - Email sending module : deploy/configure/email-sending-module.md
       - Secure:
         - Mitigate attacks:
           - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md
@@ -764,7 +765,6 @@ nav:
 
 not_in_nav: |
   /page-not-found.md
-  /deploy/configure-email-sending.md
   /guides/authentication/add-identifier-first-login.md
   /includes/commit-pending.md
   /includes/connection-pool-behavior.md
