@@ -34,7 +34,3 @@ Follow the steps given below to configure role-based provisioning in {{product_n
 
     !!! info
         The user will be removed from the external IdP.
-
-
-
-
