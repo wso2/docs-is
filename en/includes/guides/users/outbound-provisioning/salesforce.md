@@ -1,6 +1,6 @@
-# Configure Outbound Provisioning with Salesforce
+# Configure outbound provisioning with Salesforce
 
-The guide explains how you can provision users to Salesforce at the time a user logs in to an application registered in {{product_name}} with an external Identity Provider (IdP).
+This guide explains how you can provision users to Salesforce at the time a user is onboarded to {{product_name}}.
 
 ## Configure Salesforce for provisioning
 
@@ -98,20 +98,21 @@ Follow the steps below to learn how you can configure Salesforce for provisionin
 
 ## Configure the Salesforce outbound connector
 
-!!! info "Before you begin"
-    Create a connector in {{product_name}} and add it to the sign-in flow of the application. Learn more in [Add federated login]({{base_path}}/authentication/federated-login/#create-a-connection).
-
 To register Salesforce as an outbound provisioning connector,
 
-1. On the {{ product_name }} Console, click **Connections** and select the relevant connection.
+1. On the {{ product_name }} Console, click **Connections** and click **New Connection**.
 
-2. Go to the **Outbound Provisioning** tab of the selected connection.
+2. Click **Create Connection** and select **Custom Connector**.
+
+3. Provide a name and a description for the connector and click **Finish**.
+
+4. Go to the **Outbound Provisioning** tab of the created connection.
 
     ![New outbound connector]({{base_path}}/assets/img/guides/outbound-provisioning/new-outbound-connector.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
-3. Select **New Connector** > **Salesforce** and click **Next**.
+5. Select **New Connector** > **Salesforce** and click **Next**.
 
-4. Enter the following details:
+6. Enter the following details:
 
     <table>
         <tr>
@@ -158,21 +159,22 @@ To register Salesforce as an outbound provisioning connector,
         </tr>
         <tr>
             <td>Password</td>
-            <td>Enable User password provisioning to a Salesforce domain.</td>
+            <td>Enable user password provisioning to a Salesforce domain.</td>
         </tr>
         <tr>
             <td>OAuth2 Token Endpoint</td>
-            <td></td>
+            <td>The Salesforce token endpoint.</td>
         </tr>
         <tr>
             <td>Provisioning Pattern</td>
-            <td>Used to build the user ID of the Salesforce domain. Combination of attributes UD (user domain), UN (username), TD (tenant domain), IDP (identity provider) can be used to construct a valid pattern. </br>
-            e.g. <code>{UD,UN,TD,IDP}</td>. </code></td>
+            <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.</br>
+            e.g. <code>{UD,UN,TD,IDP}</code></td>
         </tr>
         <tr>
-            <td>Provisioning Separator</td>
-            <td>The separator of attributes in Salesforce outbound provisioning pattern.</br>
-            e.g. If pattern is {UN,TD} and username: testUser, tenant Domain: testtenant.com, separator:_, Google domain : testmail.com then the privisioining email is testUser_testTenant.com@testmail.com.</td></td>
+            <td>Provisioning Separator </td>
+            <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
+            e.g. <code>-</code>(hyphen).</td>
+            </td>
         </tr>
         <tr>
             <td>Provisioning Domain</td>
@@ -180,11 +182,11 @@ To register Salesforce as an outbound provisioning connector,
         </tr>
     </table>
 
-5. Click **Next**, review the details  and click **Register** to add the connector.
+7. Click **Next**, review the details  and click **Register** to add the connector.
 
-6. Under **Outbound Provisioning**, switch on the toggle corresponding to the created connector to enable outbound provisioning.
+8. Under **Outbound Provisioning**, switch on the toggle corresponding to the created connector to enable outbound provisioning.
 
-    ![New outbound connector]({{base_path}}/assets/img/guides/outbound-provisioning/google/enable-salesforce-connector.png){: width="700" style="border: 0.3px solid lightgrey;"}
+    ![New outbound connector]({{base_path}}/assets/img/guides/outbound-provisioning/salesforce/enable-salesforce-connector.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
-7. Click **Update** to save the changes.
+9. Click **Update** to save the changes.
 

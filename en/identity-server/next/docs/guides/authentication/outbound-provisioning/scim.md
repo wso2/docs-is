@@ -1,1 +1,0 @@
-{% include "../../../../../../includes/guides/authentication/outbound-provisioning/scim.md" %}

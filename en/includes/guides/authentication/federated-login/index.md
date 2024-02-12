@@ -67,10 +67,6 @@ You can register an external IdP in {{product_name}} by creating a connection. {
 
 {% include "../../fragments/manage-connection/add-groups.md" %}
 
-## Add outbound provisioning
-
-{% include "../../fragments/manage-connection/add-outbound-provisioning.md" %}
-
 ## Add connections to federation hub
 
 {% include "../../fragments/manage-connection/federation-hub.md" %}
