@@ -155,7 +155,7 @@ To reset the password:
 
 **Using the API**
 
-You can also use WSO2 Identity Server's [SCIM API]({{base_path}}/apis/scim2-rest-apis/#tag/Users-Endpoint/operation/patchUser) to initiate the admin initiated password recovery flow.
+You can also use WSO2 Identity Server's [SCIM API]({{base_path}}/apis/scim2-users-rest-apis/#tag/Users-Endpoint/operation/patchUser) to initiate the admin initiated password recovery flow.
 
 1. [Get an access token]({{base_path}}/apis/#oauth-based-authentication) with the `internal_user_mgt_update` scope.
 

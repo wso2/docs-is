@@ -214,7 +214,7 @@ To do this you need to [add objectGUID under immutable Attributes](#immutable-at
 
 ## Step 5: Accessing the APIs
 
-Now the basic attribute mapping is done. You can now add a user using the curl commands [here]({{base_path}}/apis/scim2-rest-apis).
+Now the basic attribute mapping is done. You can now add a user using the curl commands [here]({{base_path}}/apis/scim2-users-rest-apis).
 
 In RestClient, the following header parameters must be added and the double quotations must be removed from the message body.
 
