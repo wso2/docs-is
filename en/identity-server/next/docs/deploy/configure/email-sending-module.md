@@ -1,4 +1,4 @@
-# Configure the Email Sending Module
+# Configure the email sending module
 
 This document explains the steps to configure WSO2 Identity Server to send emails during multiple email-related customer identity and access management tasks such as [email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/), email notifications, and account recovery.
 
@@ -20,17 +20,44 @@ Follow the steps given below to enable the email sender globally for all tenants
     enable_authentication= true
     signature = "ABC.com"
     ```
-
-    | Property  | Description   |
-    |-----------|---------------|
-    | `from_address`    | This is the mail address from where you want to send the notification. It can be any working mail address. |
-    | `username`     | Provide the username of the SMTP account. <br/> Username of the mail you have provided in **from_address**.    |
-    | `password` | Provide the password of the SMTP account. <br/> Password of the mail you have provided in **from_address**.     |
-    | `host` | The SMTP server to connect to. |
-    | `port`|This is the SMTP server port to connect to if the connect() method does not explicitly specify one. Defaults to 25. |
-    | `enable_start_tls`    | If true, this enables using the `STARTTLS` command (if enabled before issuing any login commands. Note that an appropriate trust store must be configured so that the client will trust the server's certificate. Defaults to `false`. |
-    | `enable_authentication`    | If true, attempt to authenticate the user using the AUTH command. Defaults to `false`.|
-    | `signature`    | Signature of the sender account. |
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>from_address</code></td>
+        <td>This is the mail address from where you want to send the notification. It can be any working mail address.</td>
+      </tr>
+      <tr>
+        <td><code>username</code></td>
+        <td>Provide the username of the SMTP account. <br/> Username of the mail you have provided in <strong>from_address</strong>.</td>
+      </tr>
+      <tr>
+        <td><code>password</code></td>
+        <td>Provide the password of the SMTP account. <br/> Password of the mail you have provided in <strong>from_address</strong>.</td>
+      </tr>
+      <tr>
+        <td><code>host</code></td>
+        <td>The SMTP server to connect to.</td>
+      </tr>
+      <tr>
+        <td><code>port</code></td>
+        <td>This is the SMTP server port to connect to if the connect() method does not explicitly specify one. Defaults to 25.</td>
+      </tr>
+      <tr>
+        <td><code>enable_start_tls</code></td>
+        <td>If true, this enables using the <code>STARTTLS</code> command (if enabled before issuing any login commands. Note that an appropriate trust store must be configured so that the client will trust the server's certificate. Defaults to <code>false</code>.</td>
+      </tr>
+      <tr>
+        <td><code>enable_authentication</code></td>
+        <td>If true, attempt to authenticate the user using the AUTH command. Defaults to <code>false</code>.</td>
+      </tr>
+      <tr>
+        <td><code>signature</code></td>
+        <td>Signature of the sender account.</td>
+      </tr>
+    </table>
 
     !!! Tip
         For information about the SMTP, see
