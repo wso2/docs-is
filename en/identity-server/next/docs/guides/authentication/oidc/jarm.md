@@ -55,36 +55,9 @@ The parameters used in the authorization request are defined below.
     </tr>
 </table>
 
-## Enable JARM
-
-By default, JARM response modes are not enabled in WSO2 Identity Server. 
-
-To enable JARM, add the following configurations to the `deployment.toml` file of the WSO2 Identity Server:
-
-```toml
-[oauth.jarm]
-jarm_response_jwt_validity = 7200
-
-[[oauth.response_mode]]
-name = "jwt"
-class = "org.wso2.carbon.identity.oauth2.responsemode.provider.jarm.impl.JwtResponseModeProvider"
-
-[[oauth.response_mode]]
-name = "query.jwt"
-class = "org.wso2.carbon.identity.oauth2.responsemode.provider.jarm.impl.QueryJwtResponseModeProvider"
-
-[[oauth.response_mode]]
-name = "fragment.jwt"
-class = "org.wso2.carbon.identity.oauth2.responsemode.provider.jarm.impl.FragmentJwtResponseModeProvider"
-
-[[oauth.response_mode]]
-name = "form_post.jwt"
-class = "org.wso2.carbon.identity.oauth2.responsemode.provider.jarm.impl.FormPostJwtResponseModeProvider"
-```
-
 ## Using JARM
 
-When [JARM is enabled](#enable-jarm), clients can request authorization response parameters along with additional data in JWT format instead of plain text.
+With JARM enabled, clients can request authorization response parameters along with additional data in JWT format instead of plain text.
 
 The specification defines the following response modes, which you can specify using the `response_mode` parameter in the authorization request.
 
@@ -174,4 +147,15 @@ Decoded payload:
   "exp": 1680090502,
   "session_state": "7d8527a6cf0567e2491f18bdfea6e90b149fa2950d92dbb310b54219b733e481.spuEYUBmP_ELeTdKP_e7JA"
 }
+```
+
+## Disable JARM
+
+By default, JARM response modes are enabled in WSO2 Identity Server. 
+
+To disable JARM, add the following configurations to the `deployment.toml` file of the WSO2 Identity Server:
+
+```toml
+[oauth.jarm]
+enable = false
 ```
