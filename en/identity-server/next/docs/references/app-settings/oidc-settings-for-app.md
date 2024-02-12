@@ -18,7 +18,7 @@
     </tr>
     <tr>
       <td>sso-session</td>
-      <td>Binds the access token to the login session. {{product_name}} will issue a new access token for each new login and revoke the token upon logout. Supported with the <b>authorization_code</b> grant type.</td>
+      <td>Binds the access token to the login session. WSO2 Identity Server will issue a new access token for each new login and revoke the token upon logout. Supported with the <b>authorization_code</b> grant type.</td>
     </tr>
     <tr>
       <td>certificate</td>

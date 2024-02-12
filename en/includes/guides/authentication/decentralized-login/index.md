@@ -4,7 +4,7 @@
 
   <div class="cards-container">
     <a href="../../../guides/authentication/decentralized-login/sign-in-with-ethereum" class="card square">
-      <img src="../../../assets/img/logo/ethereum.svg" alt="Ethereum" />
+      <img src="../../../assets/img/logo/ethereum.svg" alt="Ethereum" /></br>
       <span>Sign-in with Ethereum</span>
     </a>
   </div>

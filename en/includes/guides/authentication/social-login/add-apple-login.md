@@ -153,8 +153,6 @@ Now, let's register the Apple IdP in {{ product_name }}.
       </tr>
     </table>  
 
-{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
-
 After creating the Apple identity provider, go to the **Settings** tab and see the list of **scopes** to which Apple has granted permissions.
 
 - **email**: Allows to view the user's email address.
@@ -225,10 +223,6 @@ Follow the steps given below.
     - Apple will prompt you to create an account for the Apple IDP application.
     - A user account is created in the {{ product_name }} Console with the Apple username. Apple will manage this new user account.
 
-## Add groups to the connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
-
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.

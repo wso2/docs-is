@@ -65,7 +65,7 @@ Now, let's register the Github IdP in {{ product_name }}.
 
 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/).
 
-{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
+{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
 
 After the GitHub identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Github has granted permissions.
 
@@ -126,10 +126,6 @@ Follow the steps given below.
 !!! note
     When a user successfully logs in with Github for the first time, a **user** account is created in the {{ product_name }} Console with the Github username. This new user account will be managed by GitHub.
 
-## Add groups to the connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
-
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.

@@ -23,5 +23,9 @@
       <img src="../../../assets/img/logo/apple-logo.svg" alt="Apple" />
       <span>Apple</span>
     </a>
+    <a href="{{base_path}}/guides/authentication/social-login/add-x-login/" class="card square">
+      <img src="../../../assets/img/logo/x-logo.svg" alt="X" /></br>
+      <span>X</span>
+    </a>
   </div>
 </div>

@@ -104,16 +104,7 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
       </tr>
     </table>  
 
-{% if product_name == 'Asgardeo' %}
-!!! note "Attribute syncing for JIT-provisioned users"
-    If a user logs in using an external identity provider with the same email address registered in the local {{product_name}} account, JIT provisioning overrides attributes of the local user account with the attributes received from the external identity provider.
-
-    {{product_name}}, by default, disables this functionality. Learn about JIT provisioning how you can enable it in [configure JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). Learn how you can customize the syncing behavior in [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig).
-{% else %}
-!!! note "A"
-    Example
-{% endif %}
-
+{% include "../../fragments/manage-connection/jit-provisioning.md" %}
 
 
 ## Enable Microsoft 365 login
@@ -170,10 +161,11 @@ Follow the steps given below.
 !!! note
     When a user successfully logs in with Microsoft 365 for the first time, a **user** account is created in the {{ product_name }} Console with the Microsoft 365 username. Microsoft will manage this new user account.
 
-## Add groups to the connection
+## Configure user attributes
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
+{% include "../../fragments/manage-connection/manage-attributes.md" %}
 
-## Delete a connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
+

@@ -69,7 +69,7 @@ Now, let's register the Google IdP in {{ product_name }}.
       </tr>
     </table>
 
-{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
+{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
 
 After the Google identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Google has granted permissions.
 
@@ -129,10 +129,6 @@ Follow the steps given below.
 !!! note
     When a user successfully logs in with Google for the first time, a **user** account is created in the {{ product_name }} Console with the Google username. This new user account will be managed by Google.
 
-## Add groups to the connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
-
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.

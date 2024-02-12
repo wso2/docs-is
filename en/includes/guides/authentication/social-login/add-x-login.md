@@ -66,7 +66,7 @@ Now, let's register the Microsoft IdP in {{product_name}}.
          </tr>
          <tr>
             <td>API Secret</td>
-            <td>The <code>consumer secret</code> generated when registering {{product_name}} in X.
+            <td>The <code>API Key Secret</code> generated when registering {{product_name}} in X.
             <br>
                e.g. <code>771tqnkpcbRyTBSCRQvVud1x8j1uQlCDpNZo3hRG0s4cEtsFky</code></td>
          </tr>
@@ -77,7 +77,7 @@ Now, let's register the Microsoft IdP in {{product_name}}.
        </tr>
        </table>
 
-{% include "../../../guides/fragments/manage-idp/jit-provisioning.md" %}
+{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
 
 ## Enable X login
 
@@ -130,10 +130,10 @@ Follow the steps given below.
 !!! note
     When a user successfully logs in with X for the first time, a **user** account is created in the {{ product_name }} Console with the X username. This new user account will be managed by X.
 
-## Add groups to the connection
+## Configure user attributes
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
+{% include "../../fragments/manage-connection/manage-attributes.md" %}
 
-## Delete a connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.

@@ -339,25 +339,27 @@ nav:
             - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
             - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
           - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
-          - Add social login:
-            - Add social login: guides/authentication/social-login/index.md
-            - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
-            - Add Google login: guides/authentication/social-login/add-google-login.md
-            - Add Github login: guides/authentication/social-login/add-github-login.md
-            - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
-            - Add Apple login: guides/authentication/social-login/add-apple-login.md
-            - Add X login: guides/authentication/social-login/add-x-login.md
-          - Add standard-based login:
-            - Add standard-based login: guides/authentication/standard-based-login/index.md
-            - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
-            - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
-            - Add login with WS-Federation: guides/authentication/standard-based-login/add-ws-federation.md
-          - Add enterprise login:
-            - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
-            - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
-          - Add decentralized login:
-            - Add decentralized login: guides/authentication/decentralized-login/index.md
-            - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+          - Add federated login:
+            - Add federated login: guides/authentication/federated-login/index.md
+            - Add social login:
+              - Add social login: guides/authentication/social-login/index.md
+              - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
+              - Add Google login: guides/authentication/social-login/add-google-login.md
+              - Add Github login: guides/authentication/social-login/add-github-login.md
+              - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
+              - Add Apple login: guides/authentication/social-login/add-apple-login.md
+              - Add X login: guides/authentication/social-login/add-x-login.md
+            - Add standard-based login:
+              - Add standard-based login: guides/authentication/standard-based-login/index.md
+              - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
+              - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
+              - Add login with WS-Federation: guides/authentication/standard-based-login/add-ws-federation.md
+            - Add enterprise login:
+              - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
+              - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
+            - Add decentralized login:
+              - Add decentralized login: guides/authentication/decentralized-login/index.md
+              - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
           - Add application-native authentication: guides/authentication/add-application-native-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
@@ -426,6 +428,12 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
+        - Configure outbound user provisioning:
+            - Provision to Google: guides/users/outbound-provisioning/google.md
+            - Provision to Salesforce: guides/users/outbound-provisioning/salesforce.md
+            - Provision to SCIM2 apps: guides/users/outbound-provisioning/scim.md
+            - Role-based provisioning: guides/users/outbound-provisioning/role-based-provisioning.md
+            - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
