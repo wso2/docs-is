@@ -965,36 +965,3 @@ Contains the authentication step information. It may be a null or invalid step n
       <td>This is the device property that is extracted from the raw userAgent string.</td>
     </tr>
   </table>
-
-
-### ConnectionMetadata
-
-It contains the necessary metadata for invoking the API when calling the callChoreo function.
-
-<table>
-  <tr>
-    <td><code>connectionMetadata.url</code></td>
-    <td>URL of the Choreo hosted API.</td>
-  </tr>
-  <tr>
-    <td><code>connectionMetadata.consumerKey</code></td>
-    <td>The consumer key of the Choreo application.</td>
-  </tr>
-  <tr>
-    <td><code>connectionMetadata.consumerSecret</code></td>
-    <td>The consumer secret of the Choreo application.</td>
-  </tr>
-</table>
-
-If the consumer key and the consumer secret are added as secrets, they should be included in the ConnectionMetadata as aliases, as shown below.
-
-<table>
-  <tr>
-    <td><code>connectionMetadata.consumerKeyAlias</code></td>
-    <td>The name of the secret that stores the consumer key.</td>
-  </tr>
-  <tr>
-    <td><code>connectionMetadata.consumerSecretAlias</code></td>
-    <td>The name of the secret that stores the consumer secret.</td>
-  </tr>
-</table>

@@ -22,6 +22,8 @@ There are two ways to add a conditional authentication script:
 - Use a [predefined template]({{base_path}}/guides/authentication/conditional-auth/#script-templates).
 - Write a [new conditional auth script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 
+{% if product_name == 'Asgardeo' %}
+
 ## Add a secret to the script
 Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process. You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for conditional authentication.
 
@@ -48,9 +50,9 @@ To add a new secret:
 
     ---
 
-2. Click **Create new secret** from the drop-down menu.
+4. Click **Create new secret** from the drop-down menu.
 
-3. Enter the following details:
+5. Enter the following details:
 
     ![Create secret in {{ product_name }}]({{base_path}}/assets/img/guides/secret/create-a-secret.png){: width="450" style="display: block; margin: 0 auto;"}
 
@@ -73,7 +75,7 @@ To add a new secret:
         </tr>
     </table>
 
-4. Click **Finish** to complete the creation.
+6. Click **Finish** to complete the creation.
 
 ### Delete an existing secret
 
@@ -101,3 +103,5 @@ To delete an existing secret:
 4. Click the trash icon next to the secret you wish to delete.
 
 5. Select the checkbox and confirm your action.
+
+{% endif %}
