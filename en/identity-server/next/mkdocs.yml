@@ -664,6 +664,7 @@ nav:
         - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
         - Script Library management API: apis/script-library-rest-api.md
       - Authentication API: apis/use-the-authentication-rest-apis.md
+      - Authenticators API: apis/authenticators-rest-api.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
       - Entitlement management API: apis/entitlement-with-rest-apis.md
