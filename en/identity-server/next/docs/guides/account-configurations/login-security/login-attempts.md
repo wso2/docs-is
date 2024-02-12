@@ -32,3 +32,30 @@ To manage login attempts settings, do the following:
     <td>The rate at which the lock duration increases after successive lockouts.</td>
   </tr>
 </table>
+
+!!! Info
+    - In the {{product_name}} login pages, a generic error message is displayed by default to end-users in the event of login failures. To show more specific error messages on the login page, the following properties can be configured in the `deployment.toml` file, which is located in the `<IS_HOME>/repository/conf` directory.
+
+    Basic authenticator configurations:
+
+    ```toml
+        [authentication.authenticator.basic.parameters]
+        showAuthFailureReason = true
+        showAuthFailureReasonOnLoginPage = true
+    ```
+
+    Email OTP authenticator configurations:
+
+    ```toml
+        [authentication.authenticator.email_otp.parameters]
+        showAuthFailureReason = true
+        showAuthFailureReasonOnLoginPage = true
+    ```
+
+    TOTP authenticator configurations:
+
+    ```toml
+        [authentication.authenticator.totp.parameters]
+        showAuthFailureReason = true
+        showAuthFailureReasonOnLoginPage = true
+    ```

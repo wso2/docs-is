@@ -278,6 +278,10 @@ plugins:
         'guides/authorization/xacml-engine.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
         'guides/authorization/fine-grained-auth-xacml.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
 
+        'references/extend/errors/customize-authentication-error-messages.md': 'guides/account-configurations/login-security/login-attempts.md'
+        'references/extend/errors/error-codes-and-descriptions.md': 'references/troubleshoot/error-codes.md'
+        'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
+
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
 
