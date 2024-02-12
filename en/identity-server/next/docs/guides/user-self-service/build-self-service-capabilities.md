@@ -18,9 +18,9 @@ You can use the following {{ product_name }} APIs to enable self-service capabil
 
 - SCIM/Me Endpoint
 
-    - [List user details]({{base_path}}/apis/scim2-rest-apis/#tag/Me-Endpoint/paths/~1Me/get/)
-    - [Update user profile]({{base_path}}/apis/scim2-rest-apis/#tag/Me-Endpoint/operation/patchUserMe/)
-    - [Update user password]({{base_path}}/apis/scim2-rest-apis/#tag/Me-Endpoint/operation/patchUserMe/)
+    - [List user details]({{base_path}}/apis/scim2-me-rest-apis/#tag/Me-Endpoint/paths/~1Me/get)
+    - [Update user profile]({{base_path}}/apis/scim2-me-rest-apis/#tag/Me-Endpoint/operation/patchUserMe)
+    - [Update user password]({{base_path}}/apis/scim2-me-rest-apis/#tag/Me-Endpoint/operation/patchUserMe)
 
         !!! note
             To update the password of a user, update the `value` parameter of the API payload as follows:
