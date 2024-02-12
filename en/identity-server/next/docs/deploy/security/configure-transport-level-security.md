@@ -2,19 +2,18 @@
 
 Given below are the various transport-level security configurations that are required for the WSO2 Identity Server.
 
-## Enabling SSL protocols in the WSO2 IS
+## Configuring SSL/TLS protocols in the WSO2 IS
 
-Follow the instructions given below to enable SSL protocols in the WSO2 Identity Server.
+Follow the instructions given below to configure SSL/TLS protocols in the WSO2 Identity Server.
 
-1. Add the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
+1. You can configure multiple TLS versions or a single TLS version by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. Note that the list of protocols needs to be seperated by `+` sign.
 
     ```toml
     [transport.https.sslHostConfig.properties]
-    protocols="+TLSv1, +TLSv1.1, +TLSv1.2, +TLSv1.3"
+    protocols="TLSv1+TLSv1.1+TLSv1.2+TLSv1.3"
     ```
 
-    You can configure multiple TLS versions or a single TLS version according to your preference.
-    To achieve high security, use the latest TLS version by removing `+TLSv1`, `+TLSv1.1`, and `+TLSv1.2` from the `protocols` property of the configuration.
+    To achieve higher level of security, use only the latest TLS version by removing `TLSv1`, `TLSv1.1`, and `TLSv1.2` from the `protocols` property of the configuration.
 
 2. Restart the server.
 
