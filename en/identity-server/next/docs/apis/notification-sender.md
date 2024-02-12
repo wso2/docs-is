@@ -8,7 +8,7 @@ The following section provides the instructions to contruct requests for each no
 
     * The email notification sender configuration is not supported for carbon.super tenant via this API.
 
-        Refer [email sending module configuration]({{base_path}}/configure/email-sending-module/) to setup email notification sender for carbon.super tenant.
+        Refer [email sending module configuration]({{base_path}}/deploy/configure/email-sending-module/) to setup email notification sender for carbon.super tenant.
         Underlying, the event publishers in `IS_HOME/repository/deployment/server/eventpublishers` will send the notifications.
         For more information on writing an event publisher, see [Event Publisher Types](https://wso2docs.atlassian.net/wiki/spaces/DAS300/pages/52462033/Event+Publisher+Types).
 
