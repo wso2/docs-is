@@ -1,6 +1,6 @@
 # SCIM2 Patch Operations
 
-Follow the topics given below to understand how **Patch** operations can be used when you invoke the [SCIM2 API]({{base_path}}/apis/scim2-rest-apis/).
+Follow the topics given below to understand how **Patch** operations can be used when you invoke the SCIM2 [User PATCH operation]({{base_path}}/apis/scim2-users-rest-apis/#tag/Users-Endpoint/operation/patchUser), [Group PATCH operation]({{base_path}}/apis/scim2-groups-rest-apis/#tag/Groups-Endpoint/operation/patchGroup), [Role PATCH operation]({{base_path}}/apis/roles-v2-rest-api/#tag/Roles-Endpoint/operation/patchRole) and [Me PATCH operation]({{base_path}}/apis/scim2-me-rest-apis/#tag/Me-Endpoint/operation/patchUserMe).
 
 ## Introduction
 
