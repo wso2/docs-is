@@ -7,7 +7,7 @@
       <img src="../../../assets/img/logo/facebook-logo.svg" alt="Facebook" />
       <span>Facebook</span>
     </a>
-    <a href="../../../guides/authentication/decentralized-login/add-github-login" class="card square">
+    <a href="../../../guides/authentication/social-login/add-github-login" class="card square">
       <img src="../../../assets/img/logo/github-logo.svg" alt="Github" />
       <span>Github</span>
     </a>
