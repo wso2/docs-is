@@ -8,9 +8,9 @@ Follow the steps given below to configure role-based provisioning in {{product_n
 
 1. Follow the guides below to create an outbound connector of your choice.
             <ul>
-                <li><a href="{{base_path}}/guides/authentication/outbound-provisioning/google">Google</a></li>
-                <li><a href="{{base_path}}/guides/authentication/outbound-provisioning/salesforce">Salesforce</a></li>
-                <li><a href="{{base_path}}/guides/authentication/outbound-provisioning/scim">SCIM2</a></li>
+                <li><a href="{{base_path}}/guides/users/outbound-provisioning/google">Google</a></li>
+                <li><a href="{{base_path}}/guides/users/outbound-provisioning/salesforce">Salesforce</a></li>
+                <li><a href="{{base_path}}/guides/users/outbound-provisioning/scim">SCIM2</a></li>
             </ul>
 
 2. In the created connector, go to its **Outbound Provisioning** tab.
