@@ -1,0 +1,198 @@
+openapi: 3.0.1
+info:
+  title: SCIM 2.0 Bulk API
+  description: |
+    This document specifies **Organization level SCIM 2.0 Bulk Resource Management RESTful API** for **WSO2 Identity Server**.
+  version: 1.0.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/o/scim2
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /Bulk:
+    post:
+      tags:
+        - Bulk Endpoint
+      summary: Create, Update, Delete Users and Groups in bulk and update Roles in bulk
+      description: |
+        This API is used to create/update/replace/delete SCIM resources in bulk. You need to specify different operations in the request payload corresponding to the type of bulk update: </br>
+          - **POST** operation: Adds new resources.
+          - **PUT** operation: Replaces an existing resource.
+          - **PATCH** opearation: Updates attribues of an existing resource.
+          - **DELETE** operation: Removes an existing resource.
+        Learn more about [defining batch operations](../scim2-batch-operations).
+
+         <b>Scope(Permission) required:</b> `internal_org_bulk_resource_create`
+      operationId: createBulkUsers
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/BulkUserRequestObject'
+        required: false
+      responses:
+        201:
+          description: Valid user is created
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/BulkUserResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        409:
+          description: Users already exists
+          content: {}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/o/scim2/Bulk' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "failOnErrors": 1,
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+            ],
+            "Operations": [
+              {
+                "method": "POST",
+                "path": "/Users",
+                "bulkId": "ytrewq",
+                "data": {
+                  "schemas": [
+                    "urn:ietf:params:scim:schemas:core:2.0:User"
+                  ],
+                  "username": "jesse",
+                  "password": "jesspass"
+                }
+              }
+            ]
+            }'
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    BulkUserRequestObject:
+      type: object
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:api:messages:2.0:BulkRequest
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkUserOb'
+    BulkUserOb:
+      type: object
+      properties:
+        method:
+          type: string
+          example: POST
+        path:
+          type: string
+          example: /Users
+        bulkId:
+          type: string
+          example: ytrewq
+        data:
+          type: object
+          properties:
+            schemas:
+              type: array
+              items:
+                type: string
+                example: urn:ietf:params:scim:schemas:core:2.0:User
+            username:
+              type: string
+              example: jesse
+            password:
+              type: string
+              example: jesspass
+    BulkUserResponseObject:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:api:messages:2.0:BulkResponse
+        Operations:
+          $ref: '#/components/schemas/OperationObBulk'
+    OperationObBulk:
+      type: object
+      properties:
+        bulkId:
+          type: string
+          example: qwerty
+        method:
+          type: string
+          example: POST
+        location:
+          type: string
+          example: https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1
+        status:
+          type: object
+          properties:
+            code:
+              type: string
+              example: "201"
+    ErrorUnauthorized:
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "401"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: Unauthorized
+    ErrorForbidden:
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "403"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: Forbidden
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes: {}
