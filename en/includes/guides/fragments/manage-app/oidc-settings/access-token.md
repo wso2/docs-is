@@ -33,7 +33,53 @@ Token binding securely links authentication tokens to client devices to prevent 
 
 {{product_name}} offers the following token binding types.
 
-{{token_binding_types}}
+<table>
+  <thead>
+    <th>Binding Type</th>
+    <th>Description</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>none</td>
+      <td>Does not establish any specific binding between the token and the client device. Suitable for scenarios where token binding is not required or implemented separately. This is the default token binding type of any application.
+      </td>
+    </tr>
+    <tr>
+      <td>cookie</td>
+      <td>Binds the token to the cookie named <b>atbv</b> with Secure and httpOnly parameters. Supported with the <b>authorization_code</b> grant type.</td>
+    </tr>
+    <tr>
+      <td>sso-session</td>
+      <td>Binds the access token to the login session. {{product_name}} will issue a new access token for each new login and revoke the token upon logout. Supported with the <b>authorization_code</b> grant type.</td>
+    </tr>
+    <tr>
+      <td>certificate</td>
+      <td>Binds the token to the hash of the TLS certificate passed in the request. Supported with <b>all</b> grant types.</td>
+    </tr>
+    <tr>
+      <td>device-flow</td>
+      <td>Binds the token to the <b>device_code</b> sent in the <b>device_flow</b> grant type token call. </td>
+    </tr>
+    <tr>
+      <td>client-request</td>
+      <td>Binds the token to the instance identifier as requested by the client through the <code>tokenBindingId</code> token request parameter as shown below. </br>
+
+            <p>
+            <code>
+            curl -X POST
+            -u "&lt;client_id&gt;:&lt;client_secret&gt;"</br>
+             -H "Content-Type: application/x-www-form-urlencoded"</br> 
+             -d "grant_type=password&username=&lt;user_name&gt;&password=&lt;user_password&gt;</br>
+            &tokenBindingId=&lt;your_unique_token_binding_id&gt;" </br>
+            {{token_endpoint}}
+            </code>
+            </p>
+
+        </br>
+        Generally for applications that involve multiple instances and use back-channel grant types such as <b>token exchange</b> or <b>password</b>.</td>
+        </tr>
+  </tbody>
+</table>
 
 #### User access token expiry time
 This option specifies the validity period of an access token issued to a user in seconds. The default expiry time is 3600 seconds.
