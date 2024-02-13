@@ -338,11 +338,13 @@ nav:
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
             - Add login with SMS OTP: guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp.md
-          - Enable user attributes:
-            - Enable user attributes: guides/authentication/user-attributes/index.md
-            - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
-            - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
-          - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
+          - Add multi-factor authentication:
+              - Add multi-factor authentication: guides/authentication/mfa/index.md
+              - Add TOTP: guides/authentication/mfa/add-totp-login.md
+              - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
+              - Add Passkey: guides/authentication/mfa/add-passkey-login.md
+              - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
+              - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add federated login:
             - Add federated login: guides/authentication/federated-login/index.md
             - Add social login:
@@ -364,14 +366,14 @@ nav:
             - Add decentralized login:
               - Add decentralized login: guides/authentication/decentralized-login/index.md
               - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+            - Configure a custom connector:  guides/authentication/configure-custom-connector.md
+          - Enable user attributes:
+              - Enable user attributes: guides/authentication/user-attributes/index.md
+              - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
+              - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
+          - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
+          - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
           - Add application-native authentication: guides/authentication/add-application-native-login.md
-          - Add multi-factor authentication:
-            - Add multi-factor authentication: guides/authentication/mfa/index.md
-            - Add TOTP: guides/authentication/mfa/add-totp-login.md
-            - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
-            - Add Passkey: guides/authentication/mfa/add-passkey-login.md
-            - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
-            - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
@@ -393,6 +395,7 @@ nav:
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
+          - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -401,6 +404,7 @@ nav:
             - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
             - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
+            - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
@@ -409,10 +413,6 @@ nav:
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
-          - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
-          - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
-          - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
-          - Configure a custom connector:  guides/authentication/configure-custom-connector.md
       - Authorization:
         - Authorization: guides/authorization/index.md
         - API authorization:
