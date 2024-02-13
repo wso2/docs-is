@@ -365,7 +365,10 @@ paths:
         - CORS
       summary: Patch the tenant CORS configuration.
       operationId: patchCORSConfiguration
-      description: A JSONPatch as defined by RFC 6902.
+      description: |
+        A JSONPatch as defined by RFC 6902.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
       requestBody:
         content:
           application/json:
@@ -418,7 +421,10 @@ paths:
         - Private Key JWY validation Authenticators
       summary: Retrieve the tenant private key jwt authentication configuration
       operationId: getPrivatKeyJWTValidationConfiguration
-      description: Retrieve the tenant private key jwt authentication configuration.
+      description: |
+        Retrieve the tenant private key jwt authentication configuration.
+        
+        <b>Scope(Permission) required:</b> `internal_config_view`
       responses:
         '200':
           description: Successful Response
