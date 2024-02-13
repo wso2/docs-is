@@ -1,14 +1,7 @@
 openapi: 3.0.0
 info:
-  title: WSO2 Identity Server - Organization Discovery Configuration Management API Definition
-  description: This document specifies a **RESTful API** for **WSO2 Identity Server Organization Discovery Configuration Management**
-  contact:
-    name: WSO2
-    url: http://wso2.com/products/identity-server/
-    email: iam-dev@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Organization Discovery Configuration Management API Definition
+  description: This document specifies an **Organization Discovery Configuration Management RESTful API** for **WSO2 Identity Server**
   version: "v1"
 servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'

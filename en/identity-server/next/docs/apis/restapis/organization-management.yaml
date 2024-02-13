@@ -1,17 +1,13 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: 'WSO2 Identity Server - Organization Management API Definition'
-  description: 'This is the RESTful API for organization management in WSO2 Identity Server. This API allows users 
-  to create, update, retrieve and delete organizations. 
-  Other than that the API supports to share the application from the root organization to given organization, get the list of organizations that the application is shared to and delete the shared application from the organizations.'
-  contact:
-    name: WSO2
-    url: 'http://wso2.com/products/identity-server/'
-    email: iam-dev@wso2.org
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  title: 'Organization Management API Definition'
+  description: |
+    This document specifies an **Organization Management RESTful API** for **WSO2 Identity Server**. 
+    
+    This API allows users to create, update, retrieve and delete organizations. 
+    Other than that the API supports to share the application from the root organization to given organization, get the list of organizations that the application is shared to and delete the shared application from the organizations.
+
 servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
     variables:
@@ -209,7 +205,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
+            curl --location 'https://localhost:9443/api/server/v1/organizations/{organization-id}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
@@ -276,7 +272,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PATCH 'https://localhost:9443/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/organizations/{organization-id}' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -350,7 +346,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/organizations/{organization-id}' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -399,281 +395,9 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request DELETE 'https://localhost:9443/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
+            curl --location --request DELETE 'https://localhost:9443/api/server/v1/organizations/{organization-id}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
-  /organizations/discovery:
-    post:
-      tags:
-        - Organization Discovery
-      description: |
-        This API serves the purpose of adding discovery attributes to an organization, with the current restriction that only the primary organization has the capability to perform this action.<br>
-        
-        <b>Scope(Permission) required:</b> `internal_organization_discovery_update`
-      summary:
-        Map discovery attributes to the organization.
-      operationId: organizationDiscoveryPost
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OrganizationDiscoveryPostRequest'
-        description: This represents the organization discovery attributes to be added.
-        required: true
-      responses:
-        '201':
-          description: Successful response
-          headers:
-            Location:
-              description: Location URL to fetch the discovery attributes of the organization.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationDiscoveryAttributes'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/ServerError'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://localhost:9443/api/server/v1/organizations/discovery' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "organizationId": "06c1f4e2-3339-44e4-a825-96585e3653b1",
-              "attributes": [
-                {
-                  "type": "emailDomain",
-                  "values": [
-                    "abc.com"
-                  ]
-                }
-              ]
-            }'
-      x-codegen-request-body-name: body
-    get:
-      tags:
-        - Organization Discovery
-      description: |
-        This API facilitates the retrieval of discovery attributes of organizations in the hierarchy, allowing filtering by discovery attribute type and value. It currently provides the capability to retrieve these attributes from only the primary organization.<br>
-        
-        <b>Scope(Permission) required:</b> `internal_organization_discovery_view`
-      summary:
-        Get discovery attributes of organizations.
-      operationId: organizationsDiscoveryGet
-      parameters:
-        - $ref: '#/components/parameters/filterQueryParam'
-        - $ref: '#/components/parameters/offsetQueryParam'
-        - $ref: '#/components/parameters/limitQueryParam'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationsDiscoveryResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/ServerError'
-        '501':
-          $ref: '#/components/responses/NotImplemented'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://localhost:9443/api/server/v1/organizations/discovery' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
-  /organizations/{organization-id}/discovery:
-    get:
-      tags:
-        - Organization Discovery
-      description: |
-        This API facilitates the retrieval of discovery attributes for an organization. It currently provides the capability to retrieve these attributes only from the primary organization.<br>
-        
-        <b>Scope(Permission) required:</b> `internal_organization_discovery_view`
-      summary:
-        Get discovery attributes of the organization.
-      operationId: organizationDiscoveryGet
-      parameters:
-        - name: organization-id
-          in: path
-          description: ID of the organization whose discovery attributes are to be fetched.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationDiscoveryAttributes'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/ServerError'
-        '501':
-          $ref: '#/components/responses/NotImplemented'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://localhost:9443/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1/discovery' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
-    delete:
-      tags:
-        - Organization Discovery
-      description: |
-        This API serves the purpose of deleting discovery attributes of an organization, with the current restriction that only the primary organization has the capability to perform this action.<br>
-
-        <b>Scope(Permission) required:</b> `internal_organization_discovery_delete`
-      summary:
-        Delete discovery attributes of an organization.
-      parameters:
-        - name: organization-id
-          in: path
-          description: ID of the organization whose discovery attributes are to be deleted.
-          required: true
-          schema:
-            type: string
-      responses:
-        '204':
-          description: Successfully deleted
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/ServerError'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location --request DELETE 'https://localhost:9443/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1/discovery' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
-    put:
-      tags:
-        - Organization Discovery
-      description: |
-        This API serves the purpose of updating discovery attributes of an organization, with the current restriction that only the primary organization has the capability to perform this action.<br>
-        
-        <b>Scope(Permission) required:</b> `internal_organization_discovery_update`
-      summary:
-        Update discovery attributes of an organization.
-      parameters:
-        - name: organization-id
-          in: path
-          description: ID of the organization whose discovery attributes are to be updated.
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OrganizationDiscoveryAttributes'
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationDiscoveryAttributes'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/ServerError'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1/discovery' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-                "attributes": [
-                    {
-                        "type": "emailDomain",
-                        "values": [
-                            "abc.com"
-                        ]
-                    }
-                ]
-            }'
-      x-codegen-request-body-name: body
-  /organizations/check-discovery:
-    post:
-      tags:
-        - Organization Discovery
-      summary: Check whether given discovery attribute exists among the organization hierarchy.
-      description: |
-        This API is used to verify whether a specific discovery attribute has already been associated with an organization within the hierarchy. It is available for use within any organization in the hierarchy.
-        
-        <b>Scope(Permission) required:</b> `internal_organization_discovery_view`
-      operationId: organizationCheckDiscovery
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OrganizationDiscoveryCheckPOSTRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationDiscoveryCheckPOSTResponse'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/ServerError'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://localhost:9443/api/server/v1/organizations/check-discovery' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "type": "emailDomain",
-              "value": "abc.com"
-            }'
-      x-codegen-request-body-name: body
   /organizations/metadata:
     get:
       tags:
@@ -1064,29 +788,6 @@ components:
           type: string
           description: The value to be used within the operations.
           example: 'XYZ Builders'
-    OrganizationDiscoveryPostRequest:
-      type: object
-      required:
-        - organizationId
-        - attributes
-      properties:
-        organizationId:
-          type: string
-          description: The ID of the organization whose discovery attributes are to be added.
-          example: '06c1f4e2-3339-44e4-a825-96585e3653b1'
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DiscoveryAttribute'
-    OrganizationDiscoveryAttributes:
-      type: object
-      required:
-        - attributes
-      properties:
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DiscoveryAttribute'
     DiscoveryAttribute:
       type: object
       required:
@@ -1101,76 +802,6 @@ components:
           items:
             type: string
             example: 'abc.com'
-    OrganizationsDiscoveryResponse:
-      type: object
-      properties:
-        totalResults:
-          type: integer
-          example: 10
-        startIndex:
-          type: integer
-          example: 1
-        count:
-          type: integer
-          example: 10
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-          example:
-            [
-              {
-                "href": "/api/server/v1/organizations/discovery?filter=attributes.type+eq+emailDomain&limit=10&offset=50",
-                "rel": "next",
-              },  {
-              "href": "/api/server/v1/organizations/discovery?filter=attributes.type+eq+emailDomain&limit=10&offset=30",
-              "rel": "previous",
-            }
-            ]
-        organizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationDiscoveryResponse'
-    OrganizationDiscoveryResponse:
-      type: object
-      required:
-        - organizationId
-        - organizationName
-        - attributes
-      properties:
-        organizationId:
-          type: string
-          description: The ID of the organization.
-          example: '06c1f4e2-3339-44e4-a825-96585e3653b1'
-        organizationName:
-          type: string
-          description: The name of the organization.
-          example: 'ABC Builders'
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DiscoveryAttribute'
-    OrganizationDiscoveryCheckPOSTRequest:
-      required:
-        - type
-        - value
-      type: object
-      properties:
-        type:
-          type: string
-          example: 'emailDomain'
-        value:
-          type: string
-          example: 'abc.com'
-    OrganizationDiscoveryCheckPOSTResponse:
-      type: object
-      required:
-        - available
-      properties:
-        available:
-          type: boolean
-          example: true
-
     OrganizationMetadata:
       type: object
       required:
