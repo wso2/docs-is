@@ -17,7 +17,7 @@ paths:
       description: |
         Retrieve Server Configs
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -118,7 +118,7 @@ paths:
       description: |
         Retrieve Server Inbound SCIM Configs
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -216,7 +216,7 @@ paths:
       description: |
         List available local authenticators of the server
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - $ref: '#/components/parameters/typeQueryParam'
       responses:
@@ -270,7 +270,7 @@ paths:
       description: |
         By passing in the appropriate authenticator ID, you can retrieve authenticator details
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - name: authenticator-id
           in: path
@@ -323,7 +323,7 @@ paths:
       description: |
         Retrieve the tenant CORS configuration.
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -365,10 +365,7 @@ paths:
         - CORS
       summary: Patch the tenant CORS configuration.
       operationId: patchCORSConfiguration
-      description: |
-        A JSONPatch as defined by RFC 6902.
-        
-        <b>Scope(Permission) required:</b> `internal_config_update`
+      description: A JSONPatch as defined by RFC 6902.
       requestBody:
         content:
           application/json:
@@ -421,10 +418,7 @@ paths:
         - Private Key JWY validation Authenticators
       summary: Retrieve the tenant private key jwt authentication configuration
       operationId: getPrivatKeyJWTValidationConfiguration
-      description: |
-        Retrieve the tenant private key jwt authentication configuration.
-        
-        <b>Scope(Permission) required:</b> `internal_config_view`
+      description: Retrieve the tenant private key jwt authentication configuration.
       responses:
         '200':
           description: Successful Response
@@ -571,7 +565,7 @@ paths:
       description: |
         Retrieve Schemas supported by Server.
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -620,7 +614,7 @@ paths:
       description: |
         By passing in the appropriate schema ID, you can retrieve attributes of a schema supported by the Server.
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - name: schema-id
           in: path
@@ -673,7 +667,7 @@ paths:
       description: |
         Retrieve Remote Logging Configurations
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -827,7 +821,7 @@ paths:
       description: |
         Retrieve Remote Logging Configurations by log type.
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - name: log-type
           in: path
@@ -994,7 +988,7 @@ paths:
       description: |
         Retrieve server SAML2 inbound authentication configurations.
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getSAMLInboundAuthConfig
       responses:
         '200':
@@ -1094,7 +1088,7 @@ paths:
       description: |
         Retrieve WS Federation (Passive STS) inbound authentication configurations.
         
-        <b>Scope(Permission) required:</b> `internal_config_view`
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getPassiveSTSInboundAuthConfig
       responses:
         '200':
