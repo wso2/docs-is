@@ -724,14 +724,15 @@ nav:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - Application management API: apis/organization-apis/org-application-mgt.md
-      - Group management API: apis/organization-apis/org-group-mgt.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
-      - Role management API: apis/organization-apis/org-role-mgt.md
-      - User management API: apis/organization-apis/org-user-mgt.md
+      - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
+      - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
+      - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
+      - SCIM 2.0 User management API: apis/organization-apis/org-user-mgt.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
