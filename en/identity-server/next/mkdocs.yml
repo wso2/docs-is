@@ -727,6 +727,7 @@ nav:
       - Group management API: apis/organization-apis/org-group-mgt.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
+      - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
       - Role management API: apis/organization-apis/org-role-mgt.md

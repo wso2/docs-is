@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  description: |
+    This document specifies an **Organization level Idle Accounts Identification RESTful API** for **WSO2 Identity server**.
+    
+    Add the following config to the `deployment.toml` file in `<IS_HOME>/repository/conf/` to track users' last logon time. Idle Accounts Identification API uses this information to identify inactive users.
+    ```
+    [identity_mgt.events.schemes.identityUserMetadataMgtHandler.properties]
+    enable=true
+    ```
+  version: "v1"
+  title: Idle Accounts Identification API
+
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/o/api/idle-account-identification/v1'
+    variables:
+      server-url:
+        default: "localhost:9443"
+      tenant-domain:
+        default: "carbon.super"
+
+security:
+  - OAuth2: []
+
+paths:
+  /inactive-users:
+    get:
+      tags:
+        - Get inactive users
+      description: |
+        Get inactive users list for a specified period.
+        
+        <b>Scope(Permission) required:</b> `internal_org_idle_account_list`
+      operationId: getInactiveUsers
+      parameters:
+        - in: query
+          name: inactiveAfter
+          schema:
+            type: string
+          description: Latest active date of login.
+          example: 2023-01-31
+        - in: query
+          name: excludeBefore
+          schema:
+            type: string
+          description: Date to exclude the oldest inactive users.
+          example: 2023-01-01
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/idle-account-identification/v1/inactive-users?inactiveAfter=2023-01-31&excludeBefore=2023-01-01' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: 80001
+        message:
+          type: string
+          example: Some error message
+        description:
+          type: string
+          example: Some error description
+    Unauthorized:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: 401
+        message:
+          type: string
+          example: Unauthorized
+        description:
+          type: string
+          example: You are unauthorized to make this request
+    InactiveUsersList:
+      type: array
+      items:
+        $ref: '#/components/schemas/InactiveUser'
+    InactiveUser:
+      type: object
+      properties:
+        userId:
+          type: string
+        username:
+          type: string
+        userStoreDomain:
+          type: string
+      required:
+        - username
+      example:
+        userId: 3c780e73-9ca6-4e49-811e-8e697df22a91
+        username: JohnDoe
+        userStoreDomain: PRIMARY
+
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    Forbidden:
+      description: Resource Forbidden
+    ServerError:
+      description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid Input Request
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Success:
+      description: Inactive users returned successfully
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/InactiveUsersList'
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
