@@ -201,7 +201,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/o/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
+            curl --location 'https://localhost:9443/o/api/server/v1/organizations/{organization-id}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     patch:
@@ -268,7 +268,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PATCH 'https://localhost:9443/o/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
+            curl --location --request PATCH 'https://localhost:9443/o/api/server/v1/organizations/{organization-id}' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -342,7 +342,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PUT 'https://localhost:9443/o/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
+            curl --location --request PUT 'https://localhost:9443/o/api/server/v1/organizations/{organization-id}' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -391,7 +391,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request DELETE 'https://localhost:9443/o/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
+            curl --location --request DELETE 'https://localhost:9443/o/api/server/v1/organizations/{organization-id}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /organizations/metadata:
