@@ -378,7 +378,6 @@ nav:
               - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
           - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
-          - Add application-native authentication: guides/authentication/add-application-native-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
@@ -401,6 +400,7 @@ nav:
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
+          - Add application-native authentication: guides/authentication/add-application-native-login.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
