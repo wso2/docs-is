@@ -11,7 +11,7 @@ Just like any other application registered in {{product_name}}, you can customiz
 
 To customize login for the Console,
 
-1. Sign in to the Asgardeo Console and click **Console Settings**.
+1. Sign in to the {{product_name}} Console and click **Console Settings**.
 
 2. Go to the **Login Flow** tab and configure the login flow from your preferred editor:
 
@@ -56,7 +56,7 @@ Roles are a collection of permissions. You can create roles and assign users and
 
 To create a role for the Console,
 
-1. Sign in to the Asgardeo Console as an administrator and click **Console Settings**.
+1. Sign in to the {{product_name}} Console as an administrator and click **Console Settings**.
 
 2. Select the **Roles** tab and click **New Role**.
 
@@ -101,7 +101,7 @@ To create a role for the Console,
 
 To assign a user or a group to a role,
 
-1. On the Asgardeo Console, click **Console Settings**.
+1. On the {{product_name}} Console, click **Console Settings**.
 
 2. Go to the **Roles** tab and select the role you wish to assign.
 
