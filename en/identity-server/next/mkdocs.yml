@@ -207,7 +207,7 @@ plugins:
 
         'apis/overview.md': 'apis/index.md'
         'apis/idp-rest-api.md': 'apis/idp.md'
-        'apis/scim-1.1-apis.md': 'apis/scim2-rest-apis.md'
+        'apis/scim-1.1-apis.md': 'apis/scim2-users-rest-apis.md'
 
         'sdks/sdk-overview.md': 'integrations/index.md'
         'sdks/start-integrating-apps/integrate-a-react-app.md': 'integrations/index.md'

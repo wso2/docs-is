@@ -2,7 +2,7 @@
 
 !!! warning
     
-    **WSO2 recommends using** **[SCIM 2.0 APIs]({{base_path}}/apis/scim2-rest-apis)** because of the following
+    **WSO2 recommends using** **[SCIM 2.0 APIs]({{base_path}}/apis/scim2-users-rest-apis)** because of the following
     reasons:
     
     -   SCIM 2.0 APIs provide additional methods that are not available with
