@@ -24,7 +24,7 @@ paths:
         This API is used to create/update/replace/delete SCIM resources in bulk. You need to specify different operations in the request payload corresponding to the type of bulk update: </br>
           - **POST** operation: Adds new resources.
           - **PUT** operation: Replaces an existing resource.
-          - **PATCH** opearation: Updates attribues of an existing resource.
+          - **PATCH** operation: Updates attributes of an existing resource.
           - **DELETE** operation: Removes an existing resource.
         Learn more about [defining batch operations](../scim2-batch-operations).
 
@@ -65,6 +65,7 @@ paths:
             'https://localhost:9443/scim2/Bulk' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
             -d '{
             "failOnErrors": 1,
             "schemas": [
