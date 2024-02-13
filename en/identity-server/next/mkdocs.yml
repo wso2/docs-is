@@ -674,6 +674,7 @@ nav:
       - Notification sender management:
         - Notification sender configurations: apis/notification-sender.md
         - Notification sender API: apis/notification-sender-rest-api.md
+      - Organization discovery API: apis/organization-discovery-rest-api.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
       - Password expiring users identification API: apis/password-expiring-users-identification-rest-api.md
@@ -720,6 +721,7 @@ nav:
       - Group management API: apis/organization-apis/org-group-mgt.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
+      - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
       - Role management API: apis/organization-apis/org-role-mgt.md
       - User management API: apis/organization-apis/org-user-mgt.md

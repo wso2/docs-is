@@ -1,15 +1,10 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: 'WSO2 Identity Server - Organization Management API Definition'
-  description: 'This is the organization level RESTful API for organization management in WSO2 Identity Server. This API allows users to create, update, retrieve and delete organizations.'
-  contact:
-    name: WSO2
-    url: 'http://wso2.com/products/identity-server/'
-    email: iam-dev@wso2.org
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  title: 'Organization Management API'
+  description: |
+    This document specifies an **Organization level Organization Management RESTful API** for **WSO2 Identity Server**. 
+    This API allows users to create, update, retrieve and delete organizations.
 servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/o/api/server/v1'
     variables:
@@ -17,7 +12,6 @@ servers:
         default: carbon.super
 security:
   - OAuth2: []
-  - BasicAuth: []
 
 paths:
   /organizations:
@@ -400,51 +394,6 @@ paths:
             curl --location --request DELETE 'https://localhost:9443/o/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
-  /organizations/check-discovery:
-    post:
-      tags:
-        - Organization Discovery
-      summary: Check whether given discovery attribute exists among the organization hierarchy.
-      description: |
-        This API is used to verify whether a specific discovery attribute has already been associated with an organization within the hierarchy. It is available for use within any organization in the hierarchy.
-        
-        <b>Scope(Permission) required:</b> `internal_org_organization_discovery_view`
-      operationId: organizationCheckDiscovery
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OrganizationDiscoveryCheckPOSTRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationDiscoveryCheckPOSTResponse'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/ServerError'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://localhost:9443/o/api/server/v1/organizations/check-discovery' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "type": "emailDomain",
-              "value": "abc.com"
-            }'
-      x-codegen-request-body-name: body
   /organizations/metadata:
     get:
       tags:
@@ -849,27 +798,6 @@ components:
           items:
             type: string
             example: 'abc.com'
-    OrganizationDiscoveryCheckPOSTRequest:
-      required:
-        - type
-        - value
-      type: object
-      properties:
-        type:
-          type: string
-          example: 'emailDomain'
-        value:
-          type: string
-          example: 'abc.com'
-    OrganizationDiscoveryCheckPOSTResponse:
-      type: object
-      required:
-        - available
-      properties:
-        available:
-          type: boolean
-          example: true
-
     OrganizationMetadata:
       type: object
       required:
@@ -960,9 +888,6 @@ components:
   # Applicable authentication mechanisms.
   #-----------------------------------------------------
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
