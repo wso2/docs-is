@@ -345,6 +345,7 @@ nav:
               - Add Passkey: guides/authentication/mfa/add-passkey-login.md
               - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
               - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
+              - Add x509 login : guides/authentication/mfa/add-x509-login.md
           - Add federated login:
             - Add federated login: guides/authentication/federated-login/index.md
             - Add social login:
