@@ -668,6 +668,7 @@ nav:
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
       - Entitlement management API: apis/entitlement-with-rest-apis.md
+      - Extension management API: apis/extension-mgt-rest-api.md
       - Identity provider API: apis/idp.md
       - Idle accounts identification API: apis/idle-accounts-identification-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
