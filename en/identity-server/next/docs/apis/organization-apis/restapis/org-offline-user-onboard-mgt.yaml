@@ -68,7 +68,6 @@ servers:
 
 security:
   - OAuth2: []
-  - BasicAuth: []
 components:
   schemas:
     InvitationRequest:
@@ -101,9 +100,6 @@ components:
           type: string
           example: "Some Correlation for Error Instance"
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
