@@ -81,6 +81,14 @@ Token binding securely links authentication tokens to client devices to prevent 
   </tbody>
 </table>
 
+!!! note
+
+    You can configure the following properties related to token binding:
+
+    - **Validate token bindings** - When enabled, {{product_name}} uses the selected binding type to validate the access token based on the binding information sent in the cookie.
+    
+    - **Revoke token upon user logout** - When enabled, a user logout from a session causes access tokens to be revoked provided the logout request contains either `client_id` or `id_token_hint`. Learn more about [logout requests]({{base_path}}/guides/authentication/oidc/add-logout/).
+
 #### User access token expiry time
 This option specifies the validity period of an access token issued to a user in seconds. The default expiry time is 3600 seconds.
 
