@@ -28,7 +28,7 @@ The following list briefly explains the use of the available methods in the `Abs
 
 
 
-### Read-write methods
+### Write methods
 
 <table>
 <colgroup>
@@ -98,6 +98,38 @@ The following list briefly explains the use of the available methods in the `Abs
 <td><p><code>                void addRememberMe(String userName, String token)               </code></p></td>
 <td><p>This method is used to persist tokens in the user store.</p></td>
 </tr>
+<tr class="odd">
+<td><p><code> Group doAddGroup(String groupName, String groupId, List&lt;String&gt; userIds, Map&lt;String, String&gt;claims)</code></p></td>
+<td><p>This method is used to create a group with given parameters.</p></td>
+</tr>
+<tr class="even">
+<td><p><code>void doAddGroupWithUserIds(String groupName, List&lt;String&gt; userIds)</code></p></td>
+<td><p>This method is used to create a group with given user uuid list.</p></td>
+</tr>
+<tr class="odd">
+<td><p><code>void doUpdateGroupNameByGroupId(String groupId, String newGroupName)</code></p></td>
+<td><p>This method is used to update the name of the group with the given group uuid..</p></td>
+</tr>
+<tr class="even">
+<td><p><code>void doUpdateUserListOfGroup(String groupId, List&lt;String&gt; deletedUserIds, List&lt;String&gt; newUserIds)</code></p></td>
+<td><p>This method is used to update the user list of a group.</p></td>
+</tr>
+<tr class="odd">
+<td><p><code>void doDeleteGroupByGroupId(String groupId)</code></p></td>
+<td><p>This method is used to delete the group with the given id.</p></td>
+</tr>
+<tr class="event">
+<td><p><code> void doAddGroupWithUserNames(String groupName, List&lt;String&gt; userNames) </code></p></td>
+<td><p>This method is used to create a group with the given name and given set of user names.</p></td>
+</tr>
+<tr class="odd">
+<td><p><code>void doUpdateGroupName(String currentGroupName, String newGroupName)</code></p></td>
+<td><p>This method is used to update name of the group with the given current name.</p></td>
+</tr>
+<tr class="even">
+<td><p><code>void doDeleteGroupByGroupName(String groupName)</code></p></td>
+<td><p>This method is used to delete the group with the name</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -124,6 +156,13 @@ The following list briefly explains the use of the available methods in the `Abs
 | `boolean isValidRememberMeToken(String userName, String token)`   | This method is used to check if the given token exists for the given user.    |
 | `boolean isMultipleProfilesAllowed()`  | This returns whether this user store is allowed to have multiple profiles per user. The default value is `false`.   |
 | `boolean isBulkImportSupported()`  | This method returns whether this user store allows bulk transactions or not.  |
+| `String doGetGroupIdFromGroupName(String groupName)`  | This method returns group uuid which has the given group name.                                                    |
+| `String doGetGroupNameFromGroupId(String groupId)`  | This method returns group name which has the given group uuid.                                                    |
+| `Group doGetGroupFromGroupName(String groupName, List<String> requiredAttributes)`  | This method returns the group with the given group name.                                                          |
+| `Group doGetGroupFromGroupId(String groupId, List<String> requiredAttributes)`  | This method returns the group with the given group uuid.                                                          |
+| `List<Group> doGetGroupListOfUser(String userId, int limit, int offset, String sortBy, String sortOrder)`  | This method returns the group list of a given user.                                                               |
+| `List<Group> doListGroups(Condition condition, int limit, int offset, String sortBy, String sortOrder)`  | This method return the group list which matches with the given condition.                                         |
+
 
 ### Implementations
 
