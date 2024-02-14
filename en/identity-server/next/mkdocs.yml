@@ -757,10 +757,6 @@ nav:
       - IdP configurations: references/idp-settings/index.md
       - OIDC configurations: references/idp-settings/oidc-settings-for-idp.md
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
-    - OAuth2 grant types: references/grant-types.md
-    - Financial-grade API: references/financial-grade-api.md
-    - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
-    - Application-native authentication: references/app-native-authentication.md
     - Conditional authentication:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
@@ -789,6 +785,12 @@ nav:
     - Tutorials:
       - Verifiable credentials with Microsoft Entra Verified ID: references/tutorials/connect-with-ms-entra.md
       - Verifiable credentials with MATTR: references/tutorials/connect-with-mattr.md
+    - IAM concepts:
+      - OAuth2 grant types: references/grant-types.md
+      - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
+      - Financial-grade API: references/financial-grade-api.md
+      - Application-native authentication: references/app-native-authentication.md
+
 
 not_in_nav: |
   /page-not-found.md
