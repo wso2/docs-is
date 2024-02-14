@@ -5,21 +5,21 @@ info:
     This document specifies a **Recovery related RESTful API** for **WSO2 Identity Server**.
   version: 0.9.0
 servers:
-- url: https://{serverUrl}/t/{tenantDomain}/api/identity/recovery/v0.9
-  variables:
-    serverUrl:
-      default: localhost:9443
-    tenantDomain:
-      default: carbon.super
+  - url: https://{serverUrl}/t/{tenantDomain}/api/identity/recovery/v0.9
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
 security:
-- OAuth2: []
-- BasicAuth: []
+  - OAuth2: []
+  - BasicAuth: []
 paths:
   /recover-password:
     post:
       tags:
-      - Password Recovery
-      - Notification
+        - Password Recovery
+        - Notification
       summary: |
         Send recovery notification
       description: |
@@ -27,16 +27,16 @@ paths:
         
          <b>Scope(Permission) required:</b> `internal_recovery_create`
       parameters:
-      - name: type
-        in: query
-        description: Notification Type
-        schema:
-          type: string
-      - name: notify
-        in: query
-        description: If notify=true, notifications will be internally managed.
-        schema:
-          type: boolean
+        - name: type
+          in: query
+          description: Notification Type
+          schema:
+            type: string
+        - name: notify
+          in: query
+          description: If notify=true, notifications will be internally managed.
+          schema:
+            type: boolean
       requestBody:
         description: Optional property parameters can be sent via email based on the
           email template.
@@ -67,14 +67,25 @@ paths:
                 $ref: '#/components/schemas/Error'
       x-wso2-request: |
         curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username": "isura","realm": "ENGINEERING","tenant-domain":"carbon.super"},"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email¬ify=true"
-      x-wso2-response: |
-        "HTTP/1.1 202 Accepted"
-      x-codegen-request-body-name: RecoveryInitiatingRequest
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email&notify=true' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "user": {
+                    "username": "john",
+                    "realm": "ENGINEERING",
+                    "tenant-domain": "carbon.super"
+                },
+                "properties": []
+            }'
   /set-password:
     post:
       tags:
-      - Password Recovery
-      - Notification
+        - Password Recovery
+        - Notification
       summary: |
         Update password
       description: |
@@ -110,16 +121,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: "curl -X POST -H \"Authorization: Basic YWRtaW46YWRtaW4=\" -H\
-        \ \"Content-Type: application/json\" -d '{\"key\": \"5c765a47-6764-4048-b5cf-55864cb654c0\"\
-        , \"password\": \"P@ssW0rd\",\"properties\": []}' \"https://localhost:9443/api/identity/recovery/v0.9/set-password\"\
-        \n    \n"
-      x-wso2-response: "\"HTTP/1.1 200 OK\"        \n"
-      x-codegen-request-body-name: ResetPasswordRequest
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/set-password' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "key": "5c765a47-6764-4048-b5cf-55864cb654c0",
+                "password": "P@ssW0rd",
+                "properties": []
+            }'
   /validate-code:
     post:
       tags:
-      - Password Recovery
+        - Password Recovery
       summary: |
         Validate confirmation code
       description: |
@@ -128,14 +144,14 @@ paths:
         <b>Scope(Permission) required:</b> `internal_recovery_create`
       requestBody:
         description: Code, recovery step, and optional parameters. <br/> For recovery **step**,
-          you can use one of the following according to the recovery scenario that you want to validate the code. 
+          you can use one of the following according to the recovery scenario that you want to validate the code.
           <ul>
-            <li>**UPDATE_PASSWORD**</li>
-            <li>**CONFIRM_SIGN_UP**</li>
-            <li>**VALIDATE_CHALLENGE_QUESTION**</li>
-            <li>**VALIDATE_ALL_CHALLENGE_QUESTION**</li>
+          <li>**UPDATE_PASSWORD**</li>
+          <li>**CONFIRM_SIGN_UP**</li>
+          <li>**VALIDATE_CHALLENGE_QUESTION**</li>
+          <li>**VALIDATE_ALL_CHALLENGE_QUESTION**</li>
           </ul>
-          
+
         content:
           application/json:
             schema:
@@ -157,16 +173,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "84325529-8aa7-4851-8751-5980a7f2d9f7","step": "UPDATE_PASSWORD","properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/validate-code"
-      x-wso2-response: |
-        "HTTP/1.1 202 Accepted"
-      x-codegen-request-body-name: CodeValidationRequest
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/validate-code' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "code": "84325529-8aa7-4851-8751-5980a7f2d9f7",
+                "step": "UPDATE_PASSWORD",
+                "properties": []
+            }'
   /security-question:
     get:
       tags:
-      - Password Recovery
-      - Security Question
+        - Password Recovery
+        - Security Question
       summary: |
         Get challenge question of user
       description: |
@@ -174,24 +196,24 @@ paths:
         
         <b>Scope(Permission) required:</b> `internal_recovery_view`
       parameters:
-      - name: username
-        in: query
-        description: username of the user
-        required: true
-        schema:
-          type: string
-      - name: realm
-        in: query
-        description: |
-          `User Store Domain` that the user belongs to. If not specified, it will be `PRIMARY` domain.
-        schema:
-          type: string
-      - name: tenant-domain
-        in: query
-        description: |
-          `Tenant Domain` that the user belongs to. If not specified, it will be `carbon.super` domain.
-        schema:
-          type: string
+        - name: username
+          in: query
+          description: username of the user
+          required: true
+          schema:
+            type: string
+        - name: realm
+          in: query
+          description: |
+            `User Store Domain` that the user belongs to. If not specified, it will be `PRIMARY` domain.
+          schema:
+            type: string
+        - name: tenant-domain
+          in: query
+          description: |
+            `Tenant Domain` that the user belongs to. If not specified, it will be `carbon.super` domain.
+          schema:
+            type: string
       responses:
         200:
           description: Successful response
@@ -214,15 +236,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/security-question?username=isura"
-      x-wso2-response: |
-        {"key":"7ced9ef0-7f3f-4f65-a115-ddbcce3a6b49","question":{"question":"City where you were born ?","question-set-id":"http://wso2.org/claims/challengeQuestion1"}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/security-question?username=john' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json'
   /security-questions:
     get:
       tags:
-      - Password Recovery
-      - Security Question
+        - Password Recovery
+        - Security Question
       summary: |
         Get challenge questions of user
       description: |
@@ -230,24 +254,24 @@ paths:
         
         <b>Scope(Permission) required:</b> `internal_recovery_view`
       parameters:
-      - name: username
-        in: query
-        description: username of the user
-        required: true
-        schema:
-          type: string
-      - name: realm
-        in: query
-        description: |
-          `User Store Domain` that the user belongs to. If not specified, it will be `PRIMARY` domain.
-        schema:
-          type: string
-      - name: tenant-domain
-        in: query
-        description: |
-          `Tenant Domain` that the user belongs to. If not specified, it will be `carbon.super` domain.
-        schema:
-          type: string
+        - name: username
+          in: query
+          description: username of the user
+          required: true
+          schema:
+            type: string
+        - name: realm
+          in: query
+          description: |
+            `User Store Domain` that the user belongs to. If not specified, it will be `PRIMARY` domain.
+          schema:
+            type: string
+        - name: tenant-domain
+          in: query
+          description: |
+            `Tenant Domain` that the user belongs to. If not specified, it will be `carbon.super` domain.
+          schema:
+            type: string
       responses:
         200:
           description: Successful response
@@ -270,15 +294,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/security-question?username=isura"
-      x-wso2-response: |
-        {"key":"f9f04fd7-3666-4bc6-bc99-9190b04b0ccc","questions":[{"question":"City where you were born ?","question-set-id":"http://wso2.org/claims/challengeQuestion1"},{"question":"Model of your first car ?","question-set-id":"http://wso2.org/claims/challengeQuestion2"}],"link":{"rel":"validate-answer","uri":"/api/identity/recovery/v0.9"}}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/security-question?username=john' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json'
   /validate-answer:
     post:
       tags:
-      - Password Recovery
-      - Security Question
+        - Password Recovery
+        - Security Question
       summary: |
         Validate user challenge answer/answers
       description: |
@@ -311,16 +337,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -k -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"key": "0b20bd4d-cd82-4e8f-8ca4-4d265360b56b","answers": [{ "question-set-id": "http://wso2.org/claims/challengeQuestion1","answer": "born"},{"question-set-id": "http://wso2.org/claims/challengeQuestion2","answer": "car"}],"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/validate-answer"
-      x-wso2-response: |
-        {"key":"c45d7251-59f1-468d-9844-8a6d7c5fe9d9","question":null,"link":{"rel":"set-password","uri":"/api/identity/recovery/v0.9"}}
-      x-codegen-request-body-name: AnswerVerificationRequest
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/validate-answer' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "key": "0b20bd4d-cd82-4e8f-8ca4-4d265360b56b",
+                "answers": [
+                    {
+                        "question-set-id": "http://wso2.org/claims/challengeQuestion1",
+                        "answer": "born"
+                    },
+                    {
+                        "question-set-id": "http://wso2.org/claims/challengeQuestion2",
+                        "answer": "car"
+                    }
+                ],
+                "properties": []
+            }'
   /recover-username:
     post:
       tags:
-      - Username Recovery
-      - Notification
+        - Username Recovery
+        - Notification
       summary: |
         Recover username
       description: |
@@ -328,16 +369,16 @@ paths:
         
         <b>Scope(Permission) required:</b> `internal_recovery_create`
       parameters:
-      - name: tenant-domain
-        in: query
-        description: Tenant Domain that the user belongs to. Default `carbon.super`
-        schema:
-          type: string
-      - name: notify
-        in: query
-        description: If notify=true, notifications will be internally managed.
-        schema:
-          type: boolean
+        - name: tenant-domain
+          in: query
+          description: Tenant Domain that the user belongs to. Default `carbon.super`
+          schema:
+            type: string
+        - name: notify
+          in: query
+          description: If notify=true, notifications will be internally managed.
+          schema:
+            type: boolean
       requestBody:
         description: User answers for recovery claims.
         content:
@@ -366,15 +407,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '[{"uri": "http://wso2.org/claims/givenname","value": "john"},{"uri": "http://wso2.org/claims/emailaddress", "value": "johndoe@email.com"},{"uri": "http://wso2.org/claims/lastname","value": "doe" }]' "https://localhost:9443/api/identity/recovery/v0.9/recover-username/"
-      x-wso2-response: |
-        "HTTP/1.1 202 Accepted"
-      x-codegen-request-body-name: Claim
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/recover-username/' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+                {
+                    "uri": "http://wso2.org/claims/givenname",
+                    "value": "john"
+                },
+                {
+                    "uri": "http://wso2.org/claims/emailaddress",
+                    "value": "johndoe@email.com"
+                },
+                {
+                    "uri": "http://wso2.org/claims/lastname",
+                    "value": "doe"
+                }
+            ]'
   /claims:
     get:
       tags:
-      - Username Recovery
+        - Username Recovery
       summary: |
         Get supported claims
       description: |
@@ -382,11 +438,11 @@ paths:
         
         <b>Scope(Permission) required:</b> `internal_recovery_view`
       parameters:
-      - name: tenant-domain
-        in: query
-        description: tenant domain. Default `carbon.super`
-        schema:
-          type: string
+        - name: tenant-domain
+          in: query
+          description: tenant domain. Default `carbon.super`
+          schema:
+            type: string
       responses:
         200:
           description: Successful response
@@ -408,15 +464,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/recovery/v0.9/claims?tenant-domain=carbon.super"
-      x-wso2-response: |
-        [{"uri":"http://wso2.org/claims/mobile","value":null,"description":"Mobile","display-name":"Mobile","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/role","value":null,"description":"Role","display-name":"Role","dialect":"http://wso2.org/claims","required":false,"readOnly":true},{"uri":"http://wso2.org/claims/givenname","value":null,"description":"First Name","display-name":"First Name","dialect":"http://wso2.org/claims","required":true,"readOnly":false},{"uri":"http://wso2.org/claims/organization","value":null,"description":"Organization","display-name":"Organization","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/im","value":null,"description":"IM","display-name":"IM","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/lastname","value":null,"description":"Last Name","display-name":"Last Name","dialect":"http://wso2.org/claims","required":true,"readOnly":false},{"uri":"http://wso2.org/claims/telephone","value":null,"description":"Telephone","display-name":"Telephone","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/country","value":null,"description":"Country","display-name":"Country","dialect":"http://wso2.org/claims","required":false,"readOnly":false},{"uri":"http://wso2.org/claims/emailaddress","value":null,"description":"Email Address","display-name":"Email","dialect":"http://wso2.org/claims","required":true,"readOnly":false},{"uri":"http://wso2.org/claims/url","value":null,"description":"URL","display-name":"URL","dialect":"http://wso2.org/claims","required":false,"readOnly":false}]
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/claims?tenant-domain=carbon.super' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json'
   /captcha:
     get:
       tags:
-      - Password Recovery
-      - Username Recovery
+        - Password Recovery
+        - Username Recovery
       summary: |
         Get CAPTCHA
       description: |
@@ -425,23 +483,23 @@ paths:
         <b>Scope(Permission) required:</b> `internal_recovery_view`
       operationId: getCaptcha
       parameters:
-      - name: tenant-domain
-        in: query
-        description: tenant domain. Default `carbon.super`
-        schema:
-          type: string
-      - name: captcha-type
-        in: query
-        description: type of captcha
-        required: true
-        schema:
-          type: string
-      - name: recovery-type
-        in: query
-        description: username recovery or password recovery
-        required: true
-        schema:
-          type: string
+        - name: tenant-domain
+          in: query
+          description: tenant domain. Default `carbon.super`
+          schema:
+            type: string
+        - name: captcha-type
+          in: query
+          description: type of captcha
+          required: true
+          schema:
+            type: string
+        - name: recovery-type
+          in: query
+          description: username recovery or password recovery
+          required: true
+          schema:
+            type: string
       responses:
         200:
           description: Successful response
@@ -461,14 +519,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/captcha?tenant-domain=carbon.super&captcha-type=ReCaptcha&recovery-type=username-recovery"
-      x-wso2-response: |
-        {"reCaptchaEnabled":true,"reCaptchaKey":"6LctLW4UAAAA5YWxy93f7yBQlzMh_RdkmUxd-J","reCaptchaAPI":"https://www.google.com/recaptcha/api.js"}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/captcha?tenant-domain=carbon.super&captcha-type=ReCaptcha&recovery-type=username-recovery' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json'
     post:
       tags:
-      - Password Recovery
-      - Username Recovery
+        - Password Recovery
+        - Username Recovery
       summary: |
         Verify CAPTCHA
       description: |
@@ -477,17 +537,17 @@ paths:
         <b>Scope(Permission) required:</b> `internal_recovery_create`
       operationId: verifyCaptcha
       parameters:
-      - name: tenant-domain
-        in: query
-        description: Tenant domain. Default `carbon.super`
-        schema:
-          type: string
-      - name: captcha-type
-        in: query
-        description: Type of captcha
-        required: true
-        schema:
-          type: string
+        - name: tenant-domain
+          in: query
+          description: Tenant domain. Default `carbon.super`
+          schema:
+            type: string
+        - name: captcha-type
+          in: query
+          description: Type of captcha
+          required: true
+          schema:
+            type: string
       requestBody:
         description: Recaptcha response from Google.
         content:
@@ -514,11 +574,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: |
-        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"token": "xsfwewfcavfrwafrawva"}' "https://localhost:9443/api/identity/recovery/v0.9/captcha?tenant-domain=carbon.super&captcha-type=ReCaptcha"
-      x-wso2-response: |
-        {"success":true}
-      x-codegen-request-body-name: reCaptcha-response
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/captcha?tenant-domain=carbon.super&captcha-type=ReCaptcha' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{"token": "xsfwewfcavfrwafrawva"}'
 components:
   schemas:
     User:
