@@ -18,7 +18,7 @@ Follow the steps given below to configure the branding preferences for your orga
 
 1. On the {{ product_name }}, go to **Branding** > **Styles & Text**.
 
-    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-console-ui.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-console-ui.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
 
@@ -38,7 +38,7 @@ You can preview how your branding preferences will look once they are saved and 
 
 To preview your branding configurations for different flows, on the **Preview** window, select the screen you wish to preview from the **Screen** list.
 
-![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Disable branding
 
@@ -86,7 +86,7 @@ Select one of the available layouts for your user registration and login interfa
 !!! note "Custom layout"
     If you want to use the **Custom** layout from the list (shown below), contact Asgardeo support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
 
-    ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     Note that these requests should be sent from the account of an administrator in the organization.     
 {% endif %}

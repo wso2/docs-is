@@ -101,7 +101,7 @@ Here {{ product_name }} sends the fixed query param (e.g: `login_hint`) to the e
 
     `login_hint=none`
 
-    ![Add fixed query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/queryparam/fixed-query-param.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add fixed query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/queryparam/fixed-query-param.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 #### Dynamic query params
 
@@ -112,7 +112,7 @@ Here {{ product_name }} sends the fixed query param (e.g: `login_hint`) to the e
         `login_hint={login_hint_value}`
         <br>
 
-        ![Add dynamic query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/queryparam/dynamic_query_param.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Add dynamic query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/queryparam/dynamic_query_param.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     - If the application does not send the query param `login_hint_value` in the login request, the particular parameterized query param  will not be sent to the external SAML identity provider.
 
@@ -122,7 +122,7 @@ Here {{ product_name }} sends the fixed query param (e.g: `login_hint`) to the e
 
         `login_hint=$authparam{login_hint_value}`
 
-        ![Add dynamic query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/queryparam/dynamic_query_param_from_conditional_auth.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Add dynamic query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/queryparam/dynamic_query_param_from_conditional_auth.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         Here _login_hint_value_ needs to be resolved from the conditional auth script.
     <br>  

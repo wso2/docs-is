@@ -6,7 +6,7 @@ Auth Dashboard displays analytics for resident and federated authentication scen
 
 You can use the **Auth Type** filter to view analytics based on authentication type.
 
-![Auth Type]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-7.png){: width="400" style="display: block; margin: 0 auto;"}
+![Auth Type]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-7.png){: width="400" style="display: block; margin: 0;"}
 
 ## Analyze Overall Login Attempts
 
@@ -44,7 +44,7 @@ You can leverage several widgets that Kibana offers to analyze authentication ac
 
 ### Login attempts over time
 
-![Login Attempts Over Time]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-3.png){: width="600" style="display: block; margin: 0 auto;"}
+![Login Attempts Over Time]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-3.png){: width="600" style="display: block; margin: 0;"}
 
 This chart presents the total number of login attempts that are made during the selected time interval.
 
@@ -52,7 +52,7 @@ This chart presents the total number of login attempts that are made during the 
 
 ### Compact Summary of Login Attempts
 
-![Compact Summary of Login Attempts]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-2.png){: width="600" style="display: block; margin: 0 auto;"}
+![Compact Summary of Login Attempts]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-2.png){: width="600" style="display: block; margin: 0;"}
 
 This chart presents a summary of the login attempts.
 
@@ -61,7 +61,7 @@ This chart presents a summary of the login attempts.
 
 ### Map View of Login Attempts
 
-![Map View of Login Attempts]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-1.png){: width="600" style="display: block; margin: 0 auto;"}
+![Map View of Login Attempts]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-1.png){: width="600" style="display: block; margin: 0;"}
 
 This chart presents the login attempts in a map view based on the IP addresses.
 
@@ -72,7 +72,7 @@ This chart presents the login attempts in a map view based on the IP addresses.
 
 ### Details Of Login Attempts By Service Provider
 
-![Details Of Login Attempts By Service Provider]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-6.png){: width="600" style="display: block; margin: 0 auto;"}
+![Details Of Login Attempts By Service Provider]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-6.png){: width="600" style="display: block; margin: 0;"}
 
 
 - This chart presents the successful and failed login attempts sorted by service provider.
@@ -82,7 +82,7 @@ This chart presents the login attempts in a map view based on the IP addresses.
 
 ### Details Of Login Attempts By User
 
-![Details Of Login Attempts By User]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-5.png){: width="600" style="display: block; margin: 0 auto;"}
+![Details Of Login Attempts By User]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-5.png){: width="600" style="display: block; margin: 0;"}
 
 - This chart presents the successful and failed login attempts sorted by users.
 - Pagination is available if the statistics involve more than ten users.
@@ -91,7 +91,7 @@ This chart presents the login attempts in a map view based on the IP addresses.
 
 ### Full Details Of Each Login Attempt
 
-![Details Of Login Attempts By User]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-4.png){: width="600" style="display: block; margin: 0 auto;"}
+![Details Of Login Attempts By User]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-4.png){: width="600" style="display: block; margin: 0;"}
 
 - This widget presents details of each login attempt including the context ID, username, service provider, subject
   step, roles, tenant domain, IP, region, whether the overall authentication was successful or not, and the time stamp.

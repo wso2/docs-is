@@ -73,7 +73,7 @@ Use the [application API](https://is.docs.wso2.com/en/next/apis/application-rest
 1. Log in to the Management Console(`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials.
 2. Click on **Policy Administration** under the **Entitlement** > **PAP** section on the **Main** tab of the management console.
 3. Since this sample scenario is based on the email address user claim, we need to select the policy `provisioning_user_claim_based_policy_template`.
-   ![Policy list]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+   ![Policy list]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 4. Once you click **Edit**, the XML based policy will appear in the policy editor. There are placeholders in capitals for entering the service provider and role names.
 5. Edit the placeholders accordingly with the relevant values.
    1. Change the `PolicyId` as follows: 
@@ -171,15 +171,15 @@ Use the [application API](https://is.docs.wso2.com/en/next/apis/application-rest
 ```
 
 7. Click **Save Policy** to save the changes. You can see the policy you just created on the policy list (the original template policy will remain unchanged for later use).
-   ![Saved policy list]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy-saved.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+   ![Saved policy list]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy-saved.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 8. Click on the **Publish to My PDP** link corresponding to the new policy.
-   ![Publish To My PDP icon]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy-to-publish.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+   ![Publish To My PDP icon]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy-to-publish.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 9. On the UI that appears, leave the default selected values as they are and click **Publish**.
 10. Click on **Policy View** under the **Entitlement>PDP** section on the **Main** tab of the management console.
 11. To ensure that the policy has been published successfully, check if the policy is listed.
-    ![Published policy]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy-published.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Published policy]({{base_path}}/assets/img/guides/authorization/fine-grained-authorization/provisioning-user-claim-policy-published.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 12. To test out whether the policy works, follow the **Try it** out section.
 
 

@@ -49,9 +49,9 @@ If you wish to register your application manually using the Console, follow the 
 4. Select **OAuth2.0 OpenID Connect** as the protocol and select **FAPI Compliant Application**.
 
     !!! note
-    When an application is made FAPI-compliant, {{product_name}} restricts several configurations to only allow FAPI-compliant options.
+        When an application is made FAPI-compliant, {{product_name}} restricts several configurations to only allow FAPI-compliant options.
 
-    ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/register-a-fapi-application.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/register-a-fapi-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Register** to complete the registration.
 
@@ -74,4 +74,4 @@ If you have applications that need to dynamically register with {{product_name}}
 
 ## What's next?
 
-Refer to the [Financial-grade API]({{base_path}}/references/financial-grade-api) documentation to learn about the FAPI-compliant configurations available in {{product_name}} how to configure them.
+Refer to the [Financial-grade API]({{base_path}}/references/financial-grade-api) documentation to learn about the FAPI-compliant configurations available in {{product_name}} and how to configure them.

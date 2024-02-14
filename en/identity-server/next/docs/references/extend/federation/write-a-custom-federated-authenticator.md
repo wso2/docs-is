@@ -4,7 +4,7 @@ A custom federated authenticator can be written to authenticate a user with an e
 The external system can be any identity provider such as Facebook, Twitter, Google, Yahoo, etc.
 You can use the extension points available in WSO2 Identity Server to create custom federated authenticators.
 
-![Federated authentication diagram]({{base_path}}/assets/img/references/extend/federated-authentication-diagram.png){: width="1000" style="display: block; margin: 0 auto;"}
+![Federated authentication diagram]({{base_path}}/assets/img/references/extend/federated-authentication-diagram.png){: width="1000" style="display: block; margin: 0;"}
 
 ---
 
@@ -250,7 +250,7 @@ To configure the custom fedrated authenticator:
     | **Authorization Endpoint URL**    | `https://localhost:9444/oauth2/authorize/`    |
     | **Token Endpoint URL**    | `https://localhost:9444/oauth2/token/`    |
 
-    ![Federated Authenticator]({{base_path}}/assets/img/references/extend/federated-authenticator.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Federated Authenticator]({{base_path}}/assets/img/references/extend/federated-authenticator.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Finish** to save the configurations.
 
@@ -270,7 +270,7 @@ To configure the custom federated authenticator for the application:
 
         2. Click **Add Authentication** on the step, select your custom federated authenticator, and click **Add**.
 
-            ![Add custom federated authenticator]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add custom federated authenticator]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add custom federated authenticator using the Visual Editor:
@@ -279,7 +279,7 @@ To configure the custom federated authenticator for the application:
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your custom federated authenticator.
 
-            ![Add custom federated authenticator using the Visual Editor]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add custom federated authenticator using the Visual Editor]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

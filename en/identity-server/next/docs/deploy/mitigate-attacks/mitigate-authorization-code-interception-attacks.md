@@ -33,7 +33,7 @@ The flow of this attack is illustrated in the following diagram.
 !!! info
     In some operating systems such as Android, in step 5 of the flow, the user is prompted to select the application to handle the redirect URI before it is parsed using a "Complete Action Using" activity. This may prevent a malicious application from handling it, as the user can identify and select the legitimate application. However, some operating systems (such as iOS) do not have any such scheme.
 
-![Authorization code grant type flow]({{base_path}}/assets/img/setup/secure/mitigate-auth-code-interception.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Authorization code grant type flow]({{base_path}}/assets/img/setup/secure/mitigate-auth-code-interception.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Mitigate code interception attacks using PKCE
 

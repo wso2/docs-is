@@ -9,7 +9,7 @@ classes, configurations, and user stores that store information. Configuring the
 
 The following diagram illustrates the required configurations and repositories.
 
-![configuring the realm]({{base_path}}/assets/img/setup/configure/configuring-the-realm.png){: width="500" style="display: block; margin: 0 auto;"}
+![configuring the realm]({{base_path}}/assets/img/setup/configure/configuring-the-realm.png){: width="500" style="display: block; margin: 0;"}
 
 ## User Stores
 

@@ -42,7 +42,7 @@ Follow the steps given below.
 
         2. Click **+ ADD** next to **Sign-In-Option-Based** to add the IP-based adaptive MFA script.
 
-            ![Sign-In-option-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/sign-in-option-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Sign-In-option-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/sign-in-option-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 

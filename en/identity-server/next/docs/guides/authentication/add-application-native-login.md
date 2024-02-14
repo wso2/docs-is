@@ -35,7 +35,7 @@ Follow the steps below to enable app-native authentication for your application.
 
 3. Go to the **Advanced** tab of your application and select **Enable app-native authentication API**.
 
-	![Enable app-native authentication]({{base_path}}/assets/img/guides/app-native-authentication/enable-app-native-authentication.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+	![Enable app-native authentication]({{base_path}}/assets/img/guides/app-native-authentication/enable-app-native-authentication.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Configure client attestation settings according to the platform that hosts your application.
 

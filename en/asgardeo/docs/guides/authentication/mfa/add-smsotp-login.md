@@ -21,7 +21,7 @@ To enable SMS OTP for the organization:
 
 2. Update the following parameters in the **Settings** tab:
 
-    ![Setup SMS OTP in Asgardeo]({{base_path}}/assets/img/guides/mfa/smsotp/configure-sms-otp-settings.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Setup SMS OTP in Asgardeo]({{base_path}}/assets/img/guides/mfa/smsotp/configure-sms-otp-settings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -54,13 +54,13 @@ To add **SMS OTP** to the authentication flow of the app:
     === "Classic Editor"
         - If you don't have a customized login flow, you can click **Add SMS OTP as a second factor**.
 
-          ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/sms-otp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+          ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/sms-otp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     
           This opens the customized login flow with SMS OTP as a second-factor authenticator:
     
         - If you have an already customized login flow, you can add a second step and add SMS OTP as the authenticator.
 
-          ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+          ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add SMS OTP as a second-factor authenticator using the Visual Editor:
@@ -71,7 +71,7 @@ To add **SMS OTP** to the authentication flow of the app:
 
         3. Click **Confirm** to add SMS OTP as a second factor to the sign-in flow.
 
-        ![Configuring SMS OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Configuring SMS OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -251,7 +251,7 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 4. Under the **Select a Type** tab, select **Webhook**. Learn more about webhooks in the Choreo [documentation](https://wso2.com/choreo/docs/develop/components/webhook/#develop-a-webhook).
 
-    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter a name and a description for your webhook.
 
@@ -261,7 +261,7 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 7. Select the **Access Mode** as External and click **Create**.
 
-    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-add-details.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/mfa/smsotp/choreo-webhook-add-details.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 8. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){: target="_blank"}.
 
@@ -276,7 +276,7 @@ Given below are the steps involving SMS OTP.
 
 2. Asgardeo prompts the user to enter the OTP code.
 
-   ![Authenticate with SMS OTP in Asgardeo]({{base_path}}/assets/img/guides/mfa/smsotp/enter-sms-otp.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+   ![Authenticate with SMS OTP in Asgardeo]({{base_path}}/assets/img/guides/mfa/smsotp/enter-sms-otp.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. The user can request Asgardeo to resend a new OTP.
 

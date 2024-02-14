@@ -110,7 +110,7 @@ If the application is hosted either in the App Store or the Google Play Store, f
 
 4. Provide details about the attestation service.
 
-	![How JIT user provisioning works]({{base_path}}/assets/img/references/enable-client-attestation.png){: width="600" style="display: block; margin: 0 auto;"}
+	![How JIT user provisioning works]({{base_path}}/assets/img/references/enable-client-attestation.png){: width="600" style="display: block; margin: 0;"}
 
 	a. **For android**:
 

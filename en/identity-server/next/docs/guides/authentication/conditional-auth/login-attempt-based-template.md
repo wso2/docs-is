@@ -47,7 +47,7 @@ To enable conditional authentication:
 
         2. Click **+ ADD** next to **Login-Attempt-Based** to add the login attempt-based adaptive MFA script.
 
-            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/login-attempt-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/login-attempt-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 

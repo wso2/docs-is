@@ -85,7 +85,7 @@ To add new scopes to your organization:
 1. In the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings** > **OpenID Connect** > **Scopes**.
 2. Click **New OIDC Scope** to open the **Create OpenID Connect Scope** dialog box.
   
-    ![Create OpenID Connect scopes]({{base_path}}/assets/img/guides/organization/scopes/create-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create OpenID Connect scopes]({{base_path}}/assets/img/guides/organization/scopes/create-scopes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter values for the required properties and click **Next**:
     <table>
@@ -106,7 +106,7 @@ To add new scopes to your organization:
         </table>
 4. Select the attributes that should correspond to the scope and click **Finish**.
 
-    ![Select attributes corresponding to scope]({{base_path}}/assets/img/guides/organization/scopes/select-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select attributes corresponding to scope]({{base_path}}/assets/img/guides/organization/scopes/select-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Edit Scopes
 
@@ -132,7 +132,7 @@ As an application developer, you can follow the steps given below to configure y
 
 2. Copy the scopes listed at the end of the **User Attributes** section.
 
-    ![Selected Scopes]({{base_path}}/assets/img/guides/organization/scopes/selected-scopes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Selected Scopes]({{base_path}}/assets/img/guides/organization/scopes/selected-scopes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. When configuring the authentication request in your client app, append the **scope** parameter with the scopes that you need:
 

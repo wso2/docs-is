@@ -25,11 +25,11 @@ Follow the steps given below to enable **Email OTP** login to the login flow of 
     === "Classic Editor"
         - If you haven't already built a login flow for your application, select **Add Email OTP login** to build one.
 
-            ![Configuring email OTP login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring email OTP login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         - If you have an already built login flow, add the `Email OTP` authenticator as the first authentication step.
         
-            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add passwordless login with Email OTP using the Visual Editor:
@@ -40,7 +40,7 @@ Follow the steps given below to enable **Email OTP** login to the login flow of 
 
         3. Click **Confirm** to add passwordless login with Email OTP to the sign-in flow.
 
-            ![Configuring email OTP login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring email OTP login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

@@ -98,7 +98,7 @@ Now, let's register the Microsoft IdP in {{product_name}}.
     
         2. Click **Add Authentication** on the step, select your X connection, and click **Add**.
 
-            ![Add X login in {{product_name}}]({{base_path}}/assets/img/guides/idp/x-idp/add-x-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add X login in {{product_name}}]({{base_path}}/assets/img/guides/idp/x-idp/add-x-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add X login using the Visual Editor:
@@ -107,7 +107,7 @@ Now, let's register the Microsoft IdP in {{product_name}}.
     
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your X connection.
 
-            ![Add Google login in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/x-idp/add-x-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Google login in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/x-idp/add-x-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

@@ -41,12 +41,12 @@ To add a new secret:
     === "Classic Editor"
         Enable conditional authentication and click the key icon above the script to create a new secret.
 
-        ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png){: style="display: block; margin: 0 auto;"}
+        ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png){: style="display: block; margin: 0;"}
 
     === "Visual Editor"
         Switch to the **Visual Editor** tab, expand the **Script Editor** and click **Add Secret**.
 
-        ![Add secret to script using the visual editor]({{base_path}}//assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
+        ![Add secret to script using the visual editor]({{base_path}}//assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0;"}
 
     ---
 
@@ -54,7 +54,7 @@ To add a new secret:
 
 5. Enter the following details:
 
-    ![Create secret in {{ product_name }}]({{base_path}}/assets/img/guides/secret/create-a-secret.png){: width="450" style="display: block; margin: 0 auto;"}
+    ![Create secret in {{ product_name }}]({{base_path}}/assets/img/guides/secret/create-a-secret.png){: width="450" style="display: block; margin: 0;"}
 
     <table>
         <tr>
@@ -96,7 +96,7 @@ To delete an existing secret:
     === "Visual Editor"
         Switch to the **Visual Editor** tab, expand the **Script Editor** and click **Add Secret**.
 
-        ![Add secret to script using the visual editor]({{base_path}}/assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
+        ![Add secret to script using the visual editor]({{base_path}}/assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0;"}
 
     ---
 

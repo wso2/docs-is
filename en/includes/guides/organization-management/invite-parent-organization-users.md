@@ -19,14 +19,14 @@ If a user of organization (root) needs to invite another root organization's use
 3. [Switch]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations) to that organization.
 4. Go to **User Management > Users** and click **+ Add user**. From there, select **Invite Parent User**.
 
-    ![Invite parent organization users]({{base_path}}/assets/img/guides/organization/manage-organizations/invite-parent-users.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Invite parent organization users]({{base_path}}/assets/img/guides/organization/manage-organizations/invite-parent-users.png){: width="600" style="display: block; margin: 0;"}
 
 5. Enter the usernames of the users that you want to invite to the organization. You can enter multiple usernames by pressing enter after each username input.
 6. Select the groups that you want to assign to the invited users.
 7. Click **Invite**.
 8. You can see whether the invitation is successful or not as follows.
 
-    ![Successful invitation]({{base_path}}/assets/img/guides/organization/manage-organizations/successful-invitation.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Successful invitation]({{base_path}}/assets/img/guides/organization/manage-organizations/successful-invitation.png){: width="600" style="display: block; margin: 0;"}
 
 9. The invited users will receive an email notification with the invitation link. The invited users can accept the invitation by clicking the link.
 
@@ -46,7 +46,7 @@ If a user of the organization who has {{ product_name }} Console access needs to
 
 1. The invited users will receive an email similar to following with the invitation link.
 
-    ![Invitation email]({{base_path}}/assets/img/guides/organization/manage-organizations/parent-org-user-invitation-email.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Invitation email]({{base_path}}/assets/img/guides/organization/manage-organizations/parent-org-user-invitation-email.png){: width="600" style="display: block; margin: 0;"}
 
     !!! info
           The invitation link is valid for 72 hours.
@@ -54,7 +54,7 @@ If a user of the organization who has {{ product_name }} Console access needs to
 2. Click the **Accept Invitation** button in the email to accept it.
 3. Once the invitation is accepted, the invited users will be displayed in the {{ product_name }} Console as follows.
 
-    ![Invited users]({{base_path}}/assets/img/guides/organization/manage-organizations/invited-users.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Invited users]({{base_path}}/assets/img/guides/organization/manage-organizations/invited-users.png){: width="600" style="display: block; margin: 0;"}
 
 ## Manage invitations
 
@@ -64,6 +64,6 @@ Inorder to view or delete the invitations via {{ product_name }} Console:
 2. Go to **User Management > Users** and click **Invitations** tab.
 3. You can view the list of invitations that are sent to the users of the parent organization with their status.
 
-    ![View invitations]({{base_path}}/assets/img/guides/organization/manage-organizations/view-invitations.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![View invitations]({{base_path}}/assets/img/guides/organization/manage-organizations/view-invitations.png){: width="600" style="display: block; margin: 0;"}
 
 4. If required, invitations can be deleted by clicking the **Delete** icon.

@@ -114,7 +114,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
         2. Click **Add Authentication** on the same step and select your HYPR connection.
 
-            ![Add HYPR to the login flow]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-enable-login.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add HYPR to the login flow]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-enable-login.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
         
         3. Enable **Conditional Authentication** and add the following script.
 
@@ -153,7 +153,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
         
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your HYPR connection.
             
-            ![Add HYPR to the login flow using the visual editor]({{base_path}}/assets/img/guides/passwordless/hypr/add-hypr-login-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add HYPR to the login flow using the visual editor]({{base_path}}/assets/img/guides/passwordless/hypr/add-hypr-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Expand the **Script Editor** and add the following script.
 

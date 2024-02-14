@@ -10,7 +10,7 @@ When configuring SAML based sign in with {{ product_name }}, you need to know:
 2. Issuer of {{ product_name }}
 3. The public certificate of {{ product_name }}
 
-    ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png){: style="display: block; margin: 0 auto;"}
+    ![Integrate SAML app]({{base_path}}/assets/img/guides/applications/saml-app/saml-integration.png){: style="display: block; margin: 0;"}
 
 ## Prerequisites
 To get started, you need to have an application registered in {{ product_name }}. If you don't have an app registered, go to {{ product_name }} to [register a SAML application]({{base_path}}/guides/applications/register-saml-web-app/).
@@ -96,7 +96,7 @@ To download the SAML metadata file of your organization in {{ product_name }},
 
 4. Click **Download IdP Metadata** to download the metadata xml file.
 
-    ![Get SAML metadata]({{base_path}}/assets/img/guides/applications/saml-app/download-idp-metadata.png){: width="800" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Get SAML metadata]({{base_path}}/assets/img/guides/applications/saml-app/download-idp-metadata.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 #### Use URL Based Metadata
 
@@ -131,7 +131,7 @@ You can login to {{ product_name }} and get endpoints of {{ product_name }}.
     - **Single Logout** : Logout URL of {{ product_name }}
     - **IdP certificate** : Public certificate of {{ product_name }}
 
-    ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. You can download the certificate of {{ product_name }} from **IdP certificate**.
 

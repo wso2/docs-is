@@ -22,7 +22,7 @@ Follow the steps given below to register the sample Javascript SPA in the WSO2 I
 
 3. Enter the following details:
 
-    ![Create a new SPA]({{base_path}}/assets/img/guides/applications/create-new-spa.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a new SPA]({{base_path}}/assets/img/guides/applications/create-new-spa.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -45,7 +45,7 @@ Follow the steps given below to register the sample Javascript SPA in the WSO2 I
 4. Click **Register** to complete the registration.
 5. Go to the **Protocol** tab and take note of the **Client ID**. You will need it to configure the application later.
 
-    ![Client ID]({{base_path}}/assets/img/guides/applications/spa-client-id.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Client ID]({{base_path}}/assets/img/guides/applications/spa-client-id.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! tip
     To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:3000</code>).
@@ -145,7 +145,7 @@ Follow the steps given below to run the sample.
 
 3. Click **Login**. You will be redirected to the {{ product_name }} login page.
 
-    ![{{ product_name }} sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter the credentials of your user account and click **Sign In**.
 

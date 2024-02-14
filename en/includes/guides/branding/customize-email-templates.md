@@ -86,7 +86,7 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
     !!! note "Replicate content"
         If you have not yet configured an email template for the selected locale, you have the option to replicate content from the previous locale's template and use it to modify the email template for the selected locale.
 
-    ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Make your modifications in the **Content** tab and use the **Preview** tab for a real-time preview.
 

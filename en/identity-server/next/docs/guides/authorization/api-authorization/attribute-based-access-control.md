@@ -20,7 +20,7 @@ Server so that the authentication happens as expected.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Click **New Application** and select **Standard-Based Application**.
-   ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/register-an-sba.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+   ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/register-an-sba.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 3. Provide an application name and select the other options based on your requirements.
 
     !!! note 

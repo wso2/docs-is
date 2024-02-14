@@ -111,7 +111,7 @@ The steps below explain how you can set up an ACR-based conditional authenticati
 
         2. Under **Adaptive MFA**, click **+ ADD** next to **ACR-Based** to add the ACR-based adaptive MFA script.
 
-            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/acr-based-adaptive-auth-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/acr-based-adaptive-auth-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** on the prompt to replace any existing script with the current script.
 
@@ -200,18 +200,18 @@ Follow the steps given below to try out ACR-based adaptive authentication with t
 
 3. Enter the `client ID` of the OAuth service provider application you registered above and enter `acr2` as the **Authentication Context Class** value.  
 
-    ![Authentication context class]({{base_path}}/assets/img/samples/authentication-context-class.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Authentication context class]({{base_path}}/assets/img/samples/authentication-context-class.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. You are now prompted for basic authentication followed by TOTP authentication which corresponds to the received `acr2` ACR value.
 
-    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Enter the TOTP and click **Continue**.
-    ![ACR-based login successful]({{base_path}}/assets/img/samples/login-successful-acr-based.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![ACR-based login successful]({{base_path}}/assets/img/samples/login-successful-acr-based.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 7. Click `Get Access Token` and proceed to obtain the access token.
 
-    ![ACR-based access token]({{base_path}}/assets/img/samples/acr-based-access-token.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![ACR-based access token]({{base_path}}/assets/img/samples/acr-based-access-token.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
         Authentication Method Reference (AMR) value found in the access token provides information about the authentication methods that are used to assert the authenticity of the user.

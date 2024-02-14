@@ -12,7 +12,7 @@ Users can view these consents and if needed, revoke them using the My Account po
 
 4. Select an application and click **Show more** to display the attributes that are shared with the application.
 
-    ![View consents]({{base_path}}/assets/img/guides/organization/self-service/myaccount/view-consents.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![View consents]({{base_path}}/assets/img/guides/organization/self-service/myaccount/view-consents.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. To revoke consent, the user can do one of the following:
 

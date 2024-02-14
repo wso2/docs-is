@@ -42,7 +42,7 @@ Consider a scenario where users who are younger than 18 years should be prevente
 
         2. Click **+ ADD** next to **User-Age-Based** to add the user-age-based access control script.
 
-            ![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 
@@ -158,4 +158,4 @@ Follow the steps given below.
 3. Log out of the application.
 4. Log in again with a user who is below 18 years. The user will see the following error.
 
-    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

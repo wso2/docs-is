@@ -55,7 +55,7 @@ To configure the login flow with concurrent session-based access control:
 
         2. Click **+ ADD** next to **Concurrent Session Management Template** to add the user-age-based access control script.
 
-            <!--![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}-->
+            <!--![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}-->
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 

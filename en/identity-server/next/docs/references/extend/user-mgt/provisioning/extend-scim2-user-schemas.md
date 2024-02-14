@@ -73,7 +73,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
     !!! tip
         Delete the SCIM 2.0 mapping under **Protocol Mappings** since this adds a custom schema. An enterprise schema will be added later in this guide.
 
-    ![add-scim-local-custom-attribute]({{base_path}}/assets/img/references/extend/add-scim-local-custom-attribute.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![add-scim-local-custom-attribute]({{base_path}}/assets/img/references/extend/add-scim-local-custom-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Finish**. 
 
@@ -92,7 +92,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
     - **SCIM Attribute**: customAttribute
     - **User Attribute to map to**: Custom Attribute
 
-    ![add-scim-external-attribute]({{base_path}}/assets/img/references/extend/add-scim-external-attribute.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![add-scim-external-attribute]({{base_path}}/assets/img/references/extend/add-scim-external-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Add Attribute Mapping**. Then click **Save**. 
 

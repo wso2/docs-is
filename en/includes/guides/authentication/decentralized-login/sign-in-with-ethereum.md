@@ -44,7 +44,7 @@ Follow the steps below to register the **Sign-In With Ethereum** IdP in {{ produ
 2. Click **Create Connection** and select **Sign-In With Ethereum**.
 3. Enter the following details of the Sign-In With Ethereum identity provider and click **Finish**:
 
-    ![Add Sign-In With Ethereum IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-idp.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add Sign-In With Ethereum IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-idp.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -99,7 +99,7 @@ The following guide shows you how to enable **Sign-In With Ethereum** in an appl
         
         3. From the list of connections that appear, select the **Sign-In With Ethereum** connection that you created and click **Add**.
 
-            ![Add Sign-In With Ethereum login in Asgardeo]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-federation-with-basic.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Sign-In With Ethereum login in Asgardeo]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-federation-with-basic.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add enable **Sign-In With Ethereum** using the Visual Editor:
@@ -108,7 +108,7 @@ The following guide shows you how to enable **Sign-In With Ethereum** in an appl
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select the **Sign-In With Ethereum** connection that you created
 
-            ![Enable sign-in with Ethereum in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-with-visual-editor.png){: width="450" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Enable sign-in with Ethereum in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-with-visual-editor.png){: width="450" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

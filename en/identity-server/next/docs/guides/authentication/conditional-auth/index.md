@@ -5,7 +5,7 @@
 With conditional authentication, the login flow in an application is dependent on the risk factors associated with the user's login request.
 This allows you to strengthen the authentication flow when the risk is higher. In {{ product_name }}, conditional authentication is configured using a [script](#authentication-script).
 
-![what is conditional authentication]({{base_path}}/assets/img/guides/conditional-auth/conditional-auth-intro.png){: style="display: block; margin: 0 auto;"}
+![what is conditional authentication]({{base_path}}/assets/img/guides/conditional-auth/conditional-auth-intro.png){: style="display: block; margin: 0;"}
 
 ## Authentication script
 
@@ -35,7 +35,7 @@ function doStepUp(context) {
 
 The script editor in {{ product_name }} comes with a set of predefined templates to get you started with some of the most common conditional authentication scenarios. These scripts contain inline comments explaining the conditions that are applied.
 
-![conditional-auth-templates-view]({{base_path}}/assets/img/guides/conditional-auth/conditional-auth-templates.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![conditional-auth-templates-view]({{base_path}}/assets/img/guides/conditional-auth/conditional-auth-templates.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 <!--
 You can define scripts that can consider the following evaluation criteria:

@@ -20,7 +20,7 @@ To update the default Email OTP settings:
 1. On the {{ product_name }}, go to **Connections** and select **Email OTP**.
 2. Update the following parameters in the **Settings** tab:
 
-    ![Setup email OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/emailotp/setup-email-otp.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Setup email OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/emailotp/setup-email-otp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -58,13 +58,13 @@ Follow the steps given below.
     === "Classic Editor"
         - If you don't have a customized login flow, you can click **Add Email OTP as a second factor**.
 
-            ![Add Email OTP authenticator]({{base_path}}/assets/img/guides/mfa/emailotp/add-email-otp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Email OTP authenticator]({{base_path}}/assets/img/guides/mfa/emailotp/add-email-otp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         This opens the customized login flow with Email OTP as a second-factor authenticator:
 
         - If you have an already customized login flow, you can add a second step and add Email OTP as the authenticator.
 
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/emailotp/view-emailotp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/emailotp/view-emailotp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Email OTP as a second-factor authenticator using the Visual Editor:
@@ -75,7 +75,7 @@ Follow the steps given below.
 
         3. Click **Confirm** to add Email OTP as a second factor to the sign-in flow.
 
-            ![Configuring Email OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/emailotp/add-email-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring Email OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/emailotp/add-email-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -102,7 +102,7 @@ Given below are the steps involving Email OTP.
 
 2. {{product_name}} prompts the user to enter the OTP code.
 
-   ![Authenticate with email OTP in {{product_name}}]({{base_path}}/assets/img/guides/mfa/emailotp/enter-email-otp.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+   ![Authenticate with email OTP in {{product_name}}]({{base_path}}/assets/img/guides/mfa/emailotp/enter-email-otp.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. The user can request {{product_name}} to resend a new OTP. The new OTP invalidates the previously sent OTP.
 

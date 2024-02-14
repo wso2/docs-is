@@ -11,11 +11,11 @@ You can analyze login sessions with the following widgets.
 
 This widget presents the **currently active sessions** and gets updated for each active session in WSO2 Identity Server.
 
-![Active Session Count]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-3.png){: width="400" style="display: block; margin: 0 auto; border-style: solid; border-radius: 5px; border-width: 1px;"}
+![Active Session Count]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-3.png){: width="400" style="display: block; margin: 0; border-style: solid; border-radius: 5px; border-width: 1px;"}
 
 ### Session Count Over Time
 
-![Session Count Over Time]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-4.png){: style="display: block; margin: 0 auto;"}
+![Session Count Over Time]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-4.png){: style="display: block; margin: 0;"}
 
 - This chart presents the session count over time.
 - The **Active** line (green) indicates the number of active sessions over the selected time interval. A session needs to be active
@@ -39,7 +39,7 @@ This widget presents the **currently active sessions** and gets updated for each
 
 ### Top Longest Sessions
 
-![Top Longest Session]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-2.png){: style="display: block; margin: 0 auto;"}
+![Top Longest Session]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-2.png){: style="display: block; margin: 0;"}
 
 This chart presents the longest sessions that took place during a given time interval.
 
@@ -51,7 +51,7 @@ This chart presents the longest sessions that took place during a given time int
 
 ### Average Session Duration
 
-![Average Session Duration]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-1.png){: style="display: block; margin: 0 auto;"}
+![Average Session Duration]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-1.png){: style="display: block; margin: 0;"}
 
 This chart presents the average duration of a session based on the most frequent users for the selected time
 interval.
@@ -72,7 +72,7 @@ enhance/reduce user experience features that results in users spending more/less
 
 ### Session Count
 
-![Session Count]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-5.png){: width="600" style="display: block; margin: 0 auto;"}
+![Session Count]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-5.png){: width="600" style="display: block; margin: 0;"}
 
 This chart groups the total number of sessions based on the duration of a session.
 
@@ -92,7 +92,7 @@ users spending more/less time on the application.
 
 ### Detailed View
 
-![Detail View]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-6.png){: style="display: block; margin: 0 auto;"}
+![Detail View]({{base_path}}/assets/img/elk-analytics/session-dashboard/elk-session-dashboard-6.png){: style="display: block; margin: 0;"}
 
 This widget presents details of each session including,
 

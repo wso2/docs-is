@@ -176,11 +176,11 @@ Follow the steps given below to enable **SMS OTP** login to the login flow of yo
     === "Classic Editor"
         - If you haven’t yet built a login flow for your application, add `SMS OTP` authenticator as the first authentication step.
 
-            ![Configuring SMS OTP login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring SMS OTP login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         - If you already have an existing login flow, add the `SMS OTP` authenticator as the first authentication step with the other login options.
         
-            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login-step.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To implement passwordless login with SMS OTP using the Visual Editor:

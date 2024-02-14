@@ -9,7 +9,7 @@ Consider a business use case where a bank wants to prompt an additional authenti
 The diagram below shows how the connection between the client applications, ELK Analytics, and WSO2 Identity Server
 works to assess the risk of the user.
 
-![risk-based-adaptive-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-1.png){: width="800" style="display: block; margin: 0 auto;"}
+![risk-based-adaptive-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-1.png){: width="800" style="display: block; margin: 0;"}
 
 1. The user performs bank transactions through different applications.
 

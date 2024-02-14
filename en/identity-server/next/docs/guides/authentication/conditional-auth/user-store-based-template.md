@@ -52,7 +52,7 @@ To enable conditional authentication:
 
         2. Click **+ ADD** next to **User Store-Based** to add the user store-based adaptive MFA script.
 
-            ![User store-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/user-store-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![User store-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/user-store-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 

@@ -8,7 +8,7 @@ To disable this capability in your organization or to change the default configu
 
 1. On the {{ product_name }} Console, go to **Login & Registration** > **User Onboarding** and click **Self Registration**.
 
-    ![Configure self registration]({{base_path}}/assets/img/guides/organization/self-registration/configure-self-registration.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Configure self registration]({{base_path}}/assets/img/guides/organization/self-registration/configure-self-registration.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     The **Self Registration** section indicates whether or not it is already enabled.
 
@@ -62,7 +62,7 @@ Refer to the documentation on how to [configure sign-in options]({{base_path}}/g
 
 During user self-registration, the available methods are displayed to the user as shown below.
 
-![Self sign-up methods]({{base_path}}/assets/img/guides/organization/self-registration/sign-up-methods.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Self sign-up methods]({{base_path}}/assets/img/guides/organization/self-registration/sign-up-methods.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 For information on how a user can self-register, refer to [Try self-registration]({{base_path}}/guides/user-self-service/self-register/).
 
@@ -70,14 +70,14 @@ For information on how a user can self-register, refer to [Try self-registration
 
 If a user decides to self-register using email, the default form that is presented to the user is as follows.
 
-![Self registration form]({{base_path}}/assets/img/guides/organization/self-registration/self-register-form.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Self registration form]({{base_path}}/assets/img/guides/organization/self-registration/self-register-form.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Follow the instructions below to customize the attributes that the form requests during self-registration.
 
 1. On the {{ product_name }} Console, go to **Attribute Management** > **Attributes** and under the **Manage Attributes** section, click **Attributes** again.
 2. Click **Edit** on the attribute that you want to customize.
 
-    ![customize user attributes in self-registration form]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-form-attributes.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![customize user attributes in self-registration form]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-form-attributes.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Select **Display this attribute on the user's profile**. The attribute will now appear on the self-registration form presented to the user.
 4. Select **Make this attribute required on the user's profile** if you want to make the attribute mandatory for self-registration.

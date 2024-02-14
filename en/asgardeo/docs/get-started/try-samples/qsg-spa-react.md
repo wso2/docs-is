@@ -22,7 +22,7 @@ Follow the steps given below to register the sample React SPA in Asgardeo.
 
 3. Enter the following details:
 
-    ![Create a new SPA]({{base_path}}/assets/img/guides/applications/create-new-spa.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a new SPA]({{base_path}}/assets/img/guides/applications/create-new-spa.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -45,7 +45,7 @@ Follow the steps given below to register the sample React SPA in Asgardeo.
 4. Click **Register** to complete the registration.
 5. Go to the **Protocol** tab and take note of the **Client ID**. You will need it to configure the application later.
 
-    ![Client ID](../../assets/img/guides/applications/spa-client-id.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Client ID](../../assets/img/guides/applications/spa-client-id.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! tip
     To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:3000</code>).
@@ -149,7 +149,7 @@ Follow the steps given below to run the sample.
 
 3. Click **Login**. You will be redirected to the Asgardeo login page.
 
-    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter the credentials of your user account and click **Sign In**.
 

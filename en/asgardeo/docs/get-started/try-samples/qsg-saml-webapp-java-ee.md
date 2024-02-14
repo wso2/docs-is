@@ -20,11 +20,11 @@ Follow these steps given below to register the sample Java EE web application in
 
 2. Click **New Application** and select **Traditional Web Application**.
 
-    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details:
 
-    ![Create a new SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a new SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
@@ -289,7 +289,7 @@ Follow the steps given below to run the sample.
 
 2. Click **Login**. You will be redirected to the Asgardeo login page.
 
-    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter credentials of your user account and click **Sign In**.
 

@@ -126,7 +126,7 @@ Follow the steps given below.
 
     ---
 
-    ![Enable conditional auth in {{ product_name }}]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Enable conditional auth in {{ product_name }}]({{base_path}}/assets/img/guides/conditional-auth/enable-conditional-auth.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     You can now define your conditional authentication script.
 
@@ -213,7 +213,7 @@ Follow the steps given below.
 
              Select the location in the script where the secret should be inserted, click the key icon above the script, and use one of the following options:
              
-             ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+             ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
              - If you are adding an existing secret, click "+" next to the secret in the drop-down menu.
              - If you need a new secret, you can first [create a new secret]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#create-a-new-secret-on-the-console).
@@ -248,4 +248,4 @@ Follow the steps given below.
 
 4. Login from an IP address outside the allowed geolocation. TOTP authentication is prompted.
 
-     ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+     ![ip-based-2fa-conditional-auth-totp-page]({{base_path}}/assets/img/guides/conditional-auth/enter-otp-token.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

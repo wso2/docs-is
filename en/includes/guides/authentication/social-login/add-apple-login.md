@@ -15,7 +15,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
 
     1. On the [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
         
-        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     2. Click `+` to register an **App ID**.
     3. Select **App IDs** and click **Continue**.
@@ -37,7 +37,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
             </tr>
         </table>
         
-        ![Register an App ID]({{base_path}}/assets/img/guides/idp/apple-idp/register-an-app-id.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Register an App ID]({{base_path}}/assets/img/guides/idp/apple-idp/register-an-app-id.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     6. Under the **Capabilities** tab, select **Sign in with Apple**.
     7. Click **Continue** and then click **Register**.
@@ -47,7 +47,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
 
     1. On the [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
         
-        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     2. Click `+` and select **Services IDs** and click **Continue**.
     3. Enter values for the following parameters:
@@ -97,7 +97,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
 
     1. On [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Keys**.
         
-        ![Add Apple keys]({{base_path}}/assets/img/guides/idp/apple-idp/register-a-new-key.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Add Apple keys]({{base_path}}/assets/img/guides/idp/apple-idp/register-a-new-key.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     2. Click `+` to register a new key.
     3. Enter a name for the key, enable **Sign in with Apple**, and click **Configure**.
@@ -188,7 +188,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
 
         2. Click **Add Authentication** on the step, select your Apple identity provider, and click **Add**.
 
-            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Apple login using the Visual Editor:
@@ -197,7 +197,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Apple connection.
 
-            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

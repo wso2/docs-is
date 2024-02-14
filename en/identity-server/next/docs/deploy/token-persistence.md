@@ -6,7 +6,7 @@ The following sections guide you through the differences between these two appro
 
 ## Synchronous token persistence
 
-![synchronous-token-persistence]({{base_path}}/assets/img/setup/secure/token-persistence.png){: width="800"; style="display: block; margin: 0 auto;"}
+![synchronous-token-persistence]({{base_path}}/assets/img/setup/secure/token-persistence.png){: width="800"; style="display: block; margin: 0;"}
 
 The flow of synchronous token persistence is as follows:
 

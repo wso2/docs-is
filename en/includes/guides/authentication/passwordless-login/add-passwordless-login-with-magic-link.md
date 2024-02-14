@@ -26,11 +26,11 @@ Follow the steps given below to enable **Magic link** login to the login flow of
     === "Classic Editor"
         - If you haven't already built a login flow for your application, select **Add Magic Link login** to build one.
 
-        ![Configuring magic link login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Configuring magic link login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         - If you have an already built login flow, add the `Magic Link` authenticator as the first authentication step.
 
-        ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-step.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add passwordless login with Magic link using the Visual Editor:
@@ -41,7 +41,7 @@ Follow the steps given below to enable **Magic link** login to the login flow of
 
         3. Click **Confirm** to add passwordless login with Magick Link to the sign-in flow.
 
-            ![Configuring magic link login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring magic link login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     ---
 
 4. Click **Update** to save your changes.

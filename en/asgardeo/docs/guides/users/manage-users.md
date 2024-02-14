@@ -18,7 +18,7 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
 2. Click  **Add User** and provide the following details:
 
-    ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     - **Email (Username):** A unique email address to identify the user.
     - **First Name:** First name of the user. You can add/change this later.
@@ -59,7 +59,7 @@ To assign users to groups:
     !!! note
         The **Groups** tab for a user account will only appear after you create one or more groups in the organization. Learn how to [create a group]({{base_path}}/guides/users/manage-groups/#create-new-group)
 
-    ![Add user]({{base_path}}/assets/img/guides/users/assign-groups-to-users.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add user]({{base_path}}/assets/img/guides/users/assign-groups-to-users.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Manage user profiles
 
@@ -79,7 +79,7 @@ Administrators can view the user profile of any user as follows:
 
 2. Select the user to view the profile.
 
-    ![view-user-profile]({{base_path}}/assets/img/guides/users/view-user-profile.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![view-user-profile]({{base_path}}/assets/img/guides/users/view-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Update the profile
 
@@ -91,7 +91,7 @@ To update the user profile:
 2. Find the user's account and click **Edit**.
 3. Update the information on the user profile.
 
-    ![update-user-profile]({{base_path}}/assets/img/guides/users/update-user-profile.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![update-user-profile]({{base_path}}/assets/img/guides/users/update-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save.
 
@@ -103,7 +103,7 @@ To reset the password:
 
 1. Click **Reset password** at the bottom of the user's profile.
   
-    ![Reset User Password]({{base_path}}/assets/img/guides/users/reset-password.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Reset User Password]({{base_path}}/assets/img/guides/users/reset-password.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Select a method to reset the user password:
 
@@ -113,7 +113,7 @@ To reset the password:
     - **Set a temporary password for the user:**  
         If this option is selected, the owner or an administrator can set a temporary password for the user.
 
-    ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Reset Password**.
 
@@ -158,7 +158,7 @@ To lock a user account:
 1. On the {{ product_name }} Console, go to **User Management** > **Users** and select the user.
 2. Enable the **Lock user** toggle at the bottom of the user's profile.
   
-    ![Lock user]({{base_path}}/assets/img/guides/users/lock-user.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Lock user]({{base_path}}/assets/img/guides/users/lock-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enable the checkbox to confirm your action.
 4. Click **Confirm**.
@@ -174,7 +174,7 @@ To delete a user account:
 1. On the {{ product_name }} Console, go to **User Management** > **Users** and select the user.
 2. Click **Delete User** at the bottom of the user's profile.
 
-    ![Lock user]({{base_path}}/assets/img/guides/users/delete-user.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Lock user]({{base_path}}/assets/img/guides/users/delete-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enable the checkbox to confirm your action.
 4. Click **Confirm**.

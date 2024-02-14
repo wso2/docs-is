@@ -280,7 +280,7 @@ You can either upload your certificate file or copy the contents. Follow the ste
 
 1. Select <b>Provide Certificate</b> and click <b>New Certificate</b>.
 
-    ![Upload app certificate]({{base_path}}/assets/img/guides/applications/saml-app/upload-certificate-of-app.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Upload app certificate]({{base_path}}/assets/img/guides/applications/saml-app/upload-certificate-of-app.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Upload the certificate file or copy the certificate contents
 <br>

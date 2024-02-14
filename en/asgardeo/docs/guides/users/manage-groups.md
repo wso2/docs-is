@@ -22,7 +22,7 @@ Let's look at how administrators can onboard groups from the Asgardeo Console.
     - **Group Name:** A unique name to identify the group.
     - **Add Users:** If you already have existing users, you can search and add them to a group.
 
-    ![create-new-group-form]({{base_path}}/assets/img/guides/groups/create-new-group-form.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![create-new-group-form]({{base_path}}/assets/img/guides/groups/create-new-group-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Finish**.
 
@@ -35,7 +35,7 @@ To assign users to groups:
 2. Select the group to assign the user.
 3. Click **Edit** and navigate to **Users**.
 
-    ![add-user-to-group-view]({{base_path}}/assets/img/guides/groups/add-user-to-group-view.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![add-user-to-group-view]({{base_path}}/assets/img/guides/groups/add-user-to-group-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Assign User** and select users to add to the group.
 6. Click **Save**.
@@ -49,7 +49,7 @@ To remove users from groups:
 2. Select the group to remove the user.
 3. Click the **Edit** icon and navigate to **Users**.
 
-    ![remove-user-from-group-view]({{base_path}}/assets/img/guides/groups/remove-user-from-group-view.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![remove-user-from-group-view]({{base_path}}/assets/img/guides/groups/remove-user-from-group-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click the **Edit** icon.
 5. Unselect the checkbox for the users you wish to remove.
@@ -66,7 +66,7 @@ To assign a group to a role:
 3. Expand the application to which the required roles belong.
 4. Select the application role/s you wish to add to the group.
 
-    ![Assign groups to app roles]({{base_path}}/assets/img/guides/groups/assign-application-roles.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign groups to app roles]({{base_path}}/assets/img/guides/groups/assign-application-roles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Save** to assign the group to the selected application role.
 

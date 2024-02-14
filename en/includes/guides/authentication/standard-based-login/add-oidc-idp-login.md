@@ -33,7 +33,7 @@ Now, let's register the OIDC IdP in {{ product_name }}.
 2. Click **Create Connection** and select **Standard-Based IdP**.
 3. Provide a unique **identity provider name**, select **OpenID Connect**, and click **Next**.
 
-    ![Create OIDC Enterprise IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/create-oidc-enterprise-idp-wizard.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create OIDC Enterprise IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/create-oidc-enterprise-idp-wizard.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter the following details of the external OIDC identity provider and click **Next**:
 
@@ -111,7 +111,7 @@ Now, let's register the OIDC IdP in {{ product_name }}.
 
         2. Click **Add Authentication** on the step, select your OIDC identity provider, and click **Add**.
 
-            ![Add OIDC identity provider login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/enable-oidc-enterprise-login-with-basic.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add OIDC identity provider login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/enable-oidc-enterprise-login-with-basic.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add OIDC identity provider login using the Visual Editor:
@@ -120,7 +120,7 @@ Now, let's register the OIDC IdP in {{ product_name }}.
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your OIDC identity provider connection.
 
-            ![Add OIDC IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/add-oidc-idp-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add OIDC IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/add-oidc-idp-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -130,7 +130,7 @@ Now, let's register the OIDC IdP in {{ product_name }}.
 
 To provide this login capability, {{ product_name }} uses the standard OpenID Connect with authorization code flow <!-- [OpenID Connect with authorization code flow](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps)--> underneath. For an application, this flow works as follows:
 
-![Add OIDC enterprise login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/oidc-enterprise-login-flow.png){: width="700" style="display: block; margin: 0 auto;"}
+![Add OIDC enterprise login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/oidc-enterprise-login-flow.png){: width="700" style="display: block; margin: 0;"}
 
 ## Configure connection
 
