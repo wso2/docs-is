@@ -1,6 +1,8 @@
 # Manage {{product_name}} Console access
 
-The following sections explain how you can configure the {{product_name}} Console so that users are provided limited access to its features based on their roles.
+The {{product_name}} Console is a pivotal point for managing identity and access within your organization. It provides a comprehensive interface for configuring and managing users, groups, roles, and various identity services. To ensure a secure and efficient management process, it is crucial to configure access to the console appropriately. This section outlines the steps to access the console and how to manage access based on user roles.
+
+{{wso2_is_console_access_note}}
 
 ## Configure Console login
 

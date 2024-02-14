@@ -57,9 +57,9 @@ Note that the following log appears in the command prompt when the server starts
 
 Once the server has started, you can access the {{ product_name }} console by navigating to the following URL.
 
-`https://{Server Host}:{Port}`
+`https://{Server Host}:{Port}/console`
 
-For example, if you are using default settings, the console URL will be `https://localhost:9443`.
+For example, if you are using default settings, the console URL will be `https://localhost:9443/console`.
 
 You will then be presented with the login screen for the {{ product_name }}. Enter `admin` for both username and password fields to login as the admin user.
 
