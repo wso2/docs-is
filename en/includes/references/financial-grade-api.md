@@ -9,7 +9,7 @@ Financial-grade API (FAPI), a specification that extends the OAuth and OIDC fram
 
 The following diagram illustrates how FAPI-compliant features combine to secure applications and the following topics explain the illustrated concepts.
 
-![Fapi compliant application flow]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-application.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Fapi compliant application flow]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-application.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Request object handling
 
@@ -27,7 +27,7 @@ Follow the steps below to configure a FAPI-compliant request object:
     - a FAPI-compliant asymmetric key encryption algorithm under **Request object encryption algorithm**
     - a FAPI-compliant symmetric key encryption method under **Request object encryption method**.
 
-    ![Choose fapi compliant request object configurations]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-request-object-configurations.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Choose fapi compliant request object configurations]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-request-object-configurations.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Update** to save the changes.
 
@@ -74,7 +74,7 @@ Follow the steps below to configure a FAPI-compliant authorization response:
 
 3. Select a FAPI-compliant signing algorithm under **ID token response signing algorithm**.
 
-    ![Choose fapi compliant ID token signing algorithm]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-id-token-response.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Choose fapi compliant ID token signing algorithm]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-id-token-response.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save the changes.
 
@@ -99,7 +99,7 @@ Follow the steps below to configure a FAPI-compliant client authentication metho
 
 3. Under **Client Authentication**, select one of the following **Client authentication methods**.
 
-    ![Choose a fapi compliant authentication method]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-client-authentication-methods.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Choose a fapi compliant authentication method]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-client-authentication-methods.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save the changes.
 

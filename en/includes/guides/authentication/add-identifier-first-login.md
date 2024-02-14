@@ -27,7 +27,7 @@ Follow the steps below to enable **Identifier First** as an authenticator in the
 
         2. Add a second authentication step by clicking the **+** icon and add your preferred authenticators to this step.
             
-            ![Add Identifier First login in {{ product_name }}]({{base_path}}/assets/img/guides/identifier-first/add-identifier-first-login.png){: width="600" style="display: block; margin: 0 auto;"}
+            ![Add Identifier First login in {{ product_name }}]({{base_path}}/assets/img/guides/identifier-first/add-identifier-first-login.png){: width="600" style="display: block; margin: 0;"}
 
         3. Use conditional authentication to [customize the authentication flow](#customize-the-authentication-flow).
             
@@ -46,7 +46,7 @@ Follow the steps below to enable **Identifier First** as an authenticator in the
 
         3. Add a second authentication step by clicking the **+** icon and add your preferred authenticators to this step.
 
-            ![Add Identifier First login in {{ product_name }}]({{base_path}}/assets/img/guides/identifier-first/add-identifier-first-loin-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
+            ![Add Identifier First login in {{ product_name }}]({{base_path}}/assets/img/guides/identifier-first/add-identifier-first-loin-with-visual-editor.png){: width="600" style="display: block; margin: 0;"}
 
         4. Use conditional authentication to [customize the authentication flow](#customize-the-authentication-flow).
         
@@ -162,8 +162,8 @@ Follow the steps given below.
 
 3. Enter a user identifier that does not end with `@gmail.com`. You will be redirected to the basic authenticator.
 
-    ![Login with a non gmail username to identifier first]({{base_path}}/assets/img/guides/identifier-first/identifier-first-non-gmail.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Login with a non gmail username to identifier first]({{base_path}}/assets/img/guides/identifier-first/identifier-first-non-gmail.png){: width="600" style="display: block; margin: 0;"}
 
 4. Enter a user identifier that ends with `@gmail.com`. You will be redirected to the Google authenticator.
 
-    ![Login with a non gmail username to identifier first]({{base_path}}/assets/img/guides/identifier-first/identifier-first-gmail.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Login with a non gmail username to identifier first]({{base_path}}/assets/img/guides/identifier-first/identifier-first-gmail.png){: width="600" style="display: block; margin: 0;"}

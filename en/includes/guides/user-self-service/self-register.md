@@ -15,7 +15,7 @@ To self-register from the My Account portal, the user should follow these steps.
 
 1. Go to the My Account Portal.
 
-    ![Self register to organization]({{base_path}}/assets/img/guides/organization/self-service/customer/create-an-account.png){: width="400" style="display: block; margin: 0 auto;"}
+    ![Self register to organization]({{base_path}}/assets/img/guides/organization/self-service/customer/create-an-account.png){: width="400" style="display: block; margin: 0;"}
 
 2. Click **Create an account**.
 
@@ -32,7 +32,7 @@ To self-register from an application, users should follow these steps.
     - Click **Continue with email** and follow the steps to [sign up using an email](#sign-up-using-an-email).
     - Sign-up using any of the other authenticators as shown below.
 
-      ![Account verification email notification]({{base_path}}/assets/img/guides/organization/self-service/customer/self-registration-select-a-method.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+      ![Account verification email notification]({{base_path}}/assets/img/guides/organization/self-service/customer/self-registration-select-a-method.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Sign up using an email
 
@@ -44,7 +44,7 @@ The user can follow the steps below to sign up using an email.
 
 2. Enter the email address, password, and any other information that the application requests.
 
-    ![Account verification email notification]({{base_path}}/assets/img/guides/organization/self-service/customer/self-registration-form.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Account verification email notification]({{base_path}}/assets/img/guides/organization/self-service/customer/self-registration-form.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
 
@@ -57,4 +57,4 @@ The user can follow the steps below to sign up using an email.
 
 4. If **Account Verification** is enabled, the user can confirm the account from the email.
 
-    ![Account verification email notification]({{base_path}}/assets/img/guides/organization/self-service/customer/account-verification-email.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Account verification email notification]({{base_path}}/assets/img/guides/organization/self-service/customer/account-verification-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

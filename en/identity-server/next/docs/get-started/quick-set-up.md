@@ -63,7 +63,7 @@ For example, if you are using default settings, the console URL will be `https:/
 
 You will then be presented with the login screen for the {{ product_name }}. Enter `admin` for both username and password fields to login as the admin user.
 
-![Login screen of IS]({{base_path}}/assets/img/get-started/login-to-is.png){: width="400" style="display: block; margin: 0 auto;"}
+![Login screen of IS]({{base_path}}/assets/img/get-started/login-to-is.png){: width="400" style="display: block; margin: 0;"}
 
 ## What's next?
 

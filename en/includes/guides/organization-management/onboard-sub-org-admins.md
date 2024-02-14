@@ -53,7 +53,7 @@ If you have created an {{ admin_role_name }} role in the organization (root) and
 
 4. Select the user from drop-down.
 
-    ![Assign admin permission to organization user]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-admin-permissions.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign admin permission to organization user]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-admin-permissions.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Update**.
 

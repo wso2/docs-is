@@ -37,7 +37,7 @@ Follow this guide for instructions.
 
         2. Click **Add Authentication** on the step, select your custom connector, and click **Add**.
 
-            ![Add custom connector]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add custom connector]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add custom connector using the Visual Editor:
@@ -46,7 +46,7 @@ Follow this guide for instructions.
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your custom connector.
 
-            ![Add custom connector using the Visual Editor]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add custom connector using the Visual Editor]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
         You can select an authenticator from the list of authenticators when you hover on the custom connector.

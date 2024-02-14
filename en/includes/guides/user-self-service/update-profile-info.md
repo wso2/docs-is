@@ -10,7 +10,7 @@ Users can use the My Account portal to update user attributes by following the s
 1. Sign in to the My Account portal.
 2. Click **Personal Info** to see the profile information.
 
-    ![Update user profile from MyAccount]({{base_path}}/assets/img/guides/organization/self-service/myaccount/update-profile-info.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Update user profile from MyAccount]({{base_path}}/assets/img/guides/organization/self-service/myaccount/update-profile-info.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Update the editable information.
 

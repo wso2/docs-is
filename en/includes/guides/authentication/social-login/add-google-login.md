@@ -16,15 +16,15 @@ You need to register {{ product_name }} as an OAuth2.0 application on Google.
 
     1. Open the navigation menu and click **View all products**.
 
-       ![View all products on the Google console]({{base_path}}/assets/img/guides/idp/google-idp/view-all-products.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+       ![View all products on the Google console]({{base_path}}/assets/img/guides/idp/google-idp/view-all-products.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     2. Under **Management**, click **APIs & Services**.
 
-       ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/apis-and-services.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+       ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/apis-and-services.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Go to the **Credentials** page, click **Create Credentials**, and select **Oauth client ID**.
 
-    ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/google-oauth-client-id.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/google-oauth-client-id.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Configure your consent screen by clicking **Configure Consent Screen** and return to **Create OAuth client ID** screen once you are done.
 
@@ -99,7 +99,7 @@ After the Google identity provider is created, go to the **Settings** tab and se
     
         2. Click **Add Authentication** on the step, select your Google identity provider, and click **Add**.
 
-            ![Add Google login in {{product_name}}]({{base_path}}/assets/img/guides/idp/google-idp/add-google-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Google login in {{product_name}}]({{base_path}}/assets/img/guides/idp/google-idp/add-google-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Google login using the Visual Editor:
@@ -108,7 +108,7 @@ After the Google identity provider is created, go to the **Settings** tab and se
     
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Google connection.
 
-            ![dd Google login in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/google-idp/add-google-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![dd Google login in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/google-idp/add-google-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

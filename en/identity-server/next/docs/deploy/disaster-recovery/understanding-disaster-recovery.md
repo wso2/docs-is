@@ -92,7 +92,7 @@ be achieved by following an Active and Passive region architecture as per the be
 diagram. In this architecture, the passive region deployment can be maintained in a 
 cold state and activated in the event of a disaster.
 
-![Disaster recovery normal operation]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-basic-normal-operation.png){: width="800" style="display: block; margin: 0 auto;"}
+![Disaster recovery normal operation]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-basic-normal-operation.png){: width="800" style="display: block; margin: 0;"}
 
 ### Usual Regional Operation
 
@@ -129,7 +129,7 @@ in the disaster recovery (DR) region must be manually activated, and traffic mus
 redirected to the DR site until the primary region has fully recovered from the disaster
 as per the below diagram.
 
-![Disaster recovery disaster operation]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-basic-disaster-operation.png){: width="800" style="display: block; margin: 0 auto;"}
+![Disaster recovery disaster operation]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-basic-disaster-operation.png){: width="800" style="display: block; margin: 0;"}
 
 To ensure a seamless disaster recovery process, it is important to properly configure 
 and test the manual trigger mechanism for starting the servers in the DR region. 

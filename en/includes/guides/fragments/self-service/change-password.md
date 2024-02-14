@@ -8,7 +8,7 @@ Users can use the My Account portal to change the password by following the step
 
 3. Click **Change your password**.
 
-      ![Update user profile from MyAccount]({{base_path}}/assets/img/guides/organization/self-service/myaccount/change-password.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+      ![Update user profile from MyAccount]({{base_path}}/assets/img/guides/organization/self-service/myaccount/change-password.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter the **Current password** and the **New password**.
 

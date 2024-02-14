@@ -20,11 +20,11 @@ Follow the steps given below to create an organization.
 2. On the {{ product_name }} Console, go to **Organization Management** > **Organizations** and click **Add Organization**.
 3. In the **Add Organization** dialog box that opens, enter a name and description for your organization.
 
-    ![Create organization]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create organization]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Register** to add the new organization. You will now see your organization listed as below.
 
-    ![The list of organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-list.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![The list of organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-list.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Switch** next to the organization name to switch to the new organization's console.
 
@@ -52,7 +52,7 @@ To add additional attributes of your organization:
 3. Go to the **Attributes** tab and add attributes by entering a **Name** and **Value**.
 4. Click **+** to add the new organization attribute.
 
-    ![Add organization attributes]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization-attributes.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add organization attributes]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization-attributes.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Update** to save the configurations.
 
@@ -60,7 +60,7 @@ To add additional attributes of your organization:
 
 When you have multiple [organizations]({{base_path}}/guides/organization-management/manage-organizations/) for your primary business organization, you can switch between them on the {{ product_name }} Console by selecting the required organization from the list as shown below.
 
-![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organizations.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Build an organization hierarchy
 
@@ -95,7 +95,7 @@ To delete an organization of your organization (root):
 2. Go to **Organizations** to view the list of organizations.
 3. Click the delete icon next to the organization you want to delete.
 
-    ![Delete an organization]({{base_path}}/assets/img/guides/organization/manage-organizations/delete-organization.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Delete an organization]({{base_path}}/assets/img/guides/organization/manage-organizations/delete-organization.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Select the checkbox and confirm your action.
 

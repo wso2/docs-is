@@ -129,7 +129,7 @@ Now, let's register IWA as an authenticator in {{product_name}}.
     
         2. Click **Add Authentication** on the step, select your IWA connection, and click **Add**.
 
-            ![Add X login in {{product_name}}]({{base_path}}/assets/img/guides/idp/iwa-idp/add-iwa-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add X login in {{product_name}}]({{base_path}}/assets/img/guides/idp/iwa-idp/add-iwa-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add IWA login using the Visual Editor:
@@ -138,7 +138,7 @@ Now, let's register IWA as an authenticator in {{product_name}}.
     
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your IWA connection.
 
-            ![Add Google login in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/iwa-idp/add-iwa-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Google login in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/iwa-idp/add-iwa-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     ---
 
 3. Click **Update** to save your changes.

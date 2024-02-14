@@ -12,11 +12,11 @@ To register the app:
 
 2. Click **New Application** and select **Traditional Web Application**.
 
-    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details:
 
-    ![Create a new web app]({{base_path}}/assets/img/guides/applications/create-new-web-app.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a new web app]({{base_path}}/assets/img/guides/applications/create-new-web-app.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -49,7 +49,7 @@ To register the app:
     !!! note
         If you have enabled **Allow sharing with organizations** while registering the application, you will see a popup window with the following options.
 
-        ![Share the application with organizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Share the application with organizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         <table>
             <tr>
@@ -72,7 +72,7 @@ When you register your web application, a client ID and client secret are genera
 
 You can get this client ID and client secret from the **Protocol** tab of the application, as shown below.
 
-![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/client-secret-oidc.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/client-secret-oidc.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## What's next?
 

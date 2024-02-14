@@ -46,7 +46,7 @@ Once you have [set up ELK alerts]({{base_path}}/deploy/elk-configuring-alerts), 
 1. Login to Kibana and navigate to `Dashboards > Alert Dashboard`.
 2. Select a timer interval to filter the alerters within a given duration (e.g. 1 day) and all the alerts that are generated during this time interval appears.
     - **Abnormal long session alert**
-    ![Long session alert]({{base_path}}/assets/img/elk-analytics/alerting/elk-alerting-5.png){: style="display: block; margin: 0 auto;"}
+    ![Long session alert]({{base_path}}/assets/img/elk-analytics/alerting/elk-alerting-5.png){: style="display: block; margin: 0;"}
 
     - **Suspicious login alert**
-    ![Suspicious login alerts]({{base_path}}/assets/img/elk-analytics/alerting/elk-alerting-2.png){: style="display: block; margin: 0 auto;"}
+    ![Suspicious login alerts]({{base_path}}/assets/img/elk-analytics/alerting/elk-alerting-2.png){: style="display: block; margin: 0;"}

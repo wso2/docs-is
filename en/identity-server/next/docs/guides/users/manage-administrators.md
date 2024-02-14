@@ -13,7 +13,7 @@ Administrators of your organization can follow the steps below to add another ad
 
 2. Click **Add User** and provide the required details.
 
-    ![Add administrator user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add administrator user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Next**.
 

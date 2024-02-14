@@ -11,7 +11,7 @@ To disable JIT-provisioning,
 
 3. Check/Uncheck the **Just-in-Time (JIT) User Provisioning** checkbox to enable/disable it.
 
-    ![enable/disable JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![enable/disable JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save the changes.
 
@@ -32,7 +32,7 @@ To enable JIT-provisioning,
 
 3. Check/Uncheck the **Just-in-Time (JIT) User Provisioning** checkbox to enable/disable it.
 
-    ![enable/disable JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![enable/disable JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save the changes.
 

@@ -13,7 +13,7 @@ This guide explains how to configure and use email domain-based organization dis
 Consider **Guardio Insurance** is a B2B SaaS provider and `Best Car Mart` and `Glory Car Mart` are two of its customer/partner organizations.
 Guardio Insurance wants to resolve the organization of a user based on the email domain of the user's email address and route them to the respective authentication options.
 
-![Email domain based organization discovery scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/email-domain-based-organization-discovery.png){: width="700" style="display: block; margin: 0 auto;"}
+![Email domain based organization discovery scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/email-domain-based-organization-discovery.png){: width="700" style="display: block; margin: 0;"}
 
 User Alice with email `alice@bcmart.com` should be routed to the authentication options provided by the `Best Car Mart` organization,
 and user Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should be routed to the authentication options provided by the `Glory Car Mart` organization.
@@ -30,7 +30,7 @@ and user Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should be
 2. On the {{ product_name }} Console, go to **Login & Registration**, and click **Email Domain Discovery** under **Organization Settings**.
 3. Turn on the toggle to enable email domain based organization discovery.
 
-    ![Enable email domain based organization discovery]({{base_path}}/assets/img/guides/organization/manage-organizations/enable-email-domain-based-organization-discovery.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Enable email domain based organization discovery]({{base_path}}/assets/img/guides/organization/manage-organizations/enable-email-domain-based-organization-discovery.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Using the API
 
@@ -66,12 +66,12 @@ You need to:
 2. Click **Email Domain Discovery** under **Organization Settings**.
 3. Click **+Assign Email Domains**.
 
-    ![Assign Email Domain]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-email-domains.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign Email Domain]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-email-domains.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Select the organization you want to claim an email domain from the dropdown under **Organization Name**.
 5. Type the email domain you want to claim for the selected organization under **Email Domains** and press enter. Here you can add one or more email domains. 
 
-    ![Assign Email Domain for Best Car Mart]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-email-domains-bestcarmart.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign Email Domain for Best Car Mart]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-email-domains-bestcarmart.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Click **Assign**.
 
@@ -113,7 +113,7 @@ You need to:
 2. Click **Email Domain Discovery** under **Organization Settings**.
 3. Click **Edit** of the organization you want to update the email domains.
 
-    ![Edit Email Domain]({{base_path}}/assets/img/guides/organization/manage-organizations/edit-email-domains.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Edit Email Domain]({{base_path}}/assets/img/guides/organization/manage-organizations/edit-email-domains.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Update the email domains in **Email Domains** and click **Update**.
 
@@ -181,8 +181,8 @@ You need to:
 
 7. Input the username (which is an email) of `Alice` in `Best Car Mart` organization.
    
-    ![Email input for SSO login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Email input for SSO login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 8. After resolving the organization from the email, Alice will be redirected to the authentication option of `Best Car Mart`.
 
-    ![Best Car Mart login]({{base_path}}/assets/img/guides/organization/manage-organizations/bestcarmart-login.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Best Car Mart login]({{base_path}}/assets/img/guides/organization/manage-organizations/bestcarmart-login.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

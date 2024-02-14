@@ -6,14 +6,14 @@ Logs in {{ product_name }} are designed to help developers diagnose and troubles
 
 You can access logs in {{ product_name }} by navigating to **Logs** on the {{ product_name }} Console. The logs portal looks as below.
 
-![{{ product_name }} logs]({{base_path}}/assets/img/guides/asgardeo-logs/diagnostic-logs-display.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![{{ product_name }} logs]({{base_path}}/assets/img/guides/asgardeo-logs/diagnostic-logs-display.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 You can analyze logs by combining one or more of the following filters:
 
 ### Filter logs by time
 You can change the timeframe of the logs by clicking the dropdown next to the search bar.
 
-![{{ product_name }} logs filter by time]({{base_path}}/assets/img/guides/asgardeo-logs/logs-filter-by-time.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![{{ product_name }} logs filter by time]({{base_path}}/assets/img/guides/asgardeo-logs/logs-filter-by-time.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! note
     By default, the console displays logs that occurred in the last 15 minutes.
@@ -24,7 +24,7 @@ Besides the given timeframes, you can select a custom time range by following th
 2. Provide your desired time zone and the time range.
 3. Click the button to submit.
 
-    ![{{ product_name }} logs filter by custom time range]({{base_path}}/assets/img/guides/asgardeo-logs/logs-select-custom-time-range.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} logs filter by custom time range]({{base_path}}/assets/img/guides/asgardeo-logs/logs-select-custom-time-range.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Search for logs
 
@@ -32,19 +32,19 @@ You can use the search bar to search for logs based on the Trace ID, Action ID, 
 
 For example, the diagram below shows the results for a search based on the Result Message.
 
-![{{ product_name }} logs search bar]({{base_path}}/assets/img/guides/asgardeo-logs/logs-search-bar.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![{{ product_name }} logs search bar]({{base_path}}/assets/img/guides/asgardeo-logs/logs-search-bar.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Filter logs
 
 When you expand a log in {{ product_name }} by clicking on it, you will get the following view.
 
-![{{ product_name }} logs expanded view]({{base_path}}/assets/img/guides/asgardeo-logs/asgardeo-log-expand-view.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![{{ product_name }} logs expanded view]({{base_path}}/assets/img/guides/asgardeo-logs/asgardeo-log-expand-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Click the **filter icon** next to one or more of the log parameters and {{ product_name }} will narrow the search based on those parameter values. Learn more about these parameters in the [structure of logs](#structure-of-logs) section.
 
 For example, if you would like to view logs related to a request, click the filter icon next to the relevant traceId and click **Run Query** to filter out all the related logs.
 
-![{{ product_name }} logs filter by specific value]({{base_path}}/assets/img/guides/asgardeo-logs/logs-filter-by-specific-value.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![{{ product_name }} logs filter by specific value]({{base_path}}/assets/img/guides/asgardeo-logs/logs-filter-by-specific-value.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Add custom logs to authentication scripts
 
@@ -200,7 +200,7 @@ Follow the steps below to observe an application error log due to incorrect clie
 
 3. Go to the logs portal on the {{ product_name }} Console and observe the following error log.
 
-    ![{{ product_name }} logs invalid credentials]({{base_path}}/assets/img/guides/asgardeo-logs/logs-invalid-credentials.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} logs invalid credentials]({{base_path}}/assets/img/guides/asgardeo-logs/logs-invalid-credentials.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Conditional authentication
 
@@ -216,4 +216,4 @@ Follow the steps below to observe an application error log due to not meeting th
 
 5. Go to the logs portal on the {{ product_name }} Console and observe the following error log.
 
-    ![{{ product_name }} logs conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/logs-conditional-authentication.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} logs conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/logs-conditional-authentication.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

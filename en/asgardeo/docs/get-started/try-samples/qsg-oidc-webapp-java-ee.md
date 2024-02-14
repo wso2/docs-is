@@ -20,11 +20,11 @@ Follow the steps given below to register the sample Java EE web application in A
 
 2. Click **New Application** and select **Traditional Web Application**:
 
-    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details:
 
-    ![Create a new web app]({{base_path}}/assets/img/guides/applications/create-new-web-app.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a new web app]({{base_path}}/assets/img/guides/applications/create-new-web-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -48,7 +48,7 @@ Follow the steps given below to register the sample Java EE web application in A
 
 5. Go to the **Protocol** tab and take note of the **Client ID** and the **Client secret**. You will need them to configure the application later.
 
-    ![Client ID and client secret]({{base_path}}/assets/img/guides/applications/client-secret-oidc.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Client ID and client secret]({{base_path}}/assets/img/guides/applications/client-secret-oidc.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! tip
     To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:8080/oidc-sample-app</code>).
@@ -203,6 +203,6 @@ Follow the steps given below to run the sample.
 
 2. Click **Login**. You will be redirected to the Asgardeo login page.
 
-    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the credentials of your user account and click **Sign In**.

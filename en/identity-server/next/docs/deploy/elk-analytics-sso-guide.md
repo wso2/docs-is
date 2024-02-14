@@ -23,13 +23,13 @@ To enable Elastic stack SSO with WSO2 Identity Server, follow the steps given be
     - https://localhost:5601/api/security/oidc/callback
     - https://localhost:5601/security/logged_out
 
-    ![Register an application for Kibana]({{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-4.png){: width="600" style="display: block; margin: 0 auto; border-style: solid; border-radius: 5px; border-width: 0.5px;"}
+    ![Register an application for Kibana]({{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-4.png){: width="600" style="display: block; margin: 0; border-style: solid; border-radius: 5px; border-width: 0.5px;"}
 
 4. Click **Register**.
 
 5. Go to the **User Attributes** tab of the application and allow to share the **email** and **groups** attributes with the application. (Username is used as the **Subject attribute** by default.)
 
-    ![Allow to share attributes with the application]({{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-3.png){: width="600" style="display: block; margin: 0 auto; border-style: solid; border-radius: 5px; border-width: 0.5px;"}
+    ![Allow to share attributes with the application]({{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-3.png){: width="600" style="display: block; margin: 0; border-style: solid; border-radius: 5px; border-width: 0.5px;"}
 
 6. Click Update to save your changes.
 
@@ -85,7 +85,7 @@ Follow the steps below to create a user and assign the user with the created rol
 
 7. Assign the role that you created above and proceed to create the user.
 
-      ![Assign role to user]({{base_path}}/assets/img/elk-analytics/elk-assign-role.png){: width="600" style="display: block; margin: 0 auto; border-style: solid; border-radius: 5px; border-width: 0.5px;"}
+      ![Assign role to user]({{base_path}}/assets/img/elk-analytics/elk-assign-role.png){: width="600" style="display: block; margin: 0; border-style: solid; border-radius: 5px; border-width: 0.5px;"}
 
 
 ### Configure role mapping in Kibana
@@ -100,13 +100,13 @@ Follow the steps below to associate Kibana roles with the roles you created in W
 
 4. Select a role that has access to the particular dashboard from  **Roles**.
 
-    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-6.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-6.png){: width="600" style="display: block; margin: 0;"}
 
 5. Click **Add Rules** under **Mapping rules**.
 
 6. Select **groups** as the user field and enter the name of the role that you created in the WSO2 Identity Server.
 
-    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-7.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-7.png){: width="600" style="display: block; margin: 0;"}
 
 
 ## Try it out
@@ -118,8 +118,8 @@ Follow the steps below to try out single sign-on to the Kibana dashboard using W
 
 7. Logout from Kibana if you have already logged in, and login again by selecting the **Log in with WSO2** option.
 
-    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-8.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-8.png){: width="600" style="display: block; margin: 0;"}
 
 8. You will be redirected to the WSO2 Identity Server login page. Try logging in with the credentials of the user that you created.
 
-    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-9.png){: width="400" style="display: block; margin: 0 auto;"}
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-9.png){: width="400" style="display: block; margin: 0;"}

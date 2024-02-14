@@ -56,7 +56,7 @@ If you selected **Manual Configuration** in the previous step, follow the steps 
 
 1. Enter the following details and click **Next**.
 
-    ![Create SAML Enterprise IDP with manual configurations]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-manual-config.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create SAML Enterprise IDP with manual configurations]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-manual-config.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -97,7 +97,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
 
 2. Upload the IdP metadata file and click **Next**.
 
-    ![Create SAML Enterprise IDP with Metadata file]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-metafile.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create SAML Enterprise IDP with Metadata file]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-metafile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. (Optional) Upload the public certificate of the identity provider.
 4. Click **Finish** to complete the registration.
@@ -124,7 +124,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
         
         2. Click **Add Authentication** on the step, select your SAML identity provider, and click **Add**.
 
-            ![Add SAML IdP login in Asgardeo]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/enable-saml-enterprise-login-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add SAML IdP login in Asgardeo]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/enable-saml-enterprise-login-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add SAML identity provider login using the Visual Editor:
@@ -133,7 +133,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your SAML identity provider connection.
 
-            ![Add SAML IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/add-saml-idp-with-visual-editor.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add SAML IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/add-saml-idp-with-visual-editor.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -155,7 +155,7 @@ You may want to convert them to the local attribute URI so that the application 
 
 **A sample IdP attribute mapping done from the {{ product_name }} Console**:
 
-![Sample IdP attribute mapping]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/sample-attribute-mapping.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Sample IdP attribute mapping]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/sample-attribute-mapping.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 **Sample attributes in the SAML assertion of the integrated SAML app**:
 

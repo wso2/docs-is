@@ -11,7 +11,7 @@ To upgrade your subscription:
 1. Sign in to the Asgardeo Console.
 2. Click **Upgrade** on the upper menu or go to the profile menu and select **Billing Portal** to open the portal.
 
-    ![open the billing portal]({{base_path}}/assets/img/guides/select-upgrade-biling-portal.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![open the billing portal]({{base_path}}/assets/img/guides/select-upgrade-biling-portal.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. On the **Subscriptions** page, select your preferred billing cycle, your business use case, the number of monthly active users (MAUs), the subscription plan, and the support plan.
 
@@ -25,7 +25,7 @@ To upgrade your subscription:
         1. Once you have decided on an appropriate plan, click **Upgrade**.
         2. Enter your billing and payment details and agree to our [terms of fees and payment](https://wso2.com/asgardeo/terms-of-use/#fees-and-payment)
 
-            ![enter billing details]({{base_path}}/assets/img/guides/self-service-billing-payment.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![enter billing details]({{base_path}}/assets/img/guides/self-service-billing-payment.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Click **Upgrade** to complete your subscription.
 
@@ -92,7 +92,7 @@ Depending on your selected use case, the available subscription plans will chang
 !!! note
     To compare the different subscription plans, go to [Asgardeo pricing](https://wso2.com/asgardeo/pricing/).
 
-![select subscription plan]({{base_path}}/assets/img/guides/select-subscription-plan.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![select subscription plan]({{base_path}}/assets/img/guides/select-subscription-plan.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Support plan
 
@@ -105,19 +105,19 @@ Available support packages for each plan are as follows:
 - **Enterprise plan**: Enterprise(24/7 SLA) support included.
 
 
-![select support plan]({{base_path}}/assets/img/guides/select-support-plan.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![select support plan]({{base_path}}/assets/img/guides/select-support-plan.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Manage billing and payment
 
 Your billing and payment information will be saved in the **Billing Details** tab. You can use this tab to edit your billing details or to add or delete a payment method.
 
-![Manage billing and payment]({{base_path}}/assets/img/guides/billing-and-payment-information.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Manage billing and payment]({{base_path}}/assets/img/guides/billing-and-payment-information.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Manage invoices
 
 Once you have upgraded to a paid plan, you can find and download your invoice from the **Invoices** tab that appear.
 
-![Manage invoices]({{base_path}}/assets/img/guides/billing-invoices-tab.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Manage invoices]({{base_path}}/assets/img/guides/billing-invoices-tab.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Downgrade/Cancel your subscription
 

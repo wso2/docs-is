@@ -17,7 +17,7 @@ its **Guardio Insurance Business App** and **Guardio Insurance Administrative Ap
 
 The employees of Best Car Mart should be able to log in to the Guardio Insurance applications to consume its services. The administrators of Best Car Mart will manage the users of its organization and also determine the login experience that their users should have.
 
-![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-scenario.png){: width="600" style="display: block; margin: 0 auto;"}
+![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-scenario.png){: width="600" style="display: block; margin: 0;"}
 
 {% if product_name == "Asgardeo" %}
 ## Prerequisites
@@ -415,7 +415,7 @@ Follow the steps below to see how organization login works for a user in the **B
 
 1. Open the application by copying the following URL to your browser: `http://localhost:3001/`
 
-    ![Guardio Admin Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/guardio-admin-app-login.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Guardio Admin Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/guardio-admin-app-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Click **Sign In** and see that you are diverted to the {{ product_name }} login screen.
 
@@ -423,7 +423,7 @@ Follow the steps below to see how organization login works for a user in the **B
 
 4. Enter **Best Car Mart** as the organization name and click **Submit**.
 
-    ![Sign in with SSO]({{base_path}}/assets/img/guides/organization/manage-organizations/sign-in-with-sso.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Sign in with SSO]({{base_path}}/assets/img/guides/organization/manage-organizations/sign-in-with-sso.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Enter the username and password of a user who you have onboarded to Best Car Mart.
 
@@ -444,11 +444,11 @@ To configure an identity provider for **Guardio Insurance Business App**:
 
 2. On the application, go to **Settings** > **Identity Providers** and click **Add Identity Provider**.
 
-    ![Best car mart IdP config]({{base_path}}/assets/img/guides/organization/manage-organizations/best-car-mart-idp-config.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Best car mart IdP config]({{base_path}}/assets/img/guides/organization/manage-organizations/best-car-mart-idp-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Select **Google** if you are onboarding a Google IdP or **Enterprise** if you are onboarding an enterprise IdP.
 
-    ![Select Identity Provider method]({{base_path}}/assets/img/guides/organization/manage-organizations/select-idp-method.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select Identity Provider method]({{base_path}}/assets/img/guides/organization/manage-organizations/select-idp-method.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     
     !!!note
         Make sure that the configured IdP will share `Email`, `First Name`, `Last Name`, and `Username` attributes of the authenticating user with {{ product_name }}.
@@ -459,6 +459,6 @@ To configure an identity provider for **Guardio Insurance Business App**:
 
 6. Open the **Guardio Insurance Business App** by copying the following URL to your browser: `http://localhost:3000/`.
    
-    ![Guardio Business Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/guardio-app-login.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Guardio Business Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/guardio-app-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 7. [Log in to the business application through SSO option](#try-out-sign-in-with-sso). Now, the users in the configured external IdP can be logged into the application.

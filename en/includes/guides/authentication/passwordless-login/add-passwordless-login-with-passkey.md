@@ -63,11 +63,11 @@ Follow the steps given below to enable login with passkeys for your application.
     === "Classic Editor"
         - If you haven't already built a login flow for your application, select **Add Passkey Login** to build one.
 
-            ![Configuring passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/add-fido-login.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/add-fido-login.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         - If you have an already built login flow, you can add Passkey as an additional authenticator for the first step.
 
-            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/passkey/fido-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/passkey/fido-login-step.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add passwordless login with Passkey using the Visual Editor:
@@ -78,7 +78,7 @@ Follow the steps given below to enable login with passkeys for your application.
 
         3. Click **Confirm** to add passwordless login with Passkey to the sign-in flow.
 
-            ![Configuring passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/add-fido-login-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/add-fido-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 
@@ -100,7 +100,7 @@ Follow the steps given below to enable passkey progressive enrollment for your a
 
 3. Select the **Allow passkey progressive enrollment** checkbox.
 
-    ![Enable passkey progressive enrollment in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/enable-passkey-progressive-enrollment.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Enable passkey progressive enrollment in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/enable-passkey-progressive-enrollment.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save your changes.
 
@@ -120,7 +120,7 @@ Follow the steps given below to enable passkey progressive enrollment for your a
         
         3. Click **Confirm** to add the script.
 
-            ![Add adaptive script with Classic Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-classic-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add adaptive script with Classic Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-classic-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add the adaptive script using the Classic Editor:
@@ -131,7 +131,7 @@ Follow the steps given below to enable passkey progressive enrollment for your a
 
         3. Click **Confirm** to add the script.
 
-            ![Add adaptive script with Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add adaptive script with Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     ---
 
     !!! warning "Important"
@@ -159,7 +159,7 @@ Usernameless authentication enhances user experience by eliminating the need for
     !!! note
         If this option is disabled, users are prompted to enter the username during login with passkeys.
 
-    ![Enable passkey usernameless authentication in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/enable-passkey-usernameless-authentication.png){: width="500" style="display: block; margin: 0 auto;border: 0.3px solid lightgrey;"}
+    ![Enable passkey usernameless authentication in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/enable-passkey-usernameless-authentication.png){: width="500" style="display: block; margin: 0;border: 0.3px solid lightgrey;"}
 
 5. Click **Update** to save your changes.
 

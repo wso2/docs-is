@@ -13,7 +13,7 @@ To configure password recovery:
 
 4. Turn on **Enabled** to enable this configuration.
 
-    ![Configure password recovery]({{base_path}}/assets/img/guides/organization/account-recovery/password-recovery/configure-password-recovery.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Configure password recovery]({{base_path}}/assets/img/guides/organization/account-recovery/password-recovery/configure-password-recovery.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Configure the below settings if you want to change the default password recovery configurations.
     <table>

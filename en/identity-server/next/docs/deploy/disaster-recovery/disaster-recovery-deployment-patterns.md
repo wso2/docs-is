@@ -10,7 +10,7 @@ the spectrum, and is **based on services provided by Microsoft Azure**.
     Server deployment, and does not provide information on how to set up the deployment.
     For information on how to deploy WSO2 Identity Server, see [here]({{base_path}}/deploy/deployment-guide).
 
-![Disaster recovery normal operation in Azure]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-azure-normal-operation.png){: width="800" style="display: block; margin: 0 auto;"}
+![Disaster recovery normal operation in Azure]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-azure-normal-operation.png){: width="800" style="display: block; margin: 0;"}
 
 The above diagram depicts the normal operation of the deployment where the primary region actively 
 receives traffic and the data is replicated to the DR passive region. The DR region is running in 
@@ -150,4 +150,4 @@ are ready, updating loadbalancer to direct traffic to the new DR region would ta
 another 5 mins (RTO + 5). The diagram below shows the new state of the deployment once
 failover is complete.
 
-![Disaster recovery disaster operation in Azure]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-azure-disaster-operation.png){: width="800" style="display: block; margin: 0 auto;"}
+![Disaster recovery disaster operation in Azure]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-azure-disaster-operation.png){: width="800" style="display: block; margin: 0;"}

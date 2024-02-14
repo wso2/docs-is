@@ -53,7 +53,7 @@ To disable a user store:
 1. On the Asgardeo Console, go to **User Management** > **User Stores** and select your user store.
 2. Turn on the **Disable User Store** toggle at the bottom of the page to disable the user store.
 
-    ![Disable a user store]({{base_path}}/assets/img/guides/user-stores/disable-user-store.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Disable a user store]({{base_path}}/assets/img/guides/user-stores/disable-user-store.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
         You can re-enable a disabled user store by switching off the toggle.
@@ -70,6 +70,6 @@ To delete a user store:
 1. On the Asgardeo Console, go to **User Management** > **User Stores** and select your user store.
 2. Click **Delete User Store** at the bottom of the page.
 
-    ![Disable a user store]({{base_path}}/assets/img/guides/user-stores/delete-user-store.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Disable a user store]({{base_path}}/assets/img/guides/user-stores/delete-user-store.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. On the pop-up window, type the user store name and click **Confirm** to delete the user store.

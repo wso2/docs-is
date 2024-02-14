@@ -35,10 +35,10 @@ To create a new organization (root) in {{ product_name }}:
 
 1. Select the organization list and click **New Organization**.
 
-    ![Create new organization (root)]({{base_path}}/assets/img/guides/organization/manage-organizations/create-new-organization.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create new organization (root)]({{base_path}}/assets/img/guides/organization/manage-organizations/create-new-organization.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Enter a name for your organization (root) and click **Create**.
-    ![Create guardio organization]({{base_path}}/assets/img/guides/organization/manage-organizations/create-guardio-org.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create guardio organization]({{base_path}}/assets/img/guides/organization/manage-organizations/create-guardio-org.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 The new organization (root) is now available in the root organization list.
 
@@ -51,7 +51,7 @@ When you have multiple root organizations, you can switch between them on the {{
 
 The list of root organizations will show all the root organizations you own or to which you have administrator access.
 
-![Root organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/root-organizations.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Root organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/root-organizations.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Obtain the organization ID
 
@@ -59,7 +59,7 @@ You may need to use the organization ID to execute cURLs when managing root orga
 
 To obtain the organization ID of your root organization, expand the organization list and copy the provided organization ID.
 
-![Obtain organization id]({{base_path}}/assets/img/guides/organization/manage-organizations/obtain-organization-id.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Obtain organization id]({{base_path}}/assets/img/guides/organization/manage-organizations/obtain-organization-id.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Delete root organizations
 

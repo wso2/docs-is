@@ -13,17 +13,17 @@ To request user attributes from an application:
 1. On the {{ product_name }} console, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab. The most common user attributes are listed according to the relevant scope.
 
-    ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attributes-list-grouped-user-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attributes-list-grouped-user-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. You can select user attributes using the following methods:
 
     - Add all user attributes for a given scope by selecting the checkbox in front of that scope.
 
-        ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-scope.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-scope.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     - Add user attributes by expanding a scope and selecting only the necessary user attributes.
 
-        ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-user-attribute.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Add user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-user-attribute-select-user-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** once you are done.
 
@@ -31,7 +31,7 @@ To request user attributes from an application:
 
 {% include "../../fragments/manage-app/manage-user-attributes/select-mandatory-attributes.md" %}
 
-![Add madatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Add madatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Configure the subject identifier
 
@@ -54,7 +54,7 @@ Follow the steps below to configure the subject identifier type:
     !!! info
         The sector identifier URI is used to group clients belonging to the same security domain so that the same pairwise identifier is used for a given user accessing these clients.
 
-    ![Enter a suctor identifier for pairwise subject identifier]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-subject-identifier.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Enter a suctor identifier for pairwise subject identifier]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-subject-identifier.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save the changes.
 
@@ -62,7 +62,7 @@ Follow the steps below to configure the subject identifier type:
 
 The following diagram depicts the process {{ product_name }} implements when a user tries to log in to an application.
 
-![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800" style="display: block; margin: 0 auto;"}
+![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/how-it-works.png){: width="800" style="display: block; margin: 0;"}
 
 ### Application requests attributes
 

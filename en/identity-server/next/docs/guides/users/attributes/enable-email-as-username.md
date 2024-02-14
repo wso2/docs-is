@@ -10,7 +10,7 @@
    
 2. Click the **Username** attribute and configure the `Mapped Attribute` as `mail`.
 
-    ![email-as-username-attribute-mapping]({{base_path}}/assets/img/guides/organization/attributes/email-as-username-attribute-mapping.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![email-as-username-attribute-mapping]({{base_path}}/assets/img/guides/organization/attributes/email-as-username-attribute-mapping.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     
 3. Click **Update** to save the changes.
 

@@ -8,7 +8,7 @@ An eIDAS node can request a cross-border authentication through the eIDAS connec
 
 Following is an example eIDAS network with proxy to proxy-to-proxy connection between two "member states" (MS).
 
-![eIDAS diagram]({{base_path}}/assets/img/setup/compliance/eidas-diagram.png){: width="700" style="display: block; margin: 0 auto;"}
+![eIDAS diagram]({{base_path}}/assets/img/setup/compliance/eidas-diagram.png){: width="700" style="display: block; margin: 0;"}
 
 Following is what happens in the illustration given above.
 

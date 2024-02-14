@@ -81,7 +81,7 @@ Let's register the WS-Fed IdP in {{product_name}}.
 
         2. Click **Add Authentication** on the step, select your WS-Federation IdP, and click **Add**.
 
-            ![Add WS-Fed identity provider login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/ws-fed-idp/enable-ws-fed-login-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add WS-Fed identity provider login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/ws-fed-idp/enable-ws-fed-login-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add WS-Federation login using the Visual Editor:
@@ -90,7 +90,7 @@ Let's register the WS-Fed IdP in {{product_name}}.
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your WS-Federation connection.
 
-            ![Add OIDC IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/ws-fed-idp/add-ws-fed-idp-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add OIDC IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/ws-fed-idp/add-ws-fed-idp-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     ---
 
 3. Click **Update** to save your changes.

@@ -14,7 +14,7 @@ To view the attributes available for your organization:
 1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
 2. Click **Attributes** again under the **Manage Attributes** section.
 
-   ![View attributes]({{base_path}}/assets/img/guides/organization/attributes/view-attributes.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+   ![View attributes]({{base_path}}/assets/img/guides/organization/attributes/view-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 You can now see the complete list of attributes along with **Attribute Display Name** and **Attribute** name.
 
@@ -26,7 +26,7 @@ To add a custom attribute:
 2. Click **Attributes** to see the list of attributes.
 3. Click **New Attribute** and enter values for the following properties:
 
-    ![Custom attribute]({{base_path}}/assets/img/guides/organization/attributes/new-custom-attribute.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Custom attribute]({{base_path}}/assets/img/guides/organization/attributes/new-custom-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
        <tbody>
@@ -54,7 +54,7 @@ To update the properties of a user attribute:
 2. Click **Attributes** to see the list of attributes.
 3. Click **Edit** for the attribute you want to update.
 
-    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
         The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
@@ -88,8 +88,8 @@ To update the properties of a user attribute:
 
 5. Go to the **Mapped Attributes** tab and enter the attribute from each user store that you need to map.
 
-    ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Go to the **Additional Properties** tab and add additional properties that can be used when writing an extension.
 
-    ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

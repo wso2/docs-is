@@ -20,7 +20,7 @@ To register an application:
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Click **New Application** and select **Standard-Based Application**.
 
-    ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/register-an-sba.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register a standard-based application]({{base_path}}/assets/img/guides/applications/register-an-sba.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Provide an application name and select the other options based on your requirements.
 
@@ -33,7 +33,7 @@ To register an application:
     !!! note
         If you have enabled **Allow sharing with organizations** while registering the application, you will see a popup window with the following options.
 
-        ![Share the application with organizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Share the application with organizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         <table>
             <tr>

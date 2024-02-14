@@ -16,7 +16,7 @@ The flow of JIT user provisioning is as follows:
 
 4. {{ product_name }} creates a user account in its internal user store along with the user attributes obtained from the authentication response.
 
-![How JIT user provisioning works]({{base_path}}/assets/img/guides/jit-provisioning/how-jit-works.png){: width="800" style="display: block; margin: 0 auto;"}
+![How JIT user provisioning works]({{base_path}}/assets/img/guides/jit-provisioning/how-jit-works.png){: width="800" style="display: block; margin: 0;"}
 
 With this process, new user accounts are automatically provisioned to {{ product_name }} when users log in with external IdPs.
 
@@ -34,7 +34,7 @@ To enable/disable JIT user provisioning for an external Identity provider:
 
 3. Check/Uncheck the **Just-in-Time (JIT) User Provisioning** checkbox to enable/disable it.
 
-    ![JIT user provisioning configuration is enabled]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![JIT user provisioning configuration is enabled]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save.
 
@@ -52,7 +52,7 @@ If you have disabled JIT provisioning for an IdP, applications that use [multi-f
 
 When configuring an application's sign-in flow involving JIT-disabled IdPs and such MFA options, {{product_name}} displays the following warning:
 
-![MFA based Sign-in flow with JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-mfa-conflict.png){:style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![MFA based Sign-in flow with JIT user provisioning]({{base_path}}/assets/img/guides/jit-provisioning/jit-mfa-conflict.png){:style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 To avoid unexpected errors, you can use the following conditional authentication script to skip the MFA step when using JIT-disabled connectors.
 

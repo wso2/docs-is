@@ -33,7 +33,7 @@ To create a role and assign permissions to it:
     !!! note
         Applications can be configured to consume either application or organization roles. Learn how to [associate roles to an application](#associate-roles-to-an-application).
 
-    ![create new role]({{base_path}}/assets/img/guides/roles/create-role.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![create new role]({{base_path}}/assets/img/guides/roles/create-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Next**.
 
@@ -43,7 +43,7 @@ To create a role and assign permissions to it:
 
     - If you selected the **Organization** audience, select permissions from the management and organization APIs of {{ product_name }}, and [registered business specific APIs]({{base_path}}/guides/api-authorization/#register-an-api-resource).
 
-    ![Assign permission on role creation]({{base_path}}/assets/img/guides/roles/assign-permissions-to-role-on-creation.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign permission on role creation]({{base_path}}/assets/img/guides/roles/assign-permissions-to-role-on-creation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Click **Finish**.
 
@@ -55,7 +55,7 @@ To assign users to a role:
 2. Select the role to which you wish to assign users.
 3. Click **Edit** and navigate to **Users**.
 
-    ![Assign users to role]({{base_path}}/assets/img/guides/roles/assign-users-to-role.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign users to role]({{base_path}}/assets/img/guides/roles/assign-users-to-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Assign User** and select users to add to the role.
 5. Click **Update**.
@@ -70,7 +70,7 @@ To assign groups to a role:
 
 3. Click **Edit** and navigate to **Groups**.
 
-    ![Assign user groups to role]({{base_path}}/assets/img/guides/roles/assign-usergroups-to-role.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign user groups to role]({{base_path}}/assets/img/guides/roles/assign-usergroups-to-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Select the groups you wish to add from the dropdown under **Local Groups**.
 
@@ -94,7 +94,7 @@ To assign external groups to an application role:
 
 3. Click the **Edit** icon and navigate to the **Groups** tab.
 
-    ![Assign IdP groups to role]({{base_path}}/assets/img/guides/roles/assign-idpgroups-to-role.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign IdP groups to role]({{base_path}}/assets/img/guides/roles/assign-idpgroups-to-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Select the relevant IdP under **External Groups** and select the groups from the dropdown.
 
@@ -112,7 +112,7 @@ To remove users from a role:
 
 4. Click the cross icon next to username of the users who wants to remove from the role.
 
-    ![Remove users from role]({{base_path}}/assets/img/guides/roles/remove-users-from-role.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Remove users from role]({{base_path}}/assets/img/guides/roles/remove-users-from-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. They will be added to **Removing users** section.
 
@@ -130,7 +130,7 @@ To remove user groups from a role:
 
 4. Click the cross icon next to group name of the groups under **Local Groups** which wants to remove from the role.
 
-    ![Remove user groups from role]({{base_path}}/assets/img/guides/roles/remove-usergroups-from-role.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Remove user groups from role]({{base_path}}/assets/img/guides/roles/remove-usergroups-from-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. They will be added to **Removing groups** section.
 6. Click **Update**.
@@ -150,7 +150,7 @@ To remove external groups from a role:
     !!! note
         The removed groups will be displayed in the **Removing groups** section.
 
-    ![Remove IdP groups from role]({{base_path}}/assets/img/guides/roles/remove-idpgroups-from-role.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Remove IdP groups from role]({{base_path}}/assets/img/guides/roles/remove-idpgroups-from-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Click **Update**.
 
@@ -180,7 +180,7 @@ To edit the permissions of a role:
     - **Remove permissions from a selected API**:
         - click the **X** icon next to the permission listed under the API.
 
-    ![Update permissions of a role]({{base_path}}/assets/img/guides/roles/update-permissions-of-role.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Update permissions of a role]({{base_path}}/assets/img/guides/roles/update-permissions-of-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Update**.
 
@@ -221,6 +221,6 @@ To associate organization roles to an application:
 
 4. Select **Organization** as the **Role Audience**, and select the roles from the dropdown.
 
-    ![Associate organization audience roles to app]({{base_path}}/assets/img/guides/roles/associate-org-audience-roles-to-app.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Associate organization audience roles to app]({{base_path}}/assets/img/guides/roles/associate-org-audience-roles-to-app.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Update**.

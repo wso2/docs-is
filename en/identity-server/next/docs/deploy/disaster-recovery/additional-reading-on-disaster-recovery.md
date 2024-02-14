@@ -4,7 +4,7 @@
 The diagram below depicts a spectrum of DR strategies that have been established for
 achieving certain levels of RPO/RTO combinations. 
 
-![Disaster recovery spectrum]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-strategy-spectrum.png){: width="800" style="display: block; margin: 0 auto;"}
+![Disaster recovery spectrum]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-strategy-spectrum.png){: width="800" style="display: block; margin: 0;"}
 
 The reference points in the spectrum can be used when designing the deployment architecture to achieve the required service level.
 
@@ -17,7 +17,7 @@ The reference points in the spectrum can be used when designing the deployment a
 The following diagram depicts the failover pipeline that is activated to transform the DR 
 passive region into a fully fledged active region.
 
-![Disaster recovery pipeline]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pipeline.png){: style="display: block; margin: 0 auto;"}
+![Disaster recovery pipeline]({{base_path}}/assets/img/setup/deploy/disaster-recovery/disaster-recovery-pipeline.png){: style="display: block; margin: 0;"}
 
 The duration of the downtime or service interruption during this process can vary depending 
 on several factors:

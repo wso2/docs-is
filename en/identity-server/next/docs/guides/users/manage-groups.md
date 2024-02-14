@@ -22,7 +22,7 @@ Let's look at how administrators can onboard groups from the WSO2 Identity Serve
     - **Group Name:** A unique name to identify the group.
     - **Add Users:** If you already have existing users, you can search and add them to a group.
 
-    ![create-new-group-form]({{base_path}}/assets/img/guides/groups/create-new-group-form.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![create-new-group-form]({{base_path}}/assets/img/guides/groups/create-new-group-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Finish**.
 
@@ -35,7 +35,7 @@ To assign users to groups:
 2. Select the group to which you wish to assign users.
 3. Click **Edit** and navigate to **Users**.
 
-    ![add-user-to-group-view]({{base_path}}/assets/img/guides/groups/add-user-to-group-view.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![add-user-to-group-view]({{base_path}}/assets/img/guides/groups/add-user-to-group-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Assign User** and select users to add to the group.
 6. Click **Save**.
@@ -49,7 +49,7 @@ To remove users from a group:
 2. Select the group from which you wish to remove users.
 3. Click **Edit** and navigate to **Users**.
 
-    ![remove-user-from-group-view]({{base_path}}/assets/img/guides/groups/remove-user-from-group-view.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![remove-user-from-group-view]({{base_path}}/assets/img/guides/groups/remove-user-from-group-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Edit** icon.
 5. Clear the checkbox for the user(s) you want to remove.

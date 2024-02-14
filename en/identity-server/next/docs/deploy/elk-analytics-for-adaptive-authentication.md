@@ -13,7 +13,7 @@ Follow the steps below to configure the analytics engine in WSO2 Identity Server
 1. On the WSO2 Identity Server Console, click **Analytics**.
 
 2. Configure the following properties.
-   ![elk-analytics-engine-properties]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png){: width="800" style="display: block; margin-left: 0 auto;"}
+   ![elk-analytics-engine-properties]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png){: width="800" style="display: block; margin-left: 0;"}
   
       <table>
       <thead>

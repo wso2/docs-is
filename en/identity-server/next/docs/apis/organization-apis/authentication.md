@@ -6,7 +6,7 @@ To access the management APIs of organizations in {{ product_name }}, you must f
 
 The following is a high-level diagram of how to authenticate to organization APIs.
 
-![Get access to for organization APIs]({{base_path}}/assets/img/apis/organization-apis/organization-authentication.png){: style="display: block; margin: 0 auto;"}
+![Get access to for organization APIs]({{base_path}}/assets/img/apis/organization-apis/organization-authentication.png){: style="display: block; margin: 0;"}
 
 Follow the steps given below to get an access token with the required permissions.
 
@@ -23,7 +23,7 @@ Use the **standard-based** app type to register an OIDC app:
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Click **New Application** and select **Standard-Based Application** to open the following:
 
-    ![Register a standard based application]({{base_path}}/assets/img/apis/management-apis/register-a-sba.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Register a standard based application]({{base_path}}/assets/img/apis/management-apis/register-a-sba.png){: width="600" style="display: block; margin: 0;"}
 
 3. Provide an application name.
 4. Select **OIDC Standard-Based Application** as the application type.
@@ -38,7 +38,7 @@ Use the **standard-based** app type to register an OIDC app:
 
 The client credentials for your application are displayed in the protocol tab, as shown below.
 
-![Obtain the client ID and client secret of the app]({{base_path}}/assets/img/apis/management-apis/obtain-client-credentials.png){: width="600" style="display: block; margin: 0 auto;"}
+![Obtain the client ID and client secret of the app]({{base_path}}/assets/img/apis/management-apis/obtain-client-credentials.png){: width="600" style="display: block; margin: 0;"}
 
 !!! note
     The client ID and client secret are sensitive information that must be protected. See the [best practices](#best-practices) before you proceed.

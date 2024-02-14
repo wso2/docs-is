@@ -95,7 +95,7 @@ To configure the custom local authenticator for the application:
 
         2. Remove the existing **Username & Password** authenticator and click **Add Authentication** on the step, select your custom local authenticator, and click **Add**.
 
-            ![Add custom federated authenticator]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-local-authenticator-with-classic-editor.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add custom federated authenticator]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-local-authenticator-with-classic-editor.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add custom local authenticator using the Visual Editor:
@@ -104,7 +104,7 @@ To configure the custom local authenticator for the application:
 
         2. Remove the existing **Username & Password** authenticator and click on `+ Add Sign In Option` to add a new authenticator to the same step and select your custom local authenticator.
 
-            ![Add custom local authenticator using the Visual Editor]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-local-authenticator-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add custom local authenticator using the Visual Editor]({{base_path}}/assets/img/guides/idp/custom-connector/add-custom-local-authenticator-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

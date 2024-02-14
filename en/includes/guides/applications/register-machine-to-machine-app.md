@@ -12,7 +12,7 @@ To register the app:
 
 1. On the {{ product_name }} Console, click **Applications**.
 
-    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Click **New Application** and select **M2M Application**.
 
@@ -24,7 +24,7 @@ To register the app:
 
 You can authorize your M2M applications to access APIs and their scopes(permissions) from **API Authorization** tab of the application, as shown below.
 
-![Authorize API]({{base_path}}/assets/img/guides/applications/authorize-api-to-m2m.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Authorize API]({{base_path}}/assets/img/guides/applications/authorize-api-to-m2m.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Learn more about [API authorization]({{base_path}}/guides/api-authorization/).
 
@@ -34,7 +34,7 @@ When you register your M2M application, a client ID and client secret are genera
 
 You can get this client ID and client secret from the **Protocol** tab of the application, as shown below.
 
-![Get client ID and secret of M2M app]({{base_path}}/assets/img/guides/applications/client-id-secret-m2m.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Get client ID and secret of M2M app]({{base_path}}/assets/img/guides/applications/client-id-secret-m2m.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## What's Next?
 

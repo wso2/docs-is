@@ -37,7 +37,7 @@ Follow the steps below to configure event publishing for Asgardeo.
 
 2. Select the events that you wish to publish to Choreo and click **Update**.
 
-    ![Asgardeo Console UI for events]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-ui.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Asgardeo Console UI for events]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! info
         Alternatively, you can invoke the **Event Configuration Management** API to configure event publishing. See the <a :href="$withBase('/apis/event-configuration/')">API Documentation</a> to learn more.
@@ -123,7 +123,7 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 4. Under the **Select a Type** tab, select **Webhook**. Learn more about webhooks in the Choreo [documentation](https://wso2.com/choreo/docs/develop/components/webhook/#develop-a-webhook){:target="_blank"}.
 
-    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter a name and a description for your webhook.
 
@@ -133,7 +133,7 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 7. Select the **Access Mode** as External and click **Create**.
 
-    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 8. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
 
@@ -152,7 +152,7 @@ Once the webhook is deployed in Choreo, follow the steps below to try it out.
 
 4. Find the **Logs** tab and filter for the logged add user event.
 
-    ![Choreo logs for Asgardeo events]({{base_path}}/assets/img/guides/asgardeo-events/choreo-logs-for-asgardeo-events.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Choreo logs for Asgardeo events]({{base_path}}/assets/img/guides/asgardeo-events/choreo-logs-for-asgardeo-events.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
 ## Payload of an Asgardeo event

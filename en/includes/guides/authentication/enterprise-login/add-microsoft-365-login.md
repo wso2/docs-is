@@ -129,7 +129,7 @@ To enable Microsoft login:
 
         2. Click **Add Authentication** on the step, select your Microsoft 365 connection, and click **Add**.
 
-            ![Add Microsoft 365 login in {{ product_name }}]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-365-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Microsoft 365 login in {{ product_name }}]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-365-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Microsoft login using the Visual Editor:
@@ -138,7 +138,7 @@ To enable Microsoft login:
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Microsoft 365 connection.
 
-            ![Add Microsoft 365 login in {{ product_name }} using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-365-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add Microsoft 365 login in {{ product_name }} using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-365-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

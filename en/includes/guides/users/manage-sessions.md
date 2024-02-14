@@ -21,7 +21,7 @@ To view all active sessions of a user:
 2. Select a user and click **Edit**.
 3. Go to **Active Sessions** to view details.
 
-    ![view-active-sessions]({{base_path}}/assets/img/guides/users/view-active-sessions.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![view-active-sessions]({{base_path}}/assets/img/guides/users/view-active-sessions.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Terminate active sessions
 

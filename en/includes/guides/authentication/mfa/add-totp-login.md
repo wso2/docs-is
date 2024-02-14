@@ -35,13 +35,13 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
     === "Classic Editor"
         - If you don't have a customized login flow, you can click **Add TOTP as a second factor**.
 
-            ![Configuring TOTP authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring TOTP authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
             This opens the customized login flow with TOTP as a second-factor authenticator:
 
         - If you have an already customized login flow, you can add a second step and add TOTP as the authenticator.
             
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add TOTP as a second-factor authenticator using the Visual Editor:
@@ -52,7 +52,7 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
 
         3. Click **Confirm** to add TOTP as a second factor to the sign-in flow.
 
-            ![Configuring TOTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Configuring TOTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 
