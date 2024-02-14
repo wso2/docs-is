@@ -344,7 +344,7 @@ To create and maintain admins in the organization (root):
             },
             {
                 "key": "creator.username",
-                "value": {username of the user created in step 1}"
+                "value": "{username of the user created in step 1}"
             }
         ]
     }'
