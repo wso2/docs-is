@@ -1,0 +1,413 @@
+openapi: 3.0.1
+info:
+  title: User Account Associations API
+  description: |
+    This document specifies a **User Account Association Management RESTful API** for **WSO2 Identity Server**.
+    The APIs provide the capability to `add`/`retrieve`/`delete` associated local/federated accounts of an authenticated user.
+  version: v1
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+tags:
+  - name: me
+    description: Operations for the authenticated user.
+
+paths:
+  /me/associations:
+    get:
+      tags:
+        - me
+      summary: Retrieve the associations of the authenticated user
+      description: |
+        This API is used to retrieve the associations of the authenticated user.<br>
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/me/associations' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - me
+      summary: |
+        Associate a user to the authenticated user
+      description: |
+        This API is used to associate a user to the authenticated user. For example, if it is required to associate your user account to the user account of 'john', this endpoint can be used. The userId and the password are required to associate the accounts.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      requestBody:
+        description: User details to be associated. userId should be the fully qualified
+          username of the user.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssociationUserRequest'
+        required: true
+      responses:
+        201:
+          description: Successfully created
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v1/me/associations' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "userId": "john",
+            "password": "userpassword",
+            "properties": [
+              {
+                "key": "test-key",
+                "value": "test-value"
+              }
+            ]
+            }'
+      x-codegen-request-body-name: association
+    delete:
+      tags:
+        - me
+      summary: Delete all my user associations
+      description: |
+        This API is used to delete all associations of the authenticated user.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/me/associations' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /me/associations/{associated-user-id}:
+    delete:
+      tags:
+        - me
+      summary: Delete the given user account from associations
+      description: |
+        This API is used to delete the given user account from the associations of the authenticated user.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      parameters:
+        - name: associated-user-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/me/associations/{associated-user-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /me/federated-associations:
+    get:
+      tags:
+        - me
+      summary: Retrieve the federated associations of the authenticated user.
+      description: |
+        This API is used to retrieve the federated associations of the authenticated user.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FederatedAssociation'
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/me/federated-associations' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    delete:
+      tags:
+        - me
+      summary: Delete all my federated user associations
+      description: |
+        This API is used to delete all the federated associations of the authenticated user.<br>
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/me/federated-associations' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /me/federated-associations/{id}:
+    delete:
+      tags:
+        - me
+      summary: Delete my federated association
+      description: |
+        This API is used to delete a federated association of the authenticated user.<br>
+
+        <b>Scope required:</b> `internal_login`
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized request
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/me/federated-associations/{federated-association-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+components:
+  schemas:
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: some_error_code
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: Some Correlation for Error Instance
+    User:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: 23e22434234234329jj9iin
+        username:
+          type: string
+          example: john
+        userStoreDomain:
+          type: string
+          example: PRIMARY
+        tenantDomain:
+          type: string
+          example: carbon.super
+        firstName:
+          type: string
+          example: john
+        lastName:
+          type: string
+          example: doe
+        email:
+          type: string
+          example: john.doe@wso2.com
+    FederatedAssociation:
+      type: object
+      properties:
+        id:
+          type: string
+          example: eeqweisfhkdfik
+        idp:
+          $ref: '#/components/schemas/Idp'
+        federatedUserId:
+          type: string
+          example: john@google.com
+    Idp:
+      type: object
+      properties:
+        id:
+          type: string
+          example: eeqweisfhkdfikaefcqwesfceqwqas
+        name:
+          type: string
+          example: google.com
+        displayName:
+          type: string
+          example: Google
+        imageUrl:
+          type: string
+          example: https://is.example.com/sample.jpg
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+          example: test-key
+        value:
+          type: string
+          example: test-value
+    AssociationUserRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: john
+        password:
+          type: string
+          example: userpassword
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}

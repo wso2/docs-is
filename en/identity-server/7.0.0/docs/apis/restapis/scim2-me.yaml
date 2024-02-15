@@ -1,0 +1,651 @@
+openapi: 3.0.1
+info:
+  title: SCIM 2.0 Me API
+  description: |
+    This document specifies **SCIM 2.0 Me RESTful API** for **WSO2 Identity Server**.
+  version: 1.0.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/scim2
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /Me:
+    get:
+      tags:
+        - Me Endpoint
+      summary: Get Me
+      description: |
+        This API returns the user details of the currently authenticated
+        
+        <b>Scope(Permission) required:</b>`internal_login`
+      parameters:
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+      responses:
+        200:
+          description: Valid user is found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/scim2/Me' \
+            -H 'accept: application/scim+json'
+    put:
+      tags:
+        - Me Endpoint
+      summary: Update Me
+      description: |
+        This API uses a PUT operation to update user details. 
+        
+        <b>Scope(Permission) required:</b>`internal_login`
+      operationId: updateUserMe
+      parameters:
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateObject'
+        required: true
+      responses:
+        200:
+          description: User is updated
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "kim",
+            "emails": [
+              {
+                "type": "home",
+                "value": "kim@gmail.com",
+                "primary": true
+              },
+              {
+                "type": "work",
+                "value": "kim@wso2.com"
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "employeeNumber": "1234A",
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'
+      x-codegen-request-body-name: body
+    post:
+      tags:
+        - Me Endpoint
+      summary: Create Me
+      description: |
+        This API is used to register a user anonymously.
+        
+        <b>Scope(Permission) required:</b>`internal_user_mgt_create`
+      operationId: createUserMe
+      parameters:
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+      requestBody:
+        description: User details to add.
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/UserObject'
+        required: true
+      responses:
+        201:
+          description: User is created.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResponseObject'
+        400:
+          description: Invalid Input
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        500:
+          description: Internal Server Error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "kim",
+            "password": "abc123",
+            "emails": [
+              {
+                "type": "home",
+                "value": "kim@gmail.com",
+                "primary": true
+              },
+              {
+                "type": "work",
+                "value": "kim@wso2.com"
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "employeeNumber": "1234A",
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Me Endpoint
+      summary: Delete Me
+      description: |
+        This API is used to delete the currently authenticated user.
+        
+        <b>Scope(Permission) required:</b>`internal_user_mgt_delete`
+      operationId: deleteUserMe
+      responses:
+        204:
+          description: User is deleted
+          content: {}
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        501:
+          description: Self delete is not supported
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotimplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/scim2/Me' \
+            -H 'accept: */*'
+    patch:
+      tags:
+        - Me Endpoint
+      summary: Update Me - PATCH
+      description: |
+        This API uses a PATCH operation to update user details.
+        
+        <b>Scope(Permission) required:</b>`internal_login`
+      operationId: patchUserMe
+      parameters:
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/PatchOpperationInput'
+        required: false
+      responses:
+        200:
+          description: User is updated
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/PatchOperationResponseOutput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "nickName": "shaggy"
+                }
+              }
+            ]
+            }'
+      x-codegen-request-body-name: body
+
+
+components:
+  schemas:
+    UserObject:
+      required:
+        - password
+      type: object
+      properties:
+        schemas:
+          type: object
+          properties: {}
+          example: []
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              example: Kim
+            familyName:
+              type: string
+              example: Berry
+        userName:
+          type: string
+          example: kim
+        password:
+          type: string
+          example: abc123
+        emails:
+          type: array
+          example:
+            - type: home
+              value: kim@gmail.com
+              primary: true
+            - type: work
+              value: kim@wso2.com
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            employeeNumber:
+              type: string
+              example: 1234A
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+    UserResponseObject:
+      required:
+        - meta
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              example: 2018-08-17T10:34:29Z
+            location:
+              type: string
+              example: https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
+            lastModified:
+              type: string
+              example: 2018-08-17T10:34:29Z
+            resourceType:
+              type: string
+              example: User
+        schemas:
+          type: object
+          properties: {}
+          example:
+            - urn:ietf:params:scim:schemas:core:2.0:User
+            - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+        username:
+          type: string
+          example: PRIMARY/kim
+        id:
+          type: string
+          example: 008bba85-451d-414b-87de-c03b5a1f4217
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              example: Kim
+            familyName:
+              type: string
+              example: Berry
+        emails:
+          type: array
+          example:
+            - type: home
+              value: kim@gmail.com
+              primary: true
+            - type: work
+              value: kim@wso2.com
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            employeeNumber:
+              type: string
+              example: 1234A
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+        roles:
+          type: object
+          properties: {}
+          example:
+            - type: default
+              value: Internal/everyone
+    UserUpdateObject:
+      type: object
+      properties:
+        schemas:
+          type: object
+          properties: {}
+          example: []
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              example: Kim
+            familyName:
+              type: string
+              example: Berry
+        userName:
+          type: string
+          example: kim
+        emails:
+          type: array
+          example:
+            - type: home
+              value: kim@gmail.com
+              primary: true
+            - type: work
+              value: kim@wso2.com
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            employeeNumber:
+              type: string
+              example: 1234A
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+    PatchOpperationInput:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: object
+            example: urn:ietf:params:scim:api:messages:2.0:PatchOp
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperationMeItem'
+    OperationMeItem:
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+            - add
+            - remove
+            - replace
+        value:
+          type: object
+          properties:
+            nickName:
+              type: string
+              example: shaggy
+    PatchOperationResponseOutput:
+      required:
+        - meta
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              example: 2018-08-17T10:34:29Z
+            location:
+              type: string
+              example: https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
+            lastModified:
+              type: string
+              example: 2018-08-17T10:34:29Z
+            resourceType:
+              type: string
+              example: User
+        schemas:
+          type: array
+          items:
+            type: string
+            example: ""
+        username:
+          type: string
+          example: kim
+        id:
+          type: string
+          example: 008bba85-451d-414b-87de-c03b5a1f4217
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              example: Kim
+            familyName:
+              type: string
+              example: Berry
+        emails:
+          type: array
+          example:
+            - type: home
+              value: kim@gmail.com
+              primary: true
+            - type: work
+              value: kim@wso2.com
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            employeeNumber:
+              type: string
+              example: 1234A
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                example: https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              display:
+                type: string
+                example: loginRole
+              value:
+                type: string
+                example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        nickName:
+          type: string
+          example: shaggy
+    ErrorInvalidInput:
+      required:
+        - detail
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "400"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: invalidSyntax
+        detail:
+          type: string
+          example: Request is unparsable, syntactically incorrect, or violates schema.
+    ErrorUnauthorized:
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "401"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: Unauthorized
+    ErrorInternalServerError:
+      required:
+        - detail
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "500"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: Internal Server Error.
+    ErrorNotimplemented:
+      required:
+        - detail
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "501"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: Self delete is not supported.
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information
