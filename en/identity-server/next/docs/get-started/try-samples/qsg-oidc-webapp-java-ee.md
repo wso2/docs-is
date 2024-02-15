@@ -195,6 +195,58 @@ Follow the steps given below to configure the sample app.
     sh catalina.sh start
     ```
 
+## Update the java keystore
+
+By default, tomcat is using the default Java keystore (cacerts) to build the SSL connection. In {{ product_name }}, the default certificate is a self signed
+certificate. This certificate needs to be added to the Java keystore. Please follow the given steps below to extract the public key from {{ product_name }} 
+keystore and import it to the Java keystore.
+
+1. Export the public key from {{ product_name }} keystore.
+
+    - Command
+    ``` shell
+    keytool -export -alias {{CERT_ALIAS}} -file {{CERT_NAME}} -keystore {{PATH_TO_KEYSTORE}} -storepass {{KEYSTORE_PASSWORD}}
+    ```
+
+    - Sample
+    ``` shell
+    keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.jks -storepass wso2carbon
+    ```
+    
+        !!!tip
+            The default keystore of {{ product_name }} can be found in **{{IS_HOME}}/repository/resources/security** directory.
+
+2. Convert the certificate to X509 format.
+
+    - Command
+    ``` shell
+    openssl x509 -in {{CERT_NAME}} -inform der -outform pem -out {{PEM_CERT_NAME}}
+    ```
+
+    - Sample
+    ``` shell
+    openssl x509 -in carbon_public2.crt -inform der -outform pem -out certificate.pem
+    ```
+
+3. Import the created `.pem` certificate to Java keystore.
+
+    - Command
+    ``` shell
+    sudo keytool -import -trustcacerts -keystore {{PATH_TO_CACERTS_KEYSTORE}} -storepass {{CACERTS_PASSWORD}} -noprompt -alias {{CERT_ALIAS}} -file {{PEM_CERT_PATH}}
+    ```
+
+    - Sample
+    ``` shell
+    sudo keytool -import -trustcacerts -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -noprompt -alias wso2carbon -file certificate.pem
+    ```
+
+4. After importing the certificate, restart the Tomcat server in order to fetch the latest certificates.
+
+    ```bash 
+    sh catalina.sh stop
+    sh catalina.sh start
+    ```
+
 ## Run the sample
 
 Follow the steps given below to run the sample.
@@ -206,3 +258,6 @@ Follow the steps given below to run the sample.
     ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the credentials of your user account and click **Sign In**.
+
+    !!! note "Extend your login session"
+        By default, the user login session is active for only `15 minutes`. You can extend the session to `14 days` by selecting the **Remember me on this computer** option provided at the login screen of your application.
