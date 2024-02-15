@@ -13,7 +13,7 @@ Let's assume we need to provision users based on their email domain and restrict
 ## Setting up the {{ product_name }}
 
 ### Prerequisites
-Setup outbound provisioning using the desired outbound provisioning connector ([Google](https://is.docs.wso2.com/en/latest/guides/identity-lifecycles/outbound-provisioning-with-google/), [Salesforce](https://is.docs.wso2.com/en/latest/guides/identity-lifecycles/outbound-provisioning-with-salesforce/) or [SCIM2](https://is.docs.wso2.com/en/latest/guides/identity-lifecycles/outbound-provisioning-with-scim/)).
+Setup outbound provisioning using the desired outbound provisioning connector ([Google]({{base_path}}/guides/users/outbound-provisioning/google/), [Salesforce]({{base_path}}/guides/users/outbound-provisioning/salesforce/) or [SCIM2]({{base_path}}/guides/users/outbound-provisioning/scim/)).
 
 ### Configure the resident service provider
 
@@ -41,7 +41,7 @@ Replace the `<IDP_NAME>` with the name of the outbound provisioning connector yo
 
 ### Configure the service provider
 
-If you have configured outbound provisioning in your [application](https://is.docs.wso2.com/en/latest/guides/identity-lifecycles/outbound-provisioning-with-scim/#configure-a-service-provider), you should **Enable rules** in the outbound provisioning connector. This can be done using the following API:
+If you have configured outbound provisioning in your [application]({{base_path}}/guides/users/outbound-provisioning/scim/), you should **Enable rules** in the outbound provisioning connector. This can be done using the following API:
 
 ```java
 curl --location --request PATCH 'https://localhost:9443/api/server/v1/applications/<APPLICATION-ID>' \
@@ -65,7 +65,7 @@ curl --location --request PATCH 'https://localhost:9443/api/server/v1/applicatio
 
 Replace the `<IDP_NAME>` with the name of the outbound provisioning connector you have registered in the earlier step.
 
-Use the [application API](https://is.docs.wso2.com/en/next/apis/application-rest-api/#tag/Applications/operation/getAllApplications) to find the application ID of your application and replace the `<APPLICATION-ID>` with it.
+Use the [application API]({{base_path}}/apis/application-rest-api/#tag/Applications/operation/getAllApplications) to find the application ID of your application and replace the `<APPLICATION-ID>` with it.
 
 
 ## Set up XACML rules

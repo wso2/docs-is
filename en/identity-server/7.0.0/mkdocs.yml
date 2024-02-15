@@ -17,10 +17,10 @@
 INHERIT: ../is_common.yml
 
 # Project information
-site_url: https://is.docs.wso2.com/en/next
+site_url: https://is.docs.wso2.com/en/7.0.0
 
 extra:
-  base_path: /en/next
+  base_path: /en/7.0.0
   is_version: 7.0.0
 
 plugins:
@@ -761,6 +761,7 @@ nav:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
+    - Architecture: references/architecture.md
     - IS Extensions:
       - references/extend/index.md
       - Authentication:
