@@ -1,0 +1,1651 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: 'Configurations API'
+  description: |
+    This document specifies a **Server related Configurations RESTful API** for **WSO2 Identity Server**.
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /configs:
+    get:
+      tags:
+        - Server Configs
+      summary: Retrieve server configs
+      operationId: getConfigs
+      description: |
+        Retrieve Server Configs
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    patch:
+      tags:
+        - Server Configs
+      summary: Patch server configs
+      description: |
+        Patch Server Configs. Patch operation is supported only for primary attributes (`homeRealmIdentifier`, `idleSessionTimeoutPeriod`, and `rememberMePeriod`)
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      operationId: patchConfigs
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/api/server/v1/configs' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/idleSessionTimeoutPeriod",
+              "value": "30"
+            }
+            ]'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+        required: true
+  /configs/provisioning/inbound/scim:
+    get:
+      tags:
+        - Server Inbound SCIM
+      summary: Retrieve server inbound SCIM configs
+      operationId: getInboundScimConfigs
+      description: |
+        Retrieve Server Inbound SCIM Configs
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScimConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/provisioning/inbound/scim' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    put:
+      tags:
+        - Server Inbound SCIM
+      summary: Update server inbound SCIM configs
+      operationId: updateInboundScimConfigs
+      description: |
+        Update Server Inbound SCIM configs
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/configs/provisioning/inbound/scim' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provisioningUserstore": "PRIMARY",
+            "enableProxyMode": false
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScimConfig'
+        required: true
+  /configs/authenticators:
+    get:
+      tags:
+        - Local Authenticators
+      summary: List local authenticators in the server
+      operationId: listAuthenticators
+      description: |
+        List available local authenticators of the server
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      parameters:
+        - $ref: '#/components/parameters/typeQueryParam'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticatorListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/authenticators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /configs/authenticators/{authenticator-id}:
+    get:
+      tags:
+        - Local Authenticators
+      summary: Get authenticator by ID
+      operationId: getAuthenticator
+      description: |
+        By passing in the appropriate authenticator ID, you can retrieve authenticator details
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      parameters:
+        - name: authenticator-id
+          in: path
+          description: ID of an authenticator
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authenticator'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/authenticators/{authenticator-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /configs/cors:
+    get:
+      tags:
+        - CORS
+      summary: Retrieve the tenant CORS configuration
+      operationId: getCORSConfiguration
+      description: |
+        Retrieve the tenant CORS configuration.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CORSConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/cors' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    patch:
+      tags:
+        - CORS
+      summary: Patch the tenant CORS configuration.
+      operationId: patchCORSConfiguration
+      description: | 
+        A JSONPatch as defined by RFC 6902.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CORSPatchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/api/server/v1/configs/cors' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "ADD",
+              "path": "/allowGenericHttpRequests",
+              "value": "30"
+            }
+            ]'
+  /configs/jwt-key-validator:
+    get:
+      tags:
+        - Private Key JWY validation Authenticators
+      summary: Retrieve the tenant private key jwt authentication configuration
+      operationId: getPrivatKeyJWTValidationConfiguration
+      description: | 
+        Retrieve the tenant private key jwt authentication configuration.
+        
+         <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTValidatorConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/jwt-key-validator' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                
+    patch:
+      tags:
+        - Private Key JWY validation Authenticators
+      summary: Patch the tenant private key jwt authentication configuration
+      operationId: patchPrivatKeyJWTValidationConfiguration
+      description: |
+        Patch the tenant private key jwt authentication configuration.  A JSONPatch as defined by RFC 6902.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JWTKeyValidatorPatchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/api/server/v1/configs/jwt-key-validator' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "ADD",
+              "path": "/enableTokenReuse",
+              "value": false
+            }
+            ]'
+  /configs/home-realm-identifiers:
+    get:
+      tags:
+        - Home Realm Identifiers
+      summary: Retrieve the Home Realm Identifiers.
+      operationId: getHomeRealmIdentifiers
+      description: |
+        Retrieve the Home Realm Identifiers.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HomeRealmIdentifiers'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/home-realm-identifiers' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /configs/schemas:
+    get:
+      tags:
+        - Schemas
+      summary: Retrieve Schemas supported By Server
+      operationId: getSchemas
+      description: |
+        Retrieve Schemas supported by Server.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SchemaListItem'
+
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/schemas' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /configs/schemas/{schema-id}:
+    get:
+      tags:
+        - Schemas
+      summary: Get Schema by ID
+      operationId: getSchema
+      description: |
+        By passing in the appropriate schema ID, you can retrieve attributes of a schema supported by the Server.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      parameters:
+        - name: schema-id
+          in: path
+          description: Schema ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schema'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/schemas/{schema-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /configs/remote-logging:
+    get:
+      tags:
+        - Server Remote Logging Configuration
+      summary: Retrieve Remote Logging Configuration
+      operationId: getRemoteLoggingConfigs
+      description: |
+        Retrieve Remote Logging Configurations
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RemoteLoggingConfigListItem'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/remote-logging' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    put:
+      tags:
+        - Server Remote Logging Configuration
+      summary: Update Remote Logging Configuration
+      operationId: updateRemoteLoggingConfigs
+      description: |
+        Update Remote Logging Configuration
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/configs/remote-logging' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "remoteUrl": "https://test.remote.server.com/api/log",
+              "connectTimeoutMillis": "5000",
+              "verifyHostname": true,
+              "logType": "AUDIT",
+              "username": "admin",
+              "password": "admin",
+              "keystoreLocation": "string",
+              "keystorePassword": "string",
+              "truststoreLocation": "string",
+              "truststorePassword": "string"
+            }
+            ]'               
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RemoteLoggingConfigListItem'
+        required: true
+    delete:
+      tags:
+        - Server Remote Logging Configuration
+      summary: |
+        Restore Server Remote Logging Configuration to defaults
+      operationId: restoreServerRemoteLoggingConfigurations
+      description: |
+        Restore Remote Logging Configuration to Default Configuration.
+        
+        <b>Scope(Permission) required:</b> `internal_config_delete`
+      responses:
+        '204':
+          description: Delete successful
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/configs/remote-logging' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
+  /configs/remote-logging/{log-type}:
+    get:
+      tags:
+        - Server Remote Logging Configuration
+      summary: Retrieve Remote Logging Configuration by log type
+      operationId: getRemoteLoggingConfig
+      description: |
+        Retrieve Remote Logging Configurations by log type.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      parameters:
+        - name: log-type
+          in: path
+          description: Log Type
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteLoggingConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/remote-logging/{log-type}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
+    put:
+      tags:
+        - Server Remote Logging Configuration
+      summary: Update Remote Logging Configuration by log type
+      operationId: updateRemoteLoggingConfig
+      description: |
+        Update Remote Logging Configuration by log type.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      parameters:
+        - name: log-type
+          in: path
+          description: Log Type
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/configs/remote-logging/{log-type}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "remoteUrl": "https://test.remote.server.com/api/log",
+            "connectTimeoutMillis": "5000",
+            "verifyHostname": true,
+            "username": "admin",
+            "password": "admin",
+            "keystoreLocation": "string",
+            "keystorePassword": "string",
+            "truststoreLocation": "string",
+            "truststorePassword": "string"
+            }'                 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoteLoggingConfig'
+        required: true
+    delete:
+      tags:
+        - Server Remote Logging Configuration
+      summary: |
+        Restore Server Remote Logging Configuration to defaults
+      operationId: restoreServerRemoteLoggingConfiguration
+      description: |
+        Restore Remote Logging Configuration of a specific log type to default configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_config_delete`
+      parameters:
+        - name: log-type
+          in: path
+          description: Log Type
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Delete successful
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/configs/remote-logging/log-type' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
+  /configs/authentication/inbound/saml2:
+    get:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Retrieve SAML2 inbound authentication configurations
+      description: |
+        Retrieve server SAML2 inbound authentication configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      operationId: getSAMLInboundAuthConfig
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundAuthSAML2Config'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/saml2' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
+    patch:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Update SAML2 inbound authentication configurations
+      description: |
+        Patch server SAML2 inbound authentication configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      operationId: updateSAMLInboundAuthConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundAuthSAML2Config'
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/saml2' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "destinationURLs": [
+              "https://localhost:9443/samlsso"
+            ],
+            "metadataValidityPeriod": 60,
+            "enableMetadataSigning": false
+            }'                 
+  /configs/authentication/inbound/passivests:
+    get:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Retrieve WS Federation (Passive STS) inbound authentication configurations
+      description: |
+        Retrieve WS Federation (Passive STS) inbound authentication configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      operationId: getPassiveSTSInboundAuthConfig
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundAuthPassiveSTSConfig'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/passivests' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
+    patch:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Update WS Federation (Passive STS) inbound authentication configurations
+      description: |
+        Patch WS Federation (Passive STS) inbound authentication configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      operationId: updatePassiveSTSInboundAuthConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundAuthPassiveSTSConfig'
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/passivests' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "enableRequestSigning": false
+            }'                
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
+  parameters:
+    typeQueryParam:
+      in: query
+      name: type
+      required: false
+      description: |
+        Type of authenticators. Can be either 'LOCAL' or 'REQUEST_PATH'
+      schema:
+        type: string
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+    ServerConfig:
+      type: object
+      properties:
+        homeRealmIdentifiers:
+          type: array
+          description: "The home realm identifier for the resident identity provider"
+          items:
+            type: string
+            example: "localhost"
+        idleSessionTimeoutPeriod:
+          type: string
+          description: "The idle session timeout in minutes"
+          example: "15"
+          default: "15"
+        rememberMePeriod:
+          type: string
+          description: "The remember me period in minutes"
+          example: "20160"
+          default: "20160"
+        provisioning:
+          $ref: '#/components/schemas/ProvisioningConfig'
+        authenticators:
+          $ref: '#/components/schemas/AuthenticatorListResponse'
+        cors:
+          $ref: '#/components/schemas/CORSConfig'
+    RealmConfig:
+      type: object
+      properties:
+        adminUser:
+            type: string
+            description: "Username of the super admin user in the system."
+            example: "admin"
+            readOnly: true
+        adminRole:
+            type: string
+            description: "Name of the super admin role in the system."
+            example: "Internal/admin"
+            readOnly: true
+        everyoneRole:
+            type: string
+            description: "Name of the everyone role in the system."
+            example: "Internal/everyone"
+            readOnly: true
+    ProvisioningConfig:
+      type: object
+      properties:
+        inbound:
+          $ref: '#/components/schemas/InboundConfig'
+    InboundConfig:
+      type: object
+      properties:
+        scim:
+          $ref: '#/components/schemas/ScimConfig'
+    ScimConfig:
+      type: object
+      properties:
+        provisioningUserstore:
+          type: string
+          description: "User store domain name to inbound provision users and groups. This property becomes only applicable if the enableProxyMode config is set to false"
+          default: "PRIMARY"
+          example: "PRIMARY"
+        enableProxyMode:
+          type: boolean
+          description: "If this property is set to true, Users/Groups are not provisioned to the user store. They are only outbound provisioned"
+          example: false
+          default: false
+    AuthenticatorListResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/AuthenticatorListItem'
+    AuthenticatorListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: QmFzaWNBdXRoZW50aWNhdG9y
+          readOnly: true
+        name:
+          type: string
+          example: BasicAuthenticator
+        displayName:
+          type: string
+          example: basic
+        isEnabled:
+          type: boolean
+          default: true
+          example: true
+        type:
+          type: string
+          enum:
+            - LOCAL
+            - REQUEST_PATH
+        tags:
+          type: array
+          items:
+            type: string
+          example: [2FA,MFA]
+          readOnly: true
+        self:
+          type: string
+          example: /api/server/v1/configs/authenticators/QmFzaWNBdXRoZW50aWNhdG9y
+    Authenticator:
+      type: object
+      properties:
+        id:
+          type: string
+          example: QmFzaWNBdXRoZW50aWNhdG9y
+          readOnly: true
+        name:
+          type: string
+          example: BasicAuthenticator
+        displayName:
+          type: string
+          example: basic
+        isEnabled:
+          type: boolean
+          default: true
+        type:
+          type: string
+          enum:
+            - LOCAL
+            - REQUEST_PATH
+        tags:
+          type: array
+          items:
+            type: string
+          example: [2FA,MFA]
+          readOnly: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticatorProperty'
+      required:
+        - name
+        - displayName
+    AuthenticatorProperty:
+      required:
+        - key
+      type: object
+      properties:
+        key:
+          type: string
+          example: AuthMechanism
+        value:
+          type: string
+          example: basic
+    PatchRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/Patch'
+    Patch:
+      description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root-level attributes of ServerConfig.
+      required:
+        - operation
+        - path
+      properties:
+        operation:
+          type: string
+          description: The operation to be performed
+          enum:
+            - ADD
+            - REMOVE
+            - REPLACE
+          example: REPLACE
+        path:
+          type: string
+          description: A JSON-Pointer
+          example: '/idleSessionTimeoutPeriod'
+        value:
+          type: string
+          description: The value to be used within the operations
+          example: '30'
+    CORSConfig:
+      type: object
+      properties:
+        allowGenericHttpRequests:
+          type: boolean
+          description: If true, generic HTTP requests must be allowed to pass through the filter, else, only valid and accepted CORS must be allowed (strict CORS filtering).
+          example: true
+        allowAnyOrigin:
+          type: boolean
+          description: If true the CORS valve must allow requests from any origin, else the origin whitelist must be consulted.
+          example: false
+        allowSubdomains:
+          type: boolean
+          description: If true, the CORS valve must allow requests from any origin which is a subdomain origin of the allowed origins.
+          example: false
+        supportedMethods:
+          type: array
+          description: The supported HTTP methods. Requests for methods not included here must be refused by the CORS filter with an HTTP 405 \"Method not allowed\" response.
+          items:
+            type: string
+            example: GET
+        supportAnyHeader:
+          type: boolean
+          description: If true the CORS valve must support any requested header, else the supported headers list must be consulted.
+          example: false
+        supportedHeaders:
+          type: array
+          description: The names of the supported author request headers.
+          items:
+            type: string
+            example: Content-Type
+        exposedHeaders:
+          type: array
+          description: The non-simple response headers that the web browser should expose to the author of the CORS request.
+          items:
+            type: string
+            example: X-Custom-1
+        supportsCredentials:
+          type: boolean
+          description: Whether user credentials, such as cookies, HTTP authentication or client-side certificates, are supported.
+          example: true
+        maxAge:
+          type: number
+          description: Indicates how long the results of a preflight request can be cached by the web client, in seconds. If -1 then unspecified.
+          example: 3600
+    JWTValidatorConfig:
+      type: object
+      properties:
+        enableTokenReuse:
+          type: boolean
+          description: If true, the JTI in the JWT will be unique per the request if the previously used JWT is not already expired. JTI (JWT ID) is a claim that provides a unique identifier for the JWT.
+          example: true
+    CORSPatchRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/CORSPatch'
+    CORSPatch:
+      type: object
+      required:
+        - operation
+        - path
+        - value
+      properties:
+        operation:
+          type: string
+          description: The operation to be performed.
+          enum:
+            - ADD
+            - REMOVE
+            - REPLACE
+          example: ADD
+        path:
+          type: string
+          description: A JSON-Pointer
+          example: '/allowGenericHttpRequests'
+        value:
+          type: string
+          description: The value to be used within the operations.
+          example: '30'
+    JWTKeyValidatorPatchRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/JWTKeyValidatorPatch'
+    JWTKeyValidatorPatch:
+      type: object
+      required:
+        - operation
+        - path
+        - value
+      properties:
+        operation:
+          type: string
+          description: The operation to be performed.
+          enum:
+            - ADD
+            - REMOVE
+            - REPLACE
+          example: ADD
+        path:
+          type: string
+          description: A JSON-Pointer
+          example: '/enableTokenReuse'
+        value:
+          type: boolean
+          description: The value to be used within the operations.
+          example: false
+    HomeRealmIdentifiers:
+      type: array
+      description: The list of home realm identifiers.
+      items:
+        type: string
+        example: localhost
+    SchemaListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "b0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
+        name:
+          type: string
+          example: "urn:ietf:params:scim:schemas:core:2.0"
+        self:
+          type: string
+          example: "/api/server/v1/configs/schemas/123e4567-e89b-12d3-a456-556642440000"
+    Schema:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "b0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
+        name:
+          type: string
+          example: "urn:ietf:params:scim:schemas:core:2.0"
+        attributes:
+          type: array
+          description: "list of attributes available in a schema"
+          items:
+            type: string
+            example: "urn:ietf:params:scim:schemas:core:2.0:id"
+    RemoteLoggingConfig:
+      type: object
+      properties:
+        remoteUrl:
+          type: string
+          description: "Remote Server URL"
+          example: "https://test.remote.server.com/api/log"
+        connectTimeoutMillis:
+          type: string
+          description: "Connect Timeout in Millisecond"
+          example: "5000"
+        verifyHostname:
+          type: boolean
+          description: "If this property is set to true, Hostname will be verified"
+          example: true
+          default: true
+        username:
+          type: string
+          description: "The username to be used for authentication with the remote server"
+          example: "admin"
+        password:
+          type: string
+          description: "The password to be used for authentication with the remote server"
+          example: "admin"
+        keystoreLocation:
+          type: string
+          description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server"
+        keystorePassword:
+          type: string
+          description: " The password of the keystore"
+        truststoreLocation:
+          type: string
+          description: " The location of the truststore which contains the certificates of the remote server"
+        truststorePassword:
+          type: string
+          description: " The password of the truststore"
+    RemoteLoggingConfigListItem:
+      type: object
+      properties:
+        remoteUrl:
+          type: string
+          description: "Remote Server URL"
+          example: "https://test.remote.server.com/api/log"
+        connectTimeoutMillis:
+          type: string
+          description: "Connect Timeout in Millisecond"
+          example: "5000"
+        verifyHostname:
+          type: boolean
+          description: "If this property is set to true, Hostname will be verified"
+          example: true
+          default: true
+        logType:
+          type: string
+          enum:
+            - AUDIT
+            - CARBON
+          description: "Log Type"
+        username:
+          type: string
+          description: "The username to be used for authentication with the remote server"
+          example: "admin"
+        password:
+          type: string
+          description: "The password to be used for authentication with the remote server"
+          example: "admin"
+        keystoreLocation:
+          type: string
+          description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server"
+        keystorePassword:
+          type: string
+          description: " The password of the keystore"
+        truststoreLocation:
+          type: string
+          description: " The location of the truststore which contains the certificates of the remote server"
+        truststorePassword:
+          type: string
+          description: " The password of the truststore"
+    InboundAuthSAML2Config:
+      type: object
+      properties:
+        destinationURLs:
+          type: array
+          description: "List of destination URLs"
+          items:
+            type: string
+          example: ["https://localhost:9443/samlsso"]
+        metadataValidityPeriod:
+          type: number
+          description: "SAML metadata validity period in minutes"
+          example: 60
+        enableMetadataSigning:
+          type: boolean
+          description: "Enable SAML metadata signing"
+          example: false
+        metadataEndpoint:
+          type: string
+          description: "SAML metadata endpoint"
+          readOnly: true
+          example: "https://localhost:9443/identity/metadata/saml2"
+    InboundAuthPassiveSTSConfig:
+      type: object
+      properties:
+        enableRequestSigning:
+          type: boolean
+          description: "Enable authentication requests signing"
+          example: false
+        passiveSTSUrl:
+          type: string
+          description: "Passive STS URL"
+          readOnly: true
+          example: "https://localhost:9443/passivests"

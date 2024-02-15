@@ -1,0 +1,1404 @@
+openapi: 3.0.0
+info:
+  version: "v2"
+  title: User Account Recovery API
+  description: >
+    This document specifies **User initiated Username and Password Recovery related RESTful API** for **WSO2 Identity Server**.
+paths:
+  /recovery/username/init:
+    post:
+      tags:
+        - Username Recovery
+      summary: Initiate Username Recovery
+      operationId: initiateUsernameRecovery
+      description: |
+        - This API is used to initiate username recovery by user. The API will
+        return available recovery information for username recovery with
+        notifications.
+
+        - Use the returned __recoveryCode__ and the __channelId__ with
+        __username recover api__ to confirm the the username recovery and to
+        receive recovery notifications via the channel specified by the user.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
+      responses:
+        '200':
+          description: >-
+            User is successfully identified for the given claims and returning
+            available notification channels for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountRecoveryType'
+              examples:
+                response:
+                  value:
+                    - mode: recoverWithNotifications
+                      channelInfo:
+                        recoveryCode: 1234-55678-5668-2345
+                        channels:
+                          - id: 1
+                            type: EMAIL
+                            value: wso2***********.com
+                            preferred: true
+                          - id: 2
+                            type: SMS
+                            value: '**********123'
+                            preferred: false
+                      links:
+                        - rel: next
+                          href: /api/users/v2/recovery/username/recover
+                          type: POST
+        '400':
+          description: Bad Request. The request cannot be processed by the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10001
+                    message: bad_request
+                    description: bad request
+                    traceId: 23456fghj678vb78
+        '403':
+          description: Username recovery is not enabled.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UNR-10003
+                    message: Forbidden
+                    description: Username recovery is not enabled
+                    traceId: 23456fghj678vb78
+        '404':
+          description: >-
+            No user found for the given set of claims or no recovery channels
+            are available for the user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10002
+                    message: Not found
+                    description: No user found
+                    traceId: 23456fghj678vb78
+        '409':
+          description: Mutiple users found for the given claims.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10008
+                    message: Conflict
+                    description: Multiple users found for given claims
+                    traceId: 23456fghj678vb78
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UNR-15001
+                    message: Internal Error
+                    description: Internal Error
+                    traceId: 23456fghj678vb78
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v2/recovery/username/init' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "claims": [
+                {
+                  "uri": "http://wso2.org/claims/givenname",
+                  "value": "user1"
+                }
+              ],
+              "properties": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InitRequest'
+        description: >-
+          Request to initate username recovery process. The request should
+          contain the claims to identify the user. User claims are `REQUIRED`.
+        required: true
+  /recovery/username/recover:
+    post:
+      tags:
+        - Username Recovery
+      summary: Get Recovery Information
+      operationId: recoverUsername
+      description: |
+        - This API is used to confirm username recovery and send username
+        recovery information to the user who matches the recovery code via the
+        channel specified by the channel Id.
+         - __NOTE__: If the notification channel is __EXTERNAL__, the API will return the username of the user.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
+      responses:
+        '200':
+          description: >-
+            Username is successfully recovered and the __notification channel__
+            is `EXTERNAL`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameRecoveryNotifyResponse'
+              examples:
+                response:
+                  value:
+                    code: UNR-02002
+                    message: Username recovery information sent externally
+                    notificationChannel: EXTERNAL
+                    username: PRIMARY/sominda1@carbon.super
+        '202':
+          description: Username is successfully recovered.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsernameRecoveryNotifyResponse'
+              examples:
+                response:
+                  value:
+                    code: UNR-02001
+                    message: >-
+                      Username recovery information sent via user preferred
+                      notification channel
+                    notificationChannel: EMAIL
+        '400':
+          description: Bad Request. Request cannot be processed by the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UNR-10001
+                    message: bad_request
+                    description: bad request
+                    traceId: 23456fghj678vb78
+        '404':
+          description: Recovery code is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UNR-10001
+                    message: not_found
+                    description: recovery code not found
+                    traceId: 23456fghj678vb78
+        '406':
+          description: |
+            - Recovery code given in the request is not valid or expired.
+            - Channel id is not valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UNR-10001
+                    message: not acceptable
+                    description: 'invalid error code : 1234-2345-12345-123456'
+                    traceId: 23456fghj678vb78
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UNR-15001
+                    message: Internal Error
+                    description: Internal Error
+                    traceId: 23456fghj678vb78
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v2/recovery/username/recover' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "recoveryCode": "1234-5678-2455-3433",
+              "channelId": "1",
+              "properties": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecoveryRequest'
+        description: >
+          - Request to confirm username recovery and receive recovery
+          notifications.
+
+          - `recoveryCode` and `channelId` are `REQUIRED`.
+
+          - __NOTE__ `channelId` should always be __larger than 0__.
+        required: true
+  /recovery/password/init:
+    post:
+      tags:
+        - Password Recovery
+      summary: |
+        Initiate password recovery
+      operationId: initiatePasswordRecovery
+      description: |
+        - This API is used to initiate password recovery by user. The API will
+        return recovery information for password recovery with challenge
+        questions and password recovery with notifications.
+
+        - `mode` __recoverWithNotifications__ contains recovery flow confirmation code, available communication channels and a recovery code for password recovery with notifications.
+        The next API call will be returned in the response.
+
+        - If `password recovery with notifications` is not enabled, the response
+        will not contain __recoverWithNotifications__ mode.
+
+        - __recoverWithChallengeQuestions__ contains the next API call to begin
+        the recovery process via challenge questions.
+
+        - If `password recovery with challenge questions` is not enabled, the
+        response will not contain __recoverWithChallengeQuestions__ mode.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
+      responses:
+        '200':
+          description: >-
+            User is successfully identified for the given claims and returning
+            available notification channels for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountRecoveryType'
+              examples:
+                response:
+                  value:
+                    - mode: recoverWithNotifications
+                      flowConfirmationCode: 1234-1234-1234-1234
+                      channelInfo:
+                        recoveryCode: 1234-55678-5668-2345
+                        channels:
+                          - id: 1
+                            type: EMAIL
+                            value: wso2***********.com
+                            preferred: false
+                          - id: 2
+                            type: SMS
+                            value: '**********123'
+                            preferred: true
+                      links:
+                        - rel: next
+                          href: /api/users/v2/recovery/password/recovery
+                          type: POST
+                    - mode: recoverWithChallengeQuestions
+                      links:
+                        - rel: next
+                          href: >-
+                            /t/carbon.super/api/identity/recovery/v0.9/security-question?username=sominda
+                          type: GET
+        '400':
+          description: Bad Request. The request cannot be processed by the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10001
+                    message: bad_request
+                    description: bad request
+                    traceId: 23456fghj678vb78
+        '404':
+          description: >-
+            No user found for the given set of claims or no recovery channels
+            are available for the user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10002
+                    message: Not found
+                    description: No user found
+                    traceId: 23456fghj678vb78
+        '409':
+          description: Mutiple users found for the given claims.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10008
+                    message: Conflict
+                    description: Multiple users found for given claims
+                    traceId: 23456fghj678vb78
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-15001
+                    message: Internal Error
+                    description: Internal Error
+                    traceId: 23456fghj678vb78
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v2/recovery/password/init' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "claims": [
+                {
+                  "uri": "http://wso2.org/claims/givenname",
+                  "value": "user1"
+                }
+              ],
+              "properties": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InitRequest'
+        description: >-
+          Request to initiate password recovery process. The request should
+          contain the claims to identify the user. User claims are `REQUIRED`.
+        required: true
+  /recovery/password/recover:
+    post:
+      tags:
+        - Password Recovery
+      summary: |
+        Get Recovery Information
+      operationId: recoverPassword
+      description: |
+        - This API is used to send recovery information to the user who matches
+        the recovery code via the channel specified by the channel Id. The API will return the recovery flow confirmation code.
+
+        - NOTE: If the notification channel is EXTERNAL, the API will return a
+        confirmationCode.
+
+        - Use the returned confirmation code with __password recovery confirm
+        API__ to verify the password recovery process.
+
+        - The API will return the next API call.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
+      responses:
+        '200':
+          description: >
+            - Password recovery initiated via `EXTERNAL` channel. API will
+            return a  `confirmationCode` to confirm password recovery.
+
+            - Use the confirmation code with __password recovery confirm API__
+            to confirm the password recovery.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordRecoveryExternalNotifyResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-02002
+                    message: Password recovery information sent externally
+                    flowConfirmationCode: 1234-1234-1234-1234
+                    notificationChannel: EXTERNAL
+                    confirmationCode: 12345-45678-6789098-8765
+                    resendCode: 12345-45678-6789098-8765
+                    links:
+                      - rel: next
+                        href: api/users/v2/recovery/password/confirm
+                        type: POST
+                      - rel: resend
+                        href: api/users/v2/recovery/password/resend
+                        type: POST
+        '202':
+          description: >
+            - Password recovery initiated via internal channels. API will send a
+            `confirmationCode`/`otp` to the channel specified by the user.
+
+            - Use the confirmation code/OTP with __password recovery confirm API__
+            to confirm the password recovery.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordRecoveryInternalNotifyResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-02002
+                    message: Password recovery information sent externally
+                    flowConfirmationCode: 1234-1234-1234-1234
+                    notificationChannel: EMAIL
+                    resendCode: 12345-45678-6789098-8765
+                    links:
+                      - rel: next
+                        href: api/users/v2/recovery/password/confirm
+                        type: POST
+                      - rel: resend
+                        href: api/users/v2/recovery/password/resend
+                        type: POST
+        '400':
+          description: Bad Request. Request cannot be processed by the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: bad_request
+                    description: bad request
+                    traceId: 23456fghj678vb78
+        '403':
+          description: Password recovery is not enabled.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10004
+                    message: Forbidden
+                    description: Password recovery is not enabled
+                    traceId: 23456fghj678vb78
+        '404':
+          description: Recovery code is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: not_found
+                    description: recovery code not found
+                    traceId: 23456fghj678vb78
+        '406':
+          description: |
+            - Recovery code given in the request is not valid or expired.
+            - Channel id is not valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10003
+                    message: not acceptable
+                    description: 'invalid error code : 1234-2345-12345-123456'
+                    traceId: 23456fghj678vb78
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-15001
+                    message: Internal Error
+                    description: Internal Error
+                    traceId: 23456fghj678vb78
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v2/recovery/password/recover' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "recoveryCode": "1234-5678-2455-3433",
+              "channelId": "1",
+              "properties": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecoveryRequest'
+        description: |
+          - Request to receive recovery notifications.
+          - `recoveryCode` and `channelId` are `REQUIRED`.
+          - __NOTE__ `channelId` should always be __larger than 0__.
+        required: true
+  /recovery/password/resend:
+    post:
+      tags:
+        - Password Recovery
+      summary: |
+        Resend password recovery confirmation details
+      operationId: resendConfirmation
+      description: |
+        - This API is used to resend a confirmation code/OTP to the user via a user
+        preferred channel defined at password recovery.
+
+        - NOTE: The API cannot be used when the notification channel is
+        external.
+
+        - The API will return the next API calls.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
+      responses:
+        '200':
+          description: >
+            - API will return a new `confirmationCode`.
+
+            - Use the confirmation code with __password recovery confirm API__
+            to confirm the password recovery.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResendConfirmationCodeExternalResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-02002
+                    message: successful_request
+                    flowConfirmationCode: 1234-1234-1234-1234
+                    notificationChannel: EXTERNAL
+                    confirmationCode: 1234-12345-234-123456
+                    resendCode: 1234-12345-234-123456
+                    links:
+                      - rel: next
+                        href: api/users/v2/recovery/password/recover
+                        type: POST
+                      - rel: resend
+                        href: api/users/v2/recovery/password/resend
+                        type: POST
+        '202':
+          description: >
+            - API will send a `confirmationCode`/`otp` to the channel specified by the
+            user.
+
+            - Use the confirmation code/OTP with __password recovery confirm API__
+            to confirm the password recovery.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResendConfirmationCodeInternalResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-02002
+                    message: successful_request
+                    flowConfirmationCode: 1234-1234-1234-1234
+                    notificationChannel: EMAIL
+                    resendCode: 1234-12345-234-123456
+                    links:
+                      - rel: next
+                        href: api/user/v2/recovery/password/recover
+                        type: POST
+                      - rel: resend
+                        href: api/users/v2/recovery/password/resend
+                        type: POST
+        '400':
+          description: Bad Request. Request cannot be processed by the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10001
+                    message: bad_request
+                    description: bad request
+                    traceId: 23456fghj678vb78
+        '404':
+          description: Resend code is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10001
+                    message: not_found
+                    description: recovery code not found
+                    traceId: 23456fghj678vb78
+        '406':
+          description: Resend code given in the request is not valid or expired.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-10003
+                    message: not acceptable
+                    description: 'invalid error code : 1234-2345-12345-123456'
+                    traceId: 23456fghj678vb78
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: UAR-15001
+                    message: Internal Error
+                    description: Internal Error
+                    traceId: 23456fghj678vb78
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v2/recovery/password/resend' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "resendCode": "1234-2ws34-1234",
+              "properties": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationRequest'
+        description: >
+          - Request to resend the `confirmationCode`/`otp` to the user via a user
+          preferred channel.
+
+          - Can send additional properties.
+        required: true
+  /recovery/password/confirm:
+    post:
+      tags:
+        - Password Recovery
+      summary: |
+        Confirm password recovery
+      operationId: confirmRecovery
+      description: |
+        - This API is used to validate the __confirmationCode__/__otp__ given at
+        password recovery.
+
+        - Use the returned __reset code__ with the __password reset API__ to
+        reset the password.
+
+        - The API will return the next API call.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
+      responses:
+        '200':
+          description: |
+            - Password reset confirmed.
+            - `resetCode` is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetCodeResponse'
+              examples:
+                response:
+                  value:
+                    resetCode: 2806aed9-fe7c-4b47-a91f-0aa897fac9a2
+                    links:
+                      - rel: next
+                        href: >-
+                          /t/carbon.super/api/users/v2/recovery/password/reset
+                        type: POST
+        '400':
+          description: Bad Request. Request cannot be processed by the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: bad_request
+                    description: bad request
+                    traceId: 23456fghj678vb78
+        '404':
+          description: Confirmation code is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: not_found
+                    description: recovery code not found
+                    traceId: 23456fghj678vb78
+        '406':
+          description: |
+            Confirmation code given in the request is not valid or expired.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: not acceptable
+                    description: 'invalid error code : 1234-2345-12345-123456'
+                    traceId: 23456fghj678vb78
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-15001
+                    message: Internal Error
+                    description: Internal Error
+                    traceId: 23456fghj678vb78
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v2/recovery/password/confirm' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "confirmationCode": "1234-2ws34-12345",
+              "otp": "wi8Ivm",
+              "properties": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfirmRequest'
+        description: |
+          - Request to confirm the password recovery.
+          - `confirmationCode` is `REQUIRED`.
+          - `otp` is required only for OTP based password recovery. The __flowConfirmationCode__ returned from the password recovery request should be set as the `confirmationCode` for OTP based recovery.
+        required: true
+  /recovery/password/reset:
+    post:
+      tags:
+        - Password Recovery
+      summary: |
+        Reset password
+      operationId: resetPassword
+      description: |
+        This API is used to reset the password of the user who matches the flowConfirmationCode given by the recover API and the resetCode given by the confirmation API.
+        
+        <b>Scope(Permission) required:</b> `internal_user_recovery_create`
+      responses:
+        '200':
+          description: Successful password reset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordResetResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-02005
+                    message: Successful password reset
+        '400':
+          description: Bad Request. Request cannot be processed by the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: bad_request
+                    description: bad request
+                    traceId: 23456fghj678vb78
+        '404':
+          description: Reset code is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: not_found
+                    description: recovery code not found
+                    traceId: 23456fghj678vb78
+        '406':
+          description: Reset code given in the request is not valid or expired.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: not acceptable
+                    description: 'invalid error code : 1234-2345-12345-123456'
+                    traceId: 23456fghj678vb78
+        '412':
+          description: Password policy violation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetryErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-10001
+                    message: bad_request
+                    description: password policy violation
+                    traceId: 23456fghj678vb78
+                    resetCode: 1234-12345-sdf-34567567
+                    links: [
+                      {
+                        "rel": "next",
+                        "href": "/t/carbon.super/api/users/v2/recovery/password/reset",
+                        "type": "POST"
+                      }
+                    ]
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    code: PWR-15001
+                    message: Internal Error
+                    description: Internal Error
+                    traceId: 23456fghj678vb78
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v2/recovery/password/reset' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "resetCode": "string",
+              "flowConfirmationCode": "string",
+              "password": "string",
+              "properties": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetRequest'
+        description: |
+          - Request to reset the password.
+          - `resetCode`, `flowConfirmationCode` and `password` are required.
+        required: true
+servers:
+  - url: 'https://{server-url}/api/users/v2'
+    variables:
+      server-url:
+        default: "localhost:9443"
+components:
+  schemas:
+    InitRequest:
+      type: object
+      description: Request to initiate an account recovery
+      properties:
+        claims:
+          type: array
+          description: User claims to identify the user as UserClaim objects
+          items:
+            $ref: '#/components/schemas/UserClaim'
+        properties:
+          type: array
+          description: (OPTIONAL) Additional META properties
+          items:
+            $ref: '#/components/schemas/Property'
+      required:
+        - claims
+    RecoveryRequest:
+      type: object
+      description: >-
+        Request to start the recovery for the user who matches the recovery code
+        via the given channelID
+      properties:
+        recoveryCode:
+          type: string
+          description: Recovery code for the user
+          example: 1234-5678-2455-3433
+        channelId:
+          type: string
+          description: >-
+            Id of the notification channel that user prefers to get recovery
+            notifications.
+          example: '1'
+        properties:
+          type: array
+          description: (OPTIONAL) Additional META properties
+          items:
+            $ref: '#/components/schemas/Property'
+      required:
+        - recoveryCode
+        - channelId
+    ResendConfirmationRequest:
+      type: object
+      description: Request to resend the confirmation code in password recovery
+      properties:
+        resendCode:
+          type: string
+          description: Resend code returned by the password recovery API
+          example: 1234-2ws34-1234
+        properties:
+          type: array
+          description: (OPTIONAL) Additional META properties
+          items:
+            $ref: '#/components/schemas/Property'
+    ConfirmRequest:
+      type: object
+      description: Request to confirm password recovery
+      required:
+        - confirmationCode
+      properties:
+        confirmationCode:
+          type: string
+          description: Confirmation code of the recovery flow
+          example: 1234-2ws34-12345
+        otp:
+          type: string
+          description: OTP sent to the user
+          example: wi8Ivm
+        properties:
+          type: array
+          description: (OPTIONAL) Additional META properties
+          items:
+            $ref: '#/components/schemas/Property'
+    ResetRequest:
+      type: object
+      description: Object to reset the password of a user
+      required:
+        - resetCode
+        - password
+      properties:
+        resetCode:
+          type: string
+          description: resetCode given by the confirm API
+        flowConfirmationCode:
+          type: string
+          description: Confirmation code of the recovery flow
+        password:
+          type: string
+          description: New password given by the user
+        properties:
+          type: array
+          description: (OPTIONAL) Additional META properties
+          items:
+            $ref: '#/components/schemas/Property'
+    PasswordRecoveryInternalNotifyResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Success status code
+          example: PWR-02002
+        message:
+          type: string
+          description: Success status message
+          example: successful_request
+        flowConfirmationCode:
+          type: string
+          description: Recovery flow confirmation code
+          example: 1234-1234-1234-1234
+        notificationChannel:
+          type: string
+          description: Channel that is used to send recovery information
+          example: EMAIL
+        resendCode:
+          type: string
+          description: >-
+            Code to resend the confirmation code to the user via user user
+            selected channel
+          example: 1234-123456-12345-12345
+        links:
+          type: array
+          description: Contains available api calls
+          items:
+            $ref: '#/components/schemas/APICall'
+    PasswordRecoveryExternalNotifyResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Success status code
+          example: PWR-02002
+        message:
+          type: string
+          description: Success status message
+          example: successful_request
+        flowConfirmationCode:
+          type: string
+          description: Recovery flow confirmation code
+          example: 1234-1234-1234-1234
+        notificationChannel:
+          type: string
+          description: Channel that is used to send recovery information
+          example: EXTERNAL
+        confirmationCode:
+          type: string
+          description: >
+            - Confirmation code for password recovery when the notifications are
+            externally managed.
+
+            - The confirmation code will be returned only if the notification
+            channel is _EXTERNAL_. Use this code with password confirm API to
+            get a password reset code.
+          example: 12345-45678-6789098-8765
+        resendCode:
+          type: string
+          description: >-
+            Code to get a new confirmation code.
+          example: 1234-123456-12345-12345
+        links:
+          type: array
+          description: Contains available api calls
+          items:
+            $ref: '#/components/schemas/APICall'
+    UsernameRecoveryNotifyResponse:
+      type: object
+      description: API response for successful username recovery
+      properties:
+        code:
+          type: string
+          description: Success status code
+          example: UNR-02001
+        message:
+          type: string
+          description: Success status message
+          example: successful_request
+        notificationChannel:
+          type: string
+          description: Channel which the recovery information is sent to the user
+          example: EXTERNAL
+        username:
+          type: string
+          example: user1
+          description: >
+            - Username of the user
+
+            - Username will be returned _ONLY IF_ the notification channel is
+            `EXTERNAL`
+      required:
+        - code
+        - message
+        - notificationChannel
+        - username
+    ResetCodeResponse:
+      properties:
+        resetCode:
+          type: string
+          description: Password reset code to reset the password
+          example: 1234-55678-5668-2345
+        links:
+          type: array
+          description: Contains available api calls
+          items:
+            $ref: '#/components/schemas/APICall'
+    PasswordResetResponse:
+      type: object
+      description: API response for a successful password reset
+      properties:
+        code:
+          type: string
+          description: Operation code
+          example: PWR-02001
+        message:
+          type: string
+          description: Message regarding the operation.
+          example: successful_request
+    ResendConfirmationCodeExternalResponse:
+      type: object
+      description: Object encapsulate the details regarding resend confirmation code
+      properties:
+        code:
+          type: string
+          description: Success status code
+          example: PWR-02002
+        message:
+          type: string
+          description: Success status message
+          example: successful_request
+        flowConfirmationCode:
+          type: string
+          description: Recovery flow confirmation code
+          example: 1234-1234-1234-1234
+        notificationChannel:
+          type: string
+          description: Channel that is used to send recovery information
+          example: EMAIL
+        confirmationCode:
+          type: string
+          description: Confirmation code to confirm the password recovery
+          example: 1234-12345-234-123456
+        resendCode:
+          type: string
+          description: Resend code to resend the confirmation code
+          example: 1234-12345-234-123456
+        links:
+          type: array
+          description: Contains available api calls
+          items:
+            $ref: '#/components/schemas/APICall'
+    ResendConfirmationCodeInternalResponse:
+      type: object
+      description: Object encapsulate the details regarding resend confirmation code
+      properties:
+        code:
+          type: string
+          description: Success status code
+          example: PWR-02002
+        message:
+          type: string
+          description: Success status message
+          example: successful_request
+        flowConfirmationCode:
+          type: string
+          description: Recovery flow confirmation code
+          example: 1234-1234-1234-1234
+        notificationChannel:
+          type: string
+          description: Channel that is used to send recovery information
+          example: EMAIL
+        resendCode:
+          type: string
+          description: Resend code to resend the confirmation code
+          example: 1234-12345-234-123456
+        links:
+          type: array
+          description: Contains available api calls
+          items:
+            $ref: '#/components/schemas/APICall'
+    RetryErrorResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code corresponding to the error
+          example: PWR-10004
+        message:
+          type: string
+          description: Error message
+          example: Retry
+        description:
+          type: string
+          description: Error description
+          example: Password policy violation
+        traceId:
+          type: string
+          description: Some Correlation for Error Instance
+          example: 2345dfgh678h789bhjk
+        resetCode:
+          type: string
+          description: Password reset code used in the request
+          example: 1234-34567-3456-2345678
+        links:
+          type: array
+          description: Contains available api calls
+          items:
+            $ref: '#/components/schemas/APICall'
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code corresponding to the error
+          example: UAR-10001
+        message:
+          type: string
+          description: Error message
+          example: invalid_request
+        description:
+          type: string
+          description: Description about the error
+          example: Invalid claim uri
+        traceId:
+          type: string
+          description: Some Correlation for Error Instance
+          example: 2345dfgh678h789bhjk
+    AccountRecoveryType:
+      type: object
+      description: Object that encapsulates details of the account recovery channel
+      properties:
+        mode:
+          type: string
+          example: recoverWithNotifications
+        flowConfirmationCode:
+          type: string
+          example: 1234-1234-1234-1234
+        channelInfo:
+          $ref: '#/components/schemas/RecoveryChannelInformation'
+        links:
+          type: array
+          description: Contains available api calls
+          items:
+            $ref: '#/components/schemas/APICall'
+    RecoveryChannelInformation:
+      description: Response with the recovery ID and the available recovery channels
+      properties:
+        recoveryCode:
+          type: string
+          description: Code to recovery the user account
+          example: 1234-55678-5668-2345
+        channels:
+          type: array
+          description: Available recovery channels for the user
+          items:
+            $ref: '#/components/schemas/RecoveryChannel'
+    RecoveryChannel:
+      type: object
+      description: Object with notification channel attributes
+      properties:
+        id:
+          type: string
+          description: Id given to the channel
+          example: '1'
+        type:
+          type: string
+          description: Type of the chanel
+          example: EMAIL
+        value:
+          type: string
+          description: Masked channel value
+          example: wso2***********.com
+        preferred:
+          type: boolean
+          description: Whether the channel is a user preferred channel
+          example: true
+    UserClaim:
+      type: object
+      description: Object that holds a user claim and the corresponding value
+      properties:
+        uri:
+          type: string
+          description: Claim uri
+          example: 'http://wso2.org/claims/givenname'
+        value:
+          type: string
+          description: Value for the claim
+          example: user1
+    Property:
+      type: object
+      description: 'object that holds a property as a key, value pair'
+      properties:
+        key:
+          type: string
+          description: Unique identifier as the key of the property
+          example: key
+        value:
+          type: string
+          description: Value of the property
+          example: value
+    APICall:
+      type: object
+      description: Object that holds next API call details
+      properties:
+        rel:
+          type: string
+          description: Next API call
+          example: next
+        href:
+          type: string
+          description: Next API url
+          example: /api/users/recovery/v2/
+        type:
+          type: string
+          description: HTTP method type
+          example: POST
