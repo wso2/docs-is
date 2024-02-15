@@ -745,7 +745,6 @@ nav:
         - User discoverable application API: apis/user-discoverable-applications.md
   - References:
     - References: references/index.md
-    - Token binding: references/token-binding.md
     - User Management:
       - User roles: references/user-management/user-roles.md
       - Track user deletion: references/user-management/track-deletion.md
@@ -789,7 +788,9 @@ nav:
     - IAM concepts:
       - OAuth2 grant types: references/grant-types.md
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
-      - Token binding: references/token-binding.md
+      - Token binding:
+        - Token binding: references/token-binding/index.md
+        - Client-request: references/token-binding/client-request.md 
       - Financial-grade API: references/financial-grade-api.md
       - Application-native authentication: references/app-native-authentication.md
 
