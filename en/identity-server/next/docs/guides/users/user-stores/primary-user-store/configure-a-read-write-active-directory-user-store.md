@@ -14,6 +14,19 @@ connection_name = "cn=admin,ou=system"
 connection_password = "admin"
 ```
 
+!!! note
+    It is recommended to use the `whenCreated` and `whenChanged` operational attributes for
+    `created` and `modified` claims. Therefore, add the following to the `deployment.toml`
+
+    ``` toml
+    [user_store]
+    timestamp_attributes = "whenCreated,whenChanged"
+    immutable_attributes = "objectGuid,whenCreated,whenChanged"
+    ```
+    
+    !!! warning
+        If there are more immutable attributes, you need to add them to the `immutable_attributes` property.
+
 In addition to the above, please make sure that you import the Active Directory user store public certificate to the 
 WSO2 Identity Server’s client trust store. To perform this, you need to navigate to the 
 `<IS_HOME>repository/resources/security` directory and execute the following command to import the certificate to 

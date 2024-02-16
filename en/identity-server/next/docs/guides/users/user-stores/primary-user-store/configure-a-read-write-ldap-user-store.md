@@ -13,6 +13,18 @@ connection_name = "uid=admin,ou=system"
 connection_password = "admin"
 ```
 
+!!! note
+    It is recommended to use the `createTimestamp` and `modifyTimestamp` operational attributes for 
+    `created` and `modified` claims. Therefore, add the following to the `deployment.toml`
+
+    ``` toml
+    [user_store]
+    timestamp_attributes = "modifyTimestamp,createTimestamp"
+    immutable_attributes = "modifyTimestamp,createTimestamp"
+    ```
+    !!! warning
+        If there are more immutable attributes, you need to add them to the `immutable_attributes` property.
+
 ### Configuring a fresh server
 If you are configuring a server that has not been started yet, you need to update the claim mappings in
 `<carbon_home>/repository/conf/claim-config.xml`.
