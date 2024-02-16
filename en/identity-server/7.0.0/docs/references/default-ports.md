@@ -1,6 +1,6 @@
 # Default Ports of WSO2 Products
 
-This page describes the default ports that are used for each WSO2 product when the port offset is 0. If you are running multiple WSO2 products on the same server, you must set the `offset` value in the `<IS_HOME>/repository/conf/deployment.toml` file to a different value for each product so that there are no port conflicts.
+This page describes the default ports that are used for each WSO2 product when the port offset is 0. If you are running multiple WSO2 products on the same server, you must set the `offset` value in the `<IS_HOME>/repository/conf/deployment.toml` file to a different value for each product so that there are no port conflicts.
 
 ``` toml
 [server]
@@ -38,9 +38,9 @@ To cluster any running Carbon instance, either one of the following ports must b
 
 ## Random ports
 
-Certain ports are randomly opened during server startup. This is due to specific properties and configurations that become effective when the product is started. Note that the IDs of these random ports will change every time the server is started.
+Certain ports are randomly opened during server startup. This is due to specific properties and configurations that become effective when the product is started. Note that the IDs of these random ports will change every time the server is started.
 
-- A random TCP port will open at server startup because of the `-Dcom.sun.management.jmxremote` property set in the server startup script. This property is used for the JMX monitoring facility in JVM.
+- A random TCP port will open at server startup because of the `-Dcom.sun.management.jmxremote` property set in the server startup script. This property is used for the JMX monitoring facility in JVM.
 - A random UDP port is opened at server startup due to the log4j appender `Syslog Appender`, which is configured in the `<IS_HOME>/repository/conf/log4j2.properties` file.
 
     ``` xml
@@ -59,7 +59,7 @@ Certain ports are randomly opened during server startup. This is due to specific
 
 WSO2 IS also opens the following additional ports.
 
-- `8000` - `KDCServerPort` : the port on which KDC (Kerberos Key Distribution Center) server runs
+- `8000` - `KDCServerPort` : the port on which KDC (Kerberos Key Distribution Center) server runs
 - `10500` - `ThriftEntitlementReceivePort`
 
 ## Change the offset for default ports
