@@ -131,11 +131,6 @@ Configurations related to SMS providers are located under the **Email & SMS** se
         <th>Example</th>
       </tr>
       <tr>
-        <td>SMS Provider Name</td>
-        <td>Display name for the SMS provider.</td>
-        <td><code>MySMSProvider</code></td>
-      </tr>
-      <tr>
         <td>SMS Provider URL</td>
         <td>URL of the SMS gateway where the payload should be published.</td>
         <td><code>https://api.example.com/api/v1</code></td>
