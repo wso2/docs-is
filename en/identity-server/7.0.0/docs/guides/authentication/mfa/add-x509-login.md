@@ -137,6 +137,7 @@ and create your own Certificate Authority to sign the certificates, follow the g
         keytool -import -keystore cacerts.jks -storepass cacertspassword -alias rootCA -file rootCA.crt -noprompt
         keytool -importcert -alias localcrt -file localcrt.crt -keystore cacerts.jks -storepass cacertspassword -noprompt
         ```
+        
         !!! tip "CN"
             The User objects in the LDAP directory hierarchy have designators that start with CN, meaning Common Name. The CN designator 
             applies to all but a few object types. Active Directory only uses two other object designators (although LDAP defines several).
