@@ -56,28 +56,29 @@ Use the following curl command to update an OAuth application.
     "redirect_uris":["<callback_url>"],
     "client_name": "<application_name>",
     "grant_types": ["<grant_types>"] }'
-    "https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.1/register"
+    "https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.1/register/<client_id>"
     ```
     ---
      **Sample Request**
     ```
     curl -X PUT -H "Authorization: Basic YWRtaW46YWRtaW4=" -H
     "Content-Type: application/json" -d '{
-    "redirect_uris":["https://client.example.org/callback"],
     "client_name": "application1",
-    "grant_types": ["password"] }'
-    "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register"
+    "grant_types": ["authorization_code","password","implicit"],
+    "redirect_uris":["https://client.example.org/callback"] }'
+    "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/provided_client_id0001"
     ```
     ---
     **Sample Response**
     ```
     "HTTP/1.1 200 OK"
-    { 
-        "client_id": "s6BhdRkqt3",
-        "client_secret":"ZJYCqe3GGRvdrudKyZS0XhGv_Z45DuKhCUk0gBR1vZk",
-        "client_secret_expires_at": 1577858400,
-        "redirect_uris":["https://client.example.org/callback"],
-        "client_name":"application_owner_application_1"
+    {
+    "client_id": "provided_client_id0001",
+    "client_secret": "provided_client_secret0001",
+    "client_secret_expires_at": 0,
+    "redirect_uris": ["https://client.example.org/callback"],
+    "grant_types": ["authorization_code", "password","implicit"],
+    "client_name": "application1"
     }
     ```
 
