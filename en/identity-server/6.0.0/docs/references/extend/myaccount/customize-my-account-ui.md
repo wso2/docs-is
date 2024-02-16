@@ -91,13 +91,42 @@ In order to change the primary color of the **My account** application, the vari
     
     As seen in the image above, the background color of the header, footer, side navigation, and content cards can be changed.
 
-6. In order to change the header and footer background colors, add a new variable to the `modules/theme/src/themes/default/collections/menu.variables` file under the brand, "colors". This variable is named `globalForegroundColor` in this example.
+6. In order to change the header and footer background colors, add a new variable to the `modules/theme/src/themes/default/globals/site.variables` file and give it a value as shown below. This variable is named `globalForegroundColor` in this example.
 
     ```java
-    @background: @globalForegroundColor;
+    /*-------------------
+        Brand Colors
+    --------------------*/
+
+    @globalForegroundColor: #1d2630;
     ```
 
-7. Change the side panel background in the `modules/theme/src/themes/default/collections/menu.overrides` file.
+7. Add the color defined in the step above (`globalForegroundColor`) to the Menu, App Header, and App Footer sections in the `modules/theme/src/themes/default/collections/menu.variables` file as shown below.
+
+    ```java
+    /*******************************
+                Menu
+    *******************************/
+
+    @background: @globalForegroundColor;
+    ```
+    ```java
+    /*-------------------
+        App Header
+    --------------------*/
+
+    @appHeaderBackground: @globalForegroundColor;
+    ```
+
+    ```java
+    /*-------------------
+        App Footer
+    --------------------*/
+
+    @appFooterBackground: @globalForegroundColor;
+    ```
+
+8. Change the side panel background in the `modules/theme/src/themes/default/collections/menu.overrides` file.
 
     ```java
     .ui.vertical.menu {
@@ -109,7 +138,7 @@ In order to change the primary color of the **My account** application, the vari
     }
     ```
 
-8. Modify the content card background color in the `modules/theme/src/themes/default/views/card.variables` file.
+9. Modify the content card background color in the `modules/theme/src/themes/default/views/card.variables` file.
 
     ```java
     @background: @globalForegroundColor;

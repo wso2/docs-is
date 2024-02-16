@@ -107,8 +107,8 @@ The background color of the header, footer, side navigation, and content cards c
 
         @globalForegroundColor: #1d2630;
         ```
-    
-    2. Add the color defined in the step above (`globalForegroundColor`) to the Menu, App Header, and App Footer sections as shown below.
+
+    2. Add the color defined in the step above (`globalForegroundColor`) to the Menu, App Header, and App Footer sections in the `modules/theme/src/themes/default/collections/menu.variables` file as shown below.
 
         ```java
         /*******************************
