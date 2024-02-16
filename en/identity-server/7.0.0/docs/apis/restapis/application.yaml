@@ -142,6 +142,7 @@ paths:
             "description": "This is the configuration for Pickup application.",
             "imageUrl": "https://example.com/logo/my-logo.png",
             "accessUrl": "https://example.com/login",
+            "logoutReturnUrl": "https://example.com/app/logout",
             "templateId": "980b8tester24c64a8a09a0d80abf8c337bd2555",
             "isManagementApp": false,
             "claimConfiguration": {
@@ -613,6 +614,7 @@ paths:
             "description": "This is the configuration for Pickup application.",
             "imageUrl": "https://example.com/logo/my-logo.png",
             "accessUrl": "https://example.com/login",
+            "logoutReturnUrl": "https://example.com/app/logout",
             "templateId": "adwefi2429asdfdf94444rraf44",
             "claimConfiguration": {
               "dialect": "LOCAL",
@@ -3988,6 +3990,9 @@ components:
         accessUrl:
           type: string
           example: 'https://example.com/login'
+        logoutReturnUrl:
+          type: string
+          example: 'https://example.com/app/logout'
         templateId:
           type: string
           example: "980b8tester24c64a8a09a0d80abf8c337bd2555"
@@ -4028,6 +4033,9 @@ components:
         accessUrl:
           type: string
           example: 'https://example.com/login'
+        logoutReturnUrl:
+          type: string
+          example: 'https://example.com/app/logout'
         clientId:
           type: string
           example: 'SmrrDNXRYf1lMmDlnleeHTuXx_Ea'
@@ -4073,6 +4081,9 @@ components:
         accessUrl:
           type: string
           example: 'https://example.com/login'
+        logoutReturnUrl:
+          type: string
+          example: 'https://example.com/app/logout'
         templateId:
           type: string
           example: "adwefi2429asdfdf94444rraf44"
