@@ -73,12 +73,12 @@ Use the following curl command to update an OAuth application.
     ```
     "HTTP/1.1 200 OK"
     {
-    "client_id": "provided_client_id0001",
-    "client_secret": "provided_client_secret0001",
-    "client_secret_expires_at": 0,
-    "redirect_uris": ["https://client.example.org/callback"],
-    "grant_types": ["authorization_code", "password","implicit"],
-    "client_name": "application1"
+        "client_id": "provided_client_id0001",
+        "client_secret": "provided_client_secret0001",
+        "client_secret_expires_at": 0,
+        "redirect_uris": ["https://client.example.org/callback"],
+        "grant_types": ["authorization_code", "password","implicit"],
+        "client_name": "application1"
     }
     ```
 
