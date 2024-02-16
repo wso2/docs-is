@@ -1,0 +1,610 @@
+openapi: 3.0.0
+info:
+  description: |
+    This document specifies an **Input Validation Management RESTful API** for **WSO2
+    Identity Server**.
+    Currently used to configure the password pattern.
+  version: "v1"
+  title: Validation Rules Management API
+
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
+    variables:
+      server-url:
+        default: "localhost:9443"
+      tenant-domain:
+        default: carbon.super
+paths:
+  /validation-rules:
+    get:
+      tags:
+        - Get Validation Rules
+      description: |
+        Get validation rules for user inputs
+        
+        <b>Scope(Permission) required:</b> None
+      operationId: getValidationRules
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/validation-rules' \
+            -H 'Accept: application/json'
+    put:
+      tags:
+        - Update Validation Rules
+      description: |
+        Update validation rules for user inputs
+        
+        <b>Scope(Permission) required:</b> `internal_validation_rule_mgt_update`
+      operationId: updateValidationRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationConfiguration'
+            examples:
+              Rules:
+                value:
+                  - field: password
+                    rules:
+                      - validator: LengthValidator
+                        properties:
+                          - key: min.length
+                            value: 5
+                          - key: max.length
+                            value: 15
+              Regex:
+                value:
+                  - field: password
+                    regEx:
+                      - validator: JavaRegExValidator
+                        properties:
+                          - key: java.regex
+                            value: (?=.*[A-Z])
+        description: Represents the validation criteria.
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/validation-rules' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '[
+              {
+                "field": "password",
+                "rules": [
+                  {
+                    "validator": "LengthValidator",
+                    "properties": [
+                      {
+                        "key": "min.length",
+                        "value": 5
+                      },
+                      {
+                        "key": "max.length",
+                        "value": 15
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]'
+      x-codegen-request-body-name: body
+  /validation-rules/{field}:
+    get:
+      tags:
+        - Get Validation Rules for a field
+      description: |
+        Get validation rules for user inputs
+        
+        <b>Scope(Permission) required:</b> None
+      operationId: getValidationRulesForField
+      parameters:
+        - name: field
+          in: path
+          description: name of the field
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessForField'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/validation-rules/{input-field}' \
+            -H 'Accept: application/json'
+    put:
+      tags:
+        - Update Validation Rules for a field
+      description: |
+        Update validation rules for user inputs for a field
+        
+        <b>Scope(Permission) required:</b> `internal_validation_rule_mgt_update`
+      operationId: updateValidationRulesForField
+      parameters:
+        - name: field
+          in: path
+          description: name of the field
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationConfigModelForField'
+        description: Represents the validation criteria.
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessForField'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/validation-rules/{input-field}' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "rules": [
+                {
+                  "validator": "LengthValidator",
+                  "properties": [
+                    {
+                      "key": "min.length",
+                      "value": "5"
+                    },
+                    {
+                      "key": "max.length",
+                      "value": "15"
+                    }
+                  ]
+                }
+              ]
+            }'
+      x-codegen-request-body-name: body
+  /validation-rules/validators:
+    get:
+      tags:
+        - Get all validators
+      description: |
+        Get all validators
+        
+        <b>Scope(Permission) required:</b> None
+      operationId: getValidators
+      responses:
+        '200':
+          description: Configurations successfully updated.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ValidatorModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/validation-rules/validators' \
+            -H 'Accept: application/json'
+components:
+  schemas:
+    ValidatorModel:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - RULE
+            - REGEX
+        name:
+          type: string
+          example: LengthValidator
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyModel'
+      example:
+        [
+          {
+            "type": "RULE",
+            "name": "NumeralValidator",
+            "properties": [
+              {
+                "name": "min.length",
+                "description": "The minimum length of the field value.",
+                "displayName": "Minimum limit",
+                "type": "int",
+                "displayOrder": 1
+              },
+              {
+                "name": "max.length",
+                "description": "The maximum length of the field value.",
+                "displayName": "Maximum limit",
+                "type": "int",
+                "displayOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "RULE",
+            "name": "LengthValidator",
+            "properties": [
+              {
+                "name": "min.length",
+                "description": "The minimum length of the field value.",
+                "displayName": "Minimum limit",
+                "type": "int",
+                "displayOrder": 1
+              },
+              {
+                "name": "max.length",
+                "description": "The maximum length of the field value.",
+                "displayName": "Maximum limit",
+                "type": "int",
+                "displayOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "RULE",
+            "name": "UniqueCharacterValidator",
+            "properties": [
+              {
+                "name": "min.unique.character",
+                "description": "The minimum unique characters of the field value.",
+                "displayName": "Minimum unique characters",
+                "type": "int",
+                "displayOrder": 1
+              }
+            ]
+          },
+          {
+            "type": "RULE",
+            "name": "UpperCaseValidator",
+            "properties": [
+              {
+                "name": "min.length",
+                "description": "The minimum length of the field value.",
+                "displayName": "Minimum limit",
+                "type": "int",
+                "displayOrder": 1
+              },
+              {
+                "name": "max.length",
+                "description": "The maximum length of the field value.",
+                "displayName": "Maximum limit",
+                "type": "int",
+                "displayOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "RULE",
+            "name": "LowerCaseValidator",
+            "properties": [
+              {
+                "name": "min.length",
+                "description": "The minimum length of the field value.",
+                "displayName": "Minimum limit",
+                "type": "int",
+                "displayOrder": 1
+              },
+              {
+                "name": "max.length",
+                "description": "The maximum length of the field value.",
+                "displayName": "Maximum limit",
+                "type": "int",
+                "displayOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "RULE",
+            "name": "RepeatedCharacterValidator",
+            "properties": [
+              {
+                "name": "max.consecutive.character",
+                "description": "The maximum consecutive characters of the field value.",
+                "displayName": "Maximum Consecutive Character",
+                "type": "int",
+                "displayOrder": 1
+              }
+            ]
+          },
+          {
+            "type": "RULE",
+            "name": "EmailFormatValidator",
+            "properties": [
+              {
+                "name": "enable.validator",
+                "description": "Validate whether the field value is in the email format.",
+                "displayName": "Email validation",
+                "type": "boolean",
+                "displayOrder": 1
+              }
+            ]
+          },
+          {
+            "type": "REGEX",
+            "name": "JsRegExValidator",
+            "properties": [
+              {
+                "name": "regex",
+                "description": "The javaScript regEx pattern.",
+                "displayName": "JavaScript RegEx pattern",
+                "type": "string",
+                "displayOrder": 0
+              }
+            ]
+          },
+          {
+            "type": "RULE",
+            "name": "AlphanumericValidator",
+            "properties": [
+              {
+                "name": "enable.validator",
+                "description": "Validate whether the field value is alphanumeric.",
+                "displayName": "Alphanumeric field value",
+                "type": "boolean",
+                "displayOrder": 1
+              },
+              {
+                "name": "enable.special.characters",
+                "description": "Validate for allowed set of special characters along with alphanumeric in the field value.",
+                "displayName": "Alphanumeric field value with special characters",
+                "type": "boolean",
+                "displayOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "RULE",
+            "name": "SpecialCharacterValidator",
+            "properties": [
+              {
+                "name": "min.length",
+                "description": "The minimum length of the field value.",
+                "displayName": "Minimum limit",
+                "type": "int",
+                "displayOrder": 1
+              },
+              {
+                "name": "max.length",
+                "description": "The maximum length of the field value.",
+                "displayName": "Maximum limit",
+                "type": "int",
+                "displayOrder": 2
+              }
+            ]
+          }
+        ]
+    PropertyModel:
+      type: object
+      properties:
+        name:
+          type: string
+          example: min.length
+        description:
+          type: string
+          example: Minimum length required
+        displayName:
+          type: string
+          example: Minimum limit
+        type:
+          type: string
+          example: int
+        displayOrder:
+          type: integer
+          example: 1
+    ValidationConfiguration:
+      type: array
+      items:
+        $ref: '#/components/schemas/ValidationConfigModel'
+    ValidationConfigModel:
+      type: object
+      required:
+        - field
+      properties:
+        field:
+          type: string
+          example: password
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleModel'
+        regEx:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleModel'
+      example:
+        {
+          "field": "password",
+          "rules": [
+            {
+              "validator": "LengthValidator",
+              "properties": [
+                {
+                  "key": "min.length",
+                  "value": "5"
+                },
+                {
+                  "key": "max.length",
+                  "value": "15"
+                }
+              ]
+            }
+          ]
+        }
+    ValidationConfigModelForField:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleModel'
+        regEx:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleModel'
+      example:
+        {
+          "rules": [
+            {
+              "validator": "LengthValidator",
+              "properties": [
+                {
+                  "key": "min.length",
+                  "value": "5"
+                },
+                {
+                  "key": "max.length",
+                  "value": "15"
+                }
+              ]
+            }
+          ]
+        }
+    RuleModel:
+      type: object
+      required:
+        - validator
+        - properties
+      properties:
+        validator:
+          type: string
+          example: LengthValidator
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/MappingModel'
+    MappingModel:
+      type: object
+      required:
+        - key
+        - value
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: VR-60001
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+  responses:
+    Unauthorized:
+      description: Unauthorized
+    Forbidden:
+      description: Resource Forbidden
+    ServerError:
+      description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid Input Request
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Success:
+      description: Configurations successfully updated.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/ValidationConfiguration'
+          examples:
+            Rules:
+              value:
+                - field: password
+                  rules:
+                    - validator: LengthValidator
+                      properties:
+                        - key: min.length
+                          value: 5
+                        - key: max.length
+                          value: 15
+            Regex:
+              value:
+                - field: password
+                  regEx:
+                    - validator: JavaRegExValidator
+                      properties:
+                        - key: java.regex
+                          value: (?=.*[A-Z])
+    SuccessForField:
+      description: Configurations successfully updated for the field.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/ValidationConfigModel'
+    NotFound:
+      description: Field not found

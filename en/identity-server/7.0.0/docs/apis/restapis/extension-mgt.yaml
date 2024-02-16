@@ -1,0 +1,464 @@
+openapi: 3.0.3
+info:
+  title: Extension Management API
+  description: |
+    This document specifies an the **extension resource management service RESTful API** for **WSO2 Identity Server**.
+    This API is capable to retrieve the application templates stored in `<PRODUCT-HOME>/repository/resources/identity/extensions/applications` and connection templates stored in `<PRODUCT-HOME>/repository/resources/identity/extensions/identity-providers`.
+  version: v1
+
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/users/v1'
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+
+tags:
+  - name: Browse
+    description: Browse the extensions
+
+paths:
+  '/extensions':
+    get:
+      tags:
+        - Browse
+      summary: List the extensions.
+      description: |
+        This API provides the capability to retrieve the extensions
+        that are registered in the system.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_extensions_view`
+      operationId: listExtensions
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExtensionListItem'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/extensions' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  '/extensions/{extensionType}':
+    get:
+      tags:
+        - Browse
+      summary: List the extensions by type.
+      description: |
+        This API provides the capability to retrieve the extensions
+        that are registered in the system.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_extensions_view`
+      operationId: listExtensionsByType
+      parameters:
+        - name: extensionType
+          in: path
+          description: ID of the extension
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExtensionListItem'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/extensions/{extensionType}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  '/extensions/{extensionType}/{extensionId}':
+    get:
+      tags:
+        - Browse
+      summary: Get the extension info by type and id.
+      operationId: getExtensionInfoById
+      description: |
+        This API provides the capability to retrieve the extension
+        that is registered in the system.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_extensions_view`
+      parameters:
+        - name: extensionType
+          in: path
+          description: Type of the extension
+          required: true
+          schema:
+            type: string
+        - name: extensionId
+          in: path
+          description: ID of the extension.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtensionResponseModel'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/extensions/{extensionType}/{extensionId}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  '/extensions/{extensionType}/{extensionId}/metadata':
+    get:
+      tags:
+        - Browse
+      summary: Get the extension metadata by type and id.
+      operationId: getMetadataById
+      description: |
+        This API provides the capability to retrieve the extension metadata
+        that is registered in the system.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_extensions_view`
+      parameters:
+        - name: extensionType
+          in: path
+          description: Type of the extension
+          required: true
+          schema:
+            type: string
+        - name: extensionId
+          in: path
+          description: ID of the extension.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MetadataResponseModel'
+              examples:
+                extensions:
+                  $ref: '#/components/examples/MetadataResponseModel'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/extensions/{extensionType}/{extensionId}/metadata' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  '/extensions/{extensionType}/{extensionId}/template':
+    get:
+      tags:
+        - Browse
+      summary: Get the extension template by type and id.
+      operationId: getTemplateById
+      description: |
+        This API provides the capability to retrieve the extension template
+        that is registered in the system.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_extensions_view`
+      parameters:
+        - name: extensionType
+          in: path
+          description: Type of the extension
+          required: true
+          schema:
+            type: string
+        - name: extensionId
+          in: path
+          description: ID of the extension.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateResponseModel'
+              examples:
+                extensions:
+                  $ref: '#/components/examples/TemplateResponseModel'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/extensions/{extensionType}/{extensionId}/template' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+components:
+  schemas:
+    ExtensionResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 'd7c8549f-32af-4f53-9013-f66f1a6c67bf'
+        name:
+          type: string
+          example: 'google-oidc'
+        displayName:
+          type: string
+          example: 'Google Auth'
+        description:
+          type: string
+          example: 'Google Auth Connection'
+        image:
+          type: string
+          example: 'google-oidc.png'
+        displayOrder:
+          type: integer
+          format: int32
+          example: 3
+        tags:
+          type: array
+          items:
+            type: string
+            example: 'OIDC'
+        category:
+          type: string
+          example: 'DEFAULT'
+        type:
+          type: string
+          example: 'connection'
+
+    ExtensionListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 'd7c8549f-32af-4f53-9013-f66f1a6c67bf'
+        name:
+          type: string
+          example: 'google-oidc'
+        description:
+          type: string
+          example: 'Google Auth Connection'
+        image:
+          type: string
+          example: 'google-oidc.png'
+        displayOrder:
+          type: integer
+          format: int32
+          example: 3
+        tags:
+          type: array
+          items:
+            type: string
+            example: 'OIDC'
+        customAttributes:
+          type: array
+          items:
+            type: object
+            additionalProperties: { }
+        category:
+          type: string
+          example: 'DEFAULT'
+        type:
+          type: string
+          example: 'connection'
+        self:
+          type: string
+          example: 'https://localhost:9443/api/v1/extensions/connection/d7c8549f-32af-4f53-9013-f66f1a6c67bf'
+
+    TemplateResponseModel:
+      type: object
+      additionalProperties:
+        type: string
+
+    MetadataResponseModel:
+      type: object
+      additionalProperties:
+        type: string
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: EXT-00000
+        message:
+          type: string
+          example: Some error message.
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+  examples:
+    MetadataResponseModel:
+      value:
+        - name: "name"
+          type: "string"
+          displayName: "Name"
+          required: true
+          location: "$name"
+        - name: "description"
+          type: "string"
+          displayName: "Description"
+          required: false
+          location: "$description"
+    TemplateResponseModel:
+      value:
+        name: "google-oidc"
+        description: "Google Auth Connection"
+        image: "google-oidc.png"
+        isPrimary: true
+        isFederationHub: false
+        homeRealmIdentifier: ""
+        certificates:
+          certificates: []
+        alias: "google-oidc"
+        claims: []
+        roles: []
+        federatedAuthenticators: {
+          defaultAuthenticatorId: "google-oidc",
+          authenticators: [
+            {
+              name: "google-oidc",
+              displayName: "Google",
+              enabled: true,
+              isDefault: true,
+              properties: [
+                {
+                  name: "ClientId",
+                  value: "xxxxxxxxxxxxxxxxx"
+                }
+              ]
+            }
+          ]
+        }
