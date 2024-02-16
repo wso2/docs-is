@@ -23,6 +23,9 @@ If you are configuring a server that has not been started yet, you need to updat
       - `http://wso2.org/claims/created`
       - `http://wso2.org/claims/modified`
 
+    For `created` and `modified` claims, it is recommended to use the `createTimestamp` and `modifyTimestamp` 
+    operational attributes.
+
 ### Configuring an already started server
 Before you change `deployment.toml` with above configurations, you need to change the claim mappings for the
 `PRIMARY` user store by navigating to the `User Attributes & Stores > Attributes` section of the console. After
@@ -38,7 +41,8 @@ configurations.
       - `http://wso2.org/claims/modified`
     
     Refer to the [Update Attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) 
-    to learn more on updating attribute mappings.
+    to learn more on updating attribute mappings.  For `created` and `modified` claims, it is recommended to use the 
+    `createTimestamp` and `modifyTimestamp` operational attributes.
 
     !!! Warning
         If you have more than one tenant, you need to change the claim mappings for each tenant before adding the 
