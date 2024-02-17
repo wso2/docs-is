@@ -724,6 +724,7 @@ nav:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - Application management API: apis/organization-apis/org-application-mgt.md
+      - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding management API: apis/organization-apis/org-branding-mgt.md
       - Claim management API: apis/organization-apis/org-claim-mgt.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
