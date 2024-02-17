@@ -1,6 +1,8 @@
 # Configure a Read-write LDAP user store
 
-Refer [properties for a read-write LDAP user store]({{base_path}}/guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store/) to find the properties which are supported for read-write LDAP user stores. Below is a sample with minimum configurations and properties to change the primary user store to a Read-Write LDAP user store.
+Refer [properties for a read-write LDAP user store]({{base_path}}/guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store/) to find the properties which are supported for read-write 
+LDAP user stores. Below is a sample with minimum configurations and properties to change the primary user store 
+to a Read-Write LDAP user store.
 
 ``` toml
 [user_store]
@@ -9,6 +11,71 @@ base_dn = "ou=system"
 connection_url = "ldap://localhost:10389"
 connection_name = "uid=admin,ou=system"
 connection_password = "admin"
+```
+
+!!! note
+    It is recommended to use the `createTimestamp` and `modifyTimestamp` operational attributes for 
+    `created` and `modified` claims. Therefore, add the following to the `deployment.toml`
+
+    ``` toml
+    [user_store]
+    timestamp_attributes = "modifyTimestamp,createTimestamp"
+    immutable_attributes = "modifyTimestamp,createTimestamp"
+    ```
+    !!! warning
+        If there are more immutable attributes, you need to add them to the `immutable_attributes` property.
+
+### Configuring a fresh server
+If you are configuring a server that has not been started yet, you need to update the claim mappings in
+`<carbon_home>/repository/conf/claim-config.xml`.
+
+!!! note
+    Following are some of the mandatory claims that you need to map with the user store attributes.
+
+      - `http://wso2.org/claims/username`
+      - `http://wso2.org/claims/userid`
+      - `http://wso2.org/claims/created`
+      - `http://wso2.org/claims/modified`
+
+    For `created` and `modified` claims, it is recommended to use the `createTimestamp` and `modifyTimestamp` 
+    operational attributes.
+
+### Configuring an already started server
+Before you change `deployment.toml` with above configurations, you need to change the claim mappings for the 
+`PRIMARY` user store by navigating to the `User Attributes & Stores > Attributes` section of the console. After 
+updating the mappings, shutdown the server, update the `deployment.toml` and restart the server to apply the 
+configurations.
+
+!!! note
+    Following are some of the mandatory claims that you need to map with the user store attributes.
+
+      - `http://wso2.org/claims/username`
+      - `http://wso2.org/claims/userid`
+      - `http://wso2.org/claims/created`
+      - `http://wso2.org/claims/modified`
+    
+    Refer to the [Update Attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) 
+    to learn more on updating attribute mappings.  For `created` and `modified` claims, it is recommended to use the 
+    `createTimestamp` and `modifyTimestamp` operational attributes.
+
+    !!! Warning
+        If you have more than one tenant, you need to change the claim mappings for each tenant before adding the 
+        new configurations to the `deployment.toml` file.
+        
+        If are planning to create new tenants in the future, you need to update the claim mappings in 
+        `<carbon_home>/repository/conf/claim-config.xml`. 
+
+
+## Configure tenant Manager
+Configure the tenant manager to user CommonHybridLDAPTenantManager.  Make sure to configure `RootPartition` property 
+as it determines the root of the LDAP tree.
+
+``` toml
+[tenant_manager.ldap]
+enabled=true
+class="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
+[tenant_manager.ldap.properties]
+RootPartition="dc=example,dc=org"
 ```
 
 ## Update the system administrator
