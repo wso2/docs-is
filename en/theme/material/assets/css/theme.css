@@ -15,9 +15,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ 
+@import url('fonts.css');
 
 /* Commons  */
 :root {
+    --md-text-font: "Gilmer", sans-serif;
     --md-primary-fg-color: #ff7300;
     --md-accent-fg-color: #e46700;
     --md-redoc-example-bg-color: #2b3339;

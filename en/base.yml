@@ -21,8 +21,7 @@ dev_addr: localhost:8000
 # Configuration
 theme:
   name: material
-  font:
-    text: Nunito
+  font: false
   toc: false
   features:
     - navigation.tabs
