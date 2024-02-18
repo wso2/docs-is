@@ -10,7 +10,7 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
     The console has received a major upgrade with our brand-new, lightning-fast [Oxygen UI](https://wso2.github.io/oxygen-ui/)! The beta console UI, accessible via `https://<hostname>:<port>/console`, introduced in version 5.11.0, is now available for production usage for administrative and developer tasks.
   
-    [Learn more]({{base_path}}/guides/manage-console-access/)
+    [Learn more]({{base_path}}/guides/your-is/manage-console-access/)
 
 - **Productized Support for B2B CIAM Use Cases**
 
@@ -37,7 +37,7 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
     - APIs based on OAuth 2.0/Open ID Connect standards, requiring no browser support
     - Ensures identity and proof of possession of the client in handling authentication credentials
 
-    [Learn more]({{base_path}}/guides/add-application-native-login/)
+    [Learn more]({{base_path}}/guides/authentication/add-application-native-login/)
 
 - **OAuth 2.0 Specifications**
 
