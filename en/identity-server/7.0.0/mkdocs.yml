@@ -745,7 +745,9 @@ nav:
         - User discoverable application API: apis/user-discoverable-applications.md
   - References:
     - References: references/index.md
-    - User Management:
+    - About this release: references/about-this-release.md
+    - Feature deprecation: references/wso2-identity-server-feature-deprecation.md
+    - User management:
       - User roles: references/user-management/user-roles.md
       - Track user deletion: references/user-management/track-deletion.md
     - App configurations:
@@ -762,7 +764,7 @@ nav:
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
     - Architecture: references/architecture.md
-    - IS Extensions:
+    - IS extensions:
       - references/extend/index.md
       - Authentication:
         - OAuth2:
