@@ -15,17 +15,18 @@ connection_password = "admin"
 
 !!! note
     It is recommended to use the `createTimestamp` and `modifyTimestamp` operational attributes for 
-    `created` and `modified` claims. Therefore, add the following to the `deployment.toml`
-
+    `created` and `modified` attributes. Therefore, add the following to the `deployment.toml` file.
     ``` toml
     [user_store]
     timestamp_attributes = "modifyTimestamp,createTimestamp"
     immutable_attributes = "modifyTimestamp,createTimestamp"
     ```
+
     !!! warning
         If there are more immutable attributes, you need to add them to the `immutable_attributes` property.
 
-### Configuring a fresh server
+### Initial configuration for new servers
+
 If you are configuring a server that has not been started yet, you need to update the claim mappings in
 `<carbon_home>/repository/conf/claim-config.xml`.
 
@@ -40,10 +41,14 @@ If you are configuring a server that has not been started yet, you need to updat
     For `created` and `modified` claims, it is recommended to use the `createTimestamp` and `modifyTimestamp` 
     operational attributes.
 
-### Configuring an already started server
-Before you change `deployment.toml` with above configurations, you need to change the claim mappings for the 
-`PRIMARY` user store by navigating to the `User Attributes & Stores > Attributes` section of the console. After 
-updating the mappings, shutdown the server, update the `deployment.toml` and restart the server to apply the 
+### Updating configuration for existing servers
+
+!!! warning
+    Changing the primary user store of a production server can have a significant impact on the users and the applications that are using the system. Therefore, it is recommended to have a scheduled maintenance window to perform this task.
+
+Before you change `deployment.toml` with above configurations, you need to change the attributes mappings for the 
+`PRIMARY` user store by navigating to the **User Attributes & Stores** > **Attributes** section of the console. After 
+updating the mappings, shutdown the server, update the `deployment.toml` file and restart the server to apply the 
 configurations.
 
 !!! note
@@ -66,7 +71,8 @@ configurations.
         `<carbon_home>/repository/conf/claim-config.xml`. 
 
 
-## Configure tenant Manager
+## Configure tenant manager
+
 Configure the tenant manager to user CommonHybridLDAPTenantManager.  Make sure to configure `RootPartition` property 
 as it determines the root of the LDAP tree.
 
