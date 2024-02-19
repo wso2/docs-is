@@ -179,7 +179,7 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
 
     With the trend in the industry in moving away from the challenge question based account recovery use cases, this feature is deprecated and removed from the default distribution as a connector.
 
-    **Recommendation**: Move to stronger account recovery options. The product capability is made available as a connector in the [connector store](https://store.wso2.com/store/assets/isconnector) for use during the transition.
+    **Recommendation**: Move to stronger account recovery options. The product capability is made available as a connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/1f79b51f-acae-4365-83ab-a2f1a6b690f9) for use during the transition.
 
 - **Lite User Registration**
 

@@ -339,7 +339,6 @@ nav:
             - Passkeys:
               - Add login with Passkey: guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md
               - Validate FIDO attestations: guides/authentication/passwordless-login/fido-attestation.md
-            - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
             - Add login with SMS OTP: guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp.md
           - Add multi-factor authentication:
@@ -368,9 +367,6 @@ nav:
             - Add enterprise login:
               - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
               - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
-            - Add decentralized login:
-              - Add decentralized login: guides/authentication/decentralized-login/index.md
-              - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
             - Configure a custom connector:  guides/authentication/configure-custom-connector.md
           - Enable user attributes:
               - Enable user attributes: guides/authentication/user-attributes/index.md
