@@ -437,12 +437,17 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
-        - Configure outbound user provisioning:
-            - Provision to Google: guides/users/outbound-provisioning/google.md
-            - Provision to Salesforce: guides/users/outbound-provisioning/salesforce.md
-            - Provision to SCIM2 apps: guides/users/outbound-provisioning/scim.md
-            - Role-based provisioning: guides/users/outbound-provisioning/role-based-provisioning.md
-            - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
+        - Outbound provisioning:
+          - Enable outbound provisioning:
+            - Organization-level provisioning: guides/users/outbound-provisioning/provisioning-levels/org-level.md
+            - IdP-level provisioning: guides/users/outbound-provisioning/provisioning-levels/idp-level.md
+          - Role-based provisioning: guides/users/outbound-provisioning/role-based-provisioning.md
+          - Configure an outbound connector:
+            - Configure an outbound connector: guides/users/outbound-provisioning/outbound-connectors/index.md
+            - Google: guides/users/outbound-provisioning/outbound-connectors/google.md
+            - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
+            - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
+          - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
