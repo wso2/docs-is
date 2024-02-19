@@ -1,0 +1,261 @@
+openapi: 3.0.1
+info:
+  title: Recovery API
+  description: |
+    This document specifies a **Organization level Recovery related RESTful API** for **WSO2 Identity Server**.
+  version: 0.9.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/o/api/identity/recovery/v0.9
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+paths:
+  /recover-password:
+    post:
+      tags:
+        - Password Recovery
+        - Notification
+      summary: |
+        Send recovery notification
+      description: |
+        This API is used to send password recovery confirmation over defined channels like email/SMS.
+        
+         <b>Scope(Permission) required:</b> `internal_org_recovery_create`
+      parameters:
+        - name: type
+          in: query
+          description: Notification Type
+          schema:
+            type: string
+        - name: notify
+          in: query
+          description: If notify=true, notifications will be internally managed.
+          schema:
+            type: boolean
+      requestBody:
+        description: Optional property parameters can be sent via email based on the
+          email template.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecoveryInitiatingRequest'
+        required: true
+      responses:
+        202:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: key
+                type: string
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/identity/recovery/v0.9/recover-password?type=email&notify=true' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "user": {
+                    "username": "john",
+                    "realm": "ENGINEERING",
+                    "tenant-domain": "f5fac8b0-e23e-44de-b4ba-a4d7c304d474"
+                },
+                "properties": []
+            }'
+  /set-password:
+    post:
+      tags:
+        - Password Recovery
+        - Notification
+      summary: |
+        Update password
+      description: |
+        This API is used to reset the user password using the confirmation key received through the recovery process. You need to input the `key` and the new `password`.
+        
+        <b>Scope(Permission) required:</b> `internal_org_recovery_create`
+      requestBody:
+        description: Key, password, and optional metadata properties.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        202:
+          description: Successful response
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        412:
+          description: Precondition Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetryError'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/identity/recovery/v0.9/set-password' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+                "key": "5c765a47-6764-4048-b5cf-55864cb654c0",
+                "password": "P@ssW0rd",
+                "properties": []
+            }'
+  /validate-code:
+    post:
+      tags:
+        - Password Recovery
+      summary: |
+        Validate confirmation code
+      description: |
+        This API is used to validate confirmation codes sent in account recovery scenarios and self-signup. You need to input the confirmation `code` and recovery `step` as parameters.
+        
+        <b>Scope(Permission) required:</b> `internal_org_recovery_create`
+      requestBody:
+        description: Code, recovery step, and optional parameters. <br/> For recovery **step**,
+          you can use one of the following according to the recovery scenario that you want to validate the code.
+          <ul>
+          <li>**UPDATE_PASSWORD**</li>
+          <li>**CONFIRM_SIGN_UP**</li>
+          <li>**VALIDATE_CHALLENGE_QUESTION**</li>
+          <li>**VALIDATE_ALL_CHALLENGE_QUESTION**</li>
+          </ul>
+
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CodeValidationRequest'
+        required: true
+      responses:
+        202:
+          description: Accepted
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/identity/recovery/v0.9/validate-code' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "code": "84325529-8aa7-4851-8751-5980a7f2d9f7",
+                "step": "UPDATE_PASSWORD",
+                "properties": []
+            }'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        realm:
+          type: string
+    ResetPasswordRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        password:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+    RetryError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+        key:
+          type: string
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    RecoveryInitiatingRequest:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    CodeValidationRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        step:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information
