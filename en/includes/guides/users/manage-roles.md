@@ -82,8 +82,8 @@ You can assign groups of an external Identity Provider (IdP) to an application r
 
 !!! note "Prerequisites"
 
-    - Register an IdP in {{ product_name }} and add the IdP to the sign-in flow of the application. Refer to [Add Standard-based login]({{base_path}}/guides/authentication/standard-based-login/) to learn more.
-    
+    - Register an IdP in {{ product_name }}.
+    - Add the IdP to the login flow of the application(s) which the selected role is associated with. Refer to [Add Standard-based login]({{base_path}}/guides/authentication/standard-based-login/) to learn more.
     - [Configure groups for the IdP]({{base_path}}/guides/authentication/#add-groups-to-connections).
 
 To assign external groups to an application role:
