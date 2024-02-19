@@ -1,6 +1,6 @@
 # Role Based Access Control (RBAC) for API Authorization
 
-{{ product_name }} allows organizations to authorize user access to an application's API resources based on the application associated roles assigned to the users.
+{{ product_name }} allows organizations to authorize user access to an application's API resources based on the application associated roles assigned to the users or user groups.
 
 ![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/API-resource-high-level.png){: width="700" style="display: block; margin: 0;"}
 
