@@ -9,7 +9,9 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 - **Refreshing Look and Feel for the Console UI**
 
     The console has received a major upgrade with our brand-new, lightning-fast [Oxygen UI](https://wso2.github.io/oxygen-ui/)! The beta console UI, accessible via `https://<hostname>:<port>/console`, introduced in version 5.11.0, is now available for production usage for administrative and developer tasks.
-  
+
+    With this upgrade, concepts such as service providers, identity providers, inbound/outbound authentication, previously utilized in the Carbon-based management console, have evolved into 'applications' and 'connections', respectively. WSO2 Identity Server 7.0.0 introduces application templates for Single Page Applications (SPAs), web applications with server-side rendering, mobile applications, and machine-to-machine (M2M) applications. It also offers a variety of authentication options, including social login, multi-factor authentication (MFA), passwordless authentication, etc., which can be selected from the available connections.
+
     [Learn more]({{base_path}}/guides/your-is/manage-console-access/)
 
 - **Productized Support for B2B CIAM Use Cases**
@@ -18,11 +20,12 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
     **Key Highlights:**
   
-    - Onboard enterprise IDP or invite users to register at organizations
+    - Onboard enterprise IDP, or invite users to register at organizations
     - Configure varied login options for organizations
     - Hierarchical organization management
-    - Self-service access delegation within organizations
+    - Delegated administration
     - Different branding for organizations
+    - Resolve organization at login as the user inputs the organization name, based on the user’s email domain mapped for a particular organization or based on a query or path parameter in the URL
   
     [Learn more]({{base_path}}/guides/organization-management/)
 
@@ -61,7 +64,6 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
         - Request object signing algorithm restriction (PS256, ES256)
     - Mandate PKCE for PAR
     - Enforce nbf & exp claim validations
-    - Improvements for token endpoint validations
     - Enforcing FAPI allowed client authentication methods and signature algorithms
 
 - **First-Class Support for Securing API Resources**
@@ -79,9 +81,9 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
     [Learn more]({{base_path}}/guides/authorization/api-authorization/api-authorization/)
 
-- **GitOps & Change Management**
+- **Command line utility to manage Identity Server configurations in CI/CD workflows**
 
-    Promote WSO2 Identity Server configurations from development to higher environments seamlessly using command-line tools for efficient GitOps and change management.
+    Efficiently manage WSO2 Identity Server configurations across CI/CD workflows with a command-line utility, designed to promote configurations from development to higher environments seamlessly.
   
     [Learn more]({{base_path}}/deploy/promote-configurations/)
 
@@ -93,9 +95,9 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
 - **HYPR for Passwordless and Biometric Authentication**
 
-    We have released HYPR connector as an authentication option for passwordless and biometric authentication, enhancing security and user experience. It is available as a IS 7.0.0 compatible connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/9fae98d3-26a6-4b1f-a356-f58b08d060ed).
+    WSO2 Identity Server now offers the HYPR connector as an authentication option for applications, enabling passwordless and biometric authentication to enhance security and user experience. It is available as a IS 7.0.0 compatible connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/9fae98d3-26a6-4b1f-a356-f58b08d060ed).
   
-    [Learn more]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-hypr/)
+    [Learn more](https://github.com/wso2-extensions/identity-outbound-auth-hypr)
 
 - **Branding and i18n Support**
 
@@ -125,10 +127,6 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
     Support for sending the `client_id` to perform the logout request, providing flexibility in logout requests for relying parties.
 
-- **Pairwise Subject Identifiers for OIDC Applications**
-
-    Support for using pairwise subject identifiers for applications, enhancing user privacy.
-
 - **Email Magic Link Login from Different Browsers**
 
     The email magic link authenticator now supports logging in from a different browser, enhancing flexibility and user experience.
@@ -148,8 +146,10 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
 - **Management Console**
 
     The Management Console has been deprecated in favor of the new Console UI, which offers a refreshed look and feel.
+
+    It is now only available for a subset of features which are still not available in the new console. This includes XACML policy administration and editor, workflow configurations, key store management, registry configurations, tenant management, consent purpose management, and function libraries.
   
-    **Recommendation**: Transition to the new [Console UI]({{base_path}}/guides/your-is/manage-console-access/).
+    **Recommendation**: Transition to the new [Console UI]({{base_path}}/guides/your-is/manage-console-access/) for all functionality other than what’s made default available in the carbon-based management console.
 
 - **Identity Provider Based Email and SMS OTP Implementation**
 
@@ -169,11 +169,17 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
   
     **Recommendation**: Implement tenant-level [password patterns]({{base_path}}/guides/account-configurations/login-security/password-validation/).
 
+- **Workflows**
+
+    The existing implementation of the workflows is based on legacy components of the platform. Thus, it is no longer recommended to be used in production-grade deployments.
+
+    **Recommendation**: It is recommended to connect with production-grade workflow engines. The legacy connector is available in the [connector store](https://store.wso2.com/store/assets/isconnector/details/1ab83e39-15f9-40f2-a905-1053713b17e0) for use during the transition.
+
 - **Account recovery with challenge questions**
 
     With the trend in the industry in moving away from the challenge question based account recovery use cases, this feature is deprecated and removed from the default distribution as a connector.
 
-    **Recommendation**: Use the connector available in the [connector store](https://store.wso2.com/store/assets/isconnector).
+    **Recommendation**: Move to stronger account recovery options. The product capability is made available as a connector in the [connector store](https://store.wso2.com/store/assets/isconnector) for use during the transition.
 
 - **Lite User Registration**
 
@@ -237,13 +243,13 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
     - Attribute Exchange Schema 
     - eIDAS
 
-- **/scim2/Roles API**
+- **scim2/Roles API**
 
     We have enhanced the permission assignment of roles to include permissions of both Identity Server system APIs and business application APIs which are denoted as scopes.
 
     Further, In the prior versions of Identity Server, role management was limited to the organization level. In this release, roles can be created for both application-level and organization-level purposes.
 
-    **Recommendation**: Use [/scim2/v2/Roles API]({{base_path}}/apis/roles-v2-rest-api/).
+    **Recommendation**: Use [scim2/v2/Roles API]({{base_path}}/apis/roles-v2-rest-api/).
 
 - **Authentication Endpoint URL Branding**
 
@@ -263,13 +269,10 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
   
     **Recommendation**: Adopt [API Authorization]({{base_path}}/guides/authorization/api-authorization/api-authorization/) via RBAC.
 
-- **Account Disable Capability**
+## Fixed issues
 
-    This feature is deprecated since account locking can achieve the same requirements.
-  
-    **Recommendation**: Use [account lock]({{base_path}}/guides/users/manage-users/#lock-a-user-account) capability.
-
+For a complete list of issues fixed in this release, see [WSO2 IS 7.0.0 - Fixed Issues](https://github.com/wso2/product-is/issues?q=label%3AFixed%2F7.0.0+is%3Aclosed).
 
 ## Known issues
 
-For a complete list of open issues related to the WSO2 Identity Server runtime, see [WSO2 IS Runtime - Open Issues](https://github.com/wso2/product-is/issues).
+For a complete list of open issues related to the WSO2 Identity Server, see [WSO2 IS - Open Issues](https://github.com/wso2/product-is/issues).
