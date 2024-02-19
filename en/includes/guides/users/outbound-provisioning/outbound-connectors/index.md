@@ -5,6 +5,6 @@ You can configure an outbound provisioning connector so that users can be provis
 {{product_name}} supports the following outbound provisioning connectors.
 
 - [Outbound provisioning with Google]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google)
-- [Outbound provisioning with Salesforce]({{base_path}}/guides/users//outbound-provisioning/outbound-connectors/salesforce)
-- [Outbound provisioning with SCIM2]({{base_path}}/guides/users//outbound-provisioning/outbound-connectors/google/scim2)
+- [Outbound provisioning with Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce)
+- [Outbound provisioning with SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2)
 

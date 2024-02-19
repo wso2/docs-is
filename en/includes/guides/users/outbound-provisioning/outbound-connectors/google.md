@@ -116,7 +116,7 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Google Provisioning Separator </td>
-        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
+        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
         e.g. <code>-</code>(hyphen).</td>
         </td>
     </tr>
