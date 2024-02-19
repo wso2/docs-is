@@ -49,3 +49,32 @@ Explore the [organization APIs]({{base_path}}/apis/organization-apis/) of {{ pro
 !!! note
     See the instructions on [enabling SSO]({{base_path}}/guides/organization-management/try-a-b2b-use-case/) to try out a B2B organization login use case.
 
+{% if product_name == "WSO2 Identity Server" %}
+
+## Use Console as the an administration portal of organizations
+
+You can use the {{ product_name }} Console as the administration portal of your B2B application. 
+Each customer/partner organization can access their space in the {{ product_name }} Console by accessing the URL `https://<hostname>:<port>/t/<root organization name>/o/<organization id>/console`.
+
+### How to copy the URL of the organization space in the {{ product_name }} Console
+
+B2B SaaS providers can copy the organization space URL in the {{ product_name }} Console and share it with their customers/partners.
+Also, as the B2B SaaS provider you can integrate the Console URL with your application to provide a seamless experience for your customers/partners.
+
+1. Log in to the {{ product_name }} Console.
+2. Go to **Organizations** and select the organization that you want to share the URL of.
+3. Switch to that organization.
+4. Go to **Console Settings** and click **Copy** next to the **Console URL**.
+
+    ![Copy organization space URL]({{base_path}}/assets/img/guides/organization/manage-organizations/sub-org-console-access-url.png){: width="600" style="display: block; margin: 0;"}
+
+However, the following limitations apply when using the {{ product_name }} Console as the B2B administration portal.
+
+1. The {{ product_name }} Console is a generic administration portal that is not tailored to the specific needs of your B2B application. You cannot customize the given feature set for different organizations.
+2. The branding configured in your B2B vendor organization or the overridden branding customizations of each customer/partner organization is not reflected in the {{ product_name }} Console portal.
+3. Even if the customer/partner organization change the login flow of the B2B business application, the organization level {{ product_name }} Console login flow will remain the same. 
+If the organization level Console login flow needs to be customized, navigate to the **Login Flow** tab of **Console Settings** in the organization space and configure as required.
+4. The Console application is managed via roles defined specifically for the {{ product_name }} Console application. Therefore, the roles of the {{ product_name }} Console are not directly linked to the roles of your B2B application.
+As the B2B SaaS provider, you need to manage the roles of your B2B application separately.
+
+{% endif %}
