@@ -493,6 +493,7 @@ nav:
           - Manage consents: guides/user-self-service/manage-consents.md
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
+          - Account confirmation for self-register: guides/user-self-service/account-confirmation-for-self-register.md
           - Register passkeys: guides/user-self-service/register-passkey.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
@@ -753,6 +754,7 @@ nav:
     - User management:
       - User roles: references/user-management/user-roles.md
       - Track user deletion: references/user-management/track-deletion.md
+      - Self registration confirmation: references/user-management/self-registration-verification.md
     - App configurations:
       - App configurations: references/app-settings/index.md
       - OIDC configurations: references/app-settings/oidc-settings-for-app.md
