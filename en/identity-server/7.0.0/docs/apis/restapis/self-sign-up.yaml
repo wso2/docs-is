@@ -57,7 +57,7 @@ paths:
       summary: |
         Self register user
       description: |
-        This API is used for user self-registration. <br><br> In addition to the basic self-register API, WSO2 provides extensions for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+        This API is used for user self-registration. <br><br> In addition to the basic self-register API, WSO2 provides extensions for self-registration verification. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
         
           <b>Scope(Permission) required:</b> None
       requestBody:
@@ -77,28 +77,28 @@ paths:
                 description: |
                   The user self registers with verified claims. 
                   In this scenario, if the verified claims match the preferred notification channel, the user will be created and the account will be unlocked.
-                  <br><br> This API is an extension for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process. 
+                  <br><br> This API is an extension for self-registration verification. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register). 
               Internally manage notifications without verified claims:
                 value: |
                   curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY", "password": "Password12!","claims": [{"uri": "http://wso2.org/claims/givenname","value": "kim" },{"uri": "http://wso2.org/claims/emailaddress","value": "kim.anderson@gmail.com"},{"uri": "http://wso2.org/claims/lastname","value": "Anderson"},{"uri": "http://wso2.org/claims/mobile","value": "+947721584558"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
                 description: |
                   The user self registers without verified claims.
                   A notification will be sent to the user and the user will be asked to verify via the preferred channel. After confirmation, verified claims will be set as attributes of the user 
-                  <br><br> This API is an extension for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+                  <br><br> This API is an extension for self-registration verification. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
               Externally managed notifications with verified claims:
                 value: |
                   curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY", "password": "Password12!","claims": [{"uri": "http://wso2.org/claims/givenname","value": "kim" },{"uri": "http://wso2.org/claims/emailaddress","value": "kim.anderson@gmail.com"},{"uri": "http://wso2.org/claims/identity/emailVerified","value": "true"},{"uri": "http://wso2.org/claims/lastname","value": "Anderson"},{"uri": "http://wso2.org/claims/mobile","value": "+947721584558"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
                 description: |
                   The user self registers with verified claims. 
                   In this scenario, if the verified claims match the preferred notification channel, the user will be created and the account will be unlocked
-                  <br><br> This API is an extension for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+                  <br><br> This API is an extension for self-registration verification. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
               Externally managed notifications without verified claims:
                 value: |
                   curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY", "password": "Password12!","claims": [{"uri": "http://wso2.org/claims/givenname","value": "kim" },{"uri": "http://wso2.org/claims/emailaddress","value": "kim.anderson@gmail.com"},{"uri": "http://wso2.org/claims/lastname","value": "Anderson"},{"uri": "http://wso2.org/claims/mobile","value": "+947721584558"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
                 description: |
                   The user self registers without verified claims.
                   A confirmation code will be returned so that the user can verify it externally. The confirmation code should be used with the code validation API to complete the self-registration process. After confirmation, the verified claims will be set as attributes of the user
-                  <br><br> This API is an extension for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+                  <br><br> This API is an extension for self-registration verification. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
         required: true
       responses:
         '200':
@@ -420,7 +420,7 @@ paths:
       summary: |
         Validate code
       description: |
-        This API is used to validate the code used by self registered users. <br><br> In addition to the basic code validation, WSO2 provides extensions for account confirmation. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/#account-confirmation">account confirmation</a> process.
+        This API is used to validate the code used by self registered users. <br><br> In addition to the basic code validation, WSO2 provides extensions for account confirmation. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
         
         <b>Scope(Permission) required:</b> `internal_user_code_mgt_create`
       requestBody:
@@ -439,7 +439,7 @@ paths:
                   curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H  "Content-Type: application/json" -d '{ "code": "84325529-8aa7-4851-8751-5980a7f2d9f7","verifiedChannel":{"type":"SMS", "claim":"http://wso2.org/claims/mobile"},"properties": []}' "https://localhost:9443/api/identity/user/v1.0/validate-code"
                 description: |
                   For account confirmations, WSO2 Identity Server now supports multiple verification channels and allows defining the verified channel (i.e., whether the account confirmation was communicated via EMAIL or SMS) in the API request
-                  <br><br> This API is an extension for account verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/#account-confirmation">extended account confirmation</a> process.
+                  <br><br> This API is an extension for account verification. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
         required: true
       responses:
         202:
