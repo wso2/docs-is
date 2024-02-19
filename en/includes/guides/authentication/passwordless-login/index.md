@@ -14,11 +14,7 @@ Passkey lets users use hardware security keys or biometrics to log in.
 
 [Add login with Passkey]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/) has detailed instructions on this.
 
-## HYPR login
-
-HYPR is a FIDO-certified platform that lets users use biometrics to log in.
-
-[Add login with HYPR]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-hypr/) has detailed instructions on this.
+{{hypr_login}}
 
 ## Email OTP login
 

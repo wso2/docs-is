@@ -38,10 +38,9 @@ curl --location --request PUT 'https://localhost:9443/api/server/v1/applications
 
 Replace the `<IDP_NAME>` with the name of the outbound provisioning connector you have registered in the earlier step.
 
-
 ### Configure the service provider
 
-If you have configured outbound provisioning in your [application]({{base_path}}/guides/users/outbound-provisioning/scim/), you should **Enable rules** in the outbound provisioning connector. This can be done using the following API:
+If you have configured outbound provisioning in your application, you should **Enable rules** in the outbound provisioning connector. This can be done using the following API:
 
 ```java
 curl --location --request PATCH 'https://localhost:9443/api/server/v1/applications/<APPLICATION-ID>' \
@@ -184,5 +183,6 @@ Use the [application API]({{base_path}}/apis/application-rest-api/#tag/Applicati
 
 
 ## Try it out
+
 Once the policies are published to PDP, they are ready to execute during outbound provisioning. You can test rule-based provisioning by creating a user in WSO2 Identity Server that matches the rules you enforced. 
 For example, when you create a user with the email `"jane@abc.com"` in WSO2 Identity Server, it should be provisioned to the external IDP you have configured for outbound provisioning as well. A user who does not have an email with the domain `@abc.com` should not be provisioned.
