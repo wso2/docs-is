@@ -727,9 +727,10 @@ nav:
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding management API: apis/organization-apis/org-branding-mgt.md
       - Claim management API: apis/organization-apis/org-claim-mgt.md
-      - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
+      - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
+      - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
