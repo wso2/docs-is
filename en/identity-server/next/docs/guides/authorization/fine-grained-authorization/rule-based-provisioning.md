@@ -13,7 +13,7 @@ Let's assume we need to provision users based on their email domain and restrict
 ## Setting up the {{ product_name }}
 
 ### Prerequisites
-Setup outbound provisioning using the desired outbound provisioning connector ([Google]({{base_path}}/guides/users/outbound-provisioning/google/), [Salesforce]({{base_path}}/guides/users/outbound-provisioning/salesforce/) or [SCIM2]({{base_path}}/guides/users/outbound-provisioning/scim/)).
+Setup outbound provisioning using the desired outbound provisioning connector ([Google]({{base_path}}/guides/users/outbound-provisioning/outbound/connectors/google/), [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectos/salesforce/) or [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim/)).
 
 ### Configure the resident service provider
 
