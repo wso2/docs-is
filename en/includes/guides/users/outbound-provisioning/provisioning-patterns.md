@@ -12,7 +12,7 @@ Take the example of two users having the same username being onboarded to two di
 
 - Identity Provider -IDP
 
-When configuring [Salesforce]({{base_path}}/guides/users/outbound-provisioning/salesforce) and [Google]({{base_path}}/guides/users/outbound-provisioning/google) outbound provisioning connectors, you have the option to configure the **provisioning pattern** and the **provisioning separator**: the character that separates the different attributes of the provisioning pattern.
+When configuring [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce) and [Google]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google) outbound provisioning connectors, you have the option to configure the **provisioning pattern** and the **provisioning separator**: the character that separates the different attributes of the provisioning pattern.
 
 !!! tip
 

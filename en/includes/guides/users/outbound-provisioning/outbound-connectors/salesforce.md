@@ -153,12 +153,12 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Provisioning Pattern</td>
-        <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn moreabout <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioningpatterns</a>.</br>
+        <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.</br>
         e.g. <code>{UD,UN,TD,IDP}</code></td>
     </tr>
     <tr>
         <td>Provisioning Separator </td>
-        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
+        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
         e.g. <code>-</code>(hyphen).</td>
         </td>
     </tr>
