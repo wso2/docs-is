@@ -52,10 +52,12 @@ You can register an external IdP in {{product_name}} by creating a connection. {
       <img src="../../../assets/img/logo/ws-fed.svg" alt="WS-Fed" /></br></br></br>
       <span>WS-Federation</span>
     </a>
+    {% if product_name == "Asgardeo" %}
     <a href="../../../guides/authentication/decentralized-login/sign-in-with-ethereum" class="card square">
       <img src="../../../assets/img/logo/ethereum.svg" alt="Ethereum" /></br>
       <span>Sign-in with Ethereum</span>
     </a>
+    {% endif %}
   </div>
 </div>
 
