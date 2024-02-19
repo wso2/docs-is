@@ -6,23 +6,24 @@ Follow this guide for instructions.
 
 
 ## Register {{ product_name }} on Microsoft
-You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
+
+You need to register {{ product_name }} as an OAuth2.0 application on Microsoft Entra ID.
 
 !!! note
-    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
+    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using an account with administrator permission.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) using an account with administrator permission.
 
     !!! note
         You must use an account in the same Microsoft 365 subscription (tenant) with which you intend to register the app.
 
-2. On the Azure portal, go to **Azure Services** > **Microsoft Entra ID**.
+2. Go to **Identity** > **Applications** > **App registrations** and select **New registration**.
 
 3. Click **Add** and select **App registration** from the list.
 
 4. Provide the required information for app registration.
 
-    ![Register an application on the Azure Portal]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Register an application on the Microsoft Entra admin center]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -35,7 +36,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
         </tr>
         <tr>
             <td>Supported Account Type</td>
-            <td>Select the supported account type. <br><b>Value: </b><code>Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g., Skype, Xbox)</code></td>
+            <td>Select the supported account type. <br><b>Value: </b><code>Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g., Skype, Xbox)</code></td>
         </tr>
         <tr>
             <td>Redirect URI</td>
@@ -55,7 +56,7 @@ Now, let's generate a client secret for the application.
 3. Click **Add** to add the client secret.
 
     !!! note "Important"
-        Take note of the generated **Value**. Azure will allow copying this value only once. This value is the newly generated client secret for your Microsoft connection in {{ product_name }}.
+        Take note of the generated **Value**. Microsoft Entra will allow copying this value only once. This value is the newly generated client secret for your Microsoft connection in {{ product_name }}.
 
 
 ## Register the Microsoft IdP
@@ -96,7 +97,7 @@ After the Microsoft identity provider is created, go to the **Settings** tab and
 - **profile**: Allows to view the user's basic profile data.
 
 !!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Microsoft to the app. You can read the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/scopes-oidc#openid-connect-scopes) to learn more.
+    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Microsoft to the app. You can read the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#openid-connect-scopes) to learn more.
 
 
 ## Enable Microsoft login
