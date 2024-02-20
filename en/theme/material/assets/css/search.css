@@ -1,0 +1,141 @@
+:root, [data-md-color-scheme=default] {
+  --wso2is-docs-home-search-background-color: #ffffff;
+  --wso2is-docs-search-results-meta-background-color: #f5f5fa;
+  --wso2is-docs-home-search-box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+  --wso2is-docs-home-search-box-shadow-hover: 0 10px 15px 2px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+  --wso2is-docs-home-search-border-radius: 9999px;
+  --wso2is-docs-home-search-expanded-width: 60%;
+  --wso2is-docs-home-search-expanded-box-shadow: 0 8px 22px 0 rgba(37,44,97,.15), 0 4px 6px 0 rgba(93,100,148,.2);
+  --wso2is-docs-home-search-expanded-border-radius: 8px;
+  --wso2is-docs-home-search-border-color: #f2f2f3;
+  
+  --wso2is-docs-header-search-background-color: #f6f6f7;
+  --wso2is-docs-header-search-hover-border-color: var(--md-primary-fg-color);
+}
+
+:root, [data-md-color-scheme=slate] {
+  --wso2is-docs-home-search-background-color: #1b1b1d;
+  --wso2is-docs-home-search-box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+  --wso2is-docs-home-search-box-shadow-hover: 0 10px 15px 2px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+  --wso2is-docs-home-search-border-color: #2c2c2c;
+  
+  --wso2is-docs-header-search-background-color: #161618;
+  --wso2is-docs-search-results-meta-background-color: #2d2d37;
+}
+
+/* common */
+.md-search-result__meta {
+  background-color: var(--wso2is-docs-search-results-meta-background-color);
+  line-height: 1rem;
+}
+
+.md-search__output .md-search-result .md-search-result__meta {
+  padding-top: 10px;
+  padding-bottom: 6px;
+  margin-top: 3px;
+}
+
+[data-md-toggle=search]:checked~.md-container .md-search__output .md-search-result__more {
+  border-radius: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+[data-md-toggle=search]:checked~.md-container .md-search__output .md-search-result__more summary {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+[data-md-toggle=search]:checked~.md-container .md-search__output .md-search-result__more summary::after {
+  position: relative;
+  right: 0;
+}
+
+.md-search-result__more>summary:focus>div, .md-search-result__more>summary:hover>div {
+  background-color: transparent;
+}
+
+/* Setting the border-bottom radius to 0 when the search bar is expanded */
+[data-md-toggle=search]:checked~.md-header .md-search .md-search__inner .md-search__form,
+[data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__form {
+  border-radius: var(--wso2is-docs-home-search-expanded-border-radius);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/**
+ * This section contains styles related to the search bar on the home page.
+ *
+ * It is organized as follows:
+ * 1. Base styles for the search bar container
+ * 2. Styles for the search input field
+ * 3. Styles for the search button
+ *
+ * The search bar is designed to be responsive and works across various screen sizes.
+ * Please ensure to test any changes in different screen resolutions.
+ */
+
+.md-home-search-container .md-search .md-search__inner {
+  background-color: var(--wso2is-docs-home-search-background-color);
+  box-shadow: var(--wso2is-docs-home-search-box-shadow);
+  border-radius: var(--wso2is-docs-home-search-border-radius);
+  border: 1px solid var(--wso2is-docs-home-search-border-color);
+  padding: 0;
+}
+
+.md-home-search-container .md-search .md-search__inner:hover {
+  box-shadow: var(--wso2is-docs-home-search-box-shadow-hover);
+}
+
+.md-home-search-container .md-search .md-search__inner .md-search__form {
+  background: transparent;
+}
+
+.md-home-search-container .md-search .md-search__inner .md-search__form .md-search__input::placeholder {
+  --text-opacity: 0.8;
+  color: var(--md-typeset-color);
+  opacity: var(--text-opacity);
+}
+
+[data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__inner {
+  width: var(--wso2is-docs-home-search-expanded-width);
+  box-shadow: var(--wso2is-docs-home-search-expanded-box-shadow);
+}
+
+@media screen and (max-width: 59.9375em) {
+  [data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__inner {
+    width: 100%;
+  }
+}
+
+[data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__output {
+  box-shadow: var(--wso2is-docs-home-search-expanded-box-shadow);
+  border-bottom-left-radius: var(--wso2is-docs-home-search-expanded-border-radius);
+  border-bottom-right-radius: var(--wso2is-docs-home-search-expanded-border-radius);
+  padding-top: 5px;
+  margin-top: -13px;
+}
+
+/**
+  * This section contains styles related to the search bar on header bar.
+  */
+
+.md-header .md-search .md-search__inner .md-search__form {
+  background-color: var(--wso2is-docs-header-search-background-color);
+  border: 1px solid transparent;
+  border-radius: var(--wso2is-docs-border-radius);
+}
+
+[data-md-toggle=search]:not(:checked)~.md-header .md-search .md-search__inner .md-search__form:hover {
+  border-color: var(--wso2is-docs-header-search-hover-border-color);
+}
+
+[data-md-toggle=search]:checked~.md-header .md-search__output {
+  box-shadow: var(--wso2is-docs-home-search-expanded-box-shadow);
+  border-bottom-left-radius: var(--wso2is-docs-home-search-expanded-border-radius);
+  border-bottom-right-radius: var(--wso2is-docs-home-search-expanded-border-radius);
+  padding-top: 5px;
+  margin-top: -13px;
+}
