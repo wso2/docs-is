@@ -18,23 +18,55 @@
  
 @import url('partials/_typography.css');
 @import url('partials/_search.css');
+@import url('partials/_card.css');
 
-/* Commons  */
-:root {
+:root,
+[data-md-color-scheme=default] {
+    /* START OF - Default Material Theme Overrides  */
     --md-text-font: "Gilmer", sans-serif;
     --md-primary-fg-color: #ff7300;
     --md-accent-fg-color: #e46700;
     --md-redoc-example-bg-color: #2b3339;
-    --md-default-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15), inset 0px -1px 0px #E1E2E7;
-
-    --icon-color-1-bg: #e9f6fc;
+    /* END OF - Default Material Theme Overrides  */
+    
+    /* START OF - Icon Colors */
+    --icon-bg-color-opacity: 1;
+    --icon-color-1-bg: rgba(233, 246, 252, var(--icon-bg-color-opacity));
     --icon-color-1-fg: #27aae1;
-    --icon-color-2-bg: #ffecf6;
+    --icon-color-2-bg: rgba(255, 236, 246, var(--icon-bg-color-opacity));
     --icon-color-2-fg: #cf3b89;
-    --icon-color-3-bg: #e7f6f5;
+    --icon-color-3-bg: rgb(231, 246, 245, var(--icon-bg-color-opacity));
     --icon-color-3-fg: #15a79e;
-    --icon-color-4-bg: #fff7ef;
+    --icon-color-4-bg: rgba(255, 247, 239, var(--icon-bg-color-opacity));
     --icon-color-4-fg: #f7931e;
+    /* END OF - Icon Colors */
+    
+    /* START OF - Colors */
+    --colors-white: #ffffff;
+    --colors-mystic: #d8dde8;
+    --colors-shark: #1f2024;
+    /* END OF - Colors */
+
+    --md-divider-color: var(--colors-mystic);
+    --md-surface-fg-color: var(--colors-white);
+    --md-border-radius: 8px;
+    --md-default-box-shadow:  0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
+}
+
+:root, [data-md-color-scheme=slate] {
+    /* START OF - Default Material Theme Overrides  */
+    --md-default-bg-color: #232327;
+    --md-redoc-example-bg-color: #36363b;
+    /* END OF - Default Material Theme Overrides  */
+
+    /* START OF - Icon Colors */
+    --icon-bg-color-opacity: 0.1;
+    /* END OF - Icon Colors */
+    
+    --md-divider-opacity: 0.1;
+    --md-divider-color: rgba(255, 255, 255, var(--md-divider-opacity));
+    --md-surface-fg-color: var(--colors-shark);
+    --md-default-box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
 }
 
 .icon-color-1 { background-color: var(--icon-color-1-bg); }
@@ -45,12 +77,6 @@
 .icon-color-3 svg path { fill: var(--icon-color-3-fg) !important; }
 .icon-color-4 { background-color: var(--icon-color-4-bg); }
 .icon-color-4 svg path { fill: var(--icon-color-4-fg) !important; }
-
-[data-md-color-scheme=slate] {
-    --md-default-bg-color: #232327;
-    --md-redoc-example-bg-color: #36363b;
-    --md-default-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), inset 0px -1px 0px #161616;
-}
 
 .md-grid {
     max-width: 100%;
