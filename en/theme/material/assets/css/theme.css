@@ -16,8 +16,8 @@
  * under the License.
  */
  
-@import url('fonts.css');
-@import url('search.css');
+@import url('partials/_typography.css');
+@import url('partials/_search.css');
 
 /* Commons  */
 :root {

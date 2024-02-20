@@ -15,15 +15,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ 
+:root {
+  --rem: 14px;
+}
 
- @font-face {
+@font-face {
   font-family: 'Gilmer';
   src: url('../fonts/gilmer/gilmer-regular.eot');
   src:
-      url('../fonts/gilmer/gilmer-regular.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/gilmer/gilmer-regular.woff2') format('woff2'),
-      url('../fonts/gilmer/gilmer-regular.woff') format('woff'),
-      url('../fonts/gilmer/gilmer-regular.ttf') format('truetype');
+    url('../fonts/gilmer/gilmer-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/gilmer/gilmer-regular.woff2') format('woff2'),
+    url('../fonts/gilmer/gilmer-regular.woff') format('woff'),
+    url('../fonts/gilmer/gilmer-regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -32,10 +36,10 @@
   font-family: 'Gilmer';
   src: url('../fonts/gilmer/gilmer-medium.eot');
   src:
-      url('../fonts/gilmer/gilmer-medium.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/gilmer/gilmer-medium.woff2') format('woff2'),
-      url('../fonts/gilmer/gilmer-medium.woff') format('woff'),
-      url('../fonts/gilmer/gilmer-medium.ttf') format('truetype');
+    url('../fonts/gilmer/gilmer-medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/gilmer/gilmer-medium.woff2') format('woff2'),
+    url('../fonts/gilmer/gilmer-medium.woff') format('woff'),
+    url('../fonts/gilmer/gilmer-medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
@@ -44,10 +48,14 @@
   font-family: 'Gilmer';
   src: url('../fonts/gilmer/gilmer-bold.eot');
   src:
-      url('../fonts/gilmer/gilmer-bold.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/gilmer/gilmer-bold.woff2') format('woff2'),
-      url('../fonts/gilmer/gilmer-bold.woff') format('woff'),
-      url('../fonts/gilmer/gilmer-bold.ttf') format('truetype');
+    url('../fonts/gilmer/gilmer-bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/gilmer/gilmer-bold.woff2') format('woff2'),
+    url('../fonts/gilmer/gilmer-bold.woff') format('woff'),
+    url('../fonts/gilmer/gilmer-bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
+}
+
+.md-typeset {
+  font-size: var(--rem);
 }
