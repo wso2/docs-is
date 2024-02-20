@@ -170,7 +170,7 @@ Follow the steps given below to enable **SMS OTP** login to the login flow of yo
 
 2. Select the application to which you wish to add SMS OTP login.
 
-3. Go to the **Sign-in Method** tab of the application and add SMS OTP login from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add SMS OTP login from your preferred editor:
 
     ---
     === "Classic Editor"

@@ -13,7 +13,7 @@ To get started, you need to [register an application with {{ product_name }}]({{
 Follow the steps given below to configure the application login to prompt the user with the preferred MFA option.
 
 1. On the {{ product_name }} console, click **Applications**.
-2. Select your application and go to the **Sign-in Method** tab.
+2. Select your application and go to the **Login Flow** tab.
 3. Click **Start with default configuration** to define the login flow starting with `username and password`.
 4. Add a second authentication step with the following authenticators.
 

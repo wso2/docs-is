@@ -48,7 +48,7 @@ To add **SMS OTP** to the authentication flow of the app:
 
 1. On the Asgardeo Console, go to **Applications**.
 2. Select the application to which you wish to add SMS OTP.
-3. Go to the **Sign-in Method** tab of the application and add the SMS OTP authenticator from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add the SMS OTP authenticator from your preferred editor:
 
     ---
     === "Classic Editor"

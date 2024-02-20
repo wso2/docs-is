@@ -98,7 +98,7 @@ Now, let's register the OIDC IdP in {{ product_name }}.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select your application, go to the **Sign-in Method** tab and add OIDC identity provider from your preferred editor:
+2. Select your application, go to the **Login Flow** tab and add OIDC identity provider from your preferred editor:
 
     !!! note "Recommendations"
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.

@@ -29,7 +29,7 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
 
 2. Select the application for which TOTP needs to be added.
 
-3. Go to the **Sign-in Method** tab of the application and add the TOTP authenticator from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add the TOTP authenticator from your preferred editor:
 
     ---
     === "Classic Editor"

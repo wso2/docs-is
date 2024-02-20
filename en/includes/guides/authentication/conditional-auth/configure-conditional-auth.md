@@ -33,7 +33,7 @@ To add a new secret:
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select your application and go to the **Sign-in Method** tab .
+2. Select your application and go to the **Login Flow** tab .
 
 3. Add a new secret from your preferred editor:
 
@@ -83,7 +83,7 @@ To delete an existing secret:
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select your application and go to the **Sign-in Method** tab .
+2. Select your application and go to the **Login Flow** tab .
 
 3. Delete the secret by using your preferred editor:
 

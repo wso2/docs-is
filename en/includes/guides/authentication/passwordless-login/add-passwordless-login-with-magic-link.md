@@ -20,7 +20,7 @@ Follow the steps given below to enable **Magic link** login to the login flow of
 
 2. Select the application to which you wish to add Magic link login.
 
-3. Go to the **Sign-in Method** tab of the application and add Magic link login from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add Magic link login from your preferred editor:
 
     ---
     === "Classic Editor"
