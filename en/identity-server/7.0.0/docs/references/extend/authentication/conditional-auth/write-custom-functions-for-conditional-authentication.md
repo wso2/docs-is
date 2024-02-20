@@ -109,7 +109,7 @@ This section guides you to try out a sample conditional authentication function.
 To configure the application with a custom conditional authentication script:
 
 1. Register an application.
-2. Navigate to **Sign-in Method** tab.
+2. Navigate to **Login Flow** tab.
 3. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
 4. Turn on **Conditional Authentication** by switching the toggle on. You can add the following conditional authentication script using the editor.
 5. Click **Update**.

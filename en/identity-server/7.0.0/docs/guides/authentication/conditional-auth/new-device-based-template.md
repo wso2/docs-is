@@ -32,7 +32,7 @@ To enable conditional authentication:
 
 1. On the {{product_name}} Console, click **Applications**.
 
-2. Select the relevant application and go to it's **Sign-in Method** tab.
+2. Select the relevant application and go to it's **Login Flow** tab.
 
 3. Add New-Device-based adaptive MFA using your preferred editor:
 

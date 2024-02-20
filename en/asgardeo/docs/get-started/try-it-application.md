@@ -31,7 +31,7 @@ You can use the various authenticators Asgardeo offers to customize the login fl
     !!! tip
         Alternatively, navigate to **Home** and click the gear icon that appear in the **Try login with the Try It app** card after you have set it up.
 
-2. Go to the **Sign-in Method** tab of the application, select the authentication flow that you wish to try and click **Update**.
+2. Go to the **Login Flow** tab of the application, select the authentication flow that you wish to try and click **Update**.
 
     ![Try It application]({{base_path}}/assets/img/get-started/custom-login-flow.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

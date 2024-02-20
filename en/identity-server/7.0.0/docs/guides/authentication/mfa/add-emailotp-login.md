@@ -59,7 +59,7 @@ Follow the steps given below.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select the application to which you wish to add Email OTP.
-3. Go to the **Sign-in Method** tab of the application and add the Email OTP authenticator from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add the Email OTP authenticator from your preferred editor:
 
     ---
     === "Classic Editor"

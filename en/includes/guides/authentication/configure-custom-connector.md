@@ -27,7 +27,7 @@ Follow this guide for instructions.
 
 1. On the WSO2 Identity Server console, go to **Applications**.
 
-2. Select your application, go to the **Sign-in Method** tab and add the custom connector from your preferred editor:
+2. Select your application, go to the **Login Flow** tab and add the custom connector from your preferred editor:
 
     ---
     === "Classic Editor"

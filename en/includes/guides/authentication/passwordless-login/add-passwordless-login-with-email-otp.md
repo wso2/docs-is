@@ -19,7 +19,7 @@ Follow the steps given below to enable **Email OTP** login to the login flow of 
 
 2. Select the application to which you wish to add Email OTP login.
 
-3. Go to the **Sign-in Method** tab of the application and add Email OTP login from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add Email OTP login from your preferred editor:
 
     ---
     === "Classic Editor"

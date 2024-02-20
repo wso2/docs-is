@@ -62,7 +62,7 @@ To configure risk-based authentication:
 
 1. On the WSO2 Identity Server console, go to **Applications**.
 
-2. Select the relevant application and go to its **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 
 5. In the **Templates** section, click on the **`+`** corresponding to the **ELK-Risk-Based** template.
    ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)

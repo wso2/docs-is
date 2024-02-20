@@ -33,7 +33,7 @@ Follow the steps given below to enable **Passkey** login for your application.
 
 2. Select the application to which you wish to add Passkey.
 
-3. Go to the **Sign-in Method** tab of the application and add Passkey from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add Passkey from your preferred editor:
 
 
     ---

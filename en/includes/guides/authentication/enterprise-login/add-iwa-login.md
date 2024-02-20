@@ -116,7 +116,7 @@ Now, let's register IWA as an authenticator in {{product_name}}.
     You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 1. On the {{ product_name }} Console, go to **Applications**.
-2. Select your application, go to the **Sign-in Method** tab and add IWA login from your preferred editor:
+2. Select your application, go to the **Login Flow** tab and add IWA login from your preferred editor:
 
     !!! note "Recommendations"
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.

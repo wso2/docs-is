@@ -90,7 +90,7 @@ The steps below explain how you can set up an ACR-based conditional authenticati
 
 1. On the {{product_name}} Console, click **Applications**.
 
-2. Select the relevant application and go to its **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 
 3. Add ACR-based adaptive MFA using your preferred editor:
 

@@ -35,7 +35,7 @@ one active session at a time. If they try to initiate a second session, they wil
 To configure the login flow with concurrent session-based access control:
 
 1. On the {{ product_name }} Console, click **Applications**.
-2. Select the relevant application and go to its **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 3. Add concurrent session-based access control using your preferred editor
 
     ---

@@ -56,7 +56,7 @@ Follow the steps given below to enable login with passkeys for your application.
 
 2. Select the application to which you wish to add Passkey login.
 
-3. Go to the **Sign-in Method** tab of the application and add Passkey login from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add Passkey login from your preferred editor:
 
 
     ---
@@ -108,7 +108,7 @@ Follow the steps given below to enable passkey progressive enrollment for your a
 
 6. Select the application to which you have added Passkey login.
 
-7. Go to the **Sign-in Method** tab of the application and add the passkey based adaptive script from your preferred editor.
+7. Go to the **Login Flow** tab of the application and add the passkey based adaptive script from your preferred editor.
 
     ---
     === "Classic Editor"
