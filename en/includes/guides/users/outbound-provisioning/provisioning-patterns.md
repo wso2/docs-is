@@ -1,8 +1,8 @@
 # Provisioning Patterns
 
-{{product_name}} uses provisioning patterns to build the username of the user account that will be provisioned in an external Identity Provider (IdP).
+{{product_name}} uses provisioning patterns to build the username of the user account when provisioning users to [Google]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google) and [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce).
 
-Take the example of two users having the same username being onboarded to two different user stores in {{product_name}}. During provisioning, the external IdP will not allow two users to have the same username. Provisioning patterns overcome this limitation by using the following four attributes to create the user ID.
+Take the example of two users having the same username being onboarded to two different user stores in {{product_name}}. During provisioning, the outbound connector may not allow two users to have the same username. Provisioning patterns overcome this limitation by using the following four attributes to create the user ID.
 
 - Username - UN
 
@@ -12,7 +12,7 @@ Take the example of two users having the same username being onboarded to two di
 
 - Identity Provider -IDP
 
-When configuring [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce) and [Google]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google) outbound provisioning connectors, you have the option to configure the **provisioning pattern** and the **provisioning separator**: the character that separates the different attributes of the provisioning pattern.
+You have the option to configure the **provisioning pattern** and the **provisioning separator**: the character that separates the different attributes of the provisioning pattern.
 
 !!! tip
 
