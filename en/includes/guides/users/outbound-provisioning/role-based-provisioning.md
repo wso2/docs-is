@@ -1,6 +1,6 @@
 # Configure role-based outbound provisioning
 
-This guide explains how you can provision users to an external Identity Provider (IdP) based on the role assigned to a user. With role-based provisioning, the user, when assigned to a pre-configured user role, will be provisioned to the external IdP. When the user is removed from the role, the user will be removed from the external IdP.
+This guide explains how you can automatically provision users in an outbound connector based on the role assigned to a user.
 
 Follow the steps given below to configure role-based provisioning in {{product_name}}.
 
