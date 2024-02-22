@@ -95,6 +95,7 @@ Default: identityPerson (a custom object class defined in WSO2 Identity Server)<
 <p>Default: uid<br />
 <br />
 Note: email address is considered as a special case in WSO2 Identity Server, if you want to set the email address as username, see <a href="{{base_path}}/guides/users/attributes/enable-email-as-username">Enable using email address as the username.</a></p>
+Note: Should use the same AD attribute when mapping the username SCIM attribute to the active directory attributes, see <a href="{{base_path}}/guides/users/user-stores/configure-active-directory-user-stores-for-scim2">Configure Active Directory Userstores for SCIM 2.0 based Inbound Provisioning.</a></p>
 <br/>
 sample values: sAMAccountName</td>
 </tr>
