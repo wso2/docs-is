@@ -64,16 +64,17 @@ To configure risk-based authentication:
 
 2. Select the relevant application and go to its **Login Flow** tab.
 
-5. In the **Templates** section, click on the **`+`** corresponding to the **ELK-Risk-Based** template.
-   ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
+3. In the **Predefined Flows** > **Conditional Login Flows** section, click on the **`ADD`** corresponding to the **ELK-Risk-Based** template.
 
-6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
+    ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
+
+4. Click **Confirm** to add the authentication script. The authentication script and authentication steps will be configured.
 
     !!! info
          - The resulting authentication script defines a conditional step that executes the second authentication step if the `riskScore` is greater than 0.
          - By default, `TOTP` will be added as the second authentication step. You can update this with any authentication method.
 
-7. Click **Update** to save your configurations and restart WSO2 Identity Server.
+5. Click **Update** to save your configurations and restart WSO2 Identity Server.
 
 ## Try it out
 
