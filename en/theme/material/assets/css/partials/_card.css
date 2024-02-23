@@ -18,7 +18,7 @@
 
 :root,
 [data-md-color-scheme=default] {
-  --md-card-border-radius: 12px;
+  --md-card-border-radius: var(--md-border-radius-2x);
 }
 
 :root,

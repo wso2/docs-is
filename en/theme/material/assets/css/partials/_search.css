@@ -142,6 +142,29 @@
 /**
   * This section contains styles related to the search bar on header bar.
   */
+ 
+.md-header .md-search__input,
+.md-header .md-search__input::placeholder,
+.md-header .md-search .md-search__inner .md-search__form .md-search__suggest {
+  font-size: var(--md-header-link-font-size);
+}
+
+.md-header .md-search .md-search__inner .md-search__form .md-search__icon.md-icon,
+.md-header .md-search .md-search__inner .md-search__form .md-search__options {
+  display: flex;
+  align-items: center;
+}
+
+.md-header .md-search__input {
+  padding-left: 1.8rem;
+}
+
+
+.md-header .md-search .md-search__inner .md-search__form .md-search__icon.md-icon svg,
+.md-header .md-search .md-search__inner .md-search__form .md-search__options svg {
+  height: var(--md-header-link-icon-size);
+  width: var(--md-header-link-icon-size);
+}
 
 .md-header .md-search .md-search__inner .md-search__form {
   background-color: var(--md-header-search-background-color);

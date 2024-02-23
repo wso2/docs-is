@@ -193,11 +193,6 @@
     display: none;
 }
 
-[data-md-toggle=search]:checked~.md-header .md-header__option {
-    opacity: 1;
-    max-width: none;
-}
-
 [data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__inner {
     overflow: visible;
 }
@@ -239,10 +234,6 @@
     top: 0;
     border-radius: 0 !important;
     pointer-events: auto;
-}
-
-[data-md-toggle=search]:checked~.md-header {
-    z-index: 0;
 }
 
 [dir=ltr] .md-search-result__meta {

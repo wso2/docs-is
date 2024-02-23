@@ -16,14 +16,16 @@
  * under the License.
 -->
 
-<div class="row" style="margin-right: 0.6rem;">
+<div class="md-header__meta">
     <div style="display: inline-block;">
-      <a class="md-source" href="https://discord.com/invite/wso2">
-        <div class="md-source__icon md-icon">
-          {% set icon = "fontawesome/brands/discord" %}
-          {% include ".icons/" ~ icon ~ ".svg" %}  
+      <a class="md-source md-source__community discord-community" href="https://discord.com/invite/wso2">
+        <div class="md-source__icon md-icon md-source__community-icon discord-community-icon">
+          <span>
+            {% set icon = "fontawesome/brands/discord" %}
+            {% include ".icons/" ~ icon ~ ".svg" %}
+          </span>
+          <label class="md-header__meta-label">Get Help</label>
         </div>
-        <label>Get Help</label>
       </a>
     </div>
     {% if config.extra.product == "asgardeo" %}
