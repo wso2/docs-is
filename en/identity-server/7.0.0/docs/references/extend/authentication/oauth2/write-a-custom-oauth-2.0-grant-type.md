@@ -80,7 +80,7 @@ contain the following two request parameters.
 -   `          mobileNumber=044322433         `
 
 You can access the new grant type project sample from
-[here](https://github.com/wso2/samples-is/tree/v4.5.6/oauth2/custom-grant)
+[here](https://github.com/wso2/samples-is/tree/v4.6.0/oauth2/custom-grant)
 . The grant handler and validator class is inside the
 `         org.wso2.sample.identity.oauth2.grant.mobile        ` package.
 This can be modified as required.
@@ -91,9 +91,9 @@ The following Maven buildable source is compatible with WSO2 Identity
 Server 5.1.0 onwards. The attached `          .jar         ` file can be
 directly used as well.
 
-| Buildable source   | [custom-grant](https://github.com/wso2/samples-is/tree/v4.5.6/oauth2/custom-grant) |
-|--------------------|------------------------------------------------------------------------------------|
-| Built jar file | [custom-grant-4.5.6.jar]({{base_path}}/assets/attachments/custom-grant-4.5.6.jar)       |
+| Buildable source   | [custom-grant](https://github.com/wso2/samples-is/tree/v4.6.0/oauth2/custom-grant) |
+|--------------------|------------------------------------------------------------------------------|
+| Built jar file | [custom-grant-4.5.6.jar]({{base_path}}/assets/attachments/custom-grant-4.5.6.jar) |
 
 !!! note
     To generate the .jar file from the buildable source, run the following Apache Maven
@@ -181,10 +181,10 @@ customize one of the existing grant types. The following two classes are
 sample implementations of customizing the password grant type in
 particular but any other grant type can be customized as well.
 
--   [RoleBasedPasswordGrant](https://github.com/wso2/samples-is/blob/v4.5.6/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/RoleBasedPasswordGrant.java) -
+-   [RoleBasedPasswordGrant](https://github.com/wso2/samples-is/blob/v4.6.0/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/RoleBasedPasswordGrant.java) -
     This does some RBAC validation apart from the authentication before
     granting access.
--   [ModifiedAccessTokenPasswordGrant](https://github.com/wso2/samples-is/blob/v4.5.6/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/ModifiedAccessTokenPasswordGrant.java) -
+-   [ModifiedAccessTokenPasswordGrant](https://github.com/wso2/samples-is/blob/v4.6.0/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/ModifiedAccessTokenPasswordGrant.java) -
     This implementation customized the access token value.
 
 ### Configure the resource
@@ -254,7 +254,7 @@ You will receive a response similar to the following JSON response with the acce
         See [here](#use-the-grant-type-sample) for instructions on how to implement and use the mobile grant
         sample before adding the custom error codes to it.
 
-    In the downloaded Maven [buildable source](https://github.com/wso2/samples-is/tree/v4.5.6/oauth2/custom-grant), the following code segment is added in the sample class
+    In the downloaded Maven [buildable source](https://github.com/wso2/samples-is/tree/v4.6.0/oauth2/custom-grant), the following code segment is added in the sample class
     `             org             .wso2.sample.identity.oauth2.grant.mobile.MobileGrant            `
     inside `             validateGrant()            ` method, which is the relevant
     code used for this mechanism.
