@@ -21,9 +21,6 @@
     --md-home-body-gradient: conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #d9a300 180deg, var(--md-primary-fg-color) 1turn);
 }
 
-:root,
-[data-md-color-scheme=slate] {}
-
 .md-home-gradient {
     background: var(--md-home-body-gradient);
     width: 1000px;
@@ -57,7 +54,7 @@
 }
 
 .md-home-sections {
-    max-width: 1400px;
+    max-width: var(--md-main-content-max-width);
     margin-bottom: 5rem !important;
 }
 

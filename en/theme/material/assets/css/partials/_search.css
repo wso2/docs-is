@@ -30,6 +30,7 @@
 
   --md-header-search-background-color: #f6f6f7;
   --md-header-search-hover-border-color: var(--md-primary-fg-color);
+  --md-header-search-border-color: var(--md-divider-color);
 }
 
 :root,
@@ -168,7 +169,7 @@
 
 .md-header .md-search .md-search__inner .md-search__form {
   background-color: var(--md-header-search-background-color);
-  border: 1px solid transparent;
+  border: 1px solid var(--md-header-search-border-color);
   border-radius: var(--md-border-radius);
 }
 
@@ -180,6 +181,7 @@
   box-shadow: var(--md-home-search-expanded-box-shadow);
   border-bottom-left-radius: var(--md-home-search-expanded-border-radius);
   border-bottom-right-radius: var(--md-home-search-expanded-border-radius);
+  border: 1px solid var(--md-home-search-border-color);
   padding-top: 5px;
   margin-top: -13px;
 }

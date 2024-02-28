@@ -19,6 +19,7 @@
 @import url('partials/_typography.css');
 @import url('partials/_card.css');
 @import url('partials/_header.css');
+@import url('partials/_footer.css');
 @import url('partials/_search.css');
 
 :root,
@@ -46,9 +47,11 @@
     --colors-white: #ffffff;
     --colors-mystic: #d8dde8;
     --colors-shark: #1f2024;
+    --colors-alabaster: #f9f9f9;
     --colors-discord-blurple: #5865F2;
     /* END OF - Colors */
 
+    --md-main-content-max-width: 1400px;
     --md-divider-color: var(--colors-mystic);
     --md-surface-fg-color: var(--colors-white);
     --md-border-radius: 8px;
@@ -114,11 +117,6 @@
 
 .md-sidebar__scrollwrap {
     margin: 0 1rem;
-}
-
-.md-copyright {
-    margin-top: 0.1rem;
-    padding: 0.4rem 1rem;
 }
 
 .center-all {
