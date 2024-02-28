@@ -8,7 +8,7 @@ For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org
 
 The following diagram explains how this flow works with {{ product_name }}.
 
-![PKCE flow]({{base_path}}/assets/img/guides/applications/oidc/pkce_flow.png)
+![Authorization code flow with PKCE]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow_with_pkce.png)
 
 As shown above, you need to configure your application to get the authorization code from {{ product_name }}, and then exchange it for the required tokens.
 
