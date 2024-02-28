@@ -98,7 +98,7 @@ subscriptions =["CUSTOM_EVENT"]
 
 ## Try out the sample application
 
-1. Build the sample custom identity event handler [here](https://github.com/wso2/samples-is/tree/v4.5.6/event-handler/custom-identity-event-handler) using `mvn clean install` command.
+1. Build the sample custom identity event handler [here](https://github.com/wso2/samples-is/tree/v4.6.0/event-handler/custom-identity-event-handler) using `mvn clean install` command.
 2. Copy the generated org.wso2.carbon.identity.customhandler-4.5.6.jar file in the target folder into `<IS_HOME>/repository/components/dropins/` folder.
 3. Add following configurations to `<IS_HOME>/repository/conf/deployement.toml` file
     ```toml

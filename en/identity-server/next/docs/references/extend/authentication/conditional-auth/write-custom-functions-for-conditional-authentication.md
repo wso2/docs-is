@@ -101,7 +101,7 @@ The following steps provide some guidelines on how you can write custom function
 This section guides you to try out a sample conditional authentication function.
 
 ### Deploy a sample authentication function
-1. Build [the sample](https://github.com/wso2/samples-is/tree/v4.5.6/adaptive-authentication/org.wso2.custom.auth.functions) using maven `mvn clean install`.
+1. Build [the sample](https://github.com/wso2/samples-is/tree/v4.6.0/adaptive-authentication/org.wso2.custom.auth.functions) using maven `mvn clean install`.
 2. Copy the `org.wso2.custom.auth.functions-1.0.0` binary file from `target` directory into  `<IS_HOME>/repository/components/dropins` directory.
 3. Restart WSO2 IS.
 
