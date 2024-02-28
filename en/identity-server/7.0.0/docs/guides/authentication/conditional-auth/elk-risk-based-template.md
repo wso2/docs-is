@@ -64,7 +64,6 @@ To configure risk-based conditional authentication:
 
 2. Select the relevant application and go to its **Login Flow** tab.
 
-<<<<<<< HEAD
 3. Add risk-based adaptive MFA as follows:
 
     1. Go to **Predefined Flows** > **Conditional Login Flows**.
@@ -74,23 +73,13 @@ To configure risk-based conditional authentication:
         ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)]
 
     3. Click **Confirm** to replace any existing script with the selected predefined script.
-=======
-3. In the **Predefined Flows** > **Conditional Login Flows** section, click on the **`ADD`** corresponding to the **ELK-Risk-Based** template.
-
-    ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
-
-4. Click **Confirm** to add the authentication script. The authentication script and authentication steps will be configured.
->>>>>>> b1a192b80dfe323c9d7cc2454fca5a7bc74adfee
 
     !!! info
          - The resulting authentication script defines a conditional step that executes the second authentication step if the `riskScore` is greater than 0.
          - By default, `TOTP` will be added as the second authentication step. You can update this with any authentication method.
 
-<<<<<<< HEAD
-=======
 5. Click **Update** to save your configurations and restart WSO2 Identity Server.
 
->>>>>>> b1a192b80dfe323c9d7cc2454fca5a7bc74adfee
 ## Try it out
 
 1. Start the Tomcat server and access the following sample PickUp application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com` .
