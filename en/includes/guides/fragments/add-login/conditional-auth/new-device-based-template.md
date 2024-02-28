@@ -26,7 +26,7 @@
 
 2. Click **Adaptive MFA** > **New-Device-Based** > **ADD**.
 
-3. Click **Confirm** to add the script.
+3. Click **Confirm** to replace any existing script with the selected predefined script.
 
     ![New-device-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/new-device-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
