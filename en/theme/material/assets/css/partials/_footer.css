@@ -41,22 +41,21 @@
   flex-direction: column;
 }
 
+@media screen and (max-width: 768px) {
+  .md-footer__content {
+    padding: 0 2rem;
+  }
+}
+
 .md-footer__meta {
   background-color: var(--md-footer-bg-color);
 }
 
 .md-footer .md-footer__content .md-footer__meta-sections {
-  display: flex;
-}
-
-.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section {
-  padding-right: var(--md-footer-section-horizontal-spacing);
-  padding-left: 0px;
-  flex: 1;
-}
-
-.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section:not(:first-child) {
-  padding-left: var(--md-footer-section-horizontal-spacing);
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: var(--md-footer-section-horizontal-spacing);
 }
 
 .md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section--discord .discord-icon {
@@ -128,6 +127,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .md-footer .md-copyright .md-copyright__highlight {
