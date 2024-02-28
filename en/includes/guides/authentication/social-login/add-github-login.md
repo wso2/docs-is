@@ -77,37 +77,7 @@ After the GitHub identity provider is created, go to the **Settings** tab and se
 
 ## Enable GitHub login
 
-!!! note "Before you begin"
-    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-2. Select your application, go to the **Login Flow** tab and add Github login from your preferred editor:
-
-    !!! note "Recommendations"
-        {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
-
-    ---
-    === "Classic Editor"
-        To add Github login using the Classic Editor:
-
-        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
-  
-        2. Click **Add Authentication** on the step, select your Github identity provider, and click **Add**.
-
-            ![Add Github login in Asgardeo]({{base_path}}/assets/img/guides/idp/github-idp/add-github-federation-with-basic.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add Github login using the Visual Editor:
-  
-        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
-  
-        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Github connection.
-
-            ![Add Github login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/github-idp/add-github-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    ---
-
-3. Click **Update** to save your changes.
+{% include "../../../guides/fragments/add-login/social-login/add-github-login.md" %}
 
 ## Try it out
 

@@ -1,18 +1,30 @@
 # Passkey Progressive Enrollment
 
-The passkey progressive enrollment adaptive script is only required if **Passkey** is set as a first authentication factor and you wish to enable passkey progressive enrollment. This enables users to enroll their passkeys at the moment they are signing in to the application.
+This method of adaptive authentication is specifically designed for applications that have set up **Passkey** as a login option and have enabled **passkey progressive enrollment** so that users may enroll passkeys at the moment they log in to an application.
 
-The primary objective of this script is to smoothly transition users to use passkeys as their primary authentication method.
+!!! note
+    Learn how to enable passkeys and passkey progressive enrollment in [Add Passkey login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey).
 
-!!! info
-    Learn how to set up passkey login and enable passkey progressive enrollment for applications in [Add Passkey Login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/).
+Follow the guide below to learn about the adaptive script smoothly transition users using other methods of authentication to use passkeys as their primary authentication method.
 
-## Overview
+## Configure the login flow
 
-The script is designed to execute during the authentication flow. When a user initiates passkey enrollment, the system prompts the user to log in with one of the other configured first-factor authentication methods. After successfully logging in, the user is guided through the passkey enrollment.
+The script is designed to execute during the authentication flow. When a user initiates passkey enrollment, the system prompts the user to log in with one of the other configured first-factor authentication methods. After successfully logging in, the user is guided through the passkey enrollment. To enable conditional authentication:
 
-!!! warning
-    For the script to properly function, you must have one or more additional authenticators configured in the first step alongside **Passkey**.
+1. On the {{product_name}} Console, click **Applications**.
+
+2. Select the relevant application and go to its **Login Flow** tab.
+
+3. Set up one or more login options other than **Passkey**.
+
+    !!! warning "Important"
+        The passkey progressive enrollment adaptive script requires at least one additional authenticator to the first step of the authentication flow. Learn more in [How it works](#how-it-works).
+
+4. Go to the **Login Flow** tab of the application and add the passkey based adaptive script as follows.
+
+    {% include "../../../guides/fragments/add-login/conditional-auth/passkey-progressive-enrollment.md" %}
+
+5. Click **Update** to save your changes.
 
 ## How it works
 

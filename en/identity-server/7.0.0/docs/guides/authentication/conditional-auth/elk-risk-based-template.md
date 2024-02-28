@@ -58,17 +58,21 @@ works to assess the risk of the user.
 
 ## Configure risk-based authentication
 
-To configure risk-based authentication:
+To configure risk-based conditional authentication:
 
-1. On the WSO2 Identity Server console, go to **Applications**.
+1. On the {{product_name}} Console, click **Applications**.
 
 2. Select the relevant application and go to its **Login Flow** tab.
 
-3. In the **Predefined Flows** > **Conditional Login Flows** section, click on the **`ADD`** corresponding to the **ELK-Risk-Based** template.
+3. Add risk-based adaptive MFA as follows:
 
-    ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
+    1. Go to **Predefined Flows** > **Conditional Login Flows**.
 
-4. Click **Confirm** to add the authentication script. The authentication script and authentication steps will be configured.
+    2. Click **Adaptive MFA** > **ELK-Risk-Based** > **Add** to add the ELK risk-based adaptive MFA script.
+
+        ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)]
+
+    3. Click **Confirm** to replace any existing script with the selected predefined script.
 
     !!! info
          - The resulting authentication script defines a conditional step that executes the second authentication step if the `riskScore` is greater than 0.
