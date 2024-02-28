@@ -10,7 +10,11 @@ The following guide shows you how to prepare the WSO2 Identity server for adapti
 
 Follow the steps below to configure the analytics engine in WSO2 Identity Server that establishes the connection between WSO2 Identity Server and ELK.
 
-1. On the WSO2 Identity Server Console, click **Analytics**.
+1. On the WSO2 Identity Server console, go to **Applications**.
+
+2. Select the relevant application and go to its **Login Flow** tab.
+
+5. In the **Predefined Flows** > **Conditional Login Flows** section, click on the **`settings`** icon in the **ELK-Risk-Based** template.
 
 2. Configure the following properties.
    ![elk-analytics-engine-properties]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png){: width="800" style="display: block; margin-left: 0;"}

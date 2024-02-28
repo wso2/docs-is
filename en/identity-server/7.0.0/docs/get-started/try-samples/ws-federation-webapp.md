@@ -16,7 +16,7 @@ By following this guide, you will be able to deploy a WS-Federation-based web ap
     !!! info
         Note that `wso2is.local` is used in this documentation as an example, but you must modify this when configuring the authenticators or connectors with this sample application.
 
-- Download the [Passive STS Sample application](https://github.com/wso2/samples-is/releases/download/v4.5.2/PassiveSTSSampleApp.war) from the latest release assets.
+- Download the [Passive STS Sample application](https://github.com/wso2/samples-is/releases/download/v4.6.0/PassiveSTSSampleApp.war) from the latest release assets.
 
 ### Deploy the sample app
 

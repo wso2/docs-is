@@ -17,7 +17,7 @@ The guides below explain how you can leverage an adaptive authentication script 
 
 ## Prerequisites
 
- You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use the [playground2](https://github.com/wso2/samples-is/releases/download/v4.5.5/playground2.war) sample application to test ACR-based adaptive authentication.
+ You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use the [playground2](https://github.com/wso2/samples-is/releases/download/v4.6.0/playground2.war) sample application to test ACR-based adaptive authentication.
 
 ## Request ACR from applications
 
