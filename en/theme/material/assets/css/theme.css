@@ -17,11 +17,13 @@
  */
  
 @import url('partials/_typography.css');
-@import url('partials/_card.css');
-@import url('partials/_header.css');
-@import url('partials/_sidebar.css');
-@import url('partials/_footer.css');
+@import url('partials/_button.css');
+@import url('partials/_icon.css');
 @import url('partials/_search.css');
+@import url('partials/_card.css');
+@import url('partials/_footer.css');
+@import url('partials/_sidebar.css');
+@import url('partials/_header.css');
 
 :root,
 [data-md-color-scheme=default] {
@@ -70,7 +72,8 @@
     /* START OF - Icon Colors */
     --icon-bg-color-opacity: 0.1;
     /* END OF - Icon Colors */
-    
+
+    --md-typeset-inverted-color: var(--colors-white);
     --md-divider-opacity: 0.1;
     --md-divider-color: rgba(255, 255, 255, var(--md-divider-opacity));
     --md-surface-fg-color: var(--colors-shark);
@@ -102,14 +105,6 @@
 
 .md-typeset h1 {
     color: var(--md-default-fg-color);
-}
-
-.asgardeo-community-icon path.orange {
-    fill: #ff7300;
-}
-
-.asgardeo-community-icon path.black {
-    fill: #000;
 }
 
 .md-search__form {
@@ -243,10 +238,6 @@
     display: none !important;
 }
 
-[data-md-color-scheme=slate] .asgardeo-community-icon path.black {
-    fill: #fff;
-}
-
 /* Media query breakpoints
 
     $base_px: 16px;
@@ -286,12 +277,6 @@
     [data-md-toggle=search]:checked~.md-header .md-header__version-select-dropdown {
         transition: opacity .25s;
         opacity: 0;
-    }
-}
-
-@media screen and (max-width: 76.25em) {
-    .md-source label {
-        display: none;
     }
 }
 

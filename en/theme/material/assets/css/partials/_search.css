@@ -185,3 +185,9 @@
   padding-top: 5px;
   margin-top: -13px;
 }
+
+@media screen and (max-width: 59.9375em) {
+  .md-search {
+    margin: 0 !important;
+  }
+}

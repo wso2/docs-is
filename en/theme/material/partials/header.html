@@ -74,7 +74,7 @@
           {% set scheme = option.scheme | d("default", true) %}
           <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ scheme | replace(' ', '-') }}" data-md-color-primary="{{ option.primary | replace(' ', '-') }}" data-md-color-accent="{{ option.accent | replace(' ', '-') }}" {% if option.toggle %} aria-label="{{ option.toggle.name }}" {% else %} aria-hidden="true" {% endif %} type="radio" name="__palette" id="__palette_{{ loop.index }}">
           {% if option.toggle %}
-            <label class="md-header__button md-icon md-theme-switch" title="{{ option.toggle.name }}" for="__palette_{{ loop.index0 or loop.length }}" hidden>
+            <label class="md-header__button md-icon md-theme-switch md-icon--hover" title="{{ option.toggle.name }}" for="__palette_{{ loop.index0 or loop.length }}" hidden>
               {% include "/" ~ option.toggle.icon ~ "" %}
             </label>
           {% endif %}
@@ -104,14 +104,14 @@
     {% endif %}
     {% if page.title != "Home" %}
         {% if "material/search" in config.plugins %}
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon md-icon--hover" for="__search">
             {% set icon = config.theme.icon.search or "material/magnify" %}
             {% include ".icons/" ~ icon ~ ".svg" %}
         </label>
         {% include "partials/search.html" %}
         {% endif %}
     {% endif %}
-    <div class="">
+    <div class="md-header__community">
         {% include "partials/community.html" %}
     </div>
     {% if config.repo_url %}
