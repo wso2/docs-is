@@ -28,7 +28,7 @@ To enable conditional authentication:
 
 2. Select the relevant application and go to its **Login Flow** tab.
 
-3. Add role-based adaptive MFA as follows:
+3. Add login attempt based adaptive MFA as follows:
 
     1. Go to **Predefined Flows** > **Conditional Login Flows**.
 
