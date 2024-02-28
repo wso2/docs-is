@@ -74,3 +74,46 @@ truststoreFile="${carbon.home}/repository/resources/security/$ref{truststore.fil
 truststorePassword = "$ref{truststore.password}"
 truststoreType = "$ref{truststore.type}"
 ```
+
+## Configure PKCS12 Keystore and Truststore 
+
+With IS 7.0.0 onwards, you can configure to utilize keystore and truststore in the PKCS12 format.
+
+To convert an existing JKS keystore to PKCS12, execute the following command:
+
+=== "Format"
+
+    ``` java
+    keytool -importkeystore -srckeystore <jks file name>.jks -destkeystore <pkcs12 file name>.p12 -srcstoretype JKS -deststoretype PKCS12 -deststorepass wso2carbon
+    ```
+
+=== "Sample keytool command"
+
+    ``` java
+    keytool -importkeystore -srckeystore wso2carbon.jks -destkeystore wso2carbon.p12 -srcstoretype JKS -deststoretype PKCS12 -deststorepass wso2carbon
+    ```
+
+Add following configurations in the deployment.toml file to use PKCS12 keystores and truststores:
+
+For the super tenant's primary keystore:
+```toml
+[keystore.primary]
+file_name = "<.p12 keystore location>"
+password = "<password>"
+type = "PKCS12"
+```
+
+To generate keystores for newly created tenants in PKCS12 format:
+
+```toml
+[keystore.tenant]
+type = "PKCS12"
+```
+
+For the truststore:
+```toml
+[truststore]
+file_name = "<.p12 truststore location>"
+password = "<password>"
+type = "PKCS12"
+```
