@@ -164,38 +164,7 @@ Configurations related to SMS providers are located under the **Email & SMS** se
 
 ## Enable SMS OTP Login for Your App
 
-Follow the steps given below to enable **SMS OTP** login to the login flow of your application.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-
-2. Select the application to which you wish to add SMS OTP login.
-
-3. Go to the **Login Flow** tab of the application and add SMS OTP login from your preferred editor:
-
-    ---
-    === "Classic Editor"
-        - If you haven’t yet built a login flow for your application, add `SMS OTP` authenticator as the first authentication step.
-
-            ![Configuring SMS OTP login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        - If you already have an existing login flow, add the `SMS OTP` authenticator as the first authentication step with the other login options.
-        
-            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login-step.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To implement passwordless login with SMS OTP using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab and click **Add Sign in Option**.
-
-        2. Add `SMS OTP`.
-
-        3. Click **Confirm** to integrate passwordless login with SMS OTP into the sign-in flow.
-
-            ![Configuring SMS OTP login in {{ product_name }} using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    ---
-
-4. Click **Update** to save your configuration.
+{% include "../../../guides/fragments/add-login/passwordless-login/add-sms-otp-login.md" %}
 
 ## Try It Out
 

@@ -17,31 +17,12 @@ Consider a scenario where users who are younger than 18 years should be prevente
 ## Configure the login flow
 
 1. On the {{ product_name }} Console, click **Applications**.
+
 2. Select the relevant application and go to its **Login Flow** tab.
-3. Add user-age-based access control using your preferred editor:
 
-    ---
-    === "Classic Editor"
-        To add user-age-based access control using the classic editor:
+3. Add user-age-based access control as follows:
 
-        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
-
-        2. Turn on **Conditional Authentication** by switching the toggle on.
-
-        3. Select the **Access Control > Age-Based** template.
-
-    === "Visual Editor"
-        To add age-based access control using the visual editor:
-
-        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Access Control**.
-
-        2. Click **+ ADD** next to **User-Age-Based** to add the user-age-based access control script.
-
-            ![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        3. Click **Confirm** to replace any existing script with the selected predefined script.
-
-    ---
+    {% include "../../../guides/fragments/add-login/conditional-auth/user-age-based-template.md" %}
 
 {{asgardeo_auth_script_warning}}
 
@@ -61,7 +42,7 @@ Consider a scenario where users who are younger than 18 years should be prevente
             </tr>
             <tr>
                 <td><code>errorPage</code></td>
-                <td>The error page to which users are redirected if the age limit is below age limit. The default error page is used if this parameter is not configured.</td>
+                <td>The error page to which users are redirected if the age limit is below age limit.</br> The default error page is used if this parameter is not configured.</td>
             </tr>
             <tr>
                 <td><code>errorPageParameters</code></td>

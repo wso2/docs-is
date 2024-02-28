@@ -23,51 +23,7 @@ To use TOTP as a multi-factor authentication(MFA) option, application users need
 
 ## Enable TOTP for an app
 
-Follow the steps given below to enable **TOTP** as the second factor in the login flow of your application.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-
-2. Select the application for which TOTP needs to be added.
-
-3. Go to the **Login Flow** tab of the application and add the TOTP authenticator from your preferred editor:
-
-    ---
-    === "Classic Editor"
-        - If you don't have a customized login flow, you can click **Add TOTP as a second factor**.
-
-            ![Configuring TOTP authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-            This opens the customized login flow with TOTP as a second-factor authenticator:
-
-        - If you have an already customized login flow, you can add a second step and add TOTP as the authenticator.
-            
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/totp/view-totp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add TOTP as a second-factor authenticator using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Multi-factor login**.
-
-        2. Select `Username + Password -> TOTP`.
-
-        3. Click **Confirm** to add TOTP as a second factor to the sign-in flow.
-
-            ![Configuring TOTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    ---
-
-    !!! note "Enable backup codes"
-        Once the TOTP authenticator is added, select **Enable backup codes**. This allows users to use their backup codes to log in to the application when they cannot obtain the required MFA codes.
-
-        === "Using the classic editor"
-            ![Enable backup codes for totp authenticator]({{base_path}}/assets/img/guides/mfa/totp/enable-backup-codes.png){: width="500" style="border: 0.3px solid lightgrey;"}
-        
-        === "Using the visual editor"
-            ![Enable backup codes for totp authenticator using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/enable-backup-codes-with-visual-editor.png){: width="500" style="border: 0.3px solid lightgrey;"}
-
-        Learn more about [configuring backup codes for business users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
-
-4. Click **Update** to save your changes.
+{% include "../../../guides/fragments/add-login/mfa/add-totp-login.md" %}
 
 ## Disable enrolling in TOTP during first login
 
