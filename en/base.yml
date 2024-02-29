@@ -21,8 +21,7 @@ dev_addr: localhost:8000
 # Configuration
 theme:
   name: material
-  font:
-    text: Nunito
+  font: false
   toc: false
   features:
     - navigation.tabs
@@ -38,25 +37,19 @@ theme:
     - search.share
   language: 'en'
   palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default 
       toggle:
-        icon: material/brightness-7
+        icon: assets/libs/oxygen-ui-icons/1.7.3/crescent-bright-16.svg
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
+        icon: assets/libs/oxygen-ui-icons/1.7.3/sun-16.svg
+        name: Switch to light mode
   icon:
     logo: logo
 

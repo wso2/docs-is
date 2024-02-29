@@ -16,16 +16,18 @@
  * under the License.
 -->
 
-<div class="md-copyright">
-        <div class="md-copyright__highlight">
-            {% if build_date_utc.year == 2024 %}
-                &copy; {{ build_date_utc.year }} <a href="https://wso2.com/">WSO2</a> LLC.
-            {% else %}
-                &copy; 2024-{{ build_date_utc.year }} <a href="https://wso2.com/">WSO2</a> LLC.
-            {% endif %}
-        </div>
-    <div class="md-license__highlight">
-        Content licensed under <a href="https://creativecommons.org/licenses/by/4.0" target="_blank">CC By 4.0</a>. | 
-        Sample code licensed under <a href="http://www.apache.org/licenses/" target="_blank">Apache 2.0</a>.
+<div class="md-copyright md-typeset">
+  <div class="md-copyright__content">
+    <div class="md-copyright__highlight">
+      {% if build_date_utc.year == 2024 %}
+      &copy; {{ build_date_utc.year }} <a href="https://wso2.com/">WSO2</a> LLC.
+      {% else %}
+      &copy; 2024-{{ build_date_utc.year }} <a href="https://wso2.com/">WSO2</a> LLC.
+      {% endif %}
     </div>
+    <div class="md-license__highlight">
+      Content licensed under <a href="https://creativecommons.org/licenses/by/4.0" target="_blank">CC By 4.0</a>. |
+      Sample code licensed under <a href="http://www.apache.org/licenses/" target="_blank">Apache 2.0</a>.
+    </div>
+  </div>
 </div>
