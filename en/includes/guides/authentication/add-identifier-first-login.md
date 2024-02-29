@@ -13,7 +13,7 @@ Follow the steps below to enable **Identifier First** as an authenticator in the
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select your application, go to its **Sign-in Method** tab and create an Identifier First based authentication flow as described below.
+2. Select your application, go to its **Login Flow** tab and create an Identifier First based authentication flow as described below.
 
     ---
     === "Classic Editor"

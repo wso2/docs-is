@@ -87,7 +87,7 @@ The following guide shows you how to enable **Sign-In With Ethereum** in an appl
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select your application, go to the **Sign-in Method** tab and enable **Sign-In With Ethereum** using your preferred editor:
+2. Select your application, go to the **Login Flow** tab and enable **Sign-In With Ethereum** using your preferred editor:
 
     ---
     === "Classic Editor"

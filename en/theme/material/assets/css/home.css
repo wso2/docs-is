@@ -16,16 +16,24 @@
  * under the License.
  */
 
-body {
-    background: radial-gradient(circle at 75% 45%,rgba(243,115,33,.3) 0,rgba(245,246,246,.01) 17%),
-                radial-gradient(circle at 47% 65%,rgba(243,115,33,.1) 0,rgba(245,246,246,.1) 15%),
-                radial-gradient(circle at 65% 60%,rgba(144,37,142,.15) 5%,var(--md-default-bg-color) 18%);
+:root,
+[data-md-color-scheme=default] {
+    --md-home-body-gradient: conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #d9a300 180deg, var(--md-primary-fg-color) 1turn);
 }
 
-body[data-md-color-scheme=slate] {
-    background: radial-gradient(circle at 75% 45%,rgb(177 83 22 / 30%) 0,rgba(245,246,246,.01) 17%), 
-                radial-gradient(circle at 47% 65%,rgb(142 72 27 / 10%) 0,rgba(0,0,0,.1) 15%), 
-                radial-gradient(circle at 65% 60%,rgb(158 97 42) 5%,var(--md-default-bg-color) 18%);
+.md-home-gradient {
+    background: var(--md-home-body-gradient);
+    width: 1000px;
+    height: 1000px;
+    display: block;
+    mix-blend-mode: normal;
+    filter: blur(75px);
+    opacity: .15;
+    will-change: filter;
+    border-radius: 9999px;
+    max-width: 100%;
+    top: -500px;
+    position: absolute;
 }
 
 .md-home-search-container {
@@ -46,7 +54,7 @@ body[data-md-color-scheme=slate] {
 }
 
 .md-home-sections {
-    max-width: 1400px;
+    max-width: var(--md-main-content-max-width);
     margin-bottom: 5rem !important;
 }
 
@@ -66,13 +74,9 @@ body[data-md-color-scheme=slate] {
 .md-grid-column:last-child {
     margin-right: 0;
 }
-  
+
 .md-column-grid-item {
-    background-color: var(--md-default-bg-color);
-    box-shadow: var(--md-default-box-shadow);
     margin: 0 0 20px 0;
-    padding: 30px;
-    border-radius: 12px;
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
 }
@@ -100,14 +104,14 @@ body[data-md-color-scheme=slate] {
     display: inline-block;
 }
 
-.md-column-grid-item-header-icon > svg {
+.md-column-grid-item-header-icon>svg {
     transform: translate(-50%, -50%);
     position: absolute;
     top: 50%;
     left: 50%;
 }
 
-.md-list-item > a {
+.md-list-item>a {
     color: var(--md-default-fg-color);
     display: block;
     padding: 10px 0;
@@ -115,7 +119,7 @@ body[data-md-color-scheme=slate] {
     border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
 
-.md-list-item:last-child > a {
+.md-list-item:last-child>a {
     border-bottom: none;
 }
 
@@ -124,18 +128,18 @@ body[data-md-color-scheme=slate] {
     vertical-align: top;
 }
 
-.md-list-item-icon, 
+.md-list-item-icon,
 .md-list-item-text {
     max-width: 92%;
     white-space: normal;
 }
 
-.md-list-item-icon, 
+.md-list-item-icon,
 .md-list-item-text {
     display: inline-block;
 }
 
-.md-list-item-icon svg > path {
+.md-list-item-icon svg>path {
     fill: var(--md-primary-fg-color);
 }
 
@@ -186,11 +190,6 @@ body[data-md-color-scheme=slate] {
     display: none;
 }
 
-[data-md-toggle=search]:checked~.md-header .md-header__option {
-    opacity: 1;
-    max-width: none;
-}
-
 [data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__inner {
     overflow: visible;
 }
@@ -224,7 +223,7 @@ body[data-md-color-scheme=slate] {
     background-color: #0000008a;
     height: 200vh;
     opacity: 1 !important;
-    transition: width 0ms,height 0ms,opacity .25s;
+    transition: width 0ms, height 0ms, opacity .25s;
     width: 100%;
     cursor: pointer;
     left: 0;
@@ -232,10 +231,6 @@ body[data-md-color-scheme=slate] {
     top: 0;
     border-radius: 0 !important;
     pointer-events: auto;
-}
-
-[data-md-toggle=search]:checked~.md-header {
-    z-index: 0;
 }
 
 [dir=ltr] .md-search-result__meta {
@@ -246,11 +241,11 @@ body[data-md-color-scheme=slate] {
     padding-left: 2.9rem;
 }
 
-[dir=ltr] .md-search-result__more > summary > div {
+[dir=ltr] .md-search-result__more>summary>div {
     padding-left: 1.5rem;
 }
 
-[dir=ltr] .md-search-result__more > summary:before {
+[dir=ltr] .md-search-result__more>summary:before {
     left: 1.3rem;
     top: 0.8rem;
 }
@@ -278,7 +273,7 @@ body[data-md-color-scheme=slate] {
     .md-column-grid {
         flex-direction: column;
     }
-    
+
     .md-grid-column {
         width: 100%;
         display: block;

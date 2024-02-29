@@ -26,32 +26,17 @@ To enable conditional authentication:
 
 1. On the {{product_name}} Console, click **Applications**.
 
-2. Select the relevant application and go to it's **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 
-3. Add login attempt-based adaptive MFA using your preferred editor:
+3. Add role-based adaptive MFA as follows:
 
-    ---
-    === "Classic Editor"
-        To add login-attempt-based adaptive MFA using the classic editor:
+    1. Go to **Predefined Flows** > **Conditional Login Flows**.
 
-        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
+    2. Click **Adaptive MFA** > **Login-Attempts-Based** > **ADD** to add the role-based adaptive MFA script.
 
-        2. Turn on **Conditional Authentication** by switching the toggle on.
+        ![Login attempts based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/login-attempt-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-        3. Select the **User** > **Login-Attempt-Based** template.
-
-    === "Visual Editor"
-        To add login-attempt-based adaptive MFA using the visual editor:
-
-        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Users**.
-
-        2. Click **+ ADD** next to **Login-Attempt-Based** to add the login attempt-based adaptive MFA script.
-
-            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/login-attempt-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        3. Click **Confirm** to replace any existing script with the selected predefined script.
-
-    ---
+    3. Click **Confirm** to replace any existing script with the selected predefined script.
 
 4. Verify that the login flow is now updated with the following two authentication steps:
 
@@ -70,7 +55,7 @@ To enable conditional authentication:
          <tbody>
             <tr>
                <td><code>invalidAttemptsToStepup</code></td>
-               <td><p> Minimum number of attempts made by a user to prompt 2FA..</p> For this example scenario, enter <code>3</code>.</td>
+               <td><p> Minimum number of attempts made by a user to prompt 2FA. For this example scenario, enter <code>3</code>.</td>
             </tr>
          </tbody>
       </table>

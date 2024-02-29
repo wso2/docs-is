@@ -379,11 +379,11 @@ paths:
       tags:
         - Applications
       summary: |
-        Create application from an exported XML file
+        Create application from an exported XML, YAML, or JSON file.
       operationId: importApplication
       description: >
-        This API provides the capability to store the application information,
-        provided as a file.<br>
+        This API provides the capability to create an application based on the
+        information provided in an XML, YAML, or JSON file.<br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_create`
       requestBody:
         content:
@@ -434,10 +434,11 @@ paths:
       tags:
         - Applications
       summary: |
-        Update application from an exported XML file
+        Update application from an exported XML, YAML, or JSON file.
       operationId: importApplicationForUpdate
       description: >
-        This API provides the capability to update an application from information that has been exported as an XML file.<br>
+        This API provides the capability to update an application based on the
+        information provided in an XML, YAML, or JSON file.<br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       requestBody:
         content:
@@ -812,6 +813,77 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/api/server/v1/applications/{application-id}/export?exportSecrets=false' \
             -H 'accept: application/octet-stream' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /applications/{applicationId}/exportFile:
+    get:
+      tags:
+        - Applications
+      operationId: exportApplicationAsFile
+      summary: |
+        Export application in XML, YAML, or JSON file formats.
+      description: |
+        This API provides the capability to retrieve the application in XML, YAML, or JSON format.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/exportSecretsQueryParam'
+        - $ref: '#/components/parameters/fileTypeHeaderParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              example: 'Sample application configuration in the requested format'
+            application/yaml:
+              schema:
+                type: string
+              example: 'Sample application configuration in the requested format'
+            application/xml:
+              schema:
+                type: string
+              example: 'Sample application configuration in the requested format'
+            application/octet-stream:
+              schema:
+                type: string
+              example: 'Sample application configuration in the requested format'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/exportFile?exportSecrets=false' \
+            -H 'Accept: application/yaml' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/owner:
     put:
@@ -3866,6 +3938,21 @@ components:
       schema:
         type: boolean
         default: false
+    fileTypeHeaderParam:
+      in: header
+      name: Accept
+      required: false
+      description: |
+        Content type of the file.
+      schema:
+        type: string
+        default: application/xml
+        enum:
+          - application/json
+          - application/xml
+          - application/yaml
+          - application/x-yaml
+          - text/yaml
     inboundProtocolsCustomOnly:
       in: query
       name: customOnly

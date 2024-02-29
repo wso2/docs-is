@@ -27,7 +27,7 @@ Follow the steps below to share your applications with organizations.
 
 Note the following:
 
-- Go to the **Sign-in Method** tab of the application and ensure that the **SSO** authenticator is added if the application is shared to at least one existing organization.
+- Go to the **Login Flow** tab of the application and ensure that the **SSO** authenticator is added if the application is shared to at least one existing organization.
   If you share the application selecting **Share with all organizations** option, even if you haven't onboarded any organizations at the moment, the **SSO** authenticator will be added automatically following the creation of the first organization.
 
     !!! note
@@ -39,7 +39,7 @@ Note the following:
 
   ![Shared Guardio Insurance Application]({{base_path}}/assets/img/guides/organization/manage-organizations/fragmented-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-- Go to the **Sign-in Method** tab of the shared app and see that login with username and password is enabled.
+- Go to the **Login Flow** tab of the shared app and see that login with username and password is enabled.
 
 Once an application is shared with an organization, its users can use the **Sign In with SSO** option to log in using their credentials.
 

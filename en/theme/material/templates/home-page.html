@@ -28,6 +28,7 @@
     <article class="md-content__inner md-typeset">
 
       <div class="md-home-search-container">
+        <span class="md-home-gradient"></span>
         <h1 class="md-home-search-input-label">How can we help?</h1>
 
         {% include "partials/search.html" %}
@@ -45,7 +46,7 @@
         {% for columns in config.extra.home_page_cards %}
           <div class="md-grid-column">
             {% for column in columns.section %}
-              <div class="md-column-grid-item">
+              <div class="md-card md-column-grid-item">
                 <div class="md-column-grid-item-header-container">
                   <div class="md-column-grid-item-header-text">{{ column.title }}</div>
 

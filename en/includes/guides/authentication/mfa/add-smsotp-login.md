@@ -159,51 +159,7 @@ Configurations related to SMS providers are located under the **Email & SMS** se
 
 ## Enable SMS OTP for an app
 
-To enable SMS OTP for MFA, you need to add **SMS OTP** in the authentication flow of the application.
-
-Follow the steps given below.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-2. Select the application to which you wish to add SMS OTP.
-3. Go to the **Sign-in Method** tab of the application and add the SMS OTP authenticator from your preferred editor:
-
-    ---
-    === "Classic Editor"
-        - If you don't have a customized login flow, you can click **Add SMS OTP as a second factor**.
-
-            ![Add SMS OTP authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        This opens the customized login flow with SMS OTP as a second-factor authenticator:
-
-        - If you have an already customized login flow, you can add a second step and add SMS OTP as the authenticator.
-
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/smsotp/view-smsotp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add SMS OTP as a second-factor authenticator using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Multi-factor login**.
-
-        2. Select `Username + Password -> SMS OTP`.
-
-        3. Click **Confirm** to add SMS OTP as a second factor to the sign-in flow.
-
-            ![Configuring SMS OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    ---
-
-    !!! note "Enable backup codes"
-        Once the SMS OTP authenticator is added, select **Enable backup codes**. This allows users to use their backup codes to log in to the application when they cannot obtain the required MFA codes.
-
-        === "Using the classic editor"
-            ![Enable backup codes for SMS otp authenticator]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes.png){: width="500" style="border: 0.3px solid lightgrey;"}
-        
-        === "Using the visual editor"
-            ![Enable backup codes for SMS otp authenticator using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/enable-backup-codes-with-visual-editor.png){: width="500" style="border: 0.3px solid lightgrey;"}
-
-        Learn more about [configuring backup codes for business users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
-
-4. Click **Update** to save your changes.
+{% include "../../../guides/fragments/add-login/mfa/add-smsotp-login.md" %}
 
 ## How it works
 

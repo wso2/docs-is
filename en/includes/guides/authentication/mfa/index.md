@@ -26,7 +26,7 @@ Given below are the main steps you will follow when enabling MFA in your login f
 
 1. On the {{ product_name }} Console, go to **Applications** and select the application to which MFA needs to be added.
 
-2. Go to the **Sign-in Method** tab where the application login flow is defined.
+2. Go to the **Login Flow** tab where the application login flow is defined.
 
 3. Add the required authenticators that should be enforced at each step. You can add authenticators using any one of the following editors:
 

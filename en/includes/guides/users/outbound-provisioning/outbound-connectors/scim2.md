@@ -1,6 +1,6 @@
 # Configure outbound provisioning with SCIM2
 
-This guide explains how you can configure a SCIM2 Identity Provider (IdP) for outbound provisioning in {{product_name}}.
+This guide explains how you can configure a SCIM2 Identity Provider (IdP) as an outbound connector in {{product_name}}.
 
 ## Configure the SCIM2 outbound connector
 

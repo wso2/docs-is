@@ -22,45 +22,11 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 
 {{ admin_login_note}}
 
-- If Passkey progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-users/#onboard-a-user) need to register their passkeys via the My Account app prior to 
-  using passkey login. Be sure to educate your users on how to [enroll passkeys via My Account.]({{base_path}}/guides/user-self-service/register-passkey/)
+- If Passkey progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-users/#onboard-a-user) need to register their passkeys via the My Account app prior to using passkey login. Be sure to educate your users on how to [enroll passkeys via My Account.]({{base_path}}/guides/user-self-service/register-passkey/)
 
 ## Enable passkey login for an app
 
-Follow the steps given below to enable **Passkey** login for your application.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-
-2. Select the application to which you wish to add Passkey.
-
-3. Go to the **Sign-in Method** tab of the application and add Passkey from your preferred editor:
-
-
-    ---
-    === "Classic Editor"
-        - If you haven't already built a login flow for your application, select **Start with default configuration** to build one.
-
-            ![Configuring basic login in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/passkey/add-basic-login-using-classic-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        - Now you can add a second step and add **Passkey** as the authenticator.
-
-            ![Configuring passkey as the second factor]({{base_path}}/assets/img/guides/mfa/passkey/add-passkey-using-classic-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add Passkey as a second-factor authenticator using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab.
-
-        2. Add a second step and add **Passkey** as the authenticator.
-
-        3. Click **Confirm** to add passwordless login with Passkey to the sign-in flow.
-
-            ![Configuring passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/passkey/add-passkey-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    ---
-
-4. Click **Update** to save your changes.
-
+{% include "../../../guides/fragments/add-login/mfa/add-passkey-login.md" %}
 
 ## Enable Passkey progressive enrollment
 

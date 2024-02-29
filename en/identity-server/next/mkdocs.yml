@@ -433,17 +433,19 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
-        - Outbound provisioning:
-          - Enable outbound provisioning:
-            - Organization-level provisioning: guides/users/outbound-provisioning/provisioning-levels/org-level.md
-            - IdP-level provisioning: guides/users/outbound-provisioning/provisioning-levels/idp-level.md
-          - Role-based provisioning: guides/users/outbound-provisioning/role-based-provisioning.md
-          - Configure an outbound connector:
-            - Configure an outbound connector: guides/users/outbound-provisioning/outbound-connectors/index.md
-            - Google: guides/users/outbound-provisioning/outbound-connectors/google.md
-            - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
-            - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
-          - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
+        - Provisioning:
+          - Inbound provisioning: guides/users/inbound-provisioning/inbound-provisioning.md
+          - Outbound provisioning:
+            - Outbound provisioning: guides/users/outbound-provisioning/index.md
+            - Enable outbound provisioning:
+              - Organization-level provisioning: guides/users/outbound-provisioning/provisioning-levels/org-level.md
+              - IdP-level provisioning: guides/users/outbound-provisioning/provisioning-levels/idp-level.md
+            - Role-based provisioning: guides/users/outbound-provisioning/role-based-provisioning.md
+            - Configure an outbound connector:
+              - Google: guides/users/outbound-provisioning/outbound-connectors/google.md
+              - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
+              - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
+            - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -494,6 +496,7 @@ nav:
           - Manage consents: guides/user-self-service/manage-consents.md
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
+          - Account confirmation for self-register: guides/user-self-service/account-confirmation-for-self-register.md
           - Register passkeys: guides/user-self-service/register-passkey.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
@@ -754,6 +757,7 @@ nav:
     - User Management:
       - User roles: references/user-management/user-roles.md
       - Track user deletion: references/user-management/track-deletion.md
+      - Self registration confirmation: references/user-management/self-registration-verification.md
     - App configurations:
       - App configurations: references/app-settings/index.md
       - OIDC configurations: references/app-settings/oidc-settings-for-app.md
@@ -795,6 +799,9 @@ nav:
     - IAM concepts:
       - OAuth2 grant types: references/grant-types.md
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
+      - Token binding:
+        - Token binding: references/token-binding/index.md
+        - Client-request: references/token-binding/client-request.md 
       - Financial-grade API: references/financial-grade-api.md
       - Application-native authentication: references/app-native-authentication.md
 

@@ -18,7 +18,7 @@ You need to [register an application with {{ product_name }}]({{base_path}}/guid
 Follow the steps given below.
 
 1. On the {{ product_name }} Console, click **Applications**.
-2. Select the relevant application and go to its **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 3. Add sign-in option based adaptive MFA using your preferred editor:
 
 

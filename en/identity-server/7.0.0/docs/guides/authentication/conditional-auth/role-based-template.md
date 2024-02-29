@@ -20,7 +20,7 @@ Consider a scenario with two roles, `admin` and `manager` associated with an app
 
 - You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- Create two roles named `admin` and `manager` in application audience selecting the created application or create roles in organization audience and associate to the created application. 
+- Create two roles named `admin` and `manager` in application audience selecting the created application or create roles in organization audience and associate to the created application.
 
     - [Managing roles]({{base_path}}/guides/users/manage-roles/)
   
@@ -35,32 +35,17 @@ To enable conditional authentication:
 
 1. On the {{product_name}} Console, click **Applications**.
 
-2. Select the relevant application and go to it's **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 
-3. Add role-based adaptive MFA using your preferred editor:
+3. Add role-based adaptive MFA as follows:
 
-    ---
-    === "Classic Editor"
-        To add role-based adaptive MFA using the classic editor:
+    1. Go to **Predefined Flows** > **Conditional Login Flows**.
 
-        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
+    2. Click **Adaptive MFA** > **Role-Based** > **Add** to add the role-based adaptive MFA script.
 
-        2. Turn on **Conditional Authentication** by switching the toggle on.
+        ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/role-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-        3. Select the **Adaptive MFA** > **Role-Based** template.
-
-    === "Visual Editor"
-        To add role-based adaptive MFA using the visual editor:
-
-        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows**.
-
-        2. Click **+ ADD** next to **Role-Based** to add the role-based adaptive MFA script.
-
-            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/role-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        3. Click **Confirm** to replace any existing script with the selected predefined script.
-
-    ---
+    3. Click **Confirm** to replace any existing script with the selected predefined script.
 
 4. Verify that the login flow is now updated with the following two authentication steps:
 

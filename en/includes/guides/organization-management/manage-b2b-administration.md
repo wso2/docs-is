@@ -51,7 +51,7 @@ Explore the [organization APIs]({{base_path}}/apis/organization-apis/) of {{ pro
 
 {% if product_name == "WSO2 Identity Server" %}
 
-## Use Console as the an administration portal of organizations
+## Use Console as the administration portal of organizations
 
 You can use the {{ product_name }} Console as the administration portal of your B2B application. 
 Each customer/partner organization can access their space in the {{ product_name }} Console by accessing the URL `https://<hostname>:<port>/t/<root organization name>/o/<organization id>/console`.

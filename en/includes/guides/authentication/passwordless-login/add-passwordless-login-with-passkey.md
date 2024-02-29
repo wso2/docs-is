@@ -50,42 +50,7 @@ The following guide explains how you can enable log in with passkeys in your app
 
 ## Enable passkey login
 
-Follow the steps given below to enable login with passkeys for your application.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-
-2. Select the application to which you wish to add Passkey login.
-
-3. Go to the **Sign-in Method** tab of the application and add Passkey login from your preferred editor:
-
-
-    ---
-    === "Classic Editor"
-        - If you haven't already built a login flow for your application, select **Add Passkey Login** to build one.
-
-            ![Configuring passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/add-fido-login.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        - If you have an already built login flow, you can add Passkey as an additional authenticator for the first step.
-
-            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/passkey/fido-login-step.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add passwordless login with Passkey using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Passwordless login**.
-
-        2. Select **Passkey**.
-
-        3. Click **Confirm** to add passwordless login with Passkey to the sign-in flow.
-
-            ![Configuring passkey login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/add-fido-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    ---
-
-4. Click **Update** to save your changes.
-
-!!! note
-    By default, a user is not required to enter the username during login with passkeys. Learn how you can change this behavior in the [configure passkey usernameless authentication](#configure-passkey-usernameless-authentication) section.
+{% include "../../../guides/fragments/add-login/passwordless-login/add-passkey-login.md" %}
 
 
 ## Enable passkey progressive enrollment
@@ -104,40 +69,7 @@ Follow the steps given below to enable passkey progressive enrollment for your a
 
 4. Click **Update** to save your changes.
 
-5. Navigate back to **Applications** on the {{ product_name }} Console.
-
-6. Select the application to which you have added Passkey login.
-
-7. Go to the **Sign-in Method** tab of the application and add the passkey based adaptive script from your preferred editor.
-
-    ---
-    === "Classic Editor"
-        To add the adaptive script using the Classic Editor:
-
-        1. Enable the **Conditional Authentication** toggle located at the bottom of the editor.
-
-        2. In the **Templates** section, go to **Passkey Enrollment** and click the **+** sign corresponding to the **Passkey Progressive Enrollment** template.
-        
-        3. Click **Confirm** to add the script.
-
-            ![Add adaptive script with Classic Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-classic-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add the adaptive script using the Classic Editor:
-
-        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Conditional Login Flows** > **Passkey Enrollment**.
-
-        2. Click the **ADD** button corresponding to the **Passkey Progressive Enrollment** template.
-
-        3. Click **Confirm** to add the script.
-
-            ![Add adaptive script with Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-    ---
-
-    !!! warning "Important"
-        For the progressive enrollment adaptive script to function, you need to configure at least one additional authenticator to the first step of the authentication flow. Refer to [Passkey Progressive Enrollment]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) for more information.
-
-4. Click **Update** to save your changes.
+5. [Add the passkey progressive enrollment adaptive script]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template) to the login flow of the application.
 
 !!! note
     - If progressive enrollment is disabled, users need to pre-register their passkeys from the MyAccount portal. Learn how to do so in [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/).

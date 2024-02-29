@@ -1,6 +1,6 @@
 # Configure outbound provisioning with Google
 
-This guide explains how you can configure Google for outbound provisioning in {{product_name}}.
+This guide explains how you can configure Google as an outbound connector in {{product_name}}.
 
 ## Configure Google Workspace for provisioning
 

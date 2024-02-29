@@ -106,7 +106,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Go to the **Sign-in Method** tab of the application and add Magic link login from your preferred editor:
+2. Go to the **Login Flow** tab of the application and add Magic link login from your preferred editor:
 
     ---
     === "Classic Editor"

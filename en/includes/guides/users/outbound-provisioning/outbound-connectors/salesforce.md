@@ -1,6 +1,6 @@
 # Configure outbound provisioning with Salesforce
 
-This guide explains how you can configure Salesforce for outbound provisioning in {{product_name}}.
+This guide explains how you can configure Salesforce as an outbound connector in {{product_name}}.
 
 ## Configure Salesforce for provisioning
 

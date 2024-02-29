@@ -127,6 +127,8 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
     Support for sending the `client_id` to perform the logout request, providing flexibility in logout requests for relying parties.
 
+    [Learn more]({{base_path}}/guides/authentication/oidc/add-logout/)
+
 - **Email Magic Link Login from Different Browsers**
 
     The email magic link authenticator now supports logging in from a different browser, enhancing flexibility and user experience.

@@ -31,32 +31,17 @@ To enable conditional authentication:
 
 1. On the {{product_name}} Console, click **Applications**.
 
-2. Select the relevant application and go to it's **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 
-3. Add user store-based adaptive MFA using your preferred editor:
+3. Add user store based adaptive MFA as follows:
 
-    ---
-    === "Classic Editor"
-        To add user store-based adaptive MFA using the classic editor:
+    1. Go to **Predefined Flows** > **Conditional Login Flows**.
 
-        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
+    2. Click **Adaptive MFA** > **User Store-Based** > **ADD** to add the user store based adaptive MFA script.
 
-        2. Turn on **Conditional Authentication** by switching the toggle on.
+        ![User store-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/user-store-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-        3. Select the **User** > **User Store-Based** template.
-
-    === "Visual Editor"
-        To add user store-based adaptive MFA using the visual editor:
-
-        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Users**.
-
-        2. Click **+ ADD** next to **User Store-Based** to add the user store-based adaptive MFA script.
-
-            ![User store-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/user-store-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        3. Click **Confirm** to replace any existing script with the selected predefined script.
-
-    ---
+    3. Click **Confirm** on the prompt to replace any existing script with the current script.
 
 4. Verify that the login flow is now updated with the following two authentication steps:
 
@@ -75,7 +60,7 @@ To enable conditional authentication:
          <tbody>
             <tr>
                <td><code>userStoresToStepUp</code></td>
-               <td><p> Comma-separated list of user stores. Two-factor authentication should apply to users from the specified user stores.</p> For this example scenario, enter <code>EMPLOYEES</code> and <code>CONTRACTORS</code>.</td>
+               <td><p> Comma-separated list of user stores. Two-factor authentication should apply to users from the </br>specified user stores. For this example scenario, enter <code>EMPLOYEES</code> and <code>CONTRACTORS</code>.</td>
             </tr>
          </tbody>
       </table>

@@ -17,7 +17,7 @@ The guides below explain how you can leverage an adaptive authentication script 
 
 ## Prerequisites
 
- You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use the [playground2](https://github.com/wso2/samples-is/releases/download/v4.5.5/playground2.war) sample application to test ACR-based adaptive authentication.
+ You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use the [playground2](https://github.com/wso2/samples-is/releases/download/v4.6.0/playground2.war) sample application to test ACR-based adaptive authentication.
 
 ## Request ACR from applications
 
@@ -86,36 +86,21 @@ To receive ACR values from a SAML application, developers can add the following 
 
 ## Configure the login flow
 
-The steps below explain how you can set up an ACR-based conditional authentication script to define the necessary logic for the received ACR values.
+The steps below explain how you can set up an ACR-based conditional authentication script to define the logic for the received ACR values.
 
 1. On the {{product_name}} Console, click **Applications**.
 
-2. Select the relevant application and go to its **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 
-3. Add ACR-based adaptive MFA using your preferred editor:
+3. Add ACR-based adaptive MFA as follows:
 
-    ---
-    === "Classic Editor"
-        To add ACR-based adaptive MFA using the classic editor:
+    1. Go to **Predefined Flows** > **Conditional Login Flows**.
 
-        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
+    2. Click **Adaptive MFA** > **ACR-Based** > **ADD** to add the ACR-based adaptive MFA script.
 
-        2. Turn on **Conditional Authentication** by switching the toggle on.
+        ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/acr-based-adaptive-auth-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-        3. Select the **Adaptive MFA** > **ACR-Based** template.
-
-    === "Visual Editor"
-        To add ACR-based adaptive MFA using the visual editor:
-
-        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows**.
-
-        2. Under **Adaptive MFA**, click **+ ADD** next to **ACR-Based** to add the ACR-based adaptive MFA script.
-
-            ![Role-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/acr-based-adaptive-auth-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        3. Click **Confirm** on the prompt to replace any existing script with the current script.
-
-    ---
+    3. Click **Confirm** on the prompt to replace any existing script with the current script.
 
 4. Verify that the login flow is now updated. For the sample application, we'll have the following three authentication steps:
 

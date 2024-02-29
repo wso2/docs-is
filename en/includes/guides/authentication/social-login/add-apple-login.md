@@ -172,36 +172,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
 
 ## Enable Apple login
 
-!!! note "Before you begin"
-    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-2. Select your application, go to the **Sign-in Method** tab and add Apple login from your preferred editor:
-
-    !!! note "Recommendations"
-        {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
-
-    ---
-    === "Classic Editor"
-        To add Apple login using the Classic Editor:
-        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
-
-        2. Click **Add Authentication** on the step, select your Apple identity provider, and click **Add**.
-
-            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add Apple login using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
-
-        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Apple connection.
-
-            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    ---
-
-3. Click **Update** to save your changes.
+{% include "../../../guides/fragments/add-login/social-login/add-apple-login.md" %}
 
 ## Try it out
 
