@@ -68,12 +68,12 @@ Click the button below to download the sample. You can also choose to view the s
 
 <div class="centered-container">
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50><br>
+    <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50></br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war" target="_blank">Download sample</a>
   </div>
 
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="Github" width=50><br>
+    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="Github" width=50></br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/tree/master/io.asgardeo.tomcat.oidc.sample" target="_blank">View source</a>
   </div>
 </div>

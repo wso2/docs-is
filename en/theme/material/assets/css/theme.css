@@ -153,6 +153,18 @@
     color: var(--md-default-fg-color);
 }
 
+.centered-container {
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+  }
+  
+  .border-text {
+    margin: 10px;
+    text-align: center;
+  }
+  
+
 .cards-container .card > h3 {
     margin-top: 0;
 }

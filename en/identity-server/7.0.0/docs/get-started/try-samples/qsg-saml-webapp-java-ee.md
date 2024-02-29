@@ -20,11 +20,11 @@ Follow these steps given below to register the sample Java EE web application in
 
 2. Click **New Application** and select **Traditional Web Application**.
 
-    ![Select app type in {{ product_name }}]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Select app type in {{ product_name }}]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}</br>
 
 3. Enter the following details:
 
-    ![Create a new SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-web-app.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Create a new SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-web-app.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}</br>
 
     <table>
       <tr>
