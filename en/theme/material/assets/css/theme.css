@@ -283,11 +283,9 @@
     max-width: unset;
 }
 
-
 .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
     display: none;
 }
-
 
 .md-nav__title {
     display: none;
