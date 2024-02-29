@@ -165,7 +165,7 @@ paths:
               "familyName": "Berry"
             },
             "userName": "kim",
-            "password": "abc123",
+            "password": "MyPa33w@rd",
             "emails": [
               {
                 "type": "home",
@@ -510,7 +510,7 @@ components:
           example: kim
         password:
           type: string
-          example: abc123
+          example: MyPa33w@rd
         emails:
           type: array
           example:
