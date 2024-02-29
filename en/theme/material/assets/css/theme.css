@@ -244,15 +244,15 @@
     fill: #fff;
 }
 
-.md-nav {
-    font-size: 16px;
-}
-
 .md-sidebar {
     padding: 0px !important;
-    width: 20vw;
-    border-right: 1px solid var(--md-divider-color);
+    width: 18vw;
     height: 93vh;
+}
+
+.md-sidebar--primary {
+    background-color: var(--md-footer-bg-color);
+    border-right: 1px solid var(--md-divider-color);
 }
 
 .md-main__inner {
@@ -269,10 +269,6 @@
 
 .md-typeset {
     font-size: 16px;
-}
-
-.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav > .md-nav__list > .md-nav__item > .md-nav__link {
-    font-weight: 500;
 }
 
 .md-nav__item > .md-nav__link {

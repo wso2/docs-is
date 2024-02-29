@@ -28,7 +28,7 @@
 
 .md-footer {
   color: var(--md-typeset-color);
-  background-color: var(--md-footer-bg-color);
+  background-color: var(--md-default-bg-color);
   border-top: 1px solid var(--md-divider-color);
 }
 
