@@ -2,11 +2,6 @@
 
 Follow the steps given below to authenticate users to your JavaScript SPA with OpenID Connect using the [JavaScript SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk#readme).
 
-<div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/javascript-logo.svg" alt="JavaScript" width=50><br>
-    <a href="{{base_path}}//get-started/try-samples/qsg-spa-javascript">Try out the sample app</a>
-  </div>
-
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm) in your local environment.
 - <a href="{{base_path}}/guides/applications/register-single-page-app">Register an application</a> in the {{ product_name }}.

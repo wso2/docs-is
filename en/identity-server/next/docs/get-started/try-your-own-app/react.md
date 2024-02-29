@@ -2,11 +2,6 @@
 
 Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme).
 
-<div class="border-text">
-  <img src="{{base_path}}/assets/img/logo/react-logo.svg" alt="React" width=50><br>
-  <a href="{{base_path}}/get-started/try-samples/qsg-spa-react">Try out the sample app</a>
-</div>
-
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm){:target="_blank"} in your local environment.
 - [Register an application]({{base_path}}/guides/applications/register-single-page-app/) in the {{ product_name }}.
