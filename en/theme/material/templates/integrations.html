@@ -30,7 +30,12 @@
         <div class="flex-grid">
           {% for integration in config.extra.integrations %}
             <div class="md-card integration-card">
-              <img class="integration-card-icon" src="{{ integration.icon | url }}" />
+              <img class="integration-card-icon" src="{{ integration.icon | url }}#only-light" />
+              {% if integration.dark_icon %}
+                <img class="integration-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
+              {% else %}
+                <img class="integration-card-icon" src="{{ integration.icon | url }}#only-dark" />
+              {% endif %}
               <p class="integration-card-header">{{ integration.name }}</p>
               {% set description = integration.description %}
               {% set description = description.replace('{{ config.extra.product_name }}', config.extra.product_name) %}

@@ -120,10 +120,12 @@ extra:
       source_link: https://github.com/manfredsteyer/angular-oauth2-oidc
     - name: Next Auth
       icon: assets/img/logo/nextjs-logo.svg
+      dark_icon: assets/img/logo/nextjs-logo-dark.svg
       description: A library for implementing OAuth2 and OIDC in NextJS applications
       source_link: https://github.com/nextauthjs/next-auth
     - name: Auth Node SDK
       icon: assets/img/logo/expressjs-logo.svg
+      dark_icon: assets/img/logo/expressjs-logo-dark.svg
       description: An SDK to integrate {{ config.extra.product_name }} into JS/TS-based frameworks such as ExpressJS
       source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
     - name: Tomcat OIDC Agent
@@ -152,6 +154,7 @@ extra:
       source_link: https://github.com/openid/AppAuth-Android
     - name: AppAuth iOS
       icon: assets/img/logo/apple-idp-illustration.svg
+      dark_icon: assets/img/logo/apple-logo-dark.svg
       description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
       source_link: https://github.com/openid/AppAuth-iOS
   redoc_theme: '{
