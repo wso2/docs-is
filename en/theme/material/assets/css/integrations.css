@@ -26,6 +26,51 @@
     box-shadow: inset 0px 0px 0px 1px #4e4e4e;
 }
 
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.flex-grid .integration-card {
+    flex: 0 1 calc(33.33% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.integration-card-icon {
+    height: 50px !important;
+}
+
+.flex-grid .integration-card-header {
+    font-weight: 500;
+}
+
+.flex-grid .integration-card-description {
+    font-size: 0.6rem;
+    margin: 0px;
+}
+
+.integration-card-source-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .flex-grid .integration-card {
+        flex: 0 1 calc(50% - 20px); /* On smaller screens, adjust so 2 cards fit per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .flex-grid .integration-card {
+        flex: 0 1 100%; /* On very small screens, adjust so 1 card fits per row */
+    }
+}
+
 .integrations-list-item {
     background-color: rgb(248, 248, 248);
     margin: 0.7em 0;
@@ -122,7 +167,9 @@
 
 .source-link {
     flex: 1;
-    margin: 0 20px 0 0;
+    margin: 0 10px 0 0;
+    color: var(--md-typeset-color) !important;
+    width: 35px;
 }
 
 .md-sidebar--secondary {
