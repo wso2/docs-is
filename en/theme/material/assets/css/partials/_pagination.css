@@ -65,11 +65,19 @@
   color: var(--md-pagination-pager-label-color);
 }
 
-.md-pagination .md-pagination__pager .md-pagination__pager-link.md-pagination__pager-link .md-pagination__pager-title {
+.md-pagination .md-pagination__pager .md-pagination__pager-link .md-pagination__pager-title {
   display: block;
   line-height: 20px;
   font-size: var(--md-pagination-pager-title-font-size);
   font-weight: 500;
   color: var(--md-pagination-pager-title-color);
   transition: color .25s;
+}
+
+.md-pagination .md-pagination__pager .md-pagination__pager-link.md-pagination__pager-link--next .md-pagination__pager-title:after {
+  content: " »";
+}
+
+.md-pagination .md-pagination__pager .md-pagination__pager-link.md-pagination__pager-link--prev .md-pagination__pager-title:before {
+  content: "« ";
 }
