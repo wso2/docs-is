@@ -1,5 +1,5 @@
 <!--
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -27,37 +27,36 @@
   <div class="md-content">
     <article class="md-content__inner md-typeset">
       <div class="integrations-list-container">
-        <div class="flex-table">
+        <div class="flex-grid">
           {% for integration in config.extra.integrations %}
-            <div class="flex-row integrations-list-item">
-              <div class="flex-column sdk-name">
-                <p>{{ integration.name }}</p>
-              </div>
-              <div class="flex-column integrations-list-item-icon">
-                <p><img src="{{ integration.icon | url }}" /></p>
-              </div>
-              <div class="flex-column">
-                {% set description = integration.description %}
-                {% set description = description.replace('{{ config.extra.product_name }}', config.extra.product_name) %}
-                <p class="sdk-description">{{ description }}</p>
-              </div>
-              <div class="flex-column source-links">
+            <div class="md-card integration-card">
+              <img class="integration-card-icon" src="{{ integration.icon | url }}#only-light" />
+              {% if integration.dark_icon %}
+                <img class="integration-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
+              {% else %}
+                <img class="integration-card-icon" src="{{ integration.icon | url }}#only-dark" />
+              {% endif %}
+              <p class="integration-card-header">{{ integration.name }}</p>
+              {% set description = integration.description %}
+              {% set description = description.replace('{{ config.extra.product_name }}', config.extra.product_name) %}
+              <p class="integration-card-description">{{ description }}</p>
+              <div class="integration-card-source-links">
                 {% if integration.documentation_link %}
-                  <a class="tooltip source-link" href="{{ integration.documentation_link | url }}">
-                    <i class="fa-solid fa-file"></i>
+                  <a class="tooltip source-link md-icon md-icon--hover" href="{{ integration.documentation_link | url }}">
+                    {% include "/assets/images/icons/book-16.svg" %}
                     <span class="tooltip-text">Documentation</span>
                   </a>
                 {% endif %}
                 {% if integration.download_link %}
-                  <a class="source-link tooltip" href="{{ integration.download_link }}" target="_blank">
-                      <i class="fas fa-download"></i>
-                      <span class="tooltip-text">Download sample</span>
+                  <a class="source-link tooltip md-icon md-icon--hover" href="{{ integration.download_link }}" target="_blank">
+                    {% include "/assets/images/icons/download.svg" %}
+                    <span class="tooltip-text">Download sample</span>
                   </a>
                 {% endif %}
                 {% if integration.source_link %}
-                  <a class="source-link tooltip" href="{{ integration.source_link }}" target="_blank">
-                      <i class="fab fa-github"></i>
-                      <span class="tooltip-text">Source</span>
+                  <a class="source-link tooltip md-icon md-icon--hover" href="{{ integration.source_link }}" target="_blank">
+                    {% include "/assets/images/icons/github.svg" %}
+                    <span class="tooltip-text">Source</span>
                   </a>
                 {% endif %}
               </div>
@@ -65,7 +64,6 @@
           {% endfor %}
         </div>
       </div>
-
       {{ page.content }}
     </article>
   </div>
