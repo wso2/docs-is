@@ -55,6 +55,7 @@
     --colors-discord-blurple: #5865F2;
     /* END OF - Colors */
 
+    --md-typeset-muted-color: #3c3c43c7;
     --md-main-content-max-width: 1400px;
     --md-divider-color: var(--colors-mystic);
     --md-surface-fg-color: var(--colors-white);
@@ -74,6 +75,7 @@
     --icon-bg-color-opacity: 0.1;
     /* END OF - Icon Colors */
 
+    --md-typeset-muted-color: #ebebf599;
     --md-typeset-inverted-color: var(--colors-white);
     --md-divider-opacity: 0.1;
     --md-divider-color: rgba(255, 255, 255, var(--md-divider-opacity));

@@ -21,9 +21,6 @@
   {% include "partials/tags.html" %}
 {% endif %}
 
-<!-- Actions -->
-{% include "partials/actions.html" %}
-
 <!--
   Hack: check whether the content contains a h1 headline. If it doesn't, the
   page title (or respectively site name) is used as the main headline.
@@ -42,6 +39,9 @@
 ) %}
   {% include "partials/source-file.html" %}
 {% endif %}
+
+<!-- Actions -->
+{% include "partials/actions.html" %}
 
 <!-- Content Pagination   -->
 {% include "partials/pagination.html" %}

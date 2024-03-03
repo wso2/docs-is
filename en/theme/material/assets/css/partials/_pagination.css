@@ -18,10 +18,12 @@
 
 :root,
 [data-md-color-scheme=default] {
-  --md-pagination-pager-label-color: rgba(60, 60, 67, .78);
+  --md-pagination-pager-label-color: var(--md-typeset-muted-color);
   --md-pagination-pager-label-font-size: 0.6rem;
-  --md-pagination-pager-title-color: var(--primary-fg-color);
+  --md-pagination-pager-title-color: var(--md-primary-fg-color);
   --md-pagination-pager-title-font-size: 0.7rem;
+  --md-pagination-pager-link-hover-border-color: var(--md-primary-fg-color);
+  --md-pagination-meta-link-hover-color: var(--md-typeset-color);
 }
 
 .md-pagination {
@@ -33,8 +35,8 @@
 
 @media (min-width: 640px) {
   .md-pagination {
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 16px;
   }
 }
 
@@ -49,7 +51,7 @@
 }
 
 .md-pagination .md-pagination__pager .md-pagination__pager-link:hover {
-  box-shadow: var(--md-default-box-shadow);
+  border-color: var(--md-pagination-pager-link-hover-border-color);
 }
 
 .md-pagination .md-pagination__pager .md-pagination__pager-link.md-pagination__pager-link--next {
@@ -59,7 +61,6 @@
 
 .md-pagination .md-pagination__pager .md-pagination__pager-link.md-pagination__pager-link .md-pagination__pager-label {
   display: block;
-  line-height: 20px;
   font-size: var(--md-pagination-pager-label-font-size);
   font-weight: 500;
   color: var(--md-pagination-pager-label-color);
@@ -67,7 +68,6 @@
 
 .md-pagination .md-pagination__pager .md-pagination__pager-link .md-pagination__pager-title {
   display: block;
-  line-height: 20px;
   font-size: var(--md-pagination-pager-title-font-size);
   font-weight: 500;
   color: var(--md-pagination-pager-title-color);
@@ -80,4 +80,48 @@
 
 .md-pagination .md-pagination__pager .md-pagination__pager-link.md-pagination__pager-link--prev .md-pagination__pager-title:before {
   content: "« ";
+}
+
+/* Pagination Extras */
+
+.md-pagination__meta {
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+}
+
+.md-pagination__meta .md-pagination__meta__link {
+  color: var(--md-typeset-muted-color);
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.md-pagination__meta .md-pagination__meta__link:hover,
+.md-pagination__meta .md-pagination__meta__link:focus,
+.md-pagination__meta .md-pagination__meta__link:active {
+  color: var(--md-pagination-meta-link-hover-color);
+  text-decoration: underline;
+}
+
+.md-pagination__meta .md-pagination__meta__link.md-pagination__meta__link--edit svg {
+  fill: var(--md-typeset-muted-color);
+  height: 12px;
+  width: 12px;
+}
+
+.md-pagination__meta .md-pagination__meta__link:hover svg {
+  fill: var(--md-pagination-meta-link-hover-color);
+}
+
+.md-pagination__meta .md-pagination__meta__link.md-pagination__meta__link--edit .github-icon {
+  display: flex;
+}
+
+.md-pagination__meta .md-pagination__meta__link.md-pagination__meta__link--edit .github-icon svg {
+  height: 16px;
+  width: 16px;
 }
