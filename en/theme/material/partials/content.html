@@ -32,14 +32,6 @@
 <!-- Page content -->
 {{ page.content }}
 
-<!-- Source file information -->
-{% if page.meta and (
-  page.meta.git_revision_date_localized or
-  page.meta.revision_date
-) %}
-  {% include "partials/source-file.html" %}
-{% endif %}
-
 <!-- Actions -->
 {% include "partials/actions.html" %}
 

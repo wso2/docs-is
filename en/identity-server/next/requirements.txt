@@ -12,3 +12,4 @@ markdown-include==0.8.1
 jinja2==3.1.2
 mkdocs-glightbox==0.3.4
 mkdocs-include-markdown-plugin==6.0.0
+mkdocs-git-revision-date-localized-plugin==1.2.4

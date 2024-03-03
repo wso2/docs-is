@@ -291,6 +291,9 @@ plugins:
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
+      enable_creation_date: true
 
 # Navigation
 nav:

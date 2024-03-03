@@ -19,9 +19,9 @@
 :root,
 [data-md-color-scheme=default] {
   --md-pagination-pager-label-color: var(--md-typeset-muted-color);
-  --md-pagination-pager-label-font-size: 0.6rem;
+  --md-pagination-font-size-xs: 0.7rem;
   --md-pagination-pager-title-color: var(--md-primary-fg-color);
-  --md-pagination-pager-title-font-size: 0.7rem;
+  --md-pagination-size: 0.8rem;
   --md-pagination-pager-link-hover-border-color: var(--md-primary-fg-color);
   --md-pagination-meta-link-hover-color: var(--md-typeset-color);
 }
@@ -61,14 +61,14 @@
 
 .md-pagination .md-pagination__pager .md-pagination__pager-link.md-pagination__pager-link .md-pagination__pager-label {
   display: block;
-  font-size: var(--md-pagination-pager-label-font-size);
+  font-size: var(--md-pagination-font-size-xs);
   font-weight: 500;
   color: var(--md-pagination-pager-label-color);
 }
 
 .md-pagination .md-pagination__pager .md-pagination__pager-link .md-pagination__pager-title {
   display: block;
-  font-size: var(--md-pagination-pager-title-font-size);
+  font-size: var(--md-pagination-size);
   font-weight: 500;
   color: var(--md-pagination-pager-title-color);
   transition: color .25s;
@@ -85,6 +85,7 @@
 /* Pagination Extras */
 
 .md-pagination__meta {
+  font-size: var(--md-pagination-font-size-xs);
   margin-top: 64px;
   display: flex;
   justify-content: space-between;
@@ -94,7 +95,6 @@
 
 .md-pagination__meta .md-pagination__meta__link {
   color: var(--md-typeset-muted-color);
-  font-size: 0.6rem;
   display: flex;
   align-items: center;
   gap: 5px;
