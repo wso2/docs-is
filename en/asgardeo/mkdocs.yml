@@ -248,7 +248,7 @@ nav:
         - Configure self-registration: guides/user-accounts/configure-self-registration.md
         - Manage account security:
           - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
-          - Configure bot detection: guides/user-accounts/account-security/bot-detection.md
+          - Configure bot detection: guides/account-configurations/login-security/bot-detection.md
           - Configure password validation: guides/user-accounts/account-security/password-validation.md
         - Manage account login:
           - Configure username validation: guides/user-accounts/account-login/username-validation.md
