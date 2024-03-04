@@ -31,12 +31,10 @@
 
 <!-- Page content -->
 {{ page.content }}
-
-<!-- Actions -->
-{% include "partials/actions.html" %}
-
+{% if page.meta.pagination != False %}
 <!-- Content Pagination   -->
 {% include "partials/pagination.html" %}
+{% endif %}
 
 <!-- Was this page helpful? -->
 {% include "partials/feedback.html" %}
