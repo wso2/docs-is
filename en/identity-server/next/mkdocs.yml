@@ -315,6 +315,7 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
+    - About this release: get-started/about-this-release.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
