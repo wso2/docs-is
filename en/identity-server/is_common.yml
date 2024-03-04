@@ -53,6 +53,8 @@ extra:
             url: Get Started|Quickstart|Quick Setup
           - title: Start Integrating Apps
             url: Get Started|Start integrating apps|Start integrating apps
+          - title: About this release
+            url: Get Started|About this release
       - title: Community and Support
         icon: assets/libs/oxygen-ui-icons/1.7.3/lightbulb-on-16.svg
         icon_color: icon-color-2

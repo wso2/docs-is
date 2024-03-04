@@ -171,12 +171,6 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
   
     **Recommendation**: Implement tenant-level [password patterns]({{base_path}}/guides/account-configurations/login-security/password-validation/).
 
-- **Workflows**
-
-    The existing implementation of the workflows is based on legacy components of the platform. Thus, it is no longer recommended to be used in production-grade deployments.
-
-    **Recommendation**: It is recommended to connect with production-grade workflow engines. The legacy connector is available in the [connector store](https://store.wso2.com/store/assets/isconnector/details/1ab83e39-15f9-40f2-a905-1053713b17e0) for use during the transition.
-
 - **Account recovery with challenge questions**
 
     With the trend in the industry in moving away from the challenge question based account recovery use cases, this feature is deprecated and removed from the default distribution as a connector.
