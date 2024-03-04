@@ -112,12 +112,15 @@ extra:
           - title: Organizations
             url: Guides|Organizations|Organizations
   versions:
-    current: 6.1.0
-    list: 
+    current: 7.0.0
+    list:
+      - 7.0.0
       - 6.1.0
       - 6.0.0
-      - 5.11.0
     all:
+      - name: 7.0.0
+        doc: https://is.docs.wso2.com/en/7.0.0
+        notes: https://is.docs.wso2.com/en/7.0.0/references/about-this-release
       - name: 6.1.0
         doc: https://is.docs.wso2.com/en/6.1.0
         notes: https://is.docs.wso2.com/en/6.1.0/references/about-this-release

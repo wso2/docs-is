@@ -1,14 +1,18 @@
 {
-    "current": "6.1.0",
-    "list": [ 
+    "current": "7.0.0",
+    "list": [
+      "7.0.0",
       "6.1.0", 
-      "6.0.0",
-      "5.11.0"
+      "6.0.0"
     ],
     "all": {
+      "7.0.0": {
+        "doc": "7.0.0",
+        "notes": "7.0.0/references/about-this-release"
+      },
       "6.1.0": {
-        "doc": "6.1.0",
-        "notes": "6.1.0/references/about-this-release"
+        "doc": "https://is.docs.wso2.com/en/6.1.0",
+        "notes": "https://is.docs.wso2.com/en/6.1.0/references/about-this-release"
       },
       "6.0.0": {
           "doc": "https://is.docs.wso2.com/en/6.0.0",
