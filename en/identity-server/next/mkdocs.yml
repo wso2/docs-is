@@ -281,6 +281,7 @@ plugins:
         'references/adaptive-authentication-js-api-reference.md': 'references/conditional-auth/api-reference.md'
         'guides/authorization/xacml-engine.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
         'guides/authorization/fine-grained-auth-xacml.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
+        'references/concepts/authorization/client-credential-grant.md': 'references/grant-types.md'
 
         'references/extend/errors/customize-authentication-error-messages.md': 'guides/account-configurations/login-security/login-attempts.md'
         'references/extend/errors/error-codes-and-descriptions.md': 'references/troubleshoot/error-codes.md'
@@ -515,7 +516,7 @@ nav:
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Analytics:
-        - Overview: guides/analytics/elk-analytics.md
+        - Analytics: guides/analytics/index.md
         - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
         - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
         - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
