@@ -5,13 +5,13 @@ on:
     inputs:
         siteUrl:
           description: 'Site URL to Check'
-          default: 'https://is.docs.wso2.com/en/next/'
+          default: 'https://is.docs.wso2.com/en/latest/'
           required: true
   schedule:
     - cron: '30 2 * * *' # Schedule to run once daily at 02:30 UTC
 
 env:
-  DEFAULT_URL: 'https://is.docs.wso2.com/en/next/'
+  DEFAULT_URL: 'https://is.docs.wso2.com/en/latest/'
 
 jobs:
   linkchecker:
@@ -49,7 +49,7 @@ jobs:
         run: |
           echo "import sys" > filter_script.py
           echo "from bs4 import BeautifulSoup" >> filter_script.py
-          echo "website_url = 'https://is.docs.wso2.com/en/next/'" >> filter_script.py
+          echo "website_url = 'https://is.docs.wso2.com/en/latest/'" >> filter_script.py
           echo "with open('linkchecker-out.html', 'r') as file:" >> filter_script.py
           echo "    soup = BeautifulSoup(file, 'html.parser')" >> filter_script.py
           echo "string_to_filter = 'https://is.docs.wso2.com/en/latest/page-not-found'" >> filter_script.py
