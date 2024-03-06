@@ -6,28 +6,28 @@ This guide shows you how to configure ELK-based Analytics for WSO2 Identity Serv
 
 Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
-1. Download and install WSO2 Identity Server. For detailed information
-   on how to install WSO2 IS, see [Install WSO2 Identity Server]({{base_path}}/deploy/get-started/install/).
+1. Download and install WSO2 Identity Server.
 
-2. Navigate to the `{IS_HOME}/repository/conf/` directory and open the `deployment.toml` file.
+    !!! note
+        For detailed information, see [Install WSO2 Identity Server]({{base_path}}/deploy/get-started/install/).
 
-3. Add the following configuration to the `deployment.toml` file.
+2. Open the `deployment.toml` file found in the `{IS_HOME}/repository/conf/` directory and add the following configuration.
 
     ```
     [analytics.elk]
     enable=true
     ```
 
+3. Restart {{product_name}}.
+
 ## Enable Logs in WSO2 Identity Server
 
-1. Navigate to the `<IS_HOME>/repository/conf` directory and open the `log4j2.properties` file.
-
-2. Add the following configurations to the `log4j2.properties` file.
+1. Open the `log4j2.properties` file found in the `<IS_HOME>/repository/conf` directory and add the following configurations.
 
     - Add `ANALYTICS_EVENT_LOGFILE` to the list of all appenders as follows: <br />
         `appenders = {other appenders} , ANALYTICS_EVENT_LOGFILE`
 
-    - Add the following appender configs:
+    - Add the following appender configurations:
 
         ```
         appender.ANALYTICS_EVENT_LOGFILE.type = RollingFile
@@ -53,9 +53,9 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
     - Add `org.wso2.carbon.event.output.adapter.logger.LoggerEventAdapter` to the list of all loggers as follows:
         ```
-        loggers = {existing loggers}, org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter
+        loggers = {other loggers}, org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter
         ```
-    - Add the following logger configs
+    - Add the following logger configurations.
         ```
         logger.org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter.name=org.wso2.carbon.event.output.adapter.logger.LoggerEventAdapter
         logger.org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter.level=INFO
@@ -63,20 +63,27 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
         ```
 
         !!! note
-            The `analytics_events.log` file will be rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 given above in this. section.
+            The `analytics_events.log` file will be rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the appender configurations above.
+
+2. Restart {{product_name}}.
 
 ## Configure ELK
 
+Follow the guides mentioned below to install the ELK components.
+
 ### Install Elasticsearch
 
-1. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) according to your operating system.
+1. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html){:target="_blank"} according to your operating system.
 
 2. Make sure Elasticsearch is up and running.
 
-### Install Filebeat
-1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html#installation) according to your operating system.
+    !!! note
+        Take note of the password generated for the `elastic` user.
 
-2. Open the **filebeat.yml** file in the root directory and enter these [configurations](https://github.com/wso2-extensions/identity-elk-integration/blob/main/filebeat/filebeat.yml).
+### Install Filebeat
+1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html#installation){:target="_blank"} according to your operating system.
+
+2. Open the **filebeat.yml** file in the root directory and add this [configuration](https://github.com/wso2-extensions/identity-elk-integration/blob/main/filebeat/filebeat.yml){:target="_blank"}.
 
     !!! info
         - Replace `<IS_HOME>` with the location of your WSO2 Identity Server installation.
@@ -84,15 +91,19 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
 
 ### Install Logstash
- 
-1. [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) according to your operating system.
-2. In the Logstash directory, create a file with the **.conf** extension and add these [configurations](https://github.com/wso2-extensions/identity-elk-integration/blob/main/logstash/logstash-filebeat.conf).
 
-3.  [Start the logstash server](https://www.elastic.co/guide/en/logstash/8.1/running-logstash-command-line.html#running-logstash-command-line) with the `-f` flag followed by the location of the configuration file you created.
+1. [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html){:target="_blank"} according to your operating system.
+2. In the Logstash directory, create a file with the **.conf** extension and add these [configurations](https://github.com/wso2-extensions/identity-elk-integration/blob/main/logstash/logstash-filebeat.conf){:target="_blank"}.
+
+    !!! info
+        - [Set a password](https://www.elastic.co/guide/en/elasticsearch/reference/current/reset-password.html){: target="_blank"} for the `elastic` super user.
+        - Replace `<ELASTICSEARCH_HOME>`, `<ELASTICSEARCH_USERNAME>`, `<ELASTICSEARCH_USER_PASSWORD>` with the corresponding values.
+
+3. [Start the logstash server](https://www.elastic.co/guide/en/logstash/8.1/running-logstash-command-line.html#running-logstash-command-line){:target="_blank"} with the `-f` flag followed by the location of the configuration file you created.
 
 
 ### Installing Kibana
-1. [Install Kibana](https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html#install-kibana) according to your operating system and do this [one time configuration](https://www.elastic.co/guide/en/elasticsearch/reference/8.2/configuring-stack-security.html#stack-start-with-security).
+1. [Install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html){:target="_blank"} according to your operating system and do this [one time configuration](https://www.elastic.co/guide/en/elasticsearch/reference/8.2/configuring-stack-security.html#stack-start-with-security){:target="_blank"}.
 
 
 2. Once Kibana is running, enter its web interface using the following address:
@@ -102,7 +113,7 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
 ## Configure ELK Analytics Dashboards
 
-1. Navigate to Kibana installation folder and run the following command to install the [Kibana Enhanced Table](https://github.com/fbaligand/kibana-enhanced-table) plugin.
+1. Navigate to the Kibana installation folder and run the following command to install the [Kibana Enhanced Table](https://github.com/fbaligand/kibana-enhanced-table){: target="_blank"} plugin.
 
     ```
     ./bin/kibana-plugin install https://github.com/fbaligand/kibana-enhanced-table/releases/download/vA.B.C/enhanced-table-A.B.C_X.Y.Z.zip
@@ -113,7 +124,9 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
 2. Restart Kibana service and log in to Kibana.
 
-3. Navigate to **Stack Management** > **Index Management** and select the **Index Templates** tab.
+3. On the left navigation panel, under **Management** click **Stack Management**.
+
+4. Under **Stack Management** > **Data**, click **Index Management** and go to its **Index Templates** tab.
 
 4. Under the **Index patterns** column, if you have any index patterns created under the following names, delete them before moving to the next step.
 
@@ -125,8 +138,10 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
 5. Download the artifact file [here]({{base_path}}/assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
 
-6. Navigate to **Stack Management** > **Saved Objects**.
+6. Under **Stack Management** > **Kibana**, click **Saved Objects**.
 
-7. Click **Import**, add the downloaded artifact file as an import object, and import.
+7. Click **Import**, add the downloaded artifact file as an import object, and click **Import**.
 
-9. Navigate to the **Dashboard** section of Kibana to view the created **Auth** and **Session** dashboards.
+8. Once import is complete, click **Done**.
+
+9. On the left navigation panel, under **Analytics**, click **Dashboards** to view the created **Auth** and **Session** dashboards.
