@@ -36,7 +36,7 @@ To enable Elastic stack SSO with WSO2 Identity Server, follow the steps given be
 
 ## Configure OIDC Realm in Elasticsearch
 
-To configure single sign-on in the Elastic Stack using OpenID connect, follow the steps given [here](https://www.elastic.co/guide/en/elasticsearch/reference/7.16/oidc-guide.html).
+To configure single sign-on in the Elastic Stack using OpenID connect, follow the steps given [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/oidc-guide.html){: target="_blank"}.
 
 A sample OpenID connect realm is as follows.
 
@@ -63,13 +63,13 @@ A sample OpenID connect realm is as follows.
 
 ## Configure role mappings
 
-Once the above steps are completed, role mapping needs to be configured in Kibana to allow WSO2 Identity Server users to access the dashboards in Kibana. For that follow the steps below.
+Once the above steps are completed, role mapping needs to be configured in Kibana to allow {{product_name}} users to access the dashboards in Kibana. To do so, follow the steps below.
 
-### Create Users and Roles in WSO2 Identity Server
+### Create Users and Roles in {{product_name}}
 
 Follow the steps below to create a role.
 
-1. Login to the WSO2 Identity Server console.
+1. Login to the {{product_name}} Console.
 
 2. Navigate to **User Management** > **Roles**.
 
@@ -94,7 +94,9 @@ Follow the steps below to associate Kibana roles with the roles you created in W
 
 1. Login to Kibana using basic authentication.
 
-2. Click **Stack Management** on the left panel and then click **Role Mappings** under the **Security** section.
+2. On the left navigation panel, under **Management** click **Stack Management**.
+
+3. Under **Stack Management** > **Security**, click **Role Mappings**.
 
 3. Click **Create Role Mapping** and add a new role mapping by giving a **Mapping name**.
 

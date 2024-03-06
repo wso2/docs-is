@@ -1,6 +1,6 @@
 # Quick Setup
 
-Follow the steps given below to set up and install {{ product_name }} (WSO2 IS) on your computer in quick time.
+Follow the steps given below to quickly set up and install {{ product_name }} on your computer.
 
 !!! info
     For detailed instructions on other installation options and deployments, see the [installation guide]({{base_path}}/deploy/get-started/install/).
@@ -29,7 +29,7 @@ Follow the steps given below.
 
 ## Start the {{ product_name }}
 
-To start WSO2 IS, open a terminal, navigate to the `<IS_HOME>/bin` folder, and execute one of the following commands:
+To start {{product_name}}, open a terminal, navigate to the `<IS_HOME>/bin` folder, and execute one of the following commands:
 
 - On Linux/MacOS
 
