@@ -21,7 +21,7 @@ site_url: https://is.docs.wso2.com/en/next
 
 extra:
   base_path: /en/next
-  is_version: 7.0.0
+  is_version: next
 
 plugins:
   - search
@@ -30,6 +30,11 @@ plugins:
   - redirects:
       redirect_maps:
         'get-started/sample-use-cases/set-up.md': 'get-started/quick-set-up.md'
+        'get-started/sample-use-cases/sample-scenario.md': 'get-started/start-integrating-apps/index.md'
+        'get-started/sample-use-cases/single-sign-on.md': 'get-started/start-integrating-apps/index.md'
+        'get-started/sample-use-cases/multi-factor-authentication.md': 'guides/authentication/mfa/index.md'
+        'get-started/sample-use-cases/federated-authentication.md': 'guides/authentication/federated-login/index.md'
+        'get-started/sample-use-cases/self-sign-up.md': 'guides/user-self-service/self-register.md'
         'guides/before-you-start.md': 'guides/index.md'
         'guides/authentication-overview.md': 'guides/authentication/index.md'
         'guides/login/login-overview.md': 'guides/authentication/add-login-to-apps.md'
@@ -282,6 +287,16 @@ plugins:
         'guides/authorization/xacml-engine.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
         'guides/authorization/fine-grained-auth-xacml.md': 'guides/authorization/fine-grained-authorization/rule-based-provisioning.md'
         'references/concepts/authorization/client-credential-grant.md': 'references/grant-types.md'
+        'references/concepts/authorization/grant-types.md': 'references/grant-types.md'
+        'references/concepts/authorization/authorization-code-grant.md': 'references/grant-types.md'
+        'references/concepts/authorization/implicit-grant.md': 'references/grant-types.md'
+        'references/concepts/authorization/resource-owner-grant.md': 'references/grant-types.md'
+        'references/concepts/authorization/refresh-token-grant.md': 'references/grant-types.md'
+        'references/concepts/authorization/device-flow-grant.md': 'references/grant-types.md'
+        'references/concepts/authorization/jwt-bearer-grant-type.md': 'references/grant-types.md'
+        'references/concepts/authorization/saml2-bearer-assertion-profile.md': 'references/grant-types.md'
+        'references/concepts/authorization/kerberos-grant.md': 'references/grant-types.md'
+        'references/concepts/authorization/introspection.md': 'guides/authentication/oidc/token-validation-resource-server.md'
 
         'references/extend/errors/customize-authentication-error-messages.md': 'guides/account-configurations/login-security/login-attempts.md'
         'references/extend/errors/error-codes-and-descriptions.md': 'references/troubleshoot/error-codes.md'
@@ -756,7 +771,7 @@ nav:
     - References: references/index.md
     - About this release: references/about-this-release.md
     - Feature deprecation: references/wso2-identity-server-feature-deprecation.md
-    - User Management:
+    - User management:
       - User roles: references/user-management/user-roles.md
       - Track user deletion: references/user-management/track-deletion.md
       - Self registration confirmation: references/user-management/self-registration-verification.md
@@ -803,7 +818,7 @@ nav:
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
       - Token binding:
         - Token binding: references/token-binding/index.md
-        - Client-request: references/token-binding/client-request.md 
+        - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - Application-native authentication: references/app-native-authentication.md
 
