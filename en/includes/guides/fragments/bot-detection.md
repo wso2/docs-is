@@ -54,8 +54,8 @@ Follow the steps below to configure reCAPTHCA in {{product_name}}.
     enabled = true
     api_url = "https://www.google.com/recaptcha/api.js"
     verify_url = "https://www.google.com/recaptcha/api/siteverify"
-    site_key = <site_key>
-    secret_key = <secret_key>
+    site_key = "<site_key>"
+    secret_key = "<secret_key>"
     ```
 
     !!! note
