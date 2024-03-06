@@ -1,12 +1,10 @@
-# ELK-based Analytics - Overview
+# ELK-based Analytics
 
 ELK-based Analytics is the on-premise analytics solution for the WSO2 Identity Server.
 
 ## Introduction
 
-You can configure the WSO2 Identity Server to publish authentication and session related events to the ELK cluster and use Kibana dashboards to view analytics. Analytics data is published to a log file by the WSO2 Identity Server and the log file is used as the source for the analytics.
-
-The ELK based on-premise analytics architecture has 4 main components.
+The ELK architecture has 4 main components.
 
 1. **Filebeat** monitors the log file locations that you specify, collects log events, and forwards them to logstash.
 
@@ -16,8 +14,9 @@ The ELK based on-premise analytics architecture has 4 main components.
 
 4. **Kibana** is a visualization layer that works on top of Elasticsearch, providing users with the ability to analyze and visualize the data.
 
-![ELK Analytics structure]( {{base_path}}/assets/img/elk-analytics/elk-analytics-architecture.png)
+You can configure the WSO2 Identity Server to publish authentication and session related events to the ELK cluster and use Kibana dashboards to view analytics. Analytics data is published to a log file by the WSO2 Identity Server and the log file is used as the source for the analytics.
 
+![ELK Analytics structure]( {{base_path}}/assets/img/elk-analytics/elk-analytics-architecture.png)
 
 ELK-based Analytics provides three types of dashboards:
 

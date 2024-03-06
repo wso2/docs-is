@@ -165,7 +165,7 @@ plugins:
         'guides/my-account/enable-mfa-my-account.md': 'guides/user-self-service/enable-totp.md'
         'guides/my-account/manage-active-sessions.md': 'guides/user-self-service/manage-login-sessions.md'
         'guides/my-account/manage-consent-my-account.md': 'guides/user-self-service/manage-consents.md'
-        'guides/elk-analytics/elk-analytics.md': 'guides/analytics/elk-analytics.md'
+        'guides/elk-analytics/elk-analytics.md': 'guides/analytics/index.md'
         'guides/elk-analytics/elk-accessing-the-analytics-dashboard.md': 'guides/analytics/accessing-the-analytics-dashboard.md'
         'guides/elk-analytics/elk-analyzing-login-attempts.md': 'guides/analytics/analyzing-login-attempts.md'
         'guides/elk-analytics/elk-analyzing-session-statistics.md': 'guides/analytics/analyzing-active-sessions.md'
@@ -531,7 +531,7 @@ nav:
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Analytics:
-        - Overview: guides/analytics/elk-analytics.md
+        - Analytics: guides/analytics/index.md
         - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
         - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
         - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
