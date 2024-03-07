@@ -8,7 +8,7 @@ You can use the **Auth Type** filter to view analytics based on authentication t
 
 ![Auth Type]({{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-7.png){: width="400" style="display: block; margin: 0;"}
 
-## Analyze Overall Login Attempts
+## Analyze overall login Attempts
 
 The **Overall** Auth Type displays statistics related to overall authentication
 activities carried out by the WSO2 Identity Server.
@@ -17,9 +17,9 @@ An overall authentication attempt encompasses a sequence of authentication steps
 
 In order for an overall authentication attempt to be marked successful, all its constituent steps should be successful. A failure of even a single step causes the overall authentication attempt to be marked a failure.
 
-## Analyze Local Login Attempts
+## Analyze local login Attempts
 
-The **Local** Auth Type displays statistics related to local authentication, i.e an authentication attempt carried out via a local identity provider.
+The **Resident** Auth Type displays statistics related to local authentication, i.e an authentication attempt carried out via a local identity provider such as username & password.
 
 An authentication sequence with a local identity provider is considered a single local authentication
 attempt regardless of the number of steps carried out.
@@ -27,11 +27,11 @@ attempt regardless of the number of steps carried out.
 In order for a local authentication attempt to be marked successful, all the constituent steps with the local identity provider should be successful. A failure of a single authentication step is marked as a separate
 local authentication failure.
 
-## Analyze Federated Login Attempts
+## Analyze federated login Attempts
 
 **Federated** Auth Type displays statistics related to federated authentication, i.e an authentication attempt carried out via a federated identity provider.
 
-A fedrated authentication attempt encompasses a single federated step. If there are multiple constituent steps, each federated authentication step is considered separately.
+A federated authentication attempt encompasses a single federated step. If there are multiple constituent steps, each federated authentication step is considered separately.
 
 A failed federated authentication attempt is marked a failure only if a failed response is received from a federated identity provider.
 
