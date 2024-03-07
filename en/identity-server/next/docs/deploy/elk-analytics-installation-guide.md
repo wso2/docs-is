@@ -89,6 +89,8 @@ Follow the guides mentioned below to install the ELK components.
         - Replace `<IS_HOME>` with the location of your WSO2 Identity Server installation.
         - To configure Filebeat to mask sensitive information in logs, follow this [guide]({{base_path}}/deploy/monitor/elk-mask-sensitive-information-in-logs).
 
+3. [Start Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-starting.html){: target="_blank"}
+
 
 ### Install Logstash
 
