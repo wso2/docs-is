@@ -23,9 +23,6 @@ extra:
   base_path: /en/next
   is_version: next
 
-aliases:
-  - api based authentication: application-native
-
 plugins:
   - search
   - markdownextradata: {}
