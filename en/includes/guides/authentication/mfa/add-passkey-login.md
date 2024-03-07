@@ -73,3 +73,6 @@ In this section, let’s try out the scenario where Passkey progressive enrollme
     ![Rename passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/rename-passkey.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 8. Click **Submit** to complete the enrollment. You'll be authenticated in the application.
+
+!!! note
+    To ensure Passkey work with federated authenticators such as Google, Facebook, etc., it is necessary for the federated user to be previously provisioned to {{ product_name }}. Failure to do so will result in the user being redirected to an error page.
