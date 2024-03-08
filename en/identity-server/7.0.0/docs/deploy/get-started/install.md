@@ -463,7 +463,7 @@ Copy the `wrapper.conf` file found in the `<IS_HOME>/bin/yajsw/` directory and p
 
 ??? note "Sample wrapper.conf file"
 
-    ```bash tab="Minimal wrapper.conf configuration"
+    ```bash
     #********************************************************************
     # working directory
     #********************************************************************
