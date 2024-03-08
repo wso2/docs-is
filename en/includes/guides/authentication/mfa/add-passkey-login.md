@@ -75,4 +75,4 @@ In this section, let’s try out the scenario where Passkey progressive enrollme
 8. Click **Submit** to complete the enrollment. You'll be authenticated in the application.
 
 !!! note
-    To ensure Passkey work with federated authenticators such as Google, Facebook, etc., it is necessary for the federated user to be previously provisioned to {{ product_name }}. Failure to do so will result in the user being redirected to an error page.
+    For passkeys to function as a second factor alongside federated authenticators, users should have their external accounts already provisioned in {{product_name}}. If, for example, an external user logs in with Google using an account not provisioned in {{product_name}}, attempting a Passkey login will result in an error and the login flow fails.
