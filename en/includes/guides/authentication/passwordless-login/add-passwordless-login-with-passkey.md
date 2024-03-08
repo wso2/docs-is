@@ -148,3 +148,6 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 5. Follow the browser/device instructions to log in with a passkey.
 
     ![Sign In with passkey browser prompt {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/sign-in-with-passkey-browser-prompt.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! note
+    During passkey progressive enrollment, if a user wishes to use a federated authenticator, they should have their external accounts already provisioned within {{product_name}}. If, for example, a user logs in with Google using an account not provisioned in {{product_name}}, passkey enrolment results in an error and the login flow fails.

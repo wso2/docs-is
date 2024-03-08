@@ -73,3 +73,6 @@ In this section, let’s try out the scenario where Passkey progressive enrollme
     ![Rename passkey in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/passkey/rename-passkey.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
 8. Click **Submit** to complete the enrollment. You'll be authenticated in the application.
+
+!!! note
+    For passkeys to function as a second factor alongside federated authenticators, users should have their external accounts already provisioned in {{product_name}}. If, for example, an external user logs in with Google using an account not provisioned in {{product_name}}, attempting a Passkey login will result in an error and the login flow fails.
