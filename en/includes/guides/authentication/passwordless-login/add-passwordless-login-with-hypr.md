@@ -6,7 +6,13 @@ This guide explains how you can use  HYPR to add passwordless login to applicati
 
 ## Prerequisites
 
-You need to configure the HYPR environment and have access to the HYPR control center. Learn how to do it in the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std).
+- To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
+
+- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
+
+{{ admin_login_note}}
+
+- You need to configure the HYPR environment and have access to the HYPR control center. Learn how to do it in the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std).
 
 ## Register application in HYPR
 
@@ -100,7 +106,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Go to the **Sign-in Method** tab of the application and add Magic link login from your preferred editor:
+2. Go to the **Login Flow** tab of the application and add Magic link login from your preferred editor:
 
     ---
     === "Classic Editor"
@@ -108,7 +114,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
         2. Click **Add Authentication** on the same step and select your HYPR connection.
 
-            ![Add HYPR to the login flow]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-enable-login.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add HYPR to the login flow]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-enable-login.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
         
         3. Enable **Conditional Authentication** and add the following script.
 
@@ -147,7 +153,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
         
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your HYPR connection.
             
-            ![Add HYPR to the login flow using the visual editor]({{base_path}}/assets/img/guides/passwordless/hypr/add-hypr-login-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Add HYPR to the login flow using the visual editor]({{base_path}}/assets/img/guides/passwordless/hypr/add-hypr-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Expand the **Script Editor** and add the following script.
 

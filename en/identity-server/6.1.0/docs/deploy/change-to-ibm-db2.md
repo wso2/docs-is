@@ -46,7 +46,6 @@ A sample configuration is given below.
 		Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
 		
 		- `<IS-HOME>/dbscripts/identity/db2.sql`
-		- `<IS-HOME>/dbscripts/identity/uma/db2.sql`
 		- `<IS-HOME>/dbscripts/consent/db2.sql`
 
 		!!! info 

@@ -64,6 +64,15 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     alias = "new-private-key-alias"
     key_password = "new-private-key-password"
     ```
+    **Sample configuration**
+
+    ``` toml
+    [keystore.primary]
+    file_name = "newkeystore.jks"
+    password = "mypassword"
+    alias = "newcert"
+    key_password = "mypassword"
+    ```
 
 3. Export the public key from your keystore .jks file using the following command.
 

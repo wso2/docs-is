@@ -1,6 +1,6 @@
 # Add Google login
 
-You can add Google login to your applications using {{ product_name }} and enable users to log in with their Google account.  
+You can add Google login to your applications using {{ product_name }} and enable users to log in with their Google accounts.  
 
 Follow this guide for instructions.
 
@@ -16,15 +16,15 @@ You need to register {{ product_name }} as an OAuth2.0 application on Google.
 
     1. Open the navigation menu and click **View all products**.
 
-       ![View all products on the Google console]({{base_path}}/assets/img/guides/idp/google-idp/view-all-products.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+       ![View all products on the Google console]({{base_path}}/assets/img/guides/idp/google-idp/view-all-products.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     2. Under **Management**, click **APIs & Services**.
 
-       ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/apis-and-services.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+       ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/apis-and-services.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Go to the **Credentials** page, click **Create Credentials**, and select **Oauth client ID**.
 
-    ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/google-oauth-client-id.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/google-oauth-client-id.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Configure your consent screen by clicking **Configure Consent Screen** and return to **Create OAuth client ID** screen once you are done.
 
@@ -67,18 +67,9 @@ Now, let's register the Google IdP in {{ product_name }}.
           <td>Client secret</td>
           <td>The client secret obtained from Google.</td>
       </tr>
-    </table>  
+    </table>
 
-<!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->  
-
-??? note "Claim syncing for JIT-provisioned users"
-    [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
-
-    When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
-
-    According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
-
-    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
 
 After the Google identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Google has granted permissions.
 
@@ -91,37 +82,7 @@ After the Google identity provider is created, go to the **Settings** tab and se
 
 ## Enable Google login
 
-!!! note "Before you begin"
-    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-2. Select your application, go to the **Sign-in Method** tab and add Google login from your preferred editor:
-
-    !!! note "Recommendations"
-        {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
-
-    ---
-    === "Classic Editor"
-        To add Google login using the Classic Editor:
-
-        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
-    
-        2. Click **Add Authentication** on the step, select your Google identity provider, and click **Add**.
-
-            ![Add Google login in Asgardeo]({{base_path}}/assets/img/guides/idp/google-idp/add-google-federation-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add Google login using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
-    
-        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Google connection.
-
-            ![dd Google login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/google-idp/add-google-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    ---
-
-3. Click **Update** to save your changes.
+{% include "../../../guides/fragments/add-login/social-login/add-google-login.md" %}
 
 ## Try it out
 
@@ -138,10 +99,6 @@ Follow the steps given below.
 !!! note
     When a user successfully logs in with Google for the first time, a **user** account is created in the {{ product_name }} Console with the Google username. This new user account will be managed by Google.
 
-## Add groups to the connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
-
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.

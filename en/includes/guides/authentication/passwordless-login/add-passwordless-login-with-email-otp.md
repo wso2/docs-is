@@ -5,49 +5,15 @@ Email OTP is a form of passwordless authentication. It allows users to log in by
 ## Prerequisites
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-customers/#onboard-a-user) in {{ product_name }}.
+- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
 
-    !!! note
-        You cannot use an administrator account to log in to an application.
+{{ admin_login_note}}
 
 {{ configure_email_sender }}
 
 ## Enable Email OTP login for an app
 
-Follow the steps given below to enable **Email OTP** login to the login flow of your application.
-
-1. On the {{ product_name }} Console, use one of the following options to start:
-    - Option 1: Go to **Applications**.
-    - Option 2: Go to **Connections > Passwordless** and for the Email OTP connection, click **Set up**.
-
-2. Select the application for which Email OTP login needs to be enabled.
-
-3. Go to the **Sign-in Method** tab of the application and add Email OTP login from your preferred editor:
-
-    ---
-    === "Classic Editor"
-        - If you haven't already built a login flow for your application, select **Add Email OTP login** to build one.
-
-            ![Configuring email OTP login in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-        - If you have an already built login flow, add the `Email OTP` authenticator as the first authentication step.
-        
-            ![Customize the login flow]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add passwordless login with Email OTP using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Passwordless login**.
-
-        2. Select `Email OTP`.
-
-        3. Click **Confirm** to add passwordless login with Email OTP to the sign-in flow.
-
-            ![Configuring email OTP login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    ---
-
-4. Click **Update** to save your changes.
+{% include "../../../guides/fragments/add-login/passwordless-login/add-email-otp-login.md" %}
 
 ## Try it out
 

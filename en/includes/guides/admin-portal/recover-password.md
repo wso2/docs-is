@@ -6,18 +6,18 @@ To recover your password:
 
 1. Go to the sign-in page via the [My Account Portal]({{base_path}}/guides/{{ myacc_doc_url }}/#access-my-account-portal).
 
-    ![Recover your password]({{base_path}}/assets/img/guides/organization/self-service/customer/recover-your-password.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Recover your password]({{base_path}}/assets/img/guides/organization/self-service/customer/recover-your-password.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Click **Forgot password?**.
 3. Enter your username and click **Send Reset Link**.
 
-    ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/forgot-your-password.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/forgot-your-password.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     An email notification is sent to your email address.
 
 4. Open the email you received and click **Reset Password**.
 
-    ![Reset password email]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Reset password email]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Enter new password and **Proceed**.
 

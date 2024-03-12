@@ -47,6 +47,13 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
     post:
       tags:
         - Email template types
@@ -86,6 +93,26 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "displayName": "Account Confirmation",
+            "templates": [
+              {
+                "contentType": "text/html",
+                "subject": "WSO2 - Account Confirmation",
+                "body": "HTML Body",
+                "footer": "WSO2 Asgardeo Team",
+                "id": "en_US"
+              }
+            ]
+            }'       
   /email/template-types/{template-type-id}:
     delete:
       tags:
@@ -113,6 +140,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'          
     get:
       tags:
         - Email templates
@@ -146,6 +180,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
     post:
       tags:
         - Email templates
@@ -185,6 +226,21 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "contentType": "text/html",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Asgardeo Team",
+            "id": "en_US"
+            }'         
     put:
       tags:
         - Email templates
@@ -218,6 +274,23 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "contentType": "text/html",
+              "subject": "WSO2 - Account Confirmation",
+              "body": "HTML Body",
+              "footer": "WSO2 Asgardeo Team",
+              "id": "en_US"
+            }
+            ]'          
   '/email/template-types/{template-type-id}/templates':
     get:
       tags:
@@ -253,6 +326,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}/templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
   '/email/template-types/{template-type-id}/templates/{template-id}':
     get:
       tags:
@@ -288,6 +368,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}/templates/{template-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
     put:
       tags:
         - Email templates
@@ -320,6 +407,21 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}/templates/{template-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "contentType": "text/html",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Asgardeo Team",
+            "id": "en_US"
+            }'         
     delete:
       tags:
         - Email templates
@@ -346,6 +448,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}/templates/{template-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'          
 servers:
   - url: 'https://api.asgardeo.io/t/{org-name}/api/server/v1'
     variables:

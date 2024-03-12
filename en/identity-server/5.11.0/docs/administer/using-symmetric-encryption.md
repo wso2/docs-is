@@ -38,7 +38,7 @@ The corresponding xml configuration can be found in the `<IS_HOME>/repository/co
 The `encryption.key` or `<Secret>` value above is a sample value. Generate a unique secret key of 128 bytes using a tool like openssl as shown below. 
 
 ```xml 
-openssl rand 16 -hex
+openssl rand -hex 16
 ```
 
 Once a secure secret key is generated, configure it using the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.

@@ -59,13 +59,14 @@ Follow the steps given below to register an OIDC application as a service provid
     !!! Tip
         The callback URL is the service provider URL to which the authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. 
 
-6. Click **Add**. Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later on when deploying the sample application.
+6. Enable OIDC back-channel logout and configure `http://localhost.com:8080/pickup-manager/bclogout` as the back-channel logout URL.
+7. Click **Add**. Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later on when deploying the sample application.
 
     !!! Tip
         For more information on the advanced configurations
         refer, [Advanced OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
-5.  Click **Register** to save the changes.
+8. Click **Register** to save the changes.
 
 ## Set up the Pickup Manager sample
 

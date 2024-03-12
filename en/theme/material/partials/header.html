@@ -33,21 +33,12 @@
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            {{ config.site_name }}
-          </span>
-        </div>
-        {% if page.title != "Home" %}
-          <div class="md-header__topic" data-md-component="header-topic">
-            <span class="md-ellipsis">
-                {% if page.meta and page.meta.title %}
-                  {{ page.meta.title }}
-                {% else %}
-                  {{ page.title }}
-                {% endif %}
-            </span>
-          </div>
+        {% if config.extra.is_version != 'versions' %}
+          {% if "navigation.tabs.sticky" in features %}
+              {% if "navigation.tabs" in features %}
+              {% include "partials/tabs.html" %}
+              {% endif %}
+          {% endif %}
         {% endif %}
       </div>
     </div>
@@ -72,7 +63,7 @@
             {% endfor %}
           {% endfor %}
           {% if is_version != 'versions' %}
-            <li><a href="{{ config.extra.doc_base }}/versions">Show all</a></li>
+            <li><a href="{{ config.extra.versions.doc }}">Show all</a></li>
           {% endif %}
         </ul>
       </div>
@@ -83,8 +74,8 @@
           {% set scheme = option.scheme | d("default", true) %}
           <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ scheme | replace(' ', '-') }}" data-md-color-primary="{{ option.primary | replace(' ', '-') }}" data-md-color-accent="{{ option.accent | replace(' ', '-') }}" {% if option.toggle %} aria-label="{{ option.toggle.name }}" {% else %} aria-hidden="true" {% endif %} type="radio" name="__palette" id="__palette_{{ loop.index }}">
           {% if option.toggle %}
-            <label class="md-header__button md-icon" title="{{ option.toggle.name }}" for="__palette_{{ loop.index0 or loop.length }}" hidden>
-              {% include ".icons/" ~ option.toggle.icon ~ ".svg" %}
+            <label class="md-header__button md-icon md-theme-switch md-icon--hover" title="{{ option.toggle.name }}" for="__palette_{{ loop.index0 or loop.length }}" hidden>
+              {% include "/" ~ option.toggle.icon ~ "" %}
             </label>
           {% endif %}
         {% endfor %}
@@ -113,14 +104,14 @@
     {% endif %}
     {% if page.title != "Home" %}
         {% if "material/search" in config.plugins %}
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon md-icon--hover" for="__search">
             {% set icon = config.theme.icon.search or "material/magnify" %}
             {% include ".icons/" ~ icon ~ ".svg" %}
         </label>
         {% include "partials/search.html" %}
         {% endif %}
     {% endif %}
-    <div class="">
+    <div class="md-header__community">
         {% include "partials/community.html" %}
     </div>
     {% if config.repo_url %}
@@ -129,11 +120,4 @@
       </div>
     {% endif %}
   </nav>
-  {% if page.title != "Home" %}
-    {% if "navigation.tabs.sticky" in features %}
-        {% if "navigation.tabs" in features %}
-        {% include "partials/tabs.html" %}
-        {% endif %}
-    {% endif %}
-  {% endif %}
 </header>

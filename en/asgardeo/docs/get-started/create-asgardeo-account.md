@@ -10,7 +10,7 @@ An organization in Asgardeo will be your own unique space and it will contain yo
 
 2. Enter your email address and click **Register**. You will receive an email with instructions on how to complete your account creation.
 
-    ![Sign up to Asgardeo]({{base_path}}/assets/img/get-started/sign-up-to-asgardeo.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Sign up to Asgardeo]({{base_path}}/assets/img/get-started/sign-up-to-asgardeo.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Confirm** on the email and fill in your information to create your Asgardeo account.
 
@@ -37,7 +37,7 @@ Users can log in to applications that you register in Asgardeo. Let's create a u
 2. Click **Add User**.
 3. Fill in the user's details.
 
-    ![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Select **Set a password for the user** and enter a temporary password for the user. The user will be able to change the password later.
 

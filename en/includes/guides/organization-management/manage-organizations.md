@@ -1,61 +1,103 @@
-# Manage organizations
+# Set up organizations
 
-If you have a B2C (Business-to-Consumer) platform offering services to direct consumers, you can use an {{ product_name }} organization to manage the identities and access requirements of your users. Note that your first organization on {{ product_name }} is created when you [sign up to {{ product_name }}]({{base_path}}/get-started/create-asgardeo-account/).
-
-!!! note
-    If you have a B2B platform, this will also be the primary organization of your platform. Your primary organization will work with other businesses to make your applications available to their users. Such businesses should be defined as [sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/) in your primary organization.
-
-The following guides explain how you can create and manage these organizations in {{ product_name }}.
-
-## Create a new organization
-
-To create a new organization in {{ product_name }}:
-
-1. Select the organization list and click **New Organization**.
-
-    ![Create new organization]({{base_path}}/assets/img/guides/organization/manage-organizations/create-new-organization.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-2. Enter a name for your organization and click **Create**.
-    ![Create guardio organization]({{base_path}}/assets/img/guides/organization/manage-organizations/create-guardio-org.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-The new organization is now available in the organization list.
+If you are a business having a B2B (Business-to-Business) platform, you can create organizations to manage other businesses that are partnered with you.
 
 !!! note
-    If you a have B2B platform, you can now onboard your sub organizations. See the instructions on [setting up sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/) and build your B2B organization structure.
+    Explore how you can [structure {{ product_name }} organizations]({{base_path}}/guides/organization-management/) to fit your business model.
+
+## Prerequisites
+
+{% if product_name == "Asgardeo" %}
+- You need to first have your [primary business organization]({{base_path}}/guides/{{root_org_description_path}}/manage-root-organizations/) defined.
+{% endif %}
+- To create organizations, you need to have organization management privileges in the organization (root).
+
+## Create an organization
+
+Follow the steps given below to create an organization.
+
+1. First, login to your organization (root) from the {{ product_name }} Console.
+2. On the {{ product_name }} Console, go to **Organization Management** > **Organizations** and click **Add Organization**.
+3. In the **Add Organization** dialog box that opens, enter a name and description for your organization.
+
+    ![Create organization]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+4. Click **Register** to add the new organization. You will now see your organization listed as below.
+
+    ![The list of organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-list.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+5. Click **Switch** next to the organization name to switch to the new organization's console.
+
+!!! note
+    As the creator of the organization, you will be assigned to the {{ admin_role_name }} role of the Console application by default, which grants you the following privileges from the console.
+
+    - Update / Delete users.
+    - Create a group and assign users.
+    - Assign users and groups to roles.
+    - Create identity providers.
+    - Update the login options and general information of the applications shared from the organization (root). Learn more about [shared applications]({{base_path}}/guides/organization-management/share-applications/).
+    - Configure the branding of the organization. Learn more about [branding]({{base_path}}/guides/branding/configure-ui-branding/).
+    - Build an oragnziation hierarchy by creating organizations.
+
+## Add organization attributes
+
+{{ product_name }} lets you maintain additional data about the organization.
+
+For example, you can add information about the organization's location, country, number of employees, etc.
+
+To add additional attributes of your organization:
+
+1. Login to the organization (root) and go to **Organizations**.
+2. Select the organization to which you wish to add additional attributes.
+3. Go to the **Attributes** tab and add attributes by entering a **Name** and **Value**.
+4. Click **+** to add the new organization attribute.
+
+    ![Add organization attributes]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization-attributes.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+5. Click **Update** to save the configurations.
 
 ## Switch between organizations
 
-When you have multiple organizations, you can switch between them on the {{ product_name }} Console by selecting the required organization from the list.
+When you have multiple [organizations]({{base_path}}/guides/organization-management/manage-organizations/) for your primary business organization, you can switch between them on the {{ product_name }} Console by selecting the required organization from the list as shown below.
 
-The list of primary organizations will show all the organizations you own or to which you have administrator access.
+![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-![Root organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/root-organizations.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+## Build an organization hierarchy
 
-## Obtain the organization ID
+Organization admins can create an organization hierarchy by creating new organization for their organizations.
 
-You may need to use the organization ID to execute cURLs when managing organizations or sub organizations using APIs.
+To create a new organization for your organization:
 
-To obtain the organization ID of your root organization, expand the organization list and copy the provided organization ID.
+1. On the {{ product_name }} Console, [switch to your organization](#switch-between-organizations).
+2. Go to **Organizations** and click **+ Add Organization**.
+3. In the **Add Organization** dialog box that opens, enter a unique name and description for your organization.
+4. Click **Register** to add the new organization.
 
-![Obtain organization id]({{base_path}}/assets/img/guides/organization/manage-organizations/obtain-organization-id.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+## Branding for organizations
+
+You can configure UI branding, and email branding for the organization by switching to the organization console on {{ product_name }} Console.
+
+If the organization doesn't have its own branding configurations, it will inherit the UI branding, and email branding configurations from the nearest ancestor organization which has branding configurations.
+
+!!! note
+    See the instructions on:
+
+    - [how to configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/) for organizations.
+    - [how to customize email branding]({{base_path}}/guides/branding/customize-email-templates/#customize-email-branding) for organizations.
 
 ## Delete organizations
 
-You cannot remove organziations using the {{ product_name }} Console. If you have such a requirement, contact the {{ product_name }} team at **asgardeo-help@wso2.com**.
-If you are a B2B platform and you want to remove a sub organization in your primary organization, see the instructions on [deleting sub organizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/#delete-sub-organizations).
+You can delete an organization by login into its parent organization.
 
-!!! note "Before you begin"
-    Note the following before you proceed to delete a primary organization: </br>
+To delete an organization of your organization (root):
 
-    - A deleted organization cannot be restored. Proceed with caution.
-    - Only an organization owner can request a primary organization to be deleted.
-    - Be sure to use the same email address of your owner user account to send the request.
-    - If you remove all the primary organizations you own in {{ product_name }}, your user account will also be deleted from {{ product_name }}. <br/>
+1. Login to your organization (root) on the {{ product_name }} Console.
+2. Go to **Organizations** to view the list of organizations.
+3. Click the delete icon next to the organization you want to delete.
 
-To remove any of your primary organizations, send an email to `asgardeo-help@wso2.com` with the required details listed below. This information will help the {{ product_name }} team confirm the authenticity of your request.
-- The name of the organization you want to delete.
-- The first name, last name, and email address of your (owner's) {{ product_name }} user account.
+    ![Delete an organization]({{base_path}}/assets/img/guides/organization/manage-organizations/delete-organization.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## What's next?
-- Learn about managing administrators and users of an organization in the [user management]({{base_path}}/guides/users/) section.
-- Learn about [managing the environments of your SDLC]({{base_path}}/guides/organization-management/manage-environments/).
+4. Select the checkbox and confirm your action.
+
+!!! note
+    If the organization you intend to delete has active organizations, you won't be able to proceed with the deletion until you have deleted its child organizations.

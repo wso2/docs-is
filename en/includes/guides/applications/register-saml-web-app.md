@@ -15,7 +15,7 @@ To register the app:
 
 1. On the {{ product_name }} Console, click **Applications**.
 
-    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Click **New Application** and select **Traditional Web Application**.
 3. In the **Name** field, enter a unique name to identify your application.
@@ -41,14 +41,14 @@ To register the app:
         </tr>
     </table>
 
-6. [Optional] Enable **Allow sharing with sub-organizations** to share the new application with all or any selected suborganizations that belong to your root organization.
+6. [Optional] Enable **Allow sharing with organizations** to share the new application with all or any selected organizations that belong to your organization (root).
 
 7. Click **Register** to complete the registration.
 
     !!! note
-        If you have enabled **Allow sharing with sub-organizations** while registering the application, you will see a popup window with the following options.
+        If you have enabled **Allow sharing with organizations** while registering the application, you will see a popup window with the following options.
 
-        ![Share the application with suborganizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Share the application with organizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         <table>
             <tr>
@@ -56,12 +56,12 @@ To register the app:
                 <th>Description</th>
             </tr>
             <tr>
-                <td>Share with all sub-organizations</td>
-                <td>If selected, the application will be shared with all existing suborganizations and any new suborganizations you may create in the future.</td>
+                <td>Share with all organizations</td>
+                <td>If selected, the application will be shared with all existing organizations and any new organizations you may create in the future.</td>
             </tr>
             <tr>
-                <td>Share with only selected sub-organizations</td>
-                <td>If selected, you can select the suborganizations you wish to share the application with.</td>
+                <td>Share with only selected organizations</td>
+                <td>If selected, you can select the organizations you wish to share the application with.</td>
             </tr>
         </table>
 
@@ -69,7 +69,7 @@ To register the app:
 
 If you selected **Manual** in the previous step, you can manually specify the SAML configurations as follows:
 
-![Register SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![Register SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 <table>
     <tr>
@@ -99,11 +99,11 @@ There are two ways to use a SAML metadata file during application registration:
 
 - Select the **File Based** option and upload the SAML SP metadata file.
 
-    ![Register SAML app using metadata file]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-metadata-file.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register SAML app using metadata file]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-metadata-file.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 - Select the **URL Based** option and specify the SAML meta URL, which refers to the endpoint that hosts the SAML metadata file.
 
-    ![Register SAML app using meta url]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-meta-url.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register SAML app using meta url]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-meta-url.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## What's next?
 

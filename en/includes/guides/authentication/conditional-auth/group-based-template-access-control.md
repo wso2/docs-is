@@ -20,9 +20,9 @@ Consider a scenario with two user groups, `manager` and `employee`. Login should
 
 To enable conditional authentication:
 
-1. On the Asgardeo Console, click **Applications**.
+1. On the {{product_name}} Console, click **Applications**.
 
-2. Select the relevant application and go to it's **Sign-in Method** tab.
+2. Select the relevant application and go to it's **Login Flow** tab.
 
 3. Add group-based access control using your preferred editor:
 
@@ -43,14 +43,13 @@ To enable conditional authentication:
 
         2. Click **+ ADD** next to **Group-Based** to add the group-based access control script.
         
-            ![Group-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-access-control-with-visual-editor.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Group-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-access-control-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 
     ---
 
-    !!! warning "Important"
-        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+{{asgardeo_auth_script_warning}}
 
 4. Update the following parameter in the script.
 
@@ -127,5 +126,5 @@ Follow the steps given below.
 3. Log out of the application.
 4. Log in again as a user who does not belong to the specified groups. The user will see the following error.
 
-    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![authentication failed]({{base_path}}/assets/img/guides/conditional-auth/auth-failure.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

@@ -13,7 +13,7 @@ To get started, you need to [register an application with {{ product_name }}]({{
 Follow the steps given below to configure the application login to prompt the user with the preferred MFA option.
 
 1. On the {{ product_name }} console, click **Applications**.
-2. Select your application and go to the **Sign-in Method** tab.
+2. Select your application and go to the **Login Flow** tab.
 3. Click **Start with default configuration** to define the login flow starting with `username and password`.
 4. Add a second authentication step with the following authenticators.
 
@@ -38,12 +38,11 @@ Follow the steps given below to configure the application login to prompt the us
                 var preferredClaimURI = 'http://wso2.org/claims/identity/preferredMFAOption';
                 var user = context.steps[1].subject;
                 var preferredClaim = user.localClaims[preferredClaimURI];
-                
-                var jsonObj = JSON.parse(preferredClaim);
-                var authenticationOption = jsonObj.authenticationOption;
-                Log.info("preferredClaim authenticationOption " + authenticationOption);
-
-                if(preferredClaim != null) {   
+    
+                if(preferredClaim != null) {  
+                    var jsonObj = JSON.parse(preferredClaim);
+                    var authenticationOption = jsonObj.authenticationOption;
+                    Log.info("preferredClaim authenticationOption " + authenticationOption); 
                     executeStep(2, {authenticationOptions: [{authenticator: authenticationOption}]}, {});
                 } else {
                     executeStep(2);
@@ -82,7 +81,7 @@ To set preferred MFA options for users:
             </tr>-->
         </table>
 
-2. Set the preferred MFA option for each user using a [SCIM2/Me patch API]({{base_path}}/{{ patch_user_path }}) call.
+2. Set the preferred MFA option for each user using a [SCIM2/Me patch API]({{base_path}}/{{ patch_me_path }}) call.
 
     !!! note
         Update the `preferredMFAOption.authenticationOption` value for each user according to their choice in step 1.
@@ -95,36 +94,34 @@ To set preferred MFA options for users:
         --data '
             {"Operations":[
                 {
-                    "op":"replace","value":
-                        {"name":
-                            {"givenName":"liya"}
+                    "op": "replace",
+                    "value": {
+                        "name": {
+                            "givenName":"liya"
                         }
-                },
-                {
-                    "op":"replace",
-                    "value":
-                    {
-                        "name":
-                        {"familyName":"shaggy"}
                     }
                 },
                 {
-                    "op":
-                        "replace",
-                        "value":{"phoneNumbers":[]}
+                    "op": "replace",
+                    "value": {
+                        "name": {
+                            "familyName":"shaggy"
+                        }
+                    }
                 },
                 {
-                    "op":
-                    "replace",
-                    "value":
-                        {"urn:scim:wso2:schema":
-                            {
-                                "country":"Andorra",
-                                "dateOfBirth":"",
-                                "preferredMFAOption":"
-                                    {\"authenticationOption\":\"email-otp-authenticator\"}"
-                            }
+                    "op": "replace",
+                    "value": {
+                        "phoneNumbers":[]
+                    }
+                },
+                {
+                    "op": "replace",
+                    "value": {
+                        "{{ scim_schema_for_wso2_custom_claims }}": {
+                            "preferredMFAOption": "{\"authenticationOption\":\"email-otp-authenticator\"}"
                         }
+                    }
                 }
             ],
             "schemas":[

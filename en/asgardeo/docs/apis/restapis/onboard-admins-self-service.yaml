@@ -35,6 +35,23 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/o/{organization-domain}/api/server/v1/self-service/preferences' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "operation": "UPDATE",
+            "properties": [
+              {
+                "name": "auto.login.enable",
+                "value": "false"
+              }
+            ]
+            }'          
       tags:
         - SelfService
     get:
@@ -59,6 +76,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/o/{organization-domain}/api/server/v1/self-service/preferences' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
       tags:
         - SelfService
 

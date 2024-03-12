@@ -44,7 +44,6 @@ A sample configuration is given below.
         Execute the scripts in the following files, against the database created.
         
         - `<IS-HOME>/dbscripts/identity/postgresql.sql`
-        - `<IS-HOME>/dbscripts/identity/uma/postgresql.sql`
         - `<IS-HOME>/dbscripts/consent/postgresql.sql`
         
 2. `WSO2_SHARED_DB`

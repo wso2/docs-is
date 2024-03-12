@@ -3,7 +3,7 @@
 You can customize the user interfaces (UIs) presented to your users during the login, sign-up, and account recovery flows, and on the My Account portal according to the theming guidelines of your organization.
 
 !!! note "UI Branding for B2B applications"
-    If you have created [suborganizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/), note that the branding you configure for your root organization also applies to your suborganizations.
+    If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/), note that you can configure separate UI branding for your organizations. If you have not configured UI branding for your organization, the UI branding of your organization (root) will be applied to the organization.
 
 By branding these interfaces, users will get a familiar and consistent user experience.
 
@@ -16,9 +16,9 @@ By branding these interfaces, users will get a familiar and consistent user expe
 
 Follow the steps given below to configure the branding preferences for your organization.
 
-1. On the {{ product_name }}, go to **Customization** > **Branding**.
+1. On the {{ product_name }}, go to **Branding** > **Styles & Text**.
 
-    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-asgardeo-console-ui.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-console-ui.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
 
@@ -26,11 +26,19 @@ Follow the steps given below to configure the branding preferences for your orga
         - If you leave any of the branding preferences empty, {{ product_name }} defaults will be used.
         - The real-time preview will show you a sample view as you update the values.
 
-4. Click **Save & Publish** to publish your branding configurations.
+3. Click **Save & Publish** to publish your branding configurations.
 
-The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Branding email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
+The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Customize email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
 
 {{ powered_by_note }}
+
+## Preview branding
+
+You can preview how your branding preferences will look once they are saved and published.
+
+To preview your branding configurations for different flows, on the **Preview** window, select the screen you wish to preview from the **Screen** list.
+
+![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Disable branding
 
@@ -45,14 +53,6 @@ If you want to revert your branding preferences, scroll down to the **Danger Zon
 !!! warning
     Note that this permanently removes all the branding options that you have saved and the {{ product_name }} defaults will immediately apply.
 
-## Preview branding
-
-You can preview how your branding preferences will look once they are saved and published.
-
-To preview your branding configurations for different flows, on the **Preview** window, select the screen you wish to preview from the **Screen** list.
-
-![{{ product_name }} Console - Branding Preview]({{base_path}}/assets/img/guides/branding/branding-preview.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
 {{ asgardeo_help }}
 
 ## UI branding preferences
@@ -65,6 +65,10 @@ Listed below are general branding preferences you can apply to the interfaces.
 
 <table>
    <tr>
+      <td><b>Organization Display Name</b></td>
+      <td>This name will appear as the organization name in the emails that send to your users. If not set, {{ product_name }} defaults are used.</td>
+   </tr>   
+    <tr>
       <td><b>Contact Email</b></td>
       <td>This email address will appear on emails, error pages and, other pages where users would require support from the organization admin.</td>
    </tr>
@@ -72,22 +76,24 @@ Listed below are general branding preferences you can apply to the interfaces.
 
 ### Design preferences
 
-Listed below are the design changes you can apply to the user registration and login interfaces.
+Listed below are the design changes you can apply to the user registration interface, login interfaces and My Account portal.
 
 #### Layout variations
 
-Select one of the available layouts for your login interfaces. {{ product_name }} uses the **Centered** layout by default.
+Select one of the available layouts for your user registration and login interfaces. {{ product_name }} uses the **Centered** layout by default.
 
+{% if product_name == "Asgardeo" %}
 !!! note "Custom layout"
-    If you want to use the **Custom** layout from the list (shown below), contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
+    If you want to use the **Custom** layout from the list (shown below), contact Asgardeo support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
 
-    ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    Note that these requests should be sent from the account of an administrator in the organization.
+    Note that these requests should be sent from the account of an administrator in the organization.     
+{% endif %}
 
 #### Theme variations
 
-Select from either **Dark** or **Light** theme variations to modify the styling of your login screens. {{ product_name }} uses the **Light** theme by default.
+Select from either **Dark** or **Light** theme variations to modify the styling of your user registration screen, login screen and My Account portal. {{ product_name }} uses the **Light** theme by default.
 
 #### Theme preferences
 
@@ -370,7 +376,7 @@ The following design preferences apply to the theme you select. You can configur
           <td><b>Border Radius</b></td>
           <td>
              This is the border radius of the primary action buttons.</br></br>
-             By default, {{ product_name }} uses <b>four</b> pixels as the border-radius for primary     buttons.
+             By default, {{ product_name }} uses <b>22</b> pixels as the border-radius for primary     buttons.
           </td>
        </tr>
     </table>
@@ -382,14 +388,14 @@ The following design preferences apply to the theme you select. You can configur
           <td><b>Font Color</b></td>
           <td>
              This is the font color of the text inside the secondary action buttons.</br></br>
-             By default, {{ product_name }} uses a dark gray shade as the font color for secondary     buttons.
+             By default, {{ product_name }} uses black as the font color for secondary     buttons.
           </td>
        </tr>
        <tr>
           <td><b>Border Radius</b></td>
           <td>
              This is the border radius of the secondary action buttons.</br></br>
-             By default, {{ product_name }} uses <b>four</b> pixels as the border-radius for secondary     buttons.
+             By default, {{ product_name }} uses <b>22</b> pixels as the border-radius for secondary     buttons.
           </td>
        </tr>
     </table>
@@ -403,21 +409,21 @@ The following design preferences apply to the theme you select. You can configur
           <td><b>Background Color</b></td>
           <td>
              This is the background color for external-connection buttons.</br></br>
-             By default, {{ product_name }} uses a light gray shade as the font color for     external-connection buttons.
+             By default, {{ product_name }} uses white as the font color for     external-connection buttons.
           </td>
        </tr>
        <tr>
           <td><b>Font Color</b></td>
           <td>
              This is the font color of the text inside the external-connection buttons.</br></br>
-             By default, {{ product_name }} uses a dark gray shade as the font color for     external-connection buttons.
+             By default, {{ product_name }} uses black as the font color for     external-connection buttons.
           </td>
        </tr>
        <tr>
           <td><b>Border Radius</b></td>
           <td>
              This is the border radius of the external-connection buttons.</br></br>
-             By default, {{ product_name }} uses <b>four</b> pixels as the border-radius for     external-connection buttons.
+             By default, {{ product_name }} uses <b>22</b> pixels as the border-radius for     external-connection buttons.
           </td>
        </tr>
     </table>
@@ -449,17 +455,10 @@ The following design preferences apply to the theme you select. You can configur
           </td>
        </tr>
        <tr>
-          <td><b>Border Width</b></td>
-          <td>
-             This is the border radius of the inputs on the login screens.</br></br>
-             By default, {{ product_name }} uses <code>four</code> pixels as the border-radius for the     login box.
-          </td>
-       </tr>
-       <tr>
           <td><b>Border Radius</b></td>
           <td>
              This is the border radius of the login box.</br></br>
-             By default, {{ product_name }} uses <b>12</b> pixels as the border-radius for the login box.
+             By default, {{ product_name }} uses <b>8</b> pixels as the border-radius for the login box.
           </td>
        </tr>
     </table>
@@ -565,11 +564,17 @@ Listed below are some advanced branding preferences you can apply to the user re
          This is a link to a document or a webpage with detailed information on all cookies used by your applications and the purpose of each of them.
       </td>
    </tr>
+   <tr>
+      <td><b>Self Signup</b></td>
+      <td>
+         This is a link to your organization's self signup page.
+      </td>
+   </tr>
 </table>
 
 #### Locale-aware URLs
 
-By default, Asgardeo automatically appends the `ui_locales` parameter with the selected locale to URLs. However, if you need to tailor your URL structure to meet specific requirements, you can use the following placeholders to create a more customized URL:
+By default, {{product_name}} automatically appends the `ui_locales` parameter with the selected locale to URLs. However, if you need to tailor your URL structure to meet specific requirements, you can use the following placeholders to create a more customized URL:
 
 ##### Supported placeholders:
 
@@ -622,7 +627,7 @@ Listed below are the text branding preferences you can apply to the screens in y
 <table>
    <tr>
       <th>Screen</th>
-      <th>Field</th>
+      <th style="width: 200px;">Field</th>
       <th>Description</th>
    </tr>
    <tr>

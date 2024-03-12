@@ -1,0 +1,21 @@
+<!--
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.95376 4C6.78219 4 7.45376 3.32843 7.45376 2.5C7.45376 1.67157 6.78219 1 5.95376 1C5.12534 1 4.45376 1.67157 4.45376 2.5C4.45376 3.32843 5.12534 4 5.95376 4ZM5.95376 5C7.33447 5 8.45376 3.88071 8.45376 2.5C8.45376 1.11929 7.33447 0 5.95376 0C4.57305 0 3.45376 1.11929 3.45376 2.5C3.45376 3.88071 4.57305 5 5.95376 5ZM0.0124101 11.5381C0.422402 8.25514 2.91053 6 5.95326 6C6.22941 6 6.45326 6.22386 6.45326 6.5C6.45326 6.77614 6.22941 7 5.95326 7C3.4544 7 1.35721 8.83933 1.0047 11.662C0.985492 11.8159 1.11336 12 1.35507 12L4.99971 11.9998C5.27585 11.9998 5.49972 12.2236 5.49973 12.4998C5.49974 12.7759 5.2759 12.9998 4.99975 12.9998L1.35511 13C0.600267 13 -0.0918734 12.3731 0.0124101 11.5381ZM10.5 7C9.94772 7 9.5 7.44772 9.5 8V8.5H8.5C7.67157 8.5 7 9.17157 7 10V10.5V14.5C7 15.3284 7.67157 16 8.5 16H14.5C15.3284 16 16 15.3284 16 14.5V10.5V10C16 9.17157 15.3284 8.5 14.5 8.5H13.5V8C13.5 7.44772 13.0523 7 12.5 7H10.5ZM8 14.5V11.9146C8.15639 11.9699 8.32468 12 8.5 12H14.5C14.6753 12 14.8436 11.9699 15 11.9146V14.5C15 14.7761 14.7761 15 14.5 15H8.5C8.22386 15 8 14.7761 8 14.5ZM8.5 11C8.22386 11 8 10.7761 8 10.5V10C8 9.72386 8.22386 9.5 8.5 9.5H14.5C14.7761 9.5 15 9.72386 15 10V10.5C15 10.7761 14.7761 11 14.5 11H8.5ZM12.5 8.5V8H10.5V8.5H12.5Z" fill="black"/>
+</svg>

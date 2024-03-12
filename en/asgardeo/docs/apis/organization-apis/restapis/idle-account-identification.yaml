@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  description:
+    "This document specifies a RESTful API for identifying idle business user accounts in Asgardeo. The API provides the capability to retrieve a list of inactive users after a specified date.
+    \n\n To access the idle account identification API in Asgardeo, you need to first get an access token from your organization."
+  version: "v1"
+  title: Asgardeo - Idle Account Identification Rest API
+security:
+  - OAuth2: []
+servers:
+  - url: 'https://api.asgardeo.io/t/{root-organization-name}/o/api/idle-account-identification/v1'
+paths:
+  /inactive-users:
+    get:
+      tags:
+        - Get inactive users
+      description: "Get inactive users after a specified date. \n\n <b>Scope required:</b> ``internal_org_user_mgt_list``"
+      operationId: getInactiveUsers
+      parameters:
+        - in: query
+          name: inactiveAfter
+          schema:
+            type: string
+          description: Users without login activity after this date are considered inactive.
+          example: 2023-01-31
+          required: true
+        - in: query
+          name: excludeBefore
+          schema:
+            type: string
+          description: Users whose last login activity is before the specified date will be excluded from the list of inactive users included in the response.
+          example: 2023-01-01
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/idle-account-identification/v1/inactive-users?inactiveAfter=2023-01-31&excludeBefore=2023-01-01' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: 80001
+        message:
+          type: string
+          example: Some error message
+        description:
+          type: string
+          example: Some error description
+    Unauthorized:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: 401
+        message:
+          type: string
+          example: Unauthorized
+        description:
+          type: string
+          example: You are unauthorized to make this request
+    InactiveUsersList:
+      type: array
+      items:
+        $ref: '#/components/schemas/InactiveUser'
+    InactiveUser:
+      type: object
+      properties:
+        userId:
+          type: string
+        username:
+          type: string
+        userStoreDomain:
+          type: string
+      required:
+        - username
+      example:
+        userId: 3c780e73-9ca6-4e49-811e-8e697df22a91
+        username: JohnDoe
+        userStoreDomain: DEFAULT
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    Forbidden:
+      description: Resource Forbidden
+    ServerError:
+      description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid Input Request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Success:
+      description: Inactive users returned successfully.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/InactiveUsersList'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "**Authorization code OAuth flow** + **Organization Switch**
+      \n\n Scopes:
+      \n\n - ```internal_org_user_mgt_list```: Grant permissions to read user records."
+

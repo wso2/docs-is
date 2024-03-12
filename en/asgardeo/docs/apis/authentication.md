@@ -18,7 +18,7 @@ Use the **standard-based** app type to register an OIDC management app:
 1. On the Asgardeo Console, go to **Applications**.
 2. Click **New Application** and select **Standard-Based Application** to open the following:
 
-    ![Register a standard based application]({{base_path}}/assets/img/apis/management-apis/register-a-sba.png){: width="600" style="display: block; margin: 0 auto;"}
+    ![Register a standard based application]({{base_path}}/assets/img/apis/management-apis/register-a-sba.png){: width="600" style="display: block; margin: 0;"}
 
 3. Provide an application name.
 4. Select **OIDC Standard-Based Application** as the app type and then select the **Management Application** checkbox.
@@ -31,7 +31,7 @@ Use the **standard-based** app type to register an OIDC management app:
 
 The client credentials for your application are displayed in the protocol tab as shown below.
 
-![Obtain the client ID and client secret of the app]({{base_path}}/assets/img/apis/management-apis/obtain-client-credentials.png){: width="600" style="display: block; margin: 0 auto;"}
+![Obtain the client ID and client secret of the app]({{base_path}}/assets/img/apis/management-apis/obtain-client-credentials.png){: width="600" style="display: block; margin: 0;"}
 
 !!! note
     The client ID and client secret are sensitive information that must be protected. See the [best practices](#best-practices) before you proceed.

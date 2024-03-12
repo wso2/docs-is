@@ -1,30 +1,29 @@
 # Add Microsoft login
 
-You can add Microsoft login to your applications using {{ product_name }} and enable users to log in with their Microsoft account.
+You can add Microsoft login to your applications using {{ product_name }} and enable users to log in with their Microsoft accounts.
 
 Follow this guide for instructions.
 
 
 ## Register {{ product_name }} on Microsoft
-You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
+
+You need to register {{ product_name }} as an OAuth2.0 application on Microsoft Entra ID.
 
 !!! note
-    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
+    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using an account with administrator permission.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) using an account with administrator permission.
 
     !!! note
         You must use an account in the same Microsoft 365 subscription (tenant) with which you intend to register the app.
 
-2. On the Azure portal, go to **Azure Services > Azure Active Directory**.
-
-    ![Azure Active Directory service]({{base_path}}/assets/img/guides/idp/microsoft-idp/azure-active-directory.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+2. Go to **Identity** > **Applications** > **App registrations** and select **New registration**.
 
 3. Click **Add** and select **App registration** from the list.
 
 4. Provide the required information for app registration.
 
-    ![Register an application on the Azure Portal]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Register an application on the Microsoft Entra admin center]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -37,11 +36,11 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
         </tr>
         <tr>
             <td>Supported Account Type</td>
-            <td>Select the supported account type. <br><b>Value: </b><code>Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g., Skype, Xbox)</code></td>
+            <td>Select the supported account type. <br><b>Value: </b><code>Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g., Skype, Xbox)</code></td>
         </tr>
         <tr>
             <td>Redirect URI</td>
-            <td>Select a platform according to your application and enter the redirect URI. <br><b>Value:</b> <code>{{ product_url_format }}/commonauth</code></td>
+            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>https://localhost:9443/commonauth</code></td>
         </tr>
     </table>
 
@@ -57,7 +56,7 @@ Now, let's generate a client secret for the application.
 3. Click **Add** to add the client secret.
 
     !!! note "Important"
-        Take note of the generated **Value**. Azure will allow copying this value only once. This value is the newly generated client secret for your Microsoft connection in Asgardeo.
+        Take note of the generated **Value**. Microsoft Entra will allow copying this value only once. This value is the newly generated client secret for your Microsoft connection in {{ product_name }}.
 
 
 ## Register the Microsoft IdP
@@ -89,16 +88,7 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
       </tr>
     </table>  
 
-<!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->  
-
-??? note "Claim syncing for JIT-provisioned users"
-    [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
-
-    When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
-
-    According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
-
-    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
 
 After the Microsoft identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Microsoft has granted permissions.
 
@@ -107,44 +97,12 @@ After the Microsoft identity provider is created, go to the **Settings** tab and
 - **profile**: Allows to view the user's basic profile data.
 
 !!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Microsoft to the app. You can read the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/scopes-oidc#openid-connect-scopes) to learn more.
+    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Microsoft to the app. You can read the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#openid-connect-scopes) to learn more.
 
 
 ## Enable Microsoft login
 
-!!! note "Before you begin"
-    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
-
-To enable Microsoft login:
-
-1. On the {{ product_name }} Console, go to **Applications**.
-2. Select your application, go to the **Sign-in Method** tab and add Microsoft login from your preferred editor:
-
-    !!! note "Recommendations"
-        {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
-
-    ---
-    === "Classic Editor"
-        To add Microsoft login using the Classic Editor:
-
-        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
-
-        2. Click **Add Authentication** on the step, select your Microsoft identity provider, and click **Add**.
-
-            ![Add Microsoft login in Asgardeo]({{base_path}}//assets/img/guides/idp/microsoft-idp/add-microsoft-with-basic.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add Microsoft login using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
-
-        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Microsoft connection.
-
-            ![Add Microsoft login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/microsoft-idp/add-microsoft-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    ---
-
-3. Click **Update** to save your changes.
+{% include "../../../guides/fragments/add-login/social-login/add-microsoft-login.md" %}
 
 ## Try it out
 
@@ -161,10 +119,6 @@ Follow the steps given below.
 !!! note
     When a user successfully logs in with Microsoft for the first time, a **user** account is created in the {{ product_name }} Console with the Microsoft username. Microsoft will manage this new user account.
 
-## Add groups to the connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
-
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.

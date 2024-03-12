@@ -23,7 +23,10 @@ paths:
       tags:
       - Get User Info
       summary: Export self user information
-      description: This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
+      description: |
+        This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
+        
+        <b>Scope(Permission) required:</b> None
       operationId: getMe
       responses:
         200:
@@ -39,7 +42,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me' \
+            'https://localhost:9443/api/identity/user/v1.0/me' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
       x-wso2-request: |
@@ -54,7 +57,9 @@ paths:
       summary: |
         Self register user
       description: |
-        This API is used for user self-registration. <br><br> In addition to the basic self-register API, WSO2 provides extensions for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+        This API is used for user self-registration. <br><br> In addition to the basic self-register API, WSO2 provides extensions for self-registration verification. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
+        
+          <b>Scope(Permission) required:</b> None
       requestBody:
         description: Sends optional property parameters over email based on an email
           template.
@@ -72,28 +77,28 @@ paths:
                 description: |
                   The user self registers with verified claims. 
                   In this scenario, if the verified claims match the preferred notification channel, the user will be created and the account will be unlocked.
-                  <br><br> This API is an extension for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process. 
+                  <br><br> This API is an extension for self-registration verification. [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register). 
               Internally manage notifications without verified claims:
                 value: |
                   curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY", "password": "Password12!","claims": [{"uri": "http://wso2.org/claims/givenname","value": "kim" },{"uri": "http://wso2.org/claims/emailaddress","value": "kim.anderson@gmail.com"},{"uri": "http://wso2.org/claims/lastname","value": "Anderson"},{"uri": "http://wso2.org/claims/mobile","value": "+947721584558"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
                 description: |
                   The user self registers without verified claims.
                   A notification will be sent to the user and the user will be asked to verify via the preferred channel. After confirmation, verified claims will be set as attributes of the user 
-                  <br><br> This API is an extension for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+                  <br><br> This API is an extension for self-registration verification. [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
               Externally managed notifications with verified claims:
                 value: |
                   curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY", "password": "Password12!","claims": [{"uri": "http://wso2.org/claims/givenname","value": "kim" },{"uri": "http://wso2.org/claims/emailaddress","value": "kim.anderson@gmail.com"},{"uri": "http://wso2.org/claims/identity/emailVerified","value": "true"},{"uri": "http://wso2.org/claims/lastname","value": "Anderson"},{"uri": "http://wso2.org/claims/mobile","value": "+947721584558"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
                 description: |
                   The user self registers with verified claims. 
                   In this scenario, if the verified claims match the preferred notification channel, the user will be created and the account will be unlocked
-                  <br><br> This API is an extension for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+                  <br><br> This API is an extension for self-registration verification. [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
               Externally managed notifications without verified claims:
                 value: |
                   curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY", "password": "Password12!","claims": [{"uri": "http://wso2.org/claims/givenname","value": "kim" },{"uri": "http://wso2.org/claims/emailaddress","value": "kim.anderson@gmail.com"},{"uri": "http://wso2.org/claims/lastname","value": "Anderson"},{"uri": "http://wso2.org/claims/mobile","value": "+947721584558"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
                 description: |
                   The user self registers without verified claims.
                   A confirmation code will be returned so that the user can verify it externally. The confirmation code should be used with the code validation API to complete the self-registration process. After confirmation, the verified claims will be set as attributes of the user
-                  <br><br> This API is an extension for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+                  <br><br> This API is an extension for self-registration verification. [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
         required: true
       responses:
         '200':
@@ -177,7 +182,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me' \
+            'https://localhost:9443/api/identity/user/v1.0/me' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -215,6 +220,8 @@ paths:
         Self resend code
       description: |
         This API is used to resend the confirmation code to the authenticated user if it is missing.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: Sends property parameters such as the recovery scenario.
         content:
@@ -246,7 +253,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/me/resend-code' \
+            'https://localhost:9443/api/identity/user/v1.0/me/resend-code' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -273,6 +280,8 @@ paths:
         Self validate code
       description: |
         This API is used to validate the code submitted by the authenticated user in a verification scenario.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: The validation code retrieved for the verification scenario,
           and optional property parameters.
@@ -301,7 +310,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/validate-code' \
+            'https://localhost:9443/api/identity/user/v1.0/validate-code' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -335,6 +344,8 @@ paths:
         Lite register user
       description: |
         This API is used for lite user self registration.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: Sends optional property parameters over email based on an email
           template.
@@ -372,7 +383,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/lite' \
+            'https://localhost:9443/api/identity/user/v1.0/lite' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -409,7 +420,9 @@ paths:
       summary: |
         Validate code
       description: |
-        This API is used to validate the code used by self registered users. <br><br> In addition to the basic code validation, WSO2 provides extensions for account confirmation. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/#account-confirmation">account confirmation</a> process.
+        This API is used to validate the code used by self registered users. <br><br> In addition to the basic code validation, WSO2 provides extensions for account confirmation. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
+        
+        <b>Scope(Permission) required:</b> `internal_user_code_mgt_create`
       requestBody:
         description: The validation code retrieved after user self registration, and
           optional property parameters.
@@ -426,7 +439,7 @@ paths:
                   curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H  "Content-Type: application/json" -d '{ "code": "84325529-8aa7-4851-8751-5980a7f2d9f7","verifiedChannel":{"type":"SMS", "claim":"http://wso2.org/claims/mobile"},"properties": []}' "https://localhost:9443/api/identity/user/v1.0/validate-code"
                 description: |
                   For account confirmations, WSO2 Identity Server now supports multiple verification channels and allows defining the verified channel (i.e., whether the account confirmation was communicated via EMAIL or SMS) in the API request
-                  <br><br> This API is an extension for account verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/#account-confirmation">extended account confirmation</a> process.
+                  <br><br> This API is an extension for account verification. Learn more about the [extended self registration verification process](../../references/user-management/self-registration-verification) and [account confirmation methods](../../guides/user-self-service/account-confirmation-for-self-register).
         required: true
       responses:
         202:
@@ -448,7 +461,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/validate-code' \
+            'https://localhost:9443/api/identity/user/v1.0/validate-code' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -483,6 +496,8 @@ paths:
         Introspect code
       description: |
         This API is used to validate the code used by self registered users and retrieve the details.
+        
+        <b>Scope(Permission) required:</b> `internal_user_code_mgt_view`
       requestBody:
         description: The validation code retrieved after user self registration, and
           optional property parameters.
@@ -514,7 +529,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/introspect-code' \
+            'https://localhost:9443/api/identity/user/v1.0/introspect-code' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -546,6 +561,8 @@ paths:
         Validate username
       description: |
         This API is used to check whether a given username is available for self registration.
+        
+        <b>Scope(Permission) required:</b> None
       requestBody:
         description: Username for validation.
         content:
@@ -576,7 +593,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/validate-username' \
+            'https://localhost:9443/api/identity/user/v1.0/validate-username' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -604,6 +621,8 @@ paths:
         Resend code
       description: |
         This API is used to resend the confirmation code if it is missing.
+        
+        <b>Scope(Permission) required:</b> `internal_user_code_mgt_create`
       requestBody:
         description: Sends optional property parameters over email based on an email
           template.
@@ -636,7 +655,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/resend-code' \
+            'https://localhost:9443/api/identity/user/v1.0/resend-code' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -664,8 +683,11 @@ paths:
       tags:
       - Get User Info
       summary: Search user ID by username
-      description: Returns the user ID of the given username. This ID can be used
+      description: |
+        Returns the user ID of the given username. This ID can be used
         with the /pi-info endpoint.
+        
+        <b>Scope(Permission) required:</b> `internal_pi_info_view`
       operationId: searchUserByName
       parameters:
       - name: username
@@ -691,7 +713,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/pi-info?username={username}' \
+            'https://localhost:9443/api/identity/user/v1.0/pi-info?username={username}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \         
       x-wso2-request: |
@@ -705,7 +727,10 @@ paths:
       tags:
       - Get User Info
       summary: Export user information by ID
-      description: This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
+      description: |
+        This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
+        
+        <b>Scope(Permission) required:</b> `internal_pi_info_view`
       operationId: getUserById
       parameters:
       - name: userId
@@ -733,7 +758,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/t/carbon.super/api/identity/user/v1.0/pi-info/{user-id}' \
+            'https://localhost:9443/api/identity/user/v1.0/pi-info/{user-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \         
       x-wso2-request: |

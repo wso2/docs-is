@@ -65,6 +65,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/totp' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \  
+            -d '{
+              "action": "INIT, REFRESH, VALIDATE",
+              "verificationCode": 0
+            }'
+                        
       tags:
         - me
     get:
@@ -90,6 +102,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/totp' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
     delete:
       tags:
         - me
@@ -109,6 +128,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/totp' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
   /me/totp/secret:
     get:
       tags:
@@ -133,7 +159,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/totp/secret' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   schemas:
     Error:

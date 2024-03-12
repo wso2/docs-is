@@ -59,7 +59,7 @@ information as a payload. The application should send a request with the access 
 
 ```json
 {
-  "sub": "user1@bifrost.com"
+  "sub": "e46ffa67-100d-4329-9460-b8251d446518"
 }
 ```
 

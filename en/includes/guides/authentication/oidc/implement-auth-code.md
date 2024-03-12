@@ -13,7 +13,7 @@ As shown above, you need to configure your application to get the authorization 
 To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
 
 !!! note
-    Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account]({{base_path}}/guides/users/manage-customers/).
+    Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account]({{base_path}}/guides/users/manage-users/).
 
 ## Get the authorization code
 First, your app must initiate a login request to the authorization endpoint of {{ product_name }}. After redirecting to {{ product_name }}, the user should be prompted with a login page if the user is not authenticated.
@@ -173,7 +173,7 @@ When your application is a confidential client, it needs to identify itself to t
 - Use a **private key JWT**: A secured JWT assertion with the data required for client authentication is sent in the token request. See the example given below.
 
     !!! note
-        Learn more about [private key JWT client authentication]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/) in Asgardeo.
+        Learn more about [private key JWT client authentication]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/) in {{ product_name }}.
 
     ```bash
     --header 'Content-Type: application/x-www-form-urlencoded' \

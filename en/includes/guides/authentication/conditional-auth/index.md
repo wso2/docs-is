@@ -3,7 +3,7 @@
 With conditional authentication, the login flow in an application is dependent on the risk factors associated with the user's login request.
 This allows you to strengthen the authentication flow when the risk is higher. In {{ product_name }}, conditional authentication is configured using a [script](#authentication-script).
 
-![what is conditional authentication]({{base_path}}/assets/img/guides/conditional-auth/conditional-auth-intro.png){: style="display: block; margin: 0 auto;"}
+![what is conditional authentication]({{base_path}}/assets/img/guides/conditional-auth/conditional-auth-intro.png){: style="display: block; margin: 0;"}
 
 ## Authentication script
 
@@ -33,7 +33,7 @@ function doStepUp(context) {
 
 The script editor in {{ product_name }} comes with a set of predefined templates to get you started with some of the most common conditional authentication scenarios. These scripts contain inline comments explaining the conditions that are applied.
 
-![conditional-auth-templates-view]({{base_path}}/assets/img/guides/conditional-auth/conditional-auth-templates.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![conditional-auth-templates-view]({{base_path}}/assets/img/guides/conditional-auth/conditional-auth-templates.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 <!--
 You can define scripts that can consider the following evaluation criteria:
@@ -69,6 +69,7 @@ The pre-defined templates are listed below.
 | [New-Device-Based]({{base_path}}/guides/authentication/conditional-auth/new-device-based-template/) | This login flow sends an email notification and/or prompts two-factor authentication for users who are logged in from a previously unused device. |
 | [Group-Based (Adaptive MFA)]({{base_path}}/guides/authentication/conditional-auth/group-based-template/)  | This login flow prompts two-factor authentication (2FA) for users who belong to any of the given set of groups. |
 | [IP-Based]({{base_path}}/guides/authentication/conditional-auth/ip-based-template/) | This login flow prompts two-factor authentication for users who log in from outside the given IP range. |
+| [Passkey-Progressive-Enrollment-Based]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) | This login flow permits users to seamlessly enroll their passkey on-the-fly, when Passkey is designated as the first authentication factor. |
 
 If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement. See the instructions on [writing a custom authentication script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 

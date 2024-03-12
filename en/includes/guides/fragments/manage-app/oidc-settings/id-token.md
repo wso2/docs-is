@@ -1,9 +1,9 @@
 <!-- markdownlint-disable-next-line -->
 #### Audience
-Specifies the recipient(s) that this ID token is intended for. By default, the client ID of this application is added as an audience. You can add multiple audiences in the ID token.
+The audience specifies the recipient(s) for which the ID token is intended. By default, the client ID of the application is added as an audience. You can add multiple audiences in the ID token as shown below.
 
  _Sample default ID token_:
- ```json 
+ ```json
  {
   "isk": "c37e33a87f794f9db4e43eeec5596dd0f64ba43c2c8a6e35eb4bd09e8a09d58a",
   "at_hash": "sXH3BGop66MmXp0CCWDk2A",
@@ -23,7 +23,7 @@ Specifies the recipient(s) that this ID token is intended for. By default, the c
 
  _Sample ID token when `sample_app` is added as a audience value_:
 
- ```json 
+ ```json
  {
   "isk": "1f77c2907c1c2670d73909d3dad38cd02ecda3c21a343dec9d75b51630ca5418",
   "at_hash": "a387Ursh5iNxeMmNViWT2A",
@@ -46,19 +46,20 @@ Specifies the recipient(s) that this ID token is intended for. By default, the c
 <br>
 
 #### Enable encryption
-Specifies whether to enable encryption for the ID token when the token is issued. The public key of your application is used for encryption.
 
-To enable encryption, you should configure the certificate of your application from the <b>Certificates</b> section.
+Specifies whether to encrypt the ID token when it is issued. The public key of your application is used for encryption.
+
+!!! note
+    To enable this option, configure a certificate for your application in the <b>Certificate</b> section.
 
 #### Algorithm
-A single-use AES secret key, called the Content Encryption Key (CEK), is generated to encrypt the ID token payload.
 
-{{ product_name }} uses the public Key of the application (obtained from the [certificate](#certificate)) and the asymmetric encryption algorithm specified here to encrypt the generated CEK. The selected algorithm is mentioned as the "alg" in the ID token header.
+A single-use AES secret key, called the Content Encryption Key (CEK) is generated. {{ product_name }} obtains the public key from the specified [certificate](#certificate), and encrypts the CEK using the asymmetric encryption algorithm specified here. The selected algorithm is mentioned as the `alg` in the ID token header.
 
 #### Encryption Method
-The encryption method defines a symmetric encryption algorithm for encrypting ID tokens.
+The encryption method defines a symmetric encryption algorithm to encrypt the ID token.
 
-{{ product_name }} uses a generated CEK value and the symmetric encryption algorithm specified here to encrypt the ID token. The selected encryption method is mentioned as the "enc" in the id token header.
+{{ product_name }} uses the generated CEK value and the symmetric encryption algorithm specified here to encrypt the ID token. The selected encryption method is mentioned as the `enc` in the ID token header.
 
 #### ID Token expiry time
-Provides the validity period of ID token in seconds. The default value is 3600 seconds.
+This option specifies the validity period of the ID token in seconds. The default value is 3600 seconds.

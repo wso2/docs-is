@@ -24,11 +24,11 @@ To onboard an administrator:
     !!! note
         Note that if your organization allows you to [assign admin privileges to business users](#assign-admin-privileges-to-users), you will see the following options when you click **Add Administrator**.
 
-        ![Add administrator dropdown]({{base_path}}/assets/img/guides/users/add-administrator-dropdown.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+        ![Add administrator dropdown]({{base_path}}/assets/img/guides/users/add-administrator-dropdown.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         You need to select **Invite admins to Asgardeo** from this list to proceed with inviting an external admin.
 
-    ![Add administrator user]({{base_path}}/assets/img/guides/users/add-administrator.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add administrator user]({{base_path}}/assets/img/guides/users/add-administrator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -62,11 +62,11 @@ First, configure administrator settings for the organization:
 
 3. Switch on the **Enable users to manage the organization** toggle.
 
-    ![Assign an existing user as an admin]({{base_path}}/assets/img/guides/users/enable-users-to-manage-organizations.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Assign an existing user as an admin]({{base_path}}/assets/img/guides/users/enable-users-to-manage-organizations.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Go back to the **Administrators** page and see that the **+ Add Administrator** list is updated as follows:
 
-    ![Add administrator dropdown]({{base_path}}/assets/img/guides/users/add-administrator-dropdown.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add administrator dropdown]({{base_path}}/assets/img/guides/users/add-administrator-dropdown.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Now, let's assign admin privileges to a user:
 

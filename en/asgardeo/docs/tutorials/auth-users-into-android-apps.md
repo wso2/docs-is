@@ -74,7 +74,7 @@ After registering your application with Asgardeo, you can enable [user attribute
 !!! note
       If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes/) and retrieve them through the `profile` scope.
 
-Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-customers/#onboard-a-user).
+Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in Asgardeo. See the instructions on [managing users in Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-a-user).
 
 ## Step 3: Install dependencies
 
@@ -316,25 +316,25 @@ Let's walk through the end-to-end flow of the application we built in this tutor
 
       After the application starts, you will see the login page with the **Sign In** option.
 
-      ![sign in to android app]({{base_path}}/assets/img/tutorials/android-app/sign-in-android.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+      ![sign in to android app]({{base_path}}/assets/img/tutorials/android-app/sign-in-android.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Click **Sign In** to start the authentication process.
 
       You are redirected to Asgardeo's login page, where you enter valid user credentials.
 
-      ![enter user credentials to sign in]({{base_path}}/assets/img/tutorials/android-app/asgardeo-sign-in.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+      ![enter user credentials to sign in]({{base_path}}/assets/img/tutorials/android-app/asgardeo-sign-in.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Use the credentials of the user you created on Asgardeo.
 
       Upon the first login attempt, Asgardeo prompts for consent to share the configured attributes with the Android application.
 
-      ![user consent required]({{base_path}}/assets/img/tutorials/android-app/asgardeo-consent.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+      ![user consent required]({{base_path}}/assets/img/tutorials/android-app/asgardeo-consent.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Give your consent accordingly, allowing the application to access your profile information.
 
 5. Once logged in, you will see a home page.
 
-      ![android app home page]({{base_path}}/assets/img/tutorials/android-app/android-home-page.png){: width="300" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+      ![android app home page]({{base_path}}/assets/img/tutorials/android-app/android-home-page.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Log out from the application by clicking **Log out**.
 

@@ -10,7 +10,7 @@ By default, Asgardeo has the **Administrator** user role. This role includes all
 
 3. **Administrative auditor**: This role includes list and view permissions to Asgardeo resources, which is useful in troubleshooting issues and providing support for other users in the organization. This role provides users read only access to the organization.
 
-Only [Adminstrators](../../guides/users/manage-collaborators/) can be assigned to Asgardeo roles, and an administrator can be assigned only with one role.
+Only [Administrators](../../guides/users/manage-administrators/) can be assigned to Asgardeo roles, and an administrator can be assigned only with one role.
 
 The following tables list the permissions enabled for roles in the organization. -->
 The following list contains the permissions enabled for an Administrator:
@@ -25,8 +25,14 @@ The following list contains the permissions enabled for an Administrator:
 - Create groups
 - Update and delete groups
 - View assigned users to groups
-- Asign users to groups
-
+- Assign users to groups
+- Assign users to groups
+- View roles
+- Create roles
+- Update and delete roles
+- Assign users to roles
+- Assign groups to roles
+- 
 ## Application management
 - View apps and app settings
 - Register apps
@@ -41,9 +47,10 @@ The following list contains the permissions enabled for an Administrator:
 
 ## Organization management
 - Create new organizations
-- Create suborganizations
-- As the suborganization creator, view, update, and delete suborganizations that you created
-- Share applications from the root organizations to it's suborganizations
+- View all the organizations created
+- As the organization creator, update and delete organizations that you created
+- Switch to the organizations that you created
+- Share applications from the organization (root) to its organizations
 
 ## Managing attributes and scopes
 - View attributes

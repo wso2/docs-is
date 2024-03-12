@@ -18,7 +18,7 @@ You need to [register an application with {{ product_name }}]({{base_path}}/guid
 Follow the steps given below.
 
 1. On the {{ product_name }} Console, click **Applications**.
-2. Select the relevant application and go to its **Sign-in Method** tab.
+2. Select the relevant application and go to its **Login Flow** tab.
 3. Add sign-in option based adaptive MFA using your preferred editor:
 
 
@@ -42,14 +42,13 @@ Follow the steps given below.
 
         2. Click **+ ADD** next to **Sign-In-Option-Based** to add the IP-based adaptive MFA script.
 
-            ![Sign-In-option-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/sign-in-option-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+            ![Sign-In-option-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/sign-in-option-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         3. Click **Confirm** to replace any existing script with the selected predefined script.
 
     ---
 
-    !!! warning "Important"
-        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+{{asgardeo_auth_script_warning}}
 
 
 4. Update the following parameter in the script.

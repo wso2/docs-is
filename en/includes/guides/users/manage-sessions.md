@@ -21,13 +21,13 @@ To view all active sessions of a user:
 2. Select a user and click **Edit**.
 3. Go to **Active Sessions** to view details.
 
-    ![view-active-sessions]({{base_path}}/assets/img/guides/users/view-active-sessions.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![view-active-sessions]({{base_path}}/assets/img/guides/users/view-active-sessions.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Terminate active sessions
 
 You can terminate a specific user session or terminate all active sessions of the user by following the steps below.
 
-1. On the Asgardeo Console, go to **User Management** > **Users**.
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
 
 2. Select a user, click **Edit** and navigate to the **Active Sessions** tab.
 

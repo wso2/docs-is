@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - 'VERSION'  # This will ignore changes only to the VERSION file.
   workflow_dispatch:
 
 env:  # Global environment variables
@@ -39,10 +41,12 @@ jobs:
 
       - name: Increment version
         run: |
-          set -eox pipefail
-          IFS='.' read -ra PARTS <<< "${{ env.CURRENT_VERSION }}"
-          ((PARTS[2]++))
-          NEW_VERSION="${PARTS[0]}.${PARTS[1]}.${PARTS[2]}"
+          set -euxo pipefail
+          IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
+          echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
+          PATCH=$((PATCH+1))
+          NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          echo "New version: $NEW_VERSION"
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
           echo "$NEW_VERSION" > VERSION
         shell: bash
@@ -57,21 +61,21 @@ jobs:
         run: |
           mkdir -p out/asgardeo/docs
           cp -r ./en/asgardeo/site/* out/asgardeo/docs/
-          zip -r asgardeo-docs-$NEW_VERSION.zip ./out
+          zip -r asgardeo-docs-${{ env.NEW_VERSION }}.zip ./out
 
       - name: Create git tag
         run: |
           git config user.name $GIT_USERNAME
           git config user.email $GIT_USER_EMAIL
-          git tag "v$NEW_VERSION"
-          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "v$NEW_VERSION"
+          git tag "v${{ env.NEW_VERSION }}"
+          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "v${{ env.NEW_VERSION }}"
 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: v$NEW_VERSION
-          release_name: Asgardeo Docs - v$NEW_VERSION
+          tag_name: v${{ env.NEW_VERSION }}
+          release_name: Asgardeo Docs - v${{ env.NEW_VERSION }}
           draft: false
           prerelease: false
 
@@ -79,19 +83,20 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./asgardeo-docs-$NEW_VERSION.zip
-          asset_name: asgardeo-docs-$NEW_VERSION.zip
+          asset_path: ./asgardeo-docs-${{ env.NEW_VERSION }}.zip
+          asset_name: asgardeo-docs-${{ env.NEW_VERSION }}.zip
           asset_content_type: application/zip
 
       - name: Commit and push new version
         run: |
           git add VERSION
-          git commit -m "Increment release version to $NEW_VERSION"
+          git commit -m "Increment release version to ${{ env.NEW_VERSION }}"
           git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" master
 
       - name: Update Downstream Repository Version
         run: |
-          VERSION_FILE_PATH="${GIT_REPO_NAME}/cd-pipelines/docs/dev-setup-variables.yaml"
+          set -euxo pipefail
+          VERSION_FILE_PATH="$GITHUB_WORKSPACE/$GIT_REPO_NAME/cd-pipelines/docs/dev-setup-variables.yaml"
           VERSION_LINE_PREFIX='GITHUB_RELEASE_TAG: v' # Line prefix to identify the version line
 
           # Clone the downstream repository
@@ -103,13 +108,17 @@ jobs:
           CURRENT_VERSION_LINE=$(grep "$VERSION_LINE_PREFIX" "$VERSION_FILE_PATH")
 
           # Replacing the current version line with the new version line
-          NEW_VERSION_LINE="${VERSION_LINE_PREFIX}$NEW_VERSION"
-          sed -i "s|$CURRENT_VERSION_LINE|$NEW_VERSION_LINE|" "$VERSION_FILE_PATH"
+          sed -i 's|'"${CURRENT_VERSION_LINE}"'|  GITHUB_RELEASE_TAG: v'"${{ env.NEW_VERSION }}"'|' "$VERSION_FILE_PATH"
 
           # Verifying if the file has changed, and if so, committing and pushing it
           if git status --porcelain; then
             git config user.name $GIT_USERNAME
             git config user.email $GIT_USER_EMAIL
             git add "$VERSION_FILE_PATH"
-            git commit -m "[Dev] Update asgardeo-docs release version to $NEW_VERSION"
-            git push origin $GIT_BRANCH_NAME 
+            git commit -m "[Dev] Update asgardeo-docs release version to ${{ env.NEW_VERSION }}"
+            git push origin $GIT_BRANCH_NAME
+
+          echo "Updated the downstream repository version to ${{ env.NEW_VERSION }}"
+          else
+            echo "No changes to the downstream repository version"
+          fi

@@ -55,7 +55,6 @@ A sample configuration is given below.
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files against the database created.
         
         - `<IS-HOME>/dbscripts/identity/oracle_rac.sql`
-        - `<IS-HOME>/dbscripts/identity/uma/oracle_rac.sql`
         - `<IS-HOME>/dbscripts/consent/oracle_rac.sql`
         
 2. `WSO2_SHARED_DB`

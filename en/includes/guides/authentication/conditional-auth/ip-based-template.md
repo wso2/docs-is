@@ -21,37 +21,15 @@ You need to [register an application with {{ product_name }}]({{base_path}}/guid
 
 To enable conditional authentication:
 
-1. On the Asgardeo Console, click **Applications**.
+1. On the {{product_name}} Console, click **Applications**.
 
-2. Select the relevant application and go to it's **Sign-in Method** tab.
+2. Select the relevant application and go to it's **Login Flow** tab.
 
 3. Add IP-based adaptive MFA using your preferred editor:
 
-    ---
-    === "Classic Editor"
-        To add IP-based adaptive MFA using the classic editor:
+    {% include "../../../guides/fragments/add-login/conditional-auth/ip-based-template.md" %}
 
-        1. Click **Start with default configuration** to define the login flow starting with the `username and password` login.
-
-        2. Turn on **Conditional Authentication** by switching the toggle on.
-
-        3. Select the **Adaptive MFA > IP-Based** template.
-
-    === "Visual Editor"
-        To add IP-based adaptive MFA using the visual editor:
-
-        1. Switch to the **Visual Editor** tab, and expand **Predefined Flows** > **Conditional Login Flows** > **Adaptive MFA**.
-
-        2. Click **+ ADD** next to **IP-Based** to add the IP-based adaptive MFA script.
-
-            ![IP-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/ip-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-        3. Click **Confirm** to replace any existing script with the selected predefined script.
-
-    ---
-
-    !!! warning "Important"
-        As a security measure, Asgardeo does not allow the usage of two consecutive periods (`..`) in authentication scripts.
+{{asgardeo_auth_script_warning}}
 
 4. Verify that the login flow is now updated with the following two authentication steps:
 
@@ -70,7 +48,7 @@ To enable conditional authentication:
         <tbody>
             <tr>
                 <td><code>corpNetwork</code></td>
-                <td>Comma separated list of IP addresses. Two-factor authentication should apply when users log in from outside this range. The default values in the template are <code>192.168.1.0/24</code> and <code>10.100.0.0/16</code>.</td>
+                <td>Comma separated list of IP addresses. Two-factor authentication should apply when users log in from</br> outside this range. The default values in the template are <code>192.168.1.0/24</code> and <code>10.100.0.0/16</code>.</td>
             </tr>
         </tbody>
     </table>

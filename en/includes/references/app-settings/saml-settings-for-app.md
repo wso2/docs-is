@@ -2,7 +2,7 @@
 
 You can find the SAML protocol related settings under **protocol** section of the selected SAML application.
   
-![SAML settings]({{base_path}}/assets/img/guides/applications/saml-app/saml-settings.png){: style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+![SAML settings]({{base_path}}/assets/img/guides/applications/saml-app/saml-settings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Basic settings
 
@@ -212,6 +212,7 @@ Specifies whether you want to enable single-logout to your application. By defau
 
 #### Logout method
 Specifies the logout method that is supported by the application. {{ product_name }} supports below logout methods:
+
 - Back Channel logout
 - Front Channel HTTP Redirect
 - Front Channel HTTP Post
@@ -279,7 +280,7 @@ You can either upload your certificate file or copy the contents. Follow the ste
 
 1. Select <b>Provide Certificate</b> and click <b>New Certificate</b>.
 
-    ![Upload app certificate]({{base_path}}/assets/img/guides/applications/saml-app/upload-certificate-of-app.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Upload app certificate]({{base_path}}/assets/img/guides/applications/saml-app/upload-certificate-of-app.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Upload the certificate file or copy the certificate contents
 <br>

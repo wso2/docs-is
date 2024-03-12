@@ -15,7 +15,7 @@ Follow the steps below to purchase an Asgardeo subscription via the Azure Market
     !!! note
         Learn more about Azure Marketplace SaaS offerings in the [Microsoft documentation](https://learn.microsoft.com/en-us/marketplace/purchase-saas-offer-in-azure-portal).
 
-    ![Asgardeo offering in Azure Marketplace]({{base_path}}/assets/img/guides/subscriptions/asgardeo-offering-azure-marketplace.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Asgardeo offering in Azure Marketplace]({{base_path}}/assets/img/guides/subscriptions/asgardeo-offering-azure-marketplace.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
 2. Click **Get it Now**, if prompted, enter your information and click **Continue**.

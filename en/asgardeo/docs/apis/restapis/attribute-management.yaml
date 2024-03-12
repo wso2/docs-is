@@ -15,7 +15,7 @@ paths:
       tags:
       - Claims (local)
       summary: Retrieve local claims.
-      description: Retrieve local claims. </br></br><b>Scope required:</b>
+      description: Retrieve local claims. </br></br><b>Scope(Permission) required:</b>
         ``internal_claim_meta_view``
       operationId: getLocalClaims
       parameters:
@@ -71,13 +71,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
       - Claims (local)
       summary: Add a local claim.
       description: Add a new claim. <br>
-        <br> <b>Scope required:</b> ``internal_claim_meta_create``
+        <br> <b>Scope(Permission) required:</b> ``internal_claim_meta_create``
       operationId: addLocalClaim
       requestBody:
         description: Local claim to be added.
@@ -119,14 +125,43 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "claimURI": "http://wso2.org/claims/username",
+            "description": "Some description about the claim.",
+            "displayOrder": 10,
+            "displayName": "Username",
+            "readOnly": true,
+            "regEx": "^([a-zA-Z)$",
+            "required": true,
+            "supportedByDefault": true,
+            "attributeMapping": [
+              {
+                "mappedAttribute": "username",
+                "userstore": "SECONDARY"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'
       x-codegen-request-body-name: localClaim
   /claim-dialects/local/claims/{claim-id}:
     get:
       tags:
       - Claims (local)
       summary: Retrieve a local claim.
-      description: Retrieve a local claim matching the given claim ID. </br></br><b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve a local claim matching the given claim ID. </br></br><b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getLocalClaim
       parameters:
       - name: claim-id
@@ -166,12 +201,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
       - Claims (local)
       summary: Update a local claim.
-      description: Update a local claim. </br></br> <b>Scope required:</b> ``internal_claim_meta_update``
+      description: Update a local claim. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_update``
       operationId: updateLocalClaim
       parameters:
       - name: claim-id
@@ -215,13 +256,42 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "claimURI": "http://wso2.org/claims/username",
+            "description": "Some description about the claim.",
+            "displayOrder": 10,
+            "displayName": "Username",
+            "readOnly": true,
+            "regEx": "^([a-zA-Z)$",
+            "required": true,
+            "supportedByDefault": true,
+            "attributeMapping": [
+              {
+                "mappedAttribute": "username",
+                "userstore": "SECONDARY"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'
       x-codegen-request-body-name: localClaim
     delete:
       tags:
       - Claims (local)
       summary: Delete a local claim.
-      description: Delete a claim by claim ID. </br></br> <b>Scope required:</b> ``internal_claim_meta_delete``
+      description: Delete a claim by claim ID. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_delete``
       operationId: deleteLocalClaim
       parameters:
       - name: claim-id
@@ -252,13 +322,20 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
   /claim-dialects:
     get:
       tags:
       - Claim dialects
       summary: Retrieve claim dialects.
-      description: Retrieve claim dialects. </br></br> <b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve claim dialects. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getClaimDialects
       parameters:
       - name: limit
@@ -307,12 +384,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
       - Claim dialects
       summary: Add a claim dialect.
-      description: Add a new claim dialect. </br></br> <b>Scope required:</b>``internal_claim_meta_create``
+      description: Add a new claim dialect. </br></br> <b>Scope(Permission) required:</b>``internal_claim_meta_create``
       operationId: addClaimDialect
       requestBody:
         description: claim dialect to add.
@@ -354,14 +437,24 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "dialectURI": "urn:ietf:params:scim:schemas:core:2.0:User"
+            }'
       x-codegen-request-body-name: claimDialect
   /claim-dialects/{dialect-id}:
     get:
       tags:
       - Claim dialects
       summary: Retrieve a claim dialect.
-      description: Retrieve a claim dialect matching the given dialect id. </br></br><b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve a claim dialect matching the given dialect id. </br></br><b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getClaimDialect
       parameters:
       - name: dialect-id
@@ -401,12 +494,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
       - Claim dialects
       summary: Update a claim dialect.
-      description: Update a claim dialect. </br></br> <b>Scope required:</b>``internal_claim_meta_update``
+      description: Update a claim dialect. </br></br> <b>Scope(Permission) required:</b>``internal_claim_meta_update``
       operationId: updateClaimDialect
       parameters:
       - name: dialect-id
@@ -444,13 +543,23 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "dialectURI": "urn:ietf:params:scim:schemas:core:2.0:User"
+            }' 
       x-codegen-request-body-name: claimDialect
     delete:
       tags:
       - Claim dialects
       summary: Delete a claim dialect.
-      description: Delete a claim dialect by claim ID. </br></br> <b>Scope required:</b> ``internal_claim_meta_delete``
+      description: Delete a claim dialect by claim ID. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_delete``
       operationId: deleteClaimDialect
       parameters:
       - name: dialect-id
@@ -481,13 +590,20 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
   /claim-dialects/{dialect-id}/claims:
     get:
       tags:
       - Claims (external)
       summary: Retrieve external claims.
-      description: Retrieve External claims.</br></br><b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve External claims.</br></br><b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getExternalClaims
       parameters:
       - name: dialect-id
@@ -548,12 +664,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/export' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
     post:
       tags:
       - Claims (External)
       summary: Add an external claim.
-      description: Add a new external claim. </br></br> <b>Scope required:</b> ``internal_claim_meta_create``
+      description: Add a new external claim. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_create``
       operationId: addExternalClaim
       parameters:
       - name: dialect-id
@@ -608,7 +731,18 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/claims' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "claimURI": "urn:ietf:params:scim:schemas:core:2.0:User:userName",
+            "mappedLocalClaimURI": "http://wso2.org/claims/username"
+            }'
       x-codegen-request-body-name: externalClaim
   /claim-dialects/{dialect-id}/claims/{claim-id}:
     get:
@@ -616,7 +750,7 @@ paths:
       - Claims (External)
       summary: Retrieve an external claim.
       description: Retrieve an external claim matching the given dialect ID and claim
-        ID. </br></br> <b>Scope required:</b> ``internal_claim_meta_view``
+        ID. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: getExternalClaim
       parameters:
       - name: dialect-id
@@ -662,12 +796,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
     put:
       tags:
       - Claims (External)
       summary: Update an external claim.
-      description: Update an external claim. </br></br> <b>Scope required:</b> ``internal_claim_meta_update``
+      description: Update an external claim. </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_update``
       operationId: updateExternalClaim
       parameters:
       - name: dialect-id
@@ -717,13 +858,25 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "claimURI": "urn:ietf:params:scim:schemas:core:2.0:User:userName",
+            "mappedLocalClaimURI": "http://wso2.org/claims/username"
+            }'
+            
       x-codegen-request-body-name: externalClaim
     delete:
       tags:
       - Claims (External)
       summary: Delete an external claim.
-      description: Delete a claim by dialect ID and claim ID. </br></br><b>Scope required:</b> ``internal_claim_meta_delete``
+      description: Delete a claim by dialect ID and claim ID. </br></br><b>Scope(Permission) required:</b> ``internal_claim_meta_delete``
       operationId: deleteExternalClaim
       parameters:
       - name: dialect-id
@@ -760,15 +913,22 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-curl: ""
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
+            
   /claim-dialects/{dialect-id}/export:
     get:
       tags:
         - Claim dialects
       summary: Export a claim dialect with claims.
-      description: Retrieve a claim dialect for a given dialect ID along with all 
-        related claims as a XML, YAML, or JSON file. 
-        </br></br> <b>Scope required:</b> ``internal_claim_meta_view``
+      description: Retrieve a claim dialect for a given dialect ID along with all
+        related claims as a XML, YAML, or JSON file.
+        </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_view``
       operationId: exportClaimDialectToFile
       parameters:
         - $ref: '#/components/parameters/dialectIdPathParam'
@@ -799,14 +959,22 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/{dialect-id}/export' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+                      
   /claim-dialects/import:
     put:
       tags:
       - Claim dialects
       summary: Update a claim dialect with claims.
-      description: Update a claim dialect and all related claims from a file 
-        in XML, YAML, or JSON format. 
-        </br></br> <b>Scope required:</b> ``internal_claim_meta_create``
+      description: Update a claim dialect and all related claims from a file
+        in XML, YAML, or JSON format.
+        </br></br> <b>Scope(Permission) required:</b> ``internal_claim_meta_create``
       operationId: updateClaimDialectFromFile
       parameters:
         - $ref: '#/components/parameters/preserveClaimsParam'
@@ -826,13 +994,22 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/import?preserveClaims=false' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -H 'Authorization: Bearer {bearer_token}'
+                      
     post:
       tags:
       - Claim dialects
       summary: Import an external claim dialect with claims.
-      description: Import a external claim dialect with related claims from a file 
+      description: Import a external claim dialect with related claims from a file
         in XML, YAML, or JSON format. </br>
-        <b>Scope required:</b> ``internal_claim_meta_create``
+        <b>Scope(Permission) required:</b> ``internal_claim_meta_create``
       operationId: importClaimDialectFromFile
       requestBody:
         required: true
@@ -851,6 +1028,14 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/claim-dialects/import' \
+            -H 'accept: */*' \
+            -H 'Content-Type: multipart/form-data' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   schemas:
     LocalClaimReq:

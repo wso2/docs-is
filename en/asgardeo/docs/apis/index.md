@@ -35,8 +35,8 @@ Some of these APIs are used for management purposes and they have special [authe
 - [Export admin information API]({{base_path}}/apis/administrators/export-admin-info/)
 - [Consent management API]({{base_path}}/apis/extend-sessions/)
 - [Validation API]({{base_path}}/apis/validation/)
-- [Suborganization APIs]({{base_path}}/apis/organization-management/)
 - [Idle account identification API]({{base_path}}/apis/idle-account-identification/)
+- [Organization APIs]({{base_path}}/apis/organization-apis/)
 
 ## Authentication
 

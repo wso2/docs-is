@@ -1,0 +1,52 @@
+To enable Email OTP for MFA, you need to add **Email OTP** in the authentication flow of the application.
+
+Follow the steps given below.
+
+1. On the {{ product_name }} Console, go to **Applications**.
+
+2. Select the application to which you wish to add Email OTP.
+
+3. Go to the **Login Flow** tab of the application and add the Email OTP authenticator as follows:
+
+    {% if product_name == 'Asgardeo' %}
+    === "Visual Editor"
+        To add Email OTP as a second-factor authenticator using the Visual Editor:
+
+        1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Multi-factor login**.
+
+        2. Select **Username + Password -> Email OTP**.
+
+        3. Click **Confirm** to add Email OTP as a second factor to the sign-in flow.
+
+            ![Configuring Email OTP authenticator in {{product_name}} using the visual editor]({{base_path}}/assets/img/guides/mfa/emailotp/add-email-otp-authenticator-using-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        
+        4. Select **Enable backup codes** if you wish to allow users to use backup codes to log in to the application. Learn more about [configuring backup codes for users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
+
+    === "Classic Editor"
+        - If you don't have a customized login flow, you can click **Add Email OTP as a second factor**.
+
+            ![Add Email OTP authenticator]({{base_path}}/assets/img/guides/mfa/emailotp/add-email-otp-authenticator.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+        This opens the customized login flow with Email OTP as a second-factor authenticator:
+
+        - If you have an already customized login flow, you can add a second step and add Email OTP as the authenticator.
+
+            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/emailotp/view-emailotp-authenticator.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        
+        - Select **Enable backup codes** if you wish to allow users to use backup codes to log in to the application. Learn more about [configuring backup codes for users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
+
+    ---
+    {% else %}
+    1. Go to **Predefined Flows** > **Add Multi-factor Login**.
+
+    2. Select **Username + Password -> Email OTP**.
+
+    3. Click **Confirm** to add passwordless login with email OTP to the sign-in flow.
+
+          ![Configuring Email OTP authenticator in {{product_name}} using the visual editor]({{base_path}}/assets/img/guides/mfa/emailotp/add-email-otp-authenticator-using-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    4. Select **Enable backup codes** if you wish to allow users to use backup codes to log in to the application. Learn more about [configuring backup codes for users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
+
+    {% endif %}
+
+4. Click **Update** to save your changes.

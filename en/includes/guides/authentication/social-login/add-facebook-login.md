@@ -1,6 +1,6 @@
 # Add Facebook login
 
-You can add Facebook login to your applications using {{ product_name }} and enable users to log in with their Facebook account.
+You can add Facebook login to your applications using {{ product_name }} and enable users to log in with their Facebook accounts.
 
 Follow this guide for instructions.
 
@@ -14,19 +14,19 @@ To register an app on Facebook:
 
 1. Log in to the [Facebook developer portal](https://developers.facebook.com/apps) and click **Create App**.
 
-    ![Log on to Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Log on to Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Select **Consumer** as the app type and click **Next**.
 
-    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Provide **Display Name** and click **Create App** to create an application.
 
-    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Under **Add products to your app**, click **Set up** on the **Facebook Login** card.
 
-    ![Add Facebook login]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add Facebook login]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Select **Web** type and provide the following **Site URL** with your organization name:
 
@@ -34,7 +34,7 @@ To register an app on Facebook:
     {{ product_url_format }}
     ```
 
-    ![Add Facebook app url]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-url.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add Facebook app url]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-url.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Save the changes and click **Continue**.
 
@@ -46,11 +46,11 @@ To register an app on Facebook:
 
 8. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.
 
-    ![Add Facebook settings]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Add Facebook settings]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 9. On the main panel, go to **App settings > basic** and take note of the **App ID** and **App Secret**.
 
-    ![Get AppID and Secret from Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Get AppID and Secret from Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Register the Facebook IdP
 
@@ -83,14 +83,7 @@ Now, let's register the Facebook IdP in {{ product_name }}.
 
 <!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->
 
-??? note "Claim syncing for JIT-provisioned users"
-    [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
-
-    When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
-
-    According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
-
-    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#tag/Provisioning/operation/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
 
 After the Facebook identity provider is created, go to the **Settings** tab and see the list of permissions granted by Facebook to {{ product_name }}.
 
@@ -102,37 +95,7 @@ After the Facebook identity provider is created, go to the **Settings** tab and 
 
 ## Enable Facebook login
 
-!!! note "Before you begin"
-    You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
-
-1. On the {{ product_name }} Console, go to **Applications**.
-2. Select your application, go to the **Sign-in Method** tab and add Facebook login from your preferred editor:
-
-    !!! note "Recommendations"
-        {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
-
-    ---
-    === "Classic Editor"
-        To add Facebook login using the Classic Editor:
-
-        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
-
-        2. Click **Add Authentication** on the step, select your Facebook identity provider, and click **Add**.
-
-            ![Add Facebook login in Asgardeo]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    === "Visual Editor"
-        To add Facebook login using the Visual Editor:
-
-        1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
-
-        2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Facebook connection.
-
-            ![Add Facebook login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login-with-visual-editor.png){: width="500" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
-
-    ---
-
-3. Click **Update** to save your changes.
+{% include "../../../guides/fragments/add-login/social-login/add-facebook-login.md" %}
 
 ## Try it out
 
@@ -153,10 +116,6 @@ Follow the steps given below.
 !!! note
     When a user successfully logs in with Facebook for the first time, a **user** account is created in the {{ product_name }} Console with the Facebook username. This new user account will be managed by Facebook.
 
-## Add groups to the connection
+## Configure connection
 
-{% include "../../fragments/manage-connection/add-groups.md" %}
-
-## Delete a connection
-
-{% include "../../fragments/manage-connection/delete-connection.md" %}
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.

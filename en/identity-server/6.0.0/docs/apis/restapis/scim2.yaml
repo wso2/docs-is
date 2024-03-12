@@ -1304,7 +1304,7 @@ components:
           example: kim
         password:
           type: string
-          example: abc123
+          example: MyPa33w@rd
         emails:
           type: array
           example:

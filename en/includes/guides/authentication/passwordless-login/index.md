@@ -1,6 +1,6 @@
 # Add passwordless login
 
-These sections provide instructions on how to add passwordless login to your SPAs or web applications.
+Passwordless login represents a modern authentication approach that enhances security and user convenience by eliminating traditional password requirements. This section introduces various passwordless methods such as Magic Links, Passkeys, HYPR, and Email OTP, offering a secure and user-friendly alternative for accessing SPAs and web applications.
 
 ## Magic link login
 
@@ -8,20 +8,22 @@ Magic link lets users log in by clicking a link sent to their email instead of e
 
 [Add Magic Link login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-magic-link/) has detailed instructions on this.
 
-## FIDO2 login
+## Passkey login
 
-FIDO2 is a standard that lets users use hardware security keys or biometrics to log in.
+Passkey lets users use hardware security keys or biometrics to log in.
 
-[Add login with FIDO2]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-fido/) has detailed instructions on this.
+[Add login with Passkey]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/) has detailed instructions on this.
 
-## HYPR login
-
-HYPR is a FIDO-certified platform that lets users use biometrics to log in.
-
-[Add login with HYPR]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-hypr/) has detailed instructions on this.
+{{hypr_login}}
 
 ## Email OTP login
 
 Email OTP allows users to log in by providing a one-time passcode sent to their email instead of entering a password.
 
 [Add Email OTP login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-email-otp/) has detailed instructions on this.
+
+## SMS OTP login
+
+SMS OTP allows users to log in by providing a one-time passcode sent to their mobile phone instead of entering a password.
+
+[Add SMS OTP login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp/) has detailed instructions on this.

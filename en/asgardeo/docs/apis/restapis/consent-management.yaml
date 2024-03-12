@@ -76,6 +76,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'      
       x-wso2-request: |
         curl -k -X GET "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents?limit=<Limit_Number>&offset=<Offset_Number>&piiPrincipalId=<PII_Principal_Name>&spTenantDomain=<Tenant_Domain>&service=<Service_Name>*&state=<ACTIVE/REVOKED>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
       x-wso2-curl: |
@@ -132,6 +139,53 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "services": [
+              {
+                "service": "string",
+                "serviceDisplayName": "string",
+                "serviceDescription": "string",
+                "tenantDomain": "string",
+                "purposes": [
+                  {
+                    "purposeId": 0,
+                    "purposeCategoryId": [
+                      0
+                    ],
+                    "consentType": "string",
+                    "piiCategory": [
+                      {
+                        "piiCategoryId": 0,
+                        "validity": "string"
+                      }
+                    ],
+                    "primaryPurpose": true,
+                    "termination": "string",
+                    "thirdPartyDisclosure": true,
+                    "thirdPartyName": "string"
+                  }
+                ]
+              }
+            ],
+            "collectionMethod": "string",
+            "jurisdiction": "string",
+            "language": "string",
+            "policyURL": "string",
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'               
       x-wso2-request: |
         curl -k -X POST "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"services\": [ { \"service\": \"<Service_Name>\", \"tenantDomain\": \"<Tenant_Domain_Name>\", \"purposes\": [ { \"purposeId\": <Purpose_ID>, \"purposeCategoryId\": [ <Purpose_Category_ID> ], \"consentType\": \"<Consent_Type>\", \"piiCategory\": [ { \"piiCategoryId\": <PII_Category_ID>, \"validity\": \"days:<Number_Of_Days>\" }, { \"piiCategoryId\": <PII_Category_ID>, \"validity\": \"days:<Number_Of_Days>\" } ], \"primaryPurpose\": true, \"termination\": \"days:<Number_Of_Days>\", \"thirdPartyDisclosure\": false, \"thirdPartyName\": \"\" } ] } ], \"collectionMethod\": \"<Collection_Method>\", \"jurisdiction\": \"<Jurisdiction>\", \"language\": \"<Language_Abbreviation>\", \"policyURL\": \"<Service_Policy_URL>", \"properties\": [ { \"key\": \"<PII_Controller's_Public_Key>\", \"value\": \"v1\" } ]}"
       x-wso2-curl: |
@@ -185,6 +239,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/receipts/{receipt-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
         curl -k -X GET "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/receipts/<Consent_Receipt_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
       x-wso2-curl: |
@@ -233,6 +294,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/receipts/{receipt-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
         curl -k -X DELETE "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/receipts/<Consent_Receipt_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
       x-wso2-curl: |
@@ -299,6 +367,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purposes' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
         curl -k -X GET "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purposes?group=<Group>&groupType=<Group_Type>limit=<Limit_Number>&offset=<Offset_Number>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json"
       x-wso2-curl: |
@@ -408,6 +483,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purposes/{purpose-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
         curl -k -X GET "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purposes/<Purpose_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json" -H "Content-Type: application/json"
       x-wso2-curl: |
@@ -512,6 +594,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purpose-categories' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
         curl -k -X GET "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purpose-categories?limit=<LimitNumber>&offset=<OffsetNumber>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
       x-wso2-curl: |
@@ -621,6 +710,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-catergory-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
         curl -k -X GET "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purpose-categories/<Purpose_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
       x-wso2-curl: |
@@ -725,6 +821,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/pii-categories' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
         curl -k -X GET "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/pii-categories?limit=<Limit_Number>&offset=<Offset_Number>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
       x-wso2-curl: |
@@ -834,6 +937,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-catergory-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
         curl -k -X GET "https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/pii-categories/<PII_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
       x-wso2-curl: |

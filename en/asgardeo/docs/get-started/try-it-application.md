@@ -20,7 +20,7 @@ Let's try a simple login flow in the Asgardeo Try It application:
 
 3. You are directed to the Asgardeo login screen. Use credentials of the user account you created above to log in to the application.
 
-    ![Try It application]({{base_path}}/assets/img/get-started/try-it-login-screen.png){: width="400" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Try It application]({{base_path}}/assets/img/get-started/try-it-login-screen.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Customize the login flow
 
@@ -31,9 +31,9 @@ You can use the various authenticators Asgardeo offers to customize the login fl
     !!! tip
         Alternatively, navigate to **Home** and click the gear icon that appear in the **Try login with the Try It app** card after you have set it up.
 
-2. Go to the **Sign-in Method** tab of the application, select the authentication flow that you wish to try and click **Update**.
+2. Go to the **Login Flow** tab of the application, select the authentication flow that you wish to try and click **Update**.
 
-    ![Try It application]({{base_path}}/assets/img/get-started/custom-login-flow.png){: width="700" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Try It application]({{base_path}}/assets/img/get-started/custom-login-flow.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
         Follow the guides below to learn how to configure the authention flows.

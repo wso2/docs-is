@@ -8,7 +8,7 @@ For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org
 
 The following diagram explains how this flow works with {{ product_name }}.
 
-![Authorization code flow]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow.png)
+![Authorization code flow with PKCE]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow_with_pkce.png)
 
 As shown above, you need to configure your application to get the authorization code from {{ product_name }}, and then exchange it for the required tokens.
 
@@ -17,7 +17,7 @@ As shown above, you need to configure your application to get the authorization 
 To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, register a [single-page application]({{base_path}}/guides/applications/register-single-page-app/#register-app) or [mobile application]({{base_path}}/guides/applications/register-mobile-app/#register-app).
 
 !!! note
-    Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account]({{base_path}}/guides/users/manage-customers/).
+    Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account]({{base_path}}/guides/users/manage-users/).
 
 ## Get authorization code
 

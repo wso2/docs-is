@@ -11,7 +11,7 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 The branding variables that affect the email templates are as follows:
 
 !!! note "Email branding for B2B applications"
-    If you have [suborganizations]({{base_path}}/guides/organization-management/manage-b2b-organizations/manage-suborganizations/) configured, note that the email branding you configure for your primary organization also applies to your suborganizations.
+    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured, note that the email branding you configure for your organization (root) also applies to your organizations.
 
 ![Branding email templates]({{base_path}}/assets/img/guides/branding/email-branding.png)
 
@@ -86,7 +86,7 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
     !!! note "Replicate content"
         If you have not yet configured an email template for the selected locale, you have the option to replicate content from the previous locale's template and use it to modify the email template for the selected locale.
 
-    ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png){: width="600" style="display: block; margin: 0 auto; border: 0.3px solid lightgrey;"}
+    ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Make your modifications in the **Content** tab and use the **Preview** tab for a real-time preview.
 
@@ -97,7 +97,7 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 
     1. Display the `local` attribute on the user's profile. Learn more on [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
 
-    2. Update the `local` attribute value with the [required locale code]({{base_path}}/references/{{ localization_doc_path }}/#supported-languages).
+    2. Update the `local` attribute value with the [required locale code]({{base_path}}/guides/branding/{{ localization_doc_path }}/#supported-languages).
 
         - If the admin onboards the user to the organization, the admin is responsible for updating the locale code.
 

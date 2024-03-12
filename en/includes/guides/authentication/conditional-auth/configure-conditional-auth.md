@@ -2,6 +2,12 @@
 
 Given below are the high-level steps for enabling conditional authentication in your application.
 
+## Prerequisites
+
+[Register your application]({{base_path}}/guides/authentication/add-login-to-apps/) on the WSO2 Identity Server Console.
+
+{{jdk_version_message}}
+
 ## Enable conditional authentication
 
 {% include "../../fragments/manage-app/conditional-auth/configure-conditional-auth.md" %}
@@ -16,16 +22,18 @@ There are two ways to add a conditional authentication script:
 - Use a [predefined template]({{base_path}}/guides/authentication/conditional-auth/#script-templates).
 - Write a [new conditional auth script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 
+{% if product_name == 'Asgardeo' %}
+
 ## Add a secret to the script
-Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process. You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for conditional authentication.
+Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process. You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for `callChoreo()` conditional authentication function.
 
 ### Create a new secret
 
 To add a new secret:
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select your application and go to the **Sign-in Method** tab .
+2. Select your application and go to the **Login Flow** tab .
 
 3. Add a new secret from your preferred editor:
 
@@ -33,20 +41,20 @@ To add a new secret:
     === "Classic Editor"
         Enable conditional authentication and click the key icon above the script to create a new secret.
 
-        ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png){: style="display: block; margin: 0 auto;"}
+        ![Add secret to script]({{base_path}}/assets/img/guides/secret/add-secret-to-script.png){: style="display: block; margin: 0;"}
 
     === "Visual Editor"
         Switch to the **Visual Editor** tab, expand the **Script Editor** and click **Add Secret**.
 
-        ![Add secret to script using the visual editor]({{base_path}}//assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
+        ![Add secret to script using the visual editor]({{base_path}}//assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0;"}
 
     ---
 
-2. Click **Create new secret** from the drop-down menu.
+4. Click **Create new secret** from the drop-down menu.
 
-3. Enter the following details:
+5. Enter the following details:
 
-    ![Create secret in {{ product_name }}]({{base_path}}/assets/img/guides/secret/create-a-secret.png){: width="450" style="display: block; margin: 0 auto;"}
+    ![Create secret in {{ product_name }}]({{base_path}}/assets/img/guides/secret/create-a-secret.png){: width="450" style="display: block; margin: 0;"}
 
     <table>
         <tr>
@@ -67,15 +75,15 @@ To add a new secret:
         </tr>
     </table>
 
-4. Click **Finish** to complete the creation.
+6. Click **Finish** to complete the creation.
 
 ### Delete an existing secret
 
 To delete an existing secret:
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select your application and go to the **Sign-in Method** tab .
+2. Select your application and go to the **Login Flow** tab .
 
 3. Delete the secret by using your preferred editor:
 
@@ -88,10 +96,12 @@ To delete an existing secret:
     === "Visual Editor"
         Switch to the **Visual Editor** tab, expand the **Script Editor** and click **Add Secret**.
 
-        ![Add secret to script using the visual editor]({{base_path}}/assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0 auto;"}
+        ![Add secret to script using the visual editor]({{base_path}}/assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0;"}
 
     ---
 
 4. Click the trash icon next to the secret you wish to delete.
 
 5. Select the checkbox and confirm your action.
+
+{% endif %}

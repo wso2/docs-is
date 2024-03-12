@@ -1,0 +1,21 @@
+<!--
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.45376 2.5C7.45376 3.32843 6.78219 4 5.95376 4C5.12534 4 4.45376 3.32843 4.45376 2.5C4.45376 1.67157 5.12534 1 5.95376 1C6.78219 1 7.45376 1.67157 7.45376 2.5ZM8.45376 2.5C8.45376 3.88071 7.33447 5 5.95376 5C4.57305 5 3.45376 3.88071 3.45376 2.5C3.45376 1.11929 4.57305 0 5.95376 0C7.33447 0 8.45376 1.11929 8.45376 2.5ZM5.95326 6C2.91053 6 0.422402 8.25514 0.01241 11.5381C-0.0918736 12.3731 0.600271 13 1.35511 13L4.99976 12.9998C5.2759 12.9998 5.49975 12.7759 5.49973 12.4997C5.49972 12.2236 5.27585 11.9998 4.99971 11.9998L1.35506 12C1.11336 12 0.985492 11.8159 1.0047 11.662C1.35721 8.83933 3.4544 7 5.95326 7C6.22941 7 6.45326 6.77614 6.45326 6.5C6.45326 6.22386 6.22941 6 5.95326 6ZM11.5 8C9.567 8 8 9.567 8 11.5C8 13.433 9.567 15 11.5 15C13.433 15 15 13.433 15 11.5C15 9.567 13.433 8 11.5 8ZM7 11.5C7 9.01472 9.01472 7 11.5 7C13.9853 7 16 9.01472 16 11.5C16 13.9853 13.9853 16 11.5 16C9.01472 16 7 13.9853 7 11.5ZM10.5 11.5C10.5 10.9477 10.9477 10.5 11.5 10.5C12.0523 10.5 12.5 10.9477 12.5 11.5C12.5 12.0523 12.0523 12.5 11.5 12.5C10.9477 12.5 10.5 12.0523 10.5 11.5ZM11.5 9.5C10.3954 9.5 9.5 10.3954 9.5 11.5C9.5 12.6046 10.3954 13.5 11.5 13.5C12.6046 13.5 13.5 12.6046 13.5 11.5C13.5 10.3954 12.6046 9.5 11.5 9.5Z" fill="black"/>
+</svg>

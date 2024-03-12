@@ -63,7 +63,7 @@ Data from an Asgardeo subscription account is exclusively stored in the US datac
 
 ### Administrator data
 
-Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guides/users/manage-collaborators/) are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) are also exclusively stored in the US datacenter.
+Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guides/users/manage-administrators/) are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) are also exclusively stored in the US datacenter.
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
 

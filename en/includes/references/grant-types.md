@@ -11,10 +11,14 @@ The grant types supported by {{ product_name }} applications are as follows:
 - [Client credentials grant](#client-credentials-grant)
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
+- [Token exchange grant](#token-exchange-grant)
+- [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 
 **{{ product_name }}'s custom grants**
 
 - [Organization switch grant](#organization-switch-grant)
+
+{{grant_type_configs_note}}
 
 ## Authorization code grant
 
@@ -128,37 +132,55 @@ The following diagram shows how the token exchange grant flow works.
 
 See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-the-token-exchange-flow) for more details.
 
+## SAML 2.0 bearer grant
+
+SAML 2.0 bearer grant is a grant type in the OAuth 2.0 framework that enables the exchange of a SAML 2.0 assertion for an OAuth 2.0 access token. This grant type is defined in the [SAML 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants specification (RFC 7522)](https://datatracker.ietf.org/doc/html/rfc7522)
+
+The SAML 2.0 bearer grant is a secure method that allows clients to obtain an OAuth 2.0 access token by presenting a SAML 2.0 assertion. This grant type is particularly useful in scenarios where the client already has a SAML assertion from a trusted identity provider and seeks to exchange it for an access token. It offers significant advantages in systems that already utilize SAML for Single Sign-On (SSO), as it enables the client to obtain an access token without requiring the user to re-authenticate. To use this grant type, the client submits a request with the SAML assertion to the token endpoint, and following successful authentication and validation, the server issues an access token.
+
+The following diagram shows how the token exchange grant flow works.
+
+![How the token exchange grant works]({{base_path}}/assets/img/references/grants/saml2-bearer-grant.png)
+
+1. The user sends a login request to the client application.
+2. The client application sends an authentication request to the third-party IdP using SAML 2.0.
+3. Upon successful user authentication, the third-party IdP issues a SAML 2.0 assertion to the client application.
+4. The client application makes a token exchange request to the authorization server, specifying the SAML 2.0 bearer grant type and providing the necessary parameters, such as the original SAML 2.0 assertion.
+5. The Authorization Server validates the SAML 2.0 assertion and if valid, generates a new access token of the requested type based on the provided parameters and the server's policy, and responds to the client with the new access token.
+6. The client application can now request resources from the resource server by providing the access token.
+7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
+
 ## Organization switch grant
 
 The organization switch grant is a custom grant type in {{ product_name }} that enables users to switch between different organizations in a hierarchical organization structure.
 
-Client applications should always use one of the traditional grant types to authorize user access. The organization switch grant is also required when the authorization request is for resources of a suborganization. That is because it is necessary to switch between the root organization and the suborganization to obtain access tokens that are valid for suborganizations.
+Client applications should always use one of the traditional grant types to authorize user access. The organization switch grant is also required when the authorization request is for resources of an organization. That is because it is necessary to switch between the organization (root) and the organization to obtain access tokens that are valid for organizations.
 
 The following diagram illustrates this flow.
 
 ![How the organizatoin switch grant works]({{base_path}}/assets/img/references/grants/organization-switch.png)
 
-1. The user visits the client application and requests login through the root organization.
-2. The client application redirects the authorization code request to the root organization.
+1. The user visits the client application and requests login through the organization (root).
+2. The client application redirects the authorization code request to the organization (root).
 3. {{ product_name }} prompts the login page of the root organization's application.
 4. The user selects the **SSO** authentication option.
-5. The root organization prompts the user to enter the suborganization name.
-6. The user enters the suborganization name.
-7. The root organization sends an authorization code request to the suborganization.
-8. The suborganization prompts the user to enter credentials.
+5. The organization (root) prompts the user to enter the organization name.
+6. The user enters the organization name.
+7. The organization (root) sends an authorization code request to the organization.
+8. The organization prompts the user to enter credentials.
 9. The user enters the credentials.
-10. The suborganization sends the authorization code to the root organization.
-11. The root organization uses this authorization code to request an access token from the suborganization.
-12. The suborganization sends the access token and ID token to the root organization.
-13. The root organization sends the authorization code to the client application.
+10. The organization sends the authorization code to the organization (root).
+11. The organization (root) uses this authorization code to request an access token from the organization.
+12. The organization sends the access token and ID token to the organization (root).
+13. The organization (root) sends the authorization code to the client application.
 
     !!! note
         This is the response to the authorization code request in step two.
 
-14. The client application uses this authorization code to request an access token from the root organization.
-15. The root organization sends the access token and ID token to the client application.
-16. The client application exchanges the access token received in the above step for an access token for the suborganization.
-17. The root organization initiates an exchange for an access token and sends an access token against the suborganization to the client application.
+14. The client application uses this authorization code to request an access token from the organization (root).
+15. The organization (root) sends the access token and ID token to the client application.
+16. The client application exchanges the access token received in the above step for an access token for the organization.
+17. The organization (root) initiates an exchange for an access token and sends an access token against the organization to the client application.
 18. The user requests information from the client application.
-19. The client application requests user information from the suborganization by providing the access token received in step 17.
-20. The suborganization returns requested user information to the client application.
+19. The client application requests user information from the organization by providing the access token received in step 17.
+20. The organization returns requested user information to the client application.

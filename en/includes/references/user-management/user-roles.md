@@ -4,16 +4,17 @@ Roles consist of the permissions that are required by users to access the {{ pro
 
 When you assign a role to a user, you are controlling what the user can do in {{ product_name }}.
 
-By default, {{ product_name }} has the **Administrator** user role. This role includes all administrative permissions in the organization. An organization can have many users with the administrator role. An administrator is a privileged user who has overall access to the organization.
+By default, {{ product_name }} has the **{{ admin_role_name }}** user role. This role includes all administrative permissions in the organization. An organization can have many users with the
+{{ admin_role_name }} role. An {{ admin_role_name }} is a privileged user who has overall access to the organization.
 
 <!-- 2. **Application developer**: This role includes the permissions required for registering and managing applications. The application developer is a privileged user who can integrate applications with {{ product_name }}. 
 
 3. **Administrative auditor**: This role includes list and view permissions to {{ product_name }} resources, which is useful in troubleshooting issues and providing support for other users in the organization. This role provides users read only access to the organization.
 
-Only [Adminstrators]({{base_path}}/guides/users/manage-collaborators/) can be assigned to {{ product_name }} roles, and an administrator can be assigned only with one role.
+Only [Administrators]({{base_path}}/guides/users/manage-administrators/) can be assigned to {{ product_name }} roles, and an administrator can be assigned only with one role.
 
 The following tables list the permissions enabled for roles in the organization. -->
-The following list contains the permissions enabled for an Administrator:
+The following list contains the permissions enabled for an {{ admin_role_name }}:
 
 ## User management
 - View users
@@ -25,7 +26,12 @@ The following list contains the permissions enabled for an Administrator:
 - Create groups
 - Update and delete groups
 - View assigned users to groups
-- Asign users to groups
+- Assign users to groups
+- View roles
+- Create roles
+- Update and delete roles
+- Assign users to roles
+- Assign groups to roles
 
 ## Application management
 - View apps and app settings
@@ -41,9 +47,10 @@ The following list contains the permissions enabled for an Administrator:
 
 ## Organization management
 - Create new organizations
-- Create suborganizations
-- As the suborganization creator, view, update, and delete suborganizations that you created
-- Share applications from the root organizations to it's suborganizations
+- View all the organizations created
+- As the organization creator, update and delete organizations that you created
+- Switch to the organizations that you created
+- Share applications from the organization (root) to its organizations
 
 ## Managing attributes and scopes
 - View attributes
