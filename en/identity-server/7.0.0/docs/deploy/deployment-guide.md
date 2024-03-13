@@ -292,7 +292,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
             KUBERNETES_SERVICES = "wso2is-service"
             ```
 
-            - In order to retrieve the pod IP address information from the Kubernetes api server, the Kubernetes membership scheme uses the pod's service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the role you bind has the following permissions. 
+            - In order to retrieve the pod IP address information from the Kubernetes api server, the Kubernetes membership scheme uses the pod's service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the role you bind has the following permissions.
             
                 ```toml
                 rules:
