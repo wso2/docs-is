@@ -12,13 +12,13 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 ### Configure WSO2 Identity Server
 
-**Step 1:** [Create a user account]("{{base_path}}/guides/users/manage-users/#onboard-single-user) in WSO2 Identity Server and provide a password at user creation.
+**Step 1:** [Create a user account]({{base_path}}/guides/users/manage-users/#onboard-single-user) in WSO2 Identity Server and provide a password at user creation.
 
-**Step 2:** [Activate the Password Expiration]("{{base_path}}/guides/account-configurations/login-security/password-validation/#password-validation") checkbox and set the value to 3 days for the purpose of this example.
+**Step 2:** [Activate the Password Expiration]({{base_path}}/guides/account-configurations/login-security/password-validation/#password-validation) checkbox and set the value to 3 days for the purpose of this example.
 
-**Step 3:** Configure the application in the WSO2 Identity Server to obtain an access token for invoking [Password Expiring User Identification API]("{{base_path}}/apis/password-expiring-users-identification-rest-api/)
+**Step 3:** Configure the application in the WSO2 Identity Server to obtain an access token for invoking [Password Expiring User Identification API]({{base_path}}/apis/password-expiring-users-identification-rest-api/)
 
-- [Register a standard OIDC application]("{{base_path}}/guides/applications/register-oidc-web-app/#register-an-openid-connect-web-app).
+- [Register a standard OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/#register-an-openid-connect-web-app).
 
 - Navigate to `API Authorization` tab, and add the 
 
@@ -44,7 +44,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
   <div class="border-text">
     <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="Github" width=50><br>
-    <a href="https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/tree/master/io.asgardeo.tomcat.oidc.sample" target="_blank">View source</a>
+    <a href="https://github.com/wso2/samples-is/tree/v4.6.2/etc/notification-sender-ext-schedular" target="_blank">View source</a>
   </div>
 </div>
 
