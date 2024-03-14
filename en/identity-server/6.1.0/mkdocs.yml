@@ -470,6 +470,7 @@ nav:
         - Set up WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Set up Separate Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
+        - Enable adaptive authentication: deploy/enable-adaptive-authentication.md
         - Configure Hazelcast: deploy/configure-hazelcast.md
         - Deployment Checklist: deploy/deployment-checklist.md
         - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
