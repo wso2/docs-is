@@ -17,7 +17,7 @@ WSO2 Identity Server allows adding custom attributes into user objects through [
 2. Add the custom schema dialect if it is not found
     - Click **Add** under **Main** > **Identity** > **Claims**.
     - Click **Add Claim Dialect**.
-    - Add the **urn:scim:custom:schema** claim dialect.
+    - Add the **urn:scim:wso2:schema** claim dialect.
 
     ![add-scim-custom-schema-dialect]({{base_path}}/assets/img/deploy/add-custom-schema-dialect.png)
 
@@ -66,8 +66,8 @@ WSO2 Identity Server allows adding custom attributes into user objects through [
 1. Click **Add** under **Main** > **Identity** > **Claims**.
 
 2. Click **Add External Claim** and enter the following values.
-    - **Dialect URI**: urn:scim:custom:schema
-    - **External Claim URI**: urn:scim:custom:schema:customClaim
+    - **Dialect URI**: urn:scim:wso2:schema
+    - **External Claim URI**: urn:scim:wso2:schema:customClaim
     - **Mapped Local Claim**:http://wso2.org/claims/customclaim
 
     ![add-scim-external-claim]({{base_path}}/assets/img/deploy/map-remote-claim.png)
@@ -103,7 +103,7 @@ WSO2 Identity Server allows adding custom attributes into user objects through [
                 "emails": [
                     "user1@gmail.com"
                 ],
-                "urn:scim:custom:schema": {
+                "urn:scim:wso2:schema": {
                     "customClaim": "custom"
                 },
                 "meta": {
@@ -180,7 +180,7 @@ You can also try out updating the Custom Claim value using the following SCIM co
             {
                 "op": "replace",
                 "value": {
-                    "urn:scim:custom:schema": {
+                    "urn:scim:wso2:schema": {
                         "customClaim": "new value"
                     }
                 }
@@ -218,7 +218,7 @@ Let's see if we have a **manager** complex attribute that has **displayName** an
 
 2. Click **Add External Claim** and enter the following values.
     - **Dialect URI**: urn:scim:custom:schema
-    - **External Claim URI**: urn:scim:custom:schema:manager.displayName
+    - **External Claim URI**: urn:scim:wso2:schema:manager.displayName
     - **Mapped Local Claim**:http://wso2.org/claims/manager.displayName
 
     ![add-scim-external-claim]({{base_path}}/assets/img/deploy/add-manager-displayname-remote-claim.png)
@@ -250,7 +250,7 @@ Let's see if we have a **manager** complex attribute that has **displayName** an
 
 2. Click **Add External Claim** and enter the following values.
     - **Dialect URI**: urn:scim:custom:schema
-    - **External Claim URI**: urn:scim:custom:schema:manager.emailaddress
+    - **External Claim URI**: urn:scim:wso2:schema:manager.emailaddress
     - **Mapped Local Claim**:http://wso2.org/claims/manager.emailaddress
 
     ![add-scim-external-claim]({{base_path}}/assets/img/deploy/add-manager-email-remote-claim.png)
@@ -283,7 +283,7 @@ Let's see if we have a **manager** complex attribute that has **displayName** an
 
 2. Click **Add External Claim** and enter the following values.
     - **Dialect URI**: urn:scim:custom:schema
-    - **External Claim URI**: urn:scim:custom:schema:manager
+    - **External Claim URI**: urn:scim:wso2:schema:manager
     - **Mapped Local Claim**:http://wso2.org/claims/manager
 
     ![add-scim-external-claim]({{base_path}}/assets/img/deploy/add-manager-remote-claim.png)
@@ -315,7 +315,7 @@ The response will be as follows:
         "emails": [
             "user1@gmail.com"
         ],
-        "urn:scim:custom:schema": {
+        "urn:scim:wso2:schema": {
             "manager": {
                 "displayName": "manager_displayname",
                 "emailaddress": "manager_email@wso2.com"
@@ -371,7 +371,7 @@ You can also try out updating the `manager.displayName` and `manager.emailaddres
             {
                 "op": "replace",
                 "value": {
-                    "urn:scim:custom:schema": {
+                    "urn:scim:wso2:schema": {
                         "manager":{
                              "displayName": "new_manager_displayname",
                              "emailaddress": "new_manager_email@wso2.com"
@@ -412,7 +412,7 @@ Let's see if we have a **deviceNames** simple multivalued attribute.
 1. Click **Add** under **Main** > **Identity** > **Claims**.
 
 2. Click **Add External Claim** and enter the following values.
-    - **Dialect URI**: urn:scim:custom:schema
+    - **Dialect URI**: urn:scim:wso2:schema
     - **External Claim URI**: urn:scim:custom:schema:deviceNames
     - **Mapped Local Claim**:http://wso2.org/claims/deviceNames
 
@@ -441,7 +441,7 @@ The response will be as follows:
             "emails": [
                 "user1@gmail.com"
             ],
-            "urn:scim:custom:schema": {
+            "urn:scim:wso2:schema": {
                 "deviceNames": [
                     "device1",
                     "device2",
@@ -501,7 +501,7 @@ You can also try out updating the deviceNames claim values using the following S
             {
                 "op": "replace",
                 "value": {
-                    "urn:scim:custom:schema": {
+                    "urn:scim:wso2:schema": {
                         "deviceNames":["new_device1", "new_device2"]
                     }
                 }
@@ -523,5 +523,5 @@ You can also try out updating the deviceNames claim values using the following S
     `<IS_HOME>/repository/conf/identity/charon-config.xml` file.
          
          ```
-            <Property name="custom-user-schema-uri">urn:scim:custom:schema:new</Property>
+            <Property name="custom-user-schema-uri">urn:scim:wso2:schema:new</Property>
          ```
