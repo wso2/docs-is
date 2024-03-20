@@ -29,7 +29,7 @@ The following example shows how you can initiate an authorization code flow usin
 curl --location 'https://localhost:9443/oauth2/par'
     --header 'Content-Type: application/x-www-form-urlencoded'
     --header 'accept: application/json'
-    --header 'Authorization: Basic -u <Base64Encoded(ClientID:ClientSecret)>'
+    --header 'Authorization: Basic <Base64Encoded(ClientID:ClientSecret)>'
     --data-urlencode 'client_id={CLIENT_ID}'
     --data-urlencode 'redirect_uri={REDIRECT_URI}'
     --data-urlencode 'response_type=code'
