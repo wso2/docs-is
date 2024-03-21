@@ -1,6 +1,6 @@
 # Enable inbound provisioning
 
-Outbound provisioning is the process of automatically provisioning user accounts from external systems to {{product_name}}. This guide explains how you can configure inbound provisioning for an application so that users logging in to the application can be provisioned in {{product_name}}.
+Inbound provisioning is the process of automatically provisioning user accounts from external systems to {{product_name}}. This guide explains how you can configure inbound provisioning for an application so that users logging in to the application can be provisioned in {{product_name}}.
 
 !!! note "Before you begin"
     Prepare user stores for SCIM2 inbound provisioning. Learn how to do so in the following guides.
