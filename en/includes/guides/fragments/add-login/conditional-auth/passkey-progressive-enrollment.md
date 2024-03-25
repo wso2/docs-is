@@ -6,7 +6,7 @@
 
     2. Click the **ADD** button corresponding to the **Passkey Progressive Enrollment** template.
 
-    3. Click **Confirm** to add the script.
+    3. Click **Confirm** to replace any existing script with the selected predefined script.
 
         ![Add adaptive script with Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     
@@ -28,8 +28,10 @@
 
 2. Click **Passkey Enrollment** > **Passkey Progressive Enrollment** > **ADD**.
 
-    ![Configuring passkey login in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-passkey-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Add adaptive script with Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Confirm** to replace any existing script with the selected predefined script.
+
+4. Enable the **Conditional Authentication** toggle located at the bottom of the editor.
 
 {% endif %}
