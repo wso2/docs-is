@@ -3,7 +3,10 @@ info:
   description: >
     This document specifies an **Authentication RESTful API** for **WSO2
     Identity Server** which can be used to perform complete user authentication in 
-    an API based manner.
+    an API based manner. 
+    
+    > This API is part of the App-Native Authentication capability. Refer the feature documentation in order to 
+      get a better understanding of how the API works.
   version: v1
   title: WSO2 Identity Server - Authentication Rest API
   contact:
@@ -12,10 +15,81 @@ info:
   license:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/oauth2/'
+    variables:
+      tenant-domain:
+        default: "carbon.super"
+      server-url:
+        default: "localhost:9443"
+
 paths:
+  /authorize:
+    get:
+      operationId: Initiate Authentication
+      description: | 
+        This endpoint is added as an **example** for authentication initiation. In actuality the standard OAuth2 
+        authorize request for authorization code flow should be used with the response_mode as `direct`. The responses 
+        for the request will be as shown in this api definition. The next request should be made to the `/authn` endpoint.
+        Refer [Handle Authentication](#operation/Handle%20Authentication) API for more information.
+      parameters:
+        - name: response_type
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - code
+        - name: client_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: response_mode
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - direct
+        - name: redirect_uri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: scope
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: state
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /authn:
     post:
-      operationId: handleAuthentication
+      operationId: Handle Authentication
       description: This API provides the capability to perform user authentication.
       requestBody:
         required: true
@@ -30,7 +104,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthResponse'
+                oneOf:
+                  - $ref: '#/components/schemas/AuthResponse'
+                  - $ref: '#/components/schemas/SuccessResponse'
         '400':
           description: Bad Request
           content:
@@ -101,8 +177,8 @@ components:
             - FAIL_INCOMPLETE
           description: |
             The status of the authentication flow. 
-            This api version doesn't define a COMPLETE state as it will never be sent in a response. When the flow is 
-            completed the client will receive the final response related to the used authentication protocol.
+            - INCOMPLETE - The authentication flow is incomplete and requires further steps.
+            - FAIL_INCOMPLETE - The authentication flow has failed and requires further steps.
           example: INCOMPLETE
         flowType:
           type: string
@@ -336,6 +412,28 @@ components:
             - POST
           description: The supported http methods of the link.
           example: POST
+    SuccessResponse:
+      type: object
+      description: Response with authorization code received after a successful authentication.
+      properties:
+        flowStatus:
+          type: string
+          enum:
+            - SUCCESS_COMPLETED
+          description: |
+            The status of the authentication flow.
+            - SUCCESS_COMPLETED - The authentication flow has been successfully completed.
+          example: SUCCESS_COMPLETED
+        authData:
+          type: object
+          description: |
+            Data related to the successful authentication. This will contain the authorization code which can be used to
+            obtain the access token.
+          additionalProperties:
+            type: string
+          example:
+            code: dbde709c-c5a5-3643-8604-30ef32b44c90
+            state: loginpg
     Error:
       type: object
       description: Contains the data related to an error.
@@ -357,13 +455,3 @@ components:
         traceId:
           type: string
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
-servers:
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/JOHND_1/Authenticate/v1
-  - url: 'https://{server-url}/t/{tenant-domain}/oauth2/'
-    variables:
-      tenant-domain:
-        default: "carbon.super"
-      server-url:
-        default: "localhost:9443"
