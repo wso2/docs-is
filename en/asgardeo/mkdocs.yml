@@ -105,6 +105,9 @@ plugins:
         'guides/authentication/enterprise-login/index.md': 'guides/authentication/standard-based-login/index.md'
         'guides/authentication/enterprise-login/add-oidc-idp-login.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
+      enable_creation_date: true
 
 # Navigation
 nav:
