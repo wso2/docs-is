@@ -93,3 +93,5 @@ To update the properties of a user attribute:
 6. Go to the **Additional Properties** tab and add additional properties that can be used when writing an extension.
 
     ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+{{ user_attribute_change_verification }}
