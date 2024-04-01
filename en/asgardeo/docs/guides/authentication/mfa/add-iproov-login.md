@@ -1,7 +1,9 @@
 # Add iProov login
 
 [iProov](https://www.iproov.com/) is a passwordless authentication method that allows users to log in to applications using facial biometrics. 
-iProov's patented Flashmark biometric technology ensures that the user is a real person and not a spoof or a replay. This guide explains how you can use iProov to add passwordless login to applications registered in your Asgardeo organization.
+iProov's patented Flashmark biometric technology ensures that the user is a real person and not a spoof or a replay. 
+
+This guide explains how you can use iProov to add passwordless login to applications registered in your Asgardeo organization.
 
 ## Prerequisites
 
