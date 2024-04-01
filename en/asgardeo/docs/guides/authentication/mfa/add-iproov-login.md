@@ -103,9 +103,9 @@ To enable iProov login for your application:
    ::: details Using the Visual Editor
    To add iProov login using the Visual Editor:
    
-   - Switch to the **Visual Editor** tab. 
+   1. Switch to the **Visual Editor** tab. 
    
-   - Add a new step and select **iProov** as the authenticator.
+   2. Add a second authentication step by clicking the **+** icon and add your iProov connection to this step.
 
 3. Click **Update** to save the sign-in flow.
 
