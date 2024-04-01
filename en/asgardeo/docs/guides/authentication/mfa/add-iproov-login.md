@@ -101,7 +101,7 @@ To enable iProov login for your application:
    :::
 
    ::: details Using the Visual Editor
-   To add TOTP as a second-factor authenticator using the Visual Editor:
+   To add iProov login using the Visual Editor:
    
    - Switch to the **Visual Editor** tab. 
    
