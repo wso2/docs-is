@@ -130,4 +130,4 @@ Follow the steps given below:
    <img :src="$withBase('/assets/img/guides/mfa/iproov/scan-face-with-iproov.png')" alt="Scan face with iProov">
 
 6. Complete the iProov authentication process by starting the face scan.
-   <img :src="$withBase('/assets/img/guides/mfa/iproov/initiate-scan-face.png')" alt="Initiate face scan>
+   <img :src="$withBase('/assets/img/guides/mfa/iproov/initiate-scan-face.png')" alt="Initiate face scan">
