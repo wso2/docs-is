@@ -18,6 +18,7 @@ You can follow the [iProov documentation](https://docs.iproov.com/docs/Content/I
 :::
 
 1. Log into [iPortal](https://portal.iproov.com/) and click **Service providers**.
+   <img :src="$withBase('/assets/img/guides/mfa/iproov/iproov-service-provider.png')" alt="iProov service provider">
 
 2. Click **Create a service provider**.
 
@@ -27,9 +28,9 @@ You can follow the [iProov documentation](https://docs.iproov.com/docs/Content/I
 
 5. Complete the service provider details form and click **Create** to create the service provider.
 
-7. Select your application from the **Choose an App** menu and note down the App ID.
+6. Select your application from the **Choose an App** menu and note down the App ID.
 
-8. After you create the service provider, you will receive the following details:
+7. After you create the service provider, you will receive the following details:
     - **OAuth username**
     - **OAuth password**
     - **API key**
@@ -42,6 +43,7 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
 1. On the Asgardeo Console, go to **Connections**.
 
 2. Click **Create Connection** and select **iProov**.
+   <img :src="$withBase('/assets/img/guides/mfa/iproov/iproov-add-connection.png')" alt="Create iproov connection">
 
 3. Enter the following details and click **Finish**:
 
@@ -92,20 +94,22 @@ To enable iProov login for your application:
 2. Go to the **Sign-in Method** tab of the application and add iProov login from your preferred editor:
 
    ::: details Using the Classic Editor
-   - If you don't have a customized login flow, you can click **Start with default configuration**.
+   - If you haven't already configured an authentication flow,
+     1. Click **Start with default configuration** to begin.
+     2. Add a second authentication step by clicking the **+** icon and add your iProov connection to this step.
 
-     This opens the customized login flow with username & password as the first step. You can add a new authentication step add iProov as the authenticator.:
-
-   - If you have an already customized login flow, you can add a second step and add iProov as the authenticator.
+   - If you have an already customized login flow, you can add a second authentication step by clicking the **+** icon and add your iProov connection to this step.
+     <img :src="$withBase('/assets/img/guides/mfa/iproov/customize-steps.png')" alt="Customize login flow">
 
    :::
 
    ::: details Using the Visual Editor
-   To add iProov login using the Visual Editor:
+      To add iProov login using the Visual Editor:
    
-   1. Switch to the **Visual Editor** tab. 
+      1. Switch to the **Visual Editor** tab. 
    
-   2. Add a second authentication step by clicking the **+** icon and add your iProov connection to this step.
+      2. Add a second authentication step by clicking the **+** icon and add your iProov connection to this step.
+         <img :src="$withBase('/assets/img/guides/mfa/iproov/iproov-login-flow-with-visual-editor.png')" alt="Customize login flow">
 
 3. Click **Update** to save the sign-in flow.
 
@@ -119,8 +123,11 @@ Follow the steps given below:
 
 3. Complete the preceding authentication steps.
 
-4. Grant Camera Access to use iProov.
+4. Grant camera access for iProov to authenticate the user.
+   <img :src="$withBase('/assets/img/guides/mfa/iproov/grant-camera-access.png')" alt="Grant camera access for iProov">
 
 5. Click **Scan Face**.
+   <img :src="$withBase('/assets/img/guides/mfa/iproov/scan-face-with-iproov.png')" alt="Scan face with iProov">
 
-6. Complete the iProov authentication process.
+6. Complete the iProov authentication process by starting the face scan.
+   <img :src="$withBase('/assets/img/guides/mfa/iproov/initiate-scan-face.png')" alt="Initiate face scan>
