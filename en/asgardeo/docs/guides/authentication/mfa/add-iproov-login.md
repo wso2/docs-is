@@ -28,8 +28,8 @@ You can follow the [iProov documentation](https://docs.iproov.com/docs/Content/I
 7. Select your application from the **Choose an App** menu and note down the App ID.
 
 8. After you create the service provider, you will receive the following details:
-    - **oAuth username**
-    - **oAuth password**
+    - **OAuth username**
+    - **OAuth password**
     - **API key**
     - **API secret**
 
