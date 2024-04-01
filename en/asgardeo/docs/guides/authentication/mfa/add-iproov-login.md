@@ -86,6 +86,7 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
 You need to <a :href="$withBase('/guides/applications/')">register an application with Asgardeo</a>. You can register your own application or use one of the <a :href="$withBase('/get-started/try-samples/')">sample applications</a> provided.
 :::
 
+To enable iProov login for your application:
 1. On the Asgardeo Console, go to **Applications**.
 
 2. Go to the **Sign-in Method** tab of the application and add iProov login from your preferred editor:
