@@ -58,7 +58,7 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
       </tr>
       <tr>
           <td>Base URL</td>
-          <td>Provide the Base URL of your iProov server deployment.</td>
+          <td>Provide the base URL of your iProov server deployment.</td>
       </tr>
       <tr>
           <td>OAuth Username</td>
