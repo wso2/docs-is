@@ -18,7 +18,6 @@ You can follow the [iProov documentation](https://docs.iproov.com/docs/Content/I
 :::
 
 1. Log into [iPortal](https://portal.iproov.com/) and click **Service providers**.
-   <img :src="$withBase('/assets/img/guides/mfa/iproov/iproov-service-provider.png')" alt="iProov service provider">
 
 2. Click **Create a service provider**.
 
@@ -126,8 +125,4 @@ Follow the steps given below:
 4. Grant camera access for iProov to authenticate the user.
    <img :src="$withBase('/assets/img/guides/mfa/iproov/grant-camera-access.png')" alt="Grant camera access for iProov">
 
-5. Click **Scan Face**.
-   <img :src="$withBase('/assets/img/guides/mfa/iproov/scan-face-with-iproov.png')" alt="Scan face with iProov">
-
-6. Complete the iProov authentication process by starting the face scan.
-   <img :src="$withBase('/assets/img/guides/mfa/iproov/initiate-scan-face.png')" alt="Initiate face scan">
+5. Click **Scan Face with iProov** , and complete the iProov authentication process by starting the face scan.
