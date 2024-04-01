@@ -66,7 +66,7 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
       </tr>
       <tr>
           <td>OAuth Password</td>
-          <td>Provide the OAuth Password from the service provider created in iProov.</td>
+          <td>Provide the OAuth password from the service provider created in iProov.</td>
       </tr>
       <tr>
           <td>API Key</td>
