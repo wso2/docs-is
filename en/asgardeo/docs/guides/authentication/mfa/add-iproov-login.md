@@ -1,7 +1,9 @@
 # Add iProov login
 
 [iProov](https://www.iproov.com/) is a passwordless authentication method that allows users to log in to applications using facial biometrics. 
-iProov's patented Flashmark biometric technology ensures that the user is a real person and not a spoof or a replay. This guide explains how you can use iProov to add passwordless login to applications registered in your Asgardeo organization.
+iProov's patented Flashmark biometric technology ensures that the user is a real person and not a spoof or a replay. 
+
+This guide explains how you can use iProov to add passwordless login to applications registered in your Asgardeo organization.
 
 ## Prerequisites
 
@@ -84,6 +86,7 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
 You need to <a :href="$withBase('/guides/applications/')">register an application with Asgardeo</a>. You can register your own application or use one of the <a :href="$withBase('/get-started/try-samples/')">sample applications</a> provided.
 :::
 
+To enable iProov login for your application:
 1. On the Asgardeo Console, go to **Applications**.
 
 2. Go to the **Sign-in Method** tab of the application and add iProov login from your preferred editor:
@@ -98,11 +101,11 @@ You need to <a :href="$withBase('/guides/applications/')">register an applicatio
    :::
 
    ::: details Using the Visual Editor
-   To add TOTP as a second-factor authenticator using the Visual Editor:
+   To add iProov login using the Visual Editor:
    
-   - Switch to the **Visual Editor** tab. 
+   1. Switch to the **Visual Editor** tab. 
    
-   - Add a new step and select **iProov** as the authenticator.
+   2. Add a second authentication step by clicking the **+** icon and add your iProov connection to this step.
 
 3. Click **Update** to save the sign-in flow.
 
@@ -118,6 +121,6 @@ Follow the steps given below:
 
 4. Grant Camera Access to use iProov.
 
-5. Click on **Scan Face** button.
+5. Click **Scan Face**.
 
 6. Complete the iProov authentication process.
