@@ -65,19 +65,19 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
       </tr>
       <tr>
           <td>OAuth Password</td>
-          <td>Provide the OAuth Password from the service provider created in iProov.</td>
+          <td>Provide the OAuth password from the service provider created in iProov.</td>
       </tr>
       <tr>
           <td>API Key</td>
-          <td>Provide the API Key from the service provider created in iProov.</td>
+          <td>Provide the API key obtained from the service provider created in iProov.</td>
       </tr>
       <tr>
           <td>API Secret</td>
-          <td>Provide the API Secret from the service provider created in iProov.</td>
+          <td>Provide the API secret obtained from the service provider created in iProov.</td>
       </tr>
       <tr>
           <td>Enable Progressive Enrollment</td>
-          <td>Enable progressive enrollment to allow users to enroll with iProov during login.</td>
+          <td>Enable this to allow users to enroll with iProov during login.</td>
       </tr>
     </table>
 
