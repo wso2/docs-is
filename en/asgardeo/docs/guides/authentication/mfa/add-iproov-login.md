@@ -121,6 +121,6 @@ Follow the steps given below:
 
 4. Grant Camera Access to use iProov.
 
-5. Click on **Scan Face** button.
+5. Click **Scan Face**.
 
 6. Complete the iProov authentication process.
