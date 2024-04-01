@@ -78,7 +78,7 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
       </tr>
       <tr>
           <td>Enable Progressive Enrollment</td>
-          <td>Enable progressive enrollment to allow users to enroll with iProov during login.</td>
+          <td>Enable this to allow users to enroll with iProov during login.</td>
       </tr>
     </table>
 
