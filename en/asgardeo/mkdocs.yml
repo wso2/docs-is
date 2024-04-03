@@ -292,10 +292,13 @@ nav:
           - Subscribe to Asgardeo: guides/your-asgardeo/subscribe-to-asgardeo/index.md
           - via Billing Portal: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal.md
           - via Azure Marketplace: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-azure-marketplace.md
+      - Asgardeo logs:
+        - Asgardeo logs: guides/asgardeo-logs/index.md
+        - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
+        - Audit logs: guides/asgardeo-logs/audit-logs.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
-        - Diagnostic logs: guides/monitoring/diagnostic-logs.md
         - Asgardeo events: guides/monitoring/asgardeo-events.md
       - Organization insights: guides/organization-insights.md
   - Tutorials:
