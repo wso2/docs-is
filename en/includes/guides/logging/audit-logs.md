@@ -6,6 +6,8 @@ In the event of incidents or errors, audit logs serve as a valuable forensic too
 
 This guide provides instructions on how to access and analyze audit logs to monitor and investigate system activities effectively.
 
+{{ toml_config }}
+
 ## Access audit logs
 
 To access audit logs:
