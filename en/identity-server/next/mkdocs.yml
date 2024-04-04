@@ -542,7 +542,6 @@ nav:
         - Manage Console access: guides/your-is/manage-console-access.md
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
-      - Audit logs: guides/audit-logs.md
       - Multitenancy:
         - Multitenancy: guides/multitenancy/index.md
         - Manage tenants: guides/multitenancy/manage-tenants.md
