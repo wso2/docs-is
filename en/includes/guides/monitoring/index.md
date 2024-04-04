@@ -2,10 +2,6 @@
 
 Use monitoring features in {{ product_name }} to analyze user behavior.
 
-## Diagnostic logs
-
-Use diagnostic logs to diagnose and troubleshoot issues that occur in {{ product_name }}. Learn about different log types and log filtering capabilities in the [diagnostic logs documentation]({{base_path}}/guides/monitoring/diagnostic-logs/).
-
 
 ## {{ product_name }} events
 
