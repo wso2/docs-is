@@ -10,7 +10,7 @@ To access audit logs:
 
 2. Switch to the **Diagnostic** tab.
 
-    ![Asgardeo logs]({{base_path}}/assets/img/guides/logging/diagnostic-logs-display.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Asgardeo logs]({{base_path}}/assets/img/guides/asgardeo-logs/diagnostic-logs-display.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 By default, the console displays logs that occurred in the last 15 minutes.
 
@@ -20,7 +20,7 @@ You can use the search bar to search for logs based on the Trace ID, Action ID, 
 
 For example, the diagram below shows the results for a search based on the Result Message.
 
-![Asgardeo logs search bar]({{base_path}}/assets/img/guides/logging/logs-search-bar.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Asgardeo logs search bar]({{base_path}}/assets/img/guides/asgardeo-logs/logs-search-bar.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Add custom logs to authentication scripts
 
@@ -46,7 +46,7 @@ Log.info('Allowed groups: ' + allowedGroups.toString());
 
 Once a user attempts to log in, this information is logged in the logs portal as shown below.
 
-![Info logs in conditional authentication]({{base_path}}/assets/img/guides/logging/info-log-conditional-auth.png){: width="550" style="border: 0.3px solid lightgrey;"}
+![Info logs in conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/info-log-conditional-auth.png){: width="550" style="border: 0.3px solid lightgrey;"}
 
 <br>
 
@@ -67,7 +67,7 @@ executeStep(1, {
 ```
 Once a user succeeds the first login step, the debug log appears in the logs portal as shown below.
 
-![Debug logs in conditional authentication]({{base_path}}/assets/img/guides/logging/debug-log-conditional-auth.png){: width="550" style="border: 0.3px solid lightgrey;"}
+![Debug logs in conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/debug-log-conditional-auth.png){: width="550" style="border: 0.3px solid lightgrey;"}
 
 <br>
 
@@ -86,7 +86,7 @@ Conditional authentication scripts can generate two types of error logs in the l
     ```
     Once a user attempts to log in, the error is logged in the logs portal as shown below.
 
-    ![Error logs due to syntax in conditional authentication]({{base_path}}/assets/img/guides/logging/error-log-syntax-error-conditional-auth.png){: width="700" style="border: 0.3px solid lightgrey;"}
+    ![Error logs due to syntax in conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/error-log-syntax-error-conditional-auth.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
     <br>
 
@@ -109,7 +109,7 @@ Conditional authentication scripts can generate two types of error logs in the l
     ```
     Once an unauthorized user attempts to log in, the error is logged in the logs portal as shown.
 
-    ![Error logs in conditional authentication]({{base_path}}/assets/img/guides/logging/error-log-conditional-auth.png){: width="700" style="border: 0.3px solid lightgrey;"}
+    ![Error logs in conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/error-log-conditional-auth.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
     <br>
 
@@ -176,7 +176,7 @@ Follow the steps below to observe an application error log due to incorrect clie
 
 3. Go to the logs portal on the Asgardeo Console and observe the following error log.
 
-    ![Asgardeo logs invalid credentials]({{base_path}}/assets/img/guides/logging/logs-invalid-credentials.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Asgardeo logs invalid credentials]({{base_path}}/assets/img/guides/asgardeo-logs/logs-invalid-credentials.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Conditional authentication
 
@@ -192,4 +192,4 @@ Follow the steps below to observe an application error log due to not meeting th
 
 5. Go to the logs portal on the Asgardeo Console and observe the following error log.
 
-    ![Asgardeo logs conditional authentication]({{base_path}}/assets/img/guides/logging/logs-conditional-authentication.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Asgardeo logs conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/logs-conditional-authentication.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

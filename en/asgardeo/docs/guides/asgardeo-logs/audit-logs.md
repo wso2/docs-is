@@ -14,7 +14,7 @@ To access audit logs:
 
 2. Switch to the **Audit** tab.
 
-    ![Audit logs UI]({{base_path}}/assets/img/guides/logging/audit-logs/audit-logs-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Audit logs UI]({{base_path}}/assets/img/guides/asgardeo-logs/audit-logs/audit-logs-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 By default, the console displays logs that occurred in the last 15 minutes.
 
@@ -24,13 +24,13 @@ You can use the search bar to search for logs based on the properties of an audi
 
 For example, the diagram below shows the results for a search filtered with the `actionId`.
 
-![Search audit logs]({{base_path}}/assets/img/guides/logging/audit-logs/search-audit-logs.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Search audit logs]({{base_path}}/assets/img/guides/asgardeo-logs/audit-logs/search-audit-logs.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Structure of an audit log
 
 When you expand an audit log in Asgardeo by clicking on it, you will get the following view.
 
-![Expanded audit log view]({{base_path}}/assets/img/guides/logging/audit-logs/expanded-view-audit-log.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Expanded audit log view]({{base_path}}/assets/img/guides/asgardeo-logs/audit-logs/expanded-view-audit-log.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 The following are the properties of an audit log:
 
@@ -87,10 +87,10 @@ Follow the steps below to observe an audit log due to user onboarding:
 
 3. Switch to the **Audit** tab, expand the latest with the `add-user` tag, and observe the following audit log.
 
-    ![Audit log for user onboarding]({{base_path}}/assets/img/guides/logging/audit-logs/audit-logs-scenario.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Audit log for user onboarding]({{base_path}}/assets/img/guides/asgardeo-logs/audit-logs/audit-logs-scenario.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click on **View** next to the `data` property to see additional data related to this action.
 
-    ![auditlog data viewer]({{base_path}}/assets/img/guides/logging/audit-logs/auditlog-data-viewer.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![auditlog data viewer]({{base_path}}/assets/img/guides/asgardeo-logs/audit-logs/auditlog-data-viewer.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     You can also **Copy** and **Download** the additional data presented in the Auditlog Data Viewer.
