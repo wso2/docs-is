@@ -10,7 +10,7 @@ Follow the steps below to purchase an Asgardeo subscription via the Azure Market
 
     - [Asgardeo for B2C](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wso2inc1602241248883.asgardeo_b2c?tab=Overview) - Manage your customers and secure access to customer-facing applications.
     - [Asgardeo for B2B](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wso2inc1602241248883.asgardeo_b2b?tab=Overview) - Manage business customers and partners and secure access to your B2B applications.
-    - [Asgardeo for B2E](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wso2inc1602241248883.asgardeo_b2e?tab=Overview) - Manage your organization employees and secure access to critical internal applications and services.
+    - [Asgardeo for B2E](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wso2inc1602241248883.asgardeo_b2e_enterprise?tab=Overview) - Manage your organization employees and secure access to critical internal applications and services.
 
     !!! note
         Learn more about Azure Marketplace SaaS offerings in the [Microsoft documentation](https://learn.microsoft.com/en-us/marketplace/purchase-saas-offer-in-azure-portal).
