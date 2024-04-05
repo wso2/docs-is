@@ -92,7 +92,7 @@ This section elaborates on the advanced settings available for OIDC applications
 
 ### Proof Key for Code Exchange(PKCE)
 
-When using [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) along with the [authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/#get-tokens){:target="_blank"} grant, the application sends a `code challenge` in the authorization request and subsequently, sends the corresponding `code verifier` in the token request.
+When using [PKCE](https://datatracker.ietf.org/doc/html/rfc7636){:target="_blank"} along with the [authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/#get-tokens) grant, the application sends a `code challenge` in the authorization request and subsequently, sends the corresponding `code verifier` in the token request.
 
 PKCE ensures that the authorization code is sent to the same client making the request and no malicious application has intercepted the code during the delivery process. {{product_name}} supports the following options for PKCE:
 
