@@ -2,7 +2,7 @@
 
 Single-page apps (SPAs) by design run with the source code exposed in the browser, which means that they cannot maintain any secrets. These kinds of applications are called public clients.
 
-Based on the [OAuth 2.0 best practices for browser-based apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-08), {{ product_name }} recommends securing your SPAs using the OpenID Connect Authorization Code Flow for public clients with the PKCE ([Proof Key for Code Exchange](https://datatracker.ietf.org/doc/html/rfc7636)) extension.
+Based on the [OAuth 2.0 best practices for browser-based apps](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-08){:target="_blank"}, {{ product_name }} recommends securing your SPAs using the OpenID Connect Authorization Code Flow for public clients with the PKCE ([Proof Key for Code Exchange](https://datatracker.ietf.org/doc/html/rfc7636){:target="_blank"}) extension.
 
 See the guides given below to add login to your SPAs with {{ product_name }}.
 
