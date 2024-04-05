@@ -1,6 +1,6 @@
 # Sign-In With Ethereum
 
-**Sign-In With Ethereum** is an open standard for authentication that enables users to control their digital identity with their [Ethereum](https://ethereum.org/) account. The integration uses the open-source OIDC Provider built by [Login.xyz](https://login.xyz), which is hosted under [oidc.signinwithethereum.org](https://oidc.signinwithethereum.org).
+**Sign-In With Ethereum** is an open standard for authentication that enables users to control their digital identity with their [Ethereum](https://ethereum.org/){:target="_blank"} account. The integration uses the open-source OIDC Provider built by [Login.xyz](https://login.xyz){:target="_blank"}, which is hosted under [oidc.signinwithethereum.org](https://oidc.signinwithethereum.org){:target="_blank"}.
 
 Follow this guide for instructions on how to set up Sign-In With Ethereum in {{ product_name }}.
 
@@ -9,7 +9,7 @@ Follow this guide for instructions on how to set up Sign-In With Ethereum in {{ 
 You need to register {{ product_name }} as an OIDC client application in `oidc.signinwithethereum.org`.
 
 !!! note
-    Follow the [Sign-In With Ethereum documentation](https://docs.login.xyz/servers/oidc-provider/hosted-oidc-provider) for detailed instructions.
+    Follow the [Sign-In With Ethereum documentation](https://docs.login.xyz/servers/oidc-provider/hosted-oidc-provider){:target="_blank"} for detailed instructions.
 
 1. To register a new OIDC client, use the following `curl` command.
 

@@ -11,7 +11,7 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
 1. Create a service account in Google.
 
-    1. Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager) and create a new project.
+    1. Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager){:target="_blank"} and create a new project.
 
     2. Search for the project you created and click it.
 
@@ -45,7 +45,7 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
 5. Delegate domain-wide authority to the service account:
 
-    1. Go to your domain's [admin console](https://admin.google.com).
+    1. Go to your domain's [admin console](https://admin.google.com){:target="_blank"}.
 
     2. Navigate to **Security** > **Access and data control** > **API Controls** > **Domain-wide Delegation**.
 
@@ -59,7 +59,7 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
 7. Enable the Admin SDK.
 
-    1. Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager).
+    1. Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager){:target="_blank"}.
 
     2. Click the menu icon, and click **APIs & Services** > **Dashboards**.
 

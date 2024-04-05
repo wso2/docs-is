@@ -1,6 +1,6 @@
 # Integrate OIDC with your Java EE webapp
 
-Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent) which enables OIDC-based login and logout.
+Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent){:target="_blank"} which enables OIDC-based login and logout.
 
 <div class="border-text">
   <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="React" width=50><br>
@@ -8,8 +8,8 @@ Follow the steps given below to authenticate users to your Java EE web applicati
 </div>
 
 ## Prerequisites
-- [Download](https://tomcat.apache.org/tomcat-9.0-doc/) Apache Tomcat 9.x or 8.x in your local environment.
-- [Download](https://maven.apache.org/download.cgi), and [install](https://maven.apache.org/install.html) Apache Maven (3.6.x or higher) as the package manager if you already haven't.
+- [Download](https://tomcat.apache.org/tomcat-9.0-doc/){:target="_blank"} Apache Tomcat 9.x or 8.x in your local environment.
+- [Download](https://maven.apache.org/download.cgi){:target="_blank"}, and [install](https://maven.apache.org/install.html){:target="_blank"} Apache Maven (3.6.x or higher) as the package manager if you already haven't.
 - You need to have an application registered in the {{ product_name }}. If you don't, see the instructions on [registering an OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/).
 
 ## Install the SDK
@@ -68,7 +68,7 @@ skipURIs=<YOUR_APP_PATH>/index.html
 ```
 
 A comprehensive list of the properties used above can be found in
-the [Configuration Catalog](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/blob/master/io.asgardeo.tomcat.oidc.sample/src/main/resources/configuration-catalog.md)
+the [Configuration Catalog](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/blob/master/io.asgardeo.tomcat.oidc.sample/src/main/resources/configuration-catalog.md){:target="_blank"}
 .
 
 Finally, copy and paste the following configuration to the _<YOUR_APP>/src/main/webapp/WEB-INF/web.xml_ file.
@@ -131,4 +131,4 @@ When the user initiates the logout, the local authenticated application session 
 </form>
 ```
 
-See the [Tomcat OIDC Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent#how-it-works) for more information on how it works.
+See the [Tomcat OIDC Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent#how-it-works){:target="_blank"} for more information on how it works.

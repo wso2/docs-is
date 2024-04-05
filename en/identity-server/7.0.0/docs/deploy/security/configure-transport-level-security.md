@@ -32,7 +32,7 @@ Therefore, to disable the weak ciphers, you must ensure that only the ciphers yo
 3. Add the following configuration to the `deployment.toml` file by adding the list of ciphers that you want your server to support as follows:
 
     !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
+        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6){:target="_blank"}, which the Mozilla Foundation provides.
 
     ```toml
     [transport.https.sslHostConfig.properties]
@@ -57,7 +57,7 @@ Therefore, to disable the weak ciphers, you must ensure that only the ciphers yo
 From **Firefox 39.0** onwards, the browser does not allow access to websites that support DHE with keys less than `1023` bits (not just `DHE\_EXPORT`). `768/1024` bits are considered too small and vulnerable to attacks if the hacker has enough computing resources.
 
 !!! tip
-    To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+    To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html){:target="_blank"}.
     
     From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048`. It rejects all algorithms that have key sizes less than `2048` for `MD2`, `DSA`, and `RSA`.
 
@@ -71,7 +71,7 @@ Follow the instructions given below to enable SSL protocols and ciphers in `Thri
 1. Add the following configurations by adding the supported cipher suites as a comma-separated list in the `<CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml` file as sub-elements of the root `<Server>` element.
 
     !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3  protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
+        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3  protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6){:target="_blank"}, which the Mozilla Foundation provides.
 
     ``` java
     <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>

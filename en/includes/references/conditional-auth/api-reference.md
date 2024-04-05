@@ -320,7 +320,7 @@ This function redirects the user to an error page. It includes the parameters li
 
 ## Utility functions
 
-The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions).
+The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions){:target="_blank"}.
 
 ### Check group membership
 
@@ -583,7 +583,7 @@ This function sends an email to the specified user. It includes the parameters l
 
 ### Call a Choreo API
 
-This function invokes an API hosted in [Choreo](https://wso2.com/choreo/). It includes the parameters listed below.
+This function invokes an API hosted in [Choreo](https://wso2.com/choreo/){:target="_blank"}. It includes the parameters listed below.
 
 !!! note "Important"
     Note that to use the `callChoreo` function, the API should,

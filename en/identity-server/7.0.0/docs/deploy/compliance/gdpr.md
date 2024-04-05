@@ -5,7 +5,7 @@ PII can be any information that can uniquely identify an individual, such as the
 
 GDPR affects organizations that are located in places within the EU, organizations that are located in places where the EU laws are followed, or when the clients of these organizations are EU citizens. Apart from these, there are special cases that do not fall under any of the previous scenarios but need to comply with the regulation nevertheless.
 
-For more information on the fundamentals of this regulation, see [Defining a Winning GDPR Strategy](https://wso2.com/library/article/2017/12/introduction-to-gdpr/).
+For more information on the fundamentals of this regulation, see [Defining a Winning GDPR Strategy](https://wso2.com/library/article/2017/12/introduction-to-gdpr/){:target="_blank"}.
 
 ## How is a specialized IAM solution better at complying with regulations?
 
@@ -64,7 +64,7 @@ The following features are supported as part of **My Account**:
 
     WSO2 IS provides an out-of-the-box privacy toolkit to remove all identifying data from related databases and log files. This toolkit can be run manually by organization administrators or can be automated so that whenever a user profile gets deleted from the system, all the related PII data gets removed from the system.
 
-    By considering performance overhead and automation flexibility, this privacy toolkit is run separately from WSO2 IS runtime. For older versions of WSO2 IS, it is required to download the WSO2 Privacy Toolkit from [here](https://github.com/wso2/identity-anonymization-tool) separately.
+    By considering performance overhead and automation flexibility, this privacy toolkit is run separately from WSO2 IS runtime. For older versions of WSO2 IS, it is required to download the WSO2 Privacy Toolkit from [here](https://github.com/wso2/identity-anonymization-tool){:target="_blank"} separately.
 
     When it comes to **Right to be forgotten**, WSO2 IS supports the following features.
 
@@ -113,7 +113,7 @@ GDPR defines six lawful means of processing individual data.
 - A public task
 - Legitimate interests
 
-Out of these, consent from an individual is considered the most crucial since it is a data processing law that applies to a wide spectrum of business activities. For more information on lawful data processing, see [Defining a Winning GDPR Strategy Part 2 - 7 Steps for GDPR Compliance](https://wso2.com/library/article/2017/12/7-steps-for-gdpr-compliance/).
+Out of these, consent from an individual is considered the most crucial since it is a data processing law that applies to a wide spectrum of business activities. For more information on lawful data processing, see [Defining a Winning GDPR Strategy Part 2 - 7 Steps for GDPR Compliance](https://wso2.com/library/article/2017/12/7-steps-for-gdpr-compliance/){:target="_blank"}.
 
 According to GDPR, consent is defined as “ *Any freely given, specific, informed and unambiguous indication of the data subject’s wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her* ”.
 
@@ -135,22 +135,22 @@ It also supports the following features.
 5. Secure RESTful consent management API facilitates the use of WSO2 IS as the consent lifecycle management solution for third-party applications such as web and mobile applications.
 
 !!! note
-    WSO2 IS also supports the Consent Receipt Specification draft from Kantara Initiative. For more information on this draft, see  [Proposing a global consent receipt standard](https://kantarainitiative.org/proposing-a-global-consent-receipt-standard/).
+    WSO2 IS also supports the Consent Receipt Specification draft from Kantara Initiative. For more information on this draft, see  [Proposing a global consent receipt standard](https://kantarainitiative.org/proposing-a-global-consent-receipt-standard/){:target="_blank"}.
 
 
 !!! info "Related topics"
     To understand GDPR more elaborately, take a look at this tutorial series on *Creating a Winning GDPR Strategy*.
 
     -   Part 1 - [Introduction to
-        GDPR](https://wso2.com/library/article/2017/12/introduction-to-gdpr/)
+        GDPR](https://wso2.com/library/article/2017/12/introduction-to-gdpr/){:target="_blank"}
 
     -   Part 2 - [7 Steps for GDPR
-    Compliance](https://wso2.com/library/article/2017/12/7-steps-for-gdpr-compliance/)
+    Compliance](https://wso2.com/library/article/2017/12/7-steps-for-gdpr-compliance/){:target="_blank"}
 
     -   Part 3 - [Identity and Access Management to the
-        Rescue](https://wso2.com/library/article/2018/2/identity-and-access-management-to-the-rescue/)
+        Rescue](https://wso2.com/library/article/2018/2/identity-and-access-management-to-the-rescue/){:target="_blank"}
 
     -   Part 4 - [GDPR Compliant Consent
-        Design](https://wso2.com/library/articles/2018/03/creating-a-winning-gdpr-strategypart-4-gdpr-compliant-consent-design/)
+        Design](https://wso2.com/library/articles/2018/03/creating-a-winning-gdpr-strategypart-4-gdpr-compliant-consent-design/){:target="_blank"}
 
-    For more resources on GDPR, see the white papers, case studies, solution briefs, webinars, and talks published on the [WSO2 GDPR homepage](https://wso2.com/solutions/regulatory-compliance/gdpr/). See the original GDPR legal text [here](http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32016R0679).
+    For more resources on GDPR, see the white papers, case studies, solution briefs, webinars, and talks published on the [WSO2 GDPR homepage](https://wso2.com/solutions/regulatory-compliance/gdpr/){:target="_blank"}. See the original GDPR legal text [here](http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32016R0679){:target="_blank"}.

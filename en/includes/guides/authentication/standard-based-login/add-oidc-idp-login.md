@@ -68,7 +68,7 @@ Now, let's register the OIDC IdP in {{ product_name }}.
     - **JWKS endpoint**: The JWKS endpoint of the external identity provider.
     - **Use PEM certificate**: Upload or paste the public certificate of the external identity provider. The certificate should be in PEM format.
 
-        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/)"
+        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
             **Convert CRT to PEM**
             ```bash
             openssl x509 -in cert.crt -out cert.pem

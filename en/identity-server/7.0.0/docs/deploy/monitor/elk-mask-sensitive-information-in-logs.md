@@ -11,7 +11,7 @@ Follow the instructions given below to configure Filebeast to masksensitive info
 
     !!! info
         The given sample replaces the value in the **username** field in the event to **MASKED**. This is done
-        with the [replace() function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) in Javascript.
+        with the [replace() function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace){:target="_blank"} in Javascript.
 
     ```
     filebeat.inputs:

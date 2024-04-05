@@ -33,7 +33,7 @@ Follow the steps given below to Provide Certificate.
 2. Upload the certificate file or copy the certificate contents
 <br>
 
-??? note "If you have certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to convert your certs to PEM format using [OpenSSL](https://www.openssl.org/)"
+??? note "If you have certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to convert your certs to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
     **Convert CRT to PEM**
     ```
     openssl x509 -in cert.crt -out cert.pem

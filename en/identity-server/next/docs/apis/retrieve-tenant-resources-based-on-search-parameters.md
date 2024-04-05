@@ -28,7 +28,7 @@ query](#write-a-configuration-management-search-query).
 
 Configuration management search query is a [Open Data
 Protocol](https://www.odata.org/) based search query supported via
-[Apache CXF](http://cxf.apache.org/docs/jax-rs-search.html#JAX-RSSearch-OpenDataProtocol).
+[Apache CXF](http://cxf.apache.org/docs/jax-rs-search.html#JAX-RSSearch-OpenDataProtocol){:target="_blank"}.
 
 The configuration management search query is a search condition that is
 built using primitive configuration management search conditions in the

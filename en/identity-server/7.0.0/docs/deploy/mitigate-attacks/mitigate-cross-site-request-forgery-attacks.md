@@ -19,7 +19,7 @@ The attack includes maliciously tricking you to click a URL or HTML content that
 
 ## Mitigate CSRF attacks
 
-[OWASPCSRFGuard](https://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project) is an OWASP flagship project that provides synchronizer token pattern-based CSRF protection in a comprehensive and customizable manner. You can use the best practices and configuration recommendations of OWASP CSRFGuard to mitigate CSRF attacks in applications hosted on the WSO2 platform.
+[OWASPCSRFGuard](https://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project){:target="_blank"} is an OWASP flagship project that provides synchronizer token pattern-based CSRF protection in a comprehensive and customizable manner. You can use the best practices and configuration recommendations of OWASP CSRFGuard to mitigate CSRF attacks in applications hosted on the WSO2 platform.
 Fine-tuned configuration values of CSRFGuard increase security, based on the security requirements of the specific application.
 
 CSRFGuard offers complete protection over CSRF scenarios by covering HTTP POST, HTTP GET as well as AJAX-based requests. You can protect forms based on HTTP POST and HTTP GET methods by injecting CSRF tokens into the “action” of the form, or by embedding a token in a hidden field.

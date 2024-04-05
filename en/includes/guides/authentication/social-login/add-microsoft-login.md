@@ -10,9 +10,9 @@ Follow this guide for instructions.
 You need to register {{ product_name }} as an OAuth2.0 application on Microsoft Entra ID.
 
 !!! note
-    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
+    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app){:target="_blank"}.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) using an account with administrator permission.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/){:target="_blank"} using an account with administrator permission.
 
     !!! note
         You must use an account in the same Microsoft 365 subscription (tenant) with which you intend to register the app.
@@ -97,7 +97,7 @@ After the Microsoft identity provider is created, go to the **Settings** tab and
 - **profile**: Allows to view the user's basic profile data.
 
 !!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Microsoft to the app. You can read the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#openid-connect-scopes) to learn more.
+    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Microsoft to the app. You can read the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#openid-connect-scopes){:target="_blank"} to learn more.
 
 
 ## Enable Microsoft login

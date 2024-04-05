@@ -30,6 +30,6 @@ The following terms refer to the different phases of the feature deprecation lif
 
 ## Support / SLA for deprecated features
 
-Refer EOL dates of a product at [WSO2 Product Support Lifecycle](https://wso2.com/products/support-matrix/).
+Refer EOL dates of a product at [WSO2 Product Support Lifecycle](https://wso2.com/products/support-matrix/){:target="_blank"}.
 
-Contact [WSO2 Support](https://support.wso2.com/support) for details on this.
+Contact [WSO2 Support](https://support.wso2.com/support){:target="_blank"} for details on this.

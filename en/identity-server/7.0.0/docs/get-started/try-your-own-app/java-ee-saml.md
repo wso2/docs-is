@@ -1,6 +1,6 @@
 # Integrate SAML with your Java EE webapp
 
-Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent) which enables SAML-based login and logout.
+Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent){:target="_blank"} which enables SAML-based login and logout.
 
 <div class="border-text">
   <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="React" width=50><br>
@@ -9,9 +9,9 @@ Follow the steps given below to authenticate users to your Java EE web applicati
 
 ## Prerequisites
 
-- [Download](https://tomcat.apache.org/tomcat-9.0-doc/) Apache Tomcat 9.x or 8.x in your local environment.
-- [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) Apache Maven (3.6.x or higher) as the package manager if you already haven't.
-- You need to have an application already registered in the {{ product_name }}. If you don't, see the instructions on [registering a SAML application]({{base_path}}/guides/applications/register-saml-web-app/).
+- [Download](https://tomcat.apache.org/tomcat-9.0-doc/){:target="_blank"} Apache Tomcat 9.x or 8.x in your local environment.
+- [Download](https://maven.apache.org/download.cgi){:target="_blank"} and [install](https://maven.apache.org/install.html){:target="_blank"} Apache Maven (3.6.x or higher) as the package manager if you already haven't.
+- You need to have an application already registered in the {{ product_name }}. If you don't, see the instructions on [registering a SAML application]({{base_path}}/guides/applications/register-saml-web-app/){:target="_blank"}.
 
 ## Install the SDK
 
@@ -48,7 +48,7 @@ Follow the steps given below to install the SAML agent.
     </repositories>
     ```
 
-See the [reference documentation](https://github.com/asgardeo/asgardeo-tomcat-saml-agent/blob/master/README.md) to learn more.
+See the [reference documentation](https://github.com/asgardeo/asgardeo-tomcat-saml-agent/blob/master/README.md){:target="_blank"} to learn more.
 
 ## Initialize the SDK
 
@@ -211,7 +211,7 @@ Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/r
   </tbody>
 </table>
 
-See the complete list of [configuration properties](https://github.com/asgardeo/asgardeo-tomcat-saml-agent/blob/master/io.asgardeo.tomcat.saml.agent.sample/src/main/resources/configuration-catalog.md).
+See the complete list of [configuration properties](https://github.com/asgardeo/asgardeo-tomcat-saml-agent/blob/master/io.asgardeo.tomcat.saml.agent.sample/src/main/resources/configuration-catalog.md){:target="_blank"}.
 
 ### Configure the keystore
 
@@ -278,4 +278,4 @@ Add the following snippet to enable logout.
 </form>
 ```
 
-See the [Tomcat SAML Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-saml-agent#how-it-works) for more information.
+See the [Tomcat SAML Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-saml-agent#how-it-works){:target="_blank"} for more information.

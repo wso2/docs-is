@@ -8,7 +8,7 @@ This document explains the steps to configure WSO2 Identity Server to send notif
 
 The WSO2 Identity Server 7.0.0 provides API support to fetch the user IDs for individuals falling under these categories. By configuring an external scheduler task, you can retrieve the list of users and send notifications through the preferred channel.
 
-This tutorial illustrates how to send email notifications daily for users whose passwords will expire in 3 days with the [Azure Function App](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python).
+This tutorial illustrates how to send email notifications daily for users whose passwords will expire in 3 days with the [Azure Function App](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python){:target="_blank"}.
 
 ### Configure WSO2 Identity Server
 
@@ -26,13 +26,13 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 ### Setup Azure Function App
 
-**Step 4:** Sign in to [Azure portal](https://portal.azure.com/#home) with your Azure subscription.
+**Step 4:** Sign in to [Azure portal](https://portal.azure.com/#home){:target="_blank"} with your Azure subscription.
 
-**Step 5:** Create a function app in Azure as discribed [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-python#create-a-function-app). Select `Python` as the `Runtime stack` and `Linux` as the `Operating System`.
+**Step 5:** Create a function app in Azure as discribed [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-python#create-a-function-app){:target="_blank"}. Select `Python` as the `Runtime stack` and `Linux` as the `Operating System`.
 
 ### Develop Azure Function with Visual Studio Code
 
-**Step 6:** First [Setup the Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites) and [local environment](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites) to develop a Azure Function with Visual Studio Code.
+**Step 6:** First [Setup the Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} and [local environment](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} to develop a Azure Function with Visual Studio Code.
 
 **Step 7:** Click the button below to download the sample Azure Funtion. You can also choose to view the source before doing so.
 
@@ -135,10 +135,10 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 **Step 10:** Copy and replace the files from the sample Azure Function into the directory created in the previous step.
 
-**Step 11:** You can test the Funtion App locally as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&tabs=isolated-process#run-the-function-locally) befor deploying it to Azure.
+**Step 11:** You can test the Funtion App locally as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&tabs=isolated-process#run-the-function-locally){:target="_blank"} befor deploying it to Azure.
 
 ### Deploy Function App to Azure
 
-**Step 12** Deploy the Azure Function App as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#republish-project-files).
+**Step 12** Deploy the Azure Function App as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#republish-project-files){:target="_blank"}.
 
 The Azure Function is now configured to send daily email notifications for users whose passwords will expire in 3 days.

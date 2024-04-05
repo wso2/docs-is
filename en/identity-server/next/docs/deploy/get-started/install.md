@@ -129,7 +129,7 @@ These applications are mandatory and are required to run the binary distribution
 
 #### Required applications to run samples and build from source
 
-These applications are required for [building the product from the source distribution](https://wso2.github.io/using-maven.html), and compiling and running product samples.
+These applications are required for [building the product from the source distribution](https://wso2.github.io/using-maven.html){:target="_blank"}, and compiling and running product samples.
 
 !!! warning
     If you are installing by downloading and extracting the binary distribution (as recommended for most users) instead of building from the source code, you do not need to install Maven.
@@ -255,7 +255,7 @@ Follow the instructions below to install the WSO2 Identity Server on Windows.
 1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
 2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
-3. Set the `CARBON_HOME` environment variable by pointing it to the directory where you download the WSO2 Identity Server. For more information on how to do this, see [here](https://www.java.com/en/download/help/path.xml).
+3. Set the `CARBON_HOME` environment variable by pointing it to the directory where you download the WSO2 Identity Server. For more information on how to do this, see [here](https://www.java.com/en/download/help/path.xml){:target="_blank"}.
 
 #### Set up JAVA_HOME
 

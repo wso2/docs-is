@@ -6,7 +6,7 @@ Typically, when you implement a grant type using OIDC in an application, there a
 and the JWT that is set as the `client_assertion`.
 
 !!! note
-    See the list of client authentication methods in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication).
+    See the list of client authentication methods in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication){:target="_blank"}.
 
 Listed below are the high-level steps in the private key JWT client authentication process.
 
@@ -85,7 +85,7 @@ Go to the Certificate section in the **Protocol** tab of your application regist
 
 ## Prepare the JWT payload
 
-Prepare the JSON payload required by the authorization server for client authentication. Given below is a sample payload with only the required data. The complete list of required and optional claims that can be used is defined in the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication).
+Prepare the JSON payload required by the authorization server for client authentication. Given below is a sample payload with only the required data. The complete list of required and optional claims that can be used is defined in the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication){:target="_blank"}.
 
 !!! note
     Note that the audience (`aud`) is the token endpoint URL of the authorization server, and the issuer (`iss`) and the subject (`sub`) is the client ID generated for your application by the authorization server in the previous step.

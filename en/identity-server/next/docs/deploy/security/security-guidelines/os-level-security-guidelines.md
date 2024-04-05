@@ -19,7 +19,7 @@ To identify the minimum software requirements, refer to [installation pre-requis
 
 ## Firewall
 
-Enable a firewall at the OS level (for example, [iptables](https://help.ubuntu.com/community/IptablesHowTo)). This will protect inbound and outbound connections of WSO2 Identity Server. Make sure that you only open the required outbound and inbound ports from the OS-level firewall.
+Enable a firewall at the OS level (for example, [iptables](https://help.ubuntu.com/community/IptablesHowTo){:target="_blank"}). This will protect inbound and outbound connections of WSO2 Identity Server. Make sure that you only open the required outbound and inbound ports from the OS-level firewall.
 
 ## TCP ports used for clustering
 
