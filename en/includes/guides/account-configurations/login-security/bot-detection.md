@@ -1,6 +1,6 @@
 # Bot detection
 
-This guide explains how you can enable bot detection for your applications to mitigate abuse from bots and other automated attacks. {{product_name}} supports [reCAPTCHA](https://developers.google.com/recaptcha/), a service provided by Google which can protect your applications from spam or other forms of internet abuse by distinguishing human requests from automated ones.
+This guide explains how you can enable bot detection for your applications to mitigate abuse from bots and other automated attacks. {{product_name}} supports [reCAPTCHA](https://developers.google.com/recaptcha/){:target="_blank"}, a service provided by Google which can protect your applications from spam or other forms of internet abuse by distinguishing human requests from automated ones.
 
 {% if product_name == "Asgardeo" %}
 {% else %}

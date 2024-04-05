@@ -10,9 +10,9 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
         - Chrome 67 and above
         - Firefox 60 and above
         - Edge 17723 and above
-    - Passkey login with [platform authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=types%20of%20authenticators%3A-,Platform%20authenticators,-%2C%20also%20known%20as) will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
-    - Passkey login with [roaming authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=Roaming%20authenticators) will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
-    - Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to stay up-to-date with the device support for FIDO2 passkeys.
+    - Passkey login with [platform authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=types%20of%20authenticators%3A-,Platform%20authenticators,-%2C%20also%20known%20as){:target="_blank"} will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
+    - Passkey login with [roaming authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=Roaming%20authenticators){:target="_blank"} will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
+    - Refer to the [passkeys documentation](https://passkeys.dev/device-support/){:target="_blank"} to stay up-to-date with the device support for FIDO2 passkeys.
 
 ## Prerequisites
 

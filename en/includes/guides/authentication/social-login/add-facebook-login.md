@@ -8,11 +8,11 @@ Follow this guide for instructions.
 You need to register {{ product_name }} as an app on Facebook.
 
 !!! note
-    You can follow the [Facebook Documentation](https://developers.facebook.com/docs/development/create-an-app) for detailed instructions.
+    You can follow the [Facebook Documentation](https://developers.facebook.com/docs/development/create-an-app){:target="_blank"} for detailed instructions.
 
 To register an app on Facebook:
 
-1. Log in to the [Facebook developer portal](https://developers.facebook.com/apps) and click **Create App**.
+1. Log in to the [Facebook developer portal](https://developers.facebook.com/apps){:target="_blank"} and click **Create App**.
 
     ![Log on to Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -91,7 +91,7 @@ After the Facebook identity provider is created, go to the **Settings** tab and 
 - **public_profile**: Grants read access to a user's default public profile details.  
 
 !!! note
-    {{ product_name }} needs these permissions to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Facebook to the app. You can read the [Facebook documentation](https://developers.facebook.com/docs/permissions/reference) to learn more.
+    {{ product_name }} needs these permissions to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Facebook to the app. You can read the [Facebook documentation](https://developers.facebook.com/docs/permissions/reference){:target="_blank"} to learn more.
 
 ## Enable Facebook login
 

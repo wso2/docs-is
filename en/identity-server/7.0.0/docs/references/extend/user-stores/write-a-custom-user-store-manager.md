@@ -557,7 +557,7 @@ Once you have done this, start the product and see the log messages that you hav
 
 ## Try out the sample user store manager
 
-1. Build the sample user store manager [here](https://github.com/wso2/samples-is/tree/master/user-mgt/custom-jdbc-user-store-manager) using `mvn clean install` command.
+1. Build the sample user store manager [here](https://github.com/wso2/samples-is/tree/master/user-mgt/custom-jdbc-user-store-manager){:target="_blank"} using `mvn clean install` command.
 2. Copy the generated `org.wso2.custom.user.store-1.0.0.jar` to the `<IS_HOME>/repository/components/dropins` directory.
 3. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to use our custom implementation for user store management.
     ```toml

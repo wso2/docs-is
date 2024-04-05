@@ -32,7 +32,7 @@ Therefore, to disable the weak ciphers, you must ensure that only the ciphers yo
 3. Add the following configuration to the `deployment.toml` file by adding the list of ciphers that you want your server to support as follows:
 
     !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
+        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6){:target="_blank"}, which the Mozilla Foundation provides.
 
     ```toml
     [transport.https.sslHostConfig.properties]
@@ -71,7 +71,7 @@ Follow the instructions given below to enable SSL protocols and ciphers in `Thri
 1. Add the following configurations by adding the supported cipher suites as a comma-separated list in the `<CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml` file as sub-elements of the root `<Server>` element.
 
     !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3  protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
+        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3  protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6){:target="_blank"}, which the Mozilla Foundation provides.
 
     ``` java
     <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>

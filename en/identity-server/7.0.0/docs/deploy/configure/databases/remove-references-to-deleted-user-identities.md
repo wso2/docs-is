@@ -380,7 +380,7 @@ This tool has independent runtime. From IS 6.0.0 onwards, this tool is externali
 If you are using multiple WSO2 products and you want to remove
 references to a particular deleted user from all the products at once,
 you can use the [standalone version of the Identity Anonymization
-tool](https://github.com/wso2/identity-anonymization-tool).
+tool](https://github.com/wso2/identity-anonymization-tool){:target="_blank"}.
 
 To remove references to a particular deleted user from multiple WSO2
 products at once, you have to do necessary configuration changes in the

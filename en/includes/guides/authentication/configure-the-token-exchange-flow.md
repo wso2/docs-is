@@ -44,7 +44,7 @@ To register a trusted token issuer:
     - **JWKS endpoint**: The JWKS endpoint of the trusted token issuer.
     - **Use PEM certificate**: Upload or paste the public certificate of the trusted token issuer. The certificate should be in PEM format.
 
-        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/)"
+        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
             **Convert CRT to PEM**
             ```bash
             openssl x509 -in cert.crt -out cert.pem

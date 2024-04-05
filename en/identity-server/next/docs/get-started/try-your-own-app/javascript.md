@@ -1,9 +1,9 @@
 # Integrate with your JavaScript SPA
 
-Follow the steps given below to authenticate users to your JavaScript SPA with OpenID Connect using the [JavaScript SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk#readme).
+Follow the steps given below to authenticate users to your JavaScript SPA with OpenID Connect using the [JavaScript SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk#readme){:target="_blank"}.
 
 ## Prerequisites
-- [Install npm and node](https://www.npmjs.com/get-npm) in your local environment.
+- [Install npm and node](https://www.npmjs.com/get-npm){:target="_blank"} in your local environment.
 - <a href="{{base_path}}/guides/applications/register-single-page-app">Register an application</a> in the {{ product_name }}.
 
 ## Install the SDK
@@ -94,7 +94,7 @@ This method is used to authenticate the users and to get the authorization code 
 
 Add the following script to the html file and call it from a button. This is used to get the access token from the SDK.
 
-See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-js-sdk#getAccessToken) for more information.
+See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-js-sdk#getAccessToken){:target="_blank"} for more information.
 
 ```js
 <script>
@@ -115,7 +115,7 @@ async function getToken() {
 
 To get the decoded token, call `getDecodedIdToken()` from a button click as shown below. Decoded ID token is useful to get the user attributes in the form of claims.
 
-See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-spa-sdk#getdecodedidtoken) for details.
+See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-spa-sdk#getdecodedidtoken){:target="_blank"} for details.
 
 ```js
 <script>
@@ -184,7 +184,7 @@ There are two ways for you to get user information:
 - Use the `getBasicUserInfo()` API and get basic user information.
 
 To get the basic user information from the SDK, copy the following script and call the `getBasicUserInfo()` from a button.
-See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-spa-sdk#getBasicUserInfo) for details.
+See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-spa-sdk#getBasicUserInfo){:target="_blank"} for details.
 
 ```js
 <script>
@@ -232,7 +232,7 @@ You can loop through the user info response(`userinfoResponse`), and get the fol
 
 In the previous steps, you implemented login for your app and enabled your app to get some information about the user that is logged in. Now you need a way to log users out of your application and remove the user sessions from {{ product_name }}.
 
-See the [signOut API reference](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signout) for advanced usages.
+See the [signOut API reference](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signout){:target="_blank"} for advanced usages.
 
 ```html
 <button onClick="auth.signOut()">Log Out</button>

@@ -1,6 +1,6 @@
 # Register a SAML web app
 
-To integrate your web application with {{ product_name }} using [SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf), you need to first register your application as a SAML application in {{ product_name }}.
+To integrate your web application with {{ product_name }} using [SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf){:target="_blank"}, you need to first register your application as a SAML application in {{ product_name }}.
 
 There are two ways to provide your SAML application configurations to {{ product_name }} during registration:
 

@@ -2,7 +2,7 @@
 
 Start your {{ product_name }} journey with the free plan and use it for as long as you want if it fits your requirements. You can also upgrade to a paid plan, downgrade to a lower plan, or cancel your subscription, as explained below.
 
-See the [pricing details](https://wso2.com/asgardeo/pricing/) and the available resource limits and usage limits for each subscription plan.
+See the [pricing details](https://wso2.com/asgardeo/pricing/){:target="_blank"} and the available resource limits and usage limits for each subscription plan.
 
 ## Upgrade the subscription plan
 
@@ -23,7 +23,7 @@ To upgrade your subscription:
     - **Subscribe to an Essentials or a Professional plan** by following the steps below:
 
         1. Once you have decided on an appropriate plan, click **Upgrade**.
-        2. Enter your billing and payment details and agree to our [terms of fees and payment](https://wso2.com/asgardeo/terms-of-use/#fees-and-payment)
+        2. Enter your billing and payment details and agree to our [terms of fees and payment](https://wso2.com/asgardeo/terms-of-use/#fees-and-payment){:target="_blank"}
 
             ![enter billing details]({{base_path}}/assets/img/guides/self-service-billing-payment.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -83,14 +83,14 @@ Note that the price for each subscription plan varies depending on the business 
 
 This value indicates the total number of users that can be authenticated into your system using {{ product_name }} within a month. Use the slider to select the number of monthly active users (MAU) you expect to have. Note that the price for each subscription plan varies depending on the MAU.
 
-If you are on the free subscription, the MAU count will be throttled when the limit is exceeded. However, for higher subscription plans, additional MAUs will not be throttled but charged as specified in the [{{ product_name }} pricing](https://wso2.com/asgardeo/pricing/) page.
+If you are on the free subscription, the MAU count will be throttled when the limit is exceeded. However, for higher subscription plans, additional MAUs will not be throttled but charged as specified in the [{{ product_name }} pricing](https://wso2.com/asgardeo/pricing/){:target="_blank"} page.
 
 ### Subscription plan
 
 Depending on your selected use case, the available subscription plans will change. You can customize the subscription plan by changing your selected options such as  MAUs, support plan, etc.
 
 !!! note
-    To compare the different subscription plans, go to [{{ product_name }} pricing](https://wso2.com/asgardeo/pricing/).
+    To compare the different subscription plans, go to [{{ product_name }} pricing](https://wso2.com/asgardeo/pricing/){:target="_blank"}.
 
 ![select subscription plan]({{base_path}}/assets/img/guides/select-subscription-plan.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

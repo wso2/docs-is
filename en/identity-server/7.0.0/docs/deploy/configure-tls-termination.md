@@ -7,11 +7,11 @@ When you work with Carbon servers, this will allow you to access admin services 
 
 ## Step 1: Configure the load balancer with TLS termination
 
-See the documentation of the load balancer that you are using for instructions on how to enable TLS termination. For example, see [NGINX SSL Termination](https://www.nginx.com/resources/admin-guide/nginx-ssl-termination/).
+See the documentation of the load balancer that you are using for instructions on how to enable TLS termination. For example, see [NGINX SSL Termination](https://www.nginx.com/resources/admin-guide/nginx-ssl-termination/){:target="_blank"}.
 
 ## Step 2: Enable RemoteIpValve for Carbon servers
 
-You can enable Tomcat's `RemoteIpValve` for your Carbon server by simply adding the configuration to `<IS-HOME>/repository/conf/deployment.toml`. See the [Tomcat documentation](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html) for more information about `RemoteIpValve`.
+You can enable Tomcat's `RemoteIpValve` for your Carbon server by simply adding the configuration to `<IS-HOME>/repository/conf/deployment.toml`. See the [Tomcat documentation](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html){:target="_blank"} for more information about `RemoteIpValve`.
 
 You can find an example below:
 

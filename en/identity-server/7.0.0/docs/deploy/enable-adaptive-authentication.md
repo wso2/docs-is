@@ -21,7 +21,7 @@ Follow the steps below to enable adaptive authentication for a standard deployme
 
 ## For Docker deployments
 
-You can find the docker images for {{product_name}} in the [WSO2 Docker Hub](https://docker.wso2.com/tags.php?repo=wso2is).
+You can find the docker images for {{product_name}} in the [WSO2 Docker Hub](https://docker.wso2.com/tags.php?repo=wso2is){:target="_blank"}.
 
 To create a Docker image with adaptive authentication enabled, add the following commands to your Dockerfile and run it against the base image.
 
