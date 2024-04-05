@@ -6,7 +6,7 @@ This document walks you through the process of upgrading WSO2 Identity Server.
 
 There are multiple reasons why you would want to upgrade the WSO2 product to the latest version. These reasons include but are not limited to the following:
 
-- The current product version you are using is reaching its end of life. To see if this is the case, view the [support matrix documentation](https://wso2.com/products/support-matrix/).
+- The current product version you are using is reaching its end of life. To see if this is the case, view the [support matrix documentation](https://wso2.com/products/support-matrix/){:target="_blank"}.
 - You want to leverage the new features of the latest version of the product.
 - The version of the product you have does not have certain security and bug fixes that you require.
 
@@ -24,8 +24,8 @@ If you are ready to start the upgrading process, follow the instructions given b
 
 - If you already have a WSO2 subscription, create a support ticket with your migration requirements and one of our support engineers will get in touch with you.
 
-    [Create a ticket](https://support.wso2.com/support)
+    [Create a ticket](https://support.wso2.com/support){:target="_blank"}
 
 - If you are not a WSO2 customer and still need migration assistance and resources, you may contact us through the link given below. One of our Account Managers will get in touch with you to help.
 
-    [Contact us](https://wso2.com/contact/)
+    [Contact us](https://wso2.com/contact/){:target="_blank"}

@@ -36,7 +36,7 @@ Use the following methods to validate the ID token:
 ## Verify the signature in the ID token
 To validate the signature on the ID token, you need the public key of {{ product_name }}. The signature of ID tokens can be validated using the JWKS endpoint in {{ product_name }}. <!-- See [ID Token validation](https://openid.net/specs/openid-connect-core-1_0.html#TokenResponseValidation) for details.-->
 
-{{ product_name }} exposes the public key information through the standard [JWKS](https://datatracker.ietf.org/doc/html/rfc7517) endpoint.
+{{ product_name }} exposes the public key information through the standard [JWKS](https://datatracker.ietf.org/doc/html/rfc7517){:target="_blank"} endpoint.
 
 By using a signature validation library, you can validate the signature of the ID token using the JWKS endpoint.
 

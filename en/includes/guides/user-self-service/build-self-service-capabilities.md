@@ -90,7 +90,7 @@ Data:
 ```
 
 ??? note "If you are using {{ product_name }}'s React SDK"
-    You can use the <code>[httpRequest](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#httprequest)</code> method to invoke the APIs on {{ product_name }}'s React SDK.
+    You can use the <code>[httpRequest](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#httprequest){:target="_blank"}</code> method to invoke the APIs on {{ product_name }}'s React SDK.
 
     A sample of how to use the `httpRequest` method in [{{ product_name }}'s React SDK]({{base_path}}/get-started/try-your-own-app/react/) is given below:
     

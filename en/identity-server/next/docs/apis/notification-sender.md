@@ -10,7 +10,7 @@ The following section provides the instructions to contruct requests for each no
 
         Refer [email sending module configuration]({{base_path}}/deploy/configure/email-sending-module/) to setup email notification sender for carbon.super tenant.
         Underlying, the event publishers in `IS_HOME/repository/deployment/server/eventpublishers` will send the notifications.
-        For more information on writing an event publisher, see [Event Publisher Types](https://wso2docs.atlassian.net/wiki/spaces/DAS300/pages/52462033/Event+Publisher+Types).
+        For more information on writing an event publisher, see [Event Publisher Types](https://wso2docs.atlassian.net/wiki/spaces/DAS300/pages/52462033/Event+Publisher+Types){:target="_blank"}.
 
     * The following properties are used for internal operations. Therefore, avoid using these properties when configuring notification senders.
 
@@ -23,7 +23,7 @@ The following section provides the instructions to contruct requests for each no
 ??? "Email Sender Configuration"
 
     * If you want to add properties related to email adaptor configurations (eg: SMTP configurations),
-    define property keys with the exact names given in the [Email Event Publisher](https://wso2docs.atlassian.net/wiki/spaces/DAS300/pages/52462036/Email+Event+Publisher) documentation. 
+    define property keys with the exact names given in the [Email Event Publisher](https://wso2docs.atlassian.net/wiki/spaces/DAS300/pages/52462036/Email+Event+Publisher){:target="_blank"} documentation. 
 
 ??? "SMS Sender Configuration"
 
@@ -43,7 +43,7 @@ The following section provides the instructions to contruct requests for each no
     1. Properties that need to be included in SMS provider API’s body should be defined with the prefix, **”body.”**.
     2. If the property named **“body”** is present, the corresponding value will be used as the SMS provider API’s body.
     3. If you want to add properties related to HTTPOutputEventAdaptor, define keys with the exact names defined in the 
-    [HTTP Event Publisher](https://docs.wso2.com/display/DAS300/HTTP+Event+Publisher) documentation.
+    [HTTP Event Publisher](https://docs.wso2.com/display/DAS300/HTTP+Event+Publisher){:target="_blank"} documentation.
 
         Example:
 

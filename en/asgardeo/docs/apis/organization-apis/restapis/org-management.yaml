@@ -7,7 +7,7 @@ info:
     to create, update, retrieve and delete organizations. <br><br>
     
     <b>Important</b>:<br>
-    You need a paid Asgardeo subscription to create hierarchical organizations. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.'
+    You need a paid Asgardeo subscription to create hierarchical organizations. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/){:target="_blank"} and contact the Asgardeo sales team.'
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1'
     variables:

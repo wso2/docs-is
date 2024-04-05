@@ -4,7 +4,7 @@ You can add X login to your applications using {{ product_name }} and enable use
 
 ## Register {{product_name}} on X
 
-1. Log in to the [X Developer Portal](https://developer.twitter.com/) using your X credentials.
+1. Log in to the [X Developer Portal](https://developer.twitter.com/){:target="_blank"} using your X credentials.
 
 2. Navigate to **Projects & Apps**, click **Add project** and provide details of your project.
 

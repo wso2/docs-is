@@ -343,7 +343,7 @@ This function redirects the user to an error page. It includes the parameters li
 
 ## Utility functions
 
-The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions).
+The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions){:target="_blank"}.
 
 ### Check group membership
 

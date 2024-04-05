@@ -5,11 +5,11 @@ TOTP is considered more secure because the passcode is valid only for a short wi
 
 To use TOTP as a multi-factor authentication(MFA) option, application users need to have an authenticator app that can scan the QR code and generate a one-time password. Some authenticator apps are:
 
-- [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2)
-- [Authy](https://play.google.com/store/apps/details?id=com.authy.authy)
+- [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2){:target="_blank"}
+- [Authy](https://play.google.com/store/apps/details?id=com.authy.authy){:target="_blank"}
 
 !!! note
-    TOTP authenticators use the [TOTP specification](https://datatracker.ietf.org/doc/html/rfc6238) to calculate access tokens based on the current time and the secret key shared between the user and the identity provider.
+    TOTP authenticators use the [TOTP specification](https://datatracker.ietf.org/doc/html/rfc6238){:target="_blank"} to calculate access tokens based on the current time and the secret key shared between the user and the identity provider.
 
 ## Prerequisites
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.

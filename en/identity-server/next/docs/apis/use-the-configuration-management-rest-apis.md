@@ -73,7 +73,7 @@ The section below describes each concept in more detail.
     
     For information on the REST APIs, supported operations and sample
     requests/responses, see [Configuration Management APIs
-    Documentation](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/).
+    Documentation](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/){:target="_blank"}.
     
     For information on how to use the /search endpoint of the Configuration
     Management APIs, see [Retrieving Tenant Resources Based on Search
@@ -101,7 +101,7 @@ To store the SMTP email configuration, follow the steps given below:
 2.  Open a terminal window and run the following commands.
 
     1.  Create a resource type named "email" using the [Create resource
-        type](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#ResourceType#resourceTypePost)
+        type](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#ResourceType#resourceTypePost){:target="_blank"}
         API.
 
         !!! abstract ""
@@ -121,7 +121,7 @@ To store the SMTP email configuration, follow the steps given below:
 
     2.  Create a resource named "smtp" in the super tenant domain under
         the "email" resource type using the [Create
-        resource](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#Resource#resourceResourceTypePost)
+        resource](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#Resource#resourceResourceTypePost){:target="_blank"}
         API.  Note that the "from" attribute is defined within this
         sample request. Therefore when the new resource is created a new
         attribute named "from" will be created under the "smtp" resource
@@ -166,7 +166,7 @@ To store the SMTP email configuration, follow the steps given below:
 3.  Next, assume that you now need to add an additional attribute named
     "to" to the "smtp" email configuration. To do this, create a new
     attribute named "to" using the [Create
-    attribute](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#Attribute#resourceResourceTypeResourceNamePost)
+    attribute](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#Attribute#resourceResourceTypeResourceNamePost){:target="_blank"}
     API by running the following command on the terminal.
 
     !!! abstract ""

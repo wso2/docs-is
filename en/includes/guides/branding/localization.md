@@ -127,7 +127,7 @@ The following examples demonstrate how to set the `ui_locales` parameter in your
     You can send the `ui_locales` in the signIn request as a parameter.
   
     !!! note
-        Learn more about [setting the signIn request](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signin) using the {{ product_name }} SDKs.
+        Learn more about [setting the signIn request](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signin){:target="_blank"} using the {{ product_name }} SDKs.
 
     The following sample illustrates the `signIn` request using the JS/React SDK.
 

@@ -150,7 +150,7 @@ Follow the steps given below.
     - `<TOKEN_ENDPOINT_URL>`: Provide the {{ product_name }} token endpoint URL.
     - `<OIDC_APP_CLIENT_ID>`: Provide the OIDC application ID.
     - `<OIDC_APP_CLIENT_SECRET>`: Provide the OIDC application secret that you created when configuring the application in {{ product_name }}.
-    - `claimMappings`: Configure the claims that you need to offer with the verifiable credential to the wallet holder by adding them in the `claimMappings` parameter in the request payload. See the [MATTR-supported credential claim mappings](https://learn.mattr.global/tutorials/web-credentials/issue/oidc-bridge/common-mappings).
+    - `claimMappings`: Configure the claims that you need to offer with the verifiable credential to the wallet holder by adding them in the `claimMappings` parameter in the request payload. See the [MATTR-supported credential claim mappings](https://learn.mattr.global/tutorials/web-credentials/issue/oidc-bridge/common-mappings){:target="_blank"}.
 
     !!! note
         In the step that displays the QR code, we'll refer to the `id` parameter in the response as `{issuer-id}`.

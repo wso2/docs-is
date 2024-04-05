@@ -2,7 +2,7 @@
 
 In {{ product_name }}, each piece of user information is mapped to a [user attribute]({{base_path}}/guides/users/attributes/manage-attributes/).
 
-[OpenID Connect (OIDC) Scopes](https://openid.net/specs/) are a convenient way of grouping such user attributes. Applications can use scopes to request access to the user attributes corresponding to them. Access to other attributes that do not belong to the requested scopes is restricted.
+[OpenID Connect (OIDC) Scopes](https://openid.net/specs/){:target="_blank"} are a convenient way of grouping such user attributes. Applications can use scopes to request access to the user attributes corresponding to them. Access to other attributes that do not belong to the requested scopes is restricted.
 
 ## Default OIDC scopes
 {{ product_name }} uses `openid` as a marker scope during authentication and it will not return any user attributes for the `openid` scope.

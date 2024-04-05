@@ -53,7 +53,7 @@ Follow the steps below to configure {{product_name}} for IWA.
     check if the configuration is as follows:
 
     !!! Info
-        Learn more about [Java Authentication and Authorization Service (JAAS)](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jaas/JAASRefGuide.html).
+        Learn more about [Java Authentication and Authorization Service (JAAS)](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jaas/JAASRefGuide.html){:target="_blank"}.
 
     ``` java
     Server {

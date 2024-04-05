@@ -4,7 +4,7 @@ See the instructions given below to implement login with OpenID Connect in your 
 
 [Single-page applications]({{base_path}}/guides/applications/register-single-page-app/) and [mobile applications]({{base_path}}/guides/applications/register-mobile-app/) are some examples for public clients.
 
-For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) along with the authorization code grant to mitigate code interception attacks.
+For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636){:target="_blank"} along with the authorization code grant to mitigate code interception attacks.
 
 The following diagram explains how this flow works with {{ product_name }}.
 
@@ -46,7 +46,7 @@ First, your app must initiate a login request to {{ product_name }}. After redir
 This authorization request takes the following parameters.
 
 !!! note
-    See <!-- [Authentication Request with Authorization code](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and --> [Authorization Request with PKCE](https://datatracker.ietf.org/doc/html/rfc7636#page-9) for details.
+    See <!-- [Authentication Request with Authorization code](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) and --> [Authorization Request with PKCE](https://datatracker.ietf.org/doc/html/rfc7636#page-9){:target="_blank"} for details.
 
 <table>
   <tr>
@@ -72,7 +72,7 @@ This authorization request takes the following parameters.
   <tr>
     <td><code>code_challenge</code><Badge text="Required" type="mandatory"/></td>
     <td>The client creates and records a secret cryptographical random string (<code>code_verifier</code>), which is then encoded using URL safe base64 encoding to transform it into the <code>code_challenge</code>. The <code>code_challenge</code> is required for the authorization code flow with PKCE.  
-    You can use some [tools](https://tonyxu-io.github.io/pkce-generator/) to generate the <code>code_challenge</code> and <code>code_verifier</code>.</td>
+    You can use some [tools](https://tonyxu-io.github.io/pkce-generator/){:target="_blank"} to generate the <code>code_challenge</code> and <code>code_verifier</code>.</td>
   </tr>
   <tr>
     <td><code>code_challenge_method</code><Badge text="Required" type="mandatory"/></td>
@@ -185,7 +185,7 @@ After receiving the authorization code, the application has to exchange it to ge
 This token request takes the following parameters.
 
 !!! note
-    See <!-- [Token request with authorization code](https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest) and--> [Token request with PKCE](https://datatracker.ietf.org/doc/html/rfc7636#page-10) for details.
+    See <!-- [Token request with authorization code](https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest){:target="_blank"} and--> [Token request with PKCE](https://datatracker.ietf.org/doc/html/rfc7636#page-10){:target="_blank"} for details.
 
 <br>
 <table>

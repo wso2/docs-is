@@ -7,7 +7,7 @@ Once you have [setup ELK analytics dashboards]({{base_path}}/deploy/elk-analytic
 
     ![Kibana login]({{base_path}}/assets/img/elk-analytics/accessing-analytics-dashboard/accessing-analytics-dashboard-1.png){: width="600" style="display: block; margin: 0;"}
 
-2. You can login to Kibana with the default `elastic` user or refer to the [elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/users-command.html) and learn how to create a new user.
+2. You can login to Kibana with the default `elastic` user or refer to the [elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/users-command.html){:target="_blank"} and learn how to create a new user.
 
 3. On the left panel, navigate to **Analytics** > **Dashboard** and click on **Auth Dashboard**.
 

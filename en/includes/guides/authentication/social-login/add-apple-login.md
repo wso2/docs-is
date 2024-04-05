@@ -13,7 +13,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
 ??? note "Step 1: Register an App ID"
     To register an App ID:
 
-    1. On the [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
+    1. On the [Apple Developer portal](https://developer.apple.com/){:target="_blank"}, go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
         
         ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -45,7 +45,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
 ??? note "Step 2: Register a Services ID"
     To register a services ID:
 
-    1. On the [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
+    1. On the [Apple Developer portal](https://developer.apple.com/){:target="_blank"}, go to **Program resources** > **Certificates, Identifiers & Profiles** > **Identifiers**.
         
         ![Add Apple identifiers]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-identifiers.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -95,7 +95,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
 ??? note "Step 3: Register a new key"
     To register a new key:
 
-    1. On [Apple Developer portal](https://developer.apple.com/), go to **Program resources** > **Certificates, Identifiers & Profiles** > **Keys**.
+    1. On [Apple Developer portal](https://developer.apple.com/){:target="_blank"}, go to **Program resources** > **Certificates, Identifiers & Profiles** > **Keys**.
         
         ![Add Apple keys]({{base_path}}/assets/img/guides/idp/apple-idp/register-a-new-key.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -112,7 +112,7 @@ To register {{ product_name }} on Apple, you need to create the following compon
 
     Note down the **Team ID** displayed in the top right corner under your name.
 
-You can follow the [Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/configuring_your_environment_for_sign_in_with_apple) for detailed instructions.
+You can follow the [Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/configuring_your_environment_for_sign_in_with_apple){:target="_blank"} for detailed instructions.
 
 !!! tip
         A client secret is required to integrate the Apple application with {{ product_name }}. Usually, the external IdP generates a client secret, but in this scenario, Apple expects {{ product_name }} to generate the client secret.
@@ -159,7 +159,7 @@ After creating the Apple identity provider, go to the **Settings** tab and see t
 - **name**: Allows to view the user's name fields.
 
 !!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Apple to the app. You can read the [Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope) to learn more.
+    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Apple to the app. You can read the [Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope){:target="_blank"} to learn more.
 
 ??? note "Update the client secret validity period"
     {{ product_name }} generates a client secret for the IdP. This client secret has the default maximum validity period of six months.
