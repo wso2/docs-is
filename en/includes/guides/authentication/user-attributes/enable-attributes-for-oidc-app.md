@@ -130,7 +130,7 @@ _A sample userinfo response is given below:_
 
 ```json
 {
-"sub": "user@sample.com",
+"sub": "e46ffa67-100d-4329-9460-b8251d446518",
 "nickname": "nick",
 "given_name": "alice",
 "family_name": "john"
