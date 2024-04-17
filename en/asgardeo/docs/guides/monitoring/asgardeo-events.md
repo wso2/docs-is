@@ -257,12 +257,20 @@ When a user successfully logs in to an application, an event with the following 
     <tr>
         <td><code>initiatorType</code></td>
         <td>String</td>
-        <td>Initiator of the event</td>
+        <td>Initiator of the event.
+        <ul>
+        <li><code>admin</code> : Indicates that an administrative action initiated the event</li>
+        <li><code>user</code> : Indicates that an end-user action initiated the event</li>
+        </ul> </td>
     </tr>
      <tr>
         <td><code>action</code></td>
         <td>String</td>
-        <td>Action taken by the initiator</td>
+        <td>Action taken by the initiator.
+        <ul>
+        <li><code>update</code> : Indicates a credential update.</li>
+        <li><code>reset</code> : Indicates a credential reset; either initiated by the admin as a forced credential update request or by the user initiating a forgot password flow.</li>
+        </ul></td>
     </tr>
     <tr>
         <td><code>userStoreName</code></td>
@@ -436,7 +444,12 @@ Example user account lock event payload:
 
 #### **User credential update event**
 
-When a user's credentials are updated, an event with the following data is created.
+A user's credentials (passwords) update event with the following data is generated when a user's credentials are updated by one of the methods below.
+
+- an administrator resets them through the Console.
+- an administrator forces a reset.
+- the user changes them from the My Account self-service portal.
+- the user initiates a forgot password sequence and updates them.
 
 <table>
 <thead>

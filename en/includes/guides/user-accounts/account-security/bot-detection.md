@@ -10,12 +10,8 @@ When bot detection is enabled, {{ product_name }} enforces reCAPTCHA validation 
 
 To configure reCAPTCHA:
 
-1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Security**.
-
-    The **Bot Detention** section indicates whether or not it is already enabled.
-
-2. Click **Configure** to open the **Bot Detection** security page.
-
+1. On the {{ product_name }} Console, go to **Login & Registration**.
+2. Under **Login Security**, click **Bot Detection**.
 3. Turn the toggle on or off to enable or disable reCAPTCHA for your organization.
 
     ![Enable bot detection]({{base_path}}/assets/img/guides/organization/account-security/bot-detection/enable-bot-detection.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
