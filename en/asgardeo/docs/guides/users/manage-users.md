@@ -88,7 +88,6 @@ In addition to adding a single user, you can onboard multiple users at once, eit
 6. Click **Import** to add the users to the system.
 7. An email with a confirmation link will be sent to the provided email addresses, allowing the users to set their own passwords.
 
-
 ## Assign groups
 A user can be assigned to different [groups]({{base_path}}/guides/users/manage-groups/) in the organization. Groups can be used to restrict the user's access to resources.
 
