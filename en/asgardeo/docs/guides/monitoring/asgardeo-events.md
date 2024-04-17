@@ -255,6 +255,16 @@ When a user successfully logs in to an application, an event with the following 
         <td>username</td>
     </tr>
     <tr>
+        <td><code>initiatorType</code></td>
+        <td>String</td>
+        <td>Initiator of the event</td>
+    </tr>
+     <tr>
+        <td><code>action</code></td>
+        <td>String</td>
+        <td>Action taken by the initiator</td>
+    </tr>
+    <tr>
         <td><code>userStoreName</code></td>
         <td>String</td>
         <td>User Store name</td>
@@ -470,7 +480,7 @@ When a user's credentials are updated, an event with the following data is creat
 </tbody>
 </table>
 
-Example User account Lock event payload:
+Example User credential update event payload:
 
 ``` js
 {
@@ -479,6 +489,8 @@ Example User account Lock event payload:
    "organizationName": "myorg",
    "userId": "72774617-8dff-472e-90b5-67069d94d299",
    "userName": "john@gmail.com",
+   "initiatorType":"admin",
+   "action":"update",
    "userStoreName": "DEFAULT"
 }
 ```
@@ -614,7 +626,7 @@ When a user account is unlocked, an event with the following data is created.
 </tbody>
 </table>
 
-Example User account Lock event payload:
+Example User account unlock event payload:
 
 ``` js
 {
