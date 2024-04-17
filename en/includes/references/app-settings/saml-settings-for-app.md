@@ -285,17 +285,19 @@ You can either upload your certificate file or copy the contents. Follow the ste
 2. Upload the certificate file or copy the certificate contents
 <br>
 
-??? note "If you have certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to convert your certs to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
+??? note "How to convert `.crt`, `.cer` or `.der` to the `.pem` format?"
+    You can use [OpenSSL](https://www.openssl.org/){:target="_blank"} to convert certificates of other formats to the `.pem`format using the following commands.
+
     **Convert CRT to PEM**
-    ```
+    ``` 
     openssl x509 -in cert.crt -out cert.pem
     ```
     **Convert CER to PEM:**
-    ```
+    ``` 
     openssl x509 -in cert.cer -out cert.pem
     ```
     **Convert DER to PEM:**
-    ```
+    ``` 
     openssl x509 -in cert.der -out cert.pem
     ```
 

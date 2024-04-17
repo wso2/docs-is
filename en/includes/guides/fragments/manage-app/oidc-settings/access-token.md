@@ -44,8 +44,7 @@ Token binding securely links authentication tokens to client devices to prevent 
   <tbody>
     <tr>
       <td>none</td>
-      <td>Does not establish any specific binding between the token and the client device. Suitable for scenarios where token binding is not required or implemented separately. This is the default token binding type of any application.
-      </td>
+      <td>Does not establish any specific binding between the token and the client device. Suitable for scenarios where token binding is not required or implemented separately. This is the default token binding type of any application.</td>
     </tr>
     <tr>
       <td>cookie</td>

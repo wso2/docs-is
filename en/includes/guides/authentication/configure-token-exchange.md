@@ -1,4 +1,4 @@
-# Configure the token exchange flow
+# Configure token exchange
 
 You can add a trusted token issuer to exchange tokens received from the configured third-party issuer for {{ product_name }} tokens.
 
