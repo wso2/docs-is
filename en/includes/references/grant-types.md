@@ -130,7 +130,7 @@ The following diagram shows how the token exchange grant flow works.
 6. The client application can now request resources from the resource server by providing the access token.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
-See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-the-token-exchange-flow) for more details.
+See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details.
 
 ## SAML 2.0 bearer grant
 
