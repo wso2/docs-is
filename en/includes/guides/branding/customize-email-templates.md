@@ -80,11 +80,11 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 !!! note
     This feature is only available for the most frequently used email templates. You can customize [all available email templates]({{base_path}}/references/email-templates/) using the [Email Templates API]({{base_path}}/apis/{{ email_templates_api_path }}/).
 
-1. On the {{ product_name }}, go to **Customization** > **Email Templates**.
+1. On the {{ product_name }}, go to **Branding** > **Email Templates**.
 2. Select the email template and the relevant locale that you wish to modify.
 
-    !!! note "Replicate content"
-        If you have not yet configured an email template for the selected locale, you have the option to replicate content from the previous locale's template and use it to modify the email template for the selected locale.
+    !!! note
+        Asgardeo gives you the option to automatically copy a template from one locale to another so that you do not have to create email templates from scratch. To do so, select a locale with an existing email template, switch over to the new locale and click confirm when the **Replicate content?** prompt appears.
 
     ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

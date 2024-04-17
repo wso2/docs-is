@@ -83,7 +83,7 @@ Here {{ product_name }} sends the fixed query param to the external identity pro
 
         `login_hint=$authparam{login_hint_value}`
 
-        ![Add dynamic query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/queryparam/dyamic_query_param_from_conditional_auth.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![Add dynamic query param in enterprise IDP config]({{base_path}}/assets/img/guides/idp/oidc-enterprise-idp/queryparam/dynamic_query_param_from_conditional_auth.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     Here _login_hint_value_ needs to be resolved from the conditional auth script.
     <br>  
