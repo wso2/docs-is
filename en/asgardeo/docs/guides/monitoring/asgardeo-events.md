@@ -9,25 +9,28 @@ Asgardeo publishes the following events under three main categories.
 
 
 - <a href="#login-events">**Login events**</a> - Events related to login flows.
-    - **Login success event**: Published when a user successfully logs in to an application.
+
+    - **[Login success event](#login-success-event)**: Published when a user successfully logs in to an application.
+
+    - **[Login failed event](#login-success-event)**: Published when a user fails to log in to an application.
 
 - <a href="#user-operation-events">**User operation events**</a> - Events related to user operations, profile updates, and account deletes.
-    - **User account lock event**: Published when a user account is locked.
+    - **[User account lock event](#user-account-lock-event)**: Published when a user account is locked.
 
-    - **User credential update event**: Published when a user's credentials are updated.
+    - **[User credential update event](#user-credential-update-event)**: Published when a user's credentials are updated.
 
-    - **User group update event**: Published when users are added or removed from a group.
+    - **[User group update event](#user-group-update-event)**: Published when users are added or removed from a group.
 
-    - **User account unlock event**: Published when a user account is unlocked.
+    - **[User account unlock event](#user-account-unlock-event)**: Published when a user account is unlocked.
 
-    - **User delete event**: Published when a user's account is deleted.
+    - **[User delete event](#user-delete-event)**: Published when a user's account is deleted.
   
 - <a href="#registration-events">**Registration events**</a> - Events that occur during user registration flows.
-    - **Add user event**: Published when a user is added to the organization.
+    - **[Add user event](#add-user-event)**: Published when a user is added to the organization.
 
-    - **Accept user invite event**: Published when a user accepts an invitation to an organization.
+    - **[Accept user invite event](#accept-user-invite-event)**: Published when a user accepts an invitation to an organization.
 
-    - **Confirm self-signup event**: Published when a user completes account verification during self-sign-up.
+    - **[Confirm self-signup event](#confirm-self-signup-event)**: Published when a user completes account verification during self-sign-up.
 
 ## Configure Asgardeo to publish events
 
@@ -229,7 +232,7 @@ When a user successfully logs in to an application, an event with the following 
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>Group reference (Scim location)</td>
+        <td>Group reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -261,6 +264,11 @@ When a user successfully logs in to an application, an event with the following 
         <td>String</td>
         <td>Application name</td>
     </tr>
+    <tr>
+        <td><code>authSteps</code></td>
+        <td>List</td>
+        <td>List of authentication steps used for log in. Each authentication step object contains the step number, identity provider and the name of the authenticator</td>
+    </tr>
 </tbody>
 </table>
 
@@ -275,6 +283,81 @@ Example login success event payload:
    "userName": "john@gmail.com",
    "userStoreName": "DEFAULT",
    "serviceProvider": "My Account"
+   "authSteps": [
+    {
+        "step": 1,
+        "idp": "Google",
+        "authenticator": "GoogleOIDCAuthenticator"
+    }
+    ]
+}
+```
+#### **Login failed event**
+
+When a user fails to log in to an application, an event with the following data is created.
+
+<table>
+<thead>
+    <tr>
+        <th><b>Property Name</b></th>
+        <th><b>Type</b></th>
+        <th><b>Description</b></th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td><code>ref</code></td>
+        <td>String</td>
+        <td>Group reference (SCIM location)</td>
+    </tr>
+    <tr>
+        <td><code>organizationId</code></td>
+        <td>int</td>
+        <td>Organization Id</td>
+    </tr>
+    <tr>
+        <td><code>organizationName</code></td>
+        <td>String</td>
+        <td>Organization name</td>
+    </tr>
+    <tr>
+        <td><code>userId</code></td>
+        <td>String</td>
+        <td>User id</td>
+    </tr>
+    <tr>
+        <td><code>authenticatingUser</code></td>
+        <td>String</td>
+        <td>username</td>
+    </tr>
+    <tr>
+        <td><code>serviceProvider</code></td>
+        <td>String</td>
+        <td>Application name</td>
+    </tr>
+    <tr>
+        <td><code>failedStep</code></td>
+        <td>Object</td>
+        <td> The step at which the fail event occurred. Contains the step number, identity provider and the name of the authenticator</td>
+    </tr>
+</tbody>
+</table>
+
+Example login failed event payload:
+
+``` js
+{
+   "ref": "https://asgardeo.io/t/myorg/scim2/Users/72774617-8dff-472e-90b5-67069d94d299",
+   "organizationId": 3,
+   "organizationName": "myorg",
+   "userId": "72774617-8dff-472e-90b5-67069d94d299",
+   "authenticatingUser": "john@gmail.com",
+   "serviceProvider": "My Account",
+   "failedStep": {
+        "step": 1,
+        "idp": "Google",
+        "authenticator": "GoogleOIDCAuthenticator"
+    }
 }
 ```
 
@@ -298,7 +381,7 @@ When a user account is locked, an event with the following data is created.
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -357,7 +440,7 @@ When a user's credentials are updated, an event with the following data is creat
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -416,7 +499,7 @@ When users are added or removed from a group, an event with the following data i
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>Group reference (Scim location)</td>
+        <td>Group reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -501,7 +584,7 @@ When a user account is unlocked, an event with the following data is created.
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -560,7 +643,7 @@ When a user's account is deleted, an event with the following data is created.
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -624,7 +707,7 @@ When a user is added to the organization, an event with the following data is cr
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -708,7 +791,7 @@ When a user accepts an invitation to an organization by setting a password for t
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -767,7 +850,7 @@ When a user completes account verification during self sign-up, an event with th
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
