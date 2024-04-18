@@ -310,6 +310,7 @@ Example login success event payload:
     ]
 }
 ```
+
 #### **Login failed event**
 
 When a user fails to log in to an application, an event with the following data is created.
