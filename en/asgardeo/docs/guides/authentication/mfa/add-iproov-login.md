@@ -90,7 +90,7 @@ You need to <a :href="$withBase('/guides/applications/')">register an applicatio
 To enable iProov login for your application:
 1. On the Asgardeo Console, go to **Applications**.
 
-2. Go to the **Sign-in Method** tab of the application and add iProov login from your preferred editor:
+2. Go to the **Login Flow** tab of the application and add iProov login from your preferred editor:
 
    ::: details Using the Classic Editor
    - If you haven't already configured an authentication flow,

@@ -4,8 +4,7 @@ You can effectively control the number of concurrent user sessions for an applic
 
 ## Scenario
 
-Consider a scenario with two roles, `admin` and `manager`. Users belonging to these roles are limited to having only 
-one active session at a time. If they try to initiate a second session, they will be presented with a list of their current sessions and offered with the following two options:
+Consider a scenario with two roles, `admin` and `manager`. Users belonging to these roles are limited to having only one active session at a time. If they try to initiate a second session, they will be presented with a list of their current sessions and offered with the following two options:
 
 - Terminate any of their existing sessions.
 - Cancel their current authentication attempt.
