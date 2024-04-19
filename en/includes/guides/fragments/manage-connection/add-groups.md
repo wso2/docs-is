@@ -1,19 +1,35 @@
+### Configure External Connection's Group attribute
+
 To add groups to a connection on {{ product_name }}:
 
 1. On the {{ product_name }} Console, go to **Connections**.
-2. Select your connection and go to the **Groups** tab.
 
-    !!! note
-        Note that the **Groups** tab is only available for enterprise, social login and custom connections.
+2. Select your connection and go to its **Attributes** tab.
 
-3. Enter the name of the connection's group attribute you wish to map to the group attribute of {{ product_name }}.
+3. Click **Add Attribute Mapping** to add a new attribute mapping.
 
-    ![Add the group attribute]({{base_path}}/assets/img/guides/idp/add-group-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Add attribute mappings]({{base_path}}/assets/img/guides/idp/group-mapping/add-attribute-mappings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Click **Update**.
+4. Enter the  **External IdP Attribute** of the connection and map it to the **Groups** attribute of Asgardeo.
 
-5. Click **+ New Group** and enter the group name. Ensure that the name matches the configuration in the federated connection.
+    ![Add new group attribute mapping]({{base_path}}/assets/img/guides/idp/group-mapping/add-new-group-attribute-mapping.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+5. Click **Add Attribute Mapping** and then click **Save**.
+
+    ![Stage new group attribute mapping]({{base_path}}/assets/img/guides/idp/group-mapping/stage-new-group-attribute-mapping.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+6. Click **Update** to save the changes.
+
+    ![Submit attribute mappings]({{base_path}}/assets/img/guides/idp/group-mapping/submit-attribute-mappings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+### Add groups to connections
+
+Follow the steps below to add the groups from your connection to Asgardeo:
+
+1. On the Asgardeo Console, go to **Connections**.
+2. Select your connection and go to its **Groups** tab.
+3. Click **New Group** and enter the group name. Be sure to enter the exact group name that will be returned from the connection.
 
     ![Add group]({{base_path}}/assets/img/guides/idp/add-federated-group.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-6. Click **Finish** to add the group information.
+4. Click **Finish** to add the group information.
