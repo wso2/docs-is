@@ -14,9 +14,11 @@ To view the attributes available for your organization:
 1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
 2. Click **Attributes** again under the **Manage Attributes** section.
 
-   ![View attributes]({{base_path}}/assets/img/guides/organization/attributes/view-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+   ![Attributes]({{base_path}}/assets/img/guides/organization/attributes/local-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 You can now see the complete list of attributes along with **Attribute Display Name** and **Attribute** name.
+
+![View attributes]({{base_path}}/assets/img/guides/organization/attributes/view-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Add custom attributes
 
@@ -45,7 +47,7 @@ To add a custom attribute:
        </tbody>
     </table>
 
-4. Click **Finish**
+4. Click **Finish**.
 
 ## Update attributes
 To update the properties of a user attribute:
