@@ -5,17 +5,15 @@ This guide walks you through setting up password recovery for users to recover a
 
 To configure password recovery:
 
-1. On the {{ product_name }} Console, click **Account Recovery**.
+1. On the {{ product_name }} Console, go to **Login & Registration**.
 
-    The **Password Recovery** section indicates whether or not it is already enabled.
+2. Under **Account Recovery**,  click on **Password Recovery**.
 
-3. Click **Configure** to open the **Password Recovery** page.
-
-4. Turn on **Enabled** to enable this configuration.
+3. Turn on **Enabled** to enable this configuration.
 
     ![Configure password recovery]({{base_path}}/assets/img/guides/organization/account-recovery/password-recovery/configure-password-recovery.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-5. Configure the below settings if you want to change the default password recovery configurations.
+4. Configure the below settings if you want to change the default password recovery configurations.
     <table>
           <tbody>
              <tr>
@@ -29,6 +27,6 @@ To configure password recovery:
           </tbody>
        </table>
 
-6. Click **Update** once you configure the required settings.  
+5. Click **Update** once you configure the required settings.  
 
 [Try self-service password recovery]({{base_path}}/guides/user-self-service/user-password-recovery/).

@@ -8,10 +8,9 @@ You can configure the number of consecutive failed login attempts that should be
 
 To configure login attempts security:
 
-1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Security**.
-    The **Login Attempts** section indicates whether or not it is already enabled.
+1. On the {{ product_name }} Console, go to **Login  Registration**.
 
-2. Click **Configure** to open the **Login Attempts Security** page.
+2. Click on **Login Attempts** under **Login Security** section.
 
 3. Switch to **Enabled** to enable this configuration.  
 
@@ -70,8 +69,8 @@ Account unlock timeout = Account lock duration * (Account lock duration incremen
 
 To disable login attempts security:
 
-1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Security**.
-2. Go to **Login Attempts Security**.
-3. Click **Configure** and switch to **Disabled** to disable this security.  
+1. On the {{ product_name }} Console, go to **Login  Registration**.
+2. Under **Login Security**, click on **Login Attempts**.
+3. Switch to **Disabled** to disable this security.
 
     ![Disable login attempts security]({{base_path}}/assets/img/guides/organization/account-security/login-attempts-security/disable-login-attempts-security.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
