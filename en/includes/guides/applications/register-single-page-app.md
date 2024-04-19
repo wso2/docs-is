@@ -67,7 +67,7 @@ When you register your single-page application, a client ID is generated. Your a
 
 You can get this client ID from the **Protocol** tab of the application as shown below.
 
-![Get client ID of SPA]({{base_path}}/assets/img/guides/applications/client-id.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Get client ID of SPA]({{base_path}}/assets/img/guides/applications/spa-client-id.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## What's next?
 

@@ -34,7 +34,7 @@ An organization in Asgardeo will be your own unique space and it will contain yo
 Users can log in to applications that you register in Asgardeo. Let's create a user by following the steps below.
 
 1. On the Asgardeo Console, go to **User Management** > **Users**.
-2. Click **Add User**.
+2. Click **Add User** > **Single User**.
 3. Fill in the user's details.
 
     ![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
