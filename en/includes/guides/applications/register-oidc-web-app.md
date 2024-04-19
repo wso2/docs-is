@@ -40,7 +40,7 @@ To register the app:
         </tr>
         <tr>
             <td>Allow sharing with organizations</td>
-            <td>Enable this to share the new application with all or any selected organizations that belong to your organization (root).</td>
+            <td>Enable this to share the new application with all or any selected B2B organizations that belong to your primary organization.</td>
         </tr>
     </table>
 

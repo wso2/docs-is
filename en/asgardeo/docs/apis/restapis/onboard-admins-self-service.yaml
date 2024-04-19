@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: "v1"
   title: 'B2B Self-Service Management API Definition'
-  description: 'This is the RESTful API for Self Service Organization Management. This API allows users to create and retrieve sub-organizations.
+  description: 'This is the RESTful API for Self Service Organization Management. This API allows users to create and retrieve B2B organizations.
     Other than that, the API supports updating service configurations'
 servers:
   - url: 'https://api.asgardeo.io/o/{organization-domain}/api/server/v1/self-service'
