@@ -22,6 +22,8 @@
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
     - [`getAssociatedLocalUser()`](#get-associated-user)
+    - [`httpGet()`](#http-get)
+    - [`httpPost()`](#http-post)
 
 - [Object references](#object-reference): You can use objects to capture user behaviors and set attributes. For example, you can use the **user** and **request** objects and write the login conditions accordingly. Listed below are the object references that can be used in conditional authentication scripts.
   
@@ -720,6 +722,171 @@ This function returns the local user associated with the federate username given
         </tr>
       </tbody>
     </table>
+
+### HTTP GET
+
+`httpGet(url, headers, authConfig, eventHandlers)`
+
+The HTTP GET function enables sending HTTP GET requests to specified endpoints as part of the adaptive authentication scripts in Asgardeo. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
+
+- **Parameters**
+  
+    <table>
+      <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>The URL of the endpoint to which the HTTP GET request should be sent.</td>
+        </tr>
+        <tr>
+          <td><code>headers</code></td>
+          <td>HTTP request headers to be included in the GET request (optional).</td>
+        </tr>
+        <tr>
+          <td><code>authConfig</code></td>
+          <td>Authentication configuration to be included in the GET request (optional).</td>
+          </tr>
+        <tr>
+          <td><code>eventHandlers</code></td>
+          <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
+              Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+- **Example**
+
+    ```
+    var authConfig = {
+        type: "basic",
+        properties: {
+            username: "admin",
+            password: "adminPassword"
+        }
+    };
+
+    function onLoginRequest(context) {
+        httpGet('https://example.com/resource', {
+            "Accept": "application/json"
+        }, authConfig, {
+            onSuccess: function(context, data) {
+                Log.info('httpGet call succeeded');
+                context.selectedAcr = data.status;
+                executeStep(1);
+            },
+            onFail: function(context, data) {
+                Log.info('httpGet call failed');
+                context.selectedAcr = 'FAILED';
+                executeStep(2);
+            }
+        });
+    }
+    ```
+
+### HTTP POST
+
+`httpPost(url, body, headers, authConfig, eventHandlers)`
+
+The HTTP POST function enables sending HTTP POST requests to specified endpoints as part of the adaptive authentication scripts in Asgardeo. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>The URL of the endpoint to which the HTTP POST request should be sent.</td>
+        </tr>
+        <tr>
+          <td><code>body</code></td>
+          <td>HTTP request body to be included in the POST request.</td>
+        </tr>
+        <tr>
+          <td><code>headers</code></td>
+          <td>HTTP request headers to be included in the POST request (optional).</td>
+        </tr>
+        <tr>
+          <td><code>authConfig</code></td>
+          <td>Authentication configuration to be included in the GET request (optional).</td>
+          </tr>
+        <tr>
+          <td><code>eventHandlers</code></td>
+          <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
+              Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+- **Example**
+
+    ```
+    var authConfig = {
+        type: "clientcredential",
+        properties: {
+            consumerKey: "clientId",
+            consumerSecret: "clientSecret",
+            tokenEndpoint: "https://token-endpoint.com/token"
+        }
+    };
+
+    function onLoginRequest(context) {
+        httpPost('https://example.com/resource', {
+            "email": "test@wso2.com"
+        }, {
+            "Authorization": "Bearer token",
+            "Accept": "application/json"
+        }, authConfig, {
+            onSuccess: function(context, data) {
+                Log.info('httpPost call succeeded');
+                context.selectedAcr = data.status;
+                executeStep(1);
+            },
+            onFail: function(context, data) {
+                Log.info('httpPost call failed');
+                context.selectedAcr = 'FAILED';
+                executeStep(2);
+            }
+        });
+    }
+    ```
+
+**Authentication Types and Properties**
+
+When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
+`Enhanced secret management features are currently under development and will be available soon.`
+
+<table>
+    <thead>
+        <tr>
+            <th>Authentication Type</th>
+            <th>Properties</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>basicauth</td>
+            <td>username, password</td>
+            <td>Uses user credentials.</td>
+        </tr>
+        <tr>
+            <td>apikey</td>
+            <td>apiKey, headerName</td>
+            <td>Uses an API key sent as a header.</td>
+        </tr>
+        <tr>
+            <td>clientcredential</td>
+            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional)</td>
+            <td>Uses client credentials to obtain an access token.</td>
+        </tr>
+        <tr>
+            <td>bearertoken</td>
+            <td>token</td>
+            <td>Uses a bearer token for authentication.</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Object reference
 
