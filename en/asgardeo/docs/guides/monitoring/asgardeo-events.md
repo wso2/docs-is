@@ -140,6 +140,9 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 8. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
 
+    !!! note
+        If the callback URL fails to populate, it is advised to manually copy the invoke URL and paste it into the designated field. This step ensures seamless continuity in the process.
+
 ### Try it out
 
 Once the webhook is deployed in Choreo, follow the steps below to try it out.
