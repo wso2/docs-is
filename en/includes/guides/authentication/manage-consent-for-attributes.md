@@ -1,6 +1,6 @@
 # Manage consent for user attributes
 
-If user attributes are enabled for applications registered in {{ product_name }}, the applications can access these attributes when the user logs in to the app. However, it may be necessary to get the user's consent before sharing the user's information. Learn more about [configuring user attributes for applications]({{base_path}}/guides/authentication/user-attributes/).
+If [user attributes]({{base_path}}/guides/authentication/user-attributes/) are configured to be shared with an application, applications can access these attributes when the user logs in to the app. However, it may be necessary to get the user's consent before sharing the user's information.
 
 In {{ product_name }}, you can either display a screen to request consent for user attributes or skip this step, as explained below.
 
@@ -22,11 +22,11 @@ The user can do one of the following during login:
 
 {{ product_name }} will not prompt for consent for the allowed attributes again unless a user revokes the provided consent via MyAccount.
 
-## Disable the consent screen
+## Enable the consent screen
 
-If user consent is not required for your application to access user information, you can disable the consent screen as follows:
+If user consent is required for your application to access user information, you can enable the consent screen as follows:
 
-1. Sign in to the {{ product_name }} and select the application for which user consent needs to be disabled.
-2. Go to the **Advanced** tab and enable **Skip login consent**.
+1. Sign in to the {{ product_name }} and select the application for which you wish to enable user consent.
+2. Go to the **Advanced** tab and uncheck the **Skip login consent** checkbox.
 
     ![Skip login consent in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/skip-login-consent.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
