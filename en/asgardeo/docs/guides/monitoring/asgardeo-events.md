@@ -445,7 +445,7 @@ Example user account lock event payload:
 
 #### **User credential update event**
 
-A user's credentials (passwords) update event with the following data is generated when a user's credentials are updated by one of the methods below.
+A user's credential (password) update event with the following data is generated when a user credential is updated by one of the methods below.
 
 - an administrator resets them through the Console.
 - an administrator forces a reset.
@@ -495,6 +495,7 @@ A user's credentials (passwords) update event with the following data is generat
 </table>
 
 Example User credential update event payload:
+Consider a scenario where an administrator resets the user credential through the Console.
 
 ``` js
 {
