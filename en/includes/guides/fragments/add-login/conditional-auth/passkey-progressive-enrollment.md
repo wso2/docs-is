@@ -19,7 +19,7 @@
 
     2. In the **Templates** section, go to **Passkey Enrollment** and click the **+** sign corresponding to the **Passkey Progressive Enrollment** template.
         
-    3. Click **Confirm** to add the script.
+    3. Click **Confirm** to replace any existing script with the selected predefined script.
 
         ![Add adaptive script with Classic Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-script-with-classic-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 ---
