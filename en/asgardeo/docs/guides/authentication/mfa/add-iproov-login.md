@@ -42,7 +42,7 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
 
 2. Click **Create Connection** and select **iProov**.
 
-    ![Create iproov connection]({{base_path}}'/assets/img/guides/mfa/iproov/iproov-add-connection.png)
+    ![Create iproov connection]({{base_path}}/assets/img/guides/mfa/iproov/iproov-add-connection.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details and click **Finish**:
 
@@ -98,7 +98,7 @@ To enable iProov login for your application:
         1. Switch to the **Visual Editor** tab. 
         2. Add a second authentication step by clicking the **+** icon and add your iProov connection to this step.
             
-            ![Customize login flow]({{base_path}}/assets/img/guides/mfa/iproov/iproov-login-flow-with-visual-editor.png)
+            ![Customize login flow]({{base_path}}/assets/img/guides/mfa/iproov/iproov-login-flow-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Classic Editor"
         - If you haven't already configured an authentication flow,
@@ -108,7 +108,7 @@ To enable iProov login for your application:
 
         - If you have an already customized login flow, you can add a second authentication step by clicking the **+** icon and add your iProov connection to this step.
 
-            ![Customize login flow]({{base_path}}/assets/img/guides/mfa/iproov/customize-steps.png)
+            ![Customize login flow]({{base_path}}/assets/img/guides/mfa/iproov/customize-steps.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
 3. Click **Update** to save the sign-in flow.
@@ -125,6 +125,6 @@ Follow the steps given below:
 
 4. Grant camera access for iProov to authenticate the user.
 
-    ![Grant camera access for iProov]({{base_path}}assets/img/guides/mfa/iproov/grant-camera-access.png)
+    ![Grant camera access for iProov]({{base_path}}/assets/img/guides/mfa/iproov/grant-camera-access.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Click **Scan Face with iProov** , and complete the iProov authentication process by starting the face scan.
