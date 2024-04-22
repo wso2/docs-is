@@ -54,7 +54,7 @@ This ensures that the application receives attributes based on the name that is 
 
 The subject attribute is used for exchanging information about the user. The subject is represented by the **subject** attribute in the SAML assertion.
 
-By default, {{ product_name }} shares **username** as the subject. You can define any user attribute as the subject.
+By default, {{ product_name }} shares **User ID** as the subject. You can define any user attribute as the subject.
 
 To define a different attribute as the subject:
 
