@@ -11,11 +11,9 @@ You need to register {{ product_name }} as an OIDC client application in `oidc.s
 !!! note
     Follow the [Sign-In With Ethereum documentation](https://docs.login.xyz/servers/oidc-provider/hosted-oidc-provider){:target="_blank"} for detailed instructions.
 
-1. To register a new OIDC client, use the following `curl` command.
+To do so,
 
-    !!! note
-        Replace **{organization_name}** with the name of your organization.
-
+1. Use the following curl command to register a new OIDC client.
 
     ```bash
     curl -X POST https://oidc.signinwithethereum.org/register
@@ -26,7 +24,7 @@ You need to register {{ product_name }} as an OIDC client application in `oidc.s
 
     The following is an example response:
 
-    ```json 
+    ```json
     {
         "client_id": "9b49de48-d198-47e7-afff-7ee26cbcbc95",
         "client_secret": "{secret}",
@@ -65,10 +63,14 @@ Follow the steps below to register the **Sign-In With Ethereum** IdP in {{ produ
       </tr>
     </table>  
 
-4. If required, [enable JIT provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#enable-jit-user-provisioning).
+??? note C"laim syncing for JIT-provisioned users"
+    [IT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
 
-    !!! note
-        If JIT provisioning is enabled, when a user successfully logs in with Sign-In With Ethereum for the first time, a user account is created in the {{ product_name }} Console with the wallet ID. This new user account will be managed by Ethereum. Note that JIT provisioning is disabled by default.
+    When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
+
+    According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
+
+    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#/operations/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
 
 5. In the created connection, go to the **Settings** tab and see the list of scopes to which Sign-In With Ethereum has granted permissions.
 

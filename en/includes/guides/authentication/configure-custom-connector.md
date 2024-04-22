@@ -38,7 +38,7 @@ Follow this guide for instructions.
 
 5. The user is now redirected to the application and logged in.
 
-## Add groups to the connection
+## Map groups with {{ product_name }}
 
 {% include "../fragments/manage-connection/add-groups.md" %}
 

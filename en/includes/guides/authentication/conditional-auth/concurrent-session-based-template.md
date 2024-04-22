@@ -23,8 +23,6 @@ one active session at a time. If they try to initiate a second session, they wil
       - [Managing users]({{base_path}}/guides/users/manage-users/#onboard-a-user)
       - [Assigning users to roles]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role)
 
-
-
 ## Configure the login flow
 
 To configure the login flow with concurrent session-based access control:

@@ -51,10 +51,18 @@ Below are the languages currently available for the i18n-supported user interfac
     </tr>
     <tr>
         <td>
-            Portuguese
+            Portuguese - Portugal
         </td>
         <td>
             <code>pt_PT</code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Portuguese - Brazil
+        </td>
+        <td>
+            <code>pt_BR</code>
         </td>
     </tr>
     <tr>

@@ -12,8 +12,8 @@ Follow the steps given below to get an access token with the required permission
 
 1. [Register a management app](#register-a-management-app)
 2. [Request for authorization code](#get-the-authorization-code)
-3. [Request an access token against the root organization](#step-1-for-the-root-organization)
-4. [Request an access token against the suborganization](#step-2-for-the-suborganization)
+3. [Request an access token against the primary organization](#step-1-for-the-root-organization)
+4. [Request an access token against the organization](#step-2-for-the-organization)
 
 ## Register a management app
 
@@ -69,7 +69,7 @@ https://{{ host_name }}/t/<root_organization_name>/oauth2/authorize?response_typ
 </table>
 
 ## Get access tokens
-In this flow, the application needs to get tokens for the root organization and exchange the obtained token to get an access token for the suborganization.
+In this flow, the application needs to get tokens for the root organization and exchange the obtained token to get an access token for the organization.
 
 Let's see how this works:
 
@@ -113,7 +113,7 @@ This token request has the following parameters:
   </tr>
 </table>
 
-### Step 2: For the suborganization
+### Step 2: For the organization
 
 You can now request an access token from the token endpoint by exchanging the access token of the root organization and specifying the internal scopes (permission level) you require to access.
 
@@ -130,7 +130,7 @@ curl -X POST \
 --data-urlencode 'grant_type=organization_switch' \
 --data-urlencode 'token=<access token from step 1>' \
 --data-urlencode 'scope=<required scopes>' \
---data-urlencode 'switching_organization=<suborganization id>'
+--data-urlencode 'switching_organization=<organization id>'
 ```
 
 Replace the following variables in the above request.
@@ -163,7 +163,7 @@ Replace the following variables in the above request.
     </tr>
     <tr>
         <td><code>switching_organization</code><Badge text="Required" type="mandatory"/></td>
-        <td>The organization ID of the suborganization you are switching to. </td>
+        <td>The ID of the organization you are switching to. </td>
     </tr>
 </table>
 

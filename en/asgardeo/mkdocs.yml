@@ -187,7 +187,7 @@ nav:
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
             - Add access control:
               - Add access control: guides/authentication/conditional-auth/access-control.md
-              - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
+              - User Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
               - Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
             - Add adaptive MFA:
               - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md

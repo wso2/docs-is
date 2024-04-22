@@ -26,7 +26,7 @@
 
 2. Click **Access Control** > **Session-Based** > **ADD**.
 
-    ![Session-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/session-based-access-control.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    <!--![Session-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/session-based-access-control.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}-->
 
 3. Click **Confirm** to replace any existing script with the selected predefined script.
 

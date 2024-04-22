@@ -17,9 +17,6 @@ Given below are the high-level steps for enabling conditional authentication in 
 
 {% include "../../fragments/manage-app/conditional-auth/configure-conditional-auth.md" %}
 
-!!! note "Enable conditional authentication using the Visual Editor"
-    Conditional authentication is enabled by default in the Visual Editor.
-
 ## Add conditional authentication script
 
 There are two ways to add a conditional authentication script:

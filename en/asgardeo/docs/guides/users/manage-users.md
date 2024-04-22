@@ -2,7 +2,7 @@
 
 This guide walks you through the process of managing a user account. An owner or an administrator can manage user accounts.
 
-## Onboard a user
+## Onboard users
 There are three ways to onboard a user:
 
 - The user can self-register via the My Account portal or the login page of an application if self-registration is enabled in the organization. Learn how to [configure self-registration]({{base_path}}/guides/user-accounts/configure-self-registration/).
@@ -16,7 +16,7 @@ There are three ways to onboard a user:
 Let's look at how administrators can onboard users from the {{ product_name }} Console.
 
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
-2. Click  **Add User** and provide the following details:
+2. Click  **Add User** > **Single User** and provide the following details:
 
     ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -54,7 +54,7 @@ In addition to adding a single user, you can onboard multiple users at once, eit
 ![Add multiple users]({{base_path}}//assets/img/guides/users/add-multiple-users-form.png)
 
 !!! note
-    Currently, when importing multiple users, the user accounts are created in the **DEFAULT** user store.
+    Importing multiple users is only supported for the Asgardeo-provided **DEFAULT** user store.
 
 #### Add multiple users manually
 
@@ -64,7 +64,8 @@ In addition to adding a single user, you can onboard multiple users at once, eit
 4. Enter the email addresses of the users you want to invite. Press **Enter** after each email to add it to the list.
 5. Under Groups, select the group(s) from the dropdown to which users will be added during the import.
 6. Click **Add** to send out the invitations.
-7. An email with a confirmation link will be sent to the provided email addresses, allowing the users to set their own passwords.
+
+An email with a confirmation link will be sent to the provided email addresses, allowing the users to set their own passwords.
 
 #### Add multiple users using a CSV file
 

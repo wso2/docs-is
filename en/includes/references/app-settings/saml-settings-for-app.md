@@ -110,21 +110,17 @@ Specifies the name identifier format that the application wants to receive in th
 <saml2:Assertion ID="_1fc418b1886158a8c239f9ee5205718b"
                      IssueInstant="2021-07-07T08:28:30.228Z"
                      Version="2.0"
-                     xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+  xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
                      >
-   -
-   -
-    <saml2:Subject>
-        <saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">Alica@bifrost.com</saml2:NameID>
-        <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-            <saml2:SubjectConfirmationData InResponseTo="mjagocahejhadgbaldpgpoipaghellkjkdnpilcp"
+  <saml2:Subject>
+  <saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">Alica@bifrost.com</saml2:NameID>
+  <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+   <saml2:SubjectConfirmationData InResponseTo="mjagocahejhadgbaldpgpoipaghellkjkdnpilcp"
                                                    NotOnOrAfter="2021-07-07T08:33:30.228Z"
                                                    Recipient="http://localhost:8080/sample-app/home.jsp"
                                                    />
-        </saml2:SubjectConfirmation>
-    </saml2:Subject>
-    -
-    -
+  </saml2:SubjectConfirmation>
+ </saml2:Subject>
 </saml2:Assertion>
 ```
 
@@ -132,21 +128,20 @@ Specifies the name identifier format that the application wants to receive in th
 Specifies the audiences, to whom this SAML assertion is intended.
 
 The issuer of the application will be added as the default audience
-```xml 
-<saml2:Assertion ID="_1fc418b1886158a8c239f9ee5205718b"
-                     IssueInstant="2021-07-07T08:28:30.228Z"
-                     Version="2.0"
-                     xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
-                     >
-   -
-   -
-    <saml2:AudienceRestriction>
-         <saml2:Audience>https://sampleapp.com/saml/sp</saml2:Audience>
-    </saml2:AudienceRestriction>
-   -
-   -
+
+```xml
+<saml2:Assertion
+  ID="_1fc418b1886158a8c239f9ee5205718b"
+  IssueInstant="2021-07-07T08:28:30.228Z"
+  Version="2.0"
+  xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+>
+  <saml2:AudienceRestriction>
+        <saml2:Audience>https://sampleapp.com/saml/sp</saml2:Audience>
+  </saml2:AudienceRestriction>
 </saml2:Assertion>
 ```
+
 <br>
 
 #### Recipients

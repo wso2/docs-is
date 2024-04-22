@@ -19,9 +19,8 @@ You can change the timeframe of the logs by clicking the dropdown next to the se
 
 ![Logs filter by time]({{base_path}}/assets/img/guides/asgardeo-logs/logs-filter-by-time.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-::: info
-By default, the console displays logs that occurred in the last 15 minutes.
-:::
+!!! note
+    By default, the console displays logs that occurred in the last 15 minutes.
 
 Besides the given timeframes, you can select a custom time range by following the steps below.
 

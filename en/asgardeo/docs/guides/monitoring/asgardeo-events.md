@@ -140,6 +140,9 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 8. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
 
+    !!! note
+        If the callback URL fails to populate, it is advised to manually copy the invoke URL and paste it into the designated field. This step ensures seamless continuity in the process.
+
 ### Try it out
 
 Once the webhook is deployed in Choreo, follow the steps below to try it out.
@@ -310,6 +313,7 @@ Example login success event payload:
     ]
 }
 ```
+
 #### **Login failed event**
 
 When a user fails to log in to an application, an event with the following data is created.
@@ -444,7 +448,7 @@ Example user account lock event payload:
 
 #### **User credential update event**
 
-A user's credentials (passwords) update event with the following data is generated when a user's credentials are updated by one of the methods below.
+A user's credential (password) update event with the following data is generated when a user credential is updated by one of the methods below.
 
 - an administrator resets them through the Console.
 - an administrator forces a reset.
@@ -494,6 +498,7 @@ A user's credentials (passwords) update event with the following data is generat
 </table>
 
 Example User credential update event payload:
+Consider a scenario where an administrator resets the user credential through the Console.
 
 ``` js
 {

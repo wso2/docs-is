@@ -136,3 +136,22 @@ _A sample userinfo response is given below:_
 "family_name": "john"
 }
 ```
+
+## Prioritize local account attributes
+
+{{ product_name }} offers the capability to share attributes of a local account during federated a{{ product_name }}uthentication, provided that there exists a local account linked with the federated identity. To prioritize the sharing of attributes from linked local accounts, follow the steps given below:
+
+1. On the {{ product_name }} Console, go to **Applications**.
+2. Select your application and go to its **User Attributes** tab.
+3. Scroll down and under **Linked Accounts**, select **Prioritize local account attributes**.
+
+![Prioritize local account attributes]({{base_path}}//assets/img/guides/applications/attributes/oidc/prioritize-local-account-attributes.png)
+
+Once enabled, the tokens issued from this application during federated authentication with an [external identity provider]({{base_path}}/guides/authentication/#supported-external-idps) will contain the attributes of the local account which is linked with the entity identified by the subject claim of the token issued by the external identity provider.
+
+If there is no such linked local account, {{ product_name }} will return the user attributes retrieved from the external identity provider.
+
+!!! note
+    When [JIT provisioning]({{base_path}}/uides/authentication/jit-user-provisioning/#how-jit-provisioning-works) is enabled for the external identity provider, {{ product_name }} ensures that the attributes of the associated local account synchronize with the external identity provider upon each federated login.
+
+    If you want to preserve attribute values set in the local user account, you need to disable JIT provisioning
