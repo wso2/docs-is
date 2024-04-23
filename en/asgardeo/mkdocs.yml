@@ -130,6 +130,7 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
+    - Learn by use case: get-started/asgardeo-use-cases.md
   - Guides: 
       - Guides - Overview: guides/index.md
       - Applications:
