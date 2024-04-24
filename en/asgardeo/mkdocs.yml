@@ -333,7 +333,7 @@ nav:
         - Email templates API: apis/email-template.md
       - User management:
         - SCIM 2.0 API: apis/scim2.md
-        - User account associations API: apis/association-management-by-admin.yaml
+        - User account associations API: apis/association-management-by-admin.md
       - User sessions:
         - Session management API: apis/session.md
         - Session extension API: apis/extend-sessions.md
@@ -355,6 +355,7 @@ nav:
       - Export user information API: apis/register-mfa/export-user-info.md
       - Password recovery API: apis/register-mfa/password-recovery.md
       - TOTP API: apis/register-mfa/totp.md
+      - User account associations API: apis/association-management-by-user.md
     - Administrator APIs:
       - Export admin information API: apis/administrators/export-admin-info.md
   - References:
