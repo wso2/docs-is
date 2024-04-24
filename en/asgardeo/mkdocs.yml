@@ -319,6 +319,7 @@ nav:
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
       - Attribute management API: apis/attribute-management.md
+      - Authenticators API: apis/authenticators.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Event configuration API: apis/event-configuration.md
       - Identity provider API: apis/idp.md
