@@ -331,7 +331,9 @@ nav:
         - Identity governance API: apis/identity-governance.md
         - Consent management API: apis/consent-management.md
         - Email templates API: apis/email-template.md
-      - User management (SCIM 2.0) API: apis/scim2.md
+      - User management:
+        - SCIM 2.0 API: apis/scim2.md
+        - User account associations API: apis/association-management-by-admin.yaml
       - User sessions:
         - Session management API: apis/session.md
         - Session extension API: apis/extend-sessions.md
