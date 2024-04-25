@@ -327,6 +327,7 @@ nav:
       - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
+      - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
       - Server management:
         - Identity governance API: apis/identity-governance.md
