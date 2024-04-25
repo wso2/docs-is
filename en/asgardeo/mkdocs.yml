@@ -333,6 +333,7 @@ nav:
         - Identity governance API: apis/identity-governance.md
         - Consent management API: apis/consent-management.md
         - Email templates API: apis/email-template.md
+      - User Functionality management API: apis/functionality.md
       - User management:
         - SCIM 2.0 API: apis/scim2.md
         - User account associations API: apis/association-management-by-admin.md
