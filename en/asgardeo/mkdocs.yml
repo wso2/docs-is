@@ -347,6 +347,7 @@ nav:
       - Application management API: apis/organization-apis/org-application-management.md
       - B2B self-service management API: apis/onboard-admins-self-service.md
       - Branding API: apis/organization-apis/org-branding-management.md
+      - Claim management API: apis/organization-apis/org-claim-management.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - Group management API: apis/organization-apis/org-group-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp.md
