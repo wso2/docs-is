@@ -351,6 +351,7 @@ nav:
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - Group management API: apis/organization-apis/org-group-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp.md
+      - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
       - Orgnization APIs: apis/organization-apis/index.md
