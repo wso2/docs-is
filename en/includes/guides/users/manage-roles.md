@@ -211,16 +211,7 @@ Roles created for an **Application** audience are only associated with the selec
 !!! warning "Before you proceed"
     If you have previously associated application roles to an application, switching the audience to `organization`, permanently deletes the application roles associated to the application.
 
-To associate organization roles to an application:
+Roles created for an **Organization** audience do not need to be associated with any specific applications. They serve a broader organizational purpose and are available throughout the organization.
 
-1. On the {{ product_name }} Console, go to **Applications**.
-
-2. Select the application to which you wish to associate the organization role.
-
-3. Click **Edit** and navigate to the **Roles** tab.
-
-4. Select **Organization** as the **Role Audience**, and select the roles from the dropdown.
-
-    ![Associate organization audience roles to app]({{base_path}}/assets/img/guides/roles/associate-org-audience-roles-to-app.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-5. Click **Update**.
+!!! note
+    When an application with **Organization** audience is shared with a Business-to-Business (B2B) organization, all the Organization roles available in the root organization will be shared with that B2B organization.
