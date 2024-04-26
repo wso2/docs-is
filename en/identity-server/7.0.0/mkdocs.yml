@@ -598,8 +598,10 @@ nav:
           - Enable assertions in access tokens: deploy/enable-assertions-in-access-tokens.md
         #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
         - Enable hostname verification: deploy/enable-hostname-verification.md
-        - Configure TLS: deploy/security/configure-transport-level-security.md
-        - Configure TLS termination: deploy/configure-tls-termination.md
+        - Transport Level Security:
+          - Configure TLS: deploy/security/configure-transport-level-security.md
+          - Configure TLS termination: deploy/configure-tls-termination.md
+          - Configure post-quantum secure TLS: deploy/security/configure-post-quantum-secure-tls.md
         - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
         - Configure Admin Advisory Banner: deploy/security/configure-admin-advisory-banner.md
         - Secure passwords in configuration files:
