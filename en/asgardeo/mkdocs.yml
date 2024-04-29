@@ -344,6 +344,7 @@ nav:
         - Session extension API: apis/extend-sessions.md
       - Validation API: apis/validation.md
     - Orgnization APIs:
+      - Orgnization APIs: apis/organization-apis/index.md
       - Application management API: apis/organization-apis/org-application-management.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - B2B self-service management API: apis/onboard-admins-self-service.md
@@ -355,7 +356,7 @@ nav:
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
-      - Orgnization APIs: apis/organization-apis/index.md
+      - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
       - User management API: apis/organization-apis/org-user-mgt.md
