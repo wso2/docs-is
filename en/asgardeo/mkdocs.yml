@@ -357,6 +357,7 @@ nav:
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
+      - Offline user onboard management API: apis/organization-apis/organization-discovery.md
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
