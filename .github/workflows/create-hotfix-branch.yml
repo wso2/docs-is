@@ -1,0 +1,92 @@
+# This workflow will initiate the process for delivering hotfixes.
+
+name: 🔥 Hotfix Branch Creation
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Enter the docs version that needs a hotfix (e.g. v1.2.3).'
+        required: true
+
+env:
+    GH_TOKEN: ${{ secrets.IAM_DOCS_GITHUB_BOT_TOKEN }}
+
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0
+          token: ${{ env.GH_TOKEN }}
+
+      - name: Create the new branch for Hotfix.
+        id: create-hotfix-branch
+        run: |
+
+          # Set github profile configurations.
+          echo "Setting github profile config..."
+          git config user.email "iam-cloud@wso2.com"
+          git config user.name "wso2-iam-cloud-bot"
+
+          # Read the input value for the version.
+          echo "Reading the input value for the version..."
+          TAG=${{ github.event.inputs.version }}
+          echo "Required version to be hotfixed: ${TAG}"
+
+          # Check whether the provided version is available and stop the workflow if not.
+          echo "Check whether the provided version is available."
+          IS_TAG_EXIST=$(git tag -l ${TAG} | wc -l)
+          if [ $IS_TAG_EXIST -eq 0 ]; then
+            echo "Provided docs version is not available!"
+            exit 1
+          fi
+
+          # Check whether the required branch is already available and stop the workflow if it is already available.
+          echo "Check whether the required branch is already there."
+          IS_BRANCH_EXIST=$(git ls-remote --heads origin hotfix-${TAG} | wc -l)
+          if [ $IS_BRANCH_EXIST -eq 1 ]; then
+            echo "Required branch already exists!"
+            exit 1
+          fi
+
+          # Create the new branch based from the given version.
+          echo "Creating the new hotfix branch - hotfix-${TAG}..."
+          git checkout -b hotfix-${TAG} ${TAG}
+
+          # Change the Release workflow to work with the hotfix branch.
+          echo "Changing the Release workflow to work with the hotfix branch."
+
+          # Change the branch name in the release-docs.yml file.
+          sed -i '/branches:/ {n; s/- master/- hotfix-'"${TAG//\//\\/}"'/}' .github/workflows/release-docs.yml
+          
+          # Set IS_HOTFIX to true.
+          sed -i 's/IS_HOTFIX: .*/IS_HOTFIX: '\''true'\''/' .github/workflows/release-docs.yml
+
+          # Update the VERSION file
+          echo "Updating the VERSION file with the hotfix tag..."
+
+          hotfix_tag_prefix=$TAG-hotfix
+          echo "Hotfix tag prefix: $hotfix_tag_prefix"
+
+          hotfix_release_tag=$hotfix_tag_prefix-0
+          echo "Hotfix release tag: $hotfix_release_tag"
+
+          # Change version in VERSION file to hotfix tag.
+          echo $hotfix_release_tag > 'VERSION'
+
+          # Change the branch name in the pr-builder.yml file.
+          # TODO: Add a PR builder to the docs-is repo
+          # sed -i '/branches: \[ main \]/s/main/hotfix-'"${TAG//\//\\/}"'/' .github/workflows/pr-builder.yml
+
+          # Add only modified files, hotfix-pr-creation-template.yml file, and commit changes.
+          echo "Add only modified files."
+          git add -u
+          git add .github/workflows/release-docs.yml
+          git status
+          echo "Commit changes and push to the new branch."
+          git commit -m "[Hotfix] [skip ci] Creating a new branch for the Hotfix delivery - hotfix-${TAG}."
+          git push origin hotfix-${TAG}
