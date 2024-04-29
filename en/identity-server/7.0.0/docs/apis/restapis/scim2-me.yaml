@@ -109,9 +109,7 @@ paths:
             "userName": "kim",
             "emails": [
               {
-                "type": "home",
                 "value": "kim@gmail.com",
-                "primary": true
               },
               {
                 "type": "work",
@@ -195,9 +193,7 @@ paths:
             "password": "MyPa33w@rd",
             "emails": [
               {
-                "type": "home",
                 "value": "kim@gmail.com",
-                "primary": true
               },
               {
                 "type": "work",
@@ -334,9 +330,7 @@ components:
         emails:
           type: array
           example:
-            - type: home
-              value: kim@gmail.com
-              primary: true
+            - value: kim@gmail.com
             - type: work
               value: kim@wso2.com
           items:
@@ -398,9 +392,7 @@ components:
         emails:
           type: array
           example:
-            - type: home
-              value: kim@gmail.com
-              primary: true
+            - value: kim@gmail.com
             - type: work
               value: kim@wso2.com
           items:
@@ -446,9 +438,7 @@ components:
         emails:
           type: array
           example:
-            - type: home
-              value: kim@gmail.com
-              primary: true
+            - value: kim@gmail.com
             - type: work
               value: kim@wso2.com
           items:
@@ -536,9 +526,7 @@ components:
         emails:
           type: array
           example:
-            - type: home
-              value: kim@gmail.com
-              primary: true
+            - value: kim@gmail.com
             - type: work
               value: kim@wso2.com
           items:
