@@ -44,7 +44,7 @@ jobs:
       - name: Increment version
         run: |
           set -euxo pipefail
-          if [ env.IS_HOTFIX == 'false' ]; then
+          if [ ${{ env.IS_HOTFIX == 'false' }} ]; then
               IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
               echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
               PATCH=$((PATCH+1))
