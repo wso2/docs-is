@@ -56,7 +56,7 @@ paths:
             -H 'Authorization: Bearer {bearer_token}' \
             -d '{
                 "username": "johnDoe",
-                "userstore": "PRIMARY"
+                "userstore": "DEFAULT"
             }'
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/o/api/users/v1'
