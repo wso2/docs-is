@@ -15,6 +15,7 @@ env:  # Global environment variables
   GIT_ORG_NAME: ${{ secrets.GIT_ORG_NAME }}
   GIT_REPO_NAME: ${{ secrets.GIT_REPO_NAME }}
   GIT_BRANCH_NAME: ${{ secrets.GIT_BRANCH_NAME }}
+  IS_HOTFIX: 'false'
 
 jobs:
   release-asgardeo-docs:
@@ -36,19 +37,41 @@ jobs:
           pip install -r en/asgardeo/requirements.txt
 
       - name: Get the current version
+        if: ${{ env.IS_HOTFIX == 'false'}}
         run: |
           echo "CURRENT_VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
       - name: Increment version
         run: |
           set -euxo pipefail
-          IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
-          echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
-          PATCH=$((PATCH+1))
-          NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
-          echo "New version: $NEW_VERSION"
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-          echo "$NEW_VERSION" > VERSION
+          if [ ${{ env.IS_HOTFIX == 'false' }} ]; then
+              IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
+              echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
+              PATCH=$((PATCH+1))
+              NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+              echo "New version: $NEW_VERSION"
+              echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+              echo "$NEW_VERSION" > VERSION
+          else
+              # Determine the hotfix tag
+              echo "Determining the hotfix tag..."
+
+              hotfix_count=$(git tag | grep ${{ env.CURRENT_VERSION }} | wc -l)
+              echo "Hotfix count: $hotfix_count"
+
+              next_hotfix_no=$((hotfix_count + 1))
+              echo "Next Hotfix number: $next_hotfix_no"
+
+              # Replace the last digit with the incremented value
+              hotfix_release_tag=$(echo "${{ env.CURRENT_VERSION }}" | sed "s/[0-9]$/$next_hotfix_no/")
+              echo "Hotfix release tag: $hotfix_release_tag"
+
+              NEW_VERSION=$hotfix_release_tag
+
+              # Change version in VERSION file to hotfix tag.
+              echo "$hotfix_release_tag" > VERSION
+          fi
+
         shell: bash
       
       - name: Build MkDocs Documentation
