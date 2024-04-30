@@ -313,8 +313,6 @@ nav:
   - APIs:
     - APIs - Overview: apis/index.md
     - Authentication: apis/authentication.md
-    - System APIs:
-      - Admin advisory management API:  apis/admin-advisory-management-rest-api.md
     - Management APIs:
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
