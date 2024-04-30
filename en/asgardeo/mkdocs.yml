@@ -319,7 +319,10 @@ nav:
       - Attribute management API: apis/attribute-management.md
       - Authenticators API: apis/authenticators.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
+      - Consent management API: apis/consent-management.md
+      - Email templates API: apis/email-template.md
       - Event configuration API: apis/event-configuration.md
+      - Identity governance API: apis/identity-governance.md
       - Identity provider API: apis/idp.md
       - Idle account identification API: apis/idle-account-identification.md
       - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
@@ -328,10 +331,6 @@ nav:
       - Organization management API: apis/organization-management.md
       - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
-      - Server management:
-        - Identity governance API: apis/identity-governance.md
-        - Consent management API: apis/consent-management.md
-        - Email templates API: apis/email-template.md
       - User Functionality management API: apis/functionality.md
       - User management:
         - SCIM 2.0 API: apis/scim2.md
