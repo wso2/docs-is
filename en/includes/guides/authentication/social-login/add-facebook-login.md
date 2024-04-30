@@ -16,45 +16,45 @@ To register an app on Facebook:
 
 2. Click **Create App**.
 
-    ![Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
 3. Select the use case as **Authenticate and request data from users with Facebook Login** and click **Next**.
 
-    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
 4. Select the login type out of the options and click **Next**.
 
-    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-choose-login-type.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-choose-login-type.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
-4. Provide **Display Name** and click **Create App** to create an application.
+5. Provide **Display Name** and click **Create App** to create an application.
 
-    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
-5. While in the created application, select **Use cases** from the left navigation.
+6. While in the created application, select **Use cases** from the left navigation.
 
-6. Under **Use cases** > **Authentication and account creation**, click **Customize**.
+7. Under **Use cases** > **Authentication and account creation**, click **Customize**.
 
-7. Under **Facebook Login** > **Quickstart**, click **Go to quickstart**.
+8. Under **Facebook Login** > **Quickstart**, click **Go to quickstart**.
 
-5. Select **Web** as the platform for this app and provide the following **Site URL** with your organization name and click **Save**.
+9. Select **Web** as the platform for this app and provide the following **Site URL** with your organization name and click **Save**.
 
     ```bash no-line-numbers
     https://api.asgardeo.io/t/<organization_name>
     ```
 
-6. Return to the **Use cases** > **Customize** section and under **Facebook login** > **Settings**, click **Go to settings**.
+10. Return to the **Use cases** > **Customize** section and under **Facebook login** > **Settings**, click **Go to settings**.
 
-7. Add the following as the **Valid OAuth Redirect URIs** and click **Save changes**.
+11. Add the following as the **Valid OAuth Redirect URIs** and click **Save changes**.
 
     ```bash
     {{ product_url_format }}
     ```
 
-8. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.
+12. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.
 
     ![Add Facebook settings]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
-9. On the left navigation panel, go to **App settings** > **Basic** and take note of the **App ID** and **App Secret**.
+13. On the left navigation panel, go to **App settings** > **Basic** and take note of the **App ID** and **App Secret**.
 
     ![Get AppID and Secret from Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600" style="border: 0.3px solid lightgrey;"}
 

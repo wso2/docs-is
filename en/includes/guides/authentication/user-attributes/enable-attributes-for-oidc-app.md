@@ -154,6 +154,6 @@ Once enabled, the tokens issued from this application during federated authentic
 If there is no such linked local account, {{ product_name }} will return the user attributes retrieved from the external identity provider.
 
 !!! note
-    When [JIT provisioning]({{base_path}}/uides/authentication/jit-user-provisioning/#how-jit-provisioning-works) is enabled for the external identity provider, {{ product_name }} ensures that the attributes of the associated local account synchronize with the external identity provider upon each federated login.
+    When [JIT provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#how-jit-provisioning-works) is enabled for the external identity provider, {{ product_name }} ensures that the attributes of the associated local account synchronize with the external identity provider upon each federated login.
 
     If you want to preserve attribute values set in the local user account, you need to disable JIT provisioning
