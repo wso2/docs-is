@@ -10,7 +10,5 @@ Select a technology and try integrating an application with Asgardeo.
 
 [Learn more]({{base_path}}/get-started/start-integrating-apps/)
 
-## Learn by use case
-Select an identity and access management use case for your application and see how it works in Asgardeo.
 
 [Learn more]({{base_path}}/get-started/asgardeo-use-cases/)
