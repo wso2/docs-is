@@ -1,10 +1,8 @@
-# Role Based Access Control (RBAC) for API Authorization
+# API Authorization with Role Based Access Control (RBAC)
 
-{{ product_name }} allows organizations to authorize user access to an application's API resources based on the application associated roles assigned to the users or user groups.
+Role Based Access Control (RBAC) in {{product_name}} lets organizations grant limited access to its API resources based on the assigned roles of a user.
 
-![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/API-resource-high-level.png){: width="700" style="display: block; margin: 0;"}
-
-The following are the terms used in the API authorization context:
+{{product_name}} uses the following terms to define various components of API authorization.
 
 <table>
     <tr>
@@ -13,58 +11,77 @@ The following are the terms used in the API authorization context:
     </tr>
     <tr>
         <td>API resources</td>
-        <td>Used to group the API scopes/permissions that your applications can consume.</td>
+        <td>Defines an API and its permissions(in the form of scopes). This could be a <a href="#register-a-business-api">business API</a> or a <a href="{{base_path}}/apis/">management/organization API</a> exposed by {{product_name}}.</td>
     </tr>
     <tr>
         <td>Permissions</td>
-        <td>Interchangeably known as scopes. Permissions represent an action an application can perform on behalf of a user. These are the scopes an application need to request to obtain a token capable of accessing the API resource.</td>
+        <td>Also known as scopes, are the actions an application can perform on the API, on behalf of the user. Applications should request for an authorized token before performing these actions.</td>
     </tr>
     <tr>
         <td>Roles</td>
-        <td>Used to map the permissions of the API resource to a persona in the application.
+        <td>Used to group permissions for API resources. In {{product_name}} you can define application roles (for a specific application) and organization roles (for multiple applications).
             See <a href="{{base_path}}/guides/users/manage-roles">manage roles</a> for more information.
     </tr>
     <tr>
         <td>User Groups</td>
-        <td>A collection of users with the same privileges to access resources in an organization. A group is user store specific.
+        <td>A collection of users with the same privileges.
             See <a href="{{base_path}}/guides/users/manage-groups">manage groups</a> for more information.
         </td>
     </tr>
     <tr>
     <td>IdP Groups</td>
-        <td>Groups of the configured external identity providers.
-            See <a href="{{base_path}}/guides/authentication/#add-groups-to-connections">IdP groups</a> for more information.
+        <td>Groups of an external identity provider connected with the application.
+            Learn how to add <a href="{{base_path}}/guides/authentication/#add-groups-to-connections">IdP groups</a> for a connection.
         </td>
     </tr>
 </table>
 
 The relationship between these entities is as follows:
 
-- API resources come with specific scopes(permissions). 
-- Roles are formed by collecting scopes (permissions) from different APIs. 
-- Applications can be linked to specific sets of roles and set of API resources.
-- Roles can be assigned to individual users, user groups or external IdP groups.
-- Users get access to an application's API resources based on the resolved user assigned roles based on the authenticated mechanism and the application.
+- [Management/Organization APIs]({{base_path}}/apis/) and [business APIs](#register-a-business-api) along with their permissions are defined in the form of API resources.
+- The administrator,
+    1. authorizes an application to consume certain API resources and permissions.
+    2. selects the role audience for the application. (This decides whether the application consumes application roles defined specifically for it or organization roles available throughout the organization.)
 
-## How it works
+    3. creates a role that grants some permissions for selected APIs authorized for the application.
+    4. collects users who should be granted this role and creates a group.
+    5. assigns the group to the role so that members of the group inherit the permissions defined in the role.
+    6. optionally, selects external groups that should be assigned to the above role when logging in with an external IdP.
+- Users logging into the application can perform limited actions on the selected APIs as defined in the role.
 
-Administrators in an organization have the authority to either allow unrestricted access or enforce controlled access to the API resources.
+??? note "Sample scenario"
 
-If administrators choose to skip authorization, all application users will be authorized to access the API resources without any limitations.
+    The following diagram depicts a sample use case of RBAC. </br>
 
-However, if authorization is mandated for the API resources, the following flow occurs:
+    ![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/API-resource-high-level.png){: width="700" style="display: block; margin: 0;"}
 
-1. The user attempts to access an application with controlled access to API resources.
-2. {{ product_name }} retrieves the user's roles associated to the application by checking the direct user-to-roles assignments and user's group-to-role assignments.
-3. {{ product_name }} evaluates the permissions associated with the user's roles.
-4. Based on the assigned permissions, {{ product_name }} grants or denies the user with controlled access to the API resources.
+    The Library application lets users log in and use its services in the form of a book API to manage books and a user API to manage users. The library application also wants to let users of an external library to log in to the application. The administrator wishes to employ RBAC to protect the application's API resources as follows,
 
-To summarize, {{ product_name }} validates the user's role assignment (direct or via groups), examines the permissions associated with the roles, and decides whether to permit or restrict the user's access to the API resources.
+    Roles: </br>
+    1. **Reader** and **Writer** are application roles associated with the **Library** application.</br>
+    2. **Admin** is an organization role.
 
-## Register an API resource
-{{ product_name }} allows administrators to register API resources with scopes(permissions).
+    Permissions: </br>
+    1. The **Reader** role has **GET** permissions to both **books** API and the **users** API.</br>
+    2. The **Writer** role has **GET** and **ADD** permissions to both **books** API and the **users** API.
 
-To register an API resource on {{ product_name }},
+    Users: </br>
+    1. Members of the **Librarian** group are assigned with the **Writer** permissions.</br>
+    2. Any other user logging into an application is assigned **Reader** permissions.</br>
+    3. The Librarians group in the external IdP are assigned **Writer** permissions.
+
+    When logging into the **Library** application under these conditions, </br>
+    1. **John**, a member of the **Librarians** group can **read**, **add** books and **view**, **add** users.</br>
+    2. **Bob**, a user can **read** books and **view** users.</br>
+    3. Members of the **external Librarian group** can **read**, **add** books and **view**, **add** users.
+
+The following are the steps to follow to enforce RBAC for an API resource.
+
+
+## Register a business API
+Apart from the APIs exposed by {{ product_name }}, administrators can define their own API resources and their scopes as API resources.
+
+To register an API resource,
 
 1. On the {{ product_name }} Console, go to **API Resources**.
 2. Click **+ New API** to register a new API resource.
@@ -76,7 +93,7 @@ To register an API resource on {{ product_name }},
         </tr>
         <tr>
             <td><b>Identifier</b></td>
-            <td>This is an identifier for your API resource. This can be any value, but {{ product_name }} recommends using the URI of the API resource as the identifier. This value will be used as the <code>aud</code> claim in the issued JWT token.</td>
+            <td>This value will be used as the <code>aud</code> attribute in the issued JWT token. Although any value is acceptable, it's recommended to use the URI of the API resource.</td>
         </tr>
         <tr>
             <td><b>Display Name</b></td>
@@ -92,7 +109,7 @@ To register an API resource on {{ product_name }},
         </tr>
         <tr>
             <td><b>Scope (Permission)</b></td>
-            <td>The value that acts as the scope when requesting an access token. This value should be similar to the scope value in your application.</td>
+            <td>Defines an action for your API resource. This value should match the scopes defined in your application. (Applications use this scope to request for an access token).</td>
         </tr>
         <tr>
             <td><b>Display Name</b></td>
@@ -106,28 +123,24 @@ To register an API resource on {{ product_name }},
 
 5. Click **+ Add Scope**. Note that you can add multiple scopes according to your requirements.
 
-6. Click **Next** and enable **Requires authorization** if the users consuming your API should be authorized before they get access, else you can proceed without an authorization policy.
+6. Click **Next** and enable **Requires authorization** if the users should be authorized to use the API, or you proceed without an authorization policy.
 
 7. Click **Finish** to complete the API resource registration.
 
-## Authorize the API resources for an app
+## Authorize apps to consume API resources
 
-!!! note
-    Before you register any APIs in the organization (root), **Management APIs** and **Organization APIs** are already exist. To learn more about the features and endpoint of the Management and Organization API, see [API section]({{base_path}}/apis/).
+Applications, by default, do not have authorization to consume APIs. Administrators can authorize applications to use selected APIs so that users logging into the application will have access to that API resource. If an API resource requires authorization, RBAC will be applied before granting access to users.
 
-Once you have registered API resources in your organization, you can authorize applications in your organization to access those API resources. This is done by connecting the API resources to the relevant applications. Users of an application will have access to the API resource depending on the authorization settings you have configured.
-If an API resource requires authorization, RBAC will be applied before granting users access.
-
-{{ product_name }} allows administrators to connect API resources to applications. To authorize an API resource for an application:
+To authorize an application to consume an API resource:
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select the application to which you wish to authorize the registered API resource and go to **API Authorization**.
+2. Select the application and go to its **API Authorization** tab.
 
     !!! warning
-        Note that you cannot authorize API resources for a SAML application.
+        You cannot authorize API resources for a SAML application.
 
-3. Click **+ Authorize an API Resource**.
+3. Click **Authorize an API Resource**.
 
 4. Enter the following details:
     <table>
@@ -137,94 +150,91 @@ If an API resource requires authorization, RBAC will be applied before granting 
         </tr>
         <tr>
             <td><b>API Resource</b></td>
-            <td>Select the API resource you wish to integrate with your application.</td>
+            <td>Select an API resource from the list of business APIs or management/organization APIs</td>
         </tr>
         <tr>
             <td><b>Authorized Scopes</b></td>
-            <td>Select the scopes.</td>
+            <td>Select the scopes for the API.</td>
         </tr>
         <tr>
             <td><b>Authorization Policy</b></td>
-            <td>Select the authorization policy. If you have selected <b>Requires Authorization</b> when adding the API resource, RBAC will be selected by default, else you have the option to select between <code>Role-Based Access Control (RBAC)</code> and <code>No Authorization Policy</code>.</td>
+            <td>Management/Organization APIs of {{product_name}} or business APIs with <code>Requires autheorization</code> enabled will default to <code>Role-Based Access Control (RBAC)</code>. Other APIs can alternatively proceed with <code>No Authorization Policy</code>.</td>
         </tr>
     </table>
 
 5. Click **Finish**.
 
-    ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/authorization/api-authorization/authorize-an-api-resource.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/authorization/api-authorization/authorize-an-api-resource.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Configure RBAC for API resources
-If RBAC is enabled as the authorization policy for the API resource, users accessing the API through an application will have role-based access.
+## Set the role audience for apps
 
-### Define scopes for an API resource
-If you didn't specify all the permissions for the API resource when [registering the API resource](#register-an-api-resource), follow the steps given below to add permissions.
+In {{product_name}}, you can create two types of roles.
 
-1. On the {{ product_name }} Console, go to **API Resources**.
-2. Select the API resource and go to the **Scopes** tab.
-3. Click **+ Add Scope** and enter the following details:
-    <table>
-        <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td><b>Scope (Permission)</b></td>
-            <td>The value that acts as the scope when requesting an access token. This value should be similar to the scope value in your application.</td>
-        </tr>
-        <tr>
-            <td><b>Display Name</b></td>
-            <td>A meaningful name for your scope (permission). This will be displayed on your application's user consent page.</td>
-        </tr>
-        <tr>
-            <td><b>Description</b></td>
-            <td>A description for your scope (permission). This will be displayed on your application's user consent page.</td>
-        </tr>
-    </table>
-4. Click **Finish**.
+- **Application roles** - Roles tailored to a specific application. Used to control access to [API resources authorized for the application]({{base_path}}/guides/authorization/api-authorization/api-authorization/#authorize-apps-to-consume-api-resources).
 
-### Associate roles to the application
+- **Organization roles** - Roles that are available throughout the organization and used to control access to API resources of an organization.
 
-The scopes (permissions) of your API resource should be assigned to a role and associate that role to the application. 
+!!! note
+    Learn more about roles [Manage roles]({{base_path}}/guides/users/manage-roles).
 
-1. Create a role and assign scopes (permissions) to the role. See [create a role]({{base_path}}/guides/users/manage-roles/#create-a-role) for more information.
-2. If you create a role with the `Application` audience, the role will be associated to the selected application during role creation. If you create a role in `Organization` audience, you need to associate the role to the application. See [associate roles to an application]({{base_path}}/guides/users/manage-roles/#associate-roles-to-an-application) for more information.
+Applications can either be set to consume application roles or organization roles.
 
-### Assign users or groups to roles
+To select the application audience,
 
-Grant permissions of the roles to users by [assign users to role]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role) or [assign user's groups to roles]({{base_path}}/guides/users/manage-roles/#assign-user-groups-to-a-role).
+1. On the {{ product_name }} Console, go to **Applications**.
+
+2. Select the application and go to its **Roles** tab.
+
+3. Under **Roles** > **Role Audience**,
+
+    1. If the choice is set to **Application**, all application roles created for the application appear under **Assigned Roles**. Click the **X** icon if you wish to delete an application role. Click **New Role** if you wish to add more roles.
+
+    2. Selecting **Organization** allows applications to consume organization-level APIs.
+
+    !!! warning
+        If you switch the role audience to **Organization**, application roles created for the application will be permanently deleted.
+
+## Create roles and assign users
+
+Once the application is [authorized to consume APIs](#authorize-apps-to-consume-api-resources) and its [role audience](#set-the-role-audience-for-apps) is set, administrators can create roles and enforce RBAC policies in the organization.
+
+If the application's role audience is **Application**, create application-specific roles and assign permissions for APIs that the application is authorized to use.
+
+If the application's role audience is **Organization**, any organization role with the relevant permissions can be used to control access to the application.
+
+!!! note
+    Learn how to [manage roles]({{base_path}}/guides/users/manage-roles).
 
 ## Try it out
 
-Follow the steps given below to try out the RBAC flow:
+Imagine you have an issue management application. For this you employ an issues API that let users perform view, create and delete operations on the issues. In order to enforce RBAC on the issues API, you create the following application roles.</br>
+  - **Reporters** can view, create and delete issues.</br>
+  - **Reviewers** can only read issues.
 
-!!! note
-    Note that we are using {{ product_name }}'s [React sample application]({{base_path}}/get-started/try-samples/qsg-spa-react/) for this scenario.
+Follow the steps below to use the {{product_name}}'s [React sample application]({{base_path}}/get-started/try-samples/qsg-spa-react/) to see this scenario in action.
 
-### Request scopes for the user
+1. Register the issues API as an API resource with scopes for reading, creating and deleting issues.
 
-To request scopes for the user:
+2. [Register the issue management application]({{base_path}}/get-started/try-samples/qsg-spa-react/#register-the-app) in {{product_name}} and authorize the application to use the issues API.
 
-1. Add the new scopes to the configuration file of your SDK. You need to request these new scopes in addition to the OIDC scopes of your application.
+    ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/authorization/api-authorization/authorize-an-api-resource.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    To get the scopes:
+3. Set the role audience of the application to **Application** (This is the logical choice if you only have one application using the roles you create).
 
-    1. On the {{ product_name }} Console, go to **Applications** and select your application.
-    2. Copy the scopes listed at the end of the **API Authorization** section.
+4. Create application roles for **Reporter** and **Reviewer**. The following shows the permissions for the **Reviewer** role
 
-        ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/authorization/api-authorization/additional-scopes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+     ![Reporter permissions]({{base_path}}/assets/img/guides/authorization/api-authorization/reporter-permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    !!! tip
-        When you add scopes to the configuration file of your SDK, add them as comma-separated values.
+5. [Create users]({{base_path}}/guides/users/manage-users/#onboard-users) and assign them to each role. For this example, let's say **John** is a reporter and **Jane** is a reviewer.
 
-2. Access the application URL.
-3. Try to log in as a user who has permissions to access the API resource.
+6. Copy the scopes authorized for the application, [configure the application to request scopes]({{base_path}}/get-started/try-samples/qsg-spa-react/#configure-the-sample) and run it.
 
-    If you have disabled `Skip login consent` in your application's settings, upon successful login you will see the permission (scopes) allowed for the user on the user consent page.
+7. Access the application URL.
 
-    ![Permission of the user shown on the user consent page]({{base_path}}/assets/img/guides/authorization/api-authorization/user-consent-for-developer.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+8. Login as **John** (a reporter), you will see the following scopes in his profile.
 
-    Click **Allow**. You will now be redirected to the application.
+    ![Reporter permissions]({{base_path}}/assets/img/guides/authorization/api-authorization/john-scopes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. You will be able to see the assigned scopes (permissions) on the `allowedScopes` parameter of the authentication response.
+9. Login as **Jane** (a reviewer), you will see the following scopes in her profile.
 
-    ![Authentication response of the developer group user]({{base_path}}/assets/img/guides/authorization/api-authorization/allowed-scopes-for-developer.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Reporter permissions]({{base_path}}/assets/img/guides/authorization/api-authorization/jane-scopes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
