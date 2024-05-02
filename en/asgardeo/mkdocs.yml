@@ -220,6 +220,7 @@ nav:
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
+        - Branding AI: guides/branding/ai-branding.md
         - Configure custom domains: guides/branding/configure-custom-domains.md
         - Customize email templates: guides/branding/customize-email-templates.md
         - Localization in Asgardeo: references/localization-in-asgardeo.md
