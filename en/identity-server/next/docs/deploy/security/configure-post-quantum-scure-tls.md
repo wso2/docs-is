@@ -61,7 +61,7 @@ In this mode, the system-level dependencies are utilized, resulting in the faste
     export PATH="/opt/homebrew/opt/apr/bin:$PATH"
     ```
 
-### Enable Post-Quantum TLS
+#### Enable Post-Quantum TLS
 
 1. Shut down the Identity Server instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
@@ -83,11 +83,11 @@ In this mode, the system-level dependencies are utilized, resulting in the faste
 !!! note
     If the path of the Identity Server directory is altered, re-run the `sh openssl-tls.sh --build_liboqs` command to enable the Post-Quantum TLS.
 
-## Build Post-Quantum TLS: self contained mode
+### Build Post-Quantum TLS: self contained mode
 
 In this mode, all dependencies are contained within the Identity Server folder, guaranteeing total isolation from the system environment and ensuring maximum compatibility across different systems and configurations.
 
-### Build dependencies
+#### Build dependencies
 
 - Build tools (make, cmake, wget, tar)
 - GNU compiler
@@ -114,7 +114,7 @@ In this mode, all dependencies are contained within the Identity Server folder, 
     brew install wget cmake
     ```
 
-### Enable Post-Quantum TLS
+#### Enable Post-Quantum TLS
 
 1. Shut down the Identity Server instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
