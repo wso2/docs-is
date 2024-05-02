@@ -11,4 +11,3 @@ Select a technology and try integrating an application with Asgardeo.
 [Learn more]({{base_path}}/get-started/start-integrating-apps/)
 
 
-[Learn more]({{base_path}}/get-started/asgardeo-use-cases/)
