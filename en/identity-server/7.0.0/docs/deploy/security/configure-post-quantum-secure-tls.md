@@ -2,7 +2,7 @@
 
 To overcome the quantum threat on traditional cryptographic techniques, WSO2 Identity Server integrates  post-quantum cryptography with the current traditional methods. Specifically, it adopts the [X25519+Kyber](https://datatracker.ietf.org/doc/draft-tls-westerbaan-xyber768d00/) key agreement algorithm for inbound TLS communications, ensuring robust protection against quantum threats. To configure TLS with post-quantum security, Identity Server has to default to OpenSSL 3.x as the JSSE provider, alongside the [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
 
-Post-quantum TLS is **disabled** by default on Identity Server.
+Post-quantum TLS is **disabled** by default on WSO2 Identity Server.
 
 !!! note
     - Post-quantum TLS only works with TLS 1.3
