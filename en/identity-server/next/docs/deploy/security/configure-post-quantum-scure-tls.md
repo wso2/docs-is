@@ -71,7 +71,9 @@ The following dependencies are required during build-time.
 
 #### Runtime dependencies
 
-Follow the instructions given below to install the required runtime dependencies. These dependencies will be installed within the Identity Server directory.
+The OpenSSL and APR libraries installed from the previous section will also be used as runtime dependencies in this method.
+
+Follow the instructions given below to install the other required runtime dependencies. These dependencies will be installed within the Identity Server directory.
 
 1. Shut down the Identity Server instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
@@ -89,6 +91,7 @@ In this method, all the runtime dependencies are installed into the Identity Ser
 #### Build dependencies
 
 The following dependencies are required during build-time.
+
 - Build tools (make, cmake, wget, tar)
 - GNU compiler (GCC/Clang)
 
@@ -142,7 +145,7 @@ Follow the instructions given below to install the required runtime dependencies
     [transport.https.sslHostConfig.properties]
     protocols="TLSv1+TLSv1.1+TLSv1.2+TLSv1.3"
     ```
-3. Restart the WSO2 Identity Server.
+3. Restart WSO2 Identity Server.
 
 
 !!! note "Disable Post-Quantum TLS"
@@ -151,7 +154,7 @@ Follow the instructions given below to install the required runtime dependencies
 
     1. Shut down the Identity Server instance if it's running.
     2. In the `<IS_HOME>/repository/conf/deployment.toml` file, remove the previously added configurations.
-    3. Restart the WSO2 Identity Server.
+    3. Restart WSO2 Identity Server.
 
 
     !!! tip
