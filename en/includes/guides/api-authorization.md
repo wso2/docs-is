@@ -1,6 +1,6 @@
 # API Authorization with Role Based Access Control (RBAC)
 
-Role Based Access Control (RBAC) in {{product_name}} lets organizations grant limited access to its API resources based on the assigned roles of a user.
+Role Based Access Control (RBAC) lets organizations grant limited access to its API resources based on the assigned roles of a user.
 
 {{product_name}} uses the following terms to define various components of API authorization.
 
@@ -39,17 +39,18 @@ Role Based Access Control (RBAC) in {{product_name}} lets organizations grant li
 The relationship between these entities is as follows:
 
 - [Management/Organization APIs]({{base_path}}/apis/) and [business APIs](#register-a-business-api) along with their permissions are defined in the form of API resources.
-- The administrator,
-    1. authorizes an application to consume certain API resources and permissions.
-    2. selects the role audience for the application. (This decides whether the application consumes application roles defined specifically for it or organization roles available throughout the organization.)
+- The administrator does the following to enforce RBAC to an application.
+      1. Authorize an application to consume certain API resources and permissions.
+      2. Select the role audience for the application. (This decides whether the application consumes application roles defined specifically for it or organization roles available throughout the organization.)
 
-    3. creates a role that grants some permissions for selected APIs authorized for the application.
-    4. collects users who should be granted this role and creates a group.
-    5. assigns the group to the role so that members of the group inherit the permissions defined in the role.
-    6. optionally, selects external groups that should be assigned to the above role when logging in with an external IdP.
-- Users logging into the application can perform limited actions on the selected APIs as defined in the role.
+      3. Create an application/organization role that grants permissions for selected APIs.
+      4. Collect users who should be granted this role and create a group.
+      5. Assign users individually or as a group to the role so that members of the group inherit the permissions defined in the role.
+      6. Optionally, select external groups that should be assigned to the above role when logging in with an external identity provider.
 
-??? note "Sample scenario"
+- Users logging into the application can then perform actions on the selected APIs based on the role.
+
+??? note "Learn more with a sample scenario"
 
     The following diagram depicts a sample use case of RBAC. </br>
 
@@ -75,7 +76,7 @@ The relationship between these entities is as follows:
     2. **Bob**, a user can **read** books and **view** users.</br>
     3. Members of the **external Librarian group** can **read**, **add** books and **view**, **add** users.
 
-The following are the steps to follow to enforce RBAC for an API resource.
+In {{product_name}}, you can follow the steps below to enforce RBAC for users logging in to an application.
 
 
 ## Register a business API
@@ -85,7 +86,7 @@ To register an API resource,
 
 1. On the {{ product_name }} Console, go to **API Resources**.
 2. Click **+ New API** to register a new API resource.
-3. Enter the following details:
+3. Enter the following details and click **Next**:
     <table>
         <tr>
             <th>Parameter</th>
@@ -101,7 +102,7 @@ To register an API resource,
         </tr>
     </table>
 
-4. Click **Next** and enter the following details:
+4. To register the scopes for your API, enter the following details and click **Add Scope** .
     <table>
         <tr>
             <th>Parameter</th>
@@ -121,15 +122,15 @@ To register an API resource,
         </tr>
     </table>
 
-5. Click **+ Add Scope**. Note that you can add multiple scopes according to your requirements.
+5. Repeat step 4 for all your scopes. Once done, click **Next**.
 
-6. Click **Next** and enable **Requires authorization** if the users should be authorized to use the API, or you proceed without an authorization policy.
+6. If your API requires authorization, enable **Requires authorization**. Disable the option to proceed with no authorization policy.
 
 7. Click **Finish** to complete the API resource registration.
 
 ## Authorize apps to consume API resources
 
-Applications, by default, do not have authorization to consume APIs. Administrators can authorize applications to use selected APIs so that users logging into the application will have access to that API resource. If an API resource requires authorization, RBAC will be applied before granting access to users.
+Applications, by default, do not have permissions to use APIs. Administrators can selectively grant authorization for applications to use selected APIs and their scopes. Hence, users logging into the application will have access to that API resource provided they are assigned to a role that grants the necessary permissions.
 
 To authorize an application to consume an API resource:
 
@@ -168,7 +169,7 @@ To authorize an application to consume an API resource:
 
 ## Set the role audience for apps
 
-In {{product_name}}, you can create two types of roles.
+In {{product_name}}, applications can be configured to work with one of the following roles.
 
 - **Application roles** - Roles tailored to a specific application. Used to control access to [API resources authorized for the application]({{base_path}}/guides/authorization/api-authorization/api-authorization/#authorize-apps-to-consume-api-resources).
 
@@ -176,8 +177,6 @@ In {{product_name}}, you can create two types of roles.
 
 !!! note
     Learn more about roles [Manage roles]({{base_path}}/guides/users/manage-roles).
-
-Applications can either be set to consume application roles or organization roles.
 
 To select the application audience,
 
@@ -198,17 +197,21 @@ To select the application audience,
 
 Once the application is [authorized to consume APIs](#authorize-apps-to-consume-api-resources) and its [role audience](#set-the-role-audience-for-apps) is set, administrators can create roles and enforce RBAC policies in the organization.
 
-If the application's role audience is **Application**, create application-specific roles and assign permissions for APIs that the application is authorized to use.
+To enforce RBAC policies,
 
-If the application's role audience is **Organization**, any organization role with the relevant permissions can be used to control access to the application.
+- If the application's role audience is set to **Application**, create application-specific roles and assign necessary permissions out of the APIs authorized for the application.
+
+- If the application's role audience is set to **Organization**, any organization role you create can be used to control access to the application.
 
 !!! note
     Learn how to [manage roles]({{base_path}}/guides/users/manage-roles).
 
 ## Try it out
 
-Imagine you have an issue management application. For this you employ an issues API that let users perform view, create and delete operations on the issues. In order to enforce RBAC on the issues API, you create the following application roles.</br>
-  - **Reporters** can view, create and delete issues.</br>
+Imagine you have an issue management application. For this you employ the **issues API** that let users perform view, create and delete operations on the issues. In order to enforce RBAC on the issues API, you create the following application roles.
+
+  - **Reporters** can view, create and delete issues.
+
   - **Reviewers** can only read issues.
 
 Follow the steps below to use the {{product_name}}'s [React sample application]({{base_path}}/get-started/try-samples/qsg-spa-react/) to see this scenario in action.

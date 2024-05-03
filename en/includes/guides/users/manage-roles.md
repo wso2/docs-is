@@ -4,14 +4,14 @@ A role is simply a collection of permissions. As roles facilitate adding, removi
 
 In {{product_name}}, roles play a crucial role in controlling access to APIs and applications. Based on the audience, you can define the following two types of roles.
 
-- **Application level** - Roles tailored to a specific application. Used to control access to [API resources authorized for the application]({{base_path}}/guides/authorization/api-authorization/api-authorization/#authorize-the-api-resources-for-an-app). 
+- **Application level** - Roles tailored to a specific application. Used to control access to [API resources authorized for the application]({{base_path}}/guides/authorization/api-authorization/api-authorization/#authorize-the-api-resources-for-an-app).
 
 - **Organization level** - Roles that are available throughout the organization and used to control access to API resources of an organization. Suited for organizations having multiple applications sharing the same login, registration and authorization requirements (such as applications with both a web and a mobile component).
 
     !!! note
         - API resources of an organization consist of [management APIs]({{base_path}}//apis/), [organization APIs]({{base_path}}/apis/) and [registered APIs]({{base_path}}/guides/authorization/api-authorization/api-authorization/#register-an-api-resource).
 
-        - Applications can either be associated with application roles or consume organization roles. Learn how to [select the role audience for an application](#associate-roles-to-an-application).
+        - Applications can be set to work with application roles or organization roles. Learn how to [select the role audience for an application](#set-the-role-audience-for-apps).
 
 ## Create a role
 
@@ -36,7 +36,7 @@ To create a role and assign permissions to it:
 
 5. Select one or more API resources from the dropdown.
 
-    - If the audience is **Application**, select from the [API resources authorized for the application](({{base_path}}/guides/authorization/api-authorization/api-authorization/#authorize-the-api-resources-for-an-app)).
+    - If the audience is **Application**, select from the [API resources authorized for the application]({{base_path}}/guides/authorization/api-authorization/api-authorization/#authorize-apps-to-consume-api-resources).
 
     - If the audience is **Organization**, select from your organization's API resources.
 
