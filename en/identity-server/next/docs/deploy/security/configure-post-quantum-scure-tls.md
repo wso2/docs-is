@@ -1,16 +1,18 @@
 # Configure Post-Quantum TLS
 
-To overcome the quantum threat on traditional cryptographic techniques, WSO2 Identity Server integrates  post-quantum cryptography with the current traditional methods. Specifically, it adopts the [X25519+Kyber](https://datatracker.ietf.org/doc/draft-tls-westerbaan-xyber768d00/) key agreement algorithm for inbound TLS communications, ensuring robust protection against quantum threats. To configure TLS with post-quantum security, Identity Server has to default to OpenSSL 3.x as the JSSE provider, alongside the [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
+To overcome the quantum threat on traditional cryptographic techniques, WSO2 Identity Server integrates post-quantum cryptography with the current traditional methods. Specifically, it adopts the [X25519+Kyber](https://datatracker.ietf.org/doc/draft-tls-westerbaan-xyber768d00/) key agreement algorithm for inbound TLS communications, ensuring robust protection against quantum threats. To configure TLS with post-quantum security, WSO2 Identity Server should be configured to utilize OpenSSL 3.x as the JSSE provider, along with [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
 
-Post-quantum TLS is **disabled** by default on Identity Server.
+Post-quantum TLS is **disabled** by default on WSO2 Identity Server.
 
 !!! note
-    - Post-quantum TLS only works with TLS 1.3
-    - Post-quantum secure TLS in Identity Server is currently only supported on Linux and MacOS operating systems.
+    Characteristics of post-quantum TLS  in WSO2 Identity server are as follows:
+
+    - Post-quantum TLS only works with TLS 1.3.
+    - Currently, post-quantum secure TLS in WSO2 Identity Server is only supported on Linux and MacOS operating systems.
 
 ## Build native libraries
 
-For post quantum TLS to work, a few native libraries are required. These libraries are not packed with the Identity Server distribution by default as native libraries are system architecture-dependent. Hence, these libraries must be built and installed into your Identity Server distribution.
+For post-quantum TLS to work, a few native libraries are required. These libraries are not packed with the Identity Server distribution by default as native libraries are system architecture-dependent. Hence, these libraries must be built and installed into your Identity Server distribution.
 
 The native libraries can be built using one of two methods given below.
 
@@ -86,7 +88,7 @@ Follow the instructions given below to install the other required runtime depend
 
 ### Method 2: Using self-contained libraries
 
-In this method, all the runtime dependencies are installed into the Identity Server folder, providing isolation from the system environment for post quantum TLS operation and ensuring maximum compatibility across different systems and configurations.
+In this method, all the runtime dependencies are installed into the Identity Server folder, providing isolation from the system environment for post-quantum TLS operation and ensuring maximum compatibility across different systems and configurations.
 
 #### Build dependencies
 
@@ -158,7 +160,7 @@ Follow the instructions given below to install the required runtime dependencies
 
 
     !!! tip
-        If you want to keep using TLS 1.3 while disabling post quantum secure TLS, change the `<IS_HOME>/repository/conf/deployment.toml` into following configuration.
+        If you want to keep using TLS 1.3 while disabling post-quantum secure TLS, change the `<IS_HOME>/repository/conf/deployment.toml` into following configuration.
         
         ``` toml
         [transport.https.openssl]
