@@ -8,7 +8,7 @@ Post-quantum TLS is **disabled** by default on WSO2 Identity Server.
     - Post-quantum TLS only works with TLS 1.3
     - Post-quantum secure TLS in Identity Server is currently only supported on Linux and MacOS operating systems.
 
-!!! note "Important"
+!!! error "important"
     The artifacts necessary for enabling post quantum secure TLS are not available in Identity Server 7.0.0 by default. If post quantum TLS is required, the artifacts should be manually applied as follows.
 
     - Download [openssl-tls.sh](https://raw.githubusercontent.com/wso2/product-is/v7.0.0-openssl-tls/modules/distribution/src/bin/openssl-tls.sh)  and copy the file to `<IS_HOME>/bin/`.
@@ -85,7 +85,7 @@ Follow the instructions given below to install the other required runtime depend
 1. Shut down the Identity Server instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
     ```bash
-    sh openssl-tls.sh --build_liboqs
+    sh openssl-tls.sh --build_pqclib
     ```
 
 !!! note
@@ -134,7 +134,7 @@ Follow the instructions given below to install the required runtime dependencies
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
 
     ```bash
-    sh openssl-tls.sh --build_openssl --build_liboqs
+    sh openssl-tls.sh --build_openssl --build_pqclib
     ```
 
 !!! note

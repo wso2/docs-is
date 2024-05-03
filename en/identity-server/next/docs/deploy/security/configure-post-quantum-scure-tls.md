@@ -78,7 +78,7 @@ Follow the instructions given below to install the other required runtime depend
 1. Shut down the Identity Server instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
     ```bash
-    sh openssl-tls.sh --build_liboqs
+    sh openssl-tls.sh --build_pqclib
     ```
 
 !!! note
@@ -127,7 +127,7 @@ Follow the instructions given below to install the required runtime dependencies
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
 
     ```bash
-    sh openssl-tls.sh --build_openssl --build_liboqs
+    sh openssl-tls.sh --build_openssl --build_pqclib
     ```
 
 !!! note
