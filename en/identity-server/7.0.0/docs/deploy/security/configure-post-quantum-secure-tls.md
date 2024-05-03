@@ -12,6 +12,7 @@ Post-quantum TLS is **disabled** by default on WSO2 Identity Server.
 
 !!! note "important"
     The artifacts necessary for enabling post-quantum secure TLS are not available in WSO2 Identity Server 7.0.0 by default. If post-quantum TLS is required, the artifacts should be manually applied.
+    To manually apply the the artifacts to WSO2 Identity Server,
 
     - Download [openssl-tls.sh](https://raw.githubusercontent.com/wso2/product-is/v7.0.0-openssl-tls/modules/distribution/src/bin/openssl-tls.sh)  and copy the file to `<IS_HOME>/bin/`.
     - Download [wso2server.sh](https://raw.githubusercontent.com/wso2/product-is/v7.0.0-openssl-tls/modules/distribution/src/bin/wso2server.sh)  and replace the file in `<IS_HOME>/bin/`.
