@@ -5,14 +5,14 @@ To overcome the quantum threat on traditional cryptographic techniques, WSO2 Ide
 Post-quantum TLS is **disabled** by default on WSO2 Identity Server.
 
 !!! note
-    Characteristics of post-quantum TLS  in WSO2 Identity server are as follows:
+    Characteristics of post-quantum TLS in WSO2 Identity server are as follows:
 
     - Post-quantum TLS only works with TLS 1.3.
-    - Currently, post-quantum secure TLS in WSO2 Identity Server is only supported on Linux and MacOS operating systems.
+    - Currently, post-quantum TLS in WSO2 Identity Server is only supported on Linux and MacOS operating systems.
 
 ## Build native libraries
 
-For post-quantum TLS to work, a few native libraries are required. These libraries are not packed with the Identity Server distribution by default as native libraries are system architecture-dependent. Hence, these libraries must be built and installed into your Identity Server distribution.
+For post-quantum TLS to work, a few native libraries are required. These libraries are not packed with the WSO2 Identity Server distribution by default as native libraries are system architecture-dependent. Hence, these libraries must be built and installed into your WSO2 Identity Server distribution.
 
 The native libraries can be built using one of two methods given below.
 
@@ -36,7 +36,7 @@ The following dependencies are required during build-time.
 
     To install OpenSSL 3.0+, download the [source](https://www.openssl.org/source/) and follow the instructions given [here](https://github.com/openssl/openssl/blob/master/INSTALL.md#quick-installation-guide).
 
-    Install the other required build dependencies using a command given below. 
+    Install the other required build dependencies using the command for your relevant Linux distribution.
 
     In Debian-based Linux:
 
@@ -75,20 +75,20 @@ The following dependencies are required during build-time.
 
 The OpenSSL and APR libraries installed from the previous section will also be used as runtime dependencies in this method.
 
-Follow the instructions given below to install the other required runtime dependencies. These dependencies will be installed within the Identity Server directory.
+Follow the instructions given below to install the other required runtime dependencies. These dependencies will be installed within the WSO2 Identity Server directory.
 
-1. Shut down the Identity Server instance if it's running.
+1. Shut down the WSO2 Identity Server instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
     ```bash
     sh openssl-tls.sh --build_pqclib
     ```
 
 !!! note
-    If you change the location of the Identity Server folder, you need to re-run the above command to reconfigure the runtime libraries.
+    If you change the location of the WSO2 Identity Server folder, you need to re-run the above command to reconfigure the runtime libraries.
 
 ### Method 2: Using self-contained libraries
 
-In this method, all the runtime dependencies are installed into the Identity Server folder, providing isolation from the system environment for post-quantum TLS operation and ensuring maximum compatibility across different systems and configurations.
+In this method, all the runtime dependencies are installed into the WSO2 Identity Server folder, providing isolation from the system environment for post-quantum TLS operation and ensuring maximum compatibility across different systems and configurations.
 
 #### Build dependencies
 
@@ -99,7 +99,7 @@ The following dependencies are required during build-time.
 
 === "Linux"
 
-    Install the required build dependencies using a command given below.
+    Install the other required build dependencies using the command for your relevant Linux distribution.
 
     In Debian-based Linux:
 
@@ -125,7 +125,7 @@ The following dependencies are required during build-time.
 
 Follow the instructions given below to install the required runtime dependencies. These dependencies will be installed within the Identity Server directory.
 
-1. Shut down the Identity Server instance if it's running.
+1. Shut down the WSO2 Identity Server instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
 
     ```bash
@@ -133,11 +133,11 @@ Follow the instructions given below to install the required runtime dependencies
     ```
 
 !!! note
-    If you change the location of the Identity Server folder, you need to re-run the above command to reconfigure the runtime libraries.
+    If you change the location of the WSO2 Identity Server folder, you need to re-run the above command to reconfigure the runtime libraries.
 
-## Enable post-quantum secure TLS
+## Enable post-quantum TLS
 
-1. Shut down the Identity Server instance if it's running.
+1. Shut down the WSO2 Identity Server instance if it's running.
 2. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
     ``` toml
     [transport.https.openssl]
@@ -150,17 +150,17 @@ Follow the instructions given below to install the required runtime dependencies
 3. Restart WSO2 Identity Server.
 
 
-!!! note "Disable Post-Quantum TLS"
+!!! note "Disable post-quantum TLS"
 
-    If you need to disable the Post-Quantum TLS after enabling it:
+    If you need to disable the post-quantum TLS after enabling it:
 
-    1. Shut down the Identity Server instance if it's running.
+    1. Shut down the WSO2 Identity Server instance if it's running.
     2. In the `<IS_HOME>/repository/conf/deployment.toml` file, remove the previously added configurations.
     3. Restart WSO2 Identity Server.
 
 
     !!! tip
-        If you want to keep using TLS 1.3 while disabling post-quantum secure TLS, change the `<IS_HOME>/repository/conf/deployment.toml` into following configuration.
+        If you want to keep using TLS 1.3 while disabling post-quantum TLS, change the `<IS_HOME>/repository/conf/deployment.toml` into following configuration.
         
         ``` toml
         [transport.https.openssl]
