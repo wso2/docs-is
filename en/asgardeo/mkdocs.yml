@@ -317,44 +317,61 @@ nav:
   - APIs:
     - APIs - Overview: apis/index.md
     - Authentication: apis/authentication.md
-    - Application management API: apis/application-management.md
-    - API resource management API: apis/api-resource-management-rest-api.md
-    - Branding Preferences API: apis/branding-preference-rest-api.md
-    - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
-    - Identity provider API: apis/idp.md
-    - User management (SCIM 2.0) API: apis/scim2.md
-    - Role management (SCIM 2.0) API: apis/roles.md
-    - Email templates API: apis/email-template.md
-    - Identity governance API: apis/identity-governance.md
-    - User sessions:
-      - Session management API: apis/session.md
-      - Session extension API: apis/extend-sessions.md
-    - Event configuration API: apis/event-configuration.md
-    - Self-service:
-      - TOTP API: apis/register-mfa/totp.md
-      - Backup codes API: apis/register-mfa/backup-code.md
-      - Password recovery API: apis/register-mfa/password-recovery.md
-      - Export user information API: apis/register-mfa/export-user-info.md
-    - Administrators:
-      - Export admin information API: apis/administrators/export-admin-info.md
-    - Consent management API: apis/consent-management.md
-    - Attribute management API: apis/attribute-management.md
-    - Validation API: apis/validation.md
-    - Idle account identification API: apis/idle-account-identification.md
-    - B2B self service management API: apis/onboard-admins-self-service.md
-    - Organization management API: apis/organization-management.md
-    - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
-    - Organization APIs:
-      - Organization APIs: apis/organization-apis/index.md
-      - Get access for organization APIs: apis/organization-apis/authentication.md
-      - User management API: apis/organization-apis/org-user-mgt.md
-      - Group management API: apis/organization-apis/org-group-mgt.md
-      - Role management API: apis/organization-apis/org-role-mgt.md
+    - Management APIs:
+      - API resource management API: apis/api-resource-management-rest-api.md
+      - Application management API: apis/application-management.md
+      - Attribute management API: apis/attribute-management.md
+      - Authenticators API: apis/authenticators.md
+      - Branding Preferences API: apis/branding-preference-rest-api.md
+      - Consent management API: apis/consent-management.md
+      - Email templates API: apis/email-template.md
+      - Event configuration API: apis/event-configuration.md
+      - Identity governance API: apis/identity-governance.md
+      - Identity provider API: apis/idp.md
+      - Idle account identification API: apis/idle-account-identification.md
+      - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
+      - Organization discovery API: apis/organization-discovery.md
+      - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
+      - Organization management API: apis/organization-management.md
+      - Password expiring users identification API: apis/password-expiring-users-identification.md
+      - Role management (SCIM 2.0) API: apis/roles.md
+      - User functionality management API: apis/functionality.md
+      - User management:
+        - SCIM 2.0 API: apis/scim2.md
+        - User account associations API: apis/association-management-by-admin.md
+        - Account Recovery API: apis/user-account-recovery.md
+        - Offline user onboard management API: apis/offline-user-onboard.md
+      - User sessions:
+        - Session management API: apis/session.md
+        - Session extension API: apis/extend-sessions.md
+      - User store management API: apis/user-store.md
+      - Validation API: apis/validation.md
+    - Orgnization APIs:
+      - Orgnization APIs: apis/organization-apis/index.md
       - Application management API: apis/organization-apis/org-application-management.md
+      - Authenticators API: apis/organization-apis/org-authenticators.md
+      - Branding API: apis/organization-apis/org-branding-management.md
+      - Claim management API: apis/organization-apis/org-claim-management.md
+      - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Group management API: apis/organization-apis/org-group-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp.md
-      - Organization management API: apis/organization-apis/org-management.md
+      - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
+      - Offline user onboard management API: apis/organization-apis/organization-discovery.md
+      - Organization discovery API: apis/organization-apis/organization-discovery.md
+      - Organization management API: apis/organization-apis/org-management.md
+      - Role management API: apis/organization-apis/org-role-mgt.md
+      - SCIM 2.0 Bulk API: apis/organization-apis/scim-bulk.md
+      - User management API: apis/organization-apis/org-user-mgt.md
+    - End User APIs:
+      - Backup codes API: apis/register-mfa/backup-code.md
+      - Export user information API: apis/register-mfa/export-user-info.md
+      - Password recovery API: apis/register-mfa/password-recovery.md
+      - TOTP API: apis/register-mfa/totp.md
+      - User account associations API: apis/association-management-by-user.md
+    - Administrator APIs:
+      - Export admin information API: apis/administrators/export-admin-info.md
   - References:
     - References - Overview: references/index.md
     - Asgardeo user roles: references/user-management/user-roles.md
