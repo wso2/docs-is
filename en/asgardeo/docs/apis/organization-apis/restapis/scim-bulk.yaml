@@ -78,6 +78,7 @@ paths:
                   ],
                   "username": "jesse",
                   "password": "jesspass"
+                  "userstore": "DEFAULT"
                 }
               }
             ]
