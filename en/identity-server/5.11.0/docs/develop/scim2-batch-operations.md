@@ -82,9 +82,7 @@ Given below is an example request payload to manage users in bulk. This request 
                "password": "smith123",
                "emails": [
                    {
-                       "type": "home",
                        "value": "smith@gmail.com",
-                       "primary": true
                    },
                    {
                        "type": "work",

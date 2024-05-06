@@ -213,6 +213,7 @@ plugins:
         'deploy/change-to-remote-h2.md': 'deploy/configure/databases/carbon-database/change-to-remote-h2.md'
         'deploy/change-datasource-bpsds.md': 'deploy/configure/databases/carbon-database/change-datasource-bpsds.md'
         'deploy/change-datasource-consent-management.md': 'deploy/configure/databases/carbon-database/change-datasource-consent-management.md'
+        'deploy/enable-fips-for-is.md': 'deploy/security/enable-fips-for-is.md'
 
         'apis/overview.md': 'apis/index.md'
         'apis/idp-rest-api.md': 'apis/idp.md'
@@ -598,8 +599,10 @@ nav:
           - Enable assertions in access tokens: deploy/enable-assertions-in-access-tokens.md
         #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
         - Enable hostname verification: deploy/enable-hostname-verification.md
-        - Configure TLS: deploy/security/configure-transport-level-security.md
-        - Configure TLS termination: deploy/configure-tls-termination.md
+        - Transport Level Security:
+          - Configure TLS: deploy/security/configure-transport-level-security.md
+          - Configure TLS termination: deploy/configure-tls-termination.md
+          - Configure post-quantum TLS: deploy/security/configure-post-quantum-tls.md
         - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
         - Configure Admin Advisory Banner: deploy/security/configure-admin-advisory-banner.md
         - Secure passwords in configuration files:
@@ -609,6 +612,7 @@ nav:
           - Set passwords using environment variables/system properties: deploy/security/set-passwords-using-environment-variables-or-system-properties.md
         - Enable HTTP Strict Transport Security (HSTS) headers: deploy/security/enable-hsts.md
         - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
+        - Enable FIPS 140-2-compliant mode: deploy/security/enable-fips-for-is.md
         - Security guidelines:
           - Security guidelines: deploy/security/security-guidelines/index.md
           - Product-level: deploy/security/security-guidelines/product-level-security-guidelines.md
@@ -633,7 +637,6 @@ nav:
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
         - Enable adaptive authentication: deploy/enable-adaptive-authentication.md
-        - Enable FIPS 140-2-compliant mode: deploy/enable-fips-for-is.md
         - Configure Hazelcast: deploy/configure-hazelcast.md
         - Backup and recovery recommendations: deploy/backup-and-recovery-recommendations.md
         - Troubleshoot in production environments: deploy/monitor/troubleshoot-in-production-environments.md
