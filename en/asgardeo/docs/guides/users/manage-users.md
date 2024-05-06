@@ -15,6 +15,8 @@ There are three ways to onboard a user:
 
 Let's look at how administrators can onboard users from the {{ product_name }} Console.
 
+### Onboard a single user
+
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
 2. Click  **Add User** > **Single User** and provide the following details:
 

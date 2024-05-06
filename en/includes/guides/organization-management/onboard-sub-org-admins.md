@@ -30,8 +30,7 @@ To create a new organization user:
 
 2. Go to **User Management** > **Users** and click **Add User**.
 
-3. Enter the following details:
-    {{ admin_user_details }}
+3. Enter the following details: {{ admin_user_details }}
 
 4. You can either set a password on the user's behalf or request the user to set the password.
 

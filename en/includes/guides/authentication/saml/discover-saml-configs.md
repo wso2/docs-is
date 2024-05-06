@@ -131,7 +131,7 @@ You can login to {{ product_name }} and get endpoints of {{ product_name }}.
     - **Single Logout** : Logout URL of {{ product_name }}
     - **IdP certificate** : Public certificate of {{ product_name }}
 
-    ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Get SAML endpoints]({{base_path}}/assets/img/guides/applications/saml-app/idp-endpoints.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. You can download the certificate of {{ product_name }} from **IdP certificate**.
 

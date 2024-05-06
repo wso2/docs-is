@@ -26,7 +26,7 @@ The following example shows how you can initiate an authorization code flow usin
 **Request format**
 
 ```bash
-curl --location 'https://localhost:9443/oauth2/par'
+curl --location '{{par_endpoint}}'
     --header 'Content-Type: application/x-www-form-urlencoded'
     --header 'accept: application/json'
     --header 'Authorization: Basic <Base64Encoded(ClientID:ClientSecret)>'
@@ -39,7 +39,7 @@ curl --location 'https://localhost:9443/oauth2/par'
 **Sample request**
 
 ```bash
-curl --location 'https://localhost:9443/oauth2/par'
+curl --location '{{par_endpoint}}'
     --header 'Content-Type: application/x-www-form-urlencoded'
     --header 'accept: application/json'
     --header 'Authorization: Basic YWRtaW46YWRtaW4='
@@ -74,14 +74,14 @@ You can use the `request_uri` that you received above, along with the client ID 
 **Request Format**
 
 ``` json
-https://localhost:9443/oauth2/authorize?
+{{ product_url_format }}/oauth2/authorize?
 client_id={CLIENT_ID}&request_uri={request_uri}
 ```
 
 **Sample Request**
 
 ``` json
-https://localhost:9443/oauth2/authorize?
+{{ product_url_sample }}/oauth2/authorize?
 client_id=DUBCMGolTZQNg6mmE9GvfQ3qfq8a
 &request_uri=urn:ietf:params:oauth:par:request_uri:a0cf571e-fe97-411a-8f33-3c01913c0e5f
 ```

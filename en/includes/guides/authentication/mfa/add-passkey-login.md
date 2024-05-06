@@ -5,7 +5,7 @@ Passkey adds passwordless login to your applications, which allows users to repl
 Follow the instructions given below to configure Multi-Factor Authentication (MFA) using Passkey in {{ product_name }}.
 
 !!! info
-    - WSO2 Identity Server uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.
+    - {{ product_name }} uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.
     - The following browser versions support the WebAuthn API by default:
         - Chrome 67 and above
         - Firefox 60 and above

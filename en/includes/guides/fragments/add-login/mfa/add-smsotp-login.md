@@ -29,11 +29,10 @@ Follow the steps given below.
 
         - If you have an already customized login flow, you can add a second step and add SMS OTP as the authenticator.
 
-            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/smsotp/view-smsotp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Customize the login flow]({{base_path}}/assets/img/guides/mfa/smsotp/view-sms-otp-authenticator.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
         
         - Select **Enable backup codes** if you wish to allow users to use backup codes to log in to the application. Learn more about [configuring backup codes for users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
 
-    ---
     {% else %}
     1. Go to **Predefined Flows** > **Add Multi-factor Login**.
 

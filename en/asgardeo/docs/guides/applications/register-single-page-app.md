@@ -1,2 +1,2 @@
 {% set product_name = "Asgardeo" %}
-{% include "../../../../includes/guides/applications/register-saml-web-app.md" %}
+{% include "../../../../includes/guides/applications/register-single-page-app.md" %}
