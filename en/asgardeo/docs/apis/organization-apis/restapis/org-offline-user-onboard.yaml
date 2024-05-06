@@ -78,7 +78,7 @@ components:
         userstore:
           type: string
           description: User's userstore domain
-          example: "PRIMARY"
+          example: "DEFAULT"
     Error:
       type: object
       properties:
