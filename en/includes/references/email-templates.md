@@ -230,8 +230,12 @@ The following literals about the user are accessible for all email templates.
             <td>Name of the user store.</td>
         <tr>
         <tr>
+            <td>{{"{{ organization-name }}"}}</td>
+            <td>Name of the organization. Insert this placeholder where you want to display the organization's name in a human readable format.</td>
+        </tr>
+        <tr>
             <td>{{"{{ tenant-domain }}"}}</td>
-            <td>Name of the organization.</td>
+            <td>Domain name specific to the organization. Utilize this placeholder within URL paths to denote the organization's unique ID.</td>
         </tr>
     </tbody>
 </table>
