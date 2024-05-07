@@ -1,21 +1,45 @@
-# Application-native authentication
+# App-native authentication
 
-Application-native authentication is an extension to the OAuth 2.0 protocol that enables users to authenticate to native and mobile applications without being redirected to a web browser. The sections below explain about the API involved in app-native authentication, the **authentication API**,  and how developers can protect the app-native authentication requests.
+App-native authentication is an extension to the OAuth 2.0 protocol that enables users to login to native and mobile applications from the application itself, without being redirected to a web browser. This enables developers to keep the users within the context of the application and provide them with a seamless login experience.
 
-!!! tip "OpenAPI definition"
-	Find detailed information in the openAPI definition of the [authentication API]({{base_path}}/apis/authentication-api/){: target="#"}.
+This document contain detailed information on the **authentication API** that powers app-native authentication.
+
+!!! note
+    Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
 
 ## How does it work?
 
-This section looks at the general steps that are involved during application native authentication.
+The following diagram illustrates the high-level steps involved with app-native authentication.
 
-1. The application initiates an app-native authentication request. This is done with a typical OAuth 2.0 authorization code request but with `response_mode` set to `direct` as shown below.
+![app-native-authentication-sequence]({{base_path}}/assets/img/guides/app-native-authentication/app-native-authentication-sequence.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+
+
+1. User initiates a login request at the application's login page.
+2. The application initiates an app-native authentication request.
+3. The server responds with instructions for the next step of the authentication.
+4. The application prompts for user input.
+5. User interacts with the application and enters the credentials.
+6. The application sends the response back to the server.
+
+    !!! info
+        Steps 3-6 repeat until the authentication flow is completed.
+
+7. After a successful authentiation, the appliaction receives an OAuth2 authorization code.
+8. The authorization code can then be exchanged for an access token.
+
+## How Authentication API works
+
+The [authentication API]({{base_path}}/apis/app-native-authentication-api/) is an interactive, stateful API that enables multi-step authentication. Let's look at how the authentication API is used in app-native authentication.
+
+The following steps explain app-native authentication in detail.
+
+1. When an application initiates an app-native login, it is done using an OAuth 2.0 authorization code request with the `response_mode` set to `direct` as shown below.
 
 
 	!!! note
 		Learn how to [implement login using the authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/)
 
-	=== "Sample request"
+	=== "Sample request (`/authorize`)"
 	
 		```java
 		curl --location 'https://localhost:9443/oauth2/authorize/'
@@ -29,7 +53,7 @@ This section looks at the general steps that are involved during application nat
 		--data-urlencode 'response_mode=direct'
 		```
 	
-	=== "Example"
+	=== "Example (`/authorize`)"
 	
 		```java
 		curl --location 'https://localhost:9443/oauth2/authorize/'
@@ -43,12 +67,15 @@ This section looks at the general steps that are involved during application nat
 		--data-urlencode 'response_mode=direct'
 		```
 
-2. The application in return, receives a response that contain the **flowId** parameter. The application then sends a POST request to the `/authn` endpoint with a payload as shown below.
+2. The application in return, receives a response that contain the **flowId** parameter.
 
-	!!! note
-		In app-native authentication, after the initial request to the `/authorize` endpoint, subsequent requests are made to the `/authn` endpoint. The **flowId** parameter is used to bind the requests made to the `/authn` endpoint to the initial request.
+    !!! note
+        In app-native authentication, after the initial request to the `/authorize` endpoint, subsequent requests are made to the `/authn` endpoint. The **flowId** parameter is used to bind the requests made to the `/authn` endpoint to the initial request.
 
-	=== "Sample request"
+3. The application then sends a POST request to the `/authn` endpoint with a payload as shown below.
+
+
+	=== "Sample payload (`/authn`)"
 
 		```json
 		{
@@ -62,88 +89,399 @@ This section looks at the general steps that are involved during application nat
 		}
 		```
 
-	=== "Example"
+	=== "Example (`/authn`)"
 
-		```json
-		{
-		"flowId": "93fd1740-d7b3-4ddb-820d-2ac6d3ce188f",
-		"selectedAuthenticator": {
-		    "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-		    "params": {
-		        "username": "admin",
-		        "password": "admin"
-		    	}
-			}
-		}
-		```
+		``` json
+        {
+          "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
+          "selectedAuthenticator": {
+            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+            "params": {
+              "username": "johnd",
+              "password": "U$3r"
+            }
+          }
+        }
+        ```
+    ??? note "learn about the parameters"
+        - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial     response for the auth request.
+        - **selectedAuthenticator**: The authenticator selected by the user for authentication.
+        - **authenticatorId**: The unique identifier of the authenticator.
+        - **params**: The parameters required by the authenticator for authentication.
 
-3. The authentication flow completes when the application receives an OAuth 2.0 authorization code with other relevant Oauth 2.0 artifacts in a json format as shown below.
+4. The response of the `/authn` endpoint will be as follows.
 
+
+    ``` json
+    {
+      "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
+      "flowStatus": "INCOMPLETE",
+      "flowType": "AUTHENTICATION",
+      "nextStep": {
+        "stepType": "AUTHENTICATOR_PROMPT",
+        "authenticators": [
+          {
+            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+            "authenticator": "Username & Password",
+            "idp": "LOCAL",
+            "metadata": {
+              "i18nKey": "authenticator.basic",
+              "promptType": "USER_PROMPT",
+              "params": [
+                {
+                  "param": "username",
+                  "type": "STRING",
+                  "isConfidential": false,
+                  "order": 1,
+                  "i18nKey": "param.username"
+                }
+              ]
+            },
+            "requiredParams": [
+              "username",
+              "password"
+            ]
+          }
+        ],
+        "acceptErrorParams": false,
+        "messages": [
+          {
+            "type": "ERROR",
+            "messageId": "msg_invalid_un_pw",
+            "message": "Invalid username or password.",
+            "i18nKey": "message.msg_invalid_un_pw",
+            "context": [
+              {
+                "key": "remainingAttempts",
+                "value": "2"
+              }
+            ]
+          }
+        ]
+      },
+      "links": [
+        {
+          "name": "authentication",
+          "href": "/api/authenticate/v1",
+          "method": "POST"
+        }
+      ]
+    }
+    ```
+
+    ??? note "learn about the parameters"
+
+        - **flowId**: A unique identifier for the entire authentication flow.
+        - **flowStatus**: Indicates the status of the authentication flow. Possible values are `INCOMPLETE`, `FAILED_INCOMPLETE`, and `SUCCESS_COMPLETED`.
+        - **nextStep**: Contains the details of the next step in the authentication flow.
+        - **stepType**: The type of the next step. Possible values are `MULTI_OPTIONS_PROMPT` and `AUTHENTICATOR_PROMPT`. 
+                MULTI_OPTIONS_PROMPT indicates that the user has multiple options to choose from, while AUTHENTICATOR_PROMPT 
+            indicates that the user has to authenticate using a specific authentication option.
+        - **authenticators**: The list of authentication options available for the next step. If the stepType is `AUTHENTICATOR_PROMPT`, the list will only contain one authentication option.
+        - **authenticatorId**: The unique identifier of the authenticator. This id is mutable and can change based on the authenticator configuration.
+        - **authenticator**: The name of the authenticator.
+        - **idp**: The Identity Provider of the authenticator. This will be `LOCAL` for local authenticators and will contain the IDP name for federated authenticators.
+        - **metadata**: The metadata related to the authentication option.
+        - **promptType**: The type of the prompt. Possible values are `USER_PROMPT`, `INTERNAL_PROMPT`, and `REDIRECTION_PROMPT`. 
+                    Authentication options that require user interaction will have the prompt type as `USER_PROMPT`. 
+                    Authentication options that require the application to perform an action will have the prompt type 
+                    as `INTERNAL_PROMPT`. Authentication options that require the application to redirect the user to a 
+                    different URL will have the prompt type as `REDIRECTION_PROMPT`.
+        - **params**: When the prompt type is `USER_PROMPT`, this will contain the list of input parameter metadata to render the UI.
+        - **additionalData**: Additional data required to complete the authentication step. Ex: Redirect URL for federated authentication.
+        - **requiredParams**: The required parameters for the authentication option. These are the parameters that the application must send to the authentication API in the next request to complete the authentication step.
+        - **messages**: The info and error messages related to the authentication option.
+        - **i18nKey**: The internationalization key. This key will be available many places of the response and can be used where content localization is required.
+
+
+5. The authentication flow completes when the application receives an OAuth 2.0 authorization code with the    relevant OAuth 2.0 artifacts in a json format as shown below.
 	```json
 	{
 	   "code": "6ff8b7e1-01fc-39b9-b56d-a1f5826e6d2a",
 	   "state": "logpg",
-	   "session_state": "43b1ffc92c8d349942e99bd0270fca05f934ad6f612b27f40a5fa60b96bd093c.iD4RK8Etr4XruxnYMEvcKQ"
+	   "session_state": "43b1ffc92c8d349942e99bd0270fca05f934ad6f612b27f40a5fa60b96bd0iD4RK8Etr4XruxnYMEvcKQ"
 	}
 	```
 
+## Sample scenarios
 
-## Secure the authentication request
+The following are several sample scenarios in which users can be logged in using app-native authentication. Each scenario goes through a single or multiple interactions with the `/authn` endpoint based on the login flow configured for the application.
 
-API-based authentication uses the authentication API which is an open API that does not require any form of authentication. You can implement the following mechanisms to secure the authentication request.
+### Scenario 1: Log in with a username & password
 
-### Enable client attestation
+The application goes through the following steps to complete app-native authentication for a user logging in with username & password.
 
-An adversary, often another mobile application, can attempt to mimic or impersonate a legitimate client application during the authentication process. This may lead to the following security threats.
+- **Step 1**: Initiate the request with the `/authorize` endpoint.
 
-- **User Deception**: The malicious app may trick users into providing their credentials by making them believe they are interacting with a legitimate application.
+    !!! note
+        The response contains information on the first authentication step (the only step for this flow).
 
-- **Token Interception**: The malicious app may extract the authorization code or tokens exchanged during the authentication process, gaining unauthorized access to the user's resources.
+    === "Request(`/authorize`)"
 
-Client attestation ensures the authenticity of the client making requests to the WSO2 Identity Server.
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/authorize'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example.com/home'
+        --data-urlencode 'scope=openid profile'
+        --data-urlencode 'response_mode=direct'
+        ```
+    === "Response (`/authorize`)"
 
-If the application is hosted either in the App Store or the Google Play Store, follow the steps below to leverage the attestation services provided by these platforms to verify the legitimacy of the client.
+        ```json
+        {
+          "flowId": "bea32017-7124-4b7a-ab31-17633754d04d",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+              {
+                "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                "authenticator": "Username & Password",
+                "idp": "LOCAL",
+                "metadata": {
+                  "i18nKey": "authenticator.basic",
+                  "promptType": "USER_PROMPT",
+                  "params": [
+                    {
+                      "param": "username",
+                      "type": "STRING",
+                      "order": 0,
+                      "i18nKey": "username.param",
+                      "displayName": "Username",
+                      "confidential": false
+                    },
+                    {
+                      "param": "password",
+                      "type": "STRING",
+                      "order": 1,
+                      "i18nKey": "password.param",
+                      "displayName": "Password",
+                      "confidential": true
+                    }
+                  ]
+                },
+                "requiredParams": [
+                  "username",
+                  "password"
+                ]
+              }
+            ]
+          },
+          "links": [
+            {
+              "name": "authentication",
+              "href": "https://localhost:9443/oauth2/authn",
+              "method": "POST"
+            }
+          ]
+        }
+        ```
 
-1. On the WSO2 Identity Server Console, go to **Applications**.
-2. Go to the **Advanced** tab of your application and select **Enable client attestation**.
-3. Select either **Apple** or **Android** to specify which attestation service you wish to use.
+- **Step 2**: Carry the `flowId` received in the above response and request the `/authn` endpoint for username & password authentication.
 
-4. Provide details about the attestation service.
+    !!! note
+        As this is the only step configured for the application, the `/authn` endpoint returns an authorization code, upon successful authentication.
 
-	![How JIT user provisioning works]({{base_path}}/assets/img/references/enable-client-attestation.png){: width="600" style="display: block; margin: 0;"}
+    === "Request (`/authn`)"
 
-	a. **For android**:
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/authn' \
+        --header 'Content-Type: application/json' \
+        --data '{
+            "flowId": "bea32017-7124-4b7a-ab31-17633754d04d",
+            "selectedAuthenticator": {
+                "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                "params": {
+                    "username": "johnd",
+                    "password": "U$3r"
+                }
+            }
+        }'
+        ```
 
-    !!! tip
-	    By leveraging the Google Play Integrity API, {{product_name}} ensures a heightened level of security for Application Native Authentication. It actively detects and responds to potential threats, thereby safeguarding against attacks and mitigating the risk of abuse.
-	    Learn more about the [Play Integrity API](https://developer.android.com/google/play/integrity/overview).
+    === "Response (`/authn`)"
 
-	- Provide the package name of the application which takes the format of the reverse domain format (e.g. com.example.myapp)
+        ```json
+        {
+          "flowStatus": "SUCCESS_COMPLETED",
+          "authData": {
+            "code": "bbb0bsdb-857a-3a80-bfbb-48038380bf79"
+          }
+        }
+        ```
 
-	- Provide the service account credentials.
-		
-		!!! note
-			Learn more about [service account credentials](https://cloud.google.com/iam/docs/service-account-creds).
+### Scenario 2: 2FA with username & password and TOTP
 
-	b. **For apple**:
+The application goes through the following steps to complete app-native authentication for a user logging in with username & password in the first step and TOTP in the second step.
 
-    !!! tip
-	    By leveraging DCAppAttestService, WSO2 Identity Server adds an extra layer of security to Application Native Authentication for iOS apps. It actively detects and responds to potential threats, safeguarding against unauthorized access and malicious activities.
-	    Learn more about [Apple's DeviceCheck Attest Service](https://developer.apple.com/documentation/devicecheck/dcappattestservice)
+- **Step 1**: Initiate the request with the `/authorize` endpoint.
 
-	- Provide the app ID of your application which consists of the Team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
+    !!! note
+        The response contains information on the first authentication step.
 
-5. Click **Update** to save the changes.
+    === "Request (`/authorize`)"
 
-### Secure request authentication
-Confidential clients that are able to securely store a secret can implement the following methods to secure authentication requests.
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/authorize'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example.com/home'
+        --data-urlencode 'scope=openid profile'
+        --data-urlencode 'response_mode=direct'
+        ```
+    === "Response (`/authorize`)"
 
-- Choose a `client authentication method` to secure the `/token` endpoint. See [client authentication methods]({{base_path}}/references/app-settings/oidc-settings-for-app/#client-authentication) for more details.
+        ```json
+        {
+          "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+              {
+                "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                "authenticator": "Username & Password",
+                "idp": "LOCAL",
+                "metadata": {
+                  "i18nKey": "authenticator.basic",
+                  "promptType": "USER_PROMPT",
+                  "params": [
+                    {
+                      "param": "username",
+                      "type": "STRING",
+                      "order": 0,
+                      "i18nKey": "username.param",
+                      "displayName": "Username",
+                      "confidential": false
+                    },
+                    {
+                      "param": "password",
+                      "type": "STRING",
+                      "order": 1,
+                      "i18nKey": "password.param",
+                      "displayName": "Password",
+                      "confidential": true
+                    }
+                  ]
+                },
+                "requiredParams": [
+                  "username",
+                  "password"
+                ]
+              }
+            ]
+          },
+          "links": [
+            {
+              "name": "authentication",
+              "href": "https://localhost:9443/oauth2/authn",
+              "method": "POST"
+            }
+          ]
+        }
+        ```
 
-- Follow the steps below to make Pushed Authorization Requests (PAR) mandatory for the application. See [Implement login using Pushed Authorization Requests]({{base_path}}/guides/authentication/oidc/implement-login-with-par/) for more details.
+- **Step 2**: Carry the `flowId` received in the above response and request the `/authn` endpoint for username & password authentication.
 
-	1. On the WSO2 Identity Server Console, go to **Applications**.
+    !!! note
+        Upon successful authentication, the `/authn` endpoint returns information on the next authentication step.
 
-	2. Go to the **Protocol** tab of the application, select the **Mandatory** checkbox under **Pushed Authorization Requests**.
+    === "Request 1 (`/authn`)"
 
-	3. Click **Update** to save the changes.
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/authn'
+        --header 'Content-Type: application/json'
+        --data '{
+          "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
+          "selectedAuthenticator": {
+            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+            "params": {
+                "username": "johnd",
+                "password": "U$3r"
+            }
+          }
+        }'
+        ```
+
+    === "Response 1 (`/authn`)"
+
+        ```json
+        {
+          "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+              {
+                "authenticatorId": "dG90cDpMT0NBTA",
+                "authenticator": "TOTP",
+                "idp": "LOCAL",
+                "metadata": {
+                  "i18nKey": "authenticator.totp",
+                  "promptType": "USER_PROMPT",
+                  "params": [
+                    {
+                      "param": "token",
+                      "type": "STRING",
+                      "order": 0,
+                      "i18nKey": "totp.authenticator",
+                      "displayName": "Token",
+                      "confidential": false
+                    }
+                  ]
+                },
+                "requiredParams": [
+                  "token"
+                ]
+              }
+            ]
+          },
+          "links": [
+            {
+              "name": "authentication",
+              "href": "https://localhost:9443/oauth2/authn",
+              "method": "POST"
+            }
+          ]
+        }
+        ```
+
+- **Step 3**: Carry the same `flowId` and request the `/authn` endpoint for TOTP authentication.
+
+    !!! note
+        As this is the final step configured for the application, the `/authn` endpoint returns an authorization code upon successful authentication.
+
+    === "Request 2 (`/authn`)"
+
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/authn' \
+        --header 'Content-Type: application/json' \
+        --data '{
+          "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
+          "selectedAuthenticator": {
+            "authenticatorId": "dG90cDpMT0NBTA",
+            "params": {
+                "token": "609357"
+            }
+          }
+        }'
+        ```
+
+    === "Response 2 (`/authn`)"
+
+        ```json
+        {
+          "flowStatus": "SUCCESS_COMPLETED",
+          "authData": {
+          "code": "5f1b2c2a-1436-35a5-b8e4-942277313287"
+          }
+        }
+        ```

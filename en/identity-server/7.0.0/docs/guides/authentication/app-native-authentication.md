@@ -1,414 +1,73 @@
 # App-Native Authentication
 
-In a conventional mobile application, users are typically redirected to an external web browser during login. 
-However, with App-Native Authentication, developers can integrate the complete authentication flow 
-within the application itself giving the end-user a seamless login experience.
+In a conventional mobile application, users are redirected to an external web browser for login.
+However, with App-Native Authentication, developers can integrate a comprehensive authentication flow
+within the application along with features such as Multi-Factor Authentication (MFA), adaptive authentication, and support for federated logins.
 
-App-Native Authentication extends the OAuth 2.0 protocol and introduces a new Authentication API to incorporate 
-comprehensive authentication features, including Multi-Factor Authentication (MFA), Adaptive Authentication, and support 
-for federated logins, directly within the application.
+<!-- ![app-native-authentication-flow]({{base_path}}/assets/img/guides/app-native-authentication/app-native-authentication-flow.png){: width="1000" style="display: block; margin: 0; border: 0px;"} -->
 
-![app-native-authentication-flow]({{base_path}}/assets/img/guides/app-native-authentication/app-native-authentication-flow.png){: width="1000" style="display: block; margin: 0; border: 0px;"}
+## Why app-native authentication?
 
-## How it works
-App-Native Authentication is an extension to the OAuth 2.0 protocol. Hence, the initial request made by the 
-application is similar to a typical OAuth 2.0 authorization code request with a single difference; the `response_mode` 
-parameter is set to `direct`. Thereafter, the client application interacts with the Authentication API to complete the 
-authentication flow. 
-
-### Authentication API
-
-The Authentication API is an interactive stateful API which operates on a request-response model that facilitates a 
-multi-step authentication process within applications. Upon initiating an authentication request, the server responds with 
-instructions for the next step in the authentication flow. This process involves a series of exchanges where the 
-application sends data or performs actions as dictated by the server's responses. The interaction continues, step by step, 
-until authentication is successfully completed and the API returns an OAuth2 authorization code which can then be exchanged 
-for an access token.
-
-![app-native-authentication-sequence]({{base_path}}/assets/img/guides/app-native-authentication/app-native-authentication-sequence.png){: width="650" style="display: block; margin: 0; border: 0px;"}
-
-!!! tip "OpenAPI definition"
-    Go through the OpenAPI definition of the [Authentication API]({{base_path}}/apis/authentication-api/){: target="#"} 
-    in order to understand the API.
-
-??? tip "Key constructs of the Authentication API" 
-    This section provides an overview of the key constructs of the Authentication API. Refer the 
-    [OpenAPI definition]({{base_path}}/apis/authentication-api/){: target="#"} for a complete list of constructs.
-    
-    ##### Request
-    
-    ``` json
-    {
-      "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
-      "selectedAuthenticator": {
-        "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-        "params": {
-          "username": "johnd",
-          "password": "U$3r"
-        }
-      }
-    }
-    ```
-    
-    - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial response for the auth request. 
-    - **selectedAuthenticator**: The authenticator selected by the user for authentication.
-    - **authenticatorId**: The unique identifier of the authenticator.
-    - **params**: The parameters required by the authenticator for authentication.
-    
-    ##### Response
-    
-    ``` json
-    {
-      "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
-      "flowStatus": "INCOMPLETE",
-      "flowType": "AUTHENTICATION",
-      "nextStep": {
-        "stepType": "AUTHENTICATOR_PROMPT",
-        "authenticators": [
-          {
-            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-            "authenticator": "Username & Password",
-            "idp": "LOCAL",
-            "metadata": {
-              "i18nKey": "authenticator.basic",
-              "promptType": "USER_PROMPT",
-              "params": [
-                {
-                  "param": "username",
-                  "type": "STRING",
-                  "isConfidential": false,
-                  "order": 1,
-                  "i18nKey": "param.username"
-                }
-              ]
-            },
-            "requiredParams": [
-              "username",
-              "password"
-            ]
-          }
-        ],
-        "acceptErrorParams": false,
-        "messages": [
-          {
-            "type": "ERROR",
-            "messageId": "msg_invalid_un_pw",
-            "message": "Invalid username or password.",
-            "i18nKey": "message.msg_invalid_un_pw",
-            "context": [
-              {
-                "key": "remainingAttempts",
-                "value": "2"
-              }
-            ]
-          }
-        ]
-      },
-      "links": [
-        {
-          "name": "authentication",
-          "href": "/api/authenticate/v1",
-          "method": "POST"
-        }
-      ]
-    }
-    ```
-    
-    - **flowId**: A unique identifier for the entire authentication flow.
-    - **flowStatus**: Indicates the status of the authentication flow. Possible values are `INCOMPLETE`, `FAILED_INCOMPLETE`, and `SUCCESS_COMPLETED`.
-    - **nextStep**: Contains the details of the next step in the authentication flow.
-    - **stepType**: The type of the next step. Possible values are `MULTI_OPTIONS_PROMPT` and `AUTHENTICATOR_PROMPT`. 
-            MULTI_OPTIONS_PROMPT indicates that the user has multiple options to choose from, while AUTHENTICATOR_PROMPT 
-            indicates that the user has to authenticate using a specific authentication option.
-    - **authenticators**: The list of authentication options available for the next step. If the stepType is `AUTHENTICATOR_PROMPT`, the list will only contain one authentication option.
-    - **authenticatorId**: The unique identifier of the authenticator. This id is mutable and can change based on the authenticator configuration.
-    - **authenticator**: The name of the authenticator.
-    - **idp**: The Identity Provider of the authenticator. This will be `LOCAL` for local authenticators and will contain the IDP name for federated authenticators.
-    - **metadata**: The metadata related to the authentication option.
-    - **promptType**: The type of the prompt. Possible values are `USER_PROMPT`, `INTERNAL_PROMPT`, and `REDIRECTION_PROMPT`. 
-                    Authentication options that require user interaction will have the prompt type as `USER_PROMPT`. 
-                    Authentication options that require the application to perform an action will have the prompt type 
-                    as `INTERNAL_PROMPT`. Authentication options that require the application to redirect the user to a 
-                    different URL will have the prompt type as `REDIRECTION_PROMPT`.
-    - **params**: When the prompt type is `USER_PROMPT`, this will contain the list of input parameter metadata to render the UI.
-    - **additionalData**: Additional data required to complete the authentication step. Ex: Redirect URL for federated authentication.
-    - **requiredParams**: The required parameters for the authentication option. These are the parameters that 
-                    the application must send to the authentication API in the next request to complete the authentication step.
-    - **messages**: The info and error messages related to the authentication option.
-    - **i18nKey**: The internationalization key. This key will be available many places of the response and can be used where content localization is required.
-
-??? tip "Sample scenarios"
-    #### Scenario 1: The application has a login flow configured with a Username & Password authentication option.
-    
-    **Request #1**
-    
-    ##### Request
-    ```bash
-    curl --location 'https://localhost:9443/oauth2/authorize' \
-    --header 'Accept: application/json' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka' \
-    --data-urlencode 'response_type=code' \
-    --data-urlencode 'redirect_uri=https://example.com/home' \
-    --data-urlencode 'scope=openid profile' \
-    --data-urlencode 'response_mode=direct'
-    ```
-    
-    ##### Response
-    ```json
-    {
-      "flowId": "bea32017-7124-4b7a-ab31-17633754d04d",
-      "flowStatus": "INCOMPLETE",
-      "flowType": "AUTHENTICATION",
-      "nextStep": {
-        "stepType": "AUTHENTICATOR_PROMPT",
-        "authenticators": [
-          {
-            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-            "authenticator": "Username & Password",
-            "idp": "LOCAL",
-            "metadata": {
-              "i18nKey": "authenticator.basic",
-              "promptType": "USER_PROMPT",
-              "params": [
-                {
-                  "param": "username",
-                  "type": "STRING",
-                  "order": 0,
-                  "i18nKey": "username.param",
-                  "displayName": "Username",
-                  "confidential": false
-                },
-                {
-                  "param": "password",
-                  "type": "STRING",
-                  "order": 1,
-                  "i18nKey": "password.param",
-                  "displayName": "Password",
-                  "confidential": true
-                }
-              ]
-            },
-            "requiredParams": [
-              "username",
-              "password"
-            ]
-          }
-        ]
-      },
-      "links": [
-        {
-          "name": "authentication",
-          "href": "https://localhost:9443/oauth2/authn",
-          "method": "POST"
-        }
-      ]
-    }
-    ```
-    
-    **Request #2**
-    
-    ##### Request
-    ```bash
-    curl --location 'https://localhost:9443/oauth2/authn' \
-    --header 'Content-Type: application/json' \
-    --data '{
-        "flowId": "bea32017-7124-4b7a-ab31-17633754d04d",
-        "selectedAuthenticator": {
-            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-            "params": {
-                "username": "johnd",
-                "password": "U$3r"
-            }
-        }
-    }'
-    ```
-    
-    ##### Response
-    ```json
-    {
-      "flowStatus": "SUCCESS_COMPLETED",
-      "authData": {
-        "code": "bbb0bsdb-857a-3a80-bfbb-48038380bf79"
-      }
-    }
-    ```
-    </br>
-    #### Scenario 2: The application has a login flow configured with a Username & Password authentication as step 1 and TOTP authentication as step 2.
-    
-    **Request #1**
-    
-    ##### Request
-    ```bash
-    curl --location 'https://localhost:9443/oauth2/authorize' \
-    --header 'Accept: application/json' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka' \
-    --data-urlencode 'response_type=code' \
-    --data-urlencode 'redirect_uri=https://example.com/home' \
-    --data-urlencode 'scope=openid profile' \
-    --data-urlencode 'response_mode=direct'
-    ```
-    
-    ##### Response
-    ```json
-    {
-      "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
-      "flowStatus": "INCOMPLETE",
-      "flowType": "AUTHENTICATION",
-      "nextStep": {
-        "stepType": "AUTHENTICATOR_PROMPT",
-        "authenticators": [
-          {
-            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-            "authenticator": "Username & Password",
-            "idp": "LOCAL",
-            "metadata": {
-              "i18nKey": "authenticator.basic",
-              "promptType": "USER_PROMPT",
-              "params": [
-                {
-                  "param": "username",
-                  "type": "STRING",
-                  "order": 0,
-                  "i18nKey": "username.param",
-                  "displayName": "Username",
-                  "confidential": false
-                },
-                {
-                  "param": "password",
-                  "type": "STRING",
-                  "order": 1,
-                  "i18nKey": "password.param",
-                  "displayName": "Password",
-                  "confidential": true
-                }
-              ]
-            },
-            "requiredParams": [
-              "username",
-              "password"
-            ]
-          }
-        ]
-      },
-      "links": [
-        {
-          "name": "authentication",
-          "href": "https://localhost:9443/oauth2/authn",
-          "method": "POST"
-        }
-      ]
-    }
-    ```
-    
-    **Request #2**
-    
-    ##### Request
-    ```bash
-    curl --location 'https://localhost:9443/oauth2/authn' \
-    --header 'Content-Type: application/json' \
-    --data '{
-        "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
-        "selectedAuthenticator": {
-            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-            "params": {
-                "username": "johnd",
-                "password": "U$3r"
-            }
-        }
-    }'
-    ```
-    
-    ##### Response
-    ```json
-    {
-      "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
-      "flowStatus": "INCOMPLETE",
-      "flowType": "AUTHENTICATION",
-      "nextStep": {
-        "stepType": "AUTHENTICATOR_PROMPT",
-        "authenticators": [
-          {
-            "authenticatorId": "dG90cDpMT0NBTA",
-            "authenticator": "TOTP",
-            "idp": "LOCAL",
-            "metadata": {
-              "i18nKey": "authenticator.totp",
-              "promptType": "USER_PROMPT",
-              "params": [
-                {
-                  "param": "token",
-                  "type": "STRING",
-                  "order": 0,
-                  "i18nKey": "totp.authenticator",
-                  "displayName": "Token",
-                  "confidential": false
-                }
-              ]
-            },
-            "requiredParams": [
-              "token"
-            ]
-          }
-        ]
-      },
-      "links": [
-        {
-          "name": "authentication",
-          "href": "https://localhost:9443/oauth2/authn",
-          "method": "POST"
-        }
-      ]
-    }
-    ```
-    
-    **Request #3**
-    
-    ##### Request
-    ```bash
-    curl --location 'https://localhost:9443/oauth2/authn' \
-    --header 'Content-Type: application/json' \
-    --data '{
-        "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
-        "selectedAuthenticator": {
-            "authenticatorId": "dG90cDpMT0NBTA",
-            "params": {
-                "token": "609357"
-            }
-        }
-    }'
-    ```
-    
-    ##### Response
-    ```json
-    {
-      "flowStatus": "SUCCESS_COMPLETED",
-      "authData": {
-        "code": "5f1b2c2a-1436-35a5-b8e4-942277313287"
-      }
-    }
-    ```
-
-### When to use App-Native Authentication
-For applications, adopting the browser-based authentication approach is the standard recommendation due to its straightforward 
-implementation and enhanced security, leveraging direct user interactions with {{product_name}} to mitigate the complexity 
-and risks associated with handling sensitive authentication data. App-Native Authentication becomes suitable when 
-a seamless user experience is paramount, and the application's design necessitates keeping the user within the app's environment.
-However, Application Native Authentication should only be used by the organization's own applications and should not be used
-with third-party applications as the user credentials will be exposed to third parties.
+For applications, browser-based authentication is the straightforward approach as the application does not have to deal with risks associated with handling sensitive authentication data. However, app-native authentication is ideal if your priority is to provide a seamless login experience by keeping the user within the application's environment.
 
 !!! warning "Limitations of App-Native Authentication"
 
-	App-Native Authentication has the following limitations compared to a browser-based authentication flow:
+    - App-native authentication should ONLY be used for the organization's own applications and should not be used with third-party applications as the user credentials may get exposed to third parties.
 
-	- Does not prompt for user consent for attribute sharing or access delegation.
-	- Does not prompt the user to provide missing mandatory attributes.
-	- Does not support prompts in adaptive authentication flows.
-	- Entire authentication flow cannot be initiated if a non supported authentication option is configured for the application.
-	- Cannot enroll authenticators (e.g. TOTP authenticator) during authentication.
+	- App-Native Authentication has the following limitations compared to a browser-based authentication flow:
+        - Does not prompt for user consent for attribute sharing or access delegation.
+	    - Does not prompt the user to provide missing mandatory attributes.
+	    - Does not support prompts in adaptive authentication flows.
+	    - Entire authentication flow cannot be initiated if a non-supported authentication option is configured for the application.
+	    - Cannot enroll authenticators (e.g. TOTP authenticator) during authentication.
 
-## Try out
+## How it works
+
+App-Native Authentication is an extension to the OAuth 2.0 protocol. Hence, the initial request made by the
+application is similar to a typical [OAuth 2.0 authorization code request]({{base_path}}/guides/authentication/oidc/implement-auth-code/) to the `/authorize` endpoint but with the `response_mode` set to `direct`. In response, the application receives a unique identifier called the **flowId** that uniquely identifies a single login flow.
+
+=== "Sample request"
+
+	```java
+	curl --location 'https://localhost:9443/oauth2/authorize/'
+	--header 'Accept: application/json'
+	--header 'Content-Type: application/x-www-form-urlencoded'
+	--data-urlencode 'client_id=<client_id>'
+	--data-urlencode 'response_type=<response_type>'
+	--data-urlencode 'redirect_uri=<redircet_url>'
+	--data-urlencode 'state=<state>'
+	--data-urlencode 'scope=<space separated scopes>'
+	--data-urlencode 'response_mode=direct'
+	```
+
+=== "Example"
+	
+	```java
+	curl --location 'https://localhost:9443/oauth2/authorize/'
+	--header 'Accept: application/json'
+	--header 'Content-Type: application/x-www-form-urlencoded'
+	--data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
+	--data-urlencode 'response_type=code'
+	--data-urlencode 'redirect_uri=https://example-app.com/redirect'
+	--data-urlencode 'state=logpg'
+	--data-urlencode 'scope=openid internal_login'
+	--data-urlencode 'response_mode=direct'
+	```
+
+Subsequently, the application uses the **flowId** and interacts with the **Authentication API**
+
+!!! tip "What is the Authentication API?"
+    The Authentication API is an interactive, and a stateful API that facilitates a multi-step authentication flow within an application. See its [OpenAPI definition]({{base_path}}/apis//app-native-authentication-api/) for more details.
+
+The authentication API returns details about the next login step to the application and the application prompts the user to enter the credentials for that step, which are then sent back to the server. This process repeats until all steps of the login flow are complete.
+
+Once the login flow is complete, the application receives an authorization code.
+
+!!! note "Learn more"
+    While this section provides a brief overview, it is highly recommended to read through [app-native authentication]({{base_path}}/references/app-native-authentication) to understand the concept in detail.
+
+
+## Try it out
 Follow the steps below to try out App-Native Authentication with {{product_name}}.
 
 ### Prerequisites
@@ -437,32 +96,24 @@ Follow the steps below to enable app-native authentication for your application.
 
     ??? tip "Finding supported authentication options in the login flow"
         Supported authentication options are tagged with `#APIAuth`.
-        <br><br>
-        ![Supported authentication options]({{base_path}}/assets/img/guides/app-native-authentication/supported-authentication-options.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+        ![Supported authentication options]({{base_path}}/assets/img/guides/app-native-authentication/supported-authentication-options.png){: width="400" style="display: block; margin: 0;"}
 
 7. Click **Update** to save the changes.
 
-!!! tip "Postman collection"
-    Try out App-Native Authentication using Postman. 
+8. Try out App-Native Authentication using Postman.
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8657284-8d164672-61aa-4326-bc5e-30314c49f6d0){: target="#"}
 
-### Secure the authentication request
-In App-Native Authentication scenarios, the users input their credentials
-directly into the application. Due to this, an adversary, potentially mimicking a legitimate application may attempt 
-to impersonate the client application to capture user credentials. 
+## Secure the authentication request
+In App-Native Authentication, users input their credentials directly into the application. Due to this, malicious applications mimicking the legitimate application may be able to capture user credentials.
 
-App-Native Authentication uses the Authentication API which is an open API that does not require any form of 
-authentication. You can implement the following mechanisms to secure the authentication request (The below mechanisms 
-are applicable for the initial authentication request and all subsequent requests are bound to it via the flow id, 
-which prevents alterations mid-process).
+The Authentication API which enables app-native authentication does not require authentication. Therefore, you can implement the following mechanisms to secure authentication requests. While these mechanisms are only applicable for the initial authentication request, all subsequent requests are bound to it via a unique identifier (flowId), which prevents alterations during the process.
 
-- **Client attestation** - If the application is published in the Apple App Store or Google Play Store, attestation 
-        capabilities provided by the platform can be used to ensure the request originated from the legitimate client application.
-- **Client authentication** - If the application is capable of securely storing a client secret (confidential client), 
-      client authentication can be used to secure the request.
+- **Client attestation** - If the application is published in the Apple App Store or Google Play Store, attestation capabilities provided by the platform can be used to ensure the request originated from the legitimate client application.
+- **Client authentication** - If the application is capable of securely storing a client secret (confidential client), client authentication can be used to secure the request.
 
-#### Using client attestation
+### Using client attestation
 If the application is hosted either in the Apple App Store or the Google Play Store, follow the steps below to leverage 
 the attestation services provided by these platforms to verify the legitimacy of the client.
 
@@ -485,7 +136,7 @@ the attestation services provided by these platforms to verify the legitimacy of
 	- Provide the service account credentials.
 		
 		!!! note
-			Learn more about [service account credentials](https://cloud.google.com/iam/docs/service-account-creds).
+			Learn more about [service account credentials](https://cloud.google.com/iam/docs/service-account-creds){target="_blank"}.
 
 	b. **For apple**:
 
@@ -498,8 +149,7 @@ the attestation services provided by these platforms to verify the legitimacy of
 5. Click **Update** to save the changes.
 
 !!! tip "Using client attestation in the request"
-    The client application should obtain the attestation object from the platform and pass it {{product_name}} via the 
-    `x-client-attestation` header in the initial authentication request.
+    The client application should obtain the attestation object from the platform and pass it to {{product_name}} via the `x-client-attestation` header in the initial authentication request.
 
     === "Sample request"
 
@@ -518,25 +168,22 @@ the attestation services provided by these platforms to verify the legitimacy of
     === "Example"
     
         ```bash
-        curl --location 'https://localhost:9443/oauth2/authorize' \
-        --header 'x-client-attestation: eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIn0.O1miRMXle8A4hLH46VkxHgdU9i1-ow...' \
-        --header 'Accept: application/json' \
-        --header 'Content-Type: application/x-www-form-urlencoded' \
-        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka' \
-        --data-urlencode 'response_type=code' \
-        --data-urlencode 'redirect_uri=https://example.com/home' \
-        --data-urlencode 'scope=openid profile' \
+        curl --location 'https://localhost:9443/oauth2/authorize'
+        --header 'x-client-attestation: eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIn0.O1miRMXle8A4hLH46VkxHgdU9i1-ow...'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example.com/home'
+        --data-urlencode 'scope=openid profile'
         --data-urlencode 'response_mode=direct'
         ```
 
-#### Using client authentication
-Confidential clients that are able to securely store a secret can make use of client authentication to secure authentication requests. 
+### Using client authentication
+Confidential clients that are able to securely store a secret can make use of client authentication to secure authentication requests.
 
-The initial authentication request is an OAuth 2.0 Authorization request, any [supported authentication mechanism]({{base_path}}/references/app-settings/oidc-settings-for-app/#client-authentication) 
-for an OAuth confidential client can be used to secure this request. There are no additional configurations required to enable 
-client authentication. However, make sure that application is **not** marked as a "Public client" in the application 
-configurations under "Client Authentication" in the "Protocol" section. Furthermore, if preferred, [Pushed Authorization Requests (PAR)]({{base_path}}/guides/authentication/oidc/implement-login-with-par/)
-can also be used to initiate the authentication request.
+The initial authentication request is an OAuth 2.0 authorization request. Therefore,  any [supported authentication mechanism]({{base_path}}/references/app-settings/oidc-settings-for-app/#client-authentication)
+for an OAuth confidential client can be used to secure this request. There are no additional configurations required to enable client authentication. The application can also initiate the request as a [Pushed Authorization Request (PAR)]({{base_path}}/guides/authentication/oidc/implement-login-with-par/).
 
 !!! tip "Using client authentication in the request"
     The following is a sample request using client secret based authentication.
@@ -544,44 +191,42 @@ can also be used to initiate the authentication request.
     === "Sample request"
 
         ```bash
-        curl --location 'https://localhost:9443/oauth2/authorize' \
-        --header 'Authorization: Basic <base64encoded(client_id:client_secret)>' \
-        --header 'Accept: application/json' \
-        --header 'Content-Type: application/x-www-form-urlencoded' \
-        --data-urlencode 'client_id=<client_id>' \
-        --data-urlencode 'response_type=code' \
-        --data-urlencode 'redirect_uri=<redirect_uri>' \
-        --data-urlencode 'scope=<scope>' \
+        curl --location 'https://localhost:9443/oauth2/authorize'
+        --header 'Authorization: Basic <base64encoded(client_id:client_secret)>'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=<client_id>'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=<redirect_uri>'
+        --data-urlencode 'scope=<scope>'
         --data-urlencode 'response_mode=direct'
         ```
 
     === "Example"
     
         ```bash
-        curl --location 'https://localhost:9443/oauth2/authorize' \
-        --header 'Authorization: Basic WFd4N0RlVGlSNU13SGRYUk9HaUprYTpmVDlCN0RJTGZ3MWZVUmpQRVpHOG9fWFA4Q20ySFFQOEhBclJFhNYQ==' \
-        --header 'Accept: application/json' \
-        --header 'Content-Type: application/x-www-form-urlencoded' \
-        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka' \
-        --data-urlencode 'response_type=code' \
-        --data-urlencode 'redirect_uri=https://example.com/home' \
-        --data-urlencode 'scope=openid profile' \
+        curl --location 'https://localhost:9443/oauth2/authorize'
+        --header 'Authorization: Basic WFd4N0RlVGlSNU13SGRYUk9HaUprYTpmVDlCN0RJTGZ3MWZVUmpQRVpHOG9fWFA4Q20ySFFQOEhBclJFhNYQ=='
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example.com/home'
+        --data-urlencode 'scope=openid profile'
         --data-urlencode 'response_mode=direct'
         ```
 
 
-### Handling SSO
-With app-native authentication there are two ways that Single Sign-On (SSO) can be handled for user sessions.
+## Handle Single Sign-On
+Single Sign-On (SSO) for app-native authentication can be handled in the following two ways.
 
 #### Cookie based SSO
 
-App-native authentication, just as the OAuth authorization code flow, sets an SSO cookie (commonAuthId). If the cookie 
-is preserved, any subsequent authorization request that occurs with this cookie will automatically perform SSO.
+App-native authentication, just as the OAuth authorization code flow, sets an SSO cookie (commonAuthId). If the cookie is preserved, any subsequent authorization request that occurs with this cookie will automatically perform SSO.
 
 #### SessionId based SSO
 
-SessionId parameter based SSO is useful if the implementation does not maintain cookies. The id_token that the application 
-receives after the initial authentication request, contains the `isk` claim. When making a subsequent authorization request the `isk` value can be used as the `sessionId` for SSO to occur.
+SessionId parameter based SSO is useful if the implementation does not maintain cookies. The `id_token` that the application receives after the initial authentication request, contains the `isk` claim. When making a subsequent authorization request the `isk` value can be used as the `sessionId` for SSO to occur.
 
 Given below is a sample authorization request using the `isk` value as the `sessionId`
 

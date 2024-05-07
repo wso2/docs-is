@@ -2,13 +2,12 @@ openapi: 3.0.0
 info:
   description: >
     This document specifies an **Authentication RESTful API** for **WSO2
-    Identity Server** which can be used to perform complete user authentication in 
-    an API based manner. 
+    Identity Server** which can be used to perform a complete API-based user authentication.
     
-    > This API is part of the App-Native Authentication capability. Refer the feature documentation in order to 
-      get a better understanding of how the API works.
+    > This API is part of the **App-Native Authentication** capability that can authenticate users within the context of the application without external redirects.
+    Refer to the feature documentation for more information.
   version: v1
-  title: WSO2 Identity Server - Authentication Rest API
+  title: WSO2 Identity Server - Application-native Authentication Rest API
   contact:
     name: WSO2
     url: 'https://wso2.com/products/identity-server/'
@@ -27,12 +26,12 @@ servers:
 paths:
   /authorize:
     get:
-      operationId: Initiate Authentication
+      operationId: Initiate Authentication*
       description: | 
-        This endpoint is added as an **example** for authentication initiation. In actuality the standard OAuth2 
-        authorize request for authorization code flow should be used with the response_mode as `direct`. The responses 
-        for the request will be as shown in this api definition. The next request should be made to the `/authn` endpoint.
-        Refer [Handle Authentication](#operation/Handle%20Authentication) API for more information.
+        This API is used to initiate application-native authentication.
+        
+        *While this is not an API specific to app-native authentication, a standard OAuth2 authorization request is used
+        to initiate app-native authentication with the exception of setting the `response_mode` to `direct`. Subsequent requests should be made to the `/authn` endpoint described under [Handle Authentication](#operation/Handle%20Authentication).
       parameters:
         - name: response_type
           in: query
