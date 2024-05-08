@@ -4,11 +4,17 @@ User attributes are pieces of information about the identity of a user such as a
 
 The following guides explain how you can configure OpenID Connect applications to request attributes from {{product_name}}.
 
-## Select user attributes
+## Configure user attributes
+
+Follow the steps given below to configure the user attributes from the {{ product_name }} Console and share them with the application.
+
+### Select user attributes
 
 You can specify the necessary user attributes for an application. This ensures that when a user logs in, the application is only granted access to the user information associated with these attributes.
 
-To request user attributes from an application:
+The user attributes are grouped by their specific scopes to ease the user attribute configuration process. You can add user attributes individually or all the attributes in the scope at once.
+
+To add user attributes to the app:
 
 1. On the {{ product_name }} console, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab. The most common user attributes are listed according to the relevant scope.
@@ -27,36 +33,32 @@ To request user attributes from an application:
 
 4. Click **Update** once you are done.
 
-## Select mandatory user attributes
+### Select an alternate subject attribute
+
+The subject attribute is used for exchanging information about the user. The subject is represented by the **subject** attribute in the ID token.
+
+By default, Asgardeo shares **User ID** as the subject. You can define any user attribute as the subject.
+
+To define a different attribute as the subject:
+
+1. In the **Subject** section of the **User Attributes** tab, enable **Assign alternate subject identifier**.
+
+    !!! note
+        According to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes), is not recommended to change the default subject identifier.
+
+    ![Select subject attribute in Asgardeo]({{base_path}}/assets/img/guides/applications/attributes/oidc/select-sub-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+2. Select an attribute as the subject from the **Subject attribute** list.
+
+3. Click **Update**.
+
+### Define mandatory user attributes
 
 {% include "../../fragments/manage-app/manage-user-attributes/select-mandatory-attributes.md" %}
 
-![Add madatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Add madatory user attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/oidc/add-mandatory-user-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Configure the subject identifier
-
-{{product_name}} uses a subject attribute to uniquely identify users logging into OIDC applications. This is set to be the **user ID** of the user which can be found in the user's profile in **User Management** > **Users**.
-
-However, having a single subject identifier for multiple applications may enable external entities to track the activity of a user across applications based on a single attribute.
-
-You can opt for a pairwise subject identifier to mitigate this issue. With a pairwise subject identifier, {{product_name}} generates a unique pseudonymous ID for each user-application pair protecting the user's identity when accessing multiple applications.
-
-Follow the steps below to configure the subject identifier type:
-
-1. On the {{ product_name }} Console, go to **Applications**.
-
-2. Select the application and go to its **User Attributes** tab.
-
-3. Under **Subject type**, select **Pairwise**.
-
-4. Enter a **Sector Identifier URI**.
-
-    !!! info
-        The sector identifier URI is used to group clients belonging to the same security domain so that the same pairwise identifier is used for a given user accessing these clients.
-
-    ![Enter a suctor identifier for pairwise subject identifier]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-compliant-subject-identifier.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-4. Click **Update** to save the changes.
+{{ configure_subject_identifier }}
 
 ## How it works
 
@@ -90,7 +92,7 @@ If the user consents to share attributes with the application, {{ product_name }
 
 #### Subject Attribute
   
-The subject attribute is the unique identifer for a user. The application receives this value via the [subject attribute](#subject-attribute) parameter in the [ID token](#id-token). In {{ product_name }}, the user ID is used as the subject attribute.
+The subject attribute is the unique identifier for a user. The application receives this value via the [subject attribute](#subject-attribute) parameter in the [ID token](#id-token). In {{ product_name }}, the user ID is used as the subject attribute.
 
 #### ID token
 
@@ -130,9 +132,28 @@ _A sample userinfo response is given below:_
 
 ```json
 {
-"sub": "user@sample.com",
+"sub": "e46ffa67-100d-4329-9460-b8251d446518",
 "nickname": "nick",
 "given_name": "alice",
 "family_name": "john"
 }
 ```
+
+## Prioritize local account attributes
+
+{{ product_name }} offers the capability to share attributes of a local account during federated a{{ product_name }}uthentication, provided that there exists a local account linked with the federated identity. To prioritize the sharing of attributes from linked local accounts, follow the steps given below:
+
+1. On the {{ product_name }} Console, go to **Applications**.
+2. Select your application and go to its **User Attributes** tab.
+3. Scroll down and under **Linked Accounts**, select **Prioritize local account attributes**.
+
+    ![Prioritize local account attributes]({{base_path}}//assets/img/guides/applications/attributes/oidc/prioritize-local-account-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+Once enabled, the tokens issued from this application during federated authentication with an [external identity provider]({{base_path}}/guides/authentication/#supported-external-idps) will contain the attributes of the local account which is linked with the entity identified by the subject claim of the token issued by the external identity provider.
+
+If there is no such linked local account, {{ product_name }} will return the user attributes retrieved from the external identity provider.
+
+!!! note
+    When [JIT provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#how-jit-provisioning-works) is enabled for the external identity provider, {{ product_name }} ensures that the attributes of the associated local account synchronize with the external identity provider upon each federated login.
+
+    If you want to preserve attribute values set in the local user account, you need to disable JIT provisioning

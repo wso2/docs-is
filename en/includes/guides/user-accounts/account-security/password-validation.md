@@ -6,11 +6,8 @@ When a user configures a password that does not abide by the validation rules, t
 
 To configure password validation:
 
-1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Security**.
-
-     The **Password Validation** section indicates whether or not it is already enabled.
-
-2. Click **Configure** to open the **Password Validation** page.
+1. On the {{ product_name }} Console, go to **Login & Registration**.
+2. Under **Login Security**, click on **Password Validation**.
 
      ![Configure password validation]({{base_path}}/assets/img/guides/organization/account-security/password-validation/configure-password-validation.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

@@ -9,7 +9,7 @@ Key rotation can be defined as retiring an encryption key and replacing it with 
 !!! note
     Originator Usage Period(OUP) is the time period during which encryption is applied to data.
 
-- A cryptoperiod is the time span during which a specific key is authorized for use. [NIST SP 800-57](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf) recommends different cryptoperiods for different encryption key types.
+- A cryptoperiod is the time span during which a specific key is authorized for use. [NIST SP 800-57](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf){:target="_blank"} recommends different cryptoperiods for different encryption key types.
 
     - Symmetric Data Encryption Keys
         
@@ -92,11 +92,11 @@ At the moment, the tables given below can be synced during key rotation from the
     | IDN_OAUTH2_AUTHORIZATION_CODE | OAuth 2.0 authorization codes | Need to sync if the authorization codes created during the key rotation period need to be valid after key rotation    |
 
 !!! note
-    In this section, `<OLD_IS_HOME>` is the directory where the current Identity Server resides, and `<NEW_IS_HOME>` is the directory where the copy of the current Identity Server resides. `<KEY_ROTATION_REPO>` refers to the location [here](https://github.com/wso2/identity-tools/components/org.wso2.carbon.identity.keyrotation) and the `<KEY_ROTATION_TOOL>` refers to the location of the external tool.
+    In this section, `<OLD_IS_HOME>` is the directory where the current Identity Server resides, and `<NEW_IS_HOME>` is the directory where the copy of the current Identity Server resides. `<KEY_ROTATION_REPO>` refers to the location [here](https://github.com/wso2/identity-tools/components/org.wso2.carbon.identity.keyrotation){:target="_blank"} and the `<KEY_ROTATION_TOOL>` refers to the location of the external tool.
 
 ## How To Create The Key Rotation Tool
 
-1. Clone the repository, [identity-tools](https://github.com/wso2/identity-tools).
+1. Clone the repository, [identity-tools](https://github.com/wso2/identity-tools){:target="_blank"}.
 
 2. Build it using maven by running the command `mvn clean install`.
 
@@ -126,7 +126,7 @@ At the moment, the tables given below can be synced during key rotation from the
     - oldSecretKey - The symmetric encryption key used in the `<OLD_IS_HOME>`.
 
         !!! note
-            If the key is encrypted using cipher tool, decrypt it back as shown [here](https://shagihan.medium.com/decrypt-encrypted-text-with-the-wso2-cipher-tool-15b67624620a).
+            If the key is encrypted using cipher tool, decrypt it back as shown [here](https://shagihan.medium.com/decrypt-encrypted-text-with-the-wso2-cipher-tool-15b67624620a){:target="_blank"}.
 
     - newSecretKey - The new symmetric encryption key.
 
@@ -139,21 +139,21 @@ At the moment, the tables given below can be synced during key rotation from the
     - oldIdnPassword - `<OLD_IS_HOME>` identity database password.
 
         !!! note
-            Encode the `<OLD_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/) and insert it here.
+            Encode the `<OLD_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/){:target="_blank"} and insert it here.
 
     - newIdnDBUrl - `<NEW_IS_HOME>` identity database URL.
     - newIdnUsername - `<NEW_IS_HOME>` identity database username.
     - newIdnPassword - `<NEW_IS_HOME>` identity database password.
 
         !!! note
-            Encode the `<NEW_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/) and insert it here.
+            Encode the `<NEW_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/){:target="_blank"} and insert it here.
 
     - newRegDBUrl - `<NEW_IS_HOME>` registry database URL.
     - newRegUsername - `<NEW_IS_HOME>` registry database username.
     - newRegPassword - `<NEW_IS_HOME>` registry database password.
 
         !!! note
-            Encode the `<NEW_IS_HOME>` registry database plaintext password in [base64](https://www.base64encode.org/) and insert it here.
+            Encode the `<NEW_IS_HOME>` registry database plaintext password in [base64](https://www.base64encode.org/){:target="_blank"} and insert it here.
 
     - enableDBMigrator - Enable/disable re-encryption for the identity and registry databases.
 

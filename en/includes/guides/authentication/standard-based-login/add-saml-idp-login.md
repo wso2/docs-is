@@ -103,7 +103,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
 4. Click **Finish** to complete the registration.
 
 !!! note
-    Once the SAML identity provider is created, you can configure [additional SAML settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/) from the **Protocol** tab.
+    Once the SAML identity provider is created, you can configure [additional SAML settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/) from the **Settings** tab.
   
 ## Enable the SAML IdP for login
 

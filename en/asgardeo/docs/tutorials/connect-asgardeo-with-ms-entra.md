@@ -215,11 +215,11 @@ In this step, you will configure the connection between Asgardeo and the Microso
 
 2. Click **New Application** and select **Mobile Application**:
 
-    ![register new app in Asgardeo]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-12.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![register new app in Asgardeo]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/select-mobile-template.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details:
 
-    ![add mobile app configurations]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-13.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![add mobile app configurations]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/add-entra-sample-mobile-app-info.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -240,7 +240,7 @@ In this step, you will configure the connection between Asgardeo and the Microso
 
 5. Go to the **User Attributes** tab, mark the required attributes as **Mandatory**, and click **Update** to save the changes.
 
-    ![add user attributes to mobile app]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-14.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![add user attributes to mobile app]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/add-entra-sample-mobile-app-user-attributes.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! tip
             Be sure to copy the scopes displayed on the page.
@@ -256,7 +256,7 @@ In this step, you will configure the connection between Asgardeo and the Microso
     !!! note
         This step is required to ensure you can log in to the application. You need a business user registered in the Asgardeo organization to be able to perform user login.
 
-    ![add new user to organization]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-15.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![add new user to organization]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/add-new-user-to-organization.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Step 3: Create a verifiable credential for the ID token
 

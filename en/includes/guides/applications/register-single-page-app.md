@@ -35,7 +35,7 @@ To register the app:
         </tr>
         <tr>
             <td>Allow sharing with organizations</td>
-            <td>Enable this to share the new application with all or any selected organizations that belong to your organization (root).</td>
+            <td>Enable this to share the new application with all or any selected B2B organizations that belong to your primary organization.</td>
         </tr>
     </table>
 
@@ -67,7 +67,7 @@ When you register your single-page application, a client ID is generated. Your a
 
 You can get this client ID from the **Protocol** tab of the application as shown below.
 
-![Get client ID of SPA]({{base_path}}/assets/img/guides/applications/client-id.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Get client ID of SPA]({{base_path}}/assets/img/guides/applications/spa-client-id.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## What's next?
 

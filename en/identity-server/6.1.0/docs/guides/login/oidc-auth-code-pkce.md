@@ -4,7 +4,7 @@ This guide gives you instructions on how to implement login with OpenID Connect 
 
 Single-page applications and native mobile applications are some examples of public clients.
 
-For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) along with the authorization code grant to mitigate [code interception attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/).
+For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636){:target="_blank"} along with the authorization code grant to mitigate [code interception attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/).
 
 ## Register a service provider
 

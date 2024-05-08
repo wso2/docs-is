@@ -9,9 +9,9 @@ Follow this guide for instructions.
 You need to register {{ product_name }} as an OAuth app on GitHub.
 
 !!! note
-    You can follow the [Github documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) for detailed instructions.
+    You can follow the [Github documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app){:target="_blank"} for detailed instructions.
 
-1. Log in to [Github](https://github.com/), click your profile icon, and click **Settings**.
+1. Log in to [Github](https://github.com/){:target="_blank"}, click your profile icon, and click **Settings**.
 2. On the left panel of the **Settings** page, click **Developer settings**.
 3. Under **OAuth apps**, click **Register a new application**.
 
@@ -73,7 +73,7 @@ After the GitHub identity provider is created, go to the **Settings** tab and se
 - **public_profile**: Grants read access to a user's default public profile details.  
 
 !!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Github to the app. You can read the [Github Documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps) to learn more.
+    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Github to the app. You can read the [Github Documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps){:target="_blank"} to learn more.
 
 ## Enable GitHub login
 

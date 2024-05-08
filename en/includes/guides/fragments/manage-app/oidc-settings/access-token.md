@@ -44,16 +44,15 @@ Token binding securely links authentication tokens to client devices to prevent 
   <tbody>
     <tr>
       <td>none</td>
-      <td>Does not establish any specific binding between the token and the client device. Suitable for scenarios where token binding is not required or implemented separately. This is the default token binding type of any application.
-      </td>
+      <td>Does not establish any specific binding between the token and the client device. Suitable for scenarios where token binding is not required or implemented separately. This is the default token binding type of any application.</td>
     </tr>
     <tr>
       <td>cookie</td>
-      <td>Binds the token to the cookie named <b>atbv</b> with Secure and httpOnly parameters. Supported with the <b>authorization_code</b> grant type.</td>
+      <td>Binds the token to the cookie named <b>atbv</b> with Secure and httpOnly parameters. Supported with the <b>authorization_code</b> grant type. <b>Validate Token Binding<b> can be enabled to mandate client sends both the token and the cookie for successful authorization.</td>
     </tr>
     <tr>
       <td>sso-session</td>
-      <td>Binds the access token to the login session. {{product_name}} will issue a new access token for each new login and revoke the token upon logout. Supported with the <b>authorization_code</b> grant type.</td>
+      <td>Binds the token to the browser session. During each login, a token is generated coupled to the browser session and revoked on user logout. Supported with the <b>authorization_code</b> grant type.</td>
     </tr>
     <tr>
       <td>certificate</td>
@@ -65,7 +64,7 @@ Token binding securely links authentication tokens to client devices to prevent 
     </tr>
     <tr>
       <td>client-request</td>
-      <td>Binds the token to the instance identifier as requested by the client through the <code>tokenBindingId</code> token request parameter as shown below. </br>
+      <td>Binds the token to the instance identifier as requested by the client through the <code>tokenBindingId</code> parameter with the token request as shown below. </br></br>
 
             <p>
             <code>

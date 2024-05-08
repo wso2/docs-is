@@ -4,7 +4,7 @@ See the instructions given below to implement login with OpenID Connect in your 
 
 The following diagram explains how this flow works with {{ product_name }}:
 
-![Authorization code flow]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow.png)
+![Authorization code flow]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
 As shown above, you need to configure your application to get the authorization code from {{ product_name }}, and then exchange it for the required tokens.
 
@@ -92,7 +92,7 @@ After receiving the authorization code, the application has to exchange it to ge
 When your application is a confidential client, it needs to identify itself to the token endpoint by submitting its credentials. There are several ways to implement client authentication at the token endpoint:
 
 !!! note
-    See the list of client authentication methods in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication).
+    See the list of client authentication methods in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication){:target="_blank"}.
 
 - Use **client_secret_post**: The `client_id` and `client_secret` are both sent as body parameters in the POST message. See the example given below.
 

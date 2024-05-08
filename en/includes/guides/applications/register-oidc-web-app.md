@@ -34,13 +34,13 @@ To register the app:
         <tr>
             <td>Authorized redirect URLs</td>
             <td><p>
-            The URL to which the authorization code is sent upon user authentication and where the user is redirected upon logout.</p><p>To comply with [RFC 8252 section 7.3](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), the redirect URL in the request does not need to have an exact port match with the authorized redirect URL if it is a loopback redirect URL.  
+            The URL to which the authorization code is sent upon user authentication and where the user is redirected upon logout.</p><p>To comply with [RFC 8252 section 7.3](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3){:target="_blank"}, the redirect URL in the request does not need to have an exact port match with the authorized redirect URL if it is a loopback redirect URL.  
             Only URLs with loopback IP addresses (<b>127.0.0.1</b> and <b>[::1]</b> not <b>localhost</b>) are supported for this feature. </p> Click <b>Add Now</b> if you want to try a sample app.
             </td>
         </tr>
         <tr>
             <td>Allow sharing with organizations</td>
-            <td>Enable this to share the new application with all or any selected organizations that belong to your organization (root).</td>
+            <td>Enable this to share the new application with all or any selected B2B organizations that belong to your primary organization.</td>
         </tr>
     </table>
 

@@ -8,49 +8,55 @@ Follow this guide for instructions.
 You need to register {{ product_name }} as an app on Facebook.
 
 !!! note
-    You can follow the [Facebook Documentation](https://developers.facebook.com/docs/development/create-an-app) for detailed instructions.
+    You can follow the [Facebook Documentation](https://developers.facebook.com/docs/development/create-an-app){:target="_blank"} for detailed instructions.
 
 To register an app on Facebook:
 
-1. Log in to the [Facebook developer portal](https://developers.facebook.com/apps) and click **Create App**.
+1. Go to the [My Apps](https://developers.facebook.com/apps) page in **Meta for developers**.
 
-    ![Log on to Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+2. Click **Create App**.
 
-2. Select **Consumer** as the app type and click **Next**.
+    ![Facebook developer portal]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-developer-portal.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
-    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+3. Select the use case as **Authenticate and request data from users with Facebook Login** and click **Next**.
 
-3. Provide **Display Name** and click **Create App** to create an application.
+    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-type.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
-    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+4. Select the login type out of the options and click **Next**.
 
-4. Under **Add products to your app**, click **Set up** on the **Facebook Login** card.
+    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-choose-login-type.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
-    ![Add Facebook login]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+5. Provide **Display Name** and click **Create App** to create an application.
 
-5. Select **Web** type and provide the following **Site URL** with your organization name:
+    ![Provide information to Facebook app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-info.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
+
+6. While in the created application, select **Use cases** from the left navigation.
+
+7. Under **Use cases** > **Authentication and account creation**, click **Customize**.
+
+8. Under **Facebook Login** > **Quickstart**, click **Go to quickstart**.
+
+9. Select **Web** as the platform for this app and provide the following **Site URL** with your organization name and click **Save**.
+
+    ```bash no-line-numbers
+    https://api.asgardeo.io/t/<organization_name>
+    ```
+
+10. Return to the **Use cases** > **Customize** section and under **Facebook login** > **Settings**, click **Go to settings**.
+
+11. Add the following as the **Valid OAuth Redirect URIs** and click **Save changes**.
 
     ```bash
     {{ product_url_format }}
     ```
 
-    ![Add Facebook app url]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-url.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+12. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.
 
-6. Save the changes and click **Continue**.
+    ![Add Facebook settings]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
 
-7. On the left panel, under **Facebook Login**, go to **Settings** and add the following as the **Valid OAuth Redirect URIs**:
+13. On the left navigation panel, go to **App settings** > **Basic** and take note of the **App ID** and **App Secret**.
 
-    ```bash
-    {{ product_url_format }}/commonauth
-    ```
-
-8. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.
-
-    ![Add Facebook settings]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-app-settings.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-9. On the main panel, go to **App settings > basic** and take note of the **App ID** and **App Secret**.
-
-    ![Get AppID and Secret from Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Get AppID and Secret from Facebook]({{base_path}}/assets/img/guides/idp/facebook-idp/app-id-secret-from-facebook.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 ## Register the Facebook IdP
 
@@ -91,7 +97,7 @@ After the Facebook identity provider is created, go to the **Settings** tab and 
 - **public_profile**: Grants read access to a user's default public profile details.  
 
 !!! note
-    {{ product_name }} needs these permissions to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Facebook to the app. You can read the [Facebook documentation](https://developers.facebook.com/docs/permissions/reference) to learn more.
+    {{ product_name }} needs these permissions to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Facebook to the app. You can read the [Facebook documentation](https://developers.facebook.com/docs/permissions/reference){:target="_blank"} to learn more.
 
 ## Enable Facebook login
 

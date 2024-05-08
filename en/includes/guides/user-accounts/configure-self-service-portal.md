@@ -31,8 +31,8 @@ Follow the steps given below to grant/deny access to the My Account portal for u
 
 Follow the steps below to configure Two-Factor Authentication (2FA) for the My Account portal of your organization.
 
-1. In the {{ product_name }} Console, go to **Organizational Settings** > **Self-Service Portal**.
-2. Click **Configure** to open the **My Account** page.
+1. In the {{ product_name }} Console, go to **Applications**.
+2. At the top of the page, click the gear icon corresponding to **My Account** to open the configuration page.
 3. Select the 2FA options that you need to configure for the My Account Portal.
 
     !!! note
@@ -47,8 +47,8 @@ Administrators of the organization can enable TOTP enrollment during login for t
 
 To enable TOTP enrollment during login:
 
-1. On the {{ product_name }} Console, go to **Organizational Settings** > **Self-Service Portal**.
-2. Click **Configure** to open the **My Account** page.
+1. On the {{ product_name }} Console, **Applications**.
+2. At the top of the page, click the gear icon corresponding to **My Account** to open the configuration page.
 3. Select **Enable TOTP**.
 4. Select **Allow TOTP enrollment during login**.
 
@@ -67,7 +67,7 @@ To enable backup codes for My Account portal login:
 !!! note "Before you begin"
     To enable backup codes, you need to enable at least one 2FA option for the login flow.
 
-1. On the {{ product_name }} Console, go to **Organizational Settings** > **Self-Service Portal**.
-2. Click **Configure** to open the **My Account** page.
+1. On the {{ product_name }} Console, go to **Applications**.
+2. At the top of the page, click the gear icon corresponding to **My Account** to open the configuration page.
 3. Select **Enable Backup Codes**.
 4. Click **Update** to save the configurations.

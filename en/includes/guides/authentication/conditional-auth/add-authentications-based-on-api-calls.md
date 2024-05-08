@@ -1,5 +1,5 @@
 # Add MFA based on advanced conditions (using WSO2 Choreo)
-You can secure your applications' login flow based on data from an API hosted on [WSO2 Choreo](https://wso2.com/choreo/). Choreo by WSO2 is an integration platform as a service (iPaaS) for innovation, productivity, and simplicity—designed in the cloud for the cloud.
+You can secure your applications' login flow based on data from an API hosted on [WSO2 Choreo](https://wso2.com/choreo/){:target="_blank"}. Choreo by WSO2 is an integration platform as a service (iPaaS) for innovation, productivity, and simplicity—designed in the cloud for the cloud.
 
 ## Scenario
 Consider a scenario where the login flow of the application should be stepped up after an API call to a service endpoint hosted on Choreo. The API call should be executed after the first authentication step is successfully completed. The second authentication step should be prompted based on the decision made by the service during the API call.
@@ -12,7 +12,7 @@ Let's consider an API hosted on Choreo that reads an IP address from the request
 
 - You need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- Get an API key from [ipgeolocation](https://ipgeolocation.io/). For more information, refer to [ipgeolocation documentation](https://ipgeolocation.io/documentation.html).
+- Get an API key from [ipgeolocation](https://ipgeolocation.io/){:target="_blank"}. For more information, refer to [ipgeolocation documentation](https://ipgeolocation.io/documentation.html){:target="_blank"}.
 
 ## Define the MFA conditions
 
@@ -23,7 +23,7 @@ To define the MFA conditions with Choreo, you need to:
 2. [Integrate your REST API with Choreo](#integrate-the-rest-api-with-choreo)
 
 ### Desgin the REST API
-You need to implement your REST API in [Ballerina](https://ballerina.io/) or any other language and containerize it. You can use the [Ballerina VS code extension](https://ballerina.io/downloads/) to develop the REST API in Ballerina. [Learn more](https://wso2.com/ballerina/vscode/docs/).
+You need to implement your REST API in [Ballerina](https://ballerina.io/){:target="_blank"} or any other language and containerize it. You can use the [Ballerina VS code extension](https://ballerina.io/downloads/){:target="_blank"} to develop the REST API in Ballerina. [Learn more](https://wso2.com/ballerina/vscode/docs/){:target="_blank"}.
 
 To implement your REST API to fit the explained scenario:
 
@@ -74,7 +74,7 @@ To implement your REST API to fit the explained scenario:
           </tr>
           <tr>
                <td><code>geoApiKey</code></td>
-               <td>The API key obtained from [ipgeolocation](https://ipgeolocation.io/).</td>
+               <td>The API key obtained from [ipgeolocation](https://ipgeolocation.io/){:target="_blank"}.</td>
           </tr>
           <tr>
                <td><code>geoResponse.country_code2</code></td>
@@ -88,16 +88,16 @@ To implement your REST API to fit the explained scenario:
 
 To create the REST API component and integrate it with your REST API:
 
-1. [Create an application](https://wso2.com/choreo/docs/developer-portal/manage-application/#create-an-application) on WSO2 Choreo to integrate your REST API with your {{ product_name }} app.
+1. [Create an application](https://wso2.com/choreo/docs/developer-portal/manage-application/#create-an-application){:target="_blank"} on WSO2 Choreo to integrate your REST API with your {{ product_name }} app.
 
     !!! note
         Note the **Consumer Key** and **Consumer Secret**.
 
-2. Create a [REST API component on Choreo](https://wso2.com/choreo/docs/get-started/tutorials/create-your-first-rest-api/#step-1-create).
+2. Create a [REST API component on Choreo](https://wso2.com/choreo/docs/get-started/tutorials/create-your-first-rest-api/#step-1-create){:target="_blank"}.
 
-3. [Deploy](https://wso2.com/choreo/docs/get-started/quick-start-guide/#step-12-deploy-the-rest-api) and [publish](https://wso2.com/choreo/docs/get-started/quick-start-guide/#step-14-publish-the-rest-api) the REST API.
+3. [Deploy](https://wso2.com/choreo/docs/get-started/quick-start-guide/#step-12-deploy-the-rest-api){:target="_blank"} and [publish](https://wso2.com/choreo/docs/get-started/quick-start-guide/#step-14-publish-the-rest-api){:target="_blank"} the REST API.
 
-4. [Subscribe](https://wso2.com/choreo/docs/developer-portal/manage-subscription/#subscribe-to-an-api) the application you created on Choreo to the REST API.
+4. [Subscribe](https://wso2.com/choreo/docs/developer-portal/manage-subscription/#subscribe-to-an-api){:target="_blank"} the application you created on Choreo to the REST API.
 
     !!! note
         The Choreo application exposes the REST API to external clients. Therefore, you can connect to this application from {{ product_name }} and invoke the REST API.

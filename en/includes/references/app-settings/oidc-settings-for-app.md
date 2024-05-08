@@ -78,7 +78,7 @@ The `redirect_uri` sent in the [login request]({{base_path}}/guides/authenticati
 
 ### Allowed origins
 
-Browsers restrict cross-origin HTTP requests initiated from browser scripts for security reasons. Enabling [Cross Origin Resource Sharing(CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) allows your application to perform cross-origin HTTP requests.
+Browsers restrict cross-origin HTTP requests initiated from browser scripts for security reasons. Enabling [Cross Origin Resource Sharing(CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS){:target="_blank"} allows your application to perform cross-origin HTTP requests.
 
 You should list the set of URLs that are allowed to access {{ product_name }} APIs with JavaScript under **Allowed origins**. By pre-registering the application origin, applications can access:
 
@@ -92,7 +92,7 @@ This section elaborates on the advanced settings available for OIDC applications
 
 ### Proof Key for Code Exchange(PKCE)
 
-When using [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) along with the [authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/#get-tokens) grant, the application sends a `code challenge` in the authorization request and subsequently, sends the corresponding `code verifier` in the token request.
+When using [PKCE](https://datatracker.ietf.org/doc/html/rfc7636){:target="_blank"} along with the [authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/#get-tokens) grant, the application sends a `code challenge` in the authorization request and subsequently, sends the corresponding `code verifier` in the token request.
 
 PKCE ensures that the authorization code is sent to the same client making the request and no malicious application has intercepted the code during the delivery process. {{product_name}} supports the following options for PKCE:
 
@@ -220,7 +220,7 @@ For applications that rely on a client secret, client authentication method is t
 </table>
 
 !!! note "Public client"
-    A public client is an application which cannot securely store client credentials. A public client does not need to authenticate with a `client_secret`. Thus to secure public clients, it is recommended to use `Code` grant type for public clients along with [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) to mitigate code interception attacks.
+    A public client is an application which cannot securely store client credentials. A public client does not need to authenticate with a `client_secret`. Thus to secure public clients, it is recommended to use `Code` grant type for public clients along with [PKCE](https://datatracker.ietf.org/doc/html/rfc7636){:target="_blank"} to mitigate code interception attacks.
 
 ### Pushed Authorization Requests (PAR)
 
@@ -262,7 +262,7 @@ Certificates play a critical role in validating signatures on signed requests an
 To upload a certificate, select **Provide certificate** and upload a certificate in the `.pem` format.
 
 ??? note "How to convert `.crt`, `.cer` or `.der` to the `.pem` format?"
-    You can use [OpenSSL](https://www.openssl.org/) to convert certificates of other formats to the `.pem`format using the following commands.
+    You can use [OpenSSL](https://www.openssl.org/){:target="_blank"} to convert certificates of other formats to the `.pem`format using the following commands.
 
     **Convert CRT to PEM**
     ``` 

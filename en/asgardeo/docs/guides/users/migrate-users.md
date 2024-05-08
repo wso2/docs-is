@@ -1,6 +1,6 @@
 # Migrate users to Asgardeo
 
-Owners of organizations in Asgardeo may need to migrate users from an existing identity provider (IdP) to the Asgardeo user store. This guide explains why you may need user migration and how to get it done.
+Organization owners in Asgardeo may need to migrate users from an existing identity provider (IdP) to the Asgardeo user store. This guide explains why you may need user migration and how to get it done.
 
 ## When is user migration required?
 

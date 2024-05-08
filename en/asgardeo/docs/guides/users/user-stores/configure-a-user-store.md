@@ -62,7 +62,7 @@ Follow the guide below to set up a remote user store in Asgardeo.
 ## Register a remote user store
 To configure a remote user store for your organization:
 
-1. On the Asgardeo Console, go to **User Management** > **User Stores**.
+1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores**.
 2. Click **Connect userstore** to open the following:
 
     ![Register remote user store to Asgardeo]({{base_path}}/assets/img/guides/user-stores/register-user-store.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

@@ -8,9 +8,9 @@ Follow this guide for instructions.
 You need to register {{ product_name }} as an OAuth2.0 application on Google.
 
 !!! note
-    For detailed instructions, you can follow the [Google documentation](https://support.google.com/googleapi/answer/6158849).
+    For detailed instructions, you can follow the [Google documentation](https://support.google.com/googleapi/answer/6158849){:target="_blank"}.
 
-1. Go to the [Google Developer console](https://console.developers.google.com/apis/credentials), create a new project, or select an existing project.
+1. Go to the [Google Developer console](https://console.developers.google.com/apis/credentials){:target="_blank"}, create a new project, or select an existing project.
 
 2. If the **APIs & services** page isn't already open, do the following:
 
@@ -29,7 +29,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Google.
 4. Configure your consent screen by clicking **Configure Consent Screen** and return to **Create OAuth client ID** screen once you are done.
 
     !!! note
-        For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
+        For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent){:target="_blank"}
 
 5. Select the **Web application** as the application type.
 6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application:
@@ -78,7 +78,7 @@ After the Google identity provider is created, go to the **Settings** tab and se
 - **profile**: Allows to view the user's basic profile data.
 
 !!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Google to the app. You can read the [Google documentation](https://developers.google.com/identity/protocols/oauth2/openid-connect#scope-param) to learn more.
+    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Google to the app. You can read the [Google documentation](https://developers.google.com/identity/protocols/oauth2/openid-connect#scope-param){:target="_blank"} to learn more.
 
 ## Enable Google login
 

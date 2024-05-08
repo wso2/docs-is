@@ -1,6 +1,6 @@
 # JWT Secured Authorization Response Mode (JARM) for OAuth 2.0
 
-The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://openid.net/specs/openid-financial-api-jarm-ID1.html) defines new JWT-based modes to encode OAuth2 authorization responses. These modes allow clients to request authorization response parameters and additional data in the JWT format.
+The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://openid.net/specs/openid-financial-api-jarm-ID1.html){:target="_blank"} defines new JWT-based modes to encode OAuth2 authorization responses. These modes allow clients to request authorization response parameters and additional data in the JWT format.
 
 ## Authorization flow
 
@@ -19,6 +19,10 @@ prompt=login
 The parameters used in the authorization request are defined below.
 
 <table>
+    <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+    </tr>
     <tr>
         <td><code>reponse_type</code></td>
         <td>
@@ -48,24 +52,6 @@ The parameters used in the authorization request are defined below.
         </td>
     </tr>
 </table>
-
-Given below is a sample JARM response {JWT}:
-
-```bash
-eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.ewogICJhdWQiOiAieVQyZkNBaWNRODNRWXltRWpDMGEwZnBqZWM4YSIsCiAgImNvZGUiOiAiNDRjZTU3NTctN2Y1NC0zYjFlLWEzM2YtMThhMzA2MTU1MDUzIiwKICAiaXNzIjogImh0dHBzOi8vYXBpLmFzZ2FyZGVvLmlvL2JpZnJvc3Qvb2F1dGgyL3Rva2VuIiwKICAiZXhwIjogMTY4MDA5MDUwMiwKICAic2Vzc2lvbl9zdGF0ZSI6ICI3ZDg1MjdhNmNmMDU2N2UyNDkxZjE4YmRmZWE2ZTkwYjE0OWZhMjk1MGQ5MmRiYjMxMGI1NDIxOWI3MzNlNDgxLnNwdUVZVUJtUF9FTGVUZEtQX2U3SkEiCn0=.wYIBpEIhYdFq4W3mrx4gcAI2kSgJ5viQ6qGntHsIRMT2wg9F4d-DzMEkMvy4tOup2dlZNby80Sf1djuG44Z-1xbellcuk7hRfotlMOjSLc7fmkzy0b4HvwcN66U9wETWQfixUTbWbOvmqMqzdMQKtSB2b7oWEh5EHOlQQ6vrGJc2eSxquMN_O17PlYKF0smXSgoESIunf8k5sGydO8MvwVZ4-qfqnx7Lx7Huk36CfW-CFI0IXIehi017onOx0FOXwRaizMM45M0zfzyvg4CbZUaGPeGuyO7DVsUPwjdkrjkhiKcXR61S01uqj8-_AAgtZMJHMI3yJQmvWM4ezNe9_Q
-```
-
-Decoded payload:
-
-```json
-{
-  "aud": "yT2fCAicQ83QYymEjC0a0fpjec8a",
-  "code": "44ce5757-7f54-3b1e-a33f-18a306155053",
-  "iss": "https://api.asgardeo.io/bifrost/oauth2/token",
-  "exp": 1680090502,
-  "session_state": "7d8527a6cf0567e2491f18bdfea6e90b149fa2950d92dbb310b54219b733e481.spuEYUBmP_ELeTdKP_e7JA"
-}
-```
 
 ## JARM response modes
 
@@ -131,7 +117,25 @@ response=<JWT>
 The `jwt` response mode is a shortcut that indicates the default redirect encoding for the requested response type as follows.
 
 - If the response type is `code`, the default `response_mode` is `query.jwt`.
-- For the response types defined in <a href="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html">OIDM</a> (​​except `none`), the default response mode is `fragment.jwt`.
+- For the response types defined in <a href="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html">OIDC</a> (​​except `none`), the default response mode is `fragment.jwt`.
 - For response types containing `token` or `id_token`, the default response mode is `fragment.jwt`.
+
+Given below is a sample JARM response {JWT}:
+
+```bash
+eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.ewogICJhdWQiOiAieVQyZkNBaWNRODNRWXltRWpDMGEwZnBqZWM4YSIsCiAgImNvZGUiOiAiNDRjZTU3NTctN2Y1NC0zYjFlLWEzM2YtMThhMzA2MTU1MDUzIiwKICAiaXNzIjogImh0dHBzOi8vYXBpLmFzZ2FyZGVvLmlvL2JpZnJvc3Qvb2F1dGgyL3Rva2VuIiwKICAiZXhwIjogMTY4MDA5MDUwMiwKICAic2Vzc2lvbl9zdGF0ZSI6ICI3ZDg1MjdhNmNmMDU2N2UyNDkxZjE4YmRmZWE2ZTkwYjE0OWZhMjk1MGQ5MmRiYjMxMGI1NDIxOWI3MzNlNDgxLnNwdUVZVUJtUF9FTGVUZEtQX2U3SkEiCn0=.wYIBpEIhYdFq4W3mrx4gcAI2kSgJ5viQ6qGntHsIRMT2wg9F4d-DzMEkMvy4tOup2dlZNby80Sf1djuG44Z-1xbellcuk7hRfotlMOjSLc7fmkzy0b4HvwcN66U9wETWQfixUTbWbOvmqMqzdMQKtSB2b7oWEh5EHOlQQ6vrGJc2eSxquMN_O17PlYKF0smXSgoESIunf8k5sGydO8MvwVZ4-qfqnx7Lx7Huk36CfW-CFI0IXIehi017onOx0FOXwRaizMM45M0zfzyvg4CbZUaGPeGuyO7DVsUPwjdkrjkhiKcXR61S01uqj8-_AAgtZMJHMI3yJQmvWM4ezNe9_Q
+```
+
+Decoded payload:
+
+```json
+{
+  "aud": "yT2fCAicQ83QYymEjC0a0fpjec8a",
+  "code": "44ce5757-7f54-3b1e-a33f-18a306155053",
+  "iss": "https://api.asgardeo.io/bifrost/oauth2/token",
+  "exp": 1680090502,
+  "session_state": "7d8527a6cf0567e2491f18bdfea6e90b149fa2950d92dbb310b54219b733e481.spuEYUBmP_ELeTdKP_e7JA"
+}
+```
 
 {{disable_jarm}}

@@ -589,7 +589,7 @@ components:
             properties:
               $ref:
                 type: string
-                example: https://api.asgardeo.io/o/{suborganization-id}/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
+                example: https://api.asgardeo.io/o/{organization-id}/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
               display:
                 type: string
                 example: kim
@@ -705,7 +705,7 @@ components:
             properties:
               $ref:
                 type: string
-                example: https://api.asgardeo.io/o/{suborganization-id}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+                example: https://api.asgardeo.io/o/{organization-id}/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
               display:
                 type: string
                 example: loginRole

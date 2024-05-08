@@ -2,7 +2,7 @@
 
 A resource server is responsible for protecting resources such as APIs via OAuth2 access tokens. Access tokens are intended for authorizing the access of a resource.
 The resource server should be able to verify the access token sent by the application. If the application sends a [self-contained JWT access token]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token), then the resource server can validate the access token without interacting with the authorization server.
-OAuth2.0 supports [token introspection](https://datatracker.ietf.org/doc/html/rfc7662) to inspect the **access tokens** and **refresh tokens** using authorization servers.
+OAuth2.0 supports [token introspection](https://datatracker.ietf.org/doc/html/rfc7662){:target="_blank"} to inspect the **access tokens** and **refresh tokens** using authorization servers.
 
 {{ product_name }} provides the `/oauth2/introspect` endpoint to perform token validation. A resource server can inspect tokens using {{ product_name }} and know the information related to the tokens. On {{ product_name }}, the resource server has to use client secret basic authentication to authenticate with the token introspection endpoint.
 You have to send it as the authorization header in the request: `Authorization: Basic BASE46_ENCODING<client_id:client_secret>`
@@ -43,7 +43,7 @@ curl --location --request POST '{introspection_endpoint_url}' \
 This introspection request takes the following parameters:
 
 !!! note
-    See the [OAuth2.0 introspection request](https://datatracker.ietf.org/doc/html/rfc7662#section-2.1) for details.
+    See the [OAuth2.0 introspection request](https://datatracker.ietf.org/doc/html/rfc7662#section-2.1){:target="_blank"} for details.
 
 <table>
   <tr>

@@ -28,7 +28,7 @@ You should [create a root organization]({{base_path}}/guides/{{root_org_descript
 ## Set up the applications
 The following guides explain how you can share an application with organizations and allow organization users to log in to it using **SSO**.
 
-Let's use the sample applications, [Guardio Insurance Business application and Guardio Insurance Administrative application](https://github.com/wso2/samples-is/tree/master/b2b-sample), to explore this use case.
+Let's use the sample applications, [Guardio Insurance Business application and Guardio Insurance Administrative application](https://github.com/wso2/samples-is/tree/master/b2b-sample){:target="_blank"}, to explore this use case.
 
 ### Step 1: Register the applications on {{ product_name }}
 

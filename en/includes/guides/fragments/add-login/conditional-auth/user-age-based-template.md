@@ -25,7 +25,7 @@
 
 2. Click **Access Control** > **User-Age-Based** > **ADD**.
 
-    ![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    <!--![Age-based access control with visual editor]({{base_path}}/assets/img/guides/conditional-auth/age-based-access-control-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}-->
 
 3. Click **Confirm** to replace any existing script with the selected predefined script.
 

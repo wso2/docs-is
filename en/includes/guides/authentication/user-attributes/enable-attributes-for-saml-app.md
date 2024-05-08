@@ -54,7 +54,7 @@ This ensures that the application receives attributes based on the name that is 
 
 The subject attribute is used for exchanging information about the user. The subject is represented by the **subject** attribute in the SAML assertion.
 
-By default, {{ product_name }} shares **username** as the subject. You can define any user attribute as the subject.
+By default, {{ product_name }} shares **User ID** as the subject. You can define any user attribute as the subject.
 
 To define a different attribute as the subject:
 
@@ -75,7 +75,6 @@ Once you have configured the user attributes that are required for your applicat
 ![Provides consent for attributes in {{ product_name }}]({{base_path}}/assets/img/guides/applications/attributes/saml/how-it-works.png){: width="800" style="display: block; margin: 0;"}
 
 ### {{ product_name }} checks for mandatory attributes
-
 
 {{ product_name }} verifies whether the user's profile has values for all the [mandatory attributes](#define-mandatory-user-attributes) that are requested by the application. If there are missing values, {{ product_name }} will prompt the user to enter the missing values.
 

@@ -73,11 +73,11 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
 
 You can customize the REST APIs using the following extension points:
 
--   [PIIController connector extension](https://github.com/wso2/samples-is/tree/product-is3289/consent-mgt/piicontroller/org.wso2.carbon.identity.piicontroller) -
+-   [PIIController connector extension](https://github.com/wso2/samples-is/tree/product-is3289/consent-mgt/piicontroller/org.wso2.carbon.identity.piicontroller){:target="_blank"} -
     A sample implementation that demonstrates registering a PII
     controller and providing PII controller information for consent
     receipts.  
--   [Interceptor extension](https://github.com/wso2/samples-is/tree/product-is3289/consent-mgt/interceptor) -
+-   [Interceptor extension](https://github.com/wso2/samples-is/tree/product-is3289/consent-mgt/interceptor){:target="_blank"} -
     A sample implementation that demonstrates registering a consent
     management interceptor and intercepting consent management related
     operations.

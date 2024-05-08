@@ -51,10 +51,18 @@ Below are the languages currently available for the i18n-supported user interfac
     </tr>
     <tr>
         <td>
-            Portuguese
+            Portuguese - Portugal
         </td>
         <td>
             <code>pt_PT</code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Portuguese - Brazil
+        </td>
+        <td>
+            <code>pt_BR</code>
         </td>
     </tr>
     <tr>
@@ -127,7 +135,7 @@ The following examples demonstrate how to set the `ui_locales` parameter in your
     You can send the `ui_locales` in the signIn request as a parameter.
   
     !!! note
-        Learn more about [setting the signIn request](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signin) using the {{ product_name }} SDKs.
+        Learn more about [setting the signIn request](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signin){:target="_blank"} using the {{ product_name }} SDKs.
 
     The following sample illustrates the `signIn` request using the JS/React SDK.
 
