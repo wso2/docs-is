@@ -14,7 +14,7 @@ To configure SMS OTP as a passwordless authentication mechanism in {{ product_na
 
 - [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with an mobile number to which the user will receive the OTP.
 
-{{ admin_login_note}}
+{{ admin_login_note }}
 
 ## Set up SMS OTP
 {{ product_name }} has some default settings for SMS OTP, which are sufficient for most cases. If required, you can change the default settings, as explained below.
@@ -152,8 +152,8 @@ Configurations related to SMS providers are located under the **Email & SMS** se
       </tr>
       <tr>
         <td>Payload Template</td>
-        <td>How the payload template should be. </br>Placeholders: </br><code>{{body}}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>{{mobile}}</code> - Number that this sms should be sent to.</td>
-        <td>Example JSON payload template: </br><code>{“content”: {{body}},“to”: {{mobile}}}}</code></br></br>(<code>{{mobile}}</code> and <code>{{body}}</code> will be replaced with the corresponding values at the runtime.)</td>
+        <td>How the payload template should be. </br>Placeholders: </br><code>\{\{body\}\}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>\{\{mobile\}\}</code> - Number that this sms should be sent to.</td>
+        <td>Example JSON payload template: </br><code>{“content”: \{\{body\}\},“to”: \{\{mobile\}\}}}</code></br></br>(<code>\{\{mobile\}\}</code> and <code>\{\{body\}\}</code> will be replaced with the corresponding values at the runtime.)</td>
       </tr>
       <tr>
         <td>Headers</td>
