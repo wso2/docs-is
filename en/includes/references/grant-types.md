@@ -207,19 +207,16 @@ The diagram below illustrates the device flow.
 
 3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
 
-4. WSO2 Identity server prompts the user to enter the end-user code, validates the code, and asks the end user to accept or decline the authorization request.
+4. WSO2 Identity server prompts the user to enter the end-user code and the user enters the uder code
 
-5. While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
+5. WSO2 Identity server validates the code and asks the end user to accept or decline the authorization request.
 
-6. If the user grants access, the authorization server validates the verification code and responds with the access token.
+6. While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
 
-7. The client application can now request resources from the resource server by providing the access token.
+7. If the user grants access, the authorization server validates the verification code and responds with the access token.
 
-8. The resource server returns the requested user information to the client application.
+8. The client application can now request resources from the resource server by providing the access token.
 
-!!! info "Support for refresh token grant - Yes"
-    This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/learn/refresh-token-grant).
+9. The resource server returns the requested user information to the client application.
 
-!!! info "Related Topics"
-    See the [Try Device Authorization Grant]({{base_path}}/guides/access-delegation/try-device-flow/) topic to try out a sample with WSO2 Identity Server.
 {% endif %}
