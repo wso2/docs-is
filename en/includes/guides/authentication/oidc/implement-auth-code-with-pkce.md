@@ -8,7 +8,7 @@ For public clients, it is recommended to use [PKCE](https://datatracker.ietf.org
 
 The following diagram explains how this flow works with {{ product_name }}.
 
-![Authorization code flow with PKCE]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow_with_pkce.png)
+![Authorization code flow with PKCE]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow_with_pkce.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
 As shown above, you need to configure your application to get the authorization code from {{ product_name }}, and then exchange it for the required tokens.
 
@@ -108,7 +108,7 @@ After receiving the authorization code, the application has to exchange it to ge
 
 === "cURL"
     ```bash
-    curl --location --request POST '{token_endpoint_url}' \
+    curl --location --request POST '{{ product_url_format }}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'code={authorization_code}' \
     --data-urlencode 'grant_type=authorization_code' \

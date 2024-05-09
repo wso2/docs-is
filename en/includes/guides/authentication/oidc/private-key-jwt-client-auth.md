@@ -31,7 +31,7 @@ Register the client application in {{ product_name }} as follows:
 
 2. Go to the **Protocol** tab of the new application and configure the required grant type.
 
-    ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png)
+    ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
 ## Prepare the private key and public key
 
@@ -223,4 +223,4 @@ To enable token reuse in {{ product_name }}.
 2. Under **Login Security**, click **Private Key JWT Client Authentication (OIDC)**.
 3. Switch on the toggle to enable token reuse.
   
-    ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png)
+    ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png){: width="700" style="border: 0.3px solid lightgrey;"}

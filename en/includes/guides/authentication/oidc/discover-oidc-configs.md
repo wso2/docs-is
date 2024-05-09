@@ -94,7 +94,8 @@ You can get the endpoints from the console as follows:
 2. Select an OIDC application from the list.
 
 3. Go to the **Info** tab of the application and find the server endpoints to your organization.
-   ![app-help-panel-for-endpoints]({{base_path}}/assets/img/guides/applications/app-endpoint-help.png)
+
+   ![app-help-panel-for-endpoints]({{base_path}}/assets/img/guides/applications/app-endpoint-help.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
 ## What's next?
 

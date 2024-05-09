@@ -200,6 +200,7 @@ nav:
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
+          - Add app-native authentication: guides/authentication/add-app-native-authentication.md
           - Login Flow AI: guides/authentication/ai-loginflow.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
@@ -320,6 +321,7 @@ nav:
     - Management APIs:
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
+      - App-native authentication API: apis/app-native-authentication-api.md
       - Attribute management API: apis/attribute-management.md
       - Authenticators API: apis/authenticators.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
@@ -335,7 +337,6 @@ nav:
       - Organization management API: apis/organization-management.md
       - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
-      - User functionality management API: apis/functionality.md
       - User management:
         - SCIM 2.0 API: apis/scim2.md
         - User account associations API: apis/association-management-by-admin.md
@@ -403,7 +404,7 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
-      - Application-native authentication: references/app-native-authentication.md
+      - App-native authentication: references/app-native-authentication.md
 
 not_in_nav: |
   /page-not-found.md
