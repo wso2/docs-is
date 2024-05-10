@@ -1,4 +1,4 @@
-# App-Native Authentication
+# Add app-native authentication
 
 In traditional mobile applications, users often get redirected to an external web browser for login.
 However, with App-Native Authentication, developers can implement a login experience directly within the application along with features such as Multi-Factor Authentication (MFA), adaptive authentication, and support for federated logins.
@@ -27,32 +27,33 @@ However, an app-native login experience means users get to enjoy a seamless logi
 App-Native Authentication is an extension to the OAuth 2.0 protocol. The following steps give an overview on how app-native authentication is executed from an application.
 
 1. The initial request made by the application is similar to a typical [OAuth 2.0 authorization code request]({{base_path}}/guides/authentication/oidc/implement-auth-code/) but with the `response_mode` set to `direct` as shown below.
-=== "Sample request"
 
-```java
-curl --location '{{api_base_path}}'
---header 'Accept: application/json'
---header 'Content-Type: application/x-www-form-urlencoded'
---data-urlencode 'client_id=<client_id>'
---data-urlencode 'response_type=<response_type>'
---data-urlencode 'redirect_uri=<redircet_url>'
---data-urlencode 'state=<state>'
---data-urlencode 'scope=<space separated scopes>'
---data-urlencode 'response_mode=direct'
-```
-
-=== "Example"
-```java
-curl --location '{{api_example_base_path}}'
---header 'Accept: application/json'
---header 'Content-Type: application/x-www-form-urlencoded'
---data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
---data-urlencode 'response_type=code'
---data-urlencode 'redirect_uri=https://example-app.com/redirect'
---data-urlencode 'state=logpg'
---data-urlencode 'scope=openid internal_login'
---data-urlencode 'response_mode=direct'
-```
+    === "Sample request"
+    
+        ```java
+        curl --location '{{api_base_path}}'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=<client_id>'
+        --data-urlencode 'response_type=<response_type>'
+        --data-urlencode 'redirect_uri=<redircet_url>'
+        --data-urlencode 'state=<state>'
+        --data-urlencode 'scope=<space separated scopes>'
+        --data-urlencode 'response_mode=direct'
+        ```
+    
+    === "Example"
+        ```java
+        curl --location '{{api_example_base_path}}'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example-app.com/redirect'
+        --data-urlencode 'state=logpg'
+        --data-urlencode 'scope=openid internal_login'
+        --data-urlencode 'response_mode=direct'
+        ```
 
     The response contains the following key components.
 
@@ -60,19 +61,19 @@ curl --location '{{api_example_base_path}}'
     - **nextStep** - describes the authentication options configured for the next step of the login flow.
 
 
-2. For the next phase of the process, the application starts interacting with the **Authentication API** until the authentication is complete.
+2. For the next phase of the process, the application starts interacting with the **Authentication API**.     This interaction continues until all the steps of the login flow are complete.
 
     !!! tip "What is the Authentication API?"
         The Authentication API is an interactive, and a stateful API that facilitates a multi-step authentication flow within an application. See its [OpenAPI definition]({{base_path}}/apis//app-native-authentication-api/) for more details.
 
-   The application sends a request to the authentication API with the following key components.
+    The application sends a request to the authentication API with the following key components.
 
-    - **flowId** - The unique value received when initiating the login flow
+    - **flowId** - The unique value received when initiating the login flow.
     - **selectedAuthenticator** - The authentication option that the user selected and its credentials.
 
     The response contains the following key components.
 
-    - **flowStatus**: `INCOMPLETE` if the authentication requires more steps. `FAIL_INCOMPLETE` if the authentication failed and requires further steps.
+    - **flowStatus**: Describes if the login flow is complete or incomplete.
     - **nextStep** - describes the authentication options configured for the next step of the login flow.
 
 3. Once the login flow is complete, the application receives an authorization code.
@@ -123,9 +124,9 @@ Follow the steps below to enable app-native authentication for your application.
     {% endif %}
 
 ## Secure the authentication request
-In App-Native Authentication, users input their credentials directly into the application. Due to this, malicious applications mimicking the legitimate application may be able to capture user credentials.
+In App-Native Authentication, users input their credentials directly into the application. Hence, malicious applications mimicking the legitimate application may be able to capture user credentials. You can implement the following mechanisms to secure authentication requests.
 
-The Authentication API which enables app-native authentication does not require authentication. Therefore, you can implement the following mechanisms to secure authentication requests. While these mechanisms are only applicable for the initial authentication request, all subsequent requests are bound to it via a unique identifier (flowId), which prevents alterations during the process.
+While these mechanisms are only applicable for the initial authentication request, all subsequent requests are bound to it via a unique identifier (flowId), which prevents alterations during the process.
 
 - **Client attestation** - If the application is published in the Apple App Store or Google Play Store, attestation capabilities provided by the platform can be used to ensure the request originated from the legitimate client application.
 - **Client authentication** - If the application is capable of securely storing a client secret (confidential client), client authentication can be used to secure the request.
@@ -237,11 +238,11 @@ for an OAuth confidential client can be used to secure this request. There are n
 ## Handle Single Sign-On
 Single Sign-On (SSO) for app-native authentication can be handled in the following two ways.
 
-#### Cookie based SSO
+### Cookie based SSO
 
 App-native authentication, just as the OAuth authorization code flow, sets an SSO cookie (commonAuthId). If the cookie is preserved, any subsequent authorization request that occurs with this cookie will automatically perform SSO.
 
-#### SessionId based SSO
+### SessionId based SSO
 
 SessionId parameter based SSO is useful if the implementation does not maintain cookies. The `id_token` that the application receives after the initial authentication request, contains the `isk` claim. When making a subsequent authorization request the `isk` value can be used as the `sessionId` for SSO to occur.
 
