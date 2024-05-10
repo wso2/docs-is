@@ -1,65 +1,81 @@
 # App-Native Authentication
 
-In a conventional mobile application, users are redirected to an external web browser for login.
-However, with App-Native Authentication, developers can integrate a comprehensive authentication flow
-within the application along with features such as Multi-Factor Authentication (MFA), adaptive authentication, and support for federated logins.
+In traditional mobile applications, users often get redirected to an external web browser for login.
+However, with App-Native Authentication, developers can implement a login experience directly within the application along with features such as Multi-Factor Authentication (MFA), adaptive authentication, and support for federated logins.
 
 ## Why app-native authentication?
 
-For applications, browser-based authentication is the straightforward approach as the application does not have to deal with risks associated with handling sensitive authentication data. However, app-native authentication is ideal if your priority is to provide a seamless login experience by keeping the user within the application's environment.
+For most applications, browser-based authentication is the straightforward approach as the application, then, does not have to deal with risks associated with handling sensitive user data.
+
+However, an app-native login experience means users get to enjoy a seamless login experience. This is also ideal if you have a business requirement to keep the users within the application's environment without redirecting them elsewhere for login.
 
 !!! warning "Limitations of App-Native Authentication"
 
-    - App-native authentication should ONLY be used for the organization's own applications and should not be used with third-party applications as the user credentials may get exposed to third parties.
+    App-native authentication, albeit convenient, has the following limitations.
 
-	- App-Native Authentication has the following limitations compared to a browser-based authentication flow:
+    - It should ONLY be used for the organization's own applications and should NOT be used with third-party applications as the user credentials may get exposed to third parties.
+
+	- It has the following limitations compared to a browser-based authentication flow:
         - Does not prompt for user consent for attribute sharing or access delegation.
 	    - Does not prompt the user to provide missing mandatory attributes.
 	    - Does not support prompts in adaptive authentication flows.
-	    - Entire authentication flow cannot be initiated if a non-supported authentication option is configured for the application.
+	    - Does not support all authentication methods. If you have an unsupported option configured, the login flow will not be initiated.
 	    - Cannot enroll authenticators (e.g. TOTP authenticator) during authentication.
 
 ## How it works
 
-App-Native Authentication is an extension to the OAuth 2.0 protocol. Hence, the initial request made by the
-application is similar to a typical [OAuth 2.0 authorization code request]({{base_path}}/guides/authentication/oidc/implement-auth-code/) to the `/authorize` endpoint but with the `response_mode` set to `direct`. In response, the application receives a unique identifier called the **flowId** that uniquely identifies a single login flow.
+App-Native Authentication is an extension to the OAuth 2.0 protocol. The following steps give an overview on how app-native authentication is executed from an application.
 
+1. The initial request made by the application is similar to a typical [OAuth 2.0 authorization code request]({{base_path}}/guides/authentication/oidc/implement-auth-code/) but with the `response_mode` set to `direct` as shown below.
 === "Sample request"
 
-	```java
-	curl --location '{{api_base_path}}'
-	--header 'Accept: application/json'
-	--header 'Content-Type: application/x-www-form-urlencoded'
-	--data-urlencode 'client_id=<client_id>'
-	--data-urlencode 'response_type=<response_type>'
-	--data-urlencode 'redirect_uri=<redircet_url>'
-	--data-urlencode 'state=<state>'
-	--data-urlencode 'scope=<space separated scopes>'
-	--data-urlencode 'response_mode=direct'
-    ```
+```java
+curl --location '{{api_base_path}}'
+--header 'Accept: application/json'
+--header 'Content-Type: application/x-www-form-urlencoded'
+--data-urlencode 'client_id=<client_id>'
+--data-urlencode 'response_type=<response_type>'
+--data-urlencode 'redirect_uri=<redircet_url>'
+--data-urlencode 'state=<state>'
+--data-urlencode 'scope=<space separated scopes>'
+--data-urlencode 'response_mode=direct'
+```
 
 === "Example"
-	
-	```java
-	curl --location '{{api_example_base_path}}'
-	--header 'Accept: application/json'
-	--header 'Content-Type: application/x-www-form-urlencoded'
-	--data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
-	--data-urlencode 'response_type=code'
-	--data-urlencode 'redirect_uri=https://example-app.com/redirect'
-	--data-urlencode 'state=logpg'
-	--data-urlencode 'scope=openid internal_login'
-	--data-urlencode 'response_mode=direct'
-	```
+```java
+curl --location '{{api_example_base_path}}'
+--header 'Accept: application/json'
+--header 'Content-Type: application/x-www-form-urlencoded'
+--data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
+--data-urlencode 'response_type=code'
+--data-urlencode 'redirect_uri=https://example-app.com/redirect'
+--data-urlencode 'state=logpg'
+--data-urlencode 'scope=openid internal_login'
+--data-urlencode 'response_mode=direct'
+```
 
-Subsequently, the application uses the **flowId** and interacts with the **Authentication API**
+    The response contains the following key components.
 
-!!! tip "What is the Authentication API?"
-    The Authentication API is an interactive, and a stateful API that facilitates a multi-step authentication flow within an application. See its [OpenAPI definition]({{base_path}}/apis//app-native-authentication-api/) for more details.
+    - **flowId** - used to uniquely identify a single user login flow. This value is carried forward to the subsequent requests of the process for identification.
+    - **nextStep** - describes the authentication options configured for the next step of the login flow.
 
-The authentication API returns details about the next login step to the application and the application prompts the user to enter the credentials for that step, which are then sent back to the server. This process repeats until all steps of the login flow are complete.
 
-Once the login flow is complete, the application receives an authorization code.
+2. For the next phase of the process, the application starts interacting with the **Authentication API** until the authentication is complete.
+
+    !!! tip "What is the Authentication API?"
+        The Authentication API is an interactive, and a stateful API that facilitates a multi-step authentication flow within an application. See its [OpenAPI definition]({{base_path}}/apis//app-native-authentication-api/) for more details.
+
+   The application sends a request to the authentication API with the following key components.
+
+    - **flowId** - The unique value received when initiating the login flow
+    - **selectedAuthenticator** - The authentication option that the user selected and its credentials.
+
+    The response contains the following key components.
+
+    - **flowStatus**: `INCOMPLETE` if the authentication requires more steps. `FAIL_INCOMPLETE` if the authentication failed and requires further steps.
+    - **nextStep** - describes the authentication options configured for the next step of the login flow.
+
+3. Once the login flow is complete, the application receives an authorization code.
 
 !!! note "Learn more"
     While this section provides a brief overview, it is highly recommended to read through [app-native authentication]({{base_path}}/references/app-native-authentication) to understand the concept in detail.
