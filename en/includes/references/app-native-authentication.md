@@ -1,11 +1,14 @@
 # App-native authentication
 
-App-native authentication is an extension to the OAuth 2.0 protocol that enables users to login to native and mobile applications from the application itself, without being redirected to a web browser. This enables developers to keep the users within the context of the application and provide them with a seamless login experience.
+Traditional mobile applications usually depend on external web browsers for login. This means that users logging into a mobile application is directed away from application's environment to a web browser to complete the login process. This is not ideal if your priority is to implement a seamless login experience.
 
-This document contain detailed information on the **authentication API** that powers app-native authentication.
+App-native authentication was introduced as a solution to this problem. By adopting an API-based approach, app-native authentication provides a secure login process while retaining users within the application's environment.
+
+This document contains detailed information on the **authentication API** that powers app-native authentication.
 
 !!! note
-    Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
+    - Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
+    - Learn how to [implement app-native authentication in {{product_name}}]({{base_path}}/guides/authentication/add-app-native-authentication)
 
 ## How does it work?
 
@@ -17,27 +20,24 @@ The following diagram illustrates the high-level steps involved with app-native 
 1. User initiates a login request at the application's login page.
 2. The application initiates an app-native authentication request.
 3. The server responds with instructions for the next step of the authentication.
-4. The application prompts for user input.
-5. User interacts with the application and enters the credentials.
-6. The application sends the response back to the server.
+4. The application displays the available authentication options to the user and prompts the user to enter the credentials.
+5. User interacts with the application and enters the credentials for a selected authentication option.
+6. The application gathers the credentials and sends the response back to the server.
 
     !!! info
         Steps 3-6 repeat until the authentication flow is completed.
 
-7. After a successful authentiation, the appliaction receives an OAuth2 authorization code.
-8. The authorization code can then be exchanged for an access token.
+7. After a successful authentication, the application receives an OAuth2 authorization code which concludes the interaction.
+8. The application can then exchange the authorization code for an access token.
 
 ## How Authentication API works
 
-The [authentication API]({{base_path}}/apis/app-native-authentication-api/) is an interactive, stateful API that enables multi-step authentication. Let's look at how the authentication API is used in app-native authentication.
-
-The following steps explain app-native authentication in detail.
+We discussed app-native authentication on a high level in the previous section. This section intends to dig deep into the [authentication API]({{base_path}}/apis/app-native-authentication-api/) and look at how it achieves app-native authentication.
 
 1. When an application initiates an app-native login, it is done using an OAuth 2.0 authorization code request with the `response_mode` set to `direct` as shown below.
 
-
-	!!! note
-		Learn how to [implement login using the authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/)
+    !!! note
+	      Learn how to [implement login using the authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/)
 
 	=== "Sample request (`/authorize`)"
 	
@@ -67,7 +67,7 @@ The following steps explain app-native authentication in detail.
 		--data-urlencode 'response_mode=direct'
 		```
 
-2. The application in return, receives a response that contain the **flowId** parameter.
+2. The application in return, receives a response that contain the **flowId** parameter and the authentication options available for the first step.
 
     !!! note
         In app-native authentication, after the initial request to the `/authorize` endpoint, subsequent requests are made to the `/authn` endpoint. The **flowId** parameter is used to bind the requests made to the `/authn` endpoint to the initial request.
@@ -107,7 +107,7 @@ The following steps explain app-native authentication in detail.
         - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial     response for the auth request.
         - **selectedAuthenticator**: The authenticator selected by the user for authentication.
         - **authenticatorId**: The unique identifier of the authenticator.
-        - **params**: The parameters required by the authenticator for authentication.
+        - **params**: The values entered by the user for the parameters required for authentication.
 
 4. The response of the `/authn` endpoint will be as follows.
 
@@ -193,8 +193,9 @@ The following steps explain app-native authentication in detail.
         - **messages**: The info and error messages related to the authentication option.
         - **i18nKey**: The internationalization key. This key will be available many places of the response and can be used where content localization is required.
 
+5. Steps 3 and 4 are done repeatedly until all the steps of the login flow are complete.
 
-5. The authentication flow completes when the application receives an OAuth 2.0 authorization code with the    relevant OAuth 2.0 artifacts in a json format as shown below.
+6. The authentication flow completes when the application receives an OAuth 2.0 authorization code with the    relevant OAuth 2.0 artifacts in a json format as shown below.
 	```json
 	{
 	   "code": "6ff8b7e1-01fc-39b9-b56d-a1f5826e6d2a",
@@ -205,7 +206,7 @@ The following steps explain app-native authentication in detail.
 
 ## Sample scenarios
 
-The following are several sample scenarios in which users can be logged in using app-native authentication. Each scenario goes through a single or multiple interactions with the `/authn` endpoint based on the login flow configured for the application.
+The following are several sample scenarios in which users can be logged in using app-native authentication. Each scenario goes through a single or multiple interactions with the `/authn` endpoint based on the number of steps configured for the application.
 
 ### Scenario 1: Log in with a username & password
 
