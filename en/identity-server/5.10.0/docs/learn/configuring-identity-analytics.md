@@ -20,13 +20,29 @@ Follow the instructions given below.
 
 -   Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the following event publishers in WSO2 Identity Server.
 
-    ``` toml
-    [identity_mgt.analytics_login_data_publisher]
-    enable=true
+    - Enable analytics for login data
 
-    [identity_mgt.analytics_session_data_publisher] 
-    enable=true
-    ```
+        ``` toml
+        [identity_mgt.analytics_login_data_publisher]
+        enable=true
+        ```
+
+    - Enable analytics for session data
+
+        ``` toml
+        [identity_mgt.analytics_session_data_publisher] 
+        enable=true
+        ```
+
+    - Enable analytics for token issuance data
+
+        ``` toml
+        [[event_listener]]
+        id = "oauth_data_publisher_token_issuance"
+        type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+        name = "org.wso2.carbon.identity.data.publisher.oauth.listener.OAuthTokenIssuanceDASDataPublisher"
+        order = 13
+        ```
 
 -   Configure WSO2 IS to publish user information with pending status.
 
