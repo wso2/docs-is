@@ -74,7 +74,26 @@ Follow the instructions given below.
 
 The rest of the configurations required to connect the analytics distribution with the WSO2 IS distribution have already been pre-configured for fresh distributions. To see more information about these pre-configurations, see [Prerequisites to Publish Statistics](../../learn/prerequisites-to-publish-statistics).
 
-If you do not need to change the default values, proceed to start the servers. 
+If you do not need to change the default values, proceed to start the servers.
+
+## Configure event publisher
+
+By default, the events are published on the analytics publisher of WSO2 Identity Server.
+
+If you need to get the logs on the WSO2 Identity Server console, navigate to `<Identity Server_HOME>/repository/deployment/server/` and update the `eventpublishers` file with the following configurations.
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<eventPublisher
+  name="IsAnalytics-Publisher-wso2event-OauthTokenIssueRefresh"
+  statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+  <from streamName="org.wso2.is.analytics.stream.OauthTokenIssuance" version="1.0.0"/>
+  <mapping customMapping="disable" type="json"/>
+  <to eventAdapterType="logger">
+    <property name="uniqueId">log_id</property>
+  </to>
+</eventPublisher>
+```
 
 ## Start the servers
 
