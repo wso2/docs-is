@@ -1,0 +1,546 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: 'Organization Discovery API'
+  description: |
+    This document specifies an **Organization Discovery RESTful API** for Asgardeo. 
+
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
+
+security:
+  - OAuth2: []
+
+paths:
+  /organizations/discovery:
+    post:
+      tags:
+        - Organization Discovery
+      description: |
+        This API serves the purpose of adding discovery attributes to an organization, with the current restriction that only the primary organization has the capability to perform this action.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_organization_discovery_update`
+      summary:
+        Map discovery attributes to the organization.
+      operationId: organizationDiscoveryPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationDiscoveryPostRequest'
+        description: This represents the organization discovery attributes to be added.
+        required: true
+      responses:
+        '201':
+          description: Successful response
+          headers:
+            Location:
+              description: Location URL to fetch the discovery attributes of the organization.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationDiscoveryAttributes'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/discovery' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "organizationId": "06c1f4e2-3339-44e4-a825-96585e3653b1",
+              "attributes": [
+                {
+                  "type": "emailDomain",
+                  "values": [
+                    "abc.com"
+                  ]
+                }
+              ]
+            }'
+      x-codegen-request-body-name: body
+    get:
+      tags:
+        - Organization Discovery
+      description: |
+        This API facilitates the retrieval of discovery attributes of organizations in the hierarchy, allowing filtering by discovery attribute type and value. It currently provides the capability to retrieve these attributes from only the primary organization.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_organization_discovery_view`
+      summary:
+        Get discovery attributes of organizations.
+      operationId: organizationsDiscoveryGet
+      parameters:
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsDiscoveryResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/discovery' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+  /organizations/{organization-id}/discovery:
+    get:
+      tags:
+        - Organization Discovery
+      description: |
+        This API facilitates the retrieval of discovery attributes for an organization. It currently provides the capability to retrieve these attributes only from the primary organization.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_organization_discovery_view`
+      summary:
+        Get discovery attributes of the organization.
+      operationId: organizationDiscoveryGet
+      parameters:
+        - name: organization-id
+          in: path
+          description: ID of the organization whose discovery attributes are to be fetched.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationDiscoveryAttributes'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1/discovery' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    delete:
+      tags:
+        - Organization Discovery
+      description: |
+        This API serves the purpose of deleting discovery attributes of an organization, with the current restriction that only the primary organization has the capability to perform this action.<br>
+
+        <b>Scope(Permission) required:</b> `internal_organization_discovery_delete`
+      summary:
+        Delete discovery attributes of an organization.
+      parameters:
+        - name: organization-id
+          in: path
+          description: ID of the organization whose discovery attributes are to be deleted.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully deleted
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1/discovery' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    put:
+      tags:
+        - Organization Discovery
+      description: |
+        This API serves the purpose of updating discovery attributes of an organization, with the current restriction that only the primary organization has the capability to perform this action.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_organization_discovery_update`
+      summary:
+        Update discovery attributes of an organization.
+      parameters:
+        - name: organization-id
+          in: path
+          description: ID of the organization whose discovery attributes are to be updated.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationDiscoveryAttributes'
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationDiscoveryAttributes'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PUT 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1/discovery' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+                "attributes": [
+                    {
+                        "type": "emailDomain",
+                        "values": [
+                            "abc.com"
+                        ]
+                    }
+                ]
+            }'
+      x-codegen-request-body-name: body
+  /organizations/check-discovery:
+    post:
+      tags:
+        - Organization Discovery
+      summary: Check whether given discovery attribute exists among the organization hierarchy.
+      description: |
+        This API is used to verify whether a specific discovery attribute has already been associated with an organization within the hierarchy. It is available for use within any organization in the hierarchy.
+        
+        <b>Scope(Permission) required:</b> `internal_organization_discovery_view`
+      operationId: organizationCheckDiscovery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationDiscoveryCheckPOSTRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationDiscoveryCheckPOSTResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/check-discovery' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "type": "emailDomain",
+              "value": "abc.com"
+            }'
+      x-codegen-request-body-name: body
+components:
+  parameters:
+    filterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description:
+        Condition to filter the retrieval of records.
+      schema:
+        type: string
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description:
+        Maximum number of records to be returned. (Should be greater than 0)
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    offsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    beforeQueryParam:
+      in: query
+      name: before
+      required: false
+      description:
+        Points to the previous range of data that can be retrieved.
+      schema:
+        type: string
+    afterQueryParam:
+      in: query
+      name: after
+      required: false
+      description:
+        Points to the next range of data to be returned.
+      schema:
+        type: string
+    recursiveQueryParam:
+      in: query
+      name: recursive
+      required: false
+      description:
+        Determines whether a recursive search should happen.
+      schema:
+        type: boolean
+        default: false
+    showChildrenQueryParam:
+      in: query
+      name: showChildren
+      required: false
+      description:
+        Returns the organization details along with the child organization IDs belonging to this organization.
+      schema:
+        type: boolean
+        default: false
+    includePermissionsQueryParam:
+      in: query
+      name: includePermissions
+      required: false
+      description:
+        Returns the organization details along with permissions assigned for the requested user in this organization.
+      schema:
+        type: boolean
+        default: false
+
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: ORG-00000
+          description: An error code.
+        message:
+          type: string
+          example: Some Error Message
+          description: An error message.
+        description:
+          type: string
+          example: Some Error Description
+          description: An error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+          description: An error trace identifier.
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+          description: Endpoint that will return the next or previous page of data.
+        rel:
+          type: string
+          description: Describes whether the provided link is to access the next or previous page of data.
+      readOnly: true
+    OrganizationDiscoveryPostRequest:
+      type: object
+      required:
+        - organizationId
+        - attributes
+      properties:
+        organizationId:
+          type: string
+          description: The ID of the organization whose discovery attributes are to be added.
+          example: '06c1f4e2-3339-44e4-a825-96585e3653b1'
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiscoveryAttribute'
+    OrganizationDiscoveryAttributes:
+      type: object
+      required:
+        - attributes
+      properties:
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiscoveryAttribute'
+    DiscoveryAttribute:
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          example: 'emailDomain'
+        values:
+          type: array
+          items:
+            type: string
+            example: 'abc.com'
+    OrganizationsDiscoveryResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          example: 10
+        startIndex:
+          type: integer
+          example: 1
+        count:
+          type: integer
+          example: 10
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            [
+              {
+                "href": "/api/server/v1/organizations/discovery?filter=attributes.type+eq+emailDomain&limit=10&offset=50",
+                "rel": "next",
+              },  {
+              "href": "/api/server/v1/organizations/discovery?filter=attributes.type+eq+emailDomain&limit=10&offset=30",
+              "rel": "previous",
+            }
+            ]
+        organizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationDiscoveryResponse'
+    OrganizationDiscoveryResponse:
+      type: object
+      required:
+        - organizationId
+        - organizationName
+        - attributes
+      properties:
+        organizationId:
+          type: string
+          description: The ID of the organization.
+          example: '06c1f4e2-3339-44e4-a825-96585e3653b1'
+        organizationName:
+          type: string
+          description: The name of the organization.
+          example: 'ABC Builders'
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiscoveryAttribute'
+    OrganizationDiscoveryCheckPOSTRequest:
+      required:
+        - type
+        - value
+      type: object
+      properties:
+        type:
+          type: string
+          example: 'emailDomain'
+        value:
+          type: string
+          example: 'abc.com'
+    OrganizationDiscoveryCheckPOSTResponse:
+      type: object
+      required:
+        - available
+      properties:
+        available:
+          type: boolean
+          example: true
+  #--------------------------------------------------------
+  # Descriptions of Organization Management API responses.
+  #--------------------------------------------------------
+  responses:
+    BadRequest:
+      description: Invalid input in the request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Requested resource is not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication information is missing or invalid.
+    Forbidden:
+      description: Access forbidden.
+    ServerError:
+      description: Internal server error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    OrgNotFound:
+      description: Organization Not Found
+    OrgExist:
+      description: Organization Exist
+  #-----------------------------------------------------
+  # Applicable authentication mechanisms.
+  #-----------------------------------------------------
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
+          scopes: {}

@@ -197,7 +197,7 @@ paths:
               "jit": {
                 "isEnabled": true,
                 "scheme": "PROVISION_SILENTLY",
-                "userstore": "PRIMARY",
+                "userstore": "DEFAULT",
                 "associateLocalUser": true,
                 "attributeSyncMethod": "OVERRIDE_ALL"
               },
@@ -1556,7 +1556,7 @@ paths:
             -d '{
             "isEnabled": true,
             "scheme": "PROVISION_SILENTLY",
-            "userstore": "PRIMARY",
+            "userstore": "DEFAULT",
             "associateLocalUser": true,
             "attributeSyncMethod": "OVERRIDE_ALL"
             }'

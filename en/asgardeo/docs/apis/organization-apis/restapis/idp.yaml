@@ -185,7 +185,7 @@ paths:
               "jit": {
                 "isEnabled": true,
                 "scheme": "PROVISION_SILENTLY",
-                "userstore": "PRIMARY",
+                "userstore": "DEFAULT",
                 "associateLocalUser": true
               },
               "outboundConnectors": {
@@ -1671,7 +1671,7 @@ paths:
             -d '{
             "isEnabled": true,
             "scheme": "PROVISION_SILENTLY",
-            "userstore": "PRIMARY",
+            "userstore": "DEFAULT",
             "associateLocalUser": true
             }'
       requestBody:

@@ -24,9 +24,7 @@ To configure alternative login identifiers for your organization:
     ![Configure alternative login identifiers]({{base_path}}/assets/img/guides/organization/account-login/configure-alternate-login-identifiers.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        - Ensure that every user within your organization has a unique value assigned to the chosen login identifiers.
-
-            For new users, Asgardeo will ensure it's uniqueness.
+        - Ensure that every user within your organization has a unique value assigned to the chosen login identifiers. For new users, Asgardeo will ensure it's uniqueness.
 
         - If you have chosen `Email` as the [username type]({{base_path}}/guides/user-accounts/account-login/username-validation/), it automatically becomes the primary login identifier. Therefore, configuring it as an alternative login identifier will be disabled.
 
