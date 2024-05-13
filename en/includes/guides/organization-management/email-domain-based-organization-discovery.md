@@ -26,7 +26,7 @@ and user Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should be
 
 ### Using the Console
 
-1. Login to the organization (root) from the {{ product_name }} Console. 
+1. Login to the organization (root) from the {{ product_name }} Console.
 2. On the {{ product_name }} Console, go to **Login & Registration**, and click **Email Domain Discovery** under **Organization Settings**.
 3. Turn on the toggle to enable email domain based organization discovery.
 
@@ -69,7 +69,7 @@ You need to:
     ![Assign Email Domain]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-email-domains.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Select the organization you want to claim an email domain from the dropdown under **Organization Name**.
-5. Type the email domain you want to claim for the selected organization under **Email Domains** and press enter. Here you can add one or more email domains. 
+5. Type the email domain you want to claim for the selected organization under **Email Domains** and press enter. Here you can add one or more email domains.
 
     ![Assign Email Domain for Best Car Mart]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-email-domains-bestcarmart.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -77,10 +77,10 @@ You need to:
 
 !!! note
     - If the organization has any email domain mapping:
-        During the onboarding process of a user to an organization, the user's username (which is an email) undergoes a check against the assigned email domains of that organization. 
+        During the onboarding process of a user to an organization, the user's username (which is an email) undergoes a check against the assigned email domains of that organization.
         If there's a match, the user is successfully onboarded to the organization. However, if there is no match, the user onboarding process will fail.
-    - While the organization (root) have enabled email domain based organization discovery, it is not compulsory to configure an email domain mapping for every organization in the hierarchy. 
-        If an organization doesn't have an email domain mapping, the user onboarded to that organization can have any email domain other than email domains of organizations in the hierarchy.
+    - While the organization (root) has enabled email domain based organization discovery, it is not compulsory to configure an email domain mapping for every organization in the hierarchy.
+        If an organization doesn't have an email domain mapping, the user onboarded to that organization can have any email domain other than the email domains of organizations in the hierarchy.
 
 ### Using the API
 
@@ -142,7 +142,7 @@ You need to:
         ]
     }'
     ```
-   
+
 ## Try it out
 
 1. Set up the `Guardio-Business-App` as a [B2B application]({{base_path}}/guides/organization-management/try-a-b2b-use-case/#set-up-the-applications).
@@ -154,8 +154,8 @@ You need to:
     - Email Domain: `bcmart.com`
 
 4. [Switch]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations) to the `Best Car Mart` organization on the {{ product_name }} Console.
- 
-5. Onboard a new user to `Best Car Mart` organization with following information. You can either set a password for the user or invite user to set the password.
+
+5. Onboard a new user to the `Best Car Mart` organization with the following information. You can either set a password for the user or invite the user to set the password.
     <table>
         <tr>
             <th>Username and Email</th>
@@ -176,11 +176,11 @@ You need to:
         </td>
         </tr>
     </table>
-   
+
 6. Try to log in to the `Guardio-Business-App` by selecting `Sign In With SSO`.
 
-7. Input the username (which is an email) of `Alice` in `Best Car Mart` organization.
-   
+7. Input the email address associated with the username for "Alice" within the "Best Car Mart" organization.
+
     ![Email input for SSO login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 8. After resolving the organization from the email, Alice will be redirected to the authentication option of `Best Car Mart`.

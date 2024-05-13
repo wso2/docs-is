@@ -14,12 +14,12 @@ Follow the steps below to onboard organization administrators using the {{ produ
 ### Prerequisites
 You need to:
 
-  - register your B2B application in the organization (root).
-  - create an administrator role required for your B2B application and associate it to the application.
-  - [create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) and switch to the created organization.
-  - [share the B2B application]({{base_path}}/guides/organization-management/share-applications/) with required organizations.
+    - register your B2B application in the organization (root).
+    - create an administrator role required for your B2B application and associate it to the application.
+    - [create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) and switch to the created organization.
+    - [share the B2B application]({{base_path}}/guides/organization-management/share-applications/) with required organizations.
 
-!!! note 
+!!! note
     The organization creator, invited parent organization users who have user management and role management permissions can onboard administrators for the organization switching to the organization on the {{ product_name }} Console.
 
 ### Step 1: Create a user
@@ -70,10 +70,11 @@ Using the self-service approach, the organization users can maintain their admin
   You can create the user in the organization (root) if the same user can manage multiple organizations.
 
 ### Prerequisites
+
 You need to:
 
-   - register your B2B application in the organization (root).
-   - create an administrator role required for your B2B application and associate it to the application.
+    - register your B2B application in the organization (root).
+    - create an administrator role required for your B2B application and associate it to the application.
 
 ### Initial setup: Get access tokens
 
@@ -82,70 +83,71 @@ Before creating admins using the APIs, you need to obtain the required access to
 1. If your B2B application is OAuth2.0/OpenID Connect supported web application, you can use the same application. Otherwise, create a [standard based application]({{base_path}}/guides/applications/register-standard-based-app/) selecting OAuth2.0/OpenID Connect as the protocol.
 2. Share the application with all organizations by enabling `share with all organizations`.
 3. Go to the **Protocol** tab of the application and enable the following grant types, and click **Update**.
+
     - Client Credential
     - Organization Switch
-    
+
     !!! note
         Take note of the application's **Client ID** and **Client Secret**, as it will be required in the next steps.
 
 4. Go to the **API Authorization** tab of the application and authorize the following APIs including the mentioned scopes.
 
     <table>
-      <tr>
-        <th>API Category</th>
-        <th>API</th>
-        <th>Scopes</th>
-      </tr>
-      <tr>
-        <td>Management API</td>
-        <td>Organization Management API </br> 
-            <code>/api/server/v1/organizations</code></td>
-        <td>
-            - Create Organizations</br> 
-            - View Organizations</br> 
-        </td>
-      </tr>
-      <tr>
-        <td>Organization API</td>
-        <td>SCIM2 Roles API </br> 
-            <code>/o/scim2/Roles</code></td>
-        <td>
-            - Update Role</br> 
-            - View Role</br> 
-        </td>
-      </tr>
-      <tr>
-        <td>Organization API</td>
-        <td>Application Management API </br>
-            <code>/o/api/server/v1/applications</code></td>
-        <td>
-            - View Application
-        </td>
-      </tr>
-      <tr>
-        <td>Organization API</td>
-        <td>SCIM2 Users API </br>
-            <code>/o/scim2/Users</code> </br>
-            (If you want to manage the user at the created organization level)
-        </td>
-        <td>
-            - Create User</br> 
-            - List Users</br> 
-        </td>
-      </tr>
-      <tr>
-        <td>Management API</td>
-        <td>SCIM2 Users API</br> 
-            <code>/scim2/Users</code> </br>
-            (If you want to manage the user at the root organization)
-         </td>
-        <td>            
-            - Create User</br> 
-            - View User</br> 
-        </td>
-      </tr>
+        <tr>
+            <th>API Category</th>
+            <th>API</th>
+            <th>Scopes</th>
+        </tr>
+        <tr>
+            <td>Management API</td>
+            <td>Organization Management API </br>
+                <code>/api/server/v1/organizations</code></td>
+            <td>
+                - Create Organizations</br>
+                - View Organizations</br>
+            </td>
+        </tr>
+        <tr>
+            <td>Organization API</td>
+            <td>SCIM2 Roles API </br>
+                <code>/o/scim2/Roles</code></td>
+            <td>
+                - Update Role</br>
+                - View Role</br>
+            </td>
+        </tr>
+        <tr>
+            <td>Organization API</td>
+            <td>Application Management API </br>
+                <code>/o/api/server/v1/applications</code></td>
+            <td>
+                - View Application
+            </td>
+        </tr>
+        <tr>
+            <td>Organization API</td>
+            <td>SCIM2 Users API </br>
+                <code>/o/scim2/Users</code> </br>
+                (If you want to manage the user at the created organization level)
+            </td>
+            <td>
+                - Create User</br>
+                - List Users</br>
+            </td>
+        </tr>
+        <tr>
+            <td>Management API</td>
+            <td>SCIM2 Users API</br>
+                <code>/scim2/Users</code> </br>
+                (If you want to manage the user at the root organization)
+            </td>
+            <td>
+                - Create User</br>
+                - View User</br>
+            </td>
+        </tr>
     </table>
-   
+
 5. Get an access token for the created application using the following cURL.
 
     ``` curl
@@ -156,7 +158,7 @@ Before creating admins using the APIs, you need to obtain the required access to
     -d 'grant_type=client_credentials&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view internal_organization_view internal_organization_create internal_user_mgt_view internal_user_mgt_create'
     ```
 
-   The access token expiration time is set to `3600` seconds by default. If you wish to modify this duration, you can do so via the console. Go to the application's protocol section and update the **User access token expiry time**.
+    The access token expiration time is set to `3600` seconds by default. If you wish to modify this duration, you can do so via the console. Go to the application's protocol section and update the **User access token expiry time**.
 
 ### Maintain admins in the organization
 This approach is suitable when you want organizations to govern themselves with minimal interaction from the organization (root). Additionally, if you have a B2C user, this approach will help you to separate them from B2B users easily.
@@ -167,6 +169,7 @@ This approach is suitable when you want organizations to govern themselves with 
 To create and maintain admins in the organization:
 
 1. Use the following cURL to check if the name of the organization you wish to create is available.
+
     ``` curl
     curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer { access token }' 
@@ -232,7 +235,7 @@ To create and maintain admins in the organization:
 
 5. Use the following cURL to obtain the `id` of the administrator role defined for your B2B application.
 
-    !!!note 
+    !!!note
         Share the B2B application in organization(root) enabling `share with all organizations` or share the application to the created organization before the role operation.
         The roles associated to the B2B application will be shared with the organization only if the application is shared to the organization.
 
@@ -290,6 +293,7 @@ This approach is particularly suitable when an organization user prefers to main
 To create and maintain admins in the organization (root):
 
 1. Create a user in the organization (root) using {{ product_name }}'s SCIM APIs.
+
     ``` curl
     curl --location 'https://{{ host_name }}/scim2/Users' \
     --header 'Content-Type: application/json' \
@@ -330,6 +334,7 @@ To create and maintain admins in the organization (root):
         If the organization name is available for use, the response will be `"available": true`, else it will be `"available": false`.
 
 3. If the required organization name is available for use, use the following cURL to create the organization and assign the user created in step 1 as the organization's admin.
+
     ``` curl
     curl --location 'https://{{ host_name }}/api/server/v1/organizations' \
     --header 'Authorization: Bearer { access token }' \
@@ -348,7 +353,7 @@ To create and maintain admins in the organization (root):
         ]
     }'
     ```
-   
+
 4. Get an access token for the created organization by exchanging the access token obtained for the root organization. Use credentials of the shared oauth2 application to execute the cURL.
 
     ``` curl
@@ -358,7 +363,7 @@ To create and maintain admins in the organization (root):
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d 'grant_type=organization_switch&token=<access token obtained for root organization>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
     ```
-   
+
 5. A shadow user account should have been created in the new organization for the organization creator in the organization (root). Get the shadow account's user id using the following cURL.
 
     ``` curl
@@ -366,8 +371,8 @@ To create and maintain admins in the organization (root):
     --header 'Authorization: Bearer {access-token-obtained-for-the-organization}' \
     --header 'Content-Type: application/json'
     ```
-   
-6. Use the following cURL to obtain the `id` of the administrator role defined for your B2B application. 
+
+6. Use the following cURL to obtain the `id` of the administrator role defined for your B2B application.
 
     !!!note
         Share the B2B application in organization(root) enabling `share with all organizations` or share the application to the created organization before the role operation.
