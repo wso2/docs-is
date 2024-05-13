@@ -811,6 +811,8 @@ nav:
           - Extend SCIM 2.0 user schemas: references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
+      - Rebranding:
+        - Customize login pages: references/extend/rebrand/customizable-login-pages.md
     - Default ports: references/default-ports.md
     - Troubleshoot:
       - Troubleshoot: references/troubleshoot/index.md
