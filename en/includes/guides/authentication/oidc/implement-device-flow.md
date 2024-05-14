@@ -2,7 +2,7 @@
 
 See the instructions given below to implement login with OpenID Connect in your application by using the device authorization flow.
 
-Refer [how the device authorization flow work]({{base_path}}/references/grant-types/device-authorization-grant/) for more information.
+Refer [how the device authorization flow work]({{base_path}}/references/grant-types/#device-authorization-grant) for more information.
 
 ## Prerequisites
 
