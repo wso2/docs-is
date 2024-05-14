@@ -1,135 +1,15 @@
-# Add app-native authentication
+# Add advanced app-native configurations
 
-In traditional mobile applications, users often get redirected to an external web browser for login.
-However, with App-Native Authentication, developers can implement a login experience directly within the application along with features such as Multi-Factor Authentication (MFA), adaptive authentication, and support for federated logins.
+Follow the guides below to discover advanced configurations for app-native authentication.
 
-## Why app-native authentication?
-
-For most applications, browser-based authentication is the straightforward approach as the application, then, does not have to deal with risks associated with handling sensitive user data.
-
-However, an app-native login experience means users get to enjoy a seamless login experience. This is also ideal if you have a business requirement to keep the users within the application's environment without redirecting them elsewhere for login.
-
-!!! warning "Limitations of App-Native Authentication"
-
-    App-native authentication, albeit convenient, has the following limitations.
-
-    - It should ONLY be used for the organization's own applications and should NOT be used with third-party applications as the user credentials may get exposed to third parties.
-
-	- It has the following limitations compared to a browser-based authentication flow:
-        - Does not prompt for user consent for attribute sharing or access delegation.
-	    - Does not prompt the user to provide missing mandatory attributes.
-	    - Does not support prompts in adaptive authentication flows.
-	    - Does not support all authentication methods. If you have an unsupported option configured, the login flow will not be initiated.
-	    - Cannot enroll authenticators (e.g. TOTP authenticator) during authentication.
-
-## How it works
-
-App-Native Authentication is an extension to the OAuth 2.0 protocol. The following steps give an overview on how app-native authentication is executed from an application.
-
-1. The initial request made by the application is similar to a typical [OAuth 2.0 authorization code request]({{base_path}}/guides/authentication/oidc/implement-auth-code/) but with the `response_mode` set to `direct` as shown below.
-
-    === "Sample request"
-    
-        ```java
-        curl --location '{{api_base_path}}'
-        --header 'Accept: application/json'
-        --header 'Content-Type: application/x-www-form-urlencoded'
-        --data-urlencode 'client_id=<client_id>'
-        --data-urlencode 'response_type=<response_type>'
-        --data-urlencode 'redirect_uri=<redircet_url>'
-        --data-urlencode 'state=<state>'
-        --data-urlencode 'scope=<space separated scopes>'
-        --data-urlencode 'response_mode=direct'
-        ```
-    
-    === "Example"
-        ```java
-        curl --location '{{api_example_base_path}}'
-        --header 'Accept: application/json'
-        --header 'Content-Type: application/x-www-form-urlencoded'
-        --data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
-        --data-urlencode 'response_type=code'
-        --data-urlencode 'redirect_uri=https://example-app.com/redirect'
-        --data-urlencode 'state=logpg'
-        --data-urlencode 'scope=openid internal_login'
-        --data-urlencode 'response_mode=direct'
-        ```
-
-    The response contains the following key components.
-
-    - **flowId** - used to uniquely identify a single user login flow. This value is carried forward to the subsequent requests of the process for identification.
-    - **nextStep** - describes the authentication options configured for the next step of the login flow.
-
-
-2. For the next phase of the process, the application starts interacting with the **Authentication API**.     This interaction continues until all the steps of the login flow are complete.
-
-    !!! tip "What is the Authentication API?"
-        The Authentication API is an interactive, and a stateful API that facilitates a multi-step authentication flow within an application. See its [OpenAPI definition]({{base_path}}/apis//app-native-authentication-api/) for more details.
-
-    The application sends a request to the authentication API with the following key components.
-
-    - **flowId** - The unique value received when initiating the login flow.
-    - **selectedAuthenticator** - The authentication option that the user selected and its credentials.
-
-    The response contains the following key components.
-
-    - **flowStatus**: Describes if the login flow is complete or incomplete.
-    - **nextStep** - describes the authentication options configured for the next step of the login flow.
-
-3. Once the login flow is complete, the application receives an authorization code.
-
-!!! note "Learn more"
-    While this section provides a brief overview, it is highly recommended to read through [app-native authentication]({{base_path}}/references/app-native-authentication) to understand the concept in detail.
-
-
-## Try it out
-Follow the steps below to try out App-Native Authentication with {{product_name}}.
-
-### Prerequisites
-
-- To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/).
-
-- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
-
-### Enable App-Native Authentication
-
-Follow the steps below to enable app-native authentication for your application.
-
-1. On {{product_name}} Console, go to **Applications**.
-
-2. Go to the **Protocol** tab and select **Code** from **Allowed grant types**.
-
-3. Click **Update** to save the changes.
-
-4. Go to the **Advanced** tab of your application and select **Enable app-native authentication API**.
-
-    ![Enable app-native authentication]({{base_path}}/assets/img/guides/app-native-authentication/enable-app-native-authentication.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-5. Click **Update** to save the changes.
-
-6. Go to the **Login flow** tab and configure a login flow with the supported authentication options.
-
-    ??? tip "Finding supported authentication options in the login flow"
-        Supported authentication options are tagged with `#APIAuth`.
-
-        ![Supported authentication options]({{base_path}}/assets/img/guides/app-native-authentication/supported-authentication-options.png){: width="400" style="display: block; margin: 0;"}
-
-7. Click **Update** to save the changes.
-
-8. Try out App-Native Authentication using Postman.
-    {% if product_name=="Asgardeo"%}
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8657284-83f51f64-fe45-4ca4-88b0-f670562d6b44){: target="#"}
-    {% else %}
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8657284-8d164672-61aa-4326-bc5e-30314c49f6d0){: target="#"}
-    {% endif %}
+!!! note "Before you begin"
+    [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) to your application.
 
 ## Secure the authentication request
+
 In App-Native Authentication, users input their credentials directly into the application. Hence, malicious applications mimicking the legitimate application may be able to capture user credentials. You can implement the following mechanisms to secure authentication requests.
 
 While these mechanisms are only applicable for the initial authentication request, all subsequent requests are bound to it via a unique identifier (flowId), which prevents alterations during the process.
-
-- **Client attestation** - If the application is published in the Apple App Store or Google Play Store, attestation capabilities provided by the platform can be used to ensure the request originated from the legitimate client application.
-- **Client authentication** - If the application is capable of securely storing a client secret (confidential client), client authentication can be used to secure the request.
 
 ### Using client attestation
 If the application is hosted either in the Apple App Store or the Google Play Store, follow the steps below to leverage 

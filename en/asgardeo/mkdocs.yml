@@ -200,7 +200,9 @@ nav:
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
-          - Add app-native authentication: guides/authentication/add-app-native-authentication.md
+          - App-native authentication:
+            - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
+            - Add advanced app-native configurations: guides/authentication/app-native-authentication/add-advanced-configurations.md
           - Login Flow AI: guides/authentication/ai-loginflow.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
