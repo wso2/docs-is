@@ -112,9 +112,9 @@ Follow the steps below to enable app-native authentication for your application.
 8. Try out App-Native Authentication using Postman.
 
     {% if product_name=="Asgardeo"%}
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8657284-83f51f64-fe45-4ca4-88b0-f670562d6b44){: target="#"}
+    [![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-83f51f64-fe45-4ca4-88b0-f670562d6b44){: target="#"}
     {% else %}
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8657284-8d164672-61aa-4326-bc5e-30314c49f6d0){: target="#"}
+    [![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-8d164672-61aa-4326-bc5e-30314c49f6d0){: target="#"}
     {% endif %}
 
     !!! note
