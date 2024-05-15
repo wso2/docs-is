@@ -44,7 +44,7 @@ Identity Anonymization tool in WSO2 IS.
 ---
 ### Downloading the Identity Anonymization tool
 
-Click [here](https://github.com/wso2/identity-anonymization-tool/releases/download/v1.4.1/org.wso2.carbon.privacy.forgetme.tool-1.4.1.zip) to download the tool
+Click [here](https://github.com/wso2/identity-anonymization-tool/releases/download/v1.4.1/org.wso2.carbon.privacy.forgetme.tool-1.4.1.zip) to download the tool.
 
 ### Configuring the tool
 Follow the steps below to configure the tool:
