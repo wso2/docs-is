@@ -1,4 +1,4 @@
-# Add advanced app-native configurations
+# Configure advanced app-native settings
 
 Follow the guides below to discover advanced configurations for app-native authentication.
 
@@ -9,7 +9,8 @@ Follow the guides below to discover advanced configurations for app-native authe
 
 In App-Native Authentication, users input their credentials directly into the application. Hence, malicious applications mimicking the legitimate application may be able to capture user credentials. You can implement the following mechanisms to secure authentication requests.
 
-While these mechanisms are only applicable for the initial authentication request, all subsequent requests are bound to it via a unique identifier (flowId), which prevents alterations during the process.
+!!! note
+    While these mechanisms are only applicable for the initial authentication request, all subsequent requests are bound to it via a unique identifier (flowId), which prevents alterations during the process.
 
 ### Using client attestation
 If the application is hosted either in the Apple App Store or the Google Play Store, follow the steps below to leverage 

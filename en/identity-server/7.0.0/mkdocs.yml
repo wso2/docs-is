@@ -416,8 +416,9 @@ nav:
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - App-native authentication:
+            - App-native authentication: guides/authentication/app-native-authentication/index.md
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
-            - Add advanced app-native configurations: guides/authentication/app-native-authentication/add-advanced-configurations.md
+            - Configure advanced app-native settings: guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
