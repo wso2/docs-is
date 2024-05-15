@@ -46,8 +46,9 @@ plugins:
         'guides/authentication/enterprise-login/index.md': 'guides/authentication/standard-based-login/index.md'
         'guides/authentication/enterprise-login/add-oidc-idp-login.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
-        'guides/request-path-auth/request-paths-overview.md': 'guides/authentication/add-app-native-authentication.md'
-        'guides/request-path-auth/oauth-request-path.md': 'guides/authentication/add-app-native-authentication.md'
+        'guides/request-path-auth/request-paths-overview.md': 'guides/authentication//app-native-authentication/add-app-native-authentication.md'
+        'guides/request-path-auth/oauth-request-path.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
+        'guides/authentication/add-application-native-login.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
         'guides/passwordless/overview.md': 'guides/authentication/passwordless-login.md'
         'guides/passwordless/magic-link.md': 'guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md'
         'guides/passwordless/fido.md': 'guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md'
@@ -414,7 +415,9 @@ nav:
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
-          - Add app-native authentication: guides/authentication/add-app-native-authentication.md
+          - App-native authentication:
+            - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
+            - Configure advanced app-native settings: guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md

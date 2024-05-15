@@ -1,43 +1,21 @@
 # App-native authentication
 
-Traditional mobile applications usually depend on external web browsers for login. This means that users logging into a mobile application is directed away from application's environment to a web browser to complete the login process. This is not ideal if your priority is to implement a seamless login experience.
+Applications usually depend on external web browsers for login. This means that users logging into an application are directed away from the application's environment to a web browser to complete the login process. This is not ideal if your priority is to implement a seamless login experience.
 
-App-native authentication was introduced as a solution to this problem. By adopting an API-based approach, app-native authentication provides a secure login process while retaining users within the application's environment.
-
-This document contains detailed information on the **authentication API** that powers app-native authentication.
-
-!!! note
-    - Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
-    - Learn how to [implement app-native authentication in {{product_name}}]({{base_path}}/guides/authentication/add-app-native-authentication)
-
-## How does it work?
+App-native authentication was introduced as a solution to this problem. By adopting an API-based approach, app-native authentication provides developers means to develop a secure login process within the application.
 
 The following diagram illustrates the high-level steps involved with app-native authentication.
 
 ![app-native-authentication-sequence]({{base_path}}/assets/img/guides/app-native-authentication/app-native-authentication-sequence.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
+!!! note
+    Learn how to [implement app-native authentication in {{product_name}}]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication)
 
-1. User initiates a login request at the application's login page.
-2. The application initiates an app-native authentication request.
-3. The server responds with instructions for the next step of the authentication.
-4. The application displays the available authentication options to the user and prompts the user to enter the credentials.
-5. User interacts with the application and enters the credentials for a selected authentication option.
-6. The application gathers the credentials and sends the response back to the server.
+## How does it work?
 
-    !!! info
-        Steps 3-6 repeat until the authentication flow is completed.
+This section digs deep into the steps involved in app-native authentication and the associated API calls.
 
-7. After a successful authentication, the application receives an OAuth2 authorization code which concludes the interaction.
-8. The application can then exchange the authorization code for an access token.
-
-## How Authentication API works
-
-We discussed app-native authentication on a high level in the previous section. This section intends to dig deep into the [authentication API]({{base_path}}/apis/app-native-authentication-api/) and look at how it achieves app-native authentication.
-
-1. When an application initiates an app-native login, it is done using an OAuth 2.0 authorization code request with the `response_mode` set to `direct` as shown below.
-
-    !!! note
-	      Learn how to [implement login using the authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/)
+1. Applications initiate app-native authentication using an OAuth 2.0 authorization code request by setting the `response_mode` to `direct` as shown below.
 
 	=== "Sample request (`/authorize`)"
 	
@@ -67,51 +45,12 @@ We discussed app-native authentication on a high level in the previous section. 
 		--data-urlencode 'response_mode=direct'
 		```
 
-2. The application in return, receives a response that contain the **flowId** parameter and the authentication options available for the first step.
-
     !!! note
-        In app-native authentication, after the initial request to the `/authorize` endpoint, subsequent requests are made to the `/authn` endpoint. The **flowId** parameter is used to bind the requests made to the `/authn` endpoint to the initial request.
-
-3. The application then sends a POST request to the `/authn` endpoint with a payload as shown below.
+	      Learn how to [implement login using the authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/).
 
 
-	=== "Sample payload (`/authn`)"
-
-		```json
-		{
-		"flowId": "{flowId received from the initial response}",
-		"selectedAuthenticator": {
-		    "authenticatorId": "{authenticator id for the selected authenticator}",
-		    "params": {
-		          "{requested parameters from the authenticator}"
-		    	}
-			}
-		}
-		```
-
-	=== "Example (`/authn`)"
-
-		``` json
-        {
-          "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
-          "selectedAuthenticator": {
-            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-            "params": {
-              "username": "johnd",
-              "password": "U$3r"
-            }
-          }
-        }
-        ```
-    ??? note "learn about the parameters"
-        - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial     response for the auth request.
-        - **selectedAuthenticator**: The authenticator selected by the user for authentication.
-        - **authenticatorId**: The unique identifier of the authenticator.
-        - **params**: The values entered by the user for the parameters required for authentication.
-
-4. The response of the `/authn` endpoint will be as follows.
-
-
+2. The application receives the following response that contains key components like the **flowId** parameter that uniquely identifies the login flow and the **authenticators** array that contains the authentication options available for the first step.
+    
     ``` json
     {
       "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
@@ -168,8 +107,8 @@ We discussed app-native authentication on a high level in the previous section. 
       ]
     }
     ```
-
-    ??? note "learn about the parameters"
+  
+    ??? note "Learn about the parameters"
 
         - **flowId**: A unique identifier for the entire authentication flow.
         - **flowStatus**: Indicates the status of the authentication flow. Possible values are `INCOMPLETE`, `FAILED_INCOMPLETE`, and `SUCCESS_COMPLETED`.
@@ -193,9 +132,50 @@ We discussed app-native authentication on a high level in the previous section. 
         - **messages**: The info and error messages related to the authentication option.
         - **i18nKey**: The internationalization key. This key will be available many places of the response and can be used where content localization is required.
 
-5. Steps 3 and 4 are done repeatedly until all the steps of the login flow are complete.
+3. The application then gathers the credentials for one of the presented authentication options from the user.
 
-6. The authentication flow completes when the application receives an OAuth 2.0 authorization code with the    relevant OAuth 2.0 artifacts in a json format as shown below.
+4. The applcation makes a POST request to the `/authn` endpoint using the **Authentication API**. The payload of this request includes the **flowId** and the **selectedAuthenticator** object which contains credentials for the user-selected authentication option.
+
+    !!! note
+        Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
+  
+    === "Sample payload (`/authn`)"
+        ```json
+        {
+        "flowId": "{flowId received from the initial response}",
+        "selectedAuthenticator": {
+            "authenticatorId": "{authenticator id for the selected authenticator}",
+            "params": {
+                "{requested parameters from the authenticator}"
+            }
+        }
+        }
+        ```
+    === "Example (`/authn`)"
+        ``` json
+        {
+        "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
+        "selectedAuthenticator": {
+            "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+            "params": {
+            "username": "johnd",
+            "password": "U$3r"
+            }
+        }
+        }
+        ```
+  
+    ??? note "Learn about the parameters"
+        - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial     response forthe auth request.
+        - **selectedAuthenticator**: The authenticator selected by the user for authentication.
+        - **authenticatorId**: The unique identifier of the authenticator.
+        - **params**: The values entered by the user for the parameters required for authentication.
+
+5. The authentication API responds with a similar payload as step 2 above. This response contains the **authenticators** array that contains the authentication options available for the next step.
+
+6. Steps 3-5 repeats for all the steps of the login flow.
+
+7. The authentication flow completes when the application receives an OAuth 2.0 authorization code with the relevant OAuth 2.0 artifacts in a json format as shown below.
 	```json
 	{
 	   "code": "6ff8b7e1-01fc-39b9-b56d-a1f5826e6d2a",
