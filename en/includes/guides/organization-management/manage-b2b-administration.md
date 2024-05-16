@@ -53,7 +53,7 @@ Explore the [organization APIs]({{base_path}}/apis/organization-apis/) of {{ pro
 
 ## Use Console as the administration portal of organizations
 
-You can use the {{ product_name }} Console as the administration portal of your B2B application. 
+You can use the {{ product_name }} Console as the administration portal of your B2B application.
 Each customer/partner organization can access their space in the {{ product_name }} Console by accessing the URL `https://<hostname>:<port>/t/<root organization name>/o/<organization id>/console`.
 
 ### How to copy the URL of the organization space in the {{ product_name }} Console
@@ -72,7 +72,7 @@ However, the following limitations apply when using the {{ product_name }} Conso
 
 1. The {{ product_name }} Console is a generic administration portal that is not tailored to the specific needs of your B2B application. You cannot customize the given feature set for different organizations.
 2. The branding configured in your B2B vendor organization or the overridden branding customizations of each customer/partner organization is not reflected in the {{ product_name }} Console portal.
-3. Even if the customer/partner organization change the login flow of the B2B business application, the organization level {{ product_name }} Console login flow will remain the same. 
+3. Even if the customer/partner organization change the login flow of the B2B business application, the organization level {{ product_name }} Console login flow will remain the same.
 If the organization level Console login flow needs to be customized, navigate to the **Login Flow** tab of **Console Settings** in the organization space and configure as required.
 4. The Console application is managed via roles defined specifically for the {{ product_name }} Console application. Therefore, the roles of the {{ product_name }} Console are not directly linked to the roles of your B2B application.
 As the B2B SaaS provider, you need to manage the roles of your B2B application separately.
