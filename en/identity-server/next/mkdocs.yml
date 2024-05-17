@@ -831,6 +831,7 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
+      - OIDC session management: references/concepts/oidc-session-management.md
 
 
 not_in_nav: |
