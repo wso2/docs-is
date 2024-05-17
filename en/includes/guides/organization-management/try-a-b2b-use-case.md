@@ -115,7 +115,7 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
 **API Authorization**
 
 1. Go to the **API Authorization** tab and click on **+ Authorize an API Resource**.
-2. From the **API Resources** drop-down select the following APIs listed under **Organization APIs** category and add the corresponding **Authorized Scopes** provided below.
+2. From the **API Resources** drop-down select the following APIs listed under the **Organization APIs** category and add the corresponding **Authorized Scopes** provided below.
 
     <table>
         <tr>
@@ -185,12 +185,19 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
 
     <table>
         <tr>
+            <th>Field</th>
+            <th>Description</th>
+            <th>Value</th>
+        </tr>
+        <tr>
             <th>Role Name</th>
+            <td>Enter a unique name to identify the role.</td>
             <td>GuardioAdministrator</td>
         </tr>
         <tr>
             <th>Select API Resource</th>
-            <td>Listed all permissions of authorized APIs of the application:
+            <td>All the API resources added in step 2 will be listed. Add each API resource and check the box to include all permissions (scopes).</td>
+            <td>
                 <ul>
                     <li>SCIM2 Users API</li>
                     <li>SCIM2 Roles API</li>
@@ -202,7 +209,13 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
         </tr>
     </table>
 
+    ![Create Application Roles]({{base_path}}/assets/img/guides/organization/manage-organizations/application-role-api-resources.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 4. Click **Create**.
+
+Upon successful creation the new application role will displayed under **Assigned Roles**.
+
+![Created Application Role]({{base_path}}/assets/img/guides/organization/manage-organizations/assigned-roles.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Set up the business application
 The following guides explain how you can share an application with organizations and allow organization users to log in to it using **SSO**.
@@ -297,9 +310,12 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
 
 ## Set up the client applications
 
+!!! note "Before you begin"
+    Download the [sample b2b applications](https://github.com/wso2/samples-is/tree/master/b2b-sample){:target="_blank"}.
+
 To set up the client applications:
 
-1. Open the `config.json` file found in the `b2b-sample` folder and update the following parameters:
+1. Navigate to `b2b-samples/config.json` and update the following parameters:
 
     <table>
         <tr>
@@ -431,7 +447,7 @@ As the administrator of **Guardio Insurance**, next you need to set up an organi
 
 ## Try it out
 
-The following guides explain how an organization user who has admin privileges of **Guardio Insurance Administrative App** login and use the administration portal.
+The following sections explain how an organization user who has admin privileges of the **Guardio Insurance Administrative App** logs in and uses the administration portal.
 Also, this guide explains how other organization users consume the **Guardio Insurance Business App**.
 
 ### Try out Sign In with SSO
