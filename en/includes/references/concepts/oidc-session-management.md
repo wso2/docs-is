@@ -38,18 +38,19 @@ The following diagram represents the flow.
 
 ![OIDC session management flow diagram]({{base_path}}/assets/img/references/concepts/oidc-session-management.png){: width="600" style="display: block; margin: 0;"}
 
-- Once the end-user needs to log in to the RP, the RP sends an authentication request to the OP.
-- The OP responds with the **session_state**.
-- The RP iframe continuously polls the OP iframe to detect any state changes.
-- The OP iframe responds with one of the following statuses.
+1. Authentication Request: When the end-user needs to log in to the RP, the RP sends an authentication request to the OP.
 
-The status can be one of the following:
+2. Response with Session State: The OP responds to the RP's authentication request by providing the session_state, which represents the end-user's login state.
 
-- `unchanged`: This indicates that the user session is still valid at the OP. The RP will continue to poll the OP iframe to detect any session changes.
+3. Polling for State Changes: The RP iframe continuously polls the OP iframe to detect any changes in the session state.
 
-- `unchanged`: This indicates that the session has changed at the OP, possibly due to user logout, session timeout, or a user logging in from a different client application. Upon receiving the `changed` status, the RP performs re-authentication with `prompt=none` to obtain the current session state at the OP.
+4. OP Iframe Response: The OP iframe responds with one of the following statuses:
 
-- `error`: This indicates that the message sent was determined by the OP to be malformed. Upon receiving the `error` status, the RP must not perform re-authentication with `prompt=none` to avoid potential infinite loops that generate network traffic to the OP. Instead, it directly logs the user out.
+    - `unchanged`: This indicates that the user session is still valid at the OP. The RP will continue to poll the OP iframe to detect any session changes.
+
+    - `unchanged`: This indicates that the session has changed at the OP, possibly due to user logout, session timeout, or a user logging in from a different client application. Upon receiving the `changed` status, the RP performs re-authentication with `prompt=none` to obtain the current session state at the OP.
+
+    - `error`: This indicates that the message sent was determined by the OP to be malformed. Upon receiving the `error` status, the RP must not perform re-authentication with `prompt=none` to avoid potential infinite loops that generate network traffic to the OP. Instead, it directly logs the user out.
   
 ## RP-Initiated Logout
 
