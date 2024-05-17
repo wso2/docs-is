@@ -114,66 +114,74 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
 
 **API Authorization**
 
-Go to the **API Authorization** tab and select the following APIs under **SYSTEM_ORG** category (organization level APIs).
+1. Go to the **API Authorization** tab and click on **+ Authorize an API Resource**.
+2. From the **API Resources** drop-down select the following APIs listed under **Organization APIs** category and add the corresponding **Authorized Scopes** provided below.
 
-<table>
-    <tr>
-        <th>SCIM2 Users API</th>
-        <td>Scopes:
-            <ul>
-                <li>View User</li>
-                <li>List User</li>
-                <li>Create User</li>
-                <li>Update User</li>
-                <li>Delete User</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th>SCIM2 Roles API</th>
-        <td>Scopes:</br>
-            <ul>
-                <li>View Role</li>
-                <li>Update Role</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th>SCIM2 Groups API</th>
-        <td>Scopes:</br>
-            <ul>
-                <li>View Group</li>
-                <li>Update Group</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th>Application Management API</th>
-        <td>Scopes:</br>
-            <ul>
-                <li>View Application</li>
-                <li>Update Application</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th>Identity Provider Management API</th>
-        <td>Scopes:</br>
-            <ul>
-                <li>View Identity Provider</li>
-                <li>Create Identity Provider</li>
-                <li>Update Identity Provider</li>
-                <li>Delete Identity Provider</li>
-            </ul>
-        </td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <th>API Resource</th>
+            <th>Authorized Scopes</th>
+        </tr>
+        <tr>
+            <th>SCIM2 Users API</th>
+            <td>Scopes:
+                <ul>
+                    <li>View User</li>
+                    <li>List User</li>
+                    <li>Create User</li>
+                    <li>Update User</li>
+                    <li>Delete User</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>SCIM2 Roles API</th>
+            <td>Scopes:</br>
+                <ul>
+                    <li>View Role</li>
+                    <li>Update Role</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>SCIM2 Groups API</th>
+            <td>Scopes:</br>
+                <ul>
+                    <li>View Group</li>
+                    <li>Update Group</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Application Management API</th>
+            <td>Scopes:</br>
+                <ul>
+                    <li>View Application</li>
+                    <li>Update Application</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Identity Provider Management API</th>
+            <td>Scopes:</br>
+                <ul>
+                    <li>View Identity Provider</li>
+                    <li>Create Identity Provider</li>
+                    <li>Update Identity Provider</li>
+                    <li>Delete Identity Provider</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
 **Role Configurations**
 
 1. Go to the **Roles** tab.
-2. Select **Application** as Role Audience.
-3. Click **+ Create Role** and create roles with following values
+2. Select **Application** as Role Audience and click **+ New Role**.
+
+    ![Create Application Roles - Initial view]({{base_path}}/assets/img/guides/organization/manage-organizations/create-roles.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Enter the following details:
 
     <table>
         <tr>
