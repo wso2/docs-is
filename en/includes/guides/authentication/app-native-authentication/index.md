@@ -1,8 +1,8 @@
 # App-native authentication
 
-App-native authentication is an API-based mechanism that helps developers integrate login flows within an application.
+App-native authentication is an API-based mechanism that enables developers to integrate authentication within an application's environment.
 
-This means that users logging in to the application do not have to be redirected to an external web browser for login resulting in a seamless user experience. As a business, you can leverage app-native authentication to retain users within the application's environment at all times.
+This means that users logging into the application do not have to be redirected to an external web browser for login resulting in a seamless user experience. As a business, you can leverage app-native authentication to retain users within the application's environment at all times.
 
 This section guides you through the following.
 

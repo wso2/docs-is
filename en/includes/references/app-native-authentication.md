@@ -140,7 +140,8 @@ This section digs deep into the steps involved in app-native authentication and 
         Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
   
     === "Sample payload (`/authn`)"
-        ```json
+
+        ```bash
         {
         "flowId": "{flowId received from the initial response}",
         "selectedAuthenticator": {
@@ -152,6 +153,7 @@ This section digs deep into the steps involved in app-native authentication and 
         }
         ```
     === "Example (`/authn`)"
+
         ``` json
         {
         "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
@@ -166,7 +168,7 @@ This section digs deep into the steps involved in app-native authentication and 
         ```
   
     ??? note "Learn about the parameters"
-        - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial     response forthe auth request.
+        - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial response forthe auth request.
         - **selectedAuthenticator**: The authenticator selected by the user for authentication.
         - **authenticatorId**: The unique identifier of the authenticator.
         - **params**: The values entered by the user for the parameters required for authentication.
@@ -188,7 +190,7 @@ This section digs deep into the steps involved in app-native authentication and 
 
 The following are several sample scenarios in which users can be logged in using app-native authentication. Each scenario goes through a single or multiple interactions with the `/authn` endpoint based on the number of steps configured for the application.
 
-### Scenario 1: Log in with a username & password
+### Scenario 1: User logs in with a username & password
 
 The application goes through the following steps to complete app-native authentication for a user logging in with username & password.
 
@@ -443,8 +445,8 @@ The application goes through the following steps to complete app-native authenti
     === "Request 2 (`/authn`)"
 
         ```bash
-        curl --location '{{authn_path}}' \
-        --header 'Content-Type: application/json' \
+        curl --location '{{authn_path}}'
+        --header 'Content-Type: application/json'
         --data '{
           "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
           "selectedAuthenticator": {
@@ -466,3 +468,166 @@ The application goes through the following steps to complete app-native authenti
           }
         }
         ```
+
+### Scenario 3: User selects passkeys out of multiple login options
+
+If a login step has multiple login options, the application goes through the following steps to complete app-native authentication.
+
+- **Step 1**: Initiate the request with the `/authorize` endpoint.
+
+    !!! note
+        The response contains information on the first authentication step (the only step for this flow).
+
+    === "Request (`/authorize`)"
+
+        ```bash
+        curl --location '{{api_base_path}}'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example.com/home'
+        --data-urlencode 'scope=openid profile'
+        --data-urlencode 'response_mode=direct'
+        ```
+    
+    === "Response (`/authorize`)"
+
+        ```json
+        {
+          "flowId": "59b40c8b-4d2f-426f-a3fa-62d4ed28a169",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+              "stepType": "MULTI_OPTIONS_PROMPT",
+              "authenticators": [
+                  {
+                      "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                      "authenticator": "Username & Password",
+                      "idp": "LOCAL",
+                      "metadata": {
+                          "i18nKey": "authenticator.basic",
+                          "promptType": "USER_PROMPT",
+                          "params": [
+                              {
+                                  "param": "username",
+                                  "type": "STRING",
+                                  "order": 0,
+                                  "i18nKey": "username.param",
+                                  "displayName": "Username",
+                                  "confidential": false
+                              },
+                              {
+                                  "param": "password",
+                                  "type": "STRING",
+                                  "order": 1,
+                                  "i18nKey": "password.param",
+                                  "displayName": "Password",
+                                  "confidential": true
+                              }
+                          ]
+                      },
+                      "requiredParams": [
+                          "username",
+                          "password"
+                      ]
+                  },
+                  {
+                      "authenticatorId": "RklET0F1dGhlbnRpY2F0b3I6TE9DQUw",
+                      "authenticator": "Passkey",
+                      "idp": "LOCAL",
+                      "metadata": {
+                          "i18nKey": "authenticator.Fido"
+                      }
+                  }
+              ]
+          },
+          "links": [
+              {
+                  "name": "authentication",
+                  "href": "{{authn_path}}",
+                  "method": "POST"
+              }
+          ]
+        }
+        ```
+  
+    !!! tip
+        Response for a multi-option login step has some key differences compared to that of a single-option step.
+
+        1. **stepType** parameter returns MULTI_OPTIONS_PROMPT to indicate the availability of multiple   login options.
+
+        2. For login options that require some form of user initiation (such as email/sms OTP, passkey), the **authenticators** array contains only the ID of the authenticator and not the required metadata.
+
+- **Step 2**: The response in this example, returns two login options for the step. i.e. Username & password and passkey. Let's look at how each option works.
+
+    - **Username & Password**: As this option does not need user initiation, the response from step 1 already contains the required metadata. Hence, if the user chooses to enter the username and password, the flow continues similar to as it does in *Scenario 1*.
+
+    - **Passkey**: If a user initates passkey login, the application needs to make an additional request to the `/authn` endpoint to receive the related metadata.
+  
+    If the user selects passkey login, the application makes a request to the `/authn` endpoint along with the `flowId` and the `authenticatorId` of the passkey authenticator as follows.
+
+    === "Request (`/authn`)"
+       
+        ```bash
+        curl --location '{{authn_path}}'
+        --header 'Content-Type: application/json'
+        --data '{
+          "flowId": "59b40c8b-4d2f-426f-a3fa-62d4ed28a169",
+          "selectedAuthenticator": {
+            "authenticatorId": "RklET0F1dGhlbnRpY2F0b3I6TE9DQUw"
+            }
+        }'
+        ```
+  
+    === "Response (`/authn`)"
+        
+        ```json
+        {
+          "flowId": "59b40c8b-4d2f-426f-a3fa-62d4ed28a169",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+              {
+                "authenticatorId": "RklET0F1dGhlbnRpY2F0b3I6TE9DQUw",
+                "authenticator": "Passkey",
+                "idp": "LOCAL",
+                "metadata": {
+                  "i18nKey": "authenticator.Fido",
+                  "promptType": "INTERNAL_PROMPT",
+                  "additionalData": {
+                      "challengeData": "eyJyZXF1ZXN0SWQiOiJ1b2hBYnRpSE9TaWJKbjN1Y0ZqdzZ4bFJxT
+                                        zBqSlZ6NWtPdS1oWHRyb3JJIiwicHVibGljS2V5Q3JlZGVudGlhbFJ
+                                        lcXVlc3RPcHRpb25zIjp7ImNoYWxsZW5nZSI6IjkxTGhoSWFBUFVzb
+                                        TNERGllRXJpbDBJN2txdnFINVJldzhKcDctaGd3cEEiLCJycElkIjo
+                                        ibG9jYWxob3N0IiwiZXh0ZW5zaW9ucyI6e319fQ"          
+                  }
+                },
+                "requiredParams": [
+                    "tokenResponse"
+                ]
+              }
+            ]
+          },
+          "links": [
+              {
+                  "name": "authentication",
+                  "href": "{{authn_path}}",
+                  "method": "POST"
+              }
+          ]
+        }
+
+        ```
+
+- **Step 3** - The application does the following to process the passkey authentication.
+    1. First, it extracts the `challengeData` value from the response and base64 decodes it to obtain the json-based challenge payload.
+    2. Then, it invokes the platform APIs with the decoded challenge data.
+    3. The user interacts with the application and presents a passkey.
+    4. the application sends the passkey back to the server and receives the response.
+    5. Finally, it base64 encodes the response and includes it as the **tokenResponse** in the request to the `/authn` endpoint.
+      
+
+
