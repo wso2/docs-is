@@ -396,6 +396,7 @@ nav:
               - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
           - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
+          - OpenID Connect Hybrid Flow: guides/authentication/openid-connect-hybrid-flow.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
