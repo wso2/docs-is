@@ -123,7 +123,7 @@ You can try out the follwoing flows using the provided cURLs:
 
     === "Sample Request"
         ```
-        curl -v -k --user bob:pass123 -X PATCH \
+        curl -v -k --user admin:admin -X PATCH \
         -d '{
             "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations": [
@@ -144,41 +144,58 @@ You can try out the follwoing flows using the provided cURLs:
             ]
         }' \
         --header "Content-Type:application/json" \
-        https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
+        https://localhost:9443/scim2/Users/f276ff1a-1324-4d9a-af43-c307a77364f0
 
         ```
 
     === "Sample Response"
         ```
         {
-            "emails": ["bobsmith@abc.com"],
             "meta": {
-                "location": "https://localhost:9443/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
-                "lastModified": "2020-10-12T13:35:24.579Z",
+                "location": "https://localhost:9443/scim2/Users/f276ff1a-1324-4d9a-af43-c307a77364f0",
+                "lastModified": "2024-05-20T08:53:07.524978614Z",
                 "resourceType": "User"
             },
             "schemas": [
                 "urn:ietf:params:scim:schemas:core:2.0:User",
-                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+                "urn:scim:wso2:schema"
             ],
             "roles": [
                 {
-                    "type": "default",
-                    "value": "Internal/everyone"
-                }
-            ],
-            "name": {
-                "givenName": "Bob",
-                "familyName": "Smith"
-            },
-            "id": "6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
-            "userName": "bob123",
-            "phoneNumbers": [
+                    "audienceValue": "10084a8d-113f-4211-a0d5-efe36b082211",
+                    "display": "admin",
+                    "audienceType": "organization",
+                    "value": "bf870fc2-bfc9-4baf-a4fc-eaae7bb74d51",
+                    "$ref": "https://localhost:9443/scim2/v2/Roles/bf870fc2-bfc9-4baf-a4fc-eaae7bb74d51",
+                    "audienceDisplay": "Super"
+                },
                 {
-                    "type": "mobile",
-                    "value": "0111111111"
+                    "audienceValue": "7d44cd44-d59b-48f3-987d-fa2b29d7c8c3",
+                    "display": "Administrator",
+                    "audienceType": "application",
+                    "value": "647ba2c6-03ab-42e1-b72e-51218222f565",
+                    "$ref": "https://localhost:9443/scim2/v2/Roles/647ba2c6-03ab-42e1-b72e-51218222f565",
+                    "audienceDisplay": "Console"
+                },
+                {
+                    "audienceValue": "10084a8d-113f-4211-a0d5-efe36b082211",
+                    "display": "everyone",
+                    "audienceType": "organization",
+                    "value": "aba1b71a-34b2-456e-aaa4-535b5890e25f",
+                    "$ref": "https://localhost:9443/scim2/v2/Roles/aba1b71a-34b2-456e-aaa4-535b5890e25f",
+                    "audienceDisplay": "Super"
                 }
             ],
+            "groups": [
+                {
+                    "display": "admin",
+                    "value": "64b27794-3fa7-4b70-83c3-f5320a7c0023",
+                    "$ref": "https://localhost:9443/scim2/Groups/64b27794-3fa7-4b70-83c3-f5320a7c0023"
+                }
+            ],
+            "id": "f276ff1a-1324-4d9a-af43-c307a77364f8",
+            "userName": "admin",
             "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
                 "pendingMobileNumber": "0123456789"
             }
