@@ -95,3 +95,192 @@ To update the properties of a user attribute:
     ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {{ user_attribute_change_verification }}
+
+{% if product_name == "WSO2 Identity Server" %}
+### Try it out
+
+You can try out the follwoing flows using the provided cURLs:
+
+- Update mobile number
+
+    === "Request"
+        ```
+        curl -v -k --user [username]:[password] -X PATCH
+        -d '{
+            "schemas":[],
+            "Operations":[{"op":[operation], 
+            "value":{[attributeName]:[attribute value]}}]
+        }' 
+        --header "Content-Type:application/json" 
+        https://localhost:9443/scim2/Users/[user ID]
+        ```
+
+    === "Sample Request"
+        ```
+        curl -v -k --user bob:pass123 -X PATCH 
+        -d '{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+            "Operations":[
+                {
+                    "op":"replace",
+                    "value":{
+                        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":     {"verifyMobile": "true"},
+                        "phoneNumbers":[{"type":"mobile","value":"0123456789"}]
+                    }
+                }
+            ]
+        }' 
+        --header "Content-Type:application/json" 
+        https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
+        ```
+
+    === "Sample Response"
+        ```
+        {
+            "emails": [
+                "bobsmith@abc.com"
+            ],
+            "meta": {
+                "location": "https://localhost:9443/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
+                "lastModified": "2020-10-12T13:35:24.579Z",
+                "resourceType": "User"
+            },
+            "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:User",
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+            ],
+            "roles": [
+                {
+                    "type": "default",
+                    "value": "Internal/everyone"
+                }
+            ],
+            "name": {
+                "givenName": "Bob",
+                "familyName": "Smith"
+            },
+            "id": "6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
+            "userName": "bob123",
+            "phoneNumbers": [
+                {
+                    "type": "mobile",
+                    "value": "0111111111"
+                }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                "pendingMobileNumber": "0123456789"
+            }
+        }
+        ```
+
+- Validate verification code
+
+    === "Request"
+        ```
+        curl -k -v -X POST 
+        -H "Authorization: <Base64Encoded_username:password>" 
+        -H "Content-Type: application/json" 
+        -d '{ 
+            "code": "<validation_code>",
+            "properties": []
+        }' 
+        "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
+        ```
+
+    === "Sample Request"
+        ```
+        curl -k -v -X POST 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "Content-Type: application/json" 
+        -d '{ 
+            "code": "123https://is.docs.wso2.com/en/7.0.0",
+            "properties": []
+        }'
+        "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
+        ```
+
+    === "Sample Response"
+        ```
+        "HTTP/1.1 202 Accepted"
+        ```
+
+- Resend verification code
+
+    === "Request"
+        ```
+        curl -X POST 
+        -H "Authorization: Basic <Base64Encoded_username:password>" 
+        -H "Content-Type: application/json" 
+        -d '{
+            "properties": []
+        }' 
+        "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
+        ```
+
+        The verification scenario should be specified in the properties parameter of the request body as follows :
+
+        ```
+        "properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]
+        ```
+
+    === "Sample Request"
+        ```
+        curl -X POST 
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        -H "Content-Type: application/json" 
+        -d '{
+            "properties": [
+                {
+                    "key":"RecoveryScenario",
+                    "value": "MOBILE_VERIFICATION_ON_UPDATE"
+                }
+            ]
+        }' 
+        "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
+        ```
+
+    === "Sample Response"
+        ```
+        "HTTP/1.1 201 Created"
+        ```
+
+    Additionally, you can use the following curl command to resend a new SMS OTP code by a privileged user.
+
+    === "Request"
+        ```
+        curl -X POST
+        -H "Authorization: Basic <Base64Encoded_username:password>"
+        -H "Content-Type: application/json"
+        -d '{
+            "user":{},
+            "properties": []
+        }'
+        "https://localhost:9443/api/identity/user/v1.0/resend-code"
+        ```
+
+        The user and the verification scenario should be specified in the request body as follows :
+
+        ```
+        "user": {"username": "", "realm": ""}
+        "properties": [{"key":"RecoveryScenario", "value":"MOBILE_VERIFICATION_ON_UPDATE"}]
+        ```
+
+    === "Sample Request"
+        ```
+        curl -X POST
+        -H "Authorization: Basic YWRtaW46YWRtaW4="
+        -H "Content-Type: application/json"
+        -d '
+        {
+            "user":{"username": "admin","realm": "PRIMARY"},
+            "properties": [{"key":"RecoveryScenario",
+            "value":"MOBILE_VERIFICATION_ON_UPDATE"}]
+        }'
+        "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
+        ```
+
+    === "Sample Response"
+        ```
+        "HTTP/1.1 201 Created"
+        ```
+{% endif %}
