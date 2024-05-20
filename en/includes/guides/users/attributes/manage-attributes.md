@@ -105,41 +105,53 @@ You can try out the follwoing flows using the provided cURLs:
 
     === "Request"
         ```
-        curl -v -k --user [username]:[password] -X PATCH
+        curl -v -k --user [username]:[password] -X PATCH \
         -d '{
-            "schemas":[],
-            "Operations":[{"op":[operation], 
-            "value":{[attributeName]:[attribute value]}}]
-        }' 
-        --header "Content-Type:application/json" 
+            "schemas": [],
+            "Operations": [
+                {
+                    "op": "[operation]",
+                    "value": {
+                        "[attributeName]": "[attribute value]"
+                    }
+                }
+            ]
+        }' \
+        --header "Content-Type:application/json" \
         https://localhost:9443/scim2/Users/[user ID]
         ```
 
     === "Sample Request"
         ```
-        curl -v -k --user bob:pass123 -X PATCH 
+        curl -v -k --user bob:pass123 -X PATCH \
         -d '{
-            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-            "Operations":[
+            "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+            "Operations": [
                 {
-                    "op":"replace",
-                    "value":{
-                        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":     {"verifyMobile": "true"},
-                        "phoneNumbers":[{"type":"mobile","value":"0123456789"}]
+                    "op": "replace",
+                    "value": {
+                        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                            "verifyMobile": "true"
+                        },
+                        "phoneNumbers": [
+                            {
+                                "type": "mobile",
+                                "value": "0123456789"
+                            }
+                        ]
                     }
                 }
             ]
-        }' 
-        --header "Content-Type:application/json" 
+        }' \
+        --header "Content-Type:application/json" \
         https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
+
         ```
 
     === "Sample Response"
         ```
         {
-            "emails": [
-                "bobsmith@abc.com"
-            ],
+            "emails": ["bobsmith@abc.com"],
             "meta": {
                 "location": "https://localhost:9443/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
                 "lastModified": "2020-10-12T13:35:24.579Z",
@@ -177,25 +189,25 @@ You can try out the follwoing flows using the provided cURLs:
 
     === "Request"
         ```
-        curl -k -v -X POST 
-        -H "Authorization: <Base64Encoded_username:password>" 
-        -H "Content-Type: application/json" 
+        curl -k -v -X POST \
+        -H "Authorization: Basic <Base64Encoded_username:password>" \
+        -H "Content-Type: application/json" \
         -d '{ 
             "code": "<validation_code>",
             "properties": []
-        }' 
+        }' \
         "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
         ```
 
     === "Sample Request"
         ```
-        curl -k -v -X POST 
-        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
-        -H "Content-Type: application/json" 
+        curl -k -v -X POST \
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" \
+        -H "Content-Type: application/json" \
         -d '{ 
-            "code": "123https://is.docs.wso2.com/en/7.0.0",
+            "code": "123456",
             "properties": []
-        }'
+        }' \
         "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
         ```
 
@@ -208,34 +220,39 @@ You can try out the follwoing flows using the provided cURLs:
 
     === "Request"
         ```
-        curl -X POST 
-        -H "Authorization: Basic <Base64Encoded_username:password>" 
-        -H "Content-Type: application/json" 
-        -d '{
-            "properties": []
-        }' 
+        curl -X POST \
+        -H "Authorization: Basic <Base64Encoded_username:password>" \
+        -H "Content-Type: application/json" \
+        -d '{ "properties": [] }' \
         "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
         ```
 
         The verification scenario should be specified in the properties parameter of the request body as follows :
 
         ```
-        "properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]
+        {
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "MOBILE_VERIFICATION_ON_UPDATE"
+                }
+            ]
+        }
         ```
 
     === "Sample Request"
         ```
-        curl -X POST 
-        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
-        -H "Content-Type: application/json" 
-        -d '{
+        curl -X POST \
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" \
+        -H "Content-Type: application/json" \
+        -d '{ 
             "properties": [
                 {
-                    "key":"RecoveryScenario",
+                    "key": "RecoveryScenario",
                     "value": "MOBILE_VERIFICATION_ON_UPDATE"
                 }
-            ]
-        }' 
+            ] 
+        }' \
         "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
         ```
 
@@ -248,34 +265,44 @@ You can try out the follwoing flows using the provided cURLs:
 
     === "Request"
         ```
-        curl -X POST
-        -H "Authorization: Basic <Base64Encoded_username:password>"
-        -H "Content-Type: application/json"
+        curl -X POST \
+        -H "Authorization: Basic <Base64Encoded_username:password>" \
+        -H "Content-Type: application/json" \
         -d '{
-            "user":{},
+            "user": {},
             "properties": []
-        }'
+        }' \
         "https://localhost:9443/api/identity/user/v1.0/resend-code"
         ```
 
         The user and the verification scenario should be specified in the request body as follows :
 
         ```
-        "user": {"username": "", "realm": ""}
-        "properties": [{"key":"RecoveryScenario", "value":"MOBILE_VERIFICATION_ON_UPDATE"}]
+        {
+            "user": {"username": "", "realm": ""},
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "MOBILE_VERIFICATION_ON_UPDATE"
+                }
+            ]
+        }
         ```
 
     === "Sample Request"
         ```
-        curl -X POST
-        -H "Authorization: Basic YWRtaW46YWRtaW4="
-        -H "Content-Type: application/json"
-        -d '
-        {
-            "user":{"username": "admin","realm": "PRIMARY"},
-            "properties": [{"key":"RecoveryScenario",
-            "value":"MOBILE_VERIFICATION_ON_UPDATE"}]
-        }'
+        curl -X POST \
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" \
+        -H "Content-Type: application/json" \
+        -d '{
+            "user": {"username": "admin", "realm": "PRIMARY"},
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "MOBILE_VERIFICATION_ON_UPDATE"
+                }
+            ]
+        }' \
         "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
         ```
 
