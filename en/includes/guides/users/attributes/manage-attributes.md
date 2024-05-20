@@ -105,7 +105,8 @@ You can try out the follwoing flows using the provided cURLs:
 
     === "Request"
         ```
-        curl -v -k --user [username]:[password] -X PATCH \
+        curl -v -k -X PATCH \
+        -H "Authorization: Basic <Base64Encoded_username:password>" \
         -d '{
             "schemas": [],
             "Operations": [
@@ -123,7 +124,8 @@ You can try out the follwoing flows using the provided cURLs:
 
     === "Sample Request"
         ```
-        curl -v -k --user admin:admin -X PATCH \
+        curl -v -k -X PATCH \
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" \
         -d '{
             "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations": [
