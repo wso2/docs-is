@@ -27,22 +27,31 @@ To get started, you need to:
     3. If required, update the `<param-value>` parameters for the `serverUrl`, `username` and `password` in the `WEB-INF/web.xml` file.
     4. Restart the Tomcat server, if you have done any changes to the `WEB-INF/web.xml` file.
 
-
 ## Configure back-channel logout
 
-To configure back-channel logout:
+- To configure back-channel logout for `Playground_app1`:
 
-1. On the WSO2 Identity Server Console, go to **Applications** and select your OIDC application.
-2. Go to the **Protocol** tab and enter the following details: 
+    1. On the WSO2 Identity Server Console, go to **Applications** and select your OIDC application.
+    2. Go to the **Protocol** tab and enter the following details:
 
-    | Field Name    | Value |
-    |---------------|-------|
-    | Grant type    | Implicit  |
-    | Back channel logout URL   | http://localhost:8080/playground2/bclogout    |
+        | Field Name    | Value |
+        |---------------|-------|
+        | Grant type    | Implicit  |
+        | Back channel logout URL   | http://localhost:8080/playground3/bclogout    |
 
-3. Click **Update** to save your configurations.
+    3. Click **Update** to save your configurations.
 
-Configure this for both `Playground_app1` and `Playground_app2`.
+- To configure back-channel logout for `Playground_app2`:
+
+    1. On the WSO2 Identity Server Console, go to **Applications** and select your OIDC application.
+    2. Go to the **Protocol** tab and enter the following details:
+
+        | Field Name    | Value |
+        |---------------|-------|
+        | Grant type    | Implicit  |
+        | Back channel logout URL   | http://localhost:8080/playground2/bclogout    |
+
+    3. Click **Update** to save your configurations.
 
 ## Try it out
 
@@ -55,7 +64,7 @@ Configure this for both `Playground_app1` and `Playground_app2`.
     | Field name  | Value |
     |-------------|-------|
     | **Authorization Grant Type**  | `Implicit`  |
-    | **Client ID**     | The OAuth Client ID received when registering the application in WSO2 Identity Server.  |
+    | **Client ID**     | The OAuth Client ID received when registering the Playground_app1 in WSO2 Identity Server.  |
     | **Callback URL**  | `http://localhost:8080/playground2/oauth2client`  |
     | **Authorize Endpoint**  | `https://localhost:9443/oauth2/authorize` |
 
@@ -65,7 +74,14 @@ Configure this for both `Playground_app1` and `Playground_app2`.
 
 6. Access the **Playground_app2** application using the follwoing URL: http://localhost:8080/playground3/
 
-7. Repeat steps 2-5 for **Playground_app2** application.
+7. Repeat steps 2-5 for **Playground_app2** application with the following values:
+
+    | Field name  | Value |
+    |-------------|-------|
+    | **Authorization Grant Type**  | `Implicit`  |
+    | **Client ID**     | The OAuth Client ID received when registering the Playground_app2 in WSO2 Identity Server.  |
+    | **Callback URL**  | `http://localhost:8080/playground3/oauth2client`  |
+    | **Authorize Endpoint**  | `https://localhost:9443/oauth2/authorize` |
 
 8. Click **Logout** on one of the applications. You will be prompted to consent to the logout.
 
