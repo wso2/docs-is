@@ -235,7 +235,7 @@ The following literals about the user are accessible for all email templates.
         </tr>
         <tr>
             <td>{{"{{ tenant-domain }}"}}</td>
-            <td>Domain name specific to the organization. For root organizations, this is a human-readable domain name. For sub-organizations, a UUID is used to uniquely identify them. Utilize this placeholder within URL paths to denote the tenant.</td>
+            <td>Domain name specific to the organization. For organization (root), this is a human-readable domain name. For organizations, a UUID is used to uniquely identify them. Utilize this placeholder within URL paths to denote the tenant.</td>
         </tr>
     </tbody>
 </table>
