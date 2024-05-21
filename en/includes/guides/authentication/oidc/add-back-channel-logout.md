@@ -33,13 +33,16 @@ To get started, you need to:
 To configure back-channel logout:
 
 1. On the WSO2 Identity Server Console, go to **Applications** and select your OIDC application.
-2. Go to the **Protocol** tab and enter the following URL as the **Back channel logout URL**.
+2. Go to the **Protocol** tab and enter the following details: 
 
-    ```
-    http://localhost:8080/playground2/bclogout
-    ```
+    | Field Name    | Value |
+    |---------------|-------|
+    | Grant type    | Implicit  |
+    | Back channel logout URL   | http://localhost:8080/playground2/bclogout    |
 
 3. Click **Update** to save your configurations.
+
+Configure this for both `Playground_app1` and `Playground_app2`.
 
 ## Try it out
 
