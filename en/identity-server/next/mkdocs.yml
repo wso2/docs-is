@@ -43,11 +43,13 @@ plugins:
         'guides/login/webapp-ws-federation.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/login/sso-for-oidc.md': 'guides/authentication/enterprise-login/add-oidc-idp-login.md'
         'guides/login/sso-for-saml.md': 'guides/authentication/enterprise-login/add-saml-idp-login.md'
+        'guides/login/oidc-backchannel-logout.md': 'guides/authentication/oidc/add-back-channel-logout.md'
         'guides/authentication/enterprise-login/index.md': 'guides/authentication/standard-based-login/index.md'
         'guides/authentication/enterprise-login/add-oidc-idp-login.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
-        'guides/request-path-auth/request-paths-overview.md': 'guides/authentication/add-application-native-login.md'
-        'guides/request-path-auth/oauth-request-path.md': 'guides/authentication/add-application-native-login.md'
+        'guides/request-path-auth/request-paths-overview.md': 'guides/authentication//app-native-authentication/add-app-native-authentication.md'
+        'guides/request-path-auth/oauth-request-path.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
+        'guides/authentication/add-application-native-login.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
         'guides/passwordless/overview.md': 'guides/authentication/passwordless-login.md'
         'guides/passwordless/magic-link.md': 'guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md'
         'guides/passwordless/fido.md': 'guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md'
@@ -414,7 +416,9 @@ nav:
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
-          - Add application-native authentication: guides/authentication/add-application-native-login.md
+          - App-native authentication:
+            - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
+            - Configure advanced app-native settings: guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -422,6 +426,7 @@ nav:
             - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
             - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
+            - Implement login using the Device Authorization flow: guides/authentication/oidc/implement-device-flow.md
             - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Configure token exchange: guides/authentication/configure-token-exchange.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
@@ -429,6 +434,7 @@ nav:
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
             - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
             - Implement logout: guides/authentication/oidc/add-logout.md
+            - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
@@ -693,7 +699,8 @@ nav:
         - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
         - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
         - Script Library management API: apis/script-library-rest-api.md
-      - Authentication API: apis/use-the-authentication-rest-apis.md
+      - App-native authentication API: apis/app-native-authentication-api.md
+      - Authentication Data API: apis/use-the-authentication-rest-apis.md
       - Authenticators API: apis/authenticators-rest-api.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
@@ -825,7 +832,8 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
-      - Application-native authentication: references/app-native-authentication.md
+      - App-native authentication: references/app-native-authentication.md
+      - OIDC session management: references/concepts/oidc-session-management.md
 
 
 not_in_nav: |

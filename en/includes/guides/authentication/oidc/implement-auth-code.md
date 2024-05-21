@@ -4,7 +4,7 @@ See the instructions given below to implement login with OpenID Connect in your 
 
 The following diagram explains how this flow works with {{ product_name }}:
 
-![Authorization code flow]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow.png)
+![Authorization code flow]({{base_path}}/assets/img/guides/applications/oidc/auth_code_flow.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
 As shown above, you need to configure your application to get the authorization code from {{ product_name }}, and then exchange it for the required tokens.
 
