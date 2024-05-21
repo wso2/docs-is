@@ -6,8 +6,8 @@ Key rotation can be defined as retiring an encryption key and replacing it with 
 
 ## Why should you rotate encryption keys?
 
-!!! note
-    Originator Usage Period(OUP) is the time period during which encryption is applied to data.
+!!! info
+    Originator Usage Period (OUP) is the time period during which encryption is applied to data.
 
 - A cryptoperiod is the time span during which a specific key is authorized for use. [NIST SP 800-57](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf){:target="_blank"} recommends different cryptoperiods for different encryption key types.
 
@@ -54,47 +54,41 @@ The external Java client that performs the above tasks can be created by followi
 
 At the moment, the tables given below are supported for re-encryption.
 
-!!! info "Tables that support re-encryption"
-
-    | **Table** | **Fields**    |
-    |-----------|---------------|
-    | IDN_IDENTITY_USER_DATA    | TOTP secretKey and verifiedSecretKey claims   |
-    | IDN_OAUTH2_AUTHORIZATION_CODE | OAuth2 authorization codes    | 
-    | IDN_OAUTH2_ACCESS_TOKEN   | OAuth2 access and refresh tokens  | 
-    | IDN_OAUTH_CONSUMER_APPS   | Consumer secrets   
-    | WF_BPS_PROFILE    | BPS profile password  | 
-    | WF_REQUEST    | WF request credentials    |   
-    | REG_PROPERTY  | Keystore passwords, Keystore privatekeyPass, and Entitlement subscriberPasswords | 
+| **Table** | **Fields**    |
+|-----------|---------------|
+| IDN_IDENTITY_USER_DATA    | TOTP secretKey and verifiedSecretKey claims   |
+| IDN_OAUTH2_AUTHORIZATION_CODE | OAuth2 authorization codes    | 
+| IDN_OAUTH2_ACCESS_TOKEN   | OAuth2 access and refresh tokens  | 
+| IDN_OAUTH_CONSUMER_APPS   | Consumer secrets   
+| WF_BPS_PROFILE    | BPS profile password  | 
+| WF_REQUEST    | WF request credentials    |   
+| REG_PROPERTY  | Keystore passwords, Keystore privatekeyPass, and Entitlement subscriberPasswords | 
 
 ## Configuration files that support re-encryption
 
 At the moment, the configuration files given below are supported for re-encryption.
 
-!!! info "Configuration files that support re-encryption"
-
-    | **Configuration file**    | **Path**  | **Property** |
-    |---------------------------|-----------|--------------|
-    | Event publishers  | `/repository/deployment/server/eventpublishers` files | Password  | 
-    | Super tenant secondary user stores | `/repository/deployment/server/userstores/<userstore>` files  | Password  | 
-    | Tenant secondary userstores   | `/repository/tenants/<tenant_id>/userstores/<userstore>` files    | Password  |      
+| **Configuration file**    | **Path**  | **Property** |
+|---------------------------|-----------|--------------|
+| Event publishers  | `/repository/deployment/server/eventpublishers` files | Password  | 
+| Super tenant secondary user stores | `/repository/deployment/server/userstores/<userstore>` files  | Password  | 
+| Tenant secondary userstores   | `/repository/tenants/<tenant_id>/userstores/<userstore>` files    | Password  |      
 
 ## Tables that support syncing
 
 At the moment, the tables given below can be synced during key rotation from the old setup to the new setup. Any other data will not be persisted in the new setup.
 
-!!! info "Tables that support syncing"
+| **Table** | **Purpose**   | **Recommendation**    |
+|-----------|---------------|-----------------------|
+| IDN_IDENTITY_USER_DATA    | Identity claims when the identity data store is enabled | Usually recommended to sync if identity management features are enabled in the system   |
+| IDN_OAUTH2_ACCESS_TOKEN   | OAuth 2.0 tokens  | Need to sync if the tokens created during the key rotation period need to be valid after key rotation    |
+| IDN_OAUTH2_ACCESS_TOKEN_SCOPE | OAuth 2.0 scopes  | If the IDN_OAUTH2_ACCESS_TOKEN is synced, this table also needs to be synced  |
+| IDN_OAUTH2_AUTHORIZATION_CODE | OAuth 2.0 authorization codes | Need to sync if the authorization codes created during the key rotation period need to be valid after key rotation    |
 
-    | **Table** | **Purpose**   | **Recommendation**    |
-    |-----------|---------------|-----------------------|
-    | IDN_IDENTITY_USER_DATA    | Identity claims when the identity data store is enabled | Usually recommended to sync if identity management features are enabled in the system   |
-    | IDN_OAUTH2_ACCESS_TOKEN   | OAuth 2.0 tokens  | Need to sync if the tokens created during the key rotation period need to be valid after key rotation    |
-    | IDN_OAUTH2_ACCESS_TOKEN_SCOPE | OAuth 2.0 scopes  | If the IDN_OAUTH2_ACCESS_TOKEN is synced, this table also needs to be synced  |
-    | IDN_OAUTH2_AUTHORIZATION_CODE | OAuth 2.0 authorization codes | Need to sync if the authorization codes created during the key rotation period need to be valid after key rotation    |
+## How To Create The Key Rotation Tool
 
 !!! note
     In this section, `<OLD_IS_HOME>` is the directory where the current Identity Server resides, and `<NEW_IS_HOME>` is the directory where the copy of the current Identity Server resides. `<KEY_ROTATION_REPO>` refers to the location [here](https://github.com/wso2/identity-tools/components/org.wso2.carbon.identity.keyrotation){:target="_blank"} and the `<KEY_ROTATION_TOOL>` refers to the location of the external tool.
-
-## How To Create The Key Rotation Tool
 
 1. Clone the repository, [identity-tools](https://github.com/wso2/identity-tools){:target="_blank"}.
 
@@ -109,17 +103,11 @@ At the moment, the tables given below can be synced during key rotation from the
     !!! note
         For the privileged user flows, block all admin services from the load balancer and the management console as well. For end user flows, the above [tables]({{base_path}}/deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation/#tables-that-support-re-encryption) will be synced to the `<NEW_IS_HOME>`, so only these end user data flows should be allowed to generate in `<OLD_IS_HOME>`.
 
-2. Execute the `old<identity-db-type>.sql` script in the `<OLD_IS_HOME>` identity database to create temp tables and triggers.
-
-    !!! note
-        The triggers can be found inside the `<KEY_ROTATION_TOOL>/triggers` folder.
+2. Execute the `old<identity-db-type>.sql` script in the `<OLD_IS_HOME>` identity database to create temp tables and triggers. The triggers can be found inside the `<KEY_ROTATION_TOOL>/triggers` folder.
 
 3. Create a copy of the `<OLD_IS_HOME>`(This copied directory will be referred to as the `NEW_IS_HOME`) and dump `<OLD_IS_HOME>` identity and registry databases and create the new databases.
 
-4. Drop the temp tables and triggers in the `<NEW_IS_HOME>` identity database using the `new<identity-db-type>.sql` script.
-
-    !!! note
-        The triggers can be found inside the `<KEY_ROTATION_TOOL>/triggers` folder.
+4. Drop the temp tables and triggers in the `<NEW_IS_HOME>` identity database using the `new<identity-db-type>.sql` script. The triggers can be found inside the `<KEY_ROTATION_TOOL>/triggers` folder.
 
 5. Open the `properties.yaml` file in `<KEY_ROTATION_TOOL>` and edit the configurations accordingly.
 
@@ -136,25 +124,13 @@ At the moment, the tables given below can be synced during key rotation from the
     - newISHome - The absolute path of the `<NEW_IS_HOME>`.
     - oldIdnDBUrl - `<OLD_IS_HOME>` identity database URL.
     - oldIdnUsername - `<OLD_IS_HOME>` identity database username.
-    - oldIdnPassword - `<OLD_IS_HOME>` identity database password.
-
-        !!! note
-            Encode the `<OLD_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/){:target="_blank"} and insert it here.
-
+    - oldIdnPassword - `<OLD_IS_HOME>` identity database password (Encoded in [base64](https://www.base64encode.org/){:target="_blank"}).
     - newIdnDBUrl - `<NEW_IS_HOME>` identity database URL.
     - newIdnUsername - `<NEW_IS_HOME>` identity database username.
-    - newIdnPassword - `<NEW_IS_HOME>` identity database password.
-
-        !!! note
-            Encode the `<NEW_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/){:target="_blank"} and insert it here.
-
+    - newIdnPassword - `<NEW_IS_HOME>` identity database password (Encoded in [base64](https://www.base64encode.org/){:target="_blank"}).
     - newRegDBUrl - `<NEW_IS_HOME>` registry database URL.
     - newRegUsername - `<NEW_IS_HOME>` registry database username.
-    - newRegPassword - `<NEW_IS_HOME>` registry database password.
-
-        !!! note
-            Encode the `<NEW_IS_HOME>` registry database plaintext password in [base64](https://www.base64encode.org/){:target="_blank"} and insert it here.
-
+    - newRegPassword - `<NEW_IS_HOME>` registry database password  (Encoded in [base64](https://www.base64encode.org/){:target="_blank"}).
     - enableDBMigrator - Enable/disable re-encryption for the identity and registry databases.
 
         !!! note
@@ -166,6 +142,7 @@ At the moment, the tables given below can be synced during key rotation from the
             Keep this always **true** to avoid unnecessary issues.
 
     - enableSyncMigrator - Enable/disable syncing mechanism.
+
         !!! note
             You only need to set this to **true**, if you have opted in for blue-green key rotation with zero downtime for the end user flows.
 
@@ -192,38 +169,28 @@ At the moment, the tables given below can be synced during key rotation from the
         chunkSize: 2
         ```
 
-    ??? tip "Sample configuration written for H2 DB type URL"
-
+    ??? tip "Sample configurations written for DB type URL"
+        **H2 DB**
         ```
         jdbc:h2:~/Desktop/IS/copy/wso2is-5.11.0-beta5-SNAPSHOT/repository/database/WSO2IDENTITY_DB
         ```
-
-    ??? tip "Sample configuration written for MySQL DB type URL"
-
+        **MySQL**
         ```
         jdbc:mysql://localhost:3306/idndb?useSSL=false
         ```
-
-    ??? tip "Sample configuration written for DB2 DB type URL"
-
+        **DB2**
         ```
         jdbc:db2://localhost:50000/idndb
         ```
-
-    ??? tip "Sample configuration written for PostgreSQL DB type URL"
-
+        **PostgreSQL**
         ```
         jdbc:postgresql://localhost:5432/idndb
         ```
-
-    ??? tip "Sample configuration written for MSSQL DB type URL"
-
+        **MSSQL**
         ```
         jdbc:sqlserver://localhost:1433;databaseName=idndb
         ```
-
-    ??? tip "Sample configuration written for Oracle DB type URL"
-
+        **Oracle DB**
         ```
         jdbc:oracle:thin:@localhost:1521/ORCLCDB.LOCALDOMAIN
         ```
@@ -236,14 +203,14 @@ At the moment, the tables given below can be synced during key rotation from the
 
 9. When no new entries are being synced in the logs, route traffic to `<NEW_IS_HOME>` and enable all load balancer API endpoints(privileged and end-user flows).
 
-!!! note
+!!! note "Important"
     Do not stop the tool at once, let it sync any remaining data in the temp tables after routing the traffic.
 
 ## Verifying the key rotation
 
 - Check the log files to verify if re-encryption happened successfully for the 7 identity and registry database tables. Check the logs given below for the successful/failed re-encryption counts of OAuth2 access and refresh tokens.
 
-    !!! note "DB log sample"
+    ??? tip "DB log sample"
         ```
         Successfully updated OAuth2 access and refresh tokens data records in IDN_OAUTH2_ACCESS_TOKEN: 897
         Failed OAuth2 access and refresh tokens data records in IDN_OAUTH2_ACCESS_TOKEN: 0
@@ -254,7 +221,7 @@ At the moment, the tables given below can be synced during key rotation from the
 
 - Check the log files to verify if re-encryption happened successfully for the 3 configuration files. Check the logs given below for the successful/failed re-encryption counts of event publisher configuration files.
 
-    !!! note "Config file log sample"
+    ??? tip "Config file log sample"
         ```
         Updated event publisher configuration files: 8
         Failed event publisher configuration files: 0
@@ -265,7 +232,7 @@ At the moment, the tables given below can be synced during key rotation from the
 
 - Check the log files to verify if the transformation of the synced data happened successfully for the 4 tables. Check the logs given below for the successful/failed transformation counts of `IDN_IDENTITY_USER_DATA` table.
 
-    !!! note "Synced log sample"
+    ??? tip "Synced log sample"
         ```
         Successfully transformed totp data records in IDN_IDENTITY_USER_DATA_TEMP: 2
         Transformation failed totp data records in IDN_IDENTITY_USER_DATA_TEMP: 0
