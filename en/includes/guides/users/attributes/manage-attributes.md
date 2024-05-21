@@ -101,7 +101,7 @@ To update the properties of a user attribute:
 
 You can try out the follwoing flows using the provided cURLs:
 
-- Update mobile number
+- Update mobile number by an Administrator
 
     === "Request"
         ```
