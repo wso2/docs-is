@@ -18,7 +18,7 @@ This includes a broader spectrum of identifiers such as purchase events or downl
     - Download any kind of information stored in the system in a human-readable manner
 
     To facilitate this, WSO2 Identity Server published an API that can be used to download profile details of consumers stored in the server, in a well-structured and machine-readable JSON format. Consumers can download their profiles by logging into the self-care portal called **My Account**.
-    Any organization can integrate this capability into existing applications and portals with the help of the RESTful personal data export API exposed by the WSO2 Identity Server. For more information, refer to [Personal Information Export REST APIs](https://api-docs.wso2.com/apidocs/is/is511/user-export-v5.11.0/).
+    Any organization can integrate this capability into existing applications and portals with the help of the RESTful personal data export API exposed by the WSO2 Identity Server. For more information, refer to [Personal Information Export REST APIs](https://api-docs.wso2.com/apidocs/is/is511/user-export-v5.11.0/){:target="_blank"}.
 
 2. **The right to have PI deleted**
     The customers have the right to request the business to delete their personal information available with the business.
@@ -72,7 +72,7 @@ The user should have the following capabilities.
 - Modify given consent
 - Revoke given consent
 
-Currently, there is an open standard regarding [Consent Receipt Management](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification) from the Kantara initiative. An IAM provider who supports such open standards will provide leverage over proprietary protocols when adopting such capabilities to a system.
+Currently, there is an open standard regarding [Consent Receipt Management](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification){:target="_blank"} from the Kantara initiative. An IAM provider who supports such open standards will provide leverage over proprietary protocols when adopting such capabilities to a system.
 
 WSO2 Identity Server comes with an extensive consent management solution that enables users to conveniently manage the consents of their consumers and third-party applications. WSO2 Identity Server’s consent management module consists of the following key features.
 
@@ -80,7 +80,7 @@ WSO2 Identity Server comes with an extensive consent management solution that en
 
 - Provides an admin portal support for organizations to define and manage consent, data processing purposes, and user attributes per consent.
 
-- Supports the Kantara consent receipt specification. For more information, see the [Kantara Consent Receipt Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification).
+- Supports the Kantara consent receipt specification. For more information, see the [Kantara Consent Receipt Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification){:target="_blank"}.
 
 - Any self-care user profile creation, user provisioning to other systems, sharing of user attributes through SSO and identity federation is fully based on user consent.
 

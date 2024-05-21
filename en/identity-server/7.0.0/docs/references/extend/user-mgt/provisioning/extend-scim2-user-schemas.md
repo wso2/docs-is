@@ -9,9 +9,22 @@ The System for Cross-domain Identity Management (SCIM) is a specification that i
     
 ## Extend the SCIM 2.0 API 
 
-The SCIM 2.0 (System for Cross-Domain Identity Management) specification defines a [fixed set of default attributes](https://tools.ietf.org/html/rfc7643#section-8.2) for the user object. This set is defined to ensure the interoperability and it can cater to most of the industry's identity management requirements. However, in reality, organizations have their own attributes defined for their users which have already been used in their LDAP schemas. Therefore, SCIM is extensible enough to cope with custom attributes and uses the [Enterprise User Extension](https://tools.ietf.org/html/rfc7643#section-8.3) to support extra attributes for the SCIM user object.
+The SCIM 2.0 (System for Cross-Domain Identity Management) specification defines a [fixed set of default attributes](https://tools.ietf.org/html/rfc7643#section-8.2){:target="_blank"} for the user object. This set is defined to ensure the interoperability and it can cater to most of the industry's identity management requirements. However, in reality, organizations have their own attributes defined for their users which have already been used in their LDAP schemas. Therefore, SCIM is extensible enough to cope with custom attributes and uses the [Enterprise User Extension](https://tools.ietf.org/html/rfc7643#section-8.3){:target="_blank"} to support extra attributes for the SCIM user object.
 
-WSO2 Identity Server allows users to define their own user schema in addition to the core user schema. These configured schema are then used while creating or validating user objects. This means that custom user attributes can be passed using SCIM for identity management requirements. Follow the steps given below to add a custom attribute. 
+WSO2 Identity Server allows users to define their own user attributes in addition to the core user schema and enterprise user schema. These configured schema are then used while creating or validating user objects. This means that custom user attributes can be passed using SCIM for identity management requirements.
+
+## Extend the SCIM 2.0 API using the Enterprise User Extension
+
+!!! warning "Not recommended"
+    From {{product_name}} 6.0.0 onwards, it is recommended to use [SCIM2 Custom User Schema]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings) to add custom attributes for users.
+
+    Using enterprise user extension for custom user attributes is not recommended for the following reasons:  
+    <ul>
+    <li>According to the current model, enterprise user extension attributes are contained in a file. Hence, any modifications to this file will be applied at the server level.</li>
+    <li>As Enterprise User Extension is a defined schema, it must remain unchanged.</li>
+    </ul>
+
+Follow the steps given below to add a custom attribute using the Enterprise User Extension. 
     
 1. Open the `scim2-schema-extension.config` file located in the `<IS_HOME>/repository/conf/` folder.
 

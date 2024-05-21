@@ -15,7 +15,7 @@
 
     2. Click **+ ADD** next to **Group-Based** to add the group-based adaptive MFA script.
 
-            ![Group-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![Group-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     3. Click **Confirm** to replace any existing script with the selected predefined script.
 
@@ -25,7 +25,7 @@
 
 2. Click **Adaptive MFA** > **Group-Based** > **ADD**.
 
-    ![Configuring group-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    <!--![Configuring group-based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/group-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}-->
 
 3. Click **Confirm** to replace any existing script with the selected predefined script.
 

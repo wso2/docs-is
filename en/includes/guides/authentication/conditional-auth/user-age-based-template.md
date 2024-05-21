@@ -1,6 +1,6 @@
 # Add user age-based access control
 
-To control access to your application based on the user's age, you can apply the **Age-Based** conditional authentication template. The age of the user is calculated using the `date of birth` attribute in the user's profile. Users are redirected to an error page if the date of birth is not specified in the user profile or if the user's age is below the minimum age configured in the template.
+To control access to your application based on the user's age, you can apply the **User Age-Based** conditional authentication template. The age of the user is calculated using the `date of birth` attribute in the user's profile. Users are redirected to an error page if the date of birth is not specified in the user profile or if the user's age is below the minimum age configured in the template.
 
 ## Scenario
 

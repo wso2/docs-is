@@ -2,12 +2,14 @@
 
 Attributes in your organization are mapped to the following SCIM 2.0 schemas mappings:
 
-- [Core schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-3.1)
-- [User schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1)
-- [Enterprise schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.3)
+- [Core schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-3.1){:target="_blank"}
+- [User schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1){:target="_blank"}
+- [Enterprise schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.3){:target="_blank"}
 - Custom schema attributes
 
-The attributes in the core, user, and enterprise schemas are well-defined in the [SCIM 2.0 specification](https://datatracker.ietf.org/doc/html/rfc7643) and you can't modify the attributes in these schemas. Custom schema attributes can be added or deleted by users.
+The attributes in the core, user, and enterprise schemas are well-defined in the [SCIM 2.0 specification](https://datatracker.ietf.org/doc/html/rfc7643){:target="_blank"} and you can't modify the attributes in these schemas. Custom schema attributes can be added or deleted by users.
+
+{{custom_schema_note}}
 
 ## View SCIM 2.0 attributes
 To view the SCIM 2 attributes mapped to user attributes in your organization:

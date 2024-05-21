@@ -49,4 +49,4 @@ The process of obtaining access tokens is different for management APIs and othe
   
     - [get access tokens for management APIs]({{base_path}}/apis/authentication/).
     - [get access tokens for other APIs]({{base_path}}/guides/authentication/oidc/implement-auth-code/).
-    - [get access tokens for suborganization APIs]({{base_path}}/apis/organization-management/authentication/).
+    - [get access tokens for organization APIs]({{base_path}}/apis/organization-management/authentication/).

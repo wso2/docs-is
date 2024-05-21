@@ -50,6 +50,6 @@ There are several benefits of using identity federation:
 
 You can configure any number of external connections for your application via {{ product_name }}.
 
-### Add groups to connections
+### Map groups with {{ product_name }}
 
 {% include "../fragments/manage-connection/add-groups.md" %}

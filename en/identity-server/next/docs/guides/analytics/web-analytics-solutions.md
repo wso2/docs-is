@@ -4,7 +4,7 @@ Web Analytics is used for the purpose of identifying the way users interact with
 
 ## Setting up web analytics
 
-1. Download the [samples-is](https://github.com/wso2/samples-is/archive/master.zip) repository and extract its content.
+1. Download the [samples-is](https://github.com/wso2/samples-is/archive/master.zip){:target="_blank"} repository and extract its content.
 
 2. Open the `config.jsp` file in the `analytics-extensions` directory and replace the relevant token string of the analytics service that needs to be enabled.
 

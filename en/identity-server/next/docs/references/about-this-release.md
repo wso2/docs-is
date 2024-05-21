@@ -8,7 +8,7 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
 - **Refreshing Look and Feel for the Console UI**
 
-    The console has received a major upgrade with our brand-new, lightning-fast [Oxygen UI](https://wso2.github.io/oxygen-ui/)! The beta console UI, accessible via `https://<hostname>:<port>/console`, introduced in version 5.11.0, is now available for production usage for administrative and developer tasks.
+    The console has received a major upgrade with our brand-new, lightning-fast [Oxygen UI](https://wso2.github.io/oxygen-ui/){:target="_blank"}! The beta console UI, accessible via `https://<hostname>:<port>/console`, introduced in version 5.11.0, is now available for production usage for administrative and developer tasks.
 
     With this upgrade, concepts such as service providers, identity providers, inbound/outbound authentication, previously utilized in the Carbon-based management console, have evolved into 'applications' and 'connections', respectively. WSO2 Identity Server 7.0.0 introduces application templates for Single Page Applications (SPAs), web applications with server-side rendering, mobile applications, and machine-to-machine (M2M) applications. It also offers a variety of authentication options, including social login, multi-factor authentication (MFA), passwordless authentication, etc., which can be selected from the available connections.
 
@@ -46,12 +46,12 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
     WSO2 Identity Server now supports the following OAuth 2.0 specifications, designed for protecting APIs exposing high-value and sensitive data:
   
-    - [JWT Secured Authorization Response Mode](https://openid.net/specs/oauth-v2-jarm.html)
-    - [Pushed Authorization Requests](https://www.rfc-editor.org/rfc/rfc9126.html)
+    - [JWT Secured Authorization Response Mode](https://openid.net/specs/oauth-v2-jarm.html){:target="_blank"}
+    - [Pushed Authorization Requests](https://www.rfc-editor.org/rfc/rfc9126.html){:target="_blank"}
 
 - **Compliance with FAPI 1.0 Profiles**
 
-    WSO2 IS is now compliant with FAPI 1.0 [Baseline](https://openid.net/specs/openid-financial-api-part-1-1_0.html) and [Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html) profiles, ensuring secure and compliant financial services operations.
+    WSO2 IS is now compliant with FAPI 1.0 [Baseline](https://openid.net/specs/openid-financial-api-part-1-1_0.html){:target="_blank"} and [Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){:target="_blank"} profiles, ensuring secure and compliant financial services operations.
 
     **Key Highlights:**
   
@@ -95,9 +95,9 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
 - **HYPR for Passwordless and Biometric Authentication**
 
-    WSO2 Identity Server now offers the HYPR connector as an authentication option for applications, enabling passwordless and biometric authentication to enhance security and user experience. It is available as a IS 7.0.0 compatible connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/9fae98d3-26a6-4b1f-a356-f58b08d060ed).
+    WSO2 Identity Server now offers the HYPR connector as an authentication option for applications, enabling passwordless and biometric authentication to enhance security and user experience. It is available as a IS 7.0.0 compatible connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/9fae98d3-26a6-4b1f-a356-f58b08d060ed){:target="_blank"}.
   
-    [Learn more](https://github.com/wso2-extensions/identity-outbound-auth-hypr)
+    [Learn more](https://github.com/wso2-extensions/identity-outbound-auth-hypr){:target="_blank"}
 
 - **Branding and i18n Support**
 
@@ -175,7 +175,7 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
 
     With the trend in the industry in moving away from the challenge question based account recovery use cases, this feature is deprecated and removed from the default distribution as a connector.
 
-    **Recommendation**: Move to stronger account recovery options. The product capability is made available as a connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/1f79b51f-acae-4365-83ab-a2f1a6b690f9) for use during the transition.
+    **Recommendation**: Move to stronger account recovery options. The product capability is made available as a connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/1f79b51f-acae-4365-83ab-a2f1a6b690f9){:target="_blank"} for use during the transition.
 
 - **Lite User Registration**
 
@@ -185,7 +185,7 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
 
     This feature is recommended to be managed with an external scheduler due to its complexity in a multi-node setup.
   
-    **Recommendation**: Integrate with an external scheduler like [Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) or [Choreo scheduled integration](https://wso2.com/choreo/docs/develop-components/develop-integrations/develop-a-scheduled-task/).
+    **Recommendation**: Integrate with an external scheduler like [Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows){:target="_blank"} or [Choreo scheduled integration](https://wso2.com/choreo/docs/develop-components/develop-integrations/develop-a-scheduled-task/){:target="_blank"}.
 
 - **User Account Recovery v1 API**
 
@@ -197,7 +197,7 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
 
     The consent management purpose which can be attached at sign up is an incomplete implementation. We are moving out from providing this capability and planning to improve the product to provide OOTB capability to update marketing systems or consent and preference management systems on consent collected at registration. For example, collect ToS, privacy policy, and any marketing-related consents at registration and update respective systems that manage consent policies and challenge back to the user to collect consents if new policy versions are rolled out.
     
-    WSO2 Identity Server will keep supporting consent management requirements in the following scenarios where a user will interact with a third-party application and will improve in associated use cases towards the direction of [open data ecosystems](https://openid.net/final-version-of-open-banking-and-open-data-ready-to-cross-borders-whitepaper-published/).
+    WSO2 Identity Server will keep supporting consent management requirements in the following scenarios where a user will interact with a third-party application and will improve in associated use cases towards the direction of [open data ecosystems](https://openid.net/final-version-of-open-banking-and-open-data-ready-to-cross-borders-whitepaper-published/){:target="_blank"}.
     
     - In requirements where the user is sharing PII with third-party apps
     - In requirements where the user has to knowingly authorize third-party apps to access his/her data based on OAuth 2.0 scopes defined.
@@ -267,8 +267,8 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
 
 ## Fixed issues
 
-For a complete list of issues fixed in this release, see [WSO2 IS 7.0.0 - Fixed Issues](https://github.com/wso2/product-is/issues?q=label%3AFixed%2F7.0.0+is%3Aclosed).
+For a complete list of issues fixed in this release, see [WSO2 IS 7.0.0 - Fixed Issues](https://github.com/wso2/product-is/issues?q=label%3AFixed%2F7.0.0+is%3Aclosed){:target="_blank"}.
 
 ## Known issues
 
-For a complete list of open issues related to the WSO2 Identity Server, see [WSO2 IS - Open Issues](https://github.com/wso2/product-is/issues).
+For a complete list of open issues related to the WSO2 Identity Server, see [WSO2 IS - Open Issues](https://github.com/wso2/product-is/issues){:target="_blank"}.

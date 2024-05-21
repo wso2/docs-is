@@ -1,6 +1,6 @@
 # Add HYPR login
 
-[HYPR](https://www.hypr.com/) is a passwordless authentication method that allows users to log in to applications using biometrics on their devices. As a FIDO-certified platform, HYPR eliminates risks prevalent in password-based authentication such as phishing, and password reuse.
+[HYPR](https://www.hypr.com/){:target="_blank"} is a passwordless authentication method that allows users to log in to applications using biometrics on their devices. As a FIDO-certified platform, HYPR eliminates risks prevalent in password-based authentication such as phishing, and password reuse.
 
 This guide explains how you can use  HYPR to add passwordless login to applications registered in your {{ product_name }} organization.
 
@@ -12,14 +12,14 @@ This guide explains how you can use  HYPR to add passwordless login to applicati
 
 {{ admin_login_note}}
 
-- You need to configure the HYPR environment and have access to the HYPR control center. Learn how to do it in the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std).
+- You need to configure the HYPR environment and have access to the HYPR control center. Learn how to do it in the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std){:target="_blank"}.
 
 ## Register application in HYPR
 
 Follow the steps below to register your application in the HYPR control center.
 
 !!! note
-    You can follow the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-adv-application-new) for detailed instructions.
+    You can follow the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-adv-application-new){:target="_blank"} for detailed instructions.
 
 1. Go to the HYPR control center and click **Add Application**.
     <!-- ![Add application in HYPR control center]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-add-app.png) -->
@@ -36,7 +36,7 @@ Follow the steps below to register your application in the HYPR control center.
 5. Add your Firebase configurations and click **Next**.
 
     !!! note
-        To enable push notifications, you need to configure Firebase and obtain a project ID and an API key. To learn how to do this, follow the [guide in HYPR](https://docs.hypr.com/hyprcloud/docs/cc-adv-configuring-push-notifications-firebase).
+        To enable push notifications, you need to configure Firebase and obtain a project ID and an API key. To learn how to do this, follow the [guide in HYPR](https://docs.hypr.com/hyprcloud/docs/cc-adv-configuring-push-notifications-firebase){:target="_blank"}.
 
     <!-- ![Add Firebase configurations]({{base_path}}/assets/img/guides/passwordless/hypr/hypr-add-firebase-configs.png) -->
 
@@ -106,7 +106,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Go to the **Login Flow** tab of the application and add Magic link login from your preferred editor:
+2. Go to the **Login Flow** tab of the application and add HYPR login from your preferred editor:
 
     ---
     === "Classic Editor"
@@ -195,7 +195,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
     - Make sure you have a user account in the application registered in the HYPR control center.
     - Download the HYPR app to your mobile device and pair the device to your user account in HYPR.
     <br/>
-    See [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/mobile-app-overview) for more details.
+    See [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/mobile-app-overview){:target="_blank"} for more details.
 
 Follow the steps given below:
 

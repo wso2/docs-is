@@ -6,7 +6,7 @@ This guide explains how you can configure Salesforce as an outbound connector in
 
 Follow the steps below to learn how you can configure Salesforce for provisioning.
 
-1. Sign up to [Salesforce](https://developer.salesforce.com/).
+1. Sign up to [Salesforce](https://developer.salesforce.com/){:target="_blank"}.
 
 2. Create a connected app.
 
@@ -86,7 +86,7 @@ Follow the steps below to learn how you can configure Salesforce for provisionin
 
     !!! info
         For more information on generating the certificate, see the [Salesforce
-        documentation](https://help.salesforce.com/s/articleView?id=sf.security_keys_about.htm&type=5).
+        documentation](https://help.salesforce.com/s/articleView?id=sf.security_keys_about.htm&type=5){:target="_blank"}.
 
     1. In the setup page, go to **SETTINGS** > **Security** and click **Certificate and Key Management**.
 

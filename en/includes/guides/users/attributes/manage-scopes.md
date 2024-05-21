@@ -2,7 +2,7 @@
 
 In {{ product_name }}, each piece of user information is mapped to a [user attribute]({{base_path}}/guides/users/attributes/manage-attributes/).
 
-[OpenID Connect (OIDC) Scopes](https://openid.net/specs/) are a convenient way of grouping such user attributes. Applications can use scopes to request access to the user attributes corresponding to them. Access to other attributes that do not belong to the requested scopes is restricted.
+[OpenID Connect (OIDC) Scopes](https://openid.net/specs/){:target="_blank"} are a convenient way of grouping such user attributes. Applications can use scopes to request access to the user attributes corresponding to them. Access to other attributes that do not belong to the requested scopes is restricted.
 
 ## Default OIDC scopes
 {{ product_name }} uses `openid` as a marker scope during authentication and it will not return any user attributes for the `openid` scope.
@@ -82,12 +82,11 @@ Listed below are the default OpenID Connect scopes that applications can request
 
 To add new scopes to your organization:
 
-1. In the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings** > **OpenID Connect** > **Scopes**.
-2. Click **New OIDC Scope** to open the **Create OpenID Connect Scope** dialog box.
-  
-    ![Create OpenID Connect scopes]({{base_path}}/assets/img/guides/organization/scopes/create-scopes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-3. Enter values for the required properties and click **Next**:
+1. In the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings** > **OpenID Connect**.
+2. Under **Manage Attribute Mappings**, click **OpenID Connect**.
+3. Click **Scopes**
+4. Click **New OIDC Scope** to open the **Create OpenID Connect Scope** dialog box.
+5. Enter values for the required properties and click **Next**:
     <table>
             <tbody>
                 <tr>
@@ -104,7 +103,7 @@ To add new scopes to your organization:
                 </tr>
             </tbody>
         </table>
-4. Select the attributes that should correspond to the scope and click **Finish**.
+6. Select the attributes that should correspond to the scope and click **Finish**.
 
     ![Select attributes corresponding to scope]({{base_path}}/assets/img/guides/organization/scopes/select-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -112,17 +111,18 @@ To add new scopes to your organization:
 
 You can add attrbutes to scopes or delete them by following the steps below.
 
-1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings** > **OpenID Connect** > **Scopes**.
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings** > **OpenID Connect**.
 
-2. Select the scope to edit.
+2. Click **Scopes**.
+3. Click on a scope to edit.
+4. To add a new attribute to the scope:
 
-3. To add a new attribute to the scope:
     1. Click **New Attribute**.
     2. Select the attribute you wish to add and click **Save**.
 
-4. To delete an attributes from a scope, click the trash icon next to it.
+5. To delete an attributes from a scope, click the trash icon next to it.
 
-5. Click **Save Changes** to save the updates.
+6. Click **Save Changes** to save the updates.
 
 ## Use scopes to request attributes
 

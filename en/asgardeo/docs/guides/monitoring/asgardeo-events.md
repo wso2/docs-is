@@ -9,25 +9,28 @@ Asgardeo publishes the following events under three main categories.
 
 
 - <a href="#login-events">**Login events**</a> - Events related to login flows.
-    - **Login success event**: Published when a user successfully logs in to an application.
+
+    - **[Login success event](#login-success-event)**: Published when a user successfully logs in to an application.
+
+    - **[Login failed event](#login-success-event)**: Published when a user fails to log in to an application.
 
 - <a href="#user-operation-events">**User operation events**</a> - Events related to user operations, profile updates, and account deletes.
-    - **User account lock event**: Published when a user account is locked.
+    - **[User account lock event](#user-account-lock-event)**: Published when a user account is locked.
 
-    - **User credential update event**: Published when a user's credentials are updated.
+    - **[User credential update event](#user-credential-update-event)**: Published when a user's credentials are updated.
 
-    - **User group update event**: Published when users are added or removed from a group.
+    - **[User group update event](#user-group-update-event)**: Published when users are added or removed from a group.
 
-    - **User account unlock event**: Published when a user account is unlocked.
+    - **[User account unlock event](#user-account-unlock-event)**: Published when a user account is unlocked.
 
-    - **User delete event**: Published when a user's account is deleted.
+    - **[User delete event](#user-delete-event)**: Published when a user's account is deleted.
   
 - <a href="#registration-events">**Registration events**</a> - Events that occur during user registration flows.
-    - **Add user event**: Published when a user is added to the organization.
+    - **[Add user event](#add-user-event)**: Published when a user is added to the organization.
 
-    - **Accept user invite event**: Published when a user accepts an invitation to an organization.
+    - **[Accept user invite event](#accept-user-invite-event)**: Published when a user accepts an invitation to an organization.
 
-    - **Confirm self-signup event**: Published when a user completes account verification during self-sign-up.
+    - **[Confirm self-signup event](#confirm-self-signup-event)**: Published when a user completes account verification during self-sign-up.
 
 ## Configure Asgardeo to publish events
 
@@ -137,6 +140,9 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 8. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
 
+    !!! note
+        If the callback URL fails to populate, it is advised to manually copy the invoke URL and paste it into the designated field. This step ensures seamless continuity in the process.
+
 ### Try it out
 
 Once the webhook is deployed in Choreo, follow the steps below to try it out.
@@ -229,7 +235,7 @@ When a user successfully logs in to an application, an event with the following 
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>Group reference (Scim location)</td>
+        <td>Group reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -252,6 +258,24 @@ When a user successfully logs in to an application, an event with the following 
         <td>username</td>
     </tr>
     <tr>
+        <td><code>initiatorType</code></td>
+        <td>String</td>
+        <td>Initiator of the event.
+        <ul>
+        <li><code>admin</code> : Indicates that an administrative action initiated the event</li>
+        <li><code>user</code> : Indicates that an end-user action initiated the event</li>
+        </ul> </td>
+    </tr>
+     <tr>
+        <td><code>action</code></td>
+        <td>String</td>
+        <td>Action taken by the initiator.
+        <ul>
+        <li><code>update</code> : Indicates a credential update.</li>
+        <li><code>reset</code> : Indicates a credential reset; either initiated by the admin as a forced credential update request or by the user initiating a forgot password flow.</li>
+        </ul></td>
+    </tr>
+    <tr>
         <td><code>userStoreName</code></td>
         <td>String</td>
         <td>User Store name</td>
@@ -260,6 +284,11 @@ When a user successfully logs in to an application, an event with the following 
         <td><code>serviceProvider</code></td>
         <td>String</td>
         <td>Application name</td>
+    </tr>
+    <tr>
+        <td><code>authSteps</code></td>
+        <td>List</td>
+        <td>List of authentication steps used for log in. Each authentication step object contains the step number, identity provider and the name of the authenticator</td>
     </tr>
 </tbody>
 </table>
@@ -275,6 +304,82 @@ Example login success event payload:
    "userName": "john@gmail.com",
    "userStoreName": "DEFAULT",
    "serviceProvider": "My Account"
+   "authSteps": [
+    {
+        "step": 1,
+        "idp": "Google",
+        "authenticator": "GoogleOIDCAuthenticator"
+    }
+    ]
+}
+```
+
+#### **Login failed event**
+
+When a user fails to log in to an application, an event with the following data is created.
+
+<table>
+<thead>
+    <tr>
+        <th><b>Property Name</b></th>
+        <th><b>Type</b></th>
+        <th><b>Description</b></th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td><code>ref</code></td>
+        <td>String</td>
+        <td>Group reference (SCIM location)</td>
+    </tr>
+    <tr>
+        <td><code>organizationId</code></td>
+        <td>int</td>
+        <td>Organization Id</td>
+    </tr>
+    <tr>
+        <td><code>organizationName</code></td>
+        <td>String</td>
+        <td>Organization name</td>
+    </tr>
+    <tr>
+        <td><code>userId</code></td>
+        <td>String</td>
+        <td>User id</td>
+    </tr>
+    <tr>
+        <td><code>authenticatingUser</code></td>
+        <td>String</td>
+        <td>username</td>
+    </tr>
+    <tr>
+        <td><code>serviceProvider</code></td>
+        <td>String</td>
+        <td>Application name</td>
+    </tr>
+    <tr>
+        <td><code>failedStep</code></td>
+        <td>Object</td>
+        <td> The step at which the fail event occurred. Contains the step number, identity provider and the name of the authenticator</td>
+    </tr>
+</tbody>
+</table>
+
+Example login failed event payload:
+
+``` js
+{
+   "ref": "https://asgardeo.io/t/myorg/scim2/Users/72774617-8dff-472e-90b5-67069d94d299",
+   "organizationId": 3,
+   "organizationName": "myorg",
+   "userId": "72774617-8dff-472e-90b5-67069d94d299",
+   "authenticatingUser": "john@gmail.com",
+   "serviceProvider": "My Account",
+   "failedStep": {
+        "step": 1,
+        "idp": "Google",
+        "authenticator": "GoogleOIDCAuthenticator"
+    }
 }
 ```
 
@@ -298,7 +403,7 @@ When a user account is locked, an event with the following data is created.
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -343,7 +448,12 @@ Example user account lock event payload:
 
 #### **User credential update event**
 
-When a user's credentials are updated, an event with the following data is created.
+A user's credential (password) update event with the following data is generated when a user credential is updated by one of the methods below.
+
+- an administrator resets them through the Console.
+- an administrator forces a reset.
+- the user changes them from the My Account self-service portal.
+- the user initiates a forgot password sequence and updates them.
 
 <table>
 <thead>
@@ -357,7 +467,7 @@ When a user's credentials are updated, an event with the following data is creat
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -387,7 +497,8 @@ When a user's credentials are updated, an event with the following data is creat
 </tbody>
 </table>
 
-Example User account Lock event payload:
+Example User credential update event payload:
+Consider a scenario where an administrator resets the user credential through the Console.
 
 ``` js
 {
@@ -396,6 +507,8 @@ Example User account Lock event payload:
    "organizationName": "myorg",
    "userId": "72774617-8dff-472e-90b5-67069d94d299",
    "userName": "john@gmail.com",
+   "initiatorType":"admin",
+   "action":"update",
    "userStoreName": "DEFAULT"
 }
 ```
@@ -416,7 +529,7 @@ When users are added or removed from a group, an event with the following data i
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>Group reference (Scim location)</td>
+        <td>Group reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -501,7 +614,7 @@ When a user account is unlocked, an event with the following data is created.
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -531,7 +644,7 @@ When a user account is unlocked, an event with the following data is created.
 </tbody>
 </table>
 
-Example User account Lock event payload:
+Example User account unlock event payload:
 
 ``` js
 {
@@ -560,7 +673,7 @@ When a user's account is deleted, an event with the following data is created.
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -624,7 +737,7 @@ When a user is added to the organization, an event with the following data is cr
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -708,7 +821,7 @@ When a user accepts an invitation to an organization by setting a password for t
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>
@@ -767,7 +880,7 @@ When a user completes account verification during self sign-up, an event with th
     <tr>
         <td><code>ref</code></td>
         <td>String</td>
-        <td>User reference (Scim location)</td>
+        <td>User reference (SCIM location)</td>
     </tr>
     <tr>
         <td><code>organizationId</code></td>

@@ -6,7 +6,7 @@ Typically, when you implement a grant type using OIDC in an application, there a
 and the JWT that is set as the `client_assertion`.
 
 !!! note
-    See the list of client authentication methods in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication).
+    See the list of client authentication methods in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication){:target="_blank"}.
 
 Listed below are the high-level steps in the private key JWT client authentication process.
 
@@ -31,7 +31,7 @@ Register the client application in {{ product_name }} as follows:
 
 2. Go to the **Protocol** tab of the new application and configure the required grant type.
 
-    ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png)
+    ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
 ## Prepare the private key and public key
 
@@ -85,7 +85,7 @@ Go to the Certificate section in the **Protocol** tab of your application regist
 
 ## Prepare the JWT payload
 
-Prepare the JSON payload required by the authorization server for client authentication. Given below is a sample payload with only the required data. The complete list of required and optional claims that can be used is defined in the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication).
+Prepare the JSON payload required by the authorization server for client authentication. Given below is a sample payload with only the required data. The complete list of required and optional claims that can be used is defined in the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication){:target="_blank"}.
 
 !!! note
     Note that the audience (`aud`) is the token endpoint URL of the authorization server, and the issuer (`iss`) and the subject (`sub`) is the client ID generated for your application by the authorization server in the previous step.
@@ -219,7 +219,8 @@ The `jti` (JWT ID) claim is a unique identifier included in the JWT token, which
 
 To enable token reuse in {{ product_name }}.
 
-1. On the {{ product_name }} Console, go to **Organizational Settings** > **Account Security > Private Key JWT Client Authentication for OIDC**.
-2. Click **Configure** and use the toggle to enable token reuse.
+1. On the Asgardeo Console, go to **Login & Registration**.
+2. Under **Login Security**, click **Private Key JWT Client Authentication (OIDC)**.
+3. Switch on the toggle to enable token reuse.
   
-    ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png)
+    ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png){: width="700" style="border: 0.3px solid lightgrey;"}

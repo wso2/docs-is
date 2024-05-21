@@ -14,12 +14,6 @@ To deploy the sample web app on a web container:
 
 ---
 
-### Add CORS configuration
-
-{!./includes/cors-config.md!}
-
----
-
 ### Register a service provider
 
 1. On the Management Console, go to **Main** > **Identity** > **Service Providers** and click **Add**.

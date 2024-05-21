@@ -56,7 +56,7 @@ paths:
       summary: |
         Register an OAuth2 app
       description: "This API is used to create an OAuth2 application. 
-        \nIf your want to create your application to use the `implicit` or `authorization_code` grant types, you need to provide the `redirect_uri` field in your request.\
+        \n If your want to create your application to use the `implicit` or `authorization_code` grant types, you need to provide the `redirect_uri` field in your request.\
         \n If you are using any other grant type, \nsuch as `password`, you don't need to send the `redirect_uri` field in the request.
         \n Check the sample request given below.\n\n <b>Scope required:</b> `internal_application_mgt_create`."
       operationId: registerApplication
@@ -300,10 +300,10 @@ components:
         client_name:
           type: string
           description: The name of the OAuth2 client application.
-        client_id:
+        ext_param_client_id:
           type: string
           description: The public identifier of the application.
-        client_secret:
+        ext_param_client_secret:
           type: string
           description: The secret corresponding to the `clientId` of the application. This is confidential and will be used to make requests and authenticate into your application.
         grant_types:
@@ -326,10 +326,6 @@ components:
         jwks_uri:
           type: string
         url:
-          type: string
-        ext_param_client_id:
-          type: string
-        ext_param_client_secret:
           type: string
         contacts:
           type: array

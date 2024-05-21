@@ -7,7 +7,7 @@ info:
     to create, update, retrieve and delete organizations. <br><br>
     
     <b>Important</b>:<br>
-    You need a paid Asgardeo subscription to create hierarchical organizations. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the Asgardeo sales team.'
+    You need a paid Asgardeo subscription to create hierarchical organizations. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/){:target="_blank"} and contact the Asgardeo sales team.'
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1'
     variables:
@@ -399,51 +399,6 @@ paths:
             curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
-  /organizations/check-discovery:
-    post:
-      tags:
-        - Organization Discovery
-      summary: Check whether given discovery attribute exists among the organization hierarchy.
-      description: |
-        This API is used to verify whether a specific discovery attribute has already been associated with an organization within the hierarchy. It is available for use within any organization in the hierarchy.
-        
-        <b>Scope(Permission) required:</b> `internal_org_organization_discovery_view`
-      operationId: organizationCheckDiscovery
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OrganizationDiscoveryCheckPOSTRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganizationDiscoveryCheckPOSTResponse'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/ServerError'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/organizations/check-discovery' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
-            -d '{
-              "type": "emailDomain",
-              "value": "abc.com"
-            }'
-      x-codegen-request-body-name: body
   /organizations/metadata:
     get:
       tags:
@@ -848,26 +803,6 @@ components:
           items:
             type: string
             example: 'abc.com'
-    OrganizationDiscoveryCheckPOSTRequest:
-      required:
-        - type
-        - value
-      type: object
-      properties:
-        type:
-          type: string
-          example: 'emailDomain'
-        value:
-          type: string
-          example: 'abc.com'
-    OrganizationDiscoveryCheckPOSTResponse:
-      type: object
-      required:
-        - available
-      properties:
-        available:
-          type: boolean
-          example: true
 
     OrganizationMetadata:
       type: object

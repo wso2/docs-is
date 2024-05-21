@@ -15,7 +15,7 @@ Furthermore, when a user is being added using SCIM, four more SCIM attributes ar
 
 These attributes need to be mapped to the existing Active Directory user attributes as well.
 
-The SCIM Core Schema(`urn:ietf:params:scim:schemas:core:2.0`) and SCIM User Schema(`urn:ietf:params:scim:schemas:core:2.0:User`) use `String` type to hold their values. So, when mapping any SCIM attribute to an attribute in the Active Directory, make sure to use the attributes of `String` type. You can find all Active Directory attributes [here](https://docs.microsoft.com/en-us/windows/win32/adschema/attributes-all).
+The SCIM Core Schema(`urn:ietf:params:scim:schemas:core:2.0`) and SCIM User Schema(`urn:ietf:params:scim:schemas:core:2.0:User`) use `String` type to hold their values. So, when mapping any SCIM attribute to an attribute in the Active Directory, make sure to use the attributes of `String` type. You can find all Active Directory attributes [here](https://docs.microsoft.com/en-us/windows/win32/adschema/attributes-all){:target="_blank"}.
 
 When a user or a group is created with SCIM 2.0, there is a set of mandatory SCIM 2.0 attribute values that need to be saved along with the user or group. Some of these values are as follows.
 

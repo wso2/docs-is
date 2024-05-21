@@ -1,10 +1,10 @@
 # Integrate with your React SPA
 
-Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme).
+Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme){:target="_blank"}.
 
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm){:target="_blank"} in your local environment.
-- [Register an application]({{base_path}}/guides/applications/register-single-page-app/) in the {{ product_name }}.
+- [Register an application]({{base_path}}/guides/applications/register-single-page-app/){:target="_blank"} in the {{ product_name }}.
 
 !!! note
     In the tutorial,
@@ -25,7 +25,7 @@ npm install @asgardeo/auth-react react-router-dom --save
 
 ## Configure the SDK
 
-SDK uses the [React Context API](https://react.dev/learn/passing-data-deeply-with-context) under the hood to share the data between components.
+SDK uses the [React Context API](https://react.dev/learn/passing-data-deeply-with-context){:target="_blank"} under the hood to share the data between components.
 You can easily integrate the {{ product_name }} in your application by using `AuthProvider` as the wrapper element to inject configurations.
 
 `AuthProvider` will provide the session state which contains information such as the authenticated user's display name, email address etc. as well as the methods required to implement authentication in the React app.
@@ -33,7 +33,7 @@ You can easily integrate the {{ product_name }} in your application by using `Au
 ```js
 import { AuthProvider } from "@asgardeo/auth-react";
 ```
-`AuthProvider` takes a config object as a [prop](https://react.dev/learn/passing-props-to-a-component) which is used to initialize the SDK instance. Copy and use the following code within your root component to configure `AuthProvider` for your application.
+`AuthProvider` takes a config object as a [prop](https://react.dev/learn/passing-props-to-a-component){:target="_blank"} which is used to initialize the SDK instance. Copy and use the following code within your root component to configure `AuthProvider` for your application.
 
 !!! note
     Typically, the root component of a react app is defined in the `index.*` file.
@@ -163,7 +163,7 @@ Clicking on the **Login** button will take the user to the the {{ product_name }
 
 Once the user is logged in, the application can get the access token issued by the {{ product_name }} .
 
-See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#getaccesstoken) for more information.
+See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#getaccesstoken){:target="_blank"} for more information.
 
 ``` js
 const { getAccessToken } = useAuthContext();
@@ -289,8 +289,8 @@ Clicking on the **Logout** button will sign out the user. The user will then be 
     You can use the `state.isAuthenticated` attribute to check the authentication status of the user.
 
 ### Add Routing
-If your application needs routing, the SDK provides a component called ``SecureRoute``, which is implemented with ``react-router-dom``. This component allows you to easily secure your routes with the {{ product_name }}. You can learn more about routing [here](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#securing-routes-with-asgardeo).
+If your application needs routing, the SDK provides a component called ``SecureRoute``, which is implemented with ``react-router-dom``. This component allows you to easily secure your routes with the {{ product_name }}. You can learn more about routing [here](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#securing-routes-with-asgardeo){:target="_blank"}.
 
 
 ## More Information
-If you want to learn in-depth about the React SDK, you can refer to the [React SDK documentation](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme).
+If you want to learn in-depth about the React SDK, you can refer to the [React SDK documentation](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme){:target="_blank"}.

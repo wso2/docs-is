@@ -65,7 +65,7 @@ You can register an external IdP in {{product_name}} by creating a connection. {
 
 {% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
 
-## Add groups to a connection
+## Map groups with {{ product_name }}
 
 {% include "../../fragments/manage-connection/add-groups.md" %}
 

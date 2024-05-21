@@ -3639,6 +3639,10 @@ components:
           type: boolean
           example: false
           description: Specifies whether to use the local subject identifier when asserting the identity.
+        mappedLocalSubjectMandatory:
+          type: boolean
+          example: false
+          description: Specifies whether to mandate using the local subject identifier when asserting the identity.
     RoleConfig:
       type: object
       properties:

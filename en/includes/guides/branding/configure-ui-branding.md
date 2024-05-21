@@ -3,7 +3,7 @@
 You can customize the user interfaces (UIs) presented to your users during the login, sign-up, and account recovery flows, and on the My Account portal according to the theming guidelines of your organization.
 
 !!! note "UI Branding for B2B applications"
-    If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/), note that you can configure separate UI branding for your organizations. If you have not configured UI branding for your organization, the UI branding of your organization (root) will be applied to the organization.
+    If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/),note that you can configure separate UI branding for your organizations. If you have not configured UI branding for your organization, the UI branding of your root organization will be applied to the organization.
 
 By branding these interfaces, users will get a familiar and consistent user experience.
 
@@ -84,7 +84,7 @@ Select one of the available layouts for your user registration and login interfa
 
 {% if product_name == "Asgardeo" %}
 !!! note "Custom layout"
-    If you want to use the **Custom** layout from the list (shown below), contact Asgardeo support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/) or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
+    If you want to use the **Custom** layout from the list (shown below), contact Asgardeo support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"} or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
 
     ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

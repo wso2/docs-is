@@ -1,6 +1,6 @@
 # Revoke tokens
 
-OAuth2.0 supports [token revocation](https://datatracker.ietf.org/doc/html/rfc7009) to revoke any access granted by them. This token endpoint can revoke **access tokens** and **refresh tokens**.
+OAuth2.0 supports [token revocation](https://datatracker.ietf.org/doc/html/rfc7009){:target="_blank"} to revoke any access granted by them. This token endpoint can revoke **access tokens** and **refresh tokens**.
 
 Confidential clients such as web apps can keep the client credentials securely. Those clients need to prove their identity when they access the revocation endpoint to revoke access tokens.
 

@@ -11,6 +11,7 @@ The grant types supported by {{ product_name }} applications are as follows:
 - [Client credentials grant](#client-credentials-grant)
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
+- [Device authorixation grant](#device-authorization-grant)
 - [Token exchange grant](#token-exchange-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 
@@ -107,8 +108,44 @@ The following diagram shows how the password grant flow works.
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
+{% if product_name == "WSO2 Identity Server" %}
+## Device authorization grant
+
+Device authorization grant (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through,
+
+- Input-constrained devices
+- Devices without a browser
+
+Such devices include smart TVs, printers, and gaming consoles. Device flow instructs the user to review the authorization request on a secondary device, such as a smartphone.
+
+The device flow does not require two-way communication between the OAuth client and the device. It guides the end user to another device to complete the sign-in process.
+
+The diagram below illustrates the device flow.
+
+![device-authorization-grant-diagram]({{base_path}}/assets/img/references/grants/device-flow.png)
+
+1. The client device sends an access request including its client identifier to WSO2 Identity Server.
+
+2. WSO2 Identity Server issues a device code, a user code, and a verification URI.
+
+3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
+
+4. WSO2 Identity server prompts the user to enter the end-user code and the user enters the uder code
+
+5. WSO2 Identity server validates the code and asks the end user to accept or decline the authorization request.
+
+6. While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
+
+7. If the user grants access, the authorization server validates the verification code and responds with the access token.
+
+8. The client application can now request resources from the resource server by providing the access token.
+
+9. The resource server returns the requested user information to the client application.
+
+{% endif %}
+
 ## Token exchange grant
-OAuth 2.0 token exchange is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another. This grant type is defined in the [OAuth Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693)
+OAuth 2.0 token exchange is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another. This grant type is defined in the [OAuth Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693){:target="_blank"}
 
 The token exchange grant type is useful in scenarios where an application needs to obtain a different type of access token with a different set of permissions or attributes than the one it currently possesses. It allows an application to act on a user's or another entity's behalf, obtaining a new access token that represents the requested authorization.
 
@@ -130,11 +167,11 @@ The following diagram shows how the token exchange grant flow works.
 6. The client application can now request resources from the resource server by providing the access token.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
-See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-the-token-exchange-flow) for more details.
+See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details.
 
 ## SAML 2.0 bearer grant
 
-SAML 2.0 bearer grant is a grant type in the OAuth 2.0 framework that enables the exchange of a SAML 2.0 assertion for an OAuth 2.0 access token. This grant type is defined in the [SAML 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants specification (RFC 7522)](https://datatracker.ietf.org/doc/html/rfc7522)
+SAML 2.0 bearer grant is a grant type in the OAuth 2.0 framework that enables the exchange of a SAML 2.0 assertion for an OAuth 2.0 access token. This grant type is defined in the [SAML 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants specification (RFC 7522)](https://datatracker.ietf.org/doc/html/rfc7522){:target="_blank"}
 
 The SAML 2.0 bearer grant is a secure method that allows clients to obtain an OAuth 2.0 access token by presenting a SAML 2.0 assertion. This grant type is particularly useful in scenarios where the client already has a SAML assertion from a trusted identity provider and seeks to exchange it for an access token. It offers significant advantages in systems that already utilize SAML for Single Sign-On (SSO), as it enables the client to obtain an access token without requiring the user to re-authenticate. To use this grant type, the client submits a request with the SAML assertion to the token endpoint, and following successful authentication and validation, the server issues an access token.
 

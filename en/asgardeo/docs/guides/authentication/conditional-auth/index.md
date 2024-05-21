@@ -60,6 +60,7 @@ The available templates are categorized as follows:
 
 - Access Control - These templates restrict user login to the application based on specified conditions.
 - Adaptive MFA - These templates prompt two-factor authentication for login attempts based on specific conditions.
+- Passkey Enrollment - These templates allows users to progressively enroll with passkey authenticator.
 
 The pre-defined templates are listed below.
 
@@ -67,11 +68,12 @@ The pre-defined templates are listed below.
 |-----------|-------------|
 | [User-Age-Based]({{base_path}}/guides/authentication/conditional-auth/user-age-based-template/) | This configures a login flow where users can log in only if their age is over the configured value. The user's age is calculated using the `date of birth` attribute. |
 | [Group-Based (Access Control)]({{base_path}}/guides/authentication/conditional-auth/group-based-template-access-control/) | This login flow allows login only for users who belong to any of the given set of groups  |
+| [Session Based]({{base_path}}/uides/authentication/conditional-auth/concurrent-sessions-based-template/)  | This login flow allows login only for users who have less than the configured number of concurrent sessions.  |
 | [Sign-In-Option-Based]({{base_path}}/guides/authentication/conditional-auth/sign-in-option-based-template/) | This login flow prompts two-factor authentication (2FA) only for users who are signing in with a given option.  |
 | [New-Device-Based]({{base_path}}/guides/authentication/conditional-auth/new-device-based-template/) | This login flow sends an email notification and/or prompts two-factor authentication for users who are logged in from a previously unused device. |
 | [Group-Based (Adaptive MFA)]({{base_path}}/guides/authentication/conditional-auth/group-based-template/)  | This login flow prompts two-factor authentication (2FA) for users who belong to any of the given set of groups. |
 | [IP-Based]({{base_path}}/guides/authentication/conditional-auth/ip-based-template/) | This login flow prompts two-factor authentication for users who log in from outside the given IP range. |
-| [Passkey-Progressive-Enrollment-Based]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) | This login flow permits users to seamlessly enroll their passkey on-the-fly, when Passkey is designated as the first authentication factor. |
+| [Passkey-Progressive-Enrollment-Based]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) | This login flow allows users to progressively enroll with passkey authenticator. |
 
 If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement. See the instructions on [writing a custom authentication script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 

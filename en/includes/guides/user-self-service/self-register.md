@@ -17,7 +17,7 @@ To self-register from the My Account portal, the user should follow these steps.
 
     ![Self register to organization]({{base_path}}/assets/img/guides/organization/self-service/customer/create-an-account.png){: width="400" style="display: block; margin: 0;"}
 
-2. Click **Create an account**.
+2. Click **Register**.
 
 3. Follow the steps to [sign-up using an email](#sign-up-using-an-email).
 
@@ -26,7 +26,7 @@ To self-register from the My Account portal, the user should follow these steps.
 To self-register from an application, users should follow these steps.
 
 1. Access the application URL.
-2. Click **Create an account**
+2. Click **Register**
 3. Select one of the following options to sign up:
 
     - Click **Continue with email** and follow the steps to [sign up using an email](#sign-up-using-an-email).

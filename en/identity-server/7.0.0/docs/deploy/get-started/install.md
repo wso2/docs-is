@@ -129,7 +129,7 @@ These applications are mandatory and are required to run the binary distribution
 
 #### Required applications to run samples and build from source
 
-These applications are required for [building the product from the source distribution](https://wso2.github.io/using-maven.html), and compiling and running product samples.
+These applications are required for [building the product from the source distribution](https://wso2.github.io/using-maven.html){:target="_blank"}, and compiling and running product samples.
 
 !!! warning
     If you are installing by downloading and extracting the binary distribution (as recommended for most users) instead of building from the source code, you do not need to install Maven.
@@ -180,7 +180,7 @@ Follow the instructions below to install WSO2 Identity Server on Linux or Mac OS
 
 #### Install WSO2 Identity Server
 
-1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
+1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/){:target="_blank"}.
 2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
 #### Set up JAVA_HOME
@@ -252,10 +252,10 @@ Follow the instructions below to install the WSO2 Identity Server on Windows.
 
 #### Install WSO2 Identity Server
 
-1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
+1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/){:target="_blank"}.
 2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
-3. Set the `CARBON_HOME` environment variable by pointing it to the directory where you download the WSO2 Identity Server. For more information on how to do this, see [here](https://www.java.com/en/download/help/path.xml).
+3. Set the `CARBON_HOME` environment variable by pointing it to the directory where you download the WSO2 Identity Server. For more information on how to do this, see [here](https://www.java.com/en/download/help/path.xml){:target="_blank"}.
 
 #### Set up JAVA_HOME
 
@@ -450,7 +450,7 @@ Follow the instructions in the sections below to set it up.
 
 - Install JDK and set up the `JAVA_HOME` environment variable. For more information, see [Installation Prerequisites](#prerequisites).
 
-- Download and install a service wrapper library for running WSO2 Identity Server as a Windows service. WSO2 recommends _Yet Another Java Service Wrapper_ ([YAJSW](http://sourceforge.net/projects/yajsw/)) version 13.03, and several WSO2 products provide a default `wrapper.conf` file in their `<PRODUCT_HOME>/bin/yajsw/` directory. The following instructions describe how to set up this file.
+- Download and install a service wrapper library for running WSO2 Identity Server as a Windows service. WSO2 recommends _Yet Another Java Service Wrapper_ ([YAJSW](http://sourceforge.net/projects/yajsw/){:target="_blank"}) version 13.03, and several WSO2 products provide a default `wrapper.conf` file in their `<PRODUCT_HOME>/bin/yajsw/` directory. The following instructions describe how to set up this file.
 
 #### Set up the YAJSW wrapper configuration file
 
@@ -573,13 +573,6 @@ Copy the `wrapper.conf` file found in the `<IS_HOME>/bin/yajsw/` directory and p
     wrapper.java.additional.28 = -Dhttpclient.hostnameVerifier=DefaultAndLocalhost
     wrapper.java.additional.29 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
     wrapper.java.additional.30 = -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-    ```
-
-!!! info
-    If your JDK version is >= 11.0.20 or >= 17.0.8, you need to add the following two additional properties 
-    to the wrapper.conf file.
-
-    ```bash
     wrapper.java.additional.31 = -Djdk.util.zip.disableZip64ExtraFieldValidation=true
     wrapper.java.additional.32 = -Djdk.nio.zipfs.allowDotZipEntry=true
     ```

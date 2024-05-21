@@ -42,31 +42,18 @@ The following sections guide you through configuring and running the
 Identity Anonymization tool in WSO2 IS.
 
 ---
-### Building the Identity Anonymization tool
+### Downloading the Identity Anonymization tool
 
-Follow the steps below to build the tool:
+Click [here](https://github.com/wso2/identity-anonymization-tool/releases/download/v1.4.1/org.wso2.carbon.privacy.forgetme.tool-1.4.1.zip) to download the tool.
 
-1.  Clone the <https://github.com/wso2/identity-anonymization-tool>
-    repository to a required location.
-2.  In the source that you checked out, navigate to
-    `          identity-anonymization-tool         `, and run
-    `          mvn clean install         ` . This downloads all
-    dependencies and builds the tool in your local repository. You can
-    find the
-    `          org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip         `
-    file created in the
-    `          identity-anonymization-tool/components/org.wso2.carbon.privacy.forgetme.tool/target         `
-    directory.
-3.  Unzip the
-    `           org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip          `
-    file. This creates the
-    `           identity-anonymization-tool-SNAPSHOT          `
-    directory with a directory. The path to the
-    `           identity-anonymization-tool-SNAPSHOT          `
-    directory will be referred to as `           <TOOL_HOME>          `
+### Configuring the tool
+Follow the steps below to configure the tool:
+
+1.  Unzip the downloaded zip file. This creates the
+    `           identity-anonymization-tool-1.4.1          `
+    directory and the path to this directory will be referred to as `           <TOOL_HOME>          `
     throughout this section.
-
-    The following table describes the purpose of the most important
+2.  The following table describes the purpose of the most important
     configuration related directories and files of the tool, which are
     in the `           <TOOL_HOME>/conf          ` directory:
 
@@ -373,21 +360,4 @@ This tool has independent runtime. From IS 6.0.0 onwards, this tool is externali
     convention.
 
 ---
- 
 
-### Run the standalone version of the tool
-
-If you are using multiple WSO2 products and you want to remove
-references to a particular deleted user from all the products at once,
-you can use the [standalone version of the Identity Anonymization
-tool](https://github.com/wso2/identity-anonymization-tool).
-
-To remove references to a particular deleted user from multiple WSO2
-products at once, you have to do necessary configuration changes in the
-standalone version of the tool depending on the products that you want
-to run the tool on.
-
-For information on how to build, configure and run the standalone
-version of the Identity Anonymization tool to run on multiple WSO2
-products, see [Remove References to Deleted User Identities]({{base_path}}/deploy/configure/databases/remove-references-to-deleted-user-identities)
-in the WSO2 Administration Guide.

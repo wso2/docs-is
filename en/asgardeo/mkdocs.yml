@@ -117,6 +117,7 @@ nav:
     - Start integrating Asgardeo into apps:
       - Start integrating Asgardeo into apps: get-started/start-integrating-apps/index.md
       - Try for a sample app:
+        - Try for a sample app: get-started/try-samples/index.md
         - Single Page apps:
           - React: get-started/try-samples/qsg-spa-react.md
           - JavaScript: get-started/try-samples/qsg-spa-javascript.md
@@ -124,6 +125,7 @@ nav:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
       - Try for your own app:
+        - Try for your own app: get-started/try-your-own-app/index.md
         - Single Page apps:
           - React: get-started/try-your-own-app/react.md
           - Javascript: get-started/try-your-own-app/javascript.md
@@ -180,13 +182,14 @@ nav:
             - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
             - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
             - Add Passkey: guides/authentication/mfa/add-passkey-login.md
+            - Add iProov: guides/authentication/mfa/add-iproov-login.md
             - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
             - Add access control:
               - Add access control: guides/authentication/conditional-auth/access-control.md
-              - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
+              - User Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
               - Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
             - Add adaptive MFA:
               - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md
@@ -197,6 +200,10 @@ nav:
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
+          - App-native authentication:
+            - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
+            - Configure advanced app-native settings: guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md
+          - Login Flow AI: guides/authentication/ai-loginflow.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -214,14 +221,15 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
-          - Configure the token exchange flow: guides/authentication/configure-the-token-exchange-flow.md
+          - Configure token exchange: guides/authentication/configure-token-exchange.md
       - API authorization: guides/api-authorization.md
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
+        - Branding AI: guides/branding/ai-branding.md
         - Configure custom domains: guides/branding/configure-custom-domains.md
         - Customize email templates: guides/branding/customize-email-templates.md
-        - Localization in Asgardeo: references/localization-in-asgardeo.md
+        - Localization in Asgardeo: guides/branding/localization-in-asgardeo.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -291,10 +299,13 @@ nav:
           - Subscribe to Asgardeo: guides/your-asgardeo/subscribe-to-asgardeo/index.md
           - via Billing Portal: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal.md
           - via Azure Marketplace: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-azure-marketplace.md
+      - Asgardeo logs:
+        - Asgardeo logs: guides/asgardeo-logs/index.md
+        - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
+        - Audit logs: guides/asgardeo-logs/audit-logs.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
-        - Diagnostic logs: guides/monitoring/diagnostic-logs.md
         - Asgardeo events: guides/monitoring/asgardeo-events.md
       - Organization insights: guides/organization-insights.md
   - Tutorials:
@@ -309,44 +320,61 @@ nav:
   - APIs:
     - APIs - Overview: apis/index.md
     - Authentication: apis/authentication.md
-    - Application management API: apis/application-management.md
-    - API resource management API: apis/api-resource-management-rest-api.md
-    - Branding Preferences API: apis/branding-preference-rest-api.md
-    - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
-    - Identity provider API: apis/idp.md
-    - User management (SCIM 2.0) API: apis/scim2.md
-    - Role management (SCIM 2.0) API: apis/roles.md
-    - Email templates API: apis/email-template.md
-    - Identity governance API: apis/identity-governance.md
-    - User sessions:
-      - Session management API: apis/session.md
-      - Session extension API: apis/extend-sessions.md
-    - Event configuration API: apis/event-configuration.md
-    - Self-service:
-      - TOTP API: apis/register-mfa/totp.md
-      - Backup codes API: apis/register-mfa/backup-code.md
-      - Password recovery API: apis/register-mfa/password-recovery.md
-      - Export user information API: apis/register-mfa/export-user-info.md
-    - Administrators:
-      - Export admin information API: apis/administrators/export-admin-info.md
-    - Consent management API: apis/consent-management.md
-    - Attribute management API: apis/attribute-management.md
-    - Validation API: apis/validation.md
-    - Idle account identification API: apis/idle-account-identification.md
-    - B2B self service management API: apis/onboard-admins-self-service.md
-    - Organization management API: apis/organization-management.md
-    - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
-    - Organization APIs:
-      - Organization APIs: apis/organization-apis/index.md
-      - Get access for organization APIs: apis/organization-apis/authentication.md
-      - User management API: apis/organization-apis/org-user-mgt.md
-      - Group management API: apis/organization-apis/org-group-mgt.md
-      - Role management API: apis/organization-apis/org-role-mgt.md
+    - Management APIs:
+      - API resource management API: apis/api-resource-management-rest-api.md
+      - Application management API: apis/application-management.md
+      - App-native authentication API: apis/app-native-authentication-api.md
+      - Attribute management API: apis/attribute-management.md
+      - Authenticators API: apis/authenticators.md
+      - Branding Preferences API: apis/branding-preference-rest-api.md
+      - Consent management API: apis/consent-management.md
+      - Email templates API: apis/email-template.md
+      - Event configuration API: apis/event-configuration.md
+      - Identity governance API: apis/identity-governance.md
+      - Identity provider API: apis/idp.md
+      - Idle account identification API: apis/idle-account-identification.md
+      - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
+      - Organization discovery API: apis/organization-discovery.md
+      - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
+      - Organization management API: apis/organization-management.md
+      - Password expiring users identification API: apis/password-expiring-users-identification.md
+      - Role management (SCIM 2.0) API: apis/roles.md
+      - User management:
+        - SCIM 2.0 API: apis/scim2.md
+        - User account associations API: apis/association-management-by-admin.md
+        - Account Recovery API: apis/user-account-recovery.md
+        - Offline user onboard management API: apis/offline-user-onboard.md
+      - User sessions:
+        - Session management API: apis/session.md
+        - Session extension API: apis/extend-sessions.md
+      - User store management API: apis/user-store.md
+      - Validation API: apis/validation.md
+    - Orgnization APIs:
+      - Orgnization APIs: apis/organization-apis/index.md
       - Application management API: apis/organization-apis/org-application-management.md
+      - Authenticators API: apis/organization-apis/org-authenticators.md
+      - Branding API: apis/organization-apis/org-branding-management.md
+      - Claim management API: apis/organization-apis/org-claim-management.md
+      - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Group management API: apis/organization-apis/org-group-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp.md
-      - Organization management API: apis/organization-apis/org-management.md
+      - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
+      - Offline user onboard management API: apis/organization-apis/organization-discovery.md
+      - Organization discovery API: apis/organization-apis/organization-discovery.md
+      - Organization management API: apis/organization-apis/org-management.md
+      - Role management API: apis/organization-apis/org-role-mgt.md
+      - SCIM 2.0 Bulk API: apis/organization-apis/scim-bulk.md
+      - User management API: apis/organization-apis/org-user-mgt.md
+    - End User APIs:
+      - Backup codes API: apis/register-mfa/backup-code.md
+      - Export user information API: apis/register-mfa/export-user-info.md
+      - Password recovery API: apis/register-mfa/password-recovery.md
+      - TOTP API: apis/register-mfa/totp.md
+      - User account associations API: apis/association-management-by-user.md
+    - Administrator APIs:
+      - Export admin information API: apis/administrators/export-admin-info.md
   - References:
     - References - Overview: references/index.md
     - Asgardeo user roles: references/user-management/user-roles.md
@@ -378,7 +406,7 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
-      - Application-native authentication: references/app-native-authentication.md
+      - App-native authentication: references/app-native-authentication.md
 
 not_in_nav: |
   /page-not-found.md

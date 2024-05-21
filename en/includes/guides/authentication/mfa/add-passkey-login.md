@@ -1,18 +1,18 @@
 # Add MFA with Passkey
 
-Passkey adds passwordless login to your applications, which allows users to replace traditional passwords with FIDO2-supported hardware security keys or built-in authenticators on their devices. This advanced technology also enables credentials to sync across multiple devices, allowing users to log into applications from any device, even if their credentials are stored on another. 
+Passkey adds passwordless login to your applications, which allows users to replace traditional passwords with FIDO2-supported hardware security keys or built-in authenticators on their devices. This advanced technology also enables credentials to sync across multiple devices, allowing users to log into applications from any device, even if their credentials are stored on another.
 
 Follow the instructions given below to configure Multi-Factor Authentication (MFA) using Passkey in {{ product_name }}.
 
 !!! info
-    - WSO2 Identity Server uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.
+    - {{ product_name }} uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.
     - The following browser versions support the WebAuthn API by default:
         - Chrome 67 and above
         - Firefox 60 and above
         - Edge 17723 and above
-    - Passkey login with [platform authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=types%20of%20authenticators%3A-,Platform%20authenticators,-%2C%20also%20known%20as) will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
-    - Passkey login with [roaming authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=Roaming%20authenticators) will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
-    - Refer to the [passkeys documentation](https://passkeys.dev/device-support/) to stay up-to-date with the device support for FIDO2 passkeys.
+    - Passkey login with [platform authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=types%20of%20authenticators%3A-,Platform%20authenticators,-%2C%20also%20known%20as){:target="_blank"} will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
+    - Passkey login with [roaming authenticators](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/Platform_vs_Cross-Platform.html#:~:text=Roaming%20authenticators){:target="_blank"} will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
+    - Refer to the [passkeys documentation](https://passkeys.dev/device-support/){:target="_blank"} to stay up-to-date with the device support for FIDO2 passkeys.
 
 ## Prerequisites
 

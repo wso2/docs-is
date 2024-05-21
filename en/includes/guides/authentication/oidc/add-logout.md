@@ -1,6 +1,6 @@
 # Add logout with OIDC to application
 
-OpenID Connect provides [OpenID Connect RP-Initiated Logout](https://openid.net/specs/openid-connect-rpinitiated-1_0.html) to terminate user sessions. The logout endpoint is used to terminate the user session at {{ product_name }} and to log the user out. When a user is
+OpenID Connect provides [OpenID Connect RP-Initiated Logout](https://openid.net/specs/openid-connect-rpinitiated-1_0.html){:target="_blank"} to terminate user sessions. The logout endpoint is used to terminate the user session at {{ product_name }} and to log the user out. When a user is
 successfully logged out, the user is redirected to the `post_logout_redirect_uri` sent in the logout request.
 
 **Logout endpoint**
@@ -21,7 +21,7 @@ curl -X POST "{{ product_url_sample }}/oidc/logout" \
 The logout request has the following parameters:
 
 !!! note
-    See [RP-initiated logout request](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#RPLogout) for more details.
+    See [RP-initiated logout request](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#RPLogout){:target="_blank"} for more details.
 
 <table>
   <tr>

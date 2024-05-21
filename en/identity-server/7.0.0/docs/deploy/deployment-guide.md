@@ -307,8 +307,6 @@ The following configurations need to be done in both the WSO2 Identity Server no
                 - `KUBERNETES_SERVICE_HOST`: This is the Kubernetes API hostname or IP address, e.g., `kuberneteshostname`.
                 - `KUBERNETES_SERVICE_PORT_HTTPS`: This is the Kubernetes API https listening port. This must be an integer value.
                 - `KUBERNETES_API_SERVER_TOKEN`: This is the Kubernetes Master token for authentication (optional), e.g., `yourkubernetestoken`.
-                - `KUBERNETES_API_SERVER_USERNAME`: This is the Kubernetes Master username (optional), e.g., `admin`.
-                - `KUBERNETES_API_SERVER_PASSWORD`: This is the Kubernetes Master password (optional).
 
 
 2. Configure caching.

@@ -197,7 +197,7 @@ paths:
               "jit": {
                 "isEnabled": true,
                 "scheme": "PROVISION_SILENTLY",
-                "userstore": "PRIMARY",
+                "userstore": "DEFAULT",
                 "associateLocalUser": true,
                 "attributeSyncMethod": "OVERRIDE_ALL"
               },
@@ -1556,7 +1556,7 @@ paths:
             -d '{
             "isEnabled": true,
             "scheme": "PROVISION_SILENTLY",
-            "userstore": "PRIMARY",
+            "userstore": "DEFAULT",
             "associateLocalUser": true,
             "attributeSyncMethod": "OVERRIDE_ALL"
             }'
@@ -1953,7 +1953,131 @@ paths:
             curl -X 'DELETE' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/t{rusted-token-issuer-id}?force=false' \
             -H 'accept: */*' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
+  '/identity-providers/{identity-provider-id}/implicit-association':
+    get:
+      tags:
+        - Implicit Association
+      summary: |
+        Get implicit association config of an IdP
+      description: "This API provides the implicit association config of an IdP including the status and the specified attributes for lookup.\n\n<b>Scope required:</b> `internal_idp_view`"
+      operationId: getImplicitAssociation
+      parameters:
+        - name: identity-provider-id
+          in: path
+          description: ID of the identity provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImplicitAssociationResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --request GET \
+            --url https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/implicit-association \
+            --header 'Accept: application/json, application/xml' \
+            --header 'Authorization: Bearer {bearer-token}'
+    put:
+      tags:
+        - Implicit Association
+      summary: |
+        Update implicit association config of an IdP
+      description: "This API provides the capability to update the implicit association config of an identity provider by specifying the identity provider ID.\n\n<b>Scope required:</b> `internal_idp_update`"
+      operationId: updateImplicitAssociation
+      parameters:
+        - name: identity-provider-id
+          in: path
+          description: ID of the identity provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImplicitAssociationResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --request PUT \
+            --url https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/implicit-association \
+            --header 'Accept: application/json' \
+            --header 'Authorization: Bearer {bearer-token}' \
+            --header 'Content-Type: application/json' \
+            --data '{
+            "isEnabled": true,
+            "lookupAttribute": [
+              "http://wso2.org/claims/emailaddress"
+            ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImplicitAssociationPutRequest'
+        description: This represents the implicit association configs to be updated.
+        required: true                
 components:
   parameters:
     limitQueryParam:
@@ -2246,6 +2370,8 @@ components:
           $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
         provisioning:
           $ref: '#/components/schemas/ProvisioningResponse'
+        implicitAssociation:
+          $ref: '#/components/schemas/ImplicitAssociationResponse'
     IdentityProviderListResponse:
       type: object
       properties:
@@ -2950,6 +3076,33 @@ components:
           $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
         provisioning:
           $ref: '#/components/schemas/ProvisioningResponse'
+    ImplicitAssociationPutRequest:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+          example: true
+        lookupAttribute:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attributes'
+          example:
+            - http://wso2.org/claims/emailaddress
+    ImplicitAssociationResponse:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+          example: true
+        lookupAttribute:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attributes'
+          example:
+            - http://wso2.org/claims/emailaddress
     Service:
       type: string
       example: 'Authentication'
+    Attributes:
+      type: string
+      example: 'http://wso2.org/claims/emailaddress'

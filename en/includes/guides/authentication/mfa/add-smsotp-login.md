@@ -58,7 +58,7 @@ Configurations related to SMS providers are located under the **Email & SMS** se
 ??? note "Configuring Twilio"
     To configure Twilio as your SMS provider, follow the steps below:
 
-    - Go to [Twilio](https://www.twilio.com/try-twilio) and create an account.
+    - Go to [Twilio](https://www.twilio.com/try-twilio){:target="_blank"} and create an account.
     - After signing up for your account, navigate to the Phone Numbers page in your console. You’ll see the phone number that has been selected for you. Note the phone number’s capabilities, such as "Voice", "SMS", and "MMS".
     - After signing up, navigate to the Phone Numbers page in your console and note the phone number’s capabilities.
     - Get your first Twilio phone number and use that as the “Sender” in the settings. For more information, see this tutorial in the Twilio documentation.
@@ -91,7 +91,7 @@ Configurations related to SMS providers are located under the **Email & SMS** se
 ??? note "Configuring Vonage"
     To configure Vonage as your SMS provider, follow the steps below:
 
-    - Login to [Vonage](https://dashboard.nexmo.com/sign-in) and create an account.
+    - Login to [Vonage](https://dashboard.nexmo.com/sign-in){:target="_blank"} and create an account.
     - Fill in the required fields and create the account.
     - Login to the Vonage dashboard and copy the API Key and API Secret.
     - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Vonage** tab and fill the required fields.
@@ -147,8 +147,8 @@ Configurations related to SMS providers are located under the **Email & SMS** se
       </tr>
       <tr>
         <td>Payload Template</td>
-        <td>How the payload template should be. </br>Placeholders: </br><code>{{body}}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>{{mobile}}</code> - Number that this sms should be sent to.</td>
-        <td>Example JSON payload template: </br><code>{“content”: {{body}},“to”: {{mobile}}}}</code></br></br>(<code>{{mobile}}</code> and <code>{{body}}</code> will be replaced with the corresponding values at the runtime.)</td>
+        <td>How the payload template should be. </br>Placeholders: </br><code>\{\{body\}\}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>\{\{mobile\}\}</code> - Number that this sms should be sent to.</td>
+        <td>Example JSON payload template: </br><code>{“content”: \{\{body\}\},“to”: \{\{mobile\}\}}}</code></br></br>(<code>\{\{mobile\}\}</code> and <code>\{\{body\}\}</code> will be replaced with the corresponding values at the runtime.)</td>
       </tr>
       <tr>
         <td>Headers</td>

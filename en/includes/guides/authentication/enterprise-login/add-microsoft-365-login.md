@@ -9,9 +9,9 @@ Follow this guide for instructions.
 You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
 
 !!! note
-    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
+    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory){:target="_blank"}.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using an account with administrator permission.
+1. Sign in to the [Azure Portal](https://portal.azure.com/){:target="_blank"} using an account with administrator permission.
 
     !!! note
         You must use an account in the same Microsoft 365 subscription (tenant) with which you intend to register the app.
@@ -35,7 +35,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft.
         </tr>
         <tr>
             <td>Supported Account Type</td>
-            <td>Select the supported account type. If you wish for users to use only Microsoft 365 accounts, select either the first or the second option. Learn more about account types in the [Microsoft documentation](https://learn.microsoft.com/en-us/security/zero-trust/develop/identity-supported-account-types).
+            <td>Select the supported account type. If you wish for users to use only Microsoft 365 accounts, select either the first or the second option. Learn more about account types in the [Microsoft documentation](https://learn.microsoft.com/en-us/security/zero-trust/develop/identity-supported-account-types){:target="_blank"}.
         </tr>
         <tr>
             <td>Redirect URI</td>

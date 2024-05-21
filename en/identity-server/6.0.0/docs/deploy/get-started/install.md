@@ -735,13 +735,6 @@ Copy the `wrapper.conf` file found in the `<IS_HOME>/bin/yajsw/` directory and p
     wrapper.java.additional.28 = -Dhttpclient.hostnameVerifier=DefaultAndLocalhost
     wrapper.java.additional.29 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
     wrapper.java.additional.30 = -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
-    ```
-
-!!! info
-    If your JDK version is >= 11.0.20 or >= 17.0.8, you need to add the following two additional properties 
-    to the wrapper.conf file.
-
-    ```bash
     wrapper.java.additional.31 = -Djdk.util.zip.disableZip64ExtraFieldValidation=true
     wrapper.java.additional.32 = -Djdk.nio.zipfs.allowDotZipEntry=true
     ```

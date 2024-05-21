@@ -4,7 +4,7 @@ Asgardeo endpoints are subjected to rate limits to maintain smooth and reliable 
 
 Rate limits are calculated on a per IP address basis. For example, if the rate limit for an endpoint is 200, it means that the maximum number of requests you can make to this endpoint from a single IP address is 200 per minute.
 
-Exceeding the rate limit results in a [429 Too Many Requests error code](https://datatracker.ietf.org/doc/html/rfc6585#section-4).
+Exceeding the rate limit results in a [429 Too Many Requests error code](https://datatracker.ietf.org/doc/html/rfc6585#section-4){:target="_blank"}.
 
 Listed below are the endpoints and the rate limits that apply to each endpoint.
 
