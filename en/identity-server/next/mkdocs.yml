@@ -43,6 +43,7 @@ plugins:
         'guides/login/webapp-ws-federation.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/login/sso-for-oidc.md': 'guides/authentication/enterprise-login/add-oidc-idp-login.md'
         'guides/login/sso-for-saml.md': 'guides/authentication/enterprise-login/add-saml-idp-login.md'
+        'guides/login/oidc-backchannel-logout.md': 'guides/authentication/oidc/add-back-channel-logout.md'
         'guides/authentication/enterprise-login/index.md': 'guides/authentication/standard-based-login/index.md'
         'guides/authentication/enterprise-login/add-oidc-idp-login.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
@@ -433,6 +434,7 @@ nav:
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
             - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
             - Implement logout: guides/authentication/oidc/add-logout.md
+            - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
