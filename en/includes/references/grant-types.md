@@ -11,7 +11,7 @@ The grant types supported by {{ product_name }} applications are as follows:
 - [Client credentials grant](#client-credentials-grant)
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
-- [Device authorixation grant](#device-authorization-grant)
+- [Device authorization grant](#device-authorization-grant)
 - [Token exchange grant](#token-exchange-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 
