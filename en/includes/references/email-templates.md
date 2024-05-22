@@ -241,7 +241,7 @@ The following literals about the user are accessible for all email templates.
 </table>
 
 !!! note
-    Organizations (root) created before October 2022 will utilize `{{ tenant-domain }}` as the placeholder to represent the organization name. As this placeholder may not provide the organization name in a human-readable format, consider updating it to `{{ organization-name }}` as needed for clarity and ease of understanding.
+    Organizations (root) created before October 2022 will utilize `\{\{ tenant-domain \}\}` as the placeholder to represent the organization name. As this placeholder may not provide the organization name in a human-readable format, consider updating it to `\{\{ organization-name \}\}` as needed for clarity and ease of understanding.
 
 ---
 
