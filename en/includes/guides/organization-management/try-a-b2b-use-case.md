@@ -8,10 +8,9 @@ You are an administrator of **Guardio Insurance**, which is a company that provi
 
 **Best Car Mart** has a partnership with Guardio Insurance to provide life insurance policies to its employees. Guardio Insurance exposes its services to Best Car Mart's employees through its **Guardio Insurance Business App** and **Guardio Insurance Administrative App**.
 
-    - **Guardio Insurance Administrative App** - Application that provides administrative capabilities to administrators of **Guardio** customer/partner organizations. The provided administrative capabilities are managing users, assigning roles, configuring an identity provider for the organization, and customizing the login flow of **Guardio Insurance Business App** business application for their organizations.
+- **Guardio Insurance Administrative App** - Application that provides administrative capabilities to administrators of **Guardio** customer/partner organizations. The provided administrative capabilities are managing users, assigning roles, configuring an identity provider for the organization, and customizing the login flow of **Guardio Insurance Business App** business application for their organizations.
 
-    - **Guardio Insurance Business App** -  Application that provides insurance and claims settlement capabilities for other
-     businesses, so that those businesses can use the software for internal requirements.
+- **Guardio Insurance Business App** -  Application that provides insurance and claims settlement capabilities for other businesses, so that those businesses can use the software for internal requirements.
 
 The employees of Best Car Mart should be able to log in to the Guardio Insurance applications to consume its services. The administrators of Best Car Mart will manage the users of its organization and also determine the login experience that their users should have.
 
@@ -23,65 +22,38 @@ The employees of Best Car Mart should be able to log in to the Guardio Insurance
 You should [create a root organization]({{base_path}}/guides/{{root_org_description_path}}). For this example, we have created a root organization named `Guardio Insurance`.
 {% endif %}
 
-## Set up the applications
+## Set up the administrative app
 The following guides explain how you can share an application with organizations and allow organization users to log in to it using **SSO**.
 
 Let's use the sample applications, [Guardio Insurance Business application and Guardio Insurance Administrative application](https://github.com/wso2/samples-is/tree/master/b2b-sample){:target="_blank"}, to explore this use case.
 
-### Step 1: Register the applications on {{ product_name }}
-
-Follow the steps given below to register the Guardio Insurance applications with {{ product_name }}.
+### Step 1: Register the administrative app
+Follow the steps given below to register the Guardio Insurance administrative applications with {{ product_name }}.
 
 1. Login into the organization(root).
 2. [Register Traditional Web Applications]({{base_path}}/guides/applications/register-oidc-web-app/) in your organization (root) with the following settings:
 
-    - Register **Guardio Insurance Business App**
-
-        <table>
-            <tr>
-                <th>Application Name</th>
-                <td>Add a name for the application.</br>
-                    <code>Guardio-Business-App</code>
-                </td>
-            </tr>
-            <tr>
-                <th>Protocol</th>
-                <td>The authentication protocol to use.</br>
-                    <code>OpenID Connect</code>
-                </td>
-            </tr>
-            <tr>
-                <th>Authorized redirect URLs</th>
-                <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
-                    <code>http://localhost:3000/api/auth/callback/wso2is</code>
-                    <code>http://localhost:3000</code>
-                </td>
-            </tr>
-        </table>
-
-    - Register **Guardio Insurance Administrative App**
-
-        <table>
-            <tr>
-                <th>Application Name</th>
-                <td>Add a name for the application.</br>
-                    <code>Guardio-Admin-App</code>
-                </td>
-            </tr>
-            <tr>
-                <th>Protocol</th>
-                <td>The authentication protocol to use.</br>
-                    <code>OpenID Connect</code>
-                </td>
-            </tr>
-            <tr>
-                <th>Authorized redirect URLs</th>
-                <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
-                    <code>http://localhost:3001/api/auth/callback/wso2isAdmin</code>
-                    <code>http://localhost:3001</code>
-                </td>
-            </tr>
-        </table>
+    <table>
+        <tr>
+            <th>Application Name</th>
+            <td>Add a name for the application.</br>
+                <code>Guardio-Admin-App</code>
+            </td>
+        </tr>
+        <tr>
+            <th>Protocol</th>
+            <td>The authentication protocol to use.</br>
+                <code>OpenID Connect</code>
+            </td>
+        </tr>
+        <tr>
+            <th>Authorized redirect URLs</th>
+            <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
+                <code>http://localhost:3001/api/auth/callback/wso2isAdmin</code>
+                <code>http://localhost:3001</code>
+            </td>
+        </tr>
+    </table>
 
 ### Step 2: Share the applications with organizations
 
@@ -89,7 +61,7 @@ Share the <b>Guardio-Business-App</b> and <b>Guardio-Admin-App</b> with your org
 
 When the application is shared with at least one organization, **Sign In with SSO** will be added as a login option in the application login screen, which organization users can use to log in.
 
-### Step 3: Configure the applications on {{ product_name }}
+### Step 3: Configure the application on {{ product_name }}
 To configure the registered application on {{ product_name }}:
 
 On the {{ product_name }} Console, go to **Applications** and select the application you registered.
@@ -102,61 +74,31 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
         If you have selected the `Traditional Web Application` template for application creation, the following values should have already been set properly.
         Otherwise, verify and update the values.
 
-    - For **Guardio Insurance Business App**
-
-        <table>
-            <tr>
-                <th>Allowed Grant Types</th>
-                <td> Select the following grant type:
-                    <ul>
-                        <li>Code</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Authorization Redirect URLs</th>
-                <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
-                    <ul>
-                        <li><code>http://localhost:3000/api/auth/callback/wso2is</code></li>
-                        <li><code>http://localhost:3000</code></li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Allowed Origins</th>
-                <td>Enter the allowed origins.</br>
-                    <code>http://localhost:3000</code>
-                </td>
-            </tr>
-        </table>
-
-    - For **Guardio Insurance Administrative App**
-
-        <table>
-            <tr>
-                <th>Allowed Grant Types</th>
-                <td> Select the following grant type:
-                    <ul>
-                        <li>Code</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Authorization Redirect URLs</th>
-                <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
-                    <ul>
-                        <li><code>http://localhost:3001/api/auth/callback/wso2isAdmin</code></li>
-                        <li><code>http://localhost:3001</code></li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Allowed Origins</th>
-                <td>Enter the allowed origins.</br>
-                    <code>http://localhost:3001</code>
-                </td>
-            </tr>
-        </table>
+    <table>
+        <tr>
+            <th>Allowed Grant Types</th>
+            <td> Select the following grant type:
+                <ul>
+                    <li>Code</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Authorization Redirect URLs</th>
+            <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
+                <ul>
+                    <li><code>http://localhost:3001/api/auth/callback/wso2isAdmin</code></li>
+                    <li><code>http://localhost:3001</code></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Allowed Origins</th>
+            <td>Enter the allowed origins.</br>
+                <code>http://localhost:3001</code>
+            </td>
+        </tr>
+    </table>
 
     Take note of the `client_id` and `client_secret` generated for your applications.
 
@@ -172,107 +114,208 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
 
 **API Authorization**
 
-Go to the **API Authorization** tab and authorize the APIs as follows.
+1. Go to the **API Authorization** tab and click on **+ Authorize an API Resource**.
+2. From the **API Resources** drop-down select the following APIs listed under the **Organization APIs** category and add the corresponding **Authorized Scopes** provided below.
 
-- For **Guardio Insurance Business App**
-
-    - No API authorization is required.
-
-- For **Guardio Insurance Administrative App**
-
-    - Select the following APIs under **SYSTEM_ORG** category (organization level APIs).
-
-        <table>
-            <tr>
-                <th>SCIM2 Users API</th>
-                <td>Scopes:
-                    <ul>
-                        <li>View User</li>
-                        <li>List User</li>
-                        <li>Create User</li>
-                        <li>Update User</li>
-                        <li>Delete User</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>SCIM2 Roles API</th>
-                <td>Scopes:</br>
-                    <ul>
-                        <li>View Role</li>
-                        <li>Update Role</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>SCIM2 Groups API</th>
-                <td>Scopes:</br>
-                    <ul>
-                        <li>View Group</li>
-                        <li>Update Group</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Application Management API</th>
-                <td>Scopes:</br>
-                    <ul>
-                        <li>View Application</li>
-                        <li>Update Application</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Identity Provider Management API</th>
-                <td>Scopes:</br>
-                    <ul>
-                        <li>View Identity Provider</li>
-                        <li>Create Identity Provider</li>
-                        <li>Update Identity Provider</li>
-                        <li>Delete Identity Provider</li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
+    <table>
+        <tr>
+            <th>API Resource</th>
+            <th>Authorized Scopes</th>
+        </tr>
+        <tr>
+            <th>SCIM2 Users API</th>
+            <td>Scopes:
+                <ul>
+                    <li>View User</li>
+                    <li>List User</li>
+                    <li>Create User</li>
+                    <li>Update User</li>
+                    <li>Delete User</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>SCIM2 Roles API</th>
+            <td>Scopes:</br>
+                <ul>
+                    <li>View Role</li>
+                    <li>Update Role</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>SCIM2 Groups API</th>
+            <td>Scopes:</br>
+                <ul>
+                    <li>View Group</li>
+                    <li>Update Group</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Application Management API</th>
+            <td>Scopes:</br>
+                <ul>
+                    <li>View Application</li>
+                    <li>Update Application</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Identity Provider Management API</th>
+            <td>Scopes:</br>
+                <ul>
+                    <li>View Identity Provider</li>
+                    <li>Create Identity Provider</li>
+                    <li>Update Identity Provider</li>
+                    <li>Delete Identity Provider</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
 **Role Configurations**
 
 1. Go to the **Roles** tab.
-2. Select **Application** as Role Audience.
-3. Click **+ Create Role** and create roles with following values
+2. Select **Application** as Role Audience and click **+ New Role**.
 
-    - For **Guardio Insurance Business App**
+    ![Create Application Roles - Initial view]({{base_path}}/assets/img/guides/organization/manage-organizations/create-roles.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-        - No roles required.
+3. Enter the following details:
 
-    - For **Guardio Insurance Administrative App**
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Description</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <th>Role Name</th>
+            <td>Enter a unique name to identify the role.</td>
+            <td>GuardioAdministrator</td>
+        </tr>
+        <tr>
+            <th>Select API Resource</th>
+            <td>All the API resources added in step 2 will be listed. Add each API resource and check the box to include all permissions (scopes).</td>
+            <td>
+                <ul>
+                    <li>SCIM2 Users API</li>
+                    <li>SCIM2 Roles API</li>
+                    <li>SCIM2 Groups API</li>
+                    <li>Application Management API</li>
+                    <li>Identity Provider Management API</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
-        <table>
-           <tr>
-               <th>Role Name</th>
-               <td>Guardio Administrator</td>
-           </tr>
-           <tr>
-               <th>Select API Resource</th>
-               <td>Listed all permissions of authorized APIs of the application:
-                   <ul>
-                       <li>SCIM2 Users API</li>
-                       <li>SCIM2 Roles API</li>
-                       <li>SCIM2 Groups API</li>
-                       <li>Application Management API</li>
-                       <li>Identity Provider Management API</li>
-                   </ul>
-               </td>
-           </tr>
-        </table>
+    ![Create Application Roles]({{base_path}}/assets/img/guides/organization/manage-organizations/application-role-api-resources.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Create**.
 
-### Step 4: Set up the client applications
+Upon successful creation the new application role will displayed under **Assigned Roles**.
+
+![Created Application Role]({{base_path}}/assets/img/guides/organization/manage-organizations/assigned-roles.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Set up the business application
+The following guides explain how you can share an application with organizations and allow organization users to log in to it using **SSO**.
+
+Let's use the sample applications, [Guardio Insurance Business application and Guardio Insurance Administrative application](https://github.com/wso2/samples-is/tree/master/b2b-sample){:target="_blank"}, to explore this use case.
+
+### Step 1: Register the business app
+
+Follow the steps given below to register the Guardio Insurance business applications with {{ product_name }}.
+
+1. Login into the organization(root).
+2. [Register Traditional Web Applications]({{base_path}}/guides/applications/register-oidc-web-app/) in your organization (root) with the following settings:
+
+    <table>
+        <tr>
+            <th>Application Name</th>
+            <td>Add a name for the application.</br>
+                <code>Guardio-Business-App</code>
+            </td>
+        </tr>
+        <tr>
+            <th>Protocol</th>
+            <td>The authentication protocol to use.</br>
+                <code>OpenID Connect</code>
+            </td>
+        </tr>
+        <tr>
+            <th>Authorized redirect URLs</th>
+            <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
+                <code>http://localhost:3000/api/auth/callback/wso2is</code>
+                <code>http://localhost:3000</code>
+            </td>
+        </tr>
+    </table>
+
+### Step 2: Share the application with organizations
+
+Share the <b>Guardio-Business-App</b> with your organizations. See instructions on how to [share applications with organizations]({{base_path}}/guides/organization-management/share-applications/).
+
+When the application is shared with at least one organization, **Sign In with SSO** will be added as a login option in the application login screen, which organization users can use to log in.
+
+### Step 3: Configure the application on {{ product_name }}
+To configure the registered application on {{ product_name }}:
+
+On the {{ product_name }} Console, go to **Applications** and select the application you registered.
+
+**Protocol Configurations**
+
+1. Go to the **Protocol** tab of the application, and configure the following values.
+
+    !!!note
+        If you have selected the `Traditional Web Application` template for application creation, the following values should have already been set properly.
+        Otherwise, verify and update the values.
+
+    <table>
+        <tr>
+            <th>Allowed Grant Types</th>
+            <td> Select the following grant type:
+                <ul>
+                    <li>Code</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Authorization Redirect URLs</th>
+            <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
+                <ul>
+                    <li><code>http://localhost:3000/api/auth/callback/wso2is</code></li>
+                    <li><code>http://localhost:3000</code></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Allowed Origins</th>
+            <td>Enter the allowed origins.</br>
+                <code>http://localhost:3000</code>
+            </td>
+        </tr>
+    </table>
+
+    Take note of the `client_id` and `client_secret` generated for your applications.
+
+2. Click **Update** to save your configurations.
+
+**User Attribute Configurations**
+
+1. Go to the **User Attributes** tab of the **Guardio Insurance Business App**.
+
+2. Select `Email`, `First Name`, `Last Name`, and `Username` attributes.
+
+3. Click **Update**.
+
+## Set up the client applications
+
+!!! note "Before you begin"
+    Download the [sample b2b applications](https://github.com/wso2/samples-is/tree/master/b2b-sample){:target="_blank"}.
 
 To set up the client applications:
 
-1. Open the `config.json` file found in the `b2b-sample` folder and update the following parameters:
+1. Navigate to `b2b-samples/config.json` and update the following parameters:
 
     <table>
         <tr>
@@ -404,7 +447,7 @@ As the administrator of **Guardio Insurance**, next you need to set up an organi
 
 ## Try it out
 
-The following guides explain how an organization user who has admin privileges of **Guardio Insurance Administrative App** login and use the administration portal.
+The following sections explain how an organization user who has admin privileges of the **Guardio Insurance Administrative App** logs in and uses the administration portal.
 Also, this guide explains how other organization users consume the **Guardio Insurance Business App**.
 
 ### Try out Sign In with SSO
