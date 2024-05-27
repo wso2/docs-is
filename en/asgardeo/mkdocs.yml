@@ -202,7 +202,8 @@ nav:
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - App-native authentication:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
-            - Configure advanced app-native settings: guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md
+            - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
+            - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
           - Login Flow AI: guides/authentication/ai-loginflow.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md

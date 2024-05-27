@@ -122,4 +122,6 @@ Follow the steps below to enable app-native authentication for your application.
 
 ## What's next?
 
-Go through [Add advanced app-native configurations]({{base_path}}/guides/authentication/app-native-authentication/configure-advanced-app-native-settings/) to learn about advanced features such as how to secure the authentication request and handle Single Sign-On (SSO) with app-native authentication.
+- [Secure app-native authentication flows]({{base_path}}/guides/authentication/app-native-authentication/secure-app-native-authentication-flows/) guides you on how to secure app-native authentication flows.
+
+- [Handle advanced login scenarios]({{base_path}}/guides/authentication/app-native-authentication/handle-advanced-login-scenarios/) guides you on how to handle federated authentication, multi-option login steps and SSO for app-native authentication.

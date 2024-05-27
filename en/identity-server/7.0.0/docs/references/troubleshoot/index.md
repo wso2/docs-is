@@ -4,3 +4,4 @@ Troubleshooting the WSO2 Identity Server (IS) involves identifying and addressin
 
 - [Error catalog]({{base_path}}/references/troubleshoot/error-codes/)
 - [API error catalog]({{base_path}}/references/troubleshoot/api-error-codes/)
+- [App-native error catalog]({{base_path}}/references/troubleshoot/app-native-error-codes/)
