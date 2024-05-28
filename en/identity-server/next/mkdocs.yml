@@ -418,7 +418,7 @@ nav:
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - App-native authentication:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
-            - Configure advanced app-native settings: guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md
+            - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -821,6 +821,7 @@ nav:
       - Troubleshoot: references/troubleshoot/index.md
       - Error catalog: references/troubleshoot/error-codes.md
       - API error catalog: references/troubleshoot/api-error-codes.md
+      - App-native error catalog: references/troubleshoot/app-native-error-codes.md
     - Tutorials:
       - Verifiable credentials with Microsoft Entra Verified ID: references/tutorials/connect-with-ms-entra.md
       - Verifiable credentials with MATTR: references/tutorials/connect-with-mattr.md

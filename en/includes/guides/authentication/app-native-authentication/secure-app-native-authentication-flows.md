@@ -1,15 +1,11 @@
-# Configure advanced app-native settings
+# Secure app-native authentication flows
 
-Follow the guides below to discover advanced configurations for app-native authentication.
+In App-Native Authentication, users input their credentials directly into the application. Hence, malicious applications mimicking the legitimate application may be able to capture user credentials. You can implement the following mechanisms to secure authentication requests.
 
 !!! note "Before you begin"
     [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) to your application.
 
-## Secure the authentication request
-
-In App-Native Authentication, users input their credentials directly into the application. Hence, malicious applications mimicking the legitimate application may be able to capture user credentials. You can implement the following mechanisms to secure authentication requests.
-
-!!! note
+!!! tip
     While these mechanisms are only applicable for the initial authentication request, all subsequent requests are bound to it via a unique identifier (flowId), which prevents alterations during the process.
 
 ### Using client attestation
@@ -116,46 +112,4 @@ for an OAuth confidential client can be used to secure this request. There are n
         ```
 
 
-## Handle Single Sign-On
-Single Sign-On (SSO) for app-native authentication can be handled in the following two ways.
 
-### Cookie based SSO
-
-App-native authentication, just as the OAuth authorization code flow, sets an SSO cookie (commonAuthId). If the cookie is preserved, any subsequent authorization request that occurs with this cookie will automatically perform SSO.
-
-### SessionId based SSO
-
-SessionId parameter based SSO is useful if the implementation does not maintain cookies. The `id_token` that the application receives after the initial authentication request, contains the `isk` claim. When making a subsequent authorization request the `isk` value can be used as the `sessionId` for SSO to occur.
-
-Given below is a sample authorization request using the `isk` value as the `sessionId`
-
-=== "Sample request"
-
-    ```bash
-    curl --location '{{api_base_path}}'
-    --header 'Accept: application/json'
-    --header 'Content-Type: application/x-www-form-urlencoded'
-    --data-urlencode 'client_id=<client_id>'
-    --data-urlencode 'response_type=code'
-    --data-urlencode 'redirect_uri=<redirect_uri>'
-    --data-urlencode 'scope=<scope>'
-    --data-urlencode 'response_mode=direct'
-    --data-urlencode 'sessionId=<isk claim obtained from the id_token>'
-    ```
-
-=== "Example"
-
-    ```bash
-    curl --location '{{api_example_base_path}}'
-    --header 'Accept: application/json'
-    --header 'Content-Type: application/x-www-form-urlencoded'
-    --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
-    --data-urlencode 'response_type=code'
-    --data-urlencode 'redirect_uri=https://example.com/home'
-    --data-urlencode 'scope=openid profile'
-    --data-urlencode 'response_mode=direct'
-    --data-urlencode 'sessionId=77961448dd65199ec519fee4685553fe153e9d7bb80e26e41cb5cedc89a2b731'
-    ```
-
-!!! note
-    If both cookie based SSO and SessionId based SSO are used, cookie based SSO takes precedence.

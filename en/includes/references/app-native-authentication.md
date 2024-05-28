@@ -140,7 +140,8 @@ This section digs deep into the steps involved in app-native authentication and 
         Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
   
     === "Sample payload (`/authn`)"
-        ```json
+
+        ```bash
         {
         "flowId": "{flowId received from the initial response}",
         "selectedAuthenticator": {
@@ -152,6 +153,7 @@ This section digs deep into the steps involved in app-native authentication and 
         }
         ```
     === "Example (`/authn`)"
+
         ``` json
         {
         "flowId": "3bd1f207-e5b5-4b45-8a91-13b0acfb2151",
@@ -166,7 +168,7 @@ This section digs deep into the steps involved in app-native authentication and 
         ```
   
     ??? note "Learn about the parameters"
-        - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial     response forthe auth request.
+        - **flowId**: A unique identifier for the entire authentication flow. This is provided in the initial response forthe auth request.
         - **selectedAuthenticator**: The authenticator selected by the user for authentication.
         - **authenticatorId**: The unique identifier of the authenticator.
         - **params**: The values entered by the user for the parameters required for authentication.
@@ -188,7 +190,7 @@ This section digs deep into the steps involved in app-native authentication and 
 
 The following are several sample scenarios in which users can be logged in using app-native authentication. Each scenario goes through a single or multiple interactions with the `/authn` endpoint based on the number of steps configured for the application.
 
-### Scenario 1: Log in with a username & password
+### Scenario 1: User logs in with a username & password
 
 The application goes through the following steps to complete app-native authentication for a user logging in with username & password.
 
@@ -443,8 +445,8 @@ The application goes through the following steps to complete app-native authenti
     === "Request 2 (`/authn`)"
 
         ```bash
-        curl --location '{{authn_path}}' \
-        --header 'Content-Type: application/json' \
+        curl --location '{{authn_path}}'
+        --header 'Content-Type: application/json'
         --data '{
           "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
           "selectedAuthenticator": {
@@ -466,3 +468,433 @@ The application goes through the following steps to complete app-native authenti
           }
         }
         ```
+
+### Scenario 3: User selects passkey login out of multiple options
+
+If a login step has multiple login options, the application goes through the following steps to complete app-native authentication.
+
+- **Step 1**: Initiate the request with the `/authorize` endpoint.
+
+    !!! note
+        The response contains information on the first authentication step (the only step for this flow).
+
+    === "Request (`/authorize`)"
+
+        ```bash
+        curl --location '{{api_base_path}}'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example.com/home'
+        --data-urlencode 'scope=openid profile'
+        --data-urlencode 'response_mode=direct'
+        ```
+    
+    === "Response (`/authorize`)"
+
+        ```json
+        {
+          "flowId": "59b40c8b-4d2f-426f-a3fa-62d4ed28a169",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+              "stepType": "MULTI_OPTIONS_PROMPT",
+              "authenticators": [
+                  {
+                      "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                      "authenticator": "Username & Password",
+                      "idp": "LOCAL",
+                      "metadata": {
+                          "i18nKey": "authenticator.basic",
+                          "promptType": "USER_PROMPT",
+                          "params": [
+                              {
+                                  "param": "username",
+                                  "type": "STRING",
+                                  "order": 0,
+                                  "i18nKey": "username.param",
+                                  "displayName": "Username",
+                                  "confidential": false
+                              },
+                              {
+                                  "param": "password",
+                                  "type": "STRING",
+                                  "order": 1,
+                                  "i18nKey": "password.param",
+                                  "displayName": "Password",
+                                  "confidential": true
+                              }
+                          ]
+                      },
+                      "requiredParams": [
+                          "username",
+                          "password"
+                      ]
+                  },
+                  {
+                      "authenticatorId": "RklET0F1dGhlbnRpY2F0b3I6TE9DQUw",
+                      "authenticator": "Passkey",
+                      "idp": "LOCAL",
+                      "metadata": {
+                          "i18nKey": "authenticator.Fido"
+                      }
+                  }
+              ]
+          },
+          "links": [
+              {
+                  "name": "authentication",
+                  "href": "{{authn_path}}",
+                  "method": "POST"
+              }
+          ]
+        }
+        ```
+  
+    !!! tip
+        Response for a multi-option login step has some key differences compared to that of a single-option step.
+
+        1. **stepType** parameter returns MULTI_OPTIONS_PROMPT to indicate the availability of multiple   login options.
+
+        2. For login options that require some form of user initiation (such as email/sms OTP, passkey), the **authenticators** array contains only the ID of the authenticator and not the required metadata.
+
+- **Step 2**: The response in this example, returns two login options for the step. i.e. Username & password and passkey. Let's look at how each option works.
+
+    - **Username & Password**: As this option does not need user initiation, the response from step 1 already contains the required metadata. Hence, if the user chooses to enter the username and password, the flow continues similar to as it does in *Scenario 1*.
+
+    - **Passkey**: If a user initates passkey login, the application needs to make an additional request to the `/authn` endpoint to initiate the passkey flow and receive the related metadata.
+  
+    As the user continues with the passkey flow, the application makes a request to the `/authn` endpoint to initiate the passkey flow along with the `flowId` and the `authenticatorId` of the passkey authenticator as follows.
+
+    === "Request (`/authn`)"
+       
+        ```bash
+        curl --location '{{authn_path}}'
+        --header 'Content-Type: application/json'
+        --data '{
+          "flowId": "59b40c8b-4d2f-426f-a3fa-62d4ed28a169",
+          "selectedAuthenticator": {
+            "authenticatorId": "RklET0F1dGhlbnRpY2F0b3I6TE9DQUw"
+            }
+        }'
+        ```
+  
+    === "Response (`/authn`)"
+        
+        ```json
+        {
+          "flowId": "59b40c8b-4d2f-426f-a3fa-62d4ed28a169",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+              {
+                "authenticatorId": "RklET0F1dGhlbnRpY2F0b3I6TE9DQUw",
+                "authenticator": "Passkey",
+                "idp": "LOCAL",
+                "metadata": {
+                  "i18nKey": "authenticator.Fido",
+                  "promptType": "INTERNAL_PROMPT",
+                  "additionalData": {
+                      "challengeData": "eyJyZXF1ZXN0SWQiOiJ1b2hBYnRpSE9TaWJKbjN1Y0ZqdzZ4bFJxT
+                                        zBqSlZ6NWtPdS1oWHRyb3JJIiwicHVibGljS2V5Q3JlZGVudGlhbFJ
+                                        lcXVlc3RPcHRpb25zIjp7ImNoYWxsZW5nZSI6IjkxTGhoSWFBUFVzb
+                                        TNERGllRXJpbDBJN2txdnFINVJldzhKcDctaGd3cEEiLCJycElkIjo
+                                        ibG9jYWxob3N0IiwiZXh0ZW5zaW9ucyI6e319fQ"          
+                  }
+                },
+                "requiredParams": [
+                    "tokenResponse"
+                ]
+              }
+            ]
+          },
+          "links": [
+              {
+                  "name": "authentication",
+                  "href": "{{authn_path}}",
+                  "method": "POST"
+              }
+          ]
+        }
+
+        ```
+
+- **Step 3** - The application goes through the following steps to process passkey authentication.
+    1. First, it extracts the `challengeData` value from the response and base64 decodes it to obtain the json-based challenge payload.
+    2. Then, it invokes the platform APIs with the decoded challenge data.
+    3. The user interacts with the application and presents a passkey.
+    4. Upon successful authentication, the application receives the server response.
+
+- **Step 4** - The application base64 encodes the response and includes it as the **tokenResponse** in the request to the `/authn` endpoint.
+
+    !!! note
+        As this is the only step configured for the application, the `/authn` endpoint returns an authorization code, upon successful authentication.
+
+    === "Request (`/authn`)"
+       
+        ```bash
+        curl --location '{{authn_path}}'
+        --header 'Content-Type: application/json'
+        --data '{
+            "flowId": "59b40c8b-4d2f-426f-a3fa-62d4ed28a169",
+            "selectedAuthenticator": {
+              "authenticatorId": "RklET0F1dGhlbnRpY2F0b3I6TE9DQUw",
+                "params": {
+                  "tokenResponse":
+                  "eyJyZXF1ZXN0SWQiOiJ1b2hBYnRpSE9TaWJKbjN1Y0ZqdzZ4bFJxTzBqSlZ6NWtPdS1oWHRyb
+                  3JJIiwiY3JlZGVudGlhbCI6eyJpZCI6Imc2OGF6eHhWeDZxUnhxQWllbEVwRHotaHVTZyIsInJ
+                  lc3BvbnNlIjp7ImF1dGhlbnRpY2F0b3JEYXRhIjoiU1pZTjVZZ09qR2gwTkJjUFpIWmdXNF9rc
+                  nJtaWhqTEhtVnp6dW9NZGwyTWRBQUFBQUEiLCJjbGllbnREYXRhSlNPTiI6ImV5SjBlWEJsSWp
+                  vaWQyVmlZWFYwYUc0dVoyVjBJaXdpWTJoaGJHeGxibWRsSWpvaU9URk1hR2hKWVVGUVZYTnRNM
+                  FJFYVdWRmNtbHNNRWszYTNGMmNVZzFVbVYzT0Vwd055MW9aM2R3UVNJc0ltOXlhV2RwYmlJNkl
+                  taDBkSEJ6T2k4dmJHOWpZV3hvYjNOME9qZzBORE1pTENKamNtOXpjMDl5YVdkcGJpSTZabUZzY
+                  zJVc0ltOTBhR1Z5WDJ0bGVYTmZZMkZ1WDJKbFgyRmtaR1ZrWDJobGNtVWlPaUprYnlCdWIzUWd
+                  ZMjl0Y0dGeVpTQmpiR2xsYm5SRVlYUmhTbE5QVGlCaFoyRnBibk4wSUdFZ2RHVnRjR3hoZEdVd
+                  UlGTmxaU0JvZEhSd2N6b3ZMMmR2Ynk1bmJDOTVZV0pRWlhnaWZRIiwic2lnbmF0dXJlIjoiTUV
+                  VQ0lRQ0xWSGF2c1FkZHhDVElfQkxFS053WG5rUDZpb3AwcldzRjlEMHJyVFRNdkFJZ0hqM1JhM
+                  W55UmU5ckdWVWcxd3NhbThudExobW5QbWpLbFRJLTZhaDJzSmMiLCJ1c2VySGFuZGxlIjoiTnp
+                  EeU5tOWE0NEFmUktjeXJCQVR6M1RtQVFLaHAwNEQwd3B3Y01iYlE3MCJ9LCJjbGllbnRFeHRlb
+                  nNpb25SZXN1bHRzIjp7fSwidHlwZSI6InB1YmxpYy1rZXkifX0"
+                }
+            }
+        }'
+
+        ```
+  
+    === "Response (`/authn`)"
+        
+        ```json
+        {
+          "flowStatus": "SUCCESS_COMPLETED",
+          "authData": {
+            "code": "7da717f3-b841-32c7-b97f-563a64350090"
+          }
+        }
+        ```
+
+### Scenario 4 : User selects federated authentication (Native mode)
+
+The application goes through the following steps to complete app-native authentication for a federated authentication flow configured in the native mode. For this example, let's assume that the user logs in with Google.
+
+- **Step 1**: Initiate the request with the `/authorize` endpoint.
+
+    !!! note
+        The response contains information on the first authentication step (the only step for this flow).
+
+    === "Request (`/authorize`)"
+
+        ```bash
+        curl --location '{{api_base_path}}'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example.com/home'
+        --data-urlencode 'scope=openid profile'
+        --data-urlencode 'response_mode=direct'
+
+        ```
+    
+    === "Response (`/authorize`)"
+    
+        ```json
+        {
+          "flowId": "f7cab9e5-7a3b-41a9-8e0c-e45d13f22a69",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+              {
+                "authenticatorId": "R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xlTmF0aXZl",
+                "authenticator": "Google",
+                "idp": "GoogleNative",
+                "metadata": {
+                  "i18nKey": "authenticator.google",
+                  "promptType": "INTERNAL_PROMPT",
+                  "additionalData": {
+                      "clientId": "237235402223-d8sedg6c3b68kb1j8.apps.googleusercontent.com",
+                      "nonce": "bbe1a9a4-729d-4293-abb0-6825580efb97",
+                      "scope": "openid email profile"
+                  }
+                },
+                "requiredParams": [
+                    "accessToken",
+                    "idToken"
+                ]
+              }
+            ]
+          },
+          "links": [
+            {
+              "name": "authentication",
+              "href": "{{authn_path}}",
+              "method": "POST"
+            }
+          ]
+        }
+        ```
+
+- **Step 2**: The application should interact with Google, usually through the Google SDK, and authenticate the user. Upon successful authentication, the application receives an access token and an ID token from Google.
+
+    !!! tip "Important"
+        - Pass the scopes received in the initial response to the authorization request made to Google. {{product_name}} expects the attributes provided by these scopes from Google.
+        - The application should include the `nonce` value received from the initial response in the authentication request made to Google. {{product_name}} uses this value to validate the tokens received from Google. 
+
+- **Step 3**: The application does the following when making the authentication request to the `/authn` endpoint.
+
+    - Carry the `flowId` received in the initial response to uniquely identify the login flow.
+    - Use the `clientId` found in the initial response to identify the relevant Google connector.
+    - Include the ID token and the access token received from Google's response.
+
+    !!! note
+        As this is the only step configured for the application, the `/authn` endpoint returns an authorization code, upon successful authentication.
+
+    === "Request (`/authn`)"
+
+        ```bash
+        curl --location '{{authn_path}}' \
+        --header 'Content-Type: application/json' \
+        --data '{
+          "flowId": "f7cab9e5-7a3b-41a9-8e0c-e45d13f22a69",
+          "selectedAuthenticator": {
+            "authenticatorId": "R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xlTmF0aXZl",
+            "params": {
+            "accessToken": 
+            "ya29.a0wedf9e3_Mbj1U3JiGTDmJMbfeaYKdGZbxy-G-MAwefjJiScaJHpZ9kSAC0w
+            X1F5Lhg269dssQtV1kv1LsedzvweasvJgAulsAV8_qFss-fEcCoGqJAVwesdvfQnrQ0171",
+            "idToken":
+            "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUxYjkzYzY0MDE0NGI4NGJkMDViZjI5NmQ2NzI2MmI
+            2YmM2MWE0ODciLCJ0eXAiOiJKV1QifQ.sdgn023ewklsxm  calsdkalskfnmcoakslasjlkxncoealksnfcolaksnfcmoiasklnfcmoalksdfnvcmeoasdlk
+            fjcmoeaskdfjcmoieaskfjcmieaskfmasfje09wr230ewfnmio23jewr0f92p3oewurjf0239e
+            owrjf.T-vCBKhQbGC8-5ig3_9g3MoRvqHsOYRbSxXD3XLMtwuKw0pzkK9OW3vyV1m79SBvXLU5Z6ZvXp
+            ml_3NjTgqJTAUvIV-Dw7HTjkjabdnfc98oi23khwnrfwdss5gsifH_VDIk_-ub7nbYfkP11UBoKFtah
+            9eK8aUnaa4ZFG9-gYS0tgUeDNUm-8X4a6S_577tOlPekvE19oUVgBLZD1w7t7HMmHuBGMzPkfPEDmY2
+            0UVo3GdoKXB4r0tXwRHUQ3rbqhMMf_HqByNnx40w"
+            }
+          }
+        }'
+        ```
+
+    === "Response (`/authn`)"
+
+        ```json
+        {
+          "flowStatus": "SUCCESS_COMPLETED",
+          "authData": {
+          "code": "4d34r89f3-c081-4427-94ea-745a6fc9ae21"
+          }
+        }
+        ```
+
+### Scenario 5: User selects federated authentication (Redirect mode)
+
+The application goes through the following steps to complete app-native authentication for a federated authentication flow configured in the redirect mode. For this example, let's assume that the user logs in with Google.
+
+- **Step 1**: Initiate the request with the `/authorize` endpoint.
+
+    !!! note
+        The response contains information on the first authentication step (the only step for this flow).
+
+    === "Request (`/authorize`)"
+
+        ```bash
+        curl --location '{{api_base_path}}'
+        --header 'Accept: application/json'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka'
+        --data-urlencode 'response_type=code'
+        --data-urlencode 'redirect_uri=https://example.com/home'
+        --data-urlencode 'scope=openid profile'
+        --data-urlencode 'response_mode=direct'
+        ```
+    
+    === "Response (`/authorize`)"
+
+        ```json
+        {
+          "flowId": "0ad36d10-56c3-496b-a326-2e3ba4ff5cd1",
+          "flowStatus": "INCOMPLETE",
+          "flowType": "AUTHENTICATION",
+          "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+              {
+                "authenticatorId": "R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xl",
+                "authenticator": "Google",
+                "idp": "Google",
+                "metadata": {
+                  "i18nKey": "authenticator.google",
+                  "promptType": "REDIRECTION_PROMPT",
+                  "additionalData": {
+                    "state": "b4764a2c-a445-4d52-a2eb-609991fe5b84,OIDC",
+                      "redirectUrl": "https://accounts.google.com/o/oauth2/auth?response_type=code&
+                                      redirect_uri=https%3A%2F%2Fexample-app.com%2Fredirect&state=b4764a2c-a445-4d52-a2eb-609991fe5b84%2COIDC&nonce=ad656495-011c-4fc5-9928-7e5207d869cd&client_id=230622702223-d86c3b0ahu68kg74as23592jtvomb1j8.apps.googleusercontent.com&scope=email+openid+profile"
+                  }
+                },
+                "requiredParams": [
+                    "code",
+                    "state"
+                ]
+              }
+            ]
+          },
+          "links": [
+            {
+              "name": "authentication",
+              "href": "{{authn_path}}",
+              "method": "POST"
+            }
+          ]
+        }
+        ```
+
+- **Step 2**: The application redirects the user to the URL received in the `redirectUrl` parameter of the response. The user will then interact with Google to complete the authentication. After it's complete, Google redirects the user back to the application.
+
+    !!! tip
+        The app can make use of the `state` parameter received in the initial response to correlate Google's response coming back to the app.
+
+- **Step 3**: 
+Carry the `flowId` and `state` parameters received in the initial response and the `code` parameter received in Google's response and request the `/authn` endpoint for authentication.
+
+    !!! note
+        As this is the only step configured for the application, the `/authn` endpoint returns an authorization code, upon successful authentication.
+
+    === "Request (`/authn`)"
+
+        ```bash
+        curl --location '{{authn_path}}'
+        --header 'Content-Type: application/json'
+        --data '{
+            "flowId": "0ad36d10-56c3-496b-a326-2e3ba4ff5cd1",
+            "selectedAuthenticator": {
+            "authenticatorId": "R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xl",
+            "params": {
+              "code": "4/0cZFSWx-2d0MReJMLIt8EQW4kor8d53ZQNMX3eLWtwog",
+              "state": "b4764a2c-a445-4d52-a2eb-609991fe5b84,OIDC"
+            }
+          }
+        }'
+        ```
+
+    
+    === "Response (`/authn`)"
+
+        ```json
+        {
+          "flowStatus": "SUCCESS_COMPLETED",
+          "authData": {
+            "code": "4dae99f3-b981-3527-237f-903a6fc92340"
+          }
+        }
+        ```
+
+  
+  
+
+
+
+
