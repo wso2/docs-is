@@ -1,21 +1,31 @@
 # Invite users from the parent organization
 
-In the business-to-business (B2B) world, sometimes customer or partner organizations may need help with administrative tasks from members of the root organization. There's also a situation where a user from the root organization, who uses a specific application of a customer or partner organization, wants to invite other users from the root organization.
+Customer/Partner organizations may sometimes need help performing administrative tasks from members of the parent organization. Also, members of an organization who are also members of the parent organization might want to bring in more members from the parent organization.
 
-For these situations, we have a feature called "inviting parent organization members." When you invite someone, you can specify which groups they should be a part of. Once they accept the invitation, they'll be added to the organization and placed in the mentioned groups.
-
-To make sure parent organization members have the right level of access, you can give them authorization by assigning their groups to the appropriate roles.
+For such scenarios, {{product_name}} organizations can invite parent organization users to join their organizations. When you invite users, you may assign them to specific groups to provide the right level of permissions. Once the users accept the invitations, they will be added to the organization and be assigned to the specified groups.
 
 ## Prerequisites
 
-Inorder to make an invitation, the username of the parent organization's user should get to know through an offline channel.
+In order to invite users from the parent organization, get to know the usernames of the users through an offline channel.
 
 ## Invite users
 
-If a user of organization (root) needs to invite another root organization's user to a customer/partner organization via {{ product_name }} Console, follow the steps below.
+If a user of the organization with {{ product_name }} Console access needs to invite a user from the parent organization, follow the steps below.
+
+1. Login to your organization using the link `https://{{host_name}}/t/{root-organization-name}/o/{organization-id}{{console_path}}`.
+2. Go to **User Management > Users** and click ** Add user**. From there, select **Invite Parent User**.
+3. Enter the usernames of the user that you want to invite to the organization. You can enter multiple usernames by pressing enter after each username input.
+4. Select the groups that you want to assign to the invited users.
+5. Click **Invite**.
+6. The invited users will receive an email notification with the invitation link which they can click to accept.
+
+    !!! note
+        If you are part of an organization hierarchy, you cannot directly invite users from other ancestors except for your parent organization.
+
+If a user, who is a member of both the organization and parent organization, wishes to invite more members from the parent organization, follow the steps below.
 
 1. Login to your organization (root) on the {{ product_name }} Console.
-2. Go to **Organizations** and select the organization that you want to invite users to.
+2. Go to **Organizations** and select the organization to which you wish to invite users.
 3. [Switch]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations) to that organization.
 4. Go to **User Management > Users** and click **+ Add user**. From there, select **Invite Parent User**.
 
@@ -30,26 +40,12 @@ If a user of organization (root) needs to invite another root organization's use
 
 9. The invited users will receive an email notification with the invitation link. The invited users can accept the invitation by clicking the link.
 
-If a user of the organization who has {{ product_name }} Console access needs to invite a user from the parent organization via {{ product_name }} Console, follow the steps below.
-
-1. Login to your organization space of the {{ product_name }} Console, by accessing `https://{{host_name}}/t/{root-organization-name}/o/{organization-id}{{console_path}}`.
-2. Go to **User Management > Users** and click **+ Add user**. From there, select **Invite Parent User**.
-3. Enter the usernames of the user that you want to invite to the organization. You can enter multiple usernames by pressing enter after each username input.
-4. Select the groups that you want to assign to the invited users.
-5. Click **Invite**.
-6. The invited users will receive an email notification with the invitation link. The invited users can accept the invitation by clicking the link.
-
-    !!!note
-        If you are maintaining an organization hierarchy, you cannot invite users in the ancestor organizations directly. You can only invite users in the parent organization.
 
 ## Accept invitations
 
-1. The invited users will receive an email similar to following with the invitation link.
+1. The invited users will receive an email similar to the following, containing an invitation link valid for 72 hours.
 
-    ![Invitation email]({{base_path}}/assets/img/guides/organization/manage-organizations/parent-org-user-invitation-email.png){: width="600" style="display: block; margin: 0;"}
-
-    !!! info
-          The invitation link is valid for 72 hours.
+    ![Invitation email]({{base_path}}/assets/img/guides/organization/manage-organizations/parent-org-user-invitation-email.png){: width="600" style="display: block; margin: 0; border: 1px solid grey;"}
 
 2. Click the **Accept Invitation** button in the email to accept it.
 3. Once the invitation is accepted, the invited users will be displayed in the {{ product_name }} Console as follows.

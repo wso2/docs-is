@@ -1,4 +1,4 @@
-# Try a B2B use case (with organization)
+# Try a B2B use case
 
 The following guide is a complete end-to-end use case on how to manage B2B (Business-to-Business) applications in {{ product_name }}.
 

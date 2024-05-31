@@ -1,4 +1,4 @@
-# Organization Management APIs
+# Organization APIs
 
 This is the REST API documentation for organizations in Asgardeo.
 
