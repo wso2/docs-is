@@ -274,10 +274,18 @@ false: Set it to false if the user roles are changed by external means, and thos
 </tr>
 <tr class="odd">
 <td>CaseInsensitiveUsername</td>
-<td>properties.CaseInsensitiveUsername</td>
+<td>properties.</br>CaseInsensitiveUsername</td>
 <td>Case Insensitive Username</td>
 <td>Enables the case insensitivity of the user's username. Default value is <code>true</code> for this configuration. 
 <br />Eg: If a user's username is <code>test</code>, that user can also use the username as <code>TEST</code>.
+</td>
+</tr>
+<tr class="even">
+<td>CaseInsensitiveAttributes</td>
+<td>properties.</br>CaseInsensitiveAttributes</td>
+<td>Case Insensitive Attributes</td>
+<td>This is a comma-separated list of case insensitive attributes that are maintained in the user store.<br/>
+<p>Default: not configured</p>
 </td>
 </tr>
 </tbody>
