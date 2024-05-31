@@ -104,15 +104,10 @@ be configured in the
 file as shown below.
 
 ``` toml
-[catalina.valves.valve.properties]
-className = "org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve"
-threshold="600"
+[catalinaValves.CarbonStuckThreadDetectionValve]
+threshold = "600"
 ```
 
--   The `          className         ` is the Java class name used for
-    the implementation. This must be set to
-    `          org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve         `
-    .
 -   The `          threshold         ` gives the minimum duration in
     seconds after which a thread is considered stuck. The default value
     is 600 seconds.
