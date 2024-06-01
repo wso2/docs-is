@@ -688,8 +688,7 @@ performed with different permission levels.
 </tbody>
 </table>
 
-!!! note "Important"
-    ### Securing Admin SOAP Services
+!!! note "Securing Admin SOAP Services"
     `updateCredentialByAdmin`: It's essential not to expose this service to unauthorized users due to the high risk of account takeover attacks. Ensure strict access control measures are in place, limiting access to only highly privileged administrators.
 
     `updateCredential`: These SOAP services are highly susceptible to brute force attacks. Implementing security measures such as rate limiting, employing CAPTCHA mechanisms, and instituting account lockout policies after a set number of consecutive failed login attempts are effective strategies to enhance protection.
