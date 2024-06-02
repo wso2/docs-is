@@ -348,8 +348,7 @@ WSO2 supports the following membership schemes for clustering
                 - `KUBERNETES_SERVICE_PORT_HTTPS`: This is the Kubernetes API https listening port. This must be an 
                 integer value.
                 - `KUBERNETES_API_SERVER_TOKEN`: This is the Kubernetes Master token for authentication (optional), 
-                e.g., `yourkubernetestoken`.
-            
+                e.g., `yourkubernetestoken`.     
         
 2. Configure caching.
 
