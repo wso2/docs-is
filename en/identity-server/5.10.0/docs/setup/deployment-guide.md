@@ -285,7 +285,7 @@ WSO2 supports the following membership schemes for clustering
                 optional and the rest of the above parameters are mandatory. 
 
             3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
-                See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
+                See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
                     Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
                     ```json
                     { "Version": "2012-10-17",
@@ -305,8 +305,13 @@ WSO2 supports the following membership schemes for clustering
                     ```
 
         ??? tip "Click to see the instructions for Kubernetes membership scheme"
-            When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatically discovering these servers. The Kubernetes Membership Scheme supports finding the pod IP 
+            When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatic discovery of these servers. The Kubernetes Membership Scheme supports finding the pod IP 
             addresses using the Kubernetes API.
+
+            !!! note
+                We have updated clustering and adding the `kubernetes-membership-scheme-1.x.x.jar` is not required from update level **5.10.0.302** onwards (Updates 2.0 model). Additionally the usage of `membershipSchemeClassName` and `KUBERNETES_MASTER_SKIP_SSL_VERIFICATION` parameters are removed from the same update level onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+
+            - If not already present, download and copy the [kubernetes-membership-scheme-1.x.x.jar](https://github.com/wso2/kubernetes-common/tags) to the `<IS_HOME>/repository/components/dropins/` directory.
 
             - Configure the `<IS_HOME>/repository/conf/deployment.toml` file with the following configurations.
 
