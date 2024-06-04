@@ -34,7 +34,7 @@ Once you have shared the application with an organization, check if the followin
 
     ![Sign-in-method-options]({{base_path}}/assets/img/guides/organization/manage-organizations/sso-signin-method.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-- The application is available in the organization. To check this, switch to the organization and go to its **Applications** section.
+- Ensure the application is available in the organization. To check this, switch to the organization and verify that the application is listed in the **Applications** section.
 
     ![Shared Guardio Insurance Application]({{base_path}}/assets/img/guides/organization/manage-organizations/fragmented-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
