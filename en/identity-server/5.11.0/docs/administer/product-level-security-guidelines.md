@@ -231,6 +231,23 @@ To change the administrator credentials:
     For more informatoin, see <a href="../../learn/changing-a-password">Changing a Password</a>.
 
 
+## Securing Admin SOAP Services
+
+### Security Threats Awareness
+
+It's crucial to understand the potential security threat associated with admin SOAP services. Unauthorized access to these services can lead to data breaches and system compromises. Administrators should regularly audit and monitor access to these services.
+
+### End-User Interaction Caution
+
+Direct end-user access to admin SOAP services poses significant security risks. Best practices involve restricting access to these services and ensuring only authorized personnel can perform sensitive operations.
+
+### Mitigation of Brute Force Attacks
+
+SOAP services that are highly susceptible to brute-force attacks, can implement security measures such as rate limiting, employing CAPTCHA mechanisms, and instituting account lockout policies after a set number of failed login attempts are effective strategies to enhance protection.
+
+Please refer to the official documentation on [Securing Admin SOAP Services](../../references/permissions-required-to-invoke-admin-services/#securing-admin-soap-services) for more information.
+
+
 ## Access to Management Console
 
 
