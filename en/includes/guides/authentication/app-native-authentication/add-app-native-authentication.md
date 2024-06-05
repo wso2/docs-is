@@ -30,7 +30,7 @@ The following diagram illustrates the high-level steps involved with app-native 
 
     === "Sample request"
     
-        ```java
+        ```bash
         curl --location '{{api_base_path}}'
         --header 'Accept: application/json'
         --header 'Content-Type: application/x-www-form-urlencoded'
@@ -43,7 +43,7 @@ The following diagram illustrates the high-level steps involved with app-native 
         ```
     
     === "Example"
-        ```java
+        ```bash
         curl --location '{{api_example_base_path}}'
         --header 'Accept: application/json'
         --header 'Content-Type: application/x-www-form-urlencoded'
