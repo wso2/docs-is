@@ -1,8 +1,8 @@
 # Add app-native authentication
 
-In traditional applications, login is usually fulfilled by a web browser. This means that the users who attempt to log in to these applications will have to be redirected to a web browser for authentication. This is not ideal if your goal is to provide the user with a seamless login experience or if you have a business need to keep users within the application's environment.
+In traditional applications, login is usually fulfilled by a web browser. This means that the users who attempt to log in to these applications are redirected to a web browser for authentication. This is not ideal if your goal is to provide the user with a seamless login experience or if you have a business need to keep users within the application's environment.
 
-App-Native Authentication takes an API-based approach to let developers implement a secure login experience directly within the application along with features such as Multi-Factor Authentication (MFA), adaptive authentication, and support for federated logins. With app-native authentication users will have a seamless login experience from right within the application without the need to be redirected elsewhere for login.
+App-Native Authentication takes an API-based approach to let developers implement a secure login experience directly within the application along with features such as Multi-Factor Authentication (MFA), adaptive authentication, and support for federated logins. This means users will have a seamless login experience from right within the application without the need for redirection.
 
 
 !!! warning "Limitations of App-Native Authentication"
@@ -13,6 +13,7 @@ App-Native Authentication takes an API-based approach to let developers implemen
         - does not prompt the user for consent to share attributes with the application.
 	    - does not support prompts in adaptive authentication flows.
         - does not facilitate enrolling authenticators (e.g. TOTP authenticator).
+        - only supports silent JIT provisioning.
 
 	- App-native authentication does not support all authentication methods. If you have an unsupported option configured, the login flow will not be initiated.
 	

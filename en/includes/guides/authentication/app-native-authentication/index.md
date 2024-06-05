@@ -7,5 +7,5 @@ This means that users logging into the application do not have to be redirected 
 This section guides you through the following.
 
 1. [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) to your applications.
-2. [Secure app-native authentication flows]({{base_path}}/guides/authentication/app-native-authentication/configure-advanced-app-native-settings/) to improve security of app-native authentication.
-3. [Handle advanced login scenarios]({{base_path}}/guides/authentication/app-native-authentication/handle-advanced-login-scenarios/) to learn how to implement advanced login flows.
+2. [Secure app-native authentication flows]({{base_path}}/guides/authentication/app-native-authentication/configure-advanced-app-native-settings/) with client authentication and attestation.
+3. [Handle advanced login scenarios]({{base_path}}/guides/authentication/app-native-authentication/handle-advanced-login-scenarios/) in login flows.
