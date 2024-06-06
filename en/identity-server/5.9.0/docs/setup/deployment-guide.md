@@ -309,7 +309,7 @@ WSO2 supports the following membership schemes for clustering
 
             !!! note
                 We have updated clustering and adding the `kubernetes-membership-scheme-1.x.x.jar` is not required from update level **5.9.0.145** onwards (Updates 2.0 model). Additionally the usage of 
-                `membershipSchemeClassName` and `KUBERNETES_MASTER_SKIP_SSL_VERIFICATION` parameters are removed from the same update level onwards. 
+                `membershipSchemeClassName`, `KUBERNETES_MASTER_SKIP_SSL_VERIFICATION`, and `USE_DNS` parameters are removed from the same update level onwards. 
                 See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
             - If not already present, download and copy the [kubernetes-membership-scheme-1.x.x.jar](https://github.com/wso2/kubernetes-common/tags) to the `<IS_HOME>/repository/components/dropins/` directory.
@@ -321,8 +321,11 @@ WSO2 supports the following membership schemes for clustering
             | `membershipScheme`  | This is the membership scheme that will be used to manage the membership of nodes in a cluster.   | `kubernetes`    |
             | `local_member_host` | This is the member's hostname or IP address. Set it to the pod's local IP address.   | `172.17.0.2`    |
             | `local_member_port` | This is the TCP port used by this member and through which other members will contact this member. | `4000` |
+            | `membershipSchemeClassName` | This is the class name of the membership scheme. Use `org.wso2.carbon.membership.scheme.kubernetes.KubernetesMembershipScheme`. | `org.wso2.carbon.membership.scheme.kubernetes.KubernetesMembershipScheme` |
             | `KUBERNETES_NAMESPACE`  | This is the Kubernetes Namespace in which the pods are deployed.  | `wso2-is` |
             | `KUBERNETES_SERVICES`   | These are the Kubernetes Services that belong in the cluster. | `wso2is-service` |
+            | `KUBERNETES_MASTER_SKIP_SSL_VERIFICATION` | This defines whether the SSL certificate verification of the Kubernetes API should be carried out or not. | `true` |
+            | `USE_DNS` | This configures the membership scheme to use Kubernetes API for pod IP resolution. Set this to false. | `false` |
             
             ```toml
             [clustering]
@@ -331,8 +334,11 @@ WSO2 supports the following membership schemes for clustering
             local_member_port = "4000"
 
             [clustering.properties]
+            membershipSchemeClassName = "org.wso2.carbon.membership.scheme.kubernetes.KubernetesMembershipScheme"
             KUBERNETES_NAMESPACE = "wso2-is"
             KUBERNETES_SERVICES = "wso2is-service"
+            KUBERNETES_MASTER_SKIP_SSL_VERIFICATION = true
+            USE_DNS = false
             ```
 
             - In order to retrieve the pod IP address information from the Kubernetes api server, the Kubernetes membership scheme uses the pod's service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the role you bind has the following permissions. 
