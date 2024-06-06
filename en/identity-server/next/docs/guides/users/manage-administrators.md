@@ -27,9 +27,9 @@ Administrators of your organization can follow the steps below to add another ad
 9. Click **Add**.
 
 !!! note
-The created administrator will be listed in the **Console Settings** page under the **Administrators** tab.
+    The created administrator will be listed in the **Console Settings** page under the **Administrators** tab.
 
-        ![Administrator page]({{base_path}}/assets/img/guides/users/administrator-list.png){: width="1000"}
+    ![Administrator page]({{base_path}}/assets/img/guides/users/administrator-list.png){: width="1000"}
 
 ## Delete an administrator
 
