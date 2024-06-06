@@ -2,9 +2,6 @@
 
 This guide walks you through the steps of managing an administrator account. If you are the owner or an existing administrator in the organization, you can add new administrators or delete existing administrator accounts.
 
-!!! note
-    You cannot manage the user profiles of other administrators or update their passwords from the WSO2 Identity Server Console. Administrators must [manage their own profiles and passwords]({{base_path}}/guides/your-is/is-self-service/#change-password) using the **My Account** portal.
-
 ## Add an administrator
 
 Administrators of your organization can follow the steps below to add another administrator:
@@ -17,30 +14,22 @@ Administrators of your organization can follow the steps below to add another ad
 
 3. Click **Next**.
 
-4. Add the user to the **admin** group and click **Next**.
+4. Review the summary and click **Finish**.
 
-5. Assign the user **Administrator** role and click **Next**.
+5. On the WSO2 Identity Server Console, go to **Console Settings**.
 
-6. Review the summary and click **Finish**.
+6. Click **Add Administrator**.
 
-    !!! note
-        The created administrator will be listed in the **Console Settings** page under the **Administrators** tab.
+7. Select the relevant user as the **username**.
+
+8. Select the **Administrator** role.
+
+9. Click **Add**.
+
+!!! note
+The created administrator will be listed in the **Console Settings** page under the **Administrators** tab.
 
         ![Administrator page]({{base_path}}/assets/img/guides/users/administrator-list.png){: width="1000"}
-
-## Assign admin privileges to users
-
-You can assign admin privileges to existing users by following the instructions given below.
-
-1. On the WSO2 Identity Server Console, go to **Console Settings**.
-
-2. Click **Add Administrator**.
-
-3. Select the relevant user as the **username**.
-
-4. Select the **Administrator** role.
-
-5. Click **Add**.
 
 ## Delete an administrator
 
