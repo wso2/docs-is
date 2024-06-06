@@ -49,7 +49,7 @@ If you wish to authenticate users in the redirect mode, simply DO NOT configure 
 !!! tip
     Refer to the [sample scenario]({{base_path}}/references/app-native-authentication/#scenario-5-user-selects-federated-authentication-redirect-mode) to see it in action.
 
-## Handle different authenticator types
+## Different authenticator types
 
 There are three types of authenticators you may configure for app-native authentication as defined by the **promptType** parameter corresponding to each authenticator.
 
@@ -59,14 +59,14 @@ There are three types of authenticators you may configure for app-native authent
 
 - `REDIRECTION_PROMPT`: Authenticators that require user be redirected to an external Identity Provider (e.g. login with Google).
 
-The following example shows details of the username & password authenticator which is of type `USER_PROMPT`. 
+{{product_name}} returns the type of authenticator under the metadata of an authenticator. Following is an example for Username & Password. 
 
 ```json
 {
     "flowId": "30dea4e6-bd60-4630-a6c9-d3f9cdd55881",
     ...
     "nextStep": {
-        "stepType": "MULTI_OPTIONS_PROMPT",
+        "stepType": "AUTHENTICATOR_PROMPT",
         "authenticators": [
             {
                 "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
@@ -80,26 +80,28 @@ The following example shows details of the username & password authenticator whi
     ...
 }
 ```
-Based on the number of login options configured for a step, these authenticator types behave differently.
 
-### For single-option login
+## Handle multi-option login
 
-Single-option login steps are indicated by the `stepType` parameter being set to `AUTHENTICATOR_PROMPT` in the response.
+The number of login options a login step has is indicated by the `stepType` parameter in the response.
 
-For steps with a single login option, regardless of the type of authenticator, {{product_name}} responds with the required metadata for that option. Therefore, the application does not have to go through additional steps to 'initiate' authenticators.
+If it is set to:
 
-!!! tip
-    Refer to the [sample scenario]({{base_path}}/references/app-native-authentication/#scenario-1-user-logs-in-with-a-username-password) to see it in action.
+- `AUTHENTICATOR_PROMPT`, it is a login step with a single login option. 
+ 
+- `MULTI_OPTIONS_PROMPT`, it is a login step with multiple login options. 
 
-### For multi-option login
+In app-native authentication, multi-option steps behave slightly differently compared to a single-option step.
 
-Multi-option login steps are indicated by the `stepType` parameter being set to `MULTI_OPTIONS_PROMPT` in the response.
+Some authenticators such as `Username & Password` which only require user input, sends its metadata directly in the response. For other authenticators which require a form of 'initiation', the response does not contain the metadata for the authenticator. 
 
-For a step with multiple login options, authenticators behave the following way based on the type.
+!!! note "Some authenticatiors that require 'initiation'"
 
--  `USER_PROMPT` - The response contains the metadata for such authenticators.
+    - SMS OTP require the {{product_name}} to trigger the authentication.
+    - Login with passkey require {{product_name}} to generate a challenge.
+    - Login with Google (in the redirect mode), require {{product_name}} to construct a redirection URL.
 
-- `REDIRECTION_PROMPT`, `INTERNAL PROMPT` -  The response does not contain the metadata for such authenticators. This is because authenticators of these types require a form of initiation. Therefore, the application should make an additional request to {{product_name}} to 'initiate' the authenticator and receive the metadata.
+If during login, the user selects such an authenticator, the application needs to make an additional request to receive the metadata for the selected authenticator.
 
 !!! tip
     Refer to the [sample scenario]({{base_path}}/references/app-native-authentication/#scenario-3-user-selects-passkey-login-out-of-multiple-options) to see it in action.
