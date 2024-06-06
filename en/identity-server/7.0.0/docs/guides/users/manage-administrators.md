@@ -14,26 +14,22 @@ Administrators of your organization can follow the steps below to add another ad
 
 3. Click **Next**.
 
-4. Add the user to the **admin** group and click **Next**.
+4. Review the summary and click **Finish**.
 
-   !!! note
-        By default, the pre-configured **admin** group has the **Administrator** role assigned to the group.
+5. On the WSO2 Identity Server Console, go to **Console Settings**.
 
-6. Review the summary and click **Finish**.
+6. Click **Add Administrator**.
 
-## Assign admin privileges to users
+7. Select the relevant user as the **username**.
 
-You can assign admin privileges to existing users by following the instructions given below.
+8. Select the **Administrator** role.
 
-1. On the WSO2 Identity Server Console, go to **Console Settings**.
+9. Click **Add**.
 
-2. Click **Add Administrator**.
+!!! note
+The created administrator will be listed in the **Console Settings** page under the **Administrators** tab.
 
-3. Select the relevant user as the **username**.
-
-4. Select the **Administrator** role.
-
-5. Click **Add**.
+        ![Administrator page]({{base_path}}/assets/img/guides/users/administrator-list.png){: width="1000"}
 
 ## Delete an administrator
 
@@ -46,6 +42,3 @@ To delete an administrator:
 2. Click **Delete** for the administrator you want to remove.
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.
-
-!!! note
-    If the Administrator role was assigned via admin group, you need to remove the user from the admin group to revoke the administrator privileges.
