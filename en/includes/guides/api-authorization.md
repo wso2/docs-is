@@ -188,10 +188,12 @@ To select the application audience,
 
     1. If the choice is set to **Application**, all application roles created for the application appear under **Assigned Roles**. Click the **X** icon if you wish to delete an application role. Click **New Role** if you wish to add more roles.
 
-    2. Selecting **Organization** allows applications to consume organization-level APIs.
+    2. Selecting **Organization** allows applications to consume organization-level roles.
 
     !!! warning
         If you switch the role audience to **Organization**, application roles created for the application will be permanently deleted.
+    !!! note
+        In versions prior to update level 25, users were required to manually assign organization-level roles to the application when role audience is organization. This behavior has been changed. Now, all organization-level roles are automatically assigned to the application by default. If you are experiencing the old behavior, please download the updated [product pack](https://wso2.com/identity-server/) to get this updated functionality.
 
 ## Create roles and assign users
 
