@@ -14,9 +14,9 @@ Post-quantum TLS is **disabled** by default on WSO2 Identity Server.
     The artifacts necessary for enabling post-quantum TLS are not available in WSO2 Identity Server 7.0.0 by default. If post-quantum TLS is required, the artifacts should be manually applied.
     To manually apply the the artifacts to WSO2 Identity Server,
 
-    - Download [openssl-tls.sh](https://raw.githubusercontent.com/wso2/product-is/v7.0.0-openssl-tls/modules/distribution/src/bin/openssl-tls.sh) and copy the file to `<IS_HOME>/bin/`.
-    - Download [wso2server.sh](https://raw.githubusercontent.com/wso2/product-is/v7.0.0-openssl-tls/modules/distribution/src/bin/wso2server.sh) and replace the file in `<IS_HOME>/bin/`.
-    - Download [catalina-server.xml.j2](https://raw.githubusercontent.com/wso2/product-is/v7.0.0-openssl-tls/modules/distribution/src/repository/resources/conf/templates/repository/conf/tomcat/catalina-server.xml.j2) and replace the file in `<IS_HOME>/repository/resources/conf/templates/repository/conf/tomcat`.
+    - Download [openssl-tls.sh](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/openssl-tls.sh){:target="_blank"} and copy the file to `<IS_HOME>/bin/`.
+    - Download [wso2server.sh](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/wso2server.sh){:target="_blank"} and replace the file in `<IS_HOME>/bin/`.
+    - Download [catalina-server.xml.j2](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/catalina-server.xml.j2){:target="_blank"} and replace the file in `<IS_HOME>/repository/resources/conf/templates/repository/conf/tomcat`.
 
 ## Build native libraries
 
