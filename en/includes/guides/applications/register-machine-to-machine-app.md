@@ -20,6 +20,9 @@ To register the app:
 
 4. Click **Register** to complete the registration.
 
+5. [Enable the application]({{base_path}}/guides/applications/#enabledisable-an-application) when it is ready for use.
+
+
 ## Authorize the API resources for the app
 
 You can authorize your M2M applications to access APIs and their scopes(permissions) from **API Authorization** tab of the application, as shown below.
