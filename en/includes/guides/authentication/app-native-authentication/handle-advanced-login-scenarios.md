@@ -38,9 +38,19 @@ In the rediect mode, the application redirects the user to the IdP as it does in
     
     Although federated login flows in both [conventional login]({{base_path}}/guides/authentication/federated-login/) and app-native authentication redirect the user to the external IdP, there is a subtle difference between them.
 
-    - In a conventional flow, {{product_name}} redirects the user to the external IdP. Once the authentication is complete, the user is redirected back to {{product_name}} with an authorization code.
+    - **In a conventional flow**, 
+        - {{product_name}} redirects the user to the external IdP. 
+        - User completes authentication in the IdP.
+        - Once the authentication is complete, the user is redirected back to {{product_name}} with an authorization code. (Callback URL is set to {{product_name}})
 
-    - In app-native authentication, {{product_name}} constructs a redirection URL (in which the callback URL is set to the application) and sends it to the application. The application redirects the user to the external IdP using the redirection URL. Once the authentication is complete, the IdP redirects the user back to the application (using the callback URL) with an authorization code. The application then sends the authorization code to {{product_name}}.
+    - **In app-native authentication**, 
+    
+        - Application makes an authorization request (to initiate federated login) to {{product_name}} and sets the callback URL to the application.
+        - {{product_name}} constructs a redirection URL (Callback URL is set to the application) and sends it back to the application.
+        - The application redirects the user to the external IdP using the redirection URL.
+        - User completes authentication in the IdP.
+        - Once the authentication is complete, the IdP redirects the user back to the application (using the callback URL) with an authorization code.
+        - The application then sends the authorization code to {{product_name}}.
 
     App-native authentication handles it this way so as to maintain the API-centric flow between {{product_name}} and the application.
 
