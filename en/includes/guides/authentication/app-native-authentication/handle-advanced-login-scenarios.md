@@ -45,8 +45,8 @@ In the rediect mode, the application redirects the user to the IdP as it does in
 
     - **In app-native authentication**, 
     
-        - Application makes an authorization request (to initiate federated login) to {{product_name}} and sets the callback URL to the application.
-        - {{product_name}} constructs a redirection URL (Callback URL is set to the application) and sends it back to the application.
+        - Application makes an authorization request (to initiate federated login) to {{product_name}} and sets the application URL as the callback URL.
+        - {{product_name}} constructs a redirection URL (in which the callback URL is set to the application) and sends it back to the application.
         - The application redirects the user to the external IdP using the redirection URL.
         - User completes authentication in the IdP.
         - Once the authentication is complete, the IdP redirects the user back to the application (using the callback URL) with an authorization code.
