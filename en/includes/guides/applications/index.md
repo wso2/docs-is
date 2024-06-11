@@ -1,49 +1,72 @@
 # Applications
 
-Regardless of the application type or the development technology, you can connect your application with {{ product_name }} and control the way users log in to your app.
+Registering your application is the first step towards unlocking the full spectrum of features offered by {{product_name}}.
 
-Currently, {{ product_name }} supports integrating {{ no_of_supported_app_types }} application types. When you select an application type, {{ product_name }} provides all the recommended configs in place by default which you can change as needed later.
+## Register an application
 
-## Single-page applications
+{{ product_name }} supports integrating {{ no_of_supported_app_types }} application types. Once registered, {{product_name}} sets the default configurations for your application which can easily be customized according to your requirements.
 
-Single-page applications(SPAs) are apps that run on the browser and do not require a page reload with a change
-in content.
+### Single-page applications
 
-The main advantage of a single-page application is its speed. Since content is dynamically updated as the user interacts with it, the user does not need to wait for page reloads. Users can experience a seamless flow with high responsiveness from the application.
-
-JavaScript frameworks and libraries, such as React, Angular, Vue.js, are some popular technologies adopted to build SPAs.
+Single-page applications (SPAs) run on the browser and dynamically update the content as the user interacts with it. As the user does not need to wait page reloads, users have a seamless experience with high responsiveness. JavaScript frameworks and libraries such as React, Angular and Vue.js are some popular technologies adopted to build SPAs. 
 
 - [Register a single-page application]({{base_path}}/guides/applications/register-single-page-app/)
 
-## Web applications
+### Web applications
 
-Web applications(web apps) are the most common type of applications in use. They are usually hosted on a web server
-and accessed by the browser. Web applications need authentication as they offer functionality dependent on the logged-in user.
+Web applications (web apps) are the most common type of applications in use. They are usually hosted on a web server and accessed by a browser. Web applications require authentication as they offer functionality specific to logged-in users. 
 
 - [Register a web application with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/)
-- [Register a web application  with SAML]({{base_path}}/guides/applications/register-saml-web-app/)
+- [Register a web application with SAML]({{base_path}}/guides/applications/register-saml-web-app/)
 
-## Mobile applications
+### Mobile applications
 
-Mobile applications are apps that run on mobile devices. Android and iOS are some of the popular technologies adopted to build Mobile Applications.
+Mobile applications are apps that run on mobile devices. Android and iOS are some of the popular technologies adopted to build mobile applications.
 
 - [Register a mobile application]({{base_path}}/guides/applications/register-mobile-app/)
 
-## Standard-based applications
+### Standard-based applications
 
-Standard-based applications allow users to configure the application protocol settings (OIDC or SAML) from scratch.
+Standard-based applications allow you to configure the application protocol settings (OIDC or SAML) from scratch. 
 
 - [Register a standard-based application]({{base_path}}/guides/applications/register-standard-based-app)
 
 {% if product_name == "WSO2 Identity Server" %}
-## Machine-to-Machine (M2M) applications
+### Machine-to-Machine (M2M) applications
 
-Machine-to-Machine applications, often referred to as M2M applications, are a category of applications designed for automated communication and interaction between devices or services without direct human intervention.
-Unlike user-centric applications, M2M applications cater to non-interactive scenarios, including command-line tools, daemons, IoT (Internet of Things) devices, or services running on the backend.
+Machine-to-Machine (M2M) applications, are designed for automated communication and interaction between devices or services without direct human intervention. Unlike user-centric applications, M2M applications cater to non-interactive scenarios, including command-line tools, daemons, IoT (Internet of Things) devices, or services running on the backend. 
 
 - [Register a machine-to-machine application]({{base_path}}/guides/applications/register-machine-to-machine-app/)
 {% endif %}
 
-## Self-Service (My Account) portal
+## Enable/Disable an application
 
-Application users can access the My Account portal for self-service needs. Learn more about the [Self-Service portal]({{base_path}}/guides/user-self-service/).
+If your application is undergoing maintenance, or should be made unavailable for users to log in for other reasons, you can disable the application.
+
+!!! note
+    Disabling prevents any new logins to the application, revokes active access tokens and consents provided for the application. Upon re-enabling the application, users must reprovide any consents that they had previously granted.
+
+To disable an application,
+
+1. On the {{product_name}} Console, go to **Applications**.
+
+2. Select the application you wish to disable and go to its **General** tab.
+
+3. Scroll down to the **Danger Zone**. 
+
+4. Under **Disable application**, switch the toggle on to disable the application or off to enable it.
+
+    ![Disable an application]({{base_path}}/assets/img/guides/applications/disable-application.png)
+
+
+## Delete an application
+
+To delete an application,
+
+1. On the {{product_name}} Console, go to **Applications**.
+
+2. Select the application you wish to delete and go to its **General** tab.
+
+3. Scroll down to the **Danger Zone**. 
+
+4. Click Delete under **Delete application** and confirm your action.

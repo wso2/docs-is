@@ -158,7 +158,8 @@ plugins:
         'guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md': 'guides/users/attributes/manage-attributes.md'
         'guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md': 'guides/users/attributes/manage-attributes.md'
 
-        'guides/my-account/my-account.md': 'guides/user-self-service/customer-self-service-portal.md'
+        'guides/my-account/my-account.md': 'guides/user-self-service/configure-self-service-portal.md'
+        'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/my-account/manage-own-profile.md': 'guides/user-self-service/update-profile-info.md'
         'guides/my-account/export-my-user-profile.md': 'guides/user-self-service/export-profile-information.md'
         'guides/my-account/link-own-accounts.md': 'guides/user-self-service/manage-linked-accounts.md'
@@ -512,7 +513,7 @@ nav:
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
-          - User self-service portal: guides/user-self-service/customer-self-service-portal.md
+          - configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
           - Update profile information: guides/user-self-service/update-profile-info.md
           - Change password: guides/user-self-service/change-password.md
           - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
