@@ -45,9 +45,9 @@ In the rediect mode, the application redirects the user to the IdP as it does in
 
     - **In app-native authentication**, 
     
-        - Application makes an authorization request (to initiate federated login) to {{product_name}} and sets the application URL as the callback URL.
-        - {{product_name}} constructs a redirection URL (in which the callback URL is set to the application) and sends it back to the application.
-        - The application redirects the user to the external IdP using the redirection URL.
+        - The application makes an authorization request to {{product_name}} to initiate federated login.
+        - {{product_name}} constructs a redirection URL to the external IdP and sends it back to the application. The redirection URL includes the callback URL sent in the initial request (set to the application URL). This will be the URL that the IdP uses to redirect back the user once the authentication is complete.
+        - The application uses the redirection URL to redirect the user to the external IdP.
         - User completes authentication in the IdP.
         - Once the authentication is complete, the IdP redirects the user back to the application (using the callback URL) with an authorization code.
         - The application then sends the authorization code to {{product_name}}.
@@ -69,26 +69,23 @@ There are three types of authenticators you may configure for app-native authent
 
 - `REDIRECTION_PROMPT`: Authenticators that require user be redirected to an external Identity Provider (e.g. login with Google).
 
-{{product_name}} returns the type of authenticator under the metadata of an authenticator. Following is an example for Username & Password. 
+{{product_name}} returns the type of authenticator under the metadata of an authenticator as follows.
 
 ```json
 {
     "flowId": "30dea4e6-bd60-4630-a6c9-d3f9cdd55881",
     ...
     "nextStep": {
-        "stepType": "AUTHENTICATOR_PROMPT",
+        ...
         "authenticators": [
             {
                 "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-                "authenticator": "Username & Password",
-                "idp": "LOCAL",
+                ...
                 "metadata": {
-                    "i18nKey": "authenticator.basic",
+                    ...
                     "promptType": "USER_PROMPT",
-            ...
-        ]
     ...
-}
+}   
 ```
 
 ## Handle multi-option login
@@ -98,8 +95,40 @@ The number of login options a login step has is indicated by the `stepType` para
 If it is set to:
 
 - `AUTHENTICATOR_PROMPT`, it is a login step with a single login option. 
+
+    The following is part of the response for a single-option login step.
+
+    ```json
+    {
+        "flowId": "30dea4e6-bd60-4630-a6c9-d3f9cdd55881",
+        ...
+        "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+                {
+                    "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                    ...
+        ...
+    }   
+    ```
  
 - `MULTI_OPTIONS_PROMPT`, it is a login step with multiple login options. 
+
+    The following is part of the response for a multi-option login step.
+
+    ```json
+    {
+        "flowId": "30dea4e6-bd60-4630-a6c9-d3f9cdd55881",
+        ...
+        "nextStep": {
+            "stepType": "MULTI_OPTIONS_PROMPT",
+            "authenticators": [
+                {
+                    "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                    ...
+        ...
+    }   
+    ```
 
 In app-native authentication, multi-option steps behave slightly differently compared to a single-option step.
 
