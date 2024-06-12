@@ -158,7 +158,8 @@ plugins:
         'guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md': 'guides/users/attributes/manage-attributes.md'
         'guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md': 'guides/users/attributes/manage-attributes.md'
 
-        'guides/my-account/my-account.md': 'guides/user-self-service/customer-self-service-portal.md'
+        'guides/my-account/my-account.md': 'guides/user-self-service/configure-self-service-portal.md'
+        'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/my-account/manage-own-profile.md': 'guides/user-self-service/update-profile-info.md'
         'guides/my-account/export-my-user-profile.md': 'guides/user-self-service/export-profile-information.md'
         'guides/my-account/link-own-accounts.md': 'guides/user-self-service/manage-linked-accounts.md'
@@ -213,7 +214,6 @@ plugins:
         'deploy/change-to-oracle-rac.md': 'deploy/configure/databases/carbon-database/change-to-oracle-rac.md'
         'deploy/change-to-postgresql.md': 'deploy/configure/databases/carbon-database/change-to-postgresql.md'
         'deploy/change-to-remote-h2.md': 'deploy/configure/databases/carbon-database/change-to-remote-h2.md'
-        'deploy/change-datasource-bpsds.md': 'deploy/configure/databases/carbon-database/change-datasource-bpsds.md'
         'deploy/change-datasource-consent-management.md': 'deploy/configure/databases/carbon-database/change-datasource-consent-management.md'
         'deploy/enable-fips-for-is.md': 'deploy/security/enable-fips-for-is.md'
 
@@ -514,7 +514,7 @@ nav:
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
-          - User self-service portal: guides/user-self-service/customer-self-service-portal.md
+          - Configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
           - Update profile information: guides/user-self-service/update-profile-info.md
           - Change password: guides/user-self-service/change-password.md
           - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
@@ -579,7 +579,6 @@ nav:
             - Change to Oracle RAC: deploy/configure/databases/carbon-database/change-to-oracle-rac.md
             - Change to PostgreSQL: deploy/configure/databases/carbon-database/change-to-postgresql.md
             - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
-            - Change the Default Datasource for BPS: deploy/configure/databases/carbon-database/change-datasource-bpsds.md
             - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
             - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
           - Data Dictionary:
