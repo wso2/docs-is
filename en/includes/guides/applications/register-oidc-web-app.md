@@ -46,7 +46,7 @@ To register the app:
 
 4. Click **Register** to complete the registration.
 
-    !!! note
+    ??? details "Sharing with selected organizations"
         If you have enabled **Allow sharing with organizations** while registering the application, you will see a popup window with the following options.
 
         ![Share the application with organizations]({{base_path}}/assets/img/guides/applications/share-application.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -65,6 +65,8 @@ To register the app:
                 <td>If selected, you can select the organizations you wish to share the application with.</td>
             </tr>
         </table>
+
+5. [Enable the application]({{base_path}}/guides/applications/#enabledisable-an-application) when it is ready for use.
 
 ## Get the client ID and secret
 

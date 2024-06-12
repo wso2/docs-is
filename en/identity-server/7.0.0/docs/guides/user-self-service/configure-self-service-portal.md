@@ -7,4 +7,4 @@ For example, if using the default settings, the link to your My Account portal i
 <code>https://localhost:9443/myaccount</code>" %}
 
 
-{% include "../../../../../includes/guides/user-self-service/customer-self-service-portal.md" %}
+{% include "../../../../../includes/guides/user-self-service/configure-self-service-portal.md" %}

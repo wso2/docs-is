@@ -252,7 +252,7 @@ nav:
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
       - Account management:
         - Account management: guides/user-accounts/index.md
-        - Configure self-service portal: guides/user-accounts/configure-self-service-portal.md
+        - Configure the self-service portal: guides/user-accounts/configure-self-service-portal.md
         - Configure password recovery: guides/user-accounts/password-recovery.md
         - Configure self-registration: guides/user-accounts/configure-self-registration.md
         - Manage account security:
@@ -265,7 +265,7 @@ nav:
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
-          - User self-service portal: guides/user-self-service/customer-self-service-portal.md
+          - Configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
           - Update profile information: guides/user-self-service/update-profile-info.md
           - Change password: guides/user-self-service/change-password.md
           - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md

@@ -55,6 +55,8 @@ If you wish to register your application manually using the Console, follow the 
 
 5. Click **Register** to complete the registration.
 
+6. [Enable the application]({{base_path}}/guides/applications/#enabledisable-an-application) when it is ready for users to log in.
+
 
 ### Use Dynamic Client Registration (DCR)
 
