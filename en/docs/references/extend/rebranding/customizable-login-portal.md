@@ -96,7 +96,7 @@ To add a custom layout to the login page:
 
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/` and follow the instructions provided below:
 
-    1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/body.html) into the `body.html` file.
+    1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/blob/6.1.0/en/docs/assets/code-samples/body.html) into the `body.html` file.
 
     2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/style.css) into the `styles.css` file.
 
@@ -123,9 +123,9 @@ To add a custom layout to the login page:
 
     1. Copy the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts/custom` directory and place it into the `<IDENTITY-APPS-HOME>/components/login-portal-layouts/layouts `directory.
 
-    2. Navigate to `<IDENTITY-APPS-HOME>/components/login-portal-layouts` directory and build the source code using `mvn clean install` command (Build should be succeeded for further steps).
+    2. Navigate to [<IDENTITY-APPS-HOME>](https://github.com/wso2/identity-apps)`/java/components/login-portal-layouts` directory and build the source code using `mvn clean install` command (Build should be succeeded for further steps).
 
-    3. Copy `<IDENTITY-APPS-HOME>/apps/authentication-portal/src/main/webapp/extensions/layouts/custom` folder (Compiled version of the layout source code) and paste it into the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts` directory.
+    3. Copy [<IDENTITY-APPS-HOME>](https://github.com/wso2/identity-apps)`/java/components/login-portal-layouts/target/layouts/custom` folder (Compiled version of the layout source code) and paste it into the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts` directory.
 
 4. Refresh the browser and check out the added custom layout.
 
