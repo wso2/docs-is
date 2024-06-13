@@ -11,7 +11,7 @@ This document provides a list of error codes for the [authentication API]({{base
 |60004|400|Invalid authenticatorId.|Provided authenticatorId \{\{authenticator_id\}\} is invalid.|
 |60005|400|Unable to find application.|Unable to find application for clientId \{\{client_id\}\} in tenant domain \{\{tenant_domain\}\}.|
 |60006|501|Authenticator not supported.|Configured authenticator \{\{authenticator_name\}\} is not supported.|
-|60008|400|App native authentication is not enabled for the application.|App native authentication is not enabled for this application with id \{\{client_id\}\}.|
+|60007|400|App native authentication is not enabled for the application.|App native authentication is not enabled for this application with id \{\{client_id\}\}.|
 |60008|400|Authentication flow time out.|Authentication flow has timed out as it took too long to complete.|
 |60009|400|Invalid flow identifier.|The provided flowId is invalid.|
 |60010|400|Invalid logout request.|Received logout request is invalid.|

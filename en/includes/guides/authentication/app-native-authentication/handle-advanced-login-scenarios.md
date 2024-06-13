@@ -13,13 +13,16 @@ App-native authentication supports federated authentication which enables users 
 
 If the external IdP provides an SDK to handle authentication programmatically, login through this IdP can be handled natively within the application. Once the authentication is complete, the application receives the `access_token` and `id_token` from the IdP which are then sent to {{product_name}}.
 
-If you wish to authenticate users in the native mode, configure a certificate or specify the JWKS endpoint for the created connection. {{product_name}} uses this to validate the tokens received from the IdP
+If you wish to authenticate users in the native mode, configure a trusted token issuer and a certificate (or a JWKS endpoint) in your connection.
 
 To do so,
 
 1. In the {{product_name}} Console, go to **Connections** and select your IdP.
 
-2. In its **General** tab, under **Certificates**, configure either a JWKS Endpoint or upload a certificate.
+2. In its **General** tab, 
+
+    - under **issuer** configure a trusted token issuer.
+    - under **Certificates**, configure either upload a certificate or configure a JWKS Endpoint.
 
 3. Click **Update** to save the changes.
 
@@ -29,55 +32,118 @@ To do so,
 
 ### Redirect mode
 
-In the rediect mode, the application redirects the user to the IdP for authentication. Once it's complete, the application receives an authorization code from the IdP which is then sent back to {{product_name}}. ({{product_name}} users this to make a token call to the IdP.).
+In the rediect mode, the application redirects the user to the IdP as it does in a [conventional federated login flow]({{base_path}}/guides/authentication/federated-login/). However, under the hood, app-native authentication handles federated authentication slightly differently.
 
-If you wish to authenticate users in the redirect mode, simply DO NOT configure a certificate or specify the JWKS endpoint for your IdP.
+!!! note "How is it different?"
+    
+    Although federated login flows in both [conventional login]({{base_path}}/guides/authentication/federated-login/) and app-native authentication redirect the user to the external IdP, there is a subtle difference between them.
+
+    - **In a conventional flow**, 
+        - {{product_name}} redirects the user to the external IdP. 
+        - User completes authentication in the IdP.
+        - Once the authentication is complete, the user is redirected back to {{product_name}} with an authorization code. (Callback URL is set to {{product_name}})
+
+    - **In app-native authentication**, 
+    
+        - The application makes an authorization request to {{product_name}} to initiate federated login.
+        - {{product_name}} constructs a redirection URL to the external IdP and sends it back to the application. The redirection URL includes a callback URL, which is the same callback URL included by the application in the initial authorization request, and it points to the application itself. This will be the URL that the IdP uses to redirect back the user once the authentication is complete.
+        - The application uses the redirection URL to redirect the user to the external IdP.
+        - User completes authentication in the IdP.
+        - Once the authentication is complete, the IdP redirects the user back to the application (using the callback URL) with an authorization code.
+        - The application then sends the authorization code to {{product_name}}.
+
+    App-native authentication handles it this way so as to maintain the API-centric flow between {{product_name}} and the application.
+
+If you wish to authenticate users in the redirect mode, simply DO NOT configure an issuer and a certificate (or a JWKS endpoint) for your IdP.
 
 !!! tip
     Refer to the [sample scenario]({{base_path}}/references/app-native-authentication/#scenario-5-user-selects-federated-authentication-redirect-mode) to see it in action.
 
+## Different authenticator types
 
-## Handle multi-option login
-
-If you have multiple login options configured for a single login step, app-native authentication handles it slightly differently based on the types of authenticators you have configured for the step.
-
-There are three types of authenticators you may configure for app-native authentication. The **promptType** parameter for each authenticator describes the type of authenticator.
-
-```json
-{
-    "flowId": "30dea4e6-bd60-4630-a6c9-d3f9cdd55881",
-    ...
-    "nextStep": {
-        "stepType": "MULTI_OPTIONS_PROMPT",
-        "authenticators": [
-            {
-                "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
-                "authenticator": "Username & Password",
-                "idp": "LOCAL",
-                "metadata": {
-                    "i18nKey": "authenticator.basic",
-                    "promptType": "USER_PROMPT",
-            ...
-        ]
-    ...
-}
-```
+There are three types of authenticators you may configure for app-native authentication as defined by the **promptType** parameter corresponding to each authenticator.
 
 - `USER_PROMPT` - Authenticators that only require user input (e.g. Username & Password).
 
 - `INTERNAL_PROMPT` - Authenticators that require an action to make the option available for the user. (e.g. to enable login with passkey, the app should interact with the platform APIs).
 
 - `REDIRECTION_PROMPT`: Authenticators that require user be redirected to an external Identity Provider (e.g. login with Google).
-    
-If the user selected authenticator is of type,
 
--  **USER_PROMPT** (e.g. username & password) or **REDIRECTION_PROMPT** (e.g. login with Google) -  the API response contains the metadata for the authenticators in the API response. Therefore, the application can collect the credentials from the user and send back to {{product_name}} for authentication.
+{{product_name}} returns the type of authenticator under the metadata of an authenticator as follows.
 
-- **INTERNAL PROMPT** (e.g. SMS OTP), the API response does not contain the metadata for that authenticator in the response. This is because authenticators of this type require a form of initiation. Therefore, the application should make an additional request to {{product_name}} to 'initiate' the authenticator and receive its metadata.
+```json
+{
+    "flowId": "30dea4e6-bd60-4630-a6c9-d3f9cdd55881",
+    ...
+    "nextStep": {
+        ...
+        "authenticators": [
+            {
+                "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                ...
+                "metadata": {
+                    ...
+                    "promptType": "USER_PROMPT",
+    ...
+}   
+```
+
+## Handle multi-option login
+
+The number of login options a login step has is indicated by the `stepType` parameter in the response.
+
+If it is set to:
+
+- `AUTHENTICATOR_PROMPT`, it is a login step with a single login option. 
+
+    The following is part of the response for a single-option login step.
+
+    ```json
+    {
+        "flowId": "30dea4e6-bd60-4630-a6c9-d3f9cdd55881",
+        ...
+        "nextStep": {
+            "stepType": "AUTHENTICATOR_PROMPT",
+            "authenticators": [
+                {
+                    "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                    ...
+        ...
+    }   
+    ```
+ 
+- `MULTI_OPTIONS_PROMPT`, it is a login step with multiple login options. 
+
+    The following is part of the response for a multi-option login step.
+
+    ```json
+    {
+        "flowId": "30dea4e6-bd60-4630-a6c9-d3f9cdd55881",
+        ...
+        "nextStep": {
+            "stepType": "MULTI_OPTIONS_PROMPT",
+            "authenticators": [
+                {
+                    "authenticatorId": "QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM",
+                    ...
+        ...
+    }   
+    ```
+
+In app-native authentication, multi-option steps behave slightly differently compared to a single-option step.
+
+Some authenticators such as `Username & Password` which only require user input, sends its metadata directly in the response. For other authenticators which require a form of 'initiation', the response does not contain the metadata for the authenticator. 
+
+!!! note "Some authenticatiors that require 'initiation'"
+
+    - SMS OTP require the {{product_name}} to trigger the authentication.
+    - Login with passkey require {{product_name}} to generate a challenge.
+    - Login with Google (in the redirect mode), require {{product_name}} to construct a redirection URL.
+
+If during login, the user selects such an authenticator, the application needs to make an additional request to receive the metadata for the selected authenticator.
 
 !!! tip
     Refer to the [sample scenario]({{base_path}}/references/app-native-authentication/#scenario-3-user-selects-passkey-login-out-of-multiple-options) to see it in action.
-
 
 
 ## Handle Single Sign-On
