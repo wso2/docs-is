@@ -1048,7 +1048,7 @@ Contains the authentication step information. It may be a null or invalid step n
 
   <table>
     <tr>
-      <td><code>userAgent.raw</code></td>
+      <td><code>userAgent.rawString</code></td>
       <td>This is the raw userAgent string.</td>
     </tr>
     <tr>
