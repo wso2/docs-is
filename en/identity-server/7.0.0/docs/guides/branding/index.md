@@ -4,6 +4,8 @@ By default, your organization's business applications in {{ product_name }} are 
 
 - [Customize the user interfaces (UIs)]({{base_path}}/guides/branding/configure-ui-branding/) of the user login, sign-up, and account recovery flows.
 
+- [Customize layouts]({{base_path}}/guides/branding/add-custom-layouts/) of the user login, sign-up, and account recovery flows.
+
 - [Customize email notifications]({{base_path}}/guides/branding/customize-email-templates/)
 
 - [Localizations]({{base_path}}/guides/branding/localization/)
