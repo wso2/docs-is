@@ -19,6 +19,9 @@ INHERIT: ../is_common.yml
 # Project information
 site_url: https://is.docs.wso2.com/en/7.0.0
 
+# Repository
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/7.0.0/docs
+
 extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
@@ -307,6 +310,9 @@ plugins:
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
+      enable_creation_date: true
 
 # Navigation
 nav:

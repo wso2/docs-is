@@ -66,7 +66,7 @@ markdown_extensions:
   - markdown.extensions.footnotes
   - admonition
   - markdown.extensions.toc:
-      permalink: true
+      permalink: '#'
       toc_depth: 3
   - pymdownx.arithmatex
   - pymdownx.betterem:

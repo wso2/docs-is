@@ -1,5 +1,6 @@
 ---
 template: templates/no-right-sidebar.html
+pagination: false
 ---
 
 <div class="center-all">
