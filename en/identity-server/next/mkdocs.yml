@@ -305,6 +305,7 @@ plugins:
         'references/extend/errors/customize-authentication-error-messages.md': 'guides/account-configurations/login-security/login-attempts.md'
         'references/extend/errors/error-codes-and-descriptions.md': 'references/troubleshoot/error-codes.md'
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
+        'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
@@ -531,7 +532,7 @@ nav:
       - Organizations:
           - Organizations: guides/organization-management/index.md
           - Set up organizations: guides/organization-management/manage-organizations.md
-          - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
+          - Onboard organization admins: guides/organization-management/onboard-org-admins.md
           - Invite users from parent organization: guides/organization-management/invite-parent-organization-users.md
           - Administration of organizations: guides/organization-management/manage-b2b-administration.md
           - Share applications: guides/organization-management/share-applications.md

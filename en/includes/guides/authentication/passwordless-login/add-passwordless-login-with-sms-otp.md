@@ -174,11 +174,11 @@ Follow these steps to test the SMS OTP login:
 2. Click **Login** to bring up the {{ product_name }} login page.
 3. On the login page, enter your username and click **Continue**.
 
-    ![Sign In with SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/sms-otp/sms-otp-login-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![Sign In with SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/passwordless/sms-otp/sms-otp-login-page.png){: width="400" style="border: 0.3px solid lightgrey;"}
 
     This action redirects you to the SMS OTP page.
 
-    ![SMS OTP submit page]({{base_path}}/assets/img/guides/passwordless/sms-otp/sms-otp-submit-page.png){: width="300" style="border: 0.3px solid lightgrey;"}
+    ![SMS OTP submit page]({{base_path}}/assets/img/guides/passwordless/sms-otp/sms-otp-submit-page.png){: width="400" style="border: 0.3px solid lightgrey;"}
 
 4. Check your phone for the SMS containing the one-time passcode.
 

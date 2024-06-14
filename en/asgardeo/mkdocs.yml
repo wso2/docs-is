@@ -98,13 +98,21 @@ plugins:
   - include-markdown
   - redirects:
       redirect_maps:
-        'references/grant-types-in-asgardeo.md': 'https://wso2.com/asgardeo/docs/references/grant-types/'
-        'guides/users/manage-collaborators.md': 'https://wso2.com/asgardeo/docs/guides/docs/manage-administrators/'
-        'guides/users/manage-customers.md': 'https://wso2.com/asgardeo/docs/guides/docs/manage-users/'
-        'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey/'
+        'references/grant-types-in-asgardeo.md': 'references/grant-types.md'
+        'guides/users/manage-collaborators.md': 'guides/users/manage-administrators.md'
+        'guides/users/manage-customers.md': 'guides/users/manage-users.md'
+        'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey.md'
         'guides/authentication/enterprise-login/index.md': 'guides/authentication/standard-based-login/index.md'
         'guides/authentication/enterprise-login/add-oidc-idp-login.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
+        'guides/asgardeo-events.md': 'guides/monitoring/asgardeo-events.md'
+        'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
+        'guides/authentication/oidc/private-key-jwt-client-auth.md': 'guides/authentication/oidc/private-key-jwt-client-auth.md'
+        'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/ai-loginflow.md'
+        'guides/user-accounts/configure-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
+        'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
+
+
 
 # Navigation
 nav:
@@ -141,7 +149,8 @@ nav:
           - Register web app with SAML: guides/applications/register-saml-web-app.md
           - Register a standard-based app: guides/applications/register-standard-based-app.md
           - Register a mobile app: guides/applications/register-mobile-app.md
-          - Manage application roles: guides/applications/manage-application-roles.md
+          - Register a machine-to-machine app: guides/applications/register-machine-to-machine-app.md
+          - Register a FAPI-compliant app: guides/applications/register-a-fapi-compliant-app.md
       - Authentication:
           - Authentication: guides/authentication/index.md
           - Add login to apps:
@@ -191,6 +200,7 @@ nav:
               - Add access control: guides/authentication/conditional-auth/access-control.md
               - User Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
               - Group-based access: guides/authentication/conditional-auth/group-based-template-access-control.md
+              - Concurrent session-based access: guides/authentication/conditional-auth/concurrent-session-based-template.md
             - Add adaptive MFA:
               - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md
               - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
@@ -201,6 +211,7 @@ nav:
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - App-native authentication:
+            - App-native authentication: guides/authentication/app-native-authentication/index.md
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
             - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
@@ -213,6 +224,7 @@ nav:
             - Implement private key JWT client authentication: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
             - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
+            - Configure token exchange: guides/authentication/configure-token-exchange.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
@@ -222,7 +234,6 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
-          - Configure token exchange: guides/authentication/configure-token-exchange.md
       - API authorization: guides/api-authorization.md
       - Branding:
         - Branding: guides/branding/index.md
@@ -252,7 +263,6 @@ nav:
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
       - Account management:
         - Account management: guides/user-accounts/index.md
-        - Configure the self-service portal: guides/user-accounts/configure-self-service-portal.md
         - Configure password recovery: guides/user-accounts/password-recovery.md
         - Configure self-registration: guides/user-accounts/configure-self-registration.md
         - Manage account security:
@@ -282,7 +292,7 @@ nav:
       - Organizations:
         - Organizations: guides/organization-management/index.md
         - Set up organizations: guides/organization-management/manage-organizations.md
-        - Onboard organization admins: guides/organization-management/onboard-sub-org-admins.md
+        - Onboard organization admins: guides/organization-management/onboard-org-admins.md
         - Invite users from parent organization: guides/organization-management/invite-parent-organization-users.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
         - Share applications: guides/organization-management/share-applications.md

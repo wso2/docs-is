@@ -2,11 +2,6 @@
 
 Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Asgardeo Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent) which enables OIDC-based login and logout.
 
-<div class="border-text">
-  <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="React" width=50><br>
-  <a href="{{base_path}}/get-started/try-samples/qsg-oidc-webapp-java-ee">Try out the sample app</a>
-</div>
-
 ## Prerequisites
 - [Download](https://tomcat.apache.org/tomcat-9.0-doc/) Apache Tomcat 9.x or 8.x in your local environment.
 - [Download](https://maven.apache.org/download.cgi), and [install](https://maven.apache.org/install.html) Apache Maven (3.6.x or higher) as the package manager if you already haven't.

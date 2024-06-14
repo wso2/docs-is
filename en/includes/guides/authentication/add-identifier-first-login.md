@@ -162,8 +162,8 @@ Follow the steps given below.
 
 3. Enter a user identifier that does not end with `@gmail.com`. You will be redirected to the basic authenticator.
 
-    ![Login with a non gmail username to identifier first]({{base_path}}/assets/img/guides/identifier-first/identifier-first-non-gmail.png){: width="600" style="display: block; margin: 0;"}
+    ![Login with a non gmail username to identifier first]({{base_path}}/assets/img/guides/identifier-first/identifier-first-non-gmail.png){: width="800" style="display: block; margin: 0;"}
 
 4. Enter a user identifier that ends with `@gmail.com`. You will be redirected to the Google authenticator.
 
-    ![Login with a non gmail username to identifier first]({{base_path}}/assets/img/guides/identifier-first/identifier-first-gmail.png){: width="600" style="display: block; margin: 0;"}
+    ![Login with a non gmail username to identifier first]({{base_path}}/assets/img/guides/identifier-first/identifier-first-gmail.png){: width="800" style="display: block; margin: 0;"}
