@@ -33,7 +33,7 @@ WSO2 Identity Server provides internationalization support for its web applicati
     1. Open up a browser.
     2. Type the My Account portal URL. (If you are running the server in your localhost, the URL is: [https://localhost:9443/myaccount/](https://localhost:9443/myaccount/)). You will see the login screen having the contents in the configured language.
 
-## Configuring Localization for Recovery Endpoints
+## Configuring localization for recovery endpoints
 
 You can enable localization for `accountrecoveryendpoint` by applying the same steps 1 through 8 in the previous section, for the following location:
 
