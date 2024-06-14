@@ -1,7 +1,7 @@
 {% set product_url_format = "https://localhost:9443" %}
 {% include "../../../../../includes/guides/branding/localization.md" %}
 
-## Configuring Localization for Authentication Endpoints
+## Configuring localization for authentication endpoints
 
 WSO2 Identity Server provides internationalization support for its web applications (such as the authentication endpoint located in the `<IS_HOME>/repository/deployment/server/webapps/` directory). The following steps describe how you can configure this:
 
