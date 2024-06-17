@@ -1,35 +1,37 @@
 # Set up organizations
 
-If you are a business having a B2B (Business-to-Business) platform, you can create organizations to manage other businesses that are partnered with you.
+As a business operating on a B2B (Business-to-Business) model, you can use {{product_name}} organizations to represent your partner businesses. This guide explains how you can manage organizations.
 
-!!! note
-    Explore how you can [structure {{ product_name }} organizations]({{base_path}}/guides/organization-management/) to fit your business model.
+!!! note "Before you begin"
 
-## Prerequisites
+    {% if product_name == "Asgardeo" %}
+    - [Define your primary business organization]({{base_path}}/guides/{{root_org_description_path}}/   manage-root-organizations/).
+    - Ensure you have organization management privileges in the organization (root).
+    {% else %}
+    Ensure you have organization management privileges in the organization (root).
+    {% endif %}
 
-{% if product_name == "Asgardeo" %}
-- You need to first have your [primary business organization]({{base_path}}/guides/{{root_org_description_path}}/manage-root-organizations/) defined.
-{% endif %}
-- To create organizations, you need to have organization management privileges in the organization (root).
 
 ## Create an organization
 
 Follow the steps given below to create an organization.
 
-1. First, login to your organization (root) from the {{ product_name }} Console.
+1. Login to your organization (root) from the {{ product_name }} Console.
 2. On the {{ product_name }} Console, go to **Organization Management** > **Organizations** and click **Add Organization**.
 3. In the **Add Organization** dialog box that opens, enter a name and description for your organization.
 
     ![Create organization]({{base_path}}/assets/img/guides/organization/manage-organizations/add-organization.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Click **Register** to add the new organization. You will now see your organization listed as below.
+4. Click **Register** to add the new organization.
+
+5. View the created organization under **Organizations**.
 
     ![The list of organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-list.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-5. Click **Switch** next to the organization name to switch to the new organization's console.
+5. Click the **Switch** icon next to the organization name to switch to its console.
 
 !!! note
-    As the creator of the organization, you will be assigned to the {{ admin_role_name }} role of the Console application by default, which grants you the following privileges from the console.
+    As the creator of the organization, you will be assigned to the {{ admin_role_name }} role of the Console application by default, which grants you the following privileges.
 
     - Update / Delete users.
     - Create a group and assign users.
@@ -41,11 +43,9 @@ Follow the steps given below to create an organization.
 
 ## Add organization attributes
 
-{{ product_name }} lets you maintain additional data about the organization.
+{{ product_name }} lets you maintain additional data about organizations. For example, you can add information about the organization's location, country, number of employees, etc.
 
-For example, you can add information about the organization's location, country, number of employees, etc.
-
-To add additional attributes of your organization:
+To add additional attributes for your organization:
 
 1. Login to the organization (root) and go to **Organizations**.
 2. Select the organization to which you wish to add additional attributes.
@@ -56,28 +56,28 @@ To add additional attributes of your organization:
 
 5. Click **Update** to save the configurations.
 
-## Switch between organizations
+## Switch to an organization
 
-When you have multiple [organizations]({{base_path}}/guides/organization-management/manage-organizations/) for your primary business organization, you can switch between them on the {{ product_name }} Console by selecting the required organization from the list as shown below.
+You can switch to a child organization on the {{ product_name }} Console by selecting the required organization from the list as shown below.
 
 ![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Build an organization hierarchy
+## Build an organizational hierarchy
 
-Organization admins can create an organization hierarchy by creating new organization for their organizations.
+Organizations can be structured hierarchically in {{product_name}}. This means that if you are a parent organization, you may have multiple child organizations and each child organization can have their own child organizations and so on. This enables you to easily reflect the real-world structure of your business in {{product_name}}.
 
-To create a new organization for your organization:
+If you are a parent organization admin and you wish to create a new organization in your child organization:
 
 1. On the {{ product_name }} Console, [switch to your organization](#switch-between-organizations).
-2. Go to **Organizations** and click **+ Add Organization**.
+2. Go to **Organizations** and click **Add Organization**.
 3. In the **Add Organization** dialog box that opens, enter a unique name and description for your organization.
 4. Click **Register** to add the new organization.
 
 ## Branding for organizations
 
-You can configure UI branding, and email branding for the organization by switching to the organization console on {{ product_name }} Console.
+You can configure UI branding, and email branding for your own organization from the {{ product_name }} Console.
 
-If the organization doesn't have its own branding configurations, it will inherit the UI branding, and email branding configurations from the nearest ancestor organization which has branding configurations.
+If the organization doesn't have its own branding configurations, it will inherit the UI branding, and email branding configurations from the nearest ancestor that has configured branding.
 
 !!! note
     See the instructions on:
@@ -89,9 +89,9 @@ If the organization doesn't have its own branding configurations, it will inheri
 
 You can delete an organization by login into its parent organization.
 
-To delete an organization of your organization (root):
+To delete an organization:
 
-1. Login to your organization (root) on the {{ product_name }} Console.
+1. Login to the parent organization on the {{ product_name }} Console.
 2. Go to **Organizations** to view the list of organizations.
 3. Click the delete icon next to the organization you want to delete.
 
@@ -100,4 +100,4 @@ To delete an organization of your organization (root):
 4. Select the checkbox and confirm your action.
 
 !!! note
-    If the organization you intend to delete has active organizations, you won't be able to proceed with the deletion until you have deleted its child organizations.
+    If the organization you intend to delete has child organizations, you won't be able to proceed until you have deleted them.

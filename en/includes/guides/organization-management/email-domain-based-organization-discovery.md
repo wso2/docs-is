@@ -181,8 +181,8 @@ You need to:
 
 7. Input the email address associated with the username for "Alice" within the "Best Car Mart" organization.
 
-    ![Email input for SSO login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Email input for SSO login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 8. After resolving the organization from the email, Alice will be redirected to the authentication option of `Best Car Mart`.
 
-    ![Best Car Mart login]({{base_path}}/assets/img/guides/organization/manage-organizations/bestcarmart-login.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Best Car Mart login]({{base_path}}/assets/img/guides/organization/manage-organizations/bestcarmart-login.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

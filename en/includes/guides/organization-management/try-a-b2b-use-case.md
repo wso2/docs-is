@@ -1,20 +1,22 @@
-# Try a B2B use case (with organization)
+# Try a B2B use case
 
 The following guide is a complete end-to-end use case on how to manage B2B (Business-to-Business) applications in {{ product_name }}.
 
 ## Scenario
 
-You are an administrator of **Guardio Insurance**, which is a company that provides its services to other business organizations.
+- You are an administrator of Guardio Insurance, a company that provides insurance services to other organizations.
 
-**Best Car Mart** has a partnership with Guardio Insurance to provide life insurance policies to its employees. Guardio Insurance exposes its services to Best Car Mart's employees through its **Guardio Insurance Business App** and **Guardio Insurance Administrative App**.
+- Best Car Mart has a partnership with Guardio Insurance to provide life insurance policies to its employees. 
 
-- **Guardio Insurance Administrative App** - Application that provides administrative capabilities to administrators of **Guardio** customer/partner organizations. The provided administrative capabilities are managing users, assigning roles, configuring an identity provider for the organization, and customizing the login flow of **Guardio Insurance Business App** business application for their organizations.
+- Guardio Insurance shares the following platforms with Best Car Mart.
 
-- **Guardio Insurance Business App** -  Application that provides insurance and claims settlement capabilities for other businesses, so that those businesses can use the software for internal requirements.
+    - Guardio Insurance Administrative App - An administration portal for Guardio customers. Best Car Mart administrators can manage users, assign roles, configure enterprise Identity Providers (IdP), and customize the login flow for their employees using this portal.
 
-The employees of Best Car Mart should be able to log in to the Guardio Insurance applications to consume its services. The administrators of Best Car Mart will manage the users of its organization and also determine the login experience that their users should have.
+    - Guardio Insurance Business App -  An application that provides insurance and claim settlement capabilities for their customers. Best Car Mart employees can access this portal for all their insurance needs.
 
-![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-scenario.png){: width="600" style="display: block; margin: 0;"}
+![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-login-scenario.png){: width="700" style="display: block; margin: 0;"}
+
+The following guides explain how a Guardio Insurance administrator can use {{product_name}} to implement the above scenario.
 
 {% if product_name == "Asgardeo" %}
 ## Prerequisites
@@ -22,16 +24,22 @@ The employees of Best Car Mart should be able to log in to the Guardio Insurance
 You should [create a root organization]({{base_path}}/guides/{{root_org_description_path}}). For this example, we have created a root organization named `Guardio Insurance`.
 {% endif %}
 
-## Set up the administrative app
-The following guides explain how you can share an application with organizations and allow organization users to log in to it using **SSO**.
+## Onboard the organization
 
-Let's use the sample applications, [Guardio Insurance Business application and Guardio Insurance Administrative application](https://github.com/wso2/samples-is/tree/master/b2b-sample){:target="_blank"}, to explore this use case.
+Guardio Insurance, as the service provider, functions as the organization (root). Best Car Mart should be set up as a child organization in Guardio Insurance.
+
+Follow the [create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) guide and create an organization under the name Best Car Mart.
+
+
+## Set up the administrative app
+
+The next step is to set up the applications that needs to be shared with your child organizations. Let's start with the administrative app.
 
 ### Step 1: Register the administrative app
 Follow the steps given below to register the Guardio Insurance administrative applications with {{ product_name }}.
 
-1. Login into the organization(root).
-2. [Register Traditional Web Applications]({{base_path}}/guides/applications/register-oidc-web-app/) in your organization (root) with the following settings:
+1. Login into the organization (root).
+2. [Register a traditional web application]({{base_path}}/guides/applications/register-oidc-web-app/) in your organization (root) with the following settings:
 
     <table>
         <tr>
@@ -57,9 +65,11 @@ Follow the steps given below to register the Guardio Insurance administrative ap
 
 ### Step 2: Share the applications with organizations
 
-Share the <b>Guardio-Business-App</b> and <b>Guardio-Admin-App</b> with your organizations. See instructions on how to [share applications with organizations]({{base_path}}/guides/organization-management/share-applications/).
+Share the <b>Guardio-Admin-App</b> with the Best Car Mart organization. See instructions on how to [share applications with organizations]({{base_path}}/guides/organization-management/share-applications/).
 
-When the application is shared with at least one organization, **Sign In with SSO** will be added as a login option in the application login screen, which organization users can use to log in.
+!!! note
+
+    When the application is shared with at least one organization, **Sign In with SSO** will be added as a login option in the application login screen, which organization users can use to log in.
 
 ### Step 3: Configure the application on {{ product_name }}
 To configure the registered application on {{ product_name }}:
@@ -427,23 +437,6 @@ To set up the client applications:
     npx nx serve business-admin-app
     ```
 
-## Set up the organization
-
-As the administrator of **Guardio Insurance**, next you need to set up an organization.
-
-### Step 1: Onboard the organization
-
-[Create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) on the {{ product_name }} Console with `Best Car Mart` as the **Organization Name**.
-
-### Step 2: Onboard an organization administrator
-
-[Onboard an administrator]({{base_path}}/guides/organization-management/onboard-sub-org-admins/#sales-led-approach) to the Best Car Mart organization using the values given below.
-
-1. Create the user with the following values.
-
-    {{ user_details }}
-
-2. Assign the created user to the **Guardio Administrator** role of the shared **Guardio-Admin-App** application.
 
 ## Try it out
 
@@ -503,3 +496,15 @@ To configure an identity provider for **Guardio Insurance Business App**:
     ![Guardio Business Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/guardio-app-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 7. [Log in to the business application through the SSO option](#try-out-sign-in-with-sso). Now, the users in the configured external IdP can be logged into the application.
+
+### Step 2: Onboard an organization administrator
+
+As an administrator in Guardio insurance, now you can onboard administrators from Best Car Mart to the created organization.
+
+To do so, follow the [Onboard an administrator]({{base_path}}/guides/organization-management/onboard-sub-org-admins/#sales-led-approach) guide and create an administrator using the values given below.
+
+1. Create the user with the following values.
+
+    {{ user_details }}
+
+2. Assign the created user to the **Guardio Administrator** role of the shared **Guardio-Admin-App** application.

@@ -1,6 +1,6 @@
 # Organizations
 
-If you have a business that offers Business-to-Business (B2B) solutions, you need to define the structure of your organization in {{ product_name }} so as to represent all your partner/supplier organizations. You can then share your applications and services with your partner/supplier organizations and allow them to manage their own identity and access management requirements.
+If you are a business that offers Business-to-Business (B2B) solutions, you can represent your partners/suppliers as organizations in {{product_name}}. As the root organization, you can then share applications and services with these organizations and let each organization manage their own identities and access for them.
 
 - All partner/supplier organizations of your business should be set up as organizations of your organization (root) in {{ product_name }}.
 
