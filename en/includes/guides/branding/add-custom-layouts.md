@@ -96,7 +96,7 @@ To create the basic custom layout resources:
 
 To add a custom layout to the login page:
 
-1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/` and follow the instructions provided below:
+1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/carbon.super/` and follow the instructions provided below:
 
     1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/body.html) into the `body.html` file.
 
