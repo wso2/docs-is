@@ -79,6 +79,7 @@ To create the basic custom layout resources:
     └── extensions
         └── layouts
             └── custom
+                └── carbon.super
     ```
 
 3. Navigate to the `webapps/authenticationendpoint/includes/layouts/centered` folder, copy the `body.html` file, and add it to the created `carbon.super` folder.
