@@ -122,7 +122,7 @@ To add a custom layout to the login page:
 
 3. Build the source code.
 
-    1. Copy the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts/custom` directory and place it into the `<IDENTITY-APPS-HOME>/components/login-portal-layouts/layouts `directory.
+    1. Copy the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts/custom` directory and place it into the `<IDENTITY-APPS-HOME>/identity-apps-core/components/login-portal-layouts` directory.
 
     2. Navigate to `<IDENTITY-APPS-HOME>/identity-apps-core/components/login-portal-layouts` directory and build the source code using `mvn clean install` command (Build should be succeeded for further steps).
 
