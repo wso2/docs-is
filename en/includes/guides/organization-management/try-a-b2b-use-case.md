@@ -497,10 +497,6 @@ To configure an identity provider for **Guardio Insurance Business App**:
 
 7. [Log in to the business application through the SSO option](#try-out-sign-in-with-sso). Now, the users in the configured external IdP can be logged into the application.
 
-
-
-
-
 ### Step 2: Onboard an organization administrator
 
 As an administrator in Guardio insurance, now you can onboard administrators from Best Car Mart to the created organization.
