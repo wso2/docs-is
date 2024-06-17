@@ -2,11 +2,6 @@
 
 Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Asgardeo Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent) which enables SAML-based login and logout.
 
-<div class="border-text">
-  <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="React" width=50><br>
-  <a href="{{base_path}}/get-started/try-samples/qsg-saml-webapp-java-ee">Try out the sample app</a>
-</div>
-
 ## Prerequisites
 
 - [Download](https://tomcat.apache.org/tomcat-9.0-doc/) Apache Tomcat 9.x or 8.x in your local environment.

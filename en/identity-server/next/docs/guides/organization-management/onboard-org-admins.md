@@ -23,4 +23,4 @@
 " %}
 
 {% set api_authentication_path = "#oauth-based-authentication" %}
-{% include "../../../../../includes/guides/organization-management/onboard-sub-org-admins.md" %}
+{% include "../../../../../includes/guides/organization-management/onboard-org-admins.md" %}

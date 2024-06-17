@@ -11,9 +11,11 @@
       <img src="../../../assets/img/logo/saml-logo.svg" alt="SAML" />
       <span>SAML</span>
     </a>
+    {% if product_name == "WSO2 Identity Server" %}
     <a href="../../../guides/authentication/standard-based-login/add-ws-federation" class="card square">
       <img src="../../../assets/img/logo/ws-fed.svg" alt="WS-Fed" /></br></br></br>
       <span>WS-Federation</span>
     </a>
+    {% endif %}
   </div>
 </div>

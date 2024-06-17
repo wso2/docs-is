@@ -22,7 +22,7 @@ To generate your login flow with LoginFlow AI:
     !!! note
         If you wish to add connections to your login sequence, make sure to [set up the required connection]({{base_path}}/guides/authentication/#manage-connections). Only existing connections can be incorporated into the login flow.
 
-    ![LoginFLow AI input]({{base_path}}/assets/img/guides//ai-loginflow-input.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![LoginFLow AI input]({{base_path}}/assets/img/guides/ai-loginflow-input.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     The system will analyze the input and generate the appropriate authentication sequence.
 

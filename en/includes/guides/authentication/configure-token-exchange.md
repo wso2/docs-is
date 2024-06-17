@@ -93,14 +93,13 @@ Follow the steps given below.
 1. Obtain the JWT token received from the third-party token issuer.
 2. Execute the following cURL command to exchange the third-party token for an {{ product_name }} token.
 
-    ``` curl
-    curl --location '{{ product_url_format }}/oauth2/token' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
-    --data-urlencode 'subject_token=<jwt_token>
-    ' \
-    --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt' \
-    --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token' \
+    ``` bash
+    curl --location '{{ product_url_format }}/oauth2/token'
+    --header 'Content-Type: application/x-www-form-urlencoded'
+    --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>'
+    --data-urlencode 'subject_token=<jwt_token>'
+    --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt'
+    --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token'
     --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange'
     ```
 

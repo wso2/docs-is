@@ -9,19 +9,19 @@ template: templates/no-right-sidebar.html
   <div class="cards-container">
     <a href="../../get-started/try-samples/qsg-spa-react/" class="card square">
       <img src="../../assets/img/logo/react-logo.svg" alt="React" />
-      <span>React</span>
+      <p>React</p>
     </a>
     <a href="../../get-started/try-samples/qsg-spa-javascript/" class="card square">
       <img src="../../assets/img/logo/javascript-logo.svg" alt="Javascript" />
-      <span>Javascript</span>
+      <p>Javascript</p>
     </a>
     <a href="../../get-started/try-samples/qsg-oidc-webapp-java-ee/" class="card square">
       <img src="../../assets/img/logo/oidc-logo.svg" alt="Java EE - OIDC" />
-      <span>Java EE - OIDC</span>
+      <p>Java EE - OIDC</p>
     </a>
     <a href="../../get-started/try-samples/qsg-saml-webapp-java-ee/" class="card square">
       <img src="../../assets/img/logo/saml-logo.svg" alt="Java EE - SAML" />
-      <span>Java EE - SAML</span>
+      <p>Java EE - SAML</p>
     </a>
   </div>
 </div>
