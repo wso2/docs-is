@@ -81,7 +81,7 @@ To create the basic custom layout resources:
             └── custom
     ```
 
-3. Navigate to the `webapps/authenticationendpoint/includes/layouts/default` folder, copy the `body.html` file, and add it to the created `custom` folder.
+3. Navigate to the `webapps/authenticationendpoint/includes/layouts/centered` folder, copy the `body.html` file, and add it to the created `carbon.super` folder.
 
 4. Create the following files and the folder inside the `custom` folder:
     - `styles.css` file
