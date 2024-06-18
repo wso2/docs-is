@@ -25,21 +25,12 @@ Manage the user attributes you want to share with your application:
 
 ## Manage connections
 
-You can define connections to external identity providers (IdPs) and use them to authenticate users who log in to your applications. This process of authenticating users with external IdPs is known as **identity federation**.
+External Identity Providers (IdPs) can be registered as connections in {{product_name}} and be used to authenticate users who log in to your applications. These IdPs authenticate users and issue identification information using security tokens based on protocols like SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Trust. This process of authenticating users with external IdPs is known as **Identity Federation**.
+
+With identity federation, users can use an existing user account registered to a trusted IdP to login to your applications without having to create accounts for them in {{product_name}}.
 
 !!! note
-    The external identity provider (IdP) authenticates users and issues the identification information by using security tokens like SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Trust.
-
-### Benefits of identity federation
-
-There are several benefits of using identity federation:
-
-- Allows users to sign in with a user account registered with a trusted IdP without having to manually create accounts for them in {{ product_name }}.
-
-    !!! note
-        If the IdP is configured to use [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/), signing in with an external IdP will automatically create a local account for the user in {{ product_name }}.
-
-- Give users the convenience of choosing their existing, trusted IdP when they sign in or sign up to your organization in {{ product_name }}.
+    If the IdP is configured to use [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/), when a user signs in with an external IdP, an account will automatically be created for the user in {{ product_name }}.
 
 ### Supported external IdPs
 
@@ -49,7 +40,5 @@ There are several benefits of using identity federation:
 - [Enterprise identity providers]({{base_path}}/guides/authentication/standard-based-login/)
 
 You can configure any number of external connections for your application via {{ product_name }}.
-
-### Map groups with {{ product_name }}
 
 {% include "../fragments/manage-connection/add-groups.md" %}
