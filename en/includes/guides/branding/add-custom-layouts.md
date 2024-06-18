@@ -182,4 +182,4 @@ Use the following best practices when creating a custom layout:
 
 - Add a prefix for the new CSS classes so that the newly added classes will not conflict with existing classes.
 
-- In your development environment, be sure to add the `cache=false` flag as a parameter in the `<layout:main>` tag of all pages that require testing with the custom layout. Remember to remove this flag in the production environment.
+- In your development environment, be sure to add the `cache="false"` flag as a parameter in the `<layout:main>` tag of all pages that require testing with the custom layout. With this flag in place, the layouts will compile at runtime eliminating the need to manually recompile layouts. Remember to remove this flag in the production environment.
