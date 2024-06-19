@@ -15,7 +15,7 @@ To register the app:
 
 1. On the {{ product_name }} Console, click **Applications**.
 
-    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Select app type]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Click **New Application** and select **Traditional Web Application**.
 3. In the **Name** field, enter a unique name to identify your application.
@@ -71,7 +71,7 @@ To register the app:
 
 If you selected **Manual** in the previous step, you can manually specify the SAML configurations as follows:
 
-![Register SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Register SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 <table>
     <tr>
@@ -101,11 +101,11 @@ There are two ways to use a SAML metadata file during application registration:
 
 - Select the **File Based** option and upload the SAML SP metadata file.
 
-    ![Register SAML app using metadata file]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-metadata-file.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Register SAML app using metadata file]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-metadata-file.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 - Select the **URL Based** option and specify the SAML meta URL, which refers to the endpoint that hosts the SAML metadata file.
 
-    ![Register SAML app using meta url]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-meta-url.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Register SAML app using meta url]({{base_path}}/assets/img/guides/applications/saml-app/register-saml-app-using-meta-url.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## What's next?
 

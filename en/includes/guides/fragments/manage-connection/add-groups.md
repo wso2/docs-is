@@ -1,6 +1,6 @@
-### Configure External Connection's Group attribute
+### Map local attributes to external attributes
 
-To add groups to a connection on {{ product_name }}:
+Follow the steps below to map attributes of {{product_name}} with that of a connection.
 
 1. On the {{ product_name }} Console, go to **Connections**.
 
