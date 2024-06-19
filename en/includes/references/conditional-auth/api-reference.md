@@ -1023,6 +1023,10 @@ Contains the authentication step information. It may be a null or invalid step n
     </tr>
     <tr>
       <td><code>session.id</code></td>
+      <td>The session's id.</td>
+    </tr>
+    <tr>
+      <td><code>session.applications</code></td>
       <td>The list of application objects in the session. See <a href="#application">application</a> for more information.</td>
     </tr>
   </table>
