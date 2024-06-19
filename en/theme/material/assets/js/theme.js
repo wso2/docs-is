@@ -26,6 +26,12 @@ document.addEventListener('click', function(event) {
   }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  if (!window.location.pathname.endsWith('/')) {
+      window.location.pathname += '/';
+  }
+});
+
 // Add a click event listener to the dropdown link
 const dropdownLink = dropdown.querySelector('.dropdown-link');
 
@@ -34,3 +40,5 @@ dropdownLink.addEventListener('click', function(event) {
   event.stopPropagation(); // Prevent the event from propagating to the document
   dropdown.classList.toggle('open'); // Toggle the "open" class
 });
+
+

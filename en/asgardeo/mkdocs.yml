@@ -111,7 +111,6 @@ plugins:
         'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/ai-loginflow.md'
         'guides/user-accounts/configure-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
-        'guides/authentication/social-login/add-google-login.md': 'guides/authentication/social-login/add-google-login/'
         'guides/authentication/social-login/add-microsoft-login.md': 'guides/authentication/social-login/add-microsoft-login/'
         'guides/authentication/social-login/add-github-login.md': 'guides/authentication/social-login/add-github-login/'
         'guides/authentication/social-login/add-facebook-login': 'guides/authentication/social-login/add-facebook-login/'
