@@ -120,6 +120,8 @@ plugins:
         'guides/authentication/mfa/add-iproov-login': 'guides/authentication/mfa/add-iproov-login/'
         'guides/authentication/configure-a-trusted-token-issuer.md': 'guides/authentication/configure-token-exchange.md'
         'guides/authentication/decentralized-login/sign-in-with-ethereum.md': 'guides/authentication/decentralized-login/sign-in-with-ethereum/'
+        'guides/user-accounts/account-security/password-validation.md': 'guides/user-accounts/account-security/password-validation/'
+        'guides/applications/manage-application-roles.md': 'guides/users/manage-roles.md'
 
 
 
@@ -393,8 +395,7 @@ nav:
       - Password recovery API: apis/register-mfa/password-recovery.md
       - TOTP API: apis/register-mfa/totp.md
       - User account associations API: apis/association-management-by-user.md
-    - Administrator APIs:
-      - Export admin information API: apis/administrators/export-admin-info.md
+      - Export user information API: apis/export-user-info.md
   - References:
     - References - Overview: references/index.md
     - Asgardeo user roles: references/user-management/user-roles.md
