@@ -92,6 +92,11 @@ connection_password = "admin"
 ```
 Apart from above properties, WSO2 Identity Server also supports advanced LDAP configurations.
 
+!!! note
+    It is important to map the `Username` and `User ID` claims correctly to the values used for `Username Attribute` and `User ID Attribute` properties in the userstore configuration for user authentication to work properly.<br />
+    Claim mappings can be done through the management console as explained in [edit claim mapping]({{base_path}}/guides/dialects/edit-claim-mapping).
+
+
 ---
 
 ## Properties used in Read-write LDAP userstore manager
