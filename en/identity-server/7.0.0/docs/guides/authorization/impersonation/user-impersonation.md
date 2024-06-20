@@ -106,34 +106,38 @@ You only need to run this command once per deployment.
 
 #### Subscribe to Impersonation API 
 
-1. Select the application and go to API Authorization tab of the application and click authorize API Resource.
+1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Search for User Impersonation under management APIs and subscribe to the application.
+2. Select the application and go to API Authorization tab of the application and click authorize API Resource.
+
+3. Search for User Impersonation under management APIs and subscribe to the application.
 
     ![Api-Authorization-Impersonation]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Create a Role and assign the Impersonation Scope.
+4. Switch to the Roles tab, click on **+ New Role** to create a Role and assign the Impersonation Scope.
 
     ![Role-Creation]({{base_path}}/assets/img/guides/authorization/impersonation/role-creation.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Create a User and assign to the Role.
+5. Create a User and assign to the Role.
 
 !!! note
     To read about subscribing APIs and authorize using Role Based Access Control (RBAC) check [Role-based access control (RBAC)]({{base_path}}/guides/authorization/api-authorization/api-authorization/)
 
 #### Configure Subject token for the application
 
-1. Select the application and go to Protocol tab.
+1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Enable **Token Exchange** grant type.
+2. Select the application and go to Protocol tab.
 
-3. Enable subject token.
+3. Enable **Token Exchange** grant type.
 
-4. [Optional] Configure Subject token expiry time by default it is 3 minutes.
+4. Enable subject token.
+
+5. [Optional] Configure Subject token expiry time by default it is 3 minutes.
 
     ![Subject-Token-Config]({{base_path}}/assets/img/guides/authorization/impersonation/subject-token-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-5. Enable **JWT type** Access token.
+6. Enable **JWT type** Access token.
 
 #### Apply application advanced configuration
 
@@ -162,7 +166,7 @@ https://{{ host_name }}/oauth2/authorize?response_type=code&redirect_uri={redire
 
 **Sample Request**
 ``` bash
-https://localhost:9443/oauth2/authorize?client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a&state=sample_state&scope=internal_user_impersonate%20internal_org_user_mgt_view%20internal_org_user_mgt_list%20internal_user_mgt_delete%20internal_org_user_mgt_create%20internal_login%20internal_user_mgt_delete%20internal_user_mgt_view%20internal_user_mgt_list%20internal_user_mgt_update%20internal_user_mgt_create%20readBooking%0A&redirect_uri=https%3A%2F%2Foauth.pstmn.io%2Fv1%2Fcallback&response_type=id_token%20subject_token&requested_subject=32bc4697-ed0f-4546-8387-dcd6403e7caa&nonce=2131232
+https://localhost:9443/oauth2/authorize?client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a&state=sample_state&scope=internal_user_impersonate%20openid%20internal_org_user_mgt_view%20internal_org_user_mgt_list%20internal_user_mgt_delete%20internal_org_user_mgt_create%20internal_login%20internal_user_mgt_delete%20internal_user_mgt_view%20internal_user_mgt_list%20internal_user_mgt_update%20internal_user_mgt_create%20readBooking%0A&redirect_uri=https%3A%2F%2Foauth.pstmn.io%2Fv1%2Fcallback&response_type=id_token%20subject_token&requested_subject=32bc4697-ed0f-4546-8387-dcd6403e7caa&nonce=2131232
 ```
 
 **Sample Response after sucessful authorization**
@@ -206,7 +210,7 @@ Apart from generic claims, subject token has a claim **may_act**. The **may_act*
 
 ### Acquire Impersonated Access Token
 
-Token exchange grat type can be used exchange subject for an impersonated access token. 
+Token exchange grant type can be used exchange subject for an impersonated access token. 
 
 **Request Format**
 ``` bash
@@ -261,9 +265,9 @@ Apart from generic claims, impersonated access token has a claim **act**. The **
 
 The sub claim is the impersonated user (32bc4697-ed0f-4546-8387-dcd6403e7caa), while act.sub contains the ID of the impersonator (2d931c9d-876e-46c0-9aba-f34501879dfc). Client can detect impersonation using **act** claim  in the access token.
 
-### Email Notification for impersonted user
+### Email Notification for impersonated user
 
-Once impersonted access token obtained, Authorization server will send an email notification to impersonted user.
+Once impersonated access token obtained, Authorization server will send an email notification to impersonated user.
 
 #### Configure Impersonation Email Notification
 
