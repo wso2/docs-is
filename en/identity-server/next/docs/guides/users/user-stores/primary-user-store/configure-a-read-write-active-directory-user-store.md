@@ -58,6 +58,8 @@ If you are configuring a server that has not been started yet, you need to updat
     For `created` and `modified` claims, it is recommended to use the `whenCreated` and `whenChanged` 
     operational attributes.
 
+    For `username` and `userid` claims, the `Username Attribute` and `User ID Attribute` properties configured in the User Store configuration should be used to ensure proper user authentication.
+
 ### Updating configuration for existing servers
 
 !!! warning
@@ -79,6 +81,8 @@ configurations.
     Refer to the [Update Attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) 
     to learn more on updating attribute mappings.  For `created` and `modified` claims, it is recommended to use the 
     `whenCreated` and `whenChanged` operational attributes.
+
+    For `username` and `userid` claims, the `Username Attribute` and `User ID Attribute` properties configured in the User Store configuration should be used to ensure proper user authentication.
 
     !!! Warning
         If you have more than one tenant, you need to change the claim mappings for each tenant before adding the 
