@@ -1,4 +1,4 @@
-name: Broken Link Checker
+name: Broken Link Checker - Asgardeo
 
 on:
   workflow_dispatch:
