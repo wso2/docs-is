@@ -70,8 +70,6 @@ const dropdown = document.querySelector('.md-header__version-select-dropdown');
   });
 })();
 
-
-
 // Add a click event listener to the document
 document.addEventListener('click', function(event) {
   // Check if the click event target is outside of the dropdown
