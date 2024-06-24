@@ -99,7 +99,7 @@ jobs:
             "cards": [
               {
                 "header": {
-                  "title": "Broken Link Checker Report - WSO2 Asgardeo",
+                  "title": "Broken Link Checker Report - Asgardeo",
                   "subtitle": "${SITE_URL}",
                   "imageUrl": "https://biq.cloud/wp-content/uploads/2021/01/broken-link-building.gif"
                 },
