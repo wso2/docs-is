@@ -18,17 +18,65 @@
 
 const dropdown = document.querySelector('.md-header__version-select-dropdown');
 
+(function() {
+  function enforceTrailingSlash(url) {
+      // Append a trailing slash if the URL doesn't end with one
+      if (!url.endsWith('/') && !url.includes('.')) {
+          return url + '/';
+      }
+      return url;
+  }
+
+  // Check and redirect if needed on page load
+  function checkAndRedirect() {
+      var currentUrl = window.location.href;
+      var correctUrl = enforceTrailingSlash(currentUrl);
+      
+      // Redirect only if the current URL is different from the corrected URL
+      if (currentUrl !== correctUrl) {
+          window.location.replace(correctUrl);
+      } else {
+          // Ensure correct base URL for relative paths if already on the correct URL
+          if (currentUrl.endsWith('/')) {
+              var basePath = currentUrl;
+
+              // Update href attributes of CSS files
+              var links = document.getElementsByTagName('link');
+              for (var i = 0; i < links.length; i++) {
+                  var href = links[i].getAttribute('href');
+                  if (href && !href.startsWith('http') && !href.startsWith('//') && !href.startsWith('/')) {
+                      links[i].setAttribute('href', basePath + href);
+                  }
+              }
+
+              // Update src attributes of scripts
+              var scripts = document.getElementsByTagName('script');
+              for (var j = 0; j < scripts.length; j++) {
+                  var src = scripts[j].getAttribute('src');
+                  if (src && !src.startsWith('http') && !src.startsWith('//') && !src.startsWith('/')) {
+                      scripts[j].setAttribute('src', basePath + src);
+                  }
+              }
+          }
+      }
+  }
+
+  // Ensure correct URL format on initial load
+  checkAndRedirect();
+
+  // Handle back/forward navigation
+  window.addEventListener('popstate', function() {
+      checkAndRedirect();
+  });
+})();
+
+
+
 // Add a click event listener to the document
 document.addEventListener('click', function(event) {
   // Check if the click event target is outside of the dropdown
   if (!dropdown.contains(event.target)) {
     dropdown.classList.remove('open'); // Hide the dropdown
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  if (!window.location.pathname.endsWith('/')) {
-      window.location.pathname += '/';
   }
 });
 
