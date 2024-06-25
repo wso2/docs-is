@@ -396,7 +396,6 @@ nav:
               - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
           - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
-          - OpenID Connect Hybrid Flow: guides/authentication/openid-connect-hybrid-flow.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
@@ -438,6 +437,7 @@ nav:
             - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
             - Implement logout: guides/authentication/oidc/add-logout.md
             - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
+            - OpenID Connect Hybrid Flow: guides/authentication/oidc/openid-connect-hybrid-flow.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
