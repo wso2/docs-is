@@ -41,7 +41,7 @@ Follow the steps below to register an application:
 
 Applications must be provided with the relevant permissions to consume API resources. To authorize the application,
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the {{product_name}} Console, go to **Applications**.
 
 2. Select the created application and go to its **API Authorization** tab.
 
@@ -293,7 +293,7 @@ If the organization user is an invited member of the parent organization, the us
 You can now use the access token to access APIs as follows:
 
 ```bash
-curl -X GET https://api.asgardeo.io/t/{organization_name}/o/api/server/v1/applications \
+curl -X GET https://{{ host_name }}/o/api/server/v1/applications \
 -H "accept: application/json" \
 -H "Authorization: Bearer <access_token>"
 ```
