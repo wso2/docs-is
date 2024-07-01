@@ -82,6 +82,7 @@ WSO2 Identity Server supports the following DBMSs.
 				</div>
 				<li>MySQL 5.7</li>
 				<li>Oracle 19c</li>
+				<li>Oracle RAC 19c</li>
 				<li>Oracle 12c</li>
 				<li>Microsoft SQL Server 2019</li>
 				<li>DB2 v11.5</li>
