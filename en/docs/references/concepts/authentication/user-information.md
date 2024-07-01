@@ -16,7 +16,6 @@ The following two options are available to obtain the actual user information.
 By decoding the id_token, a payload with user information such as email (similar to the one shown below) can be obtained.
     
     { 
-        "sub":"alice",
         "at_hash":"cXhWIvIwRbPgT0ALmazJHQ",
         "acr":"urn:mace:incommon:iap:silver",
         "sub":"user1@carbon.super",
