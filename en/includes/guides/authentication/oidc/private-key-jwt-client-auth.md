@@ -33,6 +33,11 @@ Register the client application in {{ product_name }} as follows:
 
     ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
+3. Go to the **Client Authentication** section in the same **Protocol** tab and select **Private Key JWT** as the **Client authentication method** from the dropdown.
+
+    ![client authentication methods]({{base_path}}/assets/img/guides/applications/oidc/client_authentication_methods.png)
+
+
 ## Prepare the private key and public key
 
 Generate a public key and private key for the client application. Follow the steps given below.
@@ -213,14 +218,15 @@ Be sure to replace the following values in the request:
     </tr>
 </table>
 
-## Reuse tokens (optional)
+## Private key JWT Reuse (optional)
 
-The `jti` (JWT ID) claim is a unique identifier included in the JWT token, which controls the reuse of the access token. By default, token reuse is disabled in {{ product_name }}. If you enable token reuse, the `jti` can be reused within its expiration period.
+The `jti` (JWT ID) claim is a unique identifier included in the JWT token, which controls the reuse of the access token. 
 
-To enable token reuse in {{ product_name }}.
+By default, Private key JWT reuse is disabled for an application which uses **Private Key JWT** as the **Client authentication method**. If you enable token reuse, the `jti` can be reused within its expiration period. 
 
-1. On the Asgardeo Console, go to **Login & Registration**.
-2. Under **Login Security**, click **Private Key JWT Client Authentication (OIDC)**.
-3. Switch on the toggle to enable token reuse.
-  
+To enable Private key JWT reuse for an application in {{ product_name }},
+
+1. Go to the **Protocol** tab of the selected application.
+2. Click on the **Private Key JWT Reuse Enabled** checkbox under the **Client authentication method**.
+
     ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png){: width="700" style="border: 0.3px solid lightgrey;"}
