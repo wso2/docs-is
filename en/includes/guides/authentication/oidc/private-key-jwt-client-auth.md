@@ -35,8 +35,7 @@ Register the client application in {{ product_name }} as follows:
 
 3. Go to the **Client Authentication** section in the same **Protocol** tab and select **Private Key JWT** as the **Client authentication method** from the dropdown.
 
-    ![client authentication methods]({{base_path}}/assets/img/guides/applications/oidc/client_authentication_methods.png)
-
+    ![client authentication methods]({{base_path}}/assets/img/guides/applications/oidc/client_authentication_methods.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
 ## Prepare the private key and public key
 
