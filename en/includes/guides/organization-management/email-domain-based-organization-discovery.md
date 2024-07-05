@@ -89,7 +89,7 @@ You need to:
 2. Use the obtained access token to execute the following cURL.
 
     ``` curl
-    curl --location --request POST 'https://{{ host_name }}{{ organization_path_param }}3/api/server/v1/organizations/discovery' \
+    curl --location --request POST 'https://{{ host_name }}{{ organization_path_param }}/api/server/v1/organizations/discovery' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer <access_token>' \
     --data '{
