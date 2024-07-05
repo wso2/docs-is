@@ -127,7 +127,7 @@ You need to:
 2. Use the obtained access token to execute the following cURL.
 
     ``` curl
-    curl --location --request PUT 'https://{{ host_name }}{{ organization_path_param }}/api/server/v1/organizations/<organization-id>/discovery' \
+    curl --location --request PUT 'https://{{ host_name }}{{ parent_organization_path_param }}/api/server/v1/organizations/<organization-id>/discovery' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer <access_token>' \
     --data '{
