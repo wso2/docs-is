@@ -45,7 +45,7 @@ Applications must be provided with the relevant permissions to consume API resou
 
 2. Select the created application and go to its **API Authorization** tab.
 
-3. Click **Authorize an API Resource** and provide the relevant details of the API resource. Repeat the step for the required APIs
+3. Click **Authorize an API Resource** and provide the relevant details of the API resource along with the scopes. Repeat the step for the required APIs.
 
     !!! tip
         Find the relevant scopes from the API definition of organization APIs.
@@ -53,31 +53,38 @@ Applications must be provided with the relevant permissions to consume API resou
 4. Click **Finish** to save the changes.
 
 !!! note
+
     For more information, refer to [API authorization]({{base_path}}/guides/api-authorization/).
 
-## Step 3: Associate roles with an application
+## Step 3: Create roles and associate them with the application
 
-Two requirements must fulfill for a logged in user to receive an access token with the correct permissions.
+Depending on the role audience of the application, applications may be associated with roles made for the entire organization or tailored specifically for the application. Follow the steps below to create a role and associate it with the application.
 
-- The user must be assigned to a role that is associated with the application.
-- The role should permit the user to access the requested API resources and perform the requested actions.
+1. Create an application role or an organization role that authorizes organization APIs. Learn how to do so in [manage roles]({{base_path}}/guides/users/manage-roles/).
 
-Applications may be associated with roles made for the organization, or tailored specifically for the application. To associate roles with an application,
+2. Go to the **Roles** tab of the created application.
 
-1. Go to the **Roles** tab of the created application.
-2. Do one of the following:
-    - Select **Role Audience** as **Application** and under **Assigned Roles**, select from the roles created specifically for the application.
-    - Select **Role Audience** as **Organization** to associate all organization-level roles with the application.
-3. Click **Update** to save the changes.
+3. Depending on where you created the role, do one of the following:
+    - If you created an application role, select **Role Audience** as **Application** and under **Assigned Roles**, select the created role.
+    - If you created an organization role, select **Role Audience** as **Organization** to associate all organization-level roles including the created role.
 
-!!! note
-    - Learn more about roles in [manage roles]({{base_path}}/guides/users/manage-roles/).
-    - Learn more about API authorization in [API authorization with RBAC]({{base_path}}/guides/api-authorization/).
+4. Click **Update** to save the changes.
 
+## Step 4: Share the application with organizations
 
-## Step 4: Get the authorization code
+The application should be shared with organizations in order for the associated roles to be available in the organization.
 
-Your application must initiate a login request to the authorization endpoint of {{ product_name }}. After redirecting to {{ product_name }}, the user should be prompted with a login page if the user is not authenticated.
+Follow the guide to [share applications]({{base_path}}/guides/organization-management/share-applications/) with organizations.
+
+## Step 5: Assign users to the roles
+
+Once an application is shared to an organization, the associated roles will also be shared with the organization. Organization admins can then selectively assign organization users to these roles.
+
+Follow the guide to [assign users to roles]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role/).
+
+## Step 6: Get the authorization code
+
+Your application must initiate a login request to the authorization endpoint of {{ product_name }}. Any user who is not authenticated will be prompted with a login page.
 
 === "Request format"
 
@@ -121,14 +128,21 @@ Your application must initiate a login request to the authorization endpoint of 
   </tr>
 </table>
 
-## Step 5: Get access tokens
+## Step 7: Get access tokens
 
-After receiving the authorization code, the application has to exchange it to get the `id_token` and the `access_token`. The method of obtaining these tokens differs depending on the type of user which can be one of the following.
+After receiving the authorization code, the application has to exchange it to get the `id_token` and the `access_token`. The method of obtaining these tokens differs depending on the type of user.
 
-  - A user that was created within the organization.
-  - A parent organization user that was invited to join the organization.
+!!! note "Before you begin"
 
-### For a created user
+    For a user to receive access tokens with the right permissions, the following conditions should be fulfilled with steps 2-5.
+
+    - The application is authorized to consume the requested scopes.
+
+    - The role associated with the application is authorized to consume the requested scopes.
+
+    - The organization user is assigned to the above role authorized to consume the requested scopes.
+
+### For a user managed by the organization
 
 A user created within the organization may use organization SSO to log in to the application. The access token received in this case can be directly used to access organization APIs.
 
@@ -180,11 +194,11 @@ This token request has the following parameters:
 </table>
 
 
-### For an invited user
+### For an invited user managed by the parent organization.
 
-If the organization user is an invited member of the parent organization, the user logs into the application using the credentials of the parent organization. The access token obtained in this process cannot be directly used to access organization APIs. It has to be exchanged using the [organization switch grant]({{base_path}}/references/grant-types/#organization-switch-grant). Let's see how this works:
+If the organization user is an invited user of the parent organization, the user logs into the application using the credentials of the parent organization. The access token obtained in this process cannot be directly used to access organization APIs. It has to be exchanged using the [organization switch grant]({{base_path}}/references/grant-types/#organization-switch-grant) to a token usable within the organization. Let's see how this works:
 
-1. Initiate the token request similar to that of a created user as above.
+1. Initiate the token request using the following command.
 
     === "Token request format"
 
@@ -231,7 +245,7 @@ If the organization user is an invited member of the parent organization, the us
       </tr>
     </table>
 
-2. Exchange the user's access token obtained by logging into the parent organization using the following command.
+2. Once the user successfully obtains a token by logging into the parent organization, use the following command to exchange it to a token usable within the organization.
 
     === "Token exchange request format"
 
@@ -288,7 +302,7 @@ If the organization user is an invited member of the parent organization, the us
         </tr>
     </table>
 
-## Step 6: Access the API
+## Step 8: Access the API
 
 You can now use the access token to access APIs as follows:
 
