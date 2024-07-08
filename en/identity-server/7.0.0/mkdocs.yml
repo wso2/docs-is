@@ -305,6 +305,8 @@ plugins:
         'references/extend/errors/error-codes-and-descriptions.md': 'references/troubleshoot/error-codes.md'
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
+        'guides/organization-management/onboard-org-admins.md': 'guides/organization-management/onboard-org-admins/index.md'
+        'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
