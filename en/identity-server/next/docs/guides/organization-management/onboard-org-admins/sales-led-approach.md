@@ -1,6 +1,3 @@
-{% set admin_role_name = "admin" %}
-{% set host_name = "localhost:9443" %}
-{% set scim_schema_for_wso2_custom_claims = "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" %}
 {% set admin_user_details = "
     <table>
         <tr>
@@ -22,5 +19,4 @@
     </table>
 " %}
 
-{% set api_authentication_path = "#oauth-based-authentication" %}
-{% include "../../../../../includes/guides/organization-management/onboard-org-admins.md" %}
+{% include "../../../../../../includes/guides/organization-management/onboard-org-admins/sales-led-approach.md" %}
