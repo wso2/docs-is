@@ -8,7 +8,12 @@ The instructions on this page explain how plain text passwords in configuration 
 
 ## Encrypt passwords
 
-To encrypt passwords on the WSO2 Identity Server:
+To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric or symmetric encryption.
+
+### Using Asymmetric Encryption
+
+!!! info
+    The key pair used for asymmetric encryption is taken from the internal keystore. If the internal keystore is not specified, the primary keystore will be used instead.
 
 1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
 
@@ -27,6 +32,55 @@ To encrypt passwords on the WSO2 Identity Server:
     - On Windows: `ciphertool.bat -Dconfigure`
 
 3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
+
+    ```toml
+    [secrets]
+    admin_password = "GeNld2aZkydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTag7w4dG6B3JK5GxeX9bhsmZCBFozlPdWBT6Jvy"
+    keystore_password = "brClL1SOHdezXTvBz1/76b/DnHQgxjNGtzhaBr3DnhHw32NWY484abHLREVyMoNJkER5lQUPbqeaMpR5lQUPbqeaMp"
+    key_password = "CFAaISaI19dHLApEM3usNSDXXdhdicHbVncrVwuLDJp6Rhp8B3Qy3PnBhcJsryTqR/EPwdLnXboNJkER"
+    truststrore_password = "DKnecEw+mJ8JhTUrqxpTZxwXrOdtcoAl2hD3LHtH+yJXNogumdSALfaqrMaknBzJq4SF3sY0RvwkMxWhnZ+BhIsko"
+    "log4j.appender.LOGEVENT.password" = "kydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTagXTvBz1/76b/DnHQgxjNhD3LHtH+yJXNowecEEC"
+    ```
+
+### Using Symmetric Encryption
+
+!!! note
+    To support symmetric encryption, you must specify a PKCS12 type keystore as the internal keystore.
+
+1. Ensure that the shared secret for symmetric encryption is added to the internal keystore . To create a PKCS12 keystore with an AES key or add an existing key to the keystore, use the following command:
+
+    ```bash
+    keytool -genseckey -keystore internal.p12 -storetype pkcs12 -storepass password -keyalg aes -keysize 256 -alias new_alias -keypass password
+    ```
+
+2. Update the alias to the new alias in the deployment.toml for the internal keystore configuration.
+
+    ```toml
+    [keystore.internal]
+    file_name = "internal.p12"
+    type = "PKCS12"
+    alias = "new_alias"
+    password = "$secret{keystore_password}"
+    key_password = "$secret{keystore_password}"
+    ```
+
+3. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
+
+    ```toml
+    [secrets]
+    admin_password = "[password_1]"
+    keystore_password = "[password_2]"
+    key_password = "[password_3]"
+    truststrore_password = "[password_4]"
+    "log4j.appender.LOGEVENT.password" = "[password_5]"
+    ```
+
+4. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure -Dsymmetric` command with the cipher tool script as shown below).
+
+    - On Linux: `./ciphertool.sh -Dconfigure -Dsymmetric`
+    - On Windows: `ciphertool.bat -Dconfigure -Dsymmetric`
+
+5. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
 
     ```toml
     [secrets]
