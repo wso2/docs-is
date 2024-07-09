@@ -115,6 +115,7 @@ plugins:
         'guides/applications/manage-application-roles.md': 'guides/users/manage-roles.md'
         'guides/organization-management/onboard-org-admins.md': 'guides/organization-management/onboard-org-admins/index.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
+        'apis/authentication.md': 'apis/index.md'
 
 
 
@@ -337,7 +338,6 @@ nav:
     - Integrate Asgardeo into your application: integrations/index.md
   - APIs:
     - APIs - Overview: apis/index.md
-    - Authentication: apis/authentication.md
     - Management APIs:
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
@@ -369,11 +369,11 @@ nav:
       - Validation API: apis/validation.md
     - Orgnization APIs:
       - Orgnization APIs: apis/organization-apis/index.md
+      - Get access for organization APIs: apis/organization-apis/authentication.md
       - Application management API: apis/organization-apis/org-application-management.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding API: apis/organization-apis/org-branding-management.md
       - Claim management API: apis/organization-apis/org-claim-management.md
-      - Get access for organization APIs: apis/organization-apis/authentication.md
       - Group management API: apis/organization-apis/org-group-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp.md
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
