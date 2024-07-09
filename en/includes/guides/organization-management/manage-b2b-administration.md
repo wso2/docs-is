@@ -50,7 +50,7 @@ https://<hostname>:<port>/t/<root organization name>/o/<organization id>/console
 However, the following limitations apply.
 <ul>
     <li>The Console is not customizable.</li>
-    <li> The Console will not reflect the branding customizations of your organization.</li>
+    <li>The Console will not reflect the branding customizations of your organization.</li>
     <li>The login flow of the Console does not adhere to the customizations done for the application. (You may change the login flow for the Console under <b>Console settings</b> \>  <b>Login Flow</b>.)</li>
     <li>The Console access is governed by separate roles and are not linked to your B2B application roles.</li>
 </ul>  

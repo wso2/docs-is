@@ -113,7 +113,6 @@ plugins:
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
         'guides/authentication/configure-a-trusted-token-issuer.md': 'guides/authentication/configure-token-exchange.md'
         'guides/applications/manage-application-roles.md': 'guides/users/manage-roles.md'
-        'guides/organization-management/onboard-org-admins.md': 'guides/organization-management/onboard-org-admins/index.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
         'apis/authentication.md': 'apis/index.md'
 

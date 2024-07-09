@@ -64,7 +64,7 @@ Step 2 above ensures that users receive the necessary permissions to access all 
 
 !!! note "Roles for the Console"
 
-    Console access is determined by roles created specifically for the Console application. As opposed to roles which authorizes API resources, these roles authorizes features on the Console interface. Console roles in the organization (root) are automatically made available to all the organizations.
+    The {{product_name}} Console acts as an application and is, by default, shared with all organizations. As opposed to roles that control access to organization APIs, roles associated with the Console govern access to features available in the Console interface. Any Console role created in the root organization will immediately be available in child organizations. Hence, organization admins may use these roles to provide users limited access to the organization Console interface.
     
     Learn more about Console roles in [Manage Console access]({{base_path}}/guides/your-is/manage-console-access/).
 
@@ -78,12 +78,12 @@ If you wish to grant the user Console access, follow the steps below.
 
     !!! tip
         
-        The Administrator role is a default Console role that provides access to all features of the Console. Create a different role in the organization (root) and assign it to the user if you wish to grant limited Console access.
+        The Administrator role is a default Console role that provides access to all features of the Console. Create a different role in the root organization and assign it to the user if you wish to grant limited Console access.
 
 4. Go to its **Users** tab and from the dropdown, select the user from the dropdown.
 
 5. Click **Update** to save the changes.
 
-!!! note
+!!! note "Access the Console"
 
-    Learn how organization admins can access the Console in [Administration of organizations]({{base_path}}/guides/organization-management/manage-b2b-administration/#use-the-console-as-the-administration-portal).
+    Learn how privileged organization users may access the Console in [Administration of organizations]({{base_path}}/guides/organization-management/manage-b2b-administration/#use-the-console-as-the-administration-portal).

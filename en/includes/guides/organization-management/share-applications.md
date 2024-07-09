@@ -39,6 +39,34 @@ Follow the steps below to share a registered application with organizations.
 
 ## Share the My Account Portal
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
+The My Account portal is the self-service portal provided by {{product_name}} for users of an organization. Through the portal, organization users have access to services such as updating user information, registering biometrics for authentication and more.
+
+The My Account portal is, by default, shared with your organizations and users may access the My Account portal through the following link:
+
+``` bash
+{{root_org_url}}/o/{organization-id}/myaccount
+```
+
+!!! note
+
+    Learn more about the [My Account portal]({{base_path}}/guides/user-self-service/configure-self-service-portal/)
+
+If you wish to restrict access to the My Account portal to some or all organizations,
+
+1. Login to the root organization on the {{ product_name }} Console.
+
+2. Go to **Applications** and on the top of the page, select the **Settings** icon corresponding to **My Account**.
+
+3. Go to its **Shared Access** tab and do one of the following:
+
+    - Select **Do not share with any organization** to restrict any existing organizations or future organizations you may create from accessing the My Account portal.
+
+    - Select **Share with only selected organizations** and select the organizations that you wish to grant access to the My Account portal.
+
+4. Click **Update** to save the changes.
+
+{% else %}
 The My Account portal is the self-service portal provided by {{product_name}} for users of the root organization. Through the portal, root organization users have access to services such as updating user information, registering biometrics for authentication and more. By sharing the portal with child organizations, you enable child organization users to access all My Account services within the context of their respective organizations.
 
 Once shared, the My Account portal will be available for organization users through the following link:
@@ -64,6 +92,7 @@ To share the My Account portal with organizations,
     -   Select **Share with only selected organizations** and select the relevant organizations.
 
 4. Click **Update** to save the changes.
+{% endif %}
 
 
 !!! tip
