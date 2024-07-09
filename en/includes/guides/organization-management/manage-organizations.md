@@ -1,6 +1,6 @@
 # Set up organizations
 
-As a business operating on a B2B (Business-to-Business) model, you can use {{product_name}} organizations to represent your partner businesses. This guide explains how you can manage organizations.
+As a B2B (Business-to-Business) service provider, you can use {{product_name}} organizations to represent your partner businesses. This guide explains how you can manage these organizations.
 
 !!! note "Before you begin"
 
@@ -10,7 +10,6 @@ As a business operating on a B2B (Business-to-Business) model, you can use {{pro
     {% else %}
     Ensure you have organization management privileges in the organization (root).
     {% endif %}
-
 
 ## Create an organization
 
