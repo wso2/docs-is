@@ -1,33 +1,27 @@
 # Recover your password
 
-If you are an owner or an administrator in an {{ product_name }} organization, you can recover a forgotten password by following the instructions on the {{ product_name }} sign-in page.
+If you are the owner or an administrator of an {{ product_name }} organization, the following guide explains how you can recover a forgotten password.
 
 To recover your password:
 
-1. Go to the sign-in page via the [My Account Portal]({{base_path}}/guides/{{ myacc_doc_url }}/#access-my-account-portal).
+1. Go to the sign-in page of the [My Account Portal]({{base_path}}/guides/{{ myacc_doc_url }}/#access-my-account-portal).
 
     ![Recover your password]({{base_path}}/assets/img/guides/organization/self-service/customer/recover-your-password.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Click **Forgot password?**.
-3. Recovery method selection.
+3. Follow one of the following methods based on the password recovery option configured for your organization.
 
-    !!! info
-        The email and mobile claims being set is a **prerequisite** for email link and SMS OTP options respectively.
+    !!! note
 
-    - If only the email link recovery option is enabled for the tenant. Enter your username and click **Send Reset Link**.
+        - Setting your email address and mobile number is mandatory to use the email link and SMS OTP recovery methods respectively.
+
+        - If you have configured both options for password recovery, select your preferred method and click **Proceed**.
+
+    - If you have enabled email link recovery, enter your username and click **Send Reset Link**. An email notification will be sent to your email address.
         ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-email-only.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-        An email notification is sent to your email address.
-
-    - If only the SMS OTP recovery option is enabled for the tenant. Enter your username and click **Send SMS OTP**.
+    - If you have enabled SMS OTP recovery, enter your username and click **Send SMS OTP**. An OTP code will be sent to your registered mobile number.
         ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-sms-only.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        An OTP code will be sent to the mobile number added to your user profile.
-
-    - If multiple options are enabled for the tenant. Enter your username, select the preferred recovery method and click
-        ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-multi-option.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-        A link to the email or an OTP code to the mobile number in your profile will be sent depending on the selected recovery method.
 
 4. Confirm password reset request.
     - If the **Email Link** option was chosen in the previous step, open the email you received and click **Reset Password**.
@@ -37,5 +31,3 @@ To recover your password:
         ![Reset password SMS OTP]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-sms-otp.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Enter new password and **Proceed**.
-
-Now you have reset your password and can sign in using your new password.
