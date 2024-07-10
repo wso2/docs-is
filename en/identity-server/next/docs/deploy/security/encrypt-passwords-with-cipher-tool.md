@@ -47,19 +47,19 @@ To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric 
 !!! note
     To support symmetric encryption, you must specify a PKCS12 type keystore as the internal keystore.
 
-1. Ensure that the shared secret for symmetric encryption is added to the internal keystore . To create a PKCS12 keystore with an AES key or add an existing key to the keystore, use the following command:
+1. Ensure that the shared secret for symmetric encryption is added to the internal keystore. To create a PKCS12 keystore with an AES key or add an existing key to the keystore, use the following command:
 
     ```bash
-    keytool -genseckey -keystore internal.p12 -storetype pkcs12 -storepass password -keyalg aes -keysize 256 -alias new_alias -keypass password
+    keytool -genseckey -alias wso2carbon -keyalg AES -keysize 256 -keystore internal.p12 -storetype pkcs12 -storepass password -keypass password
     ```
 
-2. Update the alias to the new alias in the deployment.toml for the internal keystore configuration.
+2. Update the alias to the new alias in the `deployment.toml` file for the internal keystore configuration.
 
     ```toml
     [keystore.internal]
     file_name = "internal.p12"
     type = "PKCS12"
-    alias = "new_alias"
+    alias = "wso2carbon"
     password = "$secret{keystore_password}"
     key_password = "$secret{keystore_password}"
     ```
@@ -137,6 +137,51 @@ To change any password that has been encrypted already, follow the steps given b
 5. The alias values of all the passwords that you encrypted will now be shown in a numbered list.
 6. The system will then prompt you to select the alias of the password which you want to change. Enter the list number of the password alias.
 7. The system will then prompt you (twice) to enter the new password. Enter your new password.
+
+## Rotating Encryption Secrets
+
+!!! note
+    To support symmetric encryption, you must specify a PKCS12 type keystore as the internal keystore.
+
+You can rotate encryption secrets by switching between symmetric and asymmetric encryption or changing the encryption keys within the same encryption mode.
+
+1. Add the new key to the existing keystore with a new alias. 
+
+    ```bash
+    keytool -genseckey -alias new_alias -keyalg AES -keysize 256 -keystore internal.p12 -storepass password -keypass password
+    ```
+    
+
+    For asymmetric encryption, add a new key pair to the keystore.
+
+    ```bash
+    keytool -genkeypair -alias new_alias -keyalg RSA -keystore wso2carbon.jks -storepass password -keypass password
+    ```
+
+
+2. Update the `deployment.toml` file to reflect the new key or secret alias:
+
+    ```toml
+    [keystore.internal]
+    file_name = "internal.p12"
+    type = "PKCS12"
+    alias = "new_alias"
+    password = "$secret{keystore_password}"
+    key_password = "$secret{keystore_password}"
+    ```
+
+3. Navigate to the `<IS_HOME>/bin/` directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
+
+4. Execute the Cipher tool script to re-encrypt the passwords with the new key or secret. Use the `-Drotate` option and specify the old alias. 
+    * On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon`
+    * On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon`
+
+    If using symmetric encryption, add `-Dsymmetric`:
+
+    * On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon -Dsymmetric`
+    * On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon  -Dsymmetric`
+
+5. Go back to the deployment.toml file and see that the alias passwords are re-encrypted.
 
 !!! info "Related topics"
     - [Deploy: Resolve Encrypted Passwords]({{base_path}}/deploy/security/resolve-encrypted-passwords)
