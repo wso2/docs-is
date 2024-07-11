@@ -21,6 +21,10 @@ Follow the steps below to enable the hybrid flow for your application.
 
     ![Enable hybrid flow]({{base_path}}/assets/img/guides/authentication/enable-hybrid-flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+    !!! tip
+
+        Learn more about the response types in [Implement the hybrid flow](#implement-the-hybrid-flow)
+
     !!! warning
 
         It is not recommended to use `code token` and `code id_token token` response types, as obtaining the access token directly from the authorization endpoint without client authentication introduces potential security vulnerabilities, including the risk of account takeover attacks.
