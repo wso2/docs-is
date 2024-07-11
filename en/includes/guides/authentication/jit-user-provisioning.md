@@ -55,7 +55,7 @@ If you wish to change this default behavior and preserve the locally added claim
 
 ``` toml
 [authentication.jit_provisioning]
-enable_enhanced_feature = "true"
+preserve_locally_added_claims = "true"
 ```
 {% endif %}
 
