@@ -189,7 +189,7 @@ The authorization code can be exchanged to receive other tokens such as access t
 
 The following are some of the recommended validations you should perform during the hybrid flow.
 
-- In response modes where a code and an ID token are returned from the authorization endpoint (such as `code id_token`), use the `c_hash` in the decoded ID token to validate the authorization code.
+- In response modes where a code and an ID token are returned from the authorization endpoint (such as [code id_token](#code-id_token)), use the `c_hash` in the decoded ID token to validate the authorization code.
 
     ??? details "How c_hash is calculated"
 
@@ -199,7 +199,7 @@ The following are some of the recommended validations you should perform during 
         - Hash the octets of the ASCII representation using the hash algorithm specified in the JOSE header of the ID token. For instance, if the alg is RS256, the hash algorithm used is SHA-256.
         - Take the left-most half of the hash and base64url-encode it.
 
-- In response modes where an access token and an ID token are returned from the authorization endpoint (such as `code id_token token`), use the `at_hash` in the decoded ID token to validate the access token.
+- In response modes where an access token and an ID token are returned from the authorization endpoint (such as [code id_token token](#code-id_token-token)), use the `at_hash` in the decoded ID token to validate the access token.
 
     ??? details "How at_hash is calculated"
 
@@ -209,7 +209,7 @@ The following are some of the recommended validations you should perform during 
         - Hash the octets of the ASCII representation using the hash algorithm specified in the JOSE header of the ID token. For instance, if the alg is RS256, the hash algorithm used is SHA-256.
         - Take the left-most half of the hash and base64url-encode it.
 
-- In the `code id_token` or `code id_token token` response modes, an ID token will be returned from the authorization endpoint and the received authorization code can be exchanged to obtain a second ID token from the token endpoint. Be sure to perform the following validations for the received ID tokens:
+- In the [code id_token](#code-id_token) or [code id_token token](#code-id_token-token) response modes, an ID token will be returned from the authorization endpoint and the received authorization code can be exchanged to obtain a second ID token from the token endpoint. Be sure to perform the following validations for the received ID tokens:
 
     1.  Ensure that the `iss` and `sub` claim values are identical.
     2.  If there are common user claims available in the ID tokens, ensure their values are identical.
