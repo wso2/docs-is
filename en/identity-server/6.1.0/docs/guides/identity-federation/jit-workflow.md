@@ -91,16 +91,13 @@ With the JIT provisioned enhanced feature, the following capabilities will be av
 
 ## Preserve Locally Added Claims of JIT Provisioned Users
 
-Identity server deletes the existing local claims of JIT provisioned users that are not coming in the federated login after the provisioning.
+If a user already having an account in WSO2 Identity Server logs in using federated login with the same email address, WSO2 Identity Server deletes any locally added claims of the user and retains only the claims provided by the federated authenticator.
 
-You can change this default behavior to keep locally added claims of JIT provisioned users by  avoiding deleting the attributes that are not coming in the federated login after the provisioning.
-
-To preserve locally added claims of JIT provisioned users, add the following configuration to deployment.toml in the `/conf` directory.
-
+If you wish to change this default behavior and preserve the locally added claims of the user, go to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory and add the following configuration.
 
 ``` toml
 [authentication.jit_provisioning]
-enable_enhanced_feature = "true"
+preserve_locally_added_claims = "true"
 ```
 
 !!! note
