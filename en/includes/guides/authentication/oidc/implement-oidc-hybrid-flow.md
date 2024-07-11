@@ -44,7 +44,7 @@ Let's take a closer look at the reponse types available with the OIDC Hybrid Flo
 
 ### code token
 
-Hybrid flow intiated with the `code token` response type requests an authorization code and an access token from the authorization endpoint.
+Hybrid flow intiated with the `code token` response type requests for an authorization code and an access token from the authorization endpoint.
 
 === "sample request (`code token`)"
 
@@ -69,11 +69,19 @@ Hybrid flow intiated with the `code token` response type requests an authorizati
 
 The token received in the response may be immediately used to invoke APIs authorized for it. The authorization code can be exchanged to receive other tokens such as access tokens, refresh tokens and the ID token as follows.
 
+=== "request format"
+
+    ```bash
+    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    -u '{client_ID}:{client_secret}' \
+    -d 'grant_type=authorization_code&code={authorization_code}&redirect_uri={url_to_redirect_after_login}'
+    ```
+
 === "sample request"
 
     ``` bash
     curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
-    -u '{Client ID}:{Client secret}' \
+    -u 'SkpwV3lG88X0BU1msAoRRA0zrWEa:0XVfmHcThOWpBN0iJf_4679Ir0Qe_fPMJCXSREW4bM4a' \
     -d 'grant_type=authorization_code&code=99b34587-5483-374d-8b25-50485498e761&redirect_uri=http://localhost:8080/playground2/oauth2client'
     ```
 === "sample response"
@@ -116,31 +124,38 @@ Hybrid flow intiated with the `code id_token` response type requests for an auth
 
 The authorization code can be exchanged to receive other tokens such as access tokens, refresh tokens and the ID token as follows.
 
+=== "request format"
+
+    ```bash
+    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    -u '{client_ID}:{client_secret}' \
+    -d 'grant_type=authorization_code&code={authorization_code}&redirect_uri={url_to_redirect_after_login}'
+    ```
+
 === "sample request"
 
     ``` bash
     curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
-    -u '{Client ID}:{Client secret}' \
-    -d 'grant_type=authorization_code&code=99b34587-5483-374d-8b25-50485498e761&redirect_uri=http://localhost:8080/playground2/oauth2client'
+    -u 'SkpwV3lG88X0BU1msAoRRA0zrWEa:0XVfmHcThOWpBN0iJf_4679Ir0Qe_fPMJCXSREW4bM4a' \
+    -d 'grant_type=authorization_code&code=16fd899f-5f0c-3114-875e-2547b629cd05&redirect_uri=http://localhost:8080/playground2/oauth2client'
     ```
 
 === "sample response"
 
     ``` java
-    {
-        “access_token”:”1940a308-d492–3660-a9f8–46723cc582e9",
-        ”refresh_token”:”6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4",
-        ”scope”:”openid”,
-        ”id_token”:”eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMjI3MSwibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzIyNjd9.jAGLp8FFdIyFi4ZmvRPX9hVu8NbLVL2iM1895UNrS7wqgl2PCi7zHnvBoOYkbsxxMYGoVepFNzz7hHbk-kuzq_kBoBsZK2Ucbv0hUkwiEkigLy6hpGm-mqXjai3cjlJevWOVcZbMhkEyRlsZtdUG0RCzteT7emAuZLFm5zfMpq1h5JsVRGjK_6fQbHhB2Svkl_kV_ctAD8_kymASGEjRGnwGW5np4uBI0NPYMDTvrl8N9i6yfUVD9-y7rL9Gtrq9hK28Swj5Szvv_c1IX8wYBP-p8gu2cBpGIulIq-OkbfCUh-rrbh96relOaKwKwk0g7nST6o6wZTAwaicNQBYHYw”,
-        ”token_type”:”Bearer”,
-        ”expires_in”:298234}
+    {“access_token”:”1940a308-d492–3660-a9f8–46723cc582e9",
+    ”refresh_token”:”6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4",
+    ”scope”:”openid”,
+    ”id_token”:”eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMjI3MSwibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzIyNjd9.jAGLp8FFdIyFi4ZmvRPX9hVu8NbLVL2iM1895UNrS7wqgl2PCi7zHnvBoOYkbsxxMYGoVepFNzz7hHbk-kuzq_kBoBsZK2Ucbv0hUkwiEkigLy6hpGm-mqXjai3cjlJevWOVcZbMhkEyRlsZtdUG0RCzteT7emAuZLFm5zfMpq1h5JsVRGjK_6fQbHhB2Svkl_kV_ctAD8_kymASGEjRGnwGW5np4uBI0NPYMDTvrl8N9i6yfUVD9-y7rL9Gtrq9hK28Swj5Szvv_c1IX8wYBP-p8gu2cBpGIulIq-OkbfCUh-rrbh96relOaKwKwk0g7nST6o6wZTAwaicNQBYHYw”,
+    ”token_type”:”Bearer”,
+    ”expires_in”:298234}
     ```
 
 ### code id_token token
 
 Hybrid flow intiated with the `code id_token token` response type requests for an authorization code, an access token and an ID token from the authorization endpoint.
 
-=== "sample request (`code id_token`)"
+=== "sample request (`code id_token token`)"
 
     ``` bash
     {{host_name}}/oauth2/authorize?
@@ -150,7 +165,7 @@ Hybrid flow intiated with the `code id_token token` response type requests for a
     &redirect_uri=http://localhost:8080/playground2/oauth2client
     &scope=openid
     ```
-=== "sample response (`code id_token`)"
+=== "sample response (`code id_token token`)"
 
     ```bash
     http://localhost:8080/playground2/oauth2client#
@@ -164,25 +179,31 @@ Hybrid flow intiated with the `code id_token token` response type requests for a
 
 The authorization code can be exchanged to receive other tokens such as access tokens, refresh tokens and the ID token as follows.
 
+=== "request format"
+
+    ```bash
+    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    -u '{client_ID}:{client_secret}' \
+    -d 'grant_type=authorization_code&code={authorization_code}&redirect_uri={url_to_redirect_after_login}'
+    ```
+
 === "sample request"
 
     ``` bash
     curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
-    -u '{Client ID}:{Client secret}' \
+    -u 'SkpwV3lG88X0BU1msAoRRA0zrWEa:0XVfmHcThOWpBN0iJf_4679Ir0Qe_fPMJCXSREW4bM4a' \
     -d 'grant_type=authorization_code&code=55aa698d-ac3b-30ec-b4ca-f5e803590a4b&redirect_uri=http://localhost:8080/playground2/oauth2client'
     ```
 
 === "sample response"
 
     ``` java
-    {
-        “access_token”:”1940a308-d492–3660-a9f8–46723cc582e9",
-        ”refresh_token”:”6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4",
-        ”scope”:”openid”,
-        ”id_token”:”eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMzMwNywibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzMzMDN9.k69ufNIJHJHb6foeRSMVoJsgAWz0q65_8R6Lhz-tIW-tdLDI7eNg3kSL5-S2T3uFn7XFvn113wEWvCS8X3JBCIPMAFCmGBCR_L5pCh_OO6_xQeZyfa0fx_R27kZ9EIW5u0WSSjlpzzvr_50YldCfXMhZASjZlA5sCZ9BReyhkEUW_kSCWUDJEPaFQqgKVNfnRmr1q4N2lJwXPHjjE-4BcTMxKY87mqFzq_HVdXc1SRVIG0iuWkiYaD34pK8ZI12GFGSmOpDzhYb06uxrR8GC4jpq_WHMvMKrPrLaoVkEFaqomgxLIOJaNZJzqpe3wlaWM952eTndpSW0HSR5kgZgmw”,
-        ”token_type”:”Bearer”,
-        ”expires_in”:297198
-        }
+    {“access_token”:”1940a308-d492–3660-a9f8–46723cc582e9",
+    ”refresh_token”:”6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4",
+    ”scope”:”openid”,
+    ”id_token”:”eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMzMwNywibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzMzMDN9.k69ufNIJHJHb6foeRSMVoJsgAWz0q65_8R6Lhz-tIW-tdLDI7eNg3kSL5-S2T3uFn7XFvn113wEWvCS8X3JBCIPMAFCmGBCR_L5pCh_OO6_xQeZyfa0fx_R27kZ9EIW5u0WSSjlpzzvr_50YldCfXMhZASjZlA5sCZ9BReyhkEUW_kSCWUDJEPaFQqgKVNfnRmr1q4N2lJwXPHjjE-4BcTMxKY87mqFzq_HVdXc1SRVIG0iuWkiYaD34pK8ZI12GFGSmOpDzhYb06uxrR8GC4jpq_WHMvMKrPrLaoVkEFaqomgxLIOJaNZJzqpe3wlaWM952eTndpSW0HSR5kgZgmw”,
+    ”token_type”:”Bearer”,
+    ”expires_in”:297198}
     ```
 
 ## Validate codes/tokens in the hybrid flow
