@@ -431,6 +431,7 @@ nav:
             - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
             - Implement login using the Device Authorization flow: guides/authentication/oidc/implement-device-flow.md
             - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
+            - Implement login using the OIDC Hybrid Flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
             - Configure token exchange: guides/authentication/configure-token-exchange.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
             - Request user information: guides/authentication/oidc/request-user-info.md
@@ -438,7 +439,7 @@ nav:
             - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
             - Implement logout: guides/authentication/oidc/add-logout.md
             - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
-            - OpenID Connect Hybrid Flow: guides/authentication/oidc/openid-connect-hybrid-flow.md
+            
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
