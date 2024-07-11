@@ -50,6 +50,17 @@ Let's take a closer look at the reponse types available with the OIDC Hybrid Flo
 
 Hybrid flow intiated with the `code token` response type requests for an authorization code and an access token from the authorization endpoint.
 
+=== "request format (`code token`)"
+
+    ``` bash
+    {{host_name}}/oauth2/authorize?
+    response_type=code%20token
+    &client_id={client_id}
+    &nonce={random_value_generated_by_client}
+    &redirect_uri={url_to_redirect_after_login}
+    &scope={scopes}
+    ```
+
 === "sample request (`code token`)"
 
     ``` bash
@@ -107,6 +118,17 @@ The token received in the response may be immediately used to invoke APIs author
 
 Hybrid flow intiated with the `code id_token` response type requests for an authorization code and an ID token from the authorization endpoint.
 
+=== "request format (`code id_token`)"
+
+    ``` bash
+    {{host_name}}/oauth2/authorize?
+    response_type=code%20id_token
+    &client_id={client_id}
+    &nonce={random_value_generated_by_client}
+    &redirect_uri={url_to_redirect_after_login}
+    &scope={scopes}
+    ```
+
 === "sample request (`code id_token`)"
 
     ``` bash
@@ -158,6 +180,17 @@ The authorization code can be exchanged to receive other tokens such as access t
 ### code id_token token
 
 Hybrid flow intiated with the `code id_token token` response type requests for an authorization code, an access token and an ID token from the authorization endpoint.
+
+=== "request format (`code id_token token`)"
+
+    ``` bash
+    {{host_name}}/oauth2/authorize?
+    response_type=code%20id_token%20token
+    &client_id={client_id}
+    &nonce={random_value_generated_by_client}
+    &redirect_uri={url_to_redirect_after_login}
+    &scope={scopes}
+    ```
 
 === "sample request (`code id_token token`)"
 
