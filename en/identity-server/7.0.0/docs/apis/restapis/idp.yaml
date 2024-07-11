@@ -203,7 +203,8 @@ paths:
                 "isEnabled": true,
                 "scheme": "PROVISION_SILENTLY",
                 "userstore": "PRIMARY",
-                "associateLocalUser": true
+                "associateLocalUser": true,
+                "attributeSyncMethod": "OVERRIDE_ALL"
               },
               "outboundConnectors": {
                 "defaultConnectorId": "U0NJTQ",
@@ -1819,7 +1820,8 @@ paths:
             "isEnabled": true,
             "scheme": "PROVISION_SILENTLY",
             "userstore": "PRIMARY",
-            "associateLocalUser": true
+            "associateLocalUser": true,
+            "attributeSyncMethod": "OVERRIDE_ALL"
             }'
       requestBody:
         content:
@@ -2066,7 +2068,8 @@ paths:
                   "isEnabled": true,
                   "scheme": "PROVISION_SILENTLY",
                   "userstore": "PRIMARY",
-                  "associateLocalUser": true
+                  "associateLocalUser": true,
+                  "attributeSyncMethod": "OVERRIDE_ALL"
                 },
                 "outboundConnectors": {
                   "defaultConnectorId": "U0NJTQ",
@@ -2299,7 +2302,8 @@ paths:
                   "isEnabled": true,
                   "scheme": "PROVISION_SILENTLY",
                   "userstore": "PRIMARY",
-                  "associateLocalUser": true
+                  "associateLocalUser": true,
+                  "attributeSyncMethod": "OVERRIDE_ALL"
                 },
                 "outboundConnectors": {
                   "defaultConnectorId": "U0NJTQ",
@@ -3126,6 +3130,20 @@ components:
           type: boolean
           default: false
           example: true
+        attributeSyncMethod:
+          description: "This variable specifies the method used for syncing attributes between the JIT-provisioned user account and the local user account. \n\n
+            The following syncing methods are allowed: \n\n
+            <ul>
+              <li><code>OVERRIDE_ALL</code>: All attributes of the local user account will be overridden by the attributes received from the external identity provider.</li>
+              <li><code>NONE</code>: None of the attributes received from the identity provider will be synced with the local user account.</li>
+              <li><code>PRESERVE_LOCAL</code>: Only the attributes received from the identity provider will be updated while preserving the other attributes of the local user account.</li>
+            </ul"
+          type: string
+          enum:
+            - OVERRIDE_ALL
+            - NONE
+            - PRESERVE_LOCAL
+          default: OVERRIDE_ALL
     ConnectedApps:
       type: object
       properties:
