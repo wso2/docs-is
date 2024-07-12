@@ -57,6 +57,8 @@ If you wish to change this default behavior and preserve the locally added claim
 [authentication.jit_provisioning]
 preserve_locally_added_claims = "true"
 ```
+
+However, if the `provisioning.jit.attributeSyncMethod` property is set for the identity provider, it will take precedence over the above configuration.
 {% endif %}
 
 ## Troubleshoot sign-in flow errors
