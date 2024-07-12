@@ -675,4 +675,4 @@ Listed below are the text branding preferences you can apply to the screens in y
 </table>
 
 !!! note
-    You can only customize the provided fields. Adding custom fields to the branding preference texts is not supported.
+    Adding custom fields to the text preferences is not supported.
