@@ -450,6 +450,8 @@ nav:
           - Attribute-based access control: guides/authorization/api-authorization/attribute-based-access-control.md
         - Fine-grained authorization:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
+        - Impersonation:
+            - User Impersonation: guides/authorization/impersonation/user-impersonation.md
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
