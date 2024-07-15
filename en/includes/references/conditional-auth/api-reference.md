@@ -1061,7 +1061,7 @@ It contains the necessary metadata for invoking the API when calling the callCho
 </table>
 
 You can securely store consumer keys and secrets as **secrets** in conditional authentication scripts and refer to
-them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you can use:
+them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you may use:
 ```angular2html
 var consumerSecret = secrets.clientSecret;
 ```
