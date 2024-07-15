@@ -36,6 +36,7 @@
     - [`application`](#application)
     - [`userAgent`](#user-agent)
     - [`connectionMetadata`](#connectionmetadata)
+    - [`authConfig`](#authconfig)
 
 ---
 
@@ -85,7 +86,9 @@ This method accepts an object as a parameter and should include the details list
   <tr>
     <td><code>&lteventCallbacks&gt</code></td>
     <td>(optional) The object that contains the callback functions, which are to be called based on the result of the step execution.<br />
-    Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.</td>
+    Supported results are <code>onSuccess</code>, <code>onFail</code> and <code>onTimeout</code> which can
+              have their own optional callbacks as anonymous functions. For these callbacks, the [context](#context) and [data](#data) parameters are passed.
+    </td>
   </tr>
 </table>
 
@@ -734,19 +737,19 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
     <table>
       <tbody>
         <tr>
-          <td><code>url</code></td>
+          <td style="white-space: nowrap;"><code>url</code></td>
           <td>The URL of the endpoint to which the HTTP GET request should be sent.</td>
         </tr>
         <tr>
-          <td><code>headers</code></td>
+          <td style="white-space: nowrap;"><code>headers</code></td>
           <td>HTTP request headers to be included in the GET request (optional).</td>
         </tr>
         <tr>
-          <td><code>authConfig</code></td>
-          <td>Authentication configuration to be included in the GET request (optional).</td>
+          <td style="white-space: nowrap;"><code>authConfig</code></td>
+          <td>An object containing the necessary metadata to invoke the API. See [AuthConfig](#authconfig) for information.</td>
           </tr>
         <tr>
-          <td><code>eventHandlers</code></td>
+          <td style="white-space: nowrap;"><code>eventHandlers</code></td>
           <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
               Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
           </td>
@@ -754,34 +757,36 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
       </tbody>
     </table>
   
-- **Example**
+  - **Example**
 
-    ```
-    var authConfig = {
-        type: "basic",
-        properties: {
-            username: "admin",
-            password: "adminPassword"
-        }
-    };
+      ```
+      var authConfig = {
+          type: "basicauth",
+          properties: {
+              username: "admin",
+              password: "adminPassword"
+          }
+      };
 
-    function onLoginRequest(context) {
-        httpGet('https://example.com/resource', {
-            "Accept": "application/json"
-        }, authConfig, {
-            onSuccess: function(context, data) {
-                Log.info('httpGet call succeeded');
-                context.selectedAcr = data.status;
-                executeStep(1);
-            },
-            onFail: function(context, data) {
-                Log.info('httpGet call failed');
-                context.selectedAcr = 'FAILED';
-                executeStep(2);
-            }
-        });
-    }
-    ```
+      function onLoginRequest(context) {
+          httpGet('https://example.com/resource', {
+              "Accept": "application/json"
+          }, authConfig, {
+              onSuccess: function(context, data) {
+                  Log.info("Successfully invoked the external API.");
+                  executeStep(1);
+              },
+              onFail: function(context, data) {
+                  Log.info("Error occurred while invoking the external API.");
+                  executeStep(2);
+              },
+              onTimeout: function(context, data) {
+                  Log.info("Invoking external API timed out.");
+                  executeStep(2);
+              }
+          });
+      }
+      ```
 
 ### HTTP POST
 
@@ -794,25 +799,26 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
     <table>
       <tbody>
         <tr>
-          <td><code>url</code></td>
+          <td style="white-space: nowrap;"><code>url</code></td>
           <td>The URL of the endpoint to which the HTTP POST request should be sent.</td>
         </tr>
         <tr>
-          <td><code>body</code></td>
+          <td style="white-space: nowrap;"><code>body</code></td>
           <td>HTTP request body to be included in the POST request.</td>
         </tr>
         <tr>
-          <td><code>headers</code></td>
+          <td style="white-space: nowrap;"><code>headers</code></td>
           <td>HTTP request headers to be included in the POST request (optional).</td>
         </tr>
         <tr>
-          <td><code>authConfig</code></td>
-          <td>Authentication configuration to be included in the GET request (optional).</td>
+          <td style="white-space: nowrap;"><code>authConfig</code></td>
+          <td>An object containing the necessary metadata to invoke the API. See [AuthConfig](#authconfig) for more information.</td>
           </tr>
         <tr>
-          <td><code>eventHandlers</code></td>
+          <td style="white-space: nowrap;"><code>eventHandlers</code></td>
           <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
-              Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
+              Supported results are <code>onSuccess</code>, <code>onFail</code> and <code>onTimeout</code> which can
+              have their own optional callbacks as anonymous functions. For these callbacks, the [context](#context) and [data](#data) parameters are passed.
           </td>
         </tr>
       </tbody>
@@ -838,55 +844,20 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
             "Accept": "application/json"
         }, authConfig, {
             onSuccess: function(context, data) {
-                Log.info('httpPost call succeeded');
-                context.selectedAcr = data.status;
+                Log.info("Successfully invoked the external API.");
                 executeStep(1);
             },
             onFail: function(context, data) {
-                Log.info('httpPost call failed');
-                context.selectedAcr = 'FAILED';
+                Log.info("Error occurred while invoking the external API.");
+                executeStep(2);
+            },
+            onTimeout: function(context, data) {
+                Log.info("Invoking external API timed out.");
                 executeStep(2);
             }
         });
     }
     ```
-
-**Authentication Types and Properties**
-
-When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
-`Enhanced secret management features are currently under development and will be available soon.`
-
-<table>
-    <thead>
-        <tr>
-            <th>Authentication Type</th>
-            <th>Properties</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>basicauth</td>
-            <td>username, password</td>
-            <td>Uses user credentials.</td>
-        </tr>
-        <tr>
-            <td>apikey</td>
-            <td>apiKey, headerName</td>
-            <td>Uses an API key sent as a header.</td>
-        </tr>
-        <tr>
-            <td>clientcredential</td>
-            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional)</td>
-            <td>Uses client credentials to obtain an access token.</td>
-        </tr>
-        <tr>
-            <td>bearertoken</td>
-            <td>token</td>
-            <td>Uses a bearer token for authentication.</td>
-        </tr>
-    </tbody>
-</table>
 
 ## Object reference
 
@@ -1089,15 +1060,76 @@ It contains the necessary metadata for invoking the API when calling the callCho
   </tr>
 </table>
 
-If the consumer key and the consumer secret are added as secrets, they should be included in the ConnectionMetadata as aliases, as shown below.
+You can securely store consumer key and consumer secrets as secrets in conditional authentication script in the Asgardeo Console and refer to
+them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you can use:
+```angular2html
+var consumerSecret = secrets.clientSecret;
+```
+For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the 
+documentation.
+
+??? note "Before 30th of June 2024, secrets can be consumed as below and it's possible to access secrets in the same way"
+    If the consumer key and the consumer secret are added as secrets, they should be included in the ConnectionMetadata as aliases, as shown below.
+      <table>
+          <tr>
+            <td><code>connectionMetadata.consumerKeyAlias</code></td>
+            <td>The name of the secret that stores the consumer key.</td>
+          </tr>
+          <tr>
+            <td><code>connectionMetadata.consumerSecretAlias</code></td>
+            <td>The name of the secret that stores the consumer secret.</td>
+          </tr>
+      </table>
+
+### AuthConfig
+
+When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each
+authentication type and its required properties:
+
+<table>
+    <thead>
+        <tr>
+            <th>Authentication Type</th>
+            <th>Properties</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>basicauth</td>
+            <td>username, password</td>
+            <td>Uses user credentials.</td>
+        </tr>
+        <tr>
+            <td>apikey</td>
+            <td>apiKey, headerName</td>
+            <td>Uses an API key sent as a header.</td>
+        </tr>
+        <tr>
+            <td>clientcredential</td>
+            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional, a space separated list of scopes)</td>
+            <td>Uses client credentials to obtain an access token.</td>
+        </tr>
+        <tr>
+            <td>bearertoken</td>
+            <td>token</td>
+            <td>Uses a bearer token for authentication.</td>
+        </tr>
+    </tbody>
+</table>
+
+You can securely store sensitive values of properties like username, password, consumerKey, consumerSecret as secrets in conditional authentication script in the Asgardeo Console and refer to them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you can use:
+```angular2html
+var consumerSecret = secrets.clientSecret;
+```
+
+For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the documentation.
+
+### Data
 
 <table>
   <tr>
-    <td><code>connectionMetadata.consumerKeyAlias</code></td>
-    <td>The name of the secret that stores the consumer key.</td>
-  </tr>
-  <tr>
-    <td><code>connectionMetadata.consumerSecretAlias</code></td>
-    <td>The name of the secret that stores the consumer secret.</td>
+    <td><code>data</code></td>
+    <td>The response data is a JSON object that contains the response data from the API call.</td>
   </tr>
 </table>
