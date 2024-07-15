@@ -57,6 +57,9 @@ If you wish to change this default behavior and preserve the locally added claim
 [authentication.jit_provisioning]
 preserve_locally_added_claims = "true"
 ```
+
+!!! note
+    If an identity provider is created using the [Identity Provider REST APIs]({{base_path}}/apis/idp/) with the `provisioning.jit.attributeSyncMethod` property set, this will take precedence over the above configuration.
 {% endif %}
 
 ## Troubleshoot sign-in flow errors
