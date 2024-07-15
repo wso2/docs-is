@@ -1060,7 +1060,7 @@ It contains the necessary metadata for invoking the API when calling the callCho
   </tr>
 </table>
 
-You can securely store consumer key and consumer secrets as secrets in conditional authentication script in the Asgardeo Console and refer to
+You can securely store consumer keys and secrets as **secrets** in conditional authentication scripts and refer to
 them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you can use:
 ```angular2html
 var consumerSecret = secrets.clientSecret;
