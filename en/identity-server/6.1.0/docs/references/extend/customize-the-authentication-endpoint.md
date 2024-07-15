@@ -313,3 +313,27 @@ Follow the steps below to ensure that the access URL is configured for your appl
 
     ![service provider access url]({{base_path}}/assets/img/references/add-access-url-to-sp.png)
 
+## Add Custom Filters and Listeners
+
+This section describes how to add custom filters and listeners to the authentication endpoint. 
+
+Filters can be used to perform various preprocessing and postprocessing tasks on the requests and responses such as logging and input validation. To configure custom filters, add the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+``` toml
+[[authenticationendpoint.filter]]
+name="CustomFilter"
+class="org.wso2.CustomFilter"
+url_pattern="/*"
+dispatchers=["FORWARD", "REQUEST"]
+
+[[authenticationendpoint.filter.init_param]]
+name="ParamName"
+value= "ParamValue"
+```
+
+Listeners can be used to monitor and respond to specific events such as the creation or destruction of servlet contexts, sessions, or request objects. To configure custom listeners, add the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+``` toml
+[[authenticationendpoint.listener]]
+class="org.wso2.CustomListener"
+```
