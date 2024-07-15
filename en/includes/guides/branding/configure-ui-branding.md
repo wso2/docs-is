@@ -673,3 +673,6 @@ Listed below are the text branding preferences you can apply to the screens in y
       <td>This is the main heading of the sign-up box, providing a brief introduction to the registration page within your organization.</td>
    </tr>
 </table>
+
+!!! note
+    Adding custom fields to the text preferences is not supported.
