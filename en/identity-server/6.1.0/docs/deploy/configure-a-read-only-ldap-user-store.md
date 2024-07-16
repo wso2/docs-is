@@ -95,6 +95,39 @@ connection_password = "admin"
 Apart from the properties mentioned above, WSO2 Identity Server also supports advanced LDAP configurations.
 
 !!! note
+Starting from update level <update_level>, the following userstore properties have
+been introduced to support the circuit breaker for userstores. This feature is enabled
+by default to ignore unavailable userstores, ensuring smooth operations in the Identity Server.
+<table>
+<thead>
+<tr class="header">
+<th>Property Id</th>
+<th>Primary userstore Property</th>
+<th>Secondary userstore Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ConnectionRetryCount</td>
+<td>connection_retry_count</td>
+<td>ConnectionRetryCount</td>
+<td>Specifies the connection retry counts to retry establishing the connection<br />
+<br />
+<p>Default : 2</p></td>
+</tr>
+<tr class="even">
+<td>ConnectionRetryDelayInMilliSeconds</td>
+<td>connection_retry_delay_in_milli_seconds</td>
+<td>ConnectionRetryDelayInMilliSeconds</td>
+<td>Specifies the connection retry delay in milliseconds to wait until re-establishing the connection<br />
+<br />
+<p>Default : 12000</p></td>
+</tr>
+</tbody>
+</table>
+
+!!! note
     It is important to map the `Username` and `User ID` claims correctly to the values used for `Username Attribute` and `User ID Attribute` properties in the userstore configuration for user authentication to work properly.<br />
     Claim mappings can be done through the management console as explained in [edit claim mapping]({{base_path}}/guides/dialects/edit-claim-mapping).
 

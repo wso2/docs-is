@@ -12,6 +12,25 @@ configured under these two types.
 
 ![user-store-types]({{base_path}}/assets/img/deploy/user-store-types.png) 
 
+!!! info
+Starting from update level <update_level>, the circuit breaker for userstores is 
+enabled by default to ignore unavailable userstores, ensuring smooth operations
+in the Identity Server. If it is necessary to disable this behavior, 
+add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+```
+[user_store]
+enable_circuit_breaker_for_user_stores=false
+```
+!!! info
+Additionally, the following properties have been introduced to support the circuit 
+breaker, specifying the maximum values for re-establishing the connection as a 
+server-wide configuration:
+```
+[user_store]
+maxConnectionRetryCount=2
+maxConnectionRetryDelayInMilliSeconds=12000
+```
+
 ---
 
 ## Primary userstore (Mandatory)
