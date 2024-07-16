@@ -87,6 +87,12 @@ extra:
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
             url: Integrations|Integrate Asgardeo into your application
+  footer:
+    help:
+      logo: assets/images/email.svg
+      tagline: Need Assistance?
+      cta: Send us an email
+      url: mailto:asgardeo-help@wso2.com
 
 watch:
   - ../theme/material
@@ -115,8 +121,6 @@ plugins:
         'guides/applications/manage-application-roles.md': 'guides/users/manage-roles.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
         'apis/authentication.md': 'apis/index.md'
-
-
 
 # Navigation
 nav:

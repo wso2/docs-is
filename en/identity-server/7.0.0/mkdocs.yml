@@ -22,6 +22,12 @@ site_url: https://is.docs.wso2.com/en/7.0.0
 extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
+  footer:
+    help:
+      logo: assets/images/stackoverflow.svg
+      tagline: Got a tough question?
+      cta: Ask on Stackoverflow
+      url: https://stackoverflow.com/questions/tagged/wso2-identity-server?tab=Newest
 
 plugins:
   - search
