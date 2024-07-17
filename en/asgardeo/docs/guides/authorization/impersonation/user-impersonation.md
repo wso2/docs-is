@@ -113,7 +113,7 @@ Apart from generic claims, subject token has a claim **may_act**. The **may_act*
 
 ### Acquire Impersonated Access Token
 
-Token exchange grant type can be used exchange subject for an impersonated access token. 
+Token exchange grant type can be used exchange subject for an impersonated access token.  Impersonated access token can be used as same as generic access token to access protected resources as impersonated user.
 
 **Request Format**
 ``` bash
@@ -148,7 +148,7 @@ Apart from generic claims, impersonated access token has a claim **act**. The **
 {
   "sub": "32bc4697-ed0f-4546-8387-dcd6403e7caa",
   "aut": "APPLICATION_USER",
-  "iss": "https://api.asgardeo.io/t/{organization_name}/oauth2/token",
+  "iss": "https://api.asgardeo.io/t/bifrost/oauth2/token",
   "client_id": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "aud": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "nbf": 1718695052,
@@ -159,7 +159,7 @@ Apart from generic claims, impersonated access token has a claim **act**. The **
   "org_id": "10084a8d-113f-4211-a0d5-efe36b082211",
   "scope": "internal_login internal_org_user_mgt_list internal_org_user_mgt_view internal_user_mgt_list internal_user_mgt_view",
   "exp": 1718698652,
-  "org_name": "Super",
+  "org_name": "bifrost",
   "iat": 1718695052,
   "jti": "0728d517-7968-474f-bd7d-12537ccbe436"
 }
@@ -191,30 +191,6 @@ Following is the default template of impersonation notification.
 !!! note
     See [Customize email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information about customise the email template according to your branding preferences.
 
-## Access protected resources using Impersonated Access token
-
-Impersonated access token can be used as same as generic access token to access protected resources as impersonated user.
-
-### Audit logs for Impersonation
-
-When a resource get modified using impersonated access token, an audit log will be printed expressing the details of the resource modification. These audit logs can be used to track actions performed by impersonation.
-
-**Audit log  Format**
-``` java
-TID: [-1234] [2024-06-03 14:50:42,298] [1a2ac914-ea61-4699-8778-ea44d2fa27c5]  INFO {AUDIT_LOG} - Initiator={Impersonated_User_Id} Action=resource-modification-via-impersonation Target={Impersonated_User_Id}  Data={"ResourcePath":{Resource_Path} ,"clientId":{Client_Id} ,"subject":{Impersonated_User_Id},"scope":{Scope Issued for the Impersonated Access token} ,"impersonator":{Impersonater Id} ,"httpMethod":{Http Method} } Outcome=AUTHORIZED
-```
-
-**Sample Audit Log**
-``` java
-TID: [-1234] [2024-06-03 14:50:42,298] [1a2ac914-ea61-4699-8778-ea44d2fa27c5]  INFO {AUDIT_LOG} - Initiator=0fa51985-d36d-4492-9ebd-298f9d68861f Action=resource-modification-via-impersonation Target=49de2b73-5f0b-44db-bf75-6fddec4b058e Data={"ResourcePath":"/scim2/Me","clientId":"luoljDTbHYcfx6YWT_7wsYs67rsa","subject":"49de2b73-5f0b-44db-bf75-6fddec4b058e","scope":"internal_login internal_user_mgt_list internal_user_mgt_view","impersonator":"0fa51985-d36d-4492-9ebd-298f9d68861f","httpMethod":"PATCH"} Outcome=AUTHORIZED
-```
-
-Addtionally all existing audits logs will be appended by Impersonater Id, if the resource accessed via impersonation. Following is the sample audit log when the user claim updated via Impersonation.
-
-``` java
-TID: [-1234] [2024-06-03 14:50:42,976] [1a2ac914-ea61-4699-8778-ea44d2fa27c5]  INFO {AUDIT_LOG} - Initiator=49de2b73-5f0b-44db-bf75-6fddec4b058e Action=Set-User-Claim-Values Target=t******r Data={"ServiceProviderName":"POSTMAN_SBA","Claims":{"http://wso2.org/claims/country":"S***n","http://wso2.org/claims/modified":"2*************************Z","profileConfiguration":"d*****t"}} Outcome=Success | Impersonator : 0fa51985-d36d-4492-9ebd-298f9d68861f
-```
-
 ## Access protected resources of invited user in the sub organization.
 
 You can use the impersonated access token to exchange for a sub oirganization bound impersonated access token. To use this flow, impersonated user should be invited from parent organization.
@@ -226,7 +202,7 @@ You can use the impersonated access token to exchange for a sub oirganization bo
 
 **Request Format**
 ``` bash
-curl --location 'https://{{ host_name }}/oauth2/token' \
+curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
 --data-urlencode 'client_id={Client_Id}' \
