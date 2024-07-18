@@ -10,37 +10,8 @@ The instructions on this page explain how plain text passwords in configuration 
 
 To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric or symmetric encryption.
 
-### Using Asymmetric Encryption
-
-!!! info
-    It is recommended to [configure a separate keystore](../asymmetric-encryption/configure-keystores-in-wso2-products/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
-
-1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
-
-    ```toml
-    [secrets]
-    admin_password = "[password_1]"
-    keystore_password = "[password_2]"
-    key_password = "[password_3]"
-    truststrore_password = "[password_4]"
-    "log4j.appender.LOGEVENT.password" = "[password_5]"
-    ```
-
-2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
-
-    - On Linux: `./ciphertool.sh -Dconfigure`
-    - On Windows: `ciphertool.bat -Dconfigure`
-
-3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
-
-    ```toml
-    [secrets]
-    admin_password = "GeNld2aZkydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTag7w4dG6B3JK5GxeX9bhsmZCBFozlPdWBT6Jvy"
-    keystore_password = "brClL1SOHdezXTvBz1/76b/DnHQgxjNGtzhaBr3DnhHw32NWY484abHLREVyMoNJkER5lQUPbqeaMpR5lQUPbqeaMp"
-    key_password = "CFAaISaI19dHLApEM3usNSDXXdhdicHbVncrVwuLDJp6Rhp8B3Qy3PnBhcJsryTqR/EPwdLnXboNJkER"
-    truststrore_password = "DKnecEw+mJ8JhTUrqxpTZxwXrOdtcoAl2hD3LHtH+yJXNogumdSALfaqrMaknBzJq4SF3sY0RvwkMxWhnZ+BhIsko"
-    "log4j.appender.LOGEVENT.password" = "kydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTagXTvBz1/76b/DnHQgxjNhD3LHtH+yJXNowecEEC"
-    ```
+!!! important
+    Symmetric encryption is recommended due to its enhanced security against potential quantum computing threats.
 
 ### Using Symmetric Encryption
 
@@ -81,6 +52,38 @@ To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric 
     - On Windows: `ciphertool.bat -Dconfigure -Dsymmetric`
 
 5. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
+
+    ```toml
+    [secrets]
+    admin_password = "GeNld2aZkydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTag7w4dG6B3JK5GxeX9bhsmZCBFozlPdWBT6Jvy"
+    keystore_password = "brClL1SOHdezXTvBz1/76b/DnHQgxjNGtzhaBr3DnhHw32NWY484abHLREVyMoNJkER5lQUPbqeaMpR5lQUPbqeaMp"
+    key_password = "CFAaISaI19dHLApEM3usNSDXXdhdicHbVncrVwuLDJp6Rhp8B3Qy3PnBhcJsryTqR/EPwdLnXboNJkER"
+    truststrore_password = "DKnecEw+mJ8JhTUrqxpTZxwXrOdtcoAl2hD3LHtH+yJXNogumdSALfaqrMaknBzJq4SF3sY0RvwkMxWhnZ+BhIsko"
+    "log4j.appender.LOGEVENT.password" = "kydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTagXTvBz1/76b/DnHQgxjNhD3LHtH+yJXNowecEEC"
+    ```
+
+### Using Asymmetric Encryption
+
+!!! info
+    It is recommended to [configure a separate keystore](../asymmetric-encryption/configure-keystores-in-wso2-products/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
+
+1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
+
+    ```toml
+    [secrets]
+    admin_password = "[password_1]"
+    keystore_password = "[password_2]"
+    key_password = "[password_3]"
+    truststrore_password = "[password_4]"
+    "log4j.appender.LOGEVENT.password" = "[password_5]"
+    ```
+
+2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
+
+    - On Linux: `./ciphertool.sh -Dconfigure`
+    - On Windows: `ciphertool.bat -Dconfigure`
+
+3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
 
     ```toml
     [secrets]
