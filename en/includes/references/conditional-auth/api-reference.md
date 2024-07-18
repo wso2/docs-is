@@ -728,7 +728,7 @@ This function returns the local user associated with the federate username given
 
 `getMaskedValue(value)`
 
-This utility function returns a masked value for the given input value. This function can be used to mask sensitive content in adaptive authentication script logs by developers.
+This utility function returns a masked value for the given input value. It can be used to mask sensitive content in adaptive authentication script logs by developers.
 
 - **Parameters**
 
@@ -743,7 +743,7 @@ This utility function returns a masked value for the given input value. This fun
 
 - **Example**
 
-  For debugging purposes, if there is a need to add some logs including sensitive content (ex: PII) then it can be masked using the above method as follows.
+  For debugging purposes, if there is a need to add some logs including sensitive content (ex: PII) then it can be masked using the above function as follows.
 
     ``` js
     var email = context.currentKnownSubject.username;
