@@ -21,7 +21,7 @@
     - [`callChoreo`](#call-a-choreo-api)
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
-    - [`getAssociatedLocalUser()`](#get-associated-user
+    - [`getAssociatedLocalUser()`](#get-associated-user)
     - [`getMaskedValue()`](#get-masked-value)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
