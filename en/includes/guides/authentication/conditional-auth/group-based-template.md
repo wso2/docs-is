@@ -73,7 +73,7 @@ var onLoginRequest = function (context) {
             // Checking if the user is assigned to one of the given groups.
             var isMember = isMemberOfAnyOfGroups(user, groupsToStepUp);
             if (isMember) {
-               Log.info(user.username + ' is a member of one of the groups: ' + groupsToStepUp.toString());
+               Log.info(getMaskedValue(user.username) + ' is a member of one of the groups: ' + groupsToStepUp.toString());
                executeStep(2);
             }
       }
