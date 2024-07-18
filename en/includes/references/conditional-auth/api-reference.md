@@ -1068,8 +1068,9 @@ var consumerSecret = secrets.clientSecret;
 For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the 
 documentation.
 
-??? note "Before 30th of June 2024, secrets can be consumed as below and it's possible to access secrets in the same way"
-    If the consumer key and the consumer secret are added as secrets, they should be included in the ConnectionMetadata as aliases, as shown below.
+??? note "Change in behavior from 30th June 2024"
+    Starting from 30th June 2024, you are no longer required to set the aliases for consumer keys and consumer secrets when calling the callChoreo command. Instead, you may directly reference them using the `secrets.secretName` notation.
+    However, if you prefer, you may continue using the previous method as follows.
       <table>
           <tr>
             <td><code>connectionMetadata.consumerKeyAlias</code></td>
