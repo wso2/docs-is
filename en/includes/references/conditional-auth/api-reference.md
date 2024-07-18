@@ -761,7 +761,7 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
 
       ```
       var authConfig = {
-          type: "basicauth",
+          type: "basic",
           properties: {
               username: "admin",
               password: "adminPassword"
