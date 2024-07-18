@@ -21,7 +21,8 @@
     - [`callChoreo`](#call-a-choreo-api)
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
-    - [`getAssociatedLocalUser()`](#get-associated-user)
+    - [`getAssociatedLocalUser()`](#get-associated-user
+    - [`getMaskedValue()`](#get-masked-value)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
 
@@ -722,6 +723,32 @@ This function returns the local user associated with the federate username given
         </tr>
       </tbody>
     </table>
+
+### Get masked value
+
+`getMaskedValue(value)`
+
+This utility function returns a masked value for the given input value. This function can be used to mask sensitive content in adaptive authentication script logs by developers.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>value</code></td>
+          <td>Value needs to be masked.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+  For debugging purposes, if there is a need to add some logs including sensitive content (ex: PII) then it can be masked using the above method as follows.
+
+    ``` js
+    var email = context.currentKnownSubject.username;
+    Log.info("Email of the logged user : " + getMaskedValue(email));
+    ```
 
 ### HTTP GET
 
