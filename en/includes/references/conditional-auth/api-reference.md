@@ -743,7 +743,7 @@ This utility function returns a masked value for the given input value. It can b
 
 - **Example**
 
-  For debugging purposes, if there is a need to add some logs including sensitive content (ex: PII) then it can be masked using the above function as follows.
+  For debugging purposes, if there is a need to add logs containing sensitive content (ex: PII), those can be masked using the above function as follows.
 
     ``` js
     var email = context.currentKnownSubject.username;
