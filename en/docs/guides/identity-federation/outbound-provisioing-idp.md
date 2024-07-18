@@ -77,7 +77,7 @@ provisioning requests to Salesforce.
     | Provisioning Domain| The user name of Salesforce is an email address. Here you can configure a specific domain name the username should have.| `yahoo.com`|
 
 3. Select **Enable Connector** to enable identity provisioning from Salesforce.
-4. Click **Update** to dave the configurations.
+4. Click **Update** to save the configurations.
 
     ??? note "Salesforce Outbound Provisioning pattern"
         By using **Sales Outbound Provisioning pattern** you differentiate the following scenarios:
