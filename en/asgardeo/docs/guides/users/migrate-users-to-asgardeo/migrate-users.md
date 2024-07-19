@@ -1,4 +1,4 @@
-# Migrate users to Asgardeo
+# Migrate user accounts to Asgardeo
 
 This guide explains how you may prepare and execute a user migration from another Identity Provider (IdP) to Asgardeo.
 
@@ -39,7 +39,7 @@ Before migrating users to Asgardeo, organization owners must adequately plan and
 With a clear and concise plan in place, you are ready to move on to the implementation.
 
 
-## Migrate users
+## Migrate user accounts
 
 Contact the Asgardeo team at **asgardeo-help@wso2.com** for support on migrating your existing user base to Asgardeo. Additionally, inform the team how you would like to [migrate user passwords]({{base_path}}/guides/users/migrate-users-to-asgardeo/migrate-passwords/).
 
