@@ -22,6 +22,7 @@
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
     - [`getAssociatedLocalUser()`](#get-associated-user)
+    - [`getMaskedValue()`](#get-masked-value)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
 
@@ -726,6 +727,32 @@ This function returns the local user associated with the federate username given
       </tbody>
     </table>
 
+### Get masked value
+
+`getMaskedValue(value)`
+
+This utility function returns a masked value for the given input value. It can be used to mask sensitive content in adaptive authentication script logs by developers.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>value</code></td>
+          <td>Value needs to be masked.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+  For debugging purposes, if there is a need to add logs containing sensitive content (ex: PII), those can be masked using the above function as follows.
+
+    ``` js
+    var email = context.currentKnownSubject.username;
+    Log.info("Email of the logged user : " + getMaskedValue(email));
+    ```
+
 ### HTTP GET
 
 `httpGet(url, headers, authConfig, eventHandlers)`
@@ -757,36 +784,36 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
       </tbody>
     </table>
   
-  - **Example**
+- **Example**
 
-      ```
-      var authConfig = {
-          type: "basic",
-          properties: {
-              username: "admin",
-              password: "adminPassword"
-          }
-      };
+    ```
+    var authConfig = {
+        type: "basic",
+        properties: {
+            username: "admin",
+            password: "adminPassword"
+        }
+    };
 
-      function onLoginRequest(context) {
-          httpGet('https://example.com/resource', {
-              "Accept": "application/json"
-          }, authConfig, {
-              onSuccess: function(context, data) {
-                  Log.info("Successfully invoked the external API.");
-                  executeStep(1);
-              },
-              onFail: function(context, data) {
-                  Log.info("Error occurred while invoking the external API.");
-                  executeStep(2);
-              },
-              onTimeout: function(context, data) {
-                  Log.info("Invoking external API timed out.");
-                  executeStep(2);
-              }
-          });
-      }
-      ```
+    function onLoginRequest(context) {
+        httpGet('https://example.com/resource', {
+            "Accept": "application/json"
+        }, authConfig, {
+            onSuccess: function(context, data) {
+                Log.info("Successfully invoked the external API.");
+                executeStep(1);
+            },
+            onFail: function(context, data) {
+                Log.info("Error occurred while invoking the external API.");
+                executeStep(2);
+            },
+            onTimeout: function(context, data) {
+                Log.info("Invoking external API timed out.");
+                executeStep(2);
+            }
+        });
+    }
+    ```
 
 ### HTTP POST
 
@@ -858,6 +885,43 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
         });
     }
     ```
+
+**Authentication Types and Properties**
+
+When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
+`Enhanced secret management features are currently under development and will be available soon.`
+
+<table>
+    <thead>
+        <tr>
+            <th>Authentication Type</th>
+            <th>Properties</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>basic</td>
+            <td>username, password</td>
+            <td>Uses user credentials.</td>
+        </tr>
+        <tr>
+            <td>apikey</td>
+            <td>apiKey, headerName</td>
+            <td>Uses an API key sent as a header.</td>
+        </tr>
+        <tr>
+            <td>clientcredential</td>
+            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional)</td>
+            <td>Uses client credentials to obtain an access token.</td>
+        </tr>
+        <tr>
+            <td>bearer</td>
+            <td>token</td>
+            <td>Uses a bearer token for authentication.</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Object reference
 
