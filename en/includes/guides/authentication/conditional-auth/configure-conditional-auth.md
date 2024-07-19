@@ -106,4 +106,14 @@ To delete an existing secret:
 
 5. Select the checkbox and confirm your action.
 
+### Using Secrets in Scripts
+
+You may refer to the added secrets in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you may use:
+
+```angular2html
+var secretValue = secrets.secretName;
+```
+
+This allows you to securely access secret values within your authentication scripts, enhancing the security and flexibility of your authentication process.
+
 {% endif %}
