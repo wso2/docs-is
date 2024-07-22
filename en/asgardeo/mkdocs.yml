@@ -107,7 +107,6 @@ plugins:
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
         'guides/asgardeo-events.md': 'guides/monitoring/asgardeo-events.md'
         'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
-        'guides/authentication/oidc/private-key-jwt-client-auth.md': 'guides/authentication/oidc/private-key-jwt-client-auth.md'
         'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/ai-loginflow.md'
         'guides/user-accounts/configure-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
