@@ -98,6 +98,7 @@ Usernameless authentication enhances user experience by eliminating the need for
 !!! note
     Passkey usernameless authentication can only be configured at the organizational level and cannot be modified at the application level.
 
+
 ## Try it out
 
 The following guides let you try out a scenario where, passkey progressive enrollment is **enabled** and passkey usernameless authentication is **disabled**.
@@ -151,3 +152,39 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 
 !!! note
     During passkey progressive enrollment, if a user wishes to use a federated authenticator, they should have their external accounts already provisioned within {{product_name}}. If, for example, a user logs in with Google using an account not provisioned in {{product_name}}, passkey enrolment results in an error and the login flow fails.
+
+
+## Make application a FIDO trusted app
+
+If you are working with a mobile application that implements passkeys, {{product_name}} can validate the authenticity of the application with the respective platform (Android or iOS) before performing passkey login. This validation ensures that the authentication requests originate from a legitimate application, safeguarding against malicious attempts to steal credentials.
+
+To make the application a FIDO trusted app,
+
+1. On the {{product_name}} Console, go to **Applications** and select your application.
+
+2. In its **Advanced** tab, under **Trusted App Settings**, select **Add as a FIDO trusted app**.
+
+3. Under **Platform Settings**, enter the following platform-specific details.
+    
+    - If it is an Android app:
+
+        - Provide the package name of the application which takes the format of the reverse domain format (e.g. com.example.myapp)
+
+        - Provide key hashes, which are SHA256 fingerprints of the app's signing certificate.
+    
+    - If it is an iOS app:
+
+        - Provide the app ID of your application which consists of the Team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
+
+4. Click **Update** to save the changes.
+
+!!! warning
+
+    To validate mobile applications, platform servers of iOS and Android require the application data under **Platform Settings** to be available in the following publicly accessible endpoints of {{product_name}}. 
+
+    - For Android - `/.well-known/assetlinks.json`
+
+    - For iOS - `/.well-known/apple-app-site-association`
+
+    While not a security concern, it is still important to note that other organizations are able to access your public data hosted in these endpoints. Learn more about validations for [Android](https://passkeys-auth.com/docs/implementation/flutter/android/){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}.
+
