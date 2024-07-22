@@ -37,6 +37,20 @@ Follow the steps below to share a registered application with organizations.
 
 6. Click **Update** to save the changes.
 
+!!! tip
+
+    Once you have shared the application with an organization, check if the following settings are in place for the application.
+
+    - For registered applications, ensure the **SSO** authenticator is added to the login flow of the application. This adds the **Sign in with SSO** option to the application login screen so that organization users can log in using their credentials. Check its availability in the **Login Flow** tab of the application.
+
+        ![Sign-in-method-options]({{base_path}}/assets/img/guides/organization/manage-organizations/sso-signin-method.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - Ensure the application is available in the organization. To check this, switch to the organization and verify that the application is listed in the **Applications** section.
+
+        ![Shared Guardio Insurance Application]({{base_path}}/assets/img/guides/organization/manage-organizations/fragmented-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - While in the organization, select the shared application and ensure the username and password authenticator is enabled in the login flow. The organization users can then use the **Sign In with SSO** option to log in using their credentials.
+
 ## Share the My Account Portal
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
@@ -93,18 +107,3 @@ To share the My Account portal with organizations,
 
 4. Click **Update** to save the changes.
 {% endif %}
-
-
-!!! tip
-
-    Once you have shared the application with an organization, check if the following settings are in place for the application.
-
-    - For registered applications, ensure the **SSO** authenticator is added to the login flow of the application. This adds the **Sign in with SSO** option to the application login screen so that organization users can log in using their credentials. Check its availability in the **Login Flow** tab of the application.
-
-        ![Sign-in-method-options]({{base_path}}/assets/img/guides/organization/manage-organizations/sso-signin-method.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    - Ensure the application is available in the organization. To check this, switch to the organization and verify that the application is listed in the **Applications** section.
-
-        ![Shared Guardio Insurance Application]({{base_path}}/assets/img/guides/organization/manage-organizations/fragmented-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    - While in the organization, select the shared application and ensure the username and password authenticator is enabled in the login flow. The organization users can then use the **Sign In with SSO** option to log in using their credentials.
