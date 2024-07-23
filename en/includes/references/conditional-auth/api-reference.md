@@ -901,7 +901,7 @@ When using httpGet or httpPost functions in Asgardeo adaptive authentication scr
     </thead>
     <tbody>
         <tr>
-            <td>basic</td>
+            <td>basicauth</td>
             <td>username, password</td>
             <td>Uses user credentials.</td>
         </tr>
@@ -916,7 +916,7 @@ When using httpGet or httpPost functions in Asgardeo adaptive authentication scr
             <td>Uses client credentials to obtain an access token.</td>
         </tr>
         <tr>
-            <td>bearer</td>
+            <td>bearertoken</td>
             <td>token</td>
             <td>Uses a bearer token for authentication.</td>
         </tr>
