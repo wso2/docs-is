@@ -156,7 +156,11 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 
 ## Make application a FIDO trusted app
 
-If you are working with a mobile application that implements passkeys, {{product_name}} can validate the authenticity of the application with the respective platform (Android or iOS) before performing passkey login. This validation ensures that the authentication requests originate from a legitimate application, safeguarding against malicious attempts to steal credentials.
+If you are working with a mobile application that implements passkeys, making it a FIDO trusted app allows {{product_name}} to validate the authenticity of the application by calling the validation services of the respective platform (Android or iOS). This validation ensures that the authentication requests originate from a legitimate application, safeguarding against malicious attempts to steal credentials.
+
+!!! note 
+
+    If you wish to implement passkeys with [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), it is mandatory to make your mobile application a FIDO trusted app. 
 
 To make the application a FIDO trusted app,
 
@@ -166,25 +170,62 @@ To make the application a FIDO trusted app,
 
 3. Under **Platform Settings**, enter the following platform-specific details.
     
-    - If it is an Android app:
+    - For an Android app:
 
-        - Provide the package name of the application which takes the format of the reverse domain format (e.g. com.example.myapp)
+        - Provide the package name of the application which takes the reverse domain format (e.g. com.example.myapp)
 
         - Provide key hashes, which are SHA256 fingerprints of the app's signing certificate.
     
-    - If it is an iOS app:
+    - For an iOS app:
 
-        - Provide the app ID of your application which consists of the Team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
+        - Provide the app ID of your application which consists of the team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
+    
+    !!! note
+
+        {% if product_name == "Asgardeo" %}
+        Validation services of Android and iOS require the application data under **Platform Settings** to be available in the following public endpoints common to all Asgardeo organizations. 
+
+        - For Android - `{{base_url}}/.well-known/assetlinks.json`
+
+        - For iOS - `{{base_url}}/.well-known/apple-app-site-association`
+
+        Alternatively, you may publish to a custom endpoint by setting up [custom domains]({{base_path}}/guides/branding/configure-custom-domains/). Make sure the data are in the format expected by the validation services of [Android](https://developer.android.com/training/app-links/verify-android-applinks#web-assoc){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and are publicly hosted in the following locations.
+
+        - For Android - `{custom_domain}/.well-known/assetlinks.json`
+
+        - For iOS - `{custom_domain}/.well-known/apple-app-site-association`
+
+        {% else %}
+        Validation services of Android and iOS require the application data under **Platform Settings** to be available in the following publicly accessible endpoints of your organization domain. 
+
+        - For Android - `{organization_domain}/.well-known/assetlinks.json`
+
+        - For iOS - `{organization_domain}/.well-known/apple-app-site-association`
+
+        {{product_name}} hosts these data in the following endpoints.
+
+        - For Android - `{{base_url}}/.well-known/trusted-apps/android`
+
+        - For iOS - `{{base_url}}/.well-known/trusted-apps/ios`
+
+        Therefore, ensure public requests to `/assetlinks.json` and `/apple-app-site-association` on your domain are mapped to the corresponding local endpoints of {{product_name}}.
+
+        {% endif %}
+
+        Learn more about the validation services of [Android](https://passkeys-auth.com/docs/implementation/flutter/android/){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}
+
+    !!! warning "Third-Party Data Exposure"
+
+        While not a security concern, it is still important to note that other organizations are able to access the data under **Platform Settings** by accessing the corresponding public endpoint.
+
+        {% if product_name == "WSO2 Identity Server" %}
+        Due to this behavior, you may configure {{product_name}} to display a consent screen for administrators who are attempting to make an application a FIDO trusted app. To do so, enter the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory.
+
+        ```bash
+        [application_mgt]
+        trusted_app_consent_required=true
+        ```
+        Once configured, a confirmation popup will appear when enabling the feature and this consent will be recorded and published as an audit log.
+        {% endif %}
 
 4. Click **Update** to save the changes.
-
-!!! warning
-
-    To validate mobile applications, platform servers of iOS and Android require the application data under **Platform Settings** to be available in the following publicly accessible endpoints of {{product_name}}. 
-
-    - For Android - `/.well-known/assetlinks.json`
-
-    - For iOS - `/.well-known/apple-app-site-association`
-
-    While not a security concern, it is still important to note that other organizations are able to access your public data hosted in these endpoints. Learn more about validations for [Android](https://passkeys-auth.com/docs/implementation/flutter/android/){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}.
-
