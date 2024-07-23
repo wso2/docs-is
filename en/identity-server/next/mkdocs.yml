@@ -240,8 +240,8 @@ plugins:
         'deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md': 'deploy/security/keystores/configure-keystores.md'
         'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md'
         'deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md'
-        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/add-multiple-keys-to-the-primary-keystore.md'
-        'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/add-multiple-keys-to-the-primary-keystore.md'
+        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md'
+        'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md.md'
         'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
         'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
         'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
@@ -643,7 +643,6 @@ nav:
             - Create new keystores: deploy/security/keystores/create-new-keystores.md
             - Manage keystores: deploy/security/keystores/configure-keystores.md
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
-            - Add multiple keys to the primary keystore: deploy/security/keystores/add-multiple-keys-to-the-primary-keystore.md
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
             - Configurations related to symmetric key encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
