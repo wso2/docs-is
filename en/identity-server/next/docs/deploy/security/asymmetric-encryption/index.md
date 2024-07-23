@@ -2,7 +2,8 @@
 
 Asymmetric encryption uses public and private keys to encrypt and decrypt data. While the **public key** of the key pair is shared with external parties, the **private key** is kept secret. When one of the key pairs is used to encrypt a message, the other key can be used to decrypt it. In a **keystore**, you can store both private and public keys, and in a **truststore** you can store only public keys.
 
-<!-- TODO: Add link about keystore -->
+!!! info
+    For more information on how to configure the keystores to asymmetric key encryption, see [Keystores]({{base_path}}/deploy/security/keystores).
 
 In WSO2 Identity Server, asymmetric encryption is used by default for the following purposes: 
 
