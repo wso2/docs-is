@@ -1,11 +1,5 @@
 # Configure Keystores
 
-After you have [created a new keystore]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores) and updated the `client-truststore.jks` file, you need to update a few configuration files in order to make the keystores work.
-Note that keystores are used for multiple functions in WSO2 Identity Server, which includes authenticating communication over SSL/TLS, encrypting passwords, and other confidential information in configuration files, etc. Therefore, you must update the specific configuration files with the updated keystore information.
-For example, you may have separate keystores for encrypting passwords in configuration files, and for authenticating communication over SSL/TLS.
-
-The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, is used as the default keystore for all functions. However, in a production environment, it is recommended to create new keystores with new keys and certificates.
-
 !!! info "Before you begin"
 
     1. Make sure to go through the [recommendations for setting up keystores]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption#recommendations-for-setting-up-keystores) to understand the various keystores you will need.
@@ -13,34 +7,78 @@ The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, 
     2. If you have not already created the keystores required for your system, see [creating new keystores]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores).
 
 
-## Configure the primary keystore
+## Configure default keystore and truststore
 
-!!! info
-    The WSO2 Identity Server keystore is located at `<IS_HOME>/repository/resources/security/wso2carbon.jks` while the default trust-store is at `<IS_HOME>/repository/resources/security/client-truststore.jks`. This can be configured by specifying it in the `deployment.toml` file that is stored in the `<IS_HOME>/repository/conf/` directory. This keystore is used for the following functions in WSO2 Identity Server by default.
+WSO2 Identity Server provides default keystore and truststore files:
 
-- **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal datastores. Note that you also have the option of [separating the keystore for encrypting information in internal datastores](#configure-a-separate-keystore-for-encrypting-data-in-internal-data-stores).
+- `wso2carbon.jks`: The default keystore that includes a private key and a self-signed certificate.
+- `client-truststore.jks`: The default truststore containing CA certificates and the self-signed certificate from wso2carbon.jks.
+
+These files are originally located at `<IS_HOME>/repository/resources/security`. This can be configured by specifying it in the `deployment.toml` file.
+
+=== "JKS"
+
+    For the primary keystore:
+    ``` toml
+    [keystore.primary]
+    file_name = "<keystore location>"
+    password = "<password>"
+    key_password = "<password>"
+    type = "JKS"
+    alias = "<alias of the public certificate>"
+    ```
+
+    For the truststore:
+    ``` toml
+    [truststore]
+    file_name = "truststore location>"
+    password = "<password>"
+    type = "JKS"
+    ```
+
+=== "PKCS12"
+
+    For the primary keystore:
+    ``` toml
+    [keystore.primary]
+    file_name = "<keystore location>"
+    password = "<password>"
+    key_password = "<password>"
+    type = "PKCS12"
+    alias = "<alias of the public certificate>"
+    ```
+
+    For the truststore:
+    ``` toml
+    [truststore]
+    file_name = "truststore location>"
+    password = "<password>"
+    type = "PKCS12"
+    ```
+
+    To generate keystores for newly created tenants in PKCS12 format:
+    ``` toml
+    [keystore.tenant]
+    type = "PKCS12"
+    ```
+
+### Keystore usage
+
+- **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal datastores.
 
 - **Signing messages** when WSO2 Identity Server communicates with external parties (such SAML, OIDC id_token signing).
 
+The default keystore that is shipped with WSO2 Identity Server (`wso2carbon.jks`) is preconfigured for general use. However, for production environments, it's recommended to establish multiple keystores with separate trust chains for specific use cases.
+
 ## Configure a separate keystore for encrypting data in internal datastores
 
-!!! info
-    This is available as part of the Crypto Service. It is an extensible framework that facilitates the cryptography needs of WSO2 Identity Server.
-
-Currently, the primary keystore configured in `deployment.toml` is used for internal data encryption (encrypting data in internal datastores and configuration files) as well as for signing messages that are communicated with external parties.
-However, it is sometimes a common requirement to have separate keystores for communicating messages with external parties (such as SAML, OIDC id_token signing) and for encrypting information in internal datastores. This is because, for the first scenario of signing messages, the keystore certificates need to be frequently renewed.
-However, for encrypting information in internal datastores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes.
-
-This feature allows you to create a separate keystore for encrypting data in internal datastores. Follow the instructions given below.
+Currently, our primary keystore handles both internal data encryption and external message signing. However, it's often necessary to have separate keystores for these tasks. For external communications (e.g., SAML, OIDC id_token signing), keystore certificates need frequent renewal. In contrast, for internal data encryption, frequent certificate changes can render encrypted data unusable.
 
 !!! warning
     Using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
 
 
-To configure the new keystore add the following configuration block to the `keystore.internal` tag of the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
-
-!!! note
-    The values of the properties such as passwords must be changed based on the keystore.
+This feature allows the creation of a separate keystore for encrypting internal datastore data. To configure the new keystore add the following configuration block to the `keystore.internal` tag of the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
 ``` toml
 [keystore.internal]
@@ -73,47 +111,4 @@ The internally used trust-store configurations given below can be changed to def
 truststoreFile="${carbon.home}/repository/resources/security/$ref{truststore.file_name}"
 truststorePassword = "$ref{truststore.password}"
 truststoreType = "$ref{truststore.type}"
-```
-
-## Configure PKCS12 Keystore and Truststore
-
-With IS 7.0.0 onwards, you can configure to utilize keystore and truststore in the PKCS12 format.
-
-To convert an existing JKS keystore to PKCS12, execute the following command:
-
-=== "Format"
-
-    ``` java
-    keytool -importkeystore -srckeystore <jks file name>.jks -destkeystore <pkcs12 file name>.p12 -srcstoretype JKS -deststoretype PKCS12 -deststorepass wso2carbon
-    ```
-
-=== "Sample keytool command"
-
-    ``` java
-    keytool -importkeystore -srckeystore wso2carbon.jks -destkeystore wso2carbon.p12 -srcstoretype JKS -deststoretype PKCS12 -deststorepass wso2carbon
-    ```
-
-Add following configurations in the deployment.toml file to use PKCS12 keystores and truststores:
-
-For the super tenant's primary keystore:
-```toml
-[keystore.primary]
-file_name = "<.p12 keystore location>"
-password = "<password>"
-type = "PKCS12"
-```
-
-To generate keystores for newly created tenants in PKCS12 format:
-
-```toml
-[keystore.tenant]
-type = "PKCS12"
-```
-
-For the truststore:
-```toml
-[truststore]
-file_name = "<.p12 truststore location>"
-password = "<password>"
-type = "PKCS12"
 ```
