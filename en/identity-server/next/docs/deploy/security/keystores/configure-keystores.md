@@ -115,6 +115,8 @@ truststoreType = "$ref{truststore.type}"
 
 ## Add new keys to an existing keystore
 
+### Add a asymmetric key pair to an existing keystore
+
 1. Locate the [default keystore](#configure-default-keystore-and-truststore) or other existing keystore in a command prompt.
 
 2. Execute the following command to add a new keypair to keystore.
@@ -149,6 +151,22 @@ This newly added key can be used for different purposes.
         [keystore.tls]
         alias= "newKey"
         ```
+
+### Add a symmetric secret to a PKCS12 keystore
+
+To create a PKCS12 keystore with an AES key or add an existing key to the keystore, use the following command. If the keystore is not available, new PKCS12 keystore will be created.
+
+=== "Format"
+
+    ``` bash
+    keytool -genseckey -alias <SECRET_ALIAS> -keyalg AES -keysize 256 -keystore <KEYSTORE_NAME> -storetype PKCS12 -storepass <KEYSTORE_PASSWORD> -keypass <KEYSTORE_PASSWORD>
+    ```
+
+=== "Sample keytool command"
+
+    ``` bash
+    keytool -genseckey -alias secretkey -keyalg AES -keysize 256 -keystore keystore.p12 -storetype PKCS12 -storepass password -keypass password
+    ```
 
 ## View public keys via JWKS
 
