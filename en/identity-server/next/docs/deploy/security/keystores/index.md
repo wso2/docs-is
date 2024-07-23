@@ -1,6 +1,6 @@
 # Keystores and Truststores
 
-## Kesytores
+## Keystores
 
 A keystore is a secure repository for storing private keys and their associated public key certificates. These elements are used to protect sensitive information and establish secure communication channels. Each keystore entry consists of:
 
