@@ -471,7 +471,11 @@ The application goes through the following steps to complete app-native authenti
 
 ### Scenario 3: User selects passkey login out of multiple options
 
-If a login step has multiple login options, the application goes through the following steps to complete app-native authentication.
+If a login step has multiple login options, the application goes through the following steps to complete passkey login with app-native authentication.
+
+!!! note "Prerequisite"
+
+    If you wish to integrate passkeys with app-native authentication for a mobile application, it is mandatory to make it a [FIDO trusted app]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/#make-application-a-fido-trusted-app).
 
 - **Step 1**: Initiate the request with the `/authorize` endpoint.
 
