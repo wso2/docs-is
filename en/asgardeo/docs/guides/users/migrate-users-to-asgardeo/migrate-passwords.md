@@ -18,13 +18,13 @@ Compared to password reset method above, on-demand silent password migration inv
 
 3. The user enters the credentials used for the account in the legacy IdP.
 
-4. If Asgardeo has already migrated the user's password, the user is logged in. If not, the user is redirected to a waiting page.
+4. If Asgardeo has already migrated the user's password, the user is logged in. If not, Asgardeo makes an authentication request to the legacy IdP with the user provided credentials.
 
-5. Asgardeo makes an authentication request to the legacy IdP with the user provided credentials.
+5. The user is redirected to a waiting page until the legacy IdP completes the authentication.
 
 6. If successful, Asgardeo migrates the password for the user.
 
-7. The user is successfully logged in and may use the same credentials used for the legacy IdP to log in with Asgardeo.
+7. The user is successfully logged in and may use the same credentials to log in with Asgardeo.
 
 If you wish to migrate users with this method, it is crucial to note that the legacy IdP should run alongside Asgardeo for a set period to facilitate user migration. Additionally it's essential to have a contingency plan to migrate any accounts that were not migrated while the legacy IdP is active. Unmigrated users must contact the Asgardeo organization administrators to initiate a password reset process, facilitating a smooth and complete transition to Asgardeo.
 
@@ -52,7 +52,7 @@ In this section, we will develop an authentication service that will communicate
 
     !!! tip
         
-        External authentication might take a significant processing time depending on the legacy IdP and network delays. Therefore it is recommended to perform the external authentication asynchronously without holding an active connection until the external authentication process completes.
+        External authentication may require additional processing time depending on the legacy IdP and network delays. Therefore it is recommended to perform the external authentication asynchronously without holding an active connection until the external authentication completes.
 
     - **Start authentication endpoint** - to initiate the authentication process with the legacy system. This endpoint should accept the request, return a response with a unique random identifier (preferably a UUID) and then start the external authentication process.
 
@@ -143,7 +143,7 @@ After the RESTful service is deployed, follow the steps below to create an appli
 
 Asgardeo should have means to check whether a user's password is migrated or not. This can be achieved by creating a user attribute in Asgardeo to hold the migration status. To do so,
 
-1. On the Asgardeo Console, go to **User Attributes & Stores** > **Attributes** and click on **Attirubtes**.
+1. On the Asgardeo Console, go to **User Attributes & Stores** > **Attributes** and click on **Attributes**.
 
 2. Click **New Attribute** and enter the following details: 
 
@@ -178,7 +178,7 @@ You are now ready to configure your application for on-demand silent password mi
         
         2. Turn on Conditional Authentication by switching on the toggle.
 
-            ![Make the polling endpoint open]({{base_path}}/assets/img/guides/users/migrate-users/migrate-users-classic.png)
+            ![Configure with classic editor]({{base_path}}/assets/img/guides/users/migrate-users/migrate-users-classic.png)
 
         3. Replace any existing code with this [conditional authentication script]({{base_path}}/guides/authentication/conditional-auth/on-demand-silent-password-migration-template/).
 
@@ -192,7 +192,7 @@ You are now ready to configure your application for on-demand silent password mi
 
         3. Turn on Conditional Authentication by switching on the toggle.
 
-             ![Make the polling endpoint open]({{base_path}}/assets/img/guides/users/migrate-users/migrate-users-visual.png){: width="500"}
+             ![Configure with visual editor]({{base_path}}/assets/img/guides/users/migrate-users/migrate-users-visual.png){: width="500"}
 
         4. Replace any existing code with this [conditional authentication script]({{base_path}}/guides/authentication/conditional-auth/on-demand-silent-password-migration-template/).
 
