@@ -341,7 +341,7 @@ Let's look at how the above conditional authentication scripts works.
 
     !!! note "Adjust script for alternate login identifiers"
 
-        If your organization does not use alternate login identifiers, uncomment the following lines in the `resolveAndInitUser` function.
+        If your organization does not use alternate login identifiers, comment the following lines in the `resolveAndInitUser` function.
 
         ```js
         Log.info("Resolving username using the login identifier: " + loginIdentifier);
