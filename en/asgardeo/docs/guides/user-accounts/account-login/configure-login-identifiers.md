@@ -15,7 +15,7 @@ Asgardeo allows admins to assign the following attributes as alternative login i
 
 To configure alternative login identifiers for your organization:
 
-1. On the Asgardeo Console, go to ***Login & Registration**.
+1. On the Asgardeo Console, go to **Login & Registration**.
 
 2. Under **Login Identifier**, click on **Alternative Login Identifier**.
 

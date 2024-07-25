@@ -12,23 +12,66 @@ If you wish to migrate user passwords using this method, inform the Asgardeo tea
 
 Compared to password reset method above, on-demand silent password migration involves more effort to set up but provides the user with a seamless password migration experience. The following are the high level steps involved with this method.
 
-1. The user logs in to the application.
+1. The user attempts to log in to the application.
 
 2. The application redirects the user to the Asgardeo login screen.
 
-3. The user enters the credentials used for the account in the legacy IdP.
+3. The user enters the usual credentials for the legacy IdP.
 
 4. If Asgardeo has already migrated the user's password, the user is logged in. If not, Asgardeo makes an authentication request to the legacy IdP with the user provided credentials.
 
-5. The user is redirected to a waiting page until the legacy IdP completes the authentication.
+5. Asgardeo redirects the user to a waiting page until the legacy IdP completes the authentication.
 
-6. If successful, Asgardeo migrates the password for the user.
+6. Once complete, the user is taken back to the application and Asgardeo silently migrates the password for the user.
 
-7. The user is successfully logged in and may use the same credentials to log in with Asgardeo.
+7. The user is successfully logged in and may now continue using the usual credentials to log in to the application with Asgardeo.
 
-If you wish to migrate users with this method, it is crucial to note that the legacy IdP should run alongside Asgardeo for a set period to facilitate user migration. Additionally it's essential to have a contingency plan to migrate any accounts that were not migrated while the legacy IdP is active. Unmigrated users must contact the Asgardeo organization administrators to initiate a password reset process, facilitating a smooth and complete transition to Asgardeo.
+!!! note
 
-Follow the steps below to implement on-demand silent password migration.
+    If you wish to migrate users with this method, it is crucial to note the following:
+
+     - The legacy IdP should run alongside Asgardeo for a set period to facilitate user migration.
+     - Have a contingency plan to migrate any accounts that were not migrated while the legacy IdP is active.
+     - Unmigrated users must contact the Asgardeo organization administrators to initiate a password reset process, facilitating a smooth and complete transition to Asgardeo.
+
+The following guides go into detail on implementing on-demand silent password migration.
+
+### How it works?
+
+The following diagram provides a general idea on the components involved with the on-demand silent password migration.
+
+![On-demand silent user password migrations]({{base_path}}/assets/img/guides/users/migrate-users/silent-user-migration.png)
+
+Let's look at the diagram in detail:
+
+1. The user starts the authentication by entering the credentials used for the legacy IdP.
+2. If Asgardeo has not already migrated the user account,
+
+    -  user's login fails.
+    - Asgardeo attempts to find a user corresponding to the provided login identifier.
+    - If found, Asgardeo then checks for the user's migration status value which is stored in a user attribute.
+
+3. If user's migration status is not set to true,
+    
+    - Asgardeo starts authentication with the legacy IdP by invoking the **start authentication API**.
+    - This API responds with a unique ID for the process called the `contextID`.
+    - The user is redirected to a waiting page until external authentication completes.
+
+    !!! note
+        
+        This API is part of an authentication service deployed in [Choreo](https://wso2.com/choreo/){target="_blank"}, WSO2's integration platform. The service is designed to facilitate authentication against the legacy IdP.
+
+4. The authentication service will then interact with the legacy IdP and attempt to authenticate the user. A result will be returned once authentication is complete.
+5. In the meantime, **the polling API**, another API of the authentication service, keeps polling to check if the authentication process is complete. This API uses the `contextID` returned in 3 to track the specific process.
+6. Once 4 completes, the polling API in 5 stops and the user is redirected back to the login page.
+7. Asgardeo then calls the **authentication status endpoint**, the third API of the authentication service, to retrieve the authentication result.
+8. If the result is a success, this means the user was successfully authenticated against the external IdP. Hence, Asgardeo will
+
+    - migrate the user's password to Asgardeo.
+    - set the migration status attribute of the user to true.
+    - authenticate the user to the application.
+
+9. The user is seamlessly logged into the application without being prompted to enter the credentials again.
 
 ### Prerequisites
 
