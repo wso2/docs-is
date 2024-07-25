@@ -22,3 +22,6 @@ hs_err_pid*
 .DS_Store
 en/identity-server/*/site
 en/asgardeo/site
+
+# Python virtula environment
+.venv
