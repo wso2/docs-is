@@ -18,12 +18,12 @@ Some of these APIs are used for organization management purposes, and they have 
 
 - [Organization identity provider management API]({{base_path}}/apis/organization-apis/org-idp/)
 
-- [Organization level organization management API]({{base_path}}/apis/organization-apis/org-management)
+- [Organization level organization management API]({{base_path}}/apis/organization-apis/org-management/)
 
 !!! warning
     You need a paid Asgardeo subscription to use organization level organization management feature. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/){:target="_blank"} and contact the Asgardeo sales team.
 
-- [Idle account identification API]({{base_path}}/apis/organization-apis/org-idle-account-identification)
+- [Idle account identification API]({{base_path}}/apis/organization-apis/org-idle-account-identification/)
   
 
 ## Authentication
