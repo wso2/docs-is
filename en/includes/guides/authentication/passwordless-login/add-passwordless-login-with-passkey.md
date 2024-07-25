@@ -156,13 +156,35 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 
 ## Make application a FIDO trusted app
 
-If you are working with a mobile application that implements passkeys, making it a FIDO trusted app allows {{product_name}} to validate the authenticity of the application by calling the validation services of the respective platform (Android or iOS). This validation ensures that the authentication requests originate from a legitimate application, safeguarding against malicious attempts to steal credentials.
+If you are working with a mobile application that implements passkeys, making it a FIDO trusted app allows the hosting platform (iOS or Android) to validate the authenticity of the application by calling the corresponding validation service. This ensures that the authentication requests originate from a legitimate application, safeguarding against malicious attempts to steal credentials.
 
 !!! note 
 
-    If you wish to implement passkeys with [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), it is mandatory to make your mobile application a FIDO trusted app. 
+    If you wish to implement passkeys with [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), it is mandatory to validate your application against the relevant platform.
 
-To make the application a FIDO trusted app,
+{% if product_name == "WSO2 Identity Server" %}
+
+It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="blank"} to have details about the application exposed in a public URL. By following this guide, you are publishing details about your app to one of the following endpoints of {{product_name}} based on the platform.
+
+- For Android - `{{base_url}}/.well-known/assetlinks.json`
+
+- For iOS - `{{base_url}}/.well-known/apple-app-site-association`
+
+Therefore, ensure public requests to `/assetlinks.json` and `/apple-app-site-association` on your domain are mapped to the corresponding local endpoints of {{product_name}}.
+
+!!! note "Third-party data exposure"
+
+    While not a security concern, it is still important to note that details about your applications are publicly accessible through the endpoints.
+
+    Due to this behavior, you may configure {{product_name}} to display a consent screen for administrators who are attempting to make an application a FIDO trusted app. To do so, add the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory.
+    
+    ```bash
+    [application_mgt]
+    trusted_app_consent_required=true
+    ```
+    Once configured, a confirmation popup will appear when enabling the feature and this consent will be recorded and published as an audit log.
+
+To publish app details to the relevant endpoint,
 
 1. On the {{product_name}} Console, go to **Applications** and select your application.
 
@@ -179,53 +201,54 @@ To make the application a FIDO trusted app,
     - For an iOS app:
 
         - Provide the app ID of your application which consists of the team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
-    
-    !!! note
-
-        {% if product_name == "Asgardeo" %}
-        Validation services of Android and iOS require the application data under **Platform Settings** to be available in the following public endpoints common to all Asgardeo organizations. 
-
-        - For Android - `{{base_url}}/.well-known/assetlinks.json`
-
-        - For iOS - `{{base_url}}/.well-known/apple-app-site-association`
-
-        Alternatively, you may publish to a custom endpoint by setting up [custom domains]({{base_path}}/guides/branding/configure-custom-domains/). Make sure the data are in the format expected by the validation services of [Android](https://developer.android.com/training/app-links/verify-android-applinks#web-assoc){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and are publicly hosted in the following locations.
-
-        - For Android - `{custom_domain}/.well-known/assetlinks.json`
-
-        - For iOS - `{custom_domain}/.well-known/apple-app-site-association`
-
-        {% else %}
-        Validation services of Android and iOS require the application data under **Platform Settings** to be available in the following publicly accessible endpoints of your organization domain. 
-
-        - For Android - `{organization_domain}/.well-known/assetlinks.json`
-
-        - For iOS - `{organization_domain}/.well-known/apple-app-site-association`
-
-        {{product_name}} hosts these data in the following endpoints.
-
-        - For Android - `{{base_url}}/.well-known/trusted-apps/android`
-
-        - For iOS - `{{base_url}}/.well-known/trusted-apps/ios`
-
-        Therefore, ensure public requests to `/assetlinks.json` and `/apple-app-site-association` on your domain are mapped to the corresponding local endpoints of {{product_name}}.
-
-        {% endif %}
-
-        Learn more about the validation services of [Android](https://passkeys-auth.com/docs/implementation/flutter/android/){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}
-
-    !!! warning "Third-Party Data Exposure"
-
-        While not a security concern, it is still important to note that other organizations are able to access the data under **Platform Settings** by accessing the corresponding public endpoint.
-
-        {% if product_name == "WSO2 Identity Server" %}
-        Due to this behavior, you may configure {{product_name}} to display a consent screen for administrators who are attempting to make an application a FIDO trusted app. To do so, enter the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory.
-
-        ```bash
-        [application_mgt]
-        trusted_app_consent_required=true
-        ```
-        Once configured, a confirmation popup will appear when enabling the feature and this consent will be recorded and published as an audit log.
-        {% endif %}
 
 4. Click **Update** to save the changes.
+
+
+{% elif product_name == "Asgardeo" %}
+To learn how to implement this, follow the relevant guide based on whether you use Asgardeo domains or custom domains in your organization 
+
+### For Asgardeo domains
+
+It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} to have details about the application exposed in a public URL. As an Asgardeo domain user, this guide explains how you may publish details about your app to one of the following endpoints of Asgardeo based on the platform.
+
+- For Android - `{{base_url}}/.well-known/assetlinks.json`
+
+- For iOS - `{{base_url}}/.well-known/apple-app-site-association`
+
+!!! note
+    
+    The URLs to which Asgardeo publishes app details are common to all organizations. This means your app details will reside together with the app details of other organizations. While this is not a security concern, it is important to note that other organization users may learn details about your applications through these URLs.
+
+    If this is not desirable for your use case, you may use [custom domains]({{base_path}}/guides/branding/configure-custom-domains/) for your organization and publish app details to [custom endpoints](#for-custom-domains).
+
+To publish app details to the relevant Asgardeo endpoint,
+
+1. On the {{product_name}} Console, go to **Applications** and select your application.
+
+2. In its **Advanced** tab, under **Trusted App Settings**, select **Add as a FIDO trusted app**.
+
+3. Under **Platform Settings**, enter the following platform-specific details.
+    
+    - For an Android app:
+
+        - Provide the package name of the application which takes the reverse domain format (e.g. com.example.myapp)
+
+        - Provide key hashes, which are SHA256 fingerprints of the app's signing certificate.
+    
+    - For an iOS app:
+
+        - Provide the app ID of your application which consists of the team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
+
+4. Click **Update** to save the changes.
+
+### For custom domains
+
+It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} to have details about the application exposed in a public URL. As a custom domain user, you are required to facilitate this by publishing details about your mobile applications to the following endpoints.
+
+- For Android - `{custom_domain}/.well-known/assetlinks.json`
+
+- For iOS - `{custom_domain}/.well-known/apple-app-site-association`
+
+Make sure the data are in the format expected by the validation services of [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}. 
+{% endif %}
