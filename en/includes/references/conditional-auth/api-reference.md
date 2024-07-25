@@ -462,7 +462,7 @@ This function prompts the user for different interactions.
         </tr>
         <tr>
           <td><code>data</code></td>
-          <td>The data to send to the prompt.</td>
+          <td>The data associated with the template to be sent in the prompt.</td>
         </tr>
         <tr>
           <td><code>eventHandlers</code></td>
@@ -470,10 +470,8 @@ This function prompts the user for different interactions.
         </tr>
       </tbody>
     </table>
-
-    ??? details "Supported templates"
         
-        The following table contains the supported templates and the associated data.
+    The following table contains the supported templates and the associated data.
         <table>
           <thead>
             <tr>
@@ -484,62 +482,26 @@ This function prompts the user for different interactions.
           </thead>
           <tbody>
             <tr>
-              <td><code>genericForm</code></td>
+              <td>genericForm</td>
               <td>Prompt for generic user input.</td>
               <td>
                 <ul>
                 <li><code>username</code>: Username that will be used in a greeting</li>
                 <li><code>inputs</code>: A list of input field objects in the form. For example: <code>{id: “”, label: “”}</code></li>
                 </ul>
-                <p><i>Example</i></p> 
-                <pre>
-                var onLoginRequest = function(context) {
-                  executeStep(1, {
-                    onSuccess: function (context) {
-                      var username = context.steps[1].subject.username;
-                      prompt("genericForm", {"username":username, "inputs":[{"id":"fname","label":"First Name"},{"id":"lname","label":"Last Name"}]}, {
-                        onSuccess : function(context) {
-                        var fname = context.request.params.fname[0];
-                        var lname = context.request.params.lname[0];
-                        Log.info(fname);
-                        Log.info(lname);
-                        }
-                      });
-                    }
-                  });
-                }
-                </pre>
               </td>
             </tr>
             <tr>
-              <td><code>externalRedirect</code></td>
+              <td>externalRedirect</td>
               <td>Redirect users to an external static page.</td>
               <td>
                 <ul>
                 <li><code>redirectURL</code>: The external URL to redirect the user.</li>
                 </ul>
-                <p><i>Example</i></p> 
-                <pre>
-                  var onLoginRequest = function(context) {
-                    executeStep(1, {
-                      onSuccess: function (context) {
-                        prompt("externalRedirect", {
-                        "redirectURL": "{EXTERNAL_URL}"}, {
-                          onSuccess : function(context) {
-                            Log.info("Successfully redirected back from the external page");
-                          },
-                          onFail: function(context, data) {
-                            Log.info("Error occurred during the prompt.");
-                          } 
-                        });
-                      }
-                    });
-                  }
-                </pre>
               </td>
             </tr>
             <tr>
-              <td><code>internalWait</code></td>
+              <td>internalWait</td>
               <td>Keep a user waiting for a predefined fixed time or until a status is completed.</td>
               <td>
                 <ul>
@@ -560,37 +522,14 @@ This function prompts the user for different interactions.
                   </ul>
                 </li>
                 </ul>
-                <p><i>Example</i></p> 
-                <pre>
-                  var onLoginRequest = function(context) {
-                    executeStep(1, {
-                      onSuccess: function (context) {
-                        prompt("internalWait", {
-                        "waitingType": "POLLING",
-                        "waitingConfigs": {
-                          "pollingEndpoint": "<POLLING_ENDPOINT>",
-                          "requestData": "contextId=1234",
-                          "pollingInterval": "2",
-                          "timeout": "10"
-                        }
-                      }, {
-                        onSuccess: function (context) {
-                          Log.info("Successfully redirected back from waiting page.");
-                          },
-                        onFail: function (context, data) {
-                        Log.info("Error occurred during the prompt.");
-                        }
-                      });
-                      }
-                    });
-                  }
-                </pre>
               </td>
             </tr>
           </tbody>
         </table>
 
-- **Example**
+- **Examples**
+
+=== "genericForm"
 
     ``` js
     var onLoginRequest = function(context) {
@@ -606,6 +545,53 @@ This function prompts the user for different interactions.
                 }
               });
           }
+      });
+    }
+    ```
+
+=== "externalRedirect"
+
+    ``` js
+    var onLoginRequest = function(context) {
+      executeStep(1, {
+        onSuccess: function (context) {
+          prompt("externalRedirect", {
+          "redirectURL": "{EXTERNAL_URL}"}, {
+            onSuccess : function(context) {
+              Log.info("Successfully redirected back from the external page");
+              },
+            onFail: function(context, data) {
+              Log.info("Error occurred during the prompt.");
+            } 
+          });
+         }
+      });
+    }
+    ```
+
+=== "internalWait"
+
+    ``` js
+    var onLoginRequest = function(context) {
+      executeStep(1, {
+        onSuccess: function (context) {
+          prompt("internalWait", {
+            "waitingType": "POLLING",
+            "waitingConfigs": {
+              "pollingEndpoint": "<POLLING_ENDPOINT>",
+              "requestData": "contextId=1234",
+              "pollingInterval": "2",
+              "timeout": "10"
+            }
+          }, {
+            onSuccess: function (context) {
+              Log.info("Successfully redirected back from waiting page.");
+            },
+            onFail: function (context, data) {
+              Log.info("Error occurred during the prompt.");
+            }
+          });
+        }
       });
     }
     ```
