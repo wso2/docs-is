@@ -57,10 +57,12 @@ jobs:
       - name: Prepare hotfix
         if: ${{ env.IS_HOTFIX == 'true' }}
         run: |
+          set -euxo pipefail
+          
           # Determine the hotfix tag
-          echo "Determining the hotfix tag..."
+          # echo "Determining the hotfix tag..."
 
-          echo "$(git tag)"
+          echo "git tags: $(git tag)"
 
           hotfix_count=$(git tag | grep -E "${{ env.CURRENT_VERSION }}-hotfix-[0-9]+" | wc -l)
           echo "Hotfix count: $hotfix_count"
@@ -75,7 +77,7 @@ jobs:
           NEW_VERSION=$hotfix_release_tag
 
           # Change version in VERSION file to hotfix tag.
-          echo "$hotfix_release_tag" > VERSION
+          # echo "$hotfix_release_tag" > VERSION
 
         shell: bash
 
