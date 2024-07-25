@@ -37,7 +37,6 @@ jobs:
           pip install -r en/asgardeo/requirements.txt
 
       - name: Get the current version
-        if: ${{ env.IS_HOTFIX == 'false'}}
         run: |
           echo "CURRENT_VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
