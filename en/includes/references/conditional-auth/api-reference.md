@@ -1048,7 +1048,7 @@ If [alternative login identifiers]({{base_path}}/guides/user-accounts/account-lo
           <td>User provided login identifier.</td>
         </tr>
         <tr>
-          <td><code>tenantDomain</code></td>
+          <td><code>organization</code></td>
           <td>Organization name.</td>
         </tr>
       </tbody>
