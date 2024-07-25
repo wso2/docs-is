@@ -60,7 +60,7 @@ jobs:
           # Determine the hotfix tag
           echo "Determining the hotfix tag..."
 
-          hotfix_count=$(git tag | grep -E "${{ env.CURRENT_VERSION }}-hotfix-[0-9]+" | wc -l)
+          hotfix_count=$(git tag | grep -E "${{ env.CURRENT_VERSION-hotfix-[0-9]+ }}" | wc -l)
           echo "Hotfix count: $hotfix_count"
 
           next_hotfix_no=$((hotfix_count + 1))
