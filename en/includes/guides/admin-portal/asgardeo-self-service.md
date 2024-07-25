@@ -12,7 +12,7 @@ You can perform the following activities on this portal:
 
 {{my_account_url_note}}
 
-You can also switch to My Account from the {{ product_name }}. Click your profile icon as shown below and select **My Account**.
+You can also switch to My Account from the {{ product_name }}. Click your profile icon and select **My Account** from the dropdown.
 
 ![Switch to MyAccount from Console]({{base_path}}/assets/img/guides/organization/self-service/myaccount/switch-to-myaccount.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
