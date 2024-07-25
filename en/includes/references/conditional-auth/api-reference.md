@@ -14,7 +14,7 @@
     - [`isMemberOfAnyOfGroups()`](#check-group-membership)
     - [`setCookie()`](#set-cookie)
     - [`getCookieValue()`](#get-cookie-value)
-    - [`prompt()`](#prompt-for-user-input)
+    - [`prompt()`](#prompt)
     - [`getUserSessions()`](#get-user-sessions)
     - [`terminateUserSession()`](#terminate-user-session)
     - [`sendEmail()`](#send-email)
@@ -24,6 +24,8 @@
     - [`getAssociatedLocalUser()`](#get-associated-user)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
+    - [`resolveMultiAttributeLoginIdentifier()`](#resolve-multi-attribute-login-identifier)
+    - [`updateUserPassword()`](#update-user-password)
 
 - [Object references](#object-reference): You can use objects to capture user behaviors and set attributes. For example, you can use the **user** and **request** objects and write the login conditions accordingly. Listed below are the object references that can be used in conditional authentication scripts.
   
@@ -290,7 +292,7 @@ passed. All the properties passed in the map are also optional.
 
 `sendError()`
 
-This function redirects the user to an error page. It includes the parameters listed below.
+This function redirects the user to an error page.
 
 - **Parameters**
 
@@ -328,7 +330,7 @@ The implementation of utility functions can be found in the [WSO2 extensions cod
 
 `isMemberOfAnyOfGroups()`
 
-This function returns `true` if the specified user belongs to at least one of the given groups, and returns `false` if the user does not. It includes the parameters listed below.
+This function returns `true` if the specified user belongs to at least one of the given groups, and returns `false` if the user does not.
 
 - **Parameters**
 
@@ -361,7 +363,7 @@ This function returns `true` if the specified user belongs to at least one of th
 
 `setCookie(response, name, value, properties)`
 
-This function sets a new cookie. It includes the parameters listed below.
+This function sets a new cookie.
 
 - **Parameters**
 
@@ -412,7 +414,7 @@ This function sets a new cookie. It includes the parameters listed below.
 
 `getCookieValue(request, name, properties)`
 
-This function gets the plain-text cookie value for the cookie name if it is present. It includes the parameters listed below.
+This function gets the plain-text cookie value for the cookie name if it is present.
 
 - **Parameters**
 
@@ -444,11 +446,11 @@ This function gets the plain-text cookie value for the cookie name if it is pres
     getCookieValue(context.request,"name", {"decrypt" : true,"validateSignature" : true })
     ```
 
-### Prompt for user input
+### Prompt
 
-`prompt()`
+`prompt(templateId, data, eventHandlers)`
 
-This function prompts user input. It includes the parameters listed below.
+This function prompts the user for different interactions.
 
 - **Parameters**
 
@@ -468,6 +470,125 @@ This function prompts user input. It includes the parameters listed below.
         </tr>
       </tbody>
     </table>
+
+    ??? details "Supported templates"
+        
+        The following table contains the supported templates and the associated data.
+        <table>
+          <thead>
+            <tr>
+                <th>Template Id</th>
+                <th>Description</th>
+                <th>Data</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>genericForm</code></td>
+              <td>Prompt for generic user input.</td>
+              <td>
+                <ul>
+                <li><code>username</code>: Username that will be used in a greeting</li>
+                <li><code>inputs</code>: A list of input field objects in the form. For example: <code>{id: “”, label: “”}</code></li>
+                </ul>
+                <p><i>Example</i></p> 
+                <pre>
+                var onLoginRequest = function(context) {
+                  executeStep(1, {
+                    onSuccess: function (context) {
+                      var username = context.steps[1].subject.username;
+                      prompt("genericForm", {"username":username, "inputs":[{"id":"fname","label":"First Name"},{"id":"lname","label":"Last Name"}]}, {
+                        onSuccess : function(context) {
+                        var fname = context.request.params.fname[0];
+                        var lname = context.request.params.lname[0];
+                        Log.info(fname);
+                        Log.info(lname);
+                        }
+                      });
+                    }
+                  });
+                }
+                </pre>
+              </td>
+            </tr>
+            <tr>
+              <td><code>externalRedirect</code></td>
+              <td>Redirect users to an external static page.</td>
+              <td>
+                <ul>
+                <li><code>redirectURL</code>: The external URL to redirect the user.</li>
+                </ul>
+                <p><i>Example</i></p> 
+                <pre>
+                  var onLoginRequest = function(context) {
+                    executeStep(1, {
+                      onSuccess: function (context) {
+                        prompt("externalRedirect", {
+                        "redirectURL": "{EXTERNAL_URL}"}, {
+                          onSuccess : function(context) {
+                            Log.info("Successfully redirected back from the external page");
+                          },
+                          onFail: function(context, data) {
+                            Log.info("Error occurred during the prompt.");
+                          } 
+                        });
+                      }
+                    });
+                  }
+                </pre>
+              </td>
+            </tr>
+            <tr>
+              <td><code>internalWait</code></td>
+              <td>Keep a user waiting for a predefined fixed time or until a status is completed.</td>
+              <td>
+                <ul>
+                <li><code>waitingType</code>: Waiting method. Can be one of <code>FIXED_DELAY</code> or <code>POLLING</code>. Default waitingType is <code>FIXED_DELAY</code>.</li>
+                <li><code>waitingConfigs</code>: Waiting page configurations.
+                  <ul>
+                    <li><code>greeting</code>: An optional greeting. Default text is <code>Just a moment...</code></li>
+                    <li><code>message</code>: An optional message. Default text is <code>We are setting things up for you.</code>.</li>
+                    <li><code>timeout</code>: Optional timeout period in seconds. Default timeout is 10 seconds and max timeout is 20 seconds.</li>
+                    If your <code>waitingType</code> is <code>POLLING</code>, the following configs also apply:
+                      <ul>
+                        <li><code>pollingEndpoint</code>: REST endpoint to poll a status.</li>
+                        <li><code>pollingInterval</code>: Time internal in seconds to poll the polling endpoint. Default value is `2` seconds.</li>
+                        <li><code>requestMethod</code>: Polling request method. Can be one of <code>GET</code> or <code>POST</code>. Default value is <code>GET</code>.</li>
+                        <li><code>contentType</code>: Content type of the polling request. Default value is <code>application/x-www-form-urlencoded</code>.</li>
+                        <li><code>requestData</code>: Data to be sent to the polling endpoint. Can specify a string or an object. If the HTTP method is <code>GET</code>, the data will be appended to the URL.</li>
+                      </ul>
+                  </ul>
+                </li>
+                </ul>
+                <p><i>Example</i></p> 
+                <pre>
+                  var onLoginRequest = function(context) {
+                    executeStep(1, {
+                      onSuccess: function (context) {
+                        prompt("internalWait", {
+                        "waitingType": "POLLING",
+                        "waitingConfigs": {
+                          "pollingEndpoint": "<POLLING_ENDPOINT>",
+                          "requestData": "contextId=1234",
+                          "pollingInterval": "2",
+                          "timeout": "10"
+                        }
+                      }, {
+                        onSuccess: function (context) {
+                          Log.info("Successfully redirected back from waiting page.");
+                          },
+                        onFail: function (context, data) {
+                        Log.info("Error occurred during the prompt.");
+                        }
+                      });
+                      }
+                    });
+                  }
+                </pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
 - **Example**
 
@@ -494,7 +615,7 @@ This function prompts user input. It includes the parameters listed below.
 `getUserSessions()`
 
 This function returns a session object  (i.e., all the active user sessions of the specified user or an empty
-array if there are no sessions). It includes the parameters listed below.
+array if there are no sessions).
 
 - **Parameters**
 
@@ -522,7 +643,7 @@ array if there are no sessions). It includes the parameters listed below.
 `terminateUserSession()`
 
 This function returns a session object (i.e., all the active user sessions of the specified user or an empty
-array if there are no sessions). It includes the parameters listed below.
+array if there are no sessions).
 
 - **Parameters**
 
@@ -554,7 +675,7 @@ array if there are no sessions). It includes the parameters listed below.
 
 `sendEmail()`
 
-This function sends an email to the specified user. It includes the parameters listed below.
+This function sends an email to the specified user.
 
 - **Parameters**
 
@@ -585,7 +706,7 @@ This function sends an email to the specified user. It includes the parameters l
 
 ### Call a Choreo API
 
-This function invokes an API hosted in [Choreo](https://wso2.com/choreo/){:target="_blank"}. It includes the parameters listed below.
+This function invokes an API hosted in [Choreo](https://wso2.com/choreo/){:target="_blank"}.
 
 !!! note "Important"
     Note that to use the `callChoreo` function, the API should,
@@ -783,6 +904,43 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
     }
     ```
 
+!!! note "Authentication Types and Properties"
+
+    When using httpGet functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
+    `Enhanced secret management features are currently under development and will be available soon.`
+
+    <table>
+    <thead>
+        <tr>
+            <th>Authentication Type</th>
+            <th>Properties</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>basicauth</td>
+            <td>username, password</td>
+            <td>Uses user credentials.</td>
+        </tr>
+        <tr>
+            <td>apikey</td>
+            <td>apiKey, headerName</td>
+            <td>Uses an API key sent as a header.</td>
+        </tr>
+        <tr>
+            <td>clientcredential</td>
+            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional)</td>
+            <td>Uses client credentials to obtain an access token.</td>
+        </tr>
+        <tr>
+            <td>bearertoken</td>
+            <td>token</td>
+            <td>Uses a bearer token for authentication.</td>
+        </tr>
+    </tbody>
+    </table>
+
 ### HTTP POST
 
 `httpPost(url, body, headers, authConfig, eventHandlers)`
@@ -851,12 +1009,12 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
     }
     ```
 
-**Authentication Types and Properties**
+!!! note "Authentication Types and Properties"
 
-When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
-`Enhanced secret management features are currently under development and will be available soon.`
+    When using httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
+    `Enhanced secret management features are currently under development and will be available soon.`
 
-<table>
+    <table>
     <thead>
         <tr>
             <th>Authentication Type</th>
@@ -886,7 +1044,79 @@ When using httpGet or httpPost functions in Asgardeo adaptive authentication scr
             <td>Uses a bearer token for authentication.</td>
         </tr>
     </tbody>
-</table>
+    </table>
+
+
+### Resolve multi attribute login identifier
+
+`resolveMultiAttributeLoginIdentifier(loginIdentifier, tenantDomain)`
+
+If [alternative login identifiers]({{base_path}}/guides/user-accounts/account-login/configure-login-identifiers/) are enabled, this function resolves the username from the provided login identifier.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>loginIdentifier</code></td>
+          <td>User provided login identifier.</td>
+        </tr>
+        <tr>
+          <td><code>tenantDomain</code></td>
+          <td>Organization name.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ```
+    var loginIdentifier = context.request.params.username[0];
+    var tenantDomain = context.tenantDomain;
+
+    var username = resolveMultiAttributeLoginIdentifier(loginIdentifier, tenantDomain);
+    ```
+
+### Update user password
+
+`updateUserPassword(user, newPassword, eventHandlers)`
+
+This function updates the user password.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>user</code></td>
+          <td>The user object.</td>
+        </tr>
+        <tr>
+          <td><code>newPassword</code></td>
+          <td>New user password.</td>
+        </tr>
+        <tr>
+          <td><code>eventHandlers</code></td>
+          <td>Optional callback event handlers.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ```
+    updateUserPassword(user, "newPassword");
+
+    updateUserPassword(user, "newPassword", {
+      onSuccess: function(context) {
+        Log.info("Password updated successfully.");
+      },
+      onFail: function(context) {
+        Log.info("Password update failed.");
+      }
+    });
+    ```
+
 
 ## Object reference
 
