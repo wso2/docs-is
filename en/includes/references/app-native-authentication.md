@@ -475,7 +475,8 @@ If a login step has multiple login options, the application goes through the fol
 
 !!! note "Prerequisite"
 
-    If you wish to integrate passkeys with app-native authentication for a mobile application, it is mandatory to make it a [FIDO trusted app]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/#make-application-a-fido-trusted-app).
+    If you wish to implement app-native authentication with passkeys on a mobile application, you must facilitate the relevant platform (iOS or Android) to validate your mobile application. Refer to the [Passkeys documentation]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/#make-application-a-fido-trusted-app) for instructions.
+
 
 - **Step 1**: Initiate the request with the `/authorize` endpoint.
 
