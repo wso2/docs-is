@@ -15,12 +15,12 @@ configured under these two types.
 
 !!! info
 Starting from update level <update_level>, the circuit breaker for userstores is
-enabled by default to ignore unavailable userstores, ensuring smooth operations
-in the Identity Server. If it is necessary to disable this behavior,
+introduced to ignore unavailable userstores, ensuring smooth operations
+in the Identity Server. If it is necessary to enable this behavior,
 add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 ```
 [user_store]
-enable_circuit_breaker_for_user_stores=false
+enable_circuit_breaker_for_user_stores=true
 ```
 !!! info
 Additionally, the following properties have been introduced to support the circuit
