@@ -96,7 +96,7 @@ connection_password = "admin"
 ```
 
 !!! note
-Starting from update level <update_level>, the following userstore properties have
+Starting from update level 6.1.0.185, the following userstore properties have
 been introduced to support the circuit breaker for userstores. This feature is enabled
 by default to ignore unavailable userstores, ensuring smooth operations in the Identity Server.
 <table>

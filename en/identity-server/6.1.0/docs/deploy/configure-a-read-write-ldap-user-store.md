@@ -93,7 +93,7 @@ connection_password = "admin"
 Apart from above properties, WSO2 Identity Server also supports advanced LDAP configurations.
 
 !!! note
-Starting from update level <update_level>, the following userstore properties have
+Starting from update level 6.1.0.185, the following userstore properties have
 been introduced to support the circuit breaker for userstores. This feature is enabled
 by default to ignore unavailable userstores, ensuring smooth operations in the Identity Server.
 <table>
