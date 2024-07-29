@@ -160,7 +160,7 @@ If you are working with a mobile application that implements passkeys, making it
 
 !!! note 
 
-    If you wish to implement passkeys with [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), it is mandatory to validate your application against the relevant platform.
+    If you wish to implement passkeys with [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), it is mandatory to pass this platform-specific validation.
 
 {% if product_name == "WSO2 Identity Server" %}
 
