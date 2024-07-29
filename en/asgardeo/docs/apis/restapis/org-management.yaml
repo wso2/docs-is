@@ -467,6 +467,12 @@ paths:
           $ref: '#/components/responses/ServerError'
         '501':
           $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/meta-attributes' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   parameters:
     filterQueryParam:
