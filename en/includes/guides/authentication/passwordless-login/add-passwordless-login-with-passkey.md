@@ -244,7 +244,7 @@ To publish app details to the relevant Asgardeo endpoint,
 
 ### For custom domains
 
-It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} to have details about the application exposed in a public URL. As a custom domain user, you are required to facilitate this by publishing details about your mobile applications to the following endpoints.
+It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} to have details about the application exposed in a public URL. As a custom domain user, you are required to facilitate this by hosting the following endpoints in your domain and including the relevant mobile application details.
 
 - For Android - `{custom_domain}/.well-known/assetlinks.json`
 
