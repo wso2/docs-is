@@ -166,7 +166,7 @@ By following this guide, you enable {{product_name}} to host details about your 
 
 - For iOS - `{{base_url}}/.well-known/apple-app-site-association`
 
-Make sure `/assetlinks.json` and `/apple-app-site-association` endpoints of your domain, are mapped to the corresponding local endpoints of {{product_name}}.
+As the validation services look for these endpoints in your domain, make sure `/assetlinks.json` and `/apple-app-site-association` paths of your domain are mapped to the relevant local endpoints of {{product_name}}.
 
 !!! note "Third-party data exposure"
 
@@ -246,5 +246,5 @@ It is required by the validation services of [iOS](https://developer.apple.com/d
 
 - For iOS - `{custom_domain}/.well-known/apple-app-site-association`
 
-Make sure the data are in the format expected by the validation services of [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}. 
+Make sure the data is in the format expected by the validation services of [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}. 
 {% endif %}
