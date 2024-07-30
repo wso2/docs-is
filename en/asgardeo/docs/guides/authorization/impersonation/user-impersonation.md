@@ -168,6 +168,13 @@ Apart from generic claims, impersonated access token has a claim **act**. The **
 
 The sub claim is the impersonated user (32bc4697-ed0f-4546-8387-dcd6403e7caa), while act.sub contains the ID of the impersonator (2d931c9d-876e-46c0-9aba-f34501879dfc). Client can detect impersonation using **act** claim  in the access token.
 
+### Audit logs for Impersonation
+
+When a resource get modified using impersonated access token, an audit log will be printed expressing the details of the resource modification. These audit logs can be used to track actions performed by impersonation.
+
+![Impersonation-Audit-Log]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-audit-logs.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+
 ### Email Notification for impersonated user
 
 Once impersonated access token obtained, Authorization server will send an email notification to impersonated user.
