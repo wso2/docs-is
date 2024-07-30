@@ -155,19 +155,24 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 
 ## Make application a FIDO trusted app
 
-If you wish to integrate passkeys for a mobile application using [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), it is required to make the application a FIDO trusted app. By doing so, you allow the hosting platform (iOS or Android) to validate the authenticity of the application. This ensures that the authentication requests originate from a legitimate application, safeguarding against malicious attempts to steal credentials.
+If you wish to integrate passkeys into a mobile application using [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), you must validate your application through the validation services provided by the respective platform (iOS or Android). This validation involves associating your application with the identity provider's domain. This association verifies that the authentication requests originate from a legitimate application, protecting against malicious attempts to steal credentials.
 
 {% if product_name == "WSO2 Identity Server" %}
 
-By following this guide, you enable {{product_name}} to host details about your applications in the following endpoints as required by the validation services of [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}.
+By following this guide, you enable {{product_name}} to host details about your applications in the following endpoints:
 
-- For Android - `{{base_url}}/.well-known/assetlinks.json`
+- For Android - `{{base_url}}/.well-known/trusted-apps/android`
 
-- For iOS - `{{base_url}}/.well-known/apple-app-site-association`
+- For iOS - `{{base_url}}/.well-known/trusted-apps/ios`
 
-As the validation services look for app details in `/assetlinks.json` and `/apple-app-site-association` paths of your domain, make sure these paths are mapped to the corresponding local endpoints of {{product_name}}.
+The validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="blank"} require application details to be available at the following URLs on your domain,
 
-!!! note "Third-party data exposure"
+- For Android - `{your_domain}/.well-known/assetlinks.json`
+- For iOS - `{your_domain}/.well-known/apple-app-site-association`
+
+Therefore, make sure these paths of your domain are mapped to the corresponding local endpoints of {{product_name}}.
+
+!!! note
 
     While not a security concern, it is still important to note that details about your applications are publicly accessible through the endpoints.
 
@@ -239,11 +244,11 @@ To publish app details to an Asgardeo endpoint,
 
 ### For custom domains
 
-It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} to have details about the application exposed in a public URL. As a custom domain user, you are required to facilitate this by hosting details about your mobile applications to the following endpoints.
+It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} to have details about the application exposed in a public URL. As a custom domain user, you are required to facilitate this by hosting details about your mobile applications in the following endpoints.
 
 - For Android - `{custom_domain}/.well-known/assetlinks.json`
 
 - For iOS - `{custom_domain}/.well-known/apple-app-site-association`
 
-Make sure the data is in the format expected by the validation services of [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}. 
+Make sure the data is in the format expected by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"}. 
 {% endif %}
