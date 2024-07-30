@@ -169,11 +169,7 @@ It is required by the validation services of [iOS](https://developer.apple.com/d
 
 - For iOS - `{{base_url}}/.well-known/apple-app-site-association`
 
-<<<<<<< HEAD
 Therefore, ensure public requests to `/assetlinks.json` and `/apple-app-site-association` on your domain are mapped to the corresponding local endpoints of {{product_name}}.
-=======
-As the validation services look for these endpoints in your domain, make sure `/assetlinks.json` and `/apple-app-site-association` paths of your domain are mapped to the relevant local endpoints of {{product_name}}.
->>>>>>> cd639a452 (minor fixes)
 
 !!! note "Third-party data exposure"
 
