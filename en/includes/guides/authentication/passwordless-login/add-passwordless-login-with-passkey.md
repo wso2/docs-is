@@ -157,10 +157,6 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 
 If you wish to integrate passkeys for a mobile application using [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), it is required to make the application a FIDO trusted app. By doing so, you allow the hosting platform (iOS or Android) to validate the authenticity of the application. This ensures that the authentication requests originate from a legitimate application, safeguarding against malicious attempts to steal credentials.
 
-!!! note 
-
-    If you wish to implement passkeys with [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/), it is mandatory to validate your application against the relevant platform.
-
 {% if product_name == "WSO2 Identity Server" %}
 
 By following this guide, you enable {{product_name}} to host details about your applications in the following endpoints as required by the validation services of [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="blank"} and [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"}.
@@ -169,7 +165,7 @@ By following this guide, you enable {{product_name}} to host details about your 
 
 - For iOS - `{{base_url}}/.well-known/apple-app-site-association`
 
-Make sure `/assetlinks.json` and `/apple-app-site-association` endpoints of your domain, are mapped to the corresponding local endpoints of {{product_name}}.
+As the validation services look for app details in `/assetlinks.json` and `/apple-app-site-association` paths of your domain, make sure these paths are mapped to the corresponding local endpoints of {{product_name}}.
 
 !!! note "Third-party data exposure"
 
@@ -221,7 +217,7 @@ It is required by the validation services of [iOS](https://developer.apple.com/d
 
     If this is not desirable for your use case, you may use [custom domains]({{base_path}}/guides/branding/configure-custom-domains/) for your organization and publish app details to [custom endpoints](#for-custom-domains).
 
-To publish app details to the relevant Asgardeo endpoint,
+To publish app details to an Asgardeo endpoint,
 
 1. On the {{product_name}} Console, go to **Applications** and select your application.
 
@@ -243,7 +239,7 @@ To publish app details to the relevant Asgardeo endpoint,
 
 ### For custom domains
 
-It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} to have details about the application exposed in a public URL. As a custom domain user, you are required to facilitate this by publishing details about your mobile applications to the following endpoints.
+It is required by the validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} to have details about the application exposed in a public URL. As a custom domain user, you are required to facilitate this by hosting details about your mobile applications to the following endpoints.
 
 - For Android - `{custom_domain}/.well-known/assetlinks.json`
 
