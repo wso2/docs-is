@@ -216,7 +216,7 @@ It is required by the validation services of [iOS](https://developer.apple.com/d
 
 - For iOS - `{{base_url}}/.well-known/apple-app-site-association`
 
-!!! note
+!!! warning "Third-party data exposure"
     
     Asgardeo publishes app details to URLs which are common to all organizations. This means your app details will reside together with the app details of other organizations. While this is not a security concern, it is important to note that other organization users may learn details about your applications through these URLs.
 
