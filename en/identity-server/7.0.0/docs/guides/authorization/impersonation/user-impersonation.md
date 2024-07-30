@@ -149,7 +149,7 @@ You only need to run this command once per deployment.
 
 Impersonating a user involves two step process.
 
-1. Acuqire Subject token from Authorize endpoint.
+1. Acquire Subject token from Authorize endpoint.
 
 2. Exchange subject token for impersonated access token using Token Exchange grant type.
 
@@ -292,7 +292,7 @@ Following is the default template of impersonation notification.
 
 Impersonated access token can be used as same as generic access token to access protected resources as impersonated user.
 
-### Audit logs for Imprsonation
+### Audit logs for Impersonation
 
 When a resource get modified using impersonated access token, an audit log will be printed expressing the details of the resource modification. These audit logs can be used to track actions performed by impersonation.
 
