@@ -415,6 +415,107 @@ paths:
               "value": "30"
             }
             ]'
+  /configs/jwt-key-validator:
+    get:
+      tags:
+        - Private Key JWY validation Authenticators
+      summary: Retrieve the tenant private key jwt authentication configuration
+      operationId: getPrivatKeyJWTValidationConfiguration
+      description: | 
+        Retrieve the tenant private key jwt authentication configuration.
+        
+         <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTValidatorConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/jwt-key-validator' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                
+    patch:
+      tags:
+        - Private Key JWY validation Authenticators
+      summary: Patch the tenant private key jwt authentication configuration
+      operationId: patchPrivatKeyJWTValidationConfiguration
+      description: |
+        Patch the tenant private key jwt authentication configuration.  A JSONPatch as defined by RFC 6902.
+        
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JWTKeyValidatorPatchRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/api/server/v1/configs/jwt-key-validator' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+            {
+              "operation": "ADD",
+              "path": "/enableTokenReuse",
+              "value": false
+            }
+            ]'
   /configs/home-realm-identifiers:
     get:
       tags:
