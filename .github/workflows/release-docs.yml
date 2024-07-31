@@ -58,10 +58,6 @@ jobs:
       - name: Prepare hotfix
         if: ${{ env.IS_HOTFIX == 'true' }}
         run: |
-          set -euxo pipefail
-
-          git fetch --tags
-          
           # Determine the hotfix tag
           # echo "Determining the hotfix tag..."
 
@@ -77,7 +73,7 @@ jobs:
           hotfix_release_tag=$(echo "${{ env.CURRENT_VERSION }}-hotfix-1" | sed "s/[0-9]$/$next_hotfix_no/")
           echo "Hotfix release tag: $hotfix_release_tag"
 
-          NEW_VERSION=$hotfix_release_tag
+          #NEW_VERSION=$hotfix_release_tag
 
           # Change version in VERSION file to hotfix tag.
           # echo "$hotfix_release_tag" > VERSION
@@ -85,18 +81,21 @@ jobs:
         shell: bash
 
       - name: Build MkDocs Documentation
+        if: false
         run: |
           cd en/asgardeo
           mkdocs build
           cd ../../
 
       - name: Zip the Documentation
+        if: false
         run: |
           mkdir -p out/asgardeo/docs
           cp -r ./en/asgardeo/site/* out/asgardeo/docs/
           zip -r asgardeo-docs-${{ env.NEW_VERSION }}.zip ./out
 
       - name: Create git tag
+        if: false
         run: |
           git config user.name $GIT_USERNAME
           git config user.email $GIT_USER_EMAIL
@@ -104,6 +103,7 @@ jobs:
           git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "v${{ env.NEW_VERSION }}"
 
       - name: Create Release
+        if: false
         id: create_release
         uses: actions/create-release@v1
         with:
@@ -113,6 +113,7 @@ jobs:
           prerelease: false
 
       - name: Upload Release Asset
+        if: false
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
@@ -121,12 +122,14 @@ jobs:
           asset_content_type: application/zip
 
       - name: Commit and push new version
+        if: ${{ env.IS_HOTFIX == 'false' }}  
         run: |
           git add VERSION
           git commit -m "Increment release version to ${{ env.NEW_VERSION }}"
           git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" master
 
       - name: Update Downstream Repository Version
+        if: ${{ env.IS_HOTFIX == 'false' }}
         run: |
           set -euxo pipefail
           VERSION_FILE_PATH="$GITHUB_WORKSPACE/$GIT_REPO_NAME/cd-pipelines/docs/dev-setup-variables.yaml"
