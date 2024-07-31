@@ -72,10 +72,6 @@ The following are the properties of an audit log:
         <td>A description of the action that was performed and triggered the audit event. <br> For example : <code>add-user</code>, <code>update-role</code>, <code>delete-group</code></td>
     </tr>
     <tr>
-        <td><code>impersonatorId</code></td>
-        <td>In impersonation resource modification flow, this attribute represents the ID of the impersonator who initiated the audit event.</td>
-    </tr>
-    <tr>
         <td><code>data</code></td>
         <td>Additional data related to the action, such as parameters or metadata. You can <b>View</b> and <b>Download</b> this content.</td>
     </tr>
