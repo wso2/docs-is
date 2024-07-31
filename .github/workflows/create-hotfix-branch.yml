@@ -66,18 +66,6 @@ jobs:
           # Set IS_HOTFIX to true.
           sed -i 's/IS_HOTFIX: .*/IS_HOTFIX: '\''true'\''/' .github/workflows/release-docs.yml
 
-          # Update the VERSION file
-          echo "Updating the VERSION file with the hotfix tag..."
-
-          hotfix_tag_prefix=$TAG-hotfix
-          echo "Hotfix tag prefix: $hotfix_tag_prefix"
-
-          hotfix_release_tag=$hotfix_tag_prefix-0
-          echo "Hotfix release tag: $hotfix_release_tag"
-
-          # Change version in VERSION file to hotfix tag.
-          echo $hotfix_release_tag > 'VERSION'
-
           # Change the branch name in the pr-builder.yml file.
           # TODO: Add a PR builder to the docs-is repo
           # sed -i '/branches: \[ main \]/s/main/hotfix-'"${TAG//\//\\/}"'/' .github/workflows/pr-builder.yml
