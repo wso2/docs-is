@@ -73,7 +73,8 @@ jobs:
           hotfix_release_tag=${{ env.CURRENT_VERSION }}-hotfix-$next_hotfix_no
           echo "Hotfix release tag: $hotfix_release_tag"
 
-          NEW_VERSION=$hotfix_release_tag
+          # strip prepending 'v'
+          NEW_VERSION=$(echo $hotfix_release_tag | sed 's/^v//')
           
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
@@ -92,7 +93,6 @@ jobs:
           zip -r asgardeo-docs-${{ env.NEW_VERSION }}.zip ./out
 
       - name: Create git tag
-        if: ${{ env.IS_HOTFIX == 'false' }}
         run: |
           git config user.name $GIT_USERNAME
           git config user.email $GIT_USER_EMAIL
