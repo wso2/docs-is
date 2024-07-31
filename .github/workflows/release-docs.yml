@@ -72,13 +72,13 @@ jobs:
           echo "Next Hotfix number: $next_hotfix_no"
 
           # Replace the last digit with the incremented value
-          hotfix_release_tag=$(echo "${{ env.CURRENT_VERSION }}-hotfix-1" | sed "s/[0-9]$/$next_hotfix_no/")
+          hotfix_release_tag=${{ env.CURRENT_VERSION }}-hotfix-$next_hotfix_no
           echo "Hotfix release tag: $hotfix_release_tag"
 
           #NEW_VERSION=$hotfix_release_tag
-
-          # Change version in VERSION file to hotfix tag.
-          # echo "$hotfix_release_tag" > VERSION
+          
+          #echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          #echo "$NEW_VERSION" > VERSION
 
         shell: bash
 
