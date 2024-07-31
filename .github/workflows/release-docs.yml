@@ -58,6 +58,8 @@ jobs:
       - name: Prepare hotfix
         if: ${{ env.IS_HOTFIX == 'true' }}
         run: |
+          set +e
+          
           # Determine the hotfix tag
           # echo "Determining the hotfix tag..."
 
