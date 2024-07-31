@@ -231,11 +231,16 @@ plugins:
         'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
         'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'
         'deploy/security/product-level-security-guidelines.md': 'deploy/security/security-guidelines/product-level-security-guidelines.md'
-        'deploy/security/use-asymmetric-encryption.md': 'deploy/security/asymmetric-encryption/use-asymmetric-encryption.md'
-        'deploy/security/create-new-keystores.md': 'deploy/security/asymmetric-encryption/create-new-keystores.md'
-        'deploy/security/configure-keystores-in-wso2-products.md': 'deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md'
-        'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md'
-        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md'
+        'deploy/security/use-asymmetric-encryption.md': 'deploy/security/keystores/index.md'
+        'deploy/security/asymmetric-encryption/use-asymmetric-encryption.md': 'deploy/security/keystores/index.md'
+        'deploy/security/create-new-keystores.md': 'deploy/security/keystores/create-new-keystores.md'
+        'deploy/security/asymmetric-encryption/create-new-keystores.md': 'deploy/security/keystores/create-new-keystores.md'
+        'deploy/security/configure-keystores-in-wso2-products.md': 'deploy/security/keystores/configure-keystores.md'
+        'deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md': 'deploy/security/keystores/configure-keystores.md'
+        'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md'
+        'deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md'
+        'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md'
+        'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md.md'
         'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
         'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
         'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
@@ -636,12 +641,12 @@ nav:
           - Network-level: deploy/security/security-guidelines/network-level-security-guidelines.md
         - Encryption:
           - Asymmetric encryption:
-            - Use Asymmetric encryption: deploy/security/asymmetric-encryption/use-asymmetric-encryption.md
-            - Create new keystores: deploy/security/asymmetric-encryption/create-new-keystores.md
-            - Manage keystores: deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products.md
-            - Renew a CA-Signed certificate in a keystore: deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md
-            #- Manage Keystores via UI: deploy/security/asymmetric-encryption/manage-keystores-with-the-ui.md
-            - Add multiple keys to the primary keystore: deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md
+            - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
+          - Keystores:
+            - Keystores: deploy/security/keystores/index.md
+            - Create new keystores: deploy/security/keystores/create-new-keystores.md
+            - Manage keystores: deploy/security/keystores/configure-keystores.md
+            - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
             - Configurations related to symmetric key encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md

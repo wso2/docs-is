@@ -636,7 +636,7 @@ nav:
           - OS-level: deploy/security/security-guidelines/os-level-security-guidelines.md
           - Network-level: deploy/security/security-guidelines/network-level-security-guidelines.md
         - Encryption:
-          - Asymmetric encryption: 
+          - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
           - Keystores:
             - Keystores: deploy/security/keystores/index.md
