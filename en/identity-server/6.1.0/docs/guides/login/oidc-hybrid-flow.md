@@ -8,6 +8,9 @@ Specifying any of the following `response_type` values in an authorization reque
 - [code id\_token](#get-code-and-id-token)
 - [code id\_token token](#get-code-access-token-and-id-token)
 
+!!! warning
+    It is not recommended to use `code token` and `code id_token token` response types as they do not adhere to best practices and may introduce security risks.
+
 To understand how the `response_type` value specified in an authorization request selects the hybrid flow to be the authentication flow, let's take a look at the following `response_type` values in detail.
 
 -----
