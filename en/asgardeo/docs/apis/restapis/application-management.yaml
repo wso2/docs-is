@@ -147,6 +147,7 @@ paths:
             "imageUrl": "https://example.com/logo/my-logo.png",
             "accessUrl": "https://example.com/login",
             "templateId": "b9c5e11e-fc78-484b-9bec-015d247561b8",
+            "templateVersion": "v1.0.0",
             "isManagementApp": false,
             "claimConfiguration": {
               "dialect": "LOCAL",
@@ -502,6 +503,7 @@ paths:
             "imageUrl": "https://example.com/logo/my-logo.png",
             "accessUrl": "https://example.com/login",
             "templateId": "adwefi2429asdfdf94444rraf44",
+            "templateVersion": "v1.0.0",
             "claimConfiguration": {
               "dialect": "LOCAL",
               "claimMappings": [
@@ -2837,9 +2839,9 @@ components:
       required: false
       description: |
         Specifies the required parameters in the response.
-        Only `advancedConfigurations`, `templateId`, `clientId`, and `issuer` attributes are supported currently.
+        Only `advancedConfigurations`, `templateId`, `templateVersion`, `clientId`, and `issuer` attributes are supported currently.
         
-        `/applications?attributes=advancedConfigurations,templateId,clientId,issuer`
+        `/applications?attributes=advancedConfigurations,templateId,templateVersion,clientId,issuer`
       schema:
         type: string
     exportSecretsQueryParam:
@@ -2976,6 +2978,10 @@ components:
             </ul>"
           type: string
           example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        templateVersion:
+          description: "Version of the template which is used to configure the current application."
+          type: string
+          example: "v1.0.0"
 
     ApplicationModelOIDC:
       type: object
@@ -3015,6 +3021,10 @@ components:
             </ul>"
           type: string
           example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        templateVersion:
+          description: "Version of the template which is used to configure the current application."
+          type: string
+          example: "v1.0.0"
         isManagementApp:
           default: false
           type: boolean
@@ -3149,6 +3159,10 @@ components:
             </ul>"
           type: string
           example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        templateVersion:
+          description: "Version of the template which is used to configure the current application."
+          type: string
+          example: "v1.0.0"
         isManagementApp:
           default: false
           type: boolean
@@ -3219,6 +3233,10 @@ components:
             </ul>"
           type: string
           example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        templateVersion:
+          description: "Version of the template which is used to configure the current application."
+          type: string
+          example: "v1.0.0"
         isManagementApp:
           default: false
           type: boolean
@@ -3284,6 +3302,10 @@ components:
             </ul>"
           type: string
           example: "b9c5e11e-fc78-484b-9bec-015d247561b8"
+        templateVersion:
+          description: "Version of the template which is used to configure the current application."
+          type: string
+          example: "v1.0.0"
         isManagementApp:
           default: false
           type: boolean
@@ -3364,6 +3386,10 @@ components:
             </ul>"
           type: string
           example: "adwefi2429asdfdf94444rraf44"
+        templateVersion:
+          description: "Version of the template which is used to configure the current application."
+          type: string
+          example: "v1.0.0"
         isManagementApp:
           type: boolean
           example: false
@@ -3416,6 +3442,10 @@ components:
             </ul>"
           type: string
           example: "adwefi2429asdfdf94444rraf44"
+        templateVersion:
+          description: "Version of the template which is used to configure the current application."
+          type: string
+          example: "v1.0.0"
         claimConfiguration:
           $ref: '#/components/schemas/ClaimConfiguration'
         authenticationSequence:

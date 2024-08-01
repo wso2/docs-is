@@ -144,6 +144,7 @@ paths:
             "accessUrl": "https://example.com/login",
             "logoutReturnUrl": "https://example.com/app/logout",
             "templateId": "980b8tester24c64a8a09a0d80abf8c337bd2555",
+            "templateVersion": "v1.0.0",
             "isManagementApp": false,
             "claimConfiguration": {
               "dialect": "LOCAL",
@@ -617,6 +618,7 @@ paths:
             "accessUrl": "https://example.com/login",
             "logoutReturnUrl": "https://example.com/app/logout",
             "templateId": "adwefi2429asdfdf94444rraf44",
+            "templateVersion": "v1.0.1",
             "claimConfiguration": {
               "dialect": "LOCAL",
               "claimMappings": [
@@ -3924,9 +3926,9 @@ components:
       required: false
       description: |
         Specifies the required parameters in the response.
-        Only 'advancedConfigurations', 'templateId', 'clientId', and 'issuer' attributes are currently supported.
+        Only 'advancedConfigurations', 'templateId', 'templateVersion', 'clientId', and 'issuer' attributes are currently supported.
         
-        /applications?attributes=advancedConfigurations,templateId,clientId,issuer
+        /applications?attributes=advancedConfigurations,templateId,templateVersion,clientId,issuer
       schema:
         type: string
     exportSecretsQueryParam:
@@ -4055,6 +4057,9 @@ components:
         templateId:
           type: string
           example: "980b8tester24c64a8a09a0d80abf8c337bd2555"
+        templateVersion:
+          type: string
+          example: "v1.0.0"
 
     ApplicationModel:
       type: object
@@ -4083,6 +4088,9 @@ components:
         templateId:
           type: string
           example: "980b8tester24c64a8a09a0d80abf8c337bd2555"
+        templateVersion:
+          type: string
+          example: "v1.0.0"
         isManagementApp:
           default: false
           type: boolean
@@ -4132,6 +4140,9 @@ components:
         templateId:
           type: string
           example: "adwefi2429asdfdf94444rraf44"
+        templateVersion:
+          type: string
+          example: "v1.0.0"
         isManagementApp:
           type: boolean
           example: false
@@ -4174,6 +4185,9 @@ components:
         templateId:
           type: string
           example: "adwefi2429asdfdf94444rraf44"
+        templateVersion:
+          type: string
+          example: "v1.0.1"
         claimConfiguration:
           $ref: '#/components/schemas/ClaimConfiguration'
         authenticationSequence:
