@@ -13,35 +13,36 @@ If the application is hosted either in the Apple App Store or the Google Play St
 the attestation services provided by these platforms to verify the legitimacy of the client.
 
 1. On the {{product_name}} Console, go to **Applications**.
-2. Go to the **Advanced** tab of your application and select **Enable client attestation**.
-3. Select either **Apple** or **Android** to specify which attestation service you wish to use.
-
-4. Provide details about the attestation service.
-
+2. Go to the **Advanced** tab of your application and under **Client Attestation** section, select **Enable client attestation**.
+3. For **Android** applications, provide the service account credentials.
+  
 	![Enable client attestation]({{base_path}}/assets/img/references/enable-client-attestation.png){: width="600" style="display: block; margin: 0;"}
+        
+    !!! note
+            Learn more about [service account credentials](https://cloud.google.com/iam/docs/service-account-creds){target="_blank"}.
 
-	a. **For android**:
 
-    !!! tip
-	    By leveraging the Google Play Integrity API, {{product_name}} ensures a heightened level of security for Application Native Authentication. It actively detects and responds to potential threats, thereby safeguarding against attacks and mitigating the risk of abuse.
-	    Learn more about the [Play Integrity API](https://developer.android.com/google/play/integrity/overview).
+5. Based on whether your application is **Android** or **Apple**, provide the platform-specific application details under **Platform Settings**. 
 
-	- Provide the package name of the application which takes the format of the reverse domain format (e.g. com.example.myapp)
+    ![Platform settings]({{base_path}}/assets/img/references/platform-settings.png){: width="600" style="display: block; margin: 0;"}
 
-	- Provide the service account credentials.
-		
-		!!! note
-			Learn more about [service account credentials](https://cloud.google.com/iam/docs/service-account-creds){target="_blank"}.
-
-	b. **For apple**:
+    a. **For android**:
 
     !!! tip
-	    By leveraging DCAppAttestService, {{product_name}} adds an extra layer of security to Application Native Authentication for iOS apps. It actively detects and responds to potential threats, safeguarding against unauthorized access and malicious activities.
-	    Learn more about [Apple's DeviceCheck Attest Service](https://developer.apple.com/documentation/devicecheck/dcappattestservice)
+        By leveraging the Google Play Integrity API, {{product_name}} ensures a heightened level of security for Application Native Authentication. It actively detects and responds to potential threats, thereby safeguarding against attacks and mitigating the risk of abuse.
+        Learn more about the [Play Integrity API](https://developer.android.com/google/play/integrity/overview).
 
-	- Provide the app ID of your application which consists of the Team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
+    - Provide the package name of the application which takes the format of the reverse domain format (e.g. com.example.myapp)
+	
+    b. **For apple**:
 
-5. Click **Update** to save the changes.
+    !!! tip
+        By leveraging DCAppAttestService, {{product_name}} adds an extra layer of security to Application Native Authentication for iOS apps. It actively detects and responds to potential threats, safeguarding against unauthorized access and malicious activities.
+        Learn more about [Apple's DeviceCheck Attest Service](https://developer.apple.com/documentation/devicecheck/dcappattestservice)
+
+    - Provide the app ID of your application which consists of the Team ID and the bundle ID separated by a period (.). (e.g. A1B2C3D4E5.com.domainname.applicationname)
+
+6. Click **Update** to save the changes.
 
 !!! tip "Using client attestation in the request"
     The client application should obtain the attestation object from the platform and pass it to {{product_name}} via the `x-client-attestation` header in the initial authentication request.
