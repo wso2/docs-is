@@ -312,6 +312,9 @@ plugins:
         'apis/scim2-bulk-rest-apis.md': 'apis/scim2/scim2-bulk-rest-api.md'
         'apis/scim2-batch-operations.md': 'apis/scim2/scim2-batch-operations.md'
         'apis/scim2-sp-config-rest-apis.md': 'apis/scim2/scim2-sp-config-rest-api.md'
+        'apis/organization-apis/org-scim2-bulk-mgt.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+        'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
+        'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
