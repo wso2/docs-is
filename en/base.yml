@@ -105,7 +105,7 @@ extra:
     - name: Auth React SDK
       icon: assets/img/logo/react-logo.svg
       description: An SDK to integrate {{ config.extra.product_name }} into React applications
-      documentation_link: get-started/try-your-own-app/javascript/
+      documentation_link: get-started/try-your-own-app/react/
       download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip
       source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
     - name: Auth SPA SDK
