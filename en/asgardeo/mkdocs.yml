@@ -87,12 +87,6 @@ extra:
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
             url: Integrations|Integrate Asgardeo into your application
-  footer:
-    help:
-      logo: assets/images/email.svg
-      tagline: Need Assistance?
-      cta: Send us an email
-      url: mailto:asgardeo-help@wso2.com
 
 watch:
   - ../theme/material
@@ -121,6 +115,9 @@ plugins:
         'guides/applications/manage-application-roles.md': 'guides/users/manage-roles.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
         'apis/authentication.md': 'apis/index.md'
+        'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
+        'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
+        'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
 
 # Navigation
 nav:
@@ -362,7 +359,13 @@ nav:
       - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
       - User management:
-        - SCIM 2.0 API: apis/scim2.md
+        - SCIM 2.0 API:
+          - SCIM 2.0 API: apis/scim2/index.md
+          - SCIM 2.0 Users API: apis/scim2/scim2-users-rest-api.md
+          - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
+          - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
+          - SCIM 2.0 Service provider configs API: apis/scim2/scim2-sp-configs.md
         - User account associations API: apis/association-management-by-admin.md
         - Account Recovery API: apis/user-account-recovery.md
         - Offline user onboard management API: apis/offline-user-onboard.md
@@ -378,7 +381,6 @@ nav:
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding API: apis/organization-apis/org-branding-management.md
       - Claim management API: apis/organization-apis/org-claim-management.md
-      - Group management API: apis/organization-apis/org-group-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp.md
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
@@ -387,9 +389,13 @@ nav:
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
-      - SCIM 2.0 Bulk API: apis/organization-apis/scim-bulk.md
-      - User management API: apis/organization-apis/org-user-mgt.md
+      - User management:
+        - User management: apis/organization-apis/scim2/index.md
+        - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
+        - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
+        - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk.md
     - End User APIs:
+      - SCIM 2.0 Me API: apis/scim2-me.md
       - Backup codes API: apis/register-mfa/backup-code.md
       - Export user information API: apis/register-mfa/export-user-info.md
       - Password recovery API: apis/register-mfa/password-recovery.md

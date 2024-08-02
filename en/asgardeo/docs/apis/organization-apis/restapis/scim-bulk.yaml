@@ -3,7 +3,7 @@ info:
   title: SCIM 2.0 Bulk API
   description: |
     This document specifies **Organization level SCIM 2.0 Bulk Resource Management RESTful API** for Asgardeo.
-  version: 1.0.0
+  version: "v1"
 servers:
   - url: https://api.asgardeo.io/t/{organization-name}/o/scim2
 

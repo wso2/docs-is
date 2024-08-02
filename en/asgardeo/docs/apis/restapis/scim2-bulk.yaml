@@ -1,0 +1,632 @@
+openapi: 3.0.1
+info:
+  title: Asgardeo - SCIM 2.0 Bulk API
+  description: |
+    This document specifies **SCIM 2.0 Bulk RESTful API** for **Asgardeo**. To access the SCIM 2.0 APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization.
+  version: "v1"
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'
+tags:
+  - name: Bulk Endpoint
+    description: This endpoint is used to create/update/delete SCIM resources (users and/or groups) in bulk.
+paths:
+  /Bulk:
+    post:
+      tags:
+      - Bulk Endpoint
+      summary: Create/Update/Replace/Delete SCIM Resources (Users/ Groups) in Bulk
+      description: "This API is used to create/update/replace/delete SCIM resources in bulk. You need to specify different operations in the request payload corresponding to the type of bulk update: </br>
+                      </br>
+                    - **POST** operation: Adds new resources. </br>
+                    - **PUT** operation: Replaces an existing resource. </br>
+                    - **PATCH** operation: Updates attributes of an existing resource. </br>
+                    - **DELETE** operation: Removes an existing resource. </br>
+                   
+                   - <b>Scopes required:</b> ``internal_bulk_mgt_create``\n\n
+                   - <b>Flow type:</b> Client Credentials OAuth Flow"
+      operationId: createBulkUsers
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/BulkUserCreateObject'
+                - $ref: '#/components/schemas/BulkUserUpdateObject'
+                - $ref: '#/components/schemas/BulkUserReplaceObject'
+                - $ref: '#/components/schemas/BulkUserDeleteObject'
+                - $ref: '#/components/schemas/BulkGroupCreateObject'
+                - $ref: '#/components/schemas/BulkGroupUpdateObject'
+                - $ref: '#/components/schemas/BulkGroupReplaceObject'
+                - $ref: '#/components/schemas/BulkGroupDeleteObject'
+      responses:
+        201:
+          description: Valid user is created
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/BulkUserResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        409:
+          description: Users already exists
+          content: {}
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Bulk' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "failOnErrors": 1,
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+            ],
+            "Operations": [
+              {
+                "method": "POST",
+                "path": "/Users",
+                "bulkId": "ytrewq",
+                "data": {
+                  "schemas": [
+                    "urn:ietf:params:scim:schemas:core:2.0:User"
+                  ],
+                  "userName": "DEFAULT/kim@gmail.com",
+                  "password": "Pass@kim1"
+                }
+              }
+            ]
+            }'         
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    BulkUserCreateObject:
+      type: object
+      title: create user
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+          description: The number of errors that will be accepted by Asgardeo before returning the response.
+        schemas:
+          type: array
+          description: This is the schema that is required for sending bulk requests
+          items:
+            type: string
+            example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+        Operations:
+          type: array
+          description: Array of operations. To add multiple new users, add an array of POST operations. You can include any number of operations in one bulk request.
+          items:
+            $ref: '#/components/schemas/BulkUserOb'
+      required:
+        - schemas
+        - Operations
+    BulkUserUpdateObject:
+      type: object
+      title: update user
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+          description: The number of errors that will be accepted by Asgardeo before returning the response.
+        schemas:
+          type: array
+          description: This is the schema that is required for sending bulk requests
+          items:
+            type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+        Operations:
+          type: array
+          description: Array of operations. To update multiple users, add an array of PATCH operations. You can include any number of operations in one bulk request.
+          items:
+            $ref: '#/components/schemas/BulkUserUpdateOb'
+      required:
+        - schemas
+        - Operations
+    BulkUserReplaceObject:
+      type: object
+      title: replace user
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+          description: The number of errors that will be accepted by Asgardeo before returning the response.
+        schemas:
+          type: array
+          description: This is the schema that is required for sending bulk requests
+          items:
+            type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+        Operations:
+          type: array
+          description: Array of operations. To replace multiple users, add an array of PUT operations. You can include any number of operations in one bulk request.
+          items:
+            $ref: '#/components/schemas/BulkUserReplaceOb'
+      required:
+        - schemas
+        - Operations
+    BulkUserDeleteObject:
+      type: object
+      title: delete user
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+          description: The number of errors that will be accepted by Asgardeo before returning the response.
+        schemas:
+          type: array
+          description: This is the schema that is required for sending bulk requests
+          items:
+            type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+        Operations:
+          type: array
+          description: Array of operations. To delete multiple users, add an array of DELETE operations. You can include any number of operations in one bulk request.
+          items:
+            $ref: '#/components/schemas/BulkUserDeleteOb'
+      required:
+        - schemas
+        - Operations
+    BulkGroupCreateObject:
+      type: object
+      title: create group
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+          description: The number of errors that will be accepted by Asgardeo before returning the response.
+        schemas:
+          type: array
+          description: This is the schema that is required for sending bulk requests
+          items:
+            type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+        Operations:
+          type: array
+          description: Array of operations. To add multiple new user groups, add an array of POST operations. You can include any number of operations in one bulk request.
+          items:
+            $ref: '#/components/schemas/BulkGroupCreateOb'
+      required:
+        - schemas
+        - Operations
+    BulkGroupUpdateObject:
+      type: object
+      title: update group
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+          description: The number of errors that will be accepted by Asgardeo before returning the response.
+        schemas:
+          type: array
+          description: This is the schema that is required for sending bulk requests
+          items:
+            type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+        Operations:
+          type: array
+          description: Array of operations. To update multiple user groups, add an array of PATCH operations. You can include any number of operations in one bulk request.
+          items:
+            $ref: '#/components/schemas/BulkGroupUpdateOb'
+      required:
+        - schemas
+        - Operations
+    BulkGroupReplaceObject:
+      type: object
+      title: replace group
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+          description: The number of errors that will be accepted by Asgardeo before returning the response.
+        schemas:
+          type: array
+          description: This is the schema that is required for sending bulk requests
+          items:
+            type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+        Operations:
+          type: array
+          description: Array of operations. To replace multiple user groups, add an array of PUT operations. You can include any number of operations in one bulk request.
+          items:
+            $ref: '#/components/schemas/BulkGroupReplaceOb'
+      required:
+        - schemas
+        - Operations
+    BulkGroupDeleteObject:
+      type: object
+      title: delete group
+      properties:
+        failOnErrors:
+          type: integer
+          example: 1
+          description: The number of errors that will be accepted by Asgardeo before returning the response.
+        schemas:
+          type: array
+          description: This is the schema that is required for sending bulk requests
+          items:
+            type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+        Operations:
+          type: array
+          description: Array of operations. To delete multiple user groups, add an array of PUT operations. You can include any number of operations in one bulk request.
+          items:
+            $ref: '#/components/schemas/BulkGroupDeleteOb'
+      required:
+        - schemas
+        - Operations
+    BulkUserOb:
+      type: object
+      properties:
+        method:
+          type: string
+          description: The method that should be used in the operation
+          example: POST
+        path:
+          type: string
+          description: Add this path to specify that a new user is being added.
+          example: /Users
+        bulkId:
+          type: string
+          description: A unique identifier for the bulk operation. The bulkid is required for POST operations.
+          example: ytrewq
+        data:
+          type: object
+          description: Specify the details of the new user that should be added.
+          properties:
+            schemas:
+              type: array
+              description: Specify the list of SCIM2 user schemas to which the new user should be linked.
+              example:
+                - urn:ietf:params:scim:schemas:core:2.0:User
+                - urn:ietf:params:scim:schemas:enterprise:2.0:User
+                - urn:scim:wso2:schema
+              items:
+                type: string
+                example: urn:ietf:params:scim:schemas:core:2.0:User
+            userName:
+              type: string
+              description: The email address that should be set as the username.
+              example: DEFAULT/kim@gmail.com
+            password:
+              type: string
+              description: The password that is set for the user.
+              example: Pass@kim1
+          required:
+            - schemas
+            - username
+            - password
+      required:
+        - method
+        - path
+        - bulkId
+        - data
+    BulkUserUpdateOb:
+      type: object
+      properties:
+        method:
+          type: string
+          description: The method that should be used in the operation
+          example: PATCH
+        path:
+          type: string
+          description: Add this path to specify the new user that is being updated. (Optional if <b>op</b> is <b>add</b> or <b>replace</b>)
+          example: /Users/{user_id}
+        bulkId:
+          type: integer
+          description: A unique identifier for the bulk operation. The bulkid is required for POST operations.
+          example: An integer value
+        data:
+          type: object
+          description: Specify the details of the new user that should be updated.
+          properties:
+            op:
+              type: string
+              description: The operation that should be applied to the existing user data.
+              example:
+                - add
+                - replace
+                - remove
+            path:
+              type: string
+              description: The path to the resource (user attribute) that should be updated. (Optional if <b>op</b> is <b>add</b> or <b>replace</b>)
+              example: If the name of the user is to be updated, the path should be “name”.
+            value:
+              type: string
+              description: The value of the parameter specified by the path. (Optional if <b>op</b> is <b>add</b> or <b>replace</b>)
+              example: If the path is “name”, the value should be the actual name.
+          required:
+            - op
+            - path
+            - value
+      required:
+        - method
+        - path
+        - data
+    BulkUserReplaceOb:
+      type: object
+      properties:
+        method:
+          type: string
+          description: The method that should be used in the operation
+          example: PUT
+        path:
+          type: string
+          description: Add this path to specify the existing user that should be replaced by the new user information that is added.
+          example: /Users/{user_id}
+        bulkId:
+          type: integer
+          description: A unique identifier for the bulk operation. The bulkid is required for POST operations.
+          example: An integer value
+        data:
+          type: object
+          description: Specify the new user details that should be used to replace the existing user specified in the path.
+          properties:
+            schemas:
+              type: array
+              description: Specify the list of SCIM2 user schemas to which the new user should be linked.
+              example:
+                - urn:ietf:params:scim:schemas:core:2.0:User
+                - urn:ietf:params:scim:schemas:enterprise:2.0:User
+                - urn:scim:wso2:schema
+              items:
+                type: string
+                example: urn:ietf:params:scim:schemas:core:2.0:User 
+            userName:
+              type: string
+              description: The name of the attribute that will be replaced.
+              example: smith
+            name:
+              type: object
+              description: The name of the attribute that will be replaced.
+              properties:
+                givenName:
+                  type: string
+                  example: Smith
+                familyName:
+                  type: string
+                  example: Berry
+          required:
+            - schemas
+            - userName
+            - name
+      required:
+        - method
+        - path
+        - data
+    BulkUserDeleteOb:
+      type: object
+      properties:
+        method:
+          type: string
+          description: The method that should be used in the operation
+          example: DELETE
+        path:
+          type: string
+          description: Add this path to specify the existing user that should be deleted.
+          example: /Users/{user_id}
+      required:
+        - method
+        - path
+    BulkGroupCreateOb:
+      type: object
+      properties:
+        method:
+          type: string
+          description: The method that should be used in the operation
+          example: POST
+        path:
+          type: string
+          description: Add this path to specify that a new user group that should be added.
+          example: /Groups
+        bulkId:
+          type: integer
+          description: A unique identifier for the bulk operation. The bulkid is required for POST operations.
+          example: An integer value
+        data:
+          type: object
+          description: Specify the details of the new user group that should be added.
+          properties:
+            displayName:
+              type: string
+              description: The display name of the user group. 
+            members:
+              type: array
+              description: An array of member users.
+              items:
+                type: object
+                properties:
+                  display:
+                    type: string
+                    description: The display name of a user assigned to the group.(Required if <b>members</b> is used)
+                    example: The username
+                  value:
+                    type: string
+                    description: The ID of the user.(Required if <b>members</b> is used)
+                    example: The user ID.
+          required:
+            - displayName
+      required:
+        - method
+        - path
+        - data
+    BulkGroupUpdateOb:
+      type: object
+      properties:
+        method:
+          type: string
+          description: The method that should be used in the operation
+          example: PATCH
+        path:
+          type: string
+          description: Add this path to specify the user group that should be updated.
+          example: /Groups/{group_id}
+        bulkId:
+          type: integer
+          description: A unique identifier for the bulk operation. The bulkid is required for POST operations.
+          example: An integer value
+        data:
+          type: object
+          description: Specify the details that should be updated for the user group specified in the path.
+          properties:
+            op:
+              type: string
+              description: The operation that should be applied to the existing user group.
+              example:
+                - add
+                - replace
+                - remove
+            path:
+              type: string
+              description: Specify “members” as the path.(Optional if <b>op</b> is <b>add</b> or <b>replace</b>)
+              example: members
+            value: 
+              type: array
+              description: An array of users that belong to the group.(Optional if <b>op</b> is <b>remove</b>)
+              items:
+                type: object
+                properties:
+                  display:
+                    type: string
+                    description: The display name of the user, who is a member.(Required if <b>path</b> is set to <b>members</b>)
+                    example: The username
+                  value:
+                    type: string
+                    description: The user ID of the member user.(Required if <b>path</b> is set to <b>members</b>)
+                    example: The user ID
+          required:
+            - op
+            - path
+            - value
+      required:
+        - method
+        - path
+        - data
+    BulkGroupReplaceOb:
+      type: object
+      properties:
+        method:
+          type: string
+          description: The method that should be used in the operation
+          example: PUT
+        path:
+          type: string
+          description: Add this path to specify the existing user group that should be replaced by the new information that is added.
+          example: /Groups/{group_id}
+        bulkId:
+          type: integer
+          description: A unique identifier for the bulk operation. The bulkid is required for POST operations.
+          example: An integer value
+        data:
+          type: object
+          description: Specify the new group details that should be used to replace the existing user group specified in the path.
+          properties:
+            displayName:
+              type: string
+              description: The display name of the user group.
+            members:
+              type: array
+              description: Array of member users.
+              items:
+                type: object
+                properties:
+                  display:
+                    type: string 
+                    description: The display name of a user assigned to the group.
+                    example: The username
+                  value:
+                    type: string
+                    description: The ID of the user.
+                    example: The user ID.
+                required:
+                  - display
+                  - value
+          required:
+            - displayName
+            - members
+      required:
+        - method
+        - path
+        - data
+    BulkGroupDeleteOb:
+      type: object
+      properties:
+        method:
+          type: string
+          description: The method that should be used in the operation
+          example: DELETE
+        path:
+          type: string
+          description: Add this path to specify the existing user group that should be deleted.
+          example: /Groups/{group_id}
+      required:
+        - method
+        - path
+    BulkUserResponseObject:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:api:messages:2.0:BulkResponse
+        Operations:
+          $ref: '#/components/schemas/OperationObBulk'
+    OperationObBulk:
+      type: object
+      properties:
+        bulkId:
+          type: string
+          example: qwerty
+        method:
+          type: string
+          example: POST
+        location:
+          type: string
+          example: https://api.asgardeo.io/t/{org-name}/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1
+        status:
+          type: object
+          properties:
+            code:
+              type: string
+              example: "201"
+    ErrorUnauthorized:
+      required:
+      - status
+      type: object
+      properties:
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: "Authorization failure. Authorization information was invalid or missing from your request."
+        status:
+          type: string
+          example: "401"
+    ErrorForbidden:
+      required:
+      - status
+      type: object
+      properties:
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: "Operation is not permitted. You do not have permission to make this request."
+        status:
+          type: string
+          example: "403"

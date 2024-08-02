@@ -1,0 +1,693 @@
+openapi: 3.0.1
+info:
+  title: SCIM 2.0 Me API
+  description: |
+    This document specifies **SCIM 2.0 Me RESTful API** for **Asgardeo**.
+  version: "v1"
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'
+tags:
+  - name: Me Endpoint
+    description: This endpoint performs actions on the logged in user.
+paths:
+  /Me:
+    get:
+      tags:
+      - Me Endpoint
+      summary: Get Me
+      description: "This API returns the user details of the currently authenticated user.\n\n
+      - <b>Scope(Permission) required:</b> ``internal_login`` \n\n
+      - <b>Flow type:</b> Authorization Code OAuth Flow"
+      parameters:
+      - name: attributes
+        in: query
+        description: SCIM defined `attributes` parameter.
+        schema:
+          type: string
+      - name: excludedAttributes
+        in: query
+        description: SCIM defined ``excludedAttribute`` parameter.
+        schema:
+          type: string
+      responses:
+        200:
+          description: Valid user is found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        404:
+          description: Valid User is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'                
+    put:
+      tags:
+      - Me Endpoint
+      summary: Update Me
+      description: "This API uses a PUT operation to update user details.\n\n  
+      - <b>Scope(Permission) required:</b>``internal_login``\n\n
+      - <b>Flow type:</b> Authorization Code OAuth Flow"
+      operationId: updateUserMe
+      parameters:
+      - name: attributes
+        in: query
+        description: SCIM defined attributes parameter.
+        schema:
+          type: string
+      - name: excludedAttributes
+        in: query
+        description: SCIM defined excludedAttribute parameter.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateObject'
+        required: true
+      responses:
+        200:
+          description: User is updated
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        404:
+          description: Valid user is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [],
+            "name": {
+              "givenName": "Kim",
+              "familyName": "Berry"
+            },
+            "userName": "DEFAULT/kim@gmail.com",
+            "emails": [
+              {
+                "value": "kim@gmail.com",
+                "primary": true
+              }
+            ],
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+              "manager": {
+                "value": "Taylor"
+              }
+            }
+            }'                
+    patch:
+      tags:
+      - Me Endpoint
+      summary: Update Me - PATCH
+      description: "This API uses a PATCH operation to update user details.\n\n
+      - <b>Scope(Permission) required:</b> ``internal_login`` \n\n
+      - <b>Flow type:</b> Authorization Code OAuth Flow"
+      operationId: patchUserMe
+      parameters:
+      - name: attributes
+        in: query
+        description: SCIM defined attributes parameter.
+        schema:
+          type: string
+      - name: excludedAttributes
+        in: query
+        description: SCIM defined excludedAttribute parameter.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/PatchOperationInput'
+        required: false
+      responses:
+        200:
+          description: User is updated
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/PatchOperationResponseOutput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        404:
+          description: Valid user is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUserNotAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Me' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "nickName": "shaggy"
+                }
+              }
+            ]
+            }'                
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    UserObject:
+      title: Set a password for the user
+      required:
+      - password
+      type: object
+      properties:
+        schemas:
+          type: object
+          properties: {}
+          example: []
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              description: The `givenName` you specify will be entered for the First Name attribute in the user's profile.
+              example: Kim
+            familyName:
+              type: string
+              description: The `familyName` you specify will be entered for the Last Name attribute in the user's profile.
+              example: Berry
+        userName:
+          type: string
+          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your Asgardeo organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
+          example: DEFAULT/kim@gmail.com 
+        password:
+          type: string
+          description: Use this parameter to set a password for the user account. The user will be able to reset this password later. When setting the password, be sure to follow the password-validation rules configured for your organization.
+          example: aBcd!23#
+        emails:
+          type: array
+          description: This email will be entered for the Email attribute in the user's profile.
+          example:
+          - value: kim@gmail.com
+            primary: true
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+        urn:scim:wso2:schema:
+          type: object
+          properties:
+            verifyEmail:
+              type: boolean
+              description: When the administrator sets the password for the new user account, this parameter specifies if the new user should confirm the new account through email. If this parameter is set to `true`, an email is sent to the user's email address requesting confirmation.
+              example: true
+    UserObjectPassInvite:
+      title: Invite the user to set their own password
+      type: object
+      properties:
+        schemas:
+          type: object
+          properties: {}
+          example: []
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              description: The `givenName` you specify will be entered for the First Name attribute in the user's profile.
+              example: Kim
+            familyName:
+              type: string
+              description: The `familyName` you specify will be entered for the Last Name attribute in the user's profile.
+              example: Berry
+        userName:
+          type: string
+          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your Asgardeo organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
+          example: DEFAULT/kim@gmail.com
+        emails:
+          type: array
+          description: This email will be entered for the Email attribute in the user's profile.
+          example:
+          - value: kim@gmail.com
+            primary: true
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+        urn:scim:wso2:schema:
+          type: object
+          properties:
+            askPassword:
+              type: boolean
+              description: If this parameter is set to `true`, users will be allowed configure their own password. An email is sent to the specified email address, which will have instructions for the user to set the password and confirm the new user account.
+              example: true
+    UserResponseObject:
+      required:
+      - meta
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              example: 2018-08-17T10:34:29Z
+            location:
+              type: string
+              example: https://api.asgardeo.io/t/{org-name}/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
+            lastModified:
+              type: string
+              example: 2018-08-17T10:34:29Z
+            resourceType:
+              type: string
+              example: User
+        schemas:
+          type: object
+          properties: {}
+          example:
+          - urn:ietf:params:scim:schemas:core:2.0:User
+          - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+        username:
+          type: string
+          example: DEFAULT/kim@gmail.com
+        id:
+          type: string
+          example: 008bba85-451d-414b-87de-c03b5a1f4217
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              example: Kim
+            familyName:
+              type: string
+              example: Berry
+        emails:
+          type: array
+          example:
+            - kim@gmail.com
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+        roles:
+          type: object
+          properties: {}
+          example:
+          - type: default
+            value: Internal/everyone
+    UserUpdateObject:
+      type: object
+      properties:
+        schemas:
+          type: object
+          properties: {}
+          example: []
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              example: Kim
+            familyName:
+              type: string
+              example: Berry
+        userName:
+          type: string
+          example: DEFAULT/kim@gmail.com
+        emails:
+          type: array
+          example:
+          - value: kim@gmail.com
+            primary: true
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+    PatchOperationInput:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: object
+            example: urn:ietf:params:scim:api:messages:2.0:PatchOp
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperationMeItem'
+    OperationMeItem:
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+          - add
+          - remove
+          - replace
+        value:
+          type: object
+          properties:
+            nickName:
+              type: string
+              example: shaggy
+    PatchOperationResponseOutput:
+      required:
+      - meta
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              example: 2018-08-17T10:34:29Z
+            location:
+              type: string
+              example: https://api.asgardeo.io/t/{org-name}/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
+            lastModified:
+              type: string
+              example: 2018-08-17T10:34:29Z
+            resourceType:
+              type: string
+              example: User
+        schemas:
+          type: array
+          items:
+            type: string
+            example: ""
+        username:
+          type: string
+          example: kim
+        id:
+          type: string
+          example: 008bba85-451d-414b-87de-c03b5a1f4217
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              example: Kim
+            familyName:
+              type: string
+              example: Berry
+        emails:
+          type: array
+          example:
+            - kim@gmail.com
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                example: https://api.asgardeo.io/t/{org-name}/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              display:
+                type: string
+                example: loginRole
+              value:
+                type: string
+                example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        nickName:
+          type: string
+          example: shaggy
+    UserObjectListResponseObject:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          example: 1
+        startIndex:
+          type: integer
+          example: 1
+        itemsPerPage:
+          type: integer
+          example: 1
+        schemas:
+          type: object
+          properties: {}
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserResponseObject'
+    UserSearchRequestObject:
+      type: object
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+        attributes:
+        - name.familyName
+        - userName
+        filter: userName sw ki and name.familyName co err
+        domain: DEFAULT
+        startIndex: 1
+        count: 10
+    SPConfigResponse:
+      type: object
+      example:
+        patch:
+          supported: true
+        filter:
+          maxResults: 200
+          supported: true
+        documentationUri: http://example.com/help/scim.html
+        authenticationSchemes:
+        - name: OAuth Bearer Token
+          description: Authentication scheme using the OAuth Bearer Token Standard
+          specUri: http://www.rfc-editor.org/info/rfc6750
+          type: oauthbearertoken
+          primary: true
+        - name: HTTP Basic
+          description: Authentication scheme using the HTTP Basic Standard
+          specUri: http://www.rfc-editor.org/info/rfc2617
+          type: httpbasic
+          primary: false
+        schemas:
+        - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+        etag:
+          supported: false
+        sort:
+          supported: false
+        bulk:
+          maxPayloadSize: 1048576
+          maxOperations: 1000
+          supported: true
+        changePassword:
+          supported: false
+    ErrorInvalidInput:
+      required:
+      - detail
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "400"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: invalidSyntax
+        detail:
+          type: string
+          example: Request is unparsable, syntactically incorrect, or violates schema.
+    ErrorUnauthorized:
+      required:
+      - status
+      type: object
+      properties:
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: "Authorization failure. Authorization information was invalid or missing from your request."
+        status:
+          type: string
+          example: "401"
+    ErrorNotAcceptable:
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "406"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          example: Not Acceptable
+    ErrorForbidden:
+      required:
+      - status
+      type: object
+      properties:
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: "Operation is not permitted. You do not have permission to make this request."
+        status:
+          type: string
+          example: "403"
+    ErrorUserNotAvailable:
+      required:
+      - detail
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "404"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: 'No user with the id : 008bba85-451d-414b-87de-c03b5a1f4217 in
+            the user store.'
+    ErrorSchemaNotFound:
+      required:
+      - detail
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "404"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: Schema not found.
+    ErrorInternalServerError:
+      required:
+      - detail
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "500"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: Internal Server Error.
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "You can use the following OAuth grant types to securely access the respective API endpoints.
+      \n\n **Authorization Code OAuth Flow**
+      \n\n Authorization URL: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
+      \n\n This flow type is used for the `me` endpoint of SCIM2 APIs. You can use the following scope for this endpoints.
+        \n\n - ```internal_login```: Grant permission for an authenticated user for self management.  
+      \n\n**Client Credentials OAuth Flow**
+      \n\n Token URL: https://api.asgardeo.io/t/{org-name}/oauth2/token
+      \n\n This flow type is used for the following endpoints:
+        \n\n - `users` endpoint
+        \n\n - `group` endpoint
+        \n\n - `bulk` endpoint
+        \n\n - `resource type` endpoint
+        \n\n - `service provider config` endpoint 
+      \n\n You can use the following scopes for each of the endpoints.
+        \n\n - ```internal_user_mgt_list```: Grant permissions to read user records.
+        \n\n - ```internal_user_mgt_create```: Grant permissions to create new users.
+        \n\n - ```internal_user_mgt_update```: Grant permissions to update existing users.
+        \n\n - ```internal_user_mgt_delete```: Grant permissions to delete users.
+        \n\n - ```internal_group_mgt_view```: Grant permissions to read group records.
+        \n\n - ```internal_group_mgt_create```: Grant permissions to create new group records.
+        \n\n - ```internal_group_mgt_update```: Grant permissions to update existing group records.
+        \n\n - ```internal_group_mgt_delete```: Grant permissions to delete group records."
