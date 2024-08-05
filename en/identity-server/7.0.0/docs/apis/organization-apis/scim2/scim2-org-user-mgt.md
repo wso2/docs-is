@@ -2,4 +2,4 @@
 template: templates/redoc.html
 ---
 
-<redoc spec-url="../../../apis/organization-apis/restapis/user-management.yaml"></redoc>
+<redoc spec-url="{{base_path}}/apis/organization-apis/restapis/user-management.yaml"></redoc>
