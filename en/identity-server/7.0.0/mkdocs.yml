@@ -311,6 +311,15 @@ plugins:
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
+        'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
+        'apis/scim2-groups-rest-apis.md': 'apis/scim2/scim2-groups-rest-api.md'
+        'apis/scim2-patch-operations.md': 'apis/scim2/scim2-patch-operations.md'
+        'apis/scim2-bulk-rest-apis.md': 'apis/scim2/scim2-bulk-rest-api.md'
+        'apis/scim2-batch-operations.md': 'apis/scim2/scim2-batch-operations.md'
+        'apis/scim2-sp-config-rest-apis.md': 'apis/scim2/scim2-sp-config-rest-api.md'
+        'apis/organization-apis/org-scim2-bulk-mgt.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+        'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
+        'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
@@ -747,12 +756,14 @@ nav:
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
       - User management:
         - SCIM 2.0 API:
-           - SCIM 2.0 User management API: apis/scim2-users-rest-apis.md
-           - SCIM 2.0 Group management API: apis/scim2-groups-rest-apis.md
-           - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
-           - SCIM 2.0 Bulk API: apis/scim2-bulk-rest-apis.md
-           - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-           - SCIM 2.0 Service provider configuration API: apis/scim2-sp-config-rest-apis.md
+          - SCIM 2.0 API: apis/scim2/index.md
+          - SCIM 2.0 Users API: apis/scim2/scim2-users-rest-api.md
+          - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
+          - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
+          - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
+          - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
+          - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md
         - Account recovery APIs:
           - Account recovery v0.9 API: apis/use-the-account-recovery-rest-apis.md
           - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
@@ -776,10 +787,12 @@ nav:
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
       - Password expiring users identification API: apis/organization-apis/org-password-expiring-users-identification.md
-      - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
-      - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
-      - SCIM 2.0 User management API: apis/organization-apis/org-user-mgt.md
+      - User management:
+        - User management: apis/organization-apis/scim2/index.md
+        - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
+        - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
+        - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md

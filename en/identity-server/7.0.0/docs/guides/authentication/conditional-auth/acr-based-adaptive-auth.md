@@ -24,7 +24,7 @@ The guides below explain how you can leverage an adaptive authentication script 
 Follow the sections below to learn how you can request ACR parameters from either an OIDC or a SAML application.
 
 ??? details "Some commonly accepted ACR values"
-    Eventhough ACR values and their interpretations are not defined by a set specification, the following are some commonly accepted ACR values.
+    Even though ACR values and their interpretations are not defined by a set specification, the following are some commonly accepted ACR values.
 
     |Authentication Method| Authentication Context Class URI|
     |-----------------------|--------------------------------|
