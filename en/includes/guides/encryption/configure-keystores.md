@@ -80,14 +80,27 @@ Currently, our primary keystore handles both internal data encryption and extern
 
 This feature allows the creation of a separate keystore for encrypting internal datastore data. To configure the new keystore add the following configuration block to the `keystore.internal` tag of the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-``` toml
-[keystore.internal]
-file_name = "internal.jks"
-type = "JKS"
-password = "wso2carbon"
-alias = "wso2carbon"
-key_password = "wso2carbon"
-```
+=== "JKS"
+
+    ``` toml
+    [keystore.internal]
+    file_name = "internal.jks"
+    type = "JKS"
+    password = "wso2carbon"
+    alias = "wso2carbon"
+    key_password = "wso2carbon"
+    ```
+
+=== "PKCS12"
+
+    ``` toml
+    [keystore.internal]
+    file_name = "internal.p12"
+    type = "PKCS12"
+    password = "wso2carbon"
+    alias = "wso2carbon"
+    key_password = "wso2carbon"
+    ```
 
 ## Configure a secondary keystore for SSL connections
 
