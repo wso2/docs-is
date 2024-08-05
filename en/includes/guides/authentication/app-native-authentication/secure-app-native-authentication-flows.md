@@ -1,12 +1,13 @@
 # Secure app-native authentication flows
 
-In App-Native Authentication, users input their credentials directly into the application. Hence, malicious applications mimicking the legitimate application may be able to capture user credentials. You can implement the following mechanisms to secure authentication requests.
+In [App-Native Authentication]({{base_path}}/references/app-native-authentication/), users input their credentials directly within the application. Hence, malicious applications may attempt to capture user credentials by mimicking the legitimate application. To mitigate this risk, you may implement the following mechanisms.
 
 !!! note "Before you begin"
     [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) to your application.
 
-!!! tip
-    While these mechanisms are only applicable for the initial authentication request, all subsequent requests are bound to it via a unique identifier (flowId), which prevents alterations during the process.
+!!! note
+    
+    These mechanisms are only applicable to the initial authentication request. As all subsequent requests are linked to the initial request via a unique identifier (flowId), these methods prevent alterations throughout the entire process.
 
 ### Using client attestation
 If the application is hosted either in the Apple App Store or the Google Play Store, follow the steps below to leverage 
