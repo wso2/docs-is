@@ -3,7 +3,7 @@
 
 The instructions on this page explain how plain text passwords in configuration files can be encrypted using the secure vault implementation that is built into the WSO2 Identity Server.  
 
-!!! tip "Before you begin"
+!!! info "Before you begin"
     If you are using Windows, you need to have [**Ant**](http://ant.apache.org/) installed before using the Cipher Tool.
 
 ## Encrypt passwords
@@ -11,31 +11,14 @@ The instructions on this page explain how plain text passwords in configuration 
 To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric or symmetric encryption.
 
 !!! important
-    Symmetric encryption is recommended due to its enhanced security against potential quantum computing threats.
+    - It is recommended to [configure a separate keystore](../keystores/configure-keystores/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
+    - Symmetric encryption is recommended due to its enhanced security against potential quantum computing threats.
 
 ### Using Symmetric Encryption
 
-!!! note
-    To support symmetric encryption, an internal keystore of type PKCS12 must be used.
+To support symmetric encryption, an internal keystore of type **PKCS12** must be used. Need [add a symmetric secret to a PKCS12 keystore](../keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore) and set the alias for internal keystore.
 
-1. To create a PKCS12 keystore with an AES key or add an existing key to the keystore, use the following command. If the keystore is not available, new PKCS12 keystore will be created.
-
-    ```bash
-    keytool -genseckey -alias wso2carbon -keyalg AES -keysize 256 -keystore internal.p12 -storetype pkcs12 -storepass password -keypass password
-    ```
-
-2. Update the alias to the new alias in the `deployment.toml` file for the internal keystore configuration.
-
-    ```toml
-    [keystore.internal]
-    file_name = "internal.p12"
-    type = "PKCS12"
-    alias = "wso2carbon"
-    password = "$secret{keystore_password}"
-    key_password = "$secret{keystore_password}"
-    ```
-
-3. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
+1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
 
     ```toml
     [secrets]
@@ -46,12 +29,12 @@ To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric 
     "log4j.appender.LOGEVENT.password" = "[password_5]"
     ```
 
-4. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure -Dsymmetric` command with the cipher tool script as shown below).
+2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure -Dsymmetric` command with the cipher tool script as shown below).
 
     - On Linux: `./ciphertool.sh -Dconfigure -Dsymmetric`
     - On Windows: `ciphertool.bat -Dconfigure -Dsymmetric`
 
-5. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
+3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
 
     ```toml
     [secrets]
@@ -63,9 +46,6 @@ To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric 
     ```
 
 ### Using Asymmetric Encryption
-
-!!! info
-    It is recommended to [configure a separate keystore](../asymmetric-encryption/configure-keystores-in-wso2-products/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
 
 1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
 
