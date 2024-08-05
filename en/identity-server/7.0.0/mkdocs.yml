@@ -640,6 +640,10 @@ nav:
           - OS-level: deploy/security/security-guidelines/os-level-security-guidelines.md
           - Network-level: deploy/security/security-guidelines/network-level-security-guidelines.md
         - Encryption:
+          - Symmetric encryption:
+            - Symmetric encryption: deploy/security/symmetric-encryption/index.md
+            - Configurations related to symmetric key encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
+            - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
           - Keystores:
@@ -647,10 +651,6 @@ nav:
             - Create new keystores: deploy/security/keystores/create-new-keystores.md
             - Manage keystores: deploy/security/keystores/configure-keystores.md
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
-          - Symmetric encryption:
-            - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Configurations related to symmetric key encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
-            - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
       - Deploy:
         - Deployment patterns: deploy/deployment-guide.md
         - Deployment checklist: deploy/deployment-checklist.md
