@@ -123,6 +123,3 @@ components:
         detail:
           type: string
           example: Schema not found.
-    
-    
-    

@@ -108,4 +108,3 @@ components:
         scimType:
           type: string
           example: Unauthorized
-    
