@@ -22,7 +22,7 @@ the attestation services provided by these platforms to verify the legitimacy of
             Learn more about [service account credentials](https://cloud.google.com/iam/docs/service-account-creds){target="_blank"}.
 
 
-5. Based on whether your application is **Android** or **Apple**, provide the platform-specific application details under **Platform Settings**. 
+5. Provide the platform-specific application details under **Platform Settings**. 
 
     ![Platform settings]({{base_path}}/assets/img/references/platform-settings.png){: width="600" style="display: block; margin: 0;"}
 
