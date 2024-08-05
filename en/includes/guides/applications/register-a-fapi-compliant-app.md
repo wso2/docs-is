@@ -2,6 +2,7 @@
 
 Financial-Grade API (FAPI) specification is an extension to the OAuth and OIDC frameworks that defines additional technical requirements to enhance API security. This guide explains how you can create a FAPI-compliant application in {{product_name}}.
 
+{% if product_name == "WSO2 Identity Server" %}
 ## Prerequisites
 
 Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder, enter the following configurations and restart the {{product_name}}.
@@ -31,7 +32,7 @@ Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder
      [oauth.mutualtls]
      client_certificate_header = "x-wso2-mtls-cert"
     ```
-
+{% endif %}
 ## Create a FAPI-compliant application
 
 Follow the guides below to create a FAPI-compliant application either using the Console or using Dynamic Client Registration (DCR).

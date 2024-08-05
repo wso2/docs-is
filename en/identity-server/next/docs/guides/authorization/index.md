@@ -10,3 +10,7 @@ The authorization guide offers detailed instructions for implementing a range of
 ## Fine-grained authorization
 
 - [Fine-grained authorization]({{base_path}}/guides/authorization/fine-grained-authorization/rule-based-provisioning/)
+
+## Impersonation
+
+- [Impersonation]({{base_path}}/guides/authorization/impersonation/user-impersonation/)
