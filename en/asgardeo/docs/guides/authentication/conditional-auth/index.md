@@ -68,7 +68,7 @@ The pre-defined templates are listed below.
 |-----------|-------------|
 | [User-Age-Based]({{base_path}}/guides/authentication/conditional-auth/user-age-based-template/) | This configures a login flow where users can log in only if their age is over the configured value. The user's age is calculated using the `date of birth` attribute. |
 | [Group-Based (Access Control)]({{base_path}}/guides/authentication/conditional-auth/group-based-template-access-control/) | This login flow allows login only for users who belong to any of the given set of groups  |
-| [Session Based]({{base_path}}/uides/authentication/conditional-auth/concurrent-sessions-based-template/)  | This login flow allows login only for users who have less than the configured number of concurrent sessions.  |
+| [Session Based]({{base_path}}/guides/authentication/conditional-auth/concurrent-session-based-template/)  | This login flow allows login only for users who have less than the configured number of concurrent sessions.  |
 | [Sign-In-Option-Based]({{base_path}}/guides/authentication/conditional-auth/sign-in-option-based-template/) | This login flow prompts two-factor authentication (2FA) only for users who are signing in with a given option.  |
 | [New-Device-Based]({{base_path}}/guides/authentication/conditional-auth/new-device-based-template/) | This login flow sends an email notification and/or prompts two-factor authentication for users who are logged in from a previously unused device. |
 | [Group-Based (Adaptive MFA)]({{base_path}}/guides/authentication/conditional-auth/group-based-template/)  | This login flow prompts two-factor authentication (2FA) for users who belong to any of the given set of groups. |
