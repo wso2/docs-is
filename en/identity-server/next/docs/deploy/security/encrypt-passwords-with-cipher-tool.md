@@ -3,14 +3,51 @@
 
 The instructions on this page explain how plain text passwords in configuration files can be encrypted using the secure vault implementation that is built into the WSO2 Identity Server.  
 
-!!! tip "Before you begin"
+!!! info "Before you begin"
     If you are using Windows, you need to have [**Ant**](http://ant.apache.org/) installed before using the Cipher Tool.
 
 ## Encrypt passwords
 
-To encrypt passwords on the WSO2 Identity Server:
+To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric or symmetric encryption.
 
-1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
+!!! important
+    - It is recommended to [configure a separate keystore](../keystores/configure-keystores/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
+    - Symmetric encryption is recommended due to its enhanced security against potential quantum computing threats.
+
+### Using Symmetric Encryption
+
+To support symmetric encryption, an internal keystore of type **PKCS12** must be used. Need [add a symmetric secret to a PKCS12 keystore](../keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore) and set the alias for internal keystore.
+
+1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
+
+    ```toml
+    [secrets]
+    admin_password = "[password_1]"
+    keystore_password = "[password_2]"
+    key_password = "[password_3]"
+    truststrore_password = "[password_4]"
+    "log4j.appender.LOGEVENT.password" = "[password_5]"
+    ```
+
+2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure -Dsymmetric` command with the cipher tool script as shown below).
+
+    - On Linux: `./ciphertool.sh -Dconfigure -Dsymmetric`
+    - On Windows: `ciphertool.bat -Dconfigure -Dsymmetric`
+
+3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
+
+    ```toml
+    [secrets]
+    admin_password = "GeNld2aZkydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTag7w4dG6B3JK5GxeX9bhsmZCBFozlPdWBT6Jvy"
+    keystore_password = "brClL1SOHdezXTvBz1/76b/DnHQgxjNGtzhaBr3DnhHw32NWY484abHLREVyMoNJkER5lQUPbqeaMpR5lQUPbqeaMp"
+    key_password = "CFAaISaI19dHLApEM3usNSDXXdhdicHbVncrVwuLDJp6Rhp8B3Qy3PnBhcJsryTqR/EPwdLnXboNJkER"
+    truststrore_password = "DKnecEw+mJ8JhTUrqxpTZxwXrOdtcoAl2hD3LHtH+yJXNogumdSALfaqrMaknBzJq4SF3sY0RvwkMxWhnZ+BhIsko"
+    "log4j.appender.LOGEVENT.password" = "kydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTagXTvBz1/76b/DnHQgxjNhD3LHtH+yJXNowecEEC"
+    ```
+
+### Using Asymmetric Encryption
+
+1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
 
     ```toml
     [secrets]
@@ -55,7 +92,7 @@ password="$secret{admin_password}"
 [keystore.tls]
 password = "$secret{keystore_password}" 
 alias = "$secret{keystore_password}" 
-key_password = "$secret{key_password }"  
+key_password = "$secret{key_password}"  
 
 [truststore]                  
 password = "$secret{keystore_password}" 
@@ -83,6 +120,54 @@ To change any password that has been encrypted already, follow the steps given b
 5. The alias values of all the passwords that you encrypted will now be shown in a numbered list.
 6. The system will then prompt you to select the alias of the password which you want to change. Enter the list number of the password alias.
 7. The system will then prompt you (twice) to enter the new password. Enter your new password.
+
+## Rotating Encryption Secrets
+
+!!! note
+    To support symmetric encryption, you must specify a PKCS12 type keystore as the internal keystore.
+
+You can rotate encryption keys by switching between symmetric and asymmetric encryption or changing the encryption keys within the same encryption mode.
+
+1. For **symmetric** encryption, add the new key to the existing keystore with a new alias. 
+
+    ```bash
+    keytool -genseckey -alias new_alias -keyalg AES -keysize 256 -keystore internal.p12 -storepass password -keypass password
+    ```
+    
+
+    For **asymmetric** encryption, add a new key pair to the keystore.
+
+    ```bash
+    keytool -genkeypair -alias new_alias -keyalg RSA -keystore wso2carbon.jks -storepass password -keypass password
+    ```
+
+
+2. Update the `deployment.toml` file to reflect the new key or secret alias:
+
+    ```toml
+    [keystore.internal]
+    file_name = "internal.p12"
+    type = "PKCS12"
+    alias = "new_alias"
+    password = "$secret{keystore_password}"
+    key_password = "$secret{keystore_password}"
+    ```
+
+3. Navigate to the `<IS_HOME>/bin/` directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
+
+4. Execute the Cipher tool script to re-encrypt the passwords with the new key or secret. Use the `-Drotate` option and specify the old alias. 
+
+    For **asymmetric** encryption,
+
+    * On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon`
+    * On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon`
+
+    For **symmetric** encryption, add `-Dsymmetric`:
+
+    * On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon -Dsymmetric`
+    * On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon  -Dsymmetric`
+
+5. Go back to the deployment.toml file and see that the alias passwords are re-encrypted with new encryption key.
 
 !!! info "Related topics"
     - [Deploy: Resolve Encrypted Passwords]({{base_path}}/deploy/security/resolve-encrypted-passwords)
