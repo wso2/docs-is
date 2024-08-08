@@ -55,11 +55,28 @@ To add additional attributes for your organization:
 
 5. Click **Update** to save the configurations.
 
+## Search an organization
+
+You can search for an organization by the organization's **Name** and **Meta Attributes** in the {{ product_name }} Console using the **Advanced Search** feature.
+
+To search for an organization, you can:
+
+1. Search by **Name** using the search bar.
+2. Search by **query** using the search bar as shown below.
+
+    e.g., name co Best, attributes.Country eq USA. (Multiple filters can be connected using the **and** operator)
+
+    ![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-advance-search.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Search using the **Advanced Search Dropdown UI** as shown below.
+
+    ![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-advance-search-dropdown.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 ## Switch to an organization
 
 You can switch to a child organization on the {{ product_name }} Console by selecting the required organization from the list as shown below.
 
-![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-switch.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Build an organizational hierarchy
 
