@@ -432,7 +432,11 @@ components:
         authorizationCode:
           authorizationUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
           tokenUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
-          scopes: { internal_action_mgt_create internal_action_mgt_update internal_action_mgt_view internal_action_mgt_delete }
+          scopes: 
+            read: internal_action_mgt_view
+            write: internal_action_mgt_create
+            update: internal_action_mgt_update
+            delete: internal_action_mgt_delete
 
   schemas:
     ActionModel:
