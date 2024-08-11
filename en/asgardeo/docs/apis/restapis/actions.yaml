@@ -686,7 +686,7 @@ components:
           example: 2
         self:
           type: string
-          example: "/t/wso2.com/api/server/v1/actions/preIssueAccessToken"
+          example: "/t/{organization-name}/api/server/v1/actions/preIssueAccessToken"
 
     AuthenticationTypeResponse:
       type: object
