@@ -499,7 +499,7 @@ paths:
       x-codeSamples:
         - lang: Curl(Bearer)
           source: |
-            curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/actions/{actionType}/{actionId}/bearer' \
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/bearer' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -510,7 +510,7 @@ paths:
             }'
         - lang: Curl(Basic)
           source: |
-            curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/actions/{actionType}/{actionId}/basic' \
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/basic' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -522,7 +522,7 @@ paths:
             }'
         - lang: Curl(API Key)
           source: |
-            curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/actions/{actionType}/{actionId}/apiKey' \
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/apiKey' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -534,7 +534,7 @@ paths:
             }'
         - lang: Curl(None)
           source: |
-            curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/actions/{actionType}/{actionId}/none' \
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/none' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -694,7 +694,7 @@ components:
           example: 2
         self:
           type: string
-          example: "/t/wso2.com/api/server/v1/actions/preIssueAccessToken"
+          example: "api/server/v1/actions/preIssueAccessToken"
 
     AuthenticationTypeResponse:
       type: object
