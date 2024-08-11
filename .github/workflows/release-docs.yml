@@ -25,6 +25,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.IAM_DOCS_GITHUB_BOT_TOKEN }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -37,43 +38,48 @@ jobs:
           pip install -r en/asgardeo/requirements.txt
 
       - name: Get the current version
-        if: ${{ env.IS_HOTFIX == 'false'}}
         run: |
           echo "CURRENT_VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
       - name: Increment version
+        if: ${{ env.IS_HOTFIX == 'false' }}
         run: |
           set -euxo pipefail
-          if [ ${{ env.IS_HOTFIX == 'false' }} ]; then
-              IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
-              echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
-              PATCH=$((PATCH+1))
-              NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
-              echo "New version: $NEW_VERSION"
-              echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-              echo "$NEW_VERSION" > VERSION
-          else
-              # Determine the hotfix tag
-              echo "Determining the hotfix tag..."
-
-              hotfix_count=$(git tag | grep ${{ env.CURRENT_VERSION }} | wc -l)
-              echo "Hotfix count: $hotfix_count"
-
-              next_hotfix_no=$((hotfix_count + 1))
-              echo "Next Hotfix number: $next_hotfix_no"
-
-              # Replace the last digit with the incremented value
-              hotfix_release_tag=$(echo "${{ env.CURRENT_VERSION }}" | sed "s/[0-9]$/$next_hotfix_no/")
-              echo "Hotfix release tag: $hotfix_release_tag"
-
-              NEW_VERSION=$hotfix_release_tag
-
-              # Change version in VERSION file to hotfix tag.
-              echo "$hotfix_release_tag" > VERSION
-          fi
+          IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
+          echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
+          PATCH=$((PATCH+1))
+          NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          echo "New version: $NEW_VERSION"
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "$NEW_VERSION" > VERSION
 
         shell: bash
-      
+
+      - name: Prepare hotfix
+        if: ${{ env.IS_HOTFIX == 'true' }}
+        run: |
+          set +e
+          
+          # Determine the hotfix tag
+          # echo "Determining the hotfix tag..."
+
+          hotfix_count=$(git tag | grep -E "${{ env.CURRENT_VERSION }}-hotfix-[0-9]+" | wc -l)
+          echo "Hotfix count: $hotfix_count"
+
+          next_hotfix_no=$((hotfix_count + 1))
+          echo "Next Hotfix number: $next_hotfix_no"
+
+          # Replace the last digit with the incremented value
+          hotfix_release_tag=${{ env.CURRENT_VERSION }}-hotfix-$next_hotfix_no
+          echo "Hotfix release tag: $hotfix_release_tag"
+
+          # strip prepending 'v'
+          NEW_VERSION=$(echo $hotfix_release_tag | sed 's/^v//')
+          
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+        shell: bash
+
       - name: Build MkDocs Documentation
         run: |
           cd en/asgardeo
@@ -100,7 +106,7 @@ jobs:
           tag_name: v${{ env.NEW_VERSION }}
           release_name: Asgardeo Docs - v${{ env.NEW_VERSION }}
           draft: false
-          prerelease: false
+          prerelease: ${{ env.IS_HOTFIX == 'true' }}
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
@@ -111,12 +117,14 @@ jobs:
           asset_content_type: application/zip
 
       - name: Commit and push new version
+        if: ${{ env.IS_HOTFIX == 'false' }}  
         run: |
           git add VERSION
           git commit -m "Increment release version to ${{ env.NEW_VERSION }}"
           git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" master
 
       - name: Update Downstream Repository Version
+        if: ${{ env.IS_HOTFIX == 'false' }}
         run: |
           set -euxo pipefail
           VERSION_FILE_PATH="$GITHUB_WORKSPACE/$GIT_REPO_NAME/cd-pipelines/docs/dev-setup-variables.yaml"

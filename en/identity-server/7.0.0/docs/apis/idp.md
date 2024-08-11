@@ -2,4 +2,4 @@
 template: templates/redoc.html
 ---
 
-<redoc spec-url="../../apis/restapis/idp.yaml"></redoc>
+<redoc spec-url="{{base_path}}/apis/restapis/idp.yaml"></redoc>

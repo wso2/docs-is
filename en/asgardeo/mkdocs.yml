@@ -107,14 +107,16 @@ plugins:
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
         'guides/asgardeo-events.md': 'guides/monitoring/asgardeo-events.md'
         'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
-        'guides/authentication/oidc/private-key-jwt-client-auth.md': 'guides/authentication/oidc/private-key-jwt-client-auth.md'
         'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/ai-loginflow.md'
         'guides/user-accounts/configure-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
         'guides/authentication/configure-a-trusted-token-issuer.md': 'guides/authentication/configure-token-exchange.md'
         'guides/applications/manage-application-roles.md': 'guides/users/manage-roles.md'
-
-
+        'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
+        'apis/authentication.md': 'apis/index.md'
+        'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
+        'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
+        'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
 
 # Navigation
 nav:
@@ -211,6 +213,7 @@ nav:
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+            - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - App-native authentication:
             - App-native authentication: guides/authentication/app-native-authentication/index.md
@@ -226,6 +229,7 @@ nav:
             - Implement private key JWT client authentication: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
             - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
+            - Implement login using the OIDC Hybrid Flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
             - Configure token exchange: guides/authentication/configure-token-exchange.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
             - Request user information: guides/authentication/oidc/request-user-info.md
@@ -251,7 +255,10 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
-        - Migrate users to Asgardeo: guides/users/migrate-users.md
+        - Migrate users to Asgardeo:
+          - Migrate users to Asgardeo: guides/users/migrate-users-to-asgardeo/index.md
+          - Migrate user accounts: guides/users/migrate-users-to-asgardeo/migrate-users.md
+          - Migrate user passwords: guides/users/migrate-users-to-asgardeo/migrate-passwords.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -294,10 +301,13 @@ nav:
       - Organizations:
         - Organizations: guides/organization-management/index.md
         - Set up organizations: guides/organization-management/manage-organizations.md
-        - Onboard organization admins: guides/organization-management/onboard-org-admins.md
-        - Invite users from parent organization: guides/organization-management/invite-parent-organization-users.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
         - Share applications: guides/organization-management/share-applications.md
+        - Onboard organization admins: 
+            - Onboard organization admins: guides/organization-management/onboard-org-admins/index.md
+            - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
+            - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
+        - Invite users from parent organization: guides/organization-management/invite-parent-organization-users.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
@@ -332,7 +342,6 @@ nav:
     - Integrate Asgardeo into your application: integrations/index.md
   - APIs:
     - APIs - Overview: apis/index.md
-    - Authentication: apis/authentication.md
     - Management APIs:
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
@@ -353,7 +362,13 @@ nav:
       - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
       - User management:
-        - SCIM 2.0 API: apis/scim2.md
+        - SCIM 2.0 API:
+          - SCIM 2.0 API: apis/scim2/index.md
+          - SCIM 2.0 Users API: apis/scim2/scim2-users-rest-api.md
+          - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
+          - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
+          - SCIM 2.0 Service provider configs API: apis/scim2/scim2-service-provider-configs-rest-api.md
         - User account associations API: apis/association-management-by-admin.md
         - Account Recovery API: apis/user-account-recovery.md
         - Offline user onboard management API: apis/offline-user-onboard.md
@@ -364,12 +379,11 @@ nav:
       - Validation API: apis/validation.md
     - Orgnization APIs:
       - Orgnization APIs: apis/organization-apis/index.md
+      - Get access for organization APIs: apis/organization-apis/authentication.md
       - Application management API: apis/organization-apis/org-application-management.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding API: apis/organization-apis/org-branding-management.md
       - Claim management API: apis/organization-apis/org-claim-management.md
-      - Get access for organization APIs: apis/organization-apis/authentication.md
-      - Group management API: apis/organization-apis/org-group-mgt.md
       - Identity provider management API: apis/organization-apis/org-idp.md
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
@@ -378,9 +392,13 @@ nav:
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
-      - SCIM 2.0 Bulk API: apis/organization-apis/scim-bulk.md
-      - User management API: apis/organization-apis/org-user-mgt.md
+      - User management:
+        - User management: apis/organization-apis/scim2/index.md
+        - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
+        - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
+        - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk.md
     - End User APIs:
+      - SCIM 2.0 Me API: apis/scim2-me.md
       - Backup codes API: apis/register-mfa/backup-code.md
       - Export user information API: apis/register-mfa/export-user-info.md
       - Password recovery API: apis/register-mfa/password-recovery.md

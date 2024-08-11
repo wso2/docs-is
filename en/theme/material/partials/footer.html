@@ -44,8 +44,9 @@
       </div>
       <div class="md-footer__meta-section md-footer__meta-section--discord">
         <div class="md-footer__meta-section__links">
+          {% if config.extra.product_name == "WSO2 Identity Server" %}
           <div class="md-footer__meta-section__link md-footer__meta-section__link--composite">
-            <svg class="community-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="14" width="14">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="14" width="14">
               <path d="M28.16 32H2.475V20.58H5.32v8.575h19.956V20.58h2.884z" fill="#bcbbbb" />
               <path
                 d="M8.477 19.8l13.993 2.923.585-2.806-13.993-2.923zm1.832-6.704l12.94 6.04 1.208-2.572-12.94-6.08zm3.586-6.353l10.99 9.12 1.832-2.183-10.99-9.12zM20.99 0l-2.3 1.715 8.536 11.46 2.3-1.715zM8.166 26.27H22.43v-2.845H8.166v2.845z"
@@ -67,6 +68,27 @@
             <label>Want to contribute?</label><a target="_blank" rel="noopener noreferrer"
               href="https://github.com/wso2/docs-is">Head over to GitHub</a>
           </div>
+          {% elif config.extra.product_name == "Asgardeo" %}
+          <div class="md-footer__meta-section__link md-footer__meta-section__link--composite">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="14" width="14" viewBox="0 0 256 256">
+              <path
+                d="M224 24H32C14.3 24 0 38.3 0 56v144c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32V56c0-17.7-14.3-32-32-32zM224 42v8.6L128 126.2 32 50.6V42h192zM32 202c-4.4 0-8-3.6-8-8V78.4l88 66.3c6 4.5 14.1 4.5 20.1 0l88-66.3V194c0 4.4-3.6 8-8 8H32z"
+                fill="#000" />
+            </svg>
+            <label>Need Assistance?</label><a target="_blank" rel="noopener noreferrer"
+              href="mailto:asgardeo-help@wso2.com">Send us an email</a>
+          </div>
+          <div class="md-footer__meta-section__link md-footer__meta-section__link--composite">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="14" width="14">
+              <path d="M28.16 32H2.475V20.58H5.32v8.575h19.956V20.58h2.884z" fill="#bcbbbb" />
+              <path
+                d="M8.477 19.8l13.993 2.923.585-2.806-13.993-2.923zm1.832-6.704l12.94 6.04 1.208-2.572-12.94-6.08zm3.586-6.353l10.99 9.12 1.832-2.183-10.99-9.12zM20.99 0l-2.3 1.715 8.536 11.46 2.3-1.715zM8.166 26.27H22.43v-2.845H8.166v2.845z"
+                fill="#f48024" />
+            </svg>
+            <label>Got a tough question?</label><a target="_blank" rel="noopener noreferrer"
+              href="https://stackoverflow.com/questions/tagged/wso2-asgardeo">Ask on Stackoverflow</a>
+          </div>
+          {% endif %}
           <div class="md-footer__meta-section__link md-footer__meta-section__link--composite">
             <svg class="community-logo community-logo--monochrome" fill="none" height="14" width="14"
               xmlns="http://www.w3.org/2000/svg" viewBox="0.254 0.25 500 451.95400000000006">

@@ -44,7 +44,7 @@ To configure Google outbound provisioning:
     | Google Provisioning Separator| This is used to separate the values you configure in the Google Outbound Provisioning pattern.|`_`|
 
 4. Select **Enable Connector** to enable identity provisioning from Goolgle.
-5. Click **Update** to dave the configurations.
+5. Click **Update** to save the configurations.
 
     ??? note "Google Outbound Provisioning pattern"
         By using **Google Outbound Provisioning pattern** you differentiate the following scenarios:
@@ -77,7 +77,7 @@ provisioning requests to Salesforce.
     | Provisioning Domain| The user name of Salesforce is an email address. Here you can configure a specific domain name the username should have.| `yahoo.com`|
 
 3. Select **Enable Connector** to enable identity provisioning from Salesforce.
-4. Click **Update** to dave the configurations.
+4. Click **Update** to save the configurations.
 
     ??? note "Salesforce Outbound Provisioning pattern"
         By using **Sales Outbound Provisioning pattern** you differentiate the following scenarios:
@@ -143,7 +143,7 @@ provisioning requests to an external application that supports SCIM 1.1 or SCIM 
     | Default Password             | The default password that must be sent.                                                                                                                                                                                                                                                                   | `\<password\>`                            |
 
 4. Select **Enable Connector** to enable identity provisioning from SCIM.
-5. Click **Update** to dave the configurations.
+5. Click **Update** to save the configurations.
 
 See [outbound provisioning with SCIM]({{base_path}}/guides/identity-lifecycles/outbound-provisioning-with-scim) for more information on how this works in a typical scenario.
 

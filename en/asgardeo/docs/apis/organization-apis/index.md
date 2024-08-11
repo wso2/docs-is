@@ -8,11 +8,7 @@ Asgardeo exposes a set of APIs, allowing you to manage various organization sett
 
 Some of these APIs are used for organization management purposes, and they have special [authentication](#authentication) requirements. The management APIs of organization in Asgardeo are as follows:
 
-- [Organization user management API (SCIM2)]({{base_path}}/apis/organization-apis/org-user-mgt/)
-
-- [Organization group management API (SCIM2)]({{base_path}}/apis/organization-apis/org-group-mgt/)
-
-- [Organization roles management API (SCIM2)]({{base_path}}/apis/organization-apis/org-role-mgt/)
+- [Organization user management (SCIM2) API]({{base_path}}/apis/organization-apis/scim2/)
 
 - [Organization application management API]({{base_path}}/apis/organization-apis/org-application-management)
 

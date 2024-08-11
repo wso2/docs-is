@@ -46,6 +46,22 @@ To enable/disable JIT user provisioning for an external Identity provider:
 !!! warning
     If you have configured multi-factor authentication (MFA), disabling JIT user provisioning might break the application login flow. Learn more about [troubleshooting sign-in flow errors with JIT](#troubleshoot-sign-in-flow-errors).
 
+{% if product_name == "WSO2 Identity Server" %}
+## Preserve locally added claims of JIT provisioned users
+
+If a user already having an account in {{product_name}} logs in using federated login with the same email address, {{product_name}} deletes any locally added claims of the user and retains only the claims provided by the federated authenticator.
+
+If you wish to change this default behavior and preserve the locally added claims of the user, go to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory and add the following configuration.
+
+``` toml
+[authentication.jit_provisioning]
+preserve_locally_added_claims = "true"
+```
+
+!!! note
+    If an identity provider is created using the [Identity Provider REST APIs]({{base_path}}/apis/idp/) with the `provisioning.jit.attributeSyncMethod` property set, this will take precedence over the above configuration.
+{% endif %}
+
 ## Troubleshoot sign-in flow errors
 
 If you have disabled JIT provisioning for an IdP, applications that use [multi-factor authentication]({{base_path}}/guides/authentication/mfa/) may break as certain MFA mechanisms (such as TOTP and Email OTP) require users to have local accounts in {{ product_name }}.
