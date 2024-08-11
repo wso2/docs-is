@@ -41,6 +41,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/types' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
   /actions/{actionType}:
     post:
@@ -91,6 +96,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/{actionType}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "name": "Access Token Pre Issue",
+                "description": "This is the configuration of pre-action for issuing access token.",
+                "endpoint": {
+                    "uri": "https://myextension.com/token",
+                    "authentication": {
+                        "properties": {
+                            "username": "auth_username",
+                            "password": "auth_password"
+                        },
+                        "type": "BASIC"
+                    }
+                }
+            }'
+      x-codegen-request-body-name: body
 
     get:
       tags:
@@ -133,6 +159,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/{actionType}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
   /actions/{actionType}/{actionId}:
     patch:
@@ -195,6 +226,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "name": "Access Token Pre Issue action",
+                "description": "This is the configuration of pre-action for issuing access token from myextensions.com.",
+                "endpoint": {
+                    "uri": "http://myextensions.com/access-token",
+                    "authentication": {
+                        "type": "API_KEY",
+                        "properties": {
+                            "header": "sample_header",
+                            "value": "sample_value"
+                        }
+                    }
+                }
+            }'
+      x-codegen-request-body-name: body
 
     delete:
       tags:
@@ -246,6 +299,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
   /actions/{actionType}/{actionId}/activate:
     post:
@@ -301,6 +359,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request POST 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/activate' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
   /actions/{actionType}/{actionId}/deactivate:
     post:
@@ -356,6 +419,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request POST 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/deactivate' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
   /actions/{actionType}/{actionId}/{authType}:
     put:
@@ -428,6 +496,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl(Bearer)
+          source: |
+            curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/actions/{actionType}/{actionId}/bearer' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "properties": {
+                "accessToken": "token"
+              }
+            }'
+        - lang: Curl(Basic)
+          source: |
+            curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/actions/{actionType}/{actionId}/basic' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "properties": {
+                "username": "username",
+                "password": "password"
+              }
+            }'
+        - lang: Curl(API Key)
+          source: |
+            curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/actions/{actionType}/{actionId}/apiKey' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "properties": {
+                "header": "header",
+                "value": "value"
+              }
+            }'
+        - lang: Curl(None)
+          source: |
+            curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/actions/{actionType}/{actionId}/none' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "properties": {}
+            }'
+      x-codegen-request-body-name: body
 
 components:
   securitySchemes:
