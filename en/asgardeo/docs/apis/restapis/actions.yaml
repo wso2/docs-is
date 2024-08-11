@@ -3,8 +3,8 @@ info:
   version: v1
   title: Asgardeo - Action Management Rest API
   description:
-    "This is the RESTful API for managing action configuration for an organization in WSO2 Asgardeo. \n
-    This API allows creating, retrieving, updating and deleting the action configurations. \n\n
+    "This is the RESTful API for managing actions for an organization in Asgardeo. \n
+    This API allows allows to create, retrieve, update and delete actions. \n\n
     To access Action Management APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
@@ -58,9 +58,6 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
-              - preUpdatePassword
-              - preUpdateProfile
-              - preRegistration
       requestBody:
         content:
           application/json:
@@ -99,7 +96,7 @@ paths:
             -H 'Content-Type: application/json' \
             -d '{
                 "name": "Access Token Pre Issue",
-                "description": "This is the configuration of pre-action for issuing access token.",
+                "description": "This action invokes before issuing an access token.",
                 "endpoint": {
                     "uri": "https://myextension.com/token",
                     "authentication": {
@@ -128,9 +125,6 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
-              - preUpdatePassword
-              - preUpdateProfile
-              - preRegistration
       responses:
         '200':
           description: Actions are found for the given action type.
@@ -165,7 +159,7 @@ paths:
       tags:
         - Actions Endpoint
       summary: Update Action
-      description: "This API updates action configurations and return the updated action configurations. \n\n
+      description: "This API updates an action and returns the updated action. \n\n
       - <b>Scope(Permission) required:</b> ``internal_action_mgt_update``\n\n"
       operationId: updateAction
       parameters:
@@ -176,12 +170,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
-              - preUpdatePassword
-              - preUpdateProfile
-              - preRegistration
         - name: actionId
           in: path
-          description: Id of the Action.
+          description: Unique identifier of the action.
           required: true
           schema:
             type: string
@@ -190,7 +181,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ActionUpdateModel'
-        description: This represents the action configurations to be updated.
+        description: This represents the action to be updated.
         required: true
       responses:
         '200':
@@ -259,12 +250,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
-              - preUpdatePassword
-              - preUpdateProfile
-              - preRegistration
         - name: actionId
           in: path
-          description: Id of the Action.
+          description: Unique identifier of the action.
           required: true
           schema:
             type: string
@@ -316,12 +304,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
-              - preUpdatePassword
-              - preUpdateProfile
-              - preRegistration
         - name: actionId
           in: path
-          description: Id of the Action.
+          description: Unique identifier of the action.
           required: true
           schema:
             type: string
@@ -376,12 +361,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
-              - preUpdatePassword
-              - preUpdateProfile
-              - preRegistration
         - name: actionId
           in: path
-          description: Id of the Action.
+          description: Unique identifier of the action.
           required: true
           schema:
             type: string
@@ -425,7 +407,7 @@ paths:
       tags:
         - Actions Endpoint
       summary: Update Action Authentication
-      description: "This API updates action endpoint authentication and return the updated action configurations. \n\n
+      description: "This API updates authentication mechanism for the endpoint configured for the action. \n\n
       - <b>Scope(Permission) required:</b> ``internal_action_mgt_update``\n\n"
       operationId: updateActionEndpointAuthentication
       parameters:
@@ -436,12 +418,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
-              - preUpdatePassword
-              - preUpdateProfile
-              - preRegistration
         - name: actionId
           in: path
-          description: Id of the Action.
+          description: Unique identifier of the action.
           required: true
           schema:
             type: string
@@ -460,7 +439,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AuthTypeProperties'
-        description: This represents the action endpoint authentication to be updated.
+        description: This represents the updating authentication mechanism for the endpoint configured.
         required: true
       responses:
         '200':
@@ -564,15 +543,18 @@ components:
           example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
+          description: Name of the action.
         description:
           type: string
-          example: This is the configuration of pre-action for issuing access token.
+          example: This action invokes before issuing an access token.
           maxLength: 255
+          description: Description of the action.
         endpoint:
           $ref: '#/components/schemas/Endpoint'
 
     Endpoint:
       type: object
+      description: Endpoint configurations of the action.
       required:
         - uri
         - authentication
@@ -581,11 +563,13 @@ components:
           type: string
           example: https://myextension.com/token
           pattern: '^https?://.+'
+          description: HTTPS URI of the endpoint.
         authentication:
           $ref: '#/components/schemas/Authentication'
 
     EndpointResponse:
       type: object
+      description: Endpoint configurations of the action.
       required:
         - uri
         - authentication
@@ -594,6 +578,7 @@ components:
           type: string
           example: https://myextension.com/token
           pattern: '^https?://.+'
+          description: HTTPS URI of the endpoint.
         authentication:
           $ref: '#/components/schemas/AuthenticationTypeResponse'
 
@@ -603,27 +588,31 @@ components:
         id:
           type: string
           example: '24f64d17-9824-4e28-8413-de45728d8e84'
+          description: Unique identifier of the action.
         type:
           type: string
           enum:
             - PRE_ISSUE_ACCESS_TOKEN
-            - PRE_UPDATE_PASSWORD
-            - PRE_UPDATE_PROFILE
-            - PRE_REGISTRATION
+          example: PRE_ISSUE_ACCESS_TOKEN
+          description: Action Type.
         name:
           type: string
           example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
+          description: Name of the action.
         description:
           type: string
-          example: This is the configuration of pre-action for issuing access token.
+          example: This action invokes before issuing an access token.
           maxLength: 255
+          description: Description of the action.
         status:
           type: string
           enum:
             - ACTIVE
             - INACTIVE
+          example: ACTIVE
+          description: Status of the action.
         endpoint:
           $ref: '#/components/schemas/EndpointResponse'
 
@@ -633,27 +622,30 @@ components:
         id:
           type: string
           example: '24f64d17-9824-4e28-8413-de45728d8e84'
+          description: Unique identifier of the action.
         type:
           type: string
           enum:
             - PRE_ISSUE_ACCESS_TOKEN
-            - PRE_UPDATE_PASSWORD
-            - PRE_UPDATE_PROFILE
-            - PRE_REGISTRATION
+          example: PRE_ISSUE_ACCESS_TOKEN
+          description: Action Type.
         name:
           type: string
           example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
+          description: Name of the action.
         description:
           type: string
-          example: This is the configuration of pre-action for issuing access token.
+          example: This action invokes before issuing an access token.
           maxLength: 255
+          description: Description of the action.
         status:
           type: string
           enum:
             - ACTIVE
             - INACTIVE
+          description: Status of the action.
 
     ActionResponseList:
       type: array
@@ -672,24 +664,27 @@ components:
           type: string
           enum:
             - PRE_ISSUE_ACCESS_TOKEN
-            - PRE_UPDATE_PASSWORD
-            - PRE_UPDATE_PROFILE
-            - PRE_REGISTRATION
+          description: Action Type.
         displayName:
           type: string
           example: "Pre Issue Access Token."
+          description: "Display name of the action type."
         description:
           type: string
           example: "Extension point configuration for Pre Issue Access Token."
+          description: "Description of the action type."
         count:
           type: integer
           example: 2
+          description: "Number of actions configured under the action type."
         self:
           type: string
           example: "/t/{organization-name}/api/server/v1/actions/preIssueAccessToken"
+          description: "API endpoint to get actions of the action type."
 
     AuthenticationTypeResponse:
       type: object
+      description: Authentication configurations of the action.
       required:
         - type
       properties:
@@ -701,6 +696,7 @@ components:
             - API_KEY
             - BASIC
           example: BASIC
+          description: Type of the authentication.
 
     ActionUpdateModel:
       type: object
@@ -710,20 +706,24 @@ components:
           example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
+          description: Updating name of the action.
         description:
           type: string
-          example: This is the configuration of pre-action for issuing access token.
+          example: This action invokes before issuing an access token.
           maxLength: 255
+          description: Updating description of the action.
         endpoint:
           $ref: '#/components/schemas/EndpointUpdateModel'
 
     EndpointUpdateModel:
+      description: Updating endpoint configurations of the action.
       type: object
       properties:
         uri:
           type: string
           example: https://myextension.com/token
           pattern: '^https?://.+'
+          description: Updating HTTPS URI of the endpoint.
         authentication:
           $ref: '#/components/schemas/Authentication'
 
@@ -747,6 +747,7 @@ components:
       properties:
         properties:
           type: object
+          description: Properties of Basic authentication type.
           required:
             - username
             - password
@@ -754,14 +755,17 @@ components:
             username:
               type: string
               example: 'auth_username'
+              description: Username property of Basic authentication type.
             password:
               type: string
               example: 'auth_password'
+              description: Password property of Basic authentication type.
     ApiKey:
       type: object
       properties:
         properties:
           type: object
+          description: Properties of API Key authentication type.
           required:
             - header
             - value
@@ -769,20 +773,24 @@ components:
             header:
               type: string
               example: 'auth_header'
+              description: Header property of API Key authentication type.
             value:
               type: string
               example: 'auth_value'
+              description: Value property of API Key authentication type.
     Bearer:
       type: object
       properties:
         properties:
           type: object
+          description: Properties of Bearer authentication type.
           required:
             - accessToken
           properties: 
             accessToken:
               type: string
               example: 'bearer_token'
+              description: Access Token property of Bearer authentication type.
 
     NoAuthentication:
       type: object
@@ -805,6 +813,7 @@ components:
               type: string
               enum:
                 - BASIC
+              description: Type of the authentication.
 
     ApiKeyAuthentication:
       type: object
@@ -816,6 +825,7 @@ components:
               type: string
               enum:
                 - API_KEY
+              description: Type of the authentication.
 
     BearerAuthentication:
       type: object
@@ -827,8 +837,10 @@ components:
               type: string
               enum:
                 - BEARER
+              description: Type of the authentication.
     
     Authentication:
+      description: Authentication configurations of the action.
       oneOf:
         - $ref: '#/components/schemas/BasicAuthentication'
         - $ref: '#/components/schemas/ApiKeyAuthentication'
