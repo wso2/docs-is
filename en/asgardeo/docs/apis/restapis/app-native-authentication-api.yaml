@@ -1,13 +1,12 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies an **Authentication RESTful API** for **WSO2
-    Identity Server** which can be used to perform a complete API-based user authentication.
+    This document specifies an **Authentication RESTful API** for **Asgardeo** which can be used to perform a complete API-based user authentication.
     
     > This API is part of the **App-Native Authentication** capability that can authenticate users within the context of the application without external redirects.
     Refer to the feature documentation for more information.
   version: v1
-  title: WSO2 Identity Server - Application-native Authentication Rest API
+  title: Asgardeo - Application-native Authentication Rest API
   contact:
     name: WSO2
     url: 'https://wso2.com/products/identity-server/'

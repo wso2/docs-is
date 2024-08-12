@@ -69,16 +69,15 @@ Now, let's register the Google IdP in {{ product_name }}.
       </tr>
     </table>
 
-{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
+4. Go to the **Settings** tab and see the list of **scopes** to which Google has granted permissions.
 
-After the Google identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Google has granted permissions.
+    - **email**: Allows to view the user's email address.
+    - **openid**: Allows authentication using OpenID Connect and to obtain the ID token.
+    - **profile**: Allows to view the user's basic profile data.
 
-- **email**: Allows to view the user's email address.
-- **openid**: Allows authentication using OpenID Connect and to obtain the ID token.
-- **profile**: Allows to view the user's basic profile data.
-
-!!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Google to the app. You can read the [Google documentation](https://developers.google.com/identity/protocols/oauth2/openid-connect#scope-param){:target="_blank"} to learn more.
+    !!! note
+    
+        {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Google to the app. You can read the [Google documentation](https://developers.google.com/identity/protocols/oauth2/openid-connect#scope-param){:target="_blank"} to learn more.
 
 ## Enable Google login
 

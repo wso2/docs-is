@@ -53,7 +53,7 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
 
 In addition to adding a single user, you can onboard multiple users at once, either manually or by using a CSV file. This is especially useful for large organizations that seek efficiency.
 
-![Add multiple users]({{base_path}}//assets/img/guides/users/add-multiple-users-form.png)
+![Add multiple users]({{base_path}}/assets/img/guides/users/add-multiple-users-form.png)
 
 !!! note
     Importing multiple users is only supported for the Asgardeo-provided **DEFAULT** user store.
