@@ -1,10 +1,6 @@
-# OAuth2 grant types of {{ product_name }} applications
+# OAuth2 grant types
 
-OAuth 2.0 defines several grant types used to obtain an access token, which is required to access protected resources on behalf of a user or an application. Each grant type is designed for a specific use case and supports different parameters.
-
-The grant types supported by {{ product_name }} applications are as follows:
-
-**OAuth 2.0 grants**
+Grant types in OAuth 2.0 are defined as the methods used by a client to obtain an access token from the identity provider. {{product_name}} supports the following grant types. Each grant type is designed for a specific use case and supports different parameters.
 
 - [Authorization code grant](#authorization-code-grant)
 - [Refresh token grant](#refresh-token-grant)
@@ -14,37 +10,90 @@ The grant types supported by {{ product_name }} applications are as follows:
 - [Device authorization grant](#device-authorization-grant)
 - [Token exchange grant](#token-exchange-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
+- [Organization switch grant (custom)](#organization-switch-grant)
 
-**{{ product_name }}'s custom grants**
-
-- [Organization switch grant](#organization-switch-grant)
+The following sections explore each grant type in further detail.
 
 {{grant_type_configs_note}}
 
 ## Authorization code grant
 
-The Authorization code flow provides a secure way for a client application to obtain an access token without exposing the user's credentials to the client application. The user only authenticates with the authorization server, which then issues an authorization code that can be exchanged for an access token.
-
-This helps to protect the user's credentials and prevents them from being compromised by malicious client applications.
+The Authorization code flow is a secure method for clients to obtain an access token by exchanging an authorization code received through the front channel. As the access token is directly transmitted to the client via a secure back channel, it is not exposed to the user's user agent (e.g. web browser) reducing its risk of being intercepted by a malicious party.
 
 The following diagram shows how the authorization code flow works.
 
 ![How the authorization code grant works]({{base_path}}/assets/img/references/grants/authorization-code.png)
 
 1. The user visits the client application and requests for login through {{ product_name }}.
-2. The client application redirects the authorization code request to {{ product_name }}.
+2. The client application redirects the authorization code request to {{ product_name }} (front channel).
+
+
+    === "Request format (/authorize)"
+
+        ``` bash
+        {{base_url}}/oauth2/authorize
+        ?response_type=code
+        &client_id=<CLIENT_ID>
+        &redirect_uri=<REDIRECT_URI>
+        ```
+
+    === "Sample request (/authorize)"
+
+        ```bash
+        {{base_url_example}}/oauth2/authorize
+        ?response_type=code
+        &client_id=cHuGSLCm77ApRFcsdyh_4sdFU2XYa
+        &redirect_uri=https://localhost:3000
+        ```
+
 3. {{ product_name }} prompts the user to enter credentials.
 4. The user enters the credentials.
 5. After successful authentication, {{ product_name }} sends the authorization code to the client application.
-6. The client application uses this authorization code to request an access token from {{ product_name }}.
-7. {{ product_name }} sends the access token and ID token to the client application.
+6. The client application uses this authorization code to request an access token from {{ product_name }} (back channel).
+
+    === "Request format (/token)"
+
+        ``` bash
+        curl -v -X POST {{base_url}}/oauth2/token\ 
+        --basic -u <CLIENT_ID>:<CLIENT_SECRET> \
+        --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
+        --data-urlencode "grant_type=authorization_code" \
+        --data-urlencode "code=<AUTHORIZATION_CODE>" \
+        --data-urlencode "redirect_uri=<REDIRECT_URI>"
+        ```
+    === "Sample request (/token)"
+
+        ```bash
+        curl -v -X POST {{base_url_example}}/oauth2/token\ 
+        --basic -u Ei0Wf9bzfsdvdd0lfwSvTPje8kcEa:HFI2S2HR9kdfg543f5xMpuIAjgJxnZQUT1_e52ga \
+        --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
+        --data-urlencode "grant_type=authorization_code" \
+        --data-urlencode "code=0sdvsw1-05a2-3ebe-bb42-e007160b46f4" \
+        --data-urlencode "redirect_uri=https://localhost:3000"
+        ```
+
+7. {{ product_name }} responds with the access token and other tokens to the client application.
+
+    ```json
+    {
+        "access_token":"131d4094-b94c-3714-9e73-672aa433248d",
+        "refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07",
+        "token_type":"Bearer",
+        "expires_in":3600
+    }
+    ```
+
+    !!! note "Refresh token"
+
+        Refresh tokens are used to obtain new access tokens. Learn more about the [refresh token grant](#refresh-token-grant)
+
 8. The client application can now request user information from the resource server by providing the access token.
+
 9. The resource server returns the requested user information to the client application.
 
-
 ## Refresh token grant
-The refresh token grant provides a secure way for client applications to obtain a new access token without requiring the user to re-authenticate. This can help improve the user experience by avoiding unnecessary login prompts and reducing the load on the authorization server by reducing the frequency of authentication requests.
-Refresh tokens typically have a longer lifetime than access tokens, and the user or the authorization server can revoke them at any time.
+
+When an access token expires, clients may use the refresh token grant to obtain a new access token without requiring the user to re-authenticate. This can help improve the user experience by avoiding unnecessary login prompts and reducing the load on the authorization server. Refresh tokens typically have a longer lifetime than access tokens, and the user or the authorization server can revoke them at any time.
 
 The following diagram shows how the refresh token flow works.
 
@@ -53,12 +102,41 @@ The following diagram shows how the refresh token flow works.
 1. The client application requests user information from the resource server by providing the access token.
 2. As the access token is expired, the resource server returns an error message.
 3. By sending the refresh token, the client application requests a new access token from {{ product_name }}.
+
+    === "Request format (/token)"
+
+        ```bash
+        curl -k {{base_url}}/oauth2/token \
+        --header "Content-Type: application/x-www-form-urlencoded"
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --data-urlencode "grant_type=refresh_token" \
+        --data-urlencode "refresh_token=<REFRESH_TOKEN>"
+        ```
+    
+    === "Sample request (/token)"
+
+        ```bash
+        curl -k {{base_url}}/oauth2/token \
+        --header "Content-Type: application/x-www-form-urlencoded"
+        --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
+        --data-urlencode "grant_type=refresh_token" \
+        --data-urlencode "refresh_token=96a6dsd97-0120-3bec-86be-21b58f600a07"
+        ```
+
 4. {{ product_name }} sends a new access token and a new refresh token.
 
+    ```json
+    {
+    "access_token":"b9ed0658-f187-3d39-a4f1-6d42522e1eee",
+    "refresh_token":"3426ff78-62a5-32fa-be6e-74ab69d4cbf4",
+    "token_type":"Bearer",
+    "expires_in":3600
+    }
+    ```
 
 ## Client credentials grant
 
-The client credentials flow provides a secure way for client applications to obtain an access token without user authentication. This can be useful in scenarios where the client application needs to access its own resources, such as data storage or APIs, but does not require access to user data.
+The client credentials flow provides a secure way for client applications to obtain an access token without user authentication. This can be useful in scenarios where the client application needs to access its own resources, such as data storage or APIs, without requiring user authentication.
 However, it is important to ensure that the client credentials are kept secure, as any party that posses these credentials can obtain access tokens and access the client's resources.
 
 The following diagram shows how the client credentials grant flow works.
@@ -66,16 +144,45 @@ The following diagram shows how the client credentials grant flow works.
 ![How the client credentials grant works]({{base_path}}/assets/img/references/grants/client-credentials.png)
 
 1. The client application sends its credentials (`client_id` and `client_secret`) to {{ product_name }} and requests an access token.
+
+    === "Request format (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --header "Content-Type:application/x-www-form-urlencoded"
+        --data-urlencode "grant_type=client_credentials" 
+        ```
+    
+    === "Sample request (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth/token \
+        --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
+        --header "Content-Type:application/x-www-form-urlencoded"
+        --data-urlencode "grant_type=client_credentials"
+        ```
+
 2. {{ product_name }} sends the access token to the client application.
-3. The client application can now request user information from the resource server by providing the access token.
-4. The resource server returns the requested user information to the client application.
+
+    ```json
+    {
+    "token_type":"Bearer",
+    "expires_in":2061,
+    "access_token":"ca19a540f544777860e44e75f605d927"
+    }
+    ```
+    
+3. The client application can now request for resources by providing the access token.
+
+4. The resource server returns the requested resources to the client application.
 
 ## Implicit grant
 
-!!! note
-    {{ product_name }} does not recommend using implicit grant in it's applications.
+!!! warning
+        {{ product_name }} does not recommend using implicit grant for applications.
 
-The implicit grant flow is an OAuth 2.0 grant type that enables a client application to obtain an access token directly from the authorization server without an intermediate authorization code exchange. This flow is commonly used in browser-based applications where the client application runs in a web browser.
+The implicit grant flow is an OAuth 2.0 grant type that enables a client application to obtain an access token directly from the authorization server without an intermediate exchange of an authorization code. This flow is commonly used in scenarios where the client application runs on a web browser.
 
 However, it is important to note that the access token is exposed in the browser's URL fragment, which can make it vulnerable to certain types of attacks, such as cross-site scripting (XSS). As a result, this flow is typically not recommended for applications that require high security.
 
