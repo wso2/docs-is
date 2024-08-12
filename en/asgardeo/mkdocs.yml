@@ -174,20 +174,22 @@ nav:
             - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
             - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
           - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
-          - Add social login:
-            - Add social login: guides/authentication/social-login/index.md
-            - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
-            - Add Github login: guides/authentication/social-login/add-github-login.md
-            - Add Google login: guides/authentication/social-login/add-google-login.md
-            - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
-            - Add Apple login: guides/authentication/social-login/add-apple-login.md
-          - Add decentralized login:
-            - Add decentralized login: guides/authentication/decentralized-login/index.md
-            - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
-          - Add standard-based login:
-            - Add standard-based login: guides/authentication/standard-based-login/index.md
-            - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
-            - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
+          - Add federated login:
+            - Add federated login: guides/authentication/federated-login/index.md
+            - Add social login:
+              - Add social login: guides/authentication/social-login/index.md
+              - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
+              - Add Github login: guides/authentication/social-login/add-github-login.md
+              - Add Google login: guides/authentication/social-login/add-google-login.md
+              - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
+              - Add Apple login: guides/authentication/social-login/add-apple-login.md
+            - Add decentralized login:
+              - Add decentralized login: guides/authentication/decentralized-login/index.md
+              - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+            - Add standard-based login:
+              - Add standard-based login: guides/authentication/standard-based-login/index.md
+              - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
+              - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
           - Add identifier first login: guides/authentication/add-identifier-first-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md

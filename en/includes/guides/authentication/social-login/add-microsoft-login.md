@@ -88,9 +88,7 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
       </tr>
     </table>  
 
-{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
-
-After the Microsoft identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Microsoft has granted permissions.
+4. Go to the **Settings** tab and see the list of **scopes** to which Microsoft has granted permissions.
 
 - **email**: Allows to view the user's email address.
 - **openid**: Allows authentication using OpenID Connect and to obtain the ID token.
