@@ -28,6 +28,8 @@ Your external web service should implement the following to successfully execute
 
 ## Configure an action in {{product_name}}
 
+Follow the steps below to configure an action.
+
 1. On the {{product_name}} Console, go to **Actions**.
 
 2. Click on the preferred action type (e.g. Pre Issue Access Token).
@@ -36,14 +38,18 @@ Your external web service should implement the following to successfully execute
 
 3. Provide the following information
 
-    - Action Name: Provide a name for the action.
-    - Endpoint: Enter the URL of the web service endpoint you created.
-    - Authentication: Select the authentication type of the endpoint from the dropdown and configure the properties.
+    - **Action Name**: Provide a name for the action.
+    - **Endpoint**: Enter the URL of the web service endpoint you created.
+    - **Authentication**: Select the type of authentication required to invoke your endpoint and configure the related properties. 
 
-    !!! note
-        Once added, these authentication secrets will not be displayed. You will only be able to reset them.
-
-    ![add-action]({{base_path}}/assets/img/guides/actions/add-action-from-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+        !!! note
+            
+            Once added, these values authentication secrets will not be displayed again. You will only be able to reset them.
+            
+        - Basic - Provide a username and password.
+        - Bearer - Provide a bearer token.
+        - API Key - Provide the header name and the value.
+        - No Authentication - No authentication (recommended only for testing purposes).
 
 4. Click **Create** to create the action.
 
