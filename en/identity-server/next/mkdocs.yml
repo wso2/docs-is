@@ -710,6 +710,7 @@ nav:
       - Admin advisory management API: apis/admin-advisory-management-rest-api.md
       - Tenant management API: apis/tenant-management-rest-api.md
     - Management APIs:
+      - Action Management API: apis/action-management-rest-api.md   
       - API resource management: apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API: apis/application-rest-api.md
