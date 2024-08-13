@@ -242,7 +242,19 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
-      - API authorization: guides/api-authorization.md
+      - Authorization:
+        - Authorization: guides/authorization/index.md
+        - API authorization:
+          - Role-based access control: guides/authorization/api-authorization/api-authorization.md
+        - Impersonation:
+            - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+      - Branding:
+        - Branding: guides/branding/index.md
+        - Configure UI branding: guides/branding/configure-ui-branding.md
+        - Branding AI: guides/branding/ai-branding.md
+        - Configure custom domains: guides/branding/configure-custom-domains.md
+        - Customize email templates: guides/branding/customize-email-templates.md
+        - Localization in Asgardeo: guides/branding/localization-in-asgardeo.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
