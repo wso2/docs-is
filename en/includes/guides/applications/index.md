@@ -19,7 +19,7 @@ Web applications (web apps) are the most common type of applications in use. The
 - [Register a web application with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/)
 - [Register a web application with SAML]({{base_path}}/guides/applications/register-saml-web-app/)
 
-### Mobile applications
+### Mobile apps
 
 Mobile applications are apps that run on mobile devices. Android and iOS are some of the popular technologies adopted to build mobile applications.
 
