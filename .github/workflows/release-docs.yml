@@ -42,7 +42,6 @@ jobs:
           echo "CURRENT_VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
       - name: Increment version
-        if: ${{ env.IS_HOTFIX == 'false' }}
         run: |
           set -euxo pipefail
           IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
