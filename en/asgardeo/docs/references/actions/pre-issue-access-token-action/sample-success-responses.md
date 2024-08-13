@@ -1,0 +1,1 @@
+{% include "../../../../../includes/references/actions/pre-issue-access-token-action/sample-success-responses.md" %}
