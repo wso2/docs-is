@@ -243,13 +243,6 @@ nav:
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
       - API authorization: guides/api-authorization.md
-      - Branding:
-        - Branding: guides/branding/index.md
-        - Configure UI branding: guides/branding/configure-ui-branding.md
-        - Branding AI: guides/branding/ai-branding.md
-        - Configure custom domains: guides/branding/configure-custom-domains.md
-        - Customize email templates: guides/branding/customize-email-templates.md
-        - Localization in Asgardeo: guides/branding/localization-in-asgardeo.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -313,6 +306,19 @@ nav:
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+      - Customize:
+        - Customize branding: 
+            - Customize branding: guides/branding/index.md
+            - Configure UI branding: guides/branding/configure-ui-branding.md
+            - Branding AI: guides/branding/ai-branding.md
+            - Configure custom domains: guides/branding/configure-custom-domains.md
+            - Customize email templates: guides/branding/customize-email-templates.md
+            - Localization in Asgardeo: guides/branding/localization-in-asgardeo.md
+        - Extend with actions:
+            - Understanding actions: guides/customize/actions/understanding-actions.md
+            - Setting up actions: guides/customize/actions/setting-up-actions.md
+            - Action types: 
+              - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -423,6 +429,10 @@ nav:
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
+    - Actions:
+      - Pre issue access token action: 
+        - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md
+        - Sample success reponses: references/actions/pre-issue-access-token-action/sample-success-responses.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - Production checklist:
