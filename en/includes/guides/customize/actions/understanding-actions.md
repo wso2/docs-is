@@ -105,13 +105,14 @@ The following diagram illustrates the sequence of these steps:
 </thead>
 <tbody>
 <tr class="odd">
-<td>flowId</td>
-<td>
-<p>A unique correlation identifier for the flow (e.g., a login process involving input collection, authentication, and two-factor authentication) initiated and executed by {{product_name}}.</p>
-    <p>
-    !!! note
-        Currently, not all actions incorporate a flowId. The presence of a flowId depends on the type of action and the executed flow.
-    </p>
+        <td>flowId</td>
+        <td>
+        <p>A unique correlation identifier for the flow (e.g., a login process involving input collection, authentication, and two-factor authentication) initiated and executed by {{product_name}}.
+        <div class="admonition note">
+            <p class="admonition-title">note</p>
+            Currently, not all actions incorporate a flowId. The presence of a flowId depends on the type of action and the executed flow.
+        </div>
+        </p>
 </td>
 </tr>
 <tr class="even">
