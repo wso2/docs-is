@@ -44,7 +44,7 @@ Follow the steps below to configure an action.
 
         !!! note
             
-            Once added, these values authentication secrets will not be displayed again. You will only be able to reset them.
+            Once added, these authentication secret values will not be displayed again. You will only be able to reset them.
             
         - Basic - Provide a username and password.
         - Bearer - Provide a bearer token.

@@ -4,7 +4,7 @@ info:
   title: Asgardeo - Action Management Rest API
   description:
     "This is the RESTful API for managing actions for an organization in Asgardeo. \n
-    This API allows allows to create, retrieve, update and delete actions. \n\n
+    This API allows to create, retrieve, update and delete actions. \n\n
     To access Action Management APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
@@ -17,7 +17,7 @@ paths:
       - Actions Endpoint
       summary: List Action Types
       description: "This API returns the detailed summary of the action types.\n\n
-      - <b>Scope(Permission) required:</b> ``internal_action_mgt_view``\n\n"
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_view``\n\n"
       operationId: getActionTypes
       responses:
         '200':
@@ -48,7 +48,7 @@ paths:
         - Actions Endpoint
       summary: Add Action
       description: "This API creates an action and returns the action details along with the action's unique ID.\n\n
-      - <b>Scope(Permission) required:</b> ``internal_action_mgt_create``\n\n"
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_create``\n\n"
       operationId: createAction
       parameters:
         - name: actionType
@@ -115,7 +115,7 @@ paths:
         - Actions Endpoint
       summary: List Actions
       description: "This API returns actions according to the action type. \n\n
-      - <b>Scope(Permission) required:</b> ``internal_action_mgt_view``\n\n"
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_view``\n\n"
       operationId: getActionsByActionType
       parameters:
         - name: actionType
@@ -160,7 +160,7 @@ paths:
         - Actions Endpoint
       summary: Update Action
       description: "This API updates an action and returns the updated action. \n\n
-      - <b>Scope(Permission) required:</b> ``internal_action_mgt_update``\n\n"
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"
       operationId: updateAction
       parameters:
         - name: actionType
@@ -240,7 +240,7 @@ paths:
         - Actions Endpoint
       summary: Delete Action
       description: "This API deletes an action using the action's type and unique ID. \n\n
-      - <b>Scope(Permission) required:</b> ``internal_action_mgt_delete``\n\n"      
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_delete``\n\n"      
       operationId: deleteAction
       parameters:
         - name: actionType
@@ -294,7 +294,7 @@ paths:
         - Actions Endpoint
       summary: Activate Action
       description: "This API activates an action using the action's type and unique ID. \n\n
-      - <b>Scope(Permission) required:</b> ``internal_action_mgt_update``\n\n"  
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"  
       operationId: activateAction
       parameters:
         - name: actionType
@@ -351,7 +351,7 @@ paths:
         - Actions Endpoint
       summary: Deactivate Action
       description: "This API deactivates an action using the action's type and unique ID. \n\n
-      - <b>Scope(Permission) required:</b> ``internal_action_mgt_update``\n\n"  
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"  
       operationId: deactivateAction
       parameters:
         - name: actionType
@@ -408,7 +408,7 @@ paths:
         - Actions Endpoint
       summary: Update Action Authentication
       description: "This API updates authentication mechanism for the endpoint configured for the action. \n\n
-      - <b>Scope(Permission) required:</b> ``internal_action_mgt_update``\n\n"
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"
       operationId: updateActionEndpointAuthentication
       parameters:
         - name: actionType
@@ -562,7 +562,6 @@ components:
         uri:
           type: string
           example: https://myextension.com/token
-          pattern: '^https?://.+'
           description: HTTPS URI of the endpoint.
         authentication:
           $ref: '#/components/schemas/Authentication'
@@ -577,7 +576,6 @@ components:
         uri:
           type: string
           example: https://myextension.com/token
-          pattern: '^https?://.+'
           description: HTTPS URI of the endpoint.
         authentication:
           $ref: '#/components/schemas/AuthenticationTypeResponse'
@@ -675,12 +673,12 @@ components:
           description: "Description of the action type."
         count:
           type: integer
-          example: 2
+          example: 1
           description: "Number of actions configured under the action type."
         self:
           type: string
           example: "/t/{organization-name}/api/server/v1/actions/preIssueAccessToken"
-          description: "API endpoint to get actions of the action type."
+          description: "API endpoint referring to the location of the given action type."
 
     AuthenticationTypeResponse:
       type: object
@@ -722,7 +720,6 @@ components:
         uri:
           type: string
           example: https://myextension.com/token
-          pattern: '^https?://.+'
           description: Updating HTTPS URI of the endpoint.
         authentication:
           $ref: '#/components/schemas/Authentication'
@@ -755,11 +752,11 @@ components:
             username:
               type: string
               example: 'auth_username'
-              description: Username property of Basic authentication type.
+              description: Username.
             password:
               type: string
               example: 'auth_password'
-              description: Password property of Basic authentication type.
+              description: Password.
     ApiKey:
       type: object
       properties:
@@ -773,11 +770,11 @@ components:
             header:
               type: string
               example: 'auth_header'
-              description: Header property of API Key authentication type.
+              description: Header.
             value:
               type: string
               example: 'auth_value'
-              description: Value property of API Key authentication type.
+              description: Value.
     Bearer:
       type: object
       properties:
@@ -789,8 +786,8 @@ components:
           properties: 
             accessToken:
               type: string
-              example: 'bearer_token'
-              description: Access Token property of Bearer authentication type.
+              example: '0d6fed02-eac0-332b-8998-213a543139a0'
+              description: Access Token.
 
     NoAuthentication:
       type: object
