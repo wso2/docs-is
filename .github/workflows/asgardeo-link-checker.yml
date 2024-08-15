@@ -40,6 +40,8 @@ jobs:
 
       - name: Run Link Checker
         run: |
+          set +e
+          
           SITE_URL=${{ github.event.inputs.siteUrl || env.DEFAULT_URL }}
           linkchecker -F html $SITE_URL --threads=100
         continue-on-error: true
