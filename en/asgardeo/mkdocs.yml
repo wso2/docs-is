@@ -356,7 +356,6 @@ nav:
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
-      - Action Management API: apis/action-management-rest-api.md
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
       - App-native authentication API: apis/app-native-authentication-api.md
