@@ -7,7 +7,6 @@ Grant types in OAuth 2.0 are defined as the methods used by a client to obtain a
 - [Client credentials grant](#client-credentials-grant)
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
-- [Device authorization grant](#device-authorization-grant)
 - [Token exchange grant](#token-exchange-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 - [Organization switch grant (custom)](#organization-switch-grant)
@@ -49,6 +48,10 @@ The following diagram shows how the authorization code flow works.
 3. {{ product_name }} prompts the user to enter credentials.
 4. The user enters the credentials.
 5. After successful authentication, {{ product_name }} sends the authorization code to the client application.
+
+    ``` bash
+    http://localhost:3000?code=9142d4cad58c66d0a5edfad8952192
+    ```
 6. The client application uses this authorization code to request an access token from {{ product_name }} (back channel).
 
     === "Request format (/token)"
@@ -150,7 +153,7 @@ The following diagram shows how the client credentials grant flow works.
         ```bash
         curl -v -k -X POST {{base_url}}/oauth/token \
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
-        --header "Content-Type:application/x-www-form-urlencoded"
+        --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=client_credentials" 
         ```
     
@@ -159,7 +162,7 @@ The following diagram shows how the client credentials grant flow works.
         ```bash
         curl -v -k -X POST {{base_url}}/oauth/token \
         --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
-        --header "Content-Type:application/x-www-form-urlencoded"
+        --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=client_credentials"
         ```
 
@@ -182,7 +185,7 @@ The following diagram shows how the client credentials grant flow works.
 !!! warning
         {{ product_name }} does not recommend using implicit grant for applications.
 
-The implicit grant flow is an OAuth 2.0 grant type that enables a client application to obtain an access token directly from the authorization server without an intermediate exchange of an authorization code. This flow is commonly used in scenarios where the client application runs on a web browser.
+The implicit grant flow is an OAuth 2.0 grant type that enables a client application to obtain an access token from the authorization server without the intermediate exchange of an authorization code. This flow is commonly used in scenarios where the client application runs on a web browser.
 
 However, it is important to note that the access token is exposed in the browser's URL fragment, which can make it vulnerable to certain types of attacks, such as cross-site scripting (XSS). As a result, this flow is typically not recommended for applications that require high security.
 
@@ -192,9 +195,36 @@ The following diagram shows how the implicit grant flow works.
 
 1. The user visits the client application and requests for login through {{ product_name }}.
 2. The client application redirects the authorization request to {{ product_name }}.
+
+    === "Request format (/authorize)"
+
+        ``` bash
+        {{base_url}}/oauth2/authorize
+        ?response_type=token
+        &client_id=<CLIENT_ID>
+        &redirect_uri=<REDIRECT_URI>
+        ```
+
+    === "Sample request (/authorize)"
+
+        ```bash
+        {{base_url_example}}/oauth2/authorize
+        ?response_type=token
+        &client_id=cHuGSLCm77ApRFcsdyh_4sdFU2XYa
+        &redirect_uri=https://localhost:3000
+        ```
+
 3. {{ product_name }} prompts the user to enter credentials.
 4. The user enters the credentials.
 5. After successful authentication, {{ product_name }} sends the access token to the client application.
+
+    ```bash
+    https://localhost:3000
+    #access_token=317c19b3-73e3-3906-8627-d1c952856b5d
+    &token_type=Bearer
+    &expires_in=3600
+    ```
+
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns requested user information to the client application.
 
