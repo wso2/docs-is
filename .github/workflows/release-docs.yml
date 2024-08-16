@@ -50,8 +50,6 @@ jobs:
           NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
           echo "New version: $NEW_VERSION"
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-          echo "$NEW_VERSION" > VERSION
-
         shell: bash
 
       - name: Prepare hotfix
@@ -62,14 +60,14 @@ jobs:
           # Determine the hotfix tag
           # echo "Determining the hotfix tag..."
 
-          hotfix_count=$(git tag | grep -E "${{ env.CURRENT_VERSION }}-hotfix-[0-9]+" | wc -l)
+          hotfix_count=$(git tag | grep -E "${{ env.NEW_VERSION }}-hotfix-[0-9]+" | wc -l)
           echo "Hotfix count: $hotfix_count"
 
           next_hotfix_no=$((hotfix_count + 1))
           echo "Next Hotfix number: $next_hotfix_no"
 
           # Replace the last digit with the incremented value
-          hotfix_release_tag=${{ env.CURRENT_VERSION }}-hotfix-$next_hotfix_no
+          hotfix_release_tag=${{ env.NEW_VERSION }}-hotfix-$next_hotfix_no
           echo "Hotfix release tag: $hotfix_release_tag"
 
           # strip prepending 'v'
@@ -118,6 +116,7 @@ jobs:
       - name: Commit and push new version
         if: ${{ env.IS_HOTFIX == 'false' }}  
         run: |
+          echo "${{ env.NEW_VERSION }}" > VERSION
           git add VERSION
           git commit -m "Increment release version to ${{ env.NEW_VERSION }}"
           git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" master
