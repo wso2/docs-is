@@ -450,6 +450,8 @@ components:
           type: string
         request_object_encryption_enc:
           type: string
+        ext_allowed_audience:
+          type: string
     updateRequest:
       type: object
       properties:
@@ -525,6 +527,8 @@ components:
           type: string
         request_object_encryption_enc:
           type: string
+        ext_allowed_audience:
+          type: string
     application:
       type: object
       properties:
@@ -565,6 +569,8 @@ components:
           type: boolean
         ext_public_client:
           type: boolean
+        ext_allowed_audience:
+          type: string
     error:
       type: object
       properties:
