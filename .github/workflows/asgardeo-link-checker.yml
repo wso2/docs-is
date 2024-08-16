@@ -54,7 +54,7 @@ jobs:
           echo "website_url = 'https://wso2.com/asgardeo/docs/'" >> filter_script.py
           echo "with open('linkchecker-out.html', 'r') as file:" >> filter_script.py
           echo "    soup = BeautifulSoup(file, 'html.parser')" >> filter_script.py
-          echo "string_to_filter = 'https://wso2.com/asgardeo/docs/page-not-found/'" >> filter_script.py
+          echo "string_to_filter = 'Error: 404 Not Found'" >> filter_script.py
           echo "final_soup = BeautifulSoup('<!DOCTYPE html><html><head></head><body></body></html>', 'html.parser')" >> filter_script.py
           echo "final_soup.head.append(soup.head)" >> filter_script.py
           echo "# Add custom header, broken link count and spacing" >> filter_script.py
@@ -81,6 +81,7 @@ jobs:
           python filter_script.py
   
           BROKEN_LINKS_COUNT=$(cat broken_link_count.txt)
+          echo "broken link count: $BROKEN_LINKS_COUNT"
           echo "broken_links_count=$BROKEN_LINKS_COUNT" >> $GITHUB_ENV
 
       - name: Upload HTML as Artifact
