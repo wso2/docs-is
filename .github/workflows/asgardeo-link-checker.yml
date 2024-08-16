@@ -81,6 +81,7 @@ jobs:
           python filter_script.py
   
           BROKEN_LINKS_COUNT=$(cat broken_link_count.txt)
+          echo "broken link count: $BROKEN_LINKS_COUNT"
           echo "broken_links_count=$BROKEN_LINKS_COUNT" >> $GITHUB_ENV
 
       - name: Upload HTML as Artifact
