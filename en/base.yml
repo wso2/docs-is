@@ -157,6 +157,11 @@ extra:
       dark_icon: assets/img/logo/apple-logo-dark.svg
       description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
       source_link: https://github.com/openid/AppAuth-iOS
+    - name: Android Mobile UI SDK
+      icon: assets/img/logo/android-logo.svg
+      description: A client SDK to integrate {{ config.extra.product_name }} into Android mobile applications using "app-native authentication"
+      documentation_link: https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html
+      source_link: https://github.com/asgardeo/mobile-ui-sdks/tree/main/android
   redoc_theme: '{
     "colors": {
       "primary": { "main": "#ff7300" }
