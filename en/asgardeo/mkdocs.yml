@@ -198,6 +198,7 @@ nav:
             - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
             - Add Passkey: guides/authentication/mfa/add-passkey-login.md
             - Add iProov: guides/authentication/mfa/add-iproov-login.md
+            - Add Duo: guides/authentication/mfa/add-duo-login.md
             - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
