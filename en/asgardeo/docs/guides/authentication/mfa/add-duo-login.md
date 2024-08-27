@@ -8,9 +8,8 @@ In this guide, you'll learn how to integrate Duo with your Asgardeo application,
 
 Before you begin, ensure you have the following:
 
-Duo Account: A Duo administrator account to configure your Duo application.
-Asgardeo Account: Access to your Asgardeo console with administrative privileges.
-Duo Integration Key, Secret Key, and API Hostname: These will be generated when setting up Duo for your application.
+- Duo Account: A Duo administrator account to configure your Duo application.
+- Asgardeo Account: Access to your Asgardeo console with administrative privileges.
 
 ## Configure Duo Security Application
 
