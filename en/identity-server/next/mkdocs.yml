@@ -457,6 +457,8 @@ nav:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
         - Impersonation:
             - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+        - Access Token:
+            - Access Token Attributes: guides/authorization/access-token/access-token-attributes.md     
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
