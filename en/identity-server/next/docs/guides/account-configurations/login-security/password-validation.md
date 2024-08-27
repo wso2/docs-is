@@ -64,8 +64,7 @@ of the specified roles or all of the specified groups.
 The **Password History Count** feature allows you to specify the number of unique new passwords a user must use before 
 an old password can be reused. This enhances account security by preventing the reuse of old passwords.
 
-![Password History Count]({{base_path}}/assets/img/guides/account-configurations/password-history-count.png){: 
-width="800" style="display: block; margin: 0;"}
+![Password History Count]({{base_path}}/assets/img/guides/account-configurations/password-history-count.png){: width="800" style="display: block; margin: 0;"}
 
 <table>
     <tr>
