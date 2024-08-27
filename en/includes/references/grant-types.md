@@ -198,7 +198,7 @@ The following diagram shows how the implicit grant flow works.
 
     === "Request format (/authorize)"
 
-        ``` bash
+        ```bash
         {{base_url}}/oauth2/authorize
         ?response_type=token
         &client_id=<CLIENT_ID>
@@ -229,9 +229,10 @@ The following diagram shows how the implicit grant flow works.
 7. The resource server returns requested user information to the client application.
 
 ## Password grant
-The password grant flow is an OAuth 2.0 grant type that enables a client application to obtain an access token by presenting the user's username and password directly to the authorization server. This flow is generally considered less secure than other grant types, as it requires the client application to handle and transmit the user's credentials.
 
-The password grant is primarily used in scenarios where the client application is highly trusted, and the user experience is prioritized over security concerns. It is generally not recommended for use in public-facing applications or scenarios where sensitive data is accessed.
+The password grant flow is an OAuth 2.0 grant type that enables a client application to obtain an access token by presenting the user's username and password directly to the authorization server. This flow is generally considered less secure than other grant types as it requires the client application to handle and transmit the user's credentials.
+
+The password grant is primarily used in scenarios where the client application is highly trusted and the user experience is prioritized over security. It is generally not recommended for use in public-facing applications or scenarios where sensitive data is accessed.
 
 The following diagram shows how the password grant flow works.
 
@@ -239,9 +240,41 @@ The following diagram shows how the password grant flow works.
 
 1. The user visits the client application and requests for login through {{ product_name }}.
 2. The client application requests the user's credentials.
-3. The user sends the requested credentials to the client application.
+3. The user enters the requested credentials to the client application.
+
 4. The client application sends the user's credentials and requests an access token from {{ product_name }}.
+
+    === "Request format (/token)"
+
+        ```bash
+        curl -v -X POST -k -d {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" \
+        --data-urlencode "grant_type=password" \
+        --data-urlencode "username=<username>&password=<password>"
+        ```
+    
+    === "Sample request (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth/token \
+        --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
+        --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" \
+        --data-urlencode "grant_type=password" \
+        --data-urlencode "username=admin&password=admin"
+        ```
+
 5. {{ product_name }} sends the access token to the client application.
+
+    ```json
+    {
+    "access_token":"16ab408c-0f31-3321-8bed-313e836df373",
+    "refresh_token":"3c285b4f-ec29-3751-9ced-74c92061b327",
+    "token_type":"Bearer",
+    "expires_in":3600
+    }
+    ```
+
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
@@ -286,7 +319,7 @@ OAuth 2.0 token exchange is a grant type in the OAuth 2.0 framework that enables
 
 The token exchange grant type is useful in scenarios where an application needs to obtain a different type of access token with a different set of permissions or attributes than the one it currently possesses. It allows an application to act on a user's or another entity's behalf, obtaining a new access token that represents the requested authorization.
 
-!!! note "Important"
+!!! note "note"
     Currently, {{ product_name }} supports the following capabilities of the OAuth 2.0 Token Exchange specification:
 
     - Impersonation semantics of the OAuth 2.0 token exchange grant type.
