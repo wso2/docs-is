@@ -114,11 +114,11 @@ Follow the steps below to enable app-native authentication for your application.
 
 Try out App-Native Authentication using Postman.
 
-    {% if product_name=="Asgardeo"%}
-    [![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-83f51f64-fe45-4ca4-88b0-f670562d6b44){: target="#"}
-    {% else %}
-    [![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-8d164672-61aa-4326-bc5e-30314c49f6d0){: target="#"}
-    {% endif %}
+{% if product_name=="Asgardeo"%}
+[![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-83f51f64-fe45-4ca4-88b0-f670562d6b44){: target="#"}
+{% else %}
+[![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-8d164672-61aa-4326-bc5e-30314c49f6d0){: target="#"}
+{% endif %}
 
     !!! note
         Learn more about the API calls in [App-native authentication]({{base_path}}/references/app-native-authentication/).
@@ -129,9 +129,9 @@ You have successfully enabled app-native authentication for your application. Yo
 
 #### Android
 
-If you are developing an Android application, you can use the [Android Mobile UI SDK](https://central.sonatype.com/artifact/io.asgardeo/asgardeo-android) to integrate app-native authentication to your Android application. 
+If you are developing an Android application, you can use the <a href="https://central.sonatype.com/artifact/io.asgardeo/asgardeo-android" target="_blank">Android Mobile UI SDK</a> to integrate app-native authentication to your Android application. 
 
-To get started, refer to the [Android Mobile UI SDK documentation](https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html).
+To get started, refer to the Android Mobile UI SDK <a href="https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html" target="_blank">documentation</a>.
 
 #### Other technologies
 
