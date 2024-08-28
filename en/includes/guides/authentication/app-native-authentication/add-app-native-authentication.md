@@ -120,8 +120,8 @@ Try out App-Native Authentication using Postman.
 [![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-8d164672-61aa-4326-bc5e-30314c49f6d0){: target="#"}
 {% endif %}
 
-    !!! note
-        Learn more about the API calls in [App-native authentication]({{base_path}}/references/app-native-authentication/).
+!!! note
+    Learn more about the API calls in [App-native authentication]({{base_path}}/references/app-native-authentication/).
 
 ### Next steps
 
