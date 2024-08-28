@@ -1,15 +1,15 @@
 # Add Duo login
 
-[Duo](https://duo.com/) is a multi factor authentication option that offer multiple verification methods such as push notifications, SMS, phone calls, and hardware tokens.
+[Duo](https://duo.com/) is a multi-factor authentication option that offer multiple verification methods such as push notifications, SMS, phone calls, and hardware tokens.
 
-In this guide, you'll learn how to integrate Duo with your Asgardeo application, enabling Duo as a second-factor authentication provider to enhance your application's security.
+In this guide, you'll learn how to integrate Duo as a second-factor authentication provider for your Asgardeo application.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-- Duo Account: A Duo administrator account to configure your Duo application.
-- Asgardeo Account: Access to your Asgardeo console with administrative privileges.
+- [Duo Account](https://signup.duo.com/): A Duo administrator account to configure your Duo application.
+- [Asgardeo Account](https://asgardeo.io/signup): Access to your Asgardeo console with administrative privileges.
 
 ## Configure Duo Security Application
 
@@ -25,6 +25,8 @@ Before you begin, ensure you have the following:
 4. Save the **Client ID**, **Client secret**, and **API hostname**, as you will need these later.
 
 ## Add Duo as a Connection in Asgardeo
+
+Next, you'll need to integrate Duo with Asgardeo by adding it as an connection in Asgardeo console.
 
 1. Log in to the [Asgardeo Console](https://console.asgardeo.io/) as an adminstrator.
 2. Navigate to **Connections** from the left-hand panel 
@@ -46,6 +48,8 @@ The next step is to add Duo as an MFA option to the login flow of the applicatio
 7. Save the changes by clicking the **Update** button.
 
 ## Test the Integration
+
+Finally, you need to verify that Duo has been successfully integrated and is functioning correctly as a second-factor authentication method.
 
 1. Access the sample application and click on **Login** button. 
 
