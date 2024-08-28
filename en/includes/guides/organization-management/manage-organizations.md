@@ -55,7 +55,9 @@ To add additional attributes for your organization:
 
 5. Click **Update** to save the configurations.
 
-{{organization_search_content}}
+{% if organization_search_content %}
+{{ organization_search_content }}
+{% endif %}
 
 ## Switch to an organization
 
