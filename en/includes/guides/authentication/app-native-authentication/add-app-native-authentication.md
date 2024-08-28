@@ -129,8 +129,6 @@ You have successfully enabled app-native authentication for your application. Yo
 
 #### Android
 
-<a href="https://codingbeautydev.com">Coding Beauty</a>
-
 If you are developing an Android application, you can use the <a href="https://central.sonatype.com/artifact/io.asgardeo/asgardeo-android" target="_blank">Android Mobile UI SDK</a> to integrate app-native authentication to your Android application. 
 
 To get started, refer to the Android Mobile UI SDK <a href="https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html" target="_blank">documentation</a>.
