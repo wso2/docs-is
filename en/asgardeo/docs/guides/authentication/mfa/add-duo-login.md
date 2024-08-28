@@ -26,12 +26,12 @@ Before you begin, ensure you have the following:
 
 ## Add Duo as a Connection in Asgardeo
 
-1. Log in to the [Asgardeo Console](https://console.asgardeo.io/) as a adminstrator.
-2. Navigate to Connections from the left-hand panel 
+1. Log in to the [Asgardeo Console](https://console.asgardeo.io/) as an adminstrator.
+2. Navigate to **Connections** from the left-hand panel 
 3. Click **New Connection** and select **Duo** from the listed templates.
 4. Provide a Name for the Duo connection (e.g., "Duo Security").
 5. Enter the **Client ID**, **Client secret**, and **API hostname**, that you obtained from the Duo Admin Panel.
-6. Click Finish to save the configuration.
+6. Click **Finish** to save the configuration.
 
 ## Configure Duo for MFA
 
