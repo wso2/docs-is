@@ -16,11 +16,11 @@ Before you begin, ensure you have the following:
 1. Log in to the [Duo Securty admin panel](https://admin.duosecurity.com/login). 
 2. Click **Applications** from the left panel and then click the **Protect an Application** button.
 
-![Create duo security app]({{base_path}}/assets/img/guides/mfa/duo/add-duo-security-app.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Create duo security app]({{base_path}}/assets/img/guides/mfa/duo/add-duo-security-app.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. On the **Protect an Application page**, search for **Web SDK** and click on **Protect**.
 
-![Protect web SDK app]({{base_path}}/assets/img/guides/mfa/duo/protect-web-sdk-app.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Protect web SDK app]({{base_path}}/assets/img/guides/mfa/duo/protect-web-sdk-app.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Save the **Client ID**, **Client secret**, and **API hostname**, as you will need these later.
 
@@ -49,16 +49,16 @@ The next step is to add Duo as an MFA option to the login flow of the applicatio
 
 1. Access the sample application and click on **Login** button. 
 
-![React sample app login]({{base_path}}/assets/img/guides/mfa/duo/react-sample-app-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![React sample app login]({{base_path}}/assets/img/guides/mfa/duo/react-sample-app-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Once you enter your username and password, you will be redirected to Duo authentication page.
 
 3. Complete the Duo authentication process using the method configured (e.g., push notification, SMS).
 
-![Duo push notification]({{base_path}}/assets/img/guides/mfa/duo/duo-push-notification.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Duo push notification]({{base_path}}/assets/img/guides/mfa/duo/duo-push-notification.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-!!! note
-    If you haven't installed the Duo app in your mobile, you will be guided to install and set-up the application at this step.
+    !!! note
+        If you haven't installed the Duo app in your mobile, you will be guided to install and set-up the application at this step.
 
 4. If your verification is successful, you will be logged into the app.
 
