@@ -46,3 +46,7 @@ Learn how to enable MFA using the following authenticators:
 - [Email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/)
 - [SMS OTP]({{base_path}}/guides/authentication/mfa/add-smsotp-login/)
 - [Passkey]({{base_path}}/guides/authentication/mfa/add-passkey-login/)
+{% if product_name == "Asgardeo" %}
+- [iProov]({{base_path}}/guides/authentication/mfa/add-iproov-login/)
+- [Duo]({{base_path}}/guides/authentication/mfa/add-duo-login/)
+{% endif %}
