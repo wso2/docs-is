@@ -49,7 +49,7 @@ The created Duo connection should be added as an MFA option to the login flow of
 
 ## Test the Integration
 
-Finally, you need to verify that Duo has been successfully integrated and is functioning correctly as a second-factor authentication method.
+Finally, you need to verify that Duo has been successfully integrated and is functioning correctly as a second-factor authentication method. To do so,
 
 1. Access the sample application and click on **Login** button. 
 
