@@ -13,8 +13,6 @@ Before you begin, ensure you have the following:
 
 ## Configure Duo Security Application
 
-Follow the steps below to configure the Duo Security application.
-
 1. Log in to the [Duo Securty admin panel](https://admin.duosecurity.com/login). 
 2. Click **Applications** from the left panel and then click the **Protect an Application** button.
 
@@ -28,7 +26,7 @@ Follow the steps below to configure the Duo Security application.
 
 ## Add Duo as a Connection in Asgardeo
 
-Follow the steps below to integrate Duo as a connection in Asgardeo.
+Next, you need to register Duo as a connection in Asgardeo. To do so, follow the steps below.
 
 1. Log in to the [Asgardeo Console](https://console.asgardeo.io/) as an adminstrator.
 2. Navigate to **Connections** from the left-hand panel 
@@ -37,11 +35,11 @@ Follow the steps below to integrate Duo as a connection in Asgardeo.
 5. Enter the **Client ID**, **Client secret**, and **API hostname**, that you obtained from the Duo Admin Panel.
 6. Click **Finish** to save the configuration.
 
-## Configure Duo for MFA
+## Enable Duo MFA for an application
 
-Follow the steps below to add Duo as an MFA option to the login flow of the application.
+The created Duo connection should be added as  an MFA option to the login flow of an application. To do so, follow the steps below.
 
-1. In the [Asgardeo Console](https://console.asgardeo.io/), navigate to **Applications**.
+1. On the [Asgardeo Console](https://console.asgardeo.io/), navigate to **Applications**.
 2. Select the application for which you want to enable Duo MFA.
 3. Go to the **Login Flow** section. Username and Password will be added as the default login method.
 4. Click on the **+ icon** to add a new step to the login flow. 
