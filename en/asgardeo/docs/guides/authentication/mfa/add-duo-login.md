@@ -37,7 +37,7 @@ Next, you need to register Duo as a connection in Asgardeo. To do so, follow the
 
 ## Enable Duo MFA for an application
 
-The created Duo connection should be added as  an MFA option to the login flow of an application. To do so, follow the steps below.
+The created Duo connection should be added as an MFA option to the login flow of an application. To do so, follow the steps below.
 
 1. On the [Asgardeo Console](https://console.asgardeo.io/), navigate to **Applications**.
 2. Select the application for which you want to enable Duo MFA.
