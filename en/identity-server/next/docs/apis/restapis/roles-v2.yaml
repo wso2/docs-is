@@ -140,7 +140,7 @@ paths:
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/ErroRoleAlreadyAvailable'
+                $ref: '#/components/schemas/ErrorRoleAlreadyAvailable'
       x-codeSamples:
         - lang: Curl
           source: |
@@ -896,6 +896,19 @@ components:
             example: urn:ietf:params:scim:api:messages:2.0:PatchOp
         Operations:
           type: array
+          example:
+            - op: add
+              path: groups
+              value:
+                - value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+            - op: add
+              path: users
+              value:
+                - value: 9cac6a86-1f21-4937-9fb1-5be4a93ef349
+            - op: remove
+              path: "users[value eq 0565f472-28fe-4d93-83ad-096c66ed4a47]"
+            - op: remove
+              path: "groups[value eq 9065f445-265e-4rfg3-83ad-666c66ed4a55]"
           items:
             $ref: '#/components/schemas/RolePatchOperationobjV2'
     RolePatchOperationobjV2:
@@ -1065,7 +1078,7 @@ components:
           example: >-
             No Role with the id : 4645709c-ea8c-4495-8590-e1fa0efe3de0 in the
             system.
-    ErroRoleAlreadyAvailable:
+    ErrorRoleAlreadyAvailable:
       type: object
       required:
         - status
