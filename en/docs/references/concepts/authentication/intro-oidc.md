@@ -55,7 +55,7 @@ The different flows target different types of application clients.
 
 ## How does it work?
 
-The exact flow differs based on the authentication flow or the grant type.  However, OIDC in general allows web applications to authenticate users with an external server (i.e., OpenID Connect Provider - OP). Usually, the user information is picked from an external identity provider or sometimes the identity rovider (IdP) may act as the OP as well. In this OIDC flow, all communication takes place via tokens.
+The exact flow differs based on the authentication flow or the grant type.  However, OIDC in general allows web applications to authenticate users with an external server (i.e., OpenID Connect Provider - OP). Usually, the user information is picked from an external identity provider or sometimes the identity provider (IdP) may act as the OP as well. In this OIDC flow, all communication takes place via tokens.
 
 The following steps explain how this protocol works in a simple manner.
 
