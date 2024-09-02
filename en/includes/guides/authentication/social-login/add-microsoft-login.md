@@ -40,7 +40,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft 
         </tr>
         <tr>
             <td>Redirect URI</td>
-            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>https://localhost:9443/commonauth</code></td>
+            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>{{product_url_format}}/commonauth</code></td>
         </tr>
     </table>
 

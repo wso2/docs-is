@@ -11,10 +11,10 @@ You can add X login to your applications using {{ product_name }} and enable use
 3. Either during project creation, or by navigating to your created project in **Projects & Apps**, click **Add App**.
 
     1. Provide an **App name**.
-       ![Set X app_name]({{base_path}}/assets/img/samples/x-app-name.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+       ![Set X app_name]({{base_path}}/assets/img/guides/idp/x-idp/x-app-name.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     2. Take note of the **API Key** and **API Key Secret** of the application.
-       ![Set X app_name]({{base_path}}/assets/img/samples/x-key-token.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+       ![Set X app_name]({{base_path}}/assets/img/guides/idp/x-idp/x-key-token.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **App Settings** at the bottom of the page.
 
@@ -24,10 +24,8 @@ You can add X login to your applications using {{ product_name }} and enable use
 
    2. Fill in the user authentication details with the following values.
 
-      - Callback URI / Redirect URL - `https://localhost:9443/commonauth`
+      - Callback URI / Redirect URL - `{{product_url_format}}/commonauth`
       - Website URL - `http://localhost.com:8080/pickup-dispatch/home.jsp`
-
-      ![Setup_user_authentication]({{base_path}}/assets/img/samples/x-auth-config.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
    3. Click **Save**.
 
@@ -44,7 +42,7 @@ Now, let's register the Microsoft IdP in {{product_name}}.
 
 3. Provide a name and a description for the connector and click **Finish**.
 
-      ![Create a custom connector]({{base_path}}/assets/img/samples/x-custom-connector.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+      ![Create a custom connector]({{base_path}}/assets/img/guides/idp/x-idp/x-custom-connector.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. On the created custom connector, go to the **Settings** tab.
 
@@ -52,7 +50,7 @@ Now, let's register the Microsoft IdP in {{product_name}}.
 
 6. Enter the following details and click **Finish**.
 
-      ![Configure the X connector]({{base_path}}/assets/img/samples/x-configure-connector.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+      ![Configure the X connector]({{base_path}}/assets/img/guides/idp/x-idp/x-configure-connector.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
       <table>
          <tr>
@@ -73,7 +71,7 @@ Now, let's register the Microsoft IdP in {{product_name}}.
          <tr">
             <td>Callback URL</td>
             <td><p>The Callback URL you entered when registering {{product_name}} in X. This is the URL to which the browser should be redirected after the authentication is successful.</p>
-            e.g. <code>https://localhost:9443/commonauth</code></td>
+            e.g. <code>{{product_url_format}}/commonauth</code></td>
        </tr>
        </table>
 
