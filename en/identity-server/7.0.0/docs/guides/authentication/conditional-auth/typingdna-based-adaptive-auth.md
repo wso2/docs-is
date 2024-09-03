@@ -114,8 +114,3 @@ Follow the steps given below to configure TypingDNA in your application.
 
     !!! info
         From this log in attempt and beyond, typingDNA will analyze your typing pattern against the registered typing pattern of the account. TOTP will only be prompted if your typing pattern does not match the typing pattern registered in Alex's account.
-
-
-
-
-
