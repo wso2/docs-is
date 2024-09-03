@@ -1,34 +1,38 @@
 # Password validation
 
-Customize password validation rules to enhance the security of user accounts in {{product_name}}.
+This guide explains how you can manage user passwords securely using multiple validation techniques, such as enforcing password expiration and imposing password complexity requirements.
 
-## Configuration instructions
+## Configure password validation
 
-To configure password validation rules, follow these steps:
+You may find the configuration options by following the steps below.
 
-1. On the {{product_name}} Console, navigate to **Login & Registration** > **Login Security** > **Password Validation**.
-2. On the **Password Validation** page, you will find three sections:
-    - [**Password Expiration**](#configuring-rule-based-password-expiration): Define the number of days after which a 
-    password must be changed.
-    - [**Password History Count**](#password-history-count): Specify the number of unique new passwords a user must use 
-    before an old password can be reused.
-    - [**Password Input Validation**](#password-input-validation): Set requirements for password complexity, including 
-    length and character types.
+1. On the {{product_name}} Console, navigate to **Login & Registration**.
+
+2. Under **Login Security**, select **Password Validation**.
+
+3. On the **Password Validation** page, you may find the following three options:
+
+    - [Rule-based password expiration](#rule-based-password-expiration): Define rules to control password expiration based on the user's groups and roles.
+    - [Password history count](#password-history-count): Specify how often users can reuse old passwords.
+    - [Password input validation](#password-input-validation): Set requirements for password complexity by defining its length constraints and required character types.
+    
 3. Click **Update** to save the changes.
 
-### Configuring Rule-Based Password Expiration
+### Rule-Based password expiration
 
-Rule-based password expiration allows administrators to define password expiration policies that apply to specific 
-groups or roles, offering more granular control over password security.
+Rule-based password expiration allows administrators to set custom password expiration rules based on the user's groups and roles. The higher a rule appears on the list, the greater its priority. Rules are evaluated based on their priorities and the first rule that matches the user's condition will take effect.
 
-![Rule-Based Password Expiration]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-expiration.png){: width="800" style="display: block; margin: 0;"}
+To configure rule-based password expiration,
 
-When multiple rules are defined, they are evaluated based on their priority. The rules are checked one by one according 
-to their priority order, and the first rule that applies to a user will determine the password expiration policy for 
-that user.
+1. Turn the **Password Expiration** toggle on to enable password expiration.
 
-Within each rule, you can specify multiple roles or multiple groups. The rule will apply to users who belong to all 
-of the specified roles or all of the specified groups.
+2. Set a default password expiry rule that applies to any user that does not meet the custom criteria.
+
+3. Click **Add Rule** and start defining custom rules. Each subsequent rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
+
+    ![Rule-Based Password Expiration]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-expiration.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+Refer to the following table for more information on rule parameters.
 
 <table>
     <tr>
@@ -37,12 +41,11 @@ of the specified roles or all of the specified groups.
     </tr>
     <tr>
         <td>Attribute</td>
-        <td>The user attribute (e.g., role, group) that the rule is based on.</td>
+        <td>User attribute against which you are enforcing password expiry. Select either <code>Groups</code> or <code>Roles</code>.</td>
     </tr>
     <tr>
         <td>Values</td>
-        <td>The specific values of the attribute that the rule applies to (e.g., specific roles or groups). If the rule 
-        includes multiple roles or groups, a user must belong to all of them for the rule to apply.</td>
+        <td>Select the specific group/role. You may also select multiple values thus making the rule act as an AND operator, and is enforced only on users belonging to all selected groups/roles. </td>
     </tr>
     <tr>
         <td>Operator</td>
@@ -54,17 +57,18 @@ of the specified roles or all of the specified groups.
         </td>
     </tr>
     <tr>
-        <td>Expiration Days</td>
-        <td>The number of days after which the password will expire for users matching the rule criteria.</td>
+        <td>Expiration (days)</td>
+        <td>Passwords of users meeting the criteria expire after this number of days.</td>
     </tr>
 </table>
 
-### Password History Count
+### Password history count
 
-The **Password History Count** feature allows you to specify the number of unique new passwords a user must use before 
-an old password can be reused. This enhances account security by preventing the reuse of old passwords.
+The **Password History Count** feature allows you to specify the number of unique new passwords a user must use before an old password can be reused. This enhances account security by preventing the reuse of old passwords.
 
-![Password History Count]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-history-count.png){: width="800" style="display: block; margin: 0;"}
+![Password History Count]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-history-count.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+To enable this, select the corresponding checkbox and configure the following option.
 
 <table>
     <tr>
@@ -73,17 +77,17 @@ an old password can be reused. This enhances account security by preventing the 
     </tr>
     <tr>
         <td>Password History Count</td>
-        <td><code>[Optional]</code> This field identifies the number of new unique passwords that must be set before an old password can be reused again. <br> <b> Example: </b> If you assign <code>3</code> as the password history count, the user cannot use the last three passwords they have used.</td>
+        <td><code>[Optional]</code> The number of unique passwords that must be set before reusing an old password. <br> <b> Example: </b> If set to <code>3</code>, the user cannot reuse the last three passwords they have set.</td>
     </tr>
 </table>
 
-### Password Input Validation
+### Password input validation
 
-The **Password Input Validation** feature enables you to set requirements for password complexity, such as minimum 
-length and required character types. This feature strengthens user account security by enforcing robust password 
-policies.
+The **Password Input Validation** feature enables you to set requirements for password complexity. This includes minimum length and required character types.
 
-![Password Input Validation]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-input-validation.png){: width="800" style="display: block; margin: 0;"}
+![Password Input Validation]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-input-validation.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+Configure the following parameters to enforce input validation.
 
 <table>
     <tr>
