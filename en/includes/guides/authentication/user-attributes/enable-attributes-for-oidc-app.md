@@ -139,9 +139,9 @@ _A sample userinfo response is given below:_
 }
 ```
 
-## Prioritize local account attributes
+## Prioritize sharing local attributes
 
-{{ product_name }} offers the capability to share attributes of a local account during federated a{{ product_name }}uthentication, provided that there exists a local account linked with the federated identity. To prioritize the sharing of attributes from linked local accounts, follow the steps given below:
+In a scenario where a user with a local account in {{product_name}}, logs in using [federated authentication]({{base_path}}/guides/authentication/federated-login/), you may want to prioritize sharing local user attributes with the application over those provided by the external identity provider. Follow the steps below to set this priority for sharing user attributes.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab.
@@ -149,9 +149,9 @@ _A sample userinfo response is given below:_
 
     ![Prioritize local account attributes]({{base_path}}//assets/img/guides/applications/attributes/oidc/prioritize-local-account-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Once enabled, the tokens issued from this application during federated authentication with an [external identity provider]({{base_path}}/guides/authentication/#supported-external-idps) will contain the attributes of the local account which is linked with the entity identified by the subject claim of the token issued by the external identity provider.
+4. Click **Update** to save the changes.
 
-If there is no such linked local account, {{ product_name }} will return the user attributes retrieved from the external identity provider.
+When enabled, tokens will include attributes from the linked local user account identified by the subject claim provided by the external identity provider. If a local user account does not exist, {{ product_name }}, instead, will return the user attributes obtained from the external identity provider.
 
 !!! note
     When [JIT provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#how-jit-provisioning-works) is enabled for the external identity provider, {{ product_name }} ensures that the attributes of the associated local account synchronize with the external identity provider upon each federated login.
