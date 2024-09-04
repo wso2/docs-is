@@ -10,7 +10,7 @@ You may find the configuration options by following the steps below.
 
 2. Under **Login Security**, select **Password Validation**.
 
-3. On the **Password Validation** page, you may find the following three options:
+3. On the **Password Validation** page, you may configure the following three options:
 
     - [Rule-based password expiration](#rule-based-password-expiration): Define rules to control password expiration based on the user's groups and roles.
     - [Password history count](#password-history-count): Specify how often users can reuse old passwords.
