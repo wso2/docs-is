@@ -83,7 +83,7 @@ To enable this, select the corresponding checkbox and configure the following op
 
 ### Password input validation
 
-The **Password Input Validation** feature enables you to set requirements for password complexity. This includes minimum length and required character types.
+The **Password Input Validation** feature enables you to set password complexity requirements which include minimum password length and required character types.
 
 ![Password Input Validation]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-input-validation.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
