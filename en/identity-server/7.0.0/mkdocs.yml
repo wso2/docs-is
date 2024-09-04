@@ -750,7 +750,9 @@ nav:
         - Consent management:
           - Overview: apis/use-the-consent-management-rest-apis.md
           - Consent management API: apis/consent-management-api-definition.md
-        - Email templates API: apis/email-templates-rest-api.md
+        - Email templates:
+          - Email templates v1 API: apis/email-templates-rest-api.md
+          - Email templates v2 API: apis/email-templates-v2-rest-api.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
