@@ -1,11 +1,8 @@
 openapi: 3.0.0
 info:
-  version: "v2"
+  version: v2
   title: WSO2 Identity Server - Email Template API
-  description: >-
-    This is the RESTful API for managing email templates in WSO2 Identity
-    Server. This API allows adding, retrieving, replacing, and removing email
-    templates and template types.
+  description: 'This is the RESTful API for managing email templates in WSO2 Identity Server. This API allows adding, retrieving, replacing, and removing email templates and template types.'
   contact:
     name: WSO2 Identity Server
     url: 'https://wso2.com/identity-and-access-management/'
@@ -19,7 +16,18 @@ tags:
   - name: Email Templates
     description: An email template of a specific type and a language.
   - name: Application Email Templates
-    description: An application email template of a specific type and a language.
+    description: |
+      An application-specific email template of a specific type and a language.
+
+      These email templates provide application-specific branding for the following interactions,
+
+      - User creation with SCIM2 APIs
+      - Locking/Unlocking accounts with SCIM2 APIs
+      - Password recovery API
+      - Email verification flows
+      - Resend email flows
+
+      To ensure application-specific branding is applied, the above APIs must be invoked using an access token issued specifically for the application. If an access token generated from admin credentials is used instead, the branding will default to organization-specific settings.
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -31,13 +39,9 @@ paths:
       summary: Retrieves all the email template types.
       operationId: getAllEmailTemplateTypes
       description: |
-        Retrieves all the email template types in the system. <br>
+        Retrieves all the email template types in the system.
 
-        <b>Permission required:</b><br>
-        * /permission/admin/manage/identity/emailmgt/view
-        <br> 
-        <b>Scopes required:</b> 
-        <br>* internal_email_mgt_view
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -47,7 +51,7 @@ paths:
         '200':
           description: Search results matching the given criteria.
           content:
-            'application/json':
+            application/json:
               schema:
                 type: array
                 items:
@@ -71,16 +75,22 @@ paths:
 
         * Attribute _**displayName**_ of the template type should be unique. <br>
 
-        <b>Permission required:</b> <br>
-        * /permission/admin/manage/identity/emailmgt/create
-        <br> 
-        <b>Scopes required:</b> 
-        <br>* internal_email_mgt_create
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create`
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/EmailTemplateTypeOverview'
+            examples:
+              Example 1:
+                value:
+                  displayName: Account Confirmation
+                  templates:
+                    - contentType: text/html
+                      subject: WSO2 - Account Confirmation
+                      body: HTML Body
+                      footer: WSO2 Identity Server Team
+                      id: en_US
         description: Email template type to be added.
       responses:
         '201':
@@ -91,7 +101,7 @@ paths:
               schema:
                 type: string
           content:
-            'application/json':
+            application/json:
               schema:
                 $ref: '#/components/schemas/EmailTemplateType'
         '400':
@@ -113,17 +123,14 @@ paths:
       description: |
         Retrieves the email template type in the system identified by the template-type-id. <br>
 
-        <b>Permission required:</b> <br>
-        * /permission/admin/manage/identity/emailmgt/view
-        <br><b>Scopes required:</b><br>
-        * internal_email_mgt_view<br>
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       responses:
         '200':
           description: Search results matching the given criteria.
           content:
-            'application/json':
+            application/json:
               schema:
                 $ref: '#/components/schemas/EmailTemplateTypeWithID'
         '400':
@@ -145,10 +152,7 @@ paths:
         Removes an existing email template type with all its email templates
         from the system. <br>
 
-        <b>Permission required:</b><br>
-        * /permission/admin/manage/identity/emailmgt/delete <br>
-        <b>Scopes required:</b><br>
-        * internal_email_mgt_delete
+        <b>Scope(Permission) required:</b> `internal_email_mgt_delete`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       responses:
@@ -173,10 +177,7 @@ paths:
       description: |
         Retrieves the list of email templates in the template type id. <br>
 
-        <b>Permission required:</b> <br>
-          * /permission/admin/manage/identity/emailmgt/view <br>
-          <b>Scope required:</b><br>
-          * internal_email_mgt_view<br>
+          <b>Scope(Permission) required:</b> `internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/limitQueryParam'
@@ -187,7 +188,7 @@ paths:
         '200':
           description: Search results matching the given criteria.
           content:
-            'application/json':
+            application/json:
               schema:
                 type: array
                 items:
@@ -211,9 +212,7 @@ paths:
         Another email template with the same locale should not already exist in the
         respective email template type. <br>
 
-        <b>Permission required:</b>
-        * /permission/admin/manage/identity/emailmgt/create<br>
-        <b>Scopes required:</b> <br>* internal_email_mgt_create
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       requestBody:
@@ -221,6 +220,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmailTemplateWithID'
+            examples:
+              Example 1:
+                value:
+                  contentType: text/html
+                  subject: WSO2 - Account Confirmation
+                  body: HTML Body
+                  footer: WSO2 Identity Server Team
+                  id: en_US
         description: Email template to be added.
       responses:
         '201':
@@ -231,7 +238,7 @@ paths:
               schema:
                 type: string
           content:
-            'application/json':
+            application/json:
               schema:
                 $ref: '#/components/schemas/SimpleEmailTemplate'
         '400':
@@ -252,11 +259,8 @@ paths:
       operationId: getAppTemplatesListOfEmailTemplateType
       description: |
         Retrieves the list of application email templates in the template type id. <br>
-        
-        <b>Permission required:</b> <br>
-          * /permission/admin/manage/identity/emailmgt/view <br>
-          <b>Scope required:</b><br>
-          * internal_email_mgt_view<br>
+
+          <b>Scope(Permission) required:</b> `internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
@@ -268,7 +272,7 @@ paths:
         '200':
           description: Search results matching the given criteria.
           content:
-            'application/json':
+            application/json:
               schema:
                 type: array
                 items:
@@ -291,10 +295,8 @@ paths:
       description: |
         Another application email template with the same locale should not already exist in the
         respective email template type. <br>
-        
-        <b>Permission required:</b>
-        * /permission/admin/manage/identity/emailmgt/create<br>
-        <b>Scopes required:</b> <br>* internal_email_mgt_create
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
@@ -303,6 +305,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmailTemplateWithID'
+            examples:
+              Example 1:
+                value:
+                  contentType: text/html
+                  subject: WSO2 - Account Confirmation
+                  body: HTML Body
+                  footer: WSO2 Identity Server Team
+                  id: en_US
         description: Email template to be added.
       responses:
         '201':
@@ -313,7 +323,7 @@ paths:
               schema:
                 type: string
           content:
-            'application/json':
+            application/json:
               schema:
                 $ref: '#/components/schemas/SimpleEmailTemplate'
         '400':
@@ -335,10 +345,7 @@ paths:
       description: |
         Retrieves the email template that matches to the template-type-id and the locale. <br>
 
-        <b>Permission required:</b> <br>
-          * /permission/admin/manage/identity/emailmgt/view <br>
-        <b>Scope required:</b><br>
-          * internal_email_mgt_view
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/localePathParam'
@@ -350,7 +357,7 @@ paths:
         '200':
           description: Search results matching the given criteria.
           content:
-            'application/json':
+            application/json:
               schema:
                 $ref: '#/components/schemas/EmailTemplateWithID'
         '400':
@@ -371,10 +378,7 @@ paths:
       description: |
         Replaces the email template identified by the template-type-id and the locale. <br>
 
-        <b>Permission required:</b> <br>
-          * /permission/admin/manage/identity/emailmgt/update <br>
-          <b>Scopes required:</b><br>
-          * internal_email_mgt_update
+          <b>Scope(Permission) required:</b> `internal_email_mgt_update`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/localePathParam'
@@ -383,6 +387,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmailTemplateWithID'
+            examples:
+              Example 1:
+                value:
+                  contentType: text/html
+                  subject: WSO2 - Account Confirmation
+                  body: HTML Body
+                  footer: WSO2 Identity Server Team
+                  id: en_US
         description: Email templates for the template type.
       responses:
         '200':
@@ -405,10 +417,7 @@ paths:
       description: |
         Removes an email template identified by the template-type-id and the locale. <br>
 
-        <b>Permission required:</b> <br>
-          * /permission/admin/manage/identity/emailmgt/delete <br>
-          <b>Scopes required:</b><br>
-        * internal_email_mgt_delete
+          <b>Scope(Permission) required:</b> `internal_email_mgt_delete`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/localePathParam'
@@ -434,10 +443,7 @@ paths:
       description: |
         Retrieves the application email template that matches to the template-type-id and the locale. <br>
 
-        <b>Permission required:</b> <br>
-          * /permission/admin/manage/identity/emailmgt/view <br>
-        <b>Scope required:</b><br>
-          * internal_email_mgt_view
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
@@ -450,7 +456,7 @@ paths:
         '200':
           description: Search results matching the given criteria.
           content:
-            'application/json':
+            application/json:
               schema:
                 $ref: '#/components/schemas/EmailTemplateWithID'
         '400':
@@ -471,10 +477,7 @@ paths:
       description: |
         Replaces the application email template identified by the template-type-id and the locale. <br>
 
-        <b>Permission required:</b> <br>
-          * /permission/admin/manage/identity/emailmgt/update <br>
-          <b>Scopes required:</b><br>
-          * internal_email_mgt_update
+          <b>Scope(Permission) required:</b> `internal_email_mgt_update`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
@@ -484,6 +487,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmailTemplateWithID'
+            examples:
+              Example 1:
+                value:
+                  contentType: text/html
+                  subject: WSO2 - Account Confirmation
+                  body: HTML Body
+                  footer: WSO2 Identity Server Team
+                  id: en_US
         description: Email templates for the template type.
       responses:
         '200':
@@ -506,10 +517,7 @@ paths:
       description: |
         Removes an email template identified by the template-type-id and the locale. <br>
 
-        <b>Permission required:</b> <br>
-          * /permission/admin/manage/identity/emailmgt/delete <br>
-          <b>Scopes required:</b><br>
-        * internal_email_mgt_delete
+          <b>Scope(Permission) required:</b> `internal_email_mgt_delete`
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
@@ -531,8 +539,7 @@ servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v2'
     variables:
       tenant-domain:
-        default: unknown
-
+        default: carbon.super
 components:
   parameters:
     templateTypeIdPathParam:
@@ -559,9 +566,7 @@ components:
     offsetQueryParam:
       in: query
       name: offset
-      description: >-
-        Number of records to skip for pagination. _<b>This option is not yet
-        supported.<b>_
+      description: Number of records to skip for pagination. _<b>This option is not yet supported.<b>_
       schema:
         type: integer
         format: int32
@@ -569,9 +574,7 @@ components:
     limitQueryParam:
       in: query
       name: limit
-      description: >-
-        Maximum number of records to return. _<b>This option is not yet
-        supported.<b>_
+      description: Maximum number of records to return. _<b>This option is not yet supported.<b>_
       schema:
         type: integer
         format: int32
@@ -580,9 +583,7 @@ components:
       in: query
       name: sortOrder
       required: false
-      description: >-
-        Define the order in which the retrieved records should be sorted. _<b>This
-        option is not yet supported.<b>_
+      description: Define the order in which the retrieved records should be sorted. _<b>This option is not yet supported.<b>_
       schema:
         type: string
         enum:
@@ -592,16 +593,14 @@ components:
       in: query
       name: sortBy
       required: false
-      description: >-
-        Attribute by which the retrieved records should be sorted. _<b>This
-        option is not yet supported.<b>_
+      description: Attribute by which the retrieved records should be sorted. _<b>This option is not yet supported.<b>_
       schema:
         type: string
   responses:
     NotFound:
       description: The specified resource is not found.
       content:
-        'application/json':
+        application/json:
           schema:
             $ref: '#/components/schemas/Error'
     Unauthorized:
@@ -611,19 +610,19 @@ components:
     ServerError:
       description: Internal Server Error.
       content:
-        'application/json':
+        application/json:
           schema:
             $ref: '#/components/schemas/Error'
     InvalidInput:
       description: Invalid input request.
       content:
-        'application/json':
+        application/json:
           schema:
             $ref: '#/components/schemas/Error'
     Conflict:
       description: Item Already Exists.
       content:
-        'application/json':
+        application/json:
           schema:
             $ref: '#/components/schemas/Error'
     Deleted:
@@ -654,10 +653,11 @@ components:
           description: Display name of the email template type.
         self:
           type: string
-          example: /t/{tenant-domain}/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg
+          example: '/t/{tenant-domain}/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg'
           description: Location of the created/updated resource.
     EmailTemplateTypeOverview:
       type: object
+      x-extension-1: null
       required:
         - displayName
       properties:
@@ -665,6 +665,12 @@ components:
           type: string
           example: Account Confirmation
           description: Display name of the email template type.
+        templates:
+          type: array
+          x-stoplight:
+            id: eck0ai8hprq6s
+          items:
+            $ref: '#/components/schemas/EmailTemplate'
     EmailTemplateTypeWithID:
       allOf:
         - $ref: '#/components/schemas/EmailTemplateType'
@@ -701,14 +707,9 @@ components:
     EmailTemplateWithID:
       allOf:
         - $ref: '#/components/schemas/EmailTemplate'
-        - required:
-            - locale
-          properties:
-            locale:
-              type: string
-              example: en_US
-              description: >-
-                Locale of the email template.
+        - type: array
+          items:
+            $ref: '#/components/schemas/EmailTemplateTypeWithID'
     SimpleEmailTemplate:
       type: object
       required:
@@ -718,13 +719,11 @@ components:
         locale:
           type: string
           example: en_US
-          description: >-
-            Locale of the email template.
+          description: Locale of the email template.
         self:
           type: string
-          example: /t/{tenant-domain}/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/templates/en_US
+          example: '/t/{tenant-domain}/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/templates/en_US'
           description: Location of the created/updated resource.
-
     Error:
       type: object
       required:
