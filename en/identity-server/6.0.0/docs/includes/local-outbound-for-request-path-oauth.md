@@ -1,4 +1,4 @@
-1. Expand the **Local & Outbound Authentication Configuration** section and further expand the **Request Path Authentication Configuration** subsection.
+1. Expand the **Local & Outbound Authentication Configuration** section and then further expand the **Request Path Authentication Configuration** subsection.
 
 2. Select **OAuth Bearer** from the dropdown list and click **Add**.
 
