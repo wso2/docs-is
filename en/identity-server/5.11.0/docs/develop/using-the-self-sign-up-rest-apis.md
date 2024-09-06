@@ -13,7 +13,6 @@ The [resend-code endpoint](https://api-docs.wso2.com/apidocs/is/is511/selfregist
 
 To do so, add the following configurations to the `deployment.toml` file
 
-Update the default permission for the resend-code endpoint in the Self-Sign-up API to utilize identity management permissions prior to production deployment.
 
 ```toml
 [resource.access_control]
