@@ -1,6 +1,6 @@
 
 <!--
-1. Expand the **Local & Outbound Authentication Configuration** section and then the **Request Path Authentication Configuration** section.
+1. Expand the **Local & Outbound Authentication Configuration** section and then the **Request Path Authentication Configuration** section. cddd
 
 2. Select **Basic Auth** from the dropdown list and click **Add**.
 
