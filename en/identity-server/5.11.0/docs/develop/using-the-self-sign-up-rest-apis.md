@@ -15,7 +15,6 @@ To do so, add the following configurations to the `deployment.toml` file
 
 Update the default permission for the resend-code endpoint in the Self-Sign-up API to utilize identity management permissions prior to production deployment.
 
-Add the following properties to the `deployment.toml` file.
 
 ```toml
 [resource.access_control]
