@@ -491,6 +491,15 @@ nav:
               - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
               - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
             - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
+        - Sync User Accounts:
+          - Overview: guides/users/sync-user-accounts/sync-account-overview.md
+          - Hubspot: guides/users/sync-user-accounts/sync-with-hubspot.md
+          - MailChimp: guides/users/sync-user-accounts/sync-with-mailchimp.md
+          - Pardot: guides/users/sync-user-accounts/sync-with-pardot.md
+          - Pipedrive CRM: guides/users/sync-user-accounts/sync-with-pipedrive.md
+          - Salesforce: guides/users/sync-user-accounts/sync-with-salesforce.md
+          - Sendgrid: guides/users/sync-user-accounts/sync-with-sendgrid.md
+          - Zoho CRM: guides/users/sync-user-accounts/sync-with-zoho.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -568,6 +577,7 @@ nav:
         - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
         - ELK Alerts: guides/analytics/elk-alert-types.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
+        - A/B Testing: guides/analytics/ab-testing.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
