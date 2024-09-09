@@ -20,26 +20,26 @@ Web Analytics is used for the purpose of identifying the way users interact with
         3. Look for the token of your project inside, 
         `mixpanel.init("<TOKEN>");`.
 
-3. Replace the following files inside the `<IS_HOME>` directory with the respective files in the `analytics-extensions` directory.
+3. Update `config.jsp` file inside the `analytics-extensions` directory by adding the tokens obtained in step 2.
 
-    <table>
-      <tr>
-        <th>Original file</th>
-        <th>File to replace</th>
-      </tr>
-      <tr>
-        <td><code>IS_HOME/repository/deployment/server/webapps/<br>authenticationendpoint/includes/localize.jsp</code></td>
-        <td><code>samples-is/analytics-extensions/authenticationendpoint/localize.jsp</code></td>
-      </tr>
-      <tr>
-        <td><code>IS_HOME/repository/deployment/server/webapps/<br>accountrecoveryendpoint/includes/localize.jsp</code></td>
-        <td><code>samples-is/analytics-extensions/accountrecoveryendpoint/localize.jsp</code></td>
-      </tr>
-    </table>
+    ```java
+    // Insert your Google Analytics token here.
+    private static final String GOOGLE_ANALYTICS_TOKEN = "<GOOGLE_ANALYTICS_TOKEN>";
+
+    // Insert your Mixpanel token here.
+    private static final String MIXPANEL_TOKEN = "<MIXPANEL_TOKEN>";
+    ```
 
 4. Copy the `analytics.jsp` and `config.jsp` files inside the `analytics-extensions` directory to both the `authenticationendpoint/include` and `accountrecoveryendpoint/include` directories in the `<IS_HOME>` directory.
 
-5. Run [{{product_name}}]({{base_path}}/deploy/get-started/run-the-product/) instance in the usual way and the analytics events will be fired when the users access the relevant web pages. 
+5. Add the following line to the end of the `header.jsp` file inside `authenticationendpoint/include` and `accountrecoveryendpoint/include` directories in the `<IS_HOME>` directory.
+
+    ```jsp
+    <%-- Include analytics --%>
+    <jsp:directive.include file="/includes/analytics.jsp"/>
+    ```
+
+6. Run [{{product_name}}]({{base_path}}/deploy/get-started/run-the-product/) instance in the usual way and the analytics events will be fired when the users access the relevant web pages. 
 
 ## Types of analytic events
 
