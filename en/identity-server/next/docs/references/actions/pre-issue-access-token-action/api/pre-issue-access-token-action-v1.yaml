@@ -34,11 +34,11 @@ paths:
               example:
               - actionStatus: SUCCESS
                 operations:
-                  op: add
-                  path: /accessToken/claims/-
-                  value:
-                    name: customSID
-                    value: "12345"
+                  - op: add
+                    path: /accessToken/claims/-
+                    value:
+                      name: customSID
+                      value: "12345"
         "400":
           description: Bad Request
           content:
