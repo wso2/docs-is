@@ -172,6 +172,13 @@ plugins:
         'guides/elk-analytics/elk-analyzing-login-attempts.md': 'guides/analytics/analyzing-login-attempts.md'
         'guides/elk-analytics/elk-analyzing-session-statistics.md': 'guides/analytics/analyzing-active-sessions.md'
         'guides/elk-analytics/elk-alert-types.md': 'guides/analytics/elk-alert-types.md'
+        'guides/analytics/index.md': 'guides/analytics/elk-analytics/index.md'
+        'guides/analytics/accessing-the-analytics-dashboard.md': 'guides/analytics/elk-analytics/accessing-the-analytics-dashboard.md'
+        'guides/analytics/analyzing-login-attempts.md': 'guides/analytics/elk-analytics/analyzing-login-attempts.md'
+        'guides/analytics/analyzing-active-sessions.md': 'guides/analytics/elk-analytics/analyzing-active-sessions.md'
+        'guides/analytics/elk-alert-types.md': 'guides/analytics/elk-analytics/elk-alert-types.md'
+        
+
 
         'guides/dialects/dialects-overview.md': 'guides/users/attributes/index.md'
         'guides/dialects/add-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
@@ -564,12 +571,14 @@ nav:
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Analytics:
-        - Analytics: guides/analytics/index.md
-        - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
-        - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
-        - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
-        - ELK Alerts: guides/analytics/elk-alert-types.md
+        - ELK Analytics:
+          - Elk analytics: guides/analytics/elk-analytics/index.md
+          - Access analytics: guides/analytics/elk-analytics/accessing-the-analytics-dashboard.md
+          - Analyze login attempts: guides/analytics/elk-analytics/analyzing-login-attempts.md
+          - Analyze active sessions: guides/analytics/elk-analytics/analyzing-active-sessions.md
+          - ELK Alerts: guides/analytics/elk-analytics/elk-alert-types.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
+        - A/B Testing: guides/analytics/ab-testing.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
