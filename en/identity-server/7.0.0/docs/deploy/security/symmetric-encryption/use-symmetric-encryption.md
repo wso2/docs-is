@@ -1,13 +1,6 @@
 # Configurations Related to Symmetric Key Encryption
 
-This section explains the configurations related to [symmetric key encryption]({{base_path}}/deploy/security/symmetric-encryption). WSO2 Identity Server uses symmetric encryption by default. You can switch to [asymmetric key encryption]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption) if required.
-
-!!! warning
-    All configuration changes should be applied before starting Identity Server for the first time. Otherwise, a [key rotation]({{base_path}}/deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation) will be required.
-
-## Usages of symmetric encryption
-
-In WSO2 Identity Server, symmetric encryption is used for encrypting following data:
+This section explains the configurations related to [symmetric key encryption]({{base_path}}/deploy/security/symmetric-encryption). WSO2 Identity Server uses symmetric encryption by default for encrypting following data:
 
 - Event publisher passwords
 - Secondary user store properties
@@ -17,14 +10,17 @@ In WSO2 Identity Server, symmetric encryption is used for encrypting following d
 - BPS profile passwords
 - Workflow request credentials
 
-For other types of encryption, [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) is used by default.
-
 !!! note
     To enable encryption of OAuth 2.0 authorization codes, access tokens, refresh tokens, and consumer secrets, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
     ```toml
     [oauth.extensions]
     token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor" 
     ```
+
+For other types of encryption, [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) is used by default.
+
+!!! warning
+    All configuration changes should be applied before starting Identity Server for the first time. Otherwise, a [key rotation]({{base_path}}/deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation) will be required.
 
 ## Configuring the symmetric secret
 
