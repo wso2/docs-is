@@ -118,3 +118,7 @@ Configure the following parameters to enforce input validation.
         <td><code>[Optional]</code>This field identifies the number of characters that can be repeated consecutively in a user password. <br> <b> Example: </b> If you assign <code>1</code> as the number of repeated characters, the password cannot contain any repeated characters consecutively. <br> The password <code>aa1@Znlq</code> is incorrect as it has the character <code>a</code> appearing consecutively.</td>
     </tr>
 </table>
+
+!!! note "Validation for whitespace in passwords"
+
+    {{product_name}} automatically trims leading and trailing whitespace from passwords when creating, updating, or when entering passwords to login.
