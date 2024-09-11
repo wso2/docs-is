@@ -121,4 +121,4 @@ Configure the following parameters to enforce input validation.
 
 !!! note "Validation for whitespace in passwords"
 
-    {{product_name}} automatically trims leading and trailing whitespace from passwords when creating, updating, or when entering passwords to login. This behavior is enforced for interactions through the UI and the API.
+    {{product_name}} automatically trims leading and trailing whitespace from passwords when creating, updating, or when entering passwords to login.
