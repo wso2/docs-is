@@ -1,45 +1,50 @@
-# Configurations Related to Symmetric Key Encryption
+# Configure symmetric key encryption
 
-This section explains the configurations related to [symmetric key encryption]({{base_path}}/deploy/security/symmetric-encryption). WSO2 Identity Server uses symmetric encryption by default for encrypting following data:
+This section explains the configurations related to [symmetric key encryption]({{base_path}}/deploy/security/symmetric-encryption).
+
+WSO2 Identity Server uses symmetric encryption by default for encrypting the following data:
 
 - Event publisher passwords
 - Secondary user store properties
 - TOTP `secretKey` and `verifiedSecretKey` claims
-- OAuth 2.0 authorization codes, access tokens, refresh tokens, and consumer secrets (disabled by default)
-- Secondary Keystore passwords, and private-key passwords
+- OAuth 2.0 authorization codes, access tokens, refresh tokens, and consumer secrets (only when encryption enabled)
+    
+    !!! note
+    
+        To enable encryption of OAuth 2.0 authorization codes, access tokens, refresh tokens, and consumer secrets, add the following configuration to the `deployment.toml` found in the `<IS_HOME>/repository/conf/` directory.
+        ```toml
+        [oauth.extensions]
+        token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor" 
+        ```
+
+- Secondary keystore passwords, and private-key passwords
 - BPS profile passwords
 - Workflow request credentials
 
-!!! note
-    To enable encryption of OAuth 2.0 authorization codes, access tokens, refresh tokens, and consumer secrets, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
-    ```toml
-    [oauth.extensions]
-    token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor" 
-    ```
-
 For other types of encryption, [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) is used by default.
+
 
 !!! warning
     All configuration changes should be applied before starting Identity Server for the first time. Otherwise, a [key rotation]({{base_path}}/deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation) will be required.
 
-## Configuring the symmetric secret
+## Configure a secret key
 
-It is recommended to generate a new symmetric encryption key for enhanced security.
+For enhanced security, it is recommended to generate your own secret key for symmetric key encryption in {{product_name}}. To do so,
 
-To generate a unique 128-bit secret key, use a tool like OpenSSL with the following command:
+1. Generate a unique 128-bit secret key. If you use OpenSSL, the command will be as follows:
 
-```bash
-openssl rand -hex 16
-```
+    ```bash
+    openssl rand -hex 16
+    ```
 
-Once a secure secret key is generated, configure it using the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
+2. Add your generated key to the `deployment.toml` found in the `<IS_HOME>/repository/conf/` directory as follows:
 
-```toml
-[encryption]
-key = "03BAFEB27A8E871CAD83C5CD4E771DAB"
-```  
+    ```toml
+    [encryption]
+    key = "03BAFEB27A8E871CAD83C5CD4E771DAB"
+    ```  
 
-If a custom encryption key is not provided, the `encryption.key` in this configuration will be used as the default key.
+If a custom encryption key is not provided, the value of `encryption.key` in this configuration file will be used as the default key.
 
 ## Algorithm used
 
