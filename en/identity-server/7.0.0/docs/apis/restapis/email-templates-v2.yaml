@@ -19,7 +19,7 @@ tags:
     description: |
       An application-specific email template of a specific type and a language.
 
-      Application-specific email templates are triggered whenever the user interacts with applications that use WSO2 Identity Server UI or the following APIs:
+      Application-specific email templates are triggered whenever the user interacts with applications that use the default WSO2 Identity Server UI. However, if the user interacts directly with APIs, application-specific email templates are supported by the following APIs:
 
       - User creation with SCIM2 APIs
       - Locking/Unlocking accounts with SCIM2 APIs
@@ -27,7 +27,7 @@ tags:
       - Email verification flows
       - Resend email flows
 
-      To ensure application-specific branding is applied during the above API interactions, they must be invoked using an access token issued specifically for the application. If an access token generated from admin credentials is used instead, the branding will default to organization-specific settings.
+      Note: To ensure application-specific branding is applied during the above API interactions, they must be invoked using an access token issued specifically for the application. If an access token generated from admin credentials is used instead, the branding will default to organization-specific settings.
 security:
   - OAuth2: []
   - BasicAuth: []
