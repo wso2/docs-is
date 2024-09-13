@@ -115,6 +115,8 @@ Next, the federated IdP (WSO2IS-2) should now be registered in the primary IdP (
 
 6. Click **Finish** to create the connection.
 
+7. In the **General** tab of the created connection, add `https://localhost:9444/oauth2/token` as the **Issuer** and click **Update** to save the changes.  
+
 ### Register an application in the primary IdP
 
 Let's register an application in the primary IdP (WSO2IS-1).
