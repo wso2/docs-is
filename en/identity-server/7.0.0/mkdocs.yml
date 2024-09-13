@@ -504,6 +504,9 @@ nav:
             - Overview: guides/users/sync-user-accounts/sync-account-overview.md
             - Hubspot: guides/users/sync-user-accounts/sync-with-hubspot.md
             - Salesforce: guides/users/sync-user-accounts/sync-with-salesforce.md
+            - Pipedrive CRM: guides/users/sync-user-accounts/sync-with-pipedrive.md
+            - Sendgrid: guides/users/sync-user-accounts/sync-with-sendgrid.md
+            - Zoho CRM: guides/users/sync-user-accounts/sync-with-zoho.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
