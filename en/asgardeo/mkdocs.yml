@@ -119,6 +119,8 @@ plugins:
         'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
         'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
         'guides/account-configurations.md': 'guides/user-accounts/index.md'
+        'references/application-logs.md' : 'guides/asgardeo-logs.md'
+
 
 # Navigation
 nav:
