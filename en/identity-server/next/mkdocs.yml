@@ -173,6 +173,11 @@ plugins:
         'guides/elk-analytics/elk-analyzing-login-attempts.md': 'guides/analytics/analyzing-login-attempts.md'
         'guides/elk-analytics/elk-analyzing-session-statistics.md': 'guides/analytics/analyzing-active-sessions.md'
         'guides/elk-analytics/elk-alert-types.md': 'guides/analytics/elk-alert-types.md'
+        'guides/analytics/index.md': 'guides/analytics/elk-analytics/index.md'
+        'guides/analytics/accessing-the-analytics-dashboard.md': 'guides/analytics/elk-analytics/accessing-the-analytics-dashboard.md'
+        'guides/analytics/analyzing-login-attempts.md': 'guides/analytics/elk-analytics/analyzing-login-attempts.md'
+        'guides/analytics/analyzing-active-sessions.md': 'guides/analytics/elk-analytics/analyzing-active-sessions.md'
+        'guides/analytics/elk-alert-types.md': 'guides/analytics/elk-analytics/elk-alert-types.md'
 
         'guides/dialects/dialects-overview.md': 'guides/users/attributes/index.md'
         'guides/dialects/add-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
@@ -477,6 +482,13 @@ nav:
               - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
               - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
             - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
+        - Sync User Accounts:
+            - Overview: guides/users/sync-user-accounts/sync-account-overview.md
+            - Hubspot: guides/users/sync-user-accounts/sync-with-hubspot.md
+            - Salesforce: guides/users/sync-user-accounts/sync-with-salesforce.md
+            - Pipedrive CRM: guides/users/sync-user-accounts/sync-with-pipedrive.md
+            - Sendgrid: guides/users/sync-user-accounts/sync-with-sendgrid.md
+            - Zoho CRM: guides/users/sync-user-accounts/sync-with-zoho.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -559,12 +571,14 @@ nav:
             - Action types: 
               - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
       - Analytics:
-        - Analytics: guides/analytics/index.md
-        - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
-        - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
-        - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
-        - ELK Alerts: guides/analytics/elk-alert-types.md
+        - ELK Analytics:
+          - Elk analytics: guides/analytics/elk-analytics/index.md
+          - Access analytics: guides/analytics/elk-analytics/accessing-the-analytics-dashboard.md
+          - Analyze login attempts: guides/analytics/elk-analytics/analyzing-login-attempts.md
+          - Analyze active sessions: guides/analytics/elk-analytics/analyzing-active-sessions.md
+          - ELK Alerts: guides/analytics/elk-analytics/elk-alert-types.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
+        - A/B Testing: guides/analytics/ab-testing.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
