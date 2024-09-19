@@ -101,7 +101,6 @@ If you have applications that need to dynamically register with {{product_name}}
 {% endif %}
 
 
-
 ## What's next?
 
 Refer to the [Financial-grade API]({{base_path}}/references/financial-grade-api/) documentation to learn about the FAPI-compliant configurations available in {{product_name}} and how to configure them.
