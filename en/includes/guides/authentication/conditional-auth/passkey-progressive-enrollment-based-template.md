@@ -3,7 +3,7 @@
 This method of adaptive authentication is specifically designed for applications that have set up **Passkey** as a login option and have enabled **passkey progressive enrollment** so that users may enroll passkeys at the moment they log in to an application.
 
 !!! note
-    Learn how to enable passkeys and passkey progressive enrollment in [Add Passkey login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey).
+    Learn how to enable passkeys and passkey progressive enrollment in [Add Passkey login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-passkey/).
 
 Follow the guide below to learn about the adaptive script smoothly transition users using other methods of authentication to use passkeys as their primary authentication method.
 

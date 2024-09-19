@@ -73,7 +73,7 @@ If you have applications that need to dynamically register with {{product_name}}
     !!! note
         This configuration enforces FAPI compliance for applications registering with DCR.
 
-2. Refer to the [Dynamic Client Registration (DCR) API documentation]({{base_path}}/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/) to learn how to register an application with DCR.
+2. Refer to the [Dynamic Client Registration (DCR) API documentation]({{base_path}}/apis/dynamic-client-registration-rest-api/) to learn how to register an application with DCR.
 
 ## What's next?
 

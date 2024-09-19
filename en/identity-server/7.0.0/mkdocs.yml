@@ -327,6 +327,7 @@ plugins:
         'apis/organization-apis/org-scim2-bulk-mgt.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
+        'apis/use-the-dynamic-client-registration-rest-apis.md' : 'apis/dynamic-client-registration-rest-api.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
@@ -734,7 +735,7 @@ nav:
             - Authorized apps API V2: apis/authorized-apps-v2-rest-api.md
         - OAuth 2.0 scope management API: apis/oauth2-scope-management-rest-apis.md
         - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
-        - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+        - OIDC Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
         - Script Library management API: apis/script-library-rest-api.md
       - App-native authentication API: apis/app-native-authentication-api.md
       - Authentication Data API: apis/use-the-authentication-rest-apis.md
