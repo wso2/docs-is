@@ -76,7 +76,7 @@ If you have applications that need to dynamically register with {{product_name}}
         ![DCR settings]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-dcr-settings.png){width="600px"}
 
         -   **Require Authentication** is enabled by default. You may deselect the option to not require authentication to create an application with DCR.
-        - Select **Mandate SSA Validation** to require Software Statement Assertion (SSA) during creation. Provide the necessary JWKS to validate the SSA. If authentication is not required by the endpoint, this is made mandatory.
+        - Select **Mandate SSA Validation** to require a valid Software Statement Assertion (SSA) during creation. Provide the necessary JWKS to validate the SSA. If authentication is not required by the endpoint, this is made mandatory.
         - Select **Enforce FAPI Conformance** to make the created application FAPI compliant.
 
     4. Click **Update** to save the changes.
