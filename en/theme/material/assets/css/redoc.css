@@ -137,6 +137,11 @@
     color: #fff !important;
 }
 
+.api-content td div[class="sc-ikkxIA daqcVd"] {
+    background-color: var(--md-default-bg-color) !important;
+    color: var(--md-default-fg-color--light) !important;
+}
+
 [data-md-color-scheme=slate] .api-content code {
     background-color: #11171a !important;
 } 
