@@ -164,6 +164,6 @@ You may want to convert them to the local attribute URI so that the application 
 
 ## Configure connection
 
-- To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
+- To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login/) documentation.
 
 - To learn more about SAML settings available for the IdP, refer to the [SAML settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/) documentation.

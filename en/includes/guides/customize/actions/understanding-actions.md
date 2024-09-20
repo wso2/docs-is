@@ -121,7 +121,7 @@ The following diagram illustrates the sequence of these steps:
 </tr>
 <tr class="odd">
 <td>actionType</td>
-<td><p>Indicates the execution point within the {{product_name}} runtime where your external service is invoked. Refer to <a href="#explore-action-types">Explore Action Types</a> for a list of supported triggers.</p></td>
+<td><p>Indicates the execution point within the {{product_name}} runtime where your external service is called. Refer to <a href="#explore-action-types">Explore Action Types</a> for a list of supported trigger points.</p></td>
 </tr>
 <tr class="even">
 <td>event</td>

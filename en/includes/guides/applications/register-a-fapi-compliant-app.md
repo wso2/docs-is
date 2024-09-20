@@ -63,7 +63,29 @@ If you wish to register your application manually using the Console, follow the 
 
 If you have applications that need to dynamically register with {{product_name}} during runtime, follow the steps below to make them FAPI-compliant.
 
-1. Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory, add the following configuration and restart {{product_name}}.
+{% if product_name == "Asgardeo" %}
+
+1. Configure DCR properties in {{product_name}}. To do so,
+
+    1. On the {{product_name}} Console, go to **Applications**.
+
+    2. Click the gear icon at the top to open **Dynamic Client Registration** settings.
+
+    3. Configure the following properties:
+
+        ![DCR settings]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-dcr-settings.png){width="600px"}
+
+        -   **Require Authentication** is enabled by default. You may deselect the option to not require authentication to create an application with DCR.
+        - Select **Mandate SSA Validation** to require a valid Software Statement Assertion (SSA) during creation. Provide the necessary JWKS to validate the SSA. If authentication is not required by the endpoint, this is made mandatory.
+        - Select **Enforce FAPI Conformance** to make the created application FAPI compliant.
+
+    4. Click **Update** to save the changes.
+
+2. Refer to the [Dynamic Client Registration (DCR) API]({{base_path}}/apis/dynamic-client-registration-rest-api/) documentation to learn how to register an application with DCR.
+
+{% else %}
+
+1. Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory, add the following configuration and restart WSO2 Identity Server.
 
     ```bash
     [oauth.dcr]
@@ -71,10 +93,14 @@ If you have applications that need to dynamically register with {{product_name}}
     ```
 
     !!! note
+
         This configuration enforces FAPI compliance for applications registering with DCR.
 
-2. Refer to the [Dynamic Client Registration (DCR) API documentation]({{base_path}}/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/) to learn how to register an application with DCR.
+2. Refer to the [Dynamic Client Registration (DCR) API]({{base_path}}/apis/dynamic-client-registration-rest-api/) documentation to learn how to register an application with DCR.
+
+{% endif %}
+
 
 ## What's next?
 
-Refer to the [Financial-grade API]({{base_path}}/references/financial-grade-api) documentation to learn about the FAPI-compliant configurations available in {{product_name}} and how to configure them.
+Refer to the [Financial-grade API]({{base_path}}/references/financial-grade-api/) documentation to learn about the FAPI-compliant configurations available in {{product_name}} and how to configure them.

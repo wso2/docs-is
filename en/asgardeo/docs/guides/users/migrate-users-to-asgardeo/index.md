@@ -8,4 +8,4 @@ Organization owners may need to migrate users from an existing Identity Provider
 - To move or separate identity data due to geopolitical, data protection, compliance, and regulatory reasons.
 - To improve identity management by providing increased security, scalability, and reduced maintenance costs.
 
-Follow the guides in this section to learn how to [migrate user accounts to Asgardeo]({{base_path}}/guides/users/migrate-users-to-asgardeo/migrate-users.md) and [migrate user passwords to Asgardeo]({{base_path}}/guides/users/migrate-users-to-asgardeo/migrate-passwords.md).
+Follow the guides in this section to learn how to [migrate user accounts to Asgardeo]({{base_path}}/guides/users/migrate-users-to-asgardeo/migrate-users/) and [migrate user passwords to Asgardeo]({{base_path}}/guides/users/migrate-users-to-asgardeo/migrate-passwords/).
