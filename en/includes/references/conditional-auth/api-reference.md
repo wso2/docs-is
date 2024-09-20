@@ -64,7 +64,7 @@ This function is called when {{ product_name }} receives the initial login reque
 - **Example**
 
     ```bash 
-    onLoginRequest(context)
+    onLoginRequest = function(context)
     ```
 
 
@@ -899,7 +899,7 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
         }
     };
 
-    function onLoginRequest(context) {
+    var onLoginRequest = function(context) {
         httpGet('https://example.com/resource', {
             "Accept": "application/json"
         }, authConfig, {
@@ -1001,7 +1001,7 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
         }
     };
 
-    function onLoginRequest(context) {
+    var onLoginRequest = function(context) {
         httpPost('https://example.com/resource', {
             "email": "test@wso2.com"
         }, {
