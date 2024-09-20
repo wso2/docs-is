@@ -119,7 +119,6 @@ The following diagram illustrates the sequence of these steps:
 <td>requestId</td>
 <td><p>A unique correlation identifier that associates the request received by {{product_name}}.</p></td>
 </tr>
-</tr>
 <tr class="odd">
 <td>actionType</td>
 <td><p>Indicates the execution point within the {{product_name}} runtime where your external service is invoked. Refer to <a href="#explore-action-types">Explore Action Types</a> for a list of supported triggers.</p></td>
@@ -163,7 +162,6 @@ If the error response includes an acceptable payload, it is treated as an error 
 <td>502</td>
 <td><p>Bad Gateway.</p></td>
 </tr>
-</tr>
 <tr class="odd">
 <td>503</td>
 <td><p>Service Unavailable.</p></td>
@@ -174,6 +172,9 @@ If the error response includes an acceptable payload, it is treated as an error 
 </tr>
 </tbody>
 </table>
+
+!!! note
+    Refer to [Configuring HTTP Client Connections]({{base_path}}/guides/customize/actions/setting-up-actions/#configuring-http-client-connections) to adjust timeouts, connection pooling, and retries in deployment.toml for optimal performance.
 
 Requests will not be retried if the external service responds with HTTP status codes 200 (OK), 400 (Bad Request), 401 (Unauthorized), or any other codes not listed above as retry scenarios.
 
