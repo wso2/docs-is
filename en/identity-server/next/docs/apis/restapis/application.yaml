@@ -1746,8 +1746,6 @@ paths:
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
             -d '{
-            "clientId": "string",
-            "clientSecret": "string",
             "grantTypes": [
               "authorization_code",
               "password"
