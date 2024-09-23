@@ -179,6 +179,8 @@ You need to:
 
 6. Try to log in to the `Guardio-Business-App` by selecting `Sign In With SSO`.
 
+    {{ login_hint_note }}
+
 7. Input the email address associated with the username for "Alice" within the "Best Car Mart" organization.
 
     ![Email input for SSO login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
