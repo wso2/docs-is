@@ -469,7 +469,7 @@ components:
       name: restrictToPublished
       required: false
       description: |
-        Specifies whether to use only published branding preferences for resolving.
+        Specifies whether to limit resolving to published branding preferences.
         If set to true, branding preference will be resolved only using published branding preferences.
         If set to false, branding preference will be resolved using both published and unpublished branding preferences.
       schema:
