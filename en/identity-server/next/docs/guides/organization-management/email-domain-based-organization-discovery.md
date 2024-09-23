@@ -1,7 +1,7 @@
 {% set host_name = "localhost:9443" %}
 {% set organization_path_param = ""  %}
 {% set login_hint_note = "!!! note
-        - Here, you can directly go to your organization's login page bypassing `Sign In With SSO` page by having the following query parameters in the login request. This will trigger a prompt for the user to input their password directly, streamlining the authentication process.
+        - You can bypass the `Sign In With SSO` page and go directly to your organization's login page by adding the following query parameters in the login request.
             - `login_hint`: The email address of the user.
             - `fidp`: If app contains any other B2C login options, use this parameter to specify the organization SSO login option (`organizationSSO`).
         - Sample authorization request for OIDC app:
