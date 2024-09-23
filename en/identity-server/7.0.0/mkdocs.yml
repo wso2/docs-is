@@ -517,6 +517,7 @@ nav:
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
+          - Configure user attribute change verification: guides/users/attributes/user-attribute-change-verification.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Configure the primary user store:
