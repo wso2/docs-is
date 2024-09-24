@@ -22,7 +22,6 @@ site_description: Asgardeo Learning Center
 site_url: https://wso2.com/asgardeo/docs
 
 # Configuration
-use_directory_urls: true
 theme:
   custom_dir: ../theme/material
   logo: assets/images/asgardeo-docs-logo-dark.svg
