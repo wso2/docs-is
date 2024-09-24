@@ -22,6 +22,7 @@ site_description: Asgardeo Learning Center
 site_url: https://wso2.com/asgardeo/docs
 
 # Configuration
+use_directory_urls: true
 theme:
   custom_dir: ../theme/material
   logo: assets/images/asgardeo-docs-logo-dark.svg
@@ -117,10 +118,20 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
         'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
         'guides/account-configurations.md': 'guides/user-accounts/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
+<<<<<<< Updated upstream
+=======
+        'guides/authentication/add-login-to-apps.md': 'guides/authentication/add-login-to-apps.html'
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 # Navigation
 nav:
