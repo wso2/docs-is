@@ -117,6 +117,7 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
+        'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
         'guides/account-configurations.md': 'guides/user-accounts/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
