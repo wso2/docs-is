@@ -179,7 +179,39 @@ You need to:
 
 6. Try to log in to the `Guardio-Business-App` by selecting `Sign In With SSO`.
 
-    {{ login_hint_note }}
+    {% if (product_name == "WSO2 Identity Server" and is_version == "next") or product_name == "Asgardeo" %}
+
+    !!! note
+            
+        You can bypass the `Sign In With SSO` page and go directly to your organization's login page by adding the following query parameters in the login request. 
+        
+        - `login_hint`: The email address of the user that will be used to resolve the domain.
+        - `fidp`: If you have additional B2C login options configured for the application, use this parameter to direct users straight to the organization login page.
+
+
+        Sample requests:
+
+        === "OIDC"
+            
+            ```curl
+            https://api.asgardeo.io/t/<root_organization_name>/oauth2/authorize?
+            client_id=<client_id>
+            &redirect_uri=<redirect_url>
+            &scope=<scopes>
+            &response_type=code
+            &login_hint=<user_email>
+            &fidp=OrganizationSSO
+            ```
+        === "SAML"
+            
+            ```curl
+            https://api.asgardeo.io/t/<root_organization_name>/samlsso?
+            spEntityID=<app_entity_id>
+            &login_hint=<user_email>
+            &fidp=OrganizationSSO
+            ```
+    
+    {% endif %}
 
 7. Input the email address associated with the username for "Alice" within the "Best Car Mart" organization.
 
