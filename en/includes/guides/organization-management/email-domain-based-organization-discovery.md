@@ -186,7 +186,7 @@ You need to:
         You can bypass the `Sign In With SSO` page and go directly to your organization's login page by adding the following query parameters in the login request. 
         
         - `login_hint`: The email address of the user that will be used to resolve the domain.
-        - `fidp`: If you have additional B2C login options configured for the application, use this parameter to direct users straight to the organization login page.
+        - `fidp`: If you have additional B2C login options configured for the application, you can set this parameter to `OrganizationSSO` to direct users straight to the organization login page.
 
 
         Sample requests:
