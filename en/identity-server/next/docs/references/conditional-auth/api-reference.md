@@ -745,14 +745,6 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
       }
   ```
 
-!!! note     
-    To restrict HTTP GET requests to certain domains, configure the `deployment.toml` file as follows:
-
-    ``` toml
-    [authentication.adaptive]
-    http_function_allowed_domains = ["example.com", "api.example.org"]
-    ```  
-
 ### HTTP POST
 
 `httpPost(url, body, headers, authConfig, eventHandlers)`
@@ -823,14 +815,34 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
           });
       }
   ```
-  
-!!! note     
-    To restrict HTTP POST requests to certain domains, configure the `deployment.toml` file as follows:
 
-    ``` toml
+!!! note     
+    To restrict HTTP GET requests to certain domains, and configure the HTTP connection settings for `httpGet` and `httpPost` functions in adaptive authentication scripts, update the `deployment.toml` file as follows:
+
+    ```toml
     [authentication.adaptive]
     http_function_allowed_domains = ["example.com", "api.example.org"]
+    
+    [authentication.adaptive.http_connections]
+    connection_timeout = 5000
+    
+    [authentication.adaptive.http_connections]
+    read_timeout = 5000
+    
+    [authentication.adaptive.http_connections]
+    request_timeout = 5000
     ```
+
+    The current default settings for timeouts and retry count are as follows:
+
+      - **HTTP_CONNECTION_TIMEOUT**: Specifies the maximum time, in milliseconds, the client will wait to establish a connection with the server.  
+        **Current value**: `3s`
+      - **HTTP_CONNECTION_REQUEST_TIMEOUT**: Defines the maximum time, in milliseconds, the client will wait to obtain a connection from the connection manager (pool).  
+        **Current value**: `1s`
+      - **HTTP_READ_TIMEOUT** (SocketTimeout): Sets the maximum time, in milliseconds, for waiting for data or, more precisely, a maximum period of inactivity between two consecutive data packets coming from the server.  
+        **Current value**: `3s`
+      - **API_REQUEST_RETRY_COUNT**: Specifies the number of retry attempts for token requests initiated for authentication from client credentials.  
+        **Current value**: `2`  
 
 ## Object reference
 
