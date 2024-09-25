@@ -887,3 +887,4 @@ not_in_nav: |
   /includes/db-basic-config.md
   /includes/db-config-table.md
   /includes/rollback-pending.md
+  /includes/http-client-connections.md

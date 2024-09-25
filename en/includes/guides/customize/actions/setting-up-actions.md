@@ -70,3 +70,7 @@ The following are some of the troubleshooting steps that you may take to resolve
 1. Ensure that your external service is up and running and that there are no connectivity issues.
 
 2. Confirm that the request and response payloads conform to the expected formats as defined by the REST API contract.
+
+{% if product_name == "WSO2 Identity Server" %}
+{% include "../../../../identity-server/next/docs/includes/http-client-connections.md" %}
+{% endif %}
