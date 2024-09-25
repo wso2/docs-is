@@ -13,6 +13,7 @@ The grant types supported by {{ product_name }} applications are as follows:
 - [Password grant](#password-grant)
 - [Token exchange grant](#token-exchange-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
+- [Device authorization grant](#device-authorization-grant)
 
 **{{ product_name }}'s custom grants**
 
@@ -107,7 +108,6 @@ The following diagram shows how the password grant flow works.
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
-{% if product_name == "WSO2 Identity Server" %}
 ## Device authorization grant
 
 Device authorization grant (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through,
@@ -125,13 +125,13 @@ The diagram below illustrates the device flow.
 
 1. The client device sends an access request including its client identifier to WSO2 Identity Server.
 
-2. WSO2 Identity Server issues a device code, a user code, and a verification URI.
+2. {{ product_name }} issues a device code, a user code, and a verification URI.
 
 3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
 
-4. WSO2 Identity server prompts the user to enter the end-user code and the user enters the uder code
+4. {{ product_name }} prompts the user to enter the end-user code and the user enters the uder code
 
-5. WSO2 Identity server validates the code and asks the end user to accept or decline the authorization request.
+5. {{ product_name }} validates the code and asks the end user to accept or decline the authorization request.
 
 6. While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
 
@@ -140,8 +140,6 @@ The diagram below illustrates the device flow.
 8. The client application can now request resources from the resource server by providing the access token.
 
 9. The resource server returns the requested user information to the client application.
-
-{% endif %}
 
 ## Token exchange grant
 OAuth 2.0 token exchange is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another. This grant type is defined in the [OAuth Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693){:target="_blank"}

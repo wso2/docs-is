@@ -5,7 +5,8 @@ See the instructions given below to implement login with OpenID Connect in your 
 Refer [how the device authorization flow work]({{base_path}}/references/grant-types/#device-authorization-grant) for more information.
 
 ## Prerequisites
-
+{% if product_name == "Asgardeo" %}
+{% else %}
 ??? note "[Optional] Update device flow configurations"
     The device authorization grant is available by default in WSO2 Identity Server. If you need to update configurations, navigate to `<IS_HOME>/repository/conf/deployment.toml` and update the configurations in `[oauth.grant_type.device_code]` section as required.
 
@@ -23,6 +24,7 @@ Refer [how the device authorization flow work]({{base_path}}/references/grant-ty
     | `expiry_time` | The expiry time of the user code and the device code. |
     | `polling_interval`    | The minimum delay of the client between each polling request to the token endpoint.   |
     | `key_set`   | The set of characters that is used to generate the user code.   |
+{% endif %}
 
 To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
 
@@ -55,7 +57,7 @@ First, your app must initiate a login request to the authorization endpoint of {
     https://localhost:9443/oauth2/device_authorize
     ```
 
-Upon successful execution of the request, the WSO2 Identity Server returns the `user_code`, `devicce_code` and the `verification_uri` to the client device.
+Upon successful execution of the request, the {{ product_name }} returns the `user_code`, `devicce_code` and the `verification_uri` to the client device.
 
 **Sample response**
 
