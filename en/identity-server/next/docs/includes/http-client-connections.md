@@ -1,6 +1,6 @@
 ## Fine tune HTTP Client Connections
 
-You can configure the HTTP connection settings in the deployment.toml file located in `<IS_HOME>/repository/conf/` to fine-tune connections initiated by WSO2 Identity Server to external services implementing actions.
+To fine-tune connections initiated by WSO2 Identity Server to external services, you may add the following configurations to the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory 
 
 <table>
 <thead>
@@ -13,24 +13,24 @@ You can configure the HTTP connection settings in the deployment.toml file locat
 <tr class="odd">
 <td>http_client.read_timeout</td>
 <td>
-<p>Configures the maximum time (in milliseconds) the server will wait for a response from the external service</p>
+<p>The maximum time (in milliseconds) the server will wait for a response from the external service.</p>
 </td>
 </tr>
 <tr class="even">
 <td>http_client.request_timeout</td>
-<td><p>Configures the time (in milliseconds) to wait for obtaining a connection from the connection pool</p></td>
+<td><p>The maximum time (in milliseconds) the server will wait to obtain a connection from the connection pool.</p></td>
 </tr>
 <tr class="odd">
 <td>http_client.connection_timeout</td>
-<td><p>Configures the timeout (in milliseconds) for establishing a connection to the external service</p></td>
+<td><p>The maximum time (in milliseconds) the server will wait to establish a connection to the external service.</p></td>
 </tr>
 <tr class="even">
 <td>http_client.connection_pool_size</td>
-<td><p>Configures the size of the HTTP connection pool used for outbound requests</p></td>
+<td><p>The size of the HTTP connection pool used for outbound requests.</p></td>
 </tr>
 <tr class="odd">
 <td>http_client.retry_count</td>
-<td><p>Determines the number of retry attempts are made in case of connection failures. <a href="{{base_path}}/guides/customize/actions/understanding-actions/#time-out-and-retry">Explore more for allowed status codes</a> where retries can happen</p></td>
+<td><p>Number of retry attempts made in case of a failure. Refer to the <a href="{{base_path}}/guides/customize/actions/understanding-actions/#time-out-and-retry">list of http codes</a> that trigger retries.</p></td>
 </tr>
 </tbody>
 </table>
