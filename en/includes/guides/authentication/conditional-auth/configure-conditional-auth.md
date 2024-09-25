@@ -24,10 +24,12 @@ There are two ways to add a conditional authentication script:
 - Use a [predefined template]({{base_path}}/guides/authentication/conditional-auth/#script-templates).
 - Write a [new conditional auth script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 
-{% if product_name == 'Asgardeo' %}
-
 ## Add a secret to the script
 Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process. You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for `callChoreo()` conditional authentication function.
+
+!!! warning "Before you proceed"
+
+    When working with Asgardeo conditional authentication scripts, <b>never log secrets</b> or sensitive information within your authentication flows.
 
 ### Create a new secret
 
@@ -105,5 +107,3 @@ To delete an existing secret:
 4. Click the trash icon next to the secret you wish to delete.
 
 5. Select the checkbox and confirm your action.
-
-{% endif %}
