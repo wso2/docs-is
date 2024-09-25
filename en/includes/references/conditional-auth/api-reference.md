@@ -932,7 +932,7 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
     </thead>
     <tbody>
         <tr>
-            <td>basicauth</td>
+            <td>basic</td>
             <td>username, password</td>
             <td>Uses user credentials.</td>
         </tr>
@@ -947,7 +947,7 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
             <td>Uses client credentials to obtain an access token.</td>
         </tr>
         <tr>
-            <td>bearertoken</td>
+            <td>bearer</td>
             <td>token</td>
             <td>Uses a bearer token for authentication.</td>
         </tr>
