@@ -29,8 +29,7 @@ theme:
   favicon: assets/images/asgardeo-favicon.svg
 
 extra:
-  # base_path: /asgardeo/docs
-  base_path: *site_url
+  base_path: /asgardeo/docs
   product: asgardeo
   product_name: *site_name
   nav_list:
