@@ -96,19 +96,19 @@ To add a custom layout to the login page:
 
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/` and follow the instructions provided below:
 
-    1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/body.html) into the `body.html` file.
+    1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/blob/master/en/identity-server/6.1.0/docs/assets/code-samples/body.html) into the `body.html` file.
 
-    2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/style.css) into the `styles.css` file.
+    2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/blob/master/en/identity-server/6.1.0/docs/assets/code-samples/style.css) into the `styles.css` file.
 
-    3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/script.js) into the `script.js` file.
+    3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/blob/master/en/identity-server/6.1.0/docs/assets/code-samples/script.js) into the `script.js` file.
 
-    4. Copy the [illustration.svg](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
+    4. Copy the [illustration.svg](https://github.com/wso2/docs-is/blob/master/en/identity-server/6.1.0/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
 
 2. Navigate to the `webapps/authenticationendpoint/includes` folder and copy the `product-title.jsp` and `product-footer.jsp` files to the `webapps/authenticationendpoint/extensions` folder as follows:
 
-    1. Copy content from the [`jsp` file containing the project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/project-title-1.jsp) to the `webapps/authenticationendpoint/extensions/product-title.jsp` file of the app.
+    1. Copy content from the [`jsp` file containing the project title](https://github.com/wso2/docs-is/blob/master/en/identity-server/6.1.0/docs/assets/code-samples/project-title-1.jsp) to the `webapps/authenticationendpoint/extensions/product-title.jsp` file of the app.
 
-    2. Copy content from the [`jsp` file containing the project footer](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/product-footer-1.jsp) to the `webapps/authenticationendpoint/extensions/product-footer.jsp` file of the app.
+    2. Copy content from the [`jsp` file containing the project footer](https://github.com/wso2/docs-is/blob/master/en/identity-server/6.1.0/docs/assets/code-samples/product-footer-1.jsp) to the `webapps/authenticationendpoint/extensions/product-footer.jsp` file of the app.
 
 
     !!! note
