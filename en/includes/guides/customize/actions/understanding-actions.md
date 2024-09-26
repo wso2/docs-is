@@ -175,7 +175,7 @@ If the error response includes an acceptable payload, it is treated as an error 
 
 {% if product_name == "WSO2 Identity Server" %}
 !!! note
-    Refer to [Fine tune HTTP Client Connections]({{base_path}}/guides/customize/actions/setting-up-actions/#configuring-http-client-connections) for details on adjusting timeouts, connection pooling, and retries.
+    Refer to [Fine-tune HTTP client connections]({{base_path}}/guides/customize/actions/setting-up-actions/#configuring-http-client-connections) for details on adjusting timeouts, connection pooling, and retries.
 {%endif %}
 
 Requests will not be retried if the external service responds with HTTP status codes 200 (OK), 400 (Bad Request), 401 (Unauthorized), or any other codes not listed above as retry scenarios.
