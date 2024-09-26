@@ -52,6 +52,17 @@ To define a different attribute as the subject:
 
 3. Click **Update**.
 
+#### Subject Attribute usage in Access tokens
+
+The subject attribute value configured here is sent in the `sub` attribute of both user access tokens and application access tokens.
+
+With the latest updates, the `sub` attribute for application access tokens will no longer be linked to the `subject attribute`. Instead, the `sub` attribute will now carry the `client_id` of the application.
+
+If you are still using the outdated behavior, please update your application to adopt the latest functionality.
+
+!!! note
+        Before updating, ensure that any usages on the `sub` attribute being used as the subject attribute for application tokens are removed.
+
 ### Define mandatory user attributes
 
 {% include "../../fragments/manage-app/manage-user-attributes/select-mandatory-attributes.md" %}

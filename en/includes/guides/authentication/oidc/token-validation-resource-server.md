@@ -95,3 +95,32 @@ If the token you used is invalid, you will get the following response:
 ```
 
 <br>
+
+## Application Access Token Response
+
+Application Access Tokens are tokens obtained through grant types like the `client_credentials` grant. Unlike user-bound tokens, these tokens are not associated with any specific user, as they represent the application itself rather than an individual user.
+
+The introspection response for Application Access Tokens follows the format shown below:
+
+**Sample response**
+
+```json
+{
+  "nbf": 1629961093,
+  "scope": "openid profile",
+  "active": true,
+  "token_type": "Bearer",
+  "exp": 1629968693,
+  "iat": 1629961093,
+  "client_id": "Wsoq8t4nHW80gSnPfyDvRbiC__Eb"
+}
+```
+
+## Outdated Behavior (Optional)
+
+Previously, the `username` attribute was included in the introspection response, where its value represented the application owner's username. If your applications rely on this behavior, you are likely using an outdated version.
+
+!!! note
+    Before updating, ensure that any usages on the `username` attribute in the introspection response are removed. It is important to stop using this attribute if your applications rely on it.
+
+After updating the application, the `username` attribute will no longer be included in the introspection response.
