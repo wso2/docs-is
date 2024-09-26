@@ -35,4 +35,10 @@ dropdownLink.addEventListener('click', function(event) {
   dropdown.classList.toggle('open'); // Toggle the "open" class
 });
 
-
+document.addEventListener('DOMContentLoaded', function () {
+  // Check if the path does not end with a slash and has no file extension
+  if (!window.location.pathname.endsWith('/') && !window.location.pathname.split('/').pop().includes('.')) {
+      var newPath = window.location.pathname + '/' + window.location.search + window.location.hash;
+      window.history.replaceState({}, document.title, newPath);
+  }
+});
