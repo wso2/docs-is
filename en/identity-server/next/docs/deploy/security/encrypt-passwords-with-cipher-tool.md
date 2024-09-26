@@ -12,11 +12,12 @@ To encrypt passwords on the WSO2 Identity Server, you can use either asymmetric 
 
 !!! important
     - It is recommended to [configure a separate keystore](../keystores/configure-keystores/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
-    - Symmetric encryption is recommended due to its enhanced security against potential quantum computing threats.
+    - Symmetric encryption is recommended due to its enhanced security against potential post-quantum threats.
 
 ### Using Symmetric Encryption
 
-To support symmetric encryption, an internal keystore of type **PKCS12** must be used. Need [add a symmetric secret to a PKCS12 keystore](../keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore) and set the alias for internal keystore.
+!!! note
+    To support symmetric encryption, an internal keystore of type **PKCS12** must be used. Need to add a symmetric secret to a PKCS12 keystore and set the alias as mentioned [here](../keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore)
 
 1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
 
@@ -38,14 +39,17 @@ To support symmetric encryption, an internal keystore of type **PKCS12** must be
 
     ```toml
     [secrets]
-    admin_password = "GeNld2aZkydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTag7w4dG6B3JK5GxeX9bhsmZCBFozlPdWBT6Jvy"
-    keystore_password = "brClL1SOHdezXTvBz1/76b/DnHQgxjNGtzhaBr3DnhHw32NWY484abHLREVyMoNJkER5lQUPbqeaMpR5lQUPbqeaMp"
-    key_password = "CFAaISaI19dHLApEM3usNSDXXdhdicHbVncrVwuLDJp6Rhp8B3Qy3PnBhcJsryTqR/EPwdLnXboNJkER"
-    truststrore_password = "DKnecEw+mJ8JhTUrqxpTZxwXrOdtcoAl2hD3LHtH+yJXNogumdSALfaqrMaknBzJq4SF3sY0RvwkMxWhnZ+BhIsko"
-    "log4j.appender.LOGEVENT.password" = "kydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTagXTvBz1/76b/DnHQgxjNhD3LHtH+yJXNowecEEC"
+    admin_password = "eyJjaXBoZXJUZXh0IjoiVW5sdWV0K1dGSncxdWZOdXJWQVJ4KysxQTdVbm1wYzVCbEFcdTAwM2QiLCJpdiI6Ik1ZRGZpWG9lS2hBa1pBUmw3L3V2alBzbmRmSlowNGsxazJSSEN0VjRjOHJiSjVwT3FmUUdTazZmc0xaaXAyVWdlUkNqeS9Ka2NMQlRlNHloWWNpTEZRZVkra2s0cVFNcnkzY2JCNm1NbitWRGt0bHY4YUJTbWt6MVNnNUZNcXZ2alJQL1FIZ3A2Z2JZRFQ2VTlaTzRBa2hpSTFoSTkwa25NRkRqYjNGbW9Kd1x1MDAzZCJ9"
+    keystore_password = "eyJjaXBoZXJUZXh0IjoiL21FK3NQWlU4VUVlL0pSYzBveHVwL0hJaWFTQTdrWmxOdjBcdTAwM2QiLCJpdiI6IjlTOS9rU2lTV25BRDVLeWVPakRRL2pGMTZoNlR0Sk92VE1pcllSQ052TGlYd05jSlY4TG5XOHNaeHdWWGlXemNpbjAxb2VMNm1rS3lqQkhRRy83U1ovQ28vRlBmWjBIZk9HYUIxblJlRjA4MkFTSUNJT1p0V3hmb1llLzh1eVdpUzJockhybndxRUdyY1hlOW0xMVpFQ2VuTFdSRHpRakM3QnRKQndDeXJOQVx1MDAzZCJ9"
+    key_password = "eyJjaXBoZXJUZXh0IjoiNGVqSndqRjljc0h2cU1qeVp3M3R5K0FnTWV5TGpGcGhhU01cdTAwM2QiLCJpdiI6IkQ5U0J3Q1BlQzYwQWV3OTlvcDMwenBmMGF5T2lpL2pxbXdDMk0wL1VhaDhhVmR2QUdQalRNQlZrckZGSlJ5anQ5S2t4NE5kU2RWVE5wUlppUkhERXdkVHFMVDZoTFhkT05KRXRnS0srZHJwdXUvSm16elZNTUxrOVdVK0RZMk9kaExZSUgxSEpMN1VwTFcxRDVLelVwS0psa2t2OGFUazJyUHZiZWxLbEJqd1x1MDAzZCJ9"
+    truststrore_password = "eyJjaXBoZXJUZXh0IjoiMlZzSHUvQktHUWYxOCs1S1g2M1ltalZjc3NsajV2a3dHaG9cdTAwM2QiLCJpdiI6Im9oUmNuQTNhOHcycktra3VkQlNxcmxVVGFyOUVpUXd5Zzk2M1B1YkRMeDFRMzYrTHNOOEVxWGZIb1RpbE9OTi9jOVBGSkljRVltbmV1NnJDdHBYeVZHYm5LMlVtNG1mYzNkbzhhZFhyM0JTSTZaNjdzVy9OVWVJd0RCc2tvWG51MTFLNzhhUkRvVE1wSEFiNHp6bDhOT2RyR2J0S3hWQzZYb1pWNTJhL2Y1d1x1MDAzZCJ9"
+    "log4j.appender.LOGEVENT.password" = "eyJjaXBoZXJUZXh0IjoiV3BqdGNsaU9jc1JNVkgvZ3YwRkR1YTlzeVZjQnYvS2lLblFcdTAwM2QiLCJpdiI6IkFlTElSWXJNT25HaEdOTDNqcHdXQ29jeU9JMGNaS2RybHpZeWU3RStxcy9lQ2VmcmxGTGF2UjZxakJUOXhQRGdDaHFBTUtRWiswYXFBT1VQWFNzZ1gyOTVVWFA4Y29uME5WUzkxekhjWFJlNkpQZXN0VEtGdUh5Y3RtWnBMNmduM2JEdFloY1RDengxTmJGMm55djNiVWlJb3hGM2VCc3BTeW13Ly83aC8wUVx1MDAzZCJ9"
     ```
 
 ### Using Asymmetric Encryption
+
+!!! warning
+    Asymmetric encryption using RSA is not recommended due to its vulnerability to emerging **post-quantum threats**.
 
 1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
 
