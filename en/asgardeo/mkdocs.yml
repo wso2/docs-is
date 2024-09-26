@@ -19,7 +19,7 @@ INHERIT: ../base.yml
 # Project information
 site_name: &site_name Asgardeo
 site_description: Asgardeo Learning Center
-site_url: &site_url https://wso2.com/asgardeo/docs
+site_url: https://wso2.com/asgardeo/docs
 
 # Configuration
 theme:
@@ -29,7 +29,7 @@ theme:
   favicon: assets/images/asgardeo-favicon.svg
 
 extra:
-  base_path: *site_url
+  base_path: /asgardeo/docs
   product: asgardeo
   product_name: *site_name
   nav_list:
