@@ -22,15 +22,15 @@ Asgardeo simplifies and automates identity and permission management, making it 
 
 ## How do I integrate Asgardeo into my app?
 
-This guide outlines the steps to configure Asgardeo to work with your SMART on FHIR app. A Postman collection is provided to automate the process, enhancing efficiency and ensuring consistent configurations that can be quickly set up. This guide also explains how to effectively use the Postman script to configure Asgardeo with your app.
+This guide outlines how Asgardeo can be integrated into your healthcare apps. We have created a Postman collection to automate this process so that it enhances efficiency and ensures consistency in configurations.
 
 ### Prerequisite
 
-You need to have an account. If you do not have one, create one for free in Asgardeo(https://asgardeo.io/signup){target="_blank"}. Follow the [documentation]({{base_path}}/get-started/) to learn how to get started.
+You need to have an Asgardeo account. If you do not have one, create one for free in Asgardeo(https://asgardeo.io/signup){target="_blank"}. Follow the [documentation]({{base_path}}/get-started/) to learn how to get started.
 
-### Step 1: Register your application in Asgardeo
+### Step 1: Register an application in Asgardeo
 
-Follow the steps below to register your application in Asgardeo.
+Follow the steps below to register an application in Asgardeo.
 
 1. Log in to the [Asgardeo Console](https://console.asgardeo.io/){target="_blank"} and go to **Applications**.
 
@@ -46,7 +46,7 @@ Follow the steps below to register your application in Asgardeo.
 
 ### Step 2: Authorize application to access REST APIs
 
-Now that you have registered your application in Asgardeo, the next thing to be done is to provide your application authorization to perform the following actions on the listed REST APIs,
+Now that you have registered an application in Asgardeo, the next step is to provide it authorization to perform the following actions on the listed REST APIs,
 
 <table>
     <thead>
@@ -157,7 +157,25 @@ To do so,
 
 ### Step 3: Configure the Postman collection
 
-Now that you have registered and configured your application in Asgardeo, you are able to use its credentials to retrieve an access token with the right permissions to access Asgardeo's REST APIs. Next, you need to provide information about your application to the Postman collection. To do so,
+Now that you have registered and configured an application in Asgardeo, you are able to use its credentials to obtain an access token and access Asgardeo's REST APIs.
+
+We have created a Postman collection to automate the following process:
+
+- Get a bearer token to access Asgardeo REST APIs
+
+- Create the `fhirUser` user attribute. This will be used as the identity of a user accessing FHIR resources.
+
+- Create the `fhirUser` scope. Applications can request this scope to access the `fhirUser` attribute of a user.
+
+- Add the relevant OIDC and SCIM dialects of the `fhirUser` user attribute.
+
+- Update the `fhirUser` attribute of a selected user to `Patient/1`.
+
+- Register your SMART on FHIR app using Dynamic Client Registration (DCR).
+
+- Configure your SMART on FHIR application to request the `fhirUser` local attribute from users during login.
+
+Follow the steps below to download and run the Postman collection:
 
 1. Download the Postman collection from [Github](https://github.com/wso2-enterprise/open-healthcare/blob/main/scripts/postman-collections/smartonfhir-asgardeo.postman_collection.json){target="_blank"} and import it to Postman.
 
@@ -174,18 +192,56 @@ Now that you have registered and configured your application in Asgardeo, you ar
     <table>
         <tr>
         <td>applicationName</td>
-        <td>Provide any name and this is the DCR application that will be created through the Postman script.</td>
+        <td>Provide any name and this will be the name of the DCR application that will be created through the Postman script.</td>
         </tr>
         <tr>
         <td>organization</td>
-        <td>Provide your organization name. You may find it in your Console URL. For example, if it is `https://console.asgardeo.io/t/healthcare36/app/getting-started`, the organization name is `healthcare36`.
+        <td>Provide your organization name. You may find it in your Console URL. For example, if the URL is `https://console.asgardeo.io/t/healthcare36/app/getting-started`, the organization name is `healthcare36`.
         </td>
         </tr>
         <tr>
         <td>username</td>
-        <td></td>
+        <td>Provide the email address of the user whose `fhirUSer` attribute you want to update.</td>
         </tr>
     </table>
+
+4. Once the Postman collection is configured, you are ready to run it. To do so,
+
+    1. Navigate to the **Asgardeo** > **Asgardeo-configs** folder.
+
+    2. Click the three dots corresponding to **Asgardeo-configs** and click **Run folder**.
+
+    3. Ensure no errors occur and troubleshoot any errors that arise.
+
+        ![Postman test cases]({{base_path}}/assets/img/tutorials/smart-on-fhir/fhir-postman-test-cases.png)
+
+### Step 4: Verify that everything works
+
+Now that you have created the `fhirUser` user attribute and registered your SMART on FHIR app in Asgardeo, let's try to log into your application as the user and obtain the ID token. If everything has worked, the ID token should contain the `fhirUser` attribute.
+
+To do so,
+
+1. In the same Postman collection, navigate to the **Asgardeo** > **authorization-code-grant-flow** folder.
+
+2. Open the **get-token** request and go to its **Authorization** tab.
+
+3. While making sure **Auth Type** is set to **OAuth 2.0**, scroll down to find the **Configure New Token** section on the right panel.
+
+4. Keep the default settings and click **Get New Access Token**.
+
+5. You will be directed to the Asgardeo login page. Enter the user's credentials and click ****. If prompted, provide permission for the application to read the `fhirUser` attribute.
+
+6. Once authenticated, you will be redirected back to Postman. Copy the `id_token` value and decode it to find the following data.
+
+    ```json
+    ...
+    "fhirUser": "Patient/1",
+    ...
+    ```
+
+
+
+
 
 
 
