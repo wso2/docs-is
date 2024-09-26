@@ -1,4 +1,4 @@
-## Fine tune HTTP Client Connections
+## Fine-tune HTTP client connections
 
 To fine-tune connections initiated by WSO2 Identity Server to external services, you may add the following configurations to the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory 
 
