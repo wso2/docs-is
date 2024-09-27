@@ -50,7 +50,7 @@ jobs:
         run: |
           NEW_VERSION="${{ github.event.inputs.version }}"
           
-          if [[ -z "$VERSION" ]]; then
+          if [[ -z "$NEW_VERSION" ]]; then
             set -euxo pipefail
             IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
             echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
