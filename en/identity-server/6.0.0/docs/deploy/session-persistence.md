@@ -18,6 +18,16 @@ This guide walks you through the process of enabling session persistence for ses
 
     This cookie can be seen as **commonauthId**. It is set to the user’s browser with the hostname of the WSO2 Identity Server instance and the value of the **commonauthId** cookie is the SSO session identifier. When an SSO session is created in the WSO2 Identity Server, the session is put into the session cache and persisted in the database. To persist it into the database, you must enable session persistence.
 
+## Session Timeout related configurations
+
+The `[session.timeout]` section is related to the session timeout configurations.
+
+| Configuration element | Description   |
+|-----------------------|------------   |
+| `idle_session_timeout` | This is the time in minutes after which the session times out if the user is idle. The default value is `15m`. |
+| `remember_me_session_timeout` | This is the time in minutes after which the session times out if the user selects the **Remember Me** option. The default value is `14d`. |
+| `extend_remember_me_session_timeout_on_auth` | This is a boolean value that determines whether the session timeout from **Remember Me** option is extended when the user is authenticated again without prompting credentials. The default value is `true`. |
+
 ## Importance of session persistence
 
 SSO sessions are stored in an in-memory cache. It is recommended to persist the SSO session due to the following reasons.
