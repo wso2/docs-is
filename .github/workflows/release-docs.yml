@@ -7,6 +7,11 @@ on:
     paths-ignore:
       - 'VERSION'  # This will ignore changes only to the VERSION file.
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to tag (e.g., 0.0.1). Leave empty to use CURRENT_VERSION from environment.'
+        required: false  # This input is optional
+        default: ''
 
 env:  # Global environment variables
   GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
@@ -43,11 +48,17 @@ jobs:
 
       - name: Increment version
         run: |
-          set -euxo pipefail
-          IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
-          echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
-          PATCH=$((PATCH+1))
-          NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          NEW_VERSION="${{ github.event.inputs.version }}"
+          
+          if [[ -z "$VERSION" ]]; then
+            set -euxo pipefail
+            IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
+            echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
+            PATCH=$((PATCH+1))
+            NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+            echo "Version is auto incremented."
+          fi
+
           echo "New version: $NEW_VERSION"
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
         shell: bash
