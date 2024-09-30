@@ -9,9 +9,9 @@ The following code snippet shows a sample email OTP configuration in the `<IS_HO
 enable=true
 
 [authentication.authenticator.email_otp.parameters]
-EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
-EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
-EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
+EMAILOTPAuthenticationEndpointURL = "/authenticationendpoint/emailOtp.jsp"
+EmailOTPAuthenticationEndpointErrorPage = "/authenticationendpoint/emailOtpError.jsp"
+EmailAddressRequestPage = "/authenticationendpoint/emailAddressCapture.jsp"
 usecase = "local"
 secondaryUserstore = "primary"
 EMAILOTPMandatory = false
