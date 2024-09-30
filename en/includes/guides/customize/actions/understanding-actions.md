@@ -24,7 +24,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Login</td>
 <td>Authenticate</td>
-<td>September 2024</td>
+<td>October 2024</td>
 <td>
 <ul>
 <li><p>Call an external service to authenticate the user.</p></li>
@@ -48,7 +48,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Registration</td>
 <td>Pre registration</td>
-<td>September 2024</td>
+<td>November 2024</td>
 <td>
 <ul>
 <li><p>Deny registration by location.</p></li>
@@ -61,7 +61,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="even">
 <td>Password update</td>
 <td>Pre password update</td>
-<td>September 2024</td>
+<td>October 2024</td>
 <td>
 <ul>
 <li><p>Challenge with an additional verification factor before allowing to update password.</p></li>
@@ -72,7 +72,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Profile update</td>
 <td>Pre profile update</td>
-<td>September 2024</td>
+<td>November 2024</td>
 <td>
 <ul>
 <li><p>Challenge with an additional verification factor before allowing to update sensitive attributes.</p></li>
