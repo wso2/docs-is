@@ -895,7 +895,7 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
 
     ```
     var authConfig = {
-        type: "basicauth",
+        type: "basic",
         properties: {
             username: "admin",
             password: "adminPassword"
@@ -923,43 +923,6 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
         });
     }
     ```
-
-!!! note "Authentication Types and Properties"
-
-    When using httpGet functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
-    `Enhanced secret management features are currently under development and will be available soon.`
-
-    <table>
-    <thead>
-        <tr>
-            <th>Authentication Type</th>
-            <th>Properties</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>basicauth</td>
-            <td>username, password</td>
-            <td>Uses user credentials.</td>
-        </tr>
-        <tr>
-            <td>apikey</td>
-            <td>apiKey, headerName</td>
-            <td>Uses an API key sent as a header.</td>
-        </tr>
-        <tr>
-            <td>clientcredential</td>
-            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional)</td>
-            <td>Uses client credentials to obtain an access token.</td>
-        </tr>
-        <tr>
-            <td>bearertoken</td>
-            <td>token</td>
-            <td>Uses a bearer token for authentication.</td>
-        </tr>
-    </tbody>
-    </table>
 
 ### HTTP POST
 
@@ -1033,44 +996,6 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
         });
     }
     ```
-
-!!! note "Authentication Types and Properties"
-
-    When using httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
-    `Enhanced secret management features are currently under development and will be available soon.`
-
-    <table>
-    <thead>
-        <tr>
-            <th>Authentication Type</th>
-            <th>Properties</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>basicauth</td>
-            <td>username, password</td>
-            <td>Uses user credentials.</td>
-        </tr>
-        <tr>
-            <td>apikey</td>
-            <td>apiKey, headerName</td>
-            <td>Uses an API key sent as a header.</td>
-        </tr>
-        <tr>
-            <td>clientcredential</td>
-            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional)</td>
-            <td>Uses client credentials to obtain an access token.</td>
-        </tr>
-        <tr>
-            <td>bearertoken</td>
-            <td>token</td>
-            <td>Uses a bearer token for authentication.</td>
-        </tr>
-    </tbody>
-    </table>
-
 
 ### Resolve multi attribute login identifier
 
@@ -1381,7 +1306,7 @@ authentication type and its required properties:
     </thead>
     <tbody>
         <tr>
-            <td>basicauth</td>
+            <td>basic</td>
             <td>username, password</td>
             <td>Uses user credentials.</td>
         </tr>
@@ -1396,7 +1321,7 @@ authentication type and its required properties:
             <td>Uses client credentials to obtain an access token.</td>
         </tr>
         <tr>
-            <td>bearertoken</td>
+            <td>bearer</td>
             <td>token</td>
             <td>Uses a bearer token for authentication.</td>
         </tr>
