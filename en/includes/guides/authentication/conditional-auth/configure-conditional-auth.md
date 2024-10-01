@@ -79,6 +79,16 @@ To add a new secret:
 
 6. Click **Finish** to complete the creation.
 
+### Use secret in the script
+
+You may refer to the previously added secrets in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you may use:
+
+```angular2html
+var secretValue = secrets.secretName;
+```
+
+This allows you to securely access secret values within your authentication scripts, enhancing the security and flexibility of your authentication process.
+
 ### Delete an existing secret
 
 To delete an existing secret:
@@ -105,15 +115,5 @@ To delete an existing secret:
 4. Click the trash icon next to the secret you wish to delete.
 
 5. Select the checkbox and confirm your action.
-
-### Using Secrets in Scripts
-
-You may refer to the added secrets in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you may use:
-
-```angular2html
-var secretValue = secrets.secretName;
-```
-
-This allows you to securely access secret values within your authentication scripts, enhancing the security and flexibility of your authentication process.
 
 {% endif %}

@@ -880,7 +880,7 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code>authConfig</code></td>
-          <td>An object containing the necessary metadata to invoke the API. See [AuthConfig](#authconfig) for information.</td>
+          <td>An object containing the necessary authentication metadata to invoke the API. See [AuthConfig](#authconfig) for information.</td>
           </tr>
         <tr>
           <td style="white-space: nowrap;"><code>eventHandlers</code></td>
@@ -908,10 +908,12 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
         }, authConfig, {
             onSuccess: function(context, data) {
                 Log.info("Successfully invoked the external API.");
+                context.selectedAcr = data.status;
                 executeStep(1);
             },
             onFail: function(context, data) {
                 Log.info("Error occurred while invoking the external API.");
+                context.selectedAcr = 'FAILED';
                 executeStep(2);
             },
             onTimeout: function(context, data) {
@@ -983,7 +985,7 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code>authConfig</code></td>
-          <td>An object containing the necessary metadata to invoke the API. See [AuthConfig](#authconfig) for more information.</td>
+          <td>An object containing the necessary authentication metadata to invoke the API. See [AuthConfig](#authconfig) for more information.</td>
           </tr>
         <tr>
           <td style="white-space: nowrap;"><code>eventHandlers</code></td>
@@ -1016,10 +1018,12 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
         }, authConfig, {
             onSuccess: function(context, data) {
                 Log.info("Successfully invoked the external API.");
+                context.selectedAcr = data.status;
                 executeStep(1);
             },
             onFail: function(context, data) {
                 Log.info("Error occurred while invoking the external API.");
+                context.selectedAcr = 'FAILED';
                 executeStep(2);
             },
             onTimeout: function(context, data) {
@@ -1341,14 +1345,14 @@ It contains the necessary metadata for invoking the API when calling the callCho
 </table>
 
 You can securely store consumer keys and secrets as **secrets** in conditional authentication scripts and refer to
-them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you may use:
+them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you may use:
 ```angular2html
 var consumerSecret = secrets.clientSecret;
 ```
 For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the 
 documentation.
 
-??? note "Change in behavior from 30th June 2024"
+??? note "Change in behavior from 30th September 2024"
     Starting from 30th June 2024, you are no longer required to set the aliases for consumer keys and consumer secrets when calling the callChoreo command. Instead, you may directly reference them using the `secrets.secretName` notation.
     However, if you prefer, you may continue using the previous method as follows.
       <table>
@@ -1399,7 +1403,7 @@ authentication type and its required properties:
     </tbody>
 </table>
 
-You can securely store sensitive values of properties like username, password, consumerKey, consumerSecret as secrets in conditional authentication scripts and refer to them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you can use:
+You can securely store sensitive values of properties like username, password, consumerKey, consumerSecret as secrets in conditional authentication scripts and refer to them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you can use:
 ```angular2html
 var consumerSecret = secrets.clientSecret;
 ```
