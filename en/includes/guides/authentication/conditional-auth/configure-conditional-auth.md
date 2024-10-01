@@ -31,7 +31,7 @@ Secrets securely store values associated with external APIs. These secret values
 
 !!! warning "Before you proceed"
 
-    When working with Asgardeo conditional authentication scripts, <b>never log secrets</b> or sensitive information within your authentication flows.
+    When working with conditional authentication scripts, <b>never log secrets</b> or sensitive information within your authentication flows.
 
 ### Create a new secret
 
