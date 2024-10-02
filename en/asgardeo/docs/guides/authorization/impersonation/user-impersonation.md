@@ -33,13 +33,14 @@ User impersonation involves an authorization server’s ability to temporarily g
 
 3. Enable **Token Exchange** grant type.
 
-4. Enable subject token.
+4. Enable **JWT type** Access token.
 
-5. [Optional] Configure Subject token expiry time by default it is 3 minutes.
+5. Enable subject token.
+
+6. [Optional] Configure Subject token expiry time by default it is 3 minutes.
 
     ![Subject-Token-Config]({{base_path}}/assets/img/guides/authorization/impersonation/subject-token-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-6. Enable **JWT type** Access token.
 
 #### Apply application advanced configuration
 
