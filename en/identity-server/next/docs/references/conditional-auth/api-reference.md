@@ -1050,7 +1050,7 @@ documentation.
 
 ### AuthConfig
 
-When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each
+When using httpGet or httpPost functions in adaptive authentication scripts, the table summarizes each
 authentication type and its required properties:
 
 <table>
