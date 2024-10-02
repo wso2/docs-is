@@ -53,7 +53,6 @@ Currently, our primary keystore handles both internal data encryption and extern
 In production environments, it is recommended to use distinct keystores for each task, with separate trust chains for enhanced security:
 
 - **Internal Keystore**: Used for encrypting and decrypting internal data (if [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) is enabled) and for encrypting plaintext passwords in configuration files using the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
-- **SAML Signing Keystore**: Dedicated for signing SAML requests and responses to ensure secure federated authentication.
 - **TLS Keystore**: Used for SSL connections to secure network communication via HTTPS. This keystore typically contains certificates required for establishing SSL/TLS connections.
 - **Primary Keystore**: Used for signing messages and other tasks, serving as the fallback keystore for both internal and external use cases unless specific keystores (like internal or SAML signing keystores) are defined.
 
@@ -83,32 +82,6 @@ To configure the new internal keystore, add the following configuration block to
 
     ``` toml
     [keystore.internal]
-    file_name = "<keystore file name>.p12"
-    password = "<password>"
-    key_password = "<password>"
-    type = "PKCS12"
-    alias = "<alias of the public certificate>"
-    ```
-
-### Configure SAML keystore
-
-To configure a separate keystore for signing SAML requests and responses, add the following block in the `keystore.saml` section of the `deployment.toml` file.
-
-=== "JKS"
-
-    ``` toml
-    [keystore.saml]
-    file_name = "<keystore file name>.jks"
-    password = "<password>"
-    key_password = "<password>"
-    type = "JKS"
-    alias = "<alias of the public certificate>"
-    ```
-
-=== "PKCS12"
-
-    ``` toml
-    [keystore.saml]
     file_name = "<keystore file name>.p12"
     password = "<password>"
     key_password = "<password>"
