@@ -1278,7 +1278,7 @@ For more information on adding secrets, refer to the [Add a secret to the script
 documentation.
 
 ??? note "Change in behavior from 30th September 2024"
-    Starting from 30th June 2024, you are no longer required to set the aliases for consumer keys and consumer secrets when calling the callChoreo command. Instead, you may directly reference them using the `secrets.secretName` notation.
+    Starting from 30th September 2024, you are no longer required to set the aliases for consumer keys and consumer secrets when calling the callChoreo command. Instead, you may directly reference them using the `secrets.secretName` notation.
     However, if you prefer, you may continue using the previous method as follows.
       <table>
           <tr>

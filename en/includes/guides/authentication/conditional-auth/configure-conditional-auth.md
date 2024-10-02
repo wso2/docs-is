@@ -65,7 +65,7 @@ To add a new secret:
         </tr>
         <tr>
             <td>Secret Name</td>
-            <td>A meaningful name for the secret. This name is not changeable.</td>
+            <td>A meaningful name for the secret. This name is not changeable and will be used in the script to reference the secret.</td>
         </tr>
         <tr>
             <td>Secret Value</td>
