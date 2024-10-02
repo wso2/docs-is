@@ -703,7 +703,7 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code>authConfig</code></td>
-          <td>An object containing the necessary metadata to invoke the API. See [AuthConfig](#authconfig) for information.</td>
+          <td>An object containing the necessary authentication metadata to invoke the API. See [AuthConfig](#authconfig) for information.</td>
         </tr>
         <tr>
           <td style="white-space: nowrap;"><code>eventHandlers</code></td>
@@ -718,27 +718,25 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
 
   ``` js
       var authConfig = {
-          type: "basic",
+          type: "basicauth",
           properties: {
               username: "admin",
               password: "adminPassword"
           }
       };
-      
-      function onLoginRequest(context) {
+  
+      var onLoginRequest = function(context) {
           httpGet('https://example.com/resource', {
               "Accept": "application/json"
           }, authConfig, {
               onSuccess: function(context, data) {
-                  Log.info("Successfully invoked the external API.");
+                  Log.info('httpGet call succeeded');
+                  context.selectedAcr = data.status;
                   executeStep(1);
               },
               onFail: function(context, data) {
-                  Log.info("Error occurred while invoking the external API.");
-                  executeStep(2);
-              },
-              onTimeout: function(context, data) {
-                  Log.info("Invoking external API timed out.");
+                  Log.info('httpGet call failed');
+                  context.selectedAcr = 'FAILED';
                   executeStep(2);
               }
           });
@@ -757,92 +755,113 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
       <tbody>
         <tr>
           <td><code>url</code></td>
-          <td style="white-space: nowrap;"><code>url</code></td>
+          <td>The URL of the endpoint to which the HTTP POST request should be sent.</td>
         </tr>
         <tr>
           <td><code>body</code></td>
-          <td style="white-space: nowrap;"><code>body</code></td>
+          <td>HTTP request body to be included in the POST request.</td>
         </tr>
         <tr>
-          <td style="white-space: nowrap;"><code>headers</code></td>
+          <td><code>headers</code></td>
           <td>HTTP request headers to be included in the POST request (optional).</td>
         </tr>
         <tr>
-          <td style="white-space: nowrap;"><code>authConfig</code></td>
-          <td>An object containing the necessary metadata to invoke the API. See [AuthConfig](#authconfig) for more information.</td>
-        </tr>
+          <td><code>authConfig</code></td>
+          <td>Authentication configuration to be included in the GET request (optional).</td>
+          </tr>
         <tr>
-          <td style="white-space: nowrap;"><code>eventHandlers</code></td>
+          <td><code>eventHandlers</code></td>
           <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
-          Supported results are <code>onSuccess</code>, <code>onFail</code> and <code>onTimeout</code> which can
-              have their own optional callbacks as anonymous functions. For these callbacks, the [context](#context) and [data](#data) parameters are passed.
+              Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
           </td>
-        </tr> 
+        </tr>
       </tbody>
     </table>
 
-  - **Example**
+- **Example**
 
-  ``` js
-      var authConfig = {
-          type: "clientcredential",
-          properties: {
-              consumerKey: "clientId",
-              consumerSecret: "clientSecret",
-              tokenEndpoint: "https://token-endpoint.com/token"
-          }
-      };
-  
-      function onLoginRequest(context) {
-          httpPost('https://example.com/resource', {
-              "email": "test@wso2.com"
-          }, {
-              "Authorization": "Bearer token",
-              "Accept": "application/json"
-          }, authConfig, {
-              onSuccess: function(context, data) {
-                  Log.info("Successfully invoked the external API.");
-                  executeStep(1);
-              },
-              onFail: function(context, data) {
-                  Log.info("Error occurred while invoking the external API.");
-                  executeStep(2);
-              },
-              onTimeout: function(context, data) {
-                  Log.info("Invoking external API timed out.");
-                  executeStep(2);
-              }
-          });
-      }
-  ```
+    ```
+    var authConfig = {
+        type: "clientcredential",
+        properties: {
+            consumerKey: "clientId",
+            consumerSecret: "clientSecret",
+            tokenEndpoint: "https://token-endpoint.com/token"
+        }
+    };
+
+    var onLoginRequest = function(context) {
+        httpPost('https://example.com/resource', {
+            "email": "test@wso2.com"
+        }, {
+            "Authorization": "Bearer token",
+            "Accept": "application/json"
+        }, authConfig, {
+            onSuccess: function(context, data) {
+                Log.info('httpPost call succeeded');
+                context.selectedAcr = data.status;
+                executeStep(1);
+            },
+            onFail: function(context, data) {
+                Log.info('httpPost call failed');
+                context.selectedAcr = 'FAILED';
+                executeStep(2);
+            }
+        });
+    }
+    ```
 
 !!! note     
-    To restrict HTTP GET requests to certain domains, and configure the HTTP connection settings for `httpGet` and `httpPost` functions in adaptive authentication scripts, update the `deployment.toml` file as follows:
+    To restrict HTTP GET requests to certain domains, for `httpGet` and `httpPost` functions in adaptive authentication scripts, update the `deployment.toml` file as follows:
 
     ```toml
     [authentication.adaptive]
     http_function_allowed_domains = ["example.com", "api.example.org"]
-    
-    [authentication.adaptive.http_connections]
-    connection_timeout = 5000
-    
-    [authentication.adaptive.http_connections]
-    read_timeout = 5000
-    
-    [authentication.adaptive.http_connections]
-    request_timeout = 5000
     ```
 
-    The current default settings for timeouts and retry count are as follows:
+    To fine-tune connections initiated by WSO2 Identity Server to external services, you may add the following configurations to the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory 
 
-      - **HTTP_CONNECTION_TIMEOUT**: Specifies the maximum time, in milliseconds, the client will wait to establish a connection with the server.  
-        **Current value**: `3s`
-      - **HTTP_CONNECTION_REQUEST_TIMEOUT**: Defines the maximum time, in milliseconds, the client will wait to obtain a connection from the connection manager (pool).  
-        **Current value**: `1s`
-      - **HTTP_READ_TIMEOUT** (SocketTimeout): Sets the maximum time, in milliseconds, for waiting for data or, more precisely, a maximum period of inactivity between two consecutive data packets coming from the server.  
-        **Current value**: `3s`
-      - **API_REQUEST_RETRY_COUNT**: Specifies the number of retry attempts for token requests initiated for authentication from client credentials.  
-        **Current value**: `2`  
+    <table>
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Description</th>
+                <th>Default Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>http_connections.read_timeout</strong></td>
+                <td>The maximum time (in milliseconds) the server will wait for a response from the external service.</td>
+                <td>3000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>http_connections.request_timeout</strong></td>
+                <td>The maximum time (in milliseconds) the server will wait to obtain a connection from the connection pool.</td>
+                <td>1000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>http_connections.connection_timeout</strong></td>
+                <td>The maximum time (in milliseconds) the server will wait to establish a connection to the external service.</td>
+                <td>3000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>http_connections.request_retry_count</strong></td>
+                <td>Specifies the number of retry attempts for token requests initiated for authentication from client credentials.</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+
+    Sample configuration is as follows:
+    
+    ```toml
+    [authentication.adaptive]
+    http_connections.read_timeout = 6000
+    http_connections.request_timeout = 3000
+    http_connections.connection_timeout = 3000
+    http_connections.request_retry_count = 2
+    ```
 
 ## Object reference
 
@@ -1022,7 +1041,7 @@ Contains the authentication step information. It may be a null or invalid step n
   </table>
 
 You can securely store consumer keys and secrets as **secrets** in conditional authentication scripts and refer to
-them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you may use:
+them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you may use:
 ```angular2html
 var consumerSecret = secrets.clientSecret;
 ```
@@ -1066,7 +1085,7 @@ authentication type and its required properties:
     </tbody>
 </table>
 
-You can securely store sensitive values of properties like username, password, consumerKey, consumerSecret as secrets in conditional authentication scripts and refer to them in your conditional authentication scripts using the `secrets.key` syntax. For example, to retrieve a secret value, you can use:
+You can securely store sensitive values of properties like username, password, consumerKey, consumerSecret as secrets in conditional authentication scripts and refer to them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you can use:
 ```angular2html
 var consumerSecret = secrets.clientSecret;
 ```
