@@ -8,7 +8,7 @@ Follow the tutorial below to learn about how you can leverage Asgardeo to implem
 
 ## What is SMART on FHIR?
 
-[SMART ON FHIR](https://hl7.org/fhir/smart-app-launch/index.html){target="_blank"} is a framework that extends FHIR and allows third-party developers to create applications that seamlessly integrate with Electronic Health Records (EHR) systems. There are two main advantages of using SMART ON FHIRE for building healthcare apps:
+[SMART ON FHIR](https://hl7.org/fhir/smart-app-launch/index.html){target="_blank"} is a framework that extends FHIR and allows third-party developers to create applications that seamlessly integrate with Electronic Health Records (EHR) systems. There are two main advantages of using SMART ON FHIR for building healthcare apps:
 
 - Interoperability - As the framework provides a standardized method to access healthcare data, developers can build applications that work across different EHR systems, irrespective of the underlying technology.
 
@@ -74,6 +74,23 @@ Now that you have registered an application in Asgardeo, the next step is to pro
                     <li>View User</li>
                     <li>Delete User</li>
                     <li>Update User</li>
+                </ul>
+        </tr>
+        <tr>
+            <td>SCIM2 Roles API</td>
+            <td>
+                <ul>
+                    <li>Create Role</li>
+                    <li>Update Role</li>
+                    <li>View Role</li>
+                    <li>Delete Role</li>
+                </ul>
+        </tr>
+        <tr>
+            <td>SCIM2 Bulk API</td>
+            <td>
+                <ul>
+                    <li>Create Bulk Resource</li>
                 </ul>
         </tr>
         <tr>
@@ -185,7 +202,7 @@ Follow the steps below to download and run the Postman collection:
 
     2. Enter the client ID and client secret of your application as username and password respectively.
 
-    ![Configure Postman authentication]({{base_path}}/assets/img/tutorials/smart-on-fhir/fhir-configure-postman-auth.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![Configure Postman authentication]({{base_path}}/assets/img/tutorials/smart-on-fhir/fhir-configure-postman-auth.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Go to the **Variables** tab and provide the following values:
 
