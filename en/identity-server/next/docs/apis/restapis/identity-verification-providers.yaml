@@ -409,7 +409,7 @@ components:
         claims:
           type: array
           items:
-            $ref: '#/components/schemas/verificationClaim'
+            $ref: '#/components/schemas/VerificationClaim'
         configProperties:
           type: array
           items:
@@ -435,7 +435,7 @@ components:
         claims:
           type: array
           items:
-            $ref: '#/components/schemas/verificationClaim'
+            $ref: '#/components/schemas/VerificationClaim'
         configProperties:
           type: array
           items:
@@ -453,7 +453,7 @@ components:
         value:
           type: string
           example: somePropertyValue
-    verificationClaim:
+    VerificationClaim:
       type: object
       properties:
         localClaim:
