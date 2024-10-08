@@ -314,7 +314,7 @@ update the Email and Mobile of the user.
     
 ### **Password recovery with Internal Notification Management**   
 
-1. Use the following command to create a user name recovery request.
+1. Use the following command to create a password recovery request.
 
     ```
     curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"

@@ -16,8 +16,6 @@ See the topics in this section for references that will help you while working w
 
 - [Remote user store properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) you need for configuring Asgardeo user store agent.
 
-- [Monitor logs]({{base_path}}/references/application-logs/) in Asgardeo.
-
 - [Email templates]({{base_path}}/references/email-templates/) in Asgardeo.
 
 - [Accessibility compliance]({{base_path}}/references/accessibility/) in Asgardeo.

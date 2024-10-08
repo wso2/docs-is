@@ -104,8 +104,6 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
       </tr>
     </table>  
 
-{% include "../../fragments/manage-connection/jit-provisioning.md" %}
-
 
 ## Enable Microsoft 365 login
 

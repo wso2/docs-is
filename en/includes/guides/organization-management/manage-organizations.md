@@ -5,7 +5,7 @@ As a B2B (Business-to-Business) service provider, you can use {{product_name}} o
 !!! note "Before you begin"
 
     {% if product_name == "Asgardeo" %}
-    - [Define your primary business organization]({{base_path}}/guides/{{root_org_description_path}}/   manage-root-organizations/).
+    - [Define your primary business organization]({{base_path}}/guides/your-asgardeo/manage-root-organizations/).
     - Ensure you have organization management privileges in the organization (root).
     {% else %}
     Ensure you have organization management privileges in the organization (root).
@@ -55,11 +55,15 @@ To add additional attributes for your organization:
 
 5. Click **Update** to save the configurations.
 
+{% if organization_search_content %}
+{{ organization_search_content }}
+{% endif %}
+
 ## Switch to an organization
 
 You can switch to a child organization on the {{ product_name }} Console by selecting the required organization from the list as shown below.
 
-![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-switch.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Build an organizational hierarchy
 

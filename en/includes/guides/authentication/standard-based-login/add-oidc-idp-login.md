@@ -103,6 +103,6 @@ To provide this login capability, {{ product_name }} uses the standard OpenID Co
 
 ## Configure connection
 
-- To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
+- To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login/) documentation.
 
 - To learn more about OIDC settings available for the IdP, refer to the [OIDC settings]({{base_path}}/references/idp-settings/oidc-settings-for-idp/) documentation.

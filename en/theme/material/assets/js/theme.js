@@ -34,5 +34,3 @@ dropdownLink.addEventListener('click', function(event) {
   event.stopPropagation(); // Prevent the event from propagating to the document
   dropdown.classList.toggle('open'); // Toggle the "open" class
 });
-
-

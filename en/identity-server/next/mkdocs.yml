@@ -173,6 +173,11 @@ plugins:
         'guides/elk-analytics/elk-analyzing-login-attempts.md': 'guides/analytics/analyzing-login-attempts.md'
         'guides/elk-analytics/elk-analyzing-session-statistics.md': 'guides/analytics/analyzing-active-sessions.md'
         'guides/elk-analytics/elk-alert-types.md': 'guides/analytics/elk-alert-types.md'
+        'guides/analytics/index.md': 'guides/analytics/elk-analytics/index.md'
+        'guides/analytics/accessing-the-analytics-dashboard.md': 'guides/analytics/elk-analytics/accessing-the-analytics-dashboard.md'
+        'guides/analytics/analyzing-login-attempts.md': 'guides/analytics/elk-analytics/analyzing-login-attempts.md'
+        'guides/analytics/analyzing-active-sessions.md': 'guides/analytics/elk-analytics/analyzing-active-sessions.md'
+        'guides/analytics/elk-alert-types.md': 'guides/analytics/elk-analytics/elk-alert-types.md'
 
         'guides/dialects/dialects-overview.md': 'guides/users/attributes/index.md'
         'guides/dialects/add-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
@@ -457,11 +462,6 @@ nav:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
         - Impersonation:
             - User Impersonation: guides/authorization/impersonation/user-impersonation.md
-      - Branding:
-        - Branding: guides/branding/index.md
-        - Configure UI branding: guides/branding/configure-ui-branding.md
-        - Customize email templates: guides/branding/customize-email-templates.md
-        - Localization support: guides/branding/localization.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -482,6 +482,13 @@ nav:
               - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
               - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
             - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
+        - Sync User Accounts:
+            - Overview: guides/users/sync-user-accounts/sync-account-overview.md
+            - Hubspot: guides/users/sync-user-accounts/sync-with-hubspot.md
+            - Salesforce: guides/users/sync-user-accounts/sync-with-salesforce.md
+            - Pipedrive CRM: guides/users/sync-user-accounts/sync-with-pipedrive.md
+            - Sendgrid: guides/users/sync-user-accounts/sync-with-sendgrid.md
+            - Zoho CRM: guides/users/sync-user-accounts/sync-with-zoho.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -552,13 +559,26 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+      - Customize:
+          - Customize branding:
+            - Branding: guides/branding/index.md
+            - Configure UI branding: guides/branding/configure-ui-branding.md
+            - Customize email templates: guides/branding/customize-email-templates.md
+            - Localization support: guides/branding/localization.md
+          - Extend with actions:
+            - Understanding actions: guides/customize/actions/understanding-actions.md
+            - Setting up actions: guides/customize/actions/setting-up-actions.md
+            - Action types: 
+              - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
       - Analytics:
-        - Analytics: guides/analytics/index.md
-        - Access analytics: guides/analytics/accessing-the-analytics-dashboard.md
-        - Analyze login attempts: guides/analytics/analyzing-login-attempts.md
-        - Analyze active sessions: guides/analytics/analyzing-active-sessions.md
-        - ELK Alerts: guides/analytics/elk-alert-types.md
+        - ELK Analytics:
+          - Elk analytics: guides/analytics/elk-analytics/index.md
+          - Access analytics: guides/analytics/elk-analytics/accessing-the-analytics-dashboard.md
+          - Analyze login attempts: guides/analytics/elk-analytics/analyzing-login-attempts.md
+          - Analyze active sessions: guides/analytics/elk-analytics/analyzing-active-sessions.md
+          - ELK Alerts: guides/analytics/elk-analytics/elk-alert-types.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
+        - A/B Testing: guides/analytics/ab-testing.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
@@ -704,6 +724,7 @@ nav:
       - Admin advisory management API: apis/admin-advisory-management-rest-api.md
       - Tenant management API: apis/tenant-management-rest-api.md
     - Management APIs:
+      - Action Management API: apis/action-management-rest-api.md   
       - API resource management: apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API: apis/application-rest-api.md
@@ -814,6 +835,10 @@ nav:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
+    - Actions:
+      - Pre issue access token action: 
+        - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md
+        - Sample success reponses: references/actions/pre-issue-access-token-action/sample-success-responses.md
     - Architecture: references/architecture.md
     - IS extensions:
       - references/extend/index.md
@@ -862,3 +887,4 @@ not_in_nav: |
   /includes/db-basic-config.md
   /includes/db-config-table.md
   /includes/rollback-pending.md
+  /includes/http-client-connections.md

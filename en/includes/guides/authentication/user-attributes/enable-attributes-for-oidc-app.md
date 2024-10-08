@@ -44,7 +44,7 @@ To define a different attribute as the subject:
 1. In the **Subject** section of the **User Attributes** tab, enable **Assign alternate subject identifier**.
 
     !!! note
-        According to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes), is not recommended to change the default subject identifier.
+        According to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes){target="_blank"}, is not recommended to change the default subject identifier.
 
     ![Select subject attribute in Asgardeo]({{base_path}}/assets/img/guides/applications/attributes/oidc/select-sub-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -92,11 +92,11 @@ If the user consents to share attributes with the application, {{ product_name }
 
 #### Subject Attribute
   
-The subject attribute is the unique identifier for a user. The application receives this value via the [subject attribute](#subject-attribute) parameter in the [ID token](#id-token). In {{ product_name }}, the user ID is used as the subject attribute.
+The subject attribute is the unique identifier for a user. The application receives this value via the `sub` parameter in the [ID token](#id-token). In {{ product_name }}, the user ID is used as the subject attribute.
 
 #### ID token
 
-Once the [application calls the token endpoint]({{base_path}}/guides/authentication/oidc/implement-auth-code/#get-tokens), {{ product_name }} sends the ID token in the response.
+Once the application calls the [token endpoint]({{base_path}}/guides/authentication/oidc/implement-auth-code/#get-tokens), {{ product_name }} sends the ID token in the response.
 
 All the user attributes that are requested by scopes are returned as claims in the ID token. The application can decode the ID token to view the claims.
 
@@ -126,7 +126,7 @@ _A sample ID token is given below:_
   
 #### Userinfo response
 
-In addition to getting attributes from the ID token, the application can [invoke the userinfo endpoint]({{base_path}}/guides/authentication/oidc/implement-auth-code/#retrieve-user-details) and get user attributes along with the subject attribute.
+In addition to getting attributes from the ID token, the application can invoke the [userinfo endpoint]({{base_path}}/guides/authentication/oidc/request-user-info/) and get user attributes along with the subject attribute.
 
 _A sample userinfo response is given below:_
 
@@ -154,6 +154,6 @@ Once enabled, the tokens issued from this application during federated authentic
 If there is no such linked local account, {{ product_name }} will return the user attributes retrieved from the external identity provider.
 
 !!! note
-    When [JIT provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#how-jit-provisioning-works) is enabled for the external identity provider, {{ product_name }} ensures that the attributes of the associated local account synchronize with the external identity provider upon each federated login.
+    When [JIT provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled for the external identity provider, {{ product_name }} ensures that the attributes of the associated local account synchronize with the external identity provider upon each federated login.
 
     If you want to preserve attribute values set in the local user account, you need to disable JIT provisioning

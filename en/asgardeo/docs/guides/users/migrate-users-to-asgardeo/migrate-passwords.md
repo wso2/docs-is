@@ -111,7 +111,7 @@ In this section, we will develop an authentication service that will communicate
 
 ### Step 2: Create and deploy the RESTful service in Choreo
 
-We will now deploy the developed authentication service in [Choreo]({{base_path}}/https://wso2.com/choreo/){target="_blank"}, WSO2's integration platform. To do so,
+We will now deploy the developed authentication service in [Choreo](https://wso2.com/choreo/){target="_blank"}, WSO2's integration platform. To do so,
 
 1. Go to the [Choreo Console](https://console.choreo.dev/login){target="_blank"} and login with the SAME email address you used to create your Asgardeo organization.
 

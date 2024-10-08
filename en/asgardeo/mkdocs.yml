@@ -67,9 +67,9 @@ extra:
           - title: Authentication
             url: Guides|Authentication|Authentication
           - title: API authorization
-            url: Guides|API authorization
+            url: Guides|Authorization|Authorization
           - title: Branding
-            url: Guides|Branding|Branding
+            url: Guides|Customize|Customize branding|Customize branding
           - title: User management
             url: Guides|User management|User management
           - title: User self-service
@@ -117,6 +117,10 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+        'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
+        'guides/account-configurations.md': 'guides/user-accounts/index.md'
+        'references/application-logs.md' : 'guides/asgardeo-logs.md'
+        'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
 
 # Navigation
 nav:
@@ -174,20 +178,22 @@ nav:
             - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
             - Enable attributes for SAML apps: guides/authentication/user-attributes/enable-attributes-for-saml-app.md
           - Manage consent for user attributes: guides/authentication/manage-consent-for-attributes.md
-          - Add social login:
-            - Add social login: guides/authentication/social-login/index.md
-            - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
-            - Add Github login: guides/authentication/social-login/add-github-login.md
-            - Add Google login: guides/authentication/social-login/add-google-login.md
-            - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
-            - Add Apple login: guides/authentication/social-login/add-apple-login.md
-          - Add decentralized login:
-            - Add decentralized login: guides/authentication/decentralized-login/index.md
-            - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
-          - Add standard-based login:
-            - Add standard-based login: guides/authentication/standard-based-login/index.md
-            - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
-            - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
+          - Add federated login:
+            - Add federated login: guides/authentication/federated-login/index.md
+            - Add social login:
+              - Add social login: guides/authentication/social-login/index.md
+              - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
+              - Add Github login: guides/authentication/social-login/add-github-login.md
+              - Add Google login: guides/authentication/social-login/add-google-login.md
+              - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
+              - Add Apple login: guides/authentication/social-login/add-apple-login.md
+            - Add decentralized login:
+              - Add decentralized login: guides/authentication/decentralized-login/index.md
+              - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+            - Add standard-based login:
+              - Add standard-based login: guides/authentication/standard-based-login/index.md
+              - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
+              - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
           - Add identifier first login: guides/authentication/add-identifier-first-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
@@ -196,6 +202,7 @@ nav:
             - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
             - Add Passkey: guides/authentication/mfa/add-passkey-login.md
             - Add iProov: guides/authentication/mfa/add-iproov-login.md
+            - Add Duo: guides/authentication/mfa/add-duo-login.md
             - Add user-preferred MFA: guides/authentication/mfa/user-preferred-mfa-login.md
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
@@ -240,14 +247,12 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
-      - API authorization: guides/api-authorization.md
-      - Branding:
-        - Branding: guides/branding/index.md
-        - Configure UI branding: guides/branding/configure-ui-branding.md
-        - Branding AI: guides/branding/ai-branding.md
-        - Configure custom domains: guides/branding/configure-custom-domains.md
-        - Customize email templates: guides/branding/customize-email-templates.md
-        - Localization in Asgardeo: guides/branding/localization-in-asgardeo.md
+      - Authorization:
+        - Authorization: guides/authorization/index.md
+        - API authorization:
+          - Role-based access control: guides/authorization/api-authorization/api-authorization.md
+        - Impersonation:
+            - User Impersonation: guides/authorization/impersonation/user-impersonation.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -311,6 +316,19 @@ nav:
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+      - Customize:
+        - Customize branding: 
+            - Customize branding: guides/branding/index.md
+            - Configure UI branding: guides/branding/configure-ui-branding.md
+            - Branding AI: guides/branding/ai-branding.md
+            - Configure custom domains: guides/branding/configure-custom-domains.md
+            - Customize email templates: guides/branding/customize-email-templates.md
+            - Localization in Asgardeo: guides/branding/localization-in-asgardeo.md
+        - Extend with actions:
+            - Understanding actions: guides/customize/actions/understanding-actions.md
+            - Setting up actions: guides/customize/actions/setting-up-actions.md
+            - Action types: 
+              - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -343,6 +361,7 @@ nav:
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
+      - Action Management API: apis/action-management-rest-api.md
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
       - App-native authentication API: apis/app-native-authentication-api.md
@@ -355,7 +374,7 @@ nav:
       - Identity governance API: apis/identity-governance.md
       - Identity provider API: apis/idp.md
       - Idle account identification API: apis/idle-account-identification.md
-      - OAuth Dynamic Client Registration API: apis/oauth-dcr.md
+      - OAuth Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
@@ -421,6 +440,10 @@ nav:
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
+    - Actions:
+      - Pre issue access token action: 
+        - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md
+        - Sample success reponses: references/actions/pre-issue-access-token-action/sample-success-responses.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - Production checklist:

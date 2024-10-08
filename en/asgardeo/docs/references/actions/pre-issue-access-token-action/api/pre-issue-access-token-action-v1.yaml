@@ -1,0 +1,377 @@
+openapi: 3.0.1
+info:
+  title: API contract for pre-issue access token action
+  description: This API defines the REST API contract for a service that implements logic to extend the access token issuance flow of Asgardeo.
+  version: v1
+security:
+- BasicAuth: []
+- BearerAuth: []
+- ApiKeyAuth: []
+- OAuth2: []
+paths:
+  /:
+    post:
+      summary: handle pre-issue access token events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBody'
+        required: true
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+              example:
+              - actionStatus: SUCCESS
+                operations:
+                  - op: add
+                    path: /accessToken/claims/-
+                    value:
+                      name: customSID
+                      value: "12345"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+              - actionStatus: ERROR
+                error: invalid_request
+                errorDescription: SID claim is missing
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+              - actionStatus: ERROR
+                error: server_error
+                errorDescription: Failed to process the response
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/Request'
+        tenant:
+          $ref: '#/components/schemas/Tenant'
+        user:
+          $ref: '#/components/schemas/User'
+        organization:
+          $ref: '#/components/schemas/Organization'
+        userStore:
+          $ref: '#/components/schemas/UserStore'
+        accessToken:
+          $ref: '#/components/schemas/AccessToken'
+      description: Defines the context data related to the pre issue access token event that needs to be shared with the custom service to process and execute.
+    Request:
+      type: object
+      properties:
+        grantType:
+          type: string
+          description: The type of OAuth2 grant used for the token request, such as authorization code, client credentials, password, or refresh token. This defines the flow that is being used to obtain the access token.
+          example:
+            authorization_code
+        clientId:
+          type: string
+          description: The unique identifier of the client (application) that is requesting the access token. 
+          example:
+            1u31N7of6gCNR9FqkG1neSlsF_Qa
+        scopes:
+          type: array
+          items:
+            type: string
+          description: The scopes requested by the client, which define the permissions associated with the access token. Scopes determine what resources the access token will grant access to.
+          example:
+            - read
+            - write
+        additionalHeaders:
+          type: array
+          description: Any additional HTTP headers included in the access token request. These may contain custom information or metadata that the client has sent.
+            All headers in request are not incorporated specially sensitive headers like ‘Authorization’, ‘Cookie’, etc.
+          items:
+            $ref: '#/components/schemas/RequestHeaders'
+        additionalParams:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestParams'
+      description: Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows.
+        All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc..
+    Tenant:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique numeric identifier of the tenant.
+          example: 
+            2
+        name:
+          type: string
+          description: The domain name of the tenant.
+          example: 
+            bar.com
+      description: This property represents the tenant under which the token request is being processed. 
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Defines the unique identifier of the user.
+          example: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+      description: Contains information about the authenticated user associated with the token request.
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the organization.
+          example: 5c7930f2-c97d-4b38-89a6-7be5fb138a35
+        name:
+          type: string
+          description: Name of the organization used to identify the organization in configurations, user interfaces, etc.
+          example: foo.com
+      description: Refers to the organization to which the user belongs. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.
+    UserStore:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the user store.
+          example: UFJJTUFSWQ==
+        name:
+          type: string
+          description: User store name used to identify the user store in configuration settings, user interfaces, and administrative tasks.
+          example: PRIMARY
+      description: Indicates the user store in which the user's data is being managed. 
+    AccessToken:
+      type: object
+      properties:
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessTokenClaims'
+          description: |
+            An array that contains both standard access token claims and any OpenID Connect (OIDC) claims configured to be included in the access token.
+            
+            Standard claims:
+            
+            - **sub**: The subject identifier for the token, typically representing the user. In M2M apps that use client credentials this represents the application.
+            - **iss**: The issuer of the token, which is the tenant of Asgardeo that acts as the authorization server.
+            - **aud**: The audience for the token.
+            - **client_id**: The identifier of the client (application) that requested the token.
+            - **aut**: The authorized user type associated with the token.
+            
+              Can have the following values:
+              - **APPLICATION**: Indicates that the token is authorized for an application.
+              - **APPLICATION_USER**: Indicates that the token is authorized for a user.
+            
+            - **expires_in**: The duration (in seconds) for which the token is valid.
+            - **binding_type**: Indicates the type of binding associated with the token, if applicable.
+            - **binding_ref**: A reference identifier for the binding, if applicable.
+            - **subject_type**: Specifies the type of subject (e.g., public or pairwise) as per OIDC specifications.
+            
+              OIDC claims are any additional claims configured in the application to be included in the access token. These claims are based on the OIDC standard and may include user profile information such as email, given-name, or custom claims specific to the application. 
+          example:
+            - name: sub
+              value: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+            - name: iss
+              value: https://localhost:9443/t/foo.com/oauth2/
+            - name: client_id
+              value: 1u31N7of6gCNR9FqkG1neSlsF_Qa
+            - name: aut
+              value: APPLICATION_USER
+            - name: expires_in
+              value: 3600
+            - name: subject_type
+              value: public
+        scopes:
+          type: array
+          items:
+            type: string
+          description: Lists the permissions or access levels granted by the access token.
+          example:
+            - read
+      description: Represents the access token that is about to be issued. It contains claims and scopes, of the access token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
+    AllowedOperations:
+      type: array
+      description: Defines the set of operations that your external service is permitted to perform on the access token's claims and scopes.
+      items:
+        anyOf:
+        - $ref: '#/components/schemas/addOperation'
+        - $ref: '#/components/schemas/replaceOperation'
+        - $ref: '#/components/schemas/removeOperation'
+    AllowedOperation:
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+            - add
+            - replace
+            - remove
+        paths:
+          type: array
+          items:
+            type: string
+      description: Defines the operation
+      discriminator:
+        propertyName: op
+        mapping:
+          add: addOperation
+          replace: replaceOperation
+          remove: removeOperation
+    addOperation:
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+            - add
+        paths:
+          type: array
+          example:
+          - /accessToken/claims
+          - /accessToken/scopes
+          items:
+            type: string
+      description: Defines the add operation.
+      allOf:
+      - $ref: '#/components/schemas/AllowedOperation'
+    replaceOperation:
+      type: object
+      properties:
+        paths:
+          type: array
+          items:
+            type: string
+            example: 
+            - /accessToken/claims
+            - /accessToken/scopes
+      description: Defines the replace operation.
+      allOf:
+      - $ref: '#/components/schemas/AllowedOperation'
+    removeOperation:
+      type: object
+      properties:
+        paths:
+          type: array
+          items:
+            type: string
+            example: 
+            - /accessToken/claims
+            - /accessToken/scopes
+      description: Defines the remove operation.
+      allOf:
+      - $ref: '#/components/schemas/AllowedOperation'
+    SuccessResponse:
+      type: object
+      properties:
+        actionStatus:
+          type: string
+          enum:
+          - SUCCESS
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operations'
+      description: Defines the success response.
+    ErrorResponse:
+      type: object
+      properties:
+        actionStatus:
+          type: string
+          enum:
+          - ERROR
+          description: Indicates the outcome of the request. For an error operation, this should be set to ERROR.
+        error:
+          type: string
+          description: The error code, as specified in OAuth 2.0 error response definitions.
+        errorDescription:
+          type: string
+          description: A detailed description of the error.
+      description: |
+        When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating that the expected validations are not met or there is an issue processing the request. 
+        
+        If the defined error response is not received, or if the external service fails to respond, this is identified as an error in executing the action. In such cases, the flow will proceed as if the action was not applied, ensuring that the process continues without disruption.
+    RequestBody:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: A unique correlation identifier that associates with the token request received by Asgardeo
+          example: Ec1wMjmiG8
+        actionType:
+          type: string
+          enum:
+            - PRE_ISSUE_ACCESS_TOKEN
+          description: Specifies the action being triggered, which in this case is PRE_ISSUE_ACCESS_TOKEN.
+        event:
+          $ref: '#/components/schemas/Event'
+        allowedOperations:
+          $ref: '#/components/schemas/AllowedOperations'
+    RequestHeaders:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Host"
+        values:
+          type: array
+          items:
+            type: string
+          example:
+            - "example.com"
+    RequestParams:
+      type: object
+      properties:
+        name:
+          type: string
+          example: 
+            device
+        values:
+          type: array
+          items:
+            type: string
+          example:
+            - 003ef4a768182ba1ece32cb
+    AccessTokenClaims:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+    Operations:
+      type: object
+      properties:
+        op:
+          type: string
+        path:
+          type: string
+        value:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-Key
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://example.com/oauth/token
+          scopes:
+            process: process request generate response
