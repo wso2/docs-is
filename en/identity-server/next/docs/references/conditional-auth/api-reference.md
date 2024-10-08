@@ -35,6 +35,7 @@
     - [`application`](#application)
     - [`userAgent`](#user-agent)
     - [`connectionMetadata`](#connectionmetadata)
+    - [`authConfig`](#authconfig)
 
 ---
 
@@ -84,7 +85,8 @@ This method accepts an object as a parameter and should include the details list
   <tr>
     <td><code>&lteventCallbacks&gt</code></td>
     <td>(optional) The object that contains the callback functions, which are to be called based on the result of the step execution.<br />
-    Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.</td>
+    Supported results are <code>onSuccess</code> and <code>onFail</code> which can have their own optional callbacks as anonymous functions. For these callbacks, the [context](#context) and [data](#data) parameters are passed.
+    </td>
   </tr>
 </table>
 
@@ -319,7 +321,7 @@ This function redirects the user to an error page. It includes the parameters li
     <table>
       <tbody>
         <tr>
-          <td><code>url</code></td>
+          <td style="white-space: nowrap;"><code>url</code></td>
           <td>The URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the <strong>retry.do</strong> error page.<br />
           Note that any relative URL is assumed to be relative to the host's root.</td>
         </tr>
@@ -683,7 +685,7 @@ This function returns the local user associated with the federate username given
 
 ### HTTP GET
 
-`httpGet(url, headers)`
+`httpGet(url, headers, authConfig, eventHandlers)`
 
 The HTTP GET function enables sending HTTP GET requests to specified endpoints as part of the adaptive authentication scripts in WSO2 Identity Server. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
 
@@ -696,8 +698,18 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
           <td>The URL of the endpoint to which the HTTP GET request should be sent.</td>
         </tr>
         <tr>
-          <td><code>headers</code></td>
+          <td style="white-space: nowrap;"><code>headers</code></td>
           <td>HTTP request headers to be included in the GET request (optional).</td>
+        </tr>
+        <tr>
+          <td style="white-space: nowrap;"><code>authConfig</code></td>
+          <td>An object containing the necessary authentication metadata to invoke the API. See [AuthConfig](#authconfig) for information.</td>
+        </tr>
+        <tr>
+          <td style="white-space: nowrap;"><code>eventHandlers</code></td>
+          <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
+              Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
+          </td>
         </tr>
       </tbody>
     </table>
@@ -705,11 +717,18 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
   - **Example**
 
   ``` js
-      function onLoginRequest(context) {
+      var authConfig = {
+          type: "basic",
+          properties: {
+              username: "admin",
+              password: "adminPassword"
+          }
+      };
+  
+      var onLoginRequest = function(context) {
           httpGet('https://example.com/resource', {
-              "Authorization": "Bearer token",
               "Accept": "application/json"
-          }, {
+          }, authConfig, {
               onSuccess: function(context, data) {
                   Log.info('httpGet call succeeded');
                   context.selectedAcr = data.status;
@@ -724,17 +743,9 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
       }
   ```
 
-!!! note     
-    To restrict HTTP GET requests to certain domains, configure the `deployment.toml` file as follows:
-
-    ``` toml
-    [authentication.adaptive]
-    http_function_allowed_domains = ["example.com", "api.example.org"]
-    ```  
-
 ### HTTP POST
 
-`httpPost(url, body, headers)`
+`httpPost(url, body, headers, authConfig, eventHandlers)`
 
 The HTTP POST function enables sending HTTP POST requests to specified endpoints as part of the adaptive authentication scripts in WSO2 Identity Server. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
 
@@ -754,39 +765,102 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
           <td><code>headers</code></td>
           <td>HTTP request headers to be included in the POST request (optional).</td>
         </tr>
+        <tr>
+          <td><code>authConfig</code></td>
+          <td>Authentication configuration to be included in the GET request (optional).</td>
+          </tr>
+        <tr>
+          <td><code>eventHandlers</code></td>
+          <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
+              Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
+          </td>
+        </tr>
       </tbody>
     </table>
 
-  - **Example**
+- **Example**
 
-  ``` js
-      function onLoginRequest(context) {
-          httpPost('https://example.com/resource', {
-              "email": "test@wso2.com"
-          }, {
-              "Authorization": "Bearer token",
-              "Accept": "application/json"
-          }, {
-              onSuccess: function(context, data) {
-                  Log.info('httpPost call succeeded');
-                  context.selectedAcr = data.status;
-                  executeStep(1);
-              },
-              onFail: function(context, data) {
-                  Log.info('httpPost call failed');
-                  context.selectedAcr = 'FAILED';
-                  executeStep(2);
-              }
-          });
-      }
-  ```
-  
+    ```
+    var authConfig = {
+        type: "clientcredential",
+        properties: {
+            consumerKey: "clientId",
+            consumerSecret: "clientSecret",
+            tokenEndpoint: "https://token-endpoint.com/token"
+        }
+    };
+
+    var onLoginRequest = function(context) {
+        httpPost('https://example.com/resource', {
+            "email": "test@wso2.com"
+        }, {
+            "Authorization": "Bearer token",
+            "Accept": "application/json"
+        }, authConfig, {
+            onSuccess: function(context, data) {
+                Log.info('httpPost call succeeded');
+                context.selectedAcr = data.status;
+                executeStep(1);
+            },
+            onFail: function(context, data) {
+                Log.info('httpPost call failed');
+                context.selectedAcr = 'FAILED';
+                executeStep(2);
+            }
+        });
+    }
+    ```
+
 !!! note     
-    To restrict HTTP POST requests to certain domains, configure the `deployment.toml` file as follows:
+    To restrict HTTP GET requests to certain domains, for `httpGet` and `httpPost` functions in adaptive authentication scripts, update the `deployment.toml` file as follows:
 
-    ``` toml
+    ```toml
     [authentication.adaptive]
     http_function_allowed_domains = ["example.com", "api.example.org"]
+    ```
+
+    To fine-tune connections initiated by WSO2 Identity Server to external services, you may add the following configurations to the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory 
+
+    <table>
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Description</th>
+                <th>Default Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>http_connections.read_timeout</strong></td>
+                <td>The maximum time (in milliseconds) the server will wait for a response from the external service.</td>
+                <td>3000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>http_connections.request_timeout</strong></td>
+                <td>The maximum time (in milliseconds) the server will wait to obtain a connection from the connection pool.</td>
+                <td>1000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>http_connections.connection_timeout</strong></td>
+                <td>The maximum time (in milliseconds) the server will wait to establish a connection to the external service.</td>
+                <td>3000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>http_connections.request_retry_count</strong></td>
+                <td>Specifies the number of retry attempts for token requests initiated for authentication from client credentials.</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+
+    Sample configuration is as follows:
+    
+    ```toml
+    [authentication.adaptive]
+    http_connections.read_timeout = 6000
+    http_connections.request_timeout = 3000
+    http_connections.connection_timeout = 3000
+    http_connections.request_retry_count = 2
     ```
 
 ## Object reference
@@ -965,3 +1039,64 @@ Contains the authentication step information. It may be a null or invalid step n
       <td>This is the device property that is extracted from the raw userAgent string.</td>
     </tr>
   </table>
+
+You can securely store consumer keys and secrets as **secrets** in conditional authentication scripts and refer to
+them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you may use:
+```angular2html
+var consumerSecret = secrets.clientSecret;
+```
+For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the 
+documentation.
+
+### AuthConfig
+
+When using httpGet or httpPost functions in adaptive authentication scripts, the table summarizes each
+authentication type and its required properties:
+
+<table>
+    <thead>
+        <tr>
+            <th>Authentication Type</th>
+            <th>Properties</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>basic</td>
+            <td>username, password</td>
+            <td>Uses user credentials.</td>
+        </tr>
+        <tr>
+            <td>apikey</td>
+            <td>apiKey, headerName</td>
+            <td>Uses an API key sent as a header.</td>
+        </tr>
+        <tr>
+            <td>clientcredential</td>
+            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional, a space separated list of scopes)</td>
+            <td>Uses client credentials to obtain an access token.</td>
+        </tr>
+        <tr>
+            <td>bearer</td>
+            <td>token</td>
+            <td>Uses a bearer token for authentication.</td>
+        </tr>
+    </tbody>
+</table>
+
+You can securely store sensitive values of properties like username, password, consumerKey, consumerSecret as secrets in conditional authentication scripts and refer to them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you can use:
+```angular2html
+var consumerSecret = secrets.clientSecret;
+```
+
+For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the documentation.
+
+### Data
+
+<table>
+  <tr>
+    <td><code>data</code></td>
+    <td>The response data is a JSON object that contains the response data from the API call.</td>
+  </tr>
+</table>

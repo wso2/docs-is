@@ -9,7 +9,7 @@ The capabilities of an action are determined by its execution point within the {
 {{product_name}} defines several types of actions, each tailored to customize a specific flow within the product. While all action types use the same general syntax for requests and responses exchanged between {{product_name}} and the external web service, they differ in the specifics of the JSON objects involved. When implementing your external service, you must develop your code according to the REST API contract associated with the type of action you are using. The following flows support customization with custom code.
 
 !!! note
-    Currently, the product supports only the <code>pre issue access token</code> trigger. The other action types listed below are planned for inclusion by September 2024.
+    Currently, the product supports only the <code>pre issue access token</code> trigger. The other action types listed below are planned for inclusion by early December 2024.
 
 <table>
 <thead>
@@ -24,7 +24,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Login</td>
 <td>Authenticate</td>
-<td>October 2024</td>
+<td>Early November 2024</td>
 <td>
 <ul>
 <li><p>Call an external service to authenticate the user.</p></li>
@@ -48,7 +48,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Registration</td>
 <td>Pre registration</td>
-<td>November 2024</td>
+<td>Early December 2024</td>
 <td>
 <ul>
 <li><p>Deny registration by location.</p></li>
@@ -61,7 +61,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="even">
 <td>Password update</td>
 <td>Pre password update</td>
-<td>October 2024</td>
+<td>Early November 2024</td>
 <td>
 <ul>
 <li><p>Challenge with an additional verification factor before allowing to update password.</p></li>
@@ -72,7 +72,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Profile update</td>
 <td>Pre profile update</td>
-<td>November 2024</td>
+<td>Early December 2024</td>
 <td>
 <ul>
 <li><p>Challenge with an additional verification factor before allowing to update sensitive attributes.</p></li>
@@ -183,6 +183,6 @@ Requests will not be retried if the external service responds with HTTP status c
 ### Troubleshooting
 
 !!! note
-    Troubleshooting logs are not yet incorporated but are planned for inclusion by end August 2024.
+    Troubleshooting logs are not yet incorporated but are planned for inclusion by end October 2024.
 
 
