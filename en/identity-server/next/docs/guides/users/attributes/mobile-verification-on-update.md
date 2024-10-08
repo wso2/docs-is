@@ -1,25 +1,28 @@
-# Enable Mobile Number Verification for an Updated Mobile Number
+# Enable mobile number verification for an updated mobile number
 
-Mobile number verification on update ensures that when a user changes their primary mobile number, an SMS OTP is sent to the new number for verification. The existing primary number remains unchanged until the new one is successfully verified. If multiple mobile numbers per user support is enabled, users can maintain several verified numbers and designate one as the primary number as needed.
+Mobile number verification on update ensures that when a user changes their primary mobile number, an SMS OTP is sent 
+to the new number for verification. The existing primary number remains unchanged until the new one is successfully 
+verified. If multiple mobile numbers per user support is enabled, users can maintain several verified numbers and 
+designate one as the primary number as needed.
 
-!!! warning "Important" 
-    -   This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
-    -   The verification on update capability is **only** supported for the `http://wso2.org/claims/mobile` and `http://wso2.org/claims/verifiedMobileNumbers` claims.
-    -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
-
-!!! note 
-    By default, multiple email and mobile per user support is enabled. Add the following property to the above `deployment.toml` config to disabled this server wide and restart the server.
+!!! note
+    - This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
+    - The verification on update capability is **only** supported for the `http://wso2.org/claims/mobile` and `http://wso2.org/claims/verifiedMobileNumbers` claims.
+    - An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously 
+    verified mobile number of the user.
+    - Triggering a mobile verification is skipped if the `verifyMobile` claim is not set to true when 
+    `UseVerifyClaim` config is enabled.
+    - By default, multiple email and mobile per user support is enabled. Add the following property to the above `deployment.toml` config to disabled this server wide and restart the server.
         ```toml
         [identity_mgt.user_claim_update]
         enable_multiple_emails_and_mobile_numbers = false
         ```
----
 
-## Configuring SMS Providers
+## Prerequisites
 
-Configurations related to SMS providers are located under the **Email & SMS** section.
+### Configurations related to SMS providers are located under the **Email & SMS** section.
 
-### Supported Providers
+#### Supported Providers
 
 {{ product_name }} supports Twilio, Vonage, or custom SMS providers by default. To learn how to configure each provider, please see the relevant section.
 
@@ -125,7 +128,7 @@ Configurations related to SMS providers are located under the **Email & SMS** se
       </tr>
     </table>
 
-## Configure mobile attribute change verification:
+## Configure mobile number verification on update
 
 1. On the {{product_name}} Console, go to **User Attributes & Stores** > **Attributes**.
 
@@ -148,8 +151,9 @@ Configurations related to SMS providers are located under the **Email & SMS** se
 ## Try it out 
 
 ### Update the primary mobile number
- 
-Given below is a sample request and the relevant response for updating the mobile number via a PATCH operation to SCIM 2.0 Users endpoint.
+
+Given below is a sample request and the relevant response for updating the mobile number via a PATCH operation to SCIM 
+2.0 Users endpoint.
 
 !!! abstract ""
     **Request**
@@ -178,7 +182,8 @@ Given below is a sample request and the relevant response for updating the mobil
         },
         "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User",
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+            "urn:scim:wso2:schema"
         ],
         "roles": [
             {
@@ -205,6 +210,18 @@ Given below is a sample request and the relevant response for updating the mobil
     ```
 
 ### Update the verified mobile numbers list
+
+If you have multiple email and mobile per user support enabled, you can maintain several verified mobile numbers and 
+select one as your primary number whenever you need.
+
+To verify a mobile number, simply click on the verify mobile icon next to the number you'd like to verify.
+
+![Mobile number update]({{base_path}}/assets/img/guides/users/my-account-verify-mobile.png)
+
+A verification code will be sent to your mobile number. Enter this code in the provided field and click the 'Verify' 
+button to complete the process.
+
+![Mobile number verification code]({{base_path}}/assets/img/guides/users/my-account-mobile-verification-code.png)
  
 Given below is a sample request and the relevant response for updating the verified mobile numbers via a PATCH 
 operation to SCIM 2.0 Users endpoint.
@@ -237,7 +254,8 @@ operation to SCIM 2.0 Users endpoint.
         },
         "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User",
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+            "urn:scim:wso2:schema"
         ],
         "roles": [
             {
@@ -260,7 +278,7 @@ operation to SCIM 2.0 Users endpoint.
         "urn:scim:wso2:schema": {
             "mobileNumbers": "0111111111",
             "verifiedMobileNumbers": "0111111111",
-        }
+        },
         "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
             "pendingMobileNumber": "0123456789"
         }
