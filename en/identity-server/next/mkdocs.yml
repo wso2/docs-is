@@ -462,6 +462,10 @@ nav:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
         - Impersonation:
             - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+      - Identity Verification:
+        - Identity Verification: guides/identity-verification/index.md
+        - Registering an Identity Verification Provider: guides/identity-verification/add-identity-verification-provider.md
+        - Manage an Identity Verification Provider: guides/identity-verification/manage-identity-verification-provider.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
