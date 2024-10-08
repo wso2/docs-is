@@ -471,19 +471,19 @@ components:
       properties:
         id:
           type: string
-          example: ONFIDO
+          example: TEMPLATE_ID
         version:
           type: string
           example: v1.0.0
         name:
           type: string
-          example: Onfido
+          example: Template Name
         description:
           type: string
-          example: Enable identity verification through Onfido.
+          example: Template Description.
         image:
           type: string
-          example: "https://raw.githubusercontent.com/wso2-extensions/identity-verification-onfido/main/ui-metadata/images/onfido-icon.png"
+          example: "onfido-logo-url"
         displayOrder:
           type: integer
           example: 1
