@@ -172,7 +172,6 @@ plugins:
         'guides/elk-analytics/elk-analyzing-login-attempts.md': 'guides/analytics/analyzing-login-attempts.md'
         'guides/elk-analytics/elk-analyzing-session-statistics.md': 'guides/analytics/analyzing-active-sessions.md'
         'guides/elk-analytics/elk-alert-types.md': 'guides/analytics/elk-alert-types.md'
-
         'guides/dialects/dialects-overview.md': 'guides/users/attributes/index.md'
         'guides/dialects/add-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
         'guides/dialects/edit-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
