@@ -1,0 +1,9 @@
+{
+    "liveUrl": "http://localhost:8000/asgardeo/docs",
+    "ignorePatterns": [
+        "https://wso2.com/.*",
+        "mailto:.*",
+        "https://example.com/.*",
+        "https://api.asgardeo.io/t/.*"
+    ]
+}
