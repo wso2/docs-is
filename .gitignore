@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+broken-links-log.txt
 
 # BlueJ files
 *.ctxt
@@ -20,6 +21,7 @@
 hs_err_pid*
 .idea/
 .DS_Store
+node_modules
 en/identity-server/*/site
 en/asgardeo/site
 
