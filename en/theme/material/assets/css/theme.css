@@ -30,6 +30,7 @@
     /* START OF - Default Material Theme Overrides  */
     --md-text-font: "Gilmer", sans-serif;
     --md-primary-fg-color: #ff7300;
+    --md-primary-fg-shade-color: #eb4f63;
     --md-accent-fg-color: #e46700;
     --md-redoc-example-bg-color: #2b3339;
     /* END OF - Default Material Theme Overrides  */
@@ -129,7 +130,7 @@
 
 .highlighttable th.filename,
 .md-typeset .tabbed-labels > label {
-    color: #fff;
+    color: var(--colors-white);
 }
 
 .md-typeset .highlighttable > tbody > tr + tr > .code > div > pre > code {
@@ -142,12 +143,21 @@
 }
 
 .md-typeset code {
+    color: var(--md-code-fg-color);
+    background-color: var(--md-code-bg-color);
     border-radius: .25rem;
     padding: .1rem .3rem;
 }
 
-.md-typeset pre code {
-    border-radius: .3rem;
+[data-md-color-scheme=default] .md-typeset code {
+    background-color: var(--md-code-fg-color);
+    color: var(--md-code-bg-color);
+}
+
+.md-typeset pre > code {
+    border-radius: var(--md-code-block-radius);
+    color: var(--md-code-fg-color) !important;
+    background-color: var(--md-code-bg-color) !important;
 }
 
 .highlighttable .linenodiv pre {
@@ -332,7 +342,6 @@
 }
 
 .md-sidebar--primary {
-    background-color: var(--md-footer-bg-color);
     border-right: 1px solid var(--md-divider-color);
 }
 
