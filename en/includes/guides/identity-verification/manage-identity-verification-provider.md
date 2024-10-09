@@ -19,7 +19,7 @@ To edit an IDVP:
 
 1. On the {{ product_name }} Console, go to **Connections**.
 
-2. Find the IDVP and click **Setup up**.
+2. Find the IDVP and click **Set up**.
    ![idvp-list]({{base_path}}/assets/img/guides/identity-verification/view-idvp.png)
 
 3. Update the information on the IDVP.
@@ -34,7 +34,7 @@ To disable an IDVP:
 
 1. On the {{ product_name }} Console, go to **Connections**.
 
-2. Find the IDVP and click **Setup up**.
+2. Find the IDVP and click **Set up**.
     ![idvp-list]({{base_path}}/assets/img/guides/identity-verification/view-idvp.png)
 
 3. Disable the **Disable identity verification provider** toggle at the bottom of the **General tab**.
