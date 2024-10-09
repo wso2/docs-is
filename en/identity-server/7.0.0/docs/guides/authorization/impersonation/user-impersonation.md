@@ -108,9 +108,11 @@ You only need to run this command once per deployment.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select the application and go to API Authorization tab of the application and click authorize API Resource.
+2. Select the application and go to API Authorization tab of the application and click authorize on API Resource.
 
 3. Search for User Impersonation under management APIs and subscribe to the application.
+
+    ![Api-Authorization-Impersonation-Selection]({{base_path}}/assets/img/guides/authorization/impersonation/user-impersonation-selection.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ![Api-Authorization-Impersonation]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -161,12 +163,12 @@ A security JWT token that represents the identity of both parties Impersonator a
 
 **Request Format**
 ``` bash
-https://{{ host_name }}/oauth2/authorize?response_type=code&redirect_uri={redirect_uri}&client_id={client_id}state=<sample_state>&scope=internal_user_impersonate%20{Other_Required_Scopes}&response_type=id_token%20subject_token&requested_subject={User_id_of_the_end_user}&nonce={nonce}
+https://{{ host_name }}/oauth2/authorize?redirect_uri={redirect_uri}&client_id={client_id}&state=<sample_state>&scope=internal_user_impersonate%20{Other_Required_Scopes}&response_type=id_token%20subject_token&requested_subject={User_id_of_the_end_user}&nonce={nonce}
 ```
 
 **Sample Request**
 ``` bash
-https://localhost:9443/oauth2/authorize?client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a&state=sample_state&scope=internal_user_impersonate%20openid%20internal_org_user_mgt_view%20internal_org_user_mgt_list%20internal_user_mgt_delete%20internal_org_user_mgt_create%20internal_login%20internal_user_mgt_delete%20internal_user_mgt_view%20internal_user_mgt_list%20internal_user_mgt_update%20internal_user_mgt_create%20readBooking%0A&redirect_uri=https%3A%2F%2Foauth.pstmn.io%2Fv1%2Fcallback&response_type=id_token%20subject_token&requested_subject=32bc4697-ed0f-4546-8387-dcd6403e7caa&nonce=2131232
+https://localhost:9443/oauth2/authorize?client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a&state=sample_state&scope=internal_user_impersonate%20openid%20internal_org_user_mgt_view%20internal_org_user_mgt_list%20internal_user_mgt_delete%20internal_org_user_mgt_create%20internal_login%20internal_user_mgt_delete%20internal_user_mgt_view%20internal_user_mgt_list%20internal_user_mgt_update%20internal_user_mgt_create&redirect_uri=https%3A%2F%2Foauth.pstmn.io%2Fv1%2Fcallback&response_type=id_token%20subject_token&requested_subject=32bc4697-ed0f-4546-8387-dcd6403e7caa&nonce=2131232
 ```
 
 **Sample Response after sucessful authorization**
