@@ -1,4 +1,4 @@
-## Manage an Identity Verification Provider
+# Manage an Identity Verification Provider
 
 This section provides instructions on how to manage Identity Verification Providers (IDVPs) once they are created.
 
