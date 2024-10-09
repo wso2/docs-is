@@ -1,4 +1,4 @@
-# Enable mobile number verification for an updated mobile number
+# Enable mobile number verification on update
 
 Mobile number verification on update ensures that when a user changes their primary mobile number, an SMS OTP is sent 
 to the new number for verification. The existing primary number remains unchanged until the new one is successfully 

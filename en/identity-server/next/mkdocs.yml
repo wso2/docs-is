@@ -499,8 +499,8 @@ nav:
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
           - User attribute change verification:
             - Configure user attribute change verification: guides/users/attributes/user-attribute-change-verification.md
-            - Enable verification for updated email address: guides/users/attributes/email-verification-on-update.md
-            - Enable verification for updated mobile number: guides/users/attributes/mobile-verification-on-update.md
+            - Configure email address verification on update: guides/users/attributes/email-verification-on-update.md
+            - Configure mobile number verification on update: guides/users/attributes/mobile-verification-on-update.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Configure the primary user store:

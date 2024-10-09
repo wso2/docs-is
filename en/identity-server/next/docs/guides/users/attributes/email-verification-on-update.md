@@ -1,4 +1,4 @@
-# Enable email account verification for an updated email address 
+# Enable user email verification on update
 
 Email address verification on update ensures that when a user changes their primary email address, verification is 
 triggered to the new email address. The existing primary email address remains unchanged until the new one is 
@@ -147,7 +147,8 @@ operation to SCIM 2.0 Users endpoint.
         },
         "schemas":[
             "urn:ietf:params:scim:schemas:core:2.0:User",
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+            urn:scim:wso2:schema
         ],
         "urn:scim:wso2:schema": {
             "emailAddresses": "kimjack@gmail.com",
