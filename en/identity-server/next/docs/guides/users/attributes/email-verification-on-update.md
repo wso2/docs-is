@@ -77,6 +77,10 @@ SCIM 2.0 Users endpoint.
             "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
             "urn:scim:wso2:schema"
         ],
+        "urn:scim:wso2:schema": {
+            "emailAddresses": "kimjack@gmail.com",
+            "verifiedEmailAddresses": "kimjack@gmail.com",
+        },
         "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{
             "pendingEmails":[
                 {
@@ -100,7 +104,9 @@ SCIM 2.0 Users endpoint.
     ```
 
 Upon receiving the response outlined above, the user will receive an email notification prompting them to verify their 
-updated email address. Once verified, the `emailaddress` claim (http://wso2.org/claims/emailaddress) will be updated to reflect the newly-verified email address.
+updated email address. Once verified, the `emailAddresses` claim (http://wso2.org/claims/emailaddress) and 
+`verifiedEmailAddresses` claim (http://wso2.org/claims/verifiedEmailAddresses) will be updated to reflect the 
+newly-verified email address.
 
 ### Update the verified email address list
 
@@ -177,9 +183,8 @@ operation to SCIM 2.0 Users endpoint.
     ```
 
 Upon receiving the response outlined above, the user will receive an email notification prompting them to verify their 
-updated email address. Once verified, the `emailAddresses` claim (http://wso2.org/claims/emailaddress) and 
-`verifiedEmailAddresses` claim (http://wso2.org/claims/verifiedEmailAddresses) will be updated to reflect the 
-newly-verified email address.
+updated email address. Once verified, `verifiedEmailAddresses` claim (http://wso2.org/claims/verifiedEmailAddresses) 
+will be updated to reflect the newly-verified email address.
 
 ## Resend email verification
 

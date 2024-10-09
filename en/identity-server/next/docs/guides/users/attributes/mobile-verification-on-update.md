@@ -150,7 +150,9 @@ designate one as the primary number as needed.
 
 ## Try it out 
 
-### Update the primary mobile number
+### Trigger mobile number verification
+
+#### Update the primary mobile number
 
 Given below is a sample request and the relevant response for updating the mobile number via a PATCH operation to SCIM 
 2.0 Users endpoint.
@@ -209,19 +211,15 @@ Given below is a sample request and the relevant response for updating the mobil
     }
     ```
 
-### Update the verified mobile numbers list
+#### Update the verified mobile numbers list
 
 If you have multiple email and mobile per user support enabled, you can maintain several verified mobile numbers and 
 select one as your primary number whenever you need.
 
-To verify a mobile number, simply click on the verify mobile icon next to the number you'd like to verify.
+To verify a mobile number, simply click on the verify mobile icon next to the number you'd like to verify. 
+A verification code will be sent to your mobile number.
 
 ![Mobile number update]({{base_path}}/assets/img/guides/users/my-account-verify-mobile.png)
-
-A verification code will be sent to your mobile number. Enter this code in the provided field and click the 'Verify' 
-button to complete the process.
-
-![Mobile number verification code]({{base_path}}/assets/img/guides/users/my-account-mobile-verification-code.png)
  
 Given below is a sample request and the relevant response for updating the verified mobile numbers via a PATCH 
 operation to SCIM 2.0 Users endpoint.
@@ -290,8 +288,13 @@ mobile number.
  
 ### Validate the verification code
 
-The user can submit the SMS OTP code using the validate-code API.
-Given below is a sample request and the relevant response to submit the received verification code.
+Enter the verification code you received in the provided field and click the 'Verify' button to validate the 
+verification code.
+
+![Mobile number verification code]({{base_path}}/assets/img/guides/users/my-account-mobile-verification-code.png)
+
+Given below is a sample request and the relevant response to submit the received verification code using the 
+validate-code API.
 
 !!! abstract ""
     **Request**
@@ -313,8 +316,12 @@ Given below is a sample request and the relevant response to submit the received
 
 ### Resend the verification code
 
-The user can request to resend a new SMS OTP code using the resend-code API.
-Given below is a sample request and the relevant response to request a new verification code.
+The user can request to resend a new SMS OTP code by simply clicking on the "Resend verification code" button or 
+using the resend-code API.
+
+![Mobile number verification code]({{base_path}}/assets/img/guides/users/my-account-mobile-verification-code.png)
+
+Given below is a sample request and the relevant response to request a new verification code using the resend-code API.
 
 !!! abstract ""
     **Request**
