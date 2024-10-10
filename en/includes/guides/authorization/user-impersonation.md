@@ -1,33 +1,62 @@
 # User Impersonation
 
-User impersonation involves an authorization server’s ability to temporarily grant access to another user's account. With this feature, a user with required permission can impersonate any user within the organization.
+User impersonation is a feature that allows an authorized user to act as another user.
 
-## Setting up the {{ product_name }}
+This guide explains how you can implement user impersonation in {{product_name}}.
 
-### Configure the application
+## Prerequisite
 
-#### Subscribe to Impersonation API 
+To get started, you need to have an application registered in Asgardeo. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
+
+## Configure your application for user impersonation
+
+You can go through the following steps to prepare your application for user impersonation.
+
+### Step 1: Authorize application for user impersonation
+
+Your application should be authorized to consume to your applciation for user impersonation, you need to subscribe your application to consume the user impersonation API. To do so,
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select the application and go to API Authorization tab of the application and click authorize on API Resource.
+2. Select your application and go to its **API Authorization** tab.
 
-3. Search for User Impersonation under management APIs and subscribe to the application.
+3. Click **Authorize an API Resource** and do the following:
 
-    ![Api-Authorization-Impersonation-Selection]({{base_path}}/assets/img/guides/authorization/impersonation/user-impersonation-selection.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    1. Under **API Resource**, select **User Impersonation**.
 
-    ![Api-Authorization-Impersonation]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    2. Under **Authorized Scopes**, select **User Impersonation Scope**.
 
-4. Switch to the Roles tab, click on **+ New Role** to create a Role and assign the Impersonation Scope.
+    3. Click **Finish**.
 
-    ![Role-Creation]({{base_path}}/assets/img/guides/authorization/impersonation/role-creation.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![Authorize impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-5. Create a User and assign to the Role.
+### Step 2: Create a user role that allows user impersonation
+
+Next, let's create an application role and provide impersonation permissions to it. This role can then be assigned to users who are required to impersontae other users.
+
+1. Switch to the **Roles** tab of the application.
+
+2. Under **Role Audience**, select **Application**.
+
+3. Click **New Role** and do the following:
+
+    1. Provide a suitable role name.
+
+    2. Under **API Resource**, select **User Impersonation**.
+
+    3. Select the checkbox corresponding to **User Impersonation** to select its scopes.
+
+    4. Click **Create**.
+
+        ![Role-Creation]({{base_path}}/assets/img/guides/authorization/impersonation/role-creation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+4. Assign users to the role to provide them with user impersonation permissions.
 
 !!! note
-    To read about subscribing APIs and authorize using Role Based Access Control (RBAC) check [Role-based access control (RBAC)]({{base_path}}/guides/authorization/api-authorization/api-authorization/)
+    - Refer to [Manage roles]({{base_path}}/guides/users/manage-roles/) to learn more about roles and how to assign users to roles.
+    - Refer to [API authorization with RBAC]({{base_path}}/guides/authorization/api-authorization/api-authorization/) to learn more about API authorizations.
 
-#### Configure Subject token for the application
+### Step 3: Configure the subject token of the application
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
@@ -44,7 +73,7 @@ User impersonation involves an authorization server’s ability to temporarily g
     ![Subject-Token-Config]({{base_path}}/assets/img/guides/authorization/impersonation/subject-token-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
-#### Apply application advanced configuration
+### Step 4: Apply additional configurations to the application
 
 1. Select the application and go to Application Advanced tab.
 
