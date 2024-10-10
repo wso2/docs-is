@@ -14,7 +14,7 @@ A Jason Web Token (JWT) is a self-contained token. This means that the resource 
   "nbf": 1623904805,
   "azp": "Wsoq8t4nHW80gSnPfyDvRbiC__Ea",
   "scope": "openid",
-  "iss": "https://accounts.asgardeo.io/t/bifrost/oauth2/token",
+  "iss": "{{product_url_sample}}/oauth2/token",
   "exp": 1623908405,
   "iat": 1623904805,
   "jti": "9fac7747-bb2d-46be-bef2-a95b2f69f8b2"
@@ -28,12 +28,12 @@ Unlike JWT tokens, opaque tokens are non-transparent. This means that the author
 {{ product_name }} provides the following endpoint to perform token validation. 
 
 ``` 
-{{product_url}}/oauth2/introspect
+{{product_url_format}}/oauth2/introspect
 ```
 === "Request format"
 
     ```bash
-    curl --location --request POST {{product_url}}/oauth2/introspect \
+    curl --location --request POST {{product_url_format}}/oauth2/introspect \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic <Base64Encoded(ClientID:ClientSecret)>' \
     --data-urlencode 'token={access_token}'
