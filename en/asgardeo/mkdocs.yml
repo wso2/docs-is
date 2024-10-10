@@ -253,6 +253,8 @@ nav:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
         - Impersonation:
             - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+      - Identity Verification:
+          - Identity Verification with Onfido: guides/identity-verification/add-identity-verification-with-onfido.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
