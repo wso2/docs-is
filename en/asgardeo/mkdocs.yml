@@ -253,6 +253,10 @@ nav:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
         - Impersonation:
             - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+      - Identity Verification:
+        - Identity Verification: guides/identity-verification/index.md
+        - Registering an Identity Verification Provider: guides/identity-verification/add-identity-verification-provider.md
+        - Manage an Identity Verification Provider: guides/identity-verification/manage-identity-verification-provider.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -373,6 +377,7 @@ nav:
       - Event configuration API: apis/event-configuration.md
       - Identity governance API: apis/identity-governance.md
       - Identity provider API: apis/idp.md
+      - Identity verification provider API: apis/identity-verification-providers.md
       - Idle account identification API: apis/idle-account-identification.md
       - OAuth Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
       - Organization discovery API: apis/organization-discovery.md
