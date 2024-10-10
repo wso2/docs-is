@@ -17,31 +17,39 @@ Listed below are the endpoints and the rate limits that apply to each endpoint.
 
 <tbody>
     <tr>
-        <td>/api/identity/recovery/</td>
-        <td>200</td>
-    </tr>
-    <tr>
         <td>/me/</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/scim2/Me</td>
+        <td>/api/users/*</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/api/users/</td>
+        <td>/scim2/*</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/scim2/</td>
+        <td>/api/asgardeo/*</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/api/asgardeo-associate/</td>
+        <td>/api/asgardeo/v1/*</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/api/asgardeo-guest/</td>
+        <td>/api/asgardeo/v2/*</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>/api/asgardeo-associate/*</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>/api/asgardeo-guest/*</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>/api/asgardeo-enterprise-login/v2/*</td>
         <td>200</td>
     </tr>
     <tr>
@@ -49,11 +57,19 @@ Listed below are the endpoints and the rate limits that apply to each endpoint.
         <td>200</td>
     </tr>
     <tr>
-        <td>/api/identity/</td>
+        <td>/api/identity/*</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/api/server/</td>
+        <td>/api/server/*</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>/api/onprem-userstore/*</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>/api/event-configurations/v1/events</td>
         <td>200</td>
     </tr>
     <tr>
@@ -61,7 +77,7 @@ Listed below are the endpoints and the rate limits that apply to each endpoint.
         <td>200</td>
     </tr>
     <tr>
-        <td>/api/identity/auth/</td>
+        <td>/identity/*</td>
         <td>200</td>
     </tr>
     <tr>
@@ -69,19 +85,27 @@ Listed below are the endpoints and the rate limits that apply to each endpoint.
         <td>200</td>
     </tr>
     <tr>
+        <td>/identity/metadata/saml2</td>
+        <td>200</td>
+    </tr>
+    <tr>
         <td>/logincontext</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/oauth2/token</td>
+        <td>/commonauth</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/oauth2/</td>
+        <td>/common/oauth2/authorize</td>
         <td>200</td>
     </tr>
     <tr>
-        <td>/oidc/</td>
+        <td>/oauth2/*</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>/oidc/*</td>
         <td>200</td>
     </tr>
     <tr>
@@ -120,6 +144,13 @@ Listed below are the endpoints and the rate limits that apply to each endpoint.
         <td>/totpauthenticationendpoint</td>
         <td>200</td>
     </tr>
-
+    <tr>
+        <td>/scim2/Bulk</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>/branding-preference/generate</td>
+        <td>5</td>
+    </tr>
 </tbody>
 </table>
