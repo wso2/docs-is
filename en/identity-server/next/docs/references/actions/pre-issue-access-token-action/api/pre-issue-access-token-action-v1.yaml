@@ -353,7 +353,13 @@ components:
         name:
           type: string
         value:
-          type: string
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string
     Operations:
       type: object
       properties:
