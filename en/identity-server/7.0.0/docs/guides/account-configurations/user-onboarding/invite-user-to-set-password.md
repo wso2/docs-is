@@ -10,7 +10,7 @@ For inviting users to set their password, follow these instructions:
 2. Check the **Enable email invitations for user password setup** to send an email to the user to set the password after user creation.
 3. Select the **Enable account lock on creation** to lock the user account during user creation.
 4. If you want to send an account activation confirmation email, enable the **Send account activation email**.
-5. Set the **Password setup invitation code expiration time** in minutes to define how long the password setup invitation e-mail would be valid. For infinite validity period, set -1. Setting 0 will cause immediate expiry of the invitation
+5. Set the **Password setup invitation code expiration time** in minutes to define how long the password setup invitation e-mail would be valid. For infinite validity period, set -1. Setting 0 will cause immediate expiry of the invitation.
 6. Click **Update** to save the changes.
 
 ![Invite User to Set Password Configuration]({{base_path}}/assets/img/guides/account-configurations/invite-user-to-set-password.png){: width="700" style="display: block; margin: 0;"}
