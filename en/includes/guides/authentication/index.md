@@ -46,5 +46,4 @@ You can configure any number of external connections for your application via {{
 {% include "../fragments/manage-connection/add-groups.md" %}
 
 
-## hjgjhghj 
 
