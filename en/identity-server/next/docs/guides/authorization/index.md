@@ -14,3 +14,7 @@ The authorization guide offers detailed instructions for implementing a range of
 ## Impersonation
 
 - [Impersonation]({{base_path}}/guides/authorization/impersonation/user-impersonation/)
+
+## Access token attributes
+
+- [Access Token Attributes]({{base_path}}/guides/authorization/access-token/access-token-attributes/)
