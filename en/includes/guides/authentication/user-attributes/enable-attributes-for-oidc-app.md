@@ -147,7 +147,7 @@ _A sample userinfo response is given below:_
 
 ## Prioritize local account attributes
 
-{{ product_name }} offers the capability to share attributes of a local account during federated a{{ product_name }}uthentication, provided that there exists a local account linked with the federated identity. To prioritize the sharing of attributes from linked local accounts, follow the steps given below:
+{{ product_name }} offers the capability to share attributes of a local account during federated {{ product_name }} authentication, provided that there exists a local account linked with the federated identity. To prioritize the sharing of attributes from linked local accounts, follow the steps given below:
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab.
