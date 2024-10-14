@@ -4,17 +4,17 @@ User impersonation is a feature that allows an authorized user to act as another
 
 This guide explains how you can implement user impersonation in {{product_name}}.
 
-## Prerequisite
-
-To get started, you need to have an application registered in Asgardeo. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
-
 ## Configure your application for user impersonation
 
 You can go through the following steps to prepare your application for user impersonation.
 
+### Prerequisite
+
+To get started, you need to have an application registered in Asgardeo. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
+
 ### Step 1: Authorize application for user impersonation
 
-Your application should be authorized to consume to your applciation for user impersonation, you need to subscribe your application to consume the user impersonation API. To do so,
+Your application should be authorized to consume the user impersonation API. To do so,
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
@@ -30,9 +30,13 @@ Your application should be authorized to consume to your applciation for user im
 
         ![Authorize impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+!!! note
+
+    Refer to [API authorization with RBAC]({{base_path}}/guides/authorization/api-authorization/api-authorization/) to learn more about API authorizations.
+
 ### Step 2: Create a user role that allows user impersonation
 
-Next, let's create an application role and provide impersonation permissions to it. This role can then be assigned to users who are required to impersontae other users.
+Next, let's create an application role and provide impersonation permissions to it. This role can then be assigned to users who are required to impersonate other users.
 
 1. Switch to the **Roles** tab of the application.
 
@@ -50,80 +54,120 @@ Next, let's create an application role and provide impersonation permissions to 
 
         ![Role-Creation]({{base_path}}/assets/img/guides/authorization/impersonation/role-creation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Assign users to the role to provide them with user impersonation permissions.
-
 !!! note
-    - Refer to [Manage roles]({{base_path}}/guides/users/manage-roles/) to learn more about roles and how to assign users to roles.
-    - Refer to [API authorization with RBAC]({{base_path}}/guides/authorization/api-authorization/api-authorization/) to learn more about API authorizations.
+
+    You may assign users to the application role you created to provide them with user impersonation permissions. Refer to [Manage roles]({{base_path}}/guides/users/manage-roles/) to learn more about roles and how to assign users to roles.
 
 ### Step 3: Configure the subject token of the application
 
-1. On the {{ product_name }} Console, go to **Applications**.
+The subject token contains information about the impersonated user and can be exchanged to obtain access tokens and ID tokens on their behalf. Your application should allow subject tokens as an acceptable response type to authorization calls. To do so,
 
-2. Select the application and go to Protocol tab.
+1. Switch to the **Protocol** tab of your application.
 
-3. Enable **Token Exchange** grant type.
+2. Under **Allowed grant types**, select **Token Exchange**.
 
-4. Enable **JWT type** Access token.
+3. Under **Access Token** > **Token type**, select **JWT**.
 
-5. Enable subject token.
+4. Under **Subject Token**, select **Enable subject token response type**. Optionally, set the token expiry time in seconds.
 
-6. [Optional] Configure Subject token expiry time by default it is 3 minutes.
+5. Click **Update** to save the changes.
 
     ![Subject-Token-Config]({{base_path}}/assets/img/guides/authorization/impersonation/subject-token-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
-### Step 4: Apply additional configurations to the application
+### Step 4: Skip consent pages of applications
 
-1. Select the application and go to Application Advanced tab.
+Since the user is pre-approved to impersonate another user, we can bypass the consent prompts during both login and logout processes. To do so,
 
-2. Enable skip login consent and Enable skip logout consent.
+1. Switch to the **Advanced** tab of the application.
 
-## Impersonating a User
+2. Select **Skip login consent** and **Skip logout consent**.
 
-Impersonating a user involves two step process.
+3. Click **Update** to save the changes.
 
-1. Acquire Subject token from Authorize endpoint.
+## Get tokens for user impersonation
 
-2. Exchange subject token for impersonated access token using Token Exchange grant type.
+User impersonation involves the following two steps.
 
-    ![Impersonation-Flow]({{base_path}}/assets/img/guides/authorization/impersonation/Impersonation-flow.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+1. Acquire a subject token from the authorization endpoint. This token contains information on the impersonated user.
 
-### Acquire Subject Token
+2. Exchange the subject token for an access token and an ID token. These tokens provide you with authorization and authentication capabilities of the impersonated user.
 
-A security JWT token that represents the identity of both parties Impersonator and End-User. Subject token can be used to exchange impersonated access token. To obtain subject token, client need to initiate an authorize call with following query parameters.
+The following diagram outlines the detailed steps involved in user impersonation:
 
-**Request Format**
+![Impersonation-Flow]({{base_path}}/assets/img/guides/authorization/impersonation/Impersonation-flow.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-``` 
-https://api.asgardeo.io/t/{organization_name}/oauth2/authorize?redirect_uri={redirect_uri}&client_id={client_id}&state=<sample_state>&scope=internal_user_impersonate%20{Other_Required_Scopes}&response_type=id_token%20subject_token&requested_subject={User_id_of_the_end_user}&nonce={nonce}
-```
+### Acquire a subject token
 
-**Sample Request**
-``` 
-https://api.asgardeo.io/t/bifrost/oauth2/authorize?client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a&state=sample_state&scope=internal_user_impersonate%20openid%20internal_org_user_mgt_view%20internal_org_user_mgt_list%20internal_user_mgt_delete%20internal_org_user_mgt_create%20internal_login%20internal_user_mgt_delete%20internal_user_mgt_view%20internal_user_mgt_list%20internal_user_mgt_update%20internal_user_mgt_create&redirect_uri=https%3A%2F%2Foauth.pstmn.io%2Fv1%2Fcallback&response_type=id_token%20subject_token&requested_subject=32bc4697-ed0f-4546-8387-dcd6403e7caa&nonce=2131232
-```
+Subject token is a JWT token that contains information on both the impersonated user and the impersonator. To obtain a subject token, the client should initiate an authorization request with the following query parameters.
 
-**Sample Response after sucessful authorization**
+=== "Request Format"
+
+    ``` bash
+    https://api.asgardeo.io/t/{organization_name}/oauth2/authorize?
+      client_id={clientID}
+      redirect_uri={redirect_uri}
+      &state={sample_state}
+      &scope=internal_user_impersonate,{other_Required_Scopes}
+      &response_type={response_type}
+      &requested_subject={userid_of_the_end_user}
+      &nonce={nonce}
+
+    ```
+
+=== "Sample Request"
+    
+    ``` bash
+    https://api.asgardeo.io/t/bifrost/oauth2/authorize?
+      client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a
+      &redirect_uri=https://oauth.pstmn.io/v1/callback
+      &state=sample_state
+      &scope=internal_user_impersonate,openid,internal_org_user_mgt_view
+      &response_type=id_token subject_token
+      &requested_subject=32bc4697-ed0f-4546-8387-dcd6403e7caa
+      &nonce=2131232
+    ```
+
+The subject token request contains the following parameters:
+
+<table>
+    <tr>
+        <td>client_id</td>
+        <td>The client ID obtained when registering the application in {{product_name}}.</td>
+    </tr>
+    <tr>
+        <td>redirect_uri</td>
+        <td>The URL to where the response is redirected to at the end of the process.</td>
+    </tr>
+    <tr>
+        <td>scope</td>
+        <td>Scope should contain <code>internal_user_impersonate</code> scope along with other required scopes.</td>
+    </tr>
+    <tr>
+        <td>response_type</td>
+        <td>Response type can be <code>id_token subject_token</code> or <code>subject_token</code>.</td>
+    </tr>
+    <tr>
+        <td>requested_subject</td>
+        <td>A valid user ID. This will be the impersonated user.</td>
+    </tr>
+    <tr>
+        <td>nonce</td>
+        <td>Required if the response type is <code>id_token subject_token</code>, to prevent ID token replay attacks.</td>
+    </tr>
+</table>
+
+After successful authorization, the response will look similar to the following:
+
 ``` bash
-https://oauth.pstmn.io/v1/callback#id_token={id_token}&session_state=ecfb74cde9f694c1de0905aa40a5f6fc1dd595bdcfd739cbd3dd5b964da53325.1554z-G22KW3pwK_hYhqPw&state=sample&subject_token={subject_token}
+https://oauth.pstmn.io/v1/callback
+    ?id_token={id_token}
+    &session_state=ecfb74cde9f694c1de0905aa40a5f6fc1dd595bdcfd739cbd3dd5b964da53325.1554z-G22KW3pwK_hYhqPw
+    &state=sample
+    &subject_token={subject_token}
 ```
 
-
-!!! note
-    - In Subject token requrest,
-
-        - Response type can be **id_token subject_token** or **subject_token**.
-        - Scope should contain **internal_user_impersonate** scope with other required scopes.
-        - Requested_subject should be a valid user id.
-        - Authorizing user should have a role that is associated with Impersonation permission related to the application.
-        - Nonce is required if you re using “id_token subject_token” response type.
-
-
-#### JWT cliams of Subject Token
-
-Apart from generic claims, subject token has a claim **may_act**. The **may_act** claim makes a statement that one party is authorized to become the actor and act on behalf of another party. Here **sub** id inside **may_act** claim hold the identity of the impersoator.
-
+The decoded subject token may looks as follows:
 
 ``` json
 {
@@ -131,7 +175,7 @@ Apart from generic claims, subject token has a claim **may_act**. The **may_act*
   "aud": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "nbf": 1718694997,
   "azp": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
-  "scope": "internal_login internal_org_user_mgt_list internal_org_user_mgt_view internal_user_mgt_list internal_user_mgt_view",
+  "scope": "internal_login internal_user_mgt_list internal_user_mgt_view",
   "iss": "https://api.asgardeo.io/t/{organization_name}/oauth2/token",
   "may_act": {
     "sub": "2d931c9d-876e-46c0-9aba-f34501879dfc"
@@ -143,24 +187,43 @@ Apart from generic claims, subject token has a claim **may_act**. The **may_act*
 }
 ```
 
-### Acquire Impersonated Access Token
+In addition to the usual properties of an ID token, the subject token contains the `may_act` property. This property states that the user, 
+whose ID is in `may_act.sub` property, is authorized to impersonate the user, whose ID is in the `sub` property.
 
-Token exchange grant type can be used exchange subject for an impersonated access token.  Impersonated access token can be used as same as generic access token to access protected resources as impersonated user.
+### Acquire an impersonated access token
 
-**Request Format**
-``` bash
-curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
---data-urlencode 'subject_token={subeject_token}' \
---data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt' \
---data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token' \
---data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
---data-urlencode 'actor_token={id_token}' \
---data-urlencode 'actor_token_type=urn:ietf:params:oauth:token-type:id_token'
-```
+Once a subject token is received, it can then be exchanged for an access token which represents the permissions of the impersonated user. 
 
-**Sample Response**
+=== "Request Format"
+
+    ``` bash
+    curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
+    --data-urlencode 'subject_token={subject_token}' \
+    --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt' \
+    --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token' \
+    --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
+    --data-urlencode 'actor_token={id_token}' \
+    --data-urlencode 'actor_token_type=urn:ietf:params:oauth:token-type:id_token'
+    ```
+
+=== "Sample Request"
+
+    ``` bash
+    curl --location 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic QVVhZkoyeWpXM2dUR3JZaWZCTlF1MTBXRWtNYToybWN1blJ1T1Y5WFQ3QXpzRDEyVmY3cGhOVWJRUmdlT0NtZW5Wa0xKQTR3YQ==' \
+    --data-urlencode 'subject_token=eyJ4NXQiOiJDN3Q1elQ4UUhXcWJBZ3ZJ9HVXWTN4UnlwcE0iLCJraWQiOiJaR0UyTXpjeE1XWXpORGhtTVRoak1HSmlOamhpTmpNMFlqWXhNakJtTUdZeFl6ZzBabU0zWldJd1pHRmxZakk1TTJZelpHTmtaalkxWXpBeE5qZzNNUV9SUzI1NiIsInR5cCI6Imp3dCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIxYmI0NmMyOC0zN2U4LTQxN2UtYWI5NS0wMzAzYTYzM2ZlZTIiLCJhdWQiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIiwibmJmIjoxNzI4ODc5NTQ3LCJhenAiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIiwic2NvcGUiOiJpbnRlcm5hbF9vcmdfYXBwbGljYXRpb25fbWd0X3ZpZXcgb3BlbmlkIiwiaXNzIjoiaHR0cHM6XC9cL2FwaS5hc2dhcmRlby5pb1wvdFwvaGltZXNoZGV2aW5kYVwvb2F1dGgyXC90b2tlbiIsIm1heV9hY3QiOnsic3ViIjoiNTllNmNlZWEtOGU2Ni00MTkyLWJlMDktMzQwYmIwMmQ1N2MxIn0sImV4cCI6MTcyODg3OTcyNywiaWF0IjoxNzI4ODc5NTQ3LCJqdGkiOiIzYjIzNDViOS1jN2Y4LTQ4MjUtYWYyNC1lNDRjYjk3Y2U5NWEiLCJjbGllbnRfaWQiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIn0.UmhvpiqrgbgJ8MSXNkzyUMbw5c2BG5oWv9HpBDrZwig2HkM-FpceFlGi4tnl45LGAxDeVE2NJBAII3Q6ccMK0pk9DM2piX0m7gtxtfNy9XQURMad39JOY1GTy8p9uJY0wYWrYXYCc3nyF83kwu4y3xHABYd1JNjcZgLW_B5M1XUUk05cOOyJLOvjaMAkl8DlohD9mAY4-C2UyaxsG8ftfth4mMJZeg3MJOW150cye9TAil0SACO6DIv3Tik7Wt_zyghSueBKQiOqgLEXZdphIT-7TWYASiJigTX0n_PKBF67qOo9tD5FIDEh5fQquXYAjPP9LHJYeK_C6dkh9jiX7w' \
+    --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt' \
+    --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token' \
+    --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
+    --data-urlencode 'actor_token=eyJ4NXQiOiJDN3Q1elQ4UUhXcWJBZ3ZJOGVXWTN4UnlwcE0iLCJraWQiOiJaR0UyTXpjeE1XWXpORGhtTVRoak1HSmlOamhpTmpNMFlqWXhNakJtTUdZeFl6ZzBabU0zWldJd1pHRmxZakk1TTJZelpHTmtaalkxWXpBeE5qZzNNUV9SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJpc2siOiIzMWJmYjE4YWQ2Yzc1YmFjYWJmMmIzMDRmMmYyYmI2YTdlODY1Y2FiYTU2OGRkNDNiM2U3YzI3OGVlYzNjNzY3Iiwic3ViIjoiNTllNmNlZWEtOGU2Ni00MTkyLWJlMDktMzQwYmIwMmQ1N2MxIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvYXBpLmFzZ2FyZGVvLmlvXC90XC9oaW1lc2hkZXZpbmRhXC9vYXV0aDJcL3Rva2VuIiwibm9uY2UiOiIyMTIzNDUyMTMiLCJzaWQiOiI3ZWQwOTU1Mi1hZDQ0LTQ2NjYtOTJmMy0yYWM0MmJhZWNlYzQiLCJhdWQiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIiwidXNlcl9vcmciOiJkZTljNWYxNC0xMGI2LTQ5OWEtOTkzZC04OWZjMzYyYmIyNDAiLCJzX2hhc2giOiJFLUlmSmNrWHNsdUwzRUpFcUttUlpnIiwiYXpwIjoiQVVhZkoyeWpXM2dUR3JZaWZCTlF1MTBXRWtNYSIsIm9yZ19pZCI6ImRlOWM1ZjE0LTEwYjYtNDk5YS05OTNkLTg5ZmMzNjJiYjI0MCIsImV4cCI6MTcyODg4MzE0Nywib3JnX25hbWUiOiJoaW1lc2hkZXZpbmRhIiwiaWF0IjoxNzI4ODc5NTQ3LCJqdGkiOiJkZmI2ODkxYS05MzMyLTQ0OGYtOGQ5ZC1hNDdjOGE3ZTE2OTAifQ.ODTLpicbOfjTEdi7QPOgVew9dxTcL5OR5x8REoujgKcE-mMXvt5wnX_dVp1q_jTWg7yoECJ9dw_KIqqrOOsAc09oGTmMJkqdCd5VoVLSbJ703hvXZU4DUtpjqulzWuuTACsT-eWNQ6IuGo1dP_34r3BucjxAmwCzMQJ_ngTIG213nnF4p5vFRBGxEdX1KkZL9X4Iogw1oweyPVuBAN_3FGOGErBCnRWhL1VNcTkuubcMzD2JafIxaD62Knwcv9x8lmQz__mVyCADhTTuXQ6r7EGk6GCebeL6tE5WFxfKrIDZJeLyoI4BSNK73L9q-iWAmk1OCIHu_RlubrYxMXxc3g' \
+    --data-urlencode 'actor_token_type=urn:ietf:params:oauth:token-type:id_token'
+    ```
+
+The response will look similar to the following:
+
 ``` json
 {
     "access_token": "eyJ4NXQiOiJPV1JpTXpaaVlURXhZVEl4WkdGa05UVTJOVE0zTWpkaFltTmxNVFZrTnpRMU56a3paVGc1TVRrNE0yWmxOMkZoWkdaalpURmlNemxsTTJJM1l6ZzJNZyIsImtpZCI6Ik9XUmlNelppWVRFeFlUSXhaR0ZrTlRVMk5UTTNNamRoWW1ObE1UVmtOelExTnprelpUZzVNVGs0TTJabE4yRmhaR1pqWlRGaU16bGxNMkkzWXpnMk1nX1JTMjU2IiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIzMmJjNDY5Ny1lZDBmLTQ1NDYtODM4Ny1kY2Q2NDAzZTdjYWEiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwiY2xpZW50X2lkIjoialZjVzRvTG4xSmpiMlQ5NEg0Z3RQVjl6NVkwYSIsImF1ZCI6ImpWY1c0b0xuMUpqYjJUOTRINGd0UFY5ejVZMGEiLCJuYmYiOjE3MTg2OTUwNTIsImFjdCI6eyJzdWIiOiIyZDkzMWM5ZC04NzZlLTQ2YzAtOWFiYS1mMzQ1MDE4NzlkZmMifSwiYXpwIjoialZjVzRvTG4xSmpiMlQ5NEg0Z3RQVjl6NVkwYSIsIm9yZ19pZCI6IjEwMDg0YThkLTExM2YtNDIxMS1hMGQ1LWVmZTM2YjA4MjIxMSIsInNjb3BlIjoiaW50ZXJuYWxfbG9naW4gaW50ZXJuYWxfb3JnX3VzZXJfbWd0X2xpc3QgaW50ZXJuYWxfb3JnX3VzZXJfbWd0X3ZpZXcgaW50ZXJuYWxfdXNlcl9tZ3RfbGlzdCBpbnRlcm5hbF91c2VyX21ndF92aWV3IG9wZW5pZCIsImV4cCI6MTcxODY5ODY1Miwib3JnX25hbWUiOiJTdXBlciIsImlhdCI6MTcxODY5NTA1MiwianRpIjoiMDcyOGQ1MTctNzk2OC00NzRmLWJkN2QtMTI1MzdjY2JlNDM2In0.FqavHBDNLo-nMMgJ3OTDswo7pl6zMztpUkm-cgBOgDJPek_FAEQzt4DFxGglnf2-AtnRN14wPOv9_M_DYJWH529hbwYBVrQQDlJmcF1WtWX_MnBgBGsIfA5_3nzocZWBqj5KDjbXS3_3CSexQ9_h3tKWCDX1oit03flcs7E_xG_nkWV1TUPFUAaoHrMWTROIttN1iFqwRjeg6Bkqjx8hHM3Dn7E9Zsmby0EhuC7i41kid2s9F_5XPPMCYM0gyxX5lAjsf6UFth9v3SWIuMLFgiq5Eh6u4pCs9srh2A5t0DIcKMwyXTEm-QVIhGi1zkB-wGV6yYD9TwbiujnrqOyFQA",
@@ -171,12 +234,9 @@ curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
 }
 ```
 
-#### JWT cliams of Impersonated Access Token
-
-Apart from generic claims, impersonated access token has a claim **act**. The **act** (actor) claim provides a means within a JWT to express that impersonation has occurred and identify the acting party to whom authority has been impersonated. The act claim value is a JSON object, Here **sub** id inside **act** claim hold the identity of the actor.
+The decoded access token may looks as follows:
 
 ``` json
-
 {
   "sub": "32bc4697-ed0f-4546-8387-dcd6403e7caa",
   "aut": "APPLICATION_USER",
@@ -189,7 +249,7 @@ Apart from generic claims, impersonated access token has a claim **act**. The **
   },
   "azp": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "org_id": "10084a8d-113f-4211-a0d5-efe36b082211",
-  "scope": "internal_login internal_org_user_mgt_list internal_org_user_mgt_view internal_user_mgt_list internal_user_mgt_view",
+  "scope": "internal_login internal_org_user_mgt_list internal_org_user_mgt_view",
   "exp": 1718698652,
   "org_name": "bifrost",
   "iat": 1718695052,
@@ -198,60 +258,89 @@ Apart from generic claims, impersonated access token has a claim **act**. The **
 
 ```
 
-The sub claim is the impersonated user (32bc4697-ed0f-4546-8387-dcd6403e7caa), while act.sub contains the ID of the impersonator (2d931c9d-876e-46c0-9aba-f34501879dfc). Client can detect impersonation using **act** claim  in the access token.
+Apart from the generic claims, the impersonated access token has the `act` property which clients may use to detect impersonation.
+The `act.sub` property holds the userid of the impersonator. 
 
-### Audit logs for Impersonation
+In the example above, the `sub` property holds the value of `32bc4697-ed0f-4546-8387-dcd6403e7caa`, which is the userid of the impersonated user. The `act.sub` property
+holds the value of `2d931c9d-876e-46c0-9aba-f34501879dfc`, which is the userid of the impersonator.
 
-When a resource get modified using impersonated access token, an audit log will be printed expressing the details of the resource modification. These audit logs can be used to track actions performed by impersonation.
+## Access logs related to user impersonation
+
+In order to troubleshoot issues and keep track of the actions performed by impersonators, {{product_name}} supports logs for user impersonation. 
+Whenever a resource gets modified using an impersonated access token, an audit log is printed with the relevant details of the impersonator. 
+
+You may access these logs from the **Logs** section of the {{product_name}} Console.
 
 ![Impersonation-Audit-Log]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-audit-logs.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+!!! note
 
-### Email Notification for impersonated user
+    Learn more about [audit logs]({{base_path}}/guides/asgardeo-logs/audit-logs/).
 
-Once impersonated access token obtained, Authorization server will send an email notification to impersonated user.
 
-#### Configure Impersonation Email Notification
+## Notify users on impersonation
 
-1. Go to Login and Registration section.
+When an impersonated access token is issued on behalf of a user, Asgardeo allows you to send a notification email to the affected user. 
+This enhances transparency by keeping the user informed of any actions performed on their behalf.
 
-2. Select Impersonation Configurations under Organizations settings.
+Follow the steps below to enable/disable email notifications:
 
-    ![Impersonation-Config]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+1. On the {{product_name}} Console, go to **Login & Registration**.
 
-3. Here you can enable/disable the email notification. When enabled, an email notification will send to impersonated user. By default, this configuration is enabled.
+2. Under **Organization settings**, select **Impersonation**.
 
-    ![Impersonation-Email-Config]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-email-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+3. Toggle the switch on to enable email notifications and off to disable it.
 
-Following is the default template of impersonation notification.
+The following is the default email notification that will be sent to a user upon issuing an impersonated access token.
 
-![Impersonation-Email-Notification]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-email-notification.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Impersonation-Email-Notification]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-email-notification.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! note
-    See [Customize email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information about customise the email template according to your branding preferences.
+    
+    If you wish to customize this email template, you may do so by navigating to **Branding** > **Email Templates**. For more information, refer to the [Customize email templates]({{base_path}}/guides/branding/customize-email-templates/) documentation.
+    
+## Access organizations as an impersonator
 
-## Access protected resources of invited user in the sub organization.
-
-You can use the impersonated access token to exchange for a sub oirganization bound impersonated access token. To use this flow, impersonated user should be invited from parent organization.
+If the user is also a member of a child [organization]({{base_path}}/guides/organization-management/), the impersonator can exchange the impersonated access token to an organization access token.
+This authorizes the impersonator to access child organizations with the same permission level as the impersonated user.
 
 !!! note
-    To read about inviting users from parent organization check [Invite users from the parent organization]({{base_path}}/guides/organization-management/invite-parent-organization-users/)
+    
+    The impersonator can only access organizations in which the impersonated user is an invited member. 
+    Learn more about [inviting users from the parent organization]({{base_path}}/guides/organization-management/invite-parent-organization-users/).
+
+The following diagram shows the detailed steps involved in receiving an impersonated organization access token.
 
 ![Impersonation-sub-org]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-flow-sub-org.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-**Request Format**
-``` bash
-curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
---data-urlencode 'client_id={Client_Id}' \
---data-urlencode 'grant_type=organization_switch' \
---data-urlencode 'scope={Organization API Scopes}' \
---data-urlencode 'switching_organization={Organization_Id}' \
---data-urlencode 'token={Impersonated Access Token}'
-```
+=== "Request Format"
 
-**Sample Response**
+    ``` bash
+    curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
+    --data-urlencode 'client_id={Client_Id}' \
+    --data-urlencode 'grant_type=organization_switch' \
+    --data-urlencode 'scope={Organization API Scopes}' \
+    --data-urlencode 'switching_organization={Organization_Id}' \
+    --data-urlencode 'token={Impersonated Access Token}'
+    ```
+
+=== "Sample Request"
+
+    ``` bash
+    curl --location 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic QVVhZkoyeWpXM2dUR3JZaWZCTlF1MTBXRWtNYToybWN1blJ1T1Y5WFQ3QXpzRDEyVmY3cGhOVWJRUmdlT0NtZW5Wa0xKQTR3YQ==' \
+    --data-urlencode 'client_id=AUafJ2yjW3gTGrYifBNQu10WEkMb' \
+    --data-urlencode 'grant_type=organization_switch' \
+    --data-urlencode 'scope=internal_login internal_org_user_mgt_view internal_org_user_mgt_list' \
+    --data-urlencode 'switching_organization=2fb64b16-94ee-4727-a542-5db7af91ef06' \
+    --data-urlencode 'token=eyJ4NXQiOiJPV1JpTXpaaVlURXhZVEl4WkdGa05UVTJOVE0zTWpkaFltTmxNVFZrTnpRMU56a3paVGc1TVRrNE0yWmxOMkZoWkdaalpURmlNemxsTTJJM1l6ZzJNZyIsImtpZCI6Ik9XUmlNelppWVRFeFlUSXhaR0ZrTlRVMk5UTTNNamRoWW1ObE1UVmtOelExTnprelpUZzVNVGs0TTJabE4yRmhaR1pqWlRGaU16bGxNMkkzWXpnMk1nX1JTMjU2IiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIzMmJjNDY5Ny1lZDBmLTQ1NDYtODM4Ny1kY2Q2NDAzZTdjYWEiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwiY2xpZW50X2lkIjoialZjVzRvTG4xSmpiMlQ5NEg0Z3RQVjl6NVkwYSIsImF1ZCI6ImpWY1c0b0xuMUpqYjJUOTRINGd0UFY5ejVZMGEiLCJuYmYiOjE3MTg2OTUwNTIsImFjdCI6eyJzdWIiOiIyZDkzMWM5ZC04NzZlLTQ2YzAtOWFiYS1mMzQ1MDE4NzlkZmMifSwiYXpwIjoialZjVzRvTG4xSmpiMlQ5NEg0Z3RQVjl6NVkwYSIsIm9yZ19pZCI6IjEwMDg0YThkLTExM2YtNDIxMS1hMGQ1LWVmZTM2YjA4MjIxMSIsInNjb3BlIjoiaW50ZXJuYWxfbG9naW4gaW50ZXJuYWxfb3JnX3VzZXJfbWd0X2xpc3QgaW50ZXJuYWxfb3JnX3VzZXJfbWd0X3ZpZXcgaW50ZXJuYWxfdXNlcl9tZ3RfbGlzdCBpbnRlcm5hbF91c2VyX21ndF92aWV3IG9wZW5pZCIsImV4cCI6MTcxODY5ODY1Miwib3JnX25hbWUiOiJTdXBlciIsImlhdCI6MTcxODY5NTA1MiwianRpIjoiMDcyOGQ1MTctNzk2OC00NzRmLWJkN2QtMTI1MzdjY2JlNDM2In0.FqavHBDNLo-nMMgJ3OTDswo7pl6zMztpUkm-cgBOgDJPek_FAEQzt4DFxGglnf2-AtnRN14wPOv9_M_DYJWH529hbwYBVrQQDlJmcF1WtWX_MnBgBGsIfA5_3nzocZWBqj5KDjbXS3_3CSexQ9_h3tKWCDX1oit03flcs7E_xG_nkWV1TUPFUAaoHrMWTROIttN1iFqwRjeg6Bkqjx8hHM3Dn7E9Zsmby0EhuC7i41kid2s9F_5XPPMCYM0gyxX5lAjsf6UFth9v3SWIuMLFgiq5Eh6u4pCs9srh2A5t0DIcKMwyXTEm-QVIhGi1zkB-wGV6yYD9TwbiujnrqOyFQA'
+    ```
+
+The response will look similar to the following:
+
 ``` json
 {
     "access_token": "eyJ4NXQiOiJPV1JpTXpaaVlURXhZVEl4WkdGa05UVTJOVE0zTWpkaFltTmxNVFZrTnpRMU56a3paVGc1TVRrNE0yWmxOMkZoWkdaalpURmlNemxsTTJJM1l6ZzJNZyIsImtpZCI6Ik9XUmlNelppWVRFeFlUSXhaR0ZrTlRVMk5UTTNNamRoWW1ObE1UVmtOelExTnprelpUZzVNVGs0TTJabE4yRmhaR1pqWlRGaU16bGxNMkkzWXpnMk1nX1JTMjU2IiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIzMmJjNDY5Ny1lZDBmLTQ1NDYtODM4Ny1kY2Q2NDAzZTdjYWEiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwiY2xpZW50X2lkIjoialZjVzRvTG4xSmpiMlQ5NEg0Z3RQVjl6NVkwYSIsImF1ZCI6ImpWY1c0b0xuMUpqYjJUOTRINGd0UFY5ejVZMGEiLCJ1c2VyX29yZyI6IjEwMDg0YThkLTExM2YtNDIxMS1hMGQ1LWVmZTM2YjA4MjIxMSIsIm5iZiI6MTcxODY5NTA3MiwiYWN0Ijp7InN1YiI6IjJkOTMxYzlkLTg3NmUtNDZjMC05YWJhLWYzNDUwMTg3OWRmYyJ9LCJhenAiOiJqVmNXNG9MbjFKamIyVDk0SDRndFBWOXo1WTBhIiwib3JnX2lkIjoiMTU1OGViZjYtMTdlMC00MTY1LWI5YzAtYTgxMTdjODc4MDZiIiwic2NvcGUiOiJpbnRlcm5hbF9sb2dpbiBpbnRlcm5hbF9vcmdfdXNlcl9tZ3RfbGlzdCBpbnRlcm5hbF9vcmdfdXNlcl9tZ3RfdmlldyIsImV4cCI6MTcxODY5ODY3Miwib3JnX25hbWUiOiJTdWJPcmciLCJpYXQiOjE3MTg2OTUwNzIsImp0aSI6IjA2NjcwOGYzLWQyNzYtNDQyMi1iZWZlLTE0Njk3N2RlMDA4ZiJ9.XliLCV0IS-KzYZTriSBpVacg-u4l0tLiRoBwWmjoyZz-9-LbCAf-oAweywpaWM7kwo6EaxCZ1S4Am5K1hh-R9Rp5RP1PouxL407MHd-gRpLU5x8V1c9PmofZgWNrrqWLgvxi-MjI-XRkFqMARf39tfBgqHcsZA8Ixeht8zN16EL4GTeYMWbcIuHPSDKaQ-_ZgOcoL1fim3ELUMc0N7Mtv4QGM8bHjhKUQV-wHrj6CRcx7TmyCcMyW1rqLpyqbnkbiOoUDlz0AvK_TxNVt4qhVsgS-9ZCmLb4fdIWTdsqAiZrM7Cfn1HT16PsGP0YTqz3AI3c_ZqTGuH867E6qxJpzg",
@@ -260,4 +349,5 @@ curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
     "expires_in": 3600
 }
 ```
-Retrieved access token also has a claim **act** which holds the identity of the impersonator. Client can detect impersonation using **act** claim in the access token.
+
+Similar to the impersonated access token, impersonated organization access token has the `act` property which clients may use to detect impersonation, and the `act.sub` property holds the userid of the impersonator.
