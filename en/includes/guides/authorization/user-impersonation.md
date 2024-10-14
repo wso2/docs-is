@@ -1,6 +1,7 @@
 # User Impersonation
 
-User impersonation is a feature that allows an authorized user to act as another user.
+User impersonation is a feature that allows an authorized user to act as another user. This may be useful in instances where an admin or a support personnel 
+wishes to perform actions on behalf of a user without requiring the credentials of the user.
 
 This guide explains how you can implement user impersonation in {{product_name}}.
 
@@ -10,7 +11,7 @@ You can go through the following steps to prepare your application for user impe
 
 ### Prerequisite
 
-To get started, you need to have an application registered in Asgardeo. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
+To get started, you need to have an application registered in {{product_name}}. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
 
 ### Step 1: Authorize application for user impersonation
 
