@@ -792,6 +792,7 @@ nav:
         - Offline user onboard management API: apis/offline-user-onboard-mgt-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
         - User Account Association API: apis/association-rest-api.md
+        - Identity verification API: apis/admin-identity-verification.md
       - Validation rules API: apis/validation-rules-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
@@ -819,6 +820,7 @@ nav:
         - TOTP API: apis/totp-rest-api.md
         - User account association API: apis/me-association-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
+        - Identity Verification: apis/user-identity-verification.md
   - References:
     - References: references/index.md
     - About this release: references/about-this-release.md

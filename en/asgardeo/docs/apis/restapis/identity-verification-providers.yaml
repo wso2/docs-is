@@ -5,12 +5,7 @@ info:
     This document specifies an **Identity Verification Provider Management RESTful API** for **Asgardeo**. The APIs provide the capability to add/update/delete/update identity verification providers.
   version: "v1"
 servers:
-  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
-    variables:
-      tenant-domain:
-        default: "carbon.super"
-      server-url:
-        default: "localhost:9443"
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -65,6 +60,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/idv-providers?limit={limit}&offset={offset}&filter={filter}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
         - Identity Verification Providers
@@ -124,6 +126,25 @@ paths:
               $ref: '#/components/schemas/IdVProviderRequest'
         description: This represents the identity provider to be created.
         required: true
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/idv-providers' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "name": "{provider_name}",
+              "type": "{provider_type}",
+              "description": "{provider_description}",
+              "attributes": [
+                {
+                  "key": "{attribute_key}",
+                  "value": "{attribute_value}"
+                }
+              ]
+            }'
   /idv-providers/{idv-provider-id}:
     get:
       tags:
@@ -177,6 +198,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/idv-providers/{idv-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Identity Verification Providers
@@ -233,6 +261,25 @@ paths:
             schema:
               $ref: '#/components/schemas/IdVProviderRequest'
         required: true
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/idv-providers/{idv-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "name": "{provider_name}",
+              "type": "{provider_type}",
+              "description": "{provider_description}",
+              "attributes": [
+                {
+                  "key": "{attribute_key}",
+                  "value": "{attribute_value}"
+                }
+              ]
+            }'
     delete:
       tags:
         - Identity Verification Providers
@@ -275,6 +322,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/idv-providers/{idv-provider-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
   /extensions/identity-verification-providers:
     get:
       tags:
@@ -314,6 +368,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/extensions/identity-verification-providers' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
 
 components:
   parameters:
@@ -326,6 +387,7 @@ components:
       schema:
         type: integer
         format: int32
+        default: 10
     offsetQueryParam:
       in: query
       name: offset
@@ -335,6 +397,7 @@ components:
       schema:
         type: integer
         format: int32
+        default: 0
     filterQueryParam:
       in: query
       name: filter
