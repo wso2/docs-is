@@ -15,7 +15,7 @@ To get started, you need to have an application registered in {{product_name}}. 
 
 ### Step 1: Authorize application for user impersonation
 
-Your application should be authorized to consume the user impersonation API. To do so,
+First, your application should be authorized to consume the user impersonation API. To do so,
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
