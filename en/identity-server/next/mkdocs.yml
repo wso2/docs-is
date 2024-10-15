@@ -462,6 +462,10 @@ nav:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
         - Impersonation:
             - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+      - Identity Verification:
+        - Identity Verification: guides/identity-verification/index.md
+        - Registering an Identity Verification Provider: guides/identity-verification/add-identity-verification-provider.md
+        - Manage an Identity Verification Provider: guides/identity-verification/manage-identity-verification-provider.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -743,6 +747,7 @@ nav:
       - Entitlement management API: apis/entitlement-with-rest-apis.md
       - Extension management API: apis/extension-mgt-rest-api.md
       - Identity provider API: apis/idp.md
+      - Identity verification provider API: apis/identity-verification-providers.md
       - Idle accounts identification API: apis/idle-accounts-identification-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
       - Notification sender management:
@@ -787,6 +792,7 @@ nav:
         - Offline user onboard management API: apis/offline-user-onboard-mgt-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
         - User Account Association API: apis/association-rest-api.md
+        - Identity verification API: apis/admin-identity-verification.md
       - Validation rules API: apis/validation-rules-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
@@ -814,6 +820,7 @@ nav:
         - TOTP API: apis/totp-rest-api.md
         - User account association API: apis/me-association-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
+        - Identity Verification: apis/user-identity-verification.md
   - References:
     - References: references/index.md
     - About this release: references/about-this-release.md
