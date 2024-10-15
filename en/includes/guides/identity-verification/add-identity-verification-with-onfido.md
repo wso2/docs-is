@@ -206,16 +206,16 @@ Follow the steps below to integrate Onfido Identity Verification into your exter
 
     ```json
     {
-    "idVProviderId": "c8cf899b-18b1-4f0d-8ce3-272d2cc642ad",
+    "idVProviderId": "c8cf899b-****-****-8ce3-272d2cc642ad",
     "claims": [
         {
-            "id": "65b824c1-a20e-4e9c-bbae-ce58c37e96b5",
+            "id": "65b824c1-a20e-****-****-ce58c37e96b5",
             "uri": "http://wso2.org/claims/dob",
             "isVerified": false,
             "claimMetadata": {
-                "onfido_applicant_id": "571c5fae-f00a-4dec-bdbf-7c00c7989159",
-                "onfido_workflow_run_id": "fe1ee202-de16-4ca7-bfdc-82bacabd900c",
-                "sdk_token": "eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE3Mjg5OTU5NzAsInBheWxvYWQiOnsiYXBwIjoiNTcxYzVmYWUtZjAwYS00ZGVjLWJkYmYtN2MwMGM3OTg5MTU5IiwiY2xpZW50X3V1aWQiOiJmYzJkNWNhOS1mZWZiLTRlMjktYTJmZC02YjFhOWYyZjkxZDIiLCJpc19zYW5kYm94Ijp0cnVlLCJpc19zZWxmX3NlcnZpY2VfdHJpYWwiOnRydWUsImlzX3RyaWFsIjp0cnVlLCJzYXJkaW5lX3Nlc3Npb24iOiJjYzZhODcwNy0wZDVjLTRmMDAtOWQ4NC0yOTEzYmVhYjc4NTUifSwidXVpZCI6InBsYXRmb3JtX3N0YXRpY19hcGlfdG9rZW5fdXVpZCIsImVudGVycHJpc2VfZmVhdHVyZXMiOnsidmFsaWRDcm9zc0RldmljZVVybHMiOlsiIl19LCJ1cmxzIjp7ImRldGVjdF9kb2N1bWVudF91cmwiOiJodHRwczovL3Nkay5vbmZpZG8uY29tIiwic3luY191cmwiOiJodHRwczovL3N5bmMub25maWRvLmNvbSIsImhvc3RlZF9zZGtfdXJsIjoiaHR0cHM6Ly9pZC5vbmZpZG8uY29tIiwiYXV0aF91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIiwidGVsZXBob255X3VybCI6Imh0dHBzOi8vYXBpLm9uZmlkby5jb20ifX0.MIGIAkIBXBftJNFp5vxHb3IgSSD4IDkPtyqIjWg-qDVsziGBINdubAq37DMp1FBMFf6JyBx5JtBTGtHbEWyVRQpGjqtX66MCQgDVia6nMgq8o5jwW4e_Veb25jdGK55zSnY4kUuYt0kjI3Ep3eAo9pLecl-mIaPa-WY-_TsxZFlHdS4xzNclLCHB0g",
+                "onfido_applicant_id": "571c5fae-****-****-bdbf-7c00c7989159",
+                "onfido_workflow_run_id": "fe1ee202-****-****-bfdc-82bacabd900c",
+                "sdk_token": "******ciOiJFUzUxMiJ9.******AiOjE3Mjg5OTU5NzAsInBheWxvYWQiOnsiYXBwIjoiNTcxYzVmYWUtZjAwYS00ZGVjLWJkYmYtN2MwMGM3OTg5MTU5IiwiY2xpZW50X3V1aWQiOiJmYzJkNWNhOS1mZWZiLTRlMjktYTJmZC02YjFhOWYyZjkxZDIiLCJpc19zYW5kYm94Ijp0cnVlLCJpc19zZWxmX3NlcnZpY2VfdHJpYWwiOnRydWUsImlzX3RyaWFsIjp0cnVlLCJzYXJkaW5lX3Nlc3Npb24iOiJjYzZhODcwNy0wZDVjLTRmMDAtOWQ4NC0yOTEzYmVhYjc4NTUifSwidXVpZCI6InBsYXRmb3JtX3N0YXRpY19hcGlfdG9rZW5fdXVpZCIsImVudGVycHJpc2VfZmVhdHVyZXMiOnsidmFsaWRDcm9zc0RldmljZVVybHMiOlsiIl19LCJ1cmxzIjp7ImRldGVjdF9kb2N1bWVudF91cmwiOiJodHRwczovL3Nkay5vbmZpZG8uY29tIiwic3luY191cmwiOiJodHRwczovL3N5bmMub25maWRvLmNvbSIsImhvc3RlZF9zZGtfdXJsIjoiaHR0cHM6Ly9pZC5vbmZpZG8uY29tIiwiYXV0aF91aaaaaaJodHRwczovL2FwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIiwidGVsZXBob255X3VybCI6Imh0dHBzOi8vYXBpLm9uZmlkby5jb20ifX0.MIGIAkIBXBftJNFp5vxHb3IgSSD4IDkPtyqIjWg-qDVsziGBINdubAq37DMp1FBMFf6JyBx5JtBTGtHbEWyVRQpGjqtX66MCQgDVia6nMgq8o5jwW4e_Veb25jdGK55zSnY4kUuYt0kjI3Ep3eAo9pLecl-*****-WY-_TsxZFlHdS4xzNcl******",
                 "onfido_workflow_status": "awaiting_input"
             }
         },
