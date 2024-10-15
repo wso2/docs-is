@@ -14,7 +14,10 @@ Follow the steps below to add an IDVP to {{product_name}}:
 
     ![create-idvp]({{base_path}}/assets/img/guides/identity-verification/create-idvp.png){width=700}
 
-3. Select the preferred IDVP template and follow the setup wizard to register the preferred IDVP.
+3. Select and set up your preferred IDVP:
+
+    - [Identity verification with Onfido]({{base_path}}/guides/identity-verification/add-identity-verification-with-onfido/)
+
 
 ## Manage your Identity Verification Provider
 
