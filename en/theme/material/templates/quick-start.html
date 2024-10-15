@@ -1,0 +1,216 @@
+<!--
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/css/quick-start.css' | url }}">
+{% endblock %}
+
+{% block container %}
+  <div class="md-content">
+    <article class="md-content__inner md-typeset">
+
+      <h1 id="{{ page.meta.heading | lower | replace(' ', '-') }}">{{ page.meta.heading }}</h1>
+      {{ page.meta.description }}
+
+      {% if page.meta.what_you_will_learn or page.meta.prerequisites or page.meta.source_code  %}
+      <div class="summary-box">
+        {% if page.meta.what_you_will_learn or page.meta.prerequisites %}
+          <div class="flex-container">
+              {% if page.meta.what_you_will_learn %}
+              <div class="column left">
+                <h4 id="what-you-will-learn">What You Will Learn</h4>
+                <ul class="tick-list">
+                  {% for item in page.meta.what_you_will_learn %}
+                  {% set item = item.replace('{{ config.extra.base_path }}', config.extra.base_path) %}
+                    <li>{{ item | safe }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+              {% if page.meta.prerequisites %}
+              <div class="column right">
+                  <h4>Prerequisites</h4>
+                  Before you start, ensure you have the following:
+                  <ul>
+                    {% for item in page.meta.prerequisites %}
+                    {% set item = item.replace('{{ config.extra.base_path }}', config.extra.base_path) %}
+                      <li>{{ item | safe }}</li>
+                    {% endfor %}
+                  </ul>
+              </div>
+              {% endif %}
+          </div>
+          <hr />
+        {% endif %}
+        {% if page.meta.source_code %}
+          <h4>Example Source Code</h4>
+          {{ page.meta.source_code | safe }}
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <div id="steps-start"><!-- This uses for style update in runtime --></div>
+
+      {{ page.content }}
+
+      <div id="steps-end"><!-- This uses for style update in runtime --></div>
+
+      {% if page.meta.whats_next %}
+      
+      <div class="whats-new">
+        <h2>What's Next?</h2>
+        <ul>
+          {% for item in page.meta.whats_next %}
+          {% set item = item.replace('{{ config.extra.base_path }}', config.extra.base_path) %}
+            <li>{{ item | safe }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+    </article>
+  </div>
+
+  <script>
+
+    const stepContentStart = document.getElementById('steps-start');
+    const stepContentEnd = document.getElementById('steps-end');
+    
+    let currentElement = stepContentStart.nextElementSibling;
+    const siblings = [];
+    let newSection = [];
+    let updatedContent = [];
+    let sectionCount = 0; // Counter for unique IDs
+    
+    // Function to wrap an element
+    function wrapElement(targetElements, wrapperElement) {
+        // Move all target elements inside the wrapper
+        targetElements.forEach(item => wrapperElement.appendChild(item));
+    }
+    
+    // Loop through sibling elements
+    while (currentElement && currentElement !== stepContentEnd) {
+        // Store the current element in the array
+        siblings.push(currentElement);
+        
+        // Store the next sibling before removing the current one
+        const nextElement = currentElement.nextElementSibling;
+        
+        // Remove the current element from the DOM
+        currentElement.remove();
+        
+        // Move to the next element
+        currentElement = nextElement;
+    }
+    
+    // Process siblings to wrap them and prepend numbers to H2 tags
+    siblings.forEach(function(element) {
+        if (element.nodeName === 'H2') {
+            // Increment section count
+            sectionCount++; 
+    
+            // Create a span for the section number
+            const span = document.createElement('span');
+            span.textContent = sectionCount; // Set the text content to the section number
+            span.className = 'step-number';
+            
+            // Prepend the span to the H2 element
+            element.insertAdjacentElement('afterbegin', span);
+            
+            if (newSection.length > 0) {
+                // Create a wrapper for the current section
+                const wrapper = document.createElement('div');
+                
+                // Assign a unique ID and class to the wrapper
+                wrapper.id = `step-${sectionCount-1}`;
+                wrapper.className = 'step'; // Add your class here
+    
+                // Wrap the newSection elements
+                wrapElement(newSection, wrapper);
+    
+                // Store the wrapped element
+                updatedContent.push(wrapper);
+    
+                // Clear the newSection for the next group
+                newSection = [];
+            }
+        }
+    
+        // Add the current element to the new section
+        newSection.push(element);
+    });
+    
+    // Handle any remaining elements after the last H2
+    if (newSection.length > 0) {
+        sectionCount++; // Increment section count for the last group
+        const wrapper = document.createElement('div');
+        
+        // Assign a unique ID and class to the wrapper
+        wrapper.id = `step-${sectionCount-1}`;
+        wrapper.className = 'step';
+    
+        // Wrap the remaining elements
+        wrapElement(newSection, wrapper);
+        updatedContent.push(wrapper);
+    }
+
+    const sectionsWrapper = document.createElement('div');
+                
+    // Assign a unique ID and class to the wrapper
+    sectionsWrapper.id = "steps-section";
+    sectionsWrapper.className = 'steps-section'; // Add your class here
+
+    stepContentStart.insertAdjacentElement('afterend', sectionsWrapper);
+    
+    // Insert the new elements after the stepContentStart element
+    updatedContent.forEach(content => {
+      sectionsWrapper.appendChild(content);
+    });
+    
+  </script>
+  <script>
+
+    const toc = document.querySelector('[data-md-component="toc"]');
+
+    // Initialize the section count
+    let sectionCountw = 1;
+
+    // Loop through each child element
+    Array.from(toc.children).forEach(child => {
+        // Find the 'a' tag within the child element
+        const link = child.querySelector('a');
+
+        if (link) {
+            // Create a span for the section number
+            const span = document.createElement('span');
+            span.textContent = sectionCountw; // Set the text content to the section number
+            span.className = 'toc-step-number';  // Assign a class for styling if needed
+
+            // Prepend the span to the 'a' tag
+            link.prepend(span);
+
+            // Increment the section count for the next child
+            sectionCountw++;
+        }
+    });
+
+  </script>
+{% endblock %}
