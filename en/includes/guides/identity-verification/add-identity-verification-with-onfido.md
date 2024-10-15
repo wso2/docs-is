@@ -221,7 +221,7 @@ Follow the steps below to integrate Onfido Identity Verification into your exter
     }
     ```
 
-5. [Optional] To reinitiate the verification process when it is interrupted or paused (with a workflow status of "awaiting_input", indicating that Onfido is waiting for user input), send a POST request to **`<Base URL>/api/users/v1/me/idv/verify`**.
+5. [Optional] To re-initiate the verification process when it is interrupted or paused (with a workflow status of `awaiting_input`, indicating that Onfido is waiting for user input), send a POST request to **`<Base URL>/api/users/v1/me/idv/verify`**.
 
     ```json
     {
