@@ -35,8 +35,14 @@
 }
 
 .md-button.md-button--primary {
-  background-color: var(--md-primary-fg-color);
+  background: linear-gradient(77.74deg, var(--md-primary-fg-shade-color) 11.16%, var(--md-primary-fg-color) 99.55%) !important;
   color: var(--colors-white);
+}
+
+.md-button.md-button--primary.md-button--asgardeo {
+  border-radius: 38px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .md-button.md-button--link {
