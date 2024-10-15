@@ -1,4 +1,4 @@
-# Add Identity Verification with Onfido
+# Add identity verification with Onfido
 
 Onfido is an identity verification service that allows users to securely verify their identity using a combination 
 of biometric checks and government-issued identity documents such as passports, driver's licenses and national ID. 
@@ -21,7 +21,7 @@ You can register your own application or use this [Onfido Sample Application](ht
 - [{{ product_name }} User Account]({{base_path}}/guides/users/manage-users/#onboard-a-user): A user account with 
 values set for the attributes that require verification.
 
-## Configure Onfido via the Dashboard
+## Configure Onfido via the dashboard
 
 Follow the following steps in Onfido to configure it to work with {{product_name}}.
 
@@ -39,7 +39,7 @@ To create an API token:
 
    5. Copy the generated API token and store it securely for later use.
 
-### Set Up a Workflow in Onfido Studio.
+### Set up a workflow in Onfido Studio.
 
 Follow the steps below to set up a workflow:
 
@@ -142,7 +142,7 @@ To register Onfido as a connection in {{ product_name }}, follow the steps below
 
 9. Click **Update** to save the changes.
 
-## Configure Attribute Mappings in {{product_name}}
+## Configure attribute mappings in {{product_name}}
 
 Now that you have created a connection for Onfido in {{product_name}}, you need to make sure that the attributes used in Onfido are correctly mapped to the ones used in {{product_name}}. To do so,
 
@@ -167,7 +167,7 @@ Now that you have created a connection for Onfido in {{product_name}}, you need 
 
 The Onfido connection is now configured and ready for use. You can proceed to integrate it with your application.
 
-## Integrate Onfido into Your Application
+## Integrate Onfido into Your application
 
 You may integrate Onfido into your application using the [Onfido SDK](https://documentation.onfido.com/sdk/){: target="_blank"}. The Onfido SDK guides users through the verification process, including capturing and uploading documents or photos for biometric checks. The actual verification can then be handled by {{product_name}}'s [Identity Verification User APIs]({{base_path}}/apis/user-identity-verification/).
 
@@ -202,7 +202,28 @@ Follow the steps below to integrate Onfido Identity Verification into your exter
         - The `idVProviderId` can be found in the **Setup Guide** page of the created Onfido connector.
         - It is mandatory to include the Claim URIs for first name and last name. Make sure to add any other claims that were configured with the Onfido connector for verification.
 
-3. Use the **`sdk_token`** and **`onfido_workflow_run_id`** extracted from the initiation response to launch the Onfido SDK in your application.
+3. The response may looks similar to the following:
+
+    ```json
+    {
+    "idVProviderId": "c8cf899b-****-****-8ce3-272d2cc642ad",
+    "claims": [
+        {
+            "id": "65b824c1-a20e-****-****-ce58c37e96b5",
+            "uri": "http://wso2.org/claims/dob",
+            "isVerified": false,
+            "claimMetadata": {
+                "onfido_applicant_id": "571c5fae-****-****-bdbf-7c00c7989159",
+                "onfido_workflow_run_id": "fe1ee202-****-****-bfdc-82bacabd900c",
+                "sdk_token": "******ciOiJFUzUxMiJ9.******AiOjE3Mjg5OTU5NzAsInBheWxvYWQiOnsiYXBwIjoiNTcxYzVmYWUtZjAwYS00ZGVjLWJkYmYtN2MwMGM3OTg5MTU5IiwiY2xpZW50X3V1aWQiOiJmYzJkNWNhOS1mZWZiLTRlMjktYTJmZC02YjFhOWYyZjkxZDIiLCJpc19zYW5kYm94Ijp0cnVlLCJpc19zZWxmX3NlcnZpY2VfdHJpYWwiOnRydWUsImlzX3RyaWFsIjp0cnVlLCJzYXJkaW5lX3Nlc3Npb24iOiJjYzZhODcwNy0wZDVjLTRmMDAtOWQ4NC0yOTEzYmVhYjc4NTUifSwidXVpZCI6InBsYXRmb3JtX3N0YXRpY19hcGlfdG9rZW5fdXVpZCIsImVudGVycHJpc2VfZmVhdHVyZXMiOnsidmFsaWRDcm9zc0RldmljZVVybHMiOlsiIl19LCJ1cmxzIjp7ImRldGVjdF9kb2N1bWVudF91cmwiOiJodHRwczovL3Nkay5vbmZpZG8uY29tIiwic3luY191cmwiOiJodHRwczovL3N5bmMub25maWRvLmNvbSIsImhvc3RlZF9zZGtfdXJsIjoiaHR0cHM6Ly9pZC5vbmZpZG8uY29tIiwiYXV0aF91aaaaaaJodHRwczovL2FwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIiwidGVsZXBob255X3VybCI6Imh0dHBzOi8vYXBpLm9uZmlkby5jb20ifX0.MIGIAkIBXBftJNFp5vxHb3IgSSD4IDkPtyqIjWg-qDVsziGBINdubAq37DMp1FBMFf6JyBx5JtBTGtHbEWyVRQpGjqtX66MCQgDVia6nMgq8o5jwW4e_Veb25jdGK55zSnY4kUuYt0kjI3Ep3eAo9pLecl-*****-WY-_TsxZFlHdS4xzNcl******",
+                "onfido_workflow_status": "awaiting_input"
+            }
+        },
+    {
+    ```
+
+    Use the `sdk_token` and `onfido_workflow_run_id` extracted from the initiation response to launch the Onfido SDK in your application.
+
 4. After the user completes the document submission and face capture with the Onfido SDK, update the verification status by sending a POST request to **`<Base URL>/api/users/v1/me/idv/verify`** endpoint with the following payload.
 
     ```json
@@ -238,6 +259,10 @@ Follow the steps below to integrate Onfido Identity Verification into your exter
         ]
     }
     ```
+
+!!! note
+
+    Learn more about identity verification APIs in the [documentation]({{base_path}}/apis/user-identity-verification/)
 
 ## Try it out
 
