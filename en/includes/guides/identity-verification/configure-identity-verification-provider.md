@@ -1,6 +1,24 @@
-# Manage an Identity Verification Provider
+# Configure an Identity Verification Provider
 
-This section provides instructions on how to manage Identity Verification Providers (IDVPs) once they are created.
+Identity verification Providers (IDVP) lets you confirm the identity of users by checking legal documents such as passports, national identification cards, and driver's licenses. {{ product_name }} allows you to add Identity Verification Providers and specify various details that help you link the IDVP to {{ product_name }}. To properly configure the IDVPs, you must specify all information required to perform identity verification.
+
+This guide walks you through adding and configuring IDVPs based on your requirements.
+
+## Register an Identity Verification Provider
+
+Follow the steps below to add an IDVP to {{product_name}}:
+
+1. On the {{ product_name }} Console, go to **Connections**.
+
+2. Click **New Connection** and select the **Identity-Verification** filter tag.
+
+    ![create-idvp]({{base_path}}/assets/img/guides/identity-verification/create-idvp.png){width=700}
+
+3. Select the preferred IDVP template and follow the setup wizard to register the preferred IDVP.
+
+## Manage your Identity Verification Provider
+
+This section provides instructions on how to manage the created IDVPs.
 
 ### View an Identity Verification Provider
 
@@ -58,3 +76,6 @@ To delete an IDVP:
     ![idvp-delete]({{base_path}}/assets/img/guides/identity-verification/delete-idvp.png)
 
 4. Click **Confirm**.
+
+
+
