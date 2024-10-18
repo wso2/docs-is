@@ -3937,7 +3937,7 @@ components:
       name: excludeSystemPortals
       required: false
       description: |
-        Specifies whether to include or exclude system portals in the response. 
+        Specifies whether to exclude system portals in the response. 
         If not provided, the default is false, meaning system portals will be excluded.
 
         /applications?excludeSystemPortals=true
