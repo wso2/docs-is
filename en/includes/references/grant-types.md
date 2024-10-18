@@ -169,7 +169,7 @@ The following diagram shows how the client credentials grant flow works.
     === "Sample request (/token)"
 
         ```bash
-        curl -v -k -X POST {{base_url_example}}/oauth/token \
+        curl -v -k -X POST {{base_url_example}}/oauth2/token \
         --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=client_credentials"
