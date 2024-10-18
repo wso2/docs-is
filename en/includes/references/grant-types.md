@@ -80,7 +80,7 @@ The following diagram shows how the authorization code flow works.
         --basic -u Ei0Wf9bzfsdvdd0lfwSvTPje8kcEa:HFI2S2HR9kdfg543f5xMpuIAjgJxnZQUT1_e52ga \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
         --data-urlencode "grant_type=authorization_code" \
-        --data-urlencode "code=0sdvsw1-05a2-3ebe-bb42-e007160b46f4" \
+        --data-urlencode "code=9142d4cad58c66d0a5edfad8952192" \
         --data-urlencode "redirect_uri=https://localhost:3000"
         ```
 
