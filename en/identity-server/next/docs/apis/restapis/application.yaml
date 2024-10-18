@@ -3938,7 +3938,7 @@ components:
       required: false
       description: |
         Specifies whether to include or exclude system portals in the response. 
-        Default will be treated as false if parameter is not preset in the request.
+        If not provided, the default is false, meaning system portals will be excluded.
 
         /applications?excludeSystemPortals=true
       schema:
