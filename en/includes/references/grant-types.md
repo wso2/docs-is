@@ -364,7 +364,7 @@ The diagram below illustrates the device flow.
     "access_token":"74d610ab-7f4a-3b11-90e8-279d76644fc7",
     "refresh_token":"fdb58069-ecc7-3803-9b8b-6f2ed85eff19",
     "token_type":"Bearer",
-    "expires_in":3042
+    "expires_in":3600
     }
     ```
 
