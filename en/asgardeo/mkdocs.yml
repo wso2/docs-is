@@ -466,10 +466,6 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
-  - Concepts:
-    - Concepts: concepts/index.md
-    - Basic concepts: concepts/basic-concepts.md
-    - Add login: concepts/add-login.md
 
 not_in_nav: |
   /page-not-found.md
