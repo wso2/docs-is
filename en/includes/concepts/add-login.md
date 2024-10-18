@@ -1,140 +1,81 @@
-Add login and on-board users 
+# Add login
 
+As an application developer, you need to pay special attention to the following when adding login for your application:
 
+- **Enhanced User Experience** -  A great user experience sets your application apart from the competition and helps you meet your business goals. User logins enable you to provide personalized and engaging experiences that your users will appreciate. By enabling users to customize features to their preferences, you can offer benefits like personalized suggestions, product recommendations, reminders of past or restocked items, wishlists, and targeted discount notifications based on their preferences. You can also enhance your business efficiency by offering self-service capabilities.    
 
-As an application developer, you need to pay special attention to adding user login feature for your application due to some critical reasons including: 
+- **Control user access** - You need to ensure that business data and features of your application are accessible only to the intended users, and that each user’s access is limited to their intended access level. User logins allow you to uniquely identify and verify each user, helping you make decisions about their access to data and features. User logins play a key role in protecting data, maintaining secure access, and safeguarding user privacy.  
 
-Enhanced User Experience: A great user experience sets your application apart from the competition and helps you meet your business goals. User logins enable you to provide personalized and engaging experiences that your users will appreciate. By enabling users to customize features to their preferences, you can offer benefits like personalized suggestions, product recommendations, reminders of past or restocked items, wish lists, and targeted discount notifications based on their preferences. You can also enhance your business efficiency by offering self-service capabilities.    
+- **Privacy and compliance** - With the rise of global privacy regulations and industry standards, it's important to ensure your application complies with privacy laws and compliance requirements. User login ensures that only authorized users can access personal data, while allowing users to review and update their information such as consent preferences. Beyond meeting regulations, this is a valuable opportunity to show your commitment to safeguarding the privacy and data of your loyal customers, building trust and enhancing your reputation.
 
-Control user access: You need to ensure that business data and features of your application are accessible only to the intended users, and that each user’s access is limited to their intended access level. User logins allow you to uniquely identify and verify each user, helping you make decisions about their access to data and features.User logins play a key role in protecting data, maintaining secure access, and safeguarding user privacy.  
+In addition to implementing user login for your applications, you also need to consider adding user account management capabilities for your application. With the growing number of applications users have to interact with on a daily basis, users often forget their usernames, passwords, or both. To address this, you should have account recovery mechanisms to help users regain access to their accounts.
 
-Privacy and compliance: With the rise of global privacy regulations and industry standards, it's important to ensure your application complies with privacy laws and compliance requirements. User login ensures that only authorized users can access personal data, while also allowing users to review and update their information, including consent preferences. Beyond meeting regulations, this is a valuable opportunity to show your commitment to safeguarding the privacy and data of your loyal customers, building trust and enhancing your reputation.
+You also need to consider enabling sign-up and sign-in options through popular social platforms like Google, Facebook, or Microsoft, which requires you to integrate user provisioning and federated login capabilities into your application. For enhanced security, it's a best practice to implement multi-factor authentication (MFA). MFA options can range from simple methods like SMS or email to more complex solutions such as biometrics. As passwords become less prevalent, it’s the right time for you to explore passwordless authentication methods, such as Passkeys or Magic Links, to streamline the user experience.
 
-In addition to implementing user login for your applications, you also need to consider adding user account management capabilities for your application. With the growing number of applications users have to interact with on a daily basis, users often forget their usernames, passwords, or both. To address this, you should have account recovery mechanisms to help users regain access to their accounts. You also need to consider enabling sign-up and sign-in options through popular social platforms like Google, Facebook, or Microsoft, which requires you to integrate user provisioning and federated login capabilities into your application. For enhanced security, it's a best practice to implement multi-factor authentication (MFA). MFA options can range from simple methods like SMS or email to more complex solutions such as biometrics. As passwords become less prevalent, it’s the right time for you to explore passwordless authentication methods, such as Passkeys or Magic Links, to streamline the user experience.
 
+## Add user login 
 
+Add user login to your application by simply integrating the right Asgardeo SDK as per your application development technology. Asgardeo SDKs provide you with the necessary components and utilities to easily add user login into your application, manage tokens and maintain authentication state. 
 
+Behind the scenes, Asgardeo SDKs use the OpenID Connect protocol to handle login requests with Asgardeo. When a user attempts to log in, they are redirected to Asgardeo for login. Once the user is authenticated, the application receives an OpenID Connect ID token, which includes the user's information and metadata. Asgardeo SDKs simplify the complexities of OpenID request-response flows and token processing, and enable security best practices such as token validation and the PKCE extension by default.
 
+![Asgardeo SDK]({{base_path}}/assets/img/concepts/asgardeo-sdk.png){: width="700"}
 
+Explore all the supported application development technologies, SDKs and quick start guides in the [documentation]({{base_path}}/integrations/).
 
-1
-Add user login 
+!!! tip
+    
+    - By default, Asgardeo SDKs redirect users to Asgardeo using HTTP redirects. However, if you prefer to create your own login screen within the application, you can still integrate Asgardeo for user login using the Asgardeo Login API.
 
+    - In addition to OpenID Connect, you can also use SAML 2.0 to integrate your application with Asgardeo for user login.
 
 
-Add user login to your application by simply integrating the right  Asgardeo SDK as per your application development technology.  Asgardeo SDKs make it easy for you to add user login in your application by providing necessary components and utilities to integrate with Asgardeo, manage tokens and  maintain the state. 
+Asgardeo automatically configures a default login flow for you to get started. You can design your desired login flow by adding social providers or MFA options using Asgardeo's visual login flow designer, where you can drag and drop the required elements.
 
+![Add login flow]({{base_path}}/assets/img/concepts/login-flow.png)
 
-Behind the scenes, Asgardeo SDKs use the OpenID Connect protocol to handle login requests with Asgardeo. When a user attempts to log in, they are redirected to Asgardeo for login. Once the user is authenticated, your application receives an OpenID Connect ID token, which includes the user's information and metadata. Asgardeo SDKs simplify the complexities of OpenID request-response flows and token processing,  and enable security best practices such as token validation and the PKCE extension by default. 
+Alternatively, you can use the Login Flow AI feature to generate the desired login flow based on your plain text instructions.
 
+![Add login flow AI]({{base_path}}/assets/img/concepts/login-flow-ai.png)
 
- 
-     Explore all the supported application development technologies, SDKs and quick start guides
 
-                                              [Link to the all SDK Page] 
+## On-board users 
 
- 
+Allow users to self-onboard to your application, either directly or via social and partner platforms. You can utilize customizable user onboarding portal components from Asgardeo, or use Asgardeo's user onboarding APIs. Additionally, connect existing on-premise AD and LDAP user directories using the remote user store agent.
 
 
-Tip - By default, Asgardeo SDKs redirect users to Asgardeo using HTTP redirects. However, if you prefer to create your own login screen within the application, you can still integrate Asgardeo for user login using the Asgardeo Login API.
+![Onboard users]({{base_path}}/assets/img/concepts/asgardeo-user-stores.png)
 
-Tip - In addition to OpenID Connect, you can also use SAML 2.0 to integrate your application with Asgardeo for user login.
+Asgardeo offers a user self-onboarding portal component that can be seamlessly integrated with your applications and allows you to customize the onboarding experience and branding. For greater flexibility and control, you can use the Asgardeo user onboarding API to integrate with your application's specific onboarding workflows.  
 
 
+## Add self-care account management features  
 
+Let your users self-manage their profiles, protect their accounts, and handle recovery on their own. Asgardeo offers all the required self-management features for your application out-of-the-box. Your application can be integrated with Asgardeo user self-care portal components with your own branding. Alternatively, you can integrate Asgardeo’s self-management capabilities using the self-care user API to offer app-native experience.  
 
-Asgardeo automatically configures a default login flow for you to get started. You can design your desired login flow by adding social providers or MFA options using Asgardeo's visual login flow designer, where you can drag and drop the required elements. Alternatively, you can use the Login Flow AI feature to generate the desired login flow based on your plain text instructions.
+Add self-manage features for your application users to: 
 
+- update their user profiles
+- update their passwords 
+- recover forgotten password 
+- login with multiple login identifies 
+- associate social accounts 
+- enable MFA 
+- enroll passkeys 
+- review consents 
+- export their user profile 
 
 
+Protect your application, data and users by enabling security controllers offered by Asgardeo:
 
-
-
-
-Tip - conditional auth template 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2
-On-board the users 
-
-
-
-Allow users to self-onboard to your application, either directly or via social and partner platforms. You can utilize customizable user onboarding portal components from Asgardeo, or use Asgardeo's user onboarding APIs. Additionally, connect existing on-premise AD and LDAP user directories using the remote user store agent. 
-
-
-
-Asgardeo offers a user self-onboarding portal component that can be seamlessly integrated with your applications and allows you to customize the on-borading experience and branding. 
-
-For greater flexibility and control, you can use the Asgardeo user onboarding API to integrate with your application's specific onboarding workflows.  
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3
-Add self-care account management features  
-
-
-
-Let your users self-manage their profiles, protect their accounts, and handle recovery on their own. Asgardeo offers all the required self-management features for your application out of the box, your application can be integrated with Asgardeo user self-care portal components with your own branding. Alternatively, you can integrate Asgardeo’s self-management capabilities using the self-care user API to offer app-native experience.  
-
-Add self-manage features for your application users: 
-
-Allow users to update their user profiles
-Allow users to update their passwords 
-Allow users to recover forgotten password 
-Allow users to login with multiple login identifies 
-Allow users to associate social accounts 
-Allow users to enable MFA 
-Allow users to enroll passkeys 
-Allow users to review consents 
-Allow users to export their user profile 
-
-
-Protect your application, data and users by enabling security controllers offered by Asgardeo :
-
-Protect the application by conditionally enforcing MFA
-Protect the application by enabling password policies 
-Protect the application by password expiration policies 
-Protect the application by preventing previously used passwords 
-Protect the application by configuring login attempts retry 
-Protect the application by automatic account locking policy 
-Protect the application from bots   
-Login and security event insights 
-
-
+- conditionally enforcing MFA
+- enabling password policies 
+- password expiration policies 
+- preventing previously used passwords 
+- configuring login attempts retry 
+- automatic account locking policy 
+- Protect the application from bots   
+- Login and security event insights 
 
 
 
