@@ -58,7 +58,7 @@ The following diagram shows how the authorization code flow works.
 5. After successful authentication, {{ product_name }} sends the authorization code to the client application.
 
     ``` bash
-    http://localhost:3000?code=9142d4cad58c66d0a5edfad8952192
+    https://localhost:3000?code=9142d4cad58c66d0a5edfad8952192
     ```
 6. The client application uses this authorization code to request an access token from {{ product_name }} (back channel).
 
