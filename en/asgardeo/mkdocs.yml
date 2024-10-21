@@ -39,6 +39,7 @@ extra:
     - Integrations
     - APIs
     - References
+    - Concepts
   home_page_cards:
     - section:
       - title: Get Started
