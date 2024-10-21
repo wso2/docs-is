@@ -1,2 +1,1 @@
-{% set product_name = "WSO2 Identity Server" %}
-{% include "../../../../../../includes/guides/api-authorization.md" %}
+{% include "../../../../../../includes/guides/authorization/api-authorization.md" %}
