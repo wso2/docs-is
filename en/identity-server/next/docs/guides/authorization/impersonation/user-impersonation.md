@@ -119,7 +119,7 @@ Token exchange grant type can be used exchange subject for an impersonated acces
 curl --location 'https://{{ host_name }}/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
---data-urlencode 'subject_token={subeject_token}' \
+--data-urlencode 'subject_token={subject_token}' \
 --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt' \
 --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token' \
 --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
