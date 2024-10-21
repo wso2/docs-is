@@ -9,9 +9,101 @@ This guide explains how you can implement user impersonation in {{product_name}}
 
 You can go through the following steps to prepare your application for user impersonation.
 
-### Prerequisite
+### Prerequisites
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
+
+- Enable impersonation. To do so, apply the following configurations in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory.
+
+    ```bash
+    [[oauth.custom_response_type]]
+    name= "subject_token"
+    class= "org.wso2.carbon.identity.oauth2.authz.handlers.SubjectTokenResponseTypeHandler"
+    validator= "org.wso2.carbon.identity.oauth.common.SubjectTokenResponseValidator"
+        
+    [[oauth.custom_response_type]]
+    name= "id_token subject_token"
+    class= "org.wso2.carbon.identity.oauth2.authz.handlers.SubjectTokenResponseTypeHandler"
+    validator= "org.wso2.carbon.identity.oauth.common.SubjectTokenResponseValidator"
+        
+    [[api_resources]]
+    name= "User Impersonation"
+    identifier= "system:impersonation"
+    requiresAuthorization= true
+    description= "Resource representation of the User Impersonation"
+    type= "TENANT"
+        
+    [[api_resources.scopes]]
+    displayName = "User Impersonation Scope"
+    name = "internal_user_impersonate"
+    description = "Allows to impersonate another user"
+    ```
+
+- Insert a new configuration type into the `IDN_CONFIG_TYPE` table of your database. The relevant DB scripts are shown  below.
+
+    ??? Example "DB2"
+    
+        ```sql
+        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07', 'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
+        ```
+
+    ??? Example "H2"
+    
+        ```sql
+        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
+        ```
+
+    ??? Example "MsSQL"
+    
+        ```sql
+        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
+        ```
+
+    ??? Example "MYSQL"
+    
+        ```sql
+        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
+        ```
+
+    ??? Example "MYSQL-Cluster"
+    
+        ```sql
+        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
+        ```
+
+    ??? Example "Oracle"
+    
+        ```sql
+        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
+        ```
+
+    ??? Example "OracleRac"
+    
+        ```sql
+        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
+        ```
+
+    ??? Example "Postgres"
+    
+        ```sql
+        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
+        ```
+
+    Alternatively you can use [Config Management REST API]({{base_path}}/apis/use-the-configuration-management-rest-apis/) to add this configuration as shown below.
+
+    ```curl
+    curl --location 'https://<serverUrl>/api/identity/config-mgt/v1.0/resource-type' \
+    --header 'accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+    --data '{"name": "IMPERSONATION_CONFIGURATION", "description": "A resource type to keep the tenant impersonation    preferences.
+    ```
+
+- You need to have an application registered in {{product_name}}. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
+
+{% else %}
 To get started, you need to have an application registered in {{product_name}}. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
+{% endif %}
 
 ### Step 1: Authorize application for user impersonation
 
@@ -105,7 +197,7 @@ Subject token is a JWT token that contains information on both the impersonated 
 === "Request Format"
 
     ``` bash
-    https://api.asgardeo.io/t/{organization_name}/oauth2/authorize?
+    https://{{base_url}}/oauth2/authorize?
       client_id={clientID}
       redirect_uri={redirect_uri}
       &state={sample_state}
@@ -119,7 +211,7 @@ Subject token is a JWT token that contains information on both the impersonated 
 === "Sample Request"
     
     ``` bash
-    https://api.asgardeo.io/t/bifrost/oauth2/authorize?
+    https://{{base_url_sample}}/oauth2/authorize?
       client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a
       &redirect_uri=https://oauth.pstmn.io/v1/callback
       &state=sample_state
@@ -177,7 +269,7 @@ The decoded subject token may looks as follows:
   "nbf": 1718694997,
   "azp": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "scope": "internal_login internal_user_mgt_list internal_user_mgt_view",
-  "iss": "https://api.asgardeo.io/t/{organization_name}/oauth2/token",
+  "iss": "https://{{base_url}}/oauth2/token",
   "may_act": {
     "sub": "2d931c9d-876e-46c0-9aba-f34501879dfc"
   },
@@ -198,7 +290,7 @@ Once a subject token is received, it can then be exchanged for an access token w
 === "Request Format"
 
     ``` bash
-    curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl --location 'https://{{base_url}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
     --data-urlencode 'subject_token={subject_token}' \
@@ -212,7 +304,7 @@ Once a subject token is received, it can then be exchanged for an access token w
 === "Sample Request"
 
     ``` bash
-    curl --location 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
+    curl --location 'https://{{base_url_sample}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic QVVhZkoyeWpXM2dUR3JZaWZCTlF1MTBXRWtNYToybWN1blJ1T1Y5WFQ3QXpzRDEyVmY3cGhOVWJRUmdlT0NtZW5Wa0xKQTR3YQ==' \
     --data-urlencode 'subject_token=eyJ4NXQiOiJDN3Q1elQ4UUhXcWJBZ3ZJ9HVXWTN4UnlwcE0iLCJraWQiOiJaR0UyTXpjeE1XWXpORGhtTVRoak1HSmlOamhpTmpNMFlqWXhNakJtTUdZeFl6ZzBabU0zWldJd1pHRmxZakk1TTJZelpHTmtaalkxWXpBeE5qZzNNUV9SUzI1NiIsInR5cCI6Imp3dCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIxYmI0NmMyOC0zN2U4LTQxN2UtYWI5NS0wMzAzYTYzM2ZlZTIiLCJhdWQiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIiwibmJmIjoxNzI4ODc5NTQ3LCJhenAiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIiwic2NvcGUiOiJpbnRlcm5hbF9vcmdfYXBwbGljYXRpb25fbWd0X3ZpZXcgb3BlbmlkIiwiaXNzIjoiaHR0cHM6XC9cL2FwaS5hc2dhcmRlby5pb1wvdFwvaGltZXNoZGV2aW5kYVwvb2F1dGgyXC90b2tlbiIsIm1heV9hY3QiOnsic3ViIjoiNTllNmNlZWEtOGU2Ni00MTkyLWJlMDktMzQwYmIwMmQ1N2MxIn0sImV4cCI6MTcyODg3OTcyNywiaWF0IjoxNzI4ODc5NTQ3LCJqdGkiOiIzYjIzNDViOS1jN2Y4LTQ4MjUtYWYyNC1lNDRjYjk3Y2U5NWEiLCJjbGllbnRfaWQiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIn0.UmhvpiqrgbgJ8MSXNkzyUMbw5c2BG5oWv9HpBDrZwig2HkM-FpceFlGi4tnl45LGAxDeVE2NJBAII3Q6ccMK0pk9DM2piX0m7gtxtfNy9XQURMad39JOY1GTy8p9uJY0wYWrYXYCc3nyF83kwu4y3xHABYd1JNjcZgLW_B5M1XUUk05cOOyJLOvjaMAkl8DlohD9mAY4-C2UyaxsG8ftfth4mMJZeg3MJOW150cye9TAil0SACO6DIv3Tik7Wt_zyghSueBKQiOqgLEXZdphIT-7TWYASiJigTX0n_PKBF67qOo9tD5FIDEh5fQquXYAjPP9LHJYeK_C6dkh9jiX7w' \
@@ -241,7 +333,7 @@ The decoded access token may looks as follows:
 {
   "sub": "32bc4697-ed0f-4546-8387-dcd6403e7caa",
   "aut": "APPLICATION_USER",
-  "iss": "https://api.asgardeo.io/t/bifrost/oauth2/token",
+  "iss": "https://{{base_url_sample}}/oauth2/token",
   "client_id": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "aud": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "nbf": 1718695052,
@@ -267,8 +359,9 @@ holds the value of `2d931c9d-876e-46c0-9aba-f34501879dfc`, which is the userid o
 
 ## Access logs related to user impersonation
 
-In order to troubleshoot issues and keep track of the actions performed by impersonators, {{product_name}} supports logs for user impersonation. 
-Whenever a resource gets modified using an impersonated access token, an audit log is printed with the relevant details of the impersonator. 
+In order to troubleshoot issues and keep track of the actions performed by impersonators, {{product_name}} supports logs for user impersonation. Whenever a resource gets modified using an impersonated access token, an audit log is printed with the relevant details of the impersonator. 
+
+{% if product_name == "Asgardeo" %}
 
 You may access these logs from the **Logs** section of the {{product_name}} Console.
 
@@ -278,10 +371,46 @@ You may access these logs from the **Logs** section of the {{product_name}} Cons
 
     Learn more about [audit logs]({{base_path}}/guides/asgardeo-logs/audit-logs/).
 
+{% else %}
+
+=== "Audit log format"
+
+    ``` bash
+    TID: [-1234] [2024-06-03 14:50:42,298] [1a2ac914-ea61-4699-8778-ea44d2fa27c5]  INFO {AUDIT_LOG} \
+    - Initiator={Impersonated_User_Id} \
+    Action=resource-modification-via-impersonation \
+    Target={Impersonated_User_Id} \
+    Data={"ResourcePath":{Resource_Path} ,"clientId":{Client_Id} ,"subject":{Impersonated_User_Id},"scope":{Scope Issued for the Impersonated Access token} ,"impersonator":{Impersonater Id} ,"httpMethod":{Http Method}} \
+    Outcome=AUTHORIZED
+    ```
+
+=== "Sample audit log"
+
+    ```bash
+    TID: [-1234] [2024-06-03 14:50:42,298] [1a2ac914-ea61-4699-8778-ea44d2fa27c5]  INFO {AUDIT_LOG} \
+    - Initiator=0fa51985-d36d-4492-9ebd-298f9d68861f \
+    Action=resource-modification-via-impersonation \
+    Target=49de2b73-5f0b-44db-bf75-6fddec4b058e \
+    Data={"ResourcePath":"/scim2/Me","clientId":"luoljDTbHYcfx6YWT_7wsYs67rsa","subject":"49de2b73-5f0b-44db-bf75-6fddec4b058e","scope":"internal_login internal_user_mgt_list internal_user_mgt_view","impersonator":"0fa51985-d36d-4492-9ebd-298f9d68861f","httpMethod":"PATCH" \
+    Outcome=AUTHORIZED
+    ```
+
+In an instance where the impersonator modifies a resource, a log will be printed similar to the following:
+
+```bash
+TID: [-1234] [2024-06-03 14:50:42,976] [1a2ac914-ea61-4699-8778-ea44d2fa27c5]  INFO {AUDIT_LOG} \
+- Initiator=49de2b73-5f0b-44db-bf75-6fddec4b058e \
+Action=Set-User-Claim-Values \
+Target=t******r \
+Data={"ServiceProviderName":"POSTMAN_SBA","Claims":{"http://wso2.org/claims/country":"S***n","http://wso2.org/claims/modified":"2*************************Z","profileConfiguration":"d*****t"}} \
+Outcome=Success | Impersonator : 0fa51985-d36d-4492-9ebd-298f9d68861f
+```
+
+{% endif %}
 
 ## Notify users on impersonation
 
-When an impersonated access token is issued on behalf of a user, Asgardeo allows you to send a notification email to the affected user. 
+When an impersonated access token is issued on behalf of a user, {{product_name}} allows you to send a notification email to the affected user. 
 This enhances transparency by keeping the user informed of any actions performed on their behalf.
 
 Follow the steps below to enable/disable email notifications:
@@ -317,7 +446,7 @@ The following diagram shows the detailed steps involved in receiving an imperson
 === "Request Format"
 
     ``` bash
-    curl --location 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl --location 'https://{{base_url}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
     --data-urlencode 'client_id={Client_Id}' \
@@ -330,7 +459,7 @@ The following diagram shows the detailed steps involved in receiving an imperson
 === "Sample Request"
 
     ``` bash
-    curl --location 'https://api.asgardeo.io/t/bifrost/oauth2/token' \
+    curl --location 'https://{{base_url_sample}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic QVVhZkoyeWpXM2dUR3JZaWZCTlF1MTBXRWtNYToybWN1blJ1T1Y5WFQ3QXpzRDEyVmY3cGhOVWJRUmdlT0NtZW5Wa0xKQTR3YQ==' \
     --data-urlencode 'client_id=AUafJ2yjW3gTGrYifBNQu10WEkMb' \
