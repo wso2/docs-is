@@ -137,6 +137,20 @@ To create the basic custom layout resources:
                 └── carbon.super
     ```
 
+    !!! note
+        To add application-specific custom layouts, create a folder called `apps` under the organization folder and follow the subsequent steps in the guide. Inside the `apps` folder create a folder with the name as the UUID of the application.
+
+        The structure will look as follows.
+
+        ```
+        └── extensions
+            └── layouts
+                └── custom
+                    └── carbon.super
+                        └── apps
+                            └── <UUID_OF_APP>
+        ```
+
 3. Navigate to the `webapps/authenticationendpoint/includes/layouts/centered` folder, copy the `body.html` file, and add it to the created `carbon.super` folder.
 
 4. Create the following files and the folder inside the `carbon.super` folder:
