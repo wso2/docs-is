@@ -182,7 +182,15 @@ Requests will not be retried if the external service responds with HTTP status c
 
 ### Troubleshooting
 
-!!! note
-    Troubleshooting logs are not yet incorporated but are planned for inclusion by end October 2024.
+You can use diagnostic logs to capture requests sent from the identity server, responses received from your external service, the status and context data for response processing, helping you monitor and troubleshoot issues efficiently . Each event entry provides key details like timestamps, result status, result message, error codes and other relevant context.
 
+Below is an example of a diagnostic log generated during the Pre Issue Access Token action flow sending the request initiated in the identity server to the external endpoint.
 
+{% if product_name == "WSO2 Identity Server" %}
+{% include "../../../../identity-server/next/docs/includes/action-troubleshooting.md" %}
+{%else %}
+
+![Asgardeo logs]({{base_path}}/assets/img/guides/asgardeo-logs/diagnostic-logs-display.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+You may view the diagnostics logs under the logs tab in Asgardeo. [Refer here]({{base_path}}/guides/asgardeo-logs/diagnostic-logs/) to learn more about diagnostic logs in Asgardeo.
+{%endif %}

@@ -4,7 +4,7 @@ Diagnostic logs in Asgardeo are designed to help developers diagnose and trouble
 
 ## Access diagnostic logs
 
-To access audit logs:
+To access diagnostics logs:
 
 1. On the Asgardeo Console, go to **Log**
 
