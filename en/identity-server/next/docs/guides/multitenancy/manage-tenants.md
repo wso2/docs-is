@@ -1,27 +1,41 @@
-# Tenant management
+# Manage Root Organizations (Tenants)
 
-By default,  {{ product_name }} is configured with a single tenant named `carbon.super`. If you have the required permissions, you can configure more tenant domains and maintain multiple isolated user bases on a single server/cluster at the same time.
+!!! Note
+    From now on, **Tenants** will be referred to as **Root Organizations**.
+
+    This change is to ensure consistency across our documentation and to better reflect the hierarchical structure of our organization system.
+
+By default,  {{ product_name }} is configured with a single root organization named `carbon.super`. If you have the required permissions, you can configure more root organizations and maintain multiple isolated user bases on a single server/cluster at the same time.
 
 !!! Info
     Learn more about [multi-tenancy]({{base_path}}/guides/multitenancy/).
 
-## Add new tenants
+## Add new root organizations
 
-Follow the steps given below to add a new tenant from the Management Console.
+Follow the steps given below to add a new root organization from the Console.
 
 !!! Note
-    You can access the Management Console using the following URL: `https://<hostname>:<port>/carbon`.
+    You can access the Console using the following URL: `https://<IS_HOST>:<PORT>/console`.
 
-1.  Sign in to the super tenant on the Management Console.
+1.  Sign in to the super tenant on the Console.
 
     !!! info 
-        To add and manage tenants using the Management Console, you need to be signed in as a super user.
+        To add and manage tenants using the Console, you need to be signed in as a super user.
 
-2.  Go to **Configure** > **Multitenancy** and click **Add New Tenant**.
+2.  Open the **Root Organizations** dropdown from the left top corner and click **Manage Root Organizations**.
 
-    ![Add Tenant]({{base_path}}/assets/img/guides/multitenancy/add-tenant.png)
+    ![Root Organizations Dropdown]({{base_path}}/assets/img/guides/multitenancy/root-organizations-dropdown.png)
 
-3.  On the **Register A New Organization** page that opens, enter the tenant details and click **Save**.
+3.  On the **Root Organizations** page, click on the **New Root Organization** button.
+
+    !!! info
+        If you have already created root organizations, you will see this button on the right top corner of the page.
+
+    ![New Root Organization]({{base_path}}/assets/img/guides/multitenancy/new-root-organization.png)
+
+4.  On the modal that opens up, enter the root organization details and click **Create**.
+
+    ![Create Root Organization]({{base_path}}/assets/img/guides/multitenancy/create-root-organization-modal.png)
     
     <table>
       <thead>
@@ -33,50 +47,62 @@ Follow the steps given below to add a new tenant from the Management Console.
       <tbody>
         <tr>
           <td><code>Domain</code></td>
-          <td>The domain name (e.g., abc.com), which is used as a unique identifier for your domain. You can use it to sign in to the Management Console to be redirected to your specific tenant. The domain is also used in URLs to distinguish one tenant from another.</td>
+          <td>The domain name (e.g., abc.com), which is used as a unique identifier for your domain. You can `https://<IS_HOST>:<PORT>/t/<DOMAIN>/console` format to access the root organization's dedicated Console. The domain is also used in URLs to distinguish one root organization from another.</td>
         </tr>
         <tr>
-          <td><code>Select Usage Plan for Tenant</code></td>
-          <td>The usage plan defines limitations (such as the number of users, bandwidth, etc.) for the tenant.</td>
+          <td><code>First Name</code></td>
+          <td>The first name of the root organization admin.</td>
         </tr>
         <tr>
-          <td><code>First Name</code> / <code>Last Name</code></td>
-          <td>The name of the tenant admin.</td>
+          <td><code>Last Name</code></td>
+          <td>The last name of the root organization admin.</td>
         </tr>
         <tr>
-          <td><code>Admin Username</code></td>
-          <td>The sign-in username of the tenant admin. The username always ends with the domain name (e.g., admin@abc.com).</td>
-        </tr>
-        <tr>
-          <td><code>Admin Password</code></td>
-          <td>The password used to sign in using the admin username specified.</td>
-        </tr>
-        <tr>
-          <td><code>Admin Password (Repeat)</code></td>
-          <td>Repeat the password to confirm.</td>
+          <td><code>Username</code></td>
+          <td>The sign-in username of the root organization admin. The username always ends with the domain name (e.g., admin@abc.com).</td>
         </tr>
         <tr>
           <td><code>Email</code></td>
           <td>The email address of the admin.</td>
         </tr>
+        <tr>
+          <td><code>Password</code></td>
+          <td>The password used to sign in using the admin username specified.</td>
+        </tr>
       </tbody>
     </table>
 
-4. Once a new tenant is created, the tenant details appear in the **Tenants List** as shown below.
+4. Once a new root organization is created, it will be listed in the the **Root Organization** listing page as shown below.
 
-![View a tenants]({{base_path}}/assets/img/guides/multitenancy/view-tenants.png)
+![Root Organization Listing]({{base_path}}/assets/img/guides/multitenancy/root-organizaiton-listing.png)
 
-## View tenant details
+## View root organization details
 
-To view tenant details, follow the steps given below.
+To view the details of the root organization, follow the steps given below.
 
-1. Sign in to the super tenant on the Management Console.
-2. Go to **Configure** > **Multitenancy** and click **View Tenants**.
+1. Sign in to the super tenant on the Console.
+2. Open the **Root Organizations** dropdown from the left top corner and click **Manage Root Organizations**.
 
     !!! info
-        You will see information of all the tenants that currently exist in the system. 
+        You will see information of all the root organizations that currently exist in the system. 
 
-3. If you want to view only tenants of a specific domain, enter the domain name and click **Find**.
+3. Several actions can be performed on the root organization from the **Root Organizations** listing page itself.
+
+    ![Root Organization Actions]({{base_path}}/assets/img/guides/multitenancy/root-organization-card-actions.png)
+
+    - **Edit**: Click on the **Edit** button to navigate to the details page of the respective root organization.
+    - **More**: Click on the elipsis icon to view more actions.
+        - **Go to Console**: Navigate to the Console of the respective root organization.
+        - **Disable** / **Enable**: Depending on the current status of the root organization, you can disable or enable it.
+        - **Delete**: Delete the root organization.
+
+3. If you want to view details of a specific root organization, click on the **Edit** button of the respective root organization. Inside the root organization details page, you can perform the following actions:
+
+    - **Edit Admin Details**: You can update the first name, last name, email, and password of the root organization admin.
+    - **Disable** / **Enable**: Depending on the current status of the root organization, you can disable or enable it.
+    - **Delete**: Delete the root organization.
+
+      ![Root Organization Details]({{base_path}}/assets/img/guides/multitenancy/root-organization-details.png)
 
 !!! note
     To try out the Tenant Management REST API, refer [here]({{base_path}}/apis/tenant-management-rest-api/).
