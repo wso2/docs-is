@@ -13,7 +13,9 @@ Grant types in OAuth 2.0 are defined as the methods used by a client to obtain a
 - [Device authorization grant](#device-authorization-grant)
 {% endif %}
 - [Token exchange grant](#token-exchange-grant)
+{% if product_name == "WSO2 Identity Server" %}
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
+{% endif %}
 
 #### {{product_name}}'s custom grants
 
@@ -42,6 +44,7 @@ The following diagram shows how the authorization code flow works.
         ?response_type=code
         &client_id=<CLIENT_ID>
         &redirect_uri=<REDIRECT_URI>
+        &scope=<scopes>
         ```
 
     === "Sample request (/authorize)"
@@ -51,10 +54,11 @@ The following diagram shows how the authorization code flow works.
         ?response_type=code
         &client_id=cHuGSLCm77ApRFcsdyh_4sdFU2XYa
         &redirect_uri=https://localhost:3000
+        &scope=internal_application_mgt_view internal_user_mgt_list
         ```
 
-3. {{ product_name }} prompts the user to enter credentials.
-4. The user enters the credentials.
+3. {{ product_name }} prompts the user for login.
+4. The user logs in.
 5. After successful authentication, {{ product_name }} sends the authorization code to the client application.
 
     ``` bash
@@ -65,7 +69,7 @@ The following diagram shows how the authorization code flow works.
     === "Request format (/token)"
 
         ``` bash
-        curl -v -X POST {{base_url}}/oauth2/token\ 
+        curl -v -X POST {{base_url}}/oauth2/token \ 
         --basic -u <CLIENT_ID>:<CLIENT_SECRET> \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
         --data-urlencode "grant_type=authorization_code" \
@@ -76,7 +80,7 @@ The following diagram shows how the authorization code flow works.
     === "Sample request (/token)"
 
         ```bash
-        curl -v -X POST {{base_url_example}}/oauth2/token\ 
+        curl -v -X POST {{base_url_example}}/oauth2/token \ 
         --basic -u Ei0Wf9bzfsdvdd0lfwSvTPje8kcEa:HFI2S2HR9kdfg543f5xMpuIAjgJxnZQUT1_e52ga \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
         --data-urlencode "grant_type=authorization_code" \
@@ -91,6 +95,7 @@ The following diagram shows how the authorization code flow works.
         "access_token":"131d4094-b94c-3714-9e73-672aa433248d",
         "refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07",
         "token_type":"Bearer",
+        "scope": "internal_application_mgt_view internal_user_mgt_list"
         "expires_in":3600
     }
     ```
@@ -119,7 +124,7 @@ The following diagram shows how the refresh token flow works.
 
         ```bash
         curl -k {{base_url}}/oauth2/token \
-        --header "Content-Type: application/x-www-form-urlencoded"
+        --header "Content-Type: application/x-www-form-urlencoded" \
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --data-urlencode "grant_type=refresh_token" \
         --data-urlencode "refresh_token=<REFRESH_TOKEN>"
@@ -129,7 +134,7 @@ The following diagram shows how the refresh token flow works.
 
         ```bash
         curl -k {{base_url_example}}/oauth2/token \
-        --header "Content-Type: application/x-www-form-urlencoded"
+        --header "Content-Type: application/x-www-form-urlencoded" \
         --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
         --data-urlencode "grant_type=refresh_token" \
         --data-urlencode "refresh_token=96a6dsd97-0120-3bec-86be-21b58f600a07"
@@ -148,8 +153,9 @@ The following diagram shows how the refresh token flow works.
 
 ## Client credentials grant
 
-The client credentials flow provides a secure way for client applications to obtain an access token without user authentication. This can be useful in scenarios where the client application needs to access its own resources, such as data storage or APIs, without requiring user authentication.
-However, it is important to ensure that the client credentials are kept secure, as any party that posses these credentials can obtain access tokens and access the client's resources.
+The client credentials flow is a secure OAuth 2.0 flow used for machine-to-machine communication. It provides a secure way for client applications to obtain an access token without user involvement. This can be useful in scenarios where the client application needs to access resources that do not require authentication, such as APIs or services that the client owns and manages.
+
+If you wish to implement this grant type, it is important to ensure that the client credentials are kept secure, as any party that possesses these credentials can obtain access tokens and access the client's resources.
 
 The following diagram shows how the client credentials grant flow works.
 
@@ -163,7 +169,8 @@ The following diagram shows how the client credentials grant flow works.
         curl -v -k -X POST {{base_url}}/oauth2/token \
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "grant_type=client_credentials" 
+        --data-urlencode "grant_type=client_credentials" \
+        --data-urlencode "scope=<scopes>"
         ```
     
     === "Sample request (/token)"
@@ -172,7 +179,8 @@ The following diagram shows how the client credentials grant flow works.
         curl -v -k -X POST {{base_url_example}}/oauth2/token \
         --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "grant_type=client_credentials"
+        --data-urlencode "grant_type=client_credentials" \
+        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
 2. {{ product_name }} sends the access token to the client application.
@@ -180,8 +188,9 @@ The following diagram shows how the client credentials grant flow works.
     ```json
     {
     "token_type":"Bearer",
-    "expires_in":2061,
-    "access_token":"ca19a540f544777860e44e75f605d927"
+    "expires_in":3600,
+    "access_token":"ca19a540f544777860e44e75f605d927",
+    "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
     
@@ -260,7 +269,9 @@ The following diagram shows how the password grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" \
         --data-urlencode "grant_type=password" \
-        --data-urlencode "username=<username>&password=<password>"
+        --data-urlencode "username=<username>&password=<password>" \
+        --data-urlencode "scope=<scopes>"
+
         ```
     
     === "Sample request (/token)"
@@ -270,7 +281,8 @@ The following diagram shows how the password grant flow works.
         --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" \
         --data-urlencode "grant_type=password" \
-        --data-urlencode "username=admin&password=admin"
+        --data-urlencode "username=admin&password=admin" \
+        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
 5. {{ product_name }} sends the access token to the client application.
@@ -280,7 +292,8 @@ The following diagram shows how the password grant flow works.
     "access_token":"16ab408c-0f31-3321-8bed-313e836df373",
     "refresh_token":"3c285b4f-ec29-3751-9ced-74c92061b327",
     "token_type":"Bearer",
-    "expires_in":3600
+    "expires_in":3600,
+    "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
 
@@ -322,8 +335,8 @@ The diagram below illustrates the device flow.
     "user_code":"s2DqSNK",
     "device_code":"d3fe0db1-2334-48fa-b7d9-821ecfad10d5",
     "interval":5000,
-    "verification_uri_complete":"https://localhost:9443/authenticationendpoint/device.do?user_code=s2DqSNK",
-    "verification_uri":"https://localhost:9443/authenticationendpoint/device.do",
+    "verification_uri_complete":"{{base_url}}/authenticationendpoint/device.do?user_code=s2DqSNK",
+    "verification_uri":"{{base_url}}/authenticationendpoint/device.do",
     "expires_in":3600
     }
     ```
@@ -342,8 +355,8 @@ The diagram below illustrates the device flow.
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code"
-        --data-urlencode "client_id=<CLIENT_ID>"
+        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
+        --data-urlencode "client_id=<CLIENT_ID>" \
         --data-urlencode "device_code=<DEVICE_CODE>"
         ```
     
@@ -352,8 +365,8 @@ The diagram below illustrates the device flow.
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code"
-        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga"
+        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
+        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
         --data-urlencode "device_code=d3fe0db1-2334-48fa-b7d9-821ecfad10d5"
         ```
 
@@ -418,6 +431,7 @@ The following diagram shows how the token exchange grant flow works.
 
 See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details.
 
+{% if product_name == "WSO2 Identity Server" %}
 ## SAML 2.0 bearer grant
 
 SAML 2.0 bearer grant is a grant type in the OAuth 2.0 framework that enables the exchange of a SAML 2.0 assertion for an OAuth 2.0 access token. This grant type is defined in the [SAML 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants specification (RFC 7522)](https://datatracker.ietf.org/doc/html/rfc7522){:target="_blank"}.
@@ -439,7 +453,7 @@ The following diagram shows how the token exchange grant flow works.
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer" \
         --data-urlencode "assertion=<base64-URL_encoded_assertion>" \
-        --data-urlencode "scope=<scope>" \
+        --data-urlencode "scope=<scopes>" \
         ```
     
     === "Sample request (/token)"
@@ -450,12 +464,13 @@ The following diagram shows how the token exchange grant flow works.
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer" \
         --data-urlencode "assertion=PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZczpUcmFuc2Zvcm1zPgo8ZHM6VHJhbnNmb3JtIEFsZ29yaXRobT0iaHR0cDovL3d3zOlRyYW5zZm9ybXMaW" \
-        --data-urlencode "scope=PRODUCTION"
+        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
 5. The Authorization Server validates the SAML 2.0 assertion and if valid, generates a new access token and responds to the client with the new access token.
 6. The client application can now request resources from the resource server by providing the access token.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
+{% endif %}
 
 ## Organization switch grant
 
@@ -463,65 +478,11 @@ The organization switch grant is a custom grant type in {{ product_name }} that 
 
 The following diagram illustrates this flow.
 
-![How the organization switch grant works]({{base_path}}/assets/img/references/grants/organization-switch.png)
+![How the organization switch grant works]({{base_path}}/assets/img/references/grants/organization-switch.png){:  width="800"}
 
-1. The user visits the client application and attempts to log in.
-2. The client application redirects the authorization code request to the root organization.
+- Steps 1-7 follows the [authorization code grant](#authorization-code-grant) and the client application obtains the necessary access tokens for the root organization.
 
-    === "Request format (/authorize)"
-
-        ``` bash
-        {{base_url}}/oauth2/authorize
-        ?response_type=code
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
-        ```
-
-    === "Sample request (/authorize)"
-
-        ```bash
-        {{base_url_example}}/oauth2/authorize
-        ?response_type=code
-        &client_id=cHuGSLCm77ApRFcsdyh_4sdFU2XYa
-        &redirect_uri=https://localhost:3000
-        ```
-
-3. {{ product_name }} prompts the login page of the root organization's application.
-4. The user selects the **SSO** authentication option.
-5. The root organization prompts the user to enter the organization name.
-6. The user enters the organization name.
-7. The root organization sends an authorization code request to the child organization.
-8. The child organization prompts the user to enter credentials.
-9. The user enters the credentials.
-10. The child organization sends the authorization code to the root organization.
-11. The root organization uses this authorization code to request an access token from the child organization.
-12. The child organization sends the access token to the root organization.
-13. The root organization sends the authorization code to the client application.
-14. The client application uses this authorization code to request an access token from the root organization.
-
-    === "Request format (/token)"
-
-        ``` bash
-        curl -v -k -X POST {{base_url}}/oauth2/token \ 
-        --basic -u <CLIENT_ID>:<CLIENT_SECRET> \
-        --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
-        --data-urlencode "grant_type=authorization_code" \
-        --data-urlencode "code=<AUTHORIZATION_CODE>" \
-        --data-urlencode "redirect_uri=<REDIRECT_URI>"
-        ```
-    === "Sample request (/token)"
-
-        ```bash
-        curl -v -k -X POST {{base_url_example}}/oauth2/token \ 
-        --basic -u Ei0Wf9bzfsdvdd0lfwSvTPje8kcEa:HFI2S2HR9kdfg543f5xMpuIAjgJxnZQUT1_e52ga \
-        --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" \
-        --data-urlencode "grant_type=authorization_code" \
-        --data-urlencode "code=0sdvsw1-05a2-3ebe-bb42-e007160b46f4" \
-        --data-urlencode "redirect_uri=https://localhost:3000"
-        ```
-
-15. The root organization sends the access token to the client application.
-16. The client application exchanges the access token received in the above step for an access token for the child organization.
+- The client application then exchanges the received access token for another that can be used within the specified child organization.
 
     === "Request format (/token)"
 
@@ -547,7 +508,16 @@ The following diagram illustrates this flow.
         --data-urlencode 'switching_organization=9e394cbf-70bf-532a-955d-0ef34597f2ef'
         ```
 
-17. The root organization initiates a token exchange and provides the client application with an access token usable within the child organization.
-18. The user requests information from the client application.
-19. The client application requests user information from the child organization by providing the access token received in step 17.
-20. The child organization returns requested user information to the client application.
+    After the root organization validates that the user is a member of the child organization, it returns the exchanged access token to the client application.
+
+!!! Important
+
+    - Although we used the authorization grant type, access tokens issued for a root organization user via other grant types can also be exchanged using the organization switch grant.
+
+    - Apart from the use case explained above, access tokens can be exchanged in the following ways:
+
+        - Root organization user can exchange the access token with a grandchild organization or any other organization down the hierarchy as long as the application is shared with the relevant organization.
+
+        - A child organization user can exchange the access token obtained for a child organization with another child organization.
+    
+    - All token exchange requests should be made to the root organization where the client application resides.
