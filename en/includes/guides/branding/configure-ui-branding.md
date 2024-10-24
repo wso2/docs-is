@@ -1,11 +1,21 @@
 # Configure UI branding
 
-You can customize the user interfaces (UIs) presented to your users during the login, sign-up, and account recovery flows, and on the My Account portal according to the theming guidelines of your organization.
+You can customize the user interfaces (UIs) displayed to your users during login, sign-up, account recovery flows, and the My Account portal to align with the theming guidelines of your organization or specific applications.
+
+In Asgardeo, you can configure UI branding at two levels:
+
+1. Organization-wide Branding: This applies to all applications under an organization by default.
+2. Application-specific Branding: You can now configure separate branding for individual applications. This overrides the organization-wide branding for that specific application, allowing greater flexibility in customizing the user experience for each app.
+
+By branding these interfaces, your users will experience a familiar and consistent look and feel that aligns with your organizational or application-specific themes.
 
 !!! note "UI Branding for B2B applications"
-    If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/),note that you can configure separate UI branding for your organizations. If you have not configured UI branding for your organization, the UI branding of your root organization will be applied to the organization.
+    - If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/), note that you can configure separate UI branding for your organizations. 
+    - If you have not configured UI branding for your organization, the UI branding of your root organization will be applied to the organization.
+    - If you configure application-specific branding, it will override the organization’s branding for that particular application.
+    - If no application-specific branding is set, branding for the shared app will be resolved in the following path (orange arrow path in figure) until a configured branding preference is found
 
-By branding these interfaces, users will get a familiar and consistent user experience.
+    ![{{ product_name }} branding path resolver]({{base_path}}/assets/img/guides/branding/generic-app-branding-resolver-path.png)
 
 !!! note
     See the complete list of [UI branding options](#ui-branding-preferences) currently available in {{ product_name }}.
@@ -14,15 +24,21 @@ By branding these interfaces, users will get a familiar and consistent user expe
 
 ## Update branding
 
-Follow the steps given below to configure the branding preferences for your organization.
+Follow the steps given below to configure the branding preferences for your organization or application.
 
-1. On the {{ product_name }}, go to **Branding** > **Styles & Text**.
+1. On the {{ product_name }}, go to **Branding** > **Styles & Text**. For application-specific branding, select the **Application** tab on the top right and select an application from the dropdown. 
 
     ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-console-ui.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+You can also navigate to the particular application’s branding page by going to the **Applications**** page > Selecting the application > **General** tab > Click on **Go to Application Branding**.
+
+   ![{{ product_name }} Console - App Branding UI]({{base_path}}/assets/img/guides/branding/app-branding-general.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 
 2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
 
     !!! note
+        - Text branding is currently not available for application-specific branding. You can still configure text branding at the organization level, and it will apply to all applications unless overridden by application-specific branding in other areas.
         - If you leave any of the branding preferences empty, {{ product_name }} defaults will be used.
         - The real-time preview will show you a sample view as you update the values.
 
@@ -51,7 +67,7 @@ When disabled, {{ product_name }}'s default branding will apply to the interface
 If you want to revert your branding preferences, scroll down to the **Danger Zone** and click **Revert to default**.
 
 !!! warning
-    Note that this permanently removes all the branding options that you have saved and the {{ product_name }} defaults will immediately apply.
+    Note that this permanently removes all the branding options that you have saved and the branding at the next available level (such as organization branding or {{ product_name }} defaults) will be applied.
 
 {{ asgardeo_help }}
 
@@ -77,6 +93,9 @@ Listed below are general branding preferences you can apply to the interfaces.
 ### Design preferences
 
 Listed below are the design changes you can apply to the user registration interface, login interfaces and My Account portal.
+
+!!! Note
+    My Account branding can currently be configured only in the organization branding level.
 
 #### Layout variations
 
@@ -675,4 +694,5 @@ Listed below are the text branding preferences you can apply to the screens in y
 </table>
 
 !!! note
-    Adding custom fields to the text preferences is not supported.
+    - Adding custom fields to the text preferences is not supported.
+    - Text branding is currently not available for application-specific branding.
