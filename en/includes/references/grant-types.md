@@ -516,7 +516,7 @@ The following diagram illustrates the process of obtaining an access token using
 
     - Apart from the use case explained above, access tokens can be exchanged in the following ways:
 
-        - Root organization user can exchange the access token with a grandchild organization or any other organization down the hierarchy as long as the application is shared with the relevant organization.
+        - Root organization user can exchange the access token with a grandchild organization or any other organization down the hierarchy as long as the user has shared access with the relevant organization.
 
         - A child organization user can exchange the access token obtained for a child organization with another child organization.
     
