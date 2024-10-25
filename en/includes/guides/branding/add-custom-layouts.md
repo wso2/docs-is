@@ -137,8 +137,10 @@ To create the basic custom layout resources:
                 └── carbon.super
     ```
 
-    !!! note
-        To add application-specific custom layouts, create a folder called `apps` under the organization folder and follow the subsequent steps in the guide. Inside the `apps` folder create a folder with the name as the UUID of the application.
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
+    !!! note "Application-specific layouts"
+        To add application-specific custom layouts, create a folder called `apps` under the organization folder (carbon.super). Within the `apps` folder, create a folder for each application and name it with the UUID of the application.
 
         The structure will look as follows.
 
@@ -150,6 +152,11 @@ To create the basic custom layout resources:
                         └── apps
                             └── <UUID_OF_APP>
         ```
+    
+
+        Follow the next steps of the guide, but apply them to the `UUID_OF_APP` folder instead of `carbon.super`.
+
+    {% endif %}
 
 3. Navigate to the `webapps/authenticationendpoint/includes/layouts/centered` folder, copy the `body.html` file, and add it to the created `carbon.super` folder.
 
