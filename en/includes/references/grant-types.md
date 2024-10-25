@@ -474,7 +474,7 @@ The following diagram shows how the token exchange grant flow works.
 
 ## Organization switch grant
 
-The organization switch grant is a custom grant type in {{ product_name }} that enables users to switch between [organizations]({{base_path}}/guides/organization-management/) that exists in a hierarchical structure. The process involves using the authorization code grant to obtain an access token for the root organization and exchanging it to an access token usable within a child organization.
+The organization switch grant is a custom grant type in {{ product_name }} that enables users to switch between [organizations]({{base_path}}/guides/organization-management/) that exists in a hierarchical structure.
 
 The following diagram illustrates this flow.
 
