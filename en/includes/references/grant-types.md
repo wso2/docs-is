@@ -491,7 +491,7 @@ The following diagram illustrates the process of obtaining an access token using
         --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=organization_switch' \
-        --data-urlencode 'token={access token from root organization}' \
+        --data-urlencode 'token={access token from an organization}' \
         --data-urlencode 'scope={required scopes}' \
         --data-urlencode 'switching_organization={organization id}'
         ```
