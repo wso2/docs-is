@@ -136,11 +136,11 @@ The following diagram illustrates the sequence of these steps:
 
 ### Responses {{product_name}} expects
 
-Your service must handle the action by responding to the request from WSO2 Identity Server. The JSON payload of your response may include different action statuses and can contain an operations object to indicate state or flow changes. The specifics of these statuses and operations depend on the action type.
+Your service must handle the action by responding to the request from {{product_name}}. The JSON payload of your response may include different action statuses and can contain an operations object to indicate state or flow changes. The specifics of these statuses and operations depend on the action type.
 
 ### Time out and retry
 
-When WSO2 Identity Server calls an external service, it enforces a default read timeout of five seconds and a connection timeout of two seconds. WSO2 Identity Server will attempt at most one retry for the following HTTP status codes received from your service:
+When {{product_name}} calls an external service, it enforces a default read timeout of five seconds and a connection timeout of two seconds. {{product_name}} will attempt at most one retry for the following HTTP status codes received from your service:
 
 <table>
 <thead>
@@ -182,9 +182,9 @@ Requests will not be retried if the external service responds with HTTP status c
 
 ### Troubleshooting
 
-You can use diagnostic logs to capture detailed information during the troubleshooting process. Log captures requests sent from the Identity Server to your external action service, track the responses received, and include status and context data for response handling.
+You can use diagnostic logs to capture detailed information during the troubleshooting process. Logs capture requests sent from {{product_name}} to your external action service, track the responses received, and include status and context data for response handling.
 
-Below is an example of a diagnostic log generated during the pre-issue access token action flow, while sending the request initiated in the identity server to the external endpoint.
+Shown below is an example of a diagnostic log generated during the pre-issue access token action flow, while sending a request from {{product_name}} to the external endpoint.
 
 {% if product_name == "WSO2 Identity Server" %}
 ```json
@@ -240,7 +240,7 @@ The following table gives an explanation to each property included in the diagno
 </tr>
 <tr class="even">
 <td>resultStatus</td>
-<td><p>Status of the log event. Either ‘Success’ or ‘Failed’.</p></td>
+<td><p>Status of the log event. Either <code>Success</code> or <code>Failed</code>.</p></td>
 </tr>
 <tr class="odd">
 <td>resultMessage</td>
