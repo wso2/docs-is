@@ -140,8 +140,8 @@ false: Set it to <code>false</code> if the user roles are changed by external me
 <td>CaseInsensitiveAttributes</td>
 <td>properties.</br>CaseInsensitiveAttributes</td>
 <td>Case Insensitive Attributes</td>
-<td>This is a comma-separated list of case insensitive attributes that are maintained in the user store.<br/>
-<p>Default: not configured</p>
+<td>This enables case insensitivity of the user attributes.<br/>
+<p>Default : false </p>
 </td>
 </tr>
 </tbody>
