@@ -207,11 +207,7 @@ This newly added key can be used for different purposes.
 
 To create a PKCS12 keystore with an AES key or add an existing key to the keystore, use the following command. If the keystore is not available, new PKCS12 keystore will be created.
 
-
-
 === "Format"
-
-
 
     ``` bash
 
@@ -220,10 +216,7 @@ To create a PKCS12 keystore with an AES key or add an existing key to the keysto
     ```
 
 
-
 === "Sample keytool command"
-
-
 
     ``` bash
 
@@ -231,40 +224,23 @@ To create a PKCS12 keystore with an AES key or add an existing key to the keysto
 
     ```
 
-
-
 !!! abstract ""
 
     **Example**
 
-
-
     Follow the instructions given below to set the newly added key for symmetric encryption using cipher tool:
-
-
 
     1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-
-
-    2. Update the `alias` parameter under the `[keystore.tls]` element with the new keystore `alias`.
-
-            
+    2. Update the `alias` parameter under the `[keystore.tls]` element with the new keystore `alias`.       
 
         ```toml
-
         [keystore.internal]
-
         file_name = "keystore.p12"
-
         password = "password"
-
         key_password = "password"
-
         type = "PKCS12"
-
         alias= "secretkey"
-
         ```
 {% endif %}
 
