@@ -11,17 +11,26 @@
 
 WSO2 Identity Server provides default keystore and truststore files:
 
-- `wso2carbon.jks`: The default keystore that includes a private key and a self-signed certificate.
-- `client-truststore.jks`: The default truststore containing CA certificates and the self-signed certificate from wso2carbon.jks.
+{% if is_version == "7.0.0" %}
 
-These files are originally located at `<IS_HOME>/repository/resources/security`. This can be configured by specifying it in the `deployment.toml` file.
+- `wso2carbon.jks`: The default keystore that includes a private key and a self-signed certificate.
+- `client-truststore.jks`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.jks.
+
+{% else %}
+
+- `wso2carbon.p12`: The default keystore that includes a private key and a self-signed certificate.
+- `client-truststore.p12`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.jks.
+
+{% endif %}
+
+These files are originally located in the `<IS_HOME>/repository/resources/security` folder. The file settings can be configured by specifying them in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder as follows.
 
 === "JKS"
 
     For the primary keystore:
     ``` toml
     [keystore.primary]
-    file_name = "<keystore location>"
+    file_name = "<keystore file name>.jks"
     password = "<password>"
     key_password = "<password>"
     type = "JKS"
@@ -31,7 +40,7 @@ These files are originally located at `<IS_HOME>/repository/resources/security`.
     For the truststore:
     ``` toml
     [truststore]
-    file_name = "truststore location>"
+    file_name = "truststore file name>.jks"
     password = "<password>"
     type = "JKS"
     ```
@@ -41,7 +50,7 @@ These files are originally located at `<IS_HOME>/repository/resources/security`.
     For the primary keystore:
     ``` toml
     [keystore.primary]
-    file_name = "<keystore location>"
+    file_name = "<keystore file name>.p12"
     password = "<password>"
     key_password = "<password>"
     type = "PKCS12"
@@ -51,7 +60,7 @@ These files are originally located at `<IS_HOME>/repository/resources/security`.
     For the truststore:
     ``` toml
     [truststore]
-    file_name = "truststore location>"
+    file_name = "<truststore file name>.p12"
     password = "<password>"
     type = "PKCS12"
     ```
@@ -62,49 +71,58 @@ These files are originally located at `<IS_HOME>/repository/resources/security`.
     type = "PKCS12"
     ```
 
-### Keystore usage
+## Use multiple keystores
 
-- **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal datastores.
+Currently, the primary keystore handles both internal data encryption and external message signing. However, it's often necessary to have dedicated keystores for these tasks for the following reasons:
 
-- **Signing messages** when WSO2 Identity Server communicates with external parties (such SAML, OIDC id_token signing).
+- External communication, such as SAML and OIDC ID token signing, require keystore certificates to be frequently renewed. 
 
-The default keystore that is shipped with WSO2 Identity Server (`wso2carbon.jks`) is preconfigured for general use. However, for production environments, it's recommended to establish multiple keystores with separate trust chains for specific use cases.
+- Internal data encryption does not require frequent certificate changes as that can render encrypted data unusable.
 
-## Configure a separate keystore for encrypting data in internal datastores
+In production environments, it is recommended to use distinct keystores for each task with separate trust chains as mentioned below:
 
-Currently, our primary keystore handles both internal data encryption and external message signing. However, it's often necessary to have separate keystores for these tasks. For external communications (e.g., SAML, OIDC id_token signing), keystore certificates need frequent renewal. In contrast, for internal data encryption, frequent certificate changes can render encrypted data unusable.
+- **Internal Keystore**: Used for encrypting and decrypting internal data (if [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) is enabled) and for encrypting plaintext passwords in configuration files using the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
+
+- **TLS Keystore**: Used for SSL connections to secure network communication via HTTPS. This keystore typically contains certificates required for establishing SSL/TLS connections.
+
+- **Primary Keystore**: Used for signing messages and other tasks, serving as the fallback keystore for both internal and external use cases unless specific keystores (like internal or SAML signing keystores) are defined.
+
+!!! note 
+    All keystores should be placed in `<IS_HOME>/repository/resources/security`.
+
+### Configure the internal keystore
 
 !!! warning
-    Using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
+    Adding a new keystore for internal data encryption for an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
 
 
-This feature allows the creation of a separate keystore for encrypting internal datastore data. To configure the new keystore add the following configuration block to the `keystore.internal` tag of the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+To configure the new internal keystore, add the following configuration block to the `keystore.internal` tag of the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
 === "JKS"
 
     ``` toml
     [keystore.internal]
-    file_name = "internal.jks"
+    file_name = "<keystore file name>.jks"
+    password = "<password>"
+    key_password = "<password>"
     type = "JKS"
-    password = "wso2carbon"
-    alias = "wso2carbon"
-    key_password = "wso2carbon"
+    alias = "<alias of the public certificate>"
     ```
 
 === "PKCS12"
 
     ``` toml
     [keystore.internal]
-    file_name = "internal.p12"
+    file_name = "<keystore file name>.p12"
+    password = "<password>"
+    key_password = "<password>"
     type = "PKCS12"
-    password = "wso2carbon"
-    alias = "wso2carbon"
-    key_password = "wso2carbon"
+    alias = "<alias of the public certificate>"
     ```
 
-## Configure a secondary keystore for SSL connections
+### Configure TLS keystore
 
-The default keystore configurations should be updated with the keystore used for certifying SSL connections to WSO2 Identity Server. Given below is the default configuration used internally, which points to the default keystore in your product.
+The TLS keystore is used to manage SSL/TLS connections to {{product_name}}. Given below is the default configuration used internally, which points to the default keystore in your product.
 
 If you need to configure a different keystore for SSL, you may change the values accordingly.
 
@@ -128,11 +146,18 @@ truststoreType = "$ref{truststore.type}"
 
 ## Add new keys to an existing keystore
 
-### Add a asymmetric key pair to an existing keystore
+The following guides explain how you can add new keys to existing keystores.
+{% if not is_version == "7.0.0" %}
 
-1. Locate the [default keystore](#configure-default-keystore-and-truststore) or other existing keystore in a command prompt.
+### Add an asymmetric key pair to an existing keystore
 
-2. Execute the following command to add a new keypair to keystore.
+{% endif %}
+
+To add a key,
+
+1. Navigate to the [default keystore](#configure-default-keystore-and-truststore) or other existing keystore on a terminal.
+
+2. Execute the following command.
 
     === "Format"
 
@@ -158,28 +183,90 @@ This newly added key can be used for different purposes.
 
     1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
+    {% if is_version == "7.0.0" %}
+
+    2. Update the `alias` parameter under the `[keystore.primary]` element with the new keystore `alias`.
+            
+        ```toml
+        [keystore.primary]
+        alias= "newKey"
+        ```
+    {% else %}
+
     2. Update the `alias` parameter under the `[keystore.tls]` element with the new keystore `alias`.
             
         ```toml
         [keystore.tls]
         alias= "newKey"
         ```
+    {% endif %}
+
+{% if not is_version == "7.0.0" %}
 
 ### Add a symmetric secret to a PKCS12 keystore
 
 To create a PKCS12 keystore with an AES key or add an existing key to the keystore, use the following command. If the keystore is not available, new PKCS12 keystore will be created.
 
+
+
 === "Format"
 
+
+
     ``` bash
+
     keytool -genseckey -alias <SECRET_ALIAS> -keyalg AES -keysize 256 -keystore <KEYSTORE_NAME> -storetype PKCS12 -storepass <KEYSTORE_PASSWORD> -keypass <KEYSTORE_PASSWORD>
+
     ```
+
+
 
 === "Sample keytool command"
 
+
+
     ``` bash
+
     keytool -genseckey -alias secretkey -keyalg AES -keysize 256 -keystore keystore.p12 -storetype PKCS12 -storepass password -keypass password
+
     ```
+
+
+
+!!! abstract ""
+
+    **Example**
+
+
+
+    Follow the instructions given below to set the newly added key for symmetric encryption using cipher tool:
+
+
+
+    1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+
+
+
+    2. Update the `alias` parameter under the `[keystore.tls]` element with the new keystore `alias`.
+
+            
+
+        ```toml
+
+        [keystore.internal]
+
+        file_name = "keystore.p12"
+
+        password = "password"
+
+        key_password = "password"
+
+        type = "PKCS12"
+
+        alias= "secretkey"
+
+        ```
+{% endif %}
 
 ## View public keys via JWKS
 
