@@ -14,16 +14,16 @@ WSO2 Identity Server provides default keystore and truststore files:
 {% if is_version == "7.0.0" %}
 
 - `wso2carbon.jks`: The default keystore that includes a private key and a self-signed certificate.
-- `client-truststore.jks`: The default truststore containing CA certificates and the self-signed certificate from wso2carbon.jks.
+- `client-truststore.jks`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.jks.
 
 {% else %}
 
 - `wso2carbon.p12`: The default keystore that includes a private key and a self-signed certificate.
-- `client-truststore.p12`: The default truststore containing CA certificates and the self-signed certificate from wso2carbon.jks.
+- `client-truststore.p12`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.jks.
 
 {% endif %}
 
-These files are originally located at `<IS_HOME>/repository/resources/security`. This can be configured by specifying it in the `deployment.toml` file.
+These files are originally located in the `<IS_HOME>/repository/resources/security` folder. The file settings can be configured by specifying them in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder as follows.
 
 === "JKS"
 
@@ -71,26 +71,32 @@ These files are originally located at `<IS_HOME>/repository/resources/security`.
     type = "PKCS12"
     ```
 
-## Using multiple keystores for specific tasks
+## Use multiple keystores
 
-Currently, our primary keystore handles both internal data encryption and external message signing. However, it's often necessary to have separate keystores for these tasks. For external communications (e.g., SAML, OIDC id_token signing), keystore certificates need frequent renewal. In contrast, for internal data encryption, frequent certificate changes can render encrypted data unusable.
+Currently, the primary keystore handles both internal data encryption and external message signing. However, it's often necessary to have dedicated keystores for these tasks for the following reasons:
 
-In production environments, it is recommended to use distinct keystores for each task, with separate trust chains for enhanced security:
+- External communication, such as SAML and OIDC ID token signing, require keystore certificates to be frequently renewed. 
+
+- Internal data encryption does not require frequent certificate changes as that can render encrypted data unusable.
+
+In production environments, it is recommended to use distinct keystores for each task with separate trust chains as mentioned below:
 
 - **Internal Keystore**: Used for encrypting and decrypting internal data (if [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) is enabled) and for encrypting plaintext passwords in configuration files using the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
+
 - **TLS Keystore**: Used for SSL connections to secure network communication via HTTPS. This keystore typically contains certificates required for establishing SSL/TLS connections.
+
 - **Primary Keystore**: Used for signing messages and other tasks, serving as the fallback keystore for both internal and external use cases unless specific keystores (like internal or SAML signing keystores) are defined.
 
 !!! note 
-    All keystores should be placed in the `<IS_HOME>/repository/resources/security` location.
+    All keystores should be placed in `<IS_HOME>/repository/resources/security`.
 
-### Configure internal keystore
+### Configure the internal keystore
 
 !!! warning
-    Using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
+    Adding a new keystore for internal data encryption for an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
 
 
-To configure the new internal keystore, add the following configuration block to the `keystore.internal` tag of the `deployment.toml` file.
+To configure the new internal keystore, add the following configuration block to the `keystore.internal` tag of the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
 === "JKS"
 
@@ -116,7 +122,7 @@ To configure the new internal keystore, add the following configuration block to
 
 ### Configure TLS keystore
 
-The TLS keystore is used to manage SSL/TLS connections to WSO2 Identity Server. Given below is the default configuration used internally, which points to the default keystore in your product.
+The TLS keystore is used to manage SSL/TLS connections to {{product_name}}. Given below is the default configuration used internally, which points to the default keystore in your product.
 
 If you need to configure a different keystore for SSL, you may change the values accordingly.
 
@@ -140,15 +146,18 @@ truststoreType = "$ref{truststore.type}"
 
 ## Add new keys to an existing keystore
 
+The following guides explain how you can add new keys to existing keystores.
 {% if not is_version == "7.0.0" %}
 
 ### Add an asymmetric key pair to an existing keystore
 
 {% endif %}
 
-1. Locate the [default keystore](#configure-default-keystore-and-truststore) or other existing keystore in a command prompt.
+To add a key,
 
-2. Execute the following command to add a new keypair to keystore.
+1. Navigate to the [default keystore](#configure-default-keystore-and-truststore) or other existing keystore on a terminal.
+
+2. Execute the following command.
 
     === "Format"
 
