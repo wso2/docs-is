@@ -180,7 +180,7 @@ Now that you have registered and configured an application in Asgardeo, you are 
 
     We have created a Postman collection to automate the following process:
 
-    - Get a bearer token to access Asgardeo REST APIs
+    - Get a bearer token to access Asgardeo REST APIs.
 
     - Create the `fhirUser` user attribute. This will be used as the identity of a user accessing FHIR resources.
 
@@ -189,6 +189,10 @@ Now that you have registered and configured an application in Asgardeo, you are 
     - Add the relevant OIDC and SCIM dialects of the `fhirUser` user attribute.
 
     - Provide a patient ID to a selected user by assigning the `fhirUser` attribute with a value (`Patient/1`).
+
+    - Create a custom FHIR API resource and define scopes for it.
+
+    - Create a role that permits to consume the custom API and assign users to it.
 
     - Register your SMART on FHIR app using Dynamic Client Registration (DCR).
 
