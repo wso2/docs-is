@@ -11,4 +11,4 @@ See the topics listed below for end-to-end tutorials on how to use Asgardeo with
 - [Connect Asgardeo as an OIDC attribute provider for verifiable credentials (VC) with Microsoft Entra Verified ID]({{base_path}}/tutorials/connect-asgardeo-with-ms-entra/)
 - [Connect Asgardeo as an OIDC attribute provider for verifiable credentials (VC) with MATTR]({{base_path}}/tutorials/connect-asgardeo-with-mattr/)
 - [Secure Spring Boot API with Asgardeo]({{base_path}}/tutorials/secure-spring-boot-api/)
-- [SMART on FHIR]({{base_path}}/tutorials/smart-on-fhir/)
+- [Integrate Asgardeo with SMART on FHIR healthcare apps]({{base_path}}/tutorials/smart-on-fhir/)

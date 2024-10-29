@@ -353,7 +353,7 @@ nav:
     - Connect Asgardeo as an OIDC attribute provider (with Microsoft Entra Verified ID): tutorials/connect-asgardeo-with-ms-entra.md
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
-    - Smart on FHIR: tutorials/smart-on-fhir.md
+    - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
   - Integrations:
     - Integrate Asgardeo into your application: integrations/index.md
   - APIs:

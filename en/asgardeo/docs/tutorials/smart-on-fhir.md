@@ -1,4 +1,4 @@
-# SMART on FHIR
+# Integrate Asgardeo with SMART on FHIR
 
 Follow the tutorial below to learn how you can leverage Asgardeo as an identity provider, to implement a robust authentication and authorization mechanism for your healthcare applications built on SMART on FHIR.
 
