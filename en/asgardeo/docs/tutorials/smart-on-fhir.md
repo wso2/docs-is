@@ -1,6 +1,6 @@
 # SMART on FHIR
 
-Follow the tutorial below to learn about how you can leverage Asgardeo to implement a robust authentication and authorization mechanism for your healthcare applications built on SMART on FHIR.
+Follow the tutorial below to learn how you can leverage Asgardeo as an identity provider, to implement a robust authentication and authorization mechanism for your healthcare applications built on SMART on FHIR.
 
 ## What is FHIR?
 
@@ -164,11 +164,11 @@ To do so,
 
         !!! note
 
-            Be sure to select the API resources listed under **Management API**.
+            To authorize APIs for the current organization, be sure to select resources under **Management API**.
 
-    2. Under **Authorized Scopes**, select the relevant scopes. Since the application requires all scopes of the API resource, click **Select All** to collectively add all scopes.
+    3. Under **Authorized Scopes**, select the relevant scopes. Since the application requires all scopes of the API resource, click **Select All** to collectively add all scopes.
 
-    3. Click **Finish**.
+    4. Click **Finish**.
 
     ![Authorize app to consume API]({{base_path}}/assets/img/tutorials/smart-on-fhir/fhir-authorize-app-for-api.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -176,21 +176,23 @@ To do so,
 
 Now that you have registered and configured an application in Asgardeo, you are able to use its credentials to obtain an access token and access Asgardeo's REST APIs.
 
-We have created a Postman collection to automate the following process:
+!!! abstract ""
 
-- Get a bearer token to access Asgardeo REST APIs
+    We have created a Postman collection to automate the following process:
 
-- Create the `fhirUser` user attribute. This will be used as the identity of a user accessing FHIR resources.
+    - Get a bearer token to access Asgardeo REST APIs
 
-- Create the `fhirUser` scope. Applications can request this scope to access the `fhirUser` attribute of a user.
+    - Create the `fhirUser` user attribute. This will be used as the identity of a user accessing FHIR resources.
 
-- Add the relevant OIDC and SCIM dialects of the `fhirUser` user attribute.
+    - Create the `fhirUser` scope. Applications can request this scope to access the `fhirUser` attribute of a user.
 
-- Update the `fhirUser` attribute of a selected user to `Patient/1`.
+    - Add the relevant OIDC and SCIM dialects of the `fhirUser` user attribute.
 
-- Register your SMART on FHIR app using Dynamic Client Registration (DCR).
+    - Provide a patient ID to a selected user by assigning the `fhirUser` attribute with a value (`Patient/1`).
 
-- Configure your SMART on FHIR application to request the `fhirUser` local attribute from users during login.
+    - Register your SMART on FHIR app using Dynamic Client Registration (DCR).
+
+    - Configure your SMART on FHIR application to request the `fhirUser` local attribute from users during login.
 
 Follow the steps below to download and run the Postman collection:
 
@@ -246,7 +248,9 @@ To do so,
 
 4. Keep the default settings and click **Get New Access Token**.
 
-5. You will be directed to the Asgardeo login page. Enter the user's credentials and click ****. If prompted, provide permission for the application to read the `fhirUser` attribute.
+    ![Get new access token]({{base_path}}/assets/img/tutorials/smart-on-fhir/fhir-get-new-access-token.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+5. You will be directed to the Asgardeo login page. Enter the user's credentials and click **Sign In**. If prompted, provide permission for the application to read the `fhirUser` attribute.
 
 6. Once authenticated, you will be redirected back to Postman. Copy the `id_token` value and decode it to find the following data.
 
