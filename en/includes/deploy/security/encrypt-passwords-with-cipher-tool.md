@@ -3,24 +3,26 @@
 The instructions on this page explain how plain text passwords in configuration files can be encrypted using the secure vault implementation that is built into the WSO2 Identity Server.  
 
 !!! info "Before you begin"
-    If you are using Windows, you need to have [**Ant**](http://ant.apache.org/) installed before using the Cipher Tool.
+    If you are using Windows, you need to have [**Ant**](http://ant.apache.org/) installed in order to use the Cipher Tool.
 
 ## Encrypt passwords
 
 {% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 
-To encrypt passwords on the {{product_name}}, you can use either asymmetric or symmetric encryption.
+To encrypt passwords on the {{product_name}}, you can use either symmetric or asymmetric encryption.
 
 !!! important
-    - It is recommended to [configure a separate keystore](../keystores/configure-keystores/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
-    - Symmetric encryption is recommended due to its enhanced security against potential post-quantum threats.
+    - It is recommended to [configure a separate keystore]({{base_path}}/deploy/security/keystores/configure-keystores/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
+    - To encrypt passwords, symmetric encryption is preferred due to its resilience against potential post-quantum threats.
 
 ### Using Symmetric Encryption
 
 !!! note
-    To support symmetric encryption, an internal keystore of type **PKCS12** must be used. Need to add a symmetric secret to a PKCS12 keystore and set the alias as mentioned [here](../keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore)
+    To support symmetric encryption, an internal keystore of type **PKCS12** must be used. Follow the instrictions [here]({{base_path}}/deploy/security/keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore) to add a symmetric secret.
 
-1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
+To encrypt passwords:
+    
+1. Add the following `[secrets]` configurations to the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Provid an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
 
     ```toml
     [secrets]
@@ -31,12 +33,12 @@ To encrypt passwords on the {{product_name}}, you can use either asymmetric or s
     "log4j.appender.LOGEVENT.password" = "[password_5]"
     ```
 
-2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure -Dsymmetric` command with the cipher tool script as shown below).
+2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command to enable the cipher tool using the `-Dconfigure -Dsymmetric` flags.
 
     - On Linux: `./ciphertool.sh -Dconfigure -Dsymmetric`
     - On Windows: `ciphertool.bat -Dconfigure -Dsymmetric`
 
-3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
+3. Open the `deployment.toml` again and see that the passwords are encrypted.
 
     ```toml
     [secrets]
@@ -50,9 +52,11 @@ To encrypt passwords on the {{product_name}}, you can use either asymmetric or s
 ### Using Asymmetric Encryption
 
 !!! warning
-    Asymmetric encryption using RSA is not recommended due to its vulnerability to emerging **post-quantum threats**.
+    Asymmetric encryption using RSA is not recommended due to its vulnerability to emerging post-quantum threats.
 
-1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
+To encrypt passwords:
+
+1. Add the following `[secrets]` configurations to the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Provide an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
 
     ```toml
     [secrets]
@@ -63,12 +67,12 @@ To encrypt passwords on the {{product_name}}, you can use either asymmetric or s
     "log4j.appender.LOGEVENT.password" = "[password_5]"
     ```
 
-2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
+2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command to enable the cipher tool using the `-Dconfigure -Dsymmetric` flags.
 
     - On Linux: `./ciphertool.sh -Dconfigure`
     - On Windows: `ciphertool.bat -Dconfigure`
 
-3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
+3. Open the `deployment.toml` again and see that the passwords are encrypted.
 
     ```toml
     [secrets]
@@ -83,7 +87,7 @@ To encrypt passwords on the {{product_name}}, you can use either asymmetric or s
 
 To encrypt passwords on the WSO2 Identity Server:
 
-1. Add the following `[secrets]` configurations at the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
+1. Add the following `[secrets]` configurations to the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
 
     ```toml
     [secrets]
@@ -94,12 +98,12 @@ To encrypt passwords on the WSO2 Identity Server:
     "log4j.appender.LOGEVENT.password" = "[password_5]"
     ```
 
-2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
+2. Open a terminal, navigate to the `<IS_HOME>/bin/` directory, and execute the following command to enable the cipher tool using the `-Dconfigure -Dsymmetric` flags.
 
     - On Linux: `./ciphertool.sh -Dconfigure`
     - On Windows: `ciphertool.bat -Dconfigure`
 
-3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
+3. Open the `deployment.toml` file again and see that the alias passwords are encrypted.
 
     ```toml
     [secrets]
@@ -113,9 +117,9 @@ To encrypt passwords on the WSO2 Identity Server:
 {% endif %}
 
 ## Use encrypted passwords
-When you have [encrypted passwords](#encrypt-passwords), you can refer them from the relevant configuration files - the `deployment.toml` file or LOG4j properties.
+Once you have [encrypted passwords](#encrypt-passwords), you can use them in the relevant configuration files.
 
-### Passwords in deployment.toml
+### In deployment.toml
 
 You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a placeholder: `$secret{alias}`.
 
@@ -136,7 +140,7 @@ key_password = "$secret{key_password}"
 password = "$secret{keystore_password}" 
 ```
 
-### Passwords in LOG4j properties
+### In log4j properties
 For example, consider the 'log4j.appender.LOGEVENT.password' in the `log4j2.properties` file. You can refer to the [encrypted password](#encrypt-passwords) from the `log4j2.properties` file as shown below.
 
 ```
