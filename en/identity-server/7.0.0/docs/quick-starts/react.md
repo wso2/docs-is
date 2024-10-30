@@ -1,7 +1,7 @@
 ---
 template: templates/quick-start.html
 heading: React Quickstart
-description: Welcome to the React Quickstart guide! In this document, you will learn to build a React application, add user login and display user profile information using WSO2 Identity Server.
+description: Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user login and display user profile information using WSO2 Identity Server.
 what_you_will_learn:
   - Create new React app using Vite
   - Install <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk" target="_blank">@asgardeo/auth-react</a> package
@@ -18,7 +18,7 @@ whats_next:
   - Try out user onboarding complete guide for React
   - Read security best practices for React app guide
 ---
-## Configure an application in WSO2 Identity Server
+## Configure an Application in WSO2 Identity Server
 
 - Sign into WSO2 Identity Server console and navigate to Applications > New Application.
 - Select Single Page Application and complete the wizard popup by providing a suitable name and an authorized redirect URL
@@ -28,7 +28,7 @@ whats_next:
 
 !!! abstract
 
-    The authorized redirect URL determines where WSO2 Identity Server should send users after they successfully log in. Typically, this will be the web address where your application is hosted. For this guide, we'll use`http://localhost:5173`, as the sample application will be accessible at this URL.
+    The authorized redirect URL determines where WSO2 Identity Server should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
 
 !!! note
 
@@ -38,9 +38,9 @@ whats_next:
     - `base-url`
     - `redirect-url`
 
-## Create a React application using Vite
+## Create a React app using Vite
 
-Create (a.k.a scaffold) your new React application using Vite.
+Create (a.k.a scaffold) your new React app using Vite.
 
 === "npm"
 
@@ -97,8 +97,8 @@ Asgardeo React SDK provides all the components and hooks you need to integrate A
 
 !!! note
 
-    Asgardeo-branded SDKs can be used to build applications to work with the all WSO2 identity suite of products that includes WSO2 Identity Server (WSO2 IS), WSO2 Private Identity Cloud (WSO2 PIC), and Asgardeo.
-
+    Asgardeo-branded SDKs can be used to build apps to work with the all WSO2 identity suite of products that includes WSO2 Identity Server (WSO2 IS), WSO2 Private Identity Cloud (WSO2 PIC), and Asgardeo.
+    
 
 
 ## Add `<AuthProvider />` to your app
