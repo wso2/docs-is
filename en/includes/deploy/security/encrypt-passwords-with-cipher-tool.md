@@ -22,7 +22,7 @@ To encrypt passwords on the {{product_name}}, you can use either symmetric or as
 
 To encrypt passwords:
     
-1. Add the following `[secrets]` configurations to the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Provid an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
+1. Add the following `[secrets]` configurations to the bottom of the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. Provide an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below.
 
     ```toml
     [secrets]
@@ -117,14 +117,15 @@ To encrypt passwords on the WSO2 Identity Server:
 {% endif %}
 
 ## Use encrypted passwords
-Once you have [encrypted passwords](#encrypt-passwords), you can use them in the relevant configuration files.
+
+Once you have [encrypted passwords](#encrypt-passwords), you can use them in the relevant configuration files as follows:
 
 ### In deployment.toml
 
-You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a placeholder: `$secret{alias}`.
+You can add the encrypted password to the relevant sections in the `deployment.toml` file by using the `$secret{alias}` format as shown below:
 
 !!! note
-    You can also replace your passwords by referring to values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties]({{base_path}}/deploy/security/set-passwords-using-environment-variables-or-system-properties)
+    You may pass passwords as environment variables and system properties instead of directly setting the values. See [Set Passwords using Environment Variables/System Properties]({{base_path}}/deploy/security/set-passwords-using-environment-variables-or-system-properties)
 
 ```toml
 [super_admin]
@@ -141,7 +142,8 @@ password = "$secret{keystore_password}"
 ```
 
 ### In log4j properties
-For example, consider the 'log4j.appender.LOGEVENT.password' in the `log4j2.properties` file. You can refer to the [encrypted password](#encrypt-passwords) from the `log4j2.properties` file as shown below.
+
+For example, consider the 'log4j.appender.LOGEVENT.password' in the `log4j2.properties` file. You may set the [encrypted password](#encrypt-passwords) in the `log4j2.properties` file as shown below.
 
 ```
 log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
@@ -151,17 +153,22 @@ log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
 
 ## Change encrypted passwords
 
-To change any password that has been encrypted already, follow the steps given below.
+To change any password that has been already encrypted, follow the steps given below.
 
-1. Make sure you shut down the server.
-2. Navigate to the `<IS_HOME>/bin/` directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
-3. Execute the following command for your OS:
-    * On Linux: `./ciphertool.sh -Dchange`
-    * On Windows: `ciphertool.bat -Dchange`
-   It will prompt for the primary keystore password. Enter the keystore password (which is `wso2carbon` for the default keystore).
-5. The alias values of all the passwords that you encrypted will now be shown in a numbered list.
-6. The system will then prompt you to select the alias of the password which you want to change. Enter the list number of the password alias.
-7. The system will then prompt you (twice) to enter the new password. Enter your new password.
+1. Shut down the {{product_name}}.
+
+2. On a command prompt, navigate to the `<IS_HOME>/bin/` directory where the cipher tool scripts reside.
+
+3. Run the cipher too by executing the command corresponding to your operating system:
+
+    * Linux: `./ciphertool.sh -Dchange`
+    * Windows: `ciphertool.bat -Dchange`
+
+4. You will be prompted for the primary keystore password. Enter the password. For the default keystore, it is `wso2carbon`.
+
+5. A numbered list of all encrypted password aliases will be displayed. Enter the number corresponding to the alias of the password you want to change.
+
+6. The system will then prompt you (twice) to enter the new password. Enter your new password.
 
 {% if product_name == "WSO2 Identity Server" and is_version != "7.0..0" %}
 ## Rotating Encryption Secrets
@@ -171,21 +178,21 @@ To change any password that has been encrypted already, follow the steps given b
 
 You can rotate encryption keys by switching between symmetric and asymmetric encryption or changing the encryption keys within the same encryption mode.
 
-1. For **symmetric** encryption, add the new key to the existing keystore with a new alias. 
+1. For **symmetric** encryption, use the command below to add the new key to the existing keystore with a new alias. 
 
     ```bash
     keytool -genseckey -alias new_alias -keyalg AES -keysize 256 -keystore internal.p12 -storepass password -keypass password
     ```
     
 
-    For **asymmetric** encryption, add a new key pair to the keystore.
+    For **asymmetric** encryption, use the command below to add a new key pair to the keystore.
 
     ```bash
     keytool -genkeypair -alias new_alias -keyalg RSA -keystore wso2carbon.jks -storepass password -keypass password
     ```
 
 
-2. Update the `deployment.toml` file to reflect the new key or secret alias:
+2. Update the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory to reflect the new key or secret alias:
 
     ```toml
     [keystore.internal]
@@ -196,9 +203,9 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
     key_password = "$secret{keystore_password}"
     ```
 
-3. Navigate to the `<IS_HOME>/bin/` directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
+3. Navigate to the `<IS_HOME>/bin/` directory on the command prompt, where the cipher tool scripts reside.
 
-4. Execute the Cipher tool script to re-encrypt the passwords with the new key or secret. Use the `-Drotate` option and specify the old alias. 
+4. Execute the cipher tool script to re-encrypt the passwords with the new key or secret. Use the `-Drotate` option and specify the old alias. 
 
     For **asymmetric** encryption,
 
@@ -210,7 +217,7 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
     * On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon -Dsymmetric`
     * On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon  -Dsymmetric`
 
-5. Go back to the deployment.toml file and see that the alias passwords are re-encrypted with new encryption key.
+5. Go back to the `deployment.toml` file and see that the passwords are re-encrypted with new encryption key.
 
 {% endif %}
 
