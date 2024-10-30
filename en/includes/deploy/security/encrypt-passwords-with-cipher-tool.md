@@ -143,7 +143,7 @@ password = "$secret{keystore_password}"
 
 ### In log4j properties
 
-For example, consider the 'log4j.appender.LOGEVENT.password' in the `log4j2.properties` file. You may set the [encrypted password](#encrypt-passwords) in the `log4j2.properties` file as shown below.
+For example, consider the `log4j.appender.LOGEVENT.password` in the `log4j2.properties` file. You may set the [encrypted password](#encrypt-passwords) in the `log4j2.properties` file as shown below.
 
 ```
 log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
