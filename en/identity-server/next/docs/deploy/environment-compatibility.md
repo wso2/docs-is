@@ -13,10 +13,7 @@ As WSO2 Identity Server is a Java application, you can generally run it on most 
 			<ul>
 				<li>OpenJDK 11</li>
 				<li>OpenJDK 17</li>
-				<li>Oracle JDK 11</li>
-				<li>Oracle JDK 17</li>
-				<li>AdoptOpenJDK 11</li>
-				<li>Temurin OpenJDK 21</li>
+				<li>OpenJDK 21</li>
 			</ul>
 		</td>
 	</tr>
