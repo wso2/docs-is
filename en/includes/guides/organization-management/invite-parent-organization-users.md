@@ -78,7 +78,7 @@ property can be set to false in Parent Organization's User Invitation API. Next,
 used to obtain the confirmation code without sending email notifications.
 
    ``` bash
-   curl --location --request POST 'https://{{ host_name }}/o/api/server/v1/guests/invite' \
+   curl --location --request POST 'https://{{ host_name }}/t/{{ organization_name }}/o/api/server/v1/guests/invite' \
    --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
    --header 'Content-Type: application/json' \
    --data '{
@@ -126,7 +126,7 @@ Sample Response will contain the confirmation code as follows.
 If you are sending the invitation email through an external service, include this confirmation code, which need to be accepted through following invitation accepting API. If your applications wants to proceed parent user invitation flow without any email sending, applications can invoke the following API call as the next step.
 
    ``` bash
-   curl --location --request POST 'https://{{ host_name }}/o/api/server/v1/guests/invitation/accept' \
+   curl --location --request POST 'https://{{ host_name }}/t/{{ organization_name }}/o/api/server/v1/guests/invitation/accept' \
    --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
    --header 'Content-Type: application/json' \
    --data '{
