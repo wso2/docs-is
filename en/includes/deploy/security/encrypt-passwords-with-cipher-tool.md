@@ -215,7 +215,7 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
 
         - On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon  -Dsymmetric`
 
-5. Go back to the `deployment.toml` file and see that the passwords are re-encrypted with new encryption key.
+5. Go back to the `deployment.toml` file and see that the passwords are re-encrypted with the new encryption key.
 
 {% endif %}
 
