@@ -389,7 +389,7 @@ components:
         properties:
           type: array
           description: Custom properties of invitation which can be used in runtime but doesn't
-            persist as invitation information.
+            persist as invitation information. This support is available starting with update level 7.0.0.3.
           items:
             $ref: '#/components/schemas/Property'
       example:
@@ -464,7 +464,7 @@ components:
               example: Some Error Description
         confirmationCode:
           type: string
-          description: Confirmation code for the invitation when internally managed notifications are disabled.
+          description: Confirmation code for the invitation when internally managed notifications are disabled. This support is available starting with update level 7.0.0.3.
           example: "3363329b-c8c5-4c71-9500-9ea8c4e77d45"
     IntrospectRequestBody:
       type: object
