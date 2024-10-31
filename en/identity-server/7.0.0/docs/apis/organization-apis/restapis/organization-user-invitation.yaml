@@ -464,6 +464,7 @@ components:
               example: Some Error Description
         confirmationCode:
           type: string
+          description: Confirmation code for the invitation when internally managed notifications are disabled.
           example: "3363329b-c8c5-4c71-9500-9ea8c4e77d45"
     IntrospectRequestBody:
       type: object

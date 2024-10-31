@@ -64,11 +64,18 @@ Inorder to view or delete the invitations via {{ product_name }} Console:
 
 4. If required, invitations can be deleted by clicking the **Delete** icon.
 
-## Invite users without email notifications
+## Invite users without sending email notifications from {{product_name}}
 
-In order to disable email notifications, `manageNotificationsInternally` property can be set to false 
-in Parent Organization's User Invitation API. Next, the following sample request can be used to obtain the confirmation code
-without sending email notifications.
+{% if manageNotificationsInternallyPropertySupportedUpdateLevel %}
+
+!!! note
+    This support is available starting from update level {{ manageNotificationsInternallyPropertySupportedUpdateLevel }}.
+
+{% endif %}
+
+In order to disable sending email notifications internally from {{ product_name }}, `manageNotificationsInternally` 
+property can be set to false in Parent Organization's User Invitation API. Next, the following sample request can be 
+used to obtain the confirmation code without sending email notifications.
 
    ``` bash
    curl --location --request POST 'https://{{ host_name }}/o/api/server/v1/guests/invite' \
@@ -96,7 +103,7 @@ without sending email notifications.
    }'
    ```
 
-Sample Response:
+Sample Response will contain the confirmation code as follows.
    ```json
       [
           {
@@ -116,14 +123,13 @@ Sample Response:
       ]
    ```
 
-After obtaining confirmation codes, the users can be invited to the organization with the confirmation codes
-using following sample request.
+If you are sending the invitation email through an external service, include this confirmation code, which need to be accepted through following invitation accepting API. If your applications wants to proceed parent user invitation flow without any email sending, applications can invoke the following API call as the next step.
 
    ``` bash
    curl --location --request POST 'https://{{ host_name }}/o/api/server/v1/guests/invitation/accept' \
    --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
    --header 'Content-Type: application/json' \
-   -data '{
+   --data '{
       "confirmationCode": "2663329b-c8c5-4c71-9500-9ea8c4e77d94"
    }'
    ```
