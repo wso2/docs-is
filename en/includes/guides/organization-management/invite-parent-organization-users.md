@@ -74,7 +74,7 @@ Inorder to view or delete the invitations via {{ product_name }} Console:
 {% endif %}
 
 In order to disable sending email notifications internally from {{ product_name }}, `manageNotificationsInternally` 
-property can be set to false in Parent Organization's User Invitation API. Next, the following sample request can be 
+property can be set to false in Parent Organization's User Invitation API. The following sample request can be 
 used to obtain the confirmation code without sending email notifications.
 
    ``` bash
