@@ -58,7 +58,7 @@ Follow the steps below to encrypt passwords:
     keystore_password = "xxxxxxx"
     key_password = "xxxxxxx"
     truststrore_password = "xxxxxxx"
-    "log4j.appender.LOGEVENT.password" = "xxxxxxx"
+    "log4j2_password" = "xxxxxxx"
     ```
 
 {% else %}
@@ -85,11 +85,11 @@ To encrypt passwords on the WSO2 Identity Server:
 
     ```toml
     [secrets]
-    admin_password = "GeNld2aZkydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTag7w4dG6B3JK5GxeX9bhsmZCBFozlPdWBT6Jvy"
-    keystore_password = "brClL1SOHdezXTvBz1/76b/DnHQgxjNGtzhaBr3DnhHw32NWY484abHLREVyMoNJkER5lQUPbqeaMpR5lQUPbqeaMp"
-    key_password = "CFAaISaI19dHLApEM3usNSDXXdhdicHbVncrVwuLDJp6Rhp8B3Qy3PnBhcJsryTqR/EPwdLnXboNJkER"
-    truststrore_password = "DKnecEw+mJ8JhTUrqxpTZxwXrOdtcoAl2hD3LHtH+yJXNogumdSALfaqrMaknBzJq4SF3sY0RvwkMxWhnZ+BhIsko"
-    "log4j.appender.LOGEVENT.password" = "kydnIZGtkZYOnXlVzl8WBtZzAQ8kIoR5c7aHmyUkWTagXTvBz1/76b/DnHQgxjNhD3LHtH+yJXNowecEEC"
+    admin_password = "xxxxxxx"
+    keystore_password = "xxxxxxx"
+    key_password = "xxxxxxx"
+    truststrore_password = "xxxxxxx"
+    "log4j2_password" = "xxxxxxx"
     ```
 
 {% endif %}
@@ -172,21 +172,21 @@ You may follow the steps below to change passwords that are already encrypted.
 !!! note
     To support symmetric encryption, you must specify a PKCS12 type keystore as the internal keystore.
 
-You can rotate encryption keys by switching between symmetric and asymmetric encryption or by changing the encryption keys within the same encryption mode.
+You can rotate encryption keys by switching between symmetric and asymmetric encryption or by changing the encryption keys within the same encryption mode. Follow the steps below.
 
-1. For **symmetric** encryption, use the command below to add the new key to the existing keystore with a new alias. 
+1. Use the corresponding command to add the new key to an existing keystore with a new alias.
 
-    ```bash
-    keytool -genseckey -alias new_alias -keyalg AES -keysize 256 -keystore internal.p12 -storepass password -keypass password
-    ```
+    === "Symmetric encryption"
+
+        ```bash
+        keytool -genseckey -alias new_alias -keyalg AES -keysize 256 -keystore internal.p12 -storepass password -keypass password
+        ```
     
+    === "Asymmetric encryption"
 
-    For **asymmetric** encryption, use the command below to add a new key pair to the keystore.
-
-    ```bash
-    keytool -genkeypair -alias new_alias -keyalg RSA -keystore wso2carbon.jks -storepass password -keypass password
-    ```
-
+        ```bash
+        keytool -genkeypair -alias new_alias -keyalg RSA -keystore wso2carbon.jks -storepass password -keypass password
+        ```
 
 2. Update the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory to reflect the new key or secret alias:
 
