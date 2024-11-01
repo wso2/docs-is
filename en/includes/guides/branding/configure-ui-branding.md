@@ -1,20 +1,77 @@
 # Configure UI branding
 
-You can customize the user interfaces (UIs) presented to your users during the login, sign-up, and account recovery flows, and on the My Account portal according to the theming guidelines of your organization.
+{{product_name}} allows you to customize the user interfaces (UIs) displayed to your users during login, sign-up, account recovery, and self-service.
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
+Customizations take effect at two levels:
+
+- **Organization-wide Branding**: This functions as the default branding and applies to all applications in an organization.
+- **Application-specific Branding**: Each application can have its own branding. This overrides the organization-wide branding applied by default to the application.
+
+By branding these interfaces, your users will experience a familiar and consistent look and feel that aligns with your organizational or application-specific themes.
 
 !!! note "UI Branding for B2B applications"
-    If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/),note that you can configure separate UI branding for your organizations. If you have not configured UI branding for your organization, the UI branding of your root organization will be applied to the organization.
+
+    If you have implemented [B2B organizations]({{base_path}}/guides/organization-management/), the behavior of each branding levels will work as follows:
+
+    **For organization-specific branding**:
+
+    - You may configure separate UI branding for each organization. 
+    - If you have not configured UI branding for your organization, the UI branding of your immediate parent  organization will be applied to the organization. If your parent organization has no branding, the  grand-parent organization's branding will apply. This will continue all the way until the root organization.  If the root organization has no branding, the default {{product_name}} branding will apply.
+     
+    **For application-specific branding**:
+
+    - If you configure application-specific branding, it will override the organization’s branding for that  application.
+    - If no application-specific branding is set, the UI branding of the organization will be applied. If the  organization has no branding, the application-specific branding of the immediate parent's organization will  apply. This will continue all the way until the root organization. If the root organization has no branding, the default {{product_name}} branding will apply.
+
+
+    ![{{ product_name }} branding path resolver]({{base_path}}/assets/img/guides/branding/generic-app-branding-resolver-path.png)
+
+!!! note
+    See the complete list of [UI branding options](#ui-branding-preferences) currently available in {{ product_name }}.
+
+{% else %}
+
+!!! note "UI Branding for B2B applications"
+    If you have created [organizations]({{base_path}}/guides/organization-management/manage-organizations/), note that you can configure separate UI branding for your organizations. If you have not configured UI branding for your organization, the UI branding of your immediate parent organization will be applied to the organization. If your parent organization has no branding, the grand-parent organization's branding will apply. This will continue all the way until the root organization. If the root organization has no branding, the default {{product_name}} branding will apply.
 
 By branding these interfaces, users will get a familiar and consistent user experience.
 
 !!! note
     See the complete list of [UI branding options](#ui-branding-preferences) currently available in {{ product_name }}.
 
+{% endif %}
+
 ![{{ product_name }} branding example]({{base_path}}/assets/img/guides/branding/branding-example.png)
 
 ## Update branding
 
-Follow the steps given below to configure the branding preferences for your organization.
+Follow the steps given below to configure branding preferences:
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
+1. On the {{ product_name }}, go to **Branding** > **Styles & Text**.
+
+2. In the top right corner, select either **Organization** for organization-wide branding or **Application** and choose an application for application-specific branding.
+
+    ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-console-ui.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+   
+   
+    !!! note
+       
+        You may also navigate to application branding by going to the **General** tab of your application and under **Branding**, selecting **Go to Application Branding**.
+
+2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
+
+    !!! note
+        - Text branding is currently not available for application-specific branding. You can still configure text branding at the organization level, and it will apply to all applications unless overridden by application-specific branding in other areas.
+        - If you leave any of the branding preferences empty, {{ product_name }} defaults will be used.
+        - The real-time preview will show you a sample view as you update the values.
+
+3. Click **Save & Publish** to publish your branding configurations.
+
+{% else %}
 
 1. On the {{ product_name }}, go to **Branding** > **Styles & Text**.
 
@@ -27,6 +84,8 @@ Follow the steps given below to configure the branding preferences for your orga
         - The real-time preview will show you a sample view as you update the values.
 
 3. Click **Save & Publish** to publish your branding configurations.
+
+{% endif %}
 
 The email templates of the organization will be automatically updated according to your branding preferences if the preferences are in the published state. See [Customize email templates]({{base_path}}/guides/branding/customize-email-templates/#configure-email-templates) for more information.
 
@@ -50,8 +109,17 @@ When disabled, {{ product_name }}'s default branding will apply to the interface
 
 If you want to revert your branding preferences, scroll down to the **Danger Zone** and click **Revert to default**.
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
+!!! warning
+    Note that this permanently removes all the branding options that you have saved and the branding of the next available level (such as organization branding or {{ product_name }} defaults) will be applied to your organization or application.
+
+{% else %}
+
 !!! warning
     Note that this permanently removes all the branding options that you have saved and the {{ product_name }} defaults will immediately apply.
+
+{% endif %}
 
 {{ asgardeo_help }}
 
@@ -77,6 +145,10 @@ Listed below are general branding preferences you can apply to the interfaces.
 ### Design preferences
 
 Listed below are the design changes you can apply to the user registration interface, login interfaces and My Account portal.
+
+!!! Note
+    
+    My Account branding can only be configured at the organization level.
 
 #### Layout variations
 
@@ -192,7 +264,7 @@ The following design preferences apply to the theme you select. You can configur
        <tr>
           <td><b>Inverted Surface Background Color</b></td>
           <td>
-             The inverted variation of the background color used in surface elements like the     application header in the My Account portal.
+             The inverted variation of the background color used in surface elements like the application header in the My Account portal.
           </td>
        </tr>
     </table>
@@ -589,9 +661,11 @@ These placeholders provide flexibility in constructing URLs that adapt to differ
 1. Constructing a URL with the complete locale tag:
 
     === "URL format"
+        
         `https://example.com/{{locale}}/page`
 
     === "Sample"
+        
         Assume `ja-JP` is selected as the locale: `https://example.com/ja-JP/page`
 
 2. Inserting the country code into the URL:
@@ -674,5 +748,13 @@ Listed below are the text branding preferences you can apply to the screens in y
    </tr>
 </table>
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+!!! note
+    - Adding custom fields to the text preferences is not supported.
+    - Text branding is currently not available for application-specific branding.
+
+{% else %}
 !!! note
     Adding custom fields to the text preferences is not supported.
+
+{% endif %}
