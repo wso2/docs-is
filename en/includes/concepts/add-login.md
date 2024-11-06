@@ -15,9 +15,9 @@ You also need to consider enabling sign-up and sign-in options through popular s
 
 ## Add user login 
 
-Add user login to your application by simply integrating the right Asgardeo SDK as per your application development technology. Asgardeo SDKs provide you with the necessary components and utilities to easily add user login into your application, manage tokens and maintain authentication state. 
+Add user login to your application by simply integrating the right {{product_name}} SDK as per your application development technology. {{product_name}} SDKs provide you with the necessary components and utilities to easily add user login into your application, manage tokens and maintain authentication state. 
 
-Behind the scenes, Asgardeo SDKs use the OpenID Connect protocol to handle login requests with Asgardeo. When a user attempts to log in, they are redirected to Asgardeo for login. Once the user is authenticated, the application receives an OpenID Connect ID token, which includes the user's information and metadata. Asgardeo SDKs simplify the complexities of OpenID request-response flows and token processing, and enable security best practices such as token validation and the PKCE extension by default.
+Behind the scenes, {{product_name}} SDKs use the OpenID Connect protocol to handle login requests with {{product_name}}. When a user attempts to log in, they are redirected to {{product_name}} for login. Once the user is authenticated, the application receives an OpenID Connect ID token, which includes the user's information and metadata. {{product_name}} SDKs simplify the complexities of OpenID request-response flows and token processing, and enable security best practices such as token validation and the PKCE extension by default.
 
 ![Asgardeo SDK]({{base_path}}/assets/img/concepts/asgardeo-sdk.png){: width="700"}
 
@@ -25,12 +25,12 @@ Explore all the supported application development technologies, SDKs and quick s
 
 !!! tip
     
-    - By default, Asgardeo SDKs redirect users to Asgardeo using HTTP redirects. However, if you prefer to create your own login screen within the application, you can still integrate Asgardeo for user login using the Asgardeo Login API.
+    - By default, {{product_name}} SDKs redirect users to {{product_name}} using HTTP redirects. However, if you prefer to create your own login screen within the application, you can still integrate {{product_name}} for user login using the {{product_name}} Login API.
 
-    - In addition to OpenID Connect, you can also use SAML 2.0 to integrate your application with Asgardeo for user login.
+    - In addition to OpenID Connect, you can also use SAML 2.0 to integrate your application with {{product_name}} for user login.
 
 
-Asgardeo automatically configures a default login flow for you to get started. You can design your desired login flow by adding social providers or MFA options using Asgardeo's visual login flow designer, where you can drag and drop the required elements.
+{{product_name}} automatically configures a default login flow for you to get started. You can design your desired login flow by adding social providers or MFA options using {{product_name}}'s visual login flow designer, where you can drag and drop the required elements.
 
 ![Add login flow]({{base_path}}/assets/img/concepts/login-flow.png)
 
@@ -41,17 +41,17 @@ Alternatively, you can use the Login Flow AI feature to generate the desired log
 
 ## On-board users 
 
-Allow users to self-onboard to your application, either directly or via social and partner platforms. You can utilize customizable user onboarding portal components from Asgardeo, or use Asgardeo's user onboarding APIs. Additionally, connect existing on-premise AD and LDAP user directories using the remote user store agent.
+Allow users to self-onboard to your application, either directly or via social and partner platforms. You can utilize customizable user onboarding portal components from {{product_name}}, or use {{product_name}}'s user onboarding APIs. Additionally, connect existing on-premise AD and LDAP user directories using the remote user store agent.
 
 
 ![Onboard users]({{base_path}}/assets/img/concepts/asgardeo-user-stores.png)
 
-Asgardeo offers a user self-onboarding portal component that can be seamlessly integrated with your applications and allows you to customize the onboarding experience and branding. For greater flexibility and control, you can use the Asgardeo user onboarding API to integrate with your application's specific onboarding workflows.  
+{{product_name}} offers a user self-onboarding portal component that can be seamlessly integrated with your applications and allows you to customize the onboarding experience and branding. For greater flexibility and control, you can use the {{product_name}} user onboarding API to integrate with your application's specific onboarding workflows.  
 
 
 ## Add self-care account management features  
 
-Let your users self-manage their profiles, protect their accounts, and handle recovery on their own. Asgardeo offers all the required self-management features for your application out-of-the-box. Your application can be integrated with Asgardeo user self-care portal components with your own branding. Alternatively, you can integrate Asgardeo’s self-management capabilities using the self-care user API to offer app-native experience.  
+Let your users self-manage their profiles, protect their accounts, and handle recovery on their own. {{product_name}} offers all the required self-management features for your application out-of-the-box. Your application can be integrated with {{product_name}} user self-care portal components with your own branding. Alternatively, you can integrate {{product_name}}’s self-management capabilities using the self-care user API to offer app-native experience.  
 
 Add self-manage features for your application users to: 
 
@@ -66,7 +66,7 @@ Add self-manage features for your application users to:
 - export their user profile 
 
 
-Protect your application, data and users by enabling security controllers offered by Asgardeo:
+Protect your application, data and users by enabling security controllers offered by {{product_name}}:
 
 - conditionally enforcing MFA
 - enabling password policies 
