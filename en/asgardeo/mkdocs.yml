@@ -33,6 +33,7 @@ extra:
   product: asgardeo
   product_name: *site_name
   nav_list:
+    - Home
     - Get Started
     - Guides
     - Tutorials
@@ -474,6 +475,11 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
+  - React Guide:
+    - Intruduction: complete-guides/react/introduction.md
+    - Prerequisite: complete-guides/react/prerequisite.md
+    - Register an application in Asgardeo/IS: complete-guides/react/register-an-application-in-asgardeo-is.md
+    - Create a React application: complete-guides/react/create-a-react-application.md
 
 not_in_nav: |
   /page-not-found.md
