@@ -1,1 +1,1 @@
-{% include "../../../../../../includes/deploy/security/asymmetric-encryption.md" %}
+{% include "../../../../../../includes/deploy/security/asymmetric-encryption/index.md" %}
