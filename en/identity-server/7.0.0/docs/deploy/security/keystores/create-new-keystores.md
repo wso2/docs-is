@@ -1,1 +1,1 @@
-{% include "../../../../../../includes/guides/encryption/create-new-keystores.md" %}
+{% include "../../../../../../includes/deploy/security/keystores/create-new-keystores.md" %}
