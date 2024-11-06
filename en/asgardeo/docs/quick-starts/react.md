@@ -1,7 +1,7 @@
 ---
 template: templates/quick-start.html
 heading: React Quickstart
-description: Welcome to the React Quickstart guide! In this document, you will learn to build a React application, add user login and display user profile information using Asgardeo.
+description: Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user login and display user profile information using Asgardeo.
 what_you_will_learn:
   - Create new React app using Vite
   - Install <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk" target="_blank">@asgardeo/auth-react</a> package
@@ -18,30 +18,29 @@ whats_next:
   - Try out Asgardeo user onboarding complete guide for React
   - Read Asgardeo security best practices for React app guide
 ---
-
-## Configure an application Asgardeo
+## Configure an Application in Asgardeo
 
 - Sign into Asgardeo console and navigate to Applications > New Application.
+- Select Single Page Application and complete the wizard popup by providing a suitable name and an authorized redirect URL
 
-- Select Single Page Application and Complete the wizard popup by providing a suitable name and an authorized redirect URL
   - Name -  Asgardeo-React
-  - Authorized redirect URL - `https://localhost:5173`
+  - Authorized redirect URL - `http://localhost:5173`
 
 !!! abstract
 
-    The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your application is hosted. For this guide, we'll use `https://localhost:5173`, as the sample application will be accessible at this URL.
+    The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
 
 !!! note
 
-    Note down the following values : you will need them during the **Step 4**
+    Note down the following values : you will need them during the**Step 4**
 
-    - `client-id`
-    - `base-url` 
+    -`client-id`
+    - `base-url`
     - `redirect-url`
 
-## Create a React application using Vite
+## Create a React app using Vite
 
-Create (a.k.a scaffold) your new React application using Vite.
+Create (a.k.a scaffold) your new React app using Vite.
 
 === "npm"
 
@@ -79,42 +78,36 @@ Create (a.k.a scaffold) your new React application using Vite.
     pnpm run dev
     ```
 
-## Install @asgardeo/auth-react 
+## Install @asgardeo/auth-react
 
 Asgardeo React SDK provides all the components and hooks you need to integrate Asgardeo into your app. To get started, simply add the Asgardeo React SDK to the project.
 
 === "npm"
 
-    ``` bash
-    npm install @asgardeo/auth-react 
-    ```
+    ``bash     npm install @asgardeo/auth-react     ``
 
 === "yarn"
 
-    ``` bash
-    yarn add @asgardeo/auth-react 
-    ```
+    ``bash     yarn add @asgardeo/auth-react     ``
 
 === "pnpm"
 
-    ``` bash
-    pnpm add @asgardeo/auth-react 
-    ```
+    ``bash     pnpm add @asgardeo/auth-react     ``
 
-## Add <AuthProvider /> to your app
+## Add `<AuthProvider />` to your app
 
-The `<AuthProvider />` serves as a context provider for user login in the app. You can add the AuthProvider to your app by  wrapping  the root component. 
+The `<AuthProvider />` serves as a context provider for user login in the app. You can add the AuthProvider to your app by wrapping  the root component.
 
 Add the following changes to the `main.jsx` file.
 
 !!! note
 
-    Replace below placeholders with your registered organization name in Asgardeo and the generated `client-id` from the app you registered in Asgardeo.
+    Replace below placeholders with your registered organization name in Asgardeo and the generated`client-id` from the app you registered in Asgardeo.
 
-    - `<your-app-client-id>`
-    - `https://api.asgardeo.io/t/<your-organization-name>` 
+    -`<your-app-client-id>`
+    - `https://api.asgardeo.io/t/<your-organization-name>`
 
-```javascript title="src/main.jsx" hl_lines="4 7-13 17 19" linenums="1"
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
@@ -139,13 +132,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 ```
 
-## Add login and logout link to your app 
+## Add login and logout link to your app
 
-Asgardeo provides `useAuthContext` hook to conveniently access user authentication data and sign-in and sign-out methods. 
+Asgardeo provides `useAuthContext` hook to conveniently access user authentication data and sign-in and sign-out methods.
 
 Replace the existing content of the `App.jsx` file with following content.
 
-```javascript title="src/App.jsx" hl_lines="1 5 9-13" linenums="1"
+```javascript
 import { useAuthContext } from "@asgardeo/auth-react";
 import './App.css';
 
@@ -166,17 +159,17 @@ return (
 export default App;
 ```
 
-Visit your app's homepage at [http://localhost:5173](http://localhost:5173). 
+Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 !!! tip
 
-    You need to create a test user in Asgardeo by following this guide  to tryout login and logout features. 
+    You need to create a test user in Asgardeo by following this guide  to tryout login and logout features.
 
 ## Display logged in user details
 
 Modified the code as below to see logged in user details.
 
-```javascript title="src/App.jsx" hl_lines="8-15" linenums="1"
+```javascript
 ...
 
 const App = () => {

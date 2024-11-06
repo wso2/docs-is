@@ -31,6 +31,8 @@ paths:
             'application/json':
               schema:
                 $ref: '#/components/schemas/TenantsListResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -39,12 +41,6 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
-        '501':
-          description: Not Implemented
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
       x-codeSamples:
         - lang: Curl
           source: |
@@ -76,6 +72,8 @@ paths:
               description: Location of the newly created tenant
               schema:
                 type: string
+        '206':
+          $ref: '#/components/responses/PartialContent'
         '400':
           $ref: '#/components/responses/InvalidInput'
         '401':
@@ -375,6 +373,98 @@ paths:
             'https://localhost:9443/api/server/v1/tenants/{tenant-id}/owners' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='           
+  '/tenants/{tenant-id}/owners/{owner-id}':
+    get:
+      tags:
+        - Tenants
+      summary: Retrieve tenant owner.
+      operationId: getOwner
+      description: |
+        Retrieve the tenant owner identified by the provided tenant id and owner id.
+
+        <b>Scope(Permission) required:</b> `internal_list_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantIdPathParam'
+        - $ref: '#/components/parameters/ownerIdPathParam'
+        - $ref: '#/components/parameters/additionalClaimsQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/OwnerInfoResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}/owners/{owner-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' 
+    put:
+      tags:
+        - Tenants
+      summary: Update tenant owner.
+      operationId: updateOwner
+      description: |
+        This API provides the capability to update the tenant owner.
+
+        <b>Scope(Permission) required:</b> `internal_modify_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantIdPathParam'
+        - $ref: '#/components/parameters/ownerIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OwnerPutModel'
+        description: This represents the tenant owner to be updated.
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '206':
+          $ref: '#/components/responses/PartialContent'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}/owners/{owner-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "password": "kim123",
+            "email": "kim@wso2.com",
+            "firstname": "kim",
+            "lastname": "kim",
+            "additionalClaims": [
+              {
+                "claim": "http://wso2.org/claims/telephone",
+                "value": "+94 562 8723"
+              }
+            ]
+            }' 
   '/tenants/{tenant-id}/metadata':
       delete:
         tags:
@@ -437,6 +527,13 @@ components:
       description: tenant id
       schema:
         type: string
+    ownerIdPathParam:
+      in: path
+      name: owner-id
+      required: true
+      description: owner id
+      schema:
+        type: string
     tenantDomainPathParam:
       in: path
       name: tenant-domain
@@ -478,7 +575,7 @@ components:
       name: sortBy
       required: false
       description: >-
-        Attribute by which the retrieved records should be sorted. Currently sorting through _<b>domainName<b>_ only
+        Attribute by which the retrieved records should be sorted. Currently sorting through <b>domainName</b> only
         supported.
       schema:
         type: string
@@ -487,12 +584,20 @@ components:
       name: filter
       required: false
       description: >
-        Condition to filter the retrival of records. Supports 'sw', 'co', 'ew'
-        and 'eq' operations and also complex queries with 'and' operations. E.g.
-        /tenants?filter=domain+sw+"wso2". _<b>This
-        option is not yet supported.<b>_
+        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew' and 'eq' operations.
+        Currently, filtering is supported only by the <b>domainName</b>.
+        E.g. /tenants?filter=domainName+sw+wso2.
       schema:
         type: string
+    additionalClaimsQueryParam:
+      in: query
+      name: additionalClaims
+      required: false
+      description: >-
+        Define set of additional user claims (as comma separated) to be returned.
+      schema:
+        type: string
+        example: http://wso2.org/claims/telephone
   responses:
     NotFound:
       description: The specified resource is not found
@@ -508,6 +613,12 @@ components:
       description: Requested Resource Exists
     ServerError:
       description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    PartialContent:
+      description: Partial Content
       content:
         'application/json':
           schema:
@@ -679,8 +790,6 @@ components:
       required:
         - username
         - email
-        - firstname
-        - lastname
         - provisioningMethod
       properties:
         username:
@@ -707,6 +816,62 @@ components:
           type: string
           example: inline-password
           description: If the provisioning method is inline-password then a valid password should be sent in the request body, if the provisioning method is invite-via-email then password doesn't need to be send through request body, instead an emai link will be sent to the given email address to set the password.
+        additionalClaims:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalClaims'
+
+    OwnerPutModel:
+      type: object
+      required:
+        - email
+        - firstname
+        - lastname
+      properties:
+        email:
+          type: string
+          example: kim@wso2.com
+          description: Email address of the owner.
+        password:
+          type: string
+          example: kim123
+          description: Password of the owner.
+        firstname:
+          type: string
+          example: kim
+          description: First name of the owner.
+        lastname:
+          type: string
+          example: kim
+          description: Last name of the owner.
+        additionalClaims:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalClaims'
+
+    OwnerInfoResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "4875-jhgr-454hb"
+          description: id of the tenant owner.
+        username:
+          type: string
+          example: kim
+          description: Username for the tenant owner.
+        email:
+          type: string
+          example: kim@wso2.com
+          description: Email address of the owner.
+        firstname:
+          type: string
+          example: kim
+          description: First name of the owner.
+        lastname:
+          type: string
+          example: kim
+          description: Last name of the owner.
         additionalClaims:
           type: array
           items:
