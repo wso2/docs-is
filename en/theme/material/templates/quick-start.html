@@ -27,7 +27,7 @@
   <div class="md-content">
     <article class="md-content__inner md-typeset">
 
-      <h1 id="{{ page.meta.heading | lower | replace(' ', '-') }}">{{ page.meta.heading }}</h1>
+      <h1 id="{{ page.meta.heading | lower | replace(' ', '-') | replace('/', '-') }}">{{ page.meta.heading }}</h1>
       {{ page.meta.description }}
 
       {% if page.meta.what_you_will_learn or page.meta.prerequisites or page.meta.source_code  %}
