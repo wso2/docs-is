@@ -20,15 +20,15 @@ Use of the right B2B identity capabilities offers significant advantages, includ
 
 ## On-board business customers and partners   
 
-Just as you allow your B2C consumers to self-sign up for your application, you can extend the same capability to business customers and partners. Achieve this by integrating Asgardeo Organization APIs into your business customer and partner-facing applications, whether developed in-house or using bespoke solutions like CMS or ERP systems. Asgardeo provides flexibility to map any complex business organization with complex hierarchies and manage their interactions and bounders.  
+Just as you allow your B2C consumers to self-sign up for your application, you can extend the same capability to business customers and partners. Achieve this by integrating {{product_name}} Organization APIs into your business customer and partner-facing applications, whether developed in-house or using bespoke solutions like CMS or ERP systems. {{product_name}} provides flexibility to map any complex business organization with complex hierarchies and manage their interactions and bounders.  
  
 !!! tip
     
-    Download and explore the Postman collection to better understand how to integrate [Asgardeo Organization APIs]({{base_path}}/apis/organization-apis/) with your application.
+    Download and explore the Postman collection to better understand how to integrate [{{product_name}} Organization APIs]({{base_path}}/apis/organization-apis/) with your application.
 
-In cases where you need more control over the onboarding process and prefer to initiate it yourself, you can integrate [Asgardeo organization APIs]({{base_path}}/apis/organization-apis/) with your existing business customer and partner management applications.
+In cases where you need more control over the onboarding process and prefer to initiate it yourself, you can integrate [{{product_name}} organization APIs]({{base_path}}/apis/organization-apis/) with your existing business customer and partner management applications.
 
-If you don’t have dedicated onboarding applications to integrate with [Asgardeo Organization APIs]({{base_path}}/apis/organization-apis/), you can simply use the Asgardeo console to initiate the onboarding process and invite your business customers and partners.
+If you don’t have dedicated onboarding applications to integrate with [{{product_name}} Organization APIs]({{base_path}}/apis/organization-apis/), you can simply use the {{product_name}} console to initiate the onboarding process and invite your business customers and partners.
 
 ## Delegate administrative tasks 
 

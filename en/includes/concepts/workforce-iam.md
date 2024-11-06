@@ -12,17 +12,17 @@ Whether you are a large enterprise, startup, or medium-sized business, one of th
 
 ## On-board workforce, provisioning them to systems and manage access  
 
-Automate and create unified onboarding experiences for your workforce by integrating various on-boarding channels such as HRM systems, existing AD and LDAP directories with Asgardeo to create a unified view of your workforce that enables centralized workforce management. Different provisioning and deprovisioning policies can be implanted as per workforce variance based on their employment such as full-time, contractual and outsourced and based on their job roles.  
+Automate and create unified onboarding experiences for your workforce by integrating various on-boarding channels such as HRM systems, existing AD and LDAP directories with {{product_name}} to create a unified view of your workforce that enables centralized workforce management. Different provisioning and deprovisioning policies can be implanted as per workforce variance based on their employment such as full-time, contractual and outsourced and based on their job roles.  
  
 - Use SCIM 2.0 industry standard to provision and deprovision workforce user accounts 
 
-- Use Asgardeo console to create and invite workforce users 
+- Use {{product_name}} console to create and invite workforce users 
 
-- Define and manage workforce access to your business applications using roles and user groups available with [Asgardeo RBAC]({{base_path}}/guides/authorization/api-authorization/api-authorization/).
+- Define and manage workforce access to your business applications using roles and user groups available with [{{product_name}} RBAC]({{base_path}}/guides/authorization/api-authorization/api-authorization/).
 
 ## Secure workforce and business with strong authentication  
 
-Secure user accounts of your workforce and business applications by enforcing MFA options. Asgardeo offers secure MFA options including SMS and Email OTP, TOTP using authenticator apps, FIDO-based Passkeys, Duo-based push notifications and hardware tokens and facial biometrics such as iProove.   
+Secure user accounts of your workforce and business applications by enforcing MFA options. {{product_name}} offers secure MFA options including SMS and Email OTP, TOTP using authenticator apps, FIDO-based Passkeys, Duo-based push notifications and hardware tokens and facial biometrics such as iProove.   
 
 Get rid of passwords completely and offer secure passwordless authentication for your workforce using Magic Link, Passkeys, biometrics and Email/SMS OTPs. 
 
@@ -35,9 +35,9 @@ Get rid of passwords completely and offer secure passwordless authentication for
 - Configure iProove facial biometrics for your workforce 
 - Configure HYPR biometric for your workforce
  
-Asgardeo automatically configures a default login flow for you to get started. You can design your desired login flow by adding social providers or MFA options using Asgardeo's visual login flow designer, where you can drag and drop the required elements. Alternatively, you can use the Login Flow AI feature to generate the desired login flow based on your plain text instructions.
+{{product_name}} automatically configures a default login flow for you to get started. You can design your desired login flow by adding social providers or MFA options using {{product_name}}'s visual login flow designer, where you can drag and drop the required elements. Alternatively, you can use the Login Flow AI feature to generate the desired login flow based on your plain text instructions.
    
-Make workforce authentication adaptive by adjusting authentication options such as adaptive MFA , adaptive access control and passkey enrollment as per the current risk level assessed using contextual parameters such as location, device and behavior. Asgardeo offers a set of ready to use templates that can be configured for your workforce requirements and you can also develop your own adaptive authentication scripts. 
+Make workforce authentication adaptive by adjusting authentication options such as adaptive MFA , adaptive access control and passkey enrollment as per the current risk level assessed using contextual parameters such as location, device and behavior. {{product_name}} offers a set of ready to use templates that can be configured for your workforce requirements and you can also develop your own adaptive authentication scripts. 
 
 - Configure group-based access control 
 - Configure concurrent sessions based access control
@@ -50,7 +50,7 @@ Make workforce authentication adaptive by adjusting authentication options such 
 
 ## Provide Single-Sign-On (SSO) across your application 
 
-Make your workforce experience frictionless and efficient when accessing the cloud-based and on-premise applications by enabling enterprise SSO. The SSO templates provided by Asgardeo make it easy for you to integrate with cloud applications. 
+Make your workforce experience frictionless and efficient when accessing the cloud-based and on-premise applications by enabling enterprise SSO. The SSO templates provided by {{product_name}} make it easy for you to integrate with cloud applications. 
 
 - Configure SSO for Office365 
 - Configure SSO for Google Workspace
@@ -60,7 +60,7 @@ Make your workforce experience frictionless and efficient when accessing the clo
 
 ## Enable self-care account management capabilities for your workforce  
 
-Let your workforce manage their profiles, protect their accounts, and handle recovery on their own. Asgardeo offers all the required self-management features for your application out of the box, your application can be integrated with Asgardeo user self-care portal components with your own branding. 
+Let your workforce manage their profiles, protect their accounts, and handle recovery on their own. {{product_name}} offers all the required self-management features for your application out of the box, your application can be integrated with {{product_name}} user self-care portal components with your own branding. 
 
 Add self-manage features for your application users: 
 
