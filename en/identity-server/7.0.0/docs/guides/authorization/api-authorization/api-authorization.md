@@ -1,1 +1,1 @@
-{% include "../../../../../../includes/guides/api-authorization.md" %}
+{% include "../../../../../../includes/guides/authorization/api-authorization.md" %}

@@ -17,7 +17,7 @@ Let's look at how administrators can onboard another administrator by sending an
 
 To onboard an administrator:
 
-1. On the Asgardeo Console, go to **Administrators**.
+1. On the Asgardeo Console, go to **Console Settings** > **Administrators**.
 
 2. Click **Add Administrator** and provide the required details.
 
@@ -56,7 +56,7 @@ You can assign admin privileges to existing business users only if it is allowed
 
 First, configure administrator settings for the organization:
 
-1. On the Asgardeo Console, go to **Administrators**.
+1. On the Asgardeo Console, go to **Console Settings** > **Administrators**.
 
 2. Click the settings icon next to **+ Add Administrator** to open the **Administrator Settings** page.
 
@@ -64,13 +64,13 @@ First, configure administrator settings for the organization:
 
     ![Assign an existing user as an admin]({{base_path}}/assets/img/guides/users/enable-users-to-manage-organizations.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Go back to the **Administrators** page and see that the **+ Add Administrator** list is updated as follows:
+4. Go back to the **Administrators** tab and see that the **+ Add Administrator** list is updated as follows:
 
     ![Add administrator dropdown]({{base_path}}/assets/img/guides/users/add-administrator-dropdown.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Now, let's assign admin privileges to a user:
 
-1. On the **Administrator** page, click **+Add Administrator > Assign admins from users**.
+1. On the **Console Settings** > **Administrator** page, click **+Add Administrator > Assign admins from users**.
 2. Select the user you want to add as an administrator and click **Add**.
 
 The new administrator can now access the Asgardeo Console using the following URL:
@@ -111,7 +111,7 @@ On the Asgardeo Console, go to **Administrators**. You will see the list of admi
 
 To delete an administrator:
 
-1. On the Asgardeo Console, click **Administrators**.
+1. On the Asgardeo Console, click **Console Settings** > **Administrators**.
 2. Click **Delete** for the administrator you want to remove.
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.

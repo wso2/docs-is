@@ -24,10 +24,12 @@ There are two ways to add a conditional authentication script:
 - Use a [predefined template]({{base_path}}/guides/authentication/conditional-auth/#script-templates).
 - Write a [new conditional auth script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 
-{% if product_name == 'Asgardeo' %}
-
 ## Add a secret to the script
 Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process. You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for `callChoreo()` conditional authentication function.
+
+!!! warning "Before you proceed"
+
+    When working with conditional authentication scripts, <b>never log secrets</b> or sensitive information within your authentication flows.
 
 ### Create a new secret
 
@@ -65,7 +67,7 @@ To add a new secret:
         </tr>
         <tr>
             <td>Secret Name</td>
-            <td>A meaningful name for the secret. This name is not changeable.</td>
+            <td>A meaningful name for the secret. This name is not changeable and will be used in the script to reference the secret.</td>
         </tr>
         <tr>
             <td>Secret Value</td>
@@ -78,6 +80,16 @@ To add a new secret:
     </table>
 
 6. Click **Finish** to complete the creation.
+
+### Use secret in the script
+
+You may refer to the previously added secrets in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you may use:
+
+```angular2html
+var secretValue = secrets.secretName;
+```
+
+This allows you to securely access secret values within your authentication scripts, enhancing the security and flexibility of your authentication process.
 
 ### Delete an existing secret
 
@@ -105,5 +117,3 @@ To delete an existing secret:
 4. Click the trash icon next to the secret you wish to delete.
 
 5. Select the checkbox and confirm your action.
-
-{% endif %}

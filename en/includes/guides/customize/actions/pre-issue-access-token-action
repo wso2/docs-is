@@ -6,7 +6,7 @@ You can use this functionality to:
 
 - Add, modify, or remove scopes.
 - Add, modify, or remove audience values.
-- Modify or remove [OIDC scopes]({{base_path}}/guides/users/attributes/manage-scopes/) incorporated into the access token.
+- Modify or remove user attributes incorporated into the access token.
 - Add custom claims (only string, number, boolean, and string type arrays are allowed).
 - Update the validity period of the access token.
 
@@ -345,7 +345,7 @@ The response can have two possible states: <code>SUCCESS</code> and <code>ERROR<
 <code>ERROR</code>: Indicates a failure in processing, accompanied by an error message that should be communicated to the application. This error message should adhere to OAuth 2.0 error response definitions to ensure compliance. However, it is your responsibility to ensure this compliance when extending the flow.
 
 !!! note
-    Currently, <code>ERROR</code> responses are not communicated back to the client, but this functionality is planned for inclusion by September 2024.
+    Currently, <code>ERROR</code> responses are not communicated back to the client, but this functionality is planned for inclusion by end October 2024.
 
 #### Response for SUCCESS state:
 
@@ -407,6 +407,6 @@ Http Status Code: 400, 401 or 500
 </table>
 
 !!! note
-    Currently, <code>ERROR</code> responses are not communicated back to the client, but this functionality is planned for inclusion by September 2024.
+    Currently, <code>ERROR</code> responses are not communicated back to the client, but this functionality is planned for inclusion by end October 2024.
 
 If the defined error response is not received, or if the external service fails to respond, this is identified as an error in executing the action. In such cases, the flow will proceed as if the action was not applied, ensuring that the process continues without disruption.

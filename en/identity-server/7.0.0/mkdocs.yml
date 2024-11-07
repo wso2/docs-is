@@ -177,9 +177,6 @@ plugins:
         'guides/analytics/analyzing-login-attempts.md': 'guides/analytics/elk-analytics/analyzing-login-attempts.md'
         'guides/analytics/analyzing-active-sessions.md': 'guides/analytics/elk-analytics/analyzing-active-sessions.md'
         'guides/analytics/elk-alert-types.md': 'guides/analytics/elk-analytics/elk-alert-types.md'
-        
-
-
         'guides/dialects/dialects-overview.md': 'guides/users/attributes/index.md'
         'guides/dialects/add-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
         'guides/dialects/edit-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
@@ -377,6 +374,11 @@ nav:
             - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
             - Add login to a web app: guides/authentication/add-login-to-web-app.md
             - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
+          - Add login to saas app:
+            - Add SSO login to saas apps: guides/authentication/sso-integrations/index.md
+            - Google Workspace: guides/authentication/sso-integrations/add-google-workspace-template.md
+            - Salesforce: guides/authentication/sso-integrations/add-salesforce-template.md
+            - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
@@ -666,7 +668,6 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Configure symmetric key encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
             - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md

@@ -29,6 +29,8 @@ theme:
     - navigation.indexes
     - navigation.path
     - navigation.top
+    - navigation.footer
+    - navigation.instant.progress
     - content.code.copy
     - content.action.edit
     - content.action.view

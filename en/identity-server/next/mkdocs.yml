@@ -47,7 +47,7 @@ plugins:
         'guides/authentication/enterprise-login/index.md': 'guides/authentication/standard-based-login/index.md'
         'guides/authentication/enterprise-login/add-oidc-idp-login.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
-        'guides/request-path-auth/request-paths-overview.md': 'guides/authentication//app-native-authentication/add-app-native-authentication.md'
+        'guides/request-path-auth/request-paths-overview.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
         'guides/request-path-auth/oauth-request-path.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
         'guides/authentication/add-application-native-login.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
         'guides/passwordless/overview.md': 'guides/authentication/passwordless-login.md'
@@ -137,7 +137,6 @@ plugins:
         'guides/password-mgt/password-policies.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/password-mgt/forced-password-reset.md': 'guides/account-configurations/account-recovery/admin-initiated-password-reset.md'
         'guides/password-mgt/recover-password.md': 'guides/user-self-service/user-password-recovery.md'
-
         'guides/identity-lifecycles/provisioning-overview.md': 'guides/users/manage-users.md'
         'guides/identity-lifecycles/provisioning-patterns.md': 'guides/users/manage-users.md'
         'guides/identity-lifecycles/role-based-provisioning.md': 'guides/users/manage-roles.md'
@@ -157,7 +156,6 @@ plugins:
         'guides/identity-lifecycles/self-register-verification.md': 'guides/account-configurations/user-onboarding/self-registration.md'
         'guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md': 'guides/users/attributes/manage-attributes.md'
         'guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md': 'guides/users/attributes/manage-attributes.md'
-
         'guides/my-account/my-account.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/my-account/manage-own-profile.md': 'guides/user-self-service/update-profile-info.md'
@@ -178,7 +176,6 @@ plugins:
         'guides/analytics/analyzing-login-attempts.md': 'guides/analytics/elk-analytics/analyzing-login-attempts.md'
         'guides/analytics/analyzing-active-sessions.md': 'guides/analytics/elk-analytics/analyzing-active-sessions.md'
         'guides/analytics/elk-alert-types.md': 'guides/analytics/elk-analytics/elk-alert-types.md'
-
         'guides/dialects/dialects-overview.md': 'guides/users/attributes/index.md'
         'guides/dialects/add-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
         'guides/dialects/edit-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
@@ -189,11 +186,9 @@ plugins:
         'guides/dialects/delete-claim-mapping.md': 'guides/users/attributes/manage-attributes.md'
         'guides/dialects/configure-unique-claims.md': 'guides/users/attributes/configure-unique-attributes.md'
         'guides/identity-lifecycles/enable-email-as-username.md': 'guides/users/attributes/enable-email-as-username.md'
-
         'guides/users/manage-collaborators.md': 'guides/users/manage-administrators.md'
         'guides/users/manage-customers.md': 'guides/users/manage-users.md'
         'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey.md'
-
         'deploy/get-started/get-started-with-the-management-console.md': 'guides/your-is/manage-console-access.md'
         'deploy/get-started/customize-the-management-console.md': 'guides/your-is/manage-console-access.md'
         'guides/mfa/mfa-for-management-console.md': 'guides/your-is/manage-console-access.md'
@@ -221,8 +216,8 @@ plugins:
         'deploy/change-to-remote-h2.md': 'deploy/configure/databases/carbon-database/change-to-remote-h2.md'
         'deploy/change-datasource-bpsds.md': 'deploy/configure/databases/carbon-database/change-datasource-bpsds.md'
         'deploy/change-datasource-consent-management.md': 'deploy/configure/databases/carbon-database/change-datasource-consent-management.md'
-        'deploy/enable-fips-for-is.md': 'deploy/security/enable-fips-for-is.md'
 
+        'deploy/enable-fips-for-is.md': 'deploy/security/enable-fips-for-is.md'
         'apis/overview.md': 'apis/index.md'
         'apis/idp-rest-api.md': 'apis/idp.md'
         'apis/scim-1.1-apis.md': 'apis/scim2-users-rest-apis.md'
@@ -316,7 +311,17 @@ plugins:
         'references/extend/errors/error-codes-and-descriptions.md': 'references/troubleshoot/error-codes.md'
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
-        'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md' : 'guides/authentication/app-native-authentication/index.md'
+        'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
+        'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
+        'apis/scim2-groups-rest-apis.md': 'apis/scim2/scim2-groups-rest-api.md'
+        'apis/scim2-patch-operations.md': 'apis/scim2/scim2-patch-operations.md'
+        'apis/scim2-bulk-rest-apis.md': 'apis/scim2/scim2-bulk-rest-api.md'
+        'apis/scim2-batch-operations.md': 'apis/scim2/scim2-batch-operations.md'
+        'apis/scim2-sp-config-rest-apis.md': 'apis/scim2/scim2-sp-config-rest-api.md'
+        'apis/organization-apis/org-scim2-bulk-mgt.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+        'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
+        'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
+        'apis/use-the-dynamic-client-registration-rest-apis.md' : 'apis/dynamic-client-registration-rest-api.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
@@ -366,6 +371,11 @@ nav:
             - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
             - Add login to a web app: guides/authentication/add-login-to-web-app.md
             - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
+            - Add login to saas app:
+              - Add SSO login to saas apps: guides/authentication/sso-integrations/index.md
+              - Google Workspace: guides/authentication/sso-integrations/add-google-workspace-template.md
+              - Salesforce: guides/authentication/sso-integrations/add-salesforce-template.md
+              - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
@@ -426,12 +436,15 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
+              - MFA based on TypingDNA: guides/authentication/conditional-auth/typingdna-based-adaptive-auth.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - App-native authentication:
+            - App-native authentication: guides/authentication/app-native-authentication/index.md
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
+            - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -449,6 +462,7 @@ nav:
             - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
             - Implement logout: guides/authentication/oidc/add-logout.md
             - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
+            - Implement federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
             
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
@@ -462,6 +476,9 @@ nav:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
         - Impersonation:
             - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+      - Identity Verification:
+        - Identity Verification: guides/identity-verification/index.md
+        - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
@@ -497,6 +514,7 @@ nav:
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
+          - Configure user attribute change verification: guides/users/attributes/user-attribute-change-verification.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Configure the primary user store:
@@ -531,7 +549,7 @@ nav:
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
-          - configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
+          - Configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
           - Update profile information: guides/user-self-service/update-profile-info.md
           - Change password: guides/user-self-service/change-password.md
           - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
@@ -563,6 +581,7 @@ nav:
           - Customize branding:
             - Branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
+            - Customize layouts: guides/branding/add-custom-layouts.md
             - Customize email templates: guides/branding/customize-email-templates.md
             - Localization support: guides/branding/localization.md
           - Extend with actions:
@@ -662,7 +681,6 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Configurations related to symmetric key encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
             - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
@@ -733,7 +751,7 @@ nav:
             - Authorized apps API V2: apis/authorized-apps-v2-rest-api.md
         - OAuth 2.0 scope management API: apis/oauth2-scope-management-rest-apis.md
         - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
-        - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+        - OIDC Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
         - Script Library management API: apis/script-library-rest-api.md
       - App-native authentication API: apis/app-native-authentication-api.md
       - Authentication Data API: apis/use-the-authentication-rest-apis.md
@@ -743,6 +761,7 @@ nav:
       - Entitlement management API: apis/entitlement-with-rest-apis.md
       - Extension management API: apis/extension-mgt-rest-api.md
       - Identity provider API: apis/idp.md
+      - Identity verification provider API: apis/identity-verification-providers.md
       - Idle accounts identification API: apis/idle-accounts-identification-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
       - Notification sender management:
@@ -768,18 +787,22 @@ nav:
         - Consent management:
           - Overview: apis/use-the-consent-management-rest-apis.md
           - Consent management API: apis/consent-management-api-definition.md
-        - Email templates API: apis/email-templates-rest-api.md
+        - Email templates:
+          - Email templates v1 API: apis/email-templates-rest-api.md
+          - Email templates v2 API: apis/email-templates-v2-rest-api.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
       - User management:
         - SCIM 2.0 API:
-           - SCIM 2.0 User management API: apis/scim2-users-rest-apis.md
-           - SCIM 2.0 Group management API: apis/scim2-groups-rest-apis.md
-           - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
-           - SCIM 2.0 Bulk API: apis/scim2-bulk-rest-apis.md
-           - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-           - SCIM 2.0 Service provider configuration API: apis/scim2-sp-config-rest-apis.md
+          - SCIM 2.0 API: apis/scim2/index.md
+          - SCIM 2.0 Users API: apis/scim2/scim2-users-rest-api.md
+          - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
+          - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
+          - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
+          - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
+          - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md
         - Account recovery APIs:
           - Account recovery v0.9 API: apis/use-the-account-recovery-rest-apis.md
           - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
@@ -787,6 +810,7 @@ nav:
         - Offline user onboard management API: apis/offline-user-onboard-mgt-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
         - User Account Association API: apis/association-rest-api.md
+        - Identity verification API: apis/admin-identity-verification.md
       - Validation rules API: apis/validation-rules-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
@@ -806,7 +830,11 @@ nav:
       - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
-      - SCIM 2.0 User management API: apis/organization-apis/org-user-mgt.md
+      - User management:
+        - User management: apis/organization-apis/scim2/index.md
+        - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
+        - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
+        - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
@@ -814,6 +842,7 @@ nav:
         - TOTP API: apis/totp-rest-api.md
         - User account association API: apis/me-association-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
+        - Identity Verification: apis/user-identity-verification.md
   - References:
     - References: references/index.md
     - About this release: references/about-this-release.md

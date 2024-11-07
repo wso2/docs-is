@@ -11,6 +11,7 @@ See the following sections for details:
 - [Applications]({{base_path}}/guides/applications/)
 - [Authentication]({{base_path}}/guides/authentication/)
 - [API Authorization]({{base_path}}/guides/authorization/api-authorization/api-authorization/)
+- [Identity Verification]({{base_path}}/guides/identity-verification/)
 - [Branding]({{base_path}}/guides/branding/)
 
 

@@ -16,6 +16,8 @@ When you register an application, you can customize the login flow.
 
 - Enforce [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) to dynamically change the login flow of a user based on the user's devices, networks, locations, or usage contexts.
 
+- Add [SSO integrations]({{base_path}}/guides/authentication/sso-integrations/) using {{ product_name }} to log in to applications such as [Google]({{base_path}}/guides/authentication/social-login/add-google-login/), [Salesforce]({{base_path}}/guides/authentication/social-login/add-apple-login/), and [Microsoft]({{base_path}}/guides/authentication/social-login/add-microsoft-login/).
+
 ## Manage user attributes
 
 Manage the user attributes you want to share with your application:
@@ -42,3 +44,6 @@ With identity federation, users can use an existing user account registered to a
 You can configure any number of external connections for your application via {{ product_name }}.
 
 {% include "../fragments/manage-connection/add-groups.md" %}
+
+
+

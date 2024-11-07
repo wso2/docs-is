@@ -24,6 +24,7 @@ paths:
         - $ref: '#/components/parameters/sortOrderQueryParam'
         - $ref: '#/components/parameters/sortByQueryParam'
         - $ref: '#/components/parameters/attributesQueryParam'
+        - $ref: '#/components/parameters/excludeSystemPortalsQueryParam'
       responses:
         '200':
           description: OK
@@ -345,6 +346,17 @@ components:
         /applications?attributes=advancedConfigurations,templateId,clientId,issuer
       schema:
         type: string
+    excludeSystemPortalsQueryParam:
+      in: query
+      name: excludeSystemPortals
+      required: false
+      description: |
+        Specifies whether to exclude system portals in the response. 
+         If not provided, the default is false, meaning system portals will be included.
+
+        /applications?excludeSystemPortals=true
+      schema:
+        type: boolean
     exportSecretsQueryParam:
       in: query
       name: exportSecrets
