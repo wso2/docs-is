@@ -51,3 +51,13 @@ To delete the SCIM 2.0 custom schema attributes available in your organization:
 3. Navigate to the **Custom Schema** tab and select the attribute to delete.
 3. Click **Delete** and select the checkbox to confirm you action.
 4. Click **Confirm**.
+
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+!!! note
+    The set of SCIM 2.0 attributes provided out of the box cannot be removed. Only custom attributes can be deleted.
+{% endif %}
+
+{% if product_name == "Asgardeo" %}
+!!! note
+    The default set of SCIM 2.0 attributes in your organization cannot be removed. Only custom attributes can be deleted.
+{% endif %}

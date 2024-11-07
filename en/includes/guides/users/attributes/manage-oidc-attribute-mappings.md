@@ -87,3 +87,13 @@ To delete the OpenID Connect attributes available in your organization:
 3. Select the attribute you wish to delete.
 3. Click **Delete** and select the checkbox to confirm your action.
 4. Click **Confirm**.
+
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+!!! note
+    The set of OpenID Connect attributes provided out of the box cannot be removed. Only custom attributes can be deleted.
+{% endif %}
+
+{% if product_name == "Asgardeo" %}
+!!! note
+    The default set of OpenID Connect attributes in your organization cannot be removed. Only custom attributes can be deleted.
+{% endif %}

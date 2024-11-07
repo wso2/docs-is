@@ -49,6 +49,16 @@ To add a custom attribute:
 
 4. Click **Finish**.
 
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+!!! note
+    The set of attributes provided out of the box cannot be removed. Only custom attributes can be deleted.
+{% endif %}
+
+{% if product_name == "Asgardeo" %}
+!!! note
+    The default set of attributes in your organization cannot be removed. Only custom attributes can be deleted.
+{% endif %}
+
 ## Update attributes
 To update the properties of a user attribute:
 
