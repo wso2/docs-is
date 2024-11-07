@@ -3,17 +3,17 @@ import json
 from mkdocs.structure.nav import Section, Page, Link
 
 def parse_json(file_path):
-    features_to_remove = {"section": [], "page": []}
+    features_to_remove = {"feature": {}, "page": []}
     with open(file_path, 'r') as json_file:
          parse_data = json.load(json_file)
          for feature, details in parse_data.items():
             enabled = details['enabled']
             page = details['page']
-
+            features_to_remove['feature'][feature] = enabled
+            
             if not enabled:
                 features_to_remove['page'].extend(page)
     json_file.close()
-    
     return features_to_remove
 
 files_to_remove = parse_json(os.path.join(os.getcwd(), 'features.json'))
@@ -35,8 +35,6 @@ def remove_nav_item(nav_items):
                 if isinstance(value, list):
                     value = remove_nav_item(value)
                 item[key] = value
-                print(item[key])
-
             item = {k: v for k, v in item.items() if not (isinstance(v, list) and not v)}
             if item:
                 filtered_items.append(item)
@@ -47,6 +45,9 @@ def remove_nav_item(nav_items):
     return filtered_items
 
 def on_config(config):
+
+    for feature, enabled in files_to_remove['feature'].items():
+        config[feature] = enabled
+
     config['nav'] = remove_nav_item(config['nav'])
     return config
-

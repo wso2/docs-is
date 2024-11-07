@@ -1,19 +1,15 @@
-{
-    "asgardeo-events": {
-        "enabled": false,
-        "page": [
-            "guides/monitoring/pii-in-asgardeo-logs.md"
-        ]
-    },
+// {
+//     "asgardeo_events": {
+//         "enabled": false,
+//         "page": [
+//             "guides/monitoring/pii-in-asgardeo-logs.md"
+//         ]
+//     },
 
-    "passwordless-login": {
-        "enabled": false,
-        "features": {
-            "prerequisites": true,
-            "addPasskeyLogin": false
-        },
-        "page": [
-            "guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md"
-        ]
-    }
-}
+//     "passwordless_login": {
+//         "enabled": false,
+//         "page": [
+//             "guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md"
+//         ]
+//     }
+// }
