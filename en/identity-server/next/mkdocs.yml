@@ -24,7 +24,12 @@ extra:
   is_version: next
 
 plugins:
-  - search
+  - search:
+      indexing: "full"
+      separator: "[^\\w._]+"
+      lang: ['en']
+      prebuild_index: true
+      ngram_length: 3
   - markdownextradata: {}
   - include-markdown
   - redirects:
