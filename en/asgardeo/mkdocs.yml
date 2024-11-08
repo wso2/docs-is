@@ -94,6 +94,9 @@ watch:
   - ../theme/material
   - ../base.yml
 
+hooks:
+  - hooks.py
+
 plugins:
   - search
   - markdownextradata: {}
@@ -125,12 +128,25 @@ plugins:
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
         '/guides/authorization/impersonation/user-impersonation/' : '/guides/authorization/user-impersonation/'
 
+exclude_docs: |
+  /get-started/hello-world.md
+
+not_in_nav: |
+  /page-not-found.md
+  /get-started/explore-asgardeo.md
+  /get-started/start-integrating-apps.md
+  /get-started/try-samples/index.md
+  /get-started/try-your-own-app/index.md
+  /get-started/try-your-own-app/angular.md
+  /get-started/hello-world.md
+
 # Navigation
 nav:
   - Home:
     - Home: index.md
   - Get Started:
     - Get Started - Overview: get-started/index.md
+    - Hello world: get-started/hello-world.md
     - Create your Asgardeo account: get-started/create-asgardeo-account.md
     - Try login with Asgardeo: get-started/try-it-application.md
     - Start integrating Asgardeo into apps:
