@@ -95,3 +95,55 @@ To update the properties of a user attribute:
 6. Go to the **Additional Properties** tab and add additional properties that can be used when writing an extension.
 
     ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Managing multiple email addresses and mobile numbers
+
+{{ product_name }} allows users to associate multiple email addresses and mobile numbers with their profiles. User can 
+select one email address and one mobile number as the primary email address and mobile number respectively from the 
+list of email addresses and mobile numbers associated with their profile.
+
+The following attributes are used to manage multiple email addresses and mobile numbers:
+- **Email Addresses**
+- **Verified Email Addresses**
+- **Mobile Numbers**
+- **Verified Mobile Numbers**
+
+### Enabling multiple email addresses and mobile numbers
+
+This feature is enabled by default for new organizations and existing organizations if there are no secondary user 
+stores configured. To manually enable this feature, follow the below steps and enable 
+"Display this attribute on the user's profile" for  **Email Addresses**, **Verified Email Addresses**, **Mobile Numbers**, **Verified Mobile Numbers**.
+
+1. On the {{ product_name }} Console, navigate to {{ attribute_path }} > Attributes.
+2. Click **Attributes** to display the list of attributes.
+3. Click **Edit** next to the attribute.
+4. Enable **Display this attribute on the user's profile**.
+5. Click **Update**.
+
+### User store compatibility
+
+#### Non-JDBC remote user stores
+
+If you are using non-JDBC remote user stores, you need to explicitly map how these attributes are stored in your user store. If mapping is not possible, you can either disable support for multiple email addresses and mobile numbers for the unsupported user store or disable the support for the entire organization:
+
+**Exclude the user stores**
+
+To disable multiple email and mobile support for specific unsupported user stores, follow these steps for  **Email Addresses**, **Verified Email Addresses**, **Mobile Numbers**, **Verified Mobile Numbers**:
+
+   1. On the {{ product_name }} Console, navigate to {{ attribute_path }} > Attributes.
+   2. Click **Attributes** to see the list of attributes.
+   3. Click **Edit** for the attribute you wish to modify.
+   4. Add the user store to the **Excluded User Stores** list if it does not support a particular attribute.
+   5. Click **Update**.
+
+   ![Exclude user store]({{base_path}}/assets/img/guides/organization/attributes/temp-attribute-exclude-user-store.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+**Disable the Feature Organization-Wide**
+
+To disable the multiple email addresses and mobile numbers support for the organization follow these steps for  **Email Addresses**, **Verified Email Addresses**, **Mobile Numbers**, **Verified Mobile Numbers**.
+
+   1. On the {{ product_name }} Console, navigate to {{ attribute_path }} > Attributes.
+   2. Click **Attributes** to see the list of attributes.
+   3. Click **Edit** for the attribute you wish to modify.
+   4. Uncheck **Display this attribute on the user's profile** to disable this attribute.
+   5. Click **Update**.
