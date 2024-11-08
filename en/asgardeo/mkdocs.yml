@@ -476,10 +476,17 @@ nav:
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
   - React Guide:
-    - Intruduction: complete-guides/react/introduction.md
+    - Introduction: complete-guides/react/introduction.md
     - Prerequisite: complete-guides/react/prerequisite.md
-    - Register an application in Asgardeo/IS: complete-guides/react/register-an-application-in-asgardeo-is.md
-    - Create a React application: complete-guides/react/create-a-react-application.md
+    - Configure an application: complete-guides/react/register-an-application.md
+    - Create a React app: complete-guides/react/create-a-react-app.md
+    - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/react/add-login-and-logout.md
+    - Display user details: complete-guides/react/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/react/accessing-protected-api.md
+    - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
+    - Next Steps: complete-guides/react/next-steps.md
 
 not_in_nav: |
   /page-not-found.md
