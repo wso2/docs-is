@@ -385,7 +385,13 @@
     font-size: 14px;
     font-style: italic;
     color: var(--md-default-fg-color--light);
-  }
+}
+
+.tabbed-content.tab_with_no_code {
+    background: var(--md-default-fg-color--lightest);
+    padding: 0 20px 10px;
+    border-radius: 0 0 var(--md-code-block-radius) var(--md-code-block-radius);
+}
 
 /* Media query breakpoints
 
