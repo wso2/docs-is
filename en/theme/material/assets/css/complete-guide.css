@@ -21,6 +21,7 @@
 }
 
 .md-nav__item {
+    position: relative;
     padding-right: .6rem;
     display: flex;
     flex-direction: row;
@@ -28,7 +29,7 @@
     margin-bottom: 10px;
 }
 
-.guide-page-number {
+.md-nav__item > .guide-page-number {
     display: inline-block;
     margin-top: 1px;
     margin-right: 10px;
@@ -46,4 +47,23 @@
 .md-nav__link {
     display: inline-block;
     margin-top: 0 !important;
+}
+
+.md-nav__item.md-nav__item--active > .guide-page-number {
+    color: var(--colors-white);
+    background: var(--md-typeset-a-color);
+}
+
+.md-nav__item::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    left: 24px;
+    width: 0;
+    height: calc(100% - 5px);
+    border-left: 1px solid var(--md-default-fg-color);
+}
+
+.md-nav__item:last-child::before {
+    border-left: none !important;
 }
