@@ -49,7 +49,6 @@ const config = {
  scope: [ "openid","profile" ]
 }
 
-
 function App() {
 
 
