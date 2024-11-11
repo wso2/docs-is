@@ -41,7 +41,6 @@ import Home from './pages/home'
 import Dashboard from './pages/dashboard'
 import './App.css'
 
-
 const config = {
  signInRedirectURL: "http://localhost:5173",
  signOutRedirectURL: "http://localhost:5173",
