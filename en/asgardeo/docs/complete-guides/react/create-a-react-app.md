@@ -11,7 +11,6 @@ Open a terminal, change directory to where you want to initialize the project, a
 
 ```bash
 npm create vite@latest asgardeo-react -- --template react
-
 ```
 
 Running this command will create a folder with a ready-to-run boilerplate React project, with a development server to run the project and instantly reload changes to the project in your browser without manual refresh.
