@@ -51,7 +51,6 @@ const config = {
 
 function App() {
 
-
  return (
    <AuthProvider config={ config } fallback={<p>Initializing...</p>}>
     <Router>
