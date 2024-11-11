@@ -95,7 +95,6 @@ If you prefer to have full control over how the app routes should be secured—f
 
 const App = () => {
 
-
    const ProtectedRoute = ({ children }: { children: ReactNode }) => {
 
 
