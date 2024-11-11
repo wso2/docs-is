@@ -49,16 +49,6 @@ To add a custom attribute:
 
 4. Click **Finish**.
 
-{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
-!!! note
-    The set of attributes provided out of the box cannot be removed. Only custom attributes can be deleted.
-{% endif %}
-
-{% if product_name == "Asgardeo" %}
-!!! note
-    The default set of attributes in your organization cannot be removed. Only custom attributes can be deleted.
-{% endif %}
-
 ## Update attributes
 To update the properties of a user attribute:
 
@@ -105,3 +95,23 @@ To update the properties of a user attribute:
 6. Go to the **Additional Properties** tab and add additional properties that can be used when writing an extension.
 
     ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Delete attributes
+To delete an attribute:
+
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
+2. Click **Attributes** to see the list of attributes.
+3. Select the attribute you wish to delete.
+4. Click **Delete attribute** under the **Danger Zone**.
+5. Select the checkbox to confirm your action.
+6. Click **Confirm**.
+
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+!!! note
+    The set of attributes provided out of the box cannot be removed. Only custom attributes can be deleted.
+{% endif %}
+
+{% if product_name == "Asgardeo" %}
+!!! note
+    The default set of attributes in your organization cannot be removed. Only custom attributes can be deleted.
+{% endif %}
