@@ -10,10 +10,10 @@ Below is a sample authorization request sent to the authorization endpoint of th
 https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?
 prompt=login
 &scope=openid
-&redirect_uri=https://&lt;CLIENT_HOST&gt;/redirects/redirect1
-&client_id=&lt;CLIENT_ID&gt;
-&response_type=&lt;RESPONSE_TYPE&gt;
-&response_mode=&lt;RESPONSE_MODE&gt;
+&redirect_uri=https://<CLIENT_HOST>/redirects/redirect1
+&client_id=<CLIENT_ID>
+&response_type=<RESPONSE_TYPE>
+&response_mode=<RESPONSE_MODE>
 ```
 
 The parameters used in the authorization request are defined below.
