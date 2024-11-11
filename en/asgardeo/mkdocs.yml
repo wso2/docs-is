@@ -146,7 +146,6 @@ nav:
     - Home: index.md
   - Get Started:
     - Get Started - Overview: get-started/index.md
-    - Hello world: get-started/hello-world.md
     - Create your Asgardeo account: get-started/create-asgardeo-account.md
     - Try login with Asgardeo: get-started/try-it-application.md
     - Start integrating Asgardeo into apps:
