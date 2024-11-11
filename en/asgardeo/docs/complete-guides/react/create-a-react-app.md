@@ -10,7 +10,6 @@ Open a terminal, change directory to where you want to initialize the project, a
 
 
 ```bash
-
 npm create vite@latest asgardeo-react -- --template react
 
 ```
