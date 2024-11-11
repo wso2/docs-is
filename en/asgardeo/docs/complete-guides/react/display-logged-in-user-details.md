@@ -84,7 +84,6 @@ Similarly, you can access the other user attributes, such as email, display name
  <p>Allowed scopes: { userInfo?.allowedScopes }</p>
  <p>Tenant domain: { userInfo?.tenantDomain }</p>
  <p>Session state: { userInfo?.sessionState }</p>
-
 ```
 
 ## Getting additional user attributes
