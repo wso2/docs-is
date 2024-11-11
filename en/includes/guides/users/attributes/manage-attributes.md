@@ -136,7 +136,7 @@ To disable multiple email and mobile support for specific unsupported user store
    4. Add the user store to the **Excluded User Stores** list if it does not support a particular attribute.
    5. Click **Update**.
 
-   ![Exclude user store]({{base_path}}/assets/img/guides/organization/attributes/temp-attribute-exclude-user-store.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+   ![Exclude user store]({{base_path}}/assets/img/guides/organization/attributes/attribute-exclude-user-store.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 **Disable the Feature Organization-Wide**
 
