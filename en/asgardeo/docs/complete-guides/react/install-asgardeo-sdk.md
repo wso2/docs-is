@@ -15,7 +15,6 @@ The Asgardeo React SDK is a production-ready SDK that simplifies integrating {{p
 As the next step, run the following command to install the React SDK from the npm registry.
 
 ```bash
-
 npm install @asgardeo/auth-react
 
 ```
