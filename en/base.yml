@@ -29,6 +29,8 @@ theme:
     - navigation.indexes
     - navigation.path
     - navigation.top
+    - navigation.footer
+    - navigation.instant.progress
     - content.code.copy
     - content.action.edit
     - content.action.view
@@ -105,7 +107,7 @@ extra:
     - name: Auth React SDK
       icon: assets/img/logo/react-logo.svg
       description: An SDK to integrate {{ config.extra.product_name }} into React applications
-      documentation_link: get-started/try-your-own-app/javascript/
+      documentation_link: get-started/try-your-own-app/react/
       download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip
       source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
     - name: Auth SPA SDK
@@ -157,6 +159,11 @@ extra:
       dark_icon: assets/img/logo/apple-logo-dark.svg
       description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
       source_link: https://github.com/openid/AppAuth-iOS
+    - name: Android Mobile UI SDK
+      icon: assets/img/logo/android-logo.svg
+      description: A client SDK to integrate {{ config.extra.product_name }} into Android mobile applications using "app-native authentication"
+      documentation_link: https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html
+      source_link: https://github.com/asgardeo/mobile-ui-sdks/tree/main/android
   redoc_theme: '{
     "colors": {
       "primary": { "main": "#ff7300" }

@@ -30,6 +30,7 @@
     /* START OF - Default Material Theme Overrides  */
     --md-text-font: "Gilmer", sans-serif;
     --md-primary-fg-color: #ff7300;
+    --md-primary-fg-shade-color: #eb4f63;
     --md-accent-fg-color: #e46700;
     --md-redoc-example-bg-color: #2b3339;
     /* END OF - Default Material Theme Overrides  */
@@ -63,6 +64,30 @@
     --md-box-shadow-2: 0 12px 32px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .08);
 }
 
+:root,
+[data-md-color-scheme=default],
+[data-md-color-scheme=slate] {
+    --md-code-fg-color: #d9d9de;
+    --md-code-bg-color: #161618;
+    --md-code-hl-color: #29353f;
+    --md-code-hl-number-color: #d52a2a;
+    --md-code-hl-special-color: #db1457;
+    --md-code-hl-function-color: #ec9752;
+    --md-code-hl-constant-color: #00AFFE;
+    --md-code-hl-keyword-color: #4489FF;
+    --md-code-hl-string-color: #a0fbaa;
+    --md-code-hl-name-color: #d9d9de;
+    --md-code-hl-operator-color: #d9d9de;
+    --md-code-hl-punctuation-color: #d9d9de;
+    --md-code-hl-comment-color: #47bfffb5;
+    --md-code-hl-generic-color: #47bfffb5;
+    --md-code-hl-variable-color: #47bfffb5;
+
+    --md-code-tab-bg-color: #393c43;
+    --md-code-linenos-bg-color: #161618;
+    --md-code-block-radius: .4rem;
+}
+
 :root, [data-md-color-scheme=slate] {
     /* START OF - Default Material Theme Overrides  */
     --md-default-bg-color: #232327;
@@ -88,6 +113,61 @@
 .icon-color-3 svg path { fill: var(--icon-color-3-fg) !important; }
 .icon-color-4 { background-color: var(--icon-color-4-bg); }
 .icon-color-4 svg path { fill: var(--icon-color-4-fg) !important; }
+
+.md-typeset .tabbed-labels,
+.highlight span.filename {
+    border-top-left-radius: var(--md-code-block-radius);
+    border-top-right-radius: var(--md-code-block-radius);
+    background-color: var(--md-code-tab-bg-color);
+}
+
+.highlighttable .linenos {
+    box-shadow: -.01rem 0 #5c5c5c inset;
+    background-color: var(--md-code-linenos-bg-color);
+    border-bottom-left-radius: var(--md-code-block-radius);
+    border-top-left-radius: var(--md-code-block-radius);
+}
+
+.highlighttable th.filename,
+.md-typeset .tabbed-labels > label {
+    color: var(--colors-white);
+}
+
+.md-typeset .highlighttable > tbody > tr + tr > .code > div > pre > code {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.md-typeset .highlighttable > tbody > tr + tr > .linenos {
+    border-top-left-radius: 0;
+}
+
+.md-typeset code {
+    color: var(--md-code-fg-color);
+    background-color: var(--md-code-bg-color);
+    border-radius: .25rem;
+    padding: .1rem .3rem;
+}
+
+[data-md-color-scheme=default] .md-typeset code {
+    background-color: var(--md-code-fg-color);
+    color: var(--md-code-bg-color);
+}
+
+.md-typeset pre > code {
+    border-radius: var(--md-code-block-radius);
+    color: var(--md-code-fg-color) !important;
+    background-color: var(--md-code-bg-color) !important;
+}
+
+.highlighttable .linenodiv pre {
+    color: var(--md-code-hl-name-color);
+}
+
+.md-typeset code .nx,
+.md-typeset code .err {
+    color: var(--md-code-hl-name-color);
+}
 
 .md-grid {
     max-width: 100%;
@@ -262,20 +342,11 @@
 }
 
 .md-sidebar--primary {
-    background-color: var(--md-footer-bg-color);
     border-right: 1px solid var(--md-divider-color);
 }
 
 .md-main__inner {
     margin-top: 0px;
-}
-
-.md-sidebar__inner {
-    padding-right: 0px !important;
-}
-
-.md-nav__item {
-    padding-top: 3px;
 }
 
 .md-sidebar--secondary .md-nav--secondary > ul ul > li {
@@ -300,6 +371,26 @@
 
 .md-nav__title {
     display: none;
+}
+
+.md-nav__link-read_time {
+    font-size: 10px;
+    color: var(--md-default-fg-color--light);;
+    white-space: nowrap;
+    word-break: keep-all;
+    font-style: italic;
+}
+
+.md-typeset h1 > span {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--md-default-fg-color--light);
+}
+
+.tabbed-content.tab_with_no_code {
+    background: var(--md-default-fg-color--lightest);
+    padding: 0 20px 10px;
+    border-radius: 0 0 var(--md-code-block-radius) var(--md-code-block-radius);
 }
 
 /* Media query breakpoints
@@ -334,7 +425,9 @@
 @media screen and (min-width: 76.25em) {
     [dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
     [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
-        margin: 0 2rem 3rem;
+        margin: 0 auto 3rem;
+        padding: .5rem 2rem;
+        max-width: 850px;
     }
 
     [data-md-toggle=search]:checked~.md-header .md-tabs,

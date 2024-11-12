@@ -220,6 +220,7 @@ paths:
         - $ref: '#/components/parameters/typeQueryParam'
         - $ref: '#/components/parameters/nameQueryParam'
         - $ref: '#/components/parameters/localeQueryParam'
+        - $ref: '#/components/parameters/restrictToPublishedQueryParam'
       responses:
         '200':
           description: OK
@@ -467,6 +468,18 @@ components:
       schema:
         type: string
       example: "login"
+    restrictToPublishedQueryParam:
+      in: query
+      name: restrictToPublished
+      required: false
+      description: |
+        Specifies whether to limit resolving to published branding preferences.
+        If set to true, branding preference will be resolved only using published branding preferences.
+        If set to false, branding preference will be resolved using both published and unpublished branding preferences.
+      schema:
+        type: boolean
+        default: false
+      example: true
 
   schemas:
     BrandingPreferenceModel:

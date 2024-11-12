@@ -1,1 +1,1 @@
-{% include "../../../../../../includes/guides/encryption/symmetric-encryption.md" %}
+{% include "../../../../../../includes/deploy/security/symmetric-encryption/index.md" %}

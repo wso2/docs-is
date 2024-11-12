@@ -34,11 +34,11 @@ paths:
               example:
               - actionStatus: SUCCESS
                 operations:
-                  op: add
-                  path: /accessToken/claims/-
-                  value:
-                    name: customSID
-                    value: "12345"
+                  - op: add
+                    path: /accessToken/claims/-
+                    value:
+                      name: customSID
+                      value: "12345"
         "400":
           description: Bad Request
           content:
@@ -353,7 +353,13 @@ components:
         name:
           type: string
         value:
-          type: string
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string
     Operations:
       type: object
       properties:

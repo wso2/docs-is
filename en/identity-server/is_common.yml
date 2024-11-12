@@ -35,6 +35,7 @@ extra:
   product: is
   product_name: *site_name
   nav_list:
+    - Home
     - Get Started
     - Guides
     - Setup

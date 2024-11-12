@@ -35,4 +35,16 @@ dropdownLink.addEventListener('click', function(event) {
   dropdown.classList.toggle('open'); // Toggle the "open" class
 });
 
+// Add a class to tasb that has multiple child elements rather than a code block
+document.querySelectorAll('.tabbed-content').forEach(tabbedContent => {
+  const tabbedBlocks = Array.from(tabbedContent.querySelectorAll('.tabbed-block'));
+  
+  // Check if each .tabbed-block has more than 1 child or if its immediate child is not .highlight
+  const shouldAddClass = tabbedBlocks.some(tabbedBlock => 
+    tabbedBlock.children.length > 1 || !tabbedBlock.firstElementChild.classList.contains('highlight')
+  );
 
+  if (shouldAddClass) {
+    tabbedContent.classList.add('tab_with_no_code');
+  }
+});

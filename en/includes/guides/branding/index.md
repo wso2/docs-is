@@ -1,11 +1,21 @@
 # Branding
 
-By default, the business applications of your organization in {{ product_name }} are presented to your users with {{ product_name }} branding. You have the option of using your own branding as follows:
+By default, your organization's business applications in {{ product_name }} are displayed to users with {{ product_name }} branding. However, you have the option to customize this by applying your own branding.
 
 - [Customize the user interfaces (UIs)]({{base_path}}/guides/branding/configure-ui-branding/) of the user login, sign-up, and account recovery flows.
 
-{{customize_domain_name}}
+{% if product_name == "WSO2 Identity Server" %}
+
+- [Customize layouts]({{base_path}}/guides/branding/add-custom-layouts/) of the user login, sign-up, and account recovery flows.
+
+{% endif %}
+
+{% if product_name == "Asgardeo" %}
+- [Branding AI]({{base_path}}/guides/branding/ai-branding/)
+- [Customize the domain name]({{base_path}}/guides/branding/configure-custom-domains/) <sup>`Paid subscription required`</sup>
+
+{% endif %}
 
 - [Customize email notifications]({{base_path}}/guides/branding/customize-email-templates/)
 
-{{configure_email_provider}}
+- [Localizations]({{base_path}}/guides/branding/localization/)

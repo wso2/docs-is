@@ -501,7 +501,7 @@ To configure an identity provider for **Guardio Insurance Business App**:
 
 As an administrator in Guardio insurance, now you can onboard administrators from Best Car Mart to the created organization.
 
-To do so, follow the [Onboard an administrator]({{base_path}}/guides/organization-management/onboard-sub-org-admins/#sales-led-approach) guide and create an administrator using the values given below.
+To do so, follow the [sales-led approach]({{base_path}}/guides/organization-management/onboard-org-admins/sales-led-approach/) and create an administrator using the values given below.
 
 1. Create the user with the following values.
 

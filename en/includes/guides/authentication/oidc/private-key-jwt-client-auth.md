@@ -201,8 +201,8 @@ If you are implementing the client credentials flow, you have enabled **client c
 ``` bash
 curl --location --request POST '{{ product_url_format }}/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials’ \
---data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer'\
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
 --data-urlencode 'client_assertion={jwt_assertion}’
 ```
 

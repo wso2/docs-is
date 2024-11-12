@@ -54,7 +54,7 @@ tenants.
 		of **Maximum failed login attempts**.
    
 		!!! note
-			WSO2 Identity Server has the **Internal/ki8system** role configured by
+			WSO2 Identity Server has the **Internal/system** role configured by
 			default. However, generally a new user is not assigned the
 			**Internal/system** role by default. Required roles can be assigned
 			to a user depending on the set of permission a user needs to have.

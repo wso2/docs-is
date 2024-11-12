@@ -64,9 +64,11 @@ Step 2 above ensures that users receive the necessary permissions to access all 
 
 !!! note "Roles for the Console"
 
-    The {{product_name}} Console acts as an application and is, by default, shared with all organizations. As opposed to roles that control access to organization APIs, roles associated with the Console govern access to features available in the Console interface. Any Console role created in the root organization will immediately be available in child organizations. Hence, organization admins may use these roles to provide users limited access to the organization Console interface.
+    The {{product_name}} Console acts as an application and is, by default, shared with all organizations. As opposed to roles that control access to organization APIs, roles associated with the Console, govern access to features available in the Console interface. Any Console role created in the root organization will immediately be available in child organizations. Hence, organization admins may use these roles to provide users limited access to the organization Console interface.
     
+    {% if product_name == "WSO2 Identity Server "%}
     Learn more about Console roles in [Manage Console access]({{base_path}}/guides/your-is/manage-console-access/).
+    {% endif %}
 
 If you wish to grant the user Console access, follow the steps below.
 

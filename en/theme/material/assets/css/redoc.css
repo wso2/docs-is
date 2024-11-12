@@ -137,9 +137,23 @@
     color: #fff !important;
 }
 
-[data-md-color-scheme=slate] .api-content code {
-    background-color: #11171a !important;
+.api-content td div[class="sc-ikkxIA daqcVd"] {
+    background-color: var(--md-default-bg-color) !important;
+    color: var(--md-default-fg-color--light) !important;
+}
+
+.api-content code {
+    color: var(--md-code-bg-color) !important;
+    background-color: var(--md-code-fg-color) !important;
+    border-radius: .25rem !important;
+    padding: .1rem .3rem !important;
+    border: none !important;
 } 
+
+[data-md-color-scheme=slate] .api-content code {
+    color: var(--md-code-fg-color) !important;
+    background-color: var(--md-code-bg-color) !important;
+}
 
 /* Media query breakpoints
 
