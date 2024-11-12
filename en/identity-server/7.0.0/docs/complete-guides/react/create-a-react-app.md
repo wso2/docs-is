@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Create a React app
-read_time: 2 min
+read_time: 5 min
 ---
 
 For this guide, you will be creating a simple React app using [Vite](https://vitejs.dev/){:target="_blank"}, a modern, fast and lightweight tool that helps you quickly set up and develop modern JavaScript apps. 

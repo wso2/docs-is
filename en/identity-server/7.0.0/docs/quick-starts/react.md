@@ -26,7 +26,7 @@ source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/m
   - Name -  IS-React
   - Authorized redirect URL - `http://localhost:5173`
 
-!!! abstract
+!!! Info
 
     The authorized redirect URL determines where WSO2 Identity Server should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
 
@@ -101,7 +101,7 @@ Asgardeo React SDK provides all the components and hooks you need to integrate A
     ```
 
 
-!!! note
+!!! Info
 
     Asgardeo-branded SDKs can be used to build apps to work with the all WSO2 identity suite of products that includes WSO2 Identity Server (WSO2 IS), WSO2 Private Identity Cloud (WSO2 PIC), and Asgardeo.
     
@@ -113,7 +113,7 @@ The `<AuthProvider />` serves as a context provider for user login in the app. Y
 
 Add the following changes to the `main.jsx` file.
 
-!!! note
+!!! Important
 
     Replace below placeholders with the generated`client-id` from the app you registered in WSO2 Identity Server.
 
@@ -174,9 +174,9 @@ export default App;
 
 Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
-!!! tip
+!!! Important
 
-    You need to create a test user in WSO2 Identity Server by following this guide  to tryout login and logout features.
+    You need to create a test user in WSO2 Identity Server by following this [guide](https://wso2.com/asgardeo/docs/guides/users/manage-users/#onboard-a-single-user){:target="_blank"} to tryout login and logout features.
 
 ## Display logged in user details
 

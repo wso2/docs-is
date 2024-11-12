@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Add login and logout to your app
-read_time: 2 min
+read_time: 5 min
 ---
 
 Next, let’s implement login and logout for our React app. React hooks are a special type of functions that let you access state and other React features in React functional components. Asgardeo provides one such hook, `useAuthContext()`, to conveniently access user authentication data such as the logged in user’s information, etc and utility functions, such as a function to validate user’s authentication status, and retrieve access tokens.
@@ -71,8 +71,9 @@ If the login is successful, you should be able to see the application as shown b
     **PKCE (Proof Key for Code Exchange)**  is an addition to the OAuth2 specification to make the authorization code more immune to replay attacks. It is enabled by default for public clients such as our single page React application. 
     
     If you want to disable PKCE for some reason, you can do so via following the steps below. **However, disabling PKCE for public clients such as our single page React app is highly discouraged.**  
-    - Log in to the {{product_name}} console and select the application you created.
-    - Switch to the Protocol tab.
-    - Uncheck the Mandatory checkbox under PKCE section.
+
+     1. Log in to the {{product_name}} console and select the application you created.
+     2. Switch to the Protocol tab.
+     3. Uncheck the Mandatory checkbox under PKCE section.
 
 In this section, we have added login and logout features to our React app. In the next step, we will look into how to access the user attributes of the logged in user.

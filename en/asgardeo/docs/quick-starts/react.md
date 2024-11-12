@@ -26,7 +26,7 @@ source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/m
   - Name -  Asgardeo-React
   - Authorized redirect URL - `http://localhost:5173`
 
-!!! abstract
+!!! Info
 
     The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
 
@@ -106,7 +106,7 @@ The `<AuthProvider />` serves as a context provider for user login in the app. Y
 
 Add the following changes to the `main.jsx` file.
 
-!!! note
+!!! Important
 
     Replace below placeholders with your registered organization name in Asgardeo and the generated`client-id` from the app you registered in Asgardeo.
 
@@ -167,9 +167,9 @@ export default App;
 
 Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
-!!! tip
+!!! Important
 
-    You need to create a test user in Asgardeo by following this guide  to tryout login and logout features.
+    You need to create a test user in Asgardeo by following this [guide](https://is.docs.wso2.com/en/latest/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
 
 ## Display logged in user details
 

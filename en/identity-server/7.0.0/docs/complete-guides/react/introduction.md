@@ -7,6 +7,10 @@ React is a widely used JavaScript library designed for creating dynamic single-p
 
 Implementing login functionality in your React app is essential for managing user access, personalizing user experiences, and securing the app. It enhances user experience, protects user data, boosts engagement, and helps ensure regulatory compliance.
 
+!!! Info
+
+    Asgardeo-branded SDKs can be used to build apps to work with the all [WSO2 identity suite](https://wso2.com/identity-and-access-management/){:target="_blank"} of products that includes [WSO2 Identity Server (WSO2 IS)](https://wso2.com/identity-server/){:target="_blank"}, WSO2 [Private Identity Cloud (WSO2 PIC)](https://wso2.com/private-identity-cloud/){:target="_blank"} and [Asgardeo](https://wso2.com/asgardeo/){:target="_blank"}. 
+
 
 ## Learning objectives 
 
@@ -26,10 +30,18 @@ In this guide, you will:
 
 !!! tip "Tip"
     
-    If you want to quickly build a React app and user login, try the [React Quick Start guide.](https://is.docs.wso2.com/en/latest/quick-starts/react/){:target="_blank"} It takes around 15 minutes.
-
-!!! note
-
-    Asgardeo-branded SDKs can be used to build apps to work with the all [WSO2 identity suite](https://wso2.com/identity-and-access-management/){:target="_blank"} of products that includes [WSO2 Identity Server (WSO2 IS)](https://wso2.com/identity-server/){:target="_blank"}, WSO2 [Private Identity Cloud (WSO2 PIC)](https://wso2.com/private-identity-cloud/){:target="_blank"} and [Asgardeo](https://wso2.com/asgardeo/){:target="_blank"}. 
+    This guide takes approximately 60 minutes to complete and covers everything required to add user login and secure your React apps. If you’re looking for a shorter guide, try the [React Quick Start guide](https://is.docs.wso2.com/en/latest/quick-starts/react/){:target="_blank"}, which takes around 15 minutes to complete.
 
 
+!!! tip "Tip"
+    
+    If you are already familiar with the concepts discussed in the guide, you can use the Asgardeo React template to bootstrap your application by running the following command.  
+
+    ```bash
+
+    npx tmplr --dir my-vite-react-app asgardeo/asgardeo-vite-react-template
+
+    ```
+    The Asgardeo React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
+
+    All you need is a `client_id`, which you can obtain by registering a **Single Page Application** in {{product_name}}.
