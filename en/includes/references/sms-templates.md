@@ -71,7 +71,7 @@ The following user-related literals are accessible for all SMS templates.
         </tr>
         <tr>
             <td>{{"{{tenant-domain}}"}}</td>
-            <td>[Deprecated] Domain name specific to the organization. For root organizations, this is the human-readable domain name. For other organizations, it is the UUID.</td>
+            <td>Domain name specific to the organization. For root organizations, this is the human-readable domain name. For other organizations, it is the UUID.</td>
         </tr>
     </tbody>
 </table>
