@@ -27,3 +27,4 @@ en/asgardeo/site
 
 # Python virtula environment
 .venv
+en/asgardeo/__pycache__/

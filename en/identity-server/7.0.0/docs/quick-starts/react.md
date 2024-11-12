@@ -13,10 +13,10 @@ prerequisites:
   - Install a JS package manager
   - A favorite text editor or IDE
 source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app" target="_blank" class="github-icon">React Vite App Sample</a>
-whats_next:
-  - Try out complete React guide
-  - Try out user onboarding complete guide for React
-  - Read security best practices for React app guide
+# whats_next:
+#   - Try out {{product_name}} [complete React guide](https://is.docs.wso2.com/en/latest/complete-guides/react/introduction/){:target="_blank"} 
+#   - Try out {{product_name}}  user onboarding complete guide for React
+#   - Read security best practices for React app guide
 ---
 ## Configure an Application in WSO2 Identity Server
 
@@ -32,9 +32,9 @@ whats_next:
 
 !!! note
 
-    Note down the following values : you will need them during the**Step 4**
+    Note down the following values : you will need them during the **Step 4**
 
-    -`client-id`
+    - `client-id`
     - `base-url`
     - `redirect-url`
 
@@ -80,19 +80,25 @@ Create (a.k.a scaffold) your new React app using Vite.
 
 ## Install @asgardeo/auth-react
 
-Asgardeo React SDK provides all the components and hooks you need to integrate Asgardeo into your app. To get started, simply add the Asgardeo React SDK to the project.
+Asgardeo React SDK provides all the components and hooks you need to integrate Asgardeo into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step. 
 
 === "npm"
 
-    ``bash     npm install @asgardeo/auth-react     ``
+    ``` bash
+    npm install @asgardeo/auth-react
+    ```
 
 === "yarn"
 
-    ``bash     yarn add @asgardeo/auth-react     ``
+    ``` bash
+    yarn add @asgardeo/auth-react
+    ```
 
 === "pnpm"
 
-    ``bash     pnpm add @asgardeo/auth-react     ``
+    ``` bash
+    pnpm add @asgardeo/auth-react
+    ```
 
 
 !!! note
@@ -111,7 +117,7 @@ Add the following changes to the `main.jsx` file.
 
     Replace below placeholders with the generated`client-id` from the app you registered in WSO2 Identity Server.
 
-    -`<your-app-client-id>`
+    - `<your-app-client-id>`
     
 
 ```javascript
@@ -187,7 +193,7 @@ return (
     {
         state.isAuthenticated ?
         <>
-            <p>Welocme {state.username}</p>
+            <p>Welcome {state.username}</p>
             <button onClick={() => signOut()}>Logout</button>
         </>
         : <button onClick={() => signIn()}>Login</button>
