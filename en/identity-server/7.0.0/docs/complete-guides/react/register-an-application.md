@@ -4,9 +4,9 @@ heading: Register an application in Asgardeo
 read_time: 2 min
 ---
 
-First unless you already have done that, you need to create an organization in {{product_name}} and register your application as a single page application.
+First unless you already have done that, you need to setup {{product_name}} and register your application as a single page application.
 
-* Sign up for a [free {{product_name}} account](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/){:target="_blank"}
+* Download and [setup WSO2 Identity Server](https://is.docs.wso2.com/en/latest/get-started/quick-set-up/){:target="_blank"} 
 * Sign into {{product_name}} console and navigate to **Applications > New Application.**
 * Select Single Page Application
 
@@ -19,6 +19,8 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
 * *name: is-react*
 * *Authorized redirect URL: http://localhost:5173*
 
+
+
 ![Register a new application]({{base_path}}/complete-guides/react/assets/img/image8.png){: width="600" style="display: block; margin: 0;"}
 
 !!! note "Note"
@@ -27,10 +29,9 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
 
 
     
-You will need the following information available in the Quick Start tab of your app or the Quickstart guide under the React SDK for the `AuthProvider` config.
+You will need the following information for the `AuthProvider` config.
 
 * Client ID
-* Base URL
 * Redirect URL
 
 ![Quick start guide]({{base_path}}/complete-guides/react/assets/img/image9.png){: width="600" style="display: block; margin: 0;"}

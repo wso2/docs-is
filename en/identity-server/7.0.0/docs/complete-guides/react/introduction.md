@@ -26,4 +26,10 @@ In this guide, you will:
 
 !!! tip "Tip"
     
-    If you want to quickly build a React app and user login, try the [React Quick Start guide.](https://wso2.com/asgardeo/docs/quick-starts/react/){:target="_blank"} It takes around 15 minutes.
+    If you want to quickly build a React app and user login, try the [React Quick Start guide.](https://is.docs.wso2.com/en/latest/quick-starts/react/){:target="_blank"} It takes around 15 minutes.
+
+!!! note
+
+    Asgardeo-branded SDKs can be used to build apps to work with the all [WSO2 identity suite](https://wso2.com/identity-and-access-management/){:target="_blank"} of products that includes [WSO2 Identity Server (WSO2 IS)](https://wso2.com/identity-server/){:target="_blank"}, WSO2 [Private Identity Cloud (WSO2 PIC)](https://wso2.com/private-identity-cloud/){:target="_blank"} and [Asgardeo](https://wso2.com/asgardeo/){:target="_blank"}. 
+
+
