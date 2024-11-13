@@ -33,7 +33,7 @@
     display: inline-block;
     margin-top: 1px;
     margin-right: 10px;
-    background: var(--md-default-fg-color);
+    background: var(--md-default-fg-color--light);
     color: var(--md-default-bg-color);
     font-size: 12px;
     border-radius: 50%;
@@ -60,8 +60,8 @@
     top: 1rem;
     left: 24px;
     width: 0;
-    height: calc(100% - 5px);
-    border-left: 1px solid var(--md-default-fg-color);
+    height: calc(100% - 11px);
+    border-left: 1px solid var(--md-default-fg-color--light);
 }
 
 .md-nav__item:last-child::before {
