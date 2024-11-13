@@ -9,18 +9,18 @@ what_you_will_learn:
   - Display user profile information
 prerequisites:
   - About 15 minutes
-  - <a href="{{ config.extra.base_path }}/get-started/create-asgardeo-account/">Asgardeo account</a>
+  - <a href="{{ base_path }}/get-started/create-asgardeo-account/">Asgardeo account</a>
   - Install a JS package manager
   - A favorite text editor or IDE
 source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app" target="_blank" class="github-icon">React Vite App Sample</a>
-# whats_next:
-#   - Try out {{product_name}} [complete React guide](https://wso2.com/asgardeo/docs/complete-guides/react/introduction/){:target="_blank"} 
-#   - Try out {{product_name}}  user onboarding complete guide for React
-#   - Read security best practices for React app guide
+whats_next:
+  - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
+  - Try out {{product_name}} user onboarding complete guide for React
+  - Read security best practices for React app guide
 ---
-## Configure an Application in Asgardeo
+## Configure an Application in {{ product_name }}
 
-- Sign into Asgardeo console and navigate to Applications > New Application.
+- Sign into {{ product_name }} console and navigate to Applications > New Application.
 - Select Single Page Application and complete the wizard popup by providing a suitable name and an authorized redirect URL
 
   - Name -  Asgardeo-React
@@ -169,7 +169,7 @@ Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 !!! Important
 
-    You need to create a test user in Asgardeo by following this [guide](https://is.docs.wso2.com/en/latest/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
 
 ## Display logged in user details
 

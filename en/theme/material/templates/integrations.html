@@ -38,7 +38,7 @@
               {% endif %}
               <p class="integration-card-header">{{ integration.name }}</p>
               {% set description = integration.description %}
-              {% set description = description.replace('{{ config.extra.product_name }}', config.extra.product_name) %}
+              {% set description = description.replace('{{ product_name }}', config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
               <p class="integration-card-description">{{ description }}</p>
               <div class="integration-card-source-links">
                 {% if integration.documentation_link %}
