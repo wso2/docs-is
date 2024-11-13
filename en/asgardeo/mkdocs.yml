@@ -127,6 +127,7 @@ plugins:
         'references/application-logs.md' : 'guides/asgardeo-logs.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
         '/guides/authorization/impersonation/user-impersonation/' : '/guides/authorization/user-impersonation/'
+        'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -349,7 +350,7 @@ nav:
             - Branding AI: guides/branding/ai-branding.md
             - Configure custom domains: guides/branding/configure-custom-domains.md
             - Customize email templates: guides/branding/customize-email-templates.md
-            - Localization in Asgardeo: guides/branding/localization-in-asgardeo.md
+            - Localization in Asgardeo: guides/branding/localization.md
         - Extend with actions:
             - Understanding actions: guides/customize/actions/understanding-actions.md
             - Setting up actions: guides/customize/actions/setting-up-actions.md
@@ -425,8 +426,8 @@ nav:
         - Session extension API: apis/extend-sessions.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
-    - Orgnization APIs:
-      - Orgnization APIs: apis/organization-apis/index.md
+    - Organization APIs:
+      - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - Application management API: apis/organization-apis/org-application-management.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
