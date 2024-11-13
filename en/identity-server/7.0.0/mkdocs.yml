@@ -332,6 +332,7 @@ plugins:
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
+        'guides/authorization/impersonation/user-impersonation.md': 'guides/authorization/user-impersonation.md'
 
 # Navigation
 nav:
@@ -480,8 +481,7 @@ nav:
           - Attribute-based access control: guides/authorization/api-authorization/attribute-based-access-control.md
         - Fine-grained authorization:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
-        - Impersonation:
-            - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+        - User Impersonation: guides/authorization/user-impersonation.md
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
