@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Display logged-in user details
-read_time: 2 min
+read_time: 5 min
 ---
 
 At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo React SDK. The next step is to explore how to access and display logged-in user details within the app. The Asgardeo React SDK loads the basic user attribute details to the authentication state, so that you can directly access those from the state (such as `state.username`) and use them in the application. First, let’s try to display the username using state.username.Replace the code in app.jsx with the following.
@@ -62,7 +62,7 @@ const App = () => {
       {
         state.isAuthenticated
           ? <>
-            <p>Welcome, {userInfo?.username}</p>
+            <p>Welcome {userInfo?.username}</p>
             <button onClick={() => signOut()}>Logout</button>
           </>
           : <button onClick={() => signIn()}>Login</button>

@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Manage tokens in React apps 
-read_time: 2 min
+read_time: 5 min
 ---
 
 ## Token Validation

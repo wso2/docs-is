@@ -18,7 +18,7 @@ const App = () => {
       {
         state.isAuthenticated
           ? <>
-            <p>Welocme {state.username}</p>
+            <p>Welcome {state.username}</p>
             <button onClick={() => signOut()}>Logout</button>
           </>
           : <button onClick={() => signIn()}>Login</button>

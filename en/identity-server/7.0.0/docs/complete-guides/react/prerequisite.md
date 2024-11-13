@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Prerequisite
-read_time: 30 secs
+read_time: 1 mins
 ---
 
 ## Before you start, ensure you have the following:

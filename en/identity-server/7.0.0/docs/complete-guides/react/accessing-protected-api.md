@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Accessing protected API from your React app
-read_time: 2 min
+read_time: 5 min
 ---
 
 In this section, we will focus on how to call a secure API from your React app using the other token—the access token.

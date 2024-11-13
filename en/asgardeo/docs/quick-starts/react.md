@@ -13,10 +13,10 @@ prerequisites:
   - Install a JS package manager
   - A favorite text editor or IDE
 source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app" target="_blank" class="github-icon">React Vite App Sample</a>
-whats_next:
-  - Try out Asgardeo complete React guide
-  - Try out Asgardeo user onboarding complete guide for React
-  - Read Asgardeo security best practices for React app guide
+# whats_next:
+#   - Try out {{product_name}} [complete React guide](https://wso2.com/asgardeo/docs/complete-guides/react/introduction/){:target="_blank"} 
+#   - Try out {{product_name}}  user onboarding complete guide for React
+#   - Read security best practices for React app guide
 ---
 ## Configure an Application in Asgardeo
 
@@ -26,15 +26,15 @@ whats_next:
   - Name -  Asgardeo-React
   - Authorized redirect URL - `http://localhost:5173`
 
-!!! abstract
+!!! Info
 
     The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
 
 !!! note
 
-    Note down the following values : you will need them during the**Step 4**
+    Note down the following values : you will need them during the **Step 4**
 
-    -`client-id`
+    - `client-id`
     - `base-url`
     - `redirect-url`
 
@@ -80,19 +80,25 @@ Create (a.k.a scaffold) your new React app using Vite.
 
 ## Install @asgardeo/auth-react
 
-Asgardeo React SDK provides all the components and hooks you need to integrate Asgardeo into your app. To get started, simply add the Asgardeo React SDK to the project.
+Asgardeo React SDK provides all the components and hooks you need to integrate Asgardeo into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step. 
 
 === "npm"
 
-    ``bash     npm install @asgardeo/auth-react     ``
+    ``` bash
+    npm install @asgardeo/auth-react
+    ```
 
 === "yarn"
 
-    ``bash     yarn add @asgardeo/auth-react     ``
+    ``` bash
+    yarn add @asgardeo/auth-react
+    ```
 
 === "pnpm"
 
-    ``bash     pnpm add @asgardeo/auth-react     ``
+    ``` bash
+    pnpm add @asgardeo/auth-react
+    ```
 
 ## Add `<AuthProvider />` to your app
 
@@ -100,11 +106,11 @@ The `<AuthProvider />` serves as a context provider for user login in the app. Y
 
 Add the following changes to the `main.jsx` file.
 
-!!! note
+!!! Important
 
     Replace below placeholders with your registered organization name in Asgardeo and the generated`client-id` from the app you registered in Asgardeo.
 
-    -`<your-app-client-id>`
+    - `<your-app-client-id>`
     - `https://api.asgardeo.io/t/<your-organization-name>`
 
 ```javascript
@@ -161,9 +167,9 @@ export default App;
 
 Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
-!!! tip
+!!! Important
 
-    You need to create a test user in Asgardeo by following this guide  to tryout login and logout features.
+    You need to create a test user in Asgardeo by following this [guide](https://is.docs.wso2.com/en/latest/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
 
 ## Display logged in user details
 
@@ -180,7 +186,7 @@ return (
     {
         state.isAuthenticated ?
         <>
-            <p>Welocme {state.username}</p>
+            <p>Welcome {state.username}</p>
             <button onClick={() => signOut()}>Logout</button>
         </>
         : <button onClick={() => signIn()}>Login</button>

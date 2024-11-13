@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Securing Routes within the app
-read_time: 2 min
+read_time: 5 min
 ---
 
 In a React app, routes define the paths within the application that users can navigate to, linking URLs to specific components. Securing routes is essential to protect sensitive data, prevent unauthorized access, and ensure that only authenticated users can access certain parts of the application. In this section, let’s look at how we can secure routes using Asgardeo React SDK
