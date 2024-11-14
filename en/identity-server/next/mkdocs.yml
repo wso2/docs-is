@@ -142,7 +142,6 @@ plugins:
         'guides/password-mgt/password-policies.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/password-mgt/forced-password-reset.md': 'guides/account-configurations/account-recovery/admin-initiated-password-reset.md'
         'guides/password-mgt/recover-password.md': 'guides/user-self-service/user-password-recovery.md'
-
         'guides/identity-lifecycles/provisioning-overview.md': 'guides/users/manage-users.md'
         'guides/identity-lifecycles/provisioning-patterns.md': 'guides/users/manage-users.md'
         'guides/identity-lifecycles/role-based-provisioning.md': 'guides/users/manage-roles.md'
