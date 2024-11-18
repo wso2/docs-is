@@ -8,7 +8,7 @@ Users may recover a forgotten username from an application sign-in page by follo
 
 ## Recover a forgotten username
 
-To reset the username, the user should follow these steps.
+To recover the username, the user should follow these steps.
 
 1. Go to a login page via a business application or the [My Account portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
 
@@ -18,7 +18,7 @@ To reset the username, the user should follow these steps.
 
 3. Enter the information for the account you’re trying to recover, then click **Next**.
 
-    ![Username recovery claiim]({{base_path}}/assets/img/guides/organization/self-service/customer/username-recovery-claim.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Username recovery claim]({{base_path}}/assets/img/guides/organization/self-service/customer/username-recovery-claim.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
 4. Select your preferred channel to receive username recovery information, then click **Next**.
