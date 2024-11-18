@@ -5,22 +5,22 @@
 
     This change is to ensure consistency across our documentation and to better reflect the hierarchical structure of our organization system.
 
-By default,  {{ product_name }} is configured with a single root organization named `carbon.super`. If you have the required permissions, you can configure more root organizations and maintain multiple isolated user bases on a single server/cluster at the same time.
+By default, {{ product_name }} is configured with a single root organization named `carbon.super`. If you have the required permissions, you can configure more root organizations and maintain multiple isolated user bases on a single server/cluster at the same time.
 
 !!! Info
     Learn more about [multi-tenancy]({{base_path}}/guides/multitenancy/).
 
 ## Add new root organizations
 
-Follow the steps given below to add a new root organization from the Console.
+Follow the steps given below to add a new root organization from the {{ product_name }} Console.
 
 !!! Note
-    You can access the Console using the following URL: `https://<IS_HOST>:<PORT>/console`.
+    You can access the {{ product_name }} Console using the following URL: `https://<IS_HOST>:<PORT>/console`.
 
-1.  Sign in to the super tenant on the Console.
+1.  Sign in to the super tenant on the {{ product_name }} Console.
 
     !!! info 
-        To add and manage tenants using the Console, you need to be signed in as a super user.
+        To add and manage tenants using the {{ product_name }} Console, you need to be signed in as a super admin user.
 
 2.  Open the **Root Organizations** dropdown from the left top corner and click **Manage Root Organizations**.
 
@@ -80,7 +80,7 @@ Follow the steps given below to add a new root organization from the Console.
 
 To view the details of the root organization, follow the steps given below.
 
-1. Sign in to the super tenant on the Console.
+1. Sign in to the super tenant on the {{ product_name }} Console.
 2. Open the **Root Organizations** dropdown from the left top corner and click **Manage Root Organizations**.
 
     !!! info
