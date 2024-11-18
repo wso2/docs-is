@@ -104,5 +104,35 @@ To view the details of the root organization, follow the steps given below.
 
       ![Root Organization Details]({{base_path}}/assets/img/guides/multitenancy/root-organization-details.png)
 
+## Filter root organizations
+
+The root organizations page provides a powerful search and filtering feature to help you easily locate specific root organizations.
+
+### Basic search
+
+To simply search for a root organization by its `domain` name, enter the domain name in the search bar and press `Enter`.
+
+This will do a basic search to find the root organizations that **contain** the search term in their `domain` name.
+
+![Root Organization Search]({{base_path}}/assets/img/guides/multitenancy/root-organization-basic-search.png)
+
+### Advanced search
+
+To perform an advanced search, click on the **Filter** icon. This will open up a popup where you can search for root organizations based on the following parameters:
+
+- **Filter attribute**: Search for root organizations based on an attribute.
+  !!! note
+      Please note that currently only the `Domain` attribute is supported.
+
+- **Filter condition**: Choose an operator to perform the search.
+    - `Starts with`: Matches starting with the entered value.
+    - `Ends with`: Matches ending with the entered value.
+    - `Contains`: Matches containing the entered value.
+    - `Equals`: Matches that exactly match the entered value.
+  
+- **Filter value**: Enter the value to search for.
+
+![Root Organization Advanced Search]({{base_path}}/assets/img/guides/multitenancy/root-organization-advanced-search.png)
+
 !!! note
     To try out the Tenant Management REST API, refer [here]({{base_path}}/apis/tenant-management-rest-api/).
