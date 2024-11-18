@@ -108,6 +108,9 @@ To view the details of the root organization, follow the steps given below.
 
 The root organizations page provides a powerful search and filtering feature to help you easily locate specific root organizations.
 
+!!! note
+    Please note that the search and filter feature is case-insensitive.
+
 ### Basic search
 
 To simply search for a root organization by its `domain` name, enter the domain name in the search bar and press `Enter`.
@@ -129,7 +132,7 @@ To perform an advanced search, click on the **Filter** icon. This will open up a
     - `Ends with`: Matches ending with the entered value.
     - `Contains`: Matches containing the entered value.
     - `Equals`: Matches that exactly match the entered value.
-  
+
 - **Filter value**: Enter the value to search for.
 
 ![Root Organization Advanced Search]({{base_path}}/assets/img/guides/multitenancy/root-organization-advanced-search.png)
