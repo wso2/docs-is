@@ -27,7 +27,7 @@
     ```
     <br>
 
-{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 #### Access Token Attributes
 
 For **JWT** access tokens, this feature enables you to specify which user attributes are included in the access token. As a result, when a user logs in to an application, only the chosen attributes are shared, providing enhanced security and flexibility.
