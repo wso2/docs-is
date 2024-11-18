@@ -41,7 +41,7 @@ To onboard an administrator:
         </tr>
         <tr>
             <th>Role</th>
-            <td>The <b>Administrator</b> role is assigned by default. <br>For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
+            <td>Users can be assigned one or more default roles</td>. <br>For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
         </tr>
     </table>
 
@@ -88,7 +88,7 @@ https://console.asgardeo.io/t/{org_name}
 ## View administrators
 To view the administrators of your organization:
 
-On the Asgardeo Console, go to **Administrators**. You will see the list of administrators presented in two tabs as follow.
+On the Asgardeo Console, go to **Console Settings > Administrators**. You will see the list of administrators presented in two tabs as follow.
 
 <table>
     <tr>
