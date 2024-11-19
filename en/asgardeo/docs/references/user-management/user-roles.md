@@ -34,7 +34,7 @@ The following roles, available by default, determine the options available for p
     <td>This role provides permissions required for viewing users and groups.</td>
   </tr>
   <tr>
-    <td><b>Editor - Connection</b></td>
+    <td><b>Editor - Connections</b></td>
     <td>This role provides permissions for managing connections, ideal for a privileged user who can manage enterprise logins, social logins and MFA options available within the organization.</td>
   </tr>
 </table>
@@ -44,7 +44,7 @@ The following tables elaborate all the permissions enabled for the default roles
 ## Users
 <table>
   <tr>
-    <th>Permission</th>
+    <th></th>
     <th>Administrator</th> 
     <th>Auditor</th> 
     <th>Editor - Applications</th> 
@@ -128,7 +128,7 @@ The following tables elaborate all the permissions enabled for the default roles
       <td>✔️</td>
       <td>✔️</td>
       <td>✔️</td>
-        <td>✔️</td>
+      <td>✔️</td>
       <td>✔️</td>
       <td>✔️</td>
       <td>✖️</td>
@@ -151,7 +151,7 @@ The following tables elaborate all the permissions enabled for the default roles
 
 <table>
   <tr>
-    <th>Permission</th>
+    <th></th>
     <th>Administrator</th> 
     <th>Auditor</th> 
     <th>Editor - Applications</th> 
@@ -238,7 +238,7 @@ The following tables elaborate all the permissions enabled for the default roles
 
 <table>
   <tr>
-     <th>Permission</th>
+     <th></th>
     <th>Administrator</th> 
     <th>Auditor</th> 
     <th>Editor - Applications</th> 
@@ -272,10 +272,9 @@ The following tables elaborate all the permissions enabled for the default roles
 <br>
 
 ## Connections
-
 <table>
   <tr>
-    <th>Permission</th>
+    <th></th>
     <th>Administrator</th> 
     <th>Auditor</th> 
     <th>Editor - Applications</th> 
@@ -285,7 +284,7 @@ The following tables elaborate all the permissions enabled for the default roles
     <th>Editor - Connections</th>
   </tr>
   <tr>
-    <td>View connection and connection settings</td>
+    <td>View connections and connection settings</td>
     <td>✔️</td>
     <td>✔️</td>
     <td>✔️</td>
@@ -302,7 +301,7 @@ The following tables elaborate all the permissions enabled for the default roles
     <td>✖️</td>
     <td>✖️</td>
     <td>✖️</td>
-    <<td>✔️</td>
+    <td>✔️</td>
   </tr>
 </table>
 
@@ -311,7 +310,7 @@ The following tables elaborate all the permissions enabled for the default roles
 ## Attributes and scopes
 <table>
   <tr>
-    <th>Permission</th>
+    <th></th>
     <th>Administrator</th> 
     <th>Auditor</th> 
     <th>Editor - Applications</th> 
@@ -349,7 +348,7 @@ The following tables elaborate all the permissions enabled for the default roles
     <td>✖️</td>
     <td>✖️</td>
     <td>✔️</td>
-</tr>
+  </tr>
     <tr>
     <td>Add new attributes to scopes</td>
     <td>✔️</td>
