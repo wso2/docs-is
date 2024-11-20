@@ -461,6 +461,10 @@
         background-color: var(--md-default-bg-color);
         height: 4.2rem;
     }
+
+    .md-sidebar--primary {
+        top: var(--md-header-min-height);
+    }
 }
 
 @media screen and (min-width: 76.25em) {
