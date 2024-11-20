@@ -138,5 +138,32 @@
         sectionCountw++;
     });
 
+    // Function to mark visited links
+    document.addEventListener('DOMContentLoaded', () => {
+      const visitedUrls = JSON.parse(localStorage.getItem('visitedUrls')) || [];
+
+      Array.from(pages.children).forEach(child => {
+        const link = child.querySelector('a.md-nav__link');
+        const readTime = child.querySelector('.md-nav__link-read_time');
+
+        if (link && readTime) {
+          const linkUrl = link.href;
+
+          // Check if the URL is in visitedUrls and add the 'visited' class
+          if (visitedUrls.includes(linkUrl)) {
+            readTime.classList.add('visited');
+          }
+
+          // Add the current page URL to visitedUrls if not already present
+          const currentPageUrl = window.location.href;
+
+          if (!visitedUrls.includes(currentPageUrl)) {
+            visitedUrls.push(currentPageUrl);
+            localStorage.setItem('visitedUrls', JSON.stringify(visitedUrls));
+          }
+        }
+      });
+    });
+
   </script>
 {% endblock %}
