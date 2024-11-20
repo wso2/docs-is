@@ -4,7 +4,7 @@ heading: React Quickstart
 description: Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user login and display user profile information using Asgardeo.
 what_you_will_learn:
   - Create new React app using Vite
-  - Install <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk" target="_blank">@asgardeo/auth-react</a> package
+  - Install <a href="https://www.npmjs.com/package/@asgardeo/auth-react" target="_blank" rel="noopener noreferrer">@asgardeo/auth-react</a> package
   - Add user login and logout
   - Display user profile information
 prerequisites:
