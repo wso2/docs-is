@@ -62,7 +62,7 @@ Create (a.k.a scaffold) your new React app using Vite.
 
     cd asgardeo-react
 
-    yran install
+    yarn install
 
     yarn dev
     ```
@@ -76,7 +76,7 @@ Create (a.k.a scaffold) your new React app using Vite.
 
     pnpm install
 
-    pnpm run dev
+    pnpm dev
     ```
 
 ## Install @asgardeo/auth-react
