@@ -114,6 +114,19 @@
 .icon-color-4 { background-color: var(--icon-color-4-bg); }
 .icon-color-4 svg path { fill: var(--icon-color-4-fg) !important; }
 
+[data-md-color-scheme=default] .md-typeset pre > .md-clipboard {
+    color: var(--md-default-bg-color--lightest);
+}
+
+[data-md-color-scheme=default] .md-typeset pre:hover > .md-clipboard {
+    color: var(--md-default-bg-color--light);
+}
+
+[data-md-color-scheme=default] .md-typeset pre > .md-clipboard:focus,
+[data-md-color-scheme=default] .md-typeset pre > .md-clipboard:hover {
+    color: var(--md-accent-fg-color);
+}
+
 .md-typeset .tabbed-labels,
 .highlight span.filename {
     border-top-left-radius: var(--md-code-block-radius);
