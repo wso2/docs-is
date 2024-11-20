@@ -10,7 +10,8 @@ what_you_will_learn:
 prerequisites:
   - About 15 minutes
   - <a href="{{ base_path }}/get-started/quick-set-up/">Set-up WSO2 Identity Server</a>
-  - Install a JS package manager
+  - Install <a href="https://nodejs.org/en/download/package-manager" target="_blank" rel="noopener noreferrer">Node.js</a> on your system.
+  - Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.
   - A favorite text editor or IDE
 source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app" target="_blank" class="github-icon">React Vite App Sample</a>
 whats_next:
