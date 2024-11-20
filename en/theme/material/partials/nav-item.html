@@ -147,7 +147,10 @@
       >
         {{ nav_item.title }}
         {% if nav_item.meta and nav_item.meta.read_time %}
-            <span class="md-nav__link-read_time">{{ nav_item.meta.read_time }}</span>
+            <span class="md-nav__link-read_time">
+              {{ nav_item.meta.read_time }}
+              <span class="md-nav__link-read_check"></span>
+            </span>
         {% endif %}
       </a>
 
@@ -163,7 +166,10 @@
       <a href="{{ nav_item.url | url }}" class="md-nav__link">
         {{ nav_item.title }}
         {% if nav_item.meta and nav_item.meta.read_time %}
-            <span class="md-nav__link-read_time">{{ nav_item.meta.read_time }}</span>
+            <span class="md-nav__link-read_time">
+              {{ nav_item.meta.read_time }}
+              <span class="md-nav__link-read_check"></span>
+            </span>
         {% endif %}
       </a>
     </li>

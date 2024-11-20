@@ -136,11 +136,11 @@ const config = {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-<React.StrictMode>
-    <AuthProvider config={ config }>
-        <App />
-    </AuthProvider>
-</React.StrictMode>,
+    <React.StrictMode>
+        <AuthProvider config={ config }>
+            <App />
+        </AuthProvider>
+    </React.StrictMode>,
 );
 
 ```
@@ -160,11 +160,11 @@ const { state, signIn, signOut } = useAuthContext();
 
 return (
     <>
-    {
-        state.isAuthenticated
-        ? <button onClick={() => signOut()}>Logout</button>
-        : <button onClick={() => signIn()}>Login</button>
-    }
+        {
+            state.isAuthenticated
+            ? <button onClick={() => signOut()}>Logout</button>
+            : <button onClick={() => signIn()}>Login</button>
+        }
     </>
 )
 };
@@ -190,14 +190,14 @@ const App = () => {
 
 return (
     <>
-    {
-        state.isAuthenticated ?
-        <>
-            <p>Welcome {state.username}</p>
-            <button onClick={() => signOut()}>Logout</button>
-        </>
-        : <button onClick={() => signIn()}>Login</button>
-    }
+        {
+            state.isAuthenticated ?
+            <>
+                <p>Welcome {state.username}</p>
+                <button onClick={() => signOut()}>Logout</button>
+            </>
+            : <button onClick={() => signIn()}>Login</button>
+        }
     </>
 )
 };

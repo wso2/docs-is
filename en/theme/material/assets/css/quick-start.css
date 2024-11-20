@@ -126,10 +126,10 @@ ul.tick-list > li:before {
 [data-md-component='toc'] .md-nav__link::before {
     content: '';
     position: absolute;
-    top: .8rem;
+    top: .95rem;
     left: 0;
     width: 0;
-    height: calc(100% - 13px);
+    height: calc(100% - 20px);
     border-left: 1px solid var(--md-default-fg-color);
 }
 
