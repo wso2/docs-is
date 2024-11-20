@@ -122,28 +122,27 @@ Add the following changes to the `main.jsx` file.
     
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { AuthProvider } from '@asgardeo/auth-react';
-import './index.css';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import { AuthProvider } from '@asgardeo/auth-react'
 
-const config = {
-    signInRedirectURL: "http://localhost:5173",
-    signOutRedirectURL: "http://localhost:5173",
-    clientID: "<your-app-client-id>",
-    baseUrl: "https://localhost:9443",
-    scope: [ "openid","profile" ]
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <AuthProvider config={ config }>
-            <App />
-        </AuthProvider>
-    </React.StrictMode>,
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <AuthProvider
+      config={ {
+        signInRedirectURL: 'http://localhost:5173',
+        signOutRedirectURL: 'http://localhost:5173',
+        clientID: '<your-app-client-id>',
+        baseUrl: 'https://localhost:9443',
+        scope: ['openid', 'profile'],
+      } }
+    >
+      <App />
+    </AuthProvider>
+  </StrictMode>
 );
-
 ```
 
 ## Add login and logout link to your app
@@ -153,24 +152,24 @@ Asgardeo React SDK provides `useAuthContext` hook to conveniently access user au
 Replace the existing content of the `App.jsx` file with following content.
 
 ```javascript
-import { useAuthContext } from "@asgardeo/auth-react";
-import './App.css';
+import { useAuthContext } from "@asgardeo/auth-react"
+import './App.css'
 
-const App = () => {
-const { state, signIn, signOut } = useAuthContext();
+function App() {
+  const { state, signIn, signOut } = useAuthContext();
 
-return (
+  return (
     <>
-        {
-            state.isAuthenticated
-            ? <button onClick={() => signOut()}>Logout</button>
-            : <button onClick={() => signIn()}>Login</button>
-        }
+      {state.isAuthenticated ? (
+        <button onClick={() => signOut()}>Logout</button>
+      ) : (
+        <button onClick={() => signIn()}>Login</button>
+      )}
     </>
-)
-};
+  );
+}
 
-export default App;
+export default App
 ```
 
 Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
@@ -181,27 +180,26 @@ Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 ## Display logged in user details
 
-Modified the code as below to see logged in user details.
+Modify the code as below to see logged in user details.
 
 ```javascript
 ...
 
-const App = () => {
+function App() {
 ...
 
-return (
+  return (
     <>
-        {
-            state.isAuthenticated ?
-            <>
-                <p>Welcome {state.username}</p>
-                <button onClick={() => signOut()}>Logout</button>
-            </>
-            : <button onClick={() => signIn()}>Login</button>
-        }
+      {state.isAuthenticated ? (
+        <>
+          <p>Welcome {state.username}</p>
+          <button onClick={() => signOut()}>Logout</button>
+        </>
+      ) : (
+        <button onClick={() => signIn()}>Login</button>
+      )}
     </>
-)
-};
+  );
 
 ...
 ```
