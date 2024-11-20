@@ -609,7 +609,7 @@ nav:
         - Recover your password: guides/your-is/recover-password.md
       - Multitenancy:
         - Multitenancy: guides/multitenancy/index.md
-        - Manage tenants: guides/multitenancy/manage-tenants.md
+        - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
         - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
   - Setup:
       - Install:
