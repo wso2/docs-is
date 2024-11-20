@@ -693,7 +693,7 @@ components:
               - userName
         filter:
           type: string
-          description: The expression used for filtering. Supported filters are <code>ew</code>, <code>eq</code>, ‘co’, ‘sw’, and ‘and’.
+          description: The expression used for filtering. Supported filters are <code>ew</code>, <code>eq</code>, <code>co</code>, <code>sw</code>, and <code>and</code>.
           example: userName sw ki and name.familyName co err
         domain:
           type: string
