@@ -45,7 +45,7 @@ Create (a.k.a scaffold) your new React app using Vite.
 
 === "npm"
 
-    ``` bash
+    ```bash
     npm create vite@latest asgardeo-react -- --template react
 
     cd asgardeo-react
@@ -57,7 +57,7 @@ Create (a.k.a scaffold) your new React app using Vite.
 
 === "yarn"
 
-    ``` bash
+    ```bash
     yarn create vite@latest asgardeo-react -- --template react
 
     cd asgardeo-react
@@ -69,7 +69,7 @@ Create (a.k.a scaffold) your new React app using Vite.
 
 === "pnpm"
 
-    ``` bash
+    ```bash
     pnpm create vite@latest asgardeo-react -- --template react
 
     cd asgardeo-react
@@ -85,19 +85,19 @@ Asgardeo React SDK provides all the components and hooks you need to integrate A
 
 === "npm"
 
-    ``` bash
+    ```bash
     npm install @asgardeo/auth-react
     ```
 
 === "yarn"
 
-    ``` bash
+    ```bash
     yarn add @asgardeo/auth-react
     ```
 
 === "pnpm"
 
-    ``` bash
+    ```bash
     pnpm add @asgardeo/auth-react
     ```
 
