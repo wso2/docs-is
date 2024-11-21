@@ -67,11 +67,8 @@ A sample configuration is given below.
         Execute the scripts in the following file, against the database created.
                     
         - `<IS-HOME>/dbscripts/oracle.sql`
-        
-3. If you have a requirement to use the workflow feature, see 
-    [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
     
-4.  Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
+3.  Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
 
 ---
             
