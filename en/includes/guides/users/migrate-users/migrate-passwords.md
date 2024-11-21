@@ -14,7 +14,7 @@ If you wish to migrate user passwords using this method, inform the Asgardeo tea
 
 ## Migrate with on-demand silent migration
 
-Compared to password reset method above, on-demand silent password migration involves more effort to set up but provides the user with a seamless password migration experience. The following are the high level steps involved with this method.
+Compared to the password reset method above, on-demand silent password migration involves more effort to set up but provides the user with a seamless password migration experience. The following are the high level steps involved with this method.
 
 1. The user attempts to log in to the application.
 
