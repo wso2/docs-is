@@ -26,7 +26,7 @@ Compared to the password reset method above, on-demand silent password migration
 
 5. {{ product_name }} redirects the user to a waiting page until the legacy IdP completes the authentication.
 
-6. Once complete, the user is taken back to the application and {{ product_name }} silently migrates the password for the user.
+6. Once the process is complete, the user is redirected back to the application and {{ product_name }} silently migrates the password for the user.
 
 7. The user is successfully logged in and may now continue using the usual credentials to log in to the application with {{ product_name }}.
 
