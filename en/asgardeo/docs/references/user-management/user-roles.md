@@ -71,14 +71,12 @@ The following tables elaborate all the permissions enabled for the default roles
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
-      <td>✖️</td>
   </tr>
   <tr>
     <td>Update user profiles</td>
-      <td>✔️</td>
+    <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
-    <td>✖️</td>
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
@@ -88,7 +86,6 @@ The following tables elaborate all the permissions enabled for the default roles
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
-        <td>✖️</td>
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
@@ -98,7 +95,6 @@ The following tables elaborate all the permissions enabled for the default roles
       <td>✔️</td>
       <td>✔️</td>
       <td>✔️</td>
-        <td>✔️</td>
       <td>✔️</td>
       <td>✔️</td>
       <td>✖️</td>
@@ -108,7 +104,6 @@ The following tables elaborate all the permissions enabled for the default roles
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
-        <td>✖️</td>
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
@@ -118,7 +113,6 @@ The following tables elaborate all the permissions enabled for the default roles
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
-        <td>✖️</td>
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
@@ -128,7 +122,6 @@ The following tables elaborate all the permissions enabled for the default roles
       <td>✔️</td>
       <td>✔️</td>
       <td>✔️</td>
-        <td>✔️</td>
       <td>✔️</td>
       <td>✔️</td>
       <td>✖️</td>
@@ -136,7 +129,6 @@ The following tables elaborate all the permissions enabled for the default roles
     <tr>
       <td>Assign users to groups</td>
       <td>✔️</td>
-      <td>✖️</td>
       <td>✖️</td>
       <td>✖️</td>
       <td>✔️</td>
@@ -275,6 +267,7 @@ The following tables elaborate all the permissions enabled for the default roles
 
 <table>
   <tr>
+    <tr>
     <th>Permission</th>
     <th>Administrator</th> 
     <th>Auditor</th> 
@@ -283,6 +276,7 @@ The following tables elaborate all the permissions enabled for the default roles
     <th>Editor - Users</th> 
     <th>Viewer - Users</th> 
     <th>Editor - Connections</th>
+  </tr>
   </tr>
   <tr>
     <td>View connection and connection settings</td>
@@ -297,8 +291,8 @@ The following tables elaborate all the permissions enabled for the default roles
   <tr>
     <td>Create, update and delete connections</td>
     <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
+    <<td>✖️</td>
+    <<td>✖️</td>
     <td>✖️</td>
     <td>✖️</td>
     <td>✖️</td>
@@ -370,5 +364,51 @@ The following tables elaborate all the permissions enabled for the default roles
     <td>✖️</td>
     <td>✖️</td>
     </tr>
+</table>
+
+## Organization settings
+<table>
+  <tr>
+    <th>Permission</th>
+    <th>Administrator</th> 
+    <th>Application developer</th> 
+    <th>Administrative auditor</th> 
+  </tr>
+    <tr>
+          <td>View account recovery scenarios ad settings</td>
+          <td>✔️</td>
+          <td>✖️</td>
+          <td>✔️</td>
+    </tr>
+    <tr>
+      <td>Configure account recovery scenarios</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+          <td>View self registration related settings</td>
+          <td>✔️</td>
+          <td>✖️</td>
+          <td>✔️</td>
+    </tr>   
+    <tr>
+      <td>Configure self registration for users</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr> 
+     <tr>
+          <td>View account security related settings and configurations</td>
+          <td>✔️</td>
+          <td>✖️</td>
+          <td>✔️</td>
+    </tr>   
+    <tr>
+      <td>Configure account security related settings</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr> 
 </table>
 <br>
