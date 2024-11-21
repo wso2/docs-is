@@ -40,7 +40,7 @@ Compared to the password reset method above, on-demand silent password migration
 
 The following guides go into detail on implementing on-demand silent password migration.
 
-### How it works?
+### How it works
 
 The following diagram provides a general idea on the components involved with the on-demand silent password migration.
 
