@@ -32,11 +32,11 @@ WSO2 Identity Server’s client trust store. To perform this, you need to naviga
 client-truststore of WSO2 Identity Server.
 
 ```
-keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.jks -storepass wso2carbon
+keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.p12 -storepass wso2carbon -storetype PKCS12
 ```
 
 !!! note
-    `wso2carbon` is the keystore password of the default client-truststore.jks file of WSO2 Identity Server.
+    `wso2carbon` is the keystore password of the default client-truststore.p12 file of WSO2 Identity Server.
 
 Furthermore, please make sure to follow the steps mentioned in [Configure Active Directory User stores for SCIM 2.0 based Inbound Provisioning]({{base_path}}/guides/users/user-stores/configure-active-directory-user-stores-for-scim2) 
 since SCIM is enabled by default from the WSO2 Identity Server 5.10.0 onwards.

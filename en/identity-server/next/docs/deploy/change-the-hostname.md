@@ -18,13 +18,13 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     === "Format"
 
         ``` java
-        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost
+        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.p12 -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -storetype PKCS12 -ext SAN=dns:localhost
         ```
 
     === "Sample keytool command"
 
         ``` java
-        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.p12 -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -storetype PKCS12 -ext SAN=dns:localhost
         ```
 
     **Option 2**
@@ -42,59 +42,60 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     === "Format"
 
         ``` java
-        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password>
+        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.p12 -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -storetype PKCS12
         ```
 
     === "Sample keytool command"
 
         ``` java
-        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.p12 -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -storetype PKCS12
         ```
 
 2. If the keystore name and password is changed, all the references to it within the WSO2 Identity Server must also be updated. Add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
     ``` toml
     [keystore.primary]
-    file_name = "new-keystore.jks"
+    file_name = "new-keystore.p12"
     password = "new-keystore-password"
     alias = "new-private-key-alias"
     key_password = "new-private-key-password"
+    type = "PKCS12"
     ```
 
-3. Export the public key from your keystore .jks file using the following command.
+3. Export the public key from your keystore .p12 file using the following command.
 
     === "Format"
 
         ``` java
-        keytool -export -alias <alias_name> -keystore <keystore_name>.jks -file <public_key_name>.pem
+        keytool -export -alias <alias_name> -keystore <keystore_name>.p12 -file <public_key_name>.pem -storetype PKCS12
         ```
 
     === "Sample keytool command"
 
         ``` java
-        keytool -export -alias newcert -keystore newkeystore.jks -file pkn.pem
+        keytool -export -alias newcert -keystore newkeystore.p12 -file pkn.pem -storetype PKCS12
         ```
 
-4. Import the public key you extracted in the previous step to the `client-truststore.jks` file using the following command.
+4. Import the public key you extracted in the previous step to the `client-truststore.p12` file using the following command.
 
     === "Format"
 
         ``` java
-        keytool -import -alias <alias_name> -file <public_key_name>.pem -keystore client-truststore.jks -storepass <keystore_password>
+        keytool -import -alias <alias_name> -file <public_key_name>.pem -keystore client-truststore.p12 -storepass <keystore_password> -storetype PKCS12
         ```
 
     === "Sample keytool command"
 
         ``` java
-        keytool -import -alias newcert -file pkn.pem -keystore client-truststore.jks -storepass wso2carbon
+        keytool -import -alias newcert -file pkn.pem -keystore client-truststore.p12 -storepass wso2carbon -storetype PKCS12
         ```
 
     !!! note
-        If you create a new client truststore, in place of the default `client-truststore.jks`, place the new truststore in the `<IS_HOME>/repository/resources/security/` folder and add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
+        If you create a new client truststore, in place of the default `client-truststore.p12`, place the new truststore in the `<IS_HOME>/repository/resources/security/` folder and add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
         ```toml
         [truststore]
-        file_name = "customer-truststore-name.jks" 
+        file_name = "customer-truststore-name.p12" 
         password = "password" 
         ```
 
@@ -106,7 +107,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     127.0.0.1       is.dev.wso2.com
     ```
 
-When you fully recreate the keystore, a new key-pair value is created. This means that any existing encrypted data (for example, users created before recreating the keystore) are still encrypted using the original keystore (`wso2carbon.jks`). Therefore, older users will not be able to log in to My Account and need to be migrated. You can use one of the following options in this situation.
+When you fully recreate the keystore, a new key-pair value is created. This means that any existing encrypted data (for example, users created before recreating the keystore) are still encrypted using the original keystore (`wso2carbon.p12`). Therefore, older users will not be able to log in to My Account and need to be migrated. You can use one of the following options in this situation.
 
 **Option 1**
 
