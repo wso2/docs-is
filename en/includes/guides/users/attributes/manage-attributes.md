@@ -57,7 +57,7 @@ Apart from the default attributes, you may define your own custom attributes by 
 To update the properties of a user attribute:
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
-2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes
+2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
 3. Click **Edit** for the attribute you want to update.
 
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -98,66 +98,42 @@ To update the properties of a user attribute:
 
 {% if product_name == "WSO2 Identity Server" %}
 
-6. Go to the **Additional Properties** tab and add additional properties that can be used when writing an extension.
+6. Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
 
     ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% endif %}
 
-## Managing multiple email addresses and mobile numbers
+## Assign multiple email addresses and mobile numbers to a user
 
-{{ product_name }} allows users to associate multiple email addresses and mobile numbers with their profiles. User can 
-select one email address and one mobile number as the primary email address and mobile number respectively from the 
-list of email addresses and mobile numbers associated with their profile.
+{{ product_name }} allows users to associate multiple email addresses and mobile numbers with their profiles. For users with multiple values, they may also select a primary email address and a primary mobile number.
 
-The following attributes are used to manage multiple email addresses and mobile numbers:
+The following attributes are used for this purpose:
 
-- **Email Addresses**
-- **Verified Email Addresses**
-- **Mobile Numbers**
-- **Verified Mobile Numbers**
+- Email Addresses
+- Verified Email Addresses
+- Mobile Numbers
+- Verified Mobile Numbers
 
-### Enabling multiple email addresses and mobile numbers
+### Enable/Disable these attributes for users
 
-This feature is enabled by default for new organizations and existing organizations if there are no secondary user 
-stores configured. To manually enable this feature, follow the below steps and enable 
-"Display this attribute on the user's profile" for  **Email Addresses**, **Verified Email Addresses**,
- **Mobile Numbers**, **Verified Mobile Numbers**.
+Unless you have configured {{ 'secondary' if product_name == 'WSO2 Identity Server' else 'remote' }} user stores, the email address/mobile number-related attributes are already enabled to new and existing organizations. To manually enable/disable these attributes, follow the steps below:
 
-1. On the {{ product_name }} Console, navigate to {{ attribute_path }} > Attributes.
-2. Click **Attributes** to display the list of attributes.
-3. Click **Edit** next to the attribute.
-4. Enable **Display this attribute on the user's profile**.
-5. Click **Update**.
+1. On the {{ product_name }} Console, navigate to **User Attributes and Stores** > **Attributes**.
+2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
+3. Click **Edit** next to the corresponding attribute.
+4. Enable/Disable the **Display this attribute on the user's profile** checkbox.
+5. Click **Update** to save the changes.
 
-### User store compatibility
+### Exclude these attributes from a user store
 
-#### Non-JDBC secondary user stores
+For non-JDBC {{ 'secondary' if product_name == 'WSO2 Identity Server' else 'remote' }} user stores, you must ensure proper mapping of these attributes in the user store. If mapping is not feasible, you can disable support for these attributes in that user store by following the steps below.
 
-If you are using non-JDBC secondary user stores, you need to properly map how these attributes are stored in your user 
-store. If mapping is not possible, you can either disable support for multiple email addresses and mobile numbers for 
-the unsupported user store or disable the support for the entire organization:
-
-**Exclude the user stores**
-
-To disable multiple email and mobile support for specific unsupported user stores, follow these steps for  
-**Email Addresses**, **Verified Email Addresses**, **Mobile Numbers**, **Verified Mobile Numbers**:
-
-   1. On the {{ product_name }} Console, navigate to {{ attribute_path }} > Attributes.
-   2. Click **Attributes** to see the list of attributes.
+   1. On the {{ product_name }} Console, navigate to **User Attributes and Stores** > **Attributes**.
+   2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
    3. Click **Edit** for the attribute you wish to modify.
    4. Go to the **Attribute Mappings** tab.
-   4. Uncheck the **Enable for this user store** check box under user store you want to disable.
-   5. Click **Update**.
+   4. Find the corresponding user store and uncheck the **Enable for this user store** checkbox.
+   5. Click **Update** to save the changes
 
    ![Enable for user store]({{base_path}}/assets/img/guides/organization/attributes/enable-for-user-store.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-**Disable the Feature Organization-Wide**
-
-To disable the multiple email addresses and mobile numbers support for the organization follow these steps for  **Email Addresses**, **Verified Email Addresses**, **Mobile Numbers**, **Verified Mobile Numbers**.
-
-   1. On the {{ product_name }} Console, navigate to {{ attribute_path }} > Attributes.
-   2. Click **Attributes** to see the list of attributes.
-   3. Click **Edit** for the attribute you wish to modify.
-   4. Uncheck **Display this attribute on the user's profile** to disable this attribute.
-   5. Click **Update**.
