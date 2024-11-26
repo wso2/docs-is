@@ -84,11 +84,8 @@ A sample configuration is given below.
         <Property name="CaseInsensitiveUsername">false</Property>
         <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
         ```
-        
-3. If you have a requirement in using workflow feature follow, 
-    [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
     
-4.  Download the MS SQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
+3.  Download the MS SQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
 
 ---
 
