@@ -508,7 +508,8 @@ nav:
     - Prerequisite: complete-guides/nodejs/prerequisite.md
     - Configure an application: complete-guides/nodejs/register-an-application.md
     - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
-    - Configure Asgardeo SDK: complete-guides/nodejs/install-asgardeo-sdk.md
+    # - Configure Asgardeo SDK: complete-guides/nodejs/install-asgardeo-sdk.md
+    - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
     - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
     - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
     - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md

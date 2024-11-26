@@ -17,19 +17,18 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
 !!! Example
     **name:** is-nodejs
     
-    **Authorized redirect URL:** http://localhost:3000*
+    **Authorized redirect URL:** http://localhost:3000/oauth2/redirect
 
 ![Register a new application]({{base_path}}/complete-guides/nodejs/assets/img/image8.png){: width="600" style="display: block; margin: 0;"}
 
 !!! Info
 
-    The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use [http://localhost:3000](http://localhost:3000){:target="_blank"}, as the sample app will be accessible at this URL.
-
-
+    The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use [http://localhost:3000/oauth2/redirect](http://localhost:3000/oauth2/redirect){:target="_blank"}, as the sample app will be accessible at this URL.
     
 You will need the following information available in the Quick Start tab of your app.
 
 * Client ID
+* Client Secret
 * Base URL
 * Redirect URL
 

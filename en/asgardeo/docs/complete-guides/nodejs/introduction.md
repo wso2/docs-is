@@ -6,8 +6,9 @@ read_time: 2 mins
 
 Node.js is a popular JavaScript runtime environment that allows developers to build scalable and high-performance applications. It is widely used for building server-side applications, command-line tools, and desktop applications. Node.js is built on the V8 JavaScript engine, which is the same engine that powers Google Chrome. It uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.
 
-Implementing login functionality in your Node.js app is essential for managing user access, personalizing user experiences, and securing the app. It enhances user experience, protects user data, boosts engagement, and helps ensure regulatory compliance.
+In this guide, we will be using Express.js, which is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It is designed for building single-page, multi-page, and hybrid web applications. Express.js is widely used for building APIs and web applications.
 
+Implementing login functionality in your Node.js app is essential for managing user access, personalizing user experiences, and securing the app. It enhances user experience, protects user data, boosts engagement, and helps ensure regulatory compliance.
 
 ## Learning objectives 
 
@@ -32,4 +33,4 @@ In this guide, you will:
 
 !!! tip "Tip"
     
-    If you are already familiar with the concepts discussed in the guide, you can clone the sample Node.js application configured with Asgardeo from the [repository](https://github.com/dinzie95/passport-asgardeo-tutorial). All you need to do is registering a **Single Page Application** in {{product_name}} and updating the environment variables in the `.env` file as explained in the **README.md** file.
+    If you are already familiar with the concepts discussed in the guide, you can clone the sample Node.js application configured with Asgardeo from the [repository](https://github.com/dinzie95/passport-asgardeo-tutorial). All you need to do is registering a **Traditional Web Application** in {{product_name}} and updating the environment variables in the `.env` file as explained in the **README.md** file.
