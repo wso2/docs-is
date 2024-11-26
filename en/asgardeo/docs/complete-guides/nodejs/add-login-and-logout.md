@@ -4,76 +4,180 @@ heading: Add login and logout to your app
 read_time: 2 min
 ---
 
-Next, let’s implement login and logout for our Node.js app. Node.js hooks are a special type of functions that let you access state and other Node.js features in Node.js functional components. Asgardeo provides one such hook, `useAuthContext()`, to conveniently access user authentication data such as the logged in user’s information, etc and utility functions, such as a function to validate user’s authentication status, and retrieve access tokens.
+## Add routes
 
-`useAuthContext` hook also provides us access with two key functions to perform sign in and sign out in your Node.js application, `signIn` and `signOut` respectively. You can directly invoke the respective functions in our Node.js application to trigger sign-in and sign-out requests as follows.
+When the user clicks the "Login with Asgardeo" button, they will be redirected to our app's login page, which is hosted by Asgardeo. Once on that page, the user will log in by providing their credentials. After they've logged in, the user will be redirected back to our app.
 
-Update the `App.jsx` with the following code.
+Open `routes/auth.js` and add the following code at the end of the file, which creates two routes. The first will redirect the user to the sigin page. The second will process the authentication result when the user is redirected back.
 
 ```javascript
-import { useAuthContext } from "@asgardeo/auth-Node.js";
-import './App.css';
+var express = require("express");
+var qs = require("querystring");
+var router = express.Router();
 
-const App = () => {
-const { state, signIn, signOut } = useAuthContext();
+router.get("/login", passport.authenticate("asgardeo"));
 
-return (
-    <>
-    {
-        state.isAuthenticated
-        ? <button onClick={() => signOut()}>Logout</button>
-        : <button onClick={() => signIn()}>Login</button>
-    }
-    </>
-)
-};
+router.get(
+  "/oauth2/redirect",
+  passport.authenticate("asgardeo", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+  })
+);
 
-export default App;
+module.exports = router;
+```
+Next, we need to add these routes to our app. Open `app.js` and modify the file as shown below to require the new auth router and add it to the app.
+
+```javascript hl_lines="9 25"
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var authRouter = require("./routes/auth");
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use("/", authRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
 ```
 
-Let’s look into the underlying details of what’s happening here.
+The routes have been added to the app. Next we need to maintain state when redirecting to Asgardeo.
 
-The `authConfig` object holds the configuration necessary for connecting the app to {{product_name}}. It includes properties like `signInRedirectURL` and `signOutRedirectURL`, which determine where users are redirected after signing in or out. The `clientID` identifies the application, and `baseUrl` specifies the Asgardeo API endpoint specific to your organization. The scope array lists the OAuth 2.0 permissions the app requires, such as `openid` and `profile`. The scops are used to indicate what user attributes are expected by our Node.js app.
+## Maintaining the session
 
-The App component leverages the `useAuthContext` hook to access the authentication state (`state`) and actions (`signIn` and `signOut`). Inside the `AuthProvider`, the app conditionally renders a login or logout button based on whether the user is authenticated. If `state.isAuthenticated` is true, a "Logout" button is shown that triggers the `signOut` function. Otherwise, a "Login" button appears, which initiates the signIn process.
+When a user signs in to our app via our app's Asgardeo-hosted sign in page, they are redirected to Asgardeo. Asgardeo takes care of authenticating the user and then redirects them back to our app.
 
-Save the changes and re-run the application in development mode if it is not running already.
+For security, state needs to be maintained between these two redirects. Passport does this automatically, but the app first needs session support. Let's add that now.
+
+Begin by installing the necessary dependencies:
 
 ```bash
-npm run dev
+npm install express-session
+npm install connect-sqlite3
 ```
 
-Once the application is started, you will see the homepage of the application with the changes we made.
+Open `app.js` and modify the file as shown below to add passport authentication with session support.
 
-![Login screen]({{base_path}}/complete-guides/nodejs/assets/img/image14.png){: width="800" style="display: block; margin: 0;"}
+```javascript hl_lines="6-8 25-33"
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var session = require("express-session");
+var passport = require("passport");
+var SQLiteStore = require("connect-sqlite3")(session);
 
-Initiate Sign In
-Clicking on the login button will initiate an OIDC request. You will be able to observe the authorize request in the browser devtools as follows. To see this, right click on the application and click inspect and switch to the network tab. In the filter input, type “authorize”, and click on the sign in button.
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var authRouter = require("./routes/auth");
 
-![OIDC request]({{base_path}}/complete-guides/nodejs/assets/img/image15.png){: width="800" style="display: block; margin: 0;"}
+var app = express();
 
-!!! tip "Tip"
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-    The OpenID Connect specification offers several functions, known as grant types, to obtain an access token in exchange for user credentials. This example uses the authorization code grant type. In this process, the app first requests a unique code from the authentication server, which can later be used to obtain an access token. For more details on the authorization code grant type, please refer to the [Asgardeo documentation.](https://wso2.com/asgardeo/docs/guides/authentication/oidc/implement-auth-code-with-pkce/){:target="_blank"} 
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    store: new SQLiteStore({ db: "sessions.db", dir: "./var/db" }),
+  })
+);
+app.use(passport.authenticate("session"));
 
-Asgardeo will receive this authorization request and respond by redirecting the user to a login page to enter their credentials.
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use("/", authRouter);
 
-![OIDC request]({{base_path}}/complete-guides/nodejs/assets/img/image16.png){: width="800" style="display: block; margin: 0;"}
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
-At this stage, **you need to create a [test user in Asgardeo](https://wso2.com/asgardeo/docs/guides/users/manage-users/#onboard-users){:target="_blank"}  to try out the application.** Once you create a test user, you can enter the username and password of the test user to the login screen.
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-If the login is successful, you should be able to see the application as shown below.
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
-![Login flow]({{base_path}}/complete-guides/nodejs/assets/img/image17.png){: width="800" style="display: block; margin: 0;"}
+module.exports = app;
+```
 
-!!! tip "Tip"
+Next we need to configure Passport to manage the login session by adding serializeUser and deserializeUser functions. Open `routes/auth.js` and add the following code lines after AsgardeoStrategy configuration.
 
-    **PKCE (Proof Key for Code Exchange)**  is an addition to the OAuth2 specification to make the authorization code more immune to replay attacks. It is enabled by default for public clients such as our single page Node.js application. 
-    
-    If you want to disable PKCE for some reason, you can do so via following the steps below. **However, disabling PKCE for public clients such as our single page Node.js app is highly discouraged.**  
+```javascript
+passport.serializeUser(function (user, cb) {
+  process.nextTick(function () {
+    cb(null, {
+      id: user?.uiProfile?.id,
+      username: user?.uiProfile?._json?.username,
+      givenName: user?.uiProfile?.name?.givenName,
+      familyName: user?.uiProfile?.name?.familyName,
+    });
+  });
+});
 
-    1. Log in to the {{product_name}} console and select the application you created.
-    2. Switch to the Protocol tab.
-    3. Uncheck the Mandatory checkbox under PKCE section.
+passport.deserializeUser(function (user, cb) {
+  process.nextTick(function () {
+    return cb(null, user);
+  });
+});
+```
 
-In this section, we have added login and logout features to our Node.js app. In the next step, we will look into how to access the user attributes of the logged in user.
+Now, let's try signing in.
+
+Start the server:
+
+```bash
+npm start
+```
+
+Open http://localhost:3000 and click the "Login with Asgardeo" button. You will be redirected to the Asgardeo login page. Enter your credentials and click "Sign In". You will be redirected back to the index page.
+
