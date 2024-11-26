@@ -4,130 +4,98 @@ heading: Display logged-in user details
 read_time: 2 min
 ---
 
-At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo Node.js SDK. The next step is to explore how to access and display logged-in user details within the app. The Asgardeo Node.js SDK loads the basic user attribute details to the authentication state, so that you can directly access those from the state (such as `state.username`) and use them in the application. First, let’s try to display the username using state.username.Replace the code in app.jsx with the following.
+At this point, we’ve successfully implemented login and logout capabilities using the Passport Asgardeo strategy. The next step is to explore how to access and display logged-in user details within the app. 
+
+If you observe the `routes/auth.js` file, you can see that the Asgardeo strategy loads the basic user attribute details in the id token, and these attributes are accessible through the uiProfile object in the `verify` callback.
 
 ```javascript
-import { useAuthContext } from "@asgardeo/auth-Node.js";
-import './App.css';
-
-const App = () => {
-  const { state, signIn, signOut } = useAuthContext();
-
-  return (
-    <>
-      {
-        state.isAuthenticated
-          ? <>
-            <p>Welcome {state.username}</p>
-            <button onClick={() => signOut()}>Logout</button>
-          </>
-          : <button onClick={() => signIn()}>Login</button>
-      }
-    </>
-  )
-};
-
-export default App;
+function verify(
+  issuer,
+  uiProfile,
+  idProfile,
+  context,
+  idToken,
+  accessToken,
+  refreshToken,
+  params,
+  verified
+) {
+  return verified(null, {
+    uiProfile: uiProfile,
+  });
+}
 ```
 
-If your Node.js application is already running in the development mode, the home page will be reloaded and you will see the updated user interface.
-
-![Logout screen]({{base_path}}/complete-guides/nodejs/assets/img/image18.png){: width="800" style="display: block; margin: 0;"}
-
-There may be instances where you’d need to retrieve user attributes outside Node.js components. Asgardeo Node.js SDK provides a [getBasicUserInfo](https://github.com/asgardeo/asgardeo-auth-Node.js-sdk/blob/main/API.md#getbasicuserinfo){:target="_blank"}  function, which allows you to retrieve the authenticated user’s basic information. The code example in the following section demonstrates this process and can be adapted to fit your application with any necessary customizations.
-
-Again, replace the code in `app.jsx` with the following.
+In the `serializeUser` method, we are serializing the user information to the session. This information can be accessed from the `req.user` object in the routes.
 
 ```javascript
-import { useAuthContext } from "@asgardeo/auth-Node.js";
-import { useEffect, useState } from "Node.js";
-import './App.css';
-
-const App = () => {
-
-  const { state, getBasicUserInfo, signIn, signOut } = useAuthContext();
-  const [userInfo, setUserInfo] = useState(undefined);
-
-  useEffect(() => {
-    getBasicUserInfo().then((response) => {
-      setUserInfo(response)
-    }).catch((error) => {
-      console.error(error);
+passport.serializeUser(function (user, cb) {
+  process.nextTick(function () {
+    cb(null, {
+      id: user?.uiProfile?.id,
+      username: user?.uiProfile?._json?.username,
+      givenName: user?.uiProfile?.name?.givenName,
+      familyName: user?.uiProfile?.name?.familyName,
     });
-  }, [state]);
-
-
-  return (
-    <>
-      {
-        state.isAuthenticated
-          ? <>
-            <p>Welcome, {userInfo?.username}</p>
-            <button onClick={() => signOut()}>Logout</button>
-          </>
-          : <button onClick={() => signIn()}>Login</button>
-      }
-    </>
-  )
-};
-
-export default App;
+  });
+});
 ```
 
-The above code snippet, the app utilizes the `useAuthContext` hook to access authentication state and methods such as `getBasicUserInfo`, `signIn`, and `signOut`. It also uses Node.js's `useState` to store basic user information and `useEffect` to fetch this information whenever the authentication state changes. If the user is authenticated, the app displays a welcome message with the username and a button to log out. If the user is not authenticated, it shows a login button that triggers the sign-in process, and the errors during user info retrieval are handled by logging them to the console.
-
-Similarly, you can access the other user attributes, such as email, display name, allowed scopes, etc as well. The following code snippet shows you how you can access them in your app.  Asgardeo Node.js SDK is responsible for processing the ID token and decoding these attributes.  
+To return the user object to the index view, let's modify the `routes/index.js` file as shown below.
 
 ```javascript
- <p>Your email: { userInfo?.email }</p>
- <p>Display name: { userInfo?.displayName }</p>
- <p>Allowed scopes: { userInfo?.allowedScopes }</p>
- <p>Tenant domain: { userInfo?.tenantDomain }</p>
- <p>Session state: { userInfo?.sessionState }</p>
-```
+var express = require("express");
+var router = express.Router();
 
-## Getting additional user attributes
-
-Other than the above attributes decoded  and available to you by default, Asgardeo Node.js SDK provides [getDecodedIDToken](https://github.com/asgardeo/asgardeo-auth-Node.js-sdk/blob/main/API.md#getdecodedidtoken){:target="_blank"}  method to access any other user attributes that are not exposed by `getBasicUserInfo`. This method will decode the ID token in browser storage and return the output as a JSON object.
-
-To get additional user attributes to the ID token, the application should be configured to request the specific user attributes at the time of login. For example, if you want to retrieve a user's mobile number as an attribute, you need to configure the application to request the user’s mobile number as an attribute in the ID token.
-
-1. Log in to the {{product_name}} console and select the application you created.
-2. Go to the **User Attributes** tab.
-3. Select the **phone** scope.
-4. Expand the scope, and you will see that all attributes under this scope (e.g., `mobile_number`) are selected.
-5. Click Update to save the changes.
-
-```javascript
-
-const { state, signIn, signOut, getDecodedIDToken } = useAuthContext();
-
-
-const [mobileNumber, setMobileNumber] = useState("")
-
-
-useEffect(() => {
-  if (state.isAuthenticated) {
-    getDecodedIDToken().then((decodedIdToken) => {
-      console.log(decodedIdToken);
-      setMobileNumber(decodedIdToken.phone_number)
-    }).catch((error) => {
-        console.log(error);
-    })
+/* GET home page. */
+router.get("/", function (req, res, next) {
+  if (req.isAuthenticated()) {
+    res.render("index", { title: "Express", user: req.user });
+  } else {
+    res.render("login", { title: "Express" });
   }
-}, [ state.isAuthenticated ]);
+});
 
-
-return (
-   <>
-    <p>Your mobile number: {mobileNumber}</p>
-   </>
-)
-
+module.exports = router;
 ```
 
-In the above code snippet, we run the `getDecodedIDToken` method if the user is authenticated, and print the output to the browser console. The decoded ID token response will be printed to the browser console as follows.
+Now, let's modify the `views/index.ejs` file to display the user details.
 
-![ID token]({{base_path}}/complete-guides/nodejs/assets/img/image19.png){: width="800" style="display: block; margin: 0;"}
+```html hl_lines="12-28"
+<!DOCTYPE html>
+<html>
 
-In this step, we further improved our Node.js app to display the user attributes. As the next step, we will try to secure routes within the app.
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    User Profile
+  </h1>
+  <div>
+    <p>
+      <strong>Username:</strong>
+      <%= user.username%>
+    </p>
+    <p>
+      <strong>First Name:</strong>
+      <%= user.givenName%>
+    </p>
+    <p>
+      <strong>Last Name:</strong>
+      <%= user.familyName%>
+    </p>
+  </div>
+  <div>
+    <form action="/logout" method="post">
+      <button type="submit">Log Out</button>
+    </form>
+  </div>
+</body>
+
+</html>
+```
