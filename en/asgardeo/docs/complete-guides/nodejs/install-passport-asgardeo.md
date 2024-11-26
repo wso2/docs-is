@@ -11,6 +11,7 @@ For this integration, we are going to use Passport and the passport-asgardeo str
 ```bash
 npm install passport
 npm install passport-asgardeo
+npm install dotenv
 ```
 
 !!! Info
@@ -83,6 +84,16 @@ Add the following environment variables to the `.env` file:
 ASGARDEO_ORGANISATION=<YOUR_ORGANISATION_NAME>
 ASGARDEO_CLIENT_ID=<YOUR_CLIENT_ID>
 ASGARDEO_CLIENT_SECRET=<YOUR_CLIENT_SECRET>
+```
+
+Add the following line to the start of the `app.js` file to load the environment variables:
+
+```javascript hl_lines="1"
+require("dotenv").config();
+
+var createError = require("http-errors");
+var express = require("express");
+...
 ```
 
 Now that the strategy is configured, we are ready to add login routes to the app.
