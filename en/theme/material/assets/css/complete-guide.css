@@ -54,16 +54,20 @@
     background: var(--md-typeset-a-color);
 }
 
-.md-nav__item::before {
+.md-nav__item:not(.md-nav__item--nested)::before {
     content: '';
     position: absolute;
-    top: 1rem;
+    top: 1.2rem;
     left: 24px;
     width: 0;
-    height: calc(100% - 11px);
+    height: calc(100% - 18px);
     border-left: 1px solid var(--md-default-fg-color--light);
 }
 
-.md-nav__item:last-child::before {
+.md-nav__item:not(.md-nav__item--nested):last-child::before {
     border-left: none !important;
+}
+
+.md-nav__item.md-nav__item--nested > .md-nav__link {
+    display: flex;
 }
