@@ -10,7 +10,7 @@ First unless you already have done that, you need to create an organization in {
 * Sign into {{product_name}} console and navigate to **Applications > New Application.**
 * Select Traditional Web Application
 
-![Select Traditional Web Application]({{base_path}}/complete-guides/nodejs/assets/img/image5.png){: width="600" style="display: block; margin: 0;"}  
+![Select Traditional Web Application]({{base_path}}/complete-guides/nodejs/assets/img/image5.png){: width="800" style="display: block; margin: 0;"}  
   
 Next, complete the wizard popup by providing a suitable name and an authorized redirect URL. Keep OpenID Connect selected as the protocol.
 
@@ -19,7 +19,7 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
     
     **Authorized redirect URL:** http://localhost:3000/oauth2/redirect
 
-![Register a new application]({{base_path}}/complete-guides/nodejs/assets/img/image8.png){: width="600" style="display: block; margin: 0;"}
+![Register a new application]({{base_path}}/complete-guides/nodejs/assets/img/image8.png){: width="800" style="display: block; margin: 0;"}
 
 !!! Info
 
@@ -29,10 +29,8 @@ You will need the following information available in the Quick Start tab of your
 
 * Client ID
 * Client Secret
-* Base URL
-* Redirect URL
 
-![Quick start guide]({{base_path}}/complete-guides/nodejs/assets/img/image9.png){: width="600" style="display: block; margin: 0;"}
+![Quick start guide]({{base_path}}/complete-guides/nodejs/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
 
 After creating the application, navigate to **User Management > Users** and [create a new user](https://wso2.com/asgardeo/docs/guides/users/manage-users/#onboard-users). We will use this user to log in to the Node.js app.
 
