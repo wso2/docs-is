@@ -131,8 +131,8 @@ router.get("/", ensureLoggedIn, async function (req, res, next) {
 module.exports = router;
 ```
 
-![Accessing protected API]({{base_path}}/complete-guides/nodejs/assets/img/image16.png){: width="800" style="display: block; margin: 0;"}
-
 When you login to the application and navigate to the `/users` route, you will see that the SCIM 2 API is called and the protected data is fetched successfully. The response will be logged in the terminal.
+
+![Accessing protected API]({{base_path}}/complete-guides/nodejs/assets/img/image16.png){: width="800" style="display: block; margin: 0;"}
 
 In this step, we have successfully called a protected API from our Node.js app using the access token. This is a common requirement in many applications. Next you can look into additional features that {{product_name}} offers to make the authentication flow more diverse and secure.

@@ -21,6 +21,30 @@ cd passport-asgardeo-sample
 npm install
 ```
 
+!!! Optional
+
+    To make the app look better, you can add some CSS styles in the `public/stylesheets/style.css` file.
+
+    ```css
+    body {
+        padding: 50px;
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        text-align: center;
+    }
+
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #333;
+    }
+    ```
+
 Then run the following command to start the application. 
 
 ```bash

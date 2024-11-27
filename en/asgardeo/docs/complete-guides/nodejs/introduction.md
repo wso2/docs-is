@@ -28,9 +28,9 @@ In this guide, you will:
 
 !!! tip "Tip"
     
-    This guide takes approximately 60 minutes to complete and covers everything required to add user login and secure your Node.js apps. If you’re looking for a shorter guide, try the [Node.js Quick Start guide](https://is.docs.wso2.com/en/latest/quick-starts/Node.js/){:target="_blank"}, which takes around 15 minutes to complete.
+    This guide takes approximately 60 minutes to complete and covers everything required to add user login and secure your Node.js apps.
 
 
 !!! tip "Tip"
     
-    If you are already familiar with the concepts discussed in the guide, you can clone the sample Node.js application configured with {{product_name}} from the [repository](https://github.com/dinzie95/passport-asgardeo-tutorial). All you need to do is registering a **Traditional Web Application** in {{product_name}} and updating the environment variables in the `.env` file as explained in the **README.md** file.
+    If you are already familiar with the concepts discussed in the guide, you can clone the sample Node.js application configured with {{product_name}} from the [repository](https://github.com/pabasara-mahindapala/passport-asgardeo-sample). All you need to do is registering a **Traditional Web Application** in {{product_name}} and updating the environment variables in the `.env` file as explained in the **README.md** file.
