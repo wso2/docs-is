@@ -6,7 +6,7 @@ read_time: 2 min
 
 ## Install Passport and Passport Asgardeo
 
-For this integration, we are going to use Passport and the passport-asgardeo strategy. Install both as dependencies using the following commands:
+For this integration, we are going to use Passport and the passport-asgardeo strategy. Install the dependencies using the following commands:
 
 ```bash
 npm install passport
@@ -26,7 +26,7 @@ Next, let's create a file that will contain authentication related functionality
 touch routes/auth.js
 ```
 
-Add the following code to the `auth.js` file:
+Add the following code to the `routes/auth.js` file:
 
 ```javascript
 var passport = require("passport");
@@ -72,7 +72,7 @@ passport.use(
 );
 ```
 
-Next, let's create a '.env' file to store the domain, client ID, and client secret from the {{product_name}} Application as environment variables:
+Next, let's create a `.env` file to store the domain, client ID, and client secret from the {{product_name}} Application as environment variables:
 
 ```bash
 touch .env

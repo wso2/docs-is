@@ -12,7 +12,7 @@ For simplicity, let's assume that the APIs we’re calling are secured by the sa
 
     If your app needs to call APIs secured by a different IdP, you’ll need to exchange your current access token for a new one issued by the IdP securing those APIs. This can be done using the OAuth2 token exchange grant type or other supported grant types. We will cover these scenarios in a separate guide.
 
-In the following example we'll see how to call a protected API endpoint, such as [/scim2/Me](https://wso2.com/asgardeo/docs/apis/scim2-me/) (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
+In the following example we'll see how to call a protected API endpoint, such as [scim2/Me](https://wso2.com/asgardeo/docs/apis/scim2-me/) (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
 
 If you observe the `routes/auth.js` file, you can see that the {{product_name}} strategy loads the access token in the `accessToken` parameter of the `verify` callback. This access token can be used to call the protected API.
 

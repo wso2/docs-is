@@ -38,8 +38,6 @@ Open `views/login.ejs` and add the following code:
 
 Next, we will modify the `routes/index.js` file to show the login page when the user is not authenticated.
 
-Open `routes/index.js` and modify the file as shown below.
-
 ```javascript hl_lines="6-10"
 var express = require("express");
 var router = express.Router();
@@ -247,7 +245,7 @@ Open `http://localhost:3000` and click the "Login with Asgardeo" button. You wil
 
 ## Log Out
 
-Now that users can sign in and sign up, they'll need a way to sign out.
+Now that users can sign in to the application, they'll need a way to sign out.
 
 Open `routes/auth.js` file and add the following route below the `/oauth2/redirect` route configuration:
 

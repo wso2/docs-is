@@ -6,7 +6,7 @@ read_time: 2 min
 
 At this point, we’ve successfully implemented login and logout capabilities using the Passport {{product_name}} strategy. The next step is to explore how to access and display logged-in user details within the app. 
 
-If you observe the `routes/auth.js` file, you can see that the {{product_name}} strategy loads the basic user attribute details in the id token, and these attributes are accessible through the uiProfile object in the `verify` callback.
+If you observe the `routes/auth.js` file, you can see that the {{product_name}} strategy loads the basic user attribute details in the id token, and these attributes are accessible through the `uiProfile` object in the `verify` callback.
 
 ```javascript
 function verify(
@@ -43,7 +43,7 @@ passport.serializeUser(function (user, cb) {
 
 To return the user object to the index view, let's modify the `routes/index.js` file as shown below.
 
-```javascript
+```javascript hl_lines="7"
 var express = require("express");
 var router = express.Router();
 
@@ -100,11 +100,13 @@ Now, let's modify the `views/index.ejs` file to display the user details.
 </html>
 ```
 
-Now, when you log in to the application, you will see that the user's first name and last name are not displayed even though the username is displayed. This is because the {{product_name}} strategy does not return the first name and last name in the id token by default. To get the first name and last name, we need to configure the {{product_name}} application to include these attributes in the id token when we request the profile scope.
+Now, when you log in to the application, you will see that the user's first name and last name are not displayed even though the username is displayed. This is because the {{product_name}} strategy does not return the first name and last name in the id token by default. 
 
 ![Display user details]({{base_path}}/complete-guides/nodejs/assets/img/image12.png){: width="800" style="display: block; margin: 0;"}
 
-Let's login to the console and go to the application settings of the application you created. Then go to the User Attributes tab and update the application after checking the **First Name (given_name)** and **Last Name (family_name)** under the **Profile** scope. This will tell {{product_name}} to send the checked attributes under the profile OIDC scope.
+To get the first name and last name, we need to configure the {{product_name}} application to include these attributes in the id token when we request the profile scope.
+
+Let's login to the {{product_name}} console and go to the application settings of the application you created. Then go to the User Attributes tab and update the application after checking the **First Name (given_name)** and **Last Name (family_name)** under the **Profile** scope. This will tell {{product_name}} to send the checked attributes under the profile OIDC scope.
 
 ![Configure user attributes]({{base_path}}/complete-guides/nodejs/assets/img/image13.png){: width="800" style="display: block; margin: 0;"}
 
