@@ -99,3 +99,17 @@ Now, let's modify the `views/index.ejs` file to display the user details.
 
 </html>
 ```
+
+Now, when you log in to the application, you will see that the user's first name and last name are not displayed even though the username is displayed. This is because the Asgardeo strategy does not return the first name and last name in the id token by default. To get the first name and last name, we need to configure the Asgardeo application to include these attributes in the id token when we request the profile scope.
+
+![Display user details]({{base_path}}/complete-guides/nodejs/assets/img/image12.png){: width="800" style="display: block; margin: 0;"}
+
+Let's login to the console and go to the application settings of the application you created. Then go to the User Attributes tab and update the application after checking the **First Name (given_name)** and **Last Name (family_name)** under the **Profile** scope. This will tell Asgardeo to send the checked attributes under the profile OIDC scope.
+
+![Configure user attributes]({{base_path}}/complete-guides/nodejs/assets/img/image13.png){: width="800" style="display: block; margin: 0;"}
+
+Now, when you log in to the application again, you will see that the first name and last name are displayed along with the username.
+
+![Display user details]({{base_path}}/complete-guides/nodejs/assets/img/image14.png){: width="800" style="display: block; margin: 0;"}
+
+In the next section, we will explore how to secure routes in the application using Asgardeo authentication.
