@@ -58,7 +58,7 @@ module.exports = router;
 
 ## Add routes
 
-When the user clicks the "Login with Asgardeo" button, they will be redirected to our app's login page, which is hosted by Asgardeo. Once on that page, the user will log in by providing their credentials. After they've logged in, the user will be redirected back to our app.
+When the user clicks the "Login with Asgardeo" button, they will be redirected to our app's login page, which is hosted by {{product_name}}. Once on that page, the user will log in by providing their credentials. After they've logged in, the user will be redirected back to our app.
 
 Open `routes/auth.js` and add the following code at the end of the file, which creates two routes. The first will redirect the user to the sigin page. The second will process the authentication result when the user is redirected back.
 
@@ -129,11 +129,11 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 ```
 
-The routes have been added to the app. Next we need to maintain state when redirecting to Asgardeo.
+The routes have been added to the app. Next we need to maintain state when redirecting to {{product_name}}.
 
 ## Maintaining the session
 
-When a user signs in to our app via our app's Asgardeo-hosted sign in page, they are redirected to Asgardeo. Asgardeo takes care of authenticating the user and then redirects them back to our app.
+When a user signs in to our app via our app's {{product_name}}-hosted sign in page, they are redirected to {{product_name}}. {{product_name}} takes care of authenticating the user and then redirects them back to our app.
 
 For security, state needs to be maintained between these two redirects. Passport does this automatically, but the app first needs session support. Let's add that now.
 
@@ -241,7 +241,7 @@ Start the server:
 npm start
 ```
 
-Open `http://localhost:3000` and click the "Login with Asgardeo" button. You will be redirected to the Asgardeo login page. Enter your credentials and click "Sign In". You will be redirected back to the index page.
+Open `http://localhost:3000` and click the "Login with Asgardeo" button. You will be redirected to the {{product_name}} login page. Enter your credentials and click "Sign In". You will be redirected back to the index page.
 
 ![Login page]({{base_path}}/complete-guides/nodejs/assets/img/image10.png){: width="800" style="display: block; margin: 0;"}
 
