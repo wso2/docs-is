@@ -16,7 +16,7 @@ npm install dotenv
 
 !!! Info
 
-    [Passport](https://www.passportjs.org) is an authentication middleware for Node.js that is widely used in the Node.js community. It provides a simple way to authenticate requests and manage sessions. Passport strategies are used to authenticate requests. Passport Asgardeo strategy is a Passport strategy that allows you to authenticate with OIDC using {{product_name}}.
+    [Passport](https://www.passportjs.org) is an authentication middleware for Node.js that is widely used in the Node.js community. It provides a simple way to authenticate requests and manage sessions. Passport strategies are used to authenticate requests. Passport {{product_name}} strategy is a Passport strategy that allows you to authenticate with OIDC using {{product_name}}.
 
 ## Configure AsgardeoStrategy
 
@@ -72,7 +72,7 @@ passport.use(
 );
 ```
 
-Next, let's create a '.env' file to store the domain, client ID, and client secret from the Asgardeo Application as environment variables:
+Next, let's create a '.env' file to store the domain, client ID, and client secret from the {{product_name}} Application as environment variables:
 
 ```bash
 touch .env

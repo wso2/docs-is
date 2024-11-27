@@ -12,135 +12,127 @@ For simplicity, let's assume that the APIs we’re calling are secured by the sa
 
     If your app needs to call APIs secured by a different IdP, you’ll need to exchange your current access token for a new one issued by the IdP securing those APIs. This can be done using the OAuth2 token exchange grant type or other supported grant types. We will cover these scenarios in a separate guide.
 
-## Using SDK Built-in HTTP client
+In the following example we'll see how to call a protected API endpoint, such as [/scim2/Me](https://wso2.com/asgardeo/docs/apis/scim2-me/) (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
 
-You can use the `httpRequest` API provided by the Asgardeo SDK to make HTTP requests to these endpoints. This function is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this function does it automatically.
+If you observe the `routes/auth.js` file, you can see that the {{product_name}} strategy loads the access token in the `accessToken` parameter of the `verify` callback. This access token can be used to call the protected API.
 
-The following is a simple example of how you might use the Asgardeo SDK’s `httpRequest` to call a protected API endpoint, such as `/scim2/me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
+Let's return the access token from the callback and serialize it to the session. 
 
-!!! note "Note"
+You will notice that the {{product_name}} documentation lists the scopes required to access the SCIM 2 API. In this case, the `internal_login` scope is required to access the `/scim2/Me` endpoint.
 
-    The storage type must be set to `webWorker` for the token to be automatically attached. If it’s set to `sessionStorage` or `localStorage`, you may implement your own function for attaching the access token to the network request. 
+We will add the `internal_login` scope as well to the `scope` parameter in the {{product_name}} strategy configuration.
 
-```javascript
+```javascript hl_lines="23 38 51"
+var passport = require("passport");
+var AsgardeoStrategy = require("passport-asgardeo");
+const ASGARDEO_BASE_URL = "https://api.asgardeo.io/t/";
 
-const App = () => {
-
-
-   const { httpRequest } = useAuthContext();
-
-
-   const requestConfig = {
-       headers: {
-           "Accept": "application/json",
-           "Content-Type": "application/scim+json"
-       },
-       method: "GET",
-       url: "https://api.asgardeo.io/t/<org_name>/scim2/me"
-   };
-
-
-   useEffect(() => {
-       // Make a GET request to a protected endpoint
-       httpRequest(requestConfig)
-           .then((response) => {
-               // Handle successful response
-               console.log('Response:', response.data);
-           })
-           .catch((error) => {
-               // Handle error
-               console.error('Error:', error);
-           });
-   }, [])
-}
-
-```
-
-Note that you don’t need to manually specify the Authorization header under headers in `requestConfig`, as `httpRequest` function intercepts the request and attaches the access token to the network request as the Authorization header.
-
-In the above example, the final request config sent by the `httpRequest` function would be as follows
-
-```javascript
-const requestConfig = {
-       headers: {
-           "Accept": "application/json",
-           "Content-Type": "application/scim+json",
-           "Authorization": "Bearer <access_token_retrieved_from_web_worker>"
-       },
-       method: "GET",
-       url: "https://api.asgardeo.io/t/<org_name>/scim2/me"
-   };
-
-
-```
-
-In case you want to send multiple API requests in parallel, you can use the `httpRequestAll` function to simultaneously trigger parallel network requests and receive responses after all network requests are completed.
-
-The following code snippet shows a javascript function which accepts a list of application IDs and sends multiple network requests for each app ID in parallel. The responses will contain results for each id, as an array of responses.
-
-```javascript
-import { AsgardeoSPAClient } from "@asgardeo/auth-Node.js";
-
-
-const httpClientAll = AsgardeoSPAClient.getInstance()
-   .httpRequestAll.bind(AsgardeoSPAClient.getInstance());
-
-
-export const getApplicationsByIds = async (ids) => {
-
-
-   const requests = [];
-
-
-   for (const id of ids) {
-       requests.push({
-           headers: {
-               "Accept": "application/json",
-               "Content-Type": "application/json"
-           },
-           method: "GET",
-           url: "https://localhost:9443/applications/" + id
-       });
-   }
-
-
-   try {
-       const responses = await httpClientAll(requests);
-
-
-       return Promise.resolve(responses);
-   } catch (error) {
-       console.error(error);
-   }
-};
-
-```
-
-## Using a custom HTTP client
-
-In case you are not using the webWorker as the storage type, the `getAccessToken` function can be used to fetch the access token and manually attach it to the network request. The following is an example where the access token is fetched and manually attached to the authorization header of a Fetch request.
-
-```javascript
-import { useAuthContext } from "@asgardeo/auth-Node.js";
-
-
-const App = () => {
-   const { getAccessToken } = useAuthContext();
-
-
-   useEffect(() => {
-      getAccessToken().then(async (accessToken) => {
-          const response = await fetch("https://api.asgardeo.io/t/<org_name>/scim2/me", {
-           "Authorization": "Bearer " + accessToken
-          })
-          console.log(response)
-      }).catch((error) => {
-          console.log(error);
+passport.use(
+  new AsgardeoStrategy(
+    {
+      issuer:
+        ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/oauth2/token",
+      authorizationURL:
+        ASGARDEO_BASE_URL +
+        process.env.ASGARDEO_ORGANISATION +
+        "/oauth2/authorize",
+      tokenURL:
+        ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/oauth2/token",
+      userInfoURL:
+        ASGARDEO_BASE_URL +
+        process.env.ASGARDEO_ORGANISATION +
+        "/oauth2/userinfo",
+      clientID: process.env.ASGARDEO_CLIENT_ID,
+      clientSecret: process.env.ASGARDEO_CLIENT_SECRET,
+      callbackURL: "/oauth2/redirect",
+      scope: ["profile internal_login"],
+    },
+    function verify(
+      issuer,
+      uiProfile,
+      idProfile,
+      context,
+      idToken,
+      accessToken,
+      refreshToken,
+      params,
+      verified
+    ) {
+      return verified(null, {
+        uiProfile: uiProfile,
+        accessToken: accessToken,
       });
-  }, []); 
-  
-  .
-  .
-  .
-}
+    }
+  )
+);
+
+passport.serializeUser(function (user, cb) {
+  process.nextTick(function () {
+    cb(null, {
+      id: user?.uiProfile?.id,
+      username: user?.uiProfile?._json?.username,
+      givenName: user?.uiProfile?.name?.givenName,
+      familyName: user?.uiProfile?.name?.familyName,
+      accessToken: user?.accessToken,
+    });
+  });
+});
+
+passport.deserializeUser(function (user, cb) {
+  process.nextTick(function () {
+    return cb(null, user);
+  });
+});
+...
 ```
+
+Now we can use the access token to call the protected API. Let's modify the `routes/users.js` to try out the SCIM 2 API call.
+
+```javascript hl_lines="4 8-35"
+var express = require("express");
+var ensureLogIn = require("connect-ensure-login").ensureLoggedIn;
+var router = express.Router();
+const ASGARDEO_BASE_URL = "https://api.asgardeo.io/t/";
+
+var ensureLoggedIn = ensureLogIn();
+/* GET users listing. */
+router.get("/", ensureLoggedIn, async function (req, res, next) {
+  try {
+    console.log("Calling scim2/Me endpoint");
+    const response = await fetch(
+      ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/scim2/Me",
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/scim+json",
+          "Content-Type": "application/scim+json",
+          Authorization: `Bearer ${req?.user?.accessToken}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        "Response: " + JSON.stringify(await response.json(), null, 2)
+      );
+    }
+
+    console.log(
+      "Protected data fetched. Response: " +
+        JSON.stringify(await response.json(), null, 2)
+    );
+  } catch (error) {
+    console.error("Failed to fetch protected data: ", error);
+  }
+
+  res.send("This is a protected resource");
+});
+
+module.exports = router;
+```
+
+![Accessing protected API]({{base_path}}/complete-guides/nodejs/assets/img/image16.png){: width="800" style="display: block; margin: 0;"}
+
+When you login to the application and navigate to the `/users` route, you will see that the SCIM 2 API is called and the protected data is fetched successfully. The response will be logged in the terminal.
+
+In this step, we have successfully called a protected API from our Node.js app using the access token. This is a common requirement in many applications. Next you can look into additional features that {{product_name}} offers to make the authentication flow more diverse and secure.

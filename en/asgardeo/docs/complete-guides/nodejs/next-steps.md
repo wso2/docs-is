@@ -7,21 +7,21 @@ This guide you just have completed, covered the adding user login for Node.js ap
 
 !!! tip "Tip"
     
-    As you are now familiar with the concepts discussed in the guide, you can use the Asgardeo Node.js template to bootstrap your application by running the following command.  
+    As you are now familiar with the concepts discussed in the guide, you can use the {{product_name}} Node.js template to bootstrap your application by running the following command.  
 
     ```bash
 
     npx tmplr --dir my-vite-Node.js-app asgardeo/asgardeo-vite-Node.js-template
 
     ```
-    The Asgardeo Node.js template generates a ready-made Node.js sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
+    The {{product_name}} Node.js template generates a ready-made Node.js sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
 
     All you need is a `client_id`, which you can obtain by registering a **Single Page Application** in {{product_name}}.
 
 
 
 
-<!-- Now that you are familiar with the basics of adding user logins to your Node.js app, you can use the [Asgardeo Vite Node.js Template](https://github.com/asgardeo/asgardeo-vite-Node.js-template){:target="_blank"} to generate a working sample without needing to write code from scratch. After creating an application in the Asgardeo console and copying the necessary parameters, run the following command to create your working sample. 
+<!-- Now that you are familiar with the basics of adding user logins to your Node.js app, you can use the [Asgardeo Vite Node.js Template](https://github.com/asgardeo/asgardeo-vite-Node.js-template){:target="_blank"} to generate a working sample without needing to write code from scratch. After creating an application in the {{product_name}} console and copying the necessary parameters, run the following command to create your working sample. 
 
 ```bash
 
