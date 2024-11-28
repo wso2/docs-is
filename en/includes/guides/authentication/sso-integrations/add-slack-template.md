@@ -47,7 +47,7 @@ Follow the steps given below to register the Slack application in {{ product_nam
     !!! warning "Service provider issuer"
         If you change the Issuer Name to `Slack Workspace URL` when creating the application, you must also configure it in Slack's settings. You can copy the `Service provider issuer` value from the `Guide` tab under the `Setup {{ product_name }} SSO in Slack` step.
 
-    ![sso-fill-slack.png]({{base_path}}/assets/img/guides/authentication/sso-integrations/slack/sso-fill-slack.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Sample Slack SSO Settings Form]({{base_path}}/assets/img/guides/authentication/sso-integrations/slack/sso-fill-slack.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 -----
 
@@ -60,7 +60,7 @@ Now, you have successfully configured Slack and {{ product_name }}.
 
 1. Create a user in {{ product_name }}.
 
-2. Navigate to [https://slack.com/workspace-signin](https://slack.com/workspace-signin) and enter the Slack workspace URL. This will take you to the Workspace Sign-In page, where you can select the SSO Sign-In option. You will then be redirected to the {{ product_name }} sign-in screen.
+2. Navigate to [https://slack.com/workspace-signin](https://slack.com/workspace-signin){:target="_blank"} and enter the Slack workspace URL. This will take you to the Workspace Sign-In page, where you can select the SSO Sign-In option. You will then be redirected to the {{ product_name }} sign-in screen.
 
 3. Enter the username and password of the user you created in {{ product_name }}, and complete the login process.
 
@@ -68,5 +68,5 @@ Now, you have successfully configured Slack and {{ product_name }}.
 
 ## Troubleshooting guidelines
 
-Additional troubleshooting information regarding any Slack side SSO failures are available [here](https://slack.com/intl/en-gb/help/articles/360037402653-Troubleshoot-SAML-authorisation-errors).
+Additional troubleshooting information regarding any Slack side SSO failures are available [here](https://slack.com/intl/en-gb/help/articles/360037402653-Troubleshoot-SAML-authorisation-errors){:target="_blank"}.
 

@@ -1,74 +1,69 @@
-# Log in to Google Workspace using the {{ product_name }}
+# Log in to Zoom using the {{ product_name }}
 
-This page guides you through using {{ product_name }} to log in to Google.
+This page guides you through using {{ product_name }} to log in to Zoom.
 
 !!! note
-    You need to have a Google domain. Further, ensure you have a Google Workspace account and your account supports SSO by referring to the [Google documentation](https://support.google.com/a/answer/182076?sjid=13406338490513240799-AP){:target="_blank"}.
+    Ensure you have a Zoom account and your account supports SSO by referring to the [Zoom documentation](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060673){:target="_blank"}.
 
-## Create the Google Workspace Service Provider
+## Create the Zoom Service Provider
 
-Follow the steps given below to register the Google Workspace application in {{ product_name }}.
+Follow the steps given below to register the Zoom application in {{ product_name }}.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Click **New Application** and select **Google Workspace** from **SSO Integrations** section.
+2. Click **New Application** and select **Zoom** from **SSO Integrations** section.
 
-    ![Select app type in the WSO2 Identity Server]({{base_path}}/assets/img/guides/sso-integrations/google-workspace-sso/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/common/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
-3. Provide the Google domain name and a name for the application.
+3. Provide the Zoom domain name and a name for the application.
 
-    ![Select google workspace app in the WSO2 Identity Server]({{base_path}}/assets/img/guides/sso-integrations/google-workspace-sso/add-google-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    !!! info "Domain Name"
+        Zoom domain name is the first part of your Zoom Vanity URL. If your Vanity URL is `https://myorg.zoom.us`, enter `myorg` as the Domain Name. Follow Zoom's guidelines to [request your Vanity URL](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061540){:target="_blank"}
+
+    ![Select Zoom workspace app in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/zoom/add-zoom-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 4. Click **Create** to complete the registration.
 
-5. Download the Certificate from the Guide section.
-
 -----
 
-## Configure Google
+## Configure Zoom
 
-1. Access your domain's [admin console](https://admin.google.com).
+1. Log in to [Zoom](https://zoom.us/signin#/login){:target="_blank"}.
 
-2. Follow Google’s instructions to [configure the SSO profile for your organization](https://support.google.com/a/answer/12032922?hl=en&ref_topic=7579248&sjid=3736947215943977003-AP#org_profile). During this process, use the details below:
+2. Configure the following properties in Zoom's SSO settings section. Refer to [Zoom's guide](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060673#h_01EYXTRKFKDGMV8H0T6HHQFJWA){:target="_blank"} to locate the configuration fields mentioned below.
 
     - **Sign-in page URL:**
-      ` {{ product_url_format }}/samlsso`
+      `{{ product_url_format }}/samlsso`
 
     - **Sign-out page URL:**
       `{{ product_url_format }}/samlsso`
-   
-    - **Password URL:**
-       `{{ product_url_format }}/t/carbon.super/myaccount/security`
 
-3. Upload the downloaded Identity Server certificate.
+    !!! info "Identity Provider Certificate"
+        You can copy the public certificate of the Zoom application from the `Guide` tab under the `Setup {{ product_name }} SSO in Zoom` step.
 
-    ![sso-fill-google.png]({{base_path}}/assets/img/guides/sso-integrations/google-workspace-sso/sso-fill-google.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    !!! info "Service Provider (SP) Entity ID"
+        {{ product_name }} supports a URN-based Entity ID for Service Providers. Therefore, retain the default URN-based value selected for the `Service Provider (SP) Entity ID`. You can see the `Service Provider (SP) Entity ID` value from the `Guide` tab under the `Setup {{ product_name }} SSO in Zoom` step.
+
+    - **Issuer (IDP Entity ID):**
+      `{{ issuer_name }}`
+
+    ![Sample Zoom SSO Settings Form]({{base_path}}/assets/img/guides/authentication/sso-integrations/zoom/sso-fill-zoom.png){: width="600" style="border: 0.3px solid lightgrey;"}
+
 -----
 
 ## Try it out
 
-Now, you have successfully configured Google and {{ product_name }}.
+Now, you have successfully configured Zoom and {{ product_name }}.
 
-!!! note
-    The admin users of your Google domain do not get redirected to WSO2 IS.
-    Therefore, to try out the tutorial you need to use a user who is not an
-    admin in your Google account.
+1. Create a user in {{ product_name }} and ensure the same user exists in your Zoom organization with the same email address.
 
-1. Create a user in {{ product_name }}. Make sure that the same user
-   exists in your Google domain.  
-   In this example, `alex@wso2support.com`
-   is in the Google domain. Therefore, we need to create the same user in {{ product_name }}.
+2. Navigate to [Zoom SSO Sign-In Page](https://zoom.us/web/sso/login?en=signin#/sso){:target="_blank"} and enter the Company Domain. You will then be redirected to the {{ product_name }} sign-in screen.
 
-2. Navigate to [http://accounts.google.com](http://accounts.google.com)
-   and enter the email address of the user you created.  
-   You are navigated to {{ product_name }}'s sign in screen.
-3. Enter the username and password of the user you created.  
-   You are navigated to the G-Suite of that domain and you can select
-   the application you need to use.
+3. Enter the username and password of the user you created in {{ product_name }}, and complete the login process.
 
-!!! note
-    If you want to only access Gmail, navigate to
-    [mail.google.com](http://mail.google.com), enter the username of the
-    user, enter the username and password of the user on the WSO2 Identity
-    Server sign in screen, and you are navigated to the user's mail account.
+-----
+
+## Troubleshooting guidelines
+
+For additional troubleshooting of SSO failures on the Zoom side, refer to the SAML response logs. Follow [Zoom's guide](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061276){:target="_blank"} to access the SAML responses.
 
