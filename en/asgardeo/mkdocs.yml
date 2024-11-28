@@ -123,11 +123,15 @@ plugins:
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
         'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
-        'guides/account-configurations.md': 'guides/user-accounts/index.md'
+        'guides/user-accounts/index.md': 'guides/account-configurations/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
         '/guides/authorization/impersonation/user-impersonation/' : '/guides/authorization/user-impersonation/'
         'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
+        'guides/user-accounts/password-recovery.md': 'guides/account-configurations/account-recovery/password-recovery.md'
+        'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/account-security/login-attempts.md'
+        'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
+        'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -302,16 +306,18 @@ nav:
           - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
           - Configure high availability: guides/users/user-stores/configure-high-availability.md
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
-      - Account management:
-        - Account management: guides/user-accounts/index.md
-        - Configure password recovery: guides/user-accounts/password-recovery.md
-        - Configure self-registration: guides/user-accounts/configure-self-registration.md
-        - Manage account security:
-          - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
-          - Configure bot detection: guides/account-configurations/login-security/bot-detection.md
-          - Configure password validation: guides/user-accounts/account-security/password-validation.md
-        - Manage account login:
-          - Configure username validation: guides/user-accounts/account-login/username-validation.md
+      - Account configurations:
+        - Account configurations: guides/account-configurations/index.md
+        - Login security:
+          - Login attempts: guides/account-configurations/login-security/login-attempts.md
+          - Bot detection: guides/account-configurations/login-security/bot-detection.md
+          - Password validation: guides/account-configurations/login-security/password-validation.md
+        - Account recovery:
+          - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
+        - User onboarding:
+          - Self-registration: guides/account-configurations/user-onboarding/self-registration.md
+        - Manage login identifiers:
+          - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
