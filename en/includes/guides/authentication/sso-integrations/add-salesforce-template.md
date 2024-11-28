@@ -13,11 +13,11 @@ Follow the steps given below to register the Salesforce application in {{ produc
 
 2. Click **New Application** and select **Salesforce** from **SSO Integrations** section.
 
-    ![Select app type in the WSO2 Identity Server]({{base_path}}/assets/img/guides/sso-integrations/google-workspace-sso/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/google-workspace-sso/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 3. Provide a name for the application.
 
-    ![Select salesforce app in the WSO2 Identity Server]({{base_path}}/assets/img/guides/sso-integrations/salesforce-sso/add-salesforce-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Select salesforce app in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/salesforce-sso/add-salesforce-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 4. Click **Create** to complete the registration.
 
@@ -35,12 +35,12 @@ Follow the steps given below to register the Salesforce application in {{ produc
 3. On the Single sign-on settings page, check the **SAML Enabled** box under **Federated Single Sign-On Using SAML** to enable the use of SAML SSO.
 4. Click on the New From Metadata file button and upload the downloaded SAML metadata file of the {{ product_name }}.
   
-     ![salesforce-sso]({{base_path}}/assets/img/guides/sso-integrations/salesforce-sso/salesforce-sso.png){: width="600" style="border: 0.3px solid lightgrey;"}
+     ![salesforce-sso]({{base_path}}/assets/img/guides/authentication/sso-integrations/salesforce-sso/salesforce-sso.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 5. In the SAML settings form replace **Entity ID** you copied earlier.
 6. Choose the same certificate for **Assertion Decryption Certificate** and **Request Signing Certificate**. Add your Salesforce organization’s URL in Custom Logout URL, and click the Save.
 
-     ![add-entity-id]({{base_path}}/assets/img/guides/sso-integrations/salesforce-sso/add-entity-id.png){: width="600" style="border: 0.3px solid lightgrey;"}
+     ![add-entity-id]({{base_path}}/assets/img/guides/authentication/sso-integrations/salesforce-sso/add-entity-id.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 7. Scroll to the Endpoints section and copy the Login (Assertion consumer service URL) and Logout URLs.
 8. Download the Request Signing Certificate.

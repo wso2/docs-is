@@ -13,11 +13,11 @@ Follow the steps given below to register the Google Workspace application in {{ 
 
 2. Click **New Application** and select **Google Workspace** from **SSO Integrations** section.
 
-    ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/google-workspace-sso/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Select app type in the WSO2 Identity Server]({{base_path}}/assets/img/guides/sso-integrations/google-workspace-sso/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 3. Provide the Google domain name and a name for the application.
 
-    ![Select google workspace app in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/google-workspace-sso/add-google-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Select google workspace app in the WSO2 Identity Server]({{base_path}}/assets/img/guides/sso-integrations/google-workspace-sso/add-google-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 4. Click **Create** to complete the registration.
 
@@ -42,7 +42,7 @@ Follow the steps given below to register the Google Workspace application in {{ 
 
 3. Upload the downloaded Identity Server certificate.
 
-    ![sso-fill-google.png]({{base_path}}/assets/img/guides/authentication/sso-integrations/google-workspace-sso/sso-fill-google.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![sso-fill-google.png]({{base_path}}/assets/img/guides/sso-integrations/google-workspace-sso/sso-fill-google.png){: width="600" style="border: 0.3px solid lightgrey;"}
 -----
 
 ## Try it out
@@ -69,6 +69,6 @@ Now, you have successfully configured Google and {{ product_name }}.
 !!! note
     If you want to only access Gmail, navigate to
     [mail.google.com](http://mail.google.com), enter the username of the
-    user, enter the username and password of the user on the {{ product_name }}
-    sign in screen, and you are navigated to the user's mail account.
+    user, enter the username and password of the user on the WSO2 Identity
+    Server sign in screen, and you are navigated to the user's mail account.
 

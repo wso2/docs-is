@@ -16,11 +16,11 @@ Follow the steps given below to register the Microsoft 365 application in {{ pro
 
 2. Click **New Application** and select **Microsoft 365** from **SSO Integrations** section.
 
-    ![Select app type in the WSO2 Identity Server]({{base_path}}/assets/img/guides/sso-integrations/google-workspace-sso/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/google-workspace-sso/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 3. Provide a name for the application.
 
-    ![Select google workspace app in the WSO2 Identity Server]({{base_path}}/assets/img/guides/sso-integrations/microsoft-365-sso/add-microsoft-365-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Select google workspace app in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/microsoft-365-sso/add-microsoft-365-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 4. Click **Create** to complete the registration.
 
