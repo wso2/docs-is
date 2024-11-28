@@ -503,6 +503,17 @@ nav:
     - Accessing protected API : complete-guides/react/accessing-protected-api.md
     - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
     - Next Steps: complete-guides/react/next-steps.md
+  - Node.js Guide:
+    - Introduction: complete-guides/nodejs/introduction.md
+    - Prerequisite: complete-guides/nodejs/prerequisite.md
+    - Configure an application: complete-guides/nodejs/register-an-application.md
+    - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
+    - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
+    - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+    - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
+    - Next Steps: complete-guides/nodejs/next-steps.md
 
 not_in_nav: |
   /page-not-found.md
