@@ -492,20 +492,26 @@ components:
           properties:
             givenName:
               type: string
+              description: The `givenName` you specify will be entered for the First Name attribute in the user's profile.
               example: Kim
             familyName:
               type: string
+              description: The `familyName` you specify will be entered for the Last Name attribute in the user's profile.
               example: Berry
         userName:
           type: string
-          example: kim
+          description: The `username` you specify will be used by the user for log in.
+          example: DEFAULT/kim@gmail.com 
         password:
           type: string
-          example: MyPa33w@rd
+          description: Use this parameter to set a password for the user account. The user will be able to reset this password later. When setting the password, be sure to follow the password-validation rules configured for your organization.
+          example: aBcd!23#
         emails:
           type: array
+          description: Currently, the first email (without a specified type) is treated as the primary email and assigning a type to this email is not supported.
           example:
             - value: kim@gmail.com
+              primary: true
             - type: work
               value: kim@wso2.com
           items:
