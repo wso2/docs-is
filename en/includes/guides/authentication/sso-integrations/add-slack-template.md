@@ -56,7 +56,7 @@ Follow the steps given below to register the Slack application in {{ product_nam
 Now, you have successfully configured Slack and {{ product_name }}.
 
 !!! note
-    When the workspace owner enables SSO for the Slack workspace, existing users receive will an email at their registered email address to bind their {{ product_name }} account. New users will be auto-provisioned during login. For more details, refer to Slack's documentation on [What to expect after SSO is enabled](https://slack.com/intl/en-gb/help/articles/203772216-SAML-single-sign-on#what-to-expect){:target="_blank"} and [Sign in to Slack](https://slack.com/intl/en-gb/help/articles/212681477-Sign-in-to-Slack){:target="_blank"}.
+    When the workspace owner enables SSO for the Slack workspace, existing users will receive an email at their registered email address to bind their {{ product_name }} account. New users will be auto-provisioned during login. For more details, refer to Slack's documentation on [What to expect after SSO is enabled](https://slack.com/intl/en-gb/help/articles/203772216-SAML-single-sign-on#what-to-expect){:target="_blank"} and [Sign in to Slack](https://slack.com/intl/en-gb/help/articles/212681477-Sign-in-to-Slack){:target="_blank"}.
 
 1. Create a user in {{ product_name }}.
 

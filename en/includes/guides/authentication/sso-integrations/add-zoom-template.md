@@ -41,7 +41,7 @@ Follow the steps given below to register the Zoom application in {{ product_name
     !!! info "Identity Provider Certificate"
         You can copy the public certificate of the Zoom application from the `Guide` tab under the `Setup {{ product_name }} SSO in Zoom` step.
 
-    !!! info "Service Provider (SP) Entity ID"
+    !!! warning "Service Provider (SP) Entity ID"
         {{ product_name }} supports a URN-based Entity ID for Service Providers. Therefore, retain the default URN-based value selected for the `Service Provider (SP) Entity ID`. You can see the `Service Provider (SP) Entity ID` value from the `Guide` tab under the `Setup {{ product_name }} SSO in Zoom` step.
 
     - **Issuer (IDP Entity ID):**

@@ -13,7 +13,7 @@ Follow the steps given below to register the Google Workspace application in {{ 
 
 2. Click **New Application** and select **Google Workspace** from **SSO Integrations** section.
 
-    ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/google-workspace-sso/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/common/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 3. Provide the Google domain name and a name for the application.
 
