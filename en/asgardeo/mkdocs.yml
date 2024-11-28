@@ -190,6 +190,8 @@ nav:
               - Google Workspace: guides/authentication/sso-integrations/add-google-workspace-template.md
               - Salesforce: guides/authentication/sso-integrations/add-salesforce-template.md
               - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
+              - Zoom: guides/authentication/sso-integrations/add-zoom-template.md
+              - Slack: guides/authentication/sso-integrations/add-slack-template.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
