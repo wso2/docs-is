@@ -22,7 +22,7 @@ Compared to the password reset method above, on-demand silent password migration
 
 3. The user enters the usual credentials for the legacy IdP.
 
-4. If {{ product_name }} has already migrated the user's password, the user is logged in. If not, {{ product_name }} makes an authentication request to the legacy IdP with the user provided credentials.
+4. If user's password is already migrated, the user is logged in. If not, {{ product_name }} makes an authentication request to the legacy IdP with the user provided credentials.
 
 5. {{ product_name }} redirects the user to a waiting page until the legacy IdP completes the authentication.
 
@@ -34,9 +34,9 @@ Compared to the password reset method above, on-demand silent password migration
 
     If you wish to migrate users with this method, it is crucial to note the following:
 
-     - The legacy IdP should run alongside {{ product_name }} for a set period to facilitate user migration.
+     - The legacy IdP should run for a set period to facilitate user migration.
      - Have a contingency plan to migrate any accounts that were not migrated while the legacy IdP is active.
-     - Unmigrated users must contact the {{ product_name }} organization administrators to initiate a password reset process, facilitating a smooth and complete transition to {{ product_name }}.
+     - Users who were not migrated must contact the administrators to initiate a password reset process, facilitating a smooth and complete transition.
 
 The following guides go into detail on implementing on-demand silent password migration.
 
