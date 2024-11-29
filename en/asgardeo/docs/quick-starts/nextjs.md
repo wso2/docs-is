@@ -182,7 +182,6 @@ import { handlers } from "@/auth"
 export const { GET, POST } = handlers
 ```
 
-
 Next, create `src/middleware.ts` file with the following code. 
 
 ```bash
