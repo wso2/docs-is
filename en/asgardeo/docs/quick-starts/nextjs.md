@@ -307,6 +307,3 @@ Then, update `page.tsx` with the following highlighted line to display the usern
 
 ```
 
-
-
-
