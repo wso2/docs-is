@@ -24,8 +24,11 @@ paths:
       summary: |
         List applications.
       description: |
-        This API provides the capability to retrieve the list of applications. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_view`
+        This API provides the capability to retrieve the list of applications.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
