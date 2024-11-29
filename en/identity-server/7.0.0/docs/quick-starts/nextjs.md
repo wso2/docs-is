@@ -67,7 +67,7 @@ Create your new Next.js app.
 
     cd wso2is-nextjs
 
-    yran install
+    yarn install
 
     yarn dev
     ```
