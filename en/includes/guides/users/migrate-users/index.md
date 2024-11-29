@@ -1,11 +1,11 @@
 # Migrate users to {{ product_name }}
 
-Organization owners may need to migrate users from an existing Identity Provider (IdP) to {{ product_name }} for the following reasons:
+Organization owners sometimes require to migrate users from an existing Identity Provider (IdP) to {{ product_name }} for the following reasons:
 
-- To combine users of multiple systems to a single IdP for proper user management.
-- To reorganize, restructure, and simplify user data storage.
-- To combine user data storages to ease centralized user management and to facilitate company acquisitions and mergers.
-- To move or separate identity data due to geopolitical, data protection, compliance, and regulatory reasons.
-- To improve identity management by providing increased security, scalability, and reduced maintenance costs.
+- Combine users of multiple systems to a single IdP for proper user management.
+- Reorganize, restructure, and simplify user data storage.
+- Combine user data storages to ease centralized user management and to facilitate company acquisitions and mergers.
+- Move or separate identity data due to geopolitical, data protection, compliance, and regulatory requirements.
+- Improve identity management by providing increased security, scalability, and reduced maintenance costs.
 
-Follow the guides in this section to learn how to [migrate user accounts to {{ product_name }}]({{base_path}}/guides/users/migrate-users/migrate-users/) and [migrate user passwords to {{ product_name }}]({{base_path}}/guides/users/migrate-users/migrate-passwords/).
+{{product_name}} provides convenience means to migrate users from an external IdP. Learn how to [migrate user accounts]({{base_path}}/guides/users/migrate-users/migrate-users/) and [migrate user passwords]({{base_path}}/guides/users/migrate-users/migrate-passwords/).
