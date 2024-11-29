@@ -481,6 +481,7 @@ paths:
 components:
   schemas:
     UserObject:
+      title: Set a password for the user
       required:
         - password
       type: object
@@ -566,19 +567,16 @@ components:
         urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
           type: object
           properties:
+            askPassword:
+              type: boolean
+              description: If this parameter is set to `true`, users will be allowed configure their own password. An email is sent to the specified email address, which will have instructions for the user to set the password and confirm the new user account.
+              example: true
             manager:
               type: object
               properties:
                 value:
                   type: string
-                  example: Taylor
-        urn:scim:wso2:schema:
-          type: object
-          properties:
-            askPassword:
-              type: boolean
-              description: If this parameter is set to `true`, users will be allowed configure their own password. An email is sent to the specified email address, which will have instructions for the user to set the password and confirm the new user account.
-              example: true
+                  example: Taylor        
     UserResponseObject:
       required:
         - meta
