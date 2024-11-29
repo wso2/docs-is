@@ -288,9 +288,9 @@ nav:
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
         - Migrate users to Asgardeo:
-          - Migrate users to Asgardeo: guides/users/migrate-users-to-asgardeo/index.md
-          - Migrate user accounts: guides/users/migrate-users-to-asgardeo/migrate-users.md
-          - Migrate user passwords: guides/users/migrate-users-to-asgardeo/migrate-passwords.md
+          - Migrate users to Asgardeo: guides/users/migrate-users/index.md
+          - Migrate user accounts: guides/users/migrate-users/migrate-users.md
+          - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md

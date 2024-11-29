@@ -443,6 +443,7 @@ nav:
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
               - MFA based on TypingDNA: guides/authentication/conditional-auth/typingdna-based-adaptive-auth.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+            - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - App-native authentication:
@@ -536,6 +537,10 @@ nav:
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
           - Configure user stores for SCIM 2.0: guides/users/user-stores/configure-user-stores-for-scim2.md
           - Configure Active Directory user stores for SCIM 2.0: guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md
+        - Migrate users to WSO2 Identity Server:
+          - Migrate users to WSO2 Identity Server: guides/users/migrate-users/index.md
+          - Migrate user accounts: guides/users/migrate-users/migrate-users.md
+          - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
@@ -900,6 +905,7 @@ nav:
       - Verifiable credentials with Microsoft Entra Verified ID: references/tutorials/connect-with-ms-entra.md
       - Verifiable credentials with MATTR: references/tutorials/connect-with-mattr.md
       - Send notifications through an external scheduled task: references/tutorials/send-notification-external-schedular.md
+      - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
     - IAM concepts:
       - OAuth2 grant types: references/grant-types.md
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
