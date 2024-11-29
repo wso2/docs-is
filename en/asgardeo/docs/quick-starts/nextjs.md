@@ -160,8 +160,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
 ```
 
-
-
 Create a Route Handler file in the `src/app/api/auth/[...nextauth]/route.ts` location. 
 
 ```bash
