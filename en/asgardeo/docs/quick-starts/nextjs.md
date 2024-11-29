@@ -65,7 +65,7 @@ Create your new Next.js app.
 
     cd asgardeo-nextjs
 
-    yran install
+    yarn install
 
     yarn dev
     ```
