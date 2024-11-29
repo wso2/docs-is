@@ -4,7 +4,8 @@ This guide explains how you may prepare and execute a user migration from anothe
 
 ## Prepare for migration
 
-Before migrating users to {{ product_name }}, organization owners must adequately plan and prepare for a smooth transition. This ensures that you identify the risks and challenges associated with the migration process. When planning for a migration, be sure to go through with the following steps. 
+Before migrating users to {{ product_name }}, organization owners must adequately plan and prepare for a smooth transition. This ensures that you identify the risks and challenges associated with the migration process. When planning for a migration, be sure to go through with the following steps.
+
 - **Assess company and legal requirements**
 
     Ensure you are operating within the limits imposed by your company policies and regulations involving Personally Identifiable Information (PII) and other user data.
