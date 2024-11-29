@@ -290,19 +290,18 @@ Then, update `page.tsx` with the following highlighted line to display the usern
 ```javascript title="page.tsx" hl_lines="4"
 
 ...
-          <>
-            <p> You are now signed in!</p>
-            <p> hello {session.user?.username}</p>
-            <form
-              action={async () => {
-                "use server"
-                await signOut()
-              }}
-            >
-              <button type="submit">Sign Out</button>
-            </form>
-          </>
-
+<>
+  <p> You are now signed in!</p>
+  <p> hello {session.user?.username}</p>
+  <form
+    action={async () => {
+      "use server"
+      await signOut()
+    }}
+  >
+    <button type="submit">Sign Out</button>
+  </form>
+</>
 ...
 
 ```
