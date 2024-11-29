@@ -168,7 +168,6 @@ Create a Route Handler file in the `src/app/api/auth/[...nextauth]/route.ts` loc
 mkdir -p src/app/api/auth/\[...nextauth\]
 
 touch mkdir -p src/app/api/auth/\[...nextauth\]/route.ts
-
 ```
 
 !!! Note
