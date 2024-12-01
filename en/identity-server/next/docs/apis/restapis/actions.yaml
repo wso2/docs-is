@@ -635,11 +635,34 @@ components:
             - ACTIVE
             - INACTIVE
           description: Status of the action.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            - href: "/t/wso2.com/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+              method: GET
+              rel: self
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Url of the endpoint.
+        method:
+          type: string
+          enum:
+            - GET
+          description: Http method.
+        rel:
+          type: string
+          description: Relation to the resource.
 
     ActionResponseList:
       type: array
       items:
-        $ref: '#/components/schemas/ActionResponse'
+        $ref: '#/components/schemas/ActionBasicResponse'
 
     ActionTypesResponse:
       type: array
