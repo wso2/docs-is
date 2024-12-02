@@ -300,7 +300,7 @@ paths:
       tags:
       - management
       summary: Delete a local claim
-      description: Delete a claim by claim ID. <br>
+      description: Delete a claim by claim ID. Only custom claims can be deleted. <br>
         <br> <b>Scope(Permission) required:</b> `internal_claim_meta_delete`
       operationId: deleteLocalClaim
       parameters:
@@ -572,7 +572,7 @@ paths:
       tags:
       - management
       summary: Delete a claim dialect
-      description: Delete a claim dialect by claim ID. <br>
+      description: Delete a claim dialect by claim ID. Only custom claim dialects can be deleted. <br>
         <br><b>Scope(Permission) required:</b> `internal_claim_meta_delete`
       operationId: deleteClaimDialect
       parameters:
@@ -1013,7 +1013,7 @@ paths:
       tags:
       - management
       summary: Delete an external claim
-      description: Delete a claim by dialect ID and claim ID. <br>
+      description: Delete a claim by dialect ID and claim ID. Only custom claims can be deleted. <br>
         <br>  <b>Scope(Permission) required:</b> `internal_claim_meta_delete`
       operationId: deleteExternalClaim
       parameters:
@@ -1242,6 +1242,11 @@ components:
           type: string
           description: The local claim URI to map with the external claim.
           example: http://wso2.org/claims/username
+        properties:
+          type: array
+          description: Define any additional properties if required.
+          items:
+            $ref: '#/components/schemas/Property'
       description: External claim response.
     Property:
       required:
