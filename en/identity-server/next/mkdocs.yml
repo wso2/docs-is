@@ -784,6 +784,7 @@ nav:
       - Role management:
           - Roles v2 API: apis/roles-v2-rest-api.md
           - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
+      - Rule Metadata API: apis/rule-metadata-rest-api.md   
       - Server management:
         - Configuration management:
             - Configuration management API: apis/use-the-configuration-management-rest-apis.md
