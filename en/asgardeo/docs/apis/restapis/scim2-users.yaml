@@ -676,16 +676,39 @@ components:
             $ref: '#/components/schemas/UserResponseObject'
     UserSearchRequestObject:
       type: object
-      example:
+      properties:
         schemas:
-        - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+          type: object
+          items:
+            type: string
+            example:
+            - urn:ietf:params:scim:api:messages:2.0:SearchRequest
         attributes:
-        - name.familyName
-        - userName
-        filter: userName sw ki and name.familyName co err
-        domain: DEFAULT
-        startIndex: 1
-        count: 10
+          type: array
+          description: SCIM defined attributes parameter.
+          items:
+            type: string
+            example:
+              - name.familyName
+              - userName
+        filter:
+          type: string
+          description: The expression used for filtering. Supported filters are <code>ew</code>, <code>eq</code>, <code>co</code>, <code>sw</code>, and <code>and</code>.
+          example: userName sw ki and name.familyName co err
+        domain:
+          type: string
+          description: The name of the user store where filtering needs to be applied.
+          example: DEFAULT
+        startIndex:
+          type: integer
+          format: int32
+          description: The 1-based index of the first query result
+          example: 1
+        count:
+          type: integer
+          format: int32
+          description: Specifies the desired maximum number of query results per page. </br>(For organizations created on or after November 19, 2024, a threshold value of 100 will be applied to the count parameter. To fetch more users, use pagination.)
+          example: 10
     UserUpdateObject:
       type: object
       properties:

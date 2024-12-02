@@ -112,7 +112,7 @@ ul.tick-list > li:before {
     line-height: 1.1;
 }
 
-.md-nav__list {
+.md-nav--secondary .md-nav__list {
     margin-top: .7rem;
 }
 
@@ -126,10 +126,10 @@ ul.tick-list > li:before {
 [data-md-component='toc'] .md-nav__link::before {
     content: '';
     position: absolute;
-    top: .5rem;
+    top: .95rem;
     left: 0;
     width: 0;
-    height: calc(100% - 5px);
+    height: calc(100% - 20px);
     border-left: 1px solid var(--md-default-fg-color);
 }
 

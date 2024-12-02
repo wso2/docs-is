@@ -9,32 +9,32 @@ what_you_will_learn:
   - Display user profile information
 prerequisites:
   - About 15 minutes
-  - <a href="{{ config.extra.base_path }}/get-started/quick-set-up/">Set-up WSO2 Identity Server</a>
+  - <a href="{{ base_path }}/get-started/quick-set-up/">Set-up WSO2 Identity Server</a>
   - Install a JS package manager
   - A favorite text editor or IDE
 source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app" target="_blank" class="github-icon">React Vite App Sample</a>
 whats_next:
-  - Try out complete React guide
-  - Try out user onboarding complete guide for React
+  - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
+  - Try out {{product_name}} user onboarding complete guide for React
   - Read security best practices for React app guide
 ---
-## Configure an Application in WSO2 Identity Server
+## Configure an Application in {{ product_name }}
 
-- Sign into WSO2 Identity Server console and navigate to Applications > New Application.
+- Sign into {{ product_name }} console and navigate to Applications > New Application.
 - Select Single Page Application and complete the wizard popup by providing a suitable name and an authorized redirect URL
 
   - Name -  IS-React
   - Authorized redirect URL - `http://localhost:5173`
 
-!!! abstract
+!!! Info
 
     The authorized redirect URL determines where WSO2 Identity Server should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
 
 !!! note
 
-    Note down the following values : you will need them during the**Step 4**
+    Note down the following values : you will need them during the **Step 4**
 
-    -`client-id`
+    - `client-id`
     - `base-url`
     - `redirect-url`
 
@@ -80,22 +80,28 @@ Create (a.k.a scaffold) your new React app using Vite.
 
 ## Install @asgardeo/auth-react
 
-Asgardeo React SDK provides all the components and hooks you need to integrate Asgardeo into your app. To get started, simply add the Asgardeo React SDK to the project.
+Asgardeo React SDK provides all the components and hooks you need to integrate Asgardeo into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step. 
 
 === "npm"
 
-    ``bash     npm install @asgardeo/auth-react     ``
+    ``` bash
+    npm install @asgardeo/auth-react
+    ```
 
 === "yarn"
 
-    ``bash     yarn add @asgardeo/auth-react     ``
+    ``` bash
+    yarn add @asgardeo/auth-react
+    ```
 
 === "pnpm"
 
-    ``bash     pnpm add @asgardeo/auth-react     ``
+    ``` bash
+    pnpm add @asgardeo/auth-react
+    ```
 
 
-!!! note
+!!! Info
 
     Asgardeo-branded SDKs can be used to build apps to work with the all WSO2 identity suite of products that includes WSO2 Identity Server (WSO2 IS), WSO2 Private Identity Cloud (WSO2 PIC), and Asgardeo.
     
@@ -107,11 +113,11 @@ The `<AuthProvider />` serves as a context provider for user login in the app. Y
 
 Add the following changes to the `main.jsx` file.
 
-!!! note
+!!! Important
 
     Replace below placeholders with the generated`client-id` from the app you registered in WSO2 Identity Server.
 
-    -`<your-app-client-id>`
+    - `<your-app-client-id>`
     
 
 ```javascript
@@ -130,11 +136,11 @@ const config = {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-<React.StrictMode>
-    <AuthProvider config={ config }>
-        <App />
-    </AuthProvider>
-</React.StrictMode>,
+    <React.StrictMode>
+        <AuthProvider config={ config }>
+            <App />
+        </AuthProvider>
+    </React.StrictMode>,
 );
 
 ```
@@ -154,11 +160,11 @@ const { state, signIn, signOut } = useAuthContext();
 
 return (
     <>
-    {
-        state.isAuthenticated
-        ? <button onClick={() => signOut()}>Logout</button>
-        : <button onClick={() => signIn()}>Login</button>
-    }
+        {
+            state.isAuthenticated
+            ? <button onClick={() => signOut()}>Logout</button>
+            : <button onClick={() => signIn()}>Login</button>
+        }
     </>
 )
 };
@@ -168,9 +174,9 @@ export default App;
 
 Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
-!!! tip
+!!! Important
 
-    You need to create a test user in WSO2 Identity Server by following this guide  to tryout login and logout features.
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
 
 ## Display logged in user details
 
@@ -184,14 +190,14 @@ const App = () => {
 
 return (
     <>
-    {
-        state.isAuthenticated ?
-        <>
-            <p>Welocme {state.username}</p>
-            <button onClick={() => signOut()}>Logout</button>
-        </>
-        : <button onClick={() => signIn()}>Login</button>
-    }
+        {
+            state.isAuthenticated ?
+            <>
+                <p>Welcome {state.username}</p>
+                <button onClick={() => signOut()}>Logout</button>
+            </>
+            : <button onClick={() => signIn()}>Login</button>
+        }
     </>
 )
 };

@@ -33,6 +33,7 @@ extra:
   product: asgardeo
   product_name: *site_name
   nav_list:
+    - Home
     - Get Started
     - Guides
     - Tutorials
@@ -93,6 +94,9 @@ watch:
   - ../theme/material
   - ../base.yml
 
+hooks:
+  - hooks.py
+
 plugins:
   - search
   - markdownextradata: {}
@@ -123,6 +127,19 @@ plugins:
         'references/application-logs.md' : 'guides/asgardeo-logs.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
         '/guides/authorization/impersonation/user-impersonation/' : '/guides/authorization/user-impersonation/'
+        'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
+
+exclude_docs: |
+  /get-started/hello-world.md
+
+not_in_nav: |
+  /page-not-found.md
+  /get-started/explore-asgardeo.md
+  /get-started/start-integrating-apps.md
+  /get-started/try-samples/index.md
+  /get-started/try-your-own-app/index.md
+  /get-started/try-your-own-app/angular.md
+  /get-started/hello-world.md
 
 # Navigation
 nav:
@@ -271,9 +288,9 @@ nav:
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
         - Migrate users to Asgardeo:
-          - Migrate users to Asgardeo: guides/users/migrate-users-to-asgardeo/index.md
-          - Migrate user accounts: guides/users/migrate-users-to-asgardeo/migrate-users.md
-          - Migrate user passwords: guides/users/migrate-users-to-asgardeo/migrate-passwords.md
+          - Migrate users to Asgardeo: guides/users/migrate-users/index.md
+          - Migrate user accounts: guides/users/migrate-users/migrate-users.md
+          - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -333,7 +350,7 @@ nav:
             - Branding AI: guides/branding/ai-branding.md
             - Configure custom domains: guides/branding/configure-custom-domains.md
             - Customize email templates: guides/branding/customize-email-templates.md
-            - Localization in Asgardeo: guides/branding/localization-in-asgardeo.md
+            - Localization in Asgardeo: guides/branding/localization.md
         - Extend with actions:
             - Understanding actions: guides/customize/actions/understanding-actions.md
             - Setting up actions: guides/customize/actions/setting-up-actions.md
@@ -409,8 +426,8 @@ nav:
         - Session extension API: apis/extend-sessions.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
-    - Orgnization APIs:
-      - Orgnization APIs: apis/organization-apis/index.md
+    - Organization APIs:
+      - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - Application management API: apis/organization-apis/org-application-management.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
@@ -474,6 +491,29 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
+  - React Guide:
+    - Introduction: complete-guides/react/introduction.md
+    - Prerequisite: complete-guides/react/prerequisite.md
+    - Configure an application: complete-guides/react/register-an-application.md
+    - Create a React app: complete-guides/react/create-a-react-app.md
+    - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/react/add-login-and-logout.md
+    - Display user details: complete-guides/react/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/react/accessing-protected-api.md
+    - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
+    - Next Steps: complete-guides/react/next-steps.md
+  - Node.js Guide:
+    - Introduction: complete-guides/nodejs/introduction.md
+    - Prerequisite: complete-guides/nodejs/prerequisite.md
+    - Configure an application: complete-guides/nodejs/register-an-application.md
+    - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
+    - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
+    - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+    - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
+    - Next Steps: complete-guides/nodejs/next-steps.md
 
 not_in_nav: |
   /page-not-found.md

@@ -352,7 +352,7 @@ paths:
             -d '[
             {
               "operation": "REPLACE",
-              "path": "/properties/disabled",
+              "path": "/properties/Disabled",
               "value": "true"
             }
             ]'            
@@ -880,7 +880,7 @@ components:
         path:
           type: string
           description: A JSON-Pointer
-          example: /properties/disabled
+          example: /properties/Disabled
         value:
           type: string
           description: The value to be used within the operations

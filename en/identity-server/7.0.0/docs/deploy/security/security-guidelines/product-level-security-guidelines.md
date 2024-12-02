@@ -227,7 +227,7 @@ Log forging can be prevented by appending a UUID to the log message.
 
 ## JVM parameters
 
-- The recommended JDK versions are JDK 1.8 and 11. For more information, see <a href="{{base_path}}/deploy/get-started/install/#prerequisites">Prerequisites</a>. 
+- The recommended JDK versions are JDK 11 and 17. For more information, see <a href="{{base_path}}/deploy/get-started/install/#prerequisites">Prerequisites</a>. 
 
     ```java
     -Xms512m -Xmx2048m 

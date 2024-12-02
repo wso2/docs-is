@@ -24,7 +24,12 @@ extra:
   is_version: 7.0.0
 
 plugins:
-  - search
+  - search:
+      indexing: "full"
+      separator: "[^\\w._]+"
+      lang: ['en']
+      prebuild_index: true
+      ngram_length: 3
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -217,7 +222,6 @@ plugins:
         'deploy/change-to-oracle-rac.md': 'deploy/configure/databases/carbon-database/change-to-oracle-rac.md'
         'deploy/change-to-postgresql.md': 'deploy/configure/databases/carbon-database/change-to-postgresql.md'
         'deploy/change-to-remote-h2.md': 'deploy/configure/databases/carbon-database/change-to-remote-h2.md'
-        'deploy/change-datasource-bpsds.md': 'deploy/configure/databases/carbon-database/change-datasource-bpsds.md'
         'deploy/change-datasource-consent-management.md': 'deploy/configure/databases/carbon-database/change-datasource-consent-management.md'
         'deploy/enable-fips-for-is.md': 'deploy/security/enable-fips-for-is.md'
 
@@ -328,6 +332,7 @@ plugins:
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
+        'guides/authorization/impersonation/user-impersonation.md': 'guides/authorization/user-impersonation.md'
 
 # Navigation
 nav:
@@ -476,8 +481,7 @@ nav:
           - Attribute-based access control: guides/authorization/api-authorization/attribute-based-access-control.md
         - Fine-grained authorization:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
-        - Impersonation:
-            - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+        - User Impersonation: guides/authorization/user-impersonation.md
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
@@ -624,7 +628,6 @@ nav:
             - Change to Oracle RAC: deploy/configure/databases/carbon-database/change-to-oracle-rac.md
             - Change to PostgreSQL: deploy/configure/databases/carbon-database/change-to-postgresql.md
             - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
-            - Change the Default Datasource for BPS: deploy/configure/databases/carbon-database/change-datasource-bpsds.md
             - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
             - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
           - Data Purging: deploy/configure/databases/data-purging.md
@@ -668,7 +671,6 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Configure symmetric key encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
             - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
@@ -882,6 +884,18 @@ nav:
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
+  - React Guide:
+    - Introduction: complete-guides/react/introduction.md
+    - Prerequisite: complete-guides/react/prerequisite.md
+    - Configure an application: complete-guides/react/register-an-application.md
+    - Create a React app: complete-guides/react/create-a-react-app.md
+    - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/react/add-login-and-logout.md
+    - Display user details: complete-guides/react/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/react/accessing-protected-api.md
+    - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
+    - Next Steps: complete-guides/react/next-steps.md
 
 
 not_in_nav: |

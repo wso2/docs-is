@@ -24,10 +24,10 @@
 {% endblock %}
 
 {% block container %}
-  <div class="md-content">
+  <div class="md-content" data-md-component="content">
     <article class="md-content__inner md-typeset">
 
-      <h1 id="{{ page.meta.heading | lower | replace(' ', '-') }}">{{ page.meta.heading }}</h1>
+      <h1 id="{{ page.meta.heading | lower | replace(' ', '-') | replace('/', '-') }}">{{ page.meta.heading }}</h1>
       {{ page.meta.description }}
 
       {% if page.meta.what_you_will_learn or page.meta.prerequisites or page.meta.source_code  %}
@@ -39,7 +39,8 @@
                 <h4 id="what-you-will-learn">What You Will Learn</h4>
                 <ul class="tick-list">
                   {% for item in page.meta.what_you_will_learn %}
-                  {% set item = item.replace('{{ config.extra.base_path }}', config.extra.base_path) %}
+                  {% set item = item.replace('{{ base_path }}', config.extra.base_path).replace('{{base_path}}', config.extra.base_path) %}
+                  {% set item = item.replace('{{ product_name }}', config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
                     <li>{{ item | safe }}</li>
                   {% endfor %}
                 </ul>
@@ -51,7 +52,8 @@
                   Before you start, ensure you have the following:
                   <ul>
                     {% for item in page.meta.prerequisites %}
-                    {% set item = item.replace('{{ config.extra.base_path }}', config.extra.base_path) %}
+                    {% set item = item.replace('{{ base_path }}', config.extra.base_path).replace('{{base_path}}', config.extra.base_path) %}
+                    {% set item = item.replace('{{ product_name }}', config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
                       <li>{{ item | safe }}</li>
                     {% endfor %}
                   </ul>
@@ -79,7 +81,8 @@
         <h2>What's Next?</h2>
         <ul>
           {% for item in page.meta.whats_next %}
-          {% set item = item.replace('{{ config.extra.base_path }}', config.extra.base_path) %}
+          {% set item = item.replace('{{ base_path }}', config.extra.base_path).replace('{{base_path}}', config.extra.base_path) %}
+          {% set item = item.replace('{{ product_name }}', config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
             <li>{{ item | safe }}</li>
           {% endfor %}
         </ul>
