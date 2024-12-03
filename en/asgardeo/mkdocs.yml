@@ -515,8 +515,8 @@ nav:
     - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
     - Next Steps: complete-guides/nodejs/next-steps.md
   - Quick Starts:
-    - React: quick-starts/react.md
-    - Angular:  quick-starts/angular.md
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
 
 not_in_nav: |
   /page-not-found.md

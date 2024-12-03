@@ -897,8 +897,8 @@ nav:
     - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
     - Next Steps: complete-guides/react/next-steps.md
   - Quick Starts:
-    - React: quick-starts/react.md
-    - Angular:  quick-starts/angular.md
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
 
 
 not_in_nav: |
