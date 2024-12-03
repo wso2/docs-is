@@ -149,7 +149,7 @@ jobs:
       - name: Upload Prod Release Asset
         uses: actions/upload-release-asset@v1
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ steps.create_prod_release.outputs.upload_url }}
           asset_path: ./asgardeo-docs-${{ env.NEW_VERSION }}-prod.zip
           asset_name: asgardeo-docs-${{ env.NEW_VERSION }}-prod.zip
           asset_content_type: application/zip
