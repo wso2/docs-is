@@ -154,7 +154,6 @@ jobs:
           asset_name: asgardeo-docs-${{ env.NEW_VERSION }}-prod.zip
           asset_content_type: application/zip
 
-
       - name: Commit and push new version
         if: ${{ env.IS_HOTFIX == 'false' }}  
         run: |
