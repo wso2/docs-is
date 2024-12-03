@@ -114,7 +114,7 @@ Add the following changes to the `main.jsx` file.
     - `<your-app-client-id>`
     - `https://api.asgardeo.io/t/<your-organization-name>`
 
-```javascript
+```javascript hl_lines="5 9-17 19"
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -135,7 +135,7 @@ createRoot(document.getElementById('root')).render(
       <App />
     </AuthProvider>
   </StrictMode>
-);
+)
 ```
 
 ## Add login and logout link to your app
@@ -144,8 +144,8 @@ Asgardeo provides `useAuthContext` hook to conveniently access user authenticati
 
 Replace the existing content of the `App.jsx` file with following content.
 
-```javascript
-import { useAuthContext } from "@asgardeo/auth-react"
+```javascript hl_lines="1 5 9-13"
+import { useAuthContext } from '@asgardeo/auth-react'
 import './App.css'
 
 function App() {
@@ -159,7 +159,7 @@ function App() {
         <button onClick={() => signIn()}>Login</button>
       )}
     </>
-  );
+  )
 }
 
 export default App
@@ -175,11 +175,12 @@ Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 Modify the code as below to see logged in user details.
 
-```javascript
-...
+```javascript hl_lines="11"
+import { useAuthContext } from '@asgardeo/auth-react'
+import './App.css'
 
 function App() {
-...
+  const { state, signIn, signOut } = useAuthContext();
 
   return (
     <>
@@ -192,7 +193,8 @@ function App() {
         <button onClick={() => signIn()}>Login</button>
       )}
     </>
-  );
+  )
+}
 
-...
+export default App
 ```
