@@ -409,6 +409,7 @@ nav:
       - Organization management API: apis/organization-management.md
       - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
+      - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -514,7 +515,18 @@ nav:
     - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
     - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
     - Next Steps: complete-guides/nodejs/next-steps.md
-
+  - Angular Guide:
+    - Introduction: complete-guides/angular/introduction.md
+    - Prerequisite: complete-guides/angular/prerequisite.md
+    - Register an application: complete-guides/angular/register-an-application.md
+    - Create a Angular app: complete-guides/angular/create-app.md
+    - Configure Asgardeo provider: complete-guides/angular/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/angular/add-login-and-logout.md
+    - Display user details: complete-guides/angular/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/angular/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/angular/accessing-protected-api.md
+    - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
+    - Next Steps: complete-guides/angular/next-steps.md
 not_in_nav: |
   /page-not-found.md
   /get-started/explore-asgardeo.md

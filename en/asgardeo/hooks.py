@@ -19,10 +19,11 @@ def parse_json(file_path):
 files_to_remove = parse_json(os.path.join(os.getcwd(), 'features.json'))
 
 def on_files(files, config):
-    for file in list(files):
-        if file.src_uri in files_to_remove['page']:
-            files.remove(file)
-    return files
+    if os.getenv("ENABLE_HOOKS") == "true":
+        for file in list(files):
+            if file.src_uri in files_to_remove['page']:
+                files.remove(file)
+        return files
 
 def remove_nav_item(nav_items):
     filtered_items = []
@@ -45,9 +46,9 @@ def remove_nav_item(nav_items):
     return filtered_items
 
 def on_config(config):
+    if os.getenv("ENABLE_HOOKS") == "true":
+        for feature, enabled in files_to_remove['feature'].items():
+            config[feature] = enabled
 
-    for feature, enabled in files_to_remove['feature'].items():
-        config[feature] = enabled
-
-    config['nav'] = remove_nav_item(config['nav'])
-    return config
+        config['nav'] = remove_nav_item(config['nav'])
+        return config
