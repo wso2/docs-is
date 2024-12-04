@@ -31,7 +31,7 @@ filter_parameters = [password]
 
 ---
 
-## Enable multitenancy from the login page
+## Enable multitenancy for the login page
 
 If your {{product_name}} setup includes multiple tenants, users typically log in by entering their username in the format `username@domain-name`. However, you can simplify this process by displaying a dropdown menu on the login page that lists all available tenants. Users can then select their tenant from the dropdown and enter their username without needing to specify the domain. To enable this feature:
 
@@ -141,30 +141,28 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
 
 4. For mutual SSL authentication, the public certificate of the {{product_name}} has to be imported to the truststore of the client and the public certificate of the client to the {{product_name}}'s client-truststore.
 
-    The following two commands are examples if you are using the keystore and client-truststore of the Identity Server itself for the client. This is executed from the `<IS_HOME>/repository/resources/security` directory.
+    To achieve this, execute the following commands from the `<IS_HOME>/repository/resources/security` directory.
 
-    ``` java
-    keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.jks -storepass wso2carbon
-    ```
+    === "Export to client truststore"
 
-    ``` java
-    keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.jks -storepass wso2carbon
-    ```
+        ``` java
+        keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.jks -storepass  wso2carbon
+        ```
+
+    === "Import to WSO2 Identity Server truststore"
+    
+        ``` java
+        keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.jks -storepass wso2carbon
+        ```
 
     !!! note
-        If you are not using mutual SSL authentication, you can stop the
-        **MutualSSLManager** from loading the keystore by
-        setting the `mutual_ssl_manager_enabled`
-        property in the `<IS_HOME>/repository/conf/deployment.toml`
-        file to false.
-        This property is enabled by default.
+        If you are not using mutual SSL authentication, you can stop the **MutualSSLManager** from loading the keystore by setting the `mutual_ssl_manager_enabled` property in the `<IS_HOME>/repository/conf/deployment.toml` file to false. This property is enabled by default.
 
         ``` toml
         mutual_ssl_manager_enabled="false"
         ```
         
-        Alternatively, if the authentication endpoint is hosted externally, then set the `mutualSSLManagerEnabled` 
-        property to false in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
+        Alternatively, if the authentication endpoint is hosted externally, then set the `mutualSSLManagerEnabled` property to false in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
         
         ``` toml
         mutualSSLManagerEnabled=false
@@ -173,69 +171,63 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
         Make sure to restart the server to apply the configuration changes.
 
 ---
-## Disable multitenancy from the login page
+## Disable multitenancy for the login page
 
-If it is required to remove the tenant domain dropdown list in SSO Login
-page, follow the steps below.
+If you want to disable the tenant domain dropdown list from your SSO login page, follow the steps below.
 
-1. Shutdown the server if it is already started.
+1. Shutdown {{product_name}} if it is already started.
 
-2. Navigate to `<IS_HOME>/repository/conf/deployment.toml` file.
+2. Navigate to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory and do the following:
 
-3. Set the `tenant_list_enabled` property to **false**.
+    - Set the `tenant_list_enabled` property to **false**.
 
-    ``` toml
-    [identity.auth_framework.endpoint] 
-    tenant_list_enabled = "false"
-    ```
-
-    !!! note
-        Alternatively, if the authentication endpoint is hosted externally, then set the `tenantListEnabled`
-        property to false in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
-        ```bash
-        tenantListEnabled=false
+        ``` toml
+        [identity.auth_framework.endpoint] 
+        tenant_list_enabled = "false"
         ```
 
-4. Set following parameter to `false`.
+        !!! note
+        
+            If the authentication endpoint is hosted externally, then set the `tenantListEnabled`
+            property to false in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
+            
+            ```bash
+            tenantListEnabled=false
+            ```
 
-    ``` toml
-    [tenant.domain_drop_down]
-    enable = false
-    ```
+    - Set the following parameter to `false` in the same `deployment.toml` file.
 
-5. If the `MutualSSLAuthenticator` is only used for the purpose of listing tenant domains in the drop down, disable it in the `<IS_HOME>/repository/conf/deployment.toml` file.
+        ``` toml
+        [tenant.domain_drop_down]
+        enable = false
+        ```
 
-    ``` toml
-    [admin_console.authenticator.mutual_ssl_authenticator]
-    enable = false
-    ```
+    - If you only used `MutualSSLAuthenticator` to list tenant domains, disable it.
 
-6. Restart the server.
+        ``` toml
+        [admin_console.authenticator.mutual_ssl_authenticator]
+        enable = false
+        ```
+
+3. Restart the server.
 
 ---
 
-## Handle the browser back button and bookmarked login page
+## Handle browser back buttons and bookmarked login pages
 
-This section describes how to enhance the usability of the authentication
-endpoint web app with different user behavioral patterns. For example, the user may click the back button from the authenticated application or keep the endpoint login page URL
-bookmarked. In such situations, the user should be directed to the
-access URL specified for the application.
+To gracefully handle scenarios where the user may click the back button from an authenticated application or decides to bookmark the endpoint login page URL, you need to redirect the users to the access URL of the application. To do so,
 
-Follow the steps below to ensure that the access URL is configured for your application:
+1. On the {{product_name}} Console, go to **Applications** and select your application.
 
-1. Start WSO2 IS and log in to the Management Console.
+2. Specify the access URL of your application as shown below.
 
-2. On the Management Console, go to **Main > Identity > Service Providers**, and select the service provider registered for your application.
+    ![service provider access url]({{base_path}}/assets/img/references/`add-access-url-to-app`.png){: style="border: 0.3px solid lightgrey;"}
 
-3. Specify the access URL of your application as shown below.
-
-    ![service provider access url]({{base_path}}/assets/img/references/add-access-url-to-sp.png)
+3. Click **Update** to save the changes.
 
 ## Add Custom Filters and Listeners
 
-This section describes how to add custom filters and listeners to the authentication endpoint. 
-
-Filters can be used to perform various preprocessing and postprocessing tasks on the requests and responses such as logging and input validation. To configure custom filters, add the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
+Filters can be used to perform various pre-processing and post-processing tasks on the requests and responses such as logging and input validation. To configure custom filters, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` directory.
 
 ``` toml
 [[authenticationendpoint.filter]]
