@@ -47,7 +47,6 @@ def remove_nav_item(nav_items):
 
 def on_config(config):
     enable_hooks = os.getenv("ENABLE_HOOKS")
-    print("ENABLE HOOKS IS: " + str(enable_hooks))
 
     for feature, enabled in files_to_remove['feature'].items():
         config[feature] = enabled if enable_hooks else True
