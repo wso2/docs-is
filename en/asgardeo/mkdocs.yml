@@ -297,6 +297,7 @@ nav:
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
+          - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
