@@ -1,19 +1,7 @@
 {
-    "asgardeo_logs": {
-        "enabled": true,
+    "default_roles": {
+        "enabled": false,
         "page": [
-            "guides/asgardeo-logs/index.md",
-            "guides/asgardeo-logs/diagnostic-logs.md",
-            "guides/asgardeo-logs/audit-logs.md"
-        ]
-    },
-
-    "applications": {
-        "enabled": true,
-        "page": [
-            "guides/applications/register-single-page-app.md",
-            "guides/applications/register-oidc-web-app.md",
-            "guides/applications/register-saml-web-app.md"
         ]
     }
 }
