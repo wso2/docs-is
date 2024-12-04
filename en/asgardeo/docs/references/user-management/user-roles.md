@@ -1,4 +1,4 @@
-{% if default_roles == true %}
+{% if default_roles %}
 
 # Asgardeo user roles
 
