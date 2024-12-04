@@ -9,3 +9,4 @@ The SCIM2 Rest APIs of {{product_name}} implements the SCIM 2.0 protocol accordi
 - [SCIM 2.0 Batch operations]({{base_path}}/apis/scim2/scim2-batch-operations/)
 - [SCIM 2.0 Resource types API]({{base_path}}/apis/scim2/scim2-resource-types/)
 - [SCIM 2.0 Service provider configuration API]({{base_path}}/apis/scim2/scim2-sp-config-rest-api/)
+- [SCIM 2.0 Build User Creation Payload]({{base_path}}/apis/scim2/build-scim2-user-creation-payload/)

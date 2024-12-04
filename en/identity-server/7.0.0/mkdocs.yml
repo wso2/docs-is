@@ -325,6 +325,7 @@ plugins:
         'apis/scim2-bulk-rest-apis.md': 'apis/scim2/scim2-bulk-rest-api.md'
         'apis/scim2-batch-operations.md': 'apis/scim2/scim2-batch-operations.md'
         'apis/scim2-sp-config-rest-apis.md': 'apis/scim2/scim2-sp-config-rest-api.md'
+        'apis/build-scim2-user-creation-payload.md': 'apis/scim2/build-scim2-user-creation-payload.md'
         'apis/organization-apis/org-scim2-bulk-mgt.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
@@ -791,6 +792,7 @@ nav:
           - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
           - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md
+          - SCIM 2.0 Build user creation payload: apis/scim2/build-scim2-user-creation-payload.md
         - Account recovery APIs:
           - Account recovery v0.9 API: apis/use-the-account-recovery-rest-apis.md
           - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
