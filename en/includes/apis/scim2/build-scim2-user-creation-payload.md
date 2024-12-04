@@ -1,10 +1,10 @@
 # Build SCIM 2.0 User Creation Payloads
 
 
-This guide explains how to build SCIM 2.0 payloads in compliance with the SCIM 2.0 specification.
+This guide explains how to build SCIM 2.0 user creation payloads in compliance with the SCIM 2.0 specification.
 
 
-## Step 1 : Identifying SCIM 2.0 Claims for User Attributes
+## Step 1 : Identifying SCIM 2.0 Attributes for User Attributes
 
 
 To build a SCIM 2.0 payload, the first step is identifying the SCIM schema mapping for your user attribute:
@@ -15,7 +15,7 @@ Navigate to **User Attributes & Stores** → **Attributes** → **SCIM 2.0** in 
   - **Core Schema**
   - **User Schema**
   - **Enterprise Schema**
-  - **Custom Schema**  {% if product_name == "WSO2 Identity Server" %} (if you have mapped any custom user attribute to a SCIM claim). {% endif %} 
+  - **Custom Schema**  {% if product_name == "WSO2 Identity Server" %} (if you have mapped any custom user attribute to a SCIM attribute in the custom schema). {% endif %} 
 
 
 > For further details refer [Manage SCIM 2.0 attribute mappings]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings)
@@ -24,7 +24,7 @@ Navigate to **User Attributes & Stores** → **Attributes** → **SCIM 2.0** in 
 ### Rules for Schema Usage in SCIM 2.0 Payloads
 
 
-- If your user attribute is mapped to **Core Schema** or **User Schema**, the schema name does not need to be qualified in the SCIM payload.
+- If your user attribute is mapped to **Core Schema** or **User Schema**, the schema URI does not need to be qualified in the SCIM payload.
 - If your user attribute is mapped to **Enterprise Schema** or **Custom Schema**, each SCIM attribute under these schemas must be placed under the schema’s namespace.
 
 
@@ -39,11 +39,10 @@ Navigate to **User Attributes & Stores** → **Attributes** → **SCIM 2.0** in 
  }
 }
 
-
 ```
 
 
-## Step 2 : Attribute Types in SCIM 2.0 Payloads
+## Step 2 : Identify the Attribute Types and their SCIM 2.0 Payload Format
 
 
 Each SCIM attribute falls into one of the following attribute types, which determine the format of the attribute in the payload.
@@ -80,7 +79,7 @@ Each SCIM attribute falls into one of the following attribute types, which deter
     Extended attribute example:
     ```json
     {
-      "urn:scim:wso2:schema:userDevices": {
+      "urn:scim:wso2:schema:user": {
         "devices": ["d1", "d2"]
       }
     }
@@ -121,7 +120,7 @@ Each SCIM attribute falls into one of the following attribute types, which deter
 
 ## Step 3: Determining the Type of SCIM 2.0 Attributes
 
-The patterns described below are used for SCIM attributes to map local user attributes. SCIM claim mappings should follow these patterns for different types of SCIM attributes.
+The patterns described below are used for SCIM attributes to map local user attributes. SCIM attribute mappings should follow these patterns for different types of SCIM attributes.
 
 Based on the pattern:
 
@@ -177,23 +176,12 @@ Based on the pattern:
  },
  "emails": [
    {
-     "type": "home",
      "value": "kim@gmail.com",
      "primary": true
    },
    {
      "type": "work",
      "value": "kim@wso2.com"
-   }
- ],
- "addresses": [
-   {
-     "type": "home",
-     "value": "123 Main St, City, Country"
-   },
-   {
-     "type": "work",
-     "value": "456 Office Rd, City, Country"
    }
  ],
  "phoneNumbers": [
