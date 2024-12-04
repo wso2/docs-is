@@ -1,6 +1,6 @@
-# Log in to Zoom using the {{ product_name }}
+# Log in to Zoom using {{ product_name }}
 
-This page guides you through using {{ product_name }} to log in to Zoom.
+This page guides you through setting up {{ product_name }} to add SSO (Single Sign-On) login to a Zoom organization.
 
 !!! note
     Ensure you have a Zoom account and your account supports SSO by referring to the [Zoom documentation](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060673){:target="_blank"}.
@@ -53,7 +53,7 @@ Follow the steps given below to register the Zoom application in {{ product_name
 
 ## Try it out
 
-Now, you have successfully configured Zoom and {{ product_name }}.
+Now, you have successfully configured Zoom SSO in {{ product_name }}.
 
 1. Create a user in {{ product_name }} and ensure the same user exists in your Zoom organization with the same email address.
 
