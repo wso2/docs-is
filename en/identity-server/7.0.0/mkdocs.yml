@@ -22,6 +22,8 @@ site_url: https://is.docs.wso2.com/en/7.0.0
 extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
+  default_keystore_type: JKS
+  default_keystore_ext: jks
 
 plugins:
   - search:
