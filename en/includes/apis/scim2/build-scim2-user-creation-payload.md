@@ -49,8 +49,6 @@ Navigate to **User Attributes & Stores** → **Attributes** → **SCIM 2.0** in 
 Each SCIM attribute falls into one of the following attribute types, which determine the format of the attribute in the payload.
 
 
-
-
 ### Singular Attributes
 
 1. **Simple Attributes**
