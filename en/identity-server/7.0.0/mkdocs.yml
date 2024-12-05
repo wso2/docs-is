@@ -896,6 +896,9 @@ nav:
     - Accessing protected API : complete-guides/react/accessing-protected-api.md
     - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
     - Next Steps: complete-guides/react/next-steps.md
+  - Quick Starts:
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
 
 
 not_in_nav: |

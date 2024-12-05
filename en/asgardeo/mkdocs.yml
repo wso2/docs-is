@@ -492,6 +492,9 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
+  - Quick Starts:
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
   - React Guide:
     - Introduction: complete-guides/react/introduction.md
     - Prerequisite: complete-guides/react/prerequisite.md
@@ -527,6 +530,7 @@ nav:
     - Accessing protected API : complete-guides/angular/accessing-protected-api.md
     - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
     - Next Steps: complete-guides/angular/next-steps.md
+
 not_in_nav: |
   /page-not-found.md
   /get-started/explore-asgardeo.md
