@@ -1,58 +1,125 @@
-# Build SCIM 2.0 User Creation Payloads
+# Build SCIM 2.0 user creation payloads
+
+This guide provides information on building user creation payloads that align with the SCIM 2.0 specification. Follow the steps below to ensure your user creation payload meets the standard requirements.
+
+## Step 1 : Determine the associated schema
+
+{{product_name}} maps user attributes to the following SCIM 2.0 schemas:
+
+- Core Schema
+- User Schema
+- Enterprise Schema
+- Custom Schema
+
+The first step of building a SCIM 2.0 payload is to identify the schema mapping for your user attribute.
+
+!!! note
+
+    - You may find these schemas on the {{product_name}} Console by navigating to **User Attributes & Stores** > **Attributes** > **SCIM 2.0**. Learn how to [Manage SCIM 2.0 attribute mappings]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings).
+
+For a user attribute,
+
+- if it is mapped to the **Core Schema** or the **User Schema**, the schema URI does not need to be included in the SCIM payload.
+
+    ```json
+    {
+      "name": {
+        "givenName": "Kim",
+        "familyName": "Berry"
+      },
+      "username": "kimberry"  
+    }
+    ```
+
+- If it is mapped to **Enterprise Schema** or **Custom Schema**, it needs to be placed under the namespace of the corresponding schema.
 
 
-This guide explains how to build SCIM 2.0 user creation payloads in compliance with the SCIM 2.0 specification.
+    ```json
+    {
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+       "employeeNumber": "1234A"
+     },
+     "urn:scim:wso2:schema": {
+       "customAttribute": "xyz"
+     }
+    }
+    ```
+
+## Step 2 : Identify the attribute type
+
+Each SCIM attribute belongs to one of the following types, which determine how the attribute is formatted in the payload.
 
 
-## Step 1 : Identifying SCIM 2.0 Attributes for User Attributes
+- **Single-valued Attributes** contain a single value.
+
+    - **Simple Attributes** contain a single attribute.
+
+          ```json
+          {
+            "userName": "kim"
+          }
+          ```
 
 
-To build a SCIM 2.0 payload, the first step is identifying the SCIM schema mapping for your user attribute:
+    - **Complex Attributes** contain multiple sub-attributes.
 
+        ```json
+        {
+          "name": {
+            "givenName": "Kim",
+            "familyName": "Berry"
+          }
+        }
+        ```
 
-Navigate to **User Attributes & Stores** → **Attributes** → **SCIM 2.0** in the {{ product_name }} console. You will see the following schema options:
+- **Multi-Valued Attributes** hold multiple values
 
-  - **Core Schema**
-  - **User Schema**
-  - **Enterprise Schema**
-  - **Custom Schema**  {% if product_name == "WSO2 Identity Server" %} (if you have mapped any custom user attribute to a SCIM attribute in the custom schema). {% endif %} 
+      - **Simple Attributes** contain a single attribute.
 
+        ```json
+        {
+            "devices": ["d1", "d2"]
+        }
+        ```
 
-> For further details refer [Manage SCIM 2.0 attribute mappings]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings)
+      - **Complex Attributes** contain multiple sub-attributes.
 
+        ```json
+        {
+          "emails": [
+            {
+              "value": "kim@gmail.com",
+              "primary": true
+            },
+            {
+              "type": "work",
+              "value": "kim@wso2.com"
+            }
+          ]
+        }
+        ```
 
-### Rules for Schema Usage in SCIM 2.0 Payloads
+!!! info
+    The following references provide comprehensive information about SCIM attribute types and their respective definitions. These details can help identify the type of attributes used in SCIM 2.0 payloads:
 
+      - For attributes under core schema, user schema and SCIM2 specification-defined enterprise schema, refer to [RFC 7643 Section 8.7.1](https://datatracker.ietf.org/doc/html/rfc7643#section-8.7.1).
 
-- If your user attribute is mapped to **Core Schema** or **User Schema**, the schema URI does not need to be qualified in the SCIM payload.
-- If your user attribute is mapped to **Enterprise Schema** or **Custom Schema**, each SCIM attribute under these schemas must be placed under the schema’s namespace.
+      {% if product_name == "WSO2 Identity Server" %}
+      - For {{product_name}}-defined enterprise schema attributes, refer to the `scim2-schema-extension.config` file located in the `<IS_HOME>/repository/conf/` directory.
+      {% endif %} 
 
+      - For custom schema attributes, check the `type` meta attribute of the mapped local attribute.
 
-#### Example
-```json
-{
- "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-   "employeeNumber": "1234A"
- },
- "urn:scim:wso2:schema": {
-   "customAttribute": "xyz"
- }
-}
+## Step 3: Build the payload
 
-```
+Let's combine the two steps above and build the payload for each attribute type.
 
+### For Core and User schemas
 
-## Step 2 : Identify the Attribute Types and their SCIM 2.0 Payload Format
+The schema URI does not need to be included in the user creation payload. Therefore, you can simply add the attributes and their values to the payload as shown below.
 
+- Single-valued simple attributes
 
-Each SCIM attribute falls into one of the following attribute types, which determine the format of the attribute in the payload.
-
-
-### Singular Attributes
-
-1. **Simple Attributes**
-
-    Example:
     ```json
     {
       "userName": "kim"
@@ -60,9 +127,8 @@ Each SCIM attribute falls into one of the following attribute types, which deter
     ```
 
 
-2. **Complex Attributes**
+  - Single-valued complex attributes.
 
-    Example:
     ```json
     {
       "name": {
@@ -72,30 +138,16 @@ Each SCIM attribute falls into one of the following attribute types, which deter
     }
     ```
 
+- Multi-Valued complex attributes
 
-### Multi-Valued Attributes
-1. **Simple Attributes**
+    !!! note
 
-    Extended attribute example:
-    ```json
-    {
-      "urn:scim:wso2:schema:user": {
-        "devices": ["d1", "d2"]
-      }
-    }
-    ```
+        By default, core schema, user schema, and enterprise schema do not have multi-valued simple attributes.
 
-    > No multivalued simple attributes are defined in the Core Schema, User Schema, or Enterprise Schema.
-
-
-2. **Complex Attributes**
-
-    Example for `emails` attribute:
     ```json
     {
       "emails": [
         {
-          "type": "home",
           "value": "kim@gmail.com",
           "primary": true
         },
@@ -107,58 +159,40 @@ Each SCIM attribute falls into one of the following attribute types, which deter
     }
     ```
 
-!!! note
-    The following references provide comprehensive information about SCIM attribute types and their respective definitions. These details can help identify the type of attributes used in SCIM 2.0 payloads:
+### For other schemas
 
-      - For attributes under **Core Schema**, **User Schema** and Specification-defined Enterprise Schema, refer to [RFC 7643 Section 8.7.1](https://datatracker.ietf.org/doc/html/rfc7643#section-8.7.1).
+The schema URI needs to be included in the user creation payload. Therefore, when you are adding such an attribute be sure to do so under the relevant schema.
 
-      {% if product_name == "WSO2 Identity Server" %}
-      - For WSO2 IS-defined Enterprise Schema attributes, refer to the `scim2-schema-extension.config` file located in the `<IS_HOME>/repository/conf/` directory.
-      {% endif %} 
+- Single-valued simple attributes
 
-      - For Custom Schema attributes, check the type meta attribute of the mapped local attribute.
+    ```json
+    {
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":
+      "employeeNumber": "1234A"
+    }
+    ```
 
-## Step 3: Determining the Type of SCIM 2.0 Attributes
+- Single-valued complex attributes.
 
-The patterns described below are used for SCIM attributes to map local user attributes. SCIM attribute mappings should follow these patterns for different types of SCIM attributes.
+    ```json
+    {
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": 
+        "manager": {
+          "value": "Taylor",
+          "displayName": "Taylor Smith"
+        }
+    }
+    ```
 
-Based on the pattern:
-
-  1. Identify the type of the attribute.
-  2. Construct the payload as outlined in Step 2.
-
-
-### Singular Simple Attributes
-
-
-- **Format:** `<schema name>:<attribute name>`
-- By default, these attributes are treated as singular simple attributes.
-
-
-### Multivalued Simple Attributes
+- Multi-valued simple attributes
 
 
-- **Format:** `<schema name>:<attribute name>`
-- These attributes are treated as multivalued simple attributes when the `type` property is specified.
-
-
-  > By default, Core Schema, User Schema, and Enterprise Schema do not have multivalued simple attributes.
-
-
-### Complex Attributes with Sub-Attributes
-
-
-- **Format:** `<schema name>:<attribute name>.<sub attribute>`
-- This format is used for sub-attributes of complex attributes.
-
-
-### Multivalued Complex Attributes
-
-
-- **Format:** `<schema name>:<multivalued attribute name>` and `<schema name>:<multivalued attribute name>.<type>`
-- By default, multivalued complex attributes support only the `type` and `value` sub-attributes.
-- Examples include attributes like `emails` and `addresses`.
-
+    ```json
+    {
+      "urn:scim:wso2:schema":
+        "devices": ["d1", "d2"]
+    }
+    ```
 
 ## Example Payload
 ```json
