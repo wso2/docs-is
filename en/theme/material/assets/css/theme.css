@@ -132,6 +132,7 @@
     border-top-left-radius: var(--md-code-block-radius);
     border-top-right-radius: var(--md-code-block-radius);
     background-color: var(--md-code-tab-bg-color);
+    color: var(--md-code-fg-color);
 }
 
 .highlighttable .linenos {
