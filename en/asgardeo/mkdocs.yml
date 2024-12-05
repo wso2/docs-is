@@ -288,9 +288,9 @@ nav:
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
         - Migrate users to Asgardeo:
-          - Migrate users to Asgardeo: guides/users/migrate-users-to-asgardeo/index.md
-          - Migrate user accounts: guides/users/migrate-users-to-asgardeo/migrate-users.md
-          - Migrate user passwords: guides/users/migrate-users-to-asgardeo/migrate-passwords.md
+          - Migrate users to Asgardeo: guides/users/migrate-users/index.md
+          - Migrate user accounts: guides/users/migrate-users/migrate-users.md
+          - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -409,6 +409,7 @@ nav:
       - Organization management API: apis/organization-management.md
       - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
+      - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -491,6 +492,9 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
+  - Quick Starts:
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
   - React Guide:
     - Introduction: complete-guides/react/introduction.md
     - Prerequisite: complete-guides/react/prerequisite.md
@@ -514,9 +518,18 @@ nav:
     - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
     - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
     - Next Steps: complete-guides/nodejs/next-steps.md
-  - Quick Starts:
-    - React Quickstart: quick-starts/react.md
-    - Angular Quickstart:  quick-starts/angular.md
+  - Angular Guide:
+    - Introduction: complete-guides/angular/introduction.md
+    - Prerequisite: complete-guides/angular/prerequisite.md
+    - Register an application: complete-guides/angular/register-an-application.md
+    - Create a Angular app: complete-guides/angular/create-app.md
+    - Configure Asgardeo provider: complete-guides/angular/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/angular/add-login-and-logout.md
+    - Display user details: complete-guides/angular/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/angular/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/angular/accessing-protected-api.md
+    - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
+    - Next Steps: complete-guides/angular/next-steps.md
 
 not_in_nav: |
   /page-not-found.md

@@ -237,7 +237,7 @@ Modified the code as below to see logged in user details.
 Add the `username()` function to the `app.component.ts` file to access the username attribute. 
 
 ```javascript title="app.component.ts" hl_lines="3-6"
-...
+
 
   get username() {
     var claims = this.oAuthService.getIdentityClaims();
@@ -245,7 +245,7 @@ Add the `username()` function to the `app.component.ts` file to access the usern
     return claims['username'];
   }
 
-...
+
 ```
 
 Modify the `app.component.html` file with the following code. 
