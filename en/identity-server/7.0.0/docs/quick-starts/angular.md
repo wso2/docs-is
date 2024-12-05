@@ -42,14 +42,11 @@ prerequisites:
 
 ## Create an Angular app 
 
-Create an Angular app using Angular CLI.  
-
-
-
+Create an Angular app using Angular CLI.
 
 ``` bash
 
-    ng new wso2is-angular
+ng new wso2is-angular
 ```
 
 !!! tip "Tip"
@@ -57,27 +54,19 @@ Create an Angular app using Angular CLI.
     === "npm"
 
         ``` bash
-
-            npm install -g @angular/cli@17
-
+        npm install -g @angular/cli@17
         ```
     === "yarn"
 
         ``` bash
-
-            yarn global add @angular/cli@17
-
+        yarn global add @angular/cli@17
         ```
 
     === "pnpm"
 
         ``` bash
-
-            pnpm add -g @angular/cli@17
-            
+        pnpm add -g @angular/cli@17
         ```
-
-
 
 ## Install angular-oauth2-oidc
 
@@ -86,30 +75,20 @@ The [Angular OAuth2 OIDC SDK](https://www.npmjs.com/package/angular-oauth2-oidc)
 === "npm"
 
     ``` bash
-
     npm install angular-oauth2-oidc
-
     ```
 
 === "yarn"
 
     ``` bash
-
     yarn add angular-oauth2-oidc
-
     ```
 
 === "pnpm"
 
     ``` bash
-
     pnpm add angular-oauth2-oidc
-
     ```
-
-&nbsp;
-&nbsp;
-&nbsp;
 
 ## Configure `AuthConfig` in your app
 
@@ -160,7 +139,6 @@ export const appConfig: ApplicationConfig = {
   }
   ]
 };
-
 
 ```
 
@@ -220,10 +198,6 @@ Next, replace the existing content of the `app.component.html` file with followi
 
 ```
 
-
-
-
-
 Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
 
 !!! Important
@@ -258,5 +232,3 @@ Modify the `app.component.html` file with the following code.
 <button *ngIf="isAuthorized" (click)="logout()">Logout</button>
 
 ```
-
-
