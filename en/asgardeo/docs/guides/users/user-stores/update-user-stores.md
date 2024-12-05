@@ -7,12 +7,13 @@ To update attribute mappings via the Asgardeo Console:
 
 1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores**.
 2. Select your user store from the **User stores** list.
-3. Go to the **Attribute Mappings** tab and update the required information.
+3. Go to the **Configurations** tab and update the required information.
 
     !!! note
 
+        - Update **User Attributes** and **Group Attributes** as per your user store.
         - Update **Custom Attributes** and **Local Attributes** mapped to your user store.
-        - Map Asgardeo attributes with the corresponding on-premise user store attributes.
+        - Be sure to map Asgardeo attributes with the corresponding on-premise user store attributes.
 
 4. Click **Update** to save the configurations.
 

@@ -24,14 +24,34 @@ To connect a second user store agent:
 
 5. Run a second user store agent by navigating to its root directory and by using one of the following commands based on your operating system:
 
-    === "Linux/OSx"
-        ``` json 
-        sh wso2agent.sh
-        ```
+    === "Optimized Agent"
 
-    === "Windows"
-        ``` json 
-        wso2agent.bat
-        ```
+        - **Linux/Unix:**
 
-    Enter the second installation token generated in the previous step when prompted.
+            ```bash
+            ./remoteagent
+            ```
+        
+        - **Windows:**
+
+            ```bash
+            remoteagent
+            ```
+        
+        Make sure to configure the installation token similarly to the primary agent.
+
+    === "Classic Agent"
+
+        - **Linux/Unix:**
+
+            ```bash
+            sh wso2agent.sh
+            ```
+
+        - **Windows:**
+
+            ```bash
+            wso2agent.bat
+            ```
+
+        Enter the second installation token generated in the previous step when prompted.
