@@ -104,6 +104,29 @@ To update the properties of a user attribute:
 
 {% endif %}
 
+## Delete attributes
+
+!!! warning "Before you proceed"
+
+    Attributes cannot be deleted if it has any associations with external schema. If you have attribute mappings, make sure you delete these associations before attempting to delete an attribute.
+    
+    Refer to [Delete an OpenID Connect attribute]({{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#delete-an-openid-connect-attribute) and [Delete a SCIM2 attribute]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings/#delete-a-scim-20-custom-schema-attribute) to delete any existing associations.
+
+
+To delete an attribute:
+
+1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
+2. Click **Attributes** to see the list of attributes.
+3. Select the attribute you wish to delete.
+4. Click **Delete attribute** within the **Danger Zone**.
+5. Select the checkbox to confirm your action.
+6. Click **Confirm**.
+
+!!! note
+
+    Only custom attributes can be deleted.
+
+
 ## Assign multiple email addresses and mobile numbers to a user
 
 {{ product_name }} allows users to associate multiple email addresses and mobile numbers with their profiles. For users with multiple values, they may also select a primary email address and a primary mobile number.
@@ -137,3 +160,4 @@ For non-JDBC {{ 'secondary' if product_name == 'WSO2 Identity Server' else 'remo
    5. Click **Update** to save the changes
 
    ![Enable for user store]({{base_path}}/assets/img/guides/organization/attributes/enable-for-user-store.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+

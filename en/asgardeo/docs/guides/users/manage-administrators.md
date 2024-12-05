@@ -23,19 +23,36 @@ Existing administrators can onboard other administrators by sending them email i
     !!! note
         If you have enabled the option to [assign admin privileges to users](#assign-admin-privileges-to-users), you may proceed to invite external admins by clicking *Add Administrator* > *Invite Admins to Asgardeo*.
 
+    {% if default_roles %}
+
     <table>
         <tr>
-        <th>Email Address</th>
-        <td>The invitation will be sent to this email address. Additionally, this email address will be used as the username of this administrator.
-        Usernames are always unique to an organization. Once created, they cannot be modified.
-        </td>
+            <th>Email Address</th>
+            <td>The invitation will be sent to this email address. Additionally, this email address will be used as the username of this administrator. Usernames are always unique to an organization. Once created, they cannot be modified.</td>
         </tr>
         <tr>
-        <th>Role</th>
-        <td>Users can be assigned one or more default roles. For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
+            <th>Role</th>
+            <td>Users can be assigned one or more default roles. For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
         </tr>
     </table>
 
+    {% else %}
+
+    <table>
+        <tr>
+            <th>Email Address</th>
+            <td>The invitation will be sent to this email address. Additionally, this email address will be used as the username of this administrator. Usernames are always unique to an organization. Once created, they cannot be modified.</td>
+        </tr>
+        <tr>
+            <th>Role</th>
+            <td>The <b>Administrator</b> role is assigned by default. For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
+        </tr>
+    </table>
+
+    {% endif %}
+
+
+<td>The <b>Administrator</b> role is assigned by default. <br>For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
 3. Click **Invite** to send the invitation.
 
 The external administrator can join the organization by accepting the invitation and setting a password for the new administrator account.
