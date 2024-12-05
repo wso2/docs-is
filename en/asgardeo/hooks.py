@@ -19,7 +19,7 @@ def parse_json(file_path):
 files_to_remove = parse_json(os.path.join(os.getcwd(), 'features.json'))
 
 def on_files(files, config):
-    if os.getenv("ENABLE_HOOKS"):
+    if os.getenv("ENABLE_HOOKS") == "true":
         for file in list(files):
             if file.src_uri in files_to_remove['page']:
                 files.remove(file)
