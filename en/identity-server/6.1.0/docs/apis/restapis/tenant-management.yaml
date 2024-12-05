@@ -100,7 +100,7 @@ paths:
     post:
       tags:
         - Tenants
-      summary: Add tenant.
+      summary: Add channel verified tenant.
       operationId: addChannelVerifiedTenant
       description: |
         This API provides the capability to create new channel verified tenants.
