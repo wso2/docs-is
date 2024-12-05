@@ -3,5 +3,14 @@
         "enabled": false,
         "page": [
         ]
+    },
+
+    "asgardeo_events": {
+        "enabled": false,
+        "page": [
+            "guides/monitoring/asgardeo-events.md"
+        ]
     }
+
+
 }
