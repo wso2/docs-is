@@ -1,7 +1,14 @@
 {
     "default_roles": {
+        "enabled": true,
+        "page": [
+        ]
+    },
+
+    "unique_attributes": {
         "enabled": false,
         "page": [
+
         ]
     }
 }
