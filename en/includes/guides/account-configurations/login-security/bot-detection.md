@@ -11,8 +11,8 @@ This guide explains how you can enable bot detection for your applications to mi
 
 To enable bot detection, proceed with the following:
 
-1. In the {{product_name}} Console, go to **Login & Registration** > **Login Security** > **Bot Detection**.
-2. Toggle the switch to activate reCAPTCHA for your organization.
+1. On the {{product_name}} Console, go to **Login & Registration** > **Login Security** > **Bot Detection**.
+2. Toggle the switch on to activate reCAPTCHA for your organization.
 
 ![Bot Detection Configuration]({{base_path}}/assets/img/guides/account-configurations/bot-detection.png){: width="900" style="display: block; margin: 0;"}
 
