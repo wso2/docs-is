@@ -108,7 +108,7 @@ Each SCIM attribute belongs to one of the following types, which determine how t
       - For {{product_name}}-defined enterprise schema attributes, refer to the `scim2-schema-extension.config` file located in the `<IS_HOME>/repository/conf/` directory.
       {% endif %} 
 
-      - For custom schema attributes, check the `type` meta attribute of the mapped local attribute.
+      - For custom schema attributes, check the `dataType` meta attribute of the mapped local attribute.
 
 ## Step 3: Build the payload
 
