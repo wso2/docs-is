@@ -2,7 +2,7 @@
 
 This page guides you through setting up {{ product_name }} to add SSO (Single Sign-On) login to a Slack workspace.
 
-!!! note
+!!! note "Before you begin"
     Ensure you have a Slack Workspace account and your account supports SSO by referring to the [Slack documentation](https://slack.com/intl/en-gb/help/articles/203772216-SAML-single-sign-on){:target="_blank"}.
 
 ## Create the Slack Service Provider
@@ -11,7 +11,7 @@ Follow the steps given below to register the Slack application in {{ product_nam
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Click **New Application** and select **Slack** from **SSO Integrations** section.
+2. Click **New Application** and under **SSO Integrations**, select **Salck**.
 
     ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/common/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
@@ -30,6 +30,8 @@ Follow the steps given below to register the Slack application in {{ product_nam
 -----
 
 ## Configure Slack
+
+Follow the steps below to configure Slack for SSO authentication with {{product_name}}.
 
 1. Follow [Slack documentation](https://slack.com/intl/en-gb/help/articles/212681477-Sign-in-to-Slack){:target="_blank"} to log in to your workspace.
 

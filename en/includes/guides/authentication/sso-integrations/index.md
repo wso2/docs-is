@@ -8,7 +8,7 @@
       <span>Google</span>
     </a>
     <a href="{{base_path}}/guides/authentication/sso-integrations/add-salesforce-template" class="card square">
-      <img src="{{base_path}}/assets/img/logo/salesforce.svg" alt="Salesforce" width=50 />
+      <img src="{{base_path}}/assets/img/logo/salesforce.svg" alt="Salesforce" />
       <span>Salesforce</span>
     </a>
     <a href="{{base_path}}/guides/authentication/sso-integrations/add-microsoft-365-template" class="card square">

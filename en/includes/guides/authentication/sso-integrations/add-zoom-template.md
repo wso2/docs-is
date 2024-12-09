@@ -2,7 +2,7 @@
 
 This page guides you through setting up {{ product_name }} to add SSO (Single Sign-On) login to a Zoom organization.
 
-!!! note
+!!! note "Before you begin"
     Ensure you have a Zoom account and your account supports SSO by referring to the [Zoom documentation](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060673){:target="_blank"}.
 
 ## Create the Zoom Service Provider
@@ -11,7 +11,7 @@ Follow the steps given below to register the Zoom application in {{ product_name
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Click **New Application** and select **Zoom** from **SSO Integrations** section.
+2. Click **New Application** and under **SSO Integrations**, select **Zoom**..
 
     ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/common/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
@@ -27,6 +27,8 @@ Follow the steps given below to register the Zoom application in {{ product_name
 -----
 
 ## Configure Zoom
+
+Follow the steps below to configure Zoom for SSO authentication with {{product_name}}.
 
 1. Log in to [Zoom](https://zoom.us/signin#/login){:target="_blank"}.
 
