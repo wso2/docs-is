@@ -202,6 +202,10 @@ To lock a user account:
     !!! note
         You can unlock a user account by switching the **Lock user** toggle off.
 
+When a user account is locked, the reason for the account lock will be displayed in the user's profile.
+
+![Account lock reason]({{base_path}}/assets/img/guides/users/lock-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 ## Delete a user
 A user account can be deleted by administrators. Once an account is deleted, the action is irreversible.
 
