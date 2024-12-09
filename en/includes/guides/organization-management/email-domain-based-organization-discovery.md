@@ -27,8 +27,9 @@ and user Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should be
 ### Using the Console
 
 1. Login to the organization (root) from the {{ product_name }} Console.
-2. On the {{ product_name }} Console, go to **Login & Registration**, and click **Email Domain Discovery** under **Organization Settings**.
+2. On the {{ product_name }} Console, go to **Login & Registration**, and click **Organization Discovery** under **Organization Settings**.
 3. Turn on the toggle to enable email domain based organization discovery.
+4. Select the **Email domain discovery for self-registration** checkbox if you want to allow users to discover and self-register in sub-organizations based on their email domain.
 
     ![Enable email domain based organization discovery]({{base_path}}/assets/img/guides/organization/manage-organizations/enable-email-domain-based-organization-discovery.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

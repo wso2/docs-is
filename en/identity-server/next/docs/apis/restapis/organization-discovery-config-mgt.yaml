@@ -91,6 +91,55 @@ paths:
                 ]
             }'
       x-codegen-request-body-name: body
+    put:
+      tags:
+        - Discovery
+      summary: Update organization discovery configuration.
+      description: |
+        This API provides the capability to update discovery configuration of the primary organization. <br>
+
+        <b>Scope(Permission) required:</b> `internal_organization_config_update`
+      operationId: updateDiscoveryConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Config'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Config'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location  --request PUT 'https://localhost:9443/api/server/v1/organization-configs/discovery' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "properties": [
+                    {
+                        "key": "emailDomain.enable",
+                        "value": true
+                    },
+                    {
+                        "key": "emailDomainBasedSelfSignup.enable",
+                        "value": false
+                    }
+                ]
+            }'
+      x-codegen-request-body-name: body
     delete:
       tags:
         - Discovery
@@ -148,20 +197,22 @@ components:
         properties:
           type: array
           items:
-            $ref: '#/components/schemas/Properties'
-    Properties:
-      required:
-        - key
-        - value
-      type: object
-      properties:
-        key:
-          type: string
-          example: emailDomain.enable
-        value:
-          type: string
-          example: true
-
+            type: object
+            required:
+              - key
+              - value
+            properties:
+              key:
+                type: string
+                example: emailDomain.enable
+              value:
+                type: string
+                example: true
+          example:
+            - key: emailDomain.enable
+              value: true
+            - key: emailDomainBasedSelfSignup.enable
+              value: false
   responses:
     BadRequest:
       description: Invalid input in the request.
