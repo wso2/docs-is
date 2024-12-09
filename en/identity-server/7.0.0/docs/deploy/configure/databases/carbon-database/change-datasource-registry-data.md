@@ -181,7 +181,21 @@ deployment.toml` file under the corresponding `[[datasource]]` tag.
 
 The following configurations can be added under the `[registry]` section in the `<IS-HOME>/repository/conf/deployment.toml` file.
 
+```
+[registry]
+local_datasource = "jdbc/<id-of-the-datasource>"
+gov_datasource = "jdbc/<id-of-the-datasource>"
+config_datasource = "jdbc/<id-of-the-datasource>"
+```
+
 <table>
+<thead>
+<tr class="header">
+<th>Configuration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr class="even">
     <td><strong>local_datasource</strong></td>
     <td>This is the jndi config name of the datasource for the local repository. 
@@ -200,6 +214,7 @@ The following configurations can be added under the `[registry]` section in the 
     Here, this would be "jdbc/&lt;id&gt;" where <code>id</code> is the value configured in the 
     datasource configurations.</td>
 </tr>
+</tbody>
 </table>
 
 It is only necessary to add the configuration for the datasource which is being changed.
@@ -209,8 +224,8 @@ as shown below.
 
 ```
 [registry]
-gov_datasource = "jdbc/WSO2GOV_DB"
-config_datasource = "jdbc/WSO2CONFIG_DB"
+gov_datasource = "jdbc/<id-of-the-datasource>"
+config_datasource = "jdbc/<id-of-the-datasource>"
 ```
 
 !!! note "Sample Config"
@@ -223,7 +238,7 @@ config_datasource = "jdbc/WSO2CONFIG_DB"
     ```
     [registry]
     gov_datasource = "jdbc/WSO2GOV_DB"
-    config_datasource = "jdbc/WSO2GOV_DB"
+    config_datasource = "jdbc/WSO2CONFIG_DB"
 
     [[datasource]]
     id="WSO2GOV_DB"
