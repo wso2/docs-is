@@ -502,6 +502,8 @@ nav:
   - Quick Starts:
     - React Quickstart: quick-starts/react.md
     - Angular Quickstart:  quick-starts/angular.md
+    - Next.js Quickstart:  quick-starts/nextjs.md
+    - Spring Boot Quickstart:  quick-starts/springboot.md
   - React Guide:
     - Introduction: complete-guides/react/introduction.md
     - Prerequisite: complete-guides/react/prerequisite.md
@@ -537,7 +539,31 @@ nav:
     - Accessing protected API : complete-guides/angular/accessing-protected-api.md
     - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
     - Next Steps: complete-guides/angular/next-steps.md
-
+  - Nextjs Guide:
+    - Introduction: complete-guides/nextjs/introduction.md
+    - Prerequisite: complete-guides/nextjs/prerequisite.md
+    - Register an application: complete-guides/nextjs/register-an-application.md
+    - Create a Next.js app: complete-guides/nextjs/create-app.md
+    - Configure Asgardeo provider: complete-guides/nextjs/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
+    - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/nextjs/accessing-protected-api.md
+    - Manage tokens in Next.js : complete-guides/nextjs/manage-tokens-in-apps.md
+    - Next Steps: complete-guides/nextjs/next-steps.md
+  - Frontend Security Guide:
+    - Introduction: complete-guides/fesecurity/introduction.md
+    - In-app vs IdP-based login: complete-guides/fesecurity/login-options.md
+    - Public clients: complete-guides/fesecurity/public-clients.md
+    - Insecure token handling : complete-guides/fesecurity/insecure-tokens.md
+    - Weak access control: complete-guides/fesecurity/weak-access-control.md
+    - Unauthorized access: complete-guides/fesecurity/unauthorized-privilege-gain.md
+    - Weak MFA : complete-guides/fesecurity/weak-mfa.md
+    - Partial user logouts: complete-guides/fesecurity/partial-user-logouts.md
+    - Product misconfiguration: complete-guides/fesecurity/misconfiguration.md
+    - Cross-Site Scripting (XSS): complete-guides/fesecurity/xss.md
+    - Cross-Site Request Forgery (CSRF): complete-guides/fesecurity/csrf.md
+    - Next Steps: complete-guides/fesecurity/next-steps.md 
 not_in_nav: |
   /page-not-found.md
   /get-started/explore-asgardeo.md
