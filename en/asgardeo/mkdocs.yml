@@ -98,7 +98,12 @@ hooks:
   - hooks.py
 
 plugins:
-  - search
+  - search:
+      indexing: "full"
+      separator: "[^\\w._]+"
+      lang: ['en']
+      prebuild_index: true
+      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -122,6 +127,7 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+        'apis/build-scim2-user-creation-payload.md': 'apis/scim2/build-scim2-user-creation-payload.md'
         'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
         'guides/account-configurations.md': 'guides/user-accounts/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs.md'
@@ -418,6 +424,7 @@ nav:
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
           - SCIM 2.0 Service provider configs API: apis/scim2/scim2-service-provider-configs-rest-api.md
+          - SCIM 2.0 Build user creation payload: apis/scim2/build-scim2-user-creation-payload.md
         - User account associations API: apis/association-management-by-admin.md
         - Account Recovery API: apis/user-account-recovery.md
         - Offline user onboard management API: apis/offline-user-onboard.md

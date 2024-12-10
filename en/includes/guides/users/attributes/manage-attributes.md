@@ -115,8 +115,8 @@ To update the properties of a user attribute:
 
 To delete an attribute:
 
-1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes**.
-2. Click **Attributes** to see the list of attributes.
+1. On the {{ product_name }} Console, navigate to **User Attributes and Stores** > **Attributes**.
+2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
 3. Select the attribute you wish to delete.
 4. Click **Delete attribute** within the **Danger Zone**.
 5. Select the checkbox to confirm your action.
