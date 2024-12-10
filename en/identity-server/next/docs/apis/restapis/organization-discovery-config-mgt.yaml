@@ -197,22 +197,24 @@ components:
         properties:
           type: array
           items:
-            type: object
-            required:
-              - key
-              - value
-            properties:
-              key:
-                type: string
-                example: emailDomain.enable
-              value:
-                type: string
-                example: true
+            $ref: '#/components/schemas/Properties'
           example:
-            - key: emailDomain.enable
-              value: true
-            - key: emailDomainBasedSelfSignup.enable
-              value: false
+          - key: emailDomain.enable
+            value: true
+          - key: emailDomainBasedSelfSignup.enable
+            value: false
+    Properties:
+      required:
+        - key
+        - value
+      type: object
+      properties:
+        key:
+          type: string
+          example: emailDomain.enable
+        value:
+          type: string
+          example: true
   responses:
     BadRequest:
       description: Invalid input in the request.

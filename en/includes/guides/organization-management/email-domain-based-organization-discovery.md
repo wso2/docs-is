@@ -29,7 +29,30 @@ and user Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should be
 1. Login to the organization (root) from the {{ product_name }} Console.
 2. On the {{ product_name }} Console, go to **Login & Registration**, and click **Organization Discovery** under **Organization Settings**.
 3. Turn on the toggle to enable email domain based organization discovery.
-4. Select the **Email domain discovery for self-registration** checkbox if you want to allow users to discover and self-register in sub-organizations based on their email domain.
+
+    !!! note
+        When this is enabled, following restrctions will apply to child organizations during federated authentication and user onboarding.
+
+        - Users can self-register, and administrators can onboard users to child organizations, only if the users' email domains match the domains mapped to the corresponding child organization.
+
+        {% if (product_name == "WSO2 Identity Server") %}
+
+        - Federated authentication and Just-In-Time (JIT) provisioning for child organizations are restricted to email domains mapped to those child organizations.
+
+        {% endif %}
+{% if (product_name == "WSO2 Identity Server") %}
+
+4. Select the **Email domain discovery for self-registration** checkbox if you want to allow users to discover and self-register in child organizations based on their email domain.
+
+    !!! note
+        To use this capability, self-registration must be enabled in the child organizations. Currently, enabling self-registration for child organizations via the console is not supported. Instead, you need to add the following configuration to the `deployment.toml` file located in the `<IS_HOME>/repository/conf` directory to enable self-registration server-wide.
+
+        ```
+        [identity_mgt.user_self_registration]
+        allow_self_registration = true
+        ```
+
+{% endif %}
 
     ![Enable email domain based organization discovery]({{base_path}}/assets/img/guides/organization/manage-organizations/enable-email-domain-based-organization-discovery.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
