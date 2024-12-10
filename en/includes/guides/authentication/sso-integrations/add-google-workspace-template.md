@@ -1,17 +1,17 @@
-# Log in to Google Workspace using the {{ product_name }}
+# Log in to Google Workspace using {{ product_name }}
 
-This page guides you through using {{ product_name }} to log in to Google.
+This page guides you through integrating {{ product_name }} for Single Sign-On (SSO) with Google.
 
-!!! note
+!!! note "Before you begin"
     You need to have a Google domain. Further, ensure you have a Google Workspace account and your account supports SSO by referring to the [Google documentation](https://support.google.com/a/answer/182076?sjid=13406338490513240799-AP){:target="_blank"}.
 
-## Create the Google Workspace Service Provider
+## Create the Google Workspace application
 
 Follow the steps given below to register the Google Workspace application in {{ product_name }}.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Click **New Application** and select **Google Workspace** from **SSO Integrations** section.
+2. Click **New Application** and under **SSO Integrations**, select **Google Workspace**.
 
     ![Select app type in the {{ product_name }}]({{base_path}}/assets/img/guides/authentication/sso-integrations/common/add-app.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
@@ -21,54 +21,45 @@ Follow the steps given below to register the Google Workspace application in {{ 
 
 4. Click **Create** to complete the registration.
 
-5. Download the Certificate from the Guide section.
+5. Download {{product_name}}'s certificate from the `Guide` tab of the created application.
 
 -----
 
 ## Configure Google
 
-1. Access your domain's [admin console](https://admin.google.com).
+Follow the steps below to configure Google for SSO authentication with {{product_name}}.
 
-2. Follow Google’s instructions to [configure the SSO profile for your organization](https://support.google.com/a/answer/12032922?hl=en&ref_topic=7579248&sjid=3736947215943977003-AP#org_profile). During this process, use the details below:
+1. Access your Google domain's [admin console](https://admin.google.com){: target="_blank"}.
 
-    - **Sign-in page URL:**
+2. Follow Google’s instructions to [configure the SSO profile for your organization](https://support.google.com/a/answer/12032922?hl=en&ref_topic=7579248&sjid=3736947215943977003-AP#org_profile){: target="_blank"}. Use the details below:
+
+    - Sign-in page URL:
       ` {{ product_url_format }}/samlsso`
 
-    - **Sign-out page URL:**
+    - Sign-out page URL:
       `{{ product_url_format }}/samlsso`
    
-    - **Password URL:**
+    - Password URL:
        `{{ product_url_format }}/t/carbon.super/myaccount/security`
 
-3. Upload the downloaded Identity Server certificate.
+3. Upload {{product_name}}'s certificate you downloaded earlier.
 
     ![sso-fill-google.png]({{base_path}}/assets/img/guides/authentication/sso-integrations/google-workspace-sso/sso-fill-google.png){: width="600" style="border: 0.3px solid lightgrey;"}
 -----
 
 ## Try it out
 
-Now, you have successfully configured Google and {{ product_name }}.
+Now that you have integrated {{product_name}} with Google Workspace, follow the steps below to test it.
 
 !!! note
-    The admin users of your Google domain do not get redirected to WSO2 IS.
-    Therefore, to try out the tutorial you need to use a user who is not an
-    admin in your Google account.
+    Google restricts administrators from being redirected to external identity providers. Therefore, use a non-administrator account to try it out.
 
-1. Create a user in {{ product_name }}. Make sure that the same user
-   exists in your Google domain.  
-   In this example, `alex@wso2support.com`
-   is in the Google domain. Therefore, we need to create the same user in {{ product_name }}.
+1. Create a new account in {{product_name}} for a user that already exists in Google Workspace under the same email address.
 
-2. Navigate to [http://accounts.google.com](http://accounts.google.com)
-   and enter the email address of the user you created.  
-   You are navigated to {{ product_name }}'s sign in screen.
-3. Enter the username and password of the user you created.  
-   You are navigated to the G-Suite of that domain and you can select
-   the application you need to use.
+2. Navigate to [Google](http://accounts.google.com) and enter the email address of the user you created. You will be navigated to {{ product_name }}'s login page.
+
+3. Enter the username and password for the user to login. Once authenticated, you will be navigated to the relevant domain's G-Suite.
 
 !!! note
-    If you want to only access Gmail, navigate to
-    [mail.google.com](http://mail.google.com), enter the username of the
-    user, enter the username and password of the user on the {{ product_name }}
-    sign in screen, and you are navigated to the user's mail account.
+    If you only wish to access Gmail, navigate to [mail.google.com](http://mail.google.com), and repeat the process.
 
