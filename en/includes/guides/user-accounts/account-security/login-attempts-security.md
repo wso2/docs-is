@@ -65,9 +65,6 @@ Based on the above settings, let's see how account lock happens in {{ product_na
 Account unlock timeout = Account lock duration * (Account lock duration increment factor ^ failed login attempts)
 ```
 
-!!! note
-    When a user account is locked due to incorrect login attempts, a message will be shown as **The account is locked due to multiple failed login attempts** in the user profile.
-
 ## Disable login attempts security
 
 To disable login attempts security:

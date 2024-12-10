@@ -59,3 +59,6 @@ To manage login attempts settings, do the following:
         showAuthFailureReason = true
         showAuthFailureReasonOnLoginPage = true
     ```
+
+!!! note
+    When a user account is locked due to incorrect login attempts, a message will be shown as **The account is locked due to multiple failed login attempts** in the user profile.
