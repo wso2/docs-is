@@ -23,6 +23,9 @@ extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
 
+hooks:
+  - hooks.py
+
 plugins:
   - search:
       indexing: "full"
