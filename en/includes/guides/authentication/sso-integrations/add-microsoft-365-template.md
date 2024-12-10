@@ -1,6 +1,6 @@
-# Configuring Microsoft 365 SAML2 with {{ product_name }}
+# Log in to Microsoft 365 using {{ product_name }}
 
-This page guides you through using {{ product_name }} to log in to Google.
+This page guides you through integrating {{ product_name }} for Single Sign-On (SSO) with Microsoft 365.
 
 !!! note "Before you begin"
     - You need an Office 365 Business account with admin access and a domain added as per the [Microsoft documentation](https://learn.microsoft.com/en-gb/microsoft-365/admin/setup/add-domain?view=o365-worldwide&redirectSourcePath=%252fen-us%252farticle%252fadd-a-domain-to-office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611).
@@ -86,36 +86,40 @@ The following steps configure the trust settings for Active Directory.
     ```
     {% endif %}
 
-8. Set the issuer ID of the IdP. This value should be the `Identity Provider Entity Id` that you
-   configured in the SAML configuration of the Resident IdP of WSO2 IS.
+8. Set the issuer ID of the IdP.
+
+    {% if product_name == "Asgardeo" %}
+    ```java
+    $issueruri = "https://api.asgardeo.io/t/{organization_name}"
+    ```
+    {% else %}
 
     ``` java
     $issueruri = "localhost"
     ```
+    {% endif %}
 
-9. Set the IdP logout URL for the POST SAML Logout Request. For
-   this tutorial, you can use the SAML SSO endpoint URL of WSO2 IS.
+9. Set the IdP logout URL for the POST SAML Logout Request. For this tutorial, you can use the SAML SSO endpoint URL of WSO2 IS.
+
+   {% if product_name == "Asgardeo" %}
+    ```java
+    $logonurl = "https://api.asgardeo.io/t/{organization_name}/samlsso"
+    ```
+    {% else %}
 
     ``` java
-    $logouturl = "https://localhost:9443/samlsso"
+    $logonurl = "https://localhost:9443/samlsso"
     ```
+    {% endif %}
 
-10. Store the IdP certificate. You can get the certificate value from the Guide section in application.
-
-       ``` java
-       $cert = "{certificate}"
-       ```
-
-       The certificate for the default key store configured in WSO2 IS
-       is given below.
-
-       **Sample certificate**
+10. Store the IdP certificate. You can get the certificate value from the **Guide** of the created Microsoft 365 application.
 
        ``` java
-       $cert = "MIIDSTCCAjGgAwIBAgIEAoLQ/TANBgkqhkiG9w0BAQsFADBVMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxDTALBgNVBAoTBFdTTzIxEjAQBgNVBAMTCWxvY2FsaG9zdDAeFw0xNzA3MTkwNjUyNTFaFw0yNzA3MTcwNjUyNTFaMFUxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzENMAsGA1UEChMEV1NPMjESMBAGA1UEAxMJbG9jYWxob3N0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAluZFdW1ynitztkWLC6xKegbRWxky+5P0p4ShYEOkHs30QI2VCuR6Qo4Bz5rTgLBrky03W1GAVrZxuvKRGj9V9+PmjdGtau4CTXu9pLLcqnruaczoSdvBYA3lS9a7zgFU0+s6kMl2EhB+rk7gXluEep7lIOenzfl2f6IoTKa2fVgVd3YKiSGsyL4tztS70vmmX121qm0sTJdKWP4HxXyqK9neolXI9fYyHOYILVNZ69z/73OOVhkh/mvTmWZLM7GM6sApmyLX6OXUp8z0pkY+vT/9+zRxxQs7GurC4/C1nK3rI/0ySUgGEafO1atNjYmlFN+M3tZX6nEcA6g94IavyQIDAQABoyEwHzAdBgNVHQ4EFgQUtS8kIYxQ8UVvVrZSdgyide9OHxUwDQYJKoZIhvcNAQELBQADggEBABfk5mqsVUrpFCYTZZhOxTRRpGXqoW1G05bOxHxs42Paxw8rAJ06Pty9jqM1CgRPpqvZa2lPQBQqZrHkdDE06q4NG0DqMH8NT+tNkXBe9YTre3EJCSfsvswtLVDZ7GDvTHKojJjQvdVCzRj6XH5Truwefb4BJz9APtnlyJIvjHk1hdozqyOniVZd0QOxLAbcdt946chNdQvCm6aUOputp8Xogr0KBnEy3U8es2cAfNZaEkPU8Va5bU6Xjny8zGQnXCXxPKp7sMpgO93nPBt/liX1qfyXM7xEotWoxmm6HZx8oWQ8U5aiXjZ5RKDWCCq4ZuXl6wVsUz1iE61suO5yWi8="
+       $cert = "MIIDCDCCAfCgAwIBAgIEtUo9DDANBgkqhkiG9w0BAQsFADBGMQ0wCwYDVQQGEwROb25lMRQwEgYDVQQKEwtOb25lIEw9Tm9uZTENMAsGA1UECxMETm9uZTEQMA4GA1UEAxMHYWxmaGVpbTAeFw0yNDAyMTgwODM0MzNaFw0zNDAzMTcwODM0MzNaMEYxDTALBgNVBAYTBE5vbmUxFDASBgNVBAoTC05vbmUgTD1Ob25lMQ0wCwYDVQQLEwROb25lMRAwDgYDVQQDEwdhbGZoZWltMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk3tgNcSqohc3Qt1AOYXXUklP1jIgxUBfjV7gWo5NXO9dBjI3ljbATeSP+1QKT9KfOYmz8IcJH00t8dlXeRMeLKywbp3Q2nFLGljL/iBdfzeU8TgyT68M6Evg21STAFx1uQmNwrXpnaB06UcTx2P/Fh5hiMewYpLf907VgQPPTFyMdh+3SanJ1jOX9GtyvUvYWcd2VUh0qeAXw4cei04VzsREhW6Dyx9UxybeqqT54dGOz+QGhkMyY56rwhZdVEHZH1ootdth09aCp66vNaYqIFwBXquyvRuHrG+WvX7oLcxOIwPutajvCXbdO9SepmFZJ5dFteC+Zbi5qYqOMjNPwwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAd/3JJecUOXYbVezUbpq1ICUqZrkDznGBcvjjeUq7NMYtbogC0JlOh+mVRPCn9ypicsF1R5OUfxRG6Bsu3AeyfelEHF870NAS1e5+zprBpWdlHdgznifVs02+1/JBDLWn9uFr35MyC4AE82yOdV5SQ9Xzn3igaXb+4/UtzHKknenHqhdXJ4LfTMVKSDwT8Uxte/XD0NpUZ7YjeOiBcALow7Nbt1JdFqnQ90j79gpJXA3Cz0ar0P58KwPDMurTwAiGaAetYY38XOYNtsyzK9LxLKPH7RX3FOLYYjF4PAZWEGUu7Wxk5t0462Srlru3fMWUksPO6pMEAIm88j7C1LCNc"
        ```
 
 11. Run the following command to establish trust.
+
      ``` java
      Set-MsolDomainAuthentication –DomainName $dom -Authentication Federated -PassiveLogOnUri $logonurl -SigningCertificate $cert -IssuerUri $issueruri -LogOffUri $logouturl -PreferredAuthenticationProtocol SAMLP
      ```
@@ -126,26 +130,19 @@ The following steps configure the trust settings for Active Directory.
      Get-MsolDomainFederationSettings -Domain $dom
      ```
    
-You have now successfully set up trust between the on-premise identity
-provider of WSO2 IS and the Azure Active Directory.
-
-
-If you wish to redo the configurations, do the following:
-
-1.  Run the following command to first move your domain back to the
-    'Managed' authentication mode.
+You have now successfully set up trust between {{product_name}} and the Azure Active Directory. If you wish to redo the configurations, run the following command to move your domain back to the `Managed` authentication mode:
     
 ``` bash
 Set-MsolDomainAuthentication -DomainName $dom -Authentication Managed
 ```
 
-2.  Re-set the parameters as listed in step 5 and then set the authentication method again as shown in step 6.
-
 ## Try it out
 
-1.  Create a user on the {{ product_name }}.
-2. Add that same user to Microsoft using the following command. Here, the ImmutableID should be the UUID of the user.
+Now that you have integrated {{product_name}} with Microsoft 365, follow the steps below to test it.
 
-``` bash
-New-MsolUser -UserPrincipalName yourdomain.com -ImmutableID userID -LastName lastNameOfUser -FirstName firstNameOfUser -DisplayName WSO2 Test User
-```
+1.  Create a user in {{ product_name }}.
+2. Add the same user to Microsoft using the following command. Here, the ImmutableID should be the UUID of the user.
+
+    ``` bash
+    New-MsolUser -UserPrincipalName yourdomain.com -ImmutableID userID -LastName lastNameOfUser -FirstName firstNameOfUser -DisplayName "WSO2 Test User"
+    ```

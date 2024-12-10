@@ -1,6 +1,6 @@
-# Log in to Salesforce using the {{ product_name }}
+# Log in to Salesforce using {{ product_name }}
 
-This page guides you through using {{ product_name }} to log in to Salesforce.
+This page guides you through integrating {{ product_name }} for Single Sign-On (SSO) with Salesforce.
 
 !!! note "Before you begin"
      Ensure your Salesforce edition supports SSO. Check the [Salesforce documentation](https://help.salesforce.com/s/articleView?language=en_US&id=sf.sso_saml_setting_up.htm&type=5){:target="_blank"}.
@@ -76,7 +76,4 @@ Now that you have integrated {{product_name}} with Salesforce, follow the steps 
 
 ## Troubleshooting guidelines
 
-Additional troubleshooting information regarding any Salesforce-side SSO
-failures can be retrieved by using Salesforce SAML Assertion Validator.
-Further information regarding the steps are available
-[here](https://developer.salesforce.com/docs/atlas.en-us.sso.meta/sso/sso_saml_validation_errors.htm#!).
+To troubleshoot SSO failures on the Salesforce side, you may use the Salesforce SAML Assertion Validator. Follow the [Salesforce documentation](https://developer.salesforce.com/docs/atlas.en-us.sso.meta/sso/sso_saml_validation_errors.htm#!){:target="_blank"} to learn more.

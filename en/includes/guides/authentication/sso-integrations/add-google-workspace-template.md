@@ -1,6 +1,6 @@
-# Integrate SSO to Google Workspace
+# Log in to Google Workspace using {{ product_name }}
 
-This page guides you through integrating {{ product_name }} for Single Sign-On (SSO) authentication  with Google.
+This page guides you through integrating {{ product_name }} for Single Sign-On (SSO) with Google.
 
 !!! note "Before you begin"
     You need to have a Google domain. Further, ensure you have a Google Workspace account and your account supports SSO by referring to the [Google documentation](https://support.google.com/a/answer/182076?sjid=13406338490513240799-AP){:target="_blank"}.
