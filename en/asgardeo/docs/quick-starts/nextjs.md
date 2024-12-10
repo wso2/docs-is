@@ -10,11 +10,11 @@ what_you_will_learn:
 prerequisites:
   - About 15 minutes
   - <a href="{{ base_path }}/get-started/create-asgardeo-account/">Asgardeo account</a>
-  - Install a JS package manager
+  - Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.
   - A favorite text editor or IDE
 # source_code: <a href="" target="_blank" class="github-icon">Next.js App Sample</a>
 whats_next:
-  # - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
+  - Try out <a href="{{ base_path }}/complete-guides/nextjs/introduction/" target="_blank">{{ product_name }} complete Next.js guide</a>
   # - Try out {{product_name}} user onboarding complete guide for React
   # - Read security best practices for React app guide
 ---
@@ -23,24 +23,20 @@ whats_next:
 - Sign into {{ product_name }} console and navigate to **Applications > New Application.**
 - Select **Traditional Web Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.(*Ensure that the protocol remains set to OpenID Connect (OIDC).)* 
 
-*Example:*
+!!! Example
+    **name:** nextjs-react
 
-- *Name -  asgardeo-nextjs*
-- *Authorized redirect URL - http://localhost:3000/api/auth/callback/asgardeo*
+    **Authorized redirect URL:** http://localhost:3000/api/auth/callback/asgardeo
 
- 
+Note down the following values from the **Protocol** and **Info**  tabs of the registered application. You will need them to configure  Asgardeo React SDK.
+
+- **`client-id`** from the **Protocol** tab. 
+- **`client-secret`** from the **Protocol** tab. 
+- **`issuer`** from the **Info** tab. 
 
 !!! Info
 
     The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use ` http://localhost:3000/api/auth/callback/asgardeo`, as the authorized redirect URL .
-  
-!!! note
-
-    Make a note of the following values from the **Protocol** and **Info** tabs of the registered application. You will need them during the **Step 4**
-
-    - **`client-id`** from the **Protocol** tab. 
-    - **`client-secret`** from the **Protocol** tab. 
-    - **`issuer`** from from the **Info** tab.
 
 ## Create a Next.js app 
 

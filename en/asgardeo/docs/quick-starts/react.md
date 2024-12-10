@@ -21,23 +21,23 @@ whats_next:
 ---
 ## Configure an Application in {{ product_name }}
 
-- Sign into {{ product_name }} console and navigate to Applications > New Application.
-- Select Single Page Application and complete the wizard popup by providing a suitable name and an authorized redirect URL
+- Sign into {{ product_name }} console and navigate to **Applications > New Application**.
+- Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
 
-  - Name -  Asgardeo-React
-  - Authorized redirect URL - `http://localhost:5173`
+!!! Example
+    **name:** asgardeo-react
+    
+    **Authorized redirect URL:** http://localhost:5173
+
+Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  Asgardeo React SDK.
+
+- **`client-id`** from the **Protocol** tab. 
+- **The name of your Asgardeo organization**
+
 
 !!! Info
 
     The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
-
-!!! note
-
-    Note down the following values : you will need them during the **Step 4**
-
-    - `client-id`
-    - `base-url`
-    - `redirect-url`
 
 ## Create a React app using Vite
 
