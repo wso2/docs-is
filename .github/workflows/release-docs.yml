@@ -90,22 +90,35 @@ jobs:
 
       - name: Build MkDocs Documentation
         run: |
+          unset ENABLE_HOOKS
           cd en/asgardeo
           mkdocs build
+          cd ../../
+
+      - name: Conditionally build MkDocs Documentation 
+        run: |
+          export ENABLE_HOOKS=true 
+          cd en/asgardeo
+          mkdocs build --site-dir prod-build
           cd ../../
 
       - name: Zip the Documentation
         run: |
           mkdir -p out/asgardeo/docs
+          mkdir -p out-prod/asgardeo/docs
           cp -r ./en/asgardeo/site/* out/asgardeo/docs/
+          cp -r ./en/asgardeo/prod-build/* out-prod/asgardeo/docs/
           zip -r asgardeo-docs-${{ env.NEW_VERSION }}.zip ./out
+          zip -r asgardeo-docs-${{ env.NEW_VERSION }}-prod.zip ./out-prod
 
       - name: Create git tag
         run: |
           git config user.name $GIT_USERNAME
           git config user.email $GIT_USER_EMAIL
           git tag "v${{ env.NEW_VERSION }}"
+          git tag "v${{ env.NEW_VERSION }}-prod"
           git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "v${{ env.NEW_VERSION }}"
+          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "v${{ env.NEW_VERSION }}-prod"
 
       - name: Create Release
         id: create_release
@@ -115,6 +128,15 @@ jobs:
           release_name: Asgardeo Docs - v${{ env.NEW_VERSION }}
           draft: false
           prerelease: ${{ env.IS_HOTFIX == 'true' }}
+      
+      - name: Create prod release
+        id: create_prod_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v${{ env.NEW_VERSION }}-prod
+          release_name: Asgardeo Docs - v${{ env.NEW_VERSION }}-prod
+          draft: false
+          prerelease: ${{ env.IS_HOTFIX == 'true' }}
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
@@ -122,6 +144,14 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./asgardeo-docs-${{ env.NEW_VERSION }}.zip
           asset_name: asgardeo-docs-${{ env.NEW_VERSION }}.zip
+          asset_content_type: application/zip
+      
+      - name: Upload Prod Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_prod_release.outputs.upload_url }}
+          asset_path: ./asgardeo-docs-${{ env.NEW_VERSION }}-prod.zip
+          asset_name: asgardeo-docs-${{ env.NEW_VERSION }}-prod.zip
           asset_content_type: application/zip
 
       - name: Commit and push new version

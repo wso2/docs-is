@@ -321,6 +321,7 @@ plugins:
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
         'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
         'apis/scim2-groups-rest-apis.md': 'apis/scim2/scim2-groups-rest-api.md'
+        'apis/build-scim2-user-creation-payload.md': 'apis/scim2/build-scim2-user-creation-payload.md'
         'apis/scim2-patch-operations.md': 'apis/scim2/scim2-patch-operations.md'
         'apis/scim2-bulk-rest-apis.md': 'apis/scim2/scim2-bulk-rest-api.md'
         'apis/scim2-batch-operations.md': 'apis/scim2/scim2-batch-operations.md'
@@ -786,6 +787,8 @@ nav:
           - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
           - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md
+          - Additional resources:
+            - Build SCIM 2.0 user creation payload: apis/scim2/build-scim2-user-creation-payload.md
         - Account recovery APIs:
           - Account recovery v0.9 API: apis/use-the-account-recovery-rest-apis.md
           - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
@@ -851,6 +854,7 @@ nav:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
+        - Customize the authentication endpoint: references/extend/authentication/customize-the-authentication-endpoint.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
@@ -891,6 +895,9 @@ nav:
     - Accessing protected API : complete-guides/react/accessing-protected-api.md
     - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
     - Next Steps: complete-guides/react/next-steps.md
+  - Quick Starts:
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
 
 
 not_in_nav: |
