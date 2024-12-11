@@ -8,7 +8,14 @@
     "multi_valued_attributes": {
         "enabled": false,
         "page": [
+        ]
+    },
 
+    "sso_integrations_zoom_slack": {
+        "enabled": false,
+        "page": [
+            "guides/authentication/sso-integrations/add-zoom-template.md",
+            "guides/authentication/sso-integrations/add-slack-template.md"
         ]
     }
 }
