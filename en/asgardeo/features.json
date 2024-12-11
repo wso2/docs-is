@@ -17,5 +17,12 @@
             "guides/authentication/sso-integrations/add-zoom-template.md",
             "guides/authentication/sso-integrations/add-slack-template.md"
         ]
+    },
+
+    "attribute_uniqueness_validation": {
+        "enabled": false,
+        "page": [
+            "guides/users/attributes/configure-unique-attributes.md"
+        ]
     }
 }
