@@ -126,7 +126,7 @@ To delete an attribute:
 
     Only custom attributes can be deleted.
 
-{% if unique_attributes %}
+{% if multi_valued_attributes %}
 ## Assign multiple email addresses and mobile numbers to a user
 
 {{ product_name }} allows users to associate multiple email addresses and mobile numbers with their profiles. For users with multiple values, they may also select a primary email address and a primary mobile number.

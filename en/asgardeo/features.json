@@ -5,7 +5,7 @@
         ]
     },
 
-    "unique_attributes": {
+    "multi_valued_attributes": {
         "enabled": false,
         "page": [
 
