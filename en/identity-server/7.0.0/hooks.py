@@ -16,7 +16,7 @@ def parse_json(file_path):
     json_file.close()
     return features_to_remove
 
-files_to_remove = parse_json(os.path.join(os.getcwd(), '../../features.json'))
+files_to_remove = parse_json(os.path.join(os.getcwd(), '../../asgardeo/features.json'))
 
 def on_config(config):
 
