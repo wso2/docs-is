@@ -23,6 +23,9 @@ extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
 
+hooks:
+  - hooks.py
+
 plugins:
   - search:
       indexing: "full"
@@ -861,6 +864,7 @@ nav:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
+        - Customize the authentication endpoint: references/extend/authentication/customize-the-authentication-endpoint.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md

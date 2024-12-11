@@ -23,6 +23,9 @@ extra:
   base_path: /en/next
   is_version: next
 
+hooks:
+  - hooks.py
+
 plugins:
   - search:
       indexing: "full"
