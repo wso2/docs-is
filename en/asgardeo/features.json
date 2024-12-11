@@ -1,19 +1,21 @@
 {
-    "asgardeo_logs": {
+    "default_roles": {
         "enabled": true,
         "page": [
-            "guides/asgardeo-logs/index.md",
-            "guides/asgardeo-logs/diagnostic-logs.md",
-            "guides/asgardeo-logs/audit-logs.md"
         ]
     },
 
-    "applications": {
-        "enabled": true,
+    "multi_valued_attributes": {
+        "enabled": false,
         "page": [
-            "guides/applications/register-single-page-app.md",
-            "guides/applications/register-oidc-web-app.md",
-            "guides/applications/register-saml-web-app.md"
+        ]
+    },
+
+    "sso_integrations_zoom_slack": {
+        "enabled": false,
+        "page": [
+            "guides/authentication/sso-integrations/add-zoom-template.md",
+            "guides/authentication/sso-integrations/add-slack-template.md"
         ]
     }
 }
