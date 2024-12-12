@@ -133,7 +133,7 @@ await auth.initialize({
 
 ## Add login and logout link to your app
 
-The AsgardeoSPAClient provides signIn and signOut methods and access to the authentication state. Add the following code to the main.js file to conditionally render a login or logout button based on whether the user is authenticated.
+The `AsgardeoSPAClient` provides `signIn` and `signOut` methods and access to the authentication state. Add the following code to the `main.js` file to conditionally render a login or logout button based on whether the user is authenticated.
 
 ```javascript title="src/main.js" hl_lines="1 14-30 32-41 43-49"
 
