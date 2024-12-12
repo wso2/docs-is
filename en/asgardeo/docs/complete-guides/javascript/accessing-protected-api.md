@@ -25,20 +25,20 @@ The following is a simple example of how you might use the Asgardeo SDK’s `htt
 ```javascript
 
 const requestConfig = {
-   headers: {
-       "Accept": "application/json",
-       "Content-Type": "application/scim+json"
-   },
-   method: "GET",
-   url: "https://api.asgardeo.io/t/<your-organization-name>/scim2/me"
+  headers: {
+    "Accept": "application/json",
+    "Content-Type": "application/scim+json"
+  },
+  method: "GET",
+  url: "https://api.asgardeo.io/t/<your-organization-name>/scim2/me"
 };
 
 
 auth.httpRequest(requestConfig).then((response) => {
- var req = response;
- console.log(response);
+  var req = response;
+  console.log(response);
 }).catch((error) => {
- console.error(error);
+  console.error(error);
 });
 
 
@@ -53,16 +53,16 @@ Note that you don’t need to manually specify the Authorization header under he
 In the above example, the final request config sent by the httpRequest method would be as follows.
 
 ```javascript hl_lines="5"
-const requestConfig = {
-       headers: {
-           "Accept": "application/json",
-           "Content-Type": "application/scim+json",
-           "Authorization": "Bearer <access_token_retrieved_from_web_worker>"
-       },
-       method: "GET",
-       url: "https://api.asgardeo.io/t/<org_name>/scim2/me"
-   };
 
+const requestConfig = {
+  headers: {
+    "Accept": "application/json",
+    "Content-Type": "application/scim+json",
+    "Authorization": "Bearer <access_token_retrieved_from_web_worker>"
+  },
+  method: "GET",
+  url: "https://api.asgardeo.io/t/<org_name>/scim2/me"
+};
 
 ```
 
@@ -71,13 +71,15 @@ In case you want to send multiple API requests in parallel, you can use the http
 The following code snippet shows a javascript method which accepts a list of application IDs and sends multiple network requests for each app ID in parallel. The responses will contain results for each id, as an array of responses.
 
 ```javascript
+
+
 auth.httpRequestAll(configs).then((responses) => {
-     response.forEach((response) => {
-         console.log(response);
-     });
-   }).catch((error) => {
-       console.error(error);
-   });
+  response.forEach((response) => {
+    console.log(response);
+  });
+}).catch((error) => {
+  console.error(error);
+});
 
 
 ```
@@ -89,10 +91,9 @@ In case you are not using the `webWorker` as the storage type, the `getAccessTok
 ```javascript
 
 auth.getAccessToken().then((token) => {
-     console.log(token);
-   }).error((error) => {
-       console.error(error);
-   });
+  console.log(token);
+}).error((error) => {
+  console.error(error);
+});
 
-}
 ```

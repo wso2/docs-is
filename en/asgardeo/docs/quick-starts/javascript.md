@@ -149,7 +149,6 @@ await auth.initialize({
   scope: ["openid", "profile"]
 });
 
-
 (async () => {
   let user = undefined;
 

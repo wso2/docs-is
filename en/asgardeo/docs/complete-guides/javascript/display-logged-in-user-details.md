@@ -24,7 +24,6 @@ await auth.initialize({
   scope: ["openid", "profile"]
 });
 
-
 (async () => {
   let user = undefined;
 
@@ -99,7 +98,6 @@ To get additional user attributes to the ID token, the application should be con
 auth.getDecodedIDToken().then((idToken) => {
  var decodedIdToken = idToken;
  console.log(decodedIdToken);
-
 
  // Get claims from the decoded idtoken
  var phone = decodedIdToken.phone_number;

@@ -95,28 +95,27 @@ Silent login allows an app to check if a user is already authenticated, either t
 ```javascript
 
 (async () => {
- let user = undefined;
+  let user = undefined;
 
 
- // If there are auth search params i.e code, session_state, automatically trigger login.
- // Else, try to see if there's a session.
- if (AsgardeoAuth.SPAUtils.hasAuthSearchParamsInURL()) {
-     user = await auth.signIn({ callOnlyOnRedirect: true });
- } else {
-     user = await auth.trySignInSilently();
- }
+  // If there are auth search params i.e code, session_state, automatically trigger login.
+  // Else, try to see if there's a session.
+  if (AsgardeoAuth.SPAUtils.hasAuthSearchParamsInURL()) {
+    user = await auth.signIn({ callOnlyOnRedirect: true });
+  } else {
+    user = await auth.trySignInSilently();
+  }
 
 
- // Update the UI accordingly.
- if (user) {
-     document.getElementById("authenticated-view").style.display = "block";
-     document.getElementById("unauthenticated-view").style.display = "none";
-     document.getElementById("username").innerHTML = user.username;
- } else {
-     document.getElementById("authenticated-view").style.display = "none";
-     document.getElementById("unauthenticated-view").style.display = "block";
- }
+  // Update the UI accordingly.
+  if (user) {
+    document.getElementById("authenticated-view").style.display = "block";
+    document.getElementById("unauthenticated-view").style.display = "none";
+    document.getElementById("username").innerHTML = user.username;
+  } else {
+    document.getElementById("authenticated-view").style.display = "none";
+    document.getElementById("unauthenticated-view").style.display = "block";
+  }
 })();
-
 
 ```
