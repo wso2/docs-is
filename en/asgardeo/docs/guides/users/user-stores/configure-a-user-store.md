@@ -98,10 +98,8 @@ To configure a remote user store for your organization:
         - `Username` - This attribute is used as the user identifier. Provide an attribute that identifies your user in your on-premise user store. For the best experience, use a username that satisfies validation rules in [Username Validation]({{base_path}}/guides/user-accounts/account-login/username-validation/) section.
         - `User ID` - This attribute is used to uniquely identify a user entry. Provide an attribute that uniquely identifies a user entry in your user store.
 
-        {% if multi_valued_attributes %}
         Additionally, for Non-JDBC user stores, ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in the [Assign multiple email addresses and mobile numbers to 
         a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) section.
-        {% endif %}
 
 5. Click **Finish** to complete the registration.
 

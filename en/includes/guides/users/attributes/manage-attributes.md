@@ -126,7 +126,6 @@ To delete an attribute:
 
     Only custom attributes can be deleted.
 
-{% if multi_valued_attributes %}
 ## Assign multiple email addresses and mobile numbers to a user
 
 {{ product_name }} allows users to associate multiple email addresses and mobile numbers with their profiles. For users with multiple values, they may also select a primary email address and a primary mobile number.
@@ -160,5 +159,3 @@ For non-JDBC {{ 'secondary' if product_name == 'WSO2 Identity Server' else 'remo
    5. Click **Update** to save the changes
 
    ![Enable for user store]({{base_path}}/assets/img/guides/organization/attributes/enable-for-user-store.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-{% endif %}
