@@ -207,7 +207,7 @@ const auth = AsgardeoSPAClient.getInstance();
 await auth.initialize({
   signInRedirectURL: "http://localhost:5173",
   signOutRedirectURL: "http://localhost:5173",
-  clientID: "RNCTsWN50MyqiQpFuWFjifJdIcIa",
+  clientID: "<your-app-client-id>",
   baseUrl: "https://api.asgardeo.io/t/sagaraorg",
   scope: ["openid", "profile"]
 });
