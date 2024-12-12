@@ -199,18 +199,16 @@ When you lock a user's account, the user will no longer be able to access any ap
 
 To lock a user account:
 
-1. On the {{ product_name }} Console, go to **User Management** > **Users** and select the user.
-2. Enable the **Lock user** toggle at the bottom of the user's profile.
+1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
+2. In the **Danger Zone**, turn the **Lock user** toggle on to lock the user's profile. Turn it off to unlock it.
   
     ![Lock user]({{base_path}}/assets/img/guides/users/lock-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Enable the checkbox to confirm your action.
+3. Select the checkbox to confirm your action.
 4. Click **Confirm**.
 
 !!! note
-    You can unlock the user account again using the **Lock user** toggle explained above.
-
-When a user account is locked, the reason for the account lock will be displayed in the user's profile.
+    When a user account is locked, the reason for the account lock will be displayed in the user's profile.
 
 ![Account lock reason]({{base_path}}/assets/img/guides/users/lock-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
