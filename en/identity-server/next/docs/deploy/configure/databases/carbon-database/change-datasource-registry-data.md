@@ -7,6 +7,8 @@ These repositories use the default datasources as follows.
 - WSO2_CARBON_DB: Used by the local repository.
 - WSO2_SHARED_DB: Used by the configuration and governance repositories.
 
+They can be changed to utilize alternate datasources as described below.
+
 ## Configure the Datasource
 
 Following are the sample configuration for each database type.
