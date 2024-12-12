@@ -502,6 +502,7 @@ nav:
   - Quick Starts:
     - React Quickstart: quick-starts/react.md
     - Angular Quickstart:  quick-starts/angular.md
+    - JavaScript Quickstart: quick-starts/javascript.md
     - Next.js Quickstart:  quick-starts/nextjs.md
     - Spring Boot Quickstart:  quick-starts/springboot.md
   - React Guide:
