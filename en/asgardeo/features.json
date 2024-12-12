@@ -6,7 +6,7 @@
     },
 
     "multi_valued_attributes": {
-        "enabled": false,
+        "enabled": true,
         "page": [
         ]
     },
