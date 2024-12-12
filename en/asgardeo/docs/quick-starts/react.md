@@ -16,8 +16,8 @@ prerequisites:
 source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app" target="_blank" class="github-icon">React Vite App Sample</a>
 whats_next:
   - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
-  - Try out {{product_name}} user onboarding complete guide for React
-  - Read security best practices for React app guide
+  # - Try out {{product_name}} user onboarding complete guide for React
+  # - Read security best practices for React app guide
 ---
 ## Configure an Application in {{ product_name }}
 
