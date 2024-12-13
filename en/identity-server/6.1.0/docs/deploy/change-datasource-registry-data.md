@@ -3,7 +3,7 @@
 !!! note
     To deploy this update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. 
     
-    If you have a paid subscription, this capability can be made available by applying update level 81 for WSO2 Identity Server 7.0.0 using the WSO2 Update Tool. For more information on updating WSO2 Identity Server using the WSO2 Update Tool, see [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview/).
+    If you have a paid subscription, this capability can be made available by applying update level 213 for WSO2 Identity Server 7.0.0 using the WSO2 Update Tool. For more information on updating WSO2 Identity Server using the WSO2 Update Tool, see [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview/).
     
 {! ./includes/registry-repositories.md !}
 
