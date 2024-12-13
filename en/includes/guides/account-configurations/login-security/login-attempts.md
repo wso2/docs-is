@@ -29,12 +29,12 @@ This setting is disabled by default. To enable login attempts security,
           </tr>
           <tr>
              <td><b>Account lock duration</b></td>
-             <td>Specifies the initial duration that the account will be locked for. The account is automatically unlocked after this time period. <br>
+             <td>Specifies the duration of the initial account lock. The account is automatically unlocked after this time period. <br>
              If you enter 5 minutes as the value, the user's account is locked for 5 minutes starting from the last login attempt. The user can log in again after 5 minutes.</td>
         </tr>
         <tr>
             <td><b>Account lock duration increment factor</b></td>
-            <td>Specifies the factor by which the account lock duration should be incremented on further failed login attempts after the account is locked.</td>
+            <td>Specifies the factor by which the account lock duration increases after each subsequent lock following the initial one.</td>
        </tr>
        <tr>
             <td><b>Notify user when lock time is increased</b></td>
@@ -61,17 +61,17 @@ Based on the above settings, the following happens when a user tries to log in w
 3. After **5 minutes**, the account will be unlocked.
 
    - If the user enters the correct password, the user can successfully log in.
-   - If the user tries enters an incorrect password for another **5 consecutive attempts**, the account lock period will be incremented by **2 times** the previous lock duration i.e. the account will be locked for 2 x (5 ^ 1)= 10 minutes.
-   - If the user attempts to enter an incorrect password for another **5 consecutive attempts**, after the wait time (10min), the account will be locked again for 2 * (5 ^ 2)= 50 minutes.
+   - If the user tries enters an incorrect password for another **5 consecutive attempts**, the account lock period will be incremented by **2 times** the previous lock duration i.e. the account will be locked for 5 x (2 ^ 1)= 10 minutes.
+   - If the user attempts to enter an incorrect password for another **5 consecutive attempts**, after the wait time (10min), the account will be locked again for 5 * (2 ^ 2)= 20 minutes.
 
 ``` 
-Time for account to unlock = Account lock duration increment factor * (Account lock duration factor ^ Number of account locks due to consecutive failed logins)
+Time for account to unlock = Account lock duration * (Account lock duration increment factor ^ Account lock count excluding the initial occurrence)
 ```
 
 {% if product_name == "WSO2 Identity Server" %}
 
 !!! Info
-    - In the {{product_name}} login pages, a generic error message is displayed by default to end-users in the event of login failures. To show more specific error messages on the login page, the following properties can be configured in the `deployment.toml` file, which is located in the `<IS_HOME>/repository/conf` directory.
+    - On the {{product_name}} login pages, a generic error message is displayed by default to end-users in the event of login failures. To show more specific error messages on the login page, the following properties can be configured in the `deployment.toml` file, which is located in the `<IS_HOME>/repository/conf` directory.
 
     Basic authenticator configurations:
 
