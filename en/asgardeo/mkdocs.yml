@@ -98,7 +98,12 @@ hooks:
   - hooks.py
 
 plugins:
-  - search
+  - search:
+      indexing: "full"
+      separator: "[^\\w._]+"
+      lang: ['en']
+      prebuild_index: true
+      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -122,6 +127,7 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+        'apis/build-scim2-user-creation-payload.md': 'apis/scim2/build-scim2-user-creation-payload.md'
         'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
         'guides/user-accounts/index.md': 'guides/account-configurations/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs.md'
@@ -189,11 +195,13 @@ nav:
             - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
             - Add login to a web app: guides/authentication/add-login-to-web-app.md
             - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
-          - Add login to saas app:
-              - Add SSO login to saas apps: guides/authentication/sso-integrations/index.md
+          - Add login to SaaS apps:
+              - Add SSO login to SaaS apps: guides/authentication/sso-integrations/index.md
               - Google Workspace: guides/authentication/sso-integrations/add-google-workspace-template.md
               - Salesforce: guides/authentication/sso-integrations/add-salesforce-template.md
               - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
+              - Zoom: guides/authentication/sso-integrations/add-zoom-template.md
+              - Slack: guides/authentication/sso-integrations/add-slack-template.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
@@ -292,9 +300,9 @@ nav:
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
         - Migrate users to Asgardeo:
-          - Migrate users to Asgardeo: guides/users/migrate-users-to-asgardeo/index.md
-          - Migrate user accounts: guides/users/migrate-users-to-asgardeo/migrate-users.md
-          - Migrate user passwords: guides/users/migrate-users-to-asgardeo/migrate-passwords.md
+          - Migrate users to Asgardeo: guides/users/migrate-users/index.md
+          - Migrate user accounts: guides/users/migrate-users/migrate-users.md
+          - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
           - User attributes: guides/users/attributes/manage-attributes.md
@@ -415,6 +423,7 @@ nav:
       - Organization management API: apis/organization-management.md
       - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
+      - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -423,6 +432,7 @@ nav:
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
           - SCIM 2.0 Service provider configs API: apis/scim2/scim2-service-provider-configs-rest-api.md
+          - SCIM 2.0 Build user creation payload: apis/scim2/build-scim2-user-creation-payload.md
         - User account associations API: apis/association-management-by-admin.md
         - Account Recovery API: apis/user-account-recovery.md
         - Offline user onboard management API: apis/offline-user-onboard.md
@@ -497,6 +507,12 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
+  - Quick Starts:
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
+    - JavaScript Quickstart: quick-starts/javascript.md
+    - Next.js Quickstart:  quick-starts/nextjs.md
+    - Spring Boot Quickstart:  quick-starts/springboot.md
   - React Guide:
     - Introduction: complete-guides/react/introduction.md
     - Prerequisite: complete-guides/react/prerequisite.md
@@ -509,7 +525,65 @@ nav:
     - Accessing protected API : complete-guides/react/accessing-protected-api.md
     - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
     - Next Steps: complete-guides/react/next-steps.md
-
+  - Node.js Guide:
+    - Introduction: complete-guides/nodejs/introduction.md
+    - Prerequisite: complete-guides/nodejs/prerequisite.md
+    - Configure an application: complete-guides/nodejs/register-an-application.md
+    - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
+    - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
+    - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+    - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
+    - Next Steps: complete-guides/nodejs/next-steps.md
+  - Angular Guide:
+    - Introduction: complete-guides/angular/introduction.md
+    - Prerequisite: complete-guides/angular/prerequisite.md
+    - Register an application: complete-guides/angular/register-an-application.md
+    - Create a Angular app: complete-guides/angular/create-app.md
+    - Configure Asgardeo provider: complete-guides/angular/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/angular/add-login-and-logout.md
+    - Display user details: complete-guides/angular/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/angular/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/angular/accessing-protected-api.md
+    - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
+    - Next Steps: complete-guides/angular/next-steps.md
+  - Nextjs Guide:
+    - Introduction: complete-guides/nextjs/introduction.md
+    - Prerequisite: complete-guides/nextjs/prerequisite.md
+    - Register an application: complete-guides/nextjs/register-an-application.md
+    - Create a Next.js app: complete-guides/nextjs/create-app.md
+    - Configure Asgardeo provider: complete-guides/nextjs/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
+    - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/nextjs/accessing-protected-api.md
+    - Manage tokens in Next.js : complete-guides/nextjs/manage-tokens-in-apps.md
+    - Next Steps: complete-guides/nextjs/next-steps.md
+  - JavaScript Guide:
+    - Introduction: complete-guides/javascript/introduction.md
+    - Prerequisite: complete-guides/javascript/prerequisite.md
+    - Register an application: complete-guides/javascript/register-an-application.md
+    - Create a JavaScript app: complete-guides/javascript/create-app.md
+    - Configure Asgardeo SDK: complete-guides/javascript/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/javascript/add-login-and-logout.md
+    - Display user details: complete-guides/javascript/display-logged-in-user-details.md
+    - Accessing protected API : complete-guides/javascript/accessing-protected-api.md
+    - Manage tokens in JavaScript : complete-guides/javascript/manage-tokens-in-apps.md
+    - Next Steps: complete-guides/javascript/next-steps.md
+  - Frontend Security Guide:
+    - Introduction: complete-guides/fesecurity/introduction.md
+    - In-app vs IdP-based login: complete-guides/fesecurity/login-options.md
+    - Public clients: complete-guides/fesecurity/public-clients.md
+    - Insecure token handling : complete-guides/fesecurity/insecure-tokens.md
+    - Weak access control: complete-guides/fesecurity/weak-access-control.md
+    - Unauthorized access: complete-guides/fesecurity/unauthorized-privilege-gain.md
+    - Weak MFA : complete-guides/fesecurity/weak-mfa.md
+    - Partial user logouts: complete-guides/fesecurity/partial-user-logouts.md
+    - Product misconfiguration: complete-guides/fesecurity/misconfiguration.md
+    - Cross-Site Scripting (XSS): complete-guides/fesecurity/xss.md
+    - Cross-Site Request Forgery (CSRF): complete-guides/fesecurity/csrf.md
+    - Next Steps: complete-guides/fesecurity/next-steps.md 
 not_in_nav: |
   /page-not-found.md
   /get-started/explore-asgardeo.md

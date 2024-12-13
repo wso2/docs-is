@@ -51,3 +51,6 @@ To delete the SCIM 2.0 custom schema attributes available in your organization:
 3. Navigate to the **Custom Schema** tab and select the attribute to delete.
 3. Click **Delete** and select the checkbox to confirm you action.
 4. Click **Confirm**.
+
+!!! note
+    Only custom attributes can be deleted.

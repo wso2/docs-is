@@ -83,11 +83,8 @@ A sample configuration is given below.
     2.  Execute database scripts.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/oracle_rac.sql` file against the database created.
-        
-3. If you have a requirement in using workflow feature follow, 
-    [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
     
-4.  Download the Oracle RAC JDBC driver for the version, you are using and
+3.  Download the Oracle RAC JDBC driver for the version, you are using and
         copy it to the `<IS_HOME>/repository/components/lib` folder   
                
 ---      

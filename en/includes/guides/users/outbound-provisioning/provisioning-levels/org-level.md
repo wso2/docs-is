@@ -52,6 +52,12 @@ Follow the steps below to configure the resident application in {{product_name}}
     !!! note
         You can select **Blocking** to make the user onboarding process synchronous with the outbound provisioning process. If selected, {{product_name}} waits for the response from the outbound connector before proceeding with the user creation.
 
+        {% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+        You can select **JIT Outbound** to enable outbound provisioning for JIT provisioned users during authentication.
+        {% else %}
+        If you are on an update level that is greater than or equal to 7.0.0.73, you can select **JIT Outbound** to enable outbound provisioning for JIT provisioned users during authentication.
+        {% endif %}
+
     ![Configure the resident identity outbound provisioner]({{base_path}}/assets/img/guides/outbound-provisioning/configure-resident-idp.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
 5. Click **Finish**.

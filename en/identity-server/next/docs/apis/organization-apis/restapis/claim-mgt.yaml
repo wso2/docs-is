@@ -507,6 +507,11 @@ components:
           type: string
           description: The local claim URI to map with the external claim.
           example: http://wso2.org/claims/username
+        properties:
+          type: array
+          description: Define any additional properties if required.
+          items:
+            $ref: '#/components/schemas/Property'
       description: External claim response.
     Property:
       required:

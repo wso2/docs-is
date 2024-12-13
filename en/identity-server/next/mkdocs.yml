@@ -23,6 +23,9 @@ extra:
   base_path: /en/next
   is_version: next
 
+hooks:
+  - hooks.py
+
 plugins:
   - search:
       indexing: "full"
@@ -220,6 +223,7 @@ plugins:
         'deploy/change-to-postgresql.md': 'deploy/configure/databases/carbon-database/change-to-postgresql.md'
         'deploy/change-to-remote-h2.md': 'deploy/configure/databases/carbon-database/change-to-remote-h2.md'
         'deploy/change-datasource-consent-management.md': 'deploy/configure/databases/carbon-database/change-datasource-consent-management.md'
+        'deploy/change-datasource-registry-data.md': 'deploy/configure/databases/carbon-database/change-datasource-registry-data.md'
 
         'deploy/enable-fips-for-is.md': 'deploy/security/enable-fips-for-is.md'
         'apis/overview.md': 'apis/index.md'
@@ -376,11 +380,13 @@ nav:
             - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
             - Add login to a web app: guides/authentication/add-login-to-web-app.md
             - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
-            - Add login to saas app:
-              - Add SSO login to saas apps: guides/authentication/sso-integrations/index.md
-              - Google Workspace: guides/authentication/sso-integrations/add-google-workspace-template.md
-              - Salesforce: guides/authentication/sso-integrations/add-salesforce-template.md
-              - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
+          - Add login to SaaS apps:
+            - Add SSO login to SaaS apps: guides/authentication/sso-integrations/index.md
+            - Google Workspace: guides/authentication/sso-integrations/add-google-workspace-template.md
+            - Salesforce: guides/authentication/sso-integrations/add-salesforce-template.md
+            - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
+            - Zoom: guides/authentication/sso-integrations/add-zoom-template.md
+            - Slack: guides/authentication/sso-integrations/add-slack-template.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
@@ -443,6 +449,7 @@ nav:
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
               - MFA based on TypingDNA: guides/authentication/conditional-auth/typingdna-based-adaptive-auth.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+            - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - App-native authentication:
@@ -536,6 +543,10 @@ nav:
             - Properties used in read-write LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-write-ldap-user-store.md
           - Configure user stores for SCIM 2.0: guides/users/user-stores/configure-user-stores-for-scim2.md
           - Configure Active Directory user stores for SCIM 2.0: guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md
+        - Migrate users to WSO2 Identity Server:
+          - Migrate users to WSO2 Identity Server: guides/users/migrate-users/index.md
+          - Migrate user accounts: guides/users/migrate-users/migrate-users.md
+          - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
@@ -639,6 +650,7 @@ nav:
             - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
             - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
             - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
+            - Change the Default Datasources for the Registry Data: deploy/configure/databases/carbon-database/change-datasource-registry-data.md
           - Data Dictionary:
             - Registry Related Tables: deploy/configure/databases/data-dictionary/registry-related-tables.md
             - User Management Related Tables: deploy/configure/databases/data-dictionary/user-management-related-tables.md
@@ -779,6 +791,7 @@ nav:
       - Role management:
           - Roles v2 API: apis/roles-v2-rest-api.md
           - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
+      - Rule Metadata API: apis/rule-metadata-rest-api.md   
       - Server management:
         - Configuration management:
             - Configuration management API: apis/use-the-configuration-management-rest-apis.md
@@ -900,6 +913,7 @@ nav:
       - Verifiable credentials with Microsoft Entra Verified ID: references/tutorials/connect-with-ms-entra.md
       - Verifiable credentials with MATTR: references/tutorials/connect-with-mattr.md
       - Send notifications through an external scheduled task: references/tutorials/send-notification-external-schedular.md
+      - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
     - IAM concepts:
       - OAuth2 grant types: references/grant-types.md
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
