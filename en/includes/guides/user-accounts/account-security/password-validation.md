@@ -64,8 +64,8 @@ Refer to the following table for more information on rule parameters.
 
 #### Retrieve password expiry time of users
 
-You can retrieve the password expiry times of users using the SCIM 2.0 `GET /Users` endpoint. By specifying the `attributes` query parameter, you can control the attributes returned (e.g., `userName`, `emails`, 
-`urn:scim:wso2:schema.passwordExpiryTime`).
+You can retrieve the password expiry times of users using the SCIM 2.0 `GET /Users` endpoint. To retrieve this 
+attribute, you must explicitly request it in the `attributes` query parameter, as shown in the following sample request.
 
 !!! abstract ""
     **Request**
