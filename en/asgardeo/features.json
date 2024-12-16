@@ -20,7 +20,7 @@
     },
 
     "attribute_uniqueness_validation": {
-        "enabled": false,
+        "enabled": true,
         "page": [
             "guides/users/attributes/configure-unique-attributes.md"
         ]
