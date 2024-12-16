@@ -6,13 +6,13 @@
     },
 
     "multi_valued_attributes": {
-        "enabled": false,
+        "enabled": true,
         "page": [
         ]
     },
 
     "sso_integrations_zoom_slack": {
-        "enabled": false,
+        "enabled": true,
         "page": [
             "guides/authentication/sso-integrations/add-zoom-template.md",
             "guides/authentication/sso-integrations/add-slack-template.md"

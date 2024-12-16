@@ -14,8 +14,8 @@ prerequisites:
   - Install <a href="https://angular.dev/tools/cli/setup-local" target="_blank">Angular CLI </a>
   - A favorite text editor or IDE
 # source_code: <a href="" target="_blank" class="github-icon">Angular App Sample</a>
-# whats_next:
-#   - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
+whats_next:
+  - Try out <a href="{{ base_path }}/complete-guides/angular/introduction/" target="_blank">{{ product_name }} complete Angular guide</a>
 #   - Try out {{product_name}} user onboarding complete guide for React
 #   - Read security best practices for React app guide
 ---
