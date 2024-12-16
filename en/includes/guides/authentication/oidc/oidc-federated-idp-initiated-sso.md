@@ -11,12 +11,12 @@ This guide explains how you can implement federated IdP-initiated SSO using {{pr
 The steps below implement the following example scenario.
 
 - Two instances of {{product_name}} running on two different ports (e.g. 9443 and 9444), represent the internal and external IdPs respectively.
-- The internal IdP has an application called travelocity.com.
-- A user belonging to the external IdP should be able to access travelocity.com without creating an account in the internal IdP.
-
-Follow the steps below to implement this scenario.
+- The first instance (internal IdP) has an application called `travelocity.com`.
+- A user belonging to the second instance (external IdP) should be able to access `travelocity.com` without creating an account in the internal IdP.
 
 ## Prerequisites
+
+Before you begin, be sure to set up the following:
 
 1. Set up two instances of {{product_name}}.
 
@@ -24,52 +24,86 @@ Follow the steps below to implement this scenario.
 
     !!! info
 
-        Learn how to [set an offset]({{base_path}}/references/default-ports-of-wso2-products/#change-the-offset-for-default-ports).
+        Learn how to [set an offset]({{base_path}}/references/default-ports/#change-the-offset-for-default-ports).
 
 3. Since there can be cookie issues when the same hostname is configured for both {{product_name}} instances, it is recommended that you configure different hostnames for the servers.
 
     !!! info
         Learn how to [change the hostname]({{base_path}}/deploy/change-the-hostname) for a {{product_name}} instance. In this guide, the hostname of the external IdP is changed to `localhost.com`.
 
-## Step 1: Configure the application
+## Step 1: Create the application
 
-Follow the steps below to register the travelocity.com app in the internal IdP.
+Follow the steps below in the internal IdP to register `travelocity.com` as an application.
 
-1. On the {{product_name}} Management Console of the internal IdP, go to **Main** > **Identity** > **Service Providers** and click **Add**.
+1. On the {{product_name}} Console, go to **Applications**.
 
-2. Enter `travelocity.com` as the **Service Provider Name** and click **Register**.
+2. Click on **New Application** and select **Standard-Based Application**.
 
-3. Expand the **Inbound Authentication Configuration** > **SAML2 Web SSO Configuration** and click **Configure**.
+3. Configure the following:
 
-4. Enter the following values in the following fields.
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><code>travelocity.com</code></td>
+        </tr>
+        <tr>
+            <td>Protocol</td>
+            <td>SAML</td>
+        </tr>
+        <tr>
+            <td>Issuer</td>
+            <td><code>travelocity.com</code></td>
+        </tr>
+        <tr>
+            <td>Assertion consumer service URLs</td>
+            <td><code>http://localhost.com:8080/travelocity.com/home.jsp</code></td>
+        </tr>
+    </table>
 
-    | Field name | Value |
-    |-----------|-------|
-    | **Issuer** | `travelocity.com`  |
-    | **Assertion Consumer URL**    | `http://localhost.com:8080/travelocity.com/home.jsp`  |
+4. Click **Create**.
 
-    !!! info
-        A prompt appears when you try to add an http URL. Click **Yes** to proceed.
+5. Go to the **Protocol** tab of the created application and do the following:
 
-5. Enable the following options.
+    - Under **Response Signing**, enable **Sign SAML responses**.
+    - Under **Certificate**, click **Provide certificate** and upload the external IdP certificate.
+    - Under **Request Validation**, select the **Enable request signature validation** checkbox.
+    - Under **Single Logout Profile**, select the **Enable SLO** checkbox.
+    - Under **Attribute Profile**, select the **Enable attribute profile** checkbox.
+    - Under **Single Sign-On Profile**, select the **Enable IdP initiated SSO** checkbox.
 
-    - **Enable Response Signing**
+6. Click **Update** to save the changes.
 
-    - **Enable Signature Validation in Authentication Requests and Logout Requests**
+## Step 2: Register the external IdP as a connector
 
-    - **Enable Single Logout**
+Follow the steps below in the internal IdP to register the external IdP as a connector.
 
-    - **Enable Attribute Profile** and **Include Attributes in the Response Always**
+1. On the {{product_name}} Console, go to **Connections**.
 
-    - **Enable IdP Initiated SSO**
+2. Click **New Connection** > **Standard-Based IdP**
 
-6. Click **Register** and click **Update**.
+3. Provide `External` as the name and select **SAML** as the protocol.
 
-## Step 2: Register the external IdP in the internal IdP
+4. Click **Next** and enter the following details:
 
-Follow the steps below to register the external IdP as an identity provider in the internal IdP.
+    <table>
+        <tr>
+            <td>Service Provider Entity ID</td>
+            <td><code>Internal</code></td>
+        </tr>
+        <tr>
+            <td>Protocol</td>
+            <td>SAML</td>
+        </tr>
+        <tr>
+            <td>Issuer</td>
+            <td><code>travelocity.com</code></td>
+        </tr>
+        <tr>
+            <td>Assertion consumer service URLs</td>
+            <td><code>http://localhost.com:8080/travelocity.com/home.jsp</code></td>
+        </tr>
+    </table>
 
-1. On the {{product_name}} Management Console of the internal IdP, go to **Main** > **Identity** > **Identity Providers** and click **Add**.
 
 2. Provide an **Identity Provider Name**. For this scenario, let's name it `External`.
 
