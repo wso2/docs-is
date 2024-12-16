@@ -30,4 +30,9 @@ To configure alternative login identifiers for your organization:
 
 4. Click **Update** to save the changes.
 
+    {% if attribute_uniqueness_validation %}
+    !!! note
+        A consent prompt will appear if [uniqueness validation]({{base_path}}/guides/users/attributes/configure-unique-attributes/) is not already configured for the selected attribute(s). Without confirmation, the alternative login identifier configuration will not be applied.
+    {% endif %}
+
 Upon successful configuration, the login and recovery user interfaces will update according to the defined login identifier attributes.
