@@ -1,18 +1,16 @@
 # Configure federated IdP-Initiated Single Sign-On (SSO)
 
-Single Sign On (IdP-initiated SSO) is an authentication process which allows users to log in once and gain access to the organization's applications without having to authenticate to each application.
+Single Sign On (SSO) is an authentication process which allows users to log in once and gain access to an organization's applications without having to authenticate to each individual application.
 
-Federated IdP-initiated SSO extends this process to enable a user belonging to an external organization to seamlessly access applications within your organization.
-
-In this scenario, your organization's Identity Provider (IdP) and the external organization's IdP establish a trust relationship. Therefore, external users can conveniently log in to their organization's IdP and access applications in your organization without creating accounts in your organization's IdP.
+Federated IdP-initiated SSO extends this capability and enables a user belonging to an external organization to seamlessly access applications within your organization. In this scenario, your organization's Identity Provider (IdP) and the external organization's IdP establish a trust relationship. Therefore, external users can conveniently log in to their own IdP and access applications in another organization without having to create accounts in that organization.
 
 This guide explains how you can implement federated IdP-initiated SSO using {{product_name}}.
 
 ## Scenario
 
-Let's consider the following scenario.
+The steps below implement the following example scenario.
 
-- Two instances of {{product_name}} are running on two different ports, 9443 and 9444, to represent the internal and external IdPs respectively.
+- Two instances of {{product_name}} running on two different ports (e.g. 9443 and 9444), represent the internal and external IdPs respectively.
 - The internal IdP has an application called travelocity.com.
 - A user belonging to the external IdP should be able to access travelocity.com without creating an account in the internal IdP.
 
@@ -32,9 +30,6 @@ Follow the steps below to implement this scenario.
 
     !!! info
         Learn how to [change the hostname]({{base_path}}/deploy/change-the-hostname) for a {{product_name}} instance. In this guide, the hostname of the external IdP is changed to `localhost.com`.
-
-Let's get started!
-
 
 ## Step 1: Configure the application
 
