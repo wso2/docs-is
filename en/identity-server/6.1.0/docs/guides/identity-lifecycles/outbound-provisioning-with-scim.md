@@ -20,6 +20,18 @@ configuration user interface of WSO2 Identity Server.
 
 WSO2 Identity Server supports outbound provisioning with both SCIM 1.1 and SCIM 2.0 standards. This topic provides instructions  on how to configure SCIM 1.1 or SCIM 2.0 connectors to provision users from the WSO2 IS. 
 
+!!! Note
+    If another Identity Server instance is being used as the secondary Identity Provider, please note the below.
+
+    Identity server does not support SCIM1.1 and SCIM 2.0 inbound provisioning to work at the same time. Therefore we have disabled SCIM1.1 listeners by default. If you have a requirement to enable SCIM1.1.1 connector, add the below configuration to the deployment.toml file.
+
+    ```toml
+    [event.default_listener.scim2]
+    enable=false
+
+    [event.default_listener.scim]
+    enable=true 
+    ```
 ---
 
 ## Configure an identity provider
