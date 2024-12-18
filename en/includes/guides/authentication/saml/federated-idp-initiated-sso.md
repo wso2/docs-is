@@ -76,7 +76,7 @@ When performing federated IdP-initiated SSO, the two {{product_name}} instances 
 
 To establish this connection, we need to register the `external IdP` as an identity provider (connector) in the internal IdP and register the `internal IdP` as a service provider (application) in the external IdP.
 
-## Register the external IdP as a connector
+### Register the external IdP as a connector
 
 The external IdP needs to be registered as a connector in the internal IdP. This enables the external IdP to act as an identity provider and be used as a login option for the `travelocity.com` application.
 
@@ -130,7 +130,7 @@ To do so, follow the steps below in the internal IdP.
 
 9. Click **Update** to save the changes.
 
-## Step 3: Register the internal IdP as an application
+### Register the internal IdP as an application
 
 The internal IdP needs to be registered as an application in the external IdP. This enables the internal IdP to consume the SAML assertion sent by the external IdP after user authentication.
 
