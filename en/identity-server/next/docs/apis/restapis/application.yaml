@@ -1,10 +1,17 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies an **Application Management RESTful API** for WSO2 Identity Server.
+    This document specifies an **Application Management RESTful API** for **WSO2 Identity Server**.
   version: "v1"
-  title: Application Management Rest API
-
+  title: WSO2 Identity Server - Application Management Rest API
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -15,9 +22,9 @@ paths:
         - Applications
       operationId: getAllApplications
       summary: |
-        List applications
+        List applications.
       description: |
-        This API provides the capability to retrieve the list of applications.<br>
+        This API provides the capability to retrieve the list of applications. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -68,16 +75,15 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/api/server/v1/applications?limit=30&offset=0' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='          
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Applications
       summary: |
-        Add application
+        Add application.
       operationId: createApplication
       description: >
-        This API provides the capability to store the application information
-        that is provided by users.<br>
+        This API provides the capability to store the application information that is provided by users. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_create`
       parameters:
         - in: query
@@ -385,7 +391,7 @@ paths:
       operationId: importApplication
       description: >
         This API provides the capability to create an application based on the
-        information provided in an XML, YAML, or JSON file.<br>
+        information provided in an XML, YAML, or JSON file. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_create`
       requestBody:
         content:
@@ -440,7 +446,7 @@ paths:
       operationId: importApplicationForUpdate
       description: >
         This API provides the capability to update an application based on the
-        information provided in an XML, YAML, or JSON file.<br>
+        information provided in an XML, YAML, or JSON file. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       requestBody:
         content:
@@ -498,11 +504,10 @@ paths:
       tags:
         - Applications
       summary: |
-        Retrieve application by ID
+        Retrieve application by ID.
       operationId: getApplication
       description: >
-        This API provides the capability to retrieve the application information
-        by ID. <br>
+        This API provides the capability to retrieve the application information by ID. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       parameters:
         - name: applicationId
@@ -560,10 +565,10 @@ paths:
       tags:
         - Applications
       summary: |
-        Partially update application by ID
+        Partially update application by ID.
       operationId: patchApplication
       description: |
-        This API provides the capability to partially update an application by ID.<br>
+        This API provides the capability to partially update an application by ID. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       parameters:
         - name: applicationId
@@ -719,7 +724,7 @@ paths:
       tags:
         - Applications
       summary: |
-        Delete application by ID
+        Delete application by ID.
       operationId: deleteApplication
       description: |
         This API provides the capability to delete an application by ID. <br>
@@ -769,9 +774,9 @@ paths:
         - Applications
       operationId: exportApplication
       summary: |
-        Export application as an XML file
+        Export application as an XML file.
       description: |
-        This API provides the capability to retrieve the application as an XML file.<br>
+        This API provides the capability to retrieve the application as an XML file. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       parameters:
         - name: applicationId
@@ -825,11 +830,8 @@ paths:
       summary: |
         Export application in XML, YAML, or JSON file formats.
       description: |
-        This API provides the capability to retrieve the application in XML, YAML, or JSON format.<br>
-          <b>Permission required:</b> <br>
-              * /permission/admin/manage/identity/applicationmgt/view <br>
-          <b>Scope required:</b> <br>
-              * internal_application_mgt_view
+        This API provides the capability to retrieve the application in XML, YAML, or JSON format. <br>
+          <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       parameters:
         - name: applicationId
           in: path
@@ -894,9 +896,9 @@ paths:
         - Applications
       operationId: changeApplicationOwner
       summary: |
-        Change application owner
+        Change application owner.
       description: |
-        This API provides the capability to change the application owner.<br>
+        This API provides the capability to change the application owner. <br>
           <b>Scope(Permission) required:</b> `internal_organization_admin`
       parameters:
         - name: applicationId
@@ -951,11 +953,11 @@ paths:
       tags:
         - Authenticators
       summary: |
-        Get configured authenticators
+        Get configured authenticators.
       operationId: getConfiguredAuthenticators
       description: |
-        This API provides the capability to retrieve the configured authenticators.
-        <b>Scope(Permission) required:</b> `internal_application_mgt_view`
+        This API provides the capability to retrieve the configured authenticators. <br>
+          <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       parameters:
         - name: applicationId
           in: path
@@ -1009,8 +1011,7 @@ paths:
         Get authorized APIs of the application.
       operationId: getAuthorizedAPIs
       description: |
-        This API provides the capability to retrieve all the authorized APIs of the application.<br>
-
+        This API provides the capability to retrieve all the authorized APIs of the application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       parameters:
         - name: applicationId
@@ -1049,11 +1050,10 @@ paths:
       tags:
         - Authorized APIs
       summary: |
-        Authorized an API to the application
+        Authorized an API to the application.
       operationId: addAuthorizedAPI
       description: |
-        This API provides the capability to authorized an API to the application.<br>
-
+        This API provides the capability to authorized an API to the application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       parameters:
         - name: applicationId
@@ -1102,17 +1102,15 @@ paths:
                 ]
             }'
       x-codegen-request-body-name: body
-
   /applications/{applicationId}/authorized-apis/{apiId}:
     patch:
       tags:
         - Authorized APIs
       summary: |
-        Update authorized API scopes
+        Update authorized API scopes.
       operationId: patchAuthorizedAPI
       description: |
-        This API provides the capability to update an authorized API of the application.<br>
-
+        This API provides the capability to update an authorized API of the application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       parameters:
         - name: applicationId
@@ -1172,11 +1170,10 @@ paths:
       tags:
         - Authorized APIs
       summary: |
-        Remove API authorization from the application
+        Remove API authorization from the application.
       operationId: deleteAuthorizedAPI
       description: |
-        This API provides the capability to delete an authorized API of the application.<br>
-
+        This API provides the capability to delete an authorized API of the application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       parameters:
         - name: applicationId
@@ -1214,11 +1211,10 @@ paths:
       tags:
         - Resident Application
       summary: |
-        Get Resident application
+        Get resident application.
       operationId: getResidentApplication
       description: |
-        This API provides the capability to retrieve the resident application information.
-        <br>
+        This API provides the capability to retrieve the resident application information. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       responses:
         '200':
@@ -1260,10 +1256,10 @@ paths:
       tags:
         - Resident Application
       summary: |
-        Update resident application
+        Update resident application.
       operationId: updateResidentApplication
       description: >
-        This API provides the capability to update the Resident Application Configuration. <br>
+        This API provides the capability to update the resident application configuration. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       responses:
         '200':
@@ -1342,11 +1338,10 @@ paths:
       tags:
         - Inbound Protocols
       summary: |
-        Retrieve inbound protocol configurations
+        Retrieve inbound protocol configurations.
       operationId: getInboundAuthenticationConfigurations
       description: >
-        This API provides the capability to retrieve authentication protocol
-        configurations of an application. <br>
+        This API provides the capability to retrieve authentication protocol configurations of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       parameters:
         - name: applicationId
@@ -1396,11 +1391,10 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Retrieve SAML2 authentication protocol parameters
+        Retrieve SAML2 authentication protocol parameters.
       operationId: getInboundSAMLConfiguration
       description: >
-        This API provides the capability to retrieve SAML2 authentication
-        protocol parameters of an application. <br>
+        This API provides the capability to retrieve SAML2 authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       parameters:
         - name: applicationId
@@ -1449,11 +1443,10 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Update SAML2 authentication protocol parameters
+        Update SAML2 authentication protocol parameters.
       operationId: updateInboundSAMLConfiguration
       description: >
-        This API provides the capability to store SAML2 authentication protocol
-        parameters of an application. <br>
+        This API provides the capability to store SAML2 authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
 
         - There are three methods to create/update SAML2 authentication protocol configuration.
@@ -1584,11 +1577,10 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Delete SAML2 authentication protocol parameters
+        Delete SAML2 authentication protocol parameters.
       operationId: deleteInboundSAMLConfiguration
       description: >
-        This API provides the capability to delete SAML2 authentication protocol
-        parameters of an application. <br>
+        This API provides the capability to delete SAML2 authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_delete`
       parameters:
         - name: applicationId
@@ -1634,10 +1626,9 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Retrieve OIDC authentication protocol parameters
+        Retrieve OIDC authentication protocol parameters.
       description: >
-        This API provides the capability to retrieve OIDC authentication
-        protocol parameters of an application. <br>
+        This API provides the capability to retrieve OIDC authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       operationId: getInboundOAuthConfiguration
       parameters:
@@ -1687,10 +1678,9 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Update OIDC authentication protocol parameters
+        Update OIDC authentication protocol parameters.
       description: >
-        This API provides the capability to store OIDC authentication protocol
-        parameters of an application. <br>
+        This API provides the capability to store OIDC authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       operationId: updateInboundOAuthConfiguration
       parameters:
@@ -1811,10 +1801,9 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Delete OIDC authentication protocol parameters
+        Delete OIDC authentication protocol parameters.
       description: >
-        This API provides the capability to delete OIDC authentication protocol
-        parameters of an application. <br>
+        This API provides the capability to delete OIDC authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_delete`
       operationId: deleteInboundOAuthConfiguration
       parameters:
@@ -1861,7 +1850,7 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Regenerate the OAuth2/OIDC client secret
+        Regenerate the OAuth2/OIDC client secret.
       description: |
         This API regenerates the OAuth2/OIDC client secret. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_create`
@@ -1915,9 +1904,10 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Revoke the OAuth2/OIDC client of application
+        Revoke the OAuth2/OIDC client of application.
       description: |
-        This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated. <br>
+        This API revokes the OAuth2/OIDC client secret. 
+        To re-activate the client, the client secret needs to be regenerated. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_create`
       operationId: revokeOAuthClient
       parameters:
@@ -1965,7 +1955,7 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: >
-        Retrieve Passive STS authentication protocol parameters
+        Retrieve Passive STS authentication protocol parameters.
       description: >
         This API provides the capability to retrieve Passive STS authentication
         protocol parameters of an application. <br>
@@ -2018,10 +2008,9 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: |
-        Update Passive STS authentication protocol parameters
+        Update Passive STS authentication protocol parameters.
       description: >
-        This API provides the capability to store passive STS authentication
-        protocol parameters of an application. <br>
+        This API provides the capability to store passive STS authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       operationId: updatePassiveStsConfiguration
       parameters:
@@ -2096,7 +2085,7 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: |
-        Delete Passive STS authentication protocol parameters
+        Delete Passive STS authentication protocol parameters.
       description: >
         This API provides the capability to delete Passive STS authentication
         protocol parameters of an application. <br>
@@ -2146,7 +2135,7 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Retrieve WS Trust authentication protocol parameters
+        Retrieve WS Trust authentication protocol parameters.
       description: >
         This API provides the capability to retrieve Passive STS authentication
         protocol parameters of an application. <br>
@@ -2199,10 +2188,9 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Update WS Trust authentication protocol parameters
+        Update WS Trust authentication protocol parameters.
       description: >
-        This API provides the capability to store WS Trust authentication
-        protocol parameters of an application. <br>
+        This API provides the capability to store WS Trust authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       operationId: updateWSTrustConfiguration
       parameters:
@@ -2277,10 +2265,9 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Delete WS Trust authentication protocol parameters
+        Delete WS Trust authentication protocol parameters.
       description: >
-        This API provides the capability to delete WS Trust authentication
-        protocol parameters of an application. <br>
+        This API provides the capability to delete WS Trust authentication protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_delete`
       operationId: deleteWSTrustConfiguration
       parameters:
@@ -2327,7 +2314,7 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: >
-        Retrieve custom inbound authentication protocol parameters
+        Retrieve custom inbound authentication protocol parameters.
       description: >
         This API provides the capability to retrieve custom inbound
         authentication protocol parameters of an application. <br>
@@ -2386,10 +2373,10 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: |
-        Update the custom inbound authentication protocol parameters
+        Update the custom inbound authentication protocol parameters.
       description: >
-        This API provides the capability to store custom inbound authentication protocol parameters of an application.
-        <br>
+        This API provides the capability to store custom inbound authentication 
+        protocol parameters of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_update`
       operationId: updateCustomInboundConfiguration
       parameters:
@@ -2477,7 +2464,7 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: >
-        Delete custom inbound authentication protocol parameters
+        Delete custom inbound authentication protocol parameters.
       description: >
         This API provides the capability to delete custom inbound authentication protocol of an application. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_delete`
@@ -2532,11 +2519,10 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve the list of inbound authentication protocols available
+        Retrieve the list of inbound authentication protocols available.
       description: >
         This API provides the capability to retrieve the list of inbound authentication protocols available.
-        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed.
-        <br>
+        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       operationId: getInboundProtocols
       parameters:
@@ -2581,7 +2567,7 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve all the metadata related to the auth protocol SAML
+        Retrieve all the metadata related to the auth protocol SAML.
       description: >
         This API provides the capability to retrieve all the metadata related to the auth protocol SAML. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
@@ -2629,9 +2615,10 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve all the metadata related to the authentication protocol OAuth / OIDC
+        Retrieve all the metadata related to the authentication protocol OAuth / OIDC.
       description: >
-        This API provides the capability to retrieve all the metadata related to the authentication protocol OAuth / OIDC. <br>
+        This API provides the capability to retrieve all the metadata related 
+        to the authentication protocol OAuth / OIDC. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       operationId: getOIDCMetadata
       responses:
@@ -2669,7 +2656,7 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve all the metadata related to the auth protocol WS Trust
+        Retrieve all the metadata related to the auth protocol WS Trust.
       description: >
         This API provides the capability to retrieve all the metadata related to the auth protocol WS_Trust. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
@@ -2709,10 +2696,10 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve all the metadata related to the custom auth protocol identified by the inboundProtocolId
+        Retrieve all the metadata related to the custom auth protocol identified by the inboundProtocolId.
       description: >
         This API provides the capability to retrieve all the metadata related to the custom auth protocol
-        identified by the inboundProtocolId. The URL encoded inbound protocol name is used as inboundProtocolId.<br>
+        identified by the inboundProtocolId. The URL encoded inbound protocol name is used as inboundProtocolId. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
       operationId: getCustomProtocolMetadata
       parameters:
@@ -2757,7 +2744,7 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve adaptive authentication sample templates
+        Retrieve adaptive authentication sample templates.
       description: >
         This API provides the capability to retrieve the sample adaptive authentication templates. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
@@ -2798,7 +2785,7 @@ paths:
         - Application Templates
       operationId: getAllApplicationTemplates
       summary: |
-        List application templates
+        List application templates.
       description: |
         This API provides the capability to retrieve the list of templates available. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_view`
@@ -2852,7 +2839,7 @@ paths:
       tags:
         - Application Templates
       summary: |
-        Add application template
+        Add application template.
       operationId: createApplicationTemplate
       description: >
         This API provides the capability to store the application template provided by users. <br>
@@ -3164,7 +3151,7 @@ paths:
       tags:
         - Application Templates
       summary: |
-        Retrieve application template by ID
+        Retrieve application template by ID.
       operationId: getApplicationTemplate
       description: >
         This API provides the capability to retrieve the application template from the template id. <br>
@@ -3220,7 +3207,7 @@ paths:
       tags:
         - Application Templates
       summary: |
-        Update the application template by the template ID
+        Update the application template by the template ID.
       operationId: updateApplicationTemplate
       description: |
         This API provides the capability to update an application template by the template ID. <br>
@@ -3527,7 +3514,7 @@ paths:
       tags:
         - Application Templates
       summary: |
-        Delete application template by template ID
+        Delete application template by template ID.
       operationId: deleteApplicationTemplate
       description: |
         This API provides the capability to delete an application template by template ID. <br>
@@ -3574,10 +3561,8 @@ paths:
       summary: |
         Share the application from the root organization to the given organization(s).
       description: |
-        This API provides the capability to share an application with organizations.
-        <br>
-        
-        <b>Scope(Permission) required:</b> `internal_shared_application_create`
+        This API provides the capability to share an application with organizations. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_create`
       operationId: shareOrgApplication
       parameters:
         - name: applicationId
@@ -3639,10 +3624,8 @@ paths:
       summary: |
         List of organizations that the application is shared to.
       description: |
-        This API returns the list of organizations that the application is shared to.
-        <br><br>
-        
-        <b>Scope(Permission) required:</b> `internal_shared_application_view`
+        This API returns the list of organizations that the application is shared to. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_view`
       operationId: shareOrgApplicationGet
       parameters:
         - name: applicationId
@@ -3693,10 +3676,8 @@ paths:
       summary: |
         List of shared applications along with its organization.
       description: |
-        This API returns the list of shared app ids along with the shared organization id.
-        <br><br>
-        
-        <b>Scope(Permission) required:</b> `internal_shared_application_view`
+        This API returns the list of shared app ids along with the shared organization id. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_view`
       operationId: sharedApplicationsGet
       parameters:
         - name: applicationId
@@ -3744,10 +3725,9 @@ paths:
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
       description: |
-        This API provides the capability to stop sharing an application to all organizations the application is shared to.
-        <br><br>
-        
-        <b>Scope(Permission) required:</b> `internal_shared_application_delete`
+        This API provides the capability to stop sharing an application to all organizations 
+        the application is shared to. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_delete`
       summary: |
         Stop sharing an application with all organizations.
       operationId: sharedApplicationsAllDelete
@@ -3794,10 +3774,8 @@ paths:
   /applications/{applicationId}/share/{shared-organization-id}:
     delete:
       description: |
-        This API provides the capability to stop sharing an application to an organization by providing its ID.
-        <br><br>
-        
-        <b>Scope(Permission) required:</b> `internal_shared_application_delete`
+        This API provides the capability to stop sharing an application to an organization by providing its ID. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_delete`
       summary: |
         Stop sharing an application to a organization.
       operationId: shareOrgApplicationDelete
@@ -3927,9 +3905,11 @@ components:
       required: false
       description: |
         Specifies the required parameters in the response.
-        Only 'advancedConfigurations', 'templateId', 'templateVersion', 'clientId', and 'issuer' attributes are currently supported.
-        
-        /applications?attributes=advancedConfigurations,templateId,templateVersion,clientId,issuer
+        Only 'advancedConfigurations', 'templateId', 'templateVersion', 'clientId', 'issuer', 
+        and 'associatedRoles.allowedAudience' attributes are currently supported.
+
+        /applications?attributes=advancedConfigurations,templateId,templateVersion,clientId,issuer,
+        associatedRoles.allowedAudience
       schema:
         type: string
     excludeSystemPortalsQueryParam:
@@ -3937,8 +3917,8 @@ components:
       name: excludeSystemPortals
       required: false
       description: |
-        Specifies whether to exclude system portals in the response. 
-        If not provided, the default is false, meaning system portals will be included.
+        Specifies whether to include or exclude system portals in the response. 
+        Default will be treated as false if parameter is not preset in the request.
 
         /applications?excludeSystemPortals=true
       schema:
@@ -4006,7 +3986,6 @@ components:
         rel:
           type: string
           example: "next"
-
     ApplicationListResponse:
       type: object
       properties:
@@ -4030,7 +4009,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Link'
-
     ApplicationListItem:
       type: object
       properties:
@@ -4043,6 +4021,9 @@ components:
         description:
           type: string
           example: Application representing user portal
+        applicationVersion:
+          type: string
+          example: "v1.0.0"
         image:
           type: string
           example: 'https://example.com/logo/my-logo.png'
@@ -4055,6 +4036,9 @@ components:
         issuer:
           type: string
           example: 'http://idp.example.com/metadata.php'
+        realm:
+          type: string
+          example: 'PassiveSTSSampleApp'
         access:
           type: string
           enum:
@@ -4072,7 +4056,13 @@ components:
         templateVersion:
           type: string
           example: "v1.0.0"
-
+          description: Version of the template used to create the application.
+        associatedRoles:
+          type: object
+          $ref: '#/components/schemas/AssociatedRolesConfig'
+        applicationEnabled:
+          type: boolean
+          example: true
     ApplicationModel:
       type: object
       required:
@@ -4103,11 +4093,24 @@ components:
         templateVersion:
           type: string
           example: "v1.0.0"
+          description: Version of the template used to create the application.
         isManagementApp:
           default: false
           type: boolean
           example: false
           description: Decides whether the application used to access System APIs
+        isB2BSelfServiceApp:
+          default: false
+          type: boolean
+          example: false
+          description: Decides whether the application used to for B2B self service
+        applicationEnabled:
+          default: true
+          type: boolean
+          example: true
+          description: Decides whether the application is enabled.
+        associatedRoles:
+          $ref: '#/components/schemas/AssociatedRolesConfig'
         claimConfiguration:
           $ref: '#/components/schemas/ClaimConfiguration'
         inboundProtocolConfiguration:
@@ -4118,7 +4121,6 @@ components:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
         provisioningConfigurations:
           $ref: '#/components/schemas/ProvisioningConfiguration'
-
     ApplicationResponseModel:
       type: object
       required:
@@ -4134,6 +4136,9 @@ components:
         description:
           type: string
           example: This is the configuration for Pickup application.
+        applicationVersion:
+          type: string
+          example: "v1.0.0"
         imageUrl:
           type: string
           example: 'https://example.com/logo/my-logo.png'
@@ -4149,16 +4154,30 @@ components:
         issuer:
           type: string
           example: 'http://idp.example.com/metadata.php'
+        realm:
+          type: string
+          example: 'PassiveSTSSampleApp'
         templateId:
           type: string
           example: "adwefi2429asdfdf94444rraf44"
         templateVersion:
           type: string
           example: "v1.0.0"
+          description: Version of the template used to create the application.
         isManagementApp:
           type: boolean
           example: false
           description: Decides whether the application used to access System APIs
+        isB2BSelfServiceApp:
+          type: boolean
+          example: false
+          description: Decides whether the application used to for B2B self service
+        applicationEnabled:
+          type: boolean
+          example: true
+          description: Decides whether the application is enabled.
+        associatedRoles:
+          $ref: '#/components/schemas/AssociatedRolesConfig'
         claimConfiguration:
           $ref: '#/components/schemas/ClaimConfiguration'
         inboundProtocols:
@@ -4175,7 +4194,6 @@ components:
             - READ
             - WRITE
           default: READ
-
     ApplicationPatchModel:
       type: object
       properties:
@@ -4185,6 +4203,9 @@ components:
         description:
           type: string
           example: This is the configuration for Pickup application.
+        applicationVersion:
+          type: string
+          example: "v1.0.0"
         imageUrl:
           type: string
           example: 'https://example.com/logo/my-logo.png'
@@ -4200,6 +4221,13 @@ components:
         templateVersion:
           type: string
           example: "v1.0.1"
+          description: Version of the template used to create the application.
+        applicationEnabled:
+          type: boolean
+          example: true
+          description: Decides whether the application is enabled.
+        associatedRoles:
+          $ref: '#/components/schemas/AssociatedRolesConfig'
         claimConfiguration:
           $ref: '#/components/schemas/ClaimConfiguration'
         authenticationSequence:
@@ -4208,13 +4236,11 @@ components:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
         provisioningConfigurations:
           $ref: '#/components/schemas/ProvisioningConfiguration'
-
     ResidentApplication:
       type: object
       properties:
         provisioningConfigurations:
           $ref: '#/components/schemas/ProvisioningConfiguration'
-
     ProvisioningConfiguration:
       type: object
       properties:
@@ -4236,7 +4262,6 @@ components:
           description: >-
             This property becomes only applicable if the proxy-mode config is
             set to false
-
     OutboundProvisioningConfiguration:
       type: object
       properties:
@@ -4255,6 +4280,8 @@ components:
         jit:
           type: boolean
           example: false
+      description: >-
+        This property is disabled by default as of Identity Server version 7.0 onwards.
     ConfiguredAuthenticatorsModal:
       type: object
       properties:
@@ -4311,6 +4338,35 @@ components:
           type: boolean
           description: Decides whether authorization policies needs to be engaged during authentication flows.
           example: true
+        fragment:
+          type: boolean
+          description: Decides whether application is a fragment application.
+          example: false
+        enableAPIBasedAuthentication:
+          type: boolean
+          description: Decides whether API Based Authentication is enabled for this application.
+          example: false
+        attestationMetaData:
+          type: object
+          description: Decides the client attestation meta data for the application.
+          properties:
+            enableClientAttestation:
+              type: boolean
+              description: Decides whether client attestation enabled for this application.
+              example: false
+            androidPackageName:
+              type: string
+              description: Decides the android package name of the application.
+              example: "com.wso2.mobile.sample"
+            androidAttestationServiceCredentials:
+              type: object
+              description: Decides the credentials for the service account to access Google Play Integrity Service.
+            appleAppId:
+              type: string
+              description: Decides the apple app id which denotes {apple-teamId}.{bundleId}.
+              example: "APPLETEAMID.com.wso2.mobile.sample"
+        trustedAppConfiguration:
+          $ref: '#/components/schemas/TrustedAppConfiguration'
         additionalSpProperties:
           $ref: '#/components/schemas/AdditionalProperties'
     AdditionalProperties:
@@ -4333,6 +4389,33 @@ components:
         displayName:
           type: string
           example: "Internal Application"
+    TrustedAppConfiguration:
+      type: object
+      description: Decides the trusted app configurations for the application.
+      properties:
+        isFIDOTrustedApp:
+          type: boolean
+          description: Decides whether the application is a FIDO trusted app.
+          example: false
+        isConsentGranted:
+          type: boolean
+          description: Decides whether consent is granted for the trusted app.
+          example: false
+        androidPackageName:
+          type: string
+          description: Decides the android package name for the application.
+          example: "com.wso2.mobile.sample"
+        androidThumbprints:
+          type: array
+          items:
+            type: string
+            example:
+              - "18:94:0A:DE:63:77:B6:84:43:1E:85:8F:03:CF:8A:14:87:9C:DE:DF:EA:7A:25:53:CD:53:5A:AF:C3:54:A5:56"
+          description: Decides the android thumbprints for the application.
+        appleAppId:
+          type: string
+          description: Decides the apple app id for the application.
+          example: "APPLETEAMID.com.org.mobile.sample"
     Certificate:
       type: object
       properties:
@@ -4360,12 +4443,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
-
     InboundProtocolsListResponse:
       type: array
       items:
         $ref: '#/components/schemas/InboundProtocolListItem'
-
     InboundProtocolListItem:
       type: object
       required:
@@ -4382,7 +4463,6 @@ components:
         self:
           type: string
           example: "/api/server/v1/applications/29048810-1447-4ea0-a348-30d15ab65fa3/inbound-protocols/saml"
-
     ClaimConfiguration:
       type: object
       properties:
@@ -4418,6 +4498,9 @@ components:
         useMappedLocalSubject:
           type: boolean
           example: false
+        mappedLocalSubjectMandatory:
+          type: boolean
+          example: false
     RoleConfig:
       type: object
       properties:
@@ -4442,6 +4525,33 @@ components:
         applicationRole:
           type: string
           example: Administrator
+    AssociatedRolesConfig:
+      type: object
+      required:
+        - allowedAudience
+      properties:
+        allowedAudience:
+          type: string
+          example: "ORGANIZATION"
+          enum:
+            - ORGANIZATION
+            - APPLICATION
+          default: ORGANIZATION
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    Role:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          example: "bf5abd05-3667-4a2a-a6c2-2fb9f4d26e47"
+        name:
+          type: string
+          example: "RoleA"
     RequestedClaimConfiguration:
       type: object
       required:
@@ -4484,7 +4594,6 @@ components:
           type: string
           example: Username
           readOnly: true
-
     SAML2Configuration:
       type: object
       properties:
@@ -4496,7 +4605,6 @@ components:
           example: 'https://example.com/samlsso/meta'
         manualConfiguration:
           $ref: '#/components/schemas/SAML2ServiceProvider'
-
     SingleSignOnProfile:
       type: object
       properties:
@@ -4508,23 +4616,18 @@ components:
               - HTTP_POST
               - HTTP_REDIRECT
               - ARTIFACT
-
         enableSignatureValidationForArtifactBinding:
           type: boolean
           description: Enables Signature validation for SAML Artifact Binding. Applicable only if SAML Artifact binding is enabled through the bindings option.
           default: false
-
         attributeConsumingServiceIndex:
           type: string
           readOnly: true
-
         enableIdpInitiatedSingleSignOn:
           type: boolean
           default: false
-
         assertion:
           $ref: '#/components/schemas/SAMLAssertionConfiguration'
-
     SAMLAttributeProfile:
       type: object
       properties:
@@ -4534,7 +4637,6 @@ components:
         alwaysIncludeAttributesInResponse:
           type: boolean
           default: false
-
     SingleLogoutProfile:
       type: object
       properties:
@@ -4555,7 +4657,6 @@ components:
             - FRONTCHANNEL_HTTP_POST
         idpInitiatedSingleLogout:
           $ref: '#/components/schemas/IdpInitiatedSingleLogout'
-
     IdpInitiatedSingleLogout:
       type: object
       properties:
@@ -4566,7 +4667,6 @@ components:
           type: array
           items:
             type: string
-
     SAMLAssertionConfiguration:
       type: object
       properties:
@@ -4574,7 +4674,6 @@ components:
           type: string
           default: 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'
           example: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
-
         audiences:
           type: array
           description: Additional audience values to be added to the SAML Assertions
@@ -4582,7 +4681,6 @@ components:
             - 'https://app.example.com/saml'
           items:
             type: string
-
         recipients:
           type: array
           description: Additional recipient values to be added to the SAML Assertions
@@ -4590,14 +4688,12 @@ components:
             - 'https://app.example.com/saml'
           items:
             type: string
-
         digestAlgorithm:
           type: string
           default: "http://www.w3.org/2000/09/xmldsig#sha1"
           example: "http://www.w3.org/2000/09/xmldsig#sha1"
         encryption:
           $ref: '#/components/schemas/AssertionEncryptionConfiguration'
-
     AssertionEncryptionConfiguration:
       type: object
       properties:
@@ -4610,7 +4706,6 @@ components:
         keyEncryptionAlgorithm:
           type: string
           default: "http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"
-
     SAMLRequestValidation:
       type: object
       properties:
@@ -4619,7 +4714,6 @@ components:
           default: true
         signatureValidationCertAlias:
           type: string
-
     SAMLResponseSigning:
       type: object
       properties:
@@ -4628,13 +4722,11 @@ components:
           default: true
         signingAlgorithm:
           type: string
-
     SAML2ServiceProvider:
       type: object
       required:
         - issuer
         - assertionConsumerUrls
-
       properties:
         issuer:
           type: string
@@ -4651,26 +4743,19 @@ components:
         idpEntityIdAlias:
           type: string
           description: "Default value is the IdP Entity ID value specified in Resident IdP."
-
         singleSignOnProfile:
           $ref: '#/components/schemas/SingleSignOnProfile'
-
         attributeProfile:
           $ref: '#/components/schemas/SAMLAttributeProfile'
-
         singleLogoutProfile:
           $ref: '#/components/schemas/SingleLogoutProfile'
-
         requestValidation:
           $ref: '#/components/schemas/SAMLRequestValidation'
-
         responseSigning:
           $ref: '#/components/schemas/SAMLResponseSigning'
-
         enableAssertionQueryProfile:
           type: boolean
           default: false
-
     OpenIDConnectConfiguration:
       type: object
       required:
@@ -4720,8 +4805,12 @@ components:
           $ref: '#/components/schemas/OAuth2PKCEConfiguration'
         accessToken:
           $ref: '#/components/schemas/AccessTokenConfiguration'
+        hybridFlow:
+          $ref: '#/components/schemas/HybridFlowConfiguration'
         refreshToken:
           $ref: '#/components/schemas/RefreshTokenConfiguration'
+        subjectToken:
+          $ref: '#/components/schemas/SubjectTokenConfiguration'
         idToken:
           $ref: '#/components/schemas/IdTokenConfiguration'
         logout:
@@ -4737,6 +4826,19 @@ components:
             - XACML Scope Validator
           items:
             type: string
+        clientAuthentication:
+          $ref: '#/components/schemas/ClientAuthenticationConfiguration'
+        requestObject:
+          $ref: '#/components/schemas/RequestObjectConfiguration'
+        pushAuthorizationRequest:
+          $ref: '#/components/schemas/PushAuthorizationRequestConfiguration'
+        subject:
+          $ref: '#/components/schemas/SubjectConfiguration'
+        isFAPIApplication:
+          type: boolean
+          default: false
+          description: Enabling this option will make the application FAPI conformant.
+          example: false
     OAuth2PKCEConfiguration:
       type: object
       properties:
@@ -4746,6 +4848,15 @@ components:
         supportPlainTransformAlgorithm:
           type: boolean
           example: true
+    HybridFlowConfiguration:
+      type: object
+      properties:
+        enable:
+          type: boolean
+          example: true
+        responseType:
+          type: string
+          example: code id_token
     AccessTokenConfiguration:
       type: object
       properties:
@@ -4774,6 +4885,10 @@ components:
           type: boolean
           description: "If enabled, both access token and the token binding needs to be present for a successful API
           invocation."
+        accessTokenAttributes:
+          type: array
+          items:
+            type: string
     RefreshTokenConfiguration:
       type: object
       properties:
@@ -4785,6 +4900,15 @@ components:
           description: Decides whether the refresh token needs to be renewed during refresh grant flow.
           type: boolean
           example: true
+    SubjectTokenConfiguration:
+      type: object
+      properties:
+        enable:
+          type: boolean
+          description: "If enabled, subject token can be issued for token exchange grant type."
+        applicationSubjectTokenExpiryInSeconds:
+          type: integer
+          example: 3600
     IdTokenConfiguration:
       type: object
       properties:
@@ -4799,6 +4923,9 @@ components:
             - 'http://idp.abc.com'
           items:
             type: string
+        idTokenSignedResponseAlg:
+          type: string
+          example: 'PS256'
         encryption:
           $ref: '#/components/schemas/IdTokenEncryptionConfiguration'
     IdTokenEncryptionConfiguration:
@@ -4814,6 +4941,53 @@ components:
         method:
           type: string
           example: A128CBC+HS256
+    ClientAuthenticationConfiguration:
+      type: object
+      properties:
+        tokenEndpointAuthMethod:
+          type: string
+          example: 'client_secret_basic'
+        tokenEndpointAllowReusePvtKeyJwt:
+          type: boolean
+          example: false
+        tokenEndpointAuthSigningAlg:
+          type: string
+          example: 'PS256'
+        tlsClientAuthSubjectDn:
+          type: string
+          example: 'CN=John Doe,OU=OrgUnit,O=Organization,L=Colombo,ST=Western,C=LK'
+    RequestObjectConfiguration:
+      type: object
+      properties:
+        requestObjectSigningAlg:
+          type: string
+          example: 'PS256'
+        encryption:
+          $ref: '#/components/schemas/RequestObjectEncryptionConfiguration'
+    RequestObjectEncryptionConfiguration:
+      type: object
+      properties:
+        algorithm:
+          type: string
+          example: RSA-OAEP
+        method:
+          type: string
+          example: A128CBC+HS256
+    PushAuthorizationRequestConfiguration:
+      type: object
+      properties:
+        requirePushAuthorizationRequest:
+          type: boolean
+          example: false
+    SubjectConfiguration:
+      type: object
+      properties:
+        subjectType:
+          type: string
+          example: 'public'
+        sectorIdentifierUri:
+          type: string
+          example: 'https://app.example.com'
     OIDCLogoutConfiguration:
       type: object
       properties:
@@ -4832,6 +5006,8 @@ components:
         realm:
           type: string
         replyTo:
+          type: string
+        replyToLogout:
           type: string
     WSTrustConfiguration:
       type: object
@@ -4905,7 +5081,6 @@ components:
           type: integer
           default: 1
           example: 1
-
     AuthenticationStepModel:
       type: object
       required:
@@ -4933,7 +5108,6 @@ components:
         authenticator:
           type: string
           example: basic
-
     AuthProtocolMetadata:
       type: object
       properties:
@@ -4954,6 +5128,31 @@ components:
         defaultValue:
           type: string
           example: 'Option 1'
+    ClientAuthenticationMethodMetadata:
+      type: object
+      properties:
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientAuthenticationMethod'
+    FapiMetadata:
+      type: object
+      properties:
+        allowedSignatureAlgorithms:
+          $ref: '#/components/schemas/MetadataProperty'
+        allowedEncryptionAlgorithms:
+          $ref: '#/components/schemas/MetadataProperty'
+        tokenEndpointAuthMethod:
+          $ref: '#/components/schemas/ClientAuthenticationMethodMetadata'
+    ClientAuthenticationMethod:
+      type: object
+      properties:
+        name:
+          type: string
+          example: private_key_jwt
+        displayName:
+          type: string
+          example: Private Key JWT
     GrantTypeMetaData:
       type: object
       properties:
@@ -5013,6 +5212,25 @@ components:
           $ref: '#/components/schemas/MetadataProperty'
         accessTokenBindingType:
           $ref: '#/components/schemas/MetadataProperty'
+        tokenEndpointAuthMethod:
+          $ref: '#/components/schemas/ClientAuthenticationMethodMetadata'
+        tokenEndpointAllowReusePvtKeyJwt:
+          type: boolean
+          default: false
+        tokenEndpointSignatureAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+        idTokenSignatureAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+        requestObjectSignatureAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+        requestObjectEncryptionAlgorithm:
+          $ref: '#/components/schemas/MetadataProperty'
+        requestObjectEncryptionMethod:
+          $ref: '#/components/schemas/MetadataProperty'
+        subjectType:
+          $ref: '#/components/schemas/MetadataProperty'
+        fapiMetadata:
+          $ref: '#/components/schemas/FapiMetadata'
     WSTrustMetaData:
       type: object
       properties:
@@ -5069,14 +5287,12 @@ components:
         isConfidential:
           type: boolean
           default: false
-
     AdaptiveAuthTemplates:
       type: object
       properties:
         templatesJSON:
           type: string
           example: 'Adaptive Auth Templates JSON'
-
     FileUpload:
       type: object
       properties:
@@ -5091,7 +5307,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApplicationTemplatesListItem'
-
     ApplicationTemplatesListItem:
       type: object
       properties:
@@ -5201,7 +5416,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AuthorizedScope'
-
     AuthorizedScope:
       type: object
       properties:
@@ -5214,7 +5428,6 @@ components:
         displayName:
           type: string
           example: Read Bookings
-
     AuthorizedAPICreationModel:
       type: object
       properties:
@@ -5229,7 +5442,6 @@ components:
           items:
             type: string
             example: bookings:read
-
     AuthorizedAPIPatchModel:
       type: object
       properties:
@@ -5317,7 +5529,6 @@ components:
         ref:
           type: string
           example: '/t/wso2.com/api/server/v1/organizations/b4526d91-a8bf-43d2-8b14-c548cf73065b'
-
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
