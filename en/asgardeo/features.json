@@ -17,5 +17,11 @@
             "guides/authentication/sso-integrations/add-zoom-template.md",
             "guides/authentication/sso-integrations/add-slack-template.md"
         ]
+    },
+
+    "password_expiry_time": {
+        "enabled": false,
+        "page": [
+        ]
     }
 }

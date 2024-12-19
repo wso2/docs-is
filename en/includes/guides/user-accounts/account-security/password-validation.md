@@ -62,6 +62,7 @@ Refer to the following table for more information on rule parameters.
     </tr>
 </table>
 
+{% if password_expiry_time %}
 #### Retrieve password expiry time of users
 
 You can retrieve the password expiry times of users using the SCIM 2.0 `GET /Users` endpoint. To retrieve this 
@@ -109,6 +110,7 @@ attribute, you must explicitly request it in the `attributes` query parameter, a
         ]
     }
     ```
+{% endif %}
 
 ### Password history count
 
