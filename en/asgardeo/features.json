@@ -21,7 +21,13 @@
 
     "password_expiry_time": {
         "enabled": false,
+        "page": []
+    },
+    
+    "attribute_uniqueness_validation": {
+        "enabled": true,
         "page": [
+            "guides/users/attributes/configure-unique-attributes.md"
         ]
     }
 }
