@@ -2,7 +2,7 @@
 
 Single Sign On (SSO) is an authentication process which allows users to log in once and gain access to an organization's applications without having to authenticate to each individual application.
 
-Federated IdP-initiated SSO extends this capability and enables a user belonging to an external organization to seamlessly access applications within your organization. In this scenario, your organization's IdProvider (IdP) and the external organization's IdP establish a trust relationship. Therefore, external users can conveniently log in to their own IdP and access applications in another organization without having to create accounts in that organization.
+Federated IdP-initiated SSO extends this capability and enables a user belonging to an external organization to seamlessly access applications within your organization. In this scenario, your organization's Identity Provider (IdP) and the external organization's IdP establish a trust relationship. Therefore, external users can conveniently log in to their own IdP and access applications in another organization without having to create accounts in that organization.
 
 This guide explains how you can implement federated IdP-initiated SSO using {{product_name}}.
 
@@ -191,23 +191,26 @@ Follow the steps below to download and run the `travelocity.com` application:
 
 3. Restart the Tomcat server.
 
-### Log in to the application
+### Sign in with the IdP-initiated flow
 
 !!! note "Before your begin"
 
     Make sure you have created a user in the external IdP. Refer to [manage users]({{base_path}}/guides/users/manage-users/) to learn more.
 
-1. Log in to the application by navigating to its URL.
+1. Initiate IdP-initiated SSO using the following command. You will be redirected to the login screen of the `travelocity.com` application.
 
+    === "URL format"
     ```bash
-    http://localhost:8080/travelocity.com
+    https://localhost:9443/samlsso?spEntityID=<service_provider_entity_ID>
+    ```
+    === "Example"
+    ```bash
+    https://localhost:9443/samlsso?spEntityID=travelocity.com
     ```
 
-2. Click to login with SAML (Post Binding). You will be redirected to the login screen of the internal IdP.
+2. Click **Login with External**. You will be redirected to the login screen of the external IdP.
 
-3. Click **Login with External**. You will be redirected to the login screen of the external IdP.
-
-4. Enter the user's credentials to login. You will be redirected to the home page of `travelocity.com`
+3. Enter the user's credentials to login. You will be redirected to the home page of `travelocity.com`
 
     !!! note
         If you already have a user session in your browser, you will be redirected right into the application as an authenticated user.
