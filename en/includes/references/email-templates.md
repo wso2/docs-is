@@ -218,23 +218,23 @@ The following literals about the user are accessible for all email templates.
     </thead>
     <tbody>
         <tr>
-            <td>{{"{{ user-name }}"}}</td>
+            <td>{{"{{user-name}}"}}</td>
             <td>Name of the user account.</td>
         <tr>
         <tr>
-            <td>{{"{{ user.claim.givenname }}"}}</td>
+            <td>{{"{{user.claim.givenname}}"}}</td>
             <td>Given name of the user.</td>
         <tr>
         <tr>
-            <td>{{"{{ userstore-domain }}"}}</td>
+            <td>{{"{{userstore-domain}}"}}</td>
             <td>Name of the user store.</td>
         <tr>
         <tr>
-            <td>{{"{{ organization-name }}"}}</td>
+            <td>{{"{{organization-name}}"}}</td>
             <td>Name of the organization. Insert this placeholder where you want to display the organization's name in a human readable format.</td>
         </tr>
         <tr>
-            <td>{{"{{ tenant-domain }}"}}</td>
+            <td>{{"{{tenant-domain}}"}}</td>
             <td>Domain name specific to the organization. For organization (root), this is a human-readable domain name. For organizations, a UUID is used to uniquely identify them. Utilize this placeholder within URL paths to denote the tenant.</td>
         </tr>
     </tbody>
@@ -258,39 +258,39 @@ You can configure the values of these literals from the {{ product_name }} Conso
     </thead>
     <tbody>
         <tr>
-            <td>{{"{{ organization.logo.img }}"}}</td>
+            <td>{{"{{organization.logo.img}}"}}</td>
             <td>Organization logo</td>
         </tr>
         <tr>
-            <td>{{"{{ organization.logo.altText }}"}}</td>
+            <td>{{"{{organization.logo.altText}}"}}</td>
             <td>Logo alternative text</td>
         </tr>
         <tr>
-            <td>{{"{{ organization.copyright.text }}"}}</td>
+            <td>{{"{{organization.copyright.text}}"}}</td>
             <td>Copyright text</td>
         </tr>
         <tr>
-            <td>{{"{{ organization.support.mail }}"}}</td>
+            <td>{{"{{organization.support.mail}}"}}</td>
             <td>Support email</td>
         </tr>
         <tr>
-            <td>{{"{{ organization.color.primary }}"}}</td>
+            <td>{{"{{organization.color.primary}}"}}</td>
             <td>Primary color</td>
         </tr>
         <tr>
-            <td>{{"{{ organization.color.background }}"}}</td>
+            <td>{{"{{organization.color.background}}"}}</td>
             <td>Email background color</td>
         </tr>
         <tr>
-            <td>{{"{{ organization.font }}"}}</td>
+            <td>{{"{{organization.font}}"}}</td>
             <td>Email font</td>
         </tr>
         <tr>
-            <td>{{"{{ organization.font.color }}"}}</td>
+            <td>{{"{{organization.font.color}}"}}</td>
             <td>Email body font color</td>
         </tr>
         <tr>
-            <td>{{"{{ organization.button.font.color }}"}}</td>
+            <td>{{"{{organization.button.font.color}}"}}</td>
             <td>Email button font color</td>
         </tr>
     </tbody>

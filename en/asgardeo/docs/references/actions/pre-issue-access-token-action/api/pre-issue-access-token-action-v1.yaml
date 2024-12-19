@@ -24,15 +24,26 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SuccessResponse'
-              example:
-              - actionStatus: SUCCESS
-                operations:
-                  - op: add
-                    path: /accessToken/claims/-
-                    value:
-                      name: customSID
-                      value: "12345"
+                oneOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - $ref: '#/components/schemas/FailedResponse'
+              examples:
+                successExample:
+                  summary: Success response
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                      - op: add
+                        path: /accessToken/claims/-
+                        value:
+                          name: customSID
+                          value: "12345"
+                failedExample:
+                  summary: Failed response
+                  value:
+                    actionStatus: FAILED
+                    failureReason: invalid_scope
+                    failureDescription: "The requested scope is invalid, unknown, or malformed."
         "400":
           description: Bad Request
           content:
@@ -41,7 +52,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
               example:
               - actionStatus: ERROR
-                error: invalid_request
+                errorMessage: invalid_request
                 errorDescription: SID claim is missing
         "500":
           description: Server Error
@@ -51,7 +62,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
               example:
               - actionStatus: ERROR
-                error: server_error
+                errorMessage: server_error
                 errorDescription: Failed to process the response
 components:
   schemas:
@@ -282,6 +293,20 @@ components:
           items:
             $ref: '#/components/schemas/Operations'
       description: Defines the success response.
+    FailedResponse:
+      type: object
+      properties:
+        actionStatus:
+          type: string
+          enum:
+          - FAILED
+          description: Indicates the outcome of the request. For a failed operation, this should be set to FAILED.
+        failureReason:
+          type: string
+          description: Provides the reason for failing to issue an access token.
+        failureDescription:
+          type: string
+          description: Offers a detailed explanation of the failure.
     ErrorResponse:
       type: object
       properties:
@@ -290,16 +315,15 @@ components:
           enum:
           - ERROR
           description: Indicates the outcome of the request. For an error operation, this should be set to ERROR.
-        error:
+        errorMessage:
           type: string
-          description: The error code, as specified in OAuth 2.0 error response definitions.
+          description: The cause of the error.
         errorDescription:
           type: string
           description: A detailed description of the error.
       description: |
-        When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating that the expected validations are not met or there is an issue processing the request. 
-        
-        If the defined error response is not received, or if the external service fails to respond, this is identified as an error in executing the action. In such cases, the flow will proceed as if the action was not applied, ensuring that the process continues without disruption.
+        When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
+
     RequestBody:
       type: object
       properties:
@@ -347,7 +371,13 @@ components:
         name:
           type: string
         value:
-          type: string
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string
     Operations:
       type: object
       properties:

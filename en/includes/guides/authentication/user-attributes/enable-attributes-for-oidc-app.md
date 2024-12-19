@@ -35,9 +35,7 @@ To add user attributes to the app:
 
 ### Select an alternate subject attribute
 
-The subject attribute is used for exchanging information about the user. The subject is represented by the **subject** attribute in the ID token.
-
-By default, Asgardeo shares **User ID** as the subject. You can define any user attribute as the subject.
+The subject attribute is used for exchanging information about the user. The subject is represented by the **subject** attribute in the ID token. By default, Asgardeo shares **User ID** as the subject. You can define any user attribute as the subject.
 
 To define a different attribute as the subject:
 
@@ -51,6 +49,14 @@ To define a different attribute as the subject:
 2. Select an attribute as the subject from the **Subject attribute** list.
 
 3. Click **Update**.
+
+!!! warning "Deprecated `sub` attribute behavior in application access tokens"
+
+    Application access tokens are tokens generated to represent the application rather than an individual user. Such tokens are generated during grant types such as [client_credential]({{base_path}}/references/grant-types/#client-credentials-grant).
+    
+    Previously, the `sub` attribute of application access tokens contained the `userid` of the application owner. With the latest updates, the `sub` value will contain the `client_id` of the application. If your application's access tokens still return the `userid` in the `sub` attribute, it is likely that your application is out-of-date. If so, update your application through the {{product_name}} Console by navigating to the relevant application under the **Applications** section.
+
+    Once updated, the `sub` attribute will return the `client_id`. Therefore, before updating, ensure that your application does not rely on the `sub` attribute and remove any such dependencies.
 
 ### Define mandatory user attributes
 
@@ -141,13 +147,13 @@ _A sample userinfo response is given below:_
 
 ## Prioritize local account attributes
 
-{{ product_name }} offers the capability to share attributes of a local account during federated a{{ product_name }}uthentication, provided that there exists a local account linked with the federated identity. To prioritize the sharing of attributes from linked local accounts, follow the steps given below:
+{{ product_name }} offers the capability to share attributes of a local account during federated {{ product_name }} authentication, provided that there exists a local account linked with the federated identity. To prioritize the sharing of attributes from linked local accounts, follow the steps given below:
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab.
 3. Scroll down and under **Linked Accounts**, select **Prioritize local account attributes**.
 
-    ![Prioritize local account attributes]({{base_path}}//assets/img/guides/applications/attributes/oidc/prioritize-local-account-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Prioritize local account attributes]({{base_path}}/assets/img/guides/applications/attributes/oidc/prioritize-local-account-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Once enabled, the tokens issued from this application during federated authentication with an [external identity provider]({{base_path}}/guides/authentication/#supported-external-idps) will contain the attributes of the local account which is linked with the entity identified by the subject claim of the token issued by the external identity provider.
 

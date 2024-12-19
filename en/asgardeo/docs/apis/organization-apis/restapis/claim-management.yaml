@@ -444,6 +444,14 @@ components:
           description: Specifies if the claim will be prompted during user registration
             and displayed on the user profile.
           example: true
+        uniquenessScope:
+          type: string
+          description: Specifies the scope of uniqueness validation for the claim value.
+          enum:
+            - NONE
+            - WITHIN_USERSTORE
+            - ACROSS_USERSTORES
+          example: "NONE"
         attributeMapping:
           type: array
           description: Userstore attribute mappings.
@@ -503,6 +511,11 @@ components:
           type: string
           description: The local claim URI to map with the external claim.
           example: http://wso2.org/claims/username
+        properties:
+          type: array
+          description: Define any additional properties if required.
+          items:
+            $ref: '#/components/schemas/Property'
       description: External claim response.
     Property:
       required:

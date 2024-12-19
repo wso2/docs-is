@@ -2,7 +2,7 @@
 #### Token type  
 {{product_name}} supports the following token types.
 
-- *Opaque*: Opaque tokens are plain text tokens. If a resource server wants to know information related to an opaque token, it has to call the introspection endpoint and receive information related to tokens. An example for a opaque token response is shown below.
+- **Opaque**: Opaque tokens are plain text tokens. If a resource server wants to know information related to an opaque token, it has to call the introspection endpoint and receive information related to tokens. An example for a opaque token response is shown below.
 
     ```json
     {
@@ -14,7 +14,7 @@
     }
     ```
 
-- *JWT token*: JWT tokens are self-contained verifiable access tokens. If a resource server wants to know the information related to that token, it can decode the token and get the required information without any additional network calls. An example for a JWT token response is shown below.
+- **JWT**: JWT tokens are self-contained verifiable access tokens. If a resource server wants to know the information related to that token, it can decode the token and get the required information without any additional network calls. An example for a JWT token response is shown below.
 
     ```json
     {
@@ -26,6 +26,15 @@
     }
     ```
     <br>
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+#### Access Token Attributes
+
+For **JWT** access tokens, this feature enables you to specify which user attributes are included in the access token. As a result, when a user logs in to an application, only the chosen attributes are shared, providing enhanced security and flexibility.
+
+![Access-Token-Attributes]({{base_path}}/assets/img/guides/authorization/access-token/access-token-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+{% endif %}
 
 #### Token binding type
 

@@ -23,8 +23,16 @@ extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
 
+hooks:
+  - hooks.py
+
 plugins:
-  - search
+  - search:
+      indexing: "full"
+      separator: "[^\\w._]+"
+      lang: ['en']
+      prebuild_index: true
+      ngram_length: 3
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -177,9 +185,6 @@ plugins:
         'guides/analytics/analyzing-login-attempts.md': 'guides/analytics/elk-analytics/analyzing-login-attempts.md'
         'guides/analytics/analyzing-active-sessions.md': 'guides/analytics/elk-analytics/analyzing-active-sessions.md'
         'guides/analytics/elk-alert-types.md': 'guides/analytics/elk-analytics/elk-alert-types.md'
-        
-
-
         'guides/dialects/dialects-overview.md': 'guides/users/attributes/index.md'
         'guides/dialects/add-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
         'guides/dialects/edit-claim-dialects.md': 'guides/users/attributes/manage-attributes.md'
@@ -220,8 +225,8 @@ plugins:
         'deploy/change-to-oracle-rac.md': 'deploy/configure/databases/carbon-database/change-to-oracle-rac.md'
         'deploy/change-to-postgresql.md': 'deploy/configure/databases/carbon-database/change-to-postgresql.md'
         'deploy/change-to-remote-h2.md': 'deploy/configure/databases/carbon-database/change-to-remote-h2.md'
-        'deploy/change-datasource-bpsds.md': 'deploy/configure/databases/carbon-database/change-datasource-bpsds.md'
         'deploy/change-datasource-consent-management.md': 'deploy/configure/databases/carbon-database/change-datasource-consent-management.md'
+        'deploy/change-datasource-registry-data.md': 'deploy/configure/databases/carbon-database/change-datasource-registry-data.md'
         'deploy/enable-fips-for-is.md': 'deploy/security/enable-fips-for-is.md'
 
         'apis/overview.md': 'apis/index.md'
@@ -320,6 +325,7 @@ plugins:
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
         'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
         'apis/scim2-groups-rest-apis.md': 'apis/scim2/scim2-groups-rest-api.md'
+        'apis/build-scim2-user-creation-payload.md': 'apis/scim2/build-scim2-user-creation-payload.md'
         'apis/scim2-patch-operations.md': 'apis/scim2/scim2-patch-operations.md'
         'apis/scim2-bulk-rest-apis.md': 'apis/scim2/scim2-bulk-rest-api.md'
         'apis/scim2-batch-operations.md': 'apis/scim2/scim2-batch-operations.md'
@@ -331,6 +337,7 @@ plugins:
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
+        'guides/authorization/impersonation/user-impersonation.md': 'guides/authorization/user-impersonation.md'
 
 # Navigation
 nav:
@@ -474,8 +481,7 @@ nav:
           - Attribute-based access control: guides/authorization/api-authorization/attribute-based-access-control.md
         - Fine-grained authorization:
             - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
-        - Impersonation:
-            - User Impersonation: guides/authorization/impersonation/user-impersonation.md
+        - User Impersonation: guides/authorization/user-impersonation.md
       - Branding:
         - Branding: guides/branding/index.md
         - Configure UI branding: guides/branding/configure-ui-branding.md
@@ -622,9 +628,9 @@ nav:
             - Change to Oracle RAC: deploy/configure/databases/carbon-database/change-to-oracle-rac.md
             - Change to PostgreSQL: deploy/configure/databases/carbon-database/change-to-postgresql.md
             - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
-            - Change the Default Datasource for BPS: deploy/configure/databases/carbon-database/change-datasource-bpsds.md
             - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
             - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
+            - Change the Default Datasources for the Registry Data: deploy/configure/databases/carbon-database/change-datasource-registry-data.md
           - Data Purging: deploy/configure/databases/data-purging.md
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
@@ -666,7 +672,6 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Configure symmetric key encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
             - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
@@ -787,6 +792,8 @@ nav:
           - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
           - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md
+          - Additional resources:
+            - Build SCIM 2.0 user creation payload: apis/scim2/build-scim2-user-creation-payload.md
         - Account recovery APIs:
           - Account recovery v0.9 API: apis/use-the-account-recovery-rest-apis.md
           - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
@@ -852,6 +859,7 @@ nav:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
+        - Customize the authentication endpoint: references/extend/authentication/customize-the-authentication-endpoint.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
@@ -880,6 +888,21 @@ nav:
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
+  - React Guide:
+    - Introduction: complete-guides/react/introduction.md
+    - Prerequisite: complete-guides/react/prerequisite.md
+    - Configure an application: complete-guides/react/register-an-application.md
+    - Create a React app: complete-guides/react/create-a-react-app.md
+    - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+    - Add login and logout: complete-guides/react/add-login-and-logout.md
+    - Display user details: complete-guides/react/display-logged-in-user-details.md
+    - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
+    - Accessing protected API : complete-guides/react/accessing-protected-api.md
+    - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
+    - Next Steps: complete-guides/react/next-steps.md
+  - Quick Starts:
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
 
 
 not_in_nav: |

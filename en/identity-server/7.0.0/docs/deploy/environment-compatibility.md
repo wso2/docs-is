@@ -75,4 +75,4 @@ Following is a list of web browsers tested with WSO2 Identity Server:
 Following is a list of LDAPs tested with WSO2 Identity Server:
 
 - Open LDAP 2.4.28
-- Microsoft Active Directory Windows 2012
+- Microsoft Active Directory Windows 2019

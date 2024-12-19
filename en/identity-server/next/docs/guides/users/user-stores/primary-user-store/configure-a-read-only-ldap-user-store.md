@@ -35,6 +35,10 @@ If you are configuring a server that has not been started yet, you need to updat
       - `http://wso2.org/claims/userid`
       - `http://wso2.org/claims/created`
       - `http://wso2.org/claims/modified`
+      - `http://wso2.org/claims/emailAddresses`
+      - `http://wso2.org/claims/verifiedAddresses`
+      - `http://wso2.org/claims/mobileNumbers`
+      - `http://wso2.org/claims/verifiedMobileNumbers`
 
     For `created` and `modified` claims, it is recommended to use the `createTimestamp` and `modifyTimestamp` 
     operational attributes.
@@ -58,12 +62,18 @@ configurations.
       - `http://wso2.org/claims/userid`
       - `http://wso2.org/claims/created`
       - `http://wso2.org/claims/modified`
+      - `http://wso2.org/claims/emailAddresses`
+      - `http://wso2.org/claims/verifiedAddresses`
+      - `http://wso2.org/claims/mobileNumbers`
+      - `http://wso2.org/claims/verifiedMobileNumbers`
     
     Refer to the [Update Attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) 
     to learn more on updating attribute mappings. For `created` and `modified` attributes, it is recommended to use the 
     `createTimestamp` and `modifyTimestamp` operational attributes.
 
     For `username` and `userid` claims, the `Username Attribute` and `User ID Attribute` properties configured in the User Store configuration should be used to ensure proper user authentication.
+
+    Ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in the [Assign multiple email addresses and mobile numbers to a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) section.
 
     !!! Warning
         If you have more than one tenant, you need to change the attributes mappings for each tenant before adding the 
