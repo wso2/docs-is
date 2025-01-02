@@ -1,23 +1,16 @@
+* [Run the project locally](#run-the-project-locally)
+  + [With Python Virtual Environments](#with-python-virtual-environments)
+  + [With Devcontainers](#with-devcontainers)
+* [Contribute to documentation](#contribute-to-documentation)
+* [Survey On Open Source Community Communication](#survey-on-open-source-community-communication)
+* [License](#license)
+
 # WSO2 Identity Server and Asgardeo Documentation
 
 This is the WSO2 Identity Server and Asgardeo documentation repository. This repository is open source and we welcome your contributions!
 
 - WSO2 Identity Server Docs: [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
 - Asgardeo Docs: [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
-
-## Contribute to documentation
-
-Before you contribute, read the following guidelines to understand how you can start contributing:
-
-1. Accept the contributor license agreement (CLA)
-
-    You need to accept the contributor license agreement (CLA) when you are prompted via a GitHub email notification on sending your first pull request (PR). Subsequent PRs will not require CLA acceptance.
-
-    If the CLA changes for some (unlikely) reason, you'll have to accept the new CLA text when you send your first PR after the change.
-
-2. Fork this repository, make your changes, and send in a pull request.
-
-We look forward to your contributions.
 
 ## Run the project locally
 
@@ -28,22 +21,6 @@ git clone https://github.com/wso2/docs-is.git
 ```
 
 Choose one of the following methods depending on your preference.
-
-### With Devcontainers
-
-This repository supports the VS Code dev containers feature, which allows you to create a consistent and isolated development environment inside a Docker container. To use this feature, you need to have the following pre requisites:
-
-- VS Code
-- Docker installed on your system
-- [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code
-
-Once you have these installed, you can open the repository in VS Code and follow these steps:
-
-- Press F1 and select the Remote-Containers: Open Folder in Container... command.
-- Select the repository folder and wait for the container to build and start.
-- You can now edit, run, debug, and test your code inside the container.
-
-For more information on how to use VS Code dev containers, please refer to the official documentation: https://code.visualstudio.com/docs/remote/containers
 
 ### With Python Virtual Environments
 
@@ -129,6 +106,36 @@ mkdocs serve
 > ```bash
 > python3 -m mkdocs serve
 > ```
+
+### With Devcontainers
+
+This repository supports the VS Code dev containers feature, which allows you to create a consistent and isolated development environment inside a Docker container. To use this feature, you need to have the following pre requisites:
+
+- VS Code
+- Docker installed on your system
+- [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code
+
+Once you have these installed, you can open the repository in VS Code and follow these steps:
+
+- Press F1 and select the Remote-Containers: Open Folder in Container... command.
+- Select the repository folder and wait for the container to build and start.
+- You can now edit, run, debug, and test your code inside the container.
+
+For more information on how to use VS Code dev containers, please refer to the official documentation: https://code.visualstudio.com/docs/remote/containers
+
+## Contribute to documentation
+
+Before you contribute, read the following guidelines to understand how you can start contributing:
+
+1. Accept the contributor license agreement (CLA)
+
+    You need to accept the contributor license agreement (CLA) when you are prompted via a GitHub email notification on sending your first pull request (PR). Subsequent PRs will not require CLA acceptance.
+
+    If the CLA changes for some (unlikely) reason, you'll have to accept the new CLA text when you send your first PR after the change.
+
+2. Fork this repository, make your changes, and send in a pull request.
+
+We look forward to your contributions.
 
 ## Survey On Open Source Community Communication
 
