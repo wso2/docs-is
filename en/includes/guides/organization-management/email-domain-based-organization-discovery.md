@@ -27,8 +27,32 @@ and user Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should be
 ### Using the Console
 
 1. Login to the organization (root) from the {{ product_name }} Console.
-2. On the {{ product_name }} Console, go to **Login & Registration**, and click **Email Domain Discovery** under **Organization Settings**.
+2. On the {{ product_name }} Console, go to **Login & Registration**, and click **Organization Discovery** under **Organization Settings**.
 3. Turn on the toggle to enable email domain based organization discovery.
+
+    !!! note
+        When this is enabled, following restrctions will apply to child organizations during federated authentication and user onboarding.
+
+        - Users can self-register, and administrators can onboard users to child organizations, only if the users' email domains match the domains mapped to the corresponding child organization.
+
+        {% if (product_name == "WSO2 Identity Server") %}
+
+        - Federated authentication and Just-In-Time (JIT) provisioning for child organizations are restricted to email domains mapped to those child organizations.
+
+        {% endif %}
+{% if (product_name == "WSO2 Identity Server") %}
+
+4. Select the **Email domain discovery for self-registration** checkbox if you want to allow users to discover and self-register in child organizations based on their email domain.
+
+    !!! note
+        To use this capability, self-registration must be enabled in the child organizations. Currently, enabling self-registration for child organizations via the console is not supported. Instead, you need to add the following configuration to the `deployment.toml` file located in the `<IS_HOME>/repository/conf` directory to enable self-registration server-wide.
+
+        ```
+        [identity_mgt.user_self_registration]
+        allow_self_registration = true
+        ```
+
+{% endif %}
 
     ![Enable email domain based organization discovery]({{base_path}}/assets/img/guides/organization/manage-organizations/enable-email-domain-based-organization-discovery.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -143,7 +167,15 @@ You need to:
     }'
     ```
 
+{% if product_name == "WSO2 Identity Server" and is_version == "next" %}
+
+## Try out user login
+
+{% else %}
+
 ## Try it out
+
+{% endif %}
 
 1. Set up the `Guardio-Business-App` as a [B2B application]({{base_path}}/guides/organization-management/try-a-b2b-use-case/#set-up-the-applications).
 
@@ -220,3 +252,33 @@ You need to:
 8. After resolving the organization from the email, Alice will be redirected to the authentication option of `Best Car Mart`.
 
     ![Best Car Mart login]({{base_path}}/assets/img/guides/organization/manage-organizations/bestcarmart-login.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+{% if product_name == "WSO2 Identity Server" and is_version == "next" %}
+
+## Try out self-registration
+
+1. Set up the `Guardio-Business-App` as a [B2B application]({{base_path}}/guides/organization-management/try-a-b2b-use-case/#set-up-the-applications).
+
+2. [Create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) on the {{ product_name }} Console with `Best Car Mart` as the **Organization Name**.
+
+3. [Configure the email domain mapping](#configure-email-domains-for-organizations) for the `Best Car Mart` organization as follows:
+    - Organization Name: `Best Car Mart`
+    - Email Domain: `bcmart.com`
+
+4. Make sure **Email domain discovery for self-registration** is [enabled](#enable-email-domain-based-organization-discovery).
+
+5. Navigate to the login page of the application configured in above step 1 and click **Register**.
+
+    ![Application login page]({{base_path}}/assets/img/guides/organization/manage-organizations/application-login-page.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+6. Enter an organization email with the domain `bcmart.com` and **Submit**.
+
+    ![Email input for self-registration]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-self-registration.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+7. After resolving the organization from the email, you will be redirected to the self-registration page of the `Best Car Mart` organization.
+
+    ![Self-registration form]({{base_path}}/assets/img/guides/organization/manage-organizations/self-registration-form.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+8. Fill in the user details and click **Sign Up** to complete the registration.
+
+{% endif %}
