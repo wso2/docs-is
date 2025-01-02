@@ -167,7 +167,15 @@ You need to:
     }'
     ```
 
+{% if product_name == "WSO2 Identity Server" and is_version == "next" %}
+
+## Try out user login
+
+{% else %}
+
 ## Try it out
+
+{% endif %}
 
 1. Set up the `Guardio-Business-App` as a [B2B application]({{base_path}}/guides/organization-management/try-a-b2b-use-case/#set-up-the-applications).
 
@@ -244,3 +252,33 @@ You need to:
 8. After resolving the organization from the email, Alice will be redirected to the authentication option of `Best Car Mart`.
 
     ![Best Car Mart login]({{base_path}}/assets/img/guides/organization/manage-organizations/bestcarmart-login.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+{% if product_name == "WSO2 Identity Server" and is_version == "next" %}
+
+## Try out self-registration
+
+1. Set up the `Guardio-Business-App` as a [B2B application]({{base_path}}/guides/organization-management/try-a-b2b-use-case/#set-up-the-applications).
+
+2. [Create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) on the {{ product_name }} Console with `Best Car Mart` as the **Organization Name**.
+
+3. [Configure the email domain mapping](#configure-email-domains-for-organizations) for the `Best Car Mart` organization as follows:
+    - Organization Name: `Best Car Mart`
+    - Email Domain: `bcmart.com`
+
+4. Make sure **Email domain discovery for self-registration** is [enabled](#enable-email-domain-based-organization-discovery).
+
+5. Navigate to the login page of the application configured in above step 1 and click **Register**.
+
+    ![Application login page]({{base_path}}/assets/img/guides/organization/manage-organizations/application-login-page.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+6. Enter an organization email with the domain `bcmart.com` and **Submit**.
+
+    ![Email input for self-registration]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-self-registration.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+7. After resolving the organization from the email, you will be redirected to the self-registration page of the `Best Car Mart` organization.
+
+    ![Self-registration form]({{base_path}}/assets/img/guides/organization/manage-organizations/self-registration-form.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+8. Fill in the user details and click **Sign Up** to complete the registration.
+
+{% endif %}
