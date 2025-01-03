@@ -109,6 +109,18 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 
 {!./includes/db-config-table.md !}
 
+### Using an alternate user to connect to database
+
+When the database owner is not the user used to connect to the database, specify the parent schema in the datasource declarion.
+
+	``` toml
+	[database.identity_db.db_props]
+	parentSchema = "<parent_schema_name>"
+
+    [database.shared_db.db_props]
+	parentSchema = "<parent_schema_name>"
+	```
+
 ---
   
 ## Configure the connection pool behavior on return 
