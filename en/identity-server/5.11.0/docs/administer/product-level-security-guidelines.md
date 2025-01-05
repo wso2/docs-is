@@ -199,6 +199,10 @@ By default, XSS attacks are prevented in the latest WSO2 Identity Server version
 
 For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
 
+!!! note
+
+    The recommended **callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product. You can find the specific instructions through following sections.
+
 - [Password Recovery](../../learn/password-recovery)
 - [Username Recovery](../../learn/username-recovery)
 - [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
