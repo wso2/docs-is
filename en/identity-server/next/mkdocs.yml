@@ -509,6 +509,7 @@ nav:
               - Google: guides/users/outbound-provisioning/outbound-connectors/google.md
               - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
               - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
+              - Custom Outbound Connector: guides/users/outbound-provisioning/outbound-connectors/custom-outbound-connectors.md
             - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
         - Sync User Accounts:
             - Overview: guides/users/sync-user-accounts/sync-account-overview.md
