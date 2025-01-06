@@ -1,10 +1,10 @@
-{% if default_roles %}
+{% if default_roles == true %}
 
 # Asgardeo user roles
 
 Roles determine permissions for accessing Asgardeo resources such as functionalities in the Asgardeo Console and underline REST APIs.
 
-The following roles, available by default, determine the options available for privileged users in the Asgardeo Console.
+We offer some default roles within the Asgardeo console to tailor the organization administrator’s access, limiting their Console experience to only the resources essential for their role. As an organzation Administrator/Owner, you can the given assign roles to other admins to access the Asgardeo console with limited access.
 
 !!! note
 
@@ -41,338 +41,287 @@ The following roles, available by default, determine the options available for p
   </tr>
 </table>
 
-The following tables elaborate all the permissions enabled for the default roles available for the Asgardeo Console.
+The permissions associated with each role are outlined below. In the table, If a particular permission is not mentioned to a role, administrators with that role will not have access to that section of the Asgardeo Console.
 
-## Users
-<table>
-  <tr>
-    <th></th>
-    <th>Administrator</th> 
-    <th>Auditor</th> 
-    <th>Editor - Applications</th> 
-    <th>Viewer - Applications</th> 
-    <th>Editor - Users</th> 
-    <th>Viewer - Users</th> 
-    <th>Editor - Connections</th>
-  </tr>
-  <tr>
-    <td>View users</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-  </tr>
-  <tr>
-      <td>Onboard users</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-  </tr>
-  <tr>
-    <td>Update user profiles</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-    <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-  </tr>
-  <tr>
-      <td>Delete users</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-        <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-    </tr>
-    <tr>
-      <td>View groups</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-        <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-    </tr>
-    <tr>
-      <td>Create groups</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-        <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-    </tr>
-    <tr>
-      <td>Update and delete groups</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-        <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-    </tr>
-    <tr>
-      <td>View assigned users to groups</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-    </tr>
-    <tr>
-      <td>Assign users to groups</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-    </tr>  
-</table>
+??? example "Administrator"
 
-<br>
+		Administrator has read/write access to all the resources in the Asgardeo Console
 
-## Roles
+??? example "Auditor"
 
-<table>
-  <tr>
-    <th></th>
-    <th>Administrator</th> 
-    <th>Auditor</th> 
-    <th>Editor - Applications</th> 
-    <th>Viewer - Applications</th> 
-    <th>Editor - Users</th> 
-    <th>Viewer - Users</th> 
-    <th>Editor - Connections</th>
-  </tr>
-  <tr>
-    <td>Create roles</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-  </tr>
- <tr>
-    <td>Delete roles</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-  </tr>
-  <tr>
-    <td>Update role settings</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-  </tr>
-  <tr>
-      <td>Onboard users to roles</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-  </tr>
-<tr>
-      <td>Onboard groups to roles</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-  </tr>
-  <tr>
-      <td>View roles</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-    </tr>
-<tr>
-      <td>View users and groups assigned to roles</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✔️</td>
-      <td>✖️</td>
-    </tr>
-</table>
+        Auditor has read-only access to all the resources in the Asgardeo Console
 
-<br>
+??? example "Editor - Applications"
 
-## Applications
+        <table>
+          <tr>
+            <th>Resources</th>
+            <th>Sub-section</th> 
+            <th>Read/Write access</th> 
+            <th>Read access only</th>
+          </tr>
+          <tr>
+            <td>Applications</td>
+            <td>️</td>
+            <td>✔️</td>
+            <td>️</td>
+          </tr>
+          <tr>
+              <td>Connections</td>
+              <td>️</td>
+              <td>️</td>
+              <td>✔️</td>
+          </tr>
+          <tr>
+            <td>API Resources</td>
+              <td>️</td>
+              <td>✔️</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>Branding</td>
+              <td>️</td>
+              <td>✔️</td>
+              <td>️</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Users️</td>
+              <td>️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Groups️</td>
+              <td>️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Roles</td>
+              <td>️✔</td>
+              <td>️</td>
+            </tr>
+            <tr>
+              <td>User Attributes & Stores</td>
+              <td>Attributes</td>
+              <td>️</td>
+              <td>️✔</td>
+            </tr>
+            <tr>
+              <td>User Attributes & Stores</td>
+              <td>Attributes >> Scopes </td>
+              <td>️️✔</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Organizations</td>
+              <td>️</td>
+              <td>️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>Login & Registration</td>
+              <td>️</td>
+              <td>️✔</td>
+              <td>️</td>
+            </tr>
+            <tr>
+              <td>Actions</td>
+              <td>️</td>
+              <td>️✔</td>
+              <td>️</td>
+            </tr>
+            <tr>
+              <td>Events</td>
+              <td>️</td>
+              <td>️✔</td>
+              <td>️</td>
+            </tr>
+            <tr>
+              <td>Logs</td>
+              <td>️Diagnostic logs</td>
+              <td></td>
+              <td>️✔️</td>
+            </tr>
+        <br>
 
-<table>
-  <tr>
-     <th></th>
-    <th>Administrator</th> 
-    <th>Auditor</th> 
-    <th>Editor - Applications</th> 
-    <th>Viewer - Applications</th> 
-    <th>Editor - Users</th> 
-    <th>Viewer - Users</th> 
-    <th>Editor - Connections</th>
-  </tr>
-  <tr>
-    <td>View apps and app settings</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-  </tr>
-  <tr>
-    <td>Register, update and delete apps</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-  </tr>
-</table>
 
-<br>
+??? example "Viewer - Applications"
 
-## Connections
-<table>
-  <tr>
-    <th></th>
-    <th>Administrator</th> 
-    <th>Auditor</th> 
-    <th>Editor - Applications</th> 
-    <th>Viewer - Applications</th> 
-    <th>Editor - Users</th> 
-    <th>Viewer - Users</th> 
-    <th>Editor - Connections</th>
-  </tr>
-  <tr>
-    <td>View connections and connection settings</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-  </tr>
-  <tr>
-    <td>Create, update and delete connections</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-  </tr>
-</table>
+        <table>
+          <tr>
+            <th>Resources</th>
+            <th>Sub-section</th> 
+            <th>Read/Write access</th> 
+            <th>Read access only</th>
+          </tr>
+          <tr>
+            <td>Applications</td>
+            <td>️</td>
+            <td>️</td>
+            <td>✔️</td>
+          </tr>
+          <tr>
+              <td>Connections</td>
+              <td>️</td>
+              <td>️</td>
+              <td>✔️</td>
+          </tr>
+          <tr>
+            <td>API Resources</td>
+              <td>️</td>
+              <td>️</td>
+              <td>✔</td>
+          </tr>
+          <tr>
+              <td>Branding</td>
+              <td>️</td>
+              <td>️</td>
+              <td>️✔</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Users️</td>
+              <td>️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Groups️</td>
+              <td>️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Roles</td>
+              <td></td>
+              <td>️️✔</td>
+            </tr>
+            <tr>
+              <td>User Attributes & Stores</td>
+              <td>Attributes</td>
+              <td>️</td>
+              <td>️✔</td>
+            </tr>
+            <tr>
+              <td>User Attributes & Stores</td>
+              <td>Attributes - Scopes </td>
+              <td>️️</td>
+              <td>✔</td>
+            </tr>
+            <tr>
+              <td>Organizations</td>
+              <td>️</td>
+              <td>️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <td>Login & Registration</td>
+              <td>️</td>
+              <td>️</td>
+              <td>️✔</td>
+            </tr>
+            <tr>
+              <td>Actions</td>
+              <td>️</td>
+              <td>️</td>
+              <td>️✔</td>
+            </tr>
+            <tr>
+              <td>Events</td>
+              <td>️</td>
+              <td>️</td>
+              <td>️✔</td>
+            </tr>
+            <tr>
+              <td>Logs</td>
+              <td>️Diagnostic logs</td>
+              <td></td>
+              <td>️✔️</td>
+            </tr>
+        <table>
+        <br>
 
-<br>
+??? example "Editor - Users"
 
-## Attributes and scopes
-<table>
-  <tr>
-    <th></th>
-    <th>Administrator</th> 
-    <th>Auditor</th> 
-    <th>Editor - Applications</th> 
-    <th>Viewer - Applications</th> 
-    <th>Editor - Users</th> 
-    <th>Viewer - Users</th> 
-    <th>Editor - Connections</th>
-  </tr>
-  <tr>
-    <td>View attributes</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-  </tr>
-  <tr>
-      <td>Create, update and delete new attributes</td>
-      <td>✔️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-      <td>✖️</td>
-  </tr>
-  <tr>
-    <td>View scopes</td>
-      <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-  </tr>
-    <tr>
-    <td>Add new attributes to scopes</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    </tr>
-    <tr>
-      <td>Update and delete scopes</td>
-      <td>✔️</td>
-    <td>✖️</td>
-    <td>✔️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    <td>✖️</td>
-    </tr>
-</table>
-<br>
+        <table>
+          <tr>
+            <th>Resources</th>
+            <th>Sub-section</th> 
+            <th>Read/Write access</th> 
+            <th>Read access only</th>
+          </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Users️</td>
+              <td>️✔</td>
+              <td>️</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Groups️</td>
+              <td>✔️</td>
+              <td>️</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Roles</td>
+              <td>️✔</td>
+              <td>️</td>
+            </tr>
+        <table>
+        <br>
+
+
+??? example "Viewer - Applications"
+
+        <table>
+          <tr>
+            <th>Resources</th>
+            <th>Sub-section</th> 
+            <th>Read/Write access</th> 
+            <th>Read access only</th>
+          </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Users️</td>
+              <td></td>
+              <td>️️✔</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Groups️</td>
+              <td></td>
+              <td>️️✔</td>
+            </tr>
+            <tr>
+              <td>User Management</td>
+              <td>Roles</td>
+              <td>️</td>
+              <td>️️✔</td>
+            </tr>
+        <table>
+        <br>
+
+??? example "Editor - Connections"
+
+        <table>
+          <tr>
+            <th>Resources</th>
+            <th>Sub-section</th> 
+            <th>Read/Write access</th> 
+            <th>Read access only</th>
+          </tr>
+            <tr>
+              <td>Connections</td>
+              <td></td>
+              <td>✔</td>
+              <td>️️</td>
+            </tr>
+        <table>
+        <br>
+
 
 {% else %}
 
@@ -410,7 +359,7 @@ The following list contains the permissions enabled for an Administrator:
 - Update and delete roles
 - Assign users to roles
 - Assign groups to roles
-- 
+-
 ## Application management
 - View apps and app settings
 - Register apps
