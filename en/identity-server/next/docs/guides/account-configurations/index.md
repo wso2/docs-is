@@ -24,3 +24,7 @@ Provide users with options to recover their access credentials, ensuring they ca
 - [Admin Initiated Password Reset]({{base_path}}/guides/account-configurations/account-recovery/admin-initiated-password-reset/)
 
 With these configurations, administrators can ensure that user accounts are secure, accessible, and manageable.
+
+## Notification settings
+
+Learn how to implement advanced notification handling in [Notification settings]({{base_path}}/guides/account-configurations/notification-settings/).
