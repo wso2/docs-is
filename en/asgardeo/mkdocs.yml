@@ -533,6 +533,7 @@ nav:
     - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
     - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
     - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+    - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
     - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
     - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
     - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
