@@ -162,8 +162,9 @@ plugins:
         'guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md': 'guides/users/user-stores/configure-active-directory-user-stores-for-scim2.md'
         'guides/identity-lifecycles/sp-for-inbound-provisioning.md': 'guides/users/manage-users.md'
         'guides/identity-lifecycles/self-register-verification.md': 'guides/account-configurations/user-onboarding/self-registration.md'
-        'guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md': 'guides/users/attributes/manage-attributes.md'
-        'guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md': 'guides/users/attributes/manage-attributes.md'
+        'guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md': 'guides/users/attributes/email-verification-on-update.md'
+        'guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md': 'guides/users/attributes/mobile-verification-on-update.md'
+
         'guides/my-account/my-account.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/my-account/manage-own-profile.md': 'guides/user-self-service/update-profile-info.md'
@@ -526,7 +527,11 @@ nav:
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
-          - Configure user attribute change verification: guides/users/attributes/user-attribute-change-verification.md
+          - Verify changes when updating attributes:
+            - Configure verification settings: guides/users/attributes/user-attribute-change-verification.md
+            - Try it out:
+              - Email address update verification: guides/users/attributes/email-verification-on-update.md
+              - Mobile number update verification: guides/users/attributes/mobile-verification-on-update.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Configure the primary user store:
