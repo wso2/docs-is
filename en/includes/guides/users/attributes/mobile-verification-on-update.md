@@ -1,175 +1,174 @@
 # Enable mobile number verification on update
 
-Mobile number verification on update ensures that when a user changes their primary mobile number, an SMS OTP is sent 
-to the new number for verification. The existing primary number remains unchanged until the new one is successfully 
-verified. If multiple mobile numbers per user support is enabled, users can maintain several verified numbers and 
-designate one as the primary number as needed.
+Mobile number verification ensures that when a user updates their primary mobile number, an SMS OTP is sent to the new number for verification. The primary mobile number remains unchanged until the new one is successfully verified. will not change until the new email address is verified. If you have enabled [multiple mobile numbers per user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user), users can maintain several verified email addresses and designate one as the primary mobile number.
 
 !!! note
     - This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
     - The verification on update capability is **only** supported for the `http://wso2.org/claims/mobile` and `http://wso2.org/claims/verifiedMobileNumbers` claims.
-    - An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously 
-    verified mobile number of the user.
-    - Triggering a mobile verification is skipped if the `verifyMobile` claim is not set to true when 
-    `UseVerifyClaim` config is enabled.
-    - By default, multiple email and mobile per user support is enabled. Add the following property to the above `deployment.toml` config to disabled this server wide and restart the server.
-        ```toml
-        [identity_mgt.user_claim_update]
-        enable_multiple_emails_and_mobile_numbers = false
-        ```
+    - An SMS OTP verification is not triggered if the mobile number to be updated is the same as a previously verified mobile number of the user.
 
 ## Prerequisites
 
-### Configurations related to SMS providers are located under the **Email & SMS** section.
+- Configure your preferred SMS provider in {{product_name}}.
 
-#### Supported Providers
+    ??? note "Configuring Twilio"
+        To configure Twilio as your SMS provider, follow the steps below:
 
-{{ product_name }} supports Twilio, Vonage, or custom SMS providers by default. To learn how to configure each provider, please see the relevant section.
+        - Go to [Twilio](https://www.twilio.com/try-twilio){:target="_blank"} and create an account.
+        - After signing up for your account, navigate to the Phone Numbers page in your console. You’ll see the phone number that has been selected for you. Note the phone number’s capabilities, such as "Voice", "SMS", and "MMS".
+        - After signing up, navigate to the Phone Numbers page in your console and note the phone number’s capabilities.
+        - Get your first Twilio phone number and use that as the “Sender” in the settings. For more information, see this tutorial in the Twilio documentation.
+        - Copy the Account SID and Auth Token from the Twilio console dashboard.
+        - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Twilio** tab and fill the required fields.
 
-??? note "Configuring Twilio"
-    To configure Twilio as your SMS provider, follow the steps below:
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Twilio Account SID</td>
+            <td>Account SID received in the previous step.</td>
+            <td><code>YourAccountSID</code></td>
+          </tr>
+          <tr>
+            <td>Twilio Auth Token</td>
+            <td>Auth token received in the previous step.</td>
+            <td><code>YourAuthToken</code></td>
+          </tr>
+          <tr>
+            <td>Sender</td>
+            <td>Phone number that you received when creating the Twilio account.</td>
+            <td><code>+1234567890</code></td>
+          </tr>
+        </table>
 
-    - Go to [Twilio](https://www.twilio.com/try-twilio){:target="_blank"} and create an account.
-    - After signing up for your account, navigate to the Phone Numbers page in your console. You’ll see the phone number that has been selected for you. Note the phone number’s capabilities, such as "Voice", "SMS", and "MMS".
-    - After signing up, navigate to the Phone Numbers page in your console and note the phone number’s capabilities.
-    - Get your first Twilio phone number and use that as the “Sender” in the settings. For more information, see this tutorial in the Twilio documentation.
-    - Copy the Account SID and Auth Token from the Twilio console dashboard.
-    - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Twilio** tab and fill the required fields.
+    ??? note "Configuring Vonage"
+    
+        To configure Vonage as your SMS provider, follow the steps below:
 
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Example</th>
-      </tr>
-      <tr>
-        <td>Twilio Account SID</td>
-        <td>Account SID received in the previous step.</td>
-        <td><code>YourAccountSID</code></td>
-      </tr>
-      <tr>
-        <td>Twilio Auth Token</td>
-        <td>Auth token received in the previous step.</td>
-        <td><code>YourAuthToken</code></td>
-      </tr>
-      <tr>
-        <td>Sender</td>
-        <td>Phone number that you received when creating the Twilio account.</td>
-        <td><code>+1234567890</code></td>
-      </tr>
-    </table>
+        - Login to [Vonage](https://dashboard.nexmo.com/sign-in){:target="_blank"} and create an  account.
+        - Fill in the required fields and create the account.
+        - Login to the Vonage dashboard and copy the API Key and API Secret.
+        - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Vonage** tab and fill the required fields.
 
-??? note "Configuring Vonage"
-    To configure Vonage as your SMS provider, follow the steps below:
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Vonage API Key</td>
+            <td>Use the API Key from the previous step.</td>
+            <td><code>YourAPIKey</code></td>
+          </tr>
+          <tr>
+            <td>Vonage API Secret</td>
+            <td>Use the API Secret from the previous step.</td>
+            <td><code>YourAPISecret</code></td>
+          </tr>
+          <tr>
+            <td>Sender</td>
+            <td>The number that the receiver will see when you send an SMS.</td>
+            <td><code>+1234567890</code></td>
+          </tr>
+        </table>
 
-    - Login to [Vonage](https://dashboard.nexmo.com/sign-in){:target="_blank"} and create an account.
-    - Fill in the required fields and create the account.
-    - Login to the Vonage dashboard and copy the API Key and API Secret.
-    - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Vonage** tab and fill the required fields.
+    ??? note "Configuring a Custom Provider"
+    
+        If you are not using either Twilio or Vonage as the SMS provider, you can configure a custom SMS provider. Custom SMS provider configuration will pass the SMS data to the given URL as an HTTP request.
 
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Example</th>
-      </tr>
-      <tr>
-        <td>Vonage API Key</td>
-        <td>Use the API Key from the previous step.</td>
-        <td><code>YourAPIKey</code></td>
-      </tr>
-      <tr>
-        <td>Vonage API Secret</td>
-        <td>Use the API Secret from the previous step.</td>
-        <td><code>YourAPISecret</code></td>
-      </tr>
-      <tr>
-        <td>Sender</td>
-        <td>The number that the receiver will see when you send an SMS.</td>
-        <td><code>+1234567890</code></td>
-      </tr>
-    </table>
+        To configure a custom SMS provider, in the  **SMS Provider** section click the **Custom** tab and fill the required fields.
 
-??? note "Configuring a Custom Provider"
-    If you are not using either Twilio or Vonage as the SMS provider, you can configure a custom SMS provider. Custom SMS provider configuration will pass the SMS data to the given URL as an HTTP request.
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>SMS Provider URL</td>
+            <td>URL of the SMS gateway where the payload should be published.</td>
+            <td><code>https://api.example.com/api/v1</code></td>
+          </tr>
+          <tr>
+            <td>Content Type</td>
+            <td>Content type of the payload. Possible values are <code>JSON</code> or <code>FORM</code> (Optional).</td>
+            <td><code>JSON</code></td>
+          </tr>
+          <tr>
+            <td>HTTP Method</td>
+            <td>HTTP method that should be used when publishing the payload to the provider URL. Possible values: <code>PUT</code>, <code>POST</code> (Optional). </td>
+            <td><code>POST</code></td>
+          </tr>
+          <tr>
+            <td>Payload Template</td>
+            <td>How the payload template should be. </br>Placeholders: </br><code>\{\{body\}\}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>\{\{mobile\}\}</code> - Number that this sms should be sent to.</td>
+            <td>Example JSON payload template: </br><code>{“content”: \{\{body\}\},“to”: \{\{mobile\}\}}}</code></br></br>(<code>\{\{mobile\}\}</code> and <code>\{\{body\}\}</code> will be replaced with the corresponding values at the runtime.)</td>
+          </tr>
+          <tr>
+            <td>Headers</td>
+            <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
+            <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
+          </tr>
+        </table>
 
-    To configure a custom SMS provider, in the  **SMS Provider** section click the **Custom** tab and fill the required fields.
+- If required, enable [support for multiple mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) for users.
 
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Example</th>
-      </tr>
-      <tr>
-        <td>SMS Provider URL</td>
-        <td>URL of the SMS gateway where the payload should be published.</td>
-        <td><code>https://api.example.com/api/v1</code></td>
-      </tr>
-      <tr>
-        <td>Content Type</td>
-        <td>Content type of the payload. Possible values are <code>JSON</code> or <code>FORM</code> (Optional).</td>
-        <td><code>JSON</code></td>
-      </tr>
-      <tr>
-        <td>HTTP Method</td>
-        <td>HTTP method that should be used when publishing the payload to the provider URL. Possible values: <code>PUT</code>, <code>POST</code> (Optional). </td>
-        <td><code>POST</code></td>
-      </tr>
-      <tr>
-        <td>Payload Template</td>
-        <td>How the payload template should be. </br>Placeholders: </br><code>\{\{body\}\}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>\{\{mobile\}\}</code> - Number that this sms should be sent to.</td>
-        <td>Example JSON payload template: </br><code>{“content”: \{\{body\}\},“to”: \{\{mobile\}\}}}</code></br></br>(<code>\{\{mobile\}\}</code> and <code>\{\{body\}\}</code> will be replaced with the corresponding values at the runtime.)</td>
-      </tr>
-      <tr>
-        <td>Headers</td>
-        <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
-        <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
-      </tr>
-    </table>
+- Update [mobile number verification settings]({{base_path}}/guides/users/attributes/user-attribute-change-verification/).
 
-## Configure mobile number verification on update
-
-1. On the {{product_name}} Console, go to **User Attributes & Stores** > **Attributes**.
-
-2. Under **Manage Attributes**, click on **User Attribute Change Verification**.
-
-3. Configure the following properties:
-    <table>
-    <tr>
-        <td>Enable user mobile number verification on update</td>
-        <td>When enabled, this option triggers an SMS One-Time Password (OTP) verification process when the user updates their mobile number.</td>
-    </tr>
-    <tr>
-        <td>Enable mobile number verification by Privileged Users</td>
-        <td>Allows privileged users (such as administrators) to initiate mobile number verification on behalf of other users.</td>
-    </tr>
-    </table>
-
-4. Click **Update** to save the changes.
 
 ## Try it out 
 
-### Trigger mobile number verification
+Follow the guides below to try out different mobile number update scenarios.
 
-#### Update the primary mobile number
+### Update the primary mobile number
 
-Given below is a sample request and the relevant response for updating the mobile number via a PATCH operation to SCIM 
-2.0 Users endpoint.
+If you only support a single mobile number and wish to update the mobile number of a user,
+
+1. On the {{product_name}} Console, go to **User Management** > **Users**.
+
+2. Select a user account and go to its **Profile** tab.
+
+3. Under **Mobile**, update the user's mobile number.
+
+4. Click **Update** to save the changes. An SMS OTP will be sent to the specified mobile number for verification. The user needs to enter the SMS OTP to verify the mobile number.
+
+Alternatively, you may update the mobile number via a PATCH operation to the [SCIM 2.0 Users endpoint]({{base_path}}/apis/scim2/scim2-users-rest-api/) as shown below.
 
 !!! abstract ""
-    **Request**
-    ```curl
-    curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],
-    "value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
-    ```
-    ---
-    **Sample Request**
-    ```curl
-    curl -v -k --user bob:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-    "Operations":[{"op":"replace","value":{"phoneNumbers":[{"type":"mobile","value":"0123456789"}]}}]}' 
-    --header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
-    ```
+    
+    === "Request format"
+        ```
+        curl -v -k --user <username>:<password> -X PATCH 
+        https://localhost:9443/scim2/Users/<user_ID> \
+        -d '{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], 
+            "Operations":[{
+                "op":<operation>, 
+                "value":
+                    { "mobileNumbers":[{"type":"mobile", "value":<new_mobile>}]}
+                }]
+            }' \
+        --header "Content-Type:application/json" 
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -v -k --user admin:admin -X PATCH 
+        https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
+        -d '{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+            "Operations":[{
+                "op":"replace",
+                "value":
+                    { "phoneNumbers":[{"type": "mobile", "value":"0123456789"}]}
+                }]
+            }' \
+        --header "Content-Type:application/json"
+        ```
     ---
     **Sample Response**
     ```
@@ -211,33 +210,57 @@ Given below is a sample request and the relevant response for updating the mobil
     }
     ```
 
-#### Update the verified mobile numbers list
+### Update the verified mobile numbers list
 
-If you have multiple email and mobile per user support enabled, you can maintain several verified mobile numbers and 
-select one as your primary number whenever you need.
+If you have enabled support for multiple mobile numbers, a user can have several verified mobile numbers and a single primary mobile number.
 
-To verify a mobile number, simply click on the verify mobile icon next to the number you'd like to verify. 
+To verify an email address, 
+
+1. On the {{product_name}} Console, go to **User Management** > **Users**.
+
+2. Select a user account and go to its **Profile** tab.
+
+3. Under **Mobile**, click the verify icon on an unverified mobile number of the user.
+
 A verification code will be sent to your mobile number.
 
 ![Mobile number update]({{base_path}}/assets/img/guides/users/my-account-verify-mobile.png)
+
+An SMS OTP will be sent to the specified mobile number for verification. The user needs to provide the OTP to verify the mobile number.
  
-Given below is a sample request and the relevant response for updating the verified mobile numbers via a PATCH 
-operation to SCIM 2.0 Users endpoint.
+Alternatively, you may update the mobile numbers via a PATCH operation to the [SCIM 2.0 Users endpoint]({{base_path}}/apis/scim2/scim2-users-rest-api/) as shown below.
 
 !!! abstract ""
-    **Request**
-    ```curl
-    curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],
-    "value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
-    ```
-    ---
-    **Sample Request**
-    ```curl
-    curl -v -k --user bob:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-    "Operations":[{"op":"replace","value":{"urn:scim:wso2:schema": {"verifiedMobileNumbers": "0111111111,0123456789"}
-    }}]}' 
-    --header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
-    ```
+
+    === "Request format"
+    
+        ```curl
+        curl -v -k --user [username]:[password] -X PATCH 
+        https://localhost:9443/scim2/Users/<user_ID> \
+        -d '{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+            "Operations":[{
+                "op":<operation>,
+                "value":{"urn:scim:wso2:schema": {"verifiedMobileNumbers": <list_of_mobile_numbers>}}
+                }]
+            }' 
+        --header "Content-Type:application/json" 
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -v -k --user bob:pass123 -X PATCH 
+        https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
+        -d '{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+            "Operations":[{
+                "op":"replace",
+                "value":{"urn:scim:wso2:schema": {"verifiedMobileNumbers": "0111111111,0123456789"}}
+                }]
+            }' 
+        --header "Content-Type:application/json" 
+        ```
+
     ---
     **Sample Response**
     ```
@@ -283,96 +306,140 @@ operation to SCIM 2.0 Users endpoint.
     }
     ```
 
-Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new 
-mobile number. 
+Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their updated mobile number. Once verified, the `verifiedMobileNumbers` claim (http://wso2.org/claims/verifiedMobileNumbers) will be updated to reflect the new mobile number.
  
-### Validate the verification code
+## Validate the verification code
 
-Enter the verification code you received in the provided field and click the 'Verify' button to validate the 
-verification code.
+When going through the mobile number verification process, users can enter the SMS OTP in the provided prompt and click **Verify** to verify the mobile number.
 
 ![Mobile number verification code]({{base_path}}/assets/img/guides/users/my-account-mobile-verification-code.png)
 
-Given below is a sample request and the relevant response to submit the received verification code using the 
-validate-code API.
+Alternatively, the validation-code API can be used to submit the SMS OTP as shown below.
 
 !!! abstract ""
-    **Request**
-    ```curl
-    curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Content-Type: application/json" -d 
-    '{ "code": "<validation_code>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
-    ```
-    ---
-    **Sample Request**
-    ```curl
-    curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123{{base_path}}","properties": []}'
-    "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
-    ```
+
+    === "Request format"
+    
+        ```curl
+        curl -v -k -X POST https://localhost:9443/api/identity/user/v1.0/me/validate-code 
+        -H "Authorization: <Base64(username:password)>" 
+        -H "Content-Type: application/json" \
+        -d '{ "code": "<validation_code>",
+              "properties": []
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -v -k -X POST https://localhost:9443/api/identity/user/v1.0/me/validate-code 
+        -H "Authorization: Ym9iOmJvYjEyMw==" 
+        -H "Content-Type: application/json" \
+        -d '{ "code": "1234",
+              "properties": []
+            }' 
+        ```
     ---
     **Response**
     ```
     "HTTP/1.1 202 Accepted"
     ```
 
-### Resend the verification code
+## Resend the verification code
 
-The user can request to resend a new SMS OTP code by simply clicking on the "Resend verification code" button or 
-using the resend-code API.
+Users can request for a new SMS OTP code by simply clicking the `Resend verification code` button in the shown prompt 
 
 ![Mobile number verification code]({{base_path}}/assets/img/guides/users/my-account-mobile-verification-code.png)
 
-Given below is a sample request and the relevant response to request a new verification code using the resend-code API.
+Alternatively, the resend-code API can be used to resend the SMS OTP as shown below.
+
+### By a non-privileged user
+
+The following command can be used by users themselves to receive a new SMS OTP.
 
 !!! abstract ""
-    **Request**
-    ```curl
-    curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"properties": []}' 
-    "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
-    ```
 
-    The verification scenario should be specified in the properties parameter of the request body as follows :
-    ```
-    "properties": [{"key": "RecoveryScenario", "value": "MOBILE_VERIFICATION_ON_VERIFIED_LIST_UPDATE"}]
-    ```
+    === "Request format"
+    
+        ```curl
+        curl -X POST https://localhost:9443/api/identity/user/v1.0/me/resend-code 
+        -H "Authorization: <Base64(username:password)>" 
+        -H "Content-Type: application/json" \
+        -d '{ "properties": [{
+                "key": "RecoveryScenario", 
+                "value": "<recovery_scenario>"
+              }]
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X POST https://localhost:9443/api/identity/user/v1.0/me/resend-code 
+        -H "Authorization: Ym9iOmJvYjEyMw==" 
+        -H "Content-Type: application/json" \
+        -d '{ "properties": [{
+                "key": "RecoveryScenario", 
+                "value": "MOBILE_VERIFICATION_ON_UPDATE"
+              }]
+            }' 
+        ```
+
+    The verification scenario should be specified in the `properties` parameter of the request body as follows:
+
     - `MOBILE_VERIFICATION_ON_UPDATE`: Used when verifying a newly updated mobile number for a user. </br>
     - `MOBILE_VERIFICATION_ON_VERIFIED_LIST_UPDATE`: Used when updating the list of verified mobile numbers for a user.
     ---
-    **Sample Request**
-    ```curl
-    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]}' 
-    "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
-    ```
-    ---
+
     **Response**
     ```
     "HTTP/1.1 201 Created"
     ```
 
----
+### By a privileged user
 
-Additionally, you can use the following curl command to resend a new SMS OTP code by a privileged user.
-
-**Sample**
+The following command can be used by privileged users to send an SMS OTP on behalf of a user.
 
 !!! abstract ""
-    **Request**
-    ```curl
-    curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user":{},"properties": []}'
-    "https://localhost:9443/api/identity/user/v1.0/resend-code"
-    ```
 
-    The user and the verification scenario should be specified in the request body as follows :
-    ```
-    "user": {"username": "", "realm": ""}
-    "properties": [{"key":"RecoveryScenario", "value":"MOBILE_VERIFICATION_ON_UPDATE"}]
-    ```
-    - `MOBILE_VERIFICATION_ON_UPDATE`: Used when verifying updated primary mobile number. </br>
+    === "Request format"
+    
+        ```curl
+        curl -X POST https://localhost:9443/api/identity/user/v1.0/resend-code 
+        -H "Authorization: <Base64(username:password)>" 
+        -H "Content-Type: application/json" \
+        -d '{ 
+              "user": {
+                "username": <USERNAME>,
+                "realm": <REALM>"
+            },
+              "properties": [{
+                "key":"RecoveryScenario",
+                "value":<recovery_scenario>
+                }]
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X POST https://localhost:9443/api/identity/user/v1.0/resend-code 
+        -H "Authorization: YWRtaW46YWRtaW4=" 
+        -H "Content-Type: application/json" \
+        -d '{ 
+              "user": {
+                "username": "bob",
+                "realm": PRIMARY"
+            },
+              "properties": [{
+                "key":"RecoveryScenario",
+                "value":"MOBILE_VERIFICATION_ON_UPDATE"
+                }]
+            }'
+        ```
+
+    The verification scenario should be specified in the request body as follows:
+
+    - `MOBILE_VERIFICATION_ON_UPDATE`: Used when verifying updated primary mobile number.
     - `MOBILE_VERIFICATION_ON_VERIFIED_LIST_UPDATE`: Used when updating the list of verified mobile numbers.
-    ---
-    **Sample Request**
-    ```curl
-    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"MOBILE_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
-    ```
+
     ---
     **Response**
     ```

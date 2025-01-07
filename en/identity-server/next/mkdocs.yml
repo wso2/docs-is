@@ -526,10 +526,11 @@ nav:
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
-          - User attribute change verification:
-            - Configure user attribute change verification: guides/users/attributes/user-attribute-change-verification.md
-            - Configure email address verification on update: guides/users/attributes/email-verification-on-update.md
-            - Configure mobile number verification on update: guides/users/attributes/mobile-verification-on-update.md
+          - Verify changes when updating attributes:
+            - Configure verification settings: guides/users/attributes/user-attribute-change-verification.md
+            - Try it out:
+              - Email address update verification: guides/users/attributes/email-verification-on-update.md
+              - Mobile number update verification: guides/users/attributes/mobile-verification-on-update.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Configure the primary user store:
