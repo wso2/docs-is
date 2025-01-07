@@ -214,7 +214,7 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
 
 If you have enabled support for multiple mobile numbers, a user can have several verified mobile numbers and a single primary mobile number.
 
-To verify an email address, 
+To verify a mobile number, 
 
 1. On the {{product_name}} Console, go to **User Management** > **Users**.
 
