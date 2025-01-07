@@ -1,20 +1,21 @@
 # Notification settings
 
-By default {{product_name}} handles the notification sending internally.
-<br/>
+{{product_name}}, by default, provides a seamless notification system that handles notifications for the following scenarios.
 
-!!! Tip
-    For information about configuring the email sending module, see
-    [here]({{base_path}}/deploy/configure/email-sending-module/).
+- Self registration
+- Email verification
+- Account lock
+- Account disable
+- Account recovery
 
-If the client application is handling the notification sending, the internal notification sending can be disabled via **Login & Registration** > **Notification Settings** > **Internal Notification Sending**.
+If the client application handles notifications and you want to disable the notification features of {{product_name}},
 
-![Session Management Configuration]({{base_path}}/assets/img/guides/account-configurations/notification-sending.png){: width="800" style="display: block; margin: 0;"}
+1. On the {{ product_name }} Console, go to **Login & Registration**.
 
-This disables the internal notification handling for the following scenarios.
+2. Under **Notification Settings**, click **Internal Notification Sending**.
 
-1. Self Registration
-2. Email Verification
-3. Account Lock
-4. Account Disable
-5. Account Recovery
+3. Turn the toggle off to disable notifications.
+
+    ![Session Management Configuration]({{base_path}}/assets/img/guides/account-configurations/notification-sending.png){: width="800" style="display: block; margin: 0;"}
+
+
