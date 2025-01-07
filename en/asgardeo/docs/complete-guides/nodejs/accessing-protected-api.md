@@ -24,7 +24,7 @@ We will add the `internal_login` scope as well to the `scope` parameter in the {
 
 ```javascript hl_lines="23 38 51"
 var passport = require("passport");
-var AsgardeoStrategy = require("passport-asgardeo");
+var AsgardeoStrategy = require("@asgardeo/passport-asgardeo");
 const ASGARDEO_BASE_URL = "https://api.asgardeo.io/t/";
 
 passport.use(

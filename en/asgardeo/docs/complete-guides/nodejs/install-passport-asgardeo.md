@@ -10,7 +10,7 @@ For this integration, we are going to use Passport and the passport-asgardeo str
 
 ```bash
 npm install passport
-npm install passport-asgardeo
+npm install @asgardeo/passport-asgardeo
 npm install dotenv
 ```
 
@@ -30,7 +30,7 @@ Add the following code to the `routes/auth.js` file:
 
 ```javascript
 var passport = require("passport");
-var AsgardeoStrategy = require("passport-asgardeo");
+var AsgardeoStrategy = require("@asgardeo/passport-asgardeo");
 const ASGARDEO_BASE_URL = "https://api.asgardeo.io/t/";
 
 passport.use(
