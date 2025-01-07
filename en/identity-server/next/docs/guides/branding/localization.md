@@ -24,8 +24,13 @@ WSO2 Identity Server provides internationalization support for its web applicati
 
 6. Add information about the new language in the following format & save the file.
    ```
-   <language switcher name>=<language code>,<language name>`
+   <language switcher name>=<language code>,<language name>,<text direction>`
    ```
+
+!!! note
+
+    - `<text direction>` is optional.
+    - The default text direction is set to "ltr" (Left-to-Right). To enable support for Right-to-Left (RTL) languages, refer to the documentation on [Right-to-Left (RTL) Language Support]({{base_path}}/guides/branding/localization/#right-to-left-rtl-language-support) for detailed instructions.
 
 7. Go to the browser settings and add the language you configured above.
 
@@ -41,3 +46,25 @@ You can enable localization for `accountrecoveryendpoint` by applying the same s
 
 Update the LanguageOptions.properties file located at: `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/LanguageOptions.properties` to include the new language options.
 
+## Right-to-Left (RTL) Language Support
+
+The Identity Server supports Right-to-Left (RTL) languages like Arabic, Hebrew, and Persian, ensuring login and recovery screens dynamically adjust their layout and text direction for a seamless user experience. When an RTL language is selected, the interface, including text alignment and content flow, automatically mirrors to follow RTL formatting conventions.
+
+If you need to enable Right-to-Left (RTL) support for a language in authentication and recovery endpoints, follow these steps:
+
+1. Navigate to the following directory based on the endpoint you want to configure:
+
+    - Authentication endpoint: `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/`
+    - Recovery endpoint: `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/`
+
+2. Open the `LanguageOptions.properties` file.
+
+3. Add the ,rtl suffix to the language entry in the file. For example, to enable RTL for Arabic, update the entry as follows:
+
+   ```
+   lang.switch.ar_AR=ar,Arabic - العربية,rtl
+   ```
+
+4. Save the file and restart the server for the changes to take effect.
+
+This will apply RTL formatting for the specified language across authentication and recovery endpoints.
