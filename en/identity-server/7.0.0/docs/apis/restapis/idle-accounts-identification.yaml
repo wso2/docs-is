@@ -52,8 +52,8 @@ paths:
             Filter inactive users based on whether their account state is DISABLED.
 
             **Usage**:
-            - If `isDisabled eq true`: Returns all inactive users including users whose accounts are disabled.
-            - If `isDisabled eq false`: Returns inactive users whose accounts are NOT disabled.
+            - If `isDisabled eq true`: Returns inactive users whose accounts are disabled.
+            - If `isDisabled eq false`: Returns inactive users whose accounts are not disabled.
 
             **NOTE**:
             - The `filter` parameter can only be used as specified above.
