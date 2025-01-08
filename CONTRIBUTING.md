@@ -60,10 +60,10 @@ nav_icons:
 nav:
   - Technology Guides:
     - React: complete-guides/react/introduction.md
-    - React|hide_nav:
-      - Introduction: complete-guides/react/introduction.md
-      - Prerequisite: complete-guides/react/prerequisite.md
-      ...
-      - Next Steps: complete-guides/react/next-steps.md
+  - React|hide_nav:
+    - Introduction: complete-guides/react/introduction.md
+    - Prerequisite: complete-guides/react/prerequisite.md
+    ...
+    - Next Steps: complete-guides/react/next-steps.md
 ---
 ```
