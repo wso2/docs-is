@@ -1,13 +1,16 @@
 openapi: 3.0.0
 info:
   description: |
-    This document specifies an **Idle Accounts Identification RESTful API** for **WSO2 Identity server**.
+    This document specifies the **Idle Accounts Identification RESTful API** for **WSO2 Identity server**. </br>
     
-    Add the following config to the `deployment.toml` file in `<IS_HOME>/repository/conf/` to track users' last logon time. Idle Accounts Identification API uses this information to identify inactive users.
-    ```
-    [identity_mgt.events.schemes.identityUserMetadataMgtHandler.properties]
-    enable=true
-    ```
+    <div class="admonition note">
+      <p><b>Important</b>: Add the following configuration to the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file to track users' last logon times. The API uses this information to identify inactive users.</p>
+
+    <pre><code>[identity_mgt.events.schemes.identityUserMetadataMgtHandler.properties]
+     enable=true</code></pre>
+
+    </div>
+  
   version: "v1"
   title: Idle Accounts Identification API
 
@@ -22,8 +25,7 @@ servers:
 paths:
   /inactive-users:
     get:
-      tags:
-        - Get inactive users
+      summary: Get inactive users
       description: |
         Get inactive users list for a specified period.
         
@@ -40,21 +42,18 @@ paths:
           name: excludeBefore
           schema:
             type: string
-          description: Date to exclude the oldest inactive users.
+          description: Exclude users whose last active date is before this date.
           example: 2023-01-01
         - in: query
           name: filter
           schema:
             type: string
-            enum:
-              - isDisabled eq true
-              - isDisabled eq false
           description: |
-            Filter inactive users based on whether their account state is "DISABLED".
+            Filter inactive users based on whether their account state is DISABLED.
 
             **Usage**:
-            - If `isDisabled eq true`: Returns inactive users who are disabled.
-            - If `isDisabled eq false`: Returns inactive users excluding those who are disabled.
+            - If `isDisabled eq true`: Returns inactive users whose accounts are disabled.
+            - If `isDisabled eq false`: Returns inactive users whose accounts are not disabled.
 
             **NOTE**:
             - The `filter` parameter can only be used as specified above.
