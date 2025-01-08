@@ -249,7 +249,8 @@ router.post("/logout", function (req, res, next) {
       return next(err);
     }
     var params = {
-      post_logout_redirect_uri: "http://localhost:3000/",
+      post_logout_redirect_uri: "http://localhost:3000/oauth2/redirect",
+      client_id: process.env.ASGARDEO_CLIENT_ID,
     };
     res.redirect(
       ASGARDEO_BASE_URL +
