@@ -42,6 +42,23 @@ paths:
             type: string
           description: Date to exclude the oldest inactive users.
           example: 2023-01-01
+        - in: query
+          name: filter
+          schema:
+            type: string
+            enum:
+              - isDisabled eq true
+              - isDisabled eq false
+          description: |
+            Filter inactive users based on whether their account state is "DISABLED".
+
+            **Usage**:
+            - If `isDisabled eq true`: Returns inactive users who are disabled.
+            - If `isDisabled eq false`: Returns inactive users excluding those who are disabled.
+
+            **NOTE**:
+            - The `filter` parameter can only be used as specified above.
+          example: isDisabled eq true          
       responses:
         '200':
           $ref: '#/components/responses/Success'
@@ -59,6 +76,11 @@ paths:
             curl --location 'https://localhost:9443/api/idle-account-identification/v1/inactive-users?inactiveAfter=2023-01-31&excludeBefore=2023-01-01' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
+        - lang: Curl with filter
+          source: |
+            curl --location 'https://localhost:9443/api/idle-account-identification/v1/inactive-users?inactiveAfter=2023-01-31&excludeBefore=2023-01-01&filter=isDisabled eq true' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='            
 components:
   schemas:
     Error:
