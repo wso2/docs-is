@@ -9,7 +9,7 @@
 
 ## Enhance default permissions for the resend-code endpoint.
 
-The [resend-code endpoint](https://api-docs.wso2.com/apidocs/is/is510/self-registration/#!/operations#SelfRegister#resendCodePost) of the self sign-up rest APIs is used to resend the confirmation code to an authenticated user. While no scopes are required to invoke this API by default, we recommend limiting permissions to this endpoint using scopes, prior to production deployment.
+The [resend-code endpoint](https://api-docs.wso2.com/apidocs/is/is510/self-registration/#!/operations#SelfRegister#resendCodePost) of the self sign-up rest APIs is used to resend the confirmation code to an authenticated user. While no scopes are required to invoke this API by default, we recommend restricting access to this endpoint using scopes, before deploying to production.
 
 To do so, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file
 
