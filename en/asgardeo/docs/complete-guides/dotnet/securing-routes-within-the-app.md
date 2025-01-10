@@ -8,11 +8,11 @@ In a .NET Blazor Web Application, handling and securing routes is an important a
 
 Blazor uses the `RouteView` component and a built-in routing system to manage navigation within the application. Routes are defined using the `@page` directive at the top of a Razor component (.razor file). You can also navigate to different routes programmatically using the `NavigationManager` service, which we will also cover in this guide when securing the routes.
 
-Blazor provides the `AuthorizeView` component to conditionally display UI elements based on the user's authentication and authorization state. This can be used to control access to specific sections of your Blazor UI. In this case, we want to protect the **User Claims** page, in addition to the **Counter** and **Weather** pages (both of which are present out-of-the-box).
+Blazor provides the `AuthorizeView` component to conditionally display UI elements based on the user's authentication and authorization state. This can be used to control access to specific sections of your Blazor UI. In this case, we want to protect the User Claims page, in addition to the `Counter` and `Weather` pages (both of which are present out-of-the-box).
 
-Let’s first navigate to the `NavMenu.razor` file under the `Components/Layout` directory and add the `AuthorizeView` component to encapsulate the `Counter` and `Weather` components. Then we can add the **User Claims** menu item as well.
+Let’s first navigate to the `NavMenu.razor` file under the `/Components/Layout` directory and add the `AuthorizeView` component to encapsulate the `Counter` and `Weather` components. Then we can add the User Claims menu item as well.
 
-```html
+```html title="NavMenu.razor"
 <AuthorizeView>
     <div class="nav-item px-3">
         <NavLink class="nav-link" href="counter">
@@ -38,14 +38,14 @@ We will be using the `Authorize` attribute to protect the routes for the above t
 
 First, add the `Authorize` attribute to the `Counter.razor`, `Weather.razor`, and `UserClaims.razor` pages just above the `PageTitle` attribute as shown below.
 
-```csharp
+```csharp title="Counter.razor"
 @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize]
 ```
 
 In order to redirect unauthorized users to the login page, we will create a Razor component named `RedirectToLogin.razor` under the `/Components` directory and add the following code. We will use the `NavigateTo` method from the built-in `NavigationManager` to perform the redirection.
 
-```csharp
+```csharp title="RedirectToLogin.razor"
 @inject NavigationManager Navigation
 
 @code {
@@ -58,7 +58,7 @@ In order to redirect unauthorized users to the login page, we will create a Razo
 
 Now, open the `Routes.razor` file and add the `AuthorizeRouteView` component as shown below, which is used to protect entire pages or routes. It only renders the associated route if the user is authorized. Otherwise, it can redirect the user to a login page using the `RedirectToLogin` component we created.
 
-```html
+```html title="Routes.razor"
 <Router AppAssembly="typeof(Program).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
@@ -75,7 +75,7 @@ By following these steps, you can easily secure your Blazor application routes a
 
 You can also start the application at this point and observe the homepage of the application with the changes we made.
 
-![Application Home page after changes]({{base_path}}/complete-guides/dotnet/assets/img/image6.png){: width="600" style="display: block; margin: 0;"}
+![Application Home page after changes]({{base_path}}/complete-guides/dotnet/assets/img/image6.png){: width="800" style="display: block; margin: 0;"}
 
 Clicking on the login button will initiate an OIDC request. You will be able to observe the authorize request in the browser devtools. To see this, right click on the application and click inspect and switch to the network tab. In the filter input, type “authorize”, and then click on the Login button.
 
@@ -89,5 +89,6 @@ At this stage, **you need to create a [Test user in Asgardeo](https://wso2.com/a
 
 If the login is successful, you should be able to see the application as shown below.
 
-![Application Home page after authentication]({{base_path}}/complete-guides/dotnet/assets/img/image7.png){: width="600" style="display: block; margin: 0;"}
+![Application Home page after authentication]({{base_path}}/complete-guides/dotnet/assets/img/image7.png){: width="800" style="display: block; margin: 0;"}
 
+Now that we secured the routes within the application, in the next step we will implement the functionality to access a protected API using the access token obtained during the authentication process.

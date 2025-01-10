@@ -26,4 +26,4 @@ In this guide, you will:
 
 !!! tip "Tip"
 
-    This guide takes approximately 60 minutes to complete and covers everything required to add user login and secure your .NET app. If you’re looking for a shorter guide, try the [.NET Quick Start guide](https://is.docs.wso2.com/en/latest/quick-starts/dotnet/){:target="_blank"}, which takes around 15 minutes to complete.
+    This guide takes approximately 60 minutes to complete and covers everything required to add user login and secure your .NET app.

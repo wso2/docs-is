@@ -13,9 +13,9 @@ In this guide, we will display user information in two different places:
 
 ### Displaying User Info on the Home Page
 
-Let's first navigate to the `Home.razor` file under the `Components/Pages` directory and add the following imports and code inside the C# section (i.e., Razor syntax: `@code`).
+Let's first navigate to the `Home.razor` file under the `/Components/Pages` directory and add the following code including the imports inside the C# section (i.e., Razor syntax: `@code`).
 
-```csharp
+```csharp title="Home.razor"
 @using System.Security.Claims
 @using Microsoft.AspNetCore.Authorization
 
@@ -40,7 +40,7 @@ This code retrieves the authentication state and obtains the user claims from it
 
 Next, add the following in the HTML section of the file. This will retrieve the user attribute “name” from the list of claims and display a greeting with the given details if the user is logged in.
 
-```csharp
+```csharp title="Home.razor"
 @if (claims.Any())
 {
     @foreach (var claim in claims)
@@ -56,7 +56,7 @@ Next, add the following in the HTML section of the file. This will retrieve the 
 
 It is also possible to retrieve properties such as the name of the user from the context. In this case, we will display the user's name in the logout button by adding `@context.User.Identity?.Name`.
 
-```html
+```html title="Home.razor"
 <form action="authentication/logout" method="post">
     <AntiforgeryToken />
     <input type="hidden" name="ReturnUrl" value="@currentUrl" />
@@ -71,7 +71,7 @@ It is also possible to retrieve properties such as the name of the user from the
 
 Next, create a new page named `UserClaims.razor` and add the following code to display the user claims.
 
-```csharp
+```csharp title="UserClaims.razor"
 @page "/user-claims"
 @using System.Security.Claims
 
@@ -110,5 +110,4 @@ Next, create a new page named `UserClaims.razor` and add the following code to d
 
 The C# code block is similar to the one used in `Home.razor`. The HTML above will list all of the user’s claims retrieved from the ID token, looping through the list one by one.
 
-
-
+In this step we have successfully displayed the logged-in user details on the home page and listed the user claims in a separate page. In the next steps we will secure routes within the app.

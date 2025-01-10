@@ -15,6 +15,7 @@ For simplicity, let’s assume the APIs you're calling are secured by the same I
 By leveraging the access token for API requests, your Blazor Web application can securely communicate with your backend, respecting the scopes and permissions granted during authentication.
 
 The goal is to create a page that:
+
 - Ensures the user is authenticated using an access token.
 - Calls a protected API with that token.
 - Displays the API response in a user-friendly, formatted manner.
@@ -23,19 +24,39 @@ We will use the `/scim2/Me` endpoint as the protected endpoint in this guide. In
 
 To access this endpoint, define it under `environmentVariables` in the `launchSettings.json` file as follows. Make sure to replace the `org` placeholder with the correct organization name.
 
-```csharp
-"SCIM2_ME_ENDPOINT": "https://api.asgardeo.io/t/<org>/scim2/Me"
+```csharp hl_lines="18" title="launchSettings.json"
+"profiles": {
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AUTHORIZATION_ENDPOINT": "https://api.asgardeo.io/t/sanjula/oauth2/authorize",
+        "TOKEN_ENDPOINT": "https://api.asgardeo.io/t/sanjula/oauth2/token",
+        "JWKS_URI": "https://api.asgardeo.io/t/sanjula/oauth2/jwks",
+        "LOGOUT_URI": "https://api.asgardeo.io/t/sanjula/oidc/logout",
+        "AUTHORITY": "https://api.asgardeo.io/t/sanjula/",
+        "CLIENT_ID": "7Nr4bQdLbmvkf8umwn0PaMt0SAsa",
+        "CLIENT_SECRET": "FrfV4YEn8WHQUIbHcIMA6NTtf4ugERw6fCa6fXMsZgga",
+        "METADATA_ADDRESS": "https://api.asgardeo.io/t/sanjula/oauth2/token/.well-known/openid-configuration",
+        "SCIM2_ME_ENDPOINT": "https://api.asgardeo.io/t/sanjula/scim2/Me"
+      }
+    },
+}
 ```
 
-> **Note**: To invoke the `/scim2/Me` endpoint, the `internal_login` scope must be present in the access token.
+To invoke the `/scim2/Me` endpoint, the `internal_login` scope must be present in the access token.
 
 To check the current scopes being requested upon login, analyze the `scope` parameter in the request payload of the initial authorization request during login.
 
-![Default scopes]({{base_path}}/complete-guides/dotnet/assets/img/image8.png){: width="600" style="display: block; margin: 0;"}
+![Default scopes]({{base_path}}/complete-guides/dotnet/assets/img/image8.png){: width="800" style="display: block; margin: 0;"}
 
 By default, the requested scopes are `openid` and `profile`. To add the `internal_login` scope, navigate to the `Program.cs` file and insert the following within the `oidcOptions` configurations in the `AddOpenIdConnect` method:
 
-```csharp
+```csharp title="Program.cs"
 oidcOptions.Scope.Add("internal_login");
 ```
 
@@ -43,7 +64,7 @@ Since we are utilizing the `SaveTokens` option to persist tokens for a given ses
 
 Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` directory and include the following content.
 
-```csharp
+```csharp title="Scim2Me.razor"
 @page "/scim2-me"
 @inject HttpClient Http
 @inject IHttpContextAccessor HttpContextAccessor
@@ -150,7 +171,7 @@ In the above code, we utilize the `OnInitializedAsync` method to retrieve the `H
 
 Additionally, we need to navigate to the `NavMenu.razor` file and add the `Scim2Me` page as a menu item.
 
-```html
+```html title="NavMenu.razor"
 <div class="nav-item px-3">
     <NavLink class="nav-link" href="scim2-me">
         <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Protected API
@@ -160,5 +181,6 @@ Additionally, we need to navigate to the `NavMenu.razor` file and add the `Scim2
 
 Now starting the application and clicking on the `Protected API` menu item after authentication will invoke the protected API with the token containing the required scopes and return a response as shown below.
 
-![Protected API]({{base_path}}/complete-guides/dotnet/assets/img/image9.png){: width="600" style="display: block; margin: 0;"}
+![Protected API]({{base_path}}/complete-guides/dotnet/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
 
+In this guide, we successfully implemented a secure API call from a .NET Blazor Web application using the access token. This ensures that the application can securely interact with the backend API, respecting the scopes and permissions granted during authentication. We will look into how we can manage tokens in .NET applications, especially for Blazor Web applications in the next step.

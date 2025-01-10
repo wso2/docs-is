@@ -19,7 +19,7 @@ For the purpose of this guide, these properties will be added to the `launchSett
 
 An example configuration is shown below (placeholders have to be replaced with the actual values).
 
-```json
+```json hl_lines="10-17"
 "profiles": {
     "https": {
         "commandName": "Project",

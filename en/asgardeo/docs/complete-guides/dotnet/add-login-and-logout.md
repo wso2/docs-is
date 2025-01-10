@@ -7,19 +7,21 @@ read_time: 10 min
 In this guide, we will go through how the login and logout functionality will be implemented, where we will not be utilizing any third-party SDKs.
 
 Several classes are required to handle tasks such as:
+
 - Persisting the authentication state.
 - Building the route for both login and logout.
 - Maintaining the authenticated user information.
 
 ## Authentication State Management
 
-The `AuthenticationStateProvider` class must be extended to manage the authentication state for a Blazor Web Application. In this case, we use the `PersistingAuthenticationStateProvider` class. This ensures that:
+Let's create a file named `PersistingAuthenticationStateProvider.cs` in the root directory. We will be extending the `AuthenticationStateProvider` class to manage the authentication state for the Blazor Web Application. This will ensure that:
+
 - The authentication state is persisted across interactions.
 - The authentication state is rehydrated correctly.
 
 This approach is particularly useful in scenarios where the application depends on server-side data persistence for authentication state.
 
-```csharp
+```csharp title="PersistingAuthenticationStateProvider.cs"
 @using Microsoft.AspNetCore.Components;
 @using Microsoft.AspNetCore.Components.Authorization;
 @using Microsoft.AspNetCore.Components.Web;
@@ -71,7 +73,9 @@ The Login and Logout route builder adds the `/login` and `/logout` routes to the
 - **/login**: Configured as a GET endpoint that triggers an authentication challenge using the OIDC scheme.
 - **/logout**: Configured as a POST endpoint that signs the user out of both the cookie and OIDC schemes.
 
-```csharp
+Let's create a file named `LoginLogoutEndpointRouteBuilderExtensions.cs` in the root directory and add the following code.
+
+```csharp title="LoginLogoutEndpointRouteBuilderExtensions.cs"
 @using Microsoft.AspNetCore.Authentication;
 @using Microsoft.AspNetCore.Authentication.Cookies;
 @using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -89,7 +93,7 @@ var group = endpoints.MapGroup("");
             .AllowAnonymous();
 
         group.MapPost("/logout", ([FromForm] string? returnUrl) => TypedResults.SignOut(GetAuthProperties(returnUrl),
-            [CookieAuthenticationDefaults.AuthenticationScheme, "MicrosoftOidc"]));
+            [CookieAuthenticationDefaults.AuthenticationScheme, "AsgardeoOidc"]));
 
         return group;
     }
@@ -116,21 +120,25 @@ var group = endpoints.MapGroup("");
 }
 ```
 
+This code defines an extension method `MapLoginAndLogout` for `IEndpointRouteBuilder` in an ASP.NET Core application, allowing you to configure login and logout endpoints. The `MapLoginAndLogout` method creates a route group that maps two endpoints: a GET endpoint at `/login` and a POST endpoint at `/logout`, as mentioned above.
+
+The `GetAuthProperties` method is used to build the authentication properties, specifically the redirect URL, which ensures that a valid URL is passed and, if necessary, it adjusts the format of `returnUrl`.
+
 ## UserInfo Class
 
 The `UserInfo` class represents information about an authenticated user and provides methods to map between a `ClaimsPrincipal` and this strongly typed representation. It serves as a way to expose more structured and manageable user information in an ASP.NET Core application.
 
 The class encapsulates key user attributes such as:
 
-- **UserId**
-- **Name**
-- **UserName**
+- UserId
+- Name
+- UserName
 
-These attributes are derived from claims associated with the authenticated user's `ClaimsPrincipal`.
+These attributes are derived from claims associated with the authenticated user's `ClaimsPrincipal`. You need to ensure that additional attributes such as `UserName` are configured as “Requested” in the Attributes tab of the application created in Asgardeo.
 
-> **Note:** You need to ensure that additional attributes such as `UserName` are configured as “Requested” in the **Attributes** tab of the application created in **Asgardeo**.
+Create a file named `UserInfo.cs` in the root directory and add the following code.
 
-```csharp
+```csharp title="UserInfo.cs"
 @using System.Security.Claims;
 
 namespace AsgardeoDotNetSample;
@@ -173,7 +181,7 @@ The classes implemented up to now lay the foundation for the home page where we 
 
 Navigate to the `Home.razor` file under the `/Components/Pages` directory and add the following code, including the imports.
 
-```csharp
+```csharp title="Home.razor"
 @implements IDisposable
 @inject NavigationManager Navigation
 
@@ -200,11 +208,9 @@ The above code implements the `IDisposable` interface to manage lifecycle events
 
 The current URL (`currentUrl`) is tracked by subscribing to the `LocationChanged` event from `NavigationManager`. When the URL changes, it updates `currentUrl` and triggers a re-render using `StateHasChanged()`, while the `Dispose` method unsubscribes from `LocationChanged`.
 
-## Conditional Rendering of Login/Logout Buttons
+Next, let's add the login and logout buttons to the `Home.razor` page as follows above the code that was previously added.
 
-The login and logout buttons can now be added above the code that was previously added.
-
-```html
+```html title="Home.razor"
 <div class="nav-item px-3">
     <AuthorizeView>
         <Authorized>
@@ -244,7 +250,7 @@ dotnet add package Microsoft.AspNetCore.Authentication.OpenIdConnect --version 8
 
 Then add the following code, which will create a new instance of an `HttpClient`, which we will be using to retrieve the `JsonWebKeySet` from Asgardeo.
 
-```csharp
+```csharp title="Program.cs"
 HttpClient httpClient;
 if (Environment.GetEnvironmentVariable("HTTPCLIENT_VALIDATE_EXTERNAL_CERTIFICATES") == "false")
 {
@@ -262,9 +268,9 @@ else
 builder.Services.AddSingleton(httpClient);
 ```
 
-The below `FetchJwks` method will perform the invocation of the endpoint passed as a parameter in order to parse the `JsonWebKeySet`.
+Add the below `FetchJwks` method which will perform the invocation of the endpoint passed as a parameter in order to parse the `JsonWebKeySet`.
 
-```csharp
+```csharp title="Program.cs"
 JsonWebKeySet FetchJwks(string url)
 {
     var result = httpClient.GetAsync(url).Result;
@@ -279,9 +285,9 @@ JsonWebKeySet FetchJwks(string url)
 }
 ```
 
-We can now register the services required for the authentication services as given below.
+We can now register the services required for the authentication services in the `Program.cs` file as given below.
 
-```csharp
+```csharp title="Program.cs"
 const string ASGARDEO_OIDC_SCHEME = "AsgardeoOidc";
 
 builder.Services.AddAuthentication(ASGARDEO_OIDC_SCHEME)
@@ -322,11 +328,11 @@ builder.Services.AddAuthentication(ASGARDEO_OIDC_SCHEME)
 
 The environment variables that were added in a prior step are utilized to create a new configuration for the relevant endpoints and also configure the client ID and secret of the application created in Asgardeo.
 
-> **Note:** For the purpose of this guide, the `SaveTokens` property is set to `true`, so the application will store the access token, refresh token, and ID token in the authentication properties and simplify the token persistence.
+For the purpose of this guide, the `SaveTokens` property is set to `true`, so the application will store the access token, refresh token, and ID token in the authentication properties and simplify the token persistence.
 
 The following `WebApplicationBuilder` services need to be configured in order to enable authorization and also add the custom `AuthenticationStateProvider` class previously created as a scoped service:
 
-```csharp
+```csharp title="Program.cs"
 builder.Services.AddAuthorization();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingAuthenticationStateProvider>();
