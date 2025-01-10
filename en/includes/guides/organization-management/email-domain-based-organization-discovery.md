@@ -81,7 +81,7 @@ Mapping an email domain to an organization allows for a customized user experien
 
 - If an organization registers an email domain mapping,
     - a user can only onboard to the organization if the user's email domain matches one of the domains claimed by the organization.
-    - Just-In-Time (JIT) provisioning during federated authentication only occurs if the user's email domain matches one of the domains claimed by the organization.
+    - Federated authentication and Just-In-Time (JIT) provisioning will be restricted for users logging in with email domains not claimed by the organization.
 - If not, a user can register to the organization with an email address of any domain (other than the domains claimed by other organizations).
 
 === "Using the Console"
