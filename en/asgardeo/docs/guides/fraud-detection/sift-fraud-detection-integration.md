@@ -2,7 +2,7 @@
 
 [Sift](https://sift.com/) is a fraud prevention platform that leverages machine learning to detect suspicious patterns and prevent account-related fraud, including account takeovers and fake account creation. By analyzing data in real-time across its global network, Sift ensures account security and helps businesses maintain user trust.
 
-This guide explains how you can use Sift to add fraud detection to applicatioons registered in your Asgardeo organization.
+This guide explains how you can add Sift fraud detection to applications registered in your Asgardeo organization.
 
 ## Prerequisites
 
@@ -20,28 +20,39 @@ Follow the steps below to register Sift in Asgardeo.
 
 ### Conditional Authentication Functions 
 
-Following conditional authentication functions are provided for the Sift fraud detection integration.
+Asgardeo offers the following Sift-related functions that can be utilized in your conditional authentication scripts, enabling seamless integration of Sift into the user authentication process.
 
-**`getSiftRiskScoreForLogin()`** 
+**`getSiftRiskScoreForLogin()`**
 
-- This function is utilized to obtained the Sift risk score for a given login event. This returns the risk score which resides between 0 and 1. Higher score means higher risk. 
-- Following arguments are needed for the function.
-    - Authentication context - current authentication context.
-    - Login status - Whether the user authentication was succssful or not. Accepted values `LOGIN_SUCCESS`, `LOGIN_FAILED`.
-    - Login data - This indicates whether user id, session id, ip, user_agent values needs to be sent to Sift for the risk score calculations.
-    - Additional parameters - Apart from the above parameters, if needed any additional parameters can be sent to Sift.
+- This function returns the Sift risk score for a given login event, which is a value between 0 and 1. Higher the score, greater the risk.
+- If an error occurs due to an invalid API key, network issue or a Sift server issue, this function returns a value of -1.
+- The function takes the following arguments.
+  - `AuthenticationContext` - current authentication context.
+  - `LoginStatus` - Whether the user authentication was successful or not. Accepted values `LOGIN_SUCCESS`, `LOGIN_FAILED`.
+  - `AdditionalParameters` - Any additional parameters can be sent to Sift.
 
-**`publishLoginEventInfoToSift`** 
+**`publishLoginEventInfoToSift`**
 
-- This function is utilized to publish the successful or failed login events to Sift. This informs Sift that current login attempt was successful/failed.
-    - Authentication context - current authentication context.
-    - Login status - Whether the user authentication was succssful or not. Accepted values are `$success`, `$failure`.
-    - Login data - This indicates whether user id, session id, ip, user_agent values needs to be sent to Sift for the risk score calculations.
-    - Additional parameters - Apart from the above parameters, if needed any additional parameters can be sent to Sift.
+- This function publishes the successful or failed login events to Sift. This informs Sift that the current login attempt was successful/failed.
+  - `AuthenticationContext` - current authentication context.
+  - `LoginStatus` - Whether the complete login flow was successful or not. Accepted values are `LOGIN_SUCCESS`, `LOGIN_FAILED`.
+  - `AdditionalParameters` - Any additional parameters can be sent to Sift.
+
+By default, Asgardeo sends the user ID, session ID, IP address, and user agent to Sift.
+The user ID is a mandatory field, while the other fields are optional. All four parameters can be overridden by including them as additional parameters in the functions.
+To prevent Asgardeo from sending the optional parameters to Sift, set empty strings to their values.
+
+```javascript
+var additionalParams = {
+    "$ip": "",
+    "$user_agent": "",
+    "$session_id": ""
+}
+```
 
 ### Enable Logging
 
-Sending `"isLoggingEnabled": true` in the additional parameters will enable the logging for the Sift fraud detection flow. This will log the payload that will be sent to Sift as well as the risk score returned from the Sift.
+Including `"isLoggingEnabled": true` as an additional parameter in the functions activates logging for Sift fraud detection. When used with `getSiftRiskScoreForLogin`, it logs the payload sent to Sift and the risk score returned by Sift, and when applied to `publishLoginEventToSift`, it logs the payload sent to Sift.
 
 ### Enable Sift fraud detection
 
@@ -56,13 +67,13 @@ To enable Sift fraud detection for your application:
 
 Example conditional authentication script which fails the authentication if the risk score is higher than 0.5.
 
-```
-var data = ["$user_id", "$session_id", "$ip", "$user_agent"];
+```javascript
 var additionalParams = {
-    "loggingEnabled": true
+    "loggingEnabled": true,
+    "$user_agent": "",
 }
 var errorPage = '';
-var errorPageParameters = {
+var suspiciousLoginError = {
     'status': 'Login Restricted',
     'statusMsg': 'You login attempt was identified as suspicious.'
 };
@@ -70,10 +81,19 @@ var errorPageParameters = {
 var onLoginRequest = function (context) {
     executeStep(1, {
         onSuccess: function (context) {
-            var riskScore = getSiftRiskScoreForLogin(context, "LOGIN_SUCCESS", data, additionalParams);
-            if (riskScore > 0.5) {
-                publishLoginEventInfoToSift(context, "LOGIN_FAILED", data, additionalParams);
-                sendError(errorPage, errorPageParameters);
+            var riskScore = getSiftRiskScoreForLogin(context, "LOGIN_SUCCESS", additionalParams);
+            if (riskScore == -1) {
+                console.log("Error occured while obtaining Sift score.");
+            }
+            if (riskScore > 0.7) {
+                publishLoginEventToSift(context, "LOGIN_FAILED", additionalParams);
+                sendError(errorPage, suspiciousLoginError);
+            } else if (riskScore > 0.5) {
+                console.log("Success login. Stepping up due to the risk.");
+                executeStep(2);
+            } 
+            else {
+                publishLoginEventToSift(context, "LOGIN_SUCCESS", additionalParams);
             }
         }
     });
