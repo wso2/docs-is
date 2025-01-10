@@ -21,13 +21,10 @@ In this example scenario,
 ## Enable email domain based organization discovery
 
 !!! note "Important"
-    Enabling this feature and mapping email domains to organizations is only permitted in the root organization. 
+    - Enabling this feature and mapping email domains to organizations is only permitted in the root organization. 
+    - For this feature to work, make sure to [enable email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/) so that users may log in to applications with their email addresses.
 
 === "Using the Console"
-
-    !!! note "Before you begin"
-
-        Ensure you have configured email address as a username option. Learn more about [multi-attribute login]({{base_path}}/guides/authentication/multi-attribute-login/).
 
     To do so,
 
@@ -39,7 +36,7 @@ In this example scenario,
 
     {% if (product_name == "WSO2 Identity Server") %}
 
-    4. Select the **Email domain discovery for self-registration** checkbox if you want to allow users to discover child organizations based on their email domain and self-register in them.
+    4. Select the **Email domain discovery for self-registration** checkbox if you want to allow users to discover organizations based on their email domain and self-register in them.
 
         !!! note
             For this to work, child organizations should have self-registration enabled. Currently, you can enable self-registration for all child organizations by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
@@ -54,10 +51,6 @@ In this example scenario,
     5. [Map email domains to organizations](#map-email-domains-to-organizations).
 
 === "Using the API"
-
-    !!! note "Before you begin"
-
-        Ensure you have configured email address as a username option. Learn more about [multi-attribute login]({{base_path}}/guides/authentication/multi-attribute-login/).
 
     To do so,
 
@@ -101,13 +94,13 @@ Mapping an email domain to an organization allows for a customized user experien
     To do so,
 
     1. On the {{ product_name }} Console, go to **Login & Registration**.
-    2. Click **Email Domain Discovery** under **Organization Settings**.
+    2. Under **Organization Settings**, click **Email Domain Discovery**.
     3. Click **Assign Email Domain**.
 
         ![Assign Email Domain]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-email-domains.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    4. Select the organization you want to claim an email domain from the dropdown under **Organization Name**.
-    5. Type the email domain you want to claim for the selected organization under **Email Domains** and press enter. You can add more than one email domain.
+    4. Under **Organization Name**, select the organization.
+    5. Under **Email Domains**, type the email domain you want to claim for the selected organization and press enter. You can add more than one email domain.
 
         ![Assign Email Domain for Best Car Mart]({{base_path}}/assets/img/guides/organization/manage-organizations/assign-email-domains-bestcarmart.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
