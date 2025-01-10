@@ -4,8 +4,6 @@ heading: Display logged-in user details
 read_time: 5 min
 ---
 
-Here's the content converted to Markdown (.md) format:
-
 ## Displaying User Information
 
 In this guide, we will display user information in two different places:
