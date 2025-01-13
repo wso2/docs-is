@@ -8,7 +8,7 @@ You may implement the hybrid flow using {{product_name}} by following the steps 
 
 - To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, [register an OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/#register-app).
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 - Go to the **Protocol** section of the created application and take note of the generated `Client ID` and the `Client secret`.
 
@@ -45,7 +45,7 @@ Follow the steps below to enable the hybrid flow for your application.
 
 ## Implement the hybrid flow
 
-{% if product_name == Asgardeo %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 Now that you have [enabled the hybrid flow](#enable-the-hybrid-flow) for your application, let's take a look at how you may implement the hybrid flow for your application.
 
 {% else %}
