@@ -77,7 +77,7 @@ To enable this, select the corresponding checkbox and configure the following op
     </tr>
     <tr>
         <td>Password History Count</td>
-        <td><code>[Optional]</code> The number of unique passwords that must be set before reusing an old password. <br> <b> Example: </b> If set to <code>3</code>, the user cannot reuse the last three passwords they have set.</td>
+        <td>[Optional] The number of unique passwords that must be set before reusing an old password. <br> <b> Example: </b> If set to <code>3</code>, the user cannot reuse the last three passwords they have set.</td>
     </tr>
 </table>
 
@@ -85,7 +85,7 @@ To enable this, select the corresponding checkbox and configure the following op
 
 The **Password Input Validation** feature enables you to set password complexity requirements which include minimum password length and required character types.
 
-![Password Input Validation]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-input-validation.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Password Input Validation]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-input-validation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Configure the following parameters to enforce input validation.
 
@@ -111,14 +111,14 @@ Configure the following parameters to enforce input validation.
     </tr>
     <tr>
         <td>Number of unique characters</td>
-        <td><code>[Optional]</code> This field identifies the number of unique (non-repeated) characters the password should contain.</td>
+        <td>[Optional] This field identifies the number of unique (non-repeated) characters the password should contain.</td>
     </tr>
     <tr>
         <td>Number of repeated characters</td>
-        <td><code>[Optional]</code>This field identifies the number of characters that can be repeated consecutively in a user password. <br> <b> Example: </b> If you assign <code>1</code> as the number of repeated characters, the password cannot contain any repeated characters consecutively. <br> The password <code>aa1@Znlq</code> is incorrect as it has the character <code>a</code> appearing consecutively.</td>
+        <td>[Optional] This field identifies the number of characters that can be repeated consecutively in a user password. <br> <b> Example: </b> If you assign <code>1</code> as the number of repeated characters, the password cannot contain any repeated characters consecutively. <br> The password <code>aa1@Znlq</code> is incorrect as it has the character <code>a</code> appearing consecutively.</td>
     </tr>
 </table>
 
 !!! note "Validation for whitespace in passwords"
 
-    {{product_name}} automatically trims leading and trailing whitespace from passwords when creating, updating, or when entering passwords to login.
+    {{product_name}} automatically trims leading and trailing whitespace from passwords when creating, updating, or entering passwords to login.
