@@ -12,18 +12,18 @@ First unless you already have done that, you need to create an organization in {
 
 ![Select Traditional Web Application]({{base_path}}/complete-guides/nodejs/assets/img/image5.png){: width="800" style="display: block; margin: 0;"}  
   
-Next, complete the wizard popup by providing a suitable name and an authorized redirect URL. Keep OpenID Connect selected as the protocol.
+Next, complete the wizard popup by providing a suitable name and following authorized redirect URLs. Keep OpenID Connect selected as the protocol.
 
 !!! Example
     **name:** is-nodejs
     
-    **Authorized redirect URL:** http://localhost:3000/oauth2/redirect
+    **Authorized redirect URLs:** http://localhost:3000/oauth2/redirect, http://localhost:3000
 
 ![Register a new application]({{base_path}}/complete-guides/nodejs/assets/img/image8.png){: width="800" style="display: block; margin: 0;"}
 
 !!! Info
 
-    The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use [http://localhost:3000/oauth2/redirect](http://localhost:3000/oauth2/redirect){:target="_blank"}, as the sample app will be accessible at this URL.
+    The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use [http://localhost:3000/oauth2/redirect](http://localhost:3000/oauth2/redirect){:target="_blank"} and [http://localhost:3000](http://localhost:3000){:target="_blank"}.
     
 You will need the following information available in the Quick Start tab of your app.
 

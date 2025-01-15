@@ -139,12 +139,11 @@ Begin by installing the necessary dependencies:
 
 ```bash
 npm install express-session
-npm install connect-sqlite3
 ```
 
 Open `app.js` and modify the file as shown below to add passport authentication with session support.
 
-```javascript hl_lines="8-10 27-35"
+```javascript hl_lines="8 9 26-33"
 require("dotenv").config();
 
 var createError = require('http-errors');
@@ -154,7 +153,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require("express-session");
 var passport = require("passport");
-var SQLiteStore = require("connect-sqlite3")(session);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -176,7 +174,6 @@ app.use(
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    store: new SQLiteStore({ db: "sessions.db", dir: "./var/db" }),
   })
 );
 app.use(passport.authenticate("session"));
@@ -204,13 +201,9 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 ```
 
-Run the following command to create the SQLite database location:
 
-```bash
-mkdir -p ./var/db
-```
 
-Next we need to configure Passport to manage the login session by adding serializeUser and deserializeUser functions. Open `routes/auth.js` and add the following code lines after AsgardeoStrategy configuration.
+Next we need to configure Passport to manage the login session by adding serializeUser and deserializeUser functions. Open `routes/auth.js` and add the following code lines after the AsgardeoStrategy configuration.
 
 ```javascript
 passport.serializeUser(function (user, cb) {
@@ -256,7 +249,8 @@ router.post("/logout", function (req, res, next) {
       return next(err);
     }
     var params = {
-      post_logout_redirect_uri: "http://localhost:3000/",
+      post_logout_redirect_uri: "http://localhost:3000",
+      client_id: process.env.ASGARDEO_CLIENT_ID,
     };
     res.redirect(
       ASGARDEO_BASE_URL +

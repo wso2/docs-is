@@ -526,6 +526,18 @@ nav:
     - Accessing protected API : complete-guides/react/accessing-protected-api.md
     - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
     - Next Steps: complete-guides/react/next-steps.md
+  - .NET Guide:
+      - Introduction: complete-guides/dotnet/introduction.md
+      - Prerequisites: complete-guides/dotnet/prerequisites.md
+      - Register an application: complete-guides/dotnet/register-an-application.md
+      - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
+      - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
+      - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
+      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
+      - Accessing protected API: complete-guides/dotnet/accessing-protected-api.md
+      - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
+      - Next Steps: complete-guides/dotnet/next-steps.md
   - Node.js Guide:
     - Introduction: complete-guides/nodejs/introduction.md
     - Prerequisite: complete-guides/nodejs/prerequisite.md
@@ -533,6 +545,7 @@ nav:
     - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
     - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
     - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+    - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
     - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
     - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
     - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
