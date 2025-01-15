@@ -118,24 +118,6 @@ When the database owner is not the user used to connect to the database, specify
 	parentSchema = "<parent_schema_name>"
 	```
 
-!!! note "Database user priviledges"
-
-    When a custom database user is created, please note that the following privildges should be granted according to the purpose of the user.
-
-    - Execute the below permissions on the database to perform DDL operations.
-        - CREATE SESSION, ALTER SESSION, UNLIMITED TABLESPACE, CREATE VIEW, CREATE SEQUENCE, CREATE TABLE, CREATE PROCEDURE, CREATE TRIGGER, CREATE PUBLIC SYNONYM
-            - ex: `GRANT CREATE SESSION TO <db-user>;`
-
-    - Execute the below permissions on the database to perform DML operations.
-        - CREATE SESSION, ALTER SESSION, UNLIMITED TABLESPACE
-            - ex: `GRANT CREATE SESSION TO <db-user>;`
-
-    - When a user accessing the tables is not the owner of the tables, the following permissions should be granted on the table.
-        - SELECT, INSERT, DELETE, UPDATE
-            - ex: `GRANT SELECT, INSERT, DELETE, <db-user>.<table-name>;`
-
-    Please refer the offcial [oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/GRANT.html#GUID-20B4E2C0-A7F8-4BC8-A5E8-BE61BDC41AC3) for further details.
-
 ---
   
 ## Configure the connection pool behavior on return 
