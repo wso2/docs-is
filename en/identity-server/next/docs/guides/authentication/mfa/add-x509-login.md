@@ -31,7 +31,7 @@ and create your own Certificate Authority to sign the certificates, follow the g
     - Locality Name (eg, city) [ ]: Colombo
     - Organization Name (eg, company) [Internet Widgits Pty Ltd]: WSO2
     - Organizational Unit Name (eg, section) [ ]: QA
-    - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com
+    - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is
     - Email Address [ ]: kim@wso2.com
     ```
 
@@ -356,7 +356,7 @@ The next step is to configure the application.
 ## Onboard a user
 
 A user for the corresponding certificate should be available in the system to perform the authentication. Follow the given instructions 
-in [Onboard single user](../../users/manage-users.md/#onboard-single-user) to onboard a user with the username `wso2is.com` (This is the CN of the created certificate above).
+in [Onboard single user](../../users/manage-users.md/#onboard-single-user) to onboard a user with the username `wso2is` (This is the CN of the created certificate above).
 
 ## Try it out
 
