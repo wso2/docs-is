@@ -2,10 +2,12 @@ openapi: 3.0.0
 info:
   version: v1
   title: Asgardeo - Action Management Rest API
-  description:
-    "This is the RESTful API for managing actions for an organization in Asgardeo. \n
-    This API allows to create, retrieve, update and delete actions. \n\n
-    To access Action Management APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
+  description: >
+    The Action Management REST API provides a comprehensive interface to manage actions
+    within the Asgardeo. Actions enable the extension of product functionality
+    across various workflows, such as access token issuance, password updates, and profile updates.
+    This API helps developers and administrators to define and manage actions to meet specific
+    business needs.
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
 security:
@@ -14,14 +16,14 @@ paths:
   /actions/types:
     get:
       tags:
-      - Actions Endpoint
+      - Action Types
       summary: List Action Types
       description: "This API returns the detailed summary of the action types.\n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_view``\n\n"
       operationId: getActionTypes
       responses:
         '200':
-          description: Action Types are found
+          description: OK
           content:
             application/json:
               schema:
@@ -36,19 +38,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/types' \
-            -H 'Authorization: Bearer {bearer_token}'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/types' \
+              -H 'Authorization: Bearer {bearer_token}'
 
   /actions/{actionType}:
     post:
       tags:
-        - Actions Endpoint
+         - Actions
       summary: Add Action
       description: "This API creates an action and returns the action details along with the action's unique ID.\n\n
-        <b>Scope (Permission) required:</b> ``internal_action_mgt_create``\n\n"
+       <b>Scope (Permission) required:</b> ``internal_action_mgt_create``\n\n"
       operationId: createAction
       parameters:
         - name: actionType
@@ -58,6 +60,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
       requestBody:
         content:
           application/json:
@@ -67,7 +72,7 @@ paths:
         required: true
       responses:
         '201':
-          description: Action is created.
+          description: Action Created
           content:
             application/json:
               schema:
@@ -94,31 +99,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/{actionType}' \
-            -H 'Authorization: Bearer {bearer_token}' \
-            -H 'Content-Type: application/json' \
-            -d '{
-                "name": "Access Token Pre Issue",
-                "description": "This action invokes before issuing an access token.",
-                "endpoint": {
-                    "uri": "https://myextension.com/token",
-                    "authentication": {
-                        "properties": {
-                            "username": "auth_username",
-                            "password": "auth_password"
-                        },
-                        "type": "BASIC"
-                    }
-                }
-            }'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/{actionType}' \
+              -H 'Authorization: Bearer {bearer_token}' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                  "name": "Access Token Pre Issue",
+                  "description": "This action invokes before issuing an access token.",
+                  "endpoint": {
+                      "uri": "https://myextension.com/token",
+                      "authentication": {
+                          "properties": {
+                              "username": "auth_username",
+                              "password": "auth_password"
+                          },
+                          "type": "BASIC"
+                      }
+                  }
+              }'
       x-codegen-request-body-name: body
 
     get:
       tags:
-        - Actions Endpoint
+       - Actions
       summary: List Actions
       description: "This API returns actions according to the action type. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_view``\n\n"
@@ -131,13 +136,22 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
       responses:
         '200':
-          description: Actions are found for the given action type.
+          description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionResponseList'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
         '403':
@@ -169,7 +183,7 @@ paths:
   /actions/{actionType}/{actionId}:
     get:
       tags:
-        - Actions Endpoint
+        - Actions
       operationId: getActionByActionId
       summary: Retrieve Action by ID
       description: "This API provides the capability to retrieve the action by action Id. \n\n
@@ -182,6 +196,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
         - name: actionId
           in: path
           description: Unique identifier of the action.
@@ -190,7 +207,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Action is found for the given action type and id.
+          description: OK
           content:
             application/json:
               schema:
@@ -228,12 +245,11 @@ paths:
           source: |
             curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/{actionType}/{actionId}' \
             -H 'Authorization: Bearer {bearer_token}'
-                
     patch:
       tags:
-        - Actions Endpoint
+         - Actions
       summary: Update Action
-      description: "This API updates an action and returns the updated action. \n\n
+      description: "This API updates an action and return the updated action. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"
       operationId: updateAction
       parameters:
@@ -244,6 +260,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
         - name: actionId
           in: path
           description: Unique identifier of the action.
@@ -259,7 +278,7 @@ paths:
         required: true
       responses:
         '200':
-          description: Action is Updated.
+          description: Action Updated
           content:
             application/json:
               schema:
@@ -317,7 +336,7 @@ paths:
 
     delete:
       tags:
-        - Actions Endpoint
+        - Actions
       summary: Delete Action
       description: "This API deletes an action using the action's type and unique ID. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_delete``\n\n"      
@@ -330,6 +349,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
         - name: actionId
           in: path
           description: Unique identifier of the action.
@@ -338,8 +360,7 @@ paths:
             type: string
       responses:
         '204':
-          description: Successfully Deleted
-          content: {}
+          description: Action Deleted
         '400':
           description: Bad Request
           content:
@@ -350,12 +371,6 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
@@ -377,7 +392,7 @@ paths:
   /actions/{actionType}/{actionId}/activate:
     post:
       tags:
-        - Actions Endpoint
+        - Actions
       summary: Activate Action
       description: "This API activates an action using the action's type and unique ID. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"  
@@ -390,6 +405,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
         - name: actionId
           in: path
           description: Unique identifier of the action.
@@ -398,7 +416,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Action is activated
+          description: Action Activated
           content:
             application/json:
               schema:
@@ -440,7 +458,7 @@ paths:
   /actions/{actionType}/{actionId}/deactivate:
     post:
       tags:
-        - Actions Endpoint
+         - Actions
       summary: Deactivate Action
       description: "This API deactivates an action using the action's type and unique ID. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"  
@@ -453,6 +471,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
         - name: actionId
           in: path
           description: Unique identifier of the action.
@@ -461,11 +482,11 @@ paths:
             type: string
       responses:
         '200':
-          description: Action is deactivated
+          description: Action Deactivated
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ActionBasicResponseInactive'
+                $ref: '#/components/schemas/ActionBasicResponse'
         '400':
           description: Bad Request
           content:
@@ -502,6 +523,9 @@ paths:
 
 components:
   securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
     OAuth2:
       type: oauth2
       flows:
@@ -515,6 +539,14 @@ components:
             delete: internal_action_mgt_delete
 
   schemas:
+    ActionType:
+      type: string
+      description: Action types supported. As of now only 'PRE_ISSUE_ACCESS_TOKEN' is implemented.
+      enum:
+        - PRE_ISSUE_ACCESS_TOKEN
+        - PRE_UPDATE_PASSWORD
+        - PRE_UPDATE_PROFILE
+        - PRE_REGISTRATION
     ActionModel:
       type: object
       required:
@@ -523,17 +555,19 @@ components:
       properties:
         name:
           type: string
-          example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
           description: Name of the action.
+          example: Pre Issue Access Token Action
         description:
           type: string
-          example: This action invokes before issuing an access token.
           maxLength: 255
           description: Description of the action.
+          example: This action invokes before issuing an access token.
         endpoint:
           $ref: '#/components/schemas/Endpoint'
+        rule:
+          $ref: '#/components/schemas/ORRule'
 
     Endpoint:
       type: object
@@ -544,10 +578,11 @@ components:
       properties:
         uri:
           type: string
-          example: https://myextension.com/token
           description: HTTPS URI of the endpoint.
+          pattern: '^https?://.+'
+          example: https://myextension.com/token
         authentication:
-          $ref: '#/components/schemas/Authentication'
+          $ref: '#/components/schemas/AuthenticationType'
 
     EndpointResponse:
       type: object
@@ -558,8 +593,9 @@ components:
       properties:
         uri:
           type: string
-          example: https://myextension.com/token
           description: HTTPS URI of the endpoint.
+          pattern: '^https?://.+'
+          example: https://myextension.com/token
         authentication:
           $ref: '#/components/schemas/AuthenticationTypeResponse'
 
@@ -571,31 +607,29 @@ components:
           example: '24f64d17-9824-4e28-8413-de45728d8e84'
           description: Unique identifier of the action.
         type:
-          type: string
-          enum:
-            - PRE_ISSUE_ACCESS_TOKEN
-          example: PRE_ISSUE_ACCESS_TOKEN
-          description: Action Type.
+          $ref: '#/components/schemas/ActionType'
         name:
           type: string
-          example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
           description: Name of the action.
+          example: Access Token Pre Issue
         description:
           type: string
-          example: This action invokes before issuing an access token.
           maxLength: 255
           description: Description of the action.
+          example: This action invokes before issuing an access token.
         status:
           type: string
           enum:
             - ACTIVE
             - INACTIVE
-          example: ACTIVE
           description: Status of the action.
+          example: ACTIVE
         endpoint:
           $ref: '#/components/schemas/EndpointResponse'
+        rule:
+          $ref: '#/components/schemas/ORRuleResponse'
 
     ActionBasicResponse:
       type: object
@@ -605,33 +639,51 @@ components:
           example: '24f64d17-9824-4e28-8413-de45728d8e84'
           description: Unique identifier of the action.
         type:
-          type: string
-          enum:
-            - PRE_ISSUE_ACCESS_TOKEN
-          example: PRE_ISSUE_ACCESS_TOKEN
-          description: Action Type.
+          $ref: '#/components/schemas/ActionType'
         name:
           type: string
-          example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
           description: Name of the action.
+          example: Pre Issue Access Token Action
         description:
           type: string
-          example: This action invokes before issuing an access token.
           maxLength: 255
           description: Description of the action.
+          example: This action invokes before issuing an access token.
         status:
           type: string
           enum:
             - ACTIVE
             - INACTIVE
-          description: Status of the action.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            - href: "/t/wso2.com/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+              method: GET
+              rel: self
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Url of the endpoint.
+        method:
+          type: string
+          enum:
+            - GET
+          description: Http method.
+        rel:
+          type: string
+          description: Relation to the resource.
 
     ActionResponseList:
       type: array
       items:
-        $ref: '#/components/schemas/ActionResponse'
+        $ref: '#/components/schemas/ActionBasicResponse'
 
     ActionTypesResponse:
       type: array
@@ -642,26 +694,79 @@ components:
       type: object
       properties:
         type:
-          type: string
-          enum:
-            - PRE_ISSUE_ACCESS_TOKEN
-          description: Action Type.
+          $ref: '#/components/schemas/ActionType'
         displayName:
           type: string
-          example: "Pre Issue Access Token."
           description: "Display name of the action type."
+          example: "Pre Issue Access Token."
         description:
           type: string
-          example: "Extension point configuration for Pre Issue Access Token."
           description: "Description of the action type."
+          example: "Extension point configuration for Pre Issue Access Token."
         count:
           type: integer
-          example: 1
           description: "Number of actions configured under the action type."
+          example: 1
         self:
           type: string
-          example: "/t/{organization-name}/api/server/v1/actions/preIssueAccessToken"
           description: "API endpoint referring to the location of the given action type."
+          example: "/t/wso2.com/api/server/v1/actions/preIssueAccessToken"
+
+    AuthenticationType:
+      type: object
+      description: >
+            The type of authentication required by the action's endpoint. The following options are supported:
+            
+            - NONE: No authentication is required. <br>
+              ``{
+                "type": "NONE"
+              }``
+              
+            - BASIC: Basic authentication with a username and password.<br>
+              ``{
+                "type": "BASIC",
+                "properties": {
+                  "username": "auth_username",
+                  "password": "auth_password"
+                }
+              }``
+              
+            - API_KEY: API key-based authentication, where the key is provided in an HTTP header.<br>
+              ``{
+                "type": "API_KEY",
+                "properties": {
+                  "header": "X-API-Key",
+                  "value": "12345-abcde-67890"
+                }
+              }``
+            
+            - BEARER: Bearer token-based authentication.<br/>
+              ``{
+                "type": "BEARER",
+                "properties": {
+                  "accessToken": "0d6fed02-eac0-332b-8998-213a543139a0"
+                }
+              }``
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum:
+            - NONE
+            - BEARER
+            - API_KEY
+            - BASIC
+          example: BASIC
+        properties:
+          type: object
+          description: Authentication properties specific to the selected type.
+          additionalProperties: true
+      example:
+        type: BASIC
+        properties:
+          username: "auth_username"
+          password: "auth_password"
 
     AuthenticationTypeResponse:
       type: object
@@ -676,156 +781,138 @@ components:
             - BEARER
             - API_KEY
             - BASIC
-          example: BASIC
           description: Type of the authentication.
+          example: BASIC
 
     ActionUpdateModel:
       type: object
       properties:
         name:
           type: string
-          example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
           description: Updating name of the action.
+          example: Pre Issue Access Token Action
         description:
           type: string
-          example: This action invokes before issuing an access token.
           maxLength: 255
           description: Updating description of the action.
+          example: This action invokes before issuing an access token.
         endpoint:
           $ref: '#/components/schemas/EndpointUpdateModel'
+        rule:
+          $ref: '#/components/schemas/ORRule'
 
     EndpointUpdateModel:
-      description: Updating endpoint configurations of the action.
       type: object
+      description: Updating endpoint configurations of the action.
       properties:
         uri:
           type: string
-          example: https://myextension.com/token
+          pattern: '^https?://.+'
           description: Updating HTTPS URI of the endpoint.
+          example: https://myextension.com/token
+          
         authentication:
-          $ref: '#/components/schemas/Authentication'
+          $ref: '#/components/schemas/AuthenticationType'
 
-    ActionBasicResponseInactive:
-      allOf:
-        - $ref: '#/components/schemas/ActionBasicResponse'
-        - type: object
-          properties:
-            status:
-              type: string
-              enum:
-                - INACTIVE
-
-    None:
+    ORRule:
       type: object
+      description: Represents a rule configuration that combines multiple sub-rules with an OR condition.
+        If any of the sub-rules evaluate to true, the ORRule is considered satisfied.
       properties:
-        properties:
-          type: object
-    Basic:
+        condition:
+          type: string
+          description: The logical condition for combining the sub-rules. For ORRule, the value
+            must always be "OR".
+          enum: ["OR"]
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ANDRule'
+          minItems: 1
+
+    ORRuleResponse:
       type: object
+      description: Rule configured for the action.
       properties:
-        properties:
-          type: object
-          description: Properties of Basic authentication type.
-          required:
-            - username
-            - password
-          properties:      
-            username:
-              type: string
-              example: 'auth_username'
-              description: Username.
-            password:
-              type: string
-              example: 'auth_password'
-              description: Password.
-    ApiKey:
+        condition:
+          type: string
+          enum: ["OR"]
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ANDRuleResponse'
+          description: A list of sub-rules that are combined using the OR condition. Each sub-rule is an ANDRule.
+          minItems: 1
+
+    ANDRule:
       type: object
+      description: A sub-rule that combines expressions with AND condition.
+      required:
+        - condition
+        - expressions
       properties:
-        properties:
-          type: object
-          description: Properties of API Key authentication type.
-          required:
-            - header
-            - value
-          properties: 
-            header:
-              type: string
-              example: 'auth_header'
-              description: Header.
-            value:
-              type: string
-              example: 'auth_value'
-              description: Value.
-    Bearer:
+        condition:
+          type: string
+          enum: ["AND"]
+          description: The logical condition for combining the expressions. For ANDRule, the value must always be "AND".
+        expressions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Expression'
+          minItems: 1
+          description: A list of expressions that are combined using the AND condition. All expressions must evaluate to true for the ANDRule to pass.
+
+    ANDRuleResponse:
       type: object
+      description:  Represents a rule configuration that combines multiple expressions with an AND condition. All expressions in the ANDRule must evaluate to true for the rule to be satisfied.
       properties:
-        properties:
-          type: object
-          description: Properties of Bearer authentication type.
-          required:
-            - accessToken
-          properties: 
-            accessToken:
-              type: string
-              example: '0d6fed02-eac0-332b-8998-213a543139a0'
-              description: Access Token.
+        condition:
+          type: string
+          enum: ["AND"]
+          description: The logical condition for combining the expressions. For ANDRule, the value must always be "AND".
+        expressions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExpressionResponse'
+          minItems: 1
+          description: A list of expressions that are combined using the AND condition. All expressions must evaluate to true for the ANDRule to pass.
 
-    NoAuthentication:
+    Expression:
       type: object
-      allOf:
-        - $ref: '#/components/schemas/None'
-        - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - NONE
+      description: Represents a single logical condition or comparison within a rule. An expression defines a field, an operator, and a value that is evaluated.
+      required:
+        - field
+        - operator
+        - value
+      properties:
+        field:
+          type: string
+          description: The field or attribute of the entity being evaluated (e.g.,application, role).
+          example: application
+        operator:
+          type: string
+          description: The comparison operator used to evaluate the field and value. Common operators include "equals", "contains", "startsWith", etc.
+          example: equals
+        value:
+          type: string
+          description: The value that the field is compared against based on the operator.
+          example: myapp
 
-    BasicAuthentication:
+    ExpressionResponse:
       type: object
-      allOf:
-        - $ref: '#/components/schemas/Basic'
-        - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - BASIC
-              description: Type of the authentication.
-
-    ApiKeyAuthentication:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/ApiKey'
-        - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - API_KEY
-              description: Type of the authentication.
-
-    BearerAuthentication:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/Bearer'
-        - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - BEARER
-              description: Type of the authentication.
-    
-    Authentication:
-      description: Authentication configurations of the action.
-      oneOf:
-        - $ref: '#/components/schemas/BasicAuthentication'
-        - $ref: '#/components/schemas/ApiKeyAuthentication'
-        - $ref: '#/components/schemas/BearerAuthentication'
-        - $ref: '#/components/schemas/NoAuthentication'
+      description: Expressions in the rule.
+      properties:
+        field:
+          type: string
+          example: application
+        operator:
+          type: string
+          example: equals
+        value:
+          type: string
+          example: myapp
 
     Error:
       type: object
@@ -842,3 +929,4 @@ components:
         traceId:
           type: string
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+          
