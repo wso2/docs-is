@@ -21,12 +21,12 @@ You can tailor the **body** of SMS notifications to your preferences by followin
 !!! warning "Apply changes to user profiles"
     To apply these changes to each user's profile in your organization:
 
-    1. Display the `local` attribute on the user's profile. Learn more on [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
+    1. Display the `local` attribute on the user's profile. Learn how to do so in [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
 
-    2. Update the `local` attribute value with the [required locale code]({{base_path}}/guides/branding/{{ localization_doc_path }}/#supported-languages).
+    2. Update the `local` attribute value with the [required locale code]({{base_path}}/guides/branding/{{ localization_doc_path }}/#supported-languages). The value should be updated by,
 
-        - If the admin onboards the user to the organization, the admin is responsible for updating the locale code.
+        - the admin, if the admin onboards the user to the organization.
 
-        - If the user self-registers, they should update the locale code by themselves at the time of registration.
+        - the user, if the user self-registers to the organization.
 
 Alternatively, you can customize the content of SMS templates using the [Notification Templates API]({{base_path}}/apis/{{ notification_templates_api_path }}/) provided by {{ product_name }}.
