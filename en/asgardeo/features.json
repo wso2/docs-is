@@ -1,19 +1,28 @@
 {
-    "asgardeo_logs": {
+    "default_roles": {
         "enabled": true,
         "page": [
-            "guides/asgardeo-logs/index.md",
-            "guides/asgardeo-logs/diagnostic-logs.md",
-            "guides/asgardeo-logs/audit-logs.md"
         ]
     },
 
-    "applications": {
+    "multi_valued_attributes": {
         "enabled": true,
         "page": [
-            "guides/applications/register-single-page-app.md",
-            "guides/applications/register-oidc-web-app.md",
-            "guides/applications/register-saml-web-app.md"
+        ]
+    },
+
+    "sso_integrations_zoom_slack": {
+        "enabled": true,
+        "page": [
+            "guides/authentication/sso-integrations/add-zoom-template.md",
+            "guides/authentication/sso-integrations/add-slack-template.md"
+        ]
+    },
+
+    "attribute_uniqueness_validation": {
+        "enabled": true,
+        "page": [
+            "guides/users/attributes/configure-unique-attributes.md"
         ]
     }
 }

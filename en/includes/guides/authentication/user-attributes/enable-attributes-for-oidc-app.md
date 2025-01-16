@@ -153,7 +153,7 @@ _A sample userinfo response is given below:_
 2. Select your application and go to its **User Attributes** tab.
 3. Scroll down and under **Linked Accounts**, select **Prioritize local account attributes**.
 
-    ![Prioritize local account attributes]({{base_path}}//assets/img/guides/applications/attributes/oidc/prioritize-local-account-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Prioritize local account attributes]({{base_path}}/assets/img/guides/applications/attributes/oidc/prioritize-local-account-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Once enabled, the tokens issued from this application during federated authentication with an [external identity provider]({{base_path}}/guides/authentication/#supported-external-idps) will contain the attributes of the local account which is linked with the entity identified by the subject claim of the token issued by the external identity provider.
 

@@ -92,6 +92,51 @@ paths:
                 ]
             }'
       x-codegen-request-body-name: body
+    put:
+      tags:
+        - Discovery
+      summary: Update organization discovery configuration.
+      description: |
+        This API provides the capability to update discovery configuration of the root organization. <br>
+
+        <b>Scope(Permission) required:</b> `internal_organization_config_update`
+      operationId: updateDiscoveryConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Config'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Config'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location  --request PUT 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organization-configs/discovery' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+                "properties": [
+                    {
+                        "key": "emailDomain.enable",
+                        "value": true
+                    }
+                ]
+            }'
+      x-codegen-request-body-name: body
     delete:
       tags:
         - Discovery
