@@ -1,6 +1,6 @@
 {
     "sift_fraud_detection": {
-        "enabled": true,
+        "enabled": false,
         "page": [
             "guides/account-configurations/login-security/sift-fraud-detection.md"
         ]
