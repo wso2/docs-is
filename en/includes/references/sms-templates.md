@@ -10,7 +10,7 @@
 
 ## SMS templates in {{ product_name }}
 
-The following is a comprehensive list of SMS templates available in {{ product_name }}.
+The following is a list of all SMS templates available in {{ product_name }}.
 
 <table>
     <thead>
