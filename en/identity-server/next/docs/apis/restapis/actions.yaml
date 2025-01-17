@@ -494,6 +494,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionBasicResponse'
+              example:
+                id: "24f64d17-9824-4e28-8413-de45728d8e84"
+                type: "PRE_ISSUE_ACCESS_TOKEN"
+                name: "Access Token Pre Issue"
+                description: "This action is executed before issuing an access token."
+                status: "INACTIVE"
+                links:
+                  - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+                    method: GET
+                    rel: self
         '400':
           description: Bad Request
           content:
@@ -669,7 +679,7 @@ components:
           items:
             $ref: '#/components/schemas/Link'
           example:
-            - href: "/t/wso2.com/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+            - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
               method: GET
               rel: self
 
@@ -718,7 +728,7 @@ components:
         self:
           type: string
           description: "API endpoint referring to the location of the given action type."
-          example: "/t/wso2.com/api/server/v1/actions/preIssueAccessToken"
+          example: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
 
     AuthenticationType:
       type: object
