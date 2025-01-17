@@ -1,4 +1,4 @@
-# Fraud Detection with Sift
+# Fraud detection with Sift
 
 [Sift](https://sift.com/){target="_blank"} is a fraud detection platform that leverages machine learning to detect suspicious patterns and prevent account-related fraud, such as account takeovers and fake account creation. By analyzing real-time data across its global network, Sift enhances security and helps businesses protect user trust while reducing fraud risks.
 
