@@ -386,7 +386,7 @@ nav:
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
       - Idle account identification API: apis/idle-account-identification.md
-      - Notification templates API: apis/notification-template.md
+      - Notification templates management API: apis/notification-templates.md
       - OAuth Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
