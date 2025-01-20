@@ -1178,6 +1178,76 @@ definitions:
           - type: "default"
             value: "Internal/everyone"
 
+  UsersResponseObject:
+    type: object
+    required:
+      - meta
+    properties:
+      meta:
+        type: object
+        properties:
+          created:
+            type: string
+            example: "2018-08-17T10:34:29Z"
+          location:
+            type: string
+            example: "https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217"
+          lastModified:
+            type: string
+            example: "2018-08-17T10:34:29Z"
+          resourceType:
+            type: string
+            example: User
+      schemas:
+        type: object
+        example:
+          - urn:ietf:params:scim:schemas:core:2.0:User
+          - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+      username:
+        type: string
+        example: "PRIMARY/kim"
+      id:
+        type: string
+        example: "008bba85-451d-414b-87de-c03b5a1f4217"
+      name:
+        type: object
+        properties:
+          givenName:
+            type: string
+            example: "Kim"
+          familyName:
+            type: string
+            example: "Berry"
+      emails:
+        type: array
+        items:
+          type: object
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+        type: object
+        properties:
+          employeeNumber:
+            type: string
+            example: "1234A"
+          manager:
+            type: object
+            properties:
+              value:
+                type: string
+                example: "Taylor"
+      groups:
+        type: array
+        items:
+          type: object
+          example:
+            type: "admin"
+            value: "98ad283c-06e3-4bbd-8d05-a97ec76278a8"
+            $ref : "https://localhost:9443/scim2/Groups/98ad283c-06e3-4bbd-8d05-a97ec76278a8"
   #-----------------------------------------------------
   # The User Update Object
   #-----------------------------------------------------
@@ -1656,7 +1726,7 @@ definitions:
       Resources:
         type: array
         items:
-          $ref: "#/definitions/UserResponseObject"
+          $ref: "#/definitions/UsersResponseObject"
 
   #-----------------------------------------------------
   # Search Request Object- User
