@@ -484,9 +484,6 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
-          - Attribute-based access control: guides/authorization/api-authorization/attribute-based-access-control.md
-        - Fine-grained authorization:
-            - XACML in provisioning flows: guides/authorization/fine-grained-authorization/rule-based-provisioning.md
         - User Impersonation: guides/authorization/user-impersonation.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
@@ -782,7 +779,6 @@ nav:
       - Authenticators API: apis/authenticators-rest-api.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
-      - Entitlement management API: apis/entitlement-with-rest-apis.md
       - Extension management API: apis/extension-mgt-rest-api.md
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
