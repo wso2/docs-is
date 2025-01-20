@@ -6,7 +6,7 @@ read_time: 2 min
 
 The information that was noted in step 3 can now be utilized in the created .NET application.
 
-For the purpose of this guide, these properties will be added to the `launchSettings.json` file. You can, however, use any other configuration source according to your preference. The following are the properties that you need to configure.
+For the purpose of this guide, these properties will be added to the `/Properties/launchSettings.json` file. You can, however, use any other configuration source according to your preference. The following are the properties that you need to configure.
 
 - Authorization Endpoint
 - Token Endpoint
@@ -17,7 +17,7 @@ For the purpose of this guide, these properties will be added to the `launchSett
 - Client Secret
 - Metadata address
 
-An example configuration is shown below (placeholders have to be replaced with the actual values).
+An example configuration is shown below (placeholders have to be replaced with the actual values). Additionally, you can remove the `http` profile from the `launchSettings.json` file as we will only be utilizing the https profile for the purposes of this guide.
 
 ```json hl_lines="10-17"
 "profiles": {
@@ -35,9 +35,11 @@ An example configuration is shown below (placeholders have to be replaced with t
             "LOGOUT_URI": "https://api.asgardeo.io/t/<org>/oidc/logout",
             "AUTHORITY": "https://api.asgardeo.io/t/<org>/",
             "CLIENT_ID": "<client_id>",
-            "CLIENT_SECRET": "<client_id>",
+            "CLIENT_SECRET": "<client_secret>",
             "METADATA_ADDRESS": "https://api.asgardeo.io/t/<org>/oauth2/token/.well-known/openid-configuration"
         }
     },
 }
 ```
+
+Now that we have configured the authentication properties, we can proceed to implement the authentication logic in the .NET application.

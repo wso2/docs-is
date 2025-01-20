@@ -54,9 +54,9 @@ Next, add the following in the HTML section of the file. This will retrieve the 
 }
 ```
 
-It is also possible to retrieve properties such as the name of the user from the context. In this case, we will display the user's name in the logout button by adding `@context.User.Identity?.Name`.
+It is also possible to retrieve properties such as the name of the user from the context. In this case, we will display the user's name in the logout button by adding `@context.User.Identity?.Name` to the logout button as highlighted below.
 
-```html title="Home.razor"
+```html title="Home.razor" hl_lines="6"
 <form action="authentication/logout" method="post">
     <AntiforgeryToken />
     <input type="hidden" name="ReturnUrl" value="@currentUrl" />
@@ -74,6 +74,7 @@ Next, create a new page named `UserClaims.razor` and add the following code to d
 ```csharp title="UserClaims.razor"
 @page "/user-claims"
 @using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
 
 <PageTitle>User Claims</PageTitle>
 
