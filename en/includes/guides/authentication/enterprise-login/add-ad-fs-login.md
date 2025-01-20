@@ -96,7 +96,7 @@ The following steps involve establishing a trust relationship between AD FS and 
 
 This step extracts the public key from the {{product_name}} keystore which will then be uploaded to AD FS in the following step. Depending on the tenant in which your application is created, the certificate extraction differs as outlined below.
 
-- If the application is in `carbon.super` super tenant, the public certificate of {{product_name}} needs to be uploaded. It can be exported as follows.
+- If the application is in the `carbon.super` super tenant, the public certificate of {{product_name}} needs to be uploaded. It can be exported as follows.
 
     1. Navigate to `<IS-HOME>/repository/resources/security`.
     2. Run the following command to export the `wso2carbon` public certificate of the super tenant.

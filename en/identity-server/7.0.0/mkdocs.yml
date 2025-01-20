@@ -88,7 +88,7 @@ plugins:
         'guides/identity-federation/enterprise-identity-federation.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/identity-federation/configure-saml-2.0-web-sso.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
         'guides/identity-federation/configure-oauth2-openid-connect.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
-        'guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
+        'guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md': 'guides/authentication/enterprise-login/add-ad-fs-login.md'
         'guides/identity-federation/configure-ws-federation.md': 'guides/authentication/standard-based-login/index.md'
         'guides/identity-federation/configure-ws-trust.md': 'guides/authentication/standard-based-login/index.md'
         'guides/identity-federation/configure-shibboleth-idp.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
