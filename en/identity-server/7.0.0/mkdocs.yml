@@ -418,6 +418,7 @@ nav:
             - Add enterprise login:
               - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
               - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
+              - Add AD FS login: guides/authentication/enterprise-login/add-ad-fs-login.md
             - Configure a custom connector:  guides/authentication/configure-custom-connector.md
           - Enable user attributes:
               - Enable user attributes: guides/authentication/user-attributes/index.md
