@@ -1,4 +1,11 @@
 {
+    "sift_fraud_detection": {
+        "enabled": false,
+        "page": [
+            "guides/account-configurations/login-security/sift-fraud-detection.md"
+        ]
+    },
+
     "default_roles": {
         "enabled": true,
         "page": [

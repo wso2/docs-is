@@ -8,6 +8,9 @@ Enhance the security of user logins through various settings that prevent unauth
 - [Password Validation]({{base_path}}/guides/account-configurations/login-security/password-validation/)
 - [Login Attempts]({{base_path}}/guides/account-configurations/login-security/login-attempts/)
 - [Bot Detection]({{base_path}}/guides/account-configurations/login-security/bot-detection/)
+{% if sift_fraud_detection and product_name == "Asgardeo" %}
+- [Fraud detection]({{base_path}}/guides/account-configurations/login-security/sift-fraud-detection/)
+{% endif %}
 {% if product_name == "WSO2 Identity Server" %}
 - [Session Management]({{base_path}}/guides/account-configurations/login-security/session-management/)
 {% endif %}

@@ -319,8 +319,9 @@ nav:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
           - Login attempts: guides/account-configurations/login-security/login-attempts.md
-          - Bot detection: guides/account-configurations/login-security/bot-detection.md
           - Password validation: guides/account-configurations/login-security/password-validation.md
+          - Bot detection: guides/account-configurations/login-security/bot-detection.md
+          - Fraud detection: guides/account-configurations/login-security/sift-fraud-detection.md
         - Account recovery:
           - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
         - User onboarding:
