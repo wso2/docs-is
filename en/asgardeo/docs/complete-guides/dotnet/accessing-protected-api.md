@@ -84,8 +84,8 @@ Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` direct
 }
 
 @code {
-    private string token;
-    private string apiResponse;
+    private string? token;
+    private string? apiResponse;
 
     protected override async Task OnInitializedAsync()
     {
@@ -104,20 +104,16 @@ Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` direct
             else
             {
                 apiResponse = "Access token was not found. Protected API invocation failed.";
-                Console.WriteLine("No token found in HttpContext.");
             }
         }
         else
         {
             apiResponse = "Protected API invocation failed due to invalid authentication state.";
-            Console.WriteLine("HttpContext is null.");
         }
     }
 
     private async Task CallApi()
     {
-        Console.WriteLine("CallApi invoked.");
-        @* string accessToken = await HttpContextAccessor.HttpContext.GetTokenAsync("access_token"); *@
         if (string.IsNullOrEmpty(token))
         {
             // Token is not available, handle the case where the user is not authenticated
@@ -137,7 +133,6 @@ Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` direct
             var data = await response.Content.ReadAsStringAsync();
             // Format the JSON response into a pretty string for display
             apiResponse = FormatJson(data);
-            Console.WriteLine("token: " + data);
             // Do something with the data
         }
         else
@@ -155,7 +150,7 @@ Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` direct
         {
             // Parse the JSON string into an object
             var jsonObject = JsonSerializer.Deserialize<JsonElement>(json);
-            
+
             // Convert the object back into a nicely formatted JSON string
             return JsonSerializer.Serialize(jsonObject, new JsonSerializerOptions { WriteIndented = true });
         }

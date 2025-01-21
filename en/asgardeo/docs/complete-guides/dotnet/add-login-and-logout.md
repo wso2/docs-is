@@ -19,14 +19,14 @@ Let's create a file named `PersistingAuthenticationStateProvider.cs` in the root
 - The authentication state is persisted across interactions.
 - The authentication state is rehydrated correctly.
 
-This approach is particularly useful in scenarios where the application depends on server-side data persistence for authentication state.
+This approach is particularly useful in scenarios where the application depends on server-side data persistence for authentication state. You can utilize the following code which performs the above tasks. Make sure to replace `<namespace>` with the appropriate namespace for your application.
 
 ```csharp title="PersistingAuthenticationStateProvider.cs"
-@using Microsoft.AspNetCore.Components;
-@using Microsoft.AspNetCore.Components.Authorization;
-@using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Web;
 
-namespace AsgardeoDotNetSample;
+namespace <namespace>;
 
 internal sealed class PersistingAuthenticationStateProvider : AuthenticationStateProvider, IHostEnvironmentAuthenticationStateProvider, IDisposable
 {
@@ -52,11 +52,6 @@ internal sealed class PersistingAuthenticationStateProvider : AuthenticationStat
     {
         var authenticationState = await GetAuthenticationStateAsync();
         var principal = authenticationState.User;
-
-        if (principal.Identity?.IsAuthenticated == true)
-        {
-            persistentComponentState.PersistAsJson(nameof(UserInfo), UserInfo.FromClaimsPrincipal(principal));
-        }
     }
 
     public void Dispose()
@@ -76,10 +71,9 @@ The Login and Logout route builder adds the `/login` and `/logout` routes to the
 Let's create a file named `LoginLogoutEndpointRouteBuilderExtensions.cs` in the root directory and add the following code.
 
 ```csharp title="LoginLogoutEndpointRouteBuilderExtensions.cs"
-@using Microsoft.AspNetCore.Authentication;
-@using Microsoft.AspNetCore.Authentication.Cookies;
-@using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-@using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Microsoft.AspNetCore.Routing;
 
@@ -126,7 +120,7 @@ The `GetAuthProperties` method is used to build the authentication properties, s
 
 ## UserInfo Class
 
-The `UserInfo` class represents information about an authenticated user and provides methods to map between a `ClaimsPrincipal` and this strongly typed representation. It serves as a way to expose more structured and manageable user information in an ASP.NET Core application.
+The `UserInfo` class represents information about an authenticated user and provides methods to map between a `ClaimsPrincipal` and this strongly typed representation. It serves as a way to expose more structured and manageable user information in an ASP.NET Core application. While this will not be used for the login and logout functionality in this guide, it will be useful as an extension point for other parts of your application where user information needs to be retrieved.
 
 The class encapsulates key user attributes such as:
 
@@ -139,9 +133,9 @@ These attributes are derived from claims associated with the authenticated user'
 Create a file named `UserInfo.cs` in the root directory and add the following code.
 
 ```csharp title="UserInfo.cs"
-@using System.Security.Claims;
+using System.Security.Claims;
 
-namespace AsgardeoDotNetSample;
+namespace <namepsace>;
 
 public sealed class UserInfo
 {
@@ -175,6 +169,21 @@ public sealed class UserInfo
 }
 ```
 
+Once this is done, navigate to the `PersistingAuthenticationStateProvider.cs` file and add the following code line in order to persist the user details into the `PersistentComponentState`.
+
+```csharp hl_lines="6-9"
+    private async Task OnPersistingAsync()
+    {
+        var authenticationState = await GetAuthenticationStateAsync();
+        var principal = authenticationState.User;
+
+        if (principal.Identity?.IsAuthenticated == true)
+        {
+            persistentComponentState.PersistAsJson(nameof(UserInfo), UserInfo.FromClaimsPrincipal(principal));
+        }
+    }
+```
+
 ## Home Page Setup
 
 The classes implemented up to now lay the foundation for the home page where we will be adding the login and logout buttons.
@@ -184,6 +193,7 @@ Navigate to the `Home.razor` file under the `/Components/Pages` directory and ad
 ```csharp title="Home.razor"
 @implements IDisposable
 @inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Components.Authorization
 
 @code {
 private string? currentUrl;
@@ -208,7 +218,15 @@ The above code implements the `IDisposable` interface to manage lifecycle events
 
 The current URL (`currentUrl`) is tracked by subscribing to the `LocationChanged` event from `NavigationManager`. When the URL changes, it updates `currentUrl` and triggers a re-render using `StateHasChanged()`, while the `Dispose` method unsubscribes from `LocationChanged`.
 
-Next, let's add the login and logout buttons to the `Home.razor` page as follows above the code that was previously added.
+You can remove the following default code from the `Home.razor` file:
+
+```html title="Home.razor"
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+```
+
+Next, let's add the login and logout buttons to the `Home.razor` page as follows above the code that was previously added under "@code".
 
 ```html title="Home.razor"
 <div class="nav-item px-3">
@@ -268,9 +286,11 @@ else
 builder.Services.AddSingleton(httpClient);
 ```
 
-Add the below `FetchJwks` method which will perform the invocation of the endpoint passed as a parameter in order to parse the `JsonWebKeySet`.
+Add the below `FetchJwks` method which will perform the invocation of the endpoint passed as a parameter in order to parse the `JsonWebKeySet` class in the `Microsoft.IdentityModel.Tokens` namespace .
 
 ```csharp title="Program.cs"
+using Microsoft.IdentityModel.Tokens;
+
 JsonWebKeySet FetchJwks(string url)
 {
     var result = httpClient.GetAsync(url).Result;
@@ -288,6 +308,9 @@ JsonWebKeySet FetchJwks(string url)
 We can now register the services required for the authentication services in the `Program.cs` file as given below.
 
 ```csharp title="Program.cs"
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.IdentityModel.JsonWebTokens;
+
 const string ASGARDEO_OIDC_SCHEME = "AsgardeoOidc";
 
 builder.Services.AddAuthentication(ASGARDEO_OIDC_SCHEME)
@@ -330,9 +353,11 @@ The environment variables that were added in a prior step are utilized to create
 
 For the purpose of this guide, the `SaveTokens` property is set to `true`, so the application will store the access token, refresh token, and ID token in the authentication properties and simplify the token persistence.
 
-The following `WebApplicationBuilder` services need to be configured in order to enable authorization and also add the custom `AuthenticationStateProvider` class previously created as a scoped service:
+The following `WebApplicationBuilder` services need to be configured in order to enable authorization and also add the custom `AuthenticationStateProvider` class previously created as a scoped service. Note that the application namespace usage need to be added as well.
 
 ```csharp title="Program.cs"
+using asgardeo_dotnet;
+
 builder.Services.AddAuthorization();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingAuthenticationStateProvider>();
