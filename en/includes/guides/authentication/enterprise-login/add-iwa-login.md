@@ -1,4 +1,4 @@
-# Add login with IWA
+# Add login with Integrated Windows Authentication (IWA)
 
 Integrated Windows Authentication (IWA) is a popular authentication mechanism used to authenticate users on Microsoft Windows servers. It uses Kerberos or NTLM to authenticate users based on an encrypted ticket exchange system between a browser and a server.
 

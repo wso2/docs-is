@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Securing Routes within the app
-read_time: 2 min
+read_time: 5 min
 ---
 
 In a .NET Blazor Web Application, handling and securing routes is an important aspect of managing user access, ensuring the right content is displayed to the right users, and protecting sensitive resources.
@@ -12,26 +12,36 @@ Blazor provides the `AuthorizeView` component to conditionally display UI elemen
 
 Let’s first navigate to the `NavMenu.razor` file under the `/Components/Layout` directory and add the `AuthorizeView` component to encapsulate the `Counter` and `Weather` components. Then we can add the User Claims menu item as well.
 
-```html title="NavMenu.razor"
-<AuthorizeView>
-    <div class="nav-item px-3">
-        <NavLink class="nav-link" href="counter">
-            <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-        </NavLink>
-    </div>
+```html title="NavMenu.razor" hl_lines="9-26"
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
 
-    <div class="nav-item px-3">
-        <NavLink class="nav-link" href="weather">
-            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-        </NavLink>
-    </div>
+        <AuthorizeView>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="counter">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+                </NavLink>
+            </div>
 
-    <div class="nav-item px-3">
-        <NavLink class="nav-link" href="user-claims">
-            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> User Claims
-        </NavLink>
-    </div>
-</AuthorizeView>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="weather">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="user-claims">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> User Claims
+                </NavLink>
+            </div>
+        </AuthorizeView>
+    </nav>
+</div>
 ```
 
 We will be using the `Authorize` attribute to protect the routes for the above three pages so that only authenticated users can access them. If an unauthorized user attempts to access these routes, they should be redirected to the login page of the Identity Provider.
@@ -58,7 +68,9 @@ In order to redirect unauthorized users to the login page, we will create a Razo
 
 Now, open the `Routes.razor` file and add the `AuthorizeRouteView` component as shown below, which is used to protect entire pages or routes. It only renders the associated route if the user is authorized. Otherwise, it can redirect the user to a login page using the `RedirectToLogin` component we created.
 
-```html title="Routes.razor"
+```html title="Routes.razor" hl_lines="5-9"
+@using Microsoft.AspNetCore.Components.Authorization
+
 <Router AppAssembly="typeof(Program).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
@@ -69,6 +81,12 @@ Now, open the `Routes.razor` file and add the `AuthorizeRouteView` component as 
         <FocusOnNavigate RouteData="routeData" Selector="h1" />
     </Found>
 </Router>
+```
+
+Then navigate to the `Program.cs` file and add the following before the `app.Run();` method is invoked so that a RouteGroupBuilder will be created for the `/authentication` endpoint.
+
+```csharp
+app.MapGroup("/authentication").MapLoginAndLogout();
 ```
 
 By following these steps, you can easily secure your Blazor application routes and manage user access based on their authentication state.
