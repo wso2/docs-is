@@ -366,6 +366,7 @@ nav:
             - Branding AI: guides/branding/ai-branding.md
             - Configure custom domains: guides/branding/configure-custom-domains.md
             - Customize email templates: guides/branding/customize-email-templates.md
+            - Customize SMS templates: guides/branding/customize-sms-templates.md
             - Localization in Asgardeo: guides/branding/localization.md
         - Extend with actions:
             - Understanding actions: guides/customize/actions/understanding-actions.md
