@@ -25,6 +25,6 @@ node_modules
 en/identity-server/*/site
 en/asgardeo/site
 
-# Python virtula environment
+# Python virtual environment
 .venv
-en/asgardeo/__pycache__/
+en/*/__pycache__/
