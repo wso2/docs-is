@@ -319,8 +319,9 @@ nav:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
           - Login attempts: guides/account-configurations/login-security/login-attempts.md
-          - Bot detection: guides/account-configurations/login-security/bot-detection.md
           - Password validation: guides/account-configurations/login-security/password-validation.md
+          - Bot detection: guides/account-configurations/login-security/bot-detection.md
+          - Fraud detection: guides/account-configurations/login-security/sift-fraud-detection.md
         - Account recovery:
           - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
         - User onboarding:
@@ -526,6 +527,18 @@ nav:
     - Accessing protected API : complete-guides/react/accessing-protected-api.md
     - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
     - Next Steps: complete-guides/react/next-steps.md
+  - .NET Guide:
+      - Introduction: complete-guides/dotnet/introduction.md
+      - Prerequisites: complete-guides/dotnet/prerequisites.md
+      - Register an application: complete-guides/dotnet/register-an-application.md
+      - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
+      - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
+      - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
+      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
+      - Accessing protected API: complete-guides/dotnet/accessing-protected-api.md
+      - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
+      - Next Steps: complete-guides/dotnet/next-steps.md
   - Node.js Guide:
     - Introduction: complete-guides/nodejs/introduction.md
     - Prerequisite: complete-guides/nodejs/prerequisite.md

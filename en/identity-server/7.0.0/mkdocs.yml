@@ -88,7 +88,7 @@ plugins:
         'guides/identity-federation/enterprise-identity-federation.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/identity-federation/configure-saml-2.0-web-sso.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
         'guides/identity-federation/configure-oauth2-openid-connect.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
-        'guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
+        'guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md': 'guides/authentication/enterprise-login/add-ad-fs-login.md'
         'guides/identity-federation/configure-ws-federation.md': 'guides/authentication/standard-based-login/index.md'
         'guides/identity-federation/configure-ws-trust.md': 'guides/authentication/standard-based-login/index.md'
         'guides/identity-federation/configure-shibboleth-idp.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
@@ -291,6 +291,8 @@ plugins:
         'guides/identity-federation/resident-inbound-auth.md': 'guides/authentication/index.md'
         'guides/identity-federation/resident-inbound-provisioning.md': 'guides/authentication/index.md'
         'guides/identity-federation/resident-jit-consent.md': 'guides/authentication/index.md'
+        'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
+
         'references/concepts/introduction-to-multitenancy.md': 'guides/multitenancy/index.md'
         'references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md': 'references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md'
         'references/extend/write-custom-functions-for-adaptive-authentication.md': 'references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md'
@@ -418,6 +420,7 @@ nav:
             - Add enterprise login:
               - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
               - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
+              - Add AD FS login: guides/authentication/enterprise-login/add-ad-fs-login.md
             - Configure a custom connector:  guides/authentication/configure-custom-connector.md
           - Enable user attributes:
               - Enable user attributes: guides/authentication/user-attributes/index.md
@@ -579,11 +582,11 @@ nav:
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Administration of organizations: guides/organization-management/manage-b2b-administration.md
           - Share applications: guides/organization-management/share-applications.md
-          - Onboard organization admins: 
-            - Onboard organization admins: guides/organization-management/onboard-org-admins/index.md
+          - Onboard admins: 
+            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-          - Invite users from parent organization: guides/organization-management/invite-parent-organization-users.md
+          - Onboard users: guides/organization-management/onboard-users.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md

@@ -41,10 +41,10 @@ Machine-to-Machine (M2M) applications, are designed for automated communication 
 
 ## Enable/Disable an application
 
-If your application is undergoing maintenance, or should be made unavailable for users to log in for other reasons, you can disable the application. If you created a new application or if your application is ready for use again, enable the application for users to login.
+If your application is undergoing maintenance or should be made temporarily unavailable for any reason, you can disable it and re-enable it when ready.
 
-!!! note
-    Disabling prevents any new logins to the application, revokes active access tokens and consents provided for the application. Upon re-enabling the application, users must reprovide any consents that they had previously granted.
+!!! warning "Important"
+    Disabling an application blocks new logins, revokes active access tokens and removes any user consents previously granted to the application. Upon re-enabling the application, users must login again and re-grant their consents.
 
 To enable/disable an application,
 
