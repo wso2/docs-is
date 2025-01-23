@@ -863,6 +863,7 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
+      - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
