@@ -53,7 +53,12 @@ Apart from the default attributes, you may define your own custom attributes by 
 
 4. Click **Finish**.
 
-## Update attributes
+{% if product_name == "WSO2 Identity Server" %}
+
+## Configure attribute
+
+### Update attribute properties
+
 To update the properties of a user attribute:
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
@@ -69,28 +74,89 @@ To update the properties of a user attribute:
 
     <table>
        <tbody>
-          <tr>
-             <td><b>Attribute Display Name</b></td>
-             <td>Update the display name of the attribute that will show in user profiles.</td>
-          </tr>
-          <tr>
-               <td><b>Description</b></td>
-               <td>Update the description for the attribute.</td>
-          </tr>
-        <tr>
-              <td><b>Display this attribute on the user's profile</b></td>
-              <td>If this checkbox is selected, the attribute is displayed in user profiles.</ td>
-         </tr>
-         <tr>
-             <td><b>Make this attribute required on user's profile</b></td>
-             <td>If this checkbox is selected, users are required to specify a value for this attribute on their profile.</td>
-         </tr>
-         <tr>
-            <td><b>Make this attribute read-only on user's profile</b></td>
-            <td>If this checkbox is selected, the value for this attribute will be read-only in user profiles.</td>
-       </tr>
+            <tr>
+                <td><b>Attribute Display Name</b></td>
+                <td>Update the display name of the attribute that will show in user profiles.</td>
+            </tr>
+            <tr>
+                <td><b>Description</b></td>
+                <td>Update the description for the attribute.</td>
+            </tr>
+            <tr>
+                <td><b>Regular expression</b></td>
+                <td>The value of the attribute will be validated against the regex pattern specified here.</td>
+            </tr>
      </tbody>
     </table>
+
+### Configure attribute profiles
+
+Configure attribute profiles for different flows in your organization.
+
+![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+<table>
+    <tbody>
+        <tr>
+            <td><b>Display</b></td>
+            <td>If this checkbox is selected, the attribute is displayed in relevant profiles.</ td>
+        </tr>
+        <tr>
+            <td><b>Required</b></td>
+            <td>If this checkbox is selected, users are required to specify a value for this attribute on relevant profiles.</td>
+        </tr>
+        <tr>
+        <td><b>Read-only</b></td>
+        <td>If this checkbox is selected, the value for this attribute will be read-only in relevant profiles.</td>
+    </tr>
+    </tbody>
+</table>
+
+{% else %}
+
+## Configure attribute
+To update the properties of a user attribute:
+
+1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
+2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
+3. Click **Edit** for the attribute you want to update.
+
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    !!! note
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
+
+4. In the **General** tab, update the following values.
+
+    <table>
+       <tbody>
+            <tr>
+                <td><b>Attribute Display Name</b></td>
+                <td>Update the display name of the attribute that will show in user profiles.</td>
+            </tr>
+            <tr>
+                <td><b>Description</b></td>
+                <td>Update the description for the attribute.</td>
+            </tr>
+            <tr>
+                <td><b>Display this attribute on the user's profile</b></td>
+                <td>If this checkbox is selected, the attribute is displayed in user profiles.</ td>
+            </tr>
+            <tr>
+                    <td><b>Regular expression</b></td>
+                    <td>The value of the attribute will be validated against the regex pattern specified here.</td>
+            </tr>
+            <tr>
+                <td><b>Make this attribute required on user's profile</b></td>
+                <td>If this checkbox is selected, users are required to specify a value for this attribute on their profile.</td>
+            </tr>
+            <tr>
+                <td><b>Make this attribute read-only on user's profile</b></td>
+                <td>If this checkbox is selected, the value for this attribute will be read-only in user profiles.</td>
+            </tr>
+     </tbody>
+    </table>
+{% endif %}
 
 5. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
 
