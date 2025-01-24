@@ -50,18 +50,6 @@ Follow the guide below to implement this. Once implemented, ensure that these lo
 
 4. Click **Update** to save the changes.
 
-!!! warning "Public exposure of application details"
-
-    While not a security concern, it is still important to note that the details about your applications will be publicly accessible from the URLs.
-
-    Due to this behavior, you may configure {{product_name}} to display a consent screen for administrators who are attempting to enable this feature. To do so, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
-    
-    ```bash
-    [application_mgt]
-    trusted_app_consent_required=true
-    ```
-    Once configured, a confirmation popup will appear when enabling the feature and this consent will be recorded and published as an audit log.
-
 {% endif %}
 
 {% elif product_name == "Asgardeo" %}
