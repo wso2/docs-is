@@ -420,6 +420,7 @@ nav:
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
       - Idle account identification API: apis/idle-account-identification.md
+      - Notification templates management API: apis/notification-templates.md
       - OAuth Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
@@ -490,6 +491,7 @@ nav:
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
+    - SMS templates: references/sms-templates.md
     - Actions:
       - Pre issue access token action: 
         - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md

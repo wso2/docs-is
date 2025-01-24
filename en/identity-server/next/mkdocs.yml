@@ -819,6 +819,7 @@ nav:
         - Email templates:
           - Email templates v1 API: apis/email-templates-rest-api.md
           - Email templates v2 API: apis/email-templates-v2-rest-api.md
+        - Notification Templates Management APIs: apis/notification-templates.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
@@ -893,7 +894,9 @@ nav:
     - Conditional authentication:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - Email templates: references/email-templates.md
+    - Notification templates:
+      - Email templates: references/email-templates.md
+      - SMS templates: references/sms-templates.md
     - Actions:
       - Pre issue access token action: 
         - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md
