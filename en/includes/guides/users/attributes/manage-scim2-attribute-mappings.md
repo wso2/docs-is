@@ -5,9 +5,44 @@ Attributes in your organization are mapped to the following SCIM 2.0 schemas map
 - [Core schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-3.1){:target="_blank"}
 - [User schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1){:target="_blank"}
 - [Enterprise schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.3){:target="_blank"}
+{% if (product_name == "WSO2 Identity Server" and is_version != "7.0.0") or product_name == "Asgardeo" %}
+- System schema attributes
+{% endif %}
 - Custom schema attributes
 
+#### Core Schema
+
+The core schema defines a set of common attributes that are included in every SCIM resource, such as unique identifiers and resource metadata. Core schema attributes are considered an integral part of every base resource schema. Unlike other schemas, the core schema does not have its own URI and is inherently included in every resource definition.
+
+#### User Schema
+
+The user schema defines attributes specific to User resources, in addition to the core schema attributes. This schema is identified by the URI `urn:ietf:params:scim:schemas:core:2.0:User`. Attributes in the user schema include details such as the user's name, email addresses, phone numbers, roles, and other identity-related properties.
+
+#### Enterprise User Schema
+
+The enterprise schema extends the user schema to include attributes commonly used for representing users in business or enterprise environments. This schema is identified by the URI `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`. Attributes in the enterprise schema include details such as the user’s department, manager, cost center, and other organization-specific properties.
+
+{% if (product_name == "WSO2 Identity Server" and is_version != "7.0.0") or product_name == "Asgardeo" %}
+
+#### System Schema
+
+The system schema is a user extension provided by the {{product_name}} to support attributes related to the product features and functionalities. It includes user attributes that are essential for Identity Server-specific operations, as well as general user attributes not covered in the standard SCIM specification.
+
+{% endif %}
+
+#### Custom Schema
+
+Custom schema attributes are user-defined attributes that can be added to tailor SCIM schemas to the unique needs of your organization. These attributes provide flexibility to extend the standard schemas with additional fields that are specific to your business requirements.
+
+{% if (product_name == "WSO2 Identity Server" and is_version != "7.0.0") or product_name == "Asgardeo" %}
+
+The attributes in the core, user, and enterprise schemas are well-defined in the [SCIM 2.0 specification](https://datatracker.ietf.org/doc/html/rfc7643){:target="_blank"}. The system schema is maintained by the {{product_name}}. You can't modify the attributes in these schemas. However, custom schema attributes can be freely added or deleted by users.
+
+{% else %}
+
 The attributes in the core, user, and enterprise schemas are well-defined in the [SCIM 2.0 specification](https://datatracker.ietf.org/doc/html/rfc7643){:target="_blank"} and you can't modify the attributes in these schemas. Custom schema attributes can be added or deleted by users.
+
+{% endif %}
 
 {{custom_schema_note}}
 
