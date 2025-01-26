@@ -3,13 +3,13 @@
 !!! note
     The AI Login Flow Generation feature is currently in the **Beta** stage. We are actively working to enhance its capabilities.
 
-AI-powered login flow generation simplifies the setup of authentication sequences in Asgardeo by using an AI-driven approach. This tool allows users to efficiently create tailored authentication sequences without needing in-depth knowledge of the underlying authenticators or scripting languages.
+AI-powered login flow generation simplifies the setup of authentication sequences in {{product_name}} by using an AI-driven approach. This tool allows users to efficiently create tailored authentication sequences without needing in-depth knowledge of the underlying authenticators or scripting languages.
 
 ## Generate login flows with Login Flow AI
 
 To generate your login flow with LoginFlow AI:
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the {{product_name}} Console, go to **Applications**.
 
 2. Select your application and go to its **Login Flow** tab.
 

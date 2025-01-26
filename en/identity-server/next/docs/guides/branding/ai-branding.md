@@ -11,7 +11,7 @@ By leveraging AI Branding, you can ensure that your the user prompted pages not 
 
 To generate branding using Branding AI:
 
-1. On the Asgardeo Console, go to **Branding** > **Styles & Text**.
+1. On the {{product_name}} Console, go to **Branding** > **Styles & Text**.
 
 2. Click on **Try Branding AI**.
 
@@ -43,7 +43,7 @@ You can further customize these branding guidelines by:
 - Choosing alternative fonts that reflect your brand's personality.
 - Modifying UI element styles to align with your brand's aesthetic.
 
-By reviewing and customizing the generated branding, you can ensure that it perfectly aligns with your organization's unique identity and enhances your brand presence across all Asgardeo interfaces.
+By reviewing and customizing the generated branding, you can ensure that it perfectly aligns with your organization's unique identity and enhances your brand presence across all {{product_name}} interfaces.
 
 ## Apply branding
 
