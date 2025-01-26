@@ -86,6 +86,16 @@ To update the properties of a user attribute:
                 <td><b>Regular expression</b></td>
                 <td>The value of the attribute will be validated against the regex pattern specified here.</td>
             </tr>
+            <tr>
+                <td><b>Shared Profile Value Resolving Method</b></td>
+                <td>The method to determine the value of the attribute for shared user profiles in child organizations. 
+                <ul>
+                    <li><b>From Origin:</b> The value will be taken from the user origin organization's profile.</li>
+                    <li><b>From Shared Profile:</b> The value will be taken from the shared profile, if available.</li>
+                    <li><b>From First Found in Hierarchy:</b> The value will be determined from the first non-null profile value found in the organization hierarchy.</li>
+                </ul>
+                For {{ product_name }} defined attributes, the `Shared Profile Value Resolving Method` cannot be changed at the moment. However, for custom attributes, you can decide the appropriate resolving method.</td>
+            </tr>
      </tbody>
     </table>
 
@@ -106,8 +116,8 @@ Configure attribute profiles for different flows in your organization.
             <td>If this checkbox is selected, users are required to specify a value for this attribute on relevant profiles.</td>
         </tr>
         <tr>
-        <td><b>Read-only</b></td>
-        <td>If this checkbox is selected, the value for this attribute will be read-only in relevant profiles.</td>
+            <td><b>Read-only</b></td>
+            <td>If this checkbox is selected, the value for this attribute will be read-only in relevant profiles.</td>
     </tr>
     </tbody>
 </table>
@@ -143,8 +153,8 @@ To update the properties of a user attribute:
                 <td>If this checkbox is selected, the attribute is displayed in user profiles.</ td>
             </tr>
             <tr>
-                    <td><b>Regular expression</b></td>
-                    <td>The value of the attribute will be validated against the regex pattern specified here.</td>
+                <td><b>Regular expression</b></td>
+                <td>The value of the attribute will be validated against the regex pattern specified here.</td>
             </tr>
             <tr>
                 <td><b>Make this attribute required on user's profile</b></td>
