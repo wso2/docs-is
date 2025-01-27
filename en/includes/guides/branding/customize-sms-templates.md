@@ -2,12 +2,10 @@
 
 The following topics explain how you can customize SMS notifications that are sent to users of your {{ product_name }} organization.
 
-## Customize SMS content
-
 You can tailor the **body** of SMS notifications to your preferences by following the steps below.
 
 !!! note
-    This feature is only available for the most frequently used SMS templates. You can customize [all available SMS templates]({{base_path}}/references/sms-templates/) using the [Notification Templates API]({{base_path}}/apis/{{ notificaiton_templates_api_path }}/).
+    This feature is only available for the most frequently used SMS templates. You can customize [all available SMS templates]({{base_path}}/references/sms-templates/) using the [Notification Templates API]({{base_path}}/apis/notification-templates/).
 
 1. On the {{ product_name }}, go to **Branding** > **SMS Templates**.
 2. Select the SMS template and the relevant locale that you wish to modify.
