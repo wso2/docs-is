@@ -101,9 +101,16 @@ To update the properties of a user attribute:
 
 ### Configure attribute profiles
 
-Configure attribute profiles for different flows in your organization.
-
 ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+You can configure attribute properties for different user profiles to tailor their behavior and visibility. The
+following profiles are currently supported:
+
+- Administrator Console: User profile in the Administrator Console.
+- End-User Profile: User profile in My Account.
+- Self-Registration: User profile in self-registration.
+
+For each profile, you can configure the following properties:
 
 <table>
     <tbody>
