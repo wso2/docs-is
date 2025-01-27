@@ -263,7 +263,7 @@ nav:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
             - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
-          - Login Flow AI: guides/authentication/ai-loginflow.md
+          - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -363,7 +363,7 @@ nav:
         - Customize branding: 
             - Customize branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
-            - Branding AI: guides/branding/ai-branding.md
+            - Branding AI: guides/branding/branding-ai.md
             - Configure custom domains: guides/branding/configure-custom-domains.md
             - Customize email templates: guides/branding/customize-email-templates.md
             - Customize SMS templates: guides/branding/customize-sms-templates.md
