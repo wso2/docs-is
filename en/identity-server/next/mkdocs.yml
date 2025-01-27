@@ -365,7 +365,7 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
-    - AI Integration: get-started/ai-integrations.md
+    - Subscribe for AI features: get-started/subscribe-for-ai-features.md
     - About this release: get-started/about-this-release.md
   - Guides: 
       - Guides: guides/index.md
@@ -463,7 +463,7 @@ nav:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
             - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
-          - Login Flow AI: guides/authentication/ai-loginflow.md
+          - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -610,7 +610,7 @@ nav:
           - Customize branding:
             - Branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
-            - Branding AI: guides/branding/ai-branding.md
+            - Branding AI: guides/branding/branding-ai.md
             - Customize layouts: guides/branding/add-custom-layouts.md
             - Customize email templates: guides/branding/customize-email-templates.md
             - Customize SMS templates: guides/branding/customize-sms-templates.md
