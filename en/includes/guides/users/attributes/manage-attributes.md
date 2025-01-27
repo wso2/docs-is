@@ -103,8 +103,7 @@ To update the properties of a user attribute:
 
 ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-You can configure attribute properties for different user profiles to tailor their behavior and visibility. The
-following profiles are currently supported:
+You can control how attributes appear and behave in different user profiles by configuring attribute properties. Currently, the following profiles are supported:
 
 - Administrator Console: User profile in the Administrator Console.
 - End-User Profile: User profile in My Account.
