@@ -172,7 +172,7 @@ To update the properties of a user attribute:
 
     ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-{% if product_name == "WSO2 Identity Server" %}
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 
 6. Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
 
