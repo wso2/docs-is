@@ -27,4 +27,4 @@ en/asgardeo/site
 
 # Python virtual environment
 .venv
-en/*/__pycache__/
+**/__pycache__/
