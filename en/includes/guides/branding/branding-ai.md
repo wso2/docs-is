@@ -1,11 +1,18 @@
 # Branding AI
 
-!!! note
-    The AI Branding feature is currently in the **Beta** stage. We are actively working to enhance its capabilities.
+!!! warning "Beta feature"
+    The **AI Branding** feature is currently in **Beta**. We are actively working to enhance its capabilities and improve performance.
 
 AI-powered branding simplifies the process of creating a cohesive branding theme by using AI to analyze your website's existing visual elements. This innovative service automates the identification and application of design elements such as colors, fonts, and button styles, ensuring brand consistency and reducing manual effort.
 
 By leveraging AI Branding, you can ensure that your the user prompted pages not only look great but also align perfectly with your brand's identity.
+
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+!!! note "Enable AI-powered features"
+
+    To enable AI-powered features, {{product_name}} requires a subscription key from the [WSO2 AI subscription portal](https://ai-subscriptions.wso2.com/){target="_blank"}. See the [guide]({{base_path}}/get-started/subscribe-for-ai-features/) for step by step instructions.
+
+{% endif %}
 
 ## Generate branding with Branding AI
 
