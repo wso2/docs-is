@@ -55,11 +55,9 @@ Apart from the default attributes, you may define your own custom attributes by 
 
 {% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 
-## Configure attribute
+## Configure attributes
 
-### Update attribute properties
-
-To update the properties of a user attribute:
+To configure user attributes,
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
@@ -84,54 +82,53 @@ To update the properties of a user attribute:
             </tr>
             <tr>
                 <td><b>Regular expression</b></td>
-                <td>The value of the attribute will be validated against the regex pattern specified here.</td>
+                <td>The attribute value will be validated against the regex pattern specified here.</td>
             </tr>
             <tr>
                 <td><b>Shared Profile Value Resolving Method</b></td>
-                <td>The method to determine the value of the attribute for shared user profiles in child organizations. 
+                <td>For user profiles shared across multiple organizations, this method determines how {{product_name}} resolves the value of the user's attribute for each shared profile. </br>
                 <ul>
-                    <li><b>From Origin:</b> The value will be taken from the user origin organization's profile.</li>
-                    <li><b>From Shared Profile:</b> The value will be taken from the shared profile, if available.</li>
-                    <li><b>From First Found in Hierarchy:</b> The value will be determined from the first non-null profile value found in the organization hierarchy.</li>
+                    <li><b>From Origin:</b> Attribute value is inherited from the original organization which manages the user's profile.</li>
+                    <li><b>From Shared Profile:</b> Organizations receiving the shared user profile can set their own values for the user's attribute.</li>
+                    <li><b>From First Found in Hierarchy:</b>  The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
                 </ul>
-                For {{ product_name }} defined attributes, the `Shared Profile Value Resolving Method` cannot be changed at the moment. However, for custom attributes, you can decide the appropriate resolving method.</td>
+                At the moment, you can only configure this option for custom attributes.
             </tr>
      </tbody>
     </table>
 
-### Configure attribute profiles
+5. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
-![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-You can configure attribute properties for different user profiles to tailor their behavior and visibility. The
-following profiles are currently supported:
+    The table contains the following entities:
 
-- Administrator Console: User profile in the Administrator Console.
-- End-User Profile: User profile in My Account.
-- Self-Registration: User profile in self-registration.
+    - Administrator Console: User profiles as seen from the administrator's Console.
+    - End-User Profile: User profiles as seen from the users' My Account portal.
+    - Self-Registration: The form presented to users during self-registration.
 
-For each profile, you can configure the following properties:
+    For each of these entities, you can configure the following properties:
 
-<table>
-    <tbody>
-        <tr>
-            <td><b>Display</b></td>
-            <td>If this checkbox is selected, the attribute is displayed in relevant profiles.</ td>
+    <table>
+        <tbody>
+            <tr>
+                <td><b>Display</b></td>
+                <td>If selected, the attribute is displayed in the entity.</td>
+            </tr>
+            <tr>
+                <td><b>Required</b></td>
+                <td>If selected, the entity must contain a value for this attribute.</td>
+            </tr>
+            <tr>
+                <td><b>Read-only</b></td>
+                <td>If selected, the value will be read-only for the entity and cannot be modified.</td>
         </tr>
-        <tr>
-            <td><b>Required</b></td>
-            <td>If this checkbox is selected, users are required to specify a value for this attribute on relevant profiles.</td>
-        </tr>
-        <tr>
-            <td><b>Read-only</b></td>
-            <td>If this checkbox is selected, the value for this attribute will be read-only in relevant profiles.</td>
-    </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
 {% else %}
 
-## Configure attribute
+## Configure attributes
 To update the properties of a user attribute:
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
