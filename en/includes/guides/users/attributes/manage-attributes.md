@@ -57,7 +57,7 @@ Apart from the default attributes, you may define your own custom attributes by 
 
 ## Configure attributes
 
-To configure user attributes,
+To configure properties of user attributes:
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
@@ -129,7 +129,8 @@ To configure user attributes,
 {% else %}
 
 ## Configure attributes
-To update the properties of a user attribute:
+
+To configure properties of user attributes:
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
