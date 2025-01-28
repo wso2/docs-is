@@ -167,6 +167,7 @@ plugins:
 
         'guides/my-account/my-account.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
+        'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/ai-loginflow.md'
         'guides/my-account/manage-own-profile.md': 'guides/user-self-service/update-profile-info.md'
         'guides/my-account/export-my-user-profile.md': 'guides/user-self-service/export-profile-information.md'
         'guides/my-account/link-own-accounts.md': 'guides/user-self-service/manage-linked-accounts.md'
@@ -364,6 +365,7 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
+    - Subscribe for AI features: get-started/subscribe-for-ai-features.md
     - About this release: get-started/about-this-release.md
   - Guides: 
       - Guides: guides/index.md
@@ -461,6 +463,7 @@ nav:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
             - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
+          - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -607,8 +610,10 @@ nav:
           - Customize branding:
             - Branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
+            - Branding AI: guides/branding/branding-ai.md
             - Customize layouts: guides/branding/add-custom-layouts.md
             - Customize email templates: guides/branding/customize-email-templates.md
+            - Customize SMS templates: guides/branding/customize-sms-templates.md
             - Localization support: guides/branding/localization.md
           - Extend with actions:
             - Understanding actions: guides/customize/actions/understanding-actions.md
@@ -818,6 +823,7 @@ nav:
         - Email templates:
           - Email templates v1 API: apis/email-templates-rest-api.md
           - Email templates v2 API: apis/email-templates-v2-rest-api.md
+        - Notification Templates Management APIs: apis/notification-templates.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
@@ -863,6 +869,7 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
+      - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
@@ -891,7 +898,9 @@ nav:
     - Conditional authentication:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - Email templates: references/email-templates.md
+    - Notification templates:
+      - Email templates: references/email-templates.md
+      - SMS templates: references/sms-templates.md
     - Actions:
       - Pre issue access token action: 
         - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md

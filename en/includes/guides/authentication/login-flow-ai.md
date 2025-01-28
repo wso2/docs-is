@@ -1,15 +1,21 @@
 # Login Flow AI
 
-!!! note
-    The AI Login Flow Generation feature is currently in the **Beta** stage. We are actively working to enhance its capabilities.
+!!! warning "Beta feature"
+    The **AI Login Flow Generation** feature is currently in **Beta**. We are actively working to enhance its capabilities and improve performance.
 
-AI-powered login flow generation simplifies the setup of authentication sequences in Asgardeo by using an AI-driven approach. This tool allows users to efficiently create tailored authentication sequences without needing in-depth knowledge of the underlying authenticators or scripting languages.
+AI-powered login flow generation simplifies the setup of authentication sequences in {{product_name}} by using an AI-driven approach. This tool allows users to efficiently create tailored authentication sequences without needing in-depth knowledge of the underlying authenticators or scripting languages.
 
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+!!! note "Enable AI-powered features"
+
+    To enable AI-powered features, {{product_name}} requires a subscription key from the [WSO2 AI subscription portal](https://ai-subscriptions.wso2.com/){target="_blank"}. See the [guide]({{base_path}}/get-started/subscribe-for-ai-features/) for step by step instructions.
+
+{% endif %}
 ## Generate login flows with Login Flow AI
 
 To generate your login flow with LoginFlow AI:
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the {{product_name}} Console, go to **Applications**.
 
 2. Select your application and go to its **Login Flow** tab.
 

@@ -50,6 +50,13 @@ To register an application:
             </tr>
         </table>
 
+    !!! note
+        If you are planning to enable the Authorization Code grant type for standard-based applications, please note the following when adding the authorized redirect URL. The authorized redirect URL should be defined based on the type of application you are using:
+        
+        - Web-based applications: Use exact URLs or implement logic to dynamically register specific redirect URIs as needed.
+        
+        - Mobile apps with deep links: Wildcard support may be acceptable, but it must be implemented securely and restricted to well-defined patterns to limit its scope.
+
 ## What's Next?
 
 - [Configuring an OIDC application]({{base_path}}/references/app-settings/oidc-settings-for-app/)

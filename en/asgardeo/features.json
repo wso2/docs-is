@@ -1,4 +1,13 @@
 {
+    "sms-templates": {
+        "enabled": false,
+        "page": [
+            "guides/branding/customize-sms-templates.md",
+            "apis/notification-templates.md",
+            "references/sms-templates.md"
+        ]
+    },
+    
     "sift_fraud_detection": {
         "enabled": true,
         "page": [
