@@ -169,6 +169,58 @@ paths:
             'https://localhost:9443/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - admin
+      summary: Create federated user association
+      description: |
+        This API allows administrators to explicitly associate a local user with a federated identity. <br>
+          <b>Scope(Permission) required:</b> `internal_user_association_create`
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          description: user id
+          type: string
+        - name: association
+          in: body
+          description: User details to be associated.
+          required: true
+          schema:
+            $ref: '#/definitions/FederatedAssociationRequest'
+      responses:
+        201:
+          description: Successfully created
+          schema:
+            $ref: '#/definitions/FederatedAssociation'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        403:
+          description: Resource Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v1/{user-id}/federated-associations' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "idp": "exampleIdP",
+              "federatedUserId": "john@example.com"
+            }'
     delete:
       tags:
         - admin
@@ -353,6 +405,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Property'
+    FederatedAssociationRequest:
+      type: object
+      properties:
+        idp:
+          type: string
+          example: exampleIdP
+          description: Name of the IdP
+        federatedUserId:
+          type: string
+          example: john@example.com
+          description: User identifier in the federated IdP
   securitySchemes:
     BasicAuth:
       type: http
