@@ -119,12 +119,12 @@ Follow the steps given below to try it out:
 
 ### Enable Logging
 
-Including `"isLoggingEnabled": true` as an additional parameter in the functions activates logging for Sift fraud detection. When used with `getSiftRiskScoreForLogin`, it logs the payload sent to Sift and the risk score returned by Sift, and when applied to `publishLoginEventToSift`, it logs the payload sent to Sift.
+Including `"loggingEnabled": true` as an additional parameter in the functions activates logging for Sift fraud detection. When used with `getSiftRiskScoreForLogin`, it logs the payload sent to Sift and the risk score returned by Sift, and when applied to `publishLoginEventToSift`, it logs the payload sent to Sift.
 
 ```javascript
 var additionalParams = {
     ---
-    "$isLoggingEnabled": true
+    "$loggingEnabled": true
     ---
 }
 ```
