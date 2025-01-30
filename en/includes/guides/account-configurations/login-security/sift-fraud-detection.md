@@ -13,7 +13,7 @@ You need to have an already configured Sift environment and have access to the S
 Follow the steps below to register Sift in Asgardeo.
 
 1. On the Asgardeo Console, go to **Login and Registration**.
-2. Under **Login Security**, select **Sift Connector**.
+2. Under **Login Security**, select **Fraud Detection**.
 3. Enter the API key for the Sift platform and click **Update**.
 
 ## Enable Sift fraud detection in applications
