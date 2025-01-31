@@ -62,6 +62,56 @@ Refer to the following table for more information on rule parameters.
     </tr>
 </table>
 
+{% if password_expiry_time %}
+
+!!! abstract "Retrieve password expiry time of users"
+
+    Using the SCIM 2.0 `/Users` endpoint, you can retrieve the password expiry times of users. To do so, you must explicitly request it in the `attributes` query parameter in the API request as shown below.
+    
+    === "Request"
+
+        ```
+        curl -v -k --user admin:admin \
+        --request GET 'https://localhost:9443/scim2/Users?attributes=userName,emails,urn:scim:wso2:schema.passwordExpiryTime' \
+        --header 'Content-Type: application/json'
+        ```
+
+    === "Sample Response"
+
+        ```
+        {
+            "totalResults": 2,
+            "startIndex": 1,
+            "itemsPerPage": 2,
+            "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+            ],
+            "Resources": [
+                {
+                    "emails": [
+                        "user1@example.com"
+                    ],
+                    "id": "3d64d675-5093-4b6e-9b5c-d00d2c89312e",
+                    "userName": "user1",
+                    "urn:scim:wso2:schema": {
+                        "passwordExpiryTime": "1734148289823"
+                    }
+                },
+                {
+                    "emails": [
+                        "user2@example.com"
+                    ],
+                    "id": "4453e6c3-a5a2-4158-955c-4d32366ba436",
+                    "userName": "user2",
+                    "urn:scim:wso2:schema": {
+                        "passwordExpiryTime": "1735244834546"
+                    }
+                }
+            ]
+        }
+        ```
+{% endif %}
+
 ## Password history count
 
 The **Password History Count** feature allows you to specify the number of unique new passwords a user must use before an old password can be reused. This enhances account security by preventing the reuse of old passwords.
