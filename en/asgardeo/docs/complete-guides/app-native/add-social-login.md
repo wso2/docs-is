@@ -8,13 +8,6 @@ To enable social login in your app, you need to register your application with t
 
 First, let's set up Google as an option as the first authentication step in your Asgardeo application as mentioned in the [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/). Once this is added to the login flow as one of the first factor options, we can proceed to integrate it into our Next.js application.
 
-Navigate to the `.env.local` file and add an environment variable with the authenticatorId of the Google authenticator. This authenticatorId is required to select the Google authenticator when initiating the authentication flow. You can dynamically retrieve this authenticatorId from the Asgardeo app-native authentication API responses, but for the purpose of this guide, we will configure it as an environment variable.
-
-```shell
-NEXT_PUBLIC_GOOGLE_AUTHENTICATOR_ID="R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xl"
-NEXT_PUBLIC_GOOGLE_REDIRECT_URI="http://localhost:3000/api/auth/callback/google"
-```
-
 When there are multiple authentication options in a given authentication step, it is required to invoke a separate `/oauth2/authn` API call to retrieve additional details about a given authenticator as mentioned in the [documentation](https://wso2.com/asgardeo/docs/references/app-native-authentication/).
 
 Navigate to the `authUtils.tsx` file under the `/src/components` directory and add the following function to retrieve the Google authenticator details.
@@ -72,14 +65,19 @@ export const setFlowIdCookie = async (flowId: string) => {
         }
 
         const data = await response.json();
-        console.log(data.message);
     } catch (error) {
         console.error('Error setting flowId cookie:', error);
     }
 };
 ```
 
-We should also implement the API endpoint that sets the `flowId` cookie. Create a directory named `set-flowid` in the `/src/app/api` directory, create a new file named `route.tsx` and add the following code snippet.
+We should also implement the API endpoint that sets the `flowId` cookie. Create a directory named `set-flowid` in the `/src/app/api` directory
+
+```shell
+mkdir -p src/app/api/set-flowid
+```
+
+Create a new file named `route.tsx` and add the following code snippet.
 
 ```shell title="set-flowid.tsx"
 import { NextRequest, NextResponse } from 'next/server';
@@ -155,7 +153,7 @@ const SignInWithGoogle: React.FC = () => {
 
     return (
         <div className='flex justify-center'>
-            {error && <p className="error"}>{error}</p>}
+            {error && <p className="error">{error}</p>}
             <button onClick={handleGoogleSignIn} className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
                 Sign in with Google
             </button>
@@ -168,7 +166,7 @@ export default SignInWithGoogle;
 
 We will now utilize this component in the login page of our Next.js application. Navigate to the `page.tsx` file under the `/src/app/auth/signin` directory and add the following code to include the Google sign-in button.
 
-```shell title="page.tsx"
+```shell title="page.tsx" hl_lines="7 45-50"
 "use client"
 
 import { useState, useEffect } from 'react';
@@ -207,7 +205,7 @@ const Login = () => {
     return (
         <FormContainer>
             <h2 className='flex justify-center'>Sign In</h2>
-            {error && <p className="error"}>{error}</p>}
+            {error && <p className="error">{error}</p>}
             {authenticators.map(authenticator => (
                 authenticator.authenticatorId === process.env.NEXT_PUBLIC_BASIC_AUTHENTICATOR_ID ? (
                         <UsernamePasswordForm flowId={sessionStorage.getItem('flowId') as string} key={authenticator.authenticatorId} setError={setError} />
@@ -226,9 +224,15 @@ const Login = () => {
 export default Login;
 ```
 
-Once the user clicks the "Sign in with Google" button, the user will be redirected to the Google sign-in page. After the user successfully signs in with Google, the user will be redirected back to the application with the necessary details to complete the authentication flow.
+Once the user clicks the `Sign in with Google` button, the user will be redirected to the Google sign-in page. After the user successfully signs in with Google, the user will be redirected back to the application with the necessary details to complete the authentication flow.
 
-Since we need to do additional processing after the Google sign-in, we need to handle the callback URL in the application. Create a new directory named `google` in the `src/app/api/auth/callback/` directory, create a file named `route.tsx` and add the following code snippet.
+Since we need to do additional processing after the Google sign-in, we need to handle the callback URL in the application. Create a new directory named `google` in the `src/app/api/auth/callback/` directory. 
+
+```shell
+mkdir -p src/app/api/auth/callback/google
+```
+
+Create a file named `route.tsx` and add the following code snippet.
 
 ```shell title="route.tsx"
 import { NextRequest, NextResponse } from 'next/server';
@@ -253,7 +257,7 @@ export async function GET(req: NextRequest) {
     const requestBody = {
         flowId: flowId?.value,
         selectedAuthenticator: {
-            authenticatorId: "R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xl",
+            authenticatorId: process.env.NEXT_PUBLIC_GOOGLE_AUTHENTICATOR_ID,
             params: {
                 code,
                 state,
@@ -352,7 +356,6 @@ const options: NextAuthConfig = {
       }
     }),
   ],
-  debug: true,
   session: {
     strategy: "jwt", // Use JWT to manage the session
   },
@@ -467,7 +470,7 @@ export const config = {
 
 Now update the `src/app/auth/emailotp/page.tsx` file to include the necessary logic to set the correct redirect URI for a Google sign-in flow.
 
-```shell title="page.tsx"
+```shell title="page.tsx" hl_lines="22-24 44 51"
 "use client"
 
 import { useState, FormEvent, useEffect } from 'react';
@@ -509,12 +512,9 @@ const EmailOTP = () => {
 
         const authnResponseData = await authenticateWithEmailOtp(flowId, emailOtp);
 
-        console.log(authnResponseData);
-
         if (authnResponseData.flowStatus === "SUCCESS_COMPLETED") {
 
             const isGoogleAuthenticator = sessionStorage.getItem('isGoogleAuthenticator');
-            console.log("isGoogleAuthenticator: " + isGoogleAuthenticator);
 
             const code = authnResponseData.authData.code;
             // Call NextAuth to handle the login process
@@ -536,7 +536,7 @@ const EmailOTP = () => {
     return (
         <FormContainer>
             <h2 className='flex justify-center'>Enter Email OTP</h2>
-            {error && <p className="error"}>{error}</p>}
+            {error && <p className="error">{error}</p>}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="emailOtp">Email OTP Value:</label>

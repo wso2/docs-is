@@ -12,16 +12,15 @@ mkdir -p src/utils
 
 Create a new file named `authUtils.tsx` inside the utils directory. This file will contain functions for handling authentication requests.
 
-```typescript jsx title="authUtils.tsx"
+```shell title="authUtils.tsx"
 const getEnvVariables = () => {
     
     const organizationName = process.env.NEXT_PUBLIC_ORGANIZATION_NAME;
     const scope = process.env.NEXT_PUBLIC_SCOPE;
     const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI;
     const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
-    const emailOtpAuthenticatorId = process.env.NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID;
 
-    if (!organizationName || !scope || !clientId || !redirectUri || !emailOtpAuthenticatorId) {
+    if (!organizationName || !scope || !clientId || !redirectUri) {
         throw new Error("Missing required environment variables");
     }
 
@@ -30,7 +29,6 @@ const getEnvVariables = () => {
         scope,
         redirectUri,
         clientId,
-        emailOtpAuthenticatorId,
     };
 };
 
@@ -66,9 +64,9 @@ export const basicAuthentication = async (flowId: string, email: string, passwor
     }
 };
 
-export const initRequest = async () => {
+export const initRequest = async (redirectUri: string) => {
 
-    const { organizationName, scope, redirectUri, clientId } = getEnvVariables();
+    const { organizationName, scope, clientId } = getEnvVariables();
 
     // Construct the OAuth2 authorization URL
     const authUrl = `https://api.asgardeo.io/t/${organizationName}/oauth2/authorize?` +
@@ -87,7 +85,9 @@ export const initRequest = async () => {
                 "Accept": "application/json",
             },
         });
+
         const authorizeResponseData = await authorizeResponse.json();
+
         return authorizeResponseData;
     } catch (error) {
         console.error("Authorization request failed:", error);
@@ -95,45 +95,14 @@ export const initRequest = async () => {
     }
 };
 
-export const authenticateWithEmailOtp = async (flowId: string, emailOtp: string) => {
-
-    const { organizationName, emailOtpAuthenticatorId } = getEnvVariables();
-
-    const authnUrl = `https://api.asgardeo.io/t/${organizationName}/oauth2/authn`;
-    const requestBody = {
-        flowId,
-        selectedAuthenticator: {
-            authenticatorId: emailOtpAuthenticatorId,
-            params: {
-                OTPCode: emailOtp,
-            },
-        },
-    };
-
-    try {
-        const response = await fetch(authnUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-            },
-            body: JSON.stringify(requestBody),
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Email OTP authentication request failed:", error);
-        throw new Error('Email OTP authentication request failed');
-    }
-};
-
-export const fetchOAuth2Token = async (organization_name: string, client_id: string, authCode: string, redirect_uri: string) => {
-    const tokenUrl = `https://api.asgardeo.io/t/${organization_name}/oauth2/token`;
+export const fetchOAuth2Token = async ( authCode: string, redirectUri: string) => {
+    const { organizationName, clientId } = getEnvVariables();
+    const tokenUrl = `https://api.asgardeo.io/t/${organizationName}/oauth2/token`;
     const tokenRequestBody = new URLSearchParams({
-      client_id: client_id,
+      client_id: clientId,
       code: authCode,
       grant_type: "authorization_code",
-      redirect_uri: redirect_uri,
+      redirect_uri: redirectUri,
     });
   
     try {
@@ -178,7 +147,7 @@ The following functions are defined in the `authUtils.tsx` file:
 
 In this guide, we will also be implementing a custom `logoutFromAsgardeo` function which we will use to trigger a logout request to Asgardeo when the user logs out from your Next.js app using the previously issued id_token as the hint. Create a file named `logoutUtils.tsx` in the `/src/utils` directory and add the following code.
 
-```typescript jsx title="logoutUtils.tsx"
+```shell title="logoutUtils.tsx"
 export const logoutFromAsgardeo = async (idToken: string) => {
     const organization_name = process.env.NEXT_PUBLIC_ORGANIZATION_NAME;
     const logoutUrl = `https://api.asgardeo.io/t/${organization_name}/oidc/logout`;

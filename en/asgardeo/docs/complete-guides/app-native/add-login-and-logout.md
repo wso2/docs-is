@@ -7,7 +7,13 @@ read_time: 10 min
 Let's now implement login and logout functionality using the Auth.js library in your Next.js app. Auth.js provides convenient methods to handle login (signIn) and logout (signOut), which can be directly invoked in your components to manage user sessions.
 You can find a reference in auth.js documentation [here](https://authjs.dev/getting-started/session-management/login){:target="_blank"}.
 
-The `next-auth.d.ts` file is used to extend and customize the TypeScript types provided by the next-auth library. By default, Auth.js comes with its own type definitions, but sometimes you may need to add additional properties to the User or other interfaces to match your application's requirements. This file allows you to declare additional properties and ensure that TypeScript understands these customizations. Let's create a file named `next-auth.d.ts` under `/src/app/types` directory and add the following code.
+The `next-auth.d.ts` file is used to extend and customize the TypeScript types provided by the next-auth library. By default, Auth.js comes with its own type definitions, but sometimes you may need to add additional properties to the User or other interfaces to match your application's requirements. This file allows you to declare additional properties and ensure that TypeScript understands these customizations. Let's create a directory to place this file with the following command.
+
+```shell 
+mkdir src/app/types
+```
+
+Now create a file named `next-auth.d.ts` under the `/src/app/types` directory and add the following code to extend the User interface with additional properties.
 
 ```typescript title="next-auth.d.ts"
 import { User as NextAuthUser } from "next-auth";
@@ -52,7 +58,13 @@ Next navigate to the `globals.css` file under the `/src/app` directory and add t
 }
 ```
 
-Now create a `Home.tsx` file under the `/src/components` directory and add the following code.
+Create a directory named `components` under the `/src` directory to store the components that we will be creating for the login and logout functionality.
+
+```shell
+mkdir src/components
+```
+
+Now create a file named `Home.tsx` and add the following code.
 
 ```shell title="Home.tsx"
 
@@ -144,7 +156,7 @@ export default function RootLayout({
 }
 ```
 
-Now let's create a sign-out button component to allow users to sign out of the application. Create a file named `SignOutButton.tsx` under the `/src/components` directory and add the following code.
+Let's create a sign-out button component to allow users to sign out of the application. Create a file named `SignOutButton.tsx` under the `/src/components` directory and add the following code.
 
 ```shell title="SignOutButton.tsx"
 "use client";
@@ -184,7 +196,7 @@ export default SignOutButton;
 
 Now we can add the `SignOutButton` component to the `Home.tsx` file. Update the `Home.tsx` file as shown below.
 
-```shell title="Home.tsx" hl_lines="3 32"
+```shell title="Home.tsx" hl_lines="4 32"
 "use client";
 
 import { useSession } from "next-auth/react";
@@ -251,7 +263,7 @@ You will now see the `Sign In` button on the home page when you run the applicat
 
 In order to handle the sign-in process, we will create a login form where the user can provide their username and password in order to authenticate via Asgardeo app-native authentication APIs.
 
-First, let's create a new file named `FormContainer.tsx` under the `/src/components` directory and add the following code. This will contain a basic `div` with a border for any form that we can utilize in the application.
+First, let's create a new file named `FormContainer.tsx` under the `/src/components` directory and add the following code. This will contain a basic `div` element with a border that we can utilize for any form in the application.
 
 ```shell title="FormContainer.tsx"
 import React from 'react';
@@ -295,7 +307,7 @@ export default SubmitButton;
 
 Now let's create a login form component for the user to enter their username and password. Create a file named `UserNamePasswordForm.tsx` under the `/src/components` directory and add the following code.
 
-```shell title="LoginForm.tsx"
+```shell title="UsernamePasswordForm.tsx"
 import React, { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { basicAuthentication } from '../utils/authUtils';
@@ -338,15 +350,6 @@ const UsernamePasswordForm: React.FC<UsernamePasswordFormProps> = ({ flowId, set
                     // Redirect to dashboard on successful login
                     router.push('/');
                 }
-            } else if (authnResponseData.flowStatus === "INCOMPLETE" &&
-                authnResponseData.nextStep.authenticators[0].authenticatorId === process.env.NEXT_PUBLIC_TOTP_AUTHENTICATOR_ID) {
-                // Redirect to TOTP page
-                router.push('/auth/totp');
-            } else if (authnResponseData.flowStatus === "INCOMPLETE" &&
-                authnResponseData.nextStep.authenticators[0].authenticatorId === process.env.NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID &&
-                authnResponseData.nextStep.messages[0].messageId === "EmailOTPSent") {
-                // Redirect to Email OTP page
-                router.push('/auth/emailotp');
             } else {
                 setError("Authentication failed.");
             }
@@ -392,7 +395,13 @@ const UsernamePasswordForm: React.FC<UsernamePasswordFormProps> = ({ flowId, set
 export default UsernamePasswordForm;
 ```
 
-Now let's create the API callback handler for the `/auth/signin` route. Create a directory named `signin` under the `/src/pages/api/auth` directory, create a file named `page.tsx` in this directory, and add the following code.
+Now let's create the API callback handler for the `/auth/signin` route. Create a directory named `signin` under the `src/app/auth` directory using the following command. 
+
+```shell
+mkdir -p src/app/auth/signin
+```
+
+Create a file named `page.tsx` in this directory and add the following code.
 
 ```shell title="page.tsx"
 "use client"
@@ -447,7 +456,13 @@ const Login = () => {
 export default Login;
 ```
 
-Next, we need to create a custom sign-out route to handle the sign-out process. Create a directory named `signout` under the `/src/app/auth` directory, create a file named `route.tsx` in this directory, and add the following code.
+Next, we need to create a custom sign-out route to handle the sign-out process. Create a directory named `signout` under the `src/app/auth` directory using the following command.
+
+```shell
+mkdir -p src/app/auth/signout
+```
+
+Create a file named `route.tsx` in this directory, and add the following code.
 
 ```shell title="route.tsx"
 import { NextRequest, NextResponse } from 'next/server';

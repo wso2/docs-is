@@ -10,12 +10,6 @@ In this guide, we will look into enabling Email OTP as an MFA factor in your Nex
 
 First, let's set up Email OTP as an MFA factor in your Asgardeo account as the second authentication step in the application created in step 3 as mentioned in the [documentation](https://wso2.com/asgardeo/docs/guides/authentication/passwordless-login/add-passwordless-login-with-email-otp/#enable-email-otp-login-for-an-app). Once Email OTP is added to the login flow as the second factor, we can proceed to integrate it into our Next.js application.
 
-Navigate to the `.env.local` file and add an environment variable with the authenticatorId of the Email OTP authenticator. This authenticatorId is required to select the Email OTP authenticator when initiating the authentication flow. You can dynamically retrieve this authenticatorId from the Asgardeo app-native authentication API responses, but for the purpose of this guide, we will configure it as an environment variable.
-
-```shell
-NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID="ZW1haWwtb3RwLWF1dGhlbnRpY2F0b3I6TE9DQUw"
-```
-
 We will now read this property value from the `getEnvVariables` function in the `authUtils.tsx` file under the `/src/utils` directory. Navigate to this function and add the following lines.
 
 ```shell title="authUtils.tsx" hl_lines="7 9 18"
@@ -82,7 +76,13 @@ export const authenticateWithEmailOtp = async (flowId: string, emailOtp: string)
 };
 ```
 
-With this function in place, we can create the page that the users will land on to enter the OTP code that they received via email. Create a new directory named `emailotp` under `/src/app/auth` and create a new file named `page.tsx` in it. Then add the following code to the `page.tsx` file:
+With this function in place, we can create the page that the users will land on to enter the OTP code that they received via email. Create a new directory named `emailotp` under `/src/app/auth`
+
+```shell
+mkdir -p src/app/auth/emailotp
+```
+
+Create a new file named `page.tsx` in it. Then add the following code:
 
 ```shell title="page.tsx"
 "use client"
@@ -121,9 +121,7 @@ const EmailOTP = () => {
         }
 
         const authnResponseData = await authenticateWithEmailOtp(flowId, emailOtp);
-
-        console.log(authnResponseData);
-
+        
         if (authnResponseData.flowStatus === "SUCCESS_COMPLETED") {
 
             const code = authnResponseData.authData.code;

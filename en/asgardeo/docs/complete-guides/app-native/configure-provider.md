@@ -8,7 +8,7 @@ Auth.js is a flexible authentication library designed to streamline authenticati
 
 Using a Credentials Provider in Auth.js offers several advantages over rolling out a completely custom authentication system:
 
-- **Full Control Over Authentication Logic**: Unlike OAuth-based authentication, a Credentials Provider allows you to define exactly how users are authenticated, whether through a database lookup, API call, or even third-party services.
+- **Full Control Over Authentication Logic**: Unlike OAuth-based authentication, a Credentials Provider allows you to define exactly how users are authenticated, whether through a database lookup, API call, or even third-party services, which makes it suitable for the use case of app-native authentication covered in this guide.
 
 - **Flexible Identity Management**: A Credentials Provider can be configured to work alongside other authentication methods (e.g., OAuth, Magic Link, or Passwordless authentication), providing hybrid authentication support.
 
@@ -34,20 +34,47 @@ npx auth secret
 
 Running this command will add an `AUTH_SECRET` to your .env file.
 
-As the next step, add following entries to the .env or .env.local file, and make sure to replace the placeholders in the following code with the client-id, client-secret and issuer values you copied during in **Step-3** the application registration in the Asgardeo console.
+### Retrieve authenticator IDs from Asgardeo
+
+In this guide, we will be working with 3 different authenticators in Asgardeo. They are:
+
+- Username & Password
+- Email OTP
+- Google
+
+The above authenticators will help cover integrating basic authentication, MFA factors, and also social login scenarios into your application via app-native authentication APIs provided by Asgardeo.
+
+We first need to retrieve the authenticator IDs for the above authenticators from Asgardeo.
+
+The first two authenticators are local authenticators, whereas Google is a federated authenticator.
+
+In order to identify the list of all authenticators that are present, you can utilize the [/authenticators API](https://wso2.com/asgardeo/docs/apis/authenticators/#tag/Authenticators/paths/~1authenticators/get).
+
+In this guide, since we know what the authenticators will be for the given Asgardeo application, and to simplify the implementation of the application as much as possible, we will maintain the authenticator IDs in the `.env.local` file and utilize them instead of relying on API responses.
+
+The `authenticatorId` is built up of a base64 encoded value of the authenticator name and the Identity Provider name (in the case of a federated authenticator), where the plain-text values of the three authenticators that we would use in our case would be as follows:
+
+- `BasicAuthenticator:LOCAL`
+- `email-otp-authenticator:LOCAL`
+- `GoogleOIDCAuthenticator:Google`
+
+As the next step, add following entries to the .env or .env.local file, and make sure to replace the placeholders in the following code with the Client ID, and Client Secret values you copied during in **Step-3** the application registration in the Asgardeo console and the base64 encoded values of the authenticator IDs as mentioned above.
 
 ```sh title=".env.local"
-    AUTH_ASGARDEO_ID="<your-app-client-id>"
-    AUTH_ASGARDEO_SECRET="<your-app-client-secret>"
-    AUTH_ASGARDEO_ISSUER="<your-app-issuer-url>"
-
+    NEXT_PUBLIC_ORGANIZATION_NAME="<org_name>"
+    NEXT_PUBLIC_CLIENT_ID="<client_id>"
+    NEXT_PUBLIC_SCOPE="openid profile"
+    NEXT_PUBLIC_REDIRECT_URI="http://localhost:3000"
+    NEXT_PUBLIC_BASIC_AUTHENTICATOR_ID="<base64_encoded_basic_authenticator_id>"
+    NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID="<base64_encoded_email_otp_authenticator_id>"
+    NEXT_PUBLIC_GOOGLE_AUTHENTICATOR_ID="<base64_encoded_google_authenticator_id>"
+    NEXT_PUBLIC_GOOGLE_REDIRECT_URI="http://localhost:3000/api/auth/callback/google"
 ```
 
 ## Create the auth.tsx Configuration File
 
 We need to create a configuration file for Auth.js. This is where you define the behavior of the library, including custom authentication logic, specifying adapters, token handling, and more. In this file, you'll pass all the necessary options to the framework-specific initialization function and export route handlers like sign in, sign out, and any additional methods you need.
 Although you're free to name and place this file wherever you want, the following conventions are recommended for better organization in Next.js.
-Auth.js comes with over 80 providers pre-configured and Asgardeo is one of those providers which makes your life even easier.
 
 First, create an `auth.tsx` file in `src/auth.tsx` directory.
 
@@ -59,7 +86,7 @@ touch src/auth.tsx
 
 Add the following configurations for a custom `CredentialsProvider` in the `/src/auth.tsx'` file.
 
-```javascript title="auth.ts"
+```javascript title="auth.tsx"
 import NextAuth, { NextAuthConfig } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -92,7 +119,8 @@ touch src/app/api/auth/\[...nextauth\]/route.ts
 ```
 
 !!! Note
-The directory `src/app/api/auth/[...nextauth]/route.ts` in a Next.js project is used to define a dynamic API route for handling authentication. The `[...nextauth]` is a catch-all route that processes multiple authentication-related requests such as sign-in, sign-out, and session management. The route.ts file specifies the logic for these operations, typically by exporting handlers for HTTP methods like GET and POST. This setup centralizes authentication logic, supports OAuth providers like Google or GitHub, and integrates seamlessly into Next.js applications for secure and scalable authentication workflows.
+
+    The directory `src/app/api/auth/[...nextauth]/route.ts` in a Next.js project is used to define a dynamic API route for handling authentication. The `[...nextauth]` is a catch-all route that processes multiple authentication-related requests such as sign-in, sign-out, and session management. The route.ts file specifies the logic for these operations, typically by exporting handlers for HTTP methods like GET and POST. This setup centralizes authentication logic, supports OAuth providers like Google or GitHub, and integrates seamlessly into Next.js applications for secure and scalable authentication workflows.
 
 
 Then add the following code into `src/app/api/auth/[...nextauth]/route.ts` file.

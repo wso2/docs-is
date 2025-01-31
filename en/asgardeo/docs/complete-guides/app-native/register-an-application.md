@@ -15,15 +15,16 @@ If you have not already done so, you will need to create an organization in Asga
 Next, complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-name: asgardeo-nextjs
 
-    Authorized redirect URL: http://localhost:3000
+    **Name**: asgardeo-nextjs
+
+    **Authorized redirect URL**: http://localhost:3000
 
 ![Register a new application]({{base_path}}/complete-guides/app-native/assets/img/image2.png){: width="800" style="display: block; margin: 0;"}
 
 !!! Info
 
-    The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your application is hosted. For this guide, we'll use http://localhost:3000, as the sample application will be accessible at this URL
+    The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your application is hosted. For this guide, we'll use `http://localhost:3000`, as the sample application will be accessible at this URL
 
 Make a note of the following values from the **Protocol** tab of the registered application. You will need them to configure Asgardeo provider for Auth.js.
 
