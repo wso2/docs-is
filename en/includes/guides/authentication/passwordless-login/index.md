@@ -27,3 +27,11 @@ Email OTP allows users to log in by providing a one-time passcode sent to their 
 SMS OTP allows users to log in by providing a one-time passcode sent to their mobile phone instead of entering a password.
 
 [Add SMS OTP login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp/) has detailed instructions on this.
+
+{% if product_name == "WSO2 Identity Server" %}
+## Push Notification login
+
+Push Notification allows users to log in by approving an authentication request sent to their mobile device through push notifications.
+
+[Add Push Notification login]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-push-notification/) has detailed instructions on this.
+{% endif %}
