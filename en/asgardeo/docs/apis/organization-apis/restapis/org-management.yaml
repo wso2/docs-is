@@ -340,8 +340,8 @@ paths:
                   },
                   "attributes": [
                     {
-                        "key": "Town",
-                        "value": "Colombo-7"
+                      "key": "Town",
+                      "value": "Colombo-7"
                     }
                   ]
                 }
