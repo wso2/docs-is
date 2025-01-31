@@ -17,11 +17,9 @@ Follow the steps given below to authenticate users to your React SPA with OpenID
 Run the following command to install the React SDK and the necessary dependencies from the npm registry.
 
 ```bash
-npm install @asgardeo/auth-react react-router-dom --save
+npm install @asgardeo/auth-react
 ```
 
-!!! note
-    The `react-router-dom` package is a peer-dependency of the SDK and it is required for the SDK to work. We are working on making it optional.
 
 ## Configure the SDK
 
@@ -96,12 +94,12 @@ The ```useAuthContext()``` hook provided by the SDK could be used to access the 
 
 Use the below code segment to import the ```useAuthContext()``` hook from ```@asgardeo/auth-react```.
 
-```js 
+```js
 import { useAuthContext } from "@asgardeo/auth-react";
 ```
-And then inside your components, you can access the context as follows.  
+And then inside your components, you can access the context as follows.
 
-```js 
+```js
 const { state, signIn, signOut } = useAuthContext();
 ```
 Few common methods that you can access with `useAuthContext()` are listed below. These will be helpful when implementing authentication capabilities in your application.
@@ -154,7 +152,7 @@ You can use the `useAuthContext` hook from the React SDK to easily authenticate 
 
 Implement a login button as follows using the `signIn()` function in the `useAuthContext` hook.
 
-```js 
+```js
 <button onClick={ () => signIn() }>Login</button>
 ```
 Clicking on the **Login** button will take the user to the the {{ product_name }} login page. Once `signIn()` succeeds, the user will be redirected to the app (based on the `signInRedirectURL` specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `true`.
@@ -179,7 +177,7 @@ useEffect(() => {
 
 Sample access token is given below:
 
-``` 
+```
 61985b0e-26c3-38b7-acff-b18ad934eafc
 ```
 
@@ -195,7 +193,7 @@ There are two ways for you to get user information:
 
 ``` ts
 const { getBasicUserInfo } = useAuthContext();
-  
+
 getBasicUserInfo().then((basicUserDetails) => {
     console.log(basicUserDetails);
 }).catch((error) => {
@@ -205,7 +203,7 @@ getBasicUserInfo().then((basicUserDetails) => {
 
 `basicUserDetails` object will have a structure similar to below:
 
-```json 
+```json
 {
     "allowedScopes": "openid",
     "sessionState": "eb0e12f9a113f49ffef887a464c7980d84bb5b11dfeb1774309aee9b88c83c21.8-LXzzHCUSOOa2GeH-LFfA",
@@ -235,7 +233,7 @@ getDecodedIDToken().then((decodedIDToken) => {
 
 **Sample decoded ID token** object is given below:
 
-```json 
+```json
 {
     "isk": "329d5bf5732791509edabb093d78a4a2665dbc65d99119f45f1d4db1a2459cf1",
     "at_hash": "TN1HIyOnt_8shS2DalrdfQ",
@@ -273,14 +271,14 @@ From the decoded ID Token(`decodedIDToken`) object, you can get the following in
          <td><code>decodedIDToken.country</code></td>
     </tr>
    </tbody>
-</table>  
+</table>
 
 You can loop through the `decodedIDToken` object and get the other claims as well.
 
 ### Add logout to your application
 We can use the `signOut()` method from `useAuthContext()` hook to implement a logout button.
 
-```js 
+```js
 <button onClick={ () => signOut() }>Logout</button>
 ```
 Clicking on the **Logout** button will sign out the user. The user will then be redirected to the `signOutRedirectURL` (specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `false`.
@@ -289,7 +287,7 @@ Clicking on the **Logout** button will sign out the user. The user will then be 
     You can use the `state.isAuthenticated` attribute to check the authentication status of the user.
 
 ### Add Routing
-If your application needs routing, the SDK provides a component called ``SecureRoute``, which is implemented with ``react-router-dom``. This component allows you to easily secure your routes with the {{ product_name }}. You can learn more about routing [here](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#securing-routes-with-asgardeo){:target="_blank"}.
+If your application needs routing, you can use any router of your choice. You can learn more about routing [here](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#securing-routes-with-asgardeo){:target="_blank"}.
 
 
 ## More Information
