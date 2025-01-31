@@ -62,7 +62,7 @@ Refer to the following table for more information on rule parameters.
     </tr>
 </table>
 
-{% if password_expiry_time %}
+{% if password_expiry_time and (product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")) %}
 
 !!! abstract "Retrieve password expiry time of users"
 
