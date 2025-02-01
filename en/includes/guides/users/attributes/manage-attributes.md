@@ -85,12 +85,12 @@ To configure properties of user attributes:
                 <td>The attribute value will be validated against the regex pattern specified here.</td>
             </tr>
             <tr>
-                <td><b>Shared Profile Value Resolving Method</b></td>
-                <td>For user profiles shared across multiple organizations, this method determines how {{product_name}} resolves the value of the user's attribute for each shared profile. </br>
+                <td><b>Select Source for Attribute Value of Shared Users</b></td>
+                <td>When a user's profile is shared across multiple organizations, the value of this attribute will be taken from the selected source.</br>
                 <ul>
-                    <li><b>From Origin:</b> Attribute value is inherited from the original organization which manages the user's profile.</li>
-                    <li><b>From Shared Profile:</b> Organizations receiving the shared user profile can set their own values for the user's attribute.</li>
-                    <li><b>From First Found in Hierarchy:</b>  The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
+                    <li><b>From Origin:</b> The attribute  value is inherited from the original organization which manages the user's profile.</li>
+                    <li><b>From Shared Profile:</b>  The attribute value is taken from the shared user profile in the respective organization.</li>
+                    <li><b>From First Found in Hierarchy:</b> The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
                 </ul>
                 At the moment, you can only configure this option for custom attributes.
             </tr>
