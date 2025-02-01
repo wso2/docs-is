@@ -368,7 +368,7 @@ components:
             - abc@gmail.com
         userDomain:
           type: string
-          description: User store domain of the user. If not provided, default userstore will be used.
+          description: Userstore domain of the inviting user in the parent organization. If not provided, PRIMARY userstore will be used by default.
           example: PRIMARY
         roles:
           type: array
