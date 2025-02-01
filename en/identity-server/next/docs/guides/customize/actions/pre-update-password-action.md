@@ -1,1 +1,1 @@
-{% include "../../../../../../includes/guides/customize/actions/pre-update-password-action" %}
+{% include "../../../../../../includes/guides/customize/actions/pre-update-password-action.md" %}
