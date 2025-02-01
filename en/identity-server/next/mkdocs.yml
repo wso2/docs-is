@@ -621,6 +621,7 @@ nav:
             - Setting up actions: guides/customize/actions/setting-up-actions.md
             - Action types: 
               - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
+              - Pre update password action: guides/customize/actions/pre-update-password-action.md
       - Analytics:
         - ELK Analytics:
           - Elk analytics: guides/analytics/elk-analytics/index.md

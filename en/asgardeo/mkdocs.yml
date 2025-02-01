@@ -373,6 +373,7 @@ nav:
             - Setting up actions: guides/customize/actions/setting-up-actions.md
             - Action types: 
               - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
+              - Pre update password action: guides/customize/actions/pre-update-password-action.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
