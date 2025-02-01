@@ -373,6 +373,7 @@ nav:
             - Setting up actions: guides/customize/actions/setting-up-actions.md
             - Action types: 
               - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
+              - Pre update password action: guides/customize/actions/pre-update-password-action.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -495,6 +496,8 @@ nav:
       - Pre issue access token action: 
         - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md
         - Sample success reponses: references/actions/pre-issue-access-token-action/sample-success-responses.md
+      - Pre update password action: 
+        - API contract to implement: references/actions/pre-update-password-action/api-contract.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - Production checklist:
