@@ -74,8 +74,8 @@ The request from {{product_name}} includes following in the JSON request payload
 <p>
 ```json
 {
-  "type": "password",
-  "format": "hash",
+  "type": "PASSWORD",
+  "format": "HASH",
   "value": "cHRSHCjvmT",
   "additionalData": {
     "algorithm": "SHA256"
