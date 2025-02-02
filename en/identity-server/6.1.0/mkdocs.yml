@@ -366,7 +366,6 @@ nav:
         - Get WSO2 Updates: deploy/get-started/get-wso2-updates.md
         - Management Console:
           - Overview: deploy/get-started/get-started-with-the-management-console.md
-          - Customize: deploy/get-started/customize-the-management-console.md 
           - MFA for management console: guides/mfa/mfa-for-management-console.md
       - Configure:
         - User Stores:
@@ -402,6 +401,7 @@ nav:
               - Change to remote H2: deploy/change-to-remote-h2.md
               - Change the Default Datasource of BPS: deploy/change-datasource-bpsds.md
               - Change the Default Datasource for Consent Management: deploy/change-datasource-consent-management.md
+              - Change the Default Datasource for Registry Data: deploy/change-datasource-registry-data.md
             - Data Purging: deploy/data-purging.md
             - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
         - Session Persistence: deploy/session-persistence.md
@@ -1297,6 +1297,7 @@ plugins:
               'setup/changing-to-oracle-rac.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/change-to-oracle-rac/'
               'setup/changing-to-postgresql.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/change-to-postgresql/'
               'setup/changing-to-remote-h2.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/change-to-remote-h2/'
+              'setup/change-datasource-registry-data.md': 'https://is.docs.wso2.com/en/6.1.0/deploy/change-datasource-registry-data/'
               'setup/changing-datasource-bpsds.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/change-datasource-bpsds/'
               'setup/changing-datasource-consent-management.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/change-datasource-consent-management/'
               'setup/working-with-users-roles-and-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/user-management/roles-and-permissions/'

@@ -31,7 +31,7 @@ and create your own Certificate Authority to sign the certificates, follow the g
     - Locality Name (eg, city) [ ]: Colombo
     - Organization Name (eg, company) [Internet Widgits Pty Ltd]: WSO2
     - Organizational Unit Name (eg, section) [ ]: QA
-    - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com
+    - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is
     - Email Address [ ]: kim@wso2.com
     ```
 
@@ -172,14 +172,12 @@ that you need to use later on in this guide.
 
     !!! note
     
-        1.   To function properly, this connector should come first in the order. Otherwise, when mutual SSL takes place, the already existing connector (9443) will be picked up and the certificate will not be retrieved correctly.
-
-        2.  The `clientAuth` attribute causes the Tomcat to require the client with providing a certificate that can be configured as follows.
+        1.  The `clientAuth` attribute causes the Tomcat to require the client with providing a certificate that can be configured as follows.
             -   `true` : valid client certificate required for a connection to succeed
             -   `want` : use a certificate if available, but still connect if no certificate is available
             -   `false` : no client certificate is required or validated
     
-        3.   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
+        2.   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
 
 ## Disable certificate validation
 
@@ -356,7 +354,7 @@ The next step is to configure the application.
 ## Onboard a user
 
 A user for the corresponding certificate should be available in the system to perform the authentication. Follow the given instructions 
-in [Onboard single user](../../users/manage-users.md/#onboard-single-user) to onboard a user with the username `wso2is.com` (This is the CN of the created certificate above).
+in [Onboard single user](../../users/manage-users.md/#onboard-single-user) to onboard a user with the username `wso2is` (This is the CN of the created certificate above).
 
 ## Try it out
 

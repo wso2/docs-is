@@ -10,35 +10,33 @@ what_you_will_learn:
 prerequisites:
   - About 15 minutes
   - <a href="{{ base_path }}/get-started/create-asgardeo-account/">{{product_name}} account</a>
-  - Install a JS package manager
+  - Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.
   - Install <a href="https://angular.dev/tools/cli/setup-local" target="_blank">Angular CLI </a>
   - A favorite text editor or IDE
 # source_code: <a href="" target="_blank" class="github-icon">Angular App Sample</a>
-# whats_next:
-#   - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
+whats_next:
+  - Try out <a href="{{ base_path }}/complete-guides/angular/introduction/" target="_blank">{{ product_name }} complete Angular guide</a>
 #   - Try out {{product_name}} user onboarding complete guide for React
 #   - Read security best practices for React app guide
 ---
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to **Applications > New Application.**
-- Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL
+- Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
-*Example:*
+!!! Example
+    **name:** asgardeo-react
+    
+    **Authorized redirect URL:** http://localhost:4200
 
-- *Name -  asgardeo-angular*
-- *Authorized redirect URL - http://localhost:4200*
+Note down the following values from the **Protocol** and the **Info** tabs of the registered application. You will need them to configure the SDK.
+
+- **`client-id`** from the **Protocol** tab. 
+- **`issuer`** from the **Info** tab. 
 
 !!! Info
 
     The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:4200`, as the sample app will be accessible at this URL.
-
-!!! note
-
-    Make a note of the following values from the **Protocol** and **Info** tabs of the registered application. You will need them during the **Step 4**
-
-    - **`client-id`** from the **Protocol** tab. 
-    - **`issuer`** from from the **Info** tab.
 
 ## Create an Angular app 
 
@@ -144,7 +142,8 @@ export const appConfig: ApplicationConfig = {
 
 !!! Important
 
-    Make sure to add `strictDiscoveryDocumentValidation: false` parameter. 
+    **Make sure to add `strictDiscoveryDocumentValidation: false` parameter.**
+    The configuration parameter `strictDiscoveryDocumentValidation` is set to `true` by default. This ensures that all endpoints provided in the Identity Provider discovery document share the same base URL as the issuer parameter. However, several Identity Providers, including Asgardeo, may use different domains or path parameters for various endpoints in the discovery document. While these providers may still comply with the OpenID Connect Provider Configuration specification, they will fail this library's discovery document validation. To resolve this, you need to set `strictDiscoveryDocumentValidation` to `false`.
 
 ## Add login and logout link to your app
 

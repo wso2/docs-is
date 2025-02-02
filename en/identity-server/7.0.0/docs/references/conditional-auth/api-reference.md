@@ -12,6 +12,9 @@
 - [Utility functions](#utility-functions): These utility functions are used for specific scenarios. For example, checking whether the login user belongs to a specific user group. Listed below are the utility functions that can be used in conditional authentication scripts.
   
     - [`isMemberOfAnyOfGroups()`](#check-group-membership)
+    - [`hasAnyOfTheRolesV2()`](#has-any-of-the-roles)
+    - [`assignUserRolesV2()`](#assign-user-roles)
+    - [`removeUserRolesV2()`](#remove-user-roles)
     - [`setCookie()`](#set-cookie)
     - [`getCookieValue()`](#get-cookie-value)
     - [`prompt()`](#prompt-for-user-input)
@@ -21,6 +24,7 @@
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
     - [`getAssociatedLocalUser()`](#get-associated-user)
+    - [`doAssociationWithLocalUser()`](#do-association-with-local-user)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
   
@@ -377,6 +381,98 @@ This function returns `true` if the specified user belongs to at least one of th
     }
     ```
 
+### Has Any Of The Roles
+
+`hasAnyOfTheRolesV2()`
+
+This function checks if the given user has at least one of the given roles(v2). It returns `true` if the user has at least one of the given roles and returns `false` for any other case.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>context</code></td>
+          <td>The authentication context, which contains the context information about the request.</td>
+        </tr>
+        <tr>
+          <td><code>roleNames</code></td>
+          <td>A list of strings that contains roles that needs to be checked where each string is a role name.</td>
+        </tr>
+      </tbody>  
+    </table>
+
+- **Example**
+
+    ``` js
+    var rolesToStepUp = ['admin', 'manager'];
+    var hasRole = hasAnyOfTheRolesV2(context, rolesToStepUp);
+    if (hasRole) {
+        executeStep(2);
+    }
+    ```
+
+### Assign User Roles
+
+`assignUserRolesV2()`
+
+This function assigns each of the roles(v2) specified in the `roleListToAssign` parameter for a given user. It returns `true` if all the roles(v2) are successfully assigned and returns `false` if not.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>context</code></td>
+          <td>The authentication context, which contains the context information about the request.</td>
+        </tr>
+        <tr>
+          <td><code>roleListToAssign</code></td>
+          <td>A list of strings containing roles that are to be assigned where each string is a role name.</td>
+        </tr>
+      </tbody>  
+    </table>
+
+- **Example**
+
+    ``` js
+    executeStep(1, {
+        onSuccess: function (context) {
+            assignUserRolesV2(context, ['exampleRole1', 'exampleRole2']);
+        }
+    });
+    ```
+
+### Remove User Roles
+
+`removeUserRolesV2()`
+
+This function removes each of the roles(v2) specified in the `roleListToAssign` parameter to the given user. It returns `true` if all the roles(v2) are successfully removed and returns `false` if not.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>context</code></td>
+          <td>The authentication context, which contains the context information about the request.</td>
+        </tr>
+        <tr>
+          <td><code>roleListToRemove</code></td>
+          <td>A list of strings that contains roles that are to be removed where each string is a role name.</td>
+        </tr>
+      </tbody>  
+    </table>
+
+- **Example**
+
+    ``` js
+    executeStep(1, {
+        onSuccess: function (context) {
+            removeUserRolesV2(context, ['exampleRole1', 'exampleRole2']);
+        }
+    });
+    ```
 
 ### Set cookie
 
@@ -677,6 +773,35 @@ This function returns the local user associated with the federate username given
         <tr>
           <td><code>federatedUser</code></td>
           <td>The federated user object.</td>
+        </tr>
+      </tbody>
+    </table>
+
+### Do association with local user
+
+`doAssociationWithLocalUser()`
+
+This function sets association to the local user with federated user. It includes the following parameters.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>federatedUser</code></td>
+          <td>The federated user object.</td>
+        </tr>
+        <tr>
+          <td><code>localUsername</code></td>
+          <td>The username of the local user to be associated.</td>
+        </tr>
+        <tr>
+          <td><code>tenantDomain</code></td>
+          <td>The tenant domain of the local user..</td>
+        </tr>
+        <tr>
+          <td><code>userStoreDomain</code></td>
+          <td>The user store domain of the local user.</td>
         </tr>
       </tbody>
     </table>

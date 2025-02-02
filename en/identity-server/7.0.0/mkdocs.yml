@@ -23,6 +23,9 @@ extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
 
+hooks:
+  - hooks.py
+
 plugins:
   - search:
       indexing: "full"
@@ -85,7 +88,7 @@ plugins:
         'guides/identity-federation/enterprise-identity-federation.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/identity-federation/configure-saml-2.0-web-sso.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
         'guides/identity-federation/configure-oauth2-openid-connect.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
-        'guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
+        'guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md': 'guides/authentication/enterprise-login/add-ad-fs-login.md'
         'guides/identity-federation/configure-ws-federation.md': 'guides/authentication/standard-based-login/index.md'
         'guides/identity-federation/configure-ws-trust.md': 'guides/authentication/standard-based-login/index.md'
         'guides/identity-federation/configure-shibboleth-idp.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
@@ -223,6 +226,7 @@ plugins:
         'deploy/change-to-postgresql.md': 'deploy/configure/databases/carbon-database/change-to-postgresql.md'
         'deploy/change-to-remote-h2.md': 'deploy/configure/databases/carbon-database/change-to-remote-h2.md'
         'deploy/change-datasource-consent-management.md': 'deploy/configure/databases/carbon-database/change-datasource-consent-management.md'
+        'deploy/change-datasource-registry-data.md': 'deploy/configure/databases/carbon-database/change-datasource-registry-data.md'
         'deploy/enable-fips-for-is.md': 'deploy/security/enable-fips-for-is.md'
 
         'apis/overview.md': 'apis/index.md'
@@ -287,6 +291,8 @@ plugins:
         'guides/identity-federation/resident-inbound-auth.md': 'guides/authentication/index.md'
         'guides/identity-federation/resident-inbound-provisioning.md': 'guides/authentication/index.md'
         'guides/identity-federation/resident-jit-consent.md': 'guides/authentication/index.md'
+        'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
+
         'references/concepts/introduction-to-multitenancy.md': 'guides/multitenancy/index.md'
         'references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md': 'references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md'
         'references/extend/write-custom-functions-for-adaptive-authentication.md': 'references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md'
@@ -321,6 +327,7 @@ plugins:
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
         'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
         'apis/scim2-groups-rest-apis.md': 'apis/scim2/scim2-groups-rest-api.md'
+        'apis/build-scim2-user-creation-payload.md': 'apis/scim2/build-scim2-user-creation-payload.md'
         'apis/scim2-patch-operations.md': 'apis/scim2/scim2-patch-operations.md'
         'apis/scim2-bulk-rest-apis.md': 'apis/scim2/scim2-bulk-rest-api.md'
         'apis/scim2-batch-operations.md': 'apis/scim2/scim2-batch-operations.md'
@@ -382,11 +389,6 @@ nav:
             - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
             - Add login to a web app: guides/authentication/add-login-to-web-app.md
             - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
-          - Add login to saas app:
-            - Add SSO login to saas apps: guides/authentication/sso-integrations/index.md
-            - Google Workspace: guides/authentication/sso-integrations/add-google-workspace-template.md
-            - Salesforce: guides/authentication/sso-integrations/add-salesforce-template.md
-            - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
@@ -421,6 +423,7 @@ nav:
             - Add enterprise login:
               - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
               - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
+              - Add AD FS login: guides/authentication/enterprise-login/add-ad-fs-login.md
             - Configure a custom connector:  guides/authentication/configure-custom-connector.md
           - Enable user attributes:
               - Enable user attributes: guides/authentication/user-attributes/index.md
@@ -510,6 +513,7 @@ nav:
               - Google: guides/users/outbound-provisioning/outbound-connectors/google.md
               - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
               - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
+              - Custom Outbound Connector: guides/users/outbound-provisioning/outbound-connectors/custom-outbound-connectors.md
             - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
         - Sync User Accounts:
             - Overview: guides/users/sync-user-accounts/sync-account-overview.md
@@ -581,11 +585,11 @@ nav:
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Administration of organizations: guides/organization-management/manage-b2b-administration.md
           - Share applications: guides/organization-management/share-applications.md
-          - Onboard organization admins: 
-            - Onboard organization admins: guides/organization-management/onboard-org-admins/index.md
+          - Onboard admins: 
+            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-          - Invite users from parent organization: guides/organization-management/invite-parent-organization-users.md
+          - Onboard users: guides/organization-management/onboard-users.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
@@ -633,6 +637,7 @@ nav:
             - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
             - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
             - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
+            - Change the Default Datasources for the Registry Data: deploy/configure/databases/carbon-database/change-datasource-registry-data.md
           - Data Purging: deploy/configure/databases/data-purging.md
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
@@ -794,6 +799,8 @@ nav:
           - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
           - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md
+          - Additional resources:
+            - Build SCIM 2.0 user creation payload: apis/scim2/build-scim2-user-creation-payload.md
         - Account recovery APIs:
           - Account recovery v0.9 API: apis/use-the-account-recovery-rest-apis.md
           - Account recovery v1 API (deprecated): apis/user-account-recovery-v1-rest-api.md
@@ -859,6 +866,7 @@ nav:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
+        - Customize the authentication endpoint: references/extend/authentication/customize-the-authentication-endpoint.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md

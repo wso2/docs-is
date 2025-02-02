@@ -98,7 +98,12 @@ hooks:
   - hooks.py
 
 plugins:
-  - search
+  - search:
+      indexing: "full"
+      separator: "[^\\w._]+"
+      lang: ['en']
+      prebuild_index: true
+      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -122,12 +127,17 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/organization-apis/scim-bulk.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+        'apis/build-scim2-user-creation-payload.md': 'apis/scim2/build-scim2-user-creation-payload.md'
         'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
-        'guides/account-configurations.md': 'guides/user-accounts/index.md'
+        'guides/user-accounts/index.md': 'guides/account-configurations/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
         '/guides/authorization/impersonation/user-impersonation/' : '/guides/authorization/user-impersonation/'
         'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
+        'guides/user-accounts/password-recovery.md': 'guides/account-configurations/account-recovery/password-recovery.md'
+        'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/account-security/login-attempts.md'
+        'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
+        'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -167,9 +177,12 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
-  - Quickstarts:
-        - React Quickstart: quick-starts/react.md
-        - Angular Quickstart:  quick-starts/angular.md
+  - Quick Starts:
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
+    - JavaScript Quickstart: quick-starts/javascript.md
+    - Next.js Quickstart:  quick-starts/nextjs.md
+    - Spring Boot Quickstart:  quick-starts/springboot.md
   - Guides: 
       - Guides - Overview: guides/index.md
       - Applications:
@@ -188,11 +201,13 @@ nav:
             - Add login to an SPA: guides/authentication/add-login-to-single-page-app.md
             - Add login to a web app: guides/authentication/add-login-to-web-app.md
             - Add login to a mobile app: guides/authentication/add-login-to-mobile-app.md
-          - Add login to saas app:
-              - Add SSO login to saas apps: guides/authentication/sso-integrations/index.md
+          - Add login to SaaS apps:
+              - Add SSO login to SaaS apps: guides/authentication/sso-integrations/index.md
               - Google Workspace: guides/authentication/sso-integrations/add-google-workspace-template.md
               - Salesforce: guides/authentication/sso-integrations/add-salesforce-template.md
               - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
+              - Zoom: guides/authentication/sso-integrations/add-zoom-template.md
+              - Slack: guides/authentication/sso-integrations/add-slack-template.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
@@ -254,7 +269,7 @@ nav:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
             - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
-          - Login Flow AI: guides/authentication/ai-loginflow.md
+          - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -300,21 +315,25 @@ nav:
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
+          - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
           - Configure high availability: guides/users/user-stores/configure-high-availability.md
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
-      - Account management:
-        - Account management: guides/user-accounts/index.md
-        - Configure password recovery: guides/user-accounts/password-recovery.md
-        - Configure self-registration: guides/user-accounts/configure-self-registration.md
-        - Manage account security:
-          - Configure login-attempts security: guides/user-accounts/account-security/login-attempts-security.md
-          - Configure bot detection: guides/account-configurations/login-security/bot-detection.md
-          - Configure password validation: guides/user-accounts/account-security/password-validation.md
-        - Manage account login:
-          - Configure username validation: guides/user-accounts/account-login/username-validation.md
+      - Account configurations:
+        - Account configurations: guides/account-configurations/index.md
+        - Login security:
+          - Login attempts: guides/account-configurations/login-security/login-attempts.md
+          - Password validation: guides/account-configurations/login-security/password-validation.md
+          - Bot detection: guides/account-configurations/login-security/bot-detection.md
+          - Fraud detection: guides/account-configurations/login-security/sift-fraud-detection.md
+        - Account recovery:
+          - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
+        - User onboarding:
+          - Self-registration: guides/account-configurations/user-onboarding/self-registration.md
+        - Manage login identifiers:
+          - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
@@ -350,15 +369,17 @@ nav:
         - Customize branding: 
             - Customize branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
-            - Branding AI: guides/branding/ai-branding.md
+            - Branding AI: guides/branding/branding-ai.md
             - Configure custom domains: guides/branding/configure-custom-domains.md
             - Customize email templates: guides/branding/customize-email-templates.md
+            - Customize SMS templates: guides/branding/customize-sms-templates.md
             - Localization in Asgardeo: guides/branding/localization.md
         - Extend with actions:
             - Understanding actions: guides/customize/actions/understanding-actions.md
             - Setting up actions: guides/customize/actions/setting-up-actions.md
             - Action types: 
               - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
+              - Pre update password action: guides/customize/actions/pre-update-password-action.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -406,11 +427,11 @@ nav:
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
       - Idle account identification API: apis/idle-account-identification.md
+      - Notification templates management API: apis/notification-templates.md
       - OAuth Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
-      - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
@@ -421,6 +442,7 @@ nav:
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
           - SCIM 2.0 Service provider configs API: apis/scim2/scim2-service-provider-configs-rest-api.md
+          - SCIM 2.0 Build user creation payload: apis/scim2/build-scim2-user-creation-payload.md
         - User account associations API: apis/association-management-by-admin.md
         - Account Recovery API: apis/user-account-recovery.md
         - Offline user onboard management API: apis/offline-user-onboard.md
@@ -475,10 +497,13 @@ nav:
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
+    - SMS templates: references/sms-templates.md
     - Actions:
       - Pre issue access token action: 
         - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md
         - Sample success reponses: references/actions/pre-issue-access-token-action/sample-success-responses.md
+      - Pre update password action: 
+        - API contract to implement: references/actions/pre-update-password-action/api-contract.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - Production checklist:
@@ -496,7 +521,7 @@ nav:
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
   - Technology Guides:
-    - React:
+    - React Guide:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md
       - Configure an application: complete-guides/react/register-an-application.md
@@ -508,18 +533,31 @@ nav:
       - Accessing protected API : complete-guides/react/accessing-protected-api.md
       - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
       - Next Steps: complete-guides/react/next-steps.md
-    - Node.js:
+    - .NET Guide:
+        - Introduction: complete-guides/dotnet/introduction.md
+        - Prerequisites: complete-guides/dotnet/prerequisites.md
+        - Register an application: complete-guides/dotnet/register-an-application.md
+        - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
+        - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
+        - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
+        - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
+        - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
+        - Accessing protected API: complete-guides/dotnet/accessing-protected-api.md
+        - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
+        - Next Steps: complete-guides/dotnet/next-steps.md
+    - Node.js Guide:
       - Introduction: complete-guides/nodejs/introduction.md
       - Prerequisite: complete-guides/nodejs/prerequisite.md
       - Configure an application: complete-guides/nodejs/register-an-application.md
       - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
       - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
       - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+      - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
       - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
       - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
       - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
       - Next Steps: complete-guides/nodejs/next-steps.md
-    - Angular:
+    - Angular Guide:
       - Introduction: complete-guides/angular/introduction.md
       - Prerequisite: complete-guides/angular/prerequisite.md
       - Register an application: complete-guides/angular/register-an-application.md
@@ -531,7 +569,42 @@ nav:
       - Accessing protected API : complete-guides/angular/accessing-protected-api.md
       - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
       - Next Steps: complete-guides/angular/next-steps.md
-
+    - Nextjs Guide:
+      - Introduction: complete-guides/nextjs/introduction.md
+      - Prerequisite: complete-guides/nextjs/prerequisite.md
+      - Register an application: complete-guides/nextjs/register-an-application.md
+      - Create a Next.js app: complete-guides/nextjs/create-app.md
+      - Configure Asgardeo provider: complete-guides/nextjs/install-asgardeo-sdk.md
+      - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
+      - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
+      - Accessing protected API : complete-guides/nextjs/accessing-protected-api.md
+      - Manage tokens in Next.js : complete-guides/nextjs/manage-tokens-in-apps.md
+      - Next Steps: complete-guides/nextjs/next-steps.md
+    - JavaScript Guide:
+      - Introduction: complete-guides/javascript/introduction.md
+      - Prerequisite: complete-guides/javascript/prerequisite.md
+      - Register an application: complete-guides/javascript/register-an-application.md
+      - Create a JavaScript app: complete-guides/javascript/create-app.md
+      - Configure Asgardeo SDK: complete-guides/javascript/install-asgardeo-sdk.md
+      - Add login and logout: complete-guides/javascript/add-login-and-logout.md
+      - Display user details: complete-guides/javascript/display-logged-in-user-details.md
+      - Accessing protected API : complete-guides/javascript/accessing-protected-api.md
+      - Manage tokens in JavaScript : complete-guides/javascript/manage-tokens-in-apps.md
+      - Next Steps: complete-guides/javascript/next-steps.md
+    - Frontend Security Guide:
+      - Introduction: complete-guides/fesecurity/introduction.md
+      - In-app vs IdP-based login: complete-guides/fesecurity/login-options.md
+      - Public clients: complete-guides/fesecurity/public-clients.md
+      - Insecure token handling : complete-guides/fesecurity/insecure-tokens.md
+      - Weak access control: complete-guides/fesecurity/weak-access-control.md
+      - Unauthorized access: complete-guides/fesecurity/unauthorized-privilege-gain.md
+      - Weak MFA : complete-guides/fesecurity/weak-mfa.md
+      - Partial user logouts: complete-guides/fesecurity/partial-user-logouts.md
+      - Product misconfiguration: complete-guides/fesecurity/misconfiguration.md
+      - Cross-Site Scripting (XSS): complete-guides/fesecurity/xss.md
+      - Cross-Site Request Forgery (CSRF): complete-guides/fesecurity/csrf.md
+      - Next Steps: complete-guides/fesecurity/next-steps.md 
 not_in_nav: |
   /page-not-found.md
   /get-started/explore-asgardeo.md

@@ -70,6 +70,7 @@ To configure additional properties for the sample application:
     |------------|-------|--------------|
     | **Passive STS Realm** | `PassiveSTSSampleApp`  | This should be a unique identifier for the web app. Provide the same realm name given to the web app you are configuring WS-Federation for. |
     | **Passive STS WReply URL**    | `http://localhost:8080/PassiveSTSSampleApp/index.jsp`    | Provide the URL of the web app you are configuring WS-Federation for. This endpoint URL will handle the token response. |
+    | **Passive STS WReply Logout URL** | `http://localhost:8080/PassiveSTSSampleApp/index.jsp` | This is the URL of the web application to which the user is redirected to upon successful logout. This URL will be used to validate the wreply url sent in the logout request. |
 
 4. Expand **Claim Configuration** and click **Add Claim URI** next to **Requested Claims**, and add the following claims:
 

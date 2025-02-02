@@ -1,16 +1,57 @@
 {
-    "default_roles": {
+    "sms-templates": {
         "enabled": false,
+        "page": [
+            "guides/branding/customize-sms-templates.md",
+            "apis/notification-templates.md",
+            "references/sms-templates.md"
+        ]
+    },
+    
+    "sift_fraud_detection": {
+        "enabled": true,
+        "page": [
+            "guides/account-configurations/login-security/sift-fraud-detection.md"
+        ]
+    },
+
+    "default_roles": {
+        "enabled": true,
         "page": [
         ]
     },
 
-    "asgardeo_events": {
+    "multi_valued_attributes": {
+        "enabled": true,
+        "page": [
+        ]
+    },
+
+    "sso_integrations_zoom_slack": {
+        "enabled": true,
+        "page": [
+            "guides/authentication/sso-integrations/add-zoom-template.md",
+            "guides/authentication/sso-integrations/add-slack-template.md"
+        ]
+    },
+
+    "password_expiry_time": {
+        "enabled": false,
+        "page": []
+    },
+    
+    "attribute_uniqueness_validation": {
+        "enabled": true,
+        "page": [
+            "guides/users/attributes/configure-unique-attributes.md"
+        ]
+    },
+
+    "pre-update-password-action": {
         "enabled": false,
         "page": [
-            "guides/monitoring/asgardeo-events.md"
+            "references/actions/pre-update-password-action/api-contract.md",
+            "guides/customize/actions/pre-update-password-action.md"
         ]
     }
-
-
 }
