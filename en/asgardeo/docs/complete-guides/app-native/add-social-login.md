@@ -120,7 +120,6 @@ const SignInWithGoogle: React.FC = () => {
         try {
             const authorizeResponseData = await initRequest(redirectUri);
             const flowId = authorizeResponseData.flowId;
-            console.log("Google sign-in flowId: " + flowId);
             sessionStorage.setItem('flowId', flowId);
             try {
                 // Set the flowId into a cookie
@@ -135,8 +134,6 @@ const SignInWithGoogle: React.FC = () => {
                 return;
             }
             const authnResponseData = await selectAuthenticator(flowId, googleAuthenticatorId);
-
-            console.log("Selected authenticator response: " + authnResponseData);
 
             if (authnResponseData.flowStatus === "INCOMPLETE" && authnResponseData.nextStep.authenticators[0].metadata.promptType === "REDIRECTION_PROMPT") {
                 const redirectUrl = authnResponseData.nextStep.authenticators[0].metadata.additionalData.redirectUrl;
@@ -409,7 +406,6 @@ const options: NextAuthConfig = {
   },
   events: {
     async signOut(message) {
-      console.log("Sign-out message:", message);
 
       if ('token' in message && message.token?.id_token) {
         try {

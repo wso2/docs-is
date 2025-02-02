@@ -498,7 +498,6 @@ const options: NextAuthConfig = {
       },
       async authorize(credentials, req) {
         let redirect_uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
-        console.log("Redirect URI auth.tsx: " + redirect_uri);
         if (!redirect_uri) {
           throw new Error("Missing required environment variables");
         }
@@ -580,7 +579,6 @@ const options: NextAuthConfig = {
   },
   events: {
     async signOut(message) {
-      console.log("Sign-out message:", message);
 
       if ('token' in message && message.token?.id_token) {
         try {
