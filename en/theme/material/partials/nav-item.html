@@ -79,14 +79,9 @@
       {% set active = nav_item.active or expanded %}
 
       <!-- Determine checked and indeterminate state -->
-      {# {% set checked = "checked" if nav_item.active or nav_item.title in expanded_nav_titles %} #}
       {% if expanded and not checked %}
         {% set indeterminate = "md-toggle--indeterminate" %}
       {% endif %}
-
-      {# {% if nav_item.title in expanded_nav_titles %}
-        {% set disabled = "disabled" %}
-      {% endif %} #}
 
       <!-- Active checkbox expands items contained within nested section -->
       <input

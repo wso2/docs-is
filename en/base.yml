@@ -126,7 +126,6 @@ extra:
         - hide-sub-nav
       nav_overrides:
         Frontend Security: complete-guides/fesecurity/introduction
-
   nav_icons:
     Home: octicons/home-16
     Get Started: octicons/rocket-16
