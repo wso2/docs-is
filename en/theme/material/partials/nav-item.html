@@ -1,5 +1,5 @@
 <!--
- * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2024-2025, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -17,7 +17,7 @@
 -->
 
 <!-- Wrap everything with a macro to reduce file roundtrips (see #2213) -->
-{% macro render(nav_item, path, level) %}
+{% macro render(nav_item, path, level, parent_title=None) %}
 
   <!-- Determine class according to state -->
   {% set class = "md-nav__item" %}
@@ -25,6 +25,14 @@
   {% if nav_item.active %}
     {% set class = class ~ " md-nav__item--active" %}
   {% endif %}
+
+  {% set current_title = nav_item.title %}
+
+  <!-- Set icons -->
+  {% set icon = config.extra.nav_icons[nav_item.title] if nav_item.title in config.extra.nav_icons else None %}
+
+  <!-- Create new map with expanded_nav titles -->
+  {% set expanded_nav_titles = config.extra.expanded_navs | map(attribute='title') | list %}
 
   <!-- Main navigation item with nested items -->
   {% if nav_item.children %}
@@ -36,16 +44,49 @@
       {% set class = class ~ " md-nav__item--section" %}
     {% endif %}
 
+    {% if nav_item.title in expanded_nav_titles %}
+      {% set class = class ~ " md-nav--expanded-section" %}
+    {% endif %}
+
+    <!-- Pre-filter the relevant nav entry -->
+    {% set matched_nav = config.extra.expanded_navs | selectattr("title", "equalto", nav_item.title) | first %}
+
+    {% if matched_nav is defined and matched_nav.options is defined %}
+      {% if "divider" in matched_nav.options %}
+        <hr class="md-nav--expanded-section-divider" />
+      {% endif %}
+      
+      {% if "verticle-line" in matched_nav.options %}
+        {% set class = class ~ " md-nav--expanded-section-verticle-line" %}
+      {% endif %}
+    {% endif %}
+
+    <!-- Set css class if there is an icon -->
+    {% set has_icon = "md-nav--has-icon" if icon %}
+
+    <!-- Hide sub navigation if parent section is an expanded section have the hide-sub-nav config  -->
+    {% set matched_parent_nav = config.extra.expanded_navs | selectattr("title", "equalto", parent_title) | list %}
+
+    {% if matched_parent_nav and matched_parent_nav[0].nav_overrides is defined and current_title in matched_parent_nav[0].nav_overrides %}
+        {% set nav_override_link = matched_parent_nav[0].nav_overrides[current_title] %}
+        {% set override_sub_nav = "md-nav--override-sub-nav" %}
+        {% set hide_sub_nav = "md-nav--hide-sub-nav" %}
+    {% endif %}
+
     <!-- Render item with nested items -->
-    <li class="{{ class }} md-nav__item--nested">
+    <li class="{{ class }} md-nav__item--nested {{ has_icon }}">
       {% set expanded = "navigation.expand" in features %}
       {% set active = nav_item.active or expanded %}
 
       <!-- Determine checked and indeterminate state -->
-      {% set checked = "checked" if nav_item.active %}
+      {# {% set checked = "checked" if nav_item.active or nav_item.title in expanded_nav_titles %} #}
       {% if expanded and not checked %}
         {% set indeterminate = "md-toggle--indeterminate" %}
       {% endif %}
+
+      {# {% if nav_item.title in expanded_nav_titles %}
+        {% set disabled = "disabled" %}
+      {% endif %} #}
 
       <!-- Active checkbox expands items contained within nested section -->
       <input
@@ -53,6 +94,7 @@
         type="checkbox"
         id="{{ path }}"
         {{ checked }}
+        {{ disabled }}
       />
 
       <!-- Determine all nested items that are index pages -->
@@ -66,15 +108,27 @@
       {% endif %}
 
       <!-- Render toggle to expand nested items -->
+      <!-- // pass hide nave class here -->
       {% if not indexes %}
         <label
-          class="md-nav__link"
+          class="md-nav__link {{ hide_sub_nav }}" 
           for="{{ path }}"
           id="{{ path }}_label"
           tabindex="0"
         >
-          {{ nav_item.title }}
-          <span class="md-nav__icon md-icon"></span>
+          <span>
+            {% if icon %}
+              <span class="icon">
+                {% include ".icons/" ~ icon ~ ".svg" %}
+              </span>
+              {{ "&nbsp;" + nav_item.title }}
+            {% else %}
+              {{ nav_item.title }}
+            {% endif %}
+          </span>
+          {% if not disabled %}
+            <span class="md-nav__icon md-icon"></span>
+          {% endif %}
         </label>
 
       <!-- Render link to index page + toggle -->
@@ -82,18 +136,30 @@
         {% set index = indexes | first %}
         {% set class = "md-nav__link--active" if index == page %}
         <div class="md-nav__link md-nav__link--index {{ class }}">
-          <a href="{{ index.url | url }}">{{ nav_item.title }}</a>
+          <a href="{{ index.url | url }}">
+            <span>
+              {% if icon %}
+                <span class="icon">
+                  {% include ".icons/" ~ icon ~ ".svg" %}
+                </span>
+              {% endif %}
+              {{ nav_item.title }}
+            </span>
+          </a>
 
           <!-- Only render toggle if there's at least one more page -->
           {% if nav_item.children | length > 1 %}
+            {% if not disabled %}
             <label for="{{ path }}">
               <span class="md-nav__icon md-icon"></span>
             </label>
+            {% endif %}
           {% endif %}
         </div>
       {% endif %}
 
       <!-- Render nested navigation -->
+      {% if nav_item.children | length > 0 %}
       <nav
         class="md-nav"
         data-md-level="{{ level }}"
@@ -105,15 +171,32 @@
           {{ nav_item.title }}
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-
           <!-- Render nested item list -->
           {% for nav_item in nav_item.children %}
             {% if not indexes or nav_item != indexes | first %}
-              {{ render(nav_item, path ~ "_" ~ loop.index, level + 1) }}
+              {{ render(nav_item, path ~ "_" ~ loop.index, level + 1, current_title) }}
             {% endif %}
           {% endfor %}
         </ul>
       </nav>
+      {% endif %}
+      
+      <!-- Sub nav override links -->
+      {% if nav_override_link %}
+      <div class="md-nav__link md-nav__link--index {{ class }} {{ override_sub_nav }}">
+        <a href="{{ nav_override_link | url }}">
+          <span>
+            {% if icon %}
+              <span class="icon">
+                {% include ".icons/" ~ icon ~ ".svg" %}
+              </span>
+            {% endif %}
+            {{ nav_item.title }}
+          </span>
+        </a>
+      </div>
+      {% endif %}
+      
     </li>
 
   <!-- Currently active page -->
@@ -145,7 +228,14 @@
         href="{{ nav_item.url | url }}"
         class="md-nav__link md-nav__link--active"
       >
-        {{ nav_item.title }}
+        <span>
+          {% if icon %}
+            <span class="icon">
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </span>
+          {% endif %}
+          {{ nav_item.title }}
+        </span>
         {% if nav_item.meta and nav_item.meta.read_time %}
             <span class="md-nav__link-read_time">
               {{ nav_item.meta.read_time }}
@@ -164,7 +254,14 @@
   {% else %}
     <li class="{{ class }}">
       <a href="{{ nav_item.url | url }}" class="md-nav__link">
-        {{ nav_item.title }}
+        <span>
+          {% if icon %}
+            <span class="icon">
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </span>
+          {% endif %}
+          {{ nav_item.title }}
+        </span>
         {% if nav_item.meta and nav_item.meta.read_time %}
             <span class="md-nav__link-read_time">
               {{ nav_item.meta.read_time }}
