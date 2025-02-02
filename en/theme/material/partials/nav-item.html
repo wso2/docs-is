@@ -108,7 +108,6 @@
       {% endif %}
 
       <!-- Render toggle to expand nested items -->
-      <!-- // pass hide nave class here -->
       {% if not indexes %}
         <label
           class="md-nav__link {{ hide_sub_nav }}" 
@@ -119,7 +118,11 @@
           <span>
             {% if icon %}
               <span class="icon">
-                {% include ".icons/" ~ icon ~ ".svg" %}
+                {% if icon.startswith("custom/") %}
+                  {% include "assets/libs/" ~ icon ~ ".svg" %}
+                {% else %}
+                  {% include ".icons/" ~ icon ~ ".svg" %}
+                {% endif %}
               </span>
               {{ "&nbsp;" + nav_item.title }}
             {% else %}
@@ -140,7 +143,11 @@
             <span>
               {% if icon %}
                 <span class="icon">
-                  {% include ".icons/" ~ icon ~ ".svg" %}
+                  {% if icon.startswith("custom/") %}
+                    {% include "assets/libs/" ~ icon ~ ".svg" %}
+                  {% else %}
+                    {% include ".icons/" ~ icon ~ ".svg" %}
+                  {% endif %}
                 </span>
               {% endif %}
               {{ nav_item.title }}
@@ -188,7 +195,11 @@
           <span>
             {% if icon %}
               <span class="icon">
-                {% include ".icons/" ~ icon ~ ".svg" %}
+                {% if icon.startswith("custom/") %}
+                  {% include "assets/libs/" ~ icon ~ ".svg" %}
+                {% else %}
+                  {% include ".icons/" ~ icon ~ ".svg" %}
+                {% endif %}
               </span>
             {% endif %}
             {{ nav_item.title }}
@@ -231,7 +242,11 @@
         <span>
           {% if icon %}
             <span class="icon">
-              {% include ".icons/" ~ icon ~ ".svg" %}
+              {% if icon.startswith("custom/") %}
+                {% include "assets/libs/" ~ icon ~ ".svg" %}
+              {% else %}
+                {% include ".icons/" ~ icon ~ ".svg" %}
+              {% endif %}
             </span>
           {% endif %}
           {{ nav_item.title }}
@@ -257,7 +272,11 @@
         <span>
           {% if icon %}
             <span class="icon">
-              {% include ".icons/" ~ icon ~ ".svg" %}
+              {% if icon.startswith("custom/") %}
+                {% include "assets/libs/" ~ icon ~ ".svg" %}
+              {% else %}
+                {% include ".icons/" ~ icon ~ ".svg" %}
+              {% endif %}
             </span>
           {% endif %}
           {{ nav_item.title }}
