@@ -1,6 +1,15 @@
 {
-    "sift_fraud_detection": {
+    "sms-templates": {
         "enabled": false,
+        "page": [
+            "guides/branding/customize-sms-templates.md",
+            "apis/notification-templates.md",
+            "references/sms-templates.md"
+        ]
+    },
+    
+    "sift_fraud_detection": {
+        "enabled": true,
         "page": [
             "guides/account-configurations/login-security/sift-fraud-detection.md"
         ]
@@ -26,10 +35,23 @@
         ]
     },
 
+    "password_expiry_time": {
+        "enabled": false,
+        "page": []
+    },
+    
     "attribute_uniqueness_validation": {
         "enabled": true,
         "page": [
             "guides/users/attributes/configure-unique-attributes.md"
+        ]
+    },
+
+    "pre-update-password-action": {
+        "enabled": false,
+        "page": [
+            "references/actions/pre-update-password-action/api-contract.md",
+            "guides/customize/actions/pre-update-password-action.md"
         ]
     }
 }

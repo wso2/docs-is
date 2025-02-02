@@ -1,7 +1,7 @@
 {% set attribute_path = "**User Attributes & Stores**" %}
 
 {% set custom_schema_note = "!!! note
-    Custom user attributes in WSO2 Identity Server are created under the `urn:scim:wso2:schema` schema. You can configure this schema in the following ways by updating the `<IS_HOME>/repository/conf/identity/charon-config.xml` file.
+    Custom user attributes in WSO2 Identity Server are created under the `urn:scim:schemas:extension:custom:User` schema. You can configure this schema in the following ways by updating the `<IS_HOME>/repository/conf/identity/charon-config.xml` file.
     
       - To disable this schema, set the following property to `false`.
 

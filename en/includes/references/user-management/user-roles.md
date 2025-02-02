@@ -271,7 +271,7 @@ The permissions associated with each role are outlined below. Resources not expl
     </table>
 
 
-??? example "Viewer - Applications"
+??? example "Viewer - Users"
 
     <table>
       <tr>
@@ -314,6 +314,12 @@ The permissions associated with each role are outlined below. Resources not expl
           <td></td>
           <td>✔</td>
           <td>️️</td>
+        </tr>
+        <tr>
+          <td>User Attributes & Stores</td>
+          <td>Attributes</td>
+          <td></td>
+          <td>️️✔</td>
         </tr>
     </table>
 

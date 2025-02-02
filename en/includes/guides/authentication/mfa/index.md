@@ -46,6 +46,9 @@ Learn how to enable MFA using the following authenticators:
 - [Email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/)
 - [SMS OTP]({{base_path}}/guides/authentication/mfa/add-smsotp-login/)
 - [Passkey]({{base_path}}/guides/authentication/mfa/add-passkey-login/)
+{% if product_name == "WSO2 Identity Server" %}
+- [Push Notification]({{base_path}}/guides/authentication/mfa/add-push-auth-login/)
+{% endif %}
 {% if product_name == "Asgardeo" %}
 - [iProov]({{base_path}}/guides/authentication/mfa/add-iproov-login/)
 - [Duo]({{base_path}}/guides/authentication/mfa/add-duo-login/)

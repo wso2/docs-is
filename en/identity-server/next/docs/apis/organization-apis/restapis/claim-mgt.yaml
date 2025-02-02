@@ -90,6 +90,84 @@ paths:
             'https://localhost:9443/o/api/server/v1/claim-dialects/local/claims' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
+    post:
+      tags:
+      - management
+      summary: Add a local claim
+      description: Add a new claim. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_org_claim_meta_create`
+      operationId: addLocalClaim
+      requestBody:
+        description: Local claim to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalClaimReq'
+        required: false
+      responses:
+        201:
+          description: Item Created.
+          headers:
+            Location:
+              description: URI of the created resource.
+              schema:
+                type: string
+          content: {}
+        400:
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized.
+          content: {}
+        403:
+          description: Resource Forbidden.
+          content: {}
+        409:
+          description: Element Already Exists.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/o/api/server/v1/claim-dialects/local/claims' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "claimURI": "http://wso2.org/claims/username",
+            "description": "Some description of the claim.",
+            "displayOrder": 10,
+            "displayName": "Username",
+            "readOnly": true,
+            "regEx": "^([a-zA-Z)$",
+            "required": true,
+            "supportedByDefault": true,
+            "attributeMapping": [
+              {
+                "mappedAttribute": "username",
+                "userstore": "SECONDARY"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'
+      x-codegen-request-body-name: localClaim
   /claim-dialects/local/claims/{claim-id}:
     get:
       tags:
@@ -145,6 +223,129 @@ paths:
             'https://localhost:9443/o/api/server/v1/claim-dialects/local/claims/{claim-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
+    put:
+      tags:
+      - management
+      summary: Update a local claim by ID
+      description: Update a local claim. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_org_claim_meta_update`
+      operationId: updateLocalClaim
+      parameters:
+      - name: claim-id
+        in: path
+        description: Id of the claim.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Updated local claim.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalClaimReq'
+        required: false
+      responses:
+        200:
+          description: OK.
+          content: {}
+        400:
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized.
+          content: {}
+        403:
+          description: Resource Forbidden.
+          content: {}
+        409:
+          description: Element Already Exists.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/o/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "claimURI": "http://wso2.org/claims/username",
+            "description": "Some description of the claim.",
+            "displayOrder": 10,
+            "displayName": "Username",
+            "readOnly": true,
+            "regEx": "^([a-zA-Z)$",
+            "required": true,
+            "supportedByDefault": true,
+            "attributeMapping": [
+              {
+                "mappedAttribute": "username",
+                "userstore": "SECONDARY"
+              }
+            ],
+            "properties": [
+              {
+                "key": "string",
+                "value": "string"
+              }
+            ]
+            }'
+      x-codegen-request-body-name: localClaim
+    delete:
+      tags:
+      - management
+      summary: Delete a local claim
+      description: Delete a claim by claim ID. Only custom claims can be deleted. <br>
+        <br> <b>Scope(Permission) required:</b> `internal_org_claim_meta_delete`
+      operationId: deleteLocalClaim
+      parameters:
+      - name: claim-id
+        in: path
+        description: Id of the claim.
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: No Content.
+          content: {}
+        400:
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized.
+          content: {}
+        403:
+          description: Resource Forbidden.
+          content: {}
+        500:
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/o/api/server/v1/claim-dialects/local/claims/{claim-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /claim-dialects:
     get:
       tags:
@@ -403,6 +604,67 @@ paths:
             -H 'Authorization: Bearer {bearer_token}'
 components:
   schemas:
+    LocalClaimReq:
+      required:
+      - attributeMapping
+      - claimURI
+      - description
+      - displayName
+      type: object
+      properties:
+        claimURI:
+          type: string
+          description: A unique URI specific to the claim.
+          example: http://wso2.org/claims/username
+        description:
+          type: string
+          description: Description of the claim.
+          example: Some description of the claim.
+        displayOrder:
+          type: integer
+          description: The order in which the claim is displayed among other claims
+            under the same dialect.
+          example: 10
+        displayName:
+          type: string
+          description: Name of the claim to be displayed in the UI.
+          example: Username
+        readOnly:
+          type: boolean
+          description: Specifies if the claim is read-only.
+          example: true
+        regEx:
+          type: string
+          description: Regular expression used to validate inputs.
+          example: ^([a-zA-Z)$
+        required:
+          type: boolean
+          description: Specifies if the claim is required for user registration.
+          example: true
+        supportedByDefault:
+          type: boolean
+          description: Specifies if the claim will be prompted during user registration
+            and displayed on the user profile.
+          example: true
+        uniquenessScope:
+          type: string
+          description: Specifies the scope of uniqueness validation for the claim value.
+          enum:
+            - NONE
+            - WITHIN_USERSTORE
+            - ACROSS_USERSTORES
+          example: "NONE"
+        attributeMapping:
+          type: array
+          description: Userstore attribute mappings.
+          items:
+            $ref: '#/components/schemas/AttributeMapping'
+        properties:
+          type: array
+          description: Define any additional properties if required.
+          items:
+            $ref: '#/components/schemas/Property'
+      description: Local claim request.
     LocalClaimRes:
       type: object
       properties:
@@ -456,6 +718,14 @@ components:
             - WITHIN_USERSTORE
             - ACROSS_USERSTORES
           example: "NONE"
+        sharedProfileValueResolvingMethod:
+          type: string
+          description: Specifies claim value resolving method for shared user profile.
+          enum:
+            - FromOrigin
+            - FromSharedProfile
+            - FromFirstFoundInHierarchy
+          example: "FromOrigin"
         attributeMapping:
           type: array
           description: Userstore attribute mappings.

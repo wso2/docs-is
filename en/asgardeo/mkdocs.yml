@@ -263,7 +263,7 @@ nav:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
             - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
-          - Login Flow AI: guides/authentication/ai-loginflow.md
+          - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
@@ -363,15 +363,17 @@ nav:
         - Customize branding: 
             - Customize branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
-            - Branding AI: guides/branding/ai-branding.md
+            - Branding AI: guides/branding/branding-ai.md
             - Configure custom domains: guides/branding/configure-custom-domains.md
             - Customize email templates: guides/branding/customize-email-templates.md
+            - Customize SMS templates: guides/branding/customize-sms-templates.md
             - Localization in Asgardeo: guides/branding/localization.md
         - Extend with actions:
             - Understanding actions: guides/customize/actions/understanding-actions.md
             - Setting up actions: guides/customize/actions/setting-up-actions.md
             - Action types: 
               - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
+              - Pre update password action: guides/customize/actions/pre-update-password-action.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -419,11 +421,11 @@ nav:
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
       - Idle account identification API: apis/idle-account-identification.md
+      - Notification templates management API: apis/notification-templates.md
       - OAuth Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
-      - Password expiring users identification API: apis/password-expiring-users-identification.md
       - Role management (SCIM 2.0) API: apis/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
@@ -489,10 +491,13 @@ nav:
     - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
+    - SMS templates: references/sms-templates.md
     - Actions:
       - Pre issue access token action: 
         - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md
         - Sample success reponses: references/actions/pre-issue-access-token-action/sample-success-responses.md
+      - Pre update password action: 
+        - API contract to implement: references/actions/pre-update-password-action/api-contract.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - Production checklist:

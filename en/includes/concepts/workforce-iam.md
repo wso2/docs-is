@@ -22,7 +22,7 @@ Automate and create unified onboarding experiences for your workforce by integra
 
 ## Secure workforce and business with strong authentication  
 
-Secure user accounts of your workforce and business applications by enforcing MFA options. {{product_name}} offers secure MFA options including SMS and Email OTP, TOTP using authenticator apps, FIDO-based Passkeys, Duo-based push notifications and hardware tokens and facial biometrics such as iProove.   
+Secure user accounts of your workforce and business applications by enforcing MFA options. {{product_name}} offers secure MFA options including SMS and Email OTP, TOTP using authenticator apps, FIDO-based Passkeys, Duo-based push notifications and hardware tokens and facial biometrics such as iProov.   
 
 Get rid of passwords completely and offer secure passwordless authentication for your workforce using Magic Link, Passkeys, biometrics and Email/SMS OTPs. 
 
@@ -32,7 +32,7 @@ Get rid of passwords completely and offer secure passwordless authentication for
 - Configure Passkey for your workforce
 - Configure Magic Link for your workforce 
 - Configure Duo push notifications and hardware tokens for your workforce
-- Configure iProove facial biometrics for your workforce 
+- Configure iProov facial biometrics for your workforce 
 - Configure HYPR biometric for your workforce
  
 {{product_name}} automatically configures a default login flow for you to get started. You can design your desired login flow by adding social providers or MFA options using {{product_name}}'s visual login flow designer, where you can drag and drop the required elements. Alternatively, you can use the Login Flow AI feature to generate the desired login flow based on your plain text instructions.
