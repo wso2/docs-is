@@ -6,6 +6,8 @@ read_time: 5 min
 
 To add the utility functions required for app-native authentication, let's first create a directory named `utils` under the `src` directory of your Next.js app. This directory will contain the utility functions that we will use to manage authentication in your app.
 
+We will be utilizing the Asgardeo app-native authentication APIs available in this [Postman Collection](https://app.getpostman.com/run-collection/8657284-83f51f64-fe45-4ca4-88b0-f670562d6b44) to implement the utility functions.
+
 ```shell
 mkdir -p src/utils
 ```
