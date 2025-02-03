@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2024-2025, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -35,6 +35,19 @@
 .md-page-not-found-text-container {
     text-align: left;
     width: 700px;
+}
+
+.md-sidebar--primary {
+    display: none !important;
+}
+
+.md-sidebar--secondary {
+    display: none !important;
+}
+
+[dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
+[dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
+    max-width: 1200px !important;
 }
 
 @media only screen and (max-width: 479px) {

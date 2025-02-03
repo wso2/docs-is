@@ -1,4 +1,4 @@
-# Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+# Copyright (c) 2023-2025, WSO2 LLC. (https://www.wso2.com).
 #
 # WSO2 LLC. licenses this file to you under the Apache License,
 # Version 2.0 (the "License"); you may not use this file except
@@ -24,8 +24,6 @@ theme:
   font: false
   toc: false
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.indexes
     - navigation.path
     - navigation.top
@@ -103,6 +101,47 @@ extra:
   material:
     jinja2content: true
   generator: false
+  isolated_templates:
+    - templates/complete-guide.html
+  expanded_navs:
+    - title: Guides
+      options:
+        - divider
+        - verticle-line
+    - title: Technology Guides
+      options:
+        - divider
+        - hide-sub-nav
+      nav_overrides:
+        React: complete-guides/react/introduction
+        Node.js: complete-guides/nodejs/introduction
+        Angular: complete-guides/angular/introduction
+        Node.js: complete-guides/nodejs/introduction
+        Next.js: complete-guides/nextjs/introduction
+        .NET: complete-guides/dotnet/introduction
+        Javascript: complete-guides/javascript/introduction
+    - title: Best Practice Guides
+      options:
+        - divider
+        - hide-sub-nav
+      nav_overrides:
+        Frontend Security: complete-guides/fesecurity/introduction
+  nav_icons:
+    Home: octicons/home-16
+    Get Started: octicons/rocket-16
+    Quickstarts: octicons/book-16
+    React: fontawesome/brands/react
+    .NET: custom/dotnet
+    Node.js: fontawesome/brands/node-js
+    Next.js: custom/nextjs
+    Angular: fontawesome/brands/angular
+    Javascript: fontawesome/brands/js
+    React Quickstart: fontawesome/brands/react
+    Angular Quickstart: fontawesome/brands/angular
+    Javascript Quickstart: fontawesome/brands/js
+    Next.js Quickstart: custom/nextjs
+    Spring Boot Quickstart: custom/spring-boot
+    Frontend Security: fontawesome/solid/user-shield
   integrations:
     - name: Auth React SDK
       icon: assets/img/logo/react-logo.svg
