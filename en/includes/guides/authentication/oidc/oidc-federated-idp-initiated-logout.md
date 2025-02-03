@@ -72,7 +72,7 @@ The primary identity provider (WSO2IS-1) should first be registered in the feder
 Next, the federated IdP (WSO2IS-2) should now be registered in the primary IdP (WSO2IS-1) as a connection. To do so,
 
 1. Start WSO2IS-1.
-2. On the WSO2IS-2 Console, go to **Connections** and select **New Connection**.
+2. On the WSO2IS-1 Console, go to **Connections** and select **New Connection**.
 3. Select **Standard-Based IdP** and enter the following details:
 
     <table>
@@ -152,7 +152,7 @@ Let's register an application in the primary IdP (WSO2IS-1).
 
 7. Click **Update** to save the changes.
 
-### Register a service provider for the federated IdP
+### Register an application in the federated IdP
 
 Finally, let's register an application in the federated IdP (WSO2 IS 2).
 
