@@ -6,7 +6,7 @@ info:
     The APIs provide the capability for privileged users to retrieve/delete associated local/federated accounts of other users.
   version: v1
 servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
+  - url: https://{serverUrl}/t/{tenantDomain}/o/api/users/v1
     variables:
       serverUrl:
         default: localhost:9443
@@ -28,7 +28,7 @@ paths:
       description: |
         This API is used to retrieve the associations of the user.<br>
 
-        <b>Scope(Permission) required:</b> `internal_user_association_view`
+        <b>Scope(Permission) required:</b> `internal_org_user_association_view`
       parameters:
         - name: user-id
           in: path
@@ -70,7 +70,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/users/v1/{user-id}/associations' \
+            'https://localhost:9443/o/api/users/v1/{user-id}/associations' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
@@ -80,7 +80,7 @@ paths:
       description: |
         This API is used to delete all associations of the user.<br>
 
-        <b>Scope(Permission) required:</b> `internal_user_association_delete`
+        <b>Scope(Permission) required:</b> `internal_org_user_association_delete`
       parameters:
         - name: user-id
           in: path
@@ -113,7 +113,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/users/v1/{user-id}/associations' \
+            'https://localhost:9443/o/api/users/v1/{user-id}/associations' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/federated-associations:
@@ -124,7 +124,7 @@ paths:
       description: |
         This API is used to retrieve the federated associations of the user.<br>
         
-        <b>Scope(Permission) required:</b> `internal_user_association_view`
+        <b>Scope(Permission) required:</b> `internal_org_user_association_view`
       parameters:
         - name: user-id
           in: path
@@ -166,7 +166,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/users/v1/{user-id}/federated-associations' \
+            'https://localhost:9443/o/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
@@ -175,7 +175,7 @@ paths:
       summary: Create federated user association
       description: |
         This API allows administrators to explicitly associate a local user with a federated identity. <br>
-          <b>Scope(Permission) required:</b> `internal_user_association_create`
+          <b>Scope(Permission) required:</b> `internal_org_user_association_create`
       parameters:
         - name: user-id
           in: path
@@ -213,7 +213,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/users/v1/{user-id}/federated-associations' \
+            'https://localhost:9443/o/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
@@ -228,7 +228,7 @@ paths:
       description: |
         This API is used to delete all federated associations of the user.<br>
         
-        <b>Scope(Permission) required:</b> `internal_user_association_delete`
+        <b>Scope(Permission) required:</b> `internal_org_user_association_delete`
       parameters:
         - name: user-id
           in: path
@@ -261,7 +261,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/users/v1/{user-id}/federated-associations' \
+            'https://localhost:9443/o/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /{user-id}/federated-associations/{id}:
@@ -272,7 +272,7 @@ paths:
       description: |
         This API is used to delete a federated association of the user.<br>
         
-        <b>Scope(Permission) required:</b> `internal_user_association_delete`
+        <b>Scope(Permission) required:</b> `internal_org_user_association_delete`
       parameters:
         - name: user-id
           in: path
@@ -310,7 +310,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/users/v1/user-id/federated-associations/federated-association-id' \
+            'https://localhost:9443/o/api/users/v1/user-id/federated-associations/federated-association-id' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
