@@ -1,5 +1,5 @@
 <!--
- * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2024-2025, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -117,9 +117,41 @@
     </div>
   </div>
 
+  <div style="display: none;" id="prerendered-icons">
+    <span class="arrow-left">
+      {% set icon = "fontawesome/solid/arrow-left" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </span>
+  </div>
+
   <script>
 
-    const pages = document.querySelector('li.md-nav__item--active.md-nav__item--nested nav.md-nav > ul.md-nav__list');
+    const nav = document.querySelector('.md-nav.md-nav--primary.md-nav--lifted');
+    const pages =
+      document.querySelector('li.md-nav__item--active.md-nav__item--nested li.md-nav__item--active ul.md-nav__list');
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const lastValidPage = sessionStorage.getItem("lastValidPage");
+        const isLastPageValid = lastValidPage && (lastValidPage !== window.location.href);
+
+        const icon = document.getElementById("prerendered-icons").querySelector(".arrow-left").innerHTML;
+
+        const goBackLabel = document.createElement("label");
+        const goBackLink = document.createElement("a");
+
+        goBackLink.href = isLastPageValid ? lastValidPage : '{{ "" | url }}';
+        goBackLink.innerHTML =
+          `<span class="icon">${icon}</span>` + (isLastPageValid ? "Go Back" : "Go Back Home");
+        
+        goBackLabel.classList.add("md-nav__link", "md-nav__go-back");
+        goBackLabel.appendChild(goBackLink);
+
+        console.log(goBackLabel);
+
+        if (nav) {
+            nav.prepend(goBackLabel);
+        }
+    });
 
     // Initialize the section count
     let sectionCountw = 1;

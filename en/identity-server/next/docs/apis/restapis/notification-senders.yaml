@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Notification Senders API
-  description: This document specifies the **Email and SMS notification sender RESTful API** for **WSO2 Identity Server**
+  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **WSO2 Identity Server**
   version: "v1"
 servers:
   - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
@@ -716,6 +716,338 @@ paths:
             'https://localhost:9443/api/server/v1/notification-senders/sms/{sms-sender-name}' \
             -H 'accept: */*' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
+  /notification-senders/push:
+    get:
+      tags:
+        - Push Senders
+      summary: Get a list of push notification senders
+      description: |
+        This API provides the capability to retrieve the list of push notification senders. <br>
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
+      operationId: getPushSenders
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushProviderList'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification-senders/push' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - Push Senders
+      summary: Create a push notification sender
+      description: |
+        This API provides the capability to create a push notification sender.
+        If the 'name' is not not defined, 'PushPublisher' is taken as the default name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
+      operationId: createSMSSender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushSenderAdd'
+            example:
+              provider: FCM
+              properties:
+                - key: serviceAccountContent
+                  value: "base64EncodedServiceAccountJsonString"
+      responses:
+        "201":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/notification-senders/push' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "FCM",
+            "properties": [
+              {
+                "key": "serviceAccountContent",
+                "value": "base64EncodedServiceAccountJsonString"
+              }
+            ]
+            }'
+  /notification-senders/push/{sender-name}:
+    get:
+      tags:
+        - Push Senders
+      summary: Get a push sender by name
+      description: |
+        This API provides the capability to retrieve a push notification sender by name.
+        The URL encoded push sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
+      operationId: getPushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification-senders/push/{push-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    put:
+      tags:
+        - Push Senders
+      summary: Update a push notification sender
+      description: |
+        This API provides the capability to update a push notification sender.
+        The URL encoded push notification sender name is used as sender-name.<br>
+
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_update`
+      operationId: updatePushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push notification sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushSenderUpdateRequest'
+            example:
+              provider: FCM
+              properties:
+                - key: serviceAccountContent
+                  value: "base64EncodedServiceAccountJsonString"
+        required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/notification-senders/push/{push-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "FCM",
+            "properties": [
+              {
+                "key": "serviceAccountContent",
+                "value": "base64EncodedServiceAccountJsonString"
+              }
+            ]
+            }'
+    delete:
+      tags:
+        - Push Senders
+      summary: Delete a push notification sender by name
+      description: |
+        This API provides the capability to delete a push notification sender by name.
+        The URL encoded push notification sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
+      operationId: deletePushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push notification sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/notification-senders/push/{push-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
   schemas:
     Error:
@@ -799,6 +1131,25 @@ components:
               value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
           items:
             $ref: '#/components/schemas/Properties'
+    PushSenderAdd:
+      required:
+        - provider
+        - properties
+      type: object
+      properties:
+        name:
+          type: string
+          example: PushPublisher
+        provider:
+          type: string
+          example: fcm
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: jsonString
+          items:
+            $ref: '#/components/schemas/Properties'
     EmailSender:
       required:
         - fromAddress
@@ -870,6 +1221,24 @@ components:
               value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
           items:
             $ref: '#/components/schemas/Properties'
+    PushSender:
+      required:
+        - provider
+        - name
+      properties:
+        name:
+          type: string
+          example: PushPublisher
+        provider:
+          type: string
+          example: fcm
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: "jsonString"
+          items:
+            $ref: '#/components/schemas/Properties'
     EmailSenderUpdateRequest:
       required:
         - fromAddress
@@ -933,6 +1302,21 @@ components:
               value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
           items:
             $ref: '#/components/schemas/Properties'
+    PushSenderUpdateRequest:
+      required:
+        - provider
+        - properties
+      type: object
+      properties:
+        provider:
+          type: string
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: "jsonString"
+          items:
+            $ref: '#/components/schemas/Properties'
     Properties:
       required:
         - key
@@ -954,6 +1338,10 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/SMSSender'
+    PushProviderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PushSender'
   parameters:
     typeQueryParam:
       name: type
