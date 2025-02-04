@@ -28,5 +28,10 @@
       .md-sidebar--secondary {
           display: none !important;
       }
+
+      [dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
+      [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
+          max-width: 1200px !important;
+      }
   </style>
 {% endblock %}

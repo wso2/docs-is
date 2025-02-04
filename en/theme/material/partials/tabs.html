@@ -28,7 +28,7 @@
   <div class="md-grid">
     <ul class="md-tabs__list">
       {% for nav_item in nav %}
-        {% if nav_item.title in config.extra.nav_list %}
+        {% if config.extra.explicit_tab_list and nav_item.title in config.extra.explicit_tab_list %}
           {% include "partials/tabs-item.html" %}
         {% endif %}
       {% endfor %}

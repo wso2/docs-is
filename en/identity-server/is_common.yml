@@ -34,7 +34,7 @@ watch:
 extra:
   product: is
   product_name: *site_name
-  nav_list:
+  explicit_tab_list:
     - Home
     - Get Started
     - Guides
