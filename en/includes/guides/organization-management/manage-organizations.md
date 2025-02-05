@@ -102,7 +102,7 @@ To disable an organization:
     ![Disable an organization]({{base_path}}/assets/img/guides/organization/manage-organizations/disable-organization.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! note
-    - If the organization you intend to disable has any enabled child organizations, you will not be able to proceed until those child organizations are disabled.
+    - If the organization you want to disable has any active child organizations, you will not be able to proceed until those child organizations are disabled.
     - Once an organization is disabled, users will lose access to applications and any other resources associated with that organization.
 
 ## Delete organizations
