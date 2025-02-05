@@ -4,13 +4,13 @@
 
 We at WSO2, are dedicated to delivering reliable, secure, and efficient services to our customers. To achieve this, we have established a comprehensive set of operational policies that define our procedures and standards across various service aspects. These policies ensure transparency, regulatory compliance, and the highest levels of customer satisfaction. They encompass everything from billing and data protection to load and penetration testing, providing clear guidelines and processes for our customers and internal teams.
 
-### Asgardeo
+### 1.1 Asgardeo
 
 Asgardeo is a cloud-native, developer-centric identity-as-a-service (IDaaS) solution managed by WSO2. It is designed to simplify and enhance identity and access management for applications. This solution is hosted on cloud infrastructure operated by WSO2.
 
 Asgardeo’s operational policies provide a robust framework to ensure the efficient, secure, and consistent management of its cloud-native identity and access management platform. These policies are designed based on the following governing areas to align with Asgardeo's core principles of delivering developer-friendly, enterprise-grade identity solutions, while upholding the highest standards of security, scalability, and compliance.
 
-### 1.1 Governing areas
+### 1.2 Governing areas
 
 The operational policies are structured around the following areas:
 
@@ -25,21 +25,21 @@ The operational policies are structured around the following areas:
 
 ## 2. Asgardeo endpoints
 
-## 2.1 Asgardeo URLs
+### 2.1 Asgardeo URLs
 
 Asgardeo currently operates in two regions, the US and EU, providing a localized and seamless experience for customers. You can access Asgardeo services through the following region-specific URLs: 
 
-### US Region
-- Asgardeo Console - [https://console.asgardeo.io](https://console.asgardeo.io)
-- My Account Portal - [https://myaccount.asgardeo.io](https://myaccount.asgardeo.io)
-- API - [https://api.asgardeo.io](https://api.asgardeo.io)
+#### US Region
+- Asgardeo Console - [https://console.asgardeo.io](https://console.asgardeo.io){target="_blank"}
+- My Account Portal - [https://myaccount.asgardeo.io](https://myaccount.asgardeo.io){target="_blank"}
+- API - [https://api.asgardeo.io](https://api.asgardeo.io){target="_blank"}
 
-### EU Region
-- Asgardeo Console - [https://console.eu.asgardeo.io](https://console.eu.asgardeo.io)
-- My Account Portal - [https://myaccount.eu.asgardeo.io](https://myaccount.eu.asgardeo.io)
-- API - [https://api.eu.asgardeo.io](https://api.eu.asgardeo.io)
+#### EU Region
+- Asgardeo Console - [https://console.eu.asgardeo.io](https://console.eu.asgardeo.io){target="_blank"}
+- My Account Portal - [https://myaccount.eu.asgardeo.io](https://myaccount.eu.asgardeo.io){target="_blank"}
+- API - [https://api.eu.asgardeo.io](https://api.eu.asgardeo.io){target="_blank"}
 
-## 2.2 Asgardeo endpoints
+### 2.2 Asgardeo endpoints
 
 Asgardeo provides a comprehensive set of REST APIs, organized into the following categories to streamline usage while ensuring security and efficiency.
 
@@ -49,7 +49,7 @@ Asgardeo provides a comprehensive set of REST APIs, organized into the following
 
 - **End User APIs** allow authenticated users to manage their profiles, preferences, and sessions.
 
-Customers can refer to the [Asgardeo documentation](https://wso2.com/asgardeo/docs/apis/) for detailed instructions on accessing these APIs. By following these guidelines, customers can seamlessly integrate Asgardeo’s capabilities into their systems.
+Customers can refer to the [Asgardeo documentation](https://wso2.com/asgardeo/docs/apis/){target="_blank"} for detailed instructions on accessing these APIs. By following these guidelines, customers can seamlessly integrate Asgardeo’s capabilities into their systems.
 
 
 ## 3. Data residency
@@ -60,7 +60,7 @@ Data residency refers to the geographical or regulatory boundaries where data is
 
 The following diagram shows how data is stored in Asgardeo and how different entities interact with it.
 
-<IMAGE>
+![data residency in Asgardeo]({{base_path}}/assets/img/references/data-residency-diagram.png){: width="600px"}
 
 ### 3.2 Data centers
 
@@ -71,8 +71,8 @@ Asgardeo uses two regional data centers to store data:
 
 You can onboard to Asgardeo in your preferred region by using the relevant URL below. Your data will be stored in the corresponding regional data center.
 
-- Asgardeo Console - US region: [https://console.asgardeo.io/](https://console.asgardeo.io/)
-- Asgardeo Console - EU region: [https://console.eu.asgardeo.io/](https://console.eu.asgardeo.io/)
+- Asgardeo Console - US region: [https://console.asgardeo.io/](https://console.asgardeo.io/){target="_blank"}
+- Asgardeo Console - EU region: [https://console.eu.asgardeo.io/](https://console.eu.asgardeo.io/){target="_blank"}
 
 However, certain types of data are always exclusively stored in the US data center as explained in section 3.3.
 
@@ -80,7 +80,7 @@ However, certain types of data are always exclusively stored in the US data cent
 
 This section outlines the different types of data stored in Asgardeo and their respective storage locations.
 
-#### Subscription data
+#### 3.3.1 Subscription data
 
 When you onboard to Asgardeo, the user account created will automatically function as your subscription account. Billing details are linked to this account and will contain subscription data such as:
 - Billing email
@@ -89,26 +89,26 @@ When you onboard to Asgardeo, the user account created will automatically functi
 
 Data associated with an Asgardeo subscription account is exclusively stored in the US data center. Even if you choose the EU data center during account creation, this data is still created and stored exclusively in the US data center.
 
-#### Administrator data
+#### 3.3.2 Administrator data
 
 Users onboarded to Asgardeo as organization administrators are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) are also exclusively stored in the US datacenter.
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
 
-#### End-user data
+#### 3.3.3 End-user data
 
 Data of your end users are only stored in the regional datacenter you selected when onboarding to Asgardeo.
 
-### Data sharing
+### 3.4 Data sharing
 
 Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities (currently includes the USA, Sri Lanka, and Brazil) can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional datacenter that you have selected.
 
 Therefore, note that your organization–level logs may include personal information (such as the IP addresses and email addresses) of your end users.
 
-### Data privacy
-Learn about [Asgardeo's privacy policy](https://wso2.com/asgardeo/privacy-policy/) to understand how your data privacy is protected.
+### 3.5 Data privacy
+Learn about [Asgardeo's privacy policy](https://wso2.com/asgardeo/privacy-policy/){target="_blank"} to understand how your data privacy is protected.
 
-### Get support
+### 3.6 Get support
 
 If you require more details or have other data residency requirements for your organizations and businesses, contact the Asgardeo support team.
 
@@ -187,7 +187,7 @@ All penetration testing requires Asgardeo's prior written approval. Once approve
 
 - **Review** - Asgardeo team will review the request to ensure it aligns with service capacity and does not disrupt other customers.
 
-### Testing guidelines
+### 5.4 Testing guidelines
 
 To maintain service integrity and performance, the following guidelines must be adhered to during load testing:
 
@@ -209,77 +209,77 @@ Please note that any un-informed penetration testing on Asgardeo will lead to bl
 
 Failure to comply with this policy may result in temporary or permanent restrictions on the customer’s ability to conduct future tests. Any unauthorized actions will prompt Asgardeo to take protective measures, which may include suspending or blocking the offending tenant and/or the source of intrusion traffic. WSO2 reserves the right to take immediate action to protect service availability, including suspending the offending test.
 
-### Support and Assistance
+### 5.7 Support and Assistance
 
 For any questions or support related to load testing, customers can contact Asgardeo support through our support portal or designated support channels. Our team is available to assist with planning and executing penetration tests to ensure compliance and success. 
 
-## 7. Limits and Constraints
+## 6. Limits and Constraints
 
-### 7.1 Rate limits
+### 6.1 Rate limits
 
 Asgardeo endpoints are subjected to rate limits to maintain smooth and reliable processing of requests, preventing system failures and slowdowns. These rate limits are applied globally across all tiers of Asgardeo subscriptions. Rate limits are calculated on a per IP address basis. Exceeding the rate limit results in a 429 `Too Many Requests` error code.
 
 Refer (Asgardeo rate limits)[https://wso2.com/asgardeo/docs/references/rate-limits/]  for more information regarding the rate limits.
 
-### 7.2 Entity limit
+### 6.2 Entity limit
 
 This discusses the entity limits that constraints the usage of Asgardeo free of charge.
 Asgardeo is free of charge but it constrains certain entities with limiting the usage. And any asgardeo user might encounter such warnings while they try to create entities (can be applications, connections) more than the allowed amount.
 
-<IMAGE>
+![Maximum allowed apps limit]({{base_path}}/assets/img/references/max-allowed-apps-reached.png)
 
-[https://wso2.com/asgardeo/pricing/](https://wso2.com/asgardeo/pricing/) provides the details on the entity limits and by upgrading the tier or by contacting asgardeo support to increase the limit on certain entities.
+[https://wso2.com/asgardeo/pricing/](https://wso2.com/asgardeo/pricing/){target="_blank"} provides the details on the entity limits and by upgrading the tier or by contacting asgardeo support to increase the limit on certain entities.
 
-### 7.3  Header limits 
+### 6.3  Header limits 
 
 - Nginx header limit 
 - Header size: P2 Incident - INC0023214
 
-## 8. Billing
+## 7. Billing
 
-### Billing cycle
+### 7.1 Billing cycle
 Asgardeo organization owners can choose to be billed monthly or annually for your subscription. However, note that the monthly active users (MAUs) count that exceeds the allowed limit is always charged monthly. Billing cycles start on the 1st day of every month. Depending on the day of the month in which you subscribe, you will be charged a prorated fee for the first month.
 
-### 8.1 Subscription
+### 7.2 Subscription
 
 Asgardeo is available to use for free, however, it comes with certain limitations like the number of applications, the MAU count, and the connections that can be created. For higher limits on resources, it is necessary to subscribe to a higher-tier plan. Subscribing to a higher-tier plan can be done either through the Asgardeo billing portal or through Azure marketplace. 
 
-Refer this guideline below for more on [subscription](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/).
+Refer this guideline below for more on [subscription](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/){target="_blank"}.
 
-### 8.2 Subscription Upgrade
+### 7.3 Subscription Upgrade
 
 Asgardeo organization owners have the capability to upgrade the tier their organization has subscribed to. This can be done by navigating to **Asgardeo Console** > **Billing Portal** > **Subscription** and upgrade after selecting the new subscription plan.
 
-This [document](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/) provides more insight on how to upgrade tiers. 
+This [document](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/){target="_blank"} provides more insight on how to upgrade tiers. 
 
-### 8.3 Subscription Downgrade
+### 7.4 Subscription Downgrade
 
 Contact the Asgardeo support team at asgardeo-help@wso2.com for subscription downgrades and cancellations.
 
-### 8.4 Invoices
+### 7.5 Invoices
 
 Asgardeo organization owners have the capability to view the invoices for the payments made for the subscriptions in the billing portal.
 
-## 9. Support
+## 8. Support
 
 Asgardeo provides support services to ensure the smooth operation of your organization's identity and access management needs. The level of support varies based on the subscription tier.
 
-### 9.1 Support tiers
+### 8.1 Support tiers
 
 Asgardeo offers multiple support tiers, including community support for free-tier users and premium support for paid subscribers. Premium support provides faster response times, prioritized issue resolution, and access to dedicated support engineers.
 
-### 9.2 Support channels
+### 8.2 Support channels
 
 - Free-tier users can seek assistance via community forums and public documentation.
 - Paid subscribers can reach out to WSO2’s support team through the Asgardeo Support Portal, ensuring a structured approach to issue resolution.
 - Critical production issues can be escalated for faster resolution based on the support plan.
 
-### 9.3 Support availability
+### 8.3 Support availability
 
 - Support is available based on the response times and SLAs defined in your subscription plan.
 - Higher-tier subscriptions come with enhanced SLA guarantees to ensure faster resolution.
 
-### 9.4 Reporting an Issue
+### 8.4 Reporting an Issue
 
 To report an issue, follow these steps:
 
@@ -287,43 +287,43 @@ To report an issue, follow these steps:
 - Provide detailed information, including error logs, reproduction steps, and impact assessment.
 - For urgent matters, use priority escalation as per the SLA in your plan.
 
-Refer to the [Asgardeo Support Policy](https://wso2.com/asgardeo-support-policy/) for more details on available support plans, SLAs, and escalation procedures.
+Refer to the [Asgardeo Support Policy](https://wso2.com/asgardeo-support-policy/){target="_blank"} for more details on available support plans, SLAs, and escalation procedures.
 
-## 10. Monitoring
+## 9. Monitoring
 
 Monitoring is a critical aspect of maintaining a business-critical application like Asgardeo. It ensures the application performs as expected without outages, identifies trends for operational insights, and supports capacity planning through system metrics. Monitoring also plays a key role in promptly notifying relevant parties if the application fails to meet expected performance levels.
 
-### 10.1 Asgardeo Monitoring
+### 9.1 Asgardeo Monitoring
 
-Asgardeo ensures high availability, security, and performance through continuous system monitoring and automated alerting. We maintain a 99.99% SLA, with real-time service status and uptime metrics available at Asgardeo Status Page. Refer to [https://status.asgardeo.io/](https://status.asgardeo.io/).
+Asgardeo ensures high availability, security, and performance through continuous system monitoring and automated alerting. We maintain a 99.99% SLA, with real-time service status and uptime metrics available at Asgardeo Status Page. Refer to [https://status.asgardeo.io/](https://status.asgardeo.io/){target="_blank"}.
 
-Our infrastructure, application, and security monitoring ensure early detection of potential issues, enabling rapid incident response to minimize disruptions. For details on our incident management and support process, refer to our Support Policy. Refer to [https://wso2.com/asgardeo-support-policy/](https://wso2.com/asgardeo-support-policy/).
+Our infrastructure, application, and security monitoring ensure early detection of potential issues, enabling rapid incident response to minimize disruptions. For details on our incident management and support process, refer to our Support Policy. Refer to [https://wso2.com/asgardeo-support-policy/](https://wso2.com/asgardeo-support-policy/){target="_blank"}.
 
-### 10.2 Organization Monitoring
+### 9.2 Organization Monitoring
 
 Asgardeo provides support to monitor organization for any of the changes done in their organization through audit logs. Refer to the [documentation](https://wso2.com/asgardeo/docs/guides/asgardeo-logs/audit-logs/) for more information.
 
-And diagnostic logs will help admins to monitor what has happened during authentication flows  [https://wso2.com/asgardeo/docs/guides/asgardeo-logs/diagnostic-logs/](https://wso2.com/asgardeo/docs/guides/asgardeo-logs/diagnostic-logs/).
+And diagnostic logs will help admins to monitor what has happened during authentication flows  [https://wso2.com/asgardeo/docs/guides/asgardeo-logs/diagnostic-logs/](https://wso2.com/asgardeo/docs/guides/asgardeo-logs/diagnostic-logs/){target="_blank"}.
 
-Similarly Asgardeo provides capability to check on organization insights on the user registration and logins. Refer to [https://wso2.com/asgardeo/docs/guides/organization-insights/](https://wso2.com/asgardeo/docs/guides/organization-insights/).
+Similarly Asgardeo provides capability to check on organization insights on the user registration and logins. Refer to [https://wso2.com/asgardeo/docs/guides/organization-insights/](https://wso2.com/asgardeo/docs/guides/organization-insights/){target="_blank"}.
 
-Asgardeo generates events for various user activities. You can publish these events to WSO2's Choreo platform and trigger custom use cases. Learn more in the [Asgardeo events documentation](https://wso2.com/asgardeo/docs/guides/monitoring/asgardeo-events/).
+Asgardeo generates events for various user activities. You can publish these events to WSO2's Choreo platform and trigger custom use cases. Learn more in the [Asgardeo events documentation](https://wso2.com/asgardeo/docs/guides/monitoring/asgardeo-events/){target="_blank"}.
 
-## 11. Product life cycle & Migrations
+## 10. Product life cycle & Migrations
 
-### 11.1 Product Delivery
+### 10.1 Product Delivery
 
-Asgardeo, as a cloud offering, adheres to agile principles and emphasizes delivering features and fixes iteratively. We strive to deploy updates to production on a daily basis, ensuring faster delivery of new features, enhancements, and critical improvements. Our primary focus is addressing customer concerns, resolving pain points, and introducing enhancements that improve developer-friendliness while also delivering exciting new features. The changelog provides a comprehensive list of updates, innovations, and improvements introduced to the product. Explore the latest changes here: [https://wso2.com/asgardeo/changelog/](https://wso2.com/asgardeo/changelog/).
+Asgardeo, as a cloud offering, adheres to agile principles and emphasizes delivering features and fixes iteratively. We strive to deploy updates to production on a daily basis, ensuring faster delivery of new features, enhancements, and critical improvements. Our primary focus is addressing customer concerns, resolving pain points, and introducing enhancements that improve developer-friendliness while also delivering exciting new features. The changelog provides a comprehensive list of updates, innovations, and improvements introduced to the product. Explore the latest changes here: [https://wso2.com/asgardeo/changelog/](https://wso2.com/asgardeo/changelog/){target="_blank"}.
 
-### 12.2 New Features
+### 10.2 New Features
 
 Asgaardeo thrives to introduce new features and explicitly adds ‘New’ tag to those features so that interested parties can try those new features.
 
-### 12.3 Beta Features
+### 10.3 Beta Features
 
 To continuously refine the product and gather valuable customer feedback, we often introduce new features in Beta. This approach enables us to collaborate closely with our customers, identify areas for improvement, and ensure the final feature meets the highest standards of quality and usability before its general availability.
 
-### 12.4 Migration
+### 10.4 Migration
 
 Asgardeo’s cloud architecture enables us to onboard new features, changes, and improvements efficiently. While implementing these updates, we run silent migrations to ensure a seamless experience for customers. These migrations are designed to be non-intrusive, causing no disruptions to customer engagement with the product or their end users' behavior.
 
@@ -337,7 +337,7 @@ Transparency is a key part of our migration process. Customers are kept informed
 
 By prioritizing communication and careful planning, we ensure that migrations enhance the product without disrupting its reliability or customer trust.
 
-## 12. Unsupported requests
+## 11. Unsupported requests
 
 The Asgardeo Team is committed to providing the best possible assistance. However, we regret to inform you that we are currently unable to accommodate the following requests:
 
