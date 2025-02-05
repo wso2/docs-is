@@ -13,9 +13,9 @@ By **binding authentication to a user’s trusted device** and utilizing **publi
 enhances security while providing a seamless user experience. Its low-latency challenge-response model, coupled with strong cryptographic assurances, 
 makes it a highly secure and scalable authentication approach for modern IAM architectures.
 
-The below given diagram illustrates the basic flow of Push Notification-Based Authentication in a passworless login scenario.
+The below given diagram illustrates the basic flow of Push Notification-Based Authentication in a multi factor authentication (MFA) scenario:
 
-[//]: # (![Push Notification-Based Authentication Flow]&#40;../assets/img/push-notification-based-authentication-flow.png&#41;)
+![Push Notification-Based Authentication Flow]({{base_path}}/assets/img/guides/mfa/push/push-authentication-sequence.jpg)
 
 !!! note
     Learn how to [implement Push Notification-Based Authentication in {{product_name}}](../../guides/authentication/mfa/add-push-auth-login.md).
