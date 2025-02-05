@@ -494,6 +494,7 @@ nav:
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
         - User Impersonation: guides/authorization/user-impersonation.md
+        - Rich Authorization Requests: guides/authorization/rich-authorization-requests.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
         - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md
