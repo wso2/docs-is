@@ -70,9 +70,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/o/api/users/v1/{user-id}/associations' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/associations' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer <token>'
     delete:
       tags:
         - admin
@@ -113,9 +113,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/o/api/users/v1/{user-id}/associations' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/associations' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer <token>'
   /{user-id}/federated-associations:
     get:
       tags:
@@ -166,9 +166,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/o/api/users/v1/{user-id}/federated-associations' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer <token>'
     post:
       tags:
         - admin
@@ -213,9 +213,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/o/api/users/v1/{user-id}/federated-associations' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer <token>' \
             -H 'Content-Type: application/json' \
             -d '{
               "idp": "exampleIdP",
@@ -261,9 +261,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/o/api/users/v1/{user-id}/federated-associations' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/federated-associations' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer <token>'
   /{user-id}/federated-associations/{id}:
     delete:
       tags:
@@ -310,9 +310,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/o/api/users/v1/user-id/federated-associations/federated-association-id' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/user-id/federated-associations/federated-association-id' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer <token>'
 components:
   schemas:
     Error:
@@ -417,9 +417,6 @@ components:
           example: john@example.com
           description: User identifier in the federated IdP
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
