@@ -96,7 +96,7 @@ To disable an organization:
 
 1. Login to the parent organization on the {{ product_name }} Console.
 2. Go to **Organizations** to view the list of organizations.
-3. Select the organization to which you wish to disable.
+3. Select the organization you want to disable.
 4. In the **Danger Zone**, turn the Disable Organization toggle on to disable the organization. Turn it off to enable the organization.
 
     ![Disable an organization]({{base_path}}/assets/img/guides/organization/manage-organizations/disable-organization.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
