@@ -6,9 +6,9 @@ read_time: 2 min
 
 If you have not already done so, you will need to create an organization in Asgardeo and register your application as given below.
 
-- Sign up for a free Asgardeo account.
-- Sign in to the Asgardeo Console and navigate to Applications > New Applications
-- Select Traditional Web Application
+* Sign up for a [free {{product_name}} account](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/){:target="_blank"}
+* Sign into {{product_name}} console and navigate to **Applications > New Application.**
+* Select **Traditional Web Application** (*Make sure that the protocol remains set to OpenID Connect (OIDC)*)
 
 ![Select Traditional Web Application]({{base_path}}/complete-guides/dotnet/assets/img/image1.png){: width="800" style="display: block; margin: 0;"}
 

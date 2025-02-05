@@ -12,9 +12,19 @@ Blazor provides the `AuthorizeView` component to conditionally display UI elemen
 
 Let’s first navigate to the `NavMenu.razor` file under the `/Components/Layout` directory and add the `AuthorizeView` component to encapsulate the `Counter` and `Weather` components. Then we can add the User Claims menu item as well.
 
-```html title="NavMenu.razor" hl_lines="9-26"
+```html title="NavMenu.razor" hl_lines="1 19-31"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">asgardeo-dotnet</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
+    <nav class="nav flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
@@ -33,12 +43,6 @@ Let’s first navigate to the `NavMenu.razor` file under the `/Components/Layout
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
                 </NavLink>
             </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="user-claims">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> User Claims
-                </NavLink>
-            </div>
         </AuthorizeView>
     </nav>
 </div>
@@ -49,8 +53,98 @@ We will be using the `Authorize` attribute to protect the routes for the above t
 First, add the `Authorize` attribute to the `Counter.razor`, `Weather.razor`, and `UserClaims.razor` pages just above the `PageTitle` attribute as shown below.
 
 ```csharp title="Counter.razor"
+@page "/counter"
+@rendermode InteractiveServer
+
 @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize]
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+```
+
+```csharp title="Weather.razor"
+@page "/weather"
+@attribute [StreamRendering]
+
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates showing data.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th aria-label="Temperature in Celsius">Temp. (C)</th>
+                <th aria-label="Temperature in Farenheit">Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+
+        var startDate = DateOnly.FromDateTime(DateTime.Now);
+        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        {
+            Date = startDate.AddDays(index),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = summaries[Random.Shared.Next(summaries.Length)]
+        }).ToArray();
+    }
+
+    private class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+        public int TemperatureC { get; set; }
+        public string? Summary { get; set; }
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
 ```
 
 In order to redirect unauthorized users to the login page, we will create a Razor component named `RedirectToLogin.razor` under the `/Components` directory and add the following code. We will use the `NavigateTo` method from the built-in `NavigationManager` to perform the redirection.
@@ -93,7 +187,7 @@ By following these steps, you can easily secure your Blazor application routes a
 
 You can also start the application at this point and observe the homepage of the application with the changes we made.
 
-![Application Home page after changes]({{base_path}}/complete-guides/dotnet/assets/img/image6.png){: width="800" style="display: block; margin: 0;"}
+![Application Home page after changes]({{base_path}}/complete-guides/dotnet/assets/img/image7.png){: width="800" style="display: block; margin: 0;"}
 
 Clicking on the login button will initiate an OIDC request. You will be able to observe the authorize request in the browser devtools. To see this, right click on the application and click inspect and switch to the network tab. In the filter input, type “authorize”, and then click on the Login button.
 
@@ -107,6 +201,6 @@ At this stage, **you need to create a [Test user in Asgardeo](https://wso2.com/a
 
 If the login is successful, you should be able to see the application as shown below.
 
-![Application Home page after authentication]({{base_path}}/complete-guides/dotnet/assets/img/image7.png){: width="800" style="display: block; margin: 0;"}
+![Application Home page after authentication]({{base_path}}/complete-guides/dotnet/assets/img/image8.png){: width="800" style="display: block; margin: 0;"}
 
 Now that we secured the routes within the application, in the next step we will implement the functionality to access a protected API using the access token obtained during the authentication process.

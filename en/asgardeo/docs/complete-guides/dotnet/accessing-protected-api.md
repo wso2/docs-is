@@ -52,7 +52,7 @@ To invoke the `/scim2/Me` endpoint, the `internal_login` scope must be present i
 
 To check the current scopes being requested upon login, analyze the `scope` parameter in the request payload of the initial authorization request during login.
 
-![Default scopes]({{base_path}}/complete-guides/dotnet/assets/img/image8.png){: width="800" style="display: block; margin: 0;"}
+![Default scopes]({{base_path}}/complete-guides/dotnet/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
 
 By default, the requested scopes are `openid` and `profile`. To add the `internal_login` scope, navigate to the `Program.cs` file and insert the following within the `oidcOptions` configurations in the `AddOpenIdConnect` method:
 
@@ -176,6 +176,6 @@ Additionally, we need to navigate to the `NavMenu.razor` file and add the `Scim2
 
 Now starting the application and clicking on the `Protected API` menu item after authentication will invoke the protected API with the token containing the required scopes and return a response as shown below.
 
-![Protected API]({{base_path}}/complete-guides/dotnet/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
+![Protected API]({{base_path}}/complete-guides/dotnet/assets/img/image10.png){: width="800" style="display: block; margin: 0;"}
 
 In this guide, we successfully implemented a secure API call from a .NET Blazor Web application using the access token. This ensures that the application can securely interact with the backend API, respecting the scopes and permissions granted during authentication. We will look into how we can manage tokens in .NET applications, especially for Blazor Web applications in the next step.

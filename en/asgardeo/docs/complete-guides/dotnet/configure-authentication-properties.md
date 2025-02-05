@@ -17,28 +17,31 @@ For the purpose of this guide, these properties will be added to the `/Propertie
 - Client Secret
 - Metadata address
 
-An example configuration is shown below (placeholders have to be replaced with the actual values). Additionally, you can remove the `http` profile from the `launchSettings.json` file as we will only be utilizing the https profile for the purposes of this guide.
+An example configuration is shown below (placeholders have to be replaced with the actual values). Make sure to add the configuration properties to the profile that is utilized for running the application. In this case, we will be using only the `https` profile. The complete `/Properties/launchSettings.json` file we will be utilizing is shown below.
 
-```json hl_lines="10-17"
-"profiles": {
+```json title="launchSettings.json" hl_lines="12-19"
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
     "https": {
-        "commandName": "Project",
-        "dotnetRunMessages": true,
-        "launchBrowser": true,
-        "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-        "applicationUrl": "https://localhost:5001;http://localhost:5000",
-        "environmentVariables": {
-            "ASPNETCORE_ENVIRONMENT": "Development",
-            "AUTHORIZATION_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/authorize",
-            "TOKEN_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/token",
-            "JWKS_URI": "https://api.asgardeo.io/t/<org>/oauth2/jwks",
-            "LOGOUT_URI": "https://api.asgardeo.io/t/<org>/oidc/logout",
-            "AUTHORITY": "https://api.asgardeo.io/t/<org>/",
-            "CLIENT_ID": "<client_id>",
-            "CLIENT_SECRET": "<client_secret>",
-            "METADATA_ADDRESS": "https://api.asgardeo.io/t/<org>/oauth2/token/.well-known/openid-configuration"
-        }
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AUTHORIZATION_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/authorize",
+        "TOKEN_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/token",
+        "JWKS_URI": "https://api.asgardeo.io/t/<org>/oauth2/jwks",
+        "LOGOUT_URI": "https://api.asgardeo.io/t/<org>/oidc/logout",
+        "AUTHORITY": "https://api.asgardeo.io/t/<org>/",
+        "CLIENT_ID": "<client_id>",
+        "CLIENT_SECRET": "<client_secret>",
+        "METADATA_ADDRESS": "https://api.asgardeo.io/t/<org>/oauth2/token/.well-known/openid-configuration"
+      }
     },
+  }
 }
 ```
 

@@ -56,6 +56,12 @@ If you prefer using the terminal, you can execute the following command in the p
 dotnet run
 ```
 
+Based on the configurations in your `/Properties/launchSettings.json` file, you would observe an output similar to the following.
+
+`
+Now listening on: http://localhost:5001
+`
+
 ![Run .NET app]({{base_path}}/complete-guides/dotnet/assets/img/image5.png){: width="800" style="display: block; margin: 0;"}
 
 You should now see the default Blazor Web App template running in your browser as shown above. Next we will look into configuring the authentication properties.
