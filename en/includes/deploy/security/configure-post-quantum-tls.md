@@ -175,7 +175,7 @@ Follow the instructions given below to install the required runtime dependencies
     protocols="TLSv1+TLSv1.1+TLSv1.2+TLSv1.3"
     ```
     {% endif %}
-4. Restart {{product_name}}.
+3. Restart {{product_name}}.
 
 
 !!! note "Disable post-quantum TLS"
