@@ -70,6 +70,7 @@ To configure properties of user attributes:
 
 4. In the **General** tab, update the following values.
 
+    {% if shared_user_profile %}
     <table>
        <tbody>
             <tr>
@@ -96,6 +97,24 @@ To configure properties of user attributes:
             </tr>
      </tbody>
     </table>
+    {% else %}
+    <table>
+       <tbody>
+            <tr>
+                <td><b>Attribute Display Name</b></td>
+                <td>Update the display name of the attribute that will show in user profiles.</td>
+            </tr>
+            <tr>
+                <td><b>Description</b></td>
+                <td>Update the description for the attribute.</td>
+            </tr>
+            <tr>
+                <td><b>Regular expression</b></td>
+                <td>The attribute value will be validated against the regex pattern specified here.</td>
+            </tr>
+     </tbody>
+    </table>
+    {% endif %}
 
 5. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
