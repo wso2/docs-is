@@ -804,6 +804,7 @@ nav:
       - Organization discovery API: apis/organization-discovery-rest-api.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
+      - User Sharing management API: apis/organization-user-share-rest-api.md
       - Role management:
           - Roles v2 API: apis/roles-v2-rest-api.md
           - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
