@@ -35,10 +35,6 @@ For inviting users to set their password, follow these instructions:
     <td>Sends an email to users for account activation if enabled.</td>
   </tr>
   <tr>
-    <td><code>Email verification code expiry time</code></td>
-    <td>The duration in minutes for which the email verification code remains valid.</td>
-  </tr>
-  <tr>
     <td><code>Password Setup Invitation Code Expiration Time</code></td>
     <td>Defines the validity period in minutes for the password setup code sent to users. For infinite validity period, set -1.</td>
   </tr>
