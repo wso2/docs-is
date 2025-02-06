@@ -290,8 +290,6 @@ components:
           type: array
           items:
             type: string
-        application_type:
-          type: string
         jwks_uri:
           type: string
         url:
@@ -309,10 +307,6 @@ components:
           items:
             type: string
         request_uris:
-          type: array
-          items:
-            type: string
-        response_types:
           type: array
           items:
             type: string
