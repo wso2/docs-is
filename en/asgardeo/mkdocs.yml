@@ -138,6 +138,7 @@ plugins:
         'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/account-security/login-attempts.md'
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
+        'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -357,11 +358,11 @@ nav:
         - Set up organizations: guides/organization-management/manage-organizations.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
         - Share applications: guides/organization-management/share-applications.md
-        - Onboard organization admins: 
-            - Onboard organization admins: guides/organization-management/onboard-org-admins/index.md
+        - Onboard admins: 
+            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-        - Invite users from parent organization: guides/organization-management/invite-parent-organization-users.md
+        - Onboard users: guides/organization-management/onboard-users.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
