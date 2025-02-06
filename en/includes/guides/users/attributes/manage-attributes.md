@@ -53,7 +53,7 @@ Apart from the default attributes, you may define your own custom attributes by 
 
 4. Click **Finish**.
 
-{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+{% if is_version != "7.0.0" %}
 
 ## Configure attributes
 
