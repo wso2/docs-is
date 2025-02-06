@@ -846,6 +846,7 @@ nav:
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
         - User Account Association API: apis/association-rest-api.md
         - Identity verification API: apis/admin-identity-verification.md
+      - User sharing management API: apis/organization-user-share-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
@@ -870,6 +871,7 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
+      - User sharing management API: apis/organization-apis/organization-user-share-rest-api.md
       - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
