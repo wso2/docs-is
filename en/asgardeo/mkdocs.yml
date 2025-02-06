@@ -455,6 +455,7 @@ nav:
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
+      - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
       - Application management API: apis/organization-apis/org-application-management.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding API: apis/organization-apis/org-branding-management.md
