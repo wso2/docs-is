@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.0.2
+  version: v1
   title: 'User Sharing API Definition'
   description: |-
     This API provides organization administrators with the ability to manage user access across child organizations. It supports operations to share users with specific or all child organizations, retrieve shared access details, and remove shared access as needed. The API also includes features for paginated retrieval of organizations and roles associated with shared users.
