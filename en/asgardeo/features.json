@@ -1,4 +1,11 @@
 {
+    "operational-policies": {
+        "enabled": false,
+        "page": [
+            "references/operational-policies.md"
+        ]
+    },
+    
     "sms-templates": {
         "enabled": false,
         "page": [
