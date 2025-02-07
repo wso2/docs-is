@@ -1479,7 +1479,11 @@ components:
         authorizationCode:
           authorizationUrl: 'https://localhost:9443/oauth2/authorize'
           tokenUrl: 'https://localhost:9443/oauth2/token'
-          scopes: {}
+          scopes:
+            view: internal_org_template_mgt_view
+            create: internal_org_template_mgt_create
+            update: internal_org_template_mgt_update
+            delete: internal_org_template_mgt_delete
   schemas:
     TemplateType:
       type: object
