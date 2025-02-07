@@ -120,13 +120,13 @@ The following dependencies are required during build-time.
     In Debian-based Linux:
 
     ```bash
-    apt-get install make cmake wget tar gcc
+    apt-get install make cmake wget tar gcc git python3 autoconf libtool-bin
     ```
 
     In Red Hat Linux distributions:
 
     ```bash
-    yum install make cmake wget tar gcc perl
+    yum install make cmake wget tar gcc perl git python3 autoconf libtool
     ```
 
 === "MacOS"
@@ -134,7 +134,7 @@ The following dependencies are required during build-time.
     On macOS, you can use Homebrew to install dependencies.
 
     ```bash
-    brew install wget cmake
+    brew install wget cmake git python3 autoconf libtool
     ```
 
 #### Runtime dependencies
