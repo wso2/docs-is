@@ -3,13 +3,13 @@ info:
   version: "v1"
   title: 'User Sharing API Definition'
   description: |-
-    This document specifies the **User Sharing RESTful API** for **WSO2 Identity Server**. This API enables organization administrators to share user access across child organizations, manage shared access, revoke access, and retrieve shared organizations and roles.
+    This document specifies the **User Sharing RESTful API of Organizations** for **WSO2 Identity Server**. This API enables organization administrators to share user access across child organizations, manage shared access, revoke access, and retrieve shared organizations and roles.
 
 security:
   - OAuth2: []
 
 servers:
-  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
+  - url: 'https://{server-url}/t/{tenant-domain}/o/api/server/v1'
     variables:
       tenant-domain:
         default: "carbon.super"
