@@ -61,8 +61,8 @@ paths:
           source: |
             curl -X 'GET' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
         - Email Template Types
@@ -167,8 +167,8 @@ paths:
           source: |
             curl -X 'GET' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     delete:
       tags:
         - Email Template Types
@@ -199,8 +199,8 @@ paths:
           source: |
             curl -X 'DELETE' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
   '/email/template-types/{template-type-id}/org-templates':
     get:
       tags:
@@ -241,8 +241,8 @@ paths:
           source: |
             curl -X 'GET' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
         - Email Templates
@@ -347,8 +347,8 @@ paths:
           source: |
             curl -X 'GET' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/351262e3-1331-498a-bf2b-344b451ebb3a' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
         - Application Email Templates
@@ -452,8 +452,8 @@ paths:
           source: |
             curl -X 'GET' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Email Templates
@@ -538,8 +538,8 @@ paths:
           source: |
             curl -X 'DELETE' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
   '/email/template-types/{template-type-id}/app-templates/{app-uuid}/{locale}':
     get:
       tags:
@@ -581,8 +581,8 @@ paths:
           source: |
             curl -X 'GET' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/351262e3-1331-498a-bf2b-344b451ebb3a/en_US' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Application Email Templates
@@ -669,8 +669,8 @@ paths:
           source: |
             curl -X 'DELETE' \
             'https://localhost:9443/t/carbon.super/o/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/351262e3-1331-498a-bf2b-344b451ebb3a/en_US' \
-          '-H ''accept': application/json' \
-          '-H ''Authorization': Bearer {bearer_token}'
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
 servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/o/api/server/v2'
     variables:
