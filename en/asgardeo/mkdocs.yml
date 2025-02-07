@@ -474,6 +474,7 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk.md
+      - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
       - SCIM 2.0 Me API: apis/scim2-me.md
       - Backup codes API: apis/register-mfa/backup-code.md
