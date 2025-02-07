@@ -3,7 +3,7 @@ info:
   title: "WSO2 Identity Server - Notification Templates API"
   version: 1.0.0
   description: >-
-    This is the RESTful API for managing notification templates in the WSO2 Identity
+    This is the RESTful API for managing notification templates of Organizations in the WSO2 Identity
     Server. This API allows adding, retrieving, replacing, and removing notification
     templates and template types.
 tags:
@@ -23,7 +23,6 @@ tags:
     description: A system default template of a specific type and a language.
 security:
   - OAuth2: []
-  - BasicAuth: []
 paths:
   /notification/email/template-types:
     get:
@@ -34,7 +33,7 @@ paths:
       description: |
         Retrieves all the email template types in the system. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
       
 
       responses:
@@ -65,7 +64,7 @@ paths:
 
         * Attribute _**displayName**_ of the template type should be unique. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_create` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       requestBody:
         content:
@@ -104,7 +103,7 @@ paths:
       description: |
         Retrieves the email template type in the system identified by the template-type-id. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
       
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -135,7 +134,7 @@ paths:
         from the system. <br>
         *Note : System resources are not eligible for deletion. Attempting to delete a system resource will result in a 403 Forbidden error.* <br>
         
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -162,7 +161,7 @@ paths:
         Resets an existing template type by deleting all its **user defined** templates
         from the system. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       requestBody:
         content:
@@ -189,7 +188,7 @@ paths:
       description: |
         Retrieves the list of organization email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -222,7 +221,7 @@ paths:
         Another organization email template with the same locale should not already exist in the
         respective email template type. <br>
 
-         <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+         <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -265,7 +264,7 @@ paths:
       description: |
         Retrieves the list of application email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -299,7 +298,7 @@ paths:
         Another application email template with the same locale should not already exist in the
         respective email template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_create` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -343,7 +342,7 @@ paths:
       description: |
         Retrieves the organization email template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -374,7 +373,7 @@ paths:
       description: |
         Replaces the organization email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_update` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -406,7 +405,7 @@ paths:
       description: |
         Removes an organization email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -433,7 +432,7 @@ paths:
       description: |
         Retrieves the list of system default email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -465,7 +464,7 @@ paths:
       description: |
         Retrieves the system default email template that matches the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -496,7 +495,7 @@ paths:
       description: |
         Retrieves the application email template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -528,7 +527,7 @@ paths:
       description: |
         Replaces the application email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_update` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -561,7 +560,7 @@ paths:
       description: |
         Removes an application email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -589,7 +588,7 @@ paths:
       description: |
         Retrieves all the SMS template types in the system. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       responses:
         '200':
@@ -619,7 +618,7 @@ paths:
 
         * Attribute _**displayName**_ of the template type should be unique. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_create`
 
       requestBody:
         content:
@@ -658,7 +657,7 @@ paths:
       description: |
         Retrieves the SMS template type in the system identified by the template-type-id. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -689,7 +688,7 @@ paths:
         from the system. <br>
         *Note : System resources are not eligible for deletion. Attempting to delete a system resource will result in a 403 Forbidden error.* <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -715,7 +714,7 @@ paths:
       description: |
         Retrieves the list of application SMS templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -749,7 +748,7 @@ paths:
         Another application SMS template with the same locale should not already exist in the
         respective SMS template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_create`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -793,7 +792,7 @@ paths:
       description: |
         Retrieves the application SMS template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -825,7 +824,7 @@ paths:
       description: |
         Replaces the application SMS template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -858,7 +857,7 @@ paths:
       description: |
         Removes a SMS template identified by the template-type-id and the locale. <br>
 
-          <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+          <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -886,7 +885,7 @@ paths:
       description: |
         Retrieves the list of organization SMS templates under the provided templalte type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -919,7 +918,7 @@ paths:
         Another organization SMS template with the same locale should not already exist in the
         respective SMS template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_create`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -962,7 +961,7 @@ paths:
       description: |
         Retrieves the organization SMS template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -993,7 +992,7 @@ paths:
       description: |
         Replaces the organization SMS template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1025,7 +1024,7 @@ paths:
       description: |
         Removes an organization SMS template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1052,7 +1051,7 @@ paths:
       description: |
         Retrieves the list of system default SMS templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1084,7 +1083,7 @@ paths:
       description: |
         Retrieves the system default SMS template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1109,7 +1108,7 @@ paths:
 
 servers:
   # Added by API Auto Mocking Plugin
-  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
+  - url: 'https://localhost:9443/t/{tenant-domain}/o/api/server/v1'
     variables:
       tenant-domain:
         default: unknown
@@ -1202,7 +1201,7 @@ components:
           description: Display name of the template type.
         self:
           type: string
-          example: /t/{tenant-domain}/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg
+          example: /t/{tenant-domain}/o/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg
           description: Location of the created/updated resource.
     TemplateTypeOverview:
       type: object
@@ -1290,7 +1289,7 @@ components:
             Locale of the template.
         self:
           type: string
-          example: /t/{tenant-domain}/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/{{org|app|system}}templates/en_US
+          example: /t/{tenant-domain}/o/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/{{org|app|system}}templates/en_US
           description: Location of the created/updated resource. resource.
     SimpleTemplateTypeID:
       type: object
