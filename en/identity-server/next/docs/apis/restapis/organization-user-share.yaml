@@ -71,7 +71,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/o/api/server/v1/users/share' \
+            curl --location 'https://localhost:9443/api/server/v1/users/share' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -158,7 +158,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/o/api/server/v1/users/share-all' \
+            curl --location 'https://localhost:9443/api/server/v1/users/share-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -236,7 +236,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/o/api/server/v1/users/unshare' \
+            curl --location 'https://localhost:9443/api/server/v1/users/unshare' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -297,7 +297,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/o/api/server/v1/users/unshare-all' \
+            curl --location 'https://localhost:9443/api/server/v1/users/unshare-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -375,7 +375,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/o/api/server/v1/users/{userId}/shared-organizations' \
+            curl --location 'https://localhost:9443/api/server/v1/users/{userId}/shared-organizations' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
@@ -448,7 +448,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/o/api/server/v1/users/{userId}/shared-roles?orgId={orgId}' \
+            curl --location 'https://localhost:9443/api/server/v1/users/{userId}/shared-roles?orgId={orgId}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
