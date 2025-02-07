@@ -462,10 +462,9 @@ components:
           authorizationUrl: https://localhost:9443/oauth2/authorize
           tokenUrl: https://localhost:9443/oauth2/token
           scopes:
-            view: internal_role_mgt_view
-            create: internal_role_mgt_create
-            update: internal_role_mgt_update
-            delete: internal_role_mgt_delete
+            share: internal_org_user_share
+            unshare: internal_org_user_unshare
+            view: internal_org_user_shared_access_view
 
   schemas:
 
