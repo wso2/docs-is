@@ -19,7 +19,7 @@ paths:
 
         **NOTE:**
 
-          To retrieve the available user store classes/types, use the **api/server/v1/userstores/meta/types** API.
+          To retrieve the available user store classes/types, use the **/o/api/server/v1/userstores/meta/types** API.
         
         
         <b>Scope(Permission) required:</b> `internal_org_userstore_create`
