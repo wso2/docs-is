@@ -34,7 +34,7 @@ paths:
       description: |
         Retrieves all the email template types in the system. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
          
       responses:
@@ -65,7 +65,7 @@ paths:
 
         * Attribute _**displayName**_ of the template type should be unique. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_create` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
 
       requestBody:
         content:
@@ -104,7 +104,7 @@ paths:
       description: |
         Retrieves the email template type in the system identified by the template-type-id. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
       
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -135,7 +135,7 @@ paths:
         from the system. <br>
         *Note : System resources are not eligible for deletion. Attempting to delete a system resource will result in a 403 Forbidden error.* <br>
         
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -189,7 +189,7 @@ paths:
       description: |
         Retrieves the list of organization email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -222,7 +222,7 @@ paths:
         Another organization email template with the same locale should not already exist in the
         respective email template type. <br>
 
-         <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+         <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -265,7 +265,7 @@ paths:
       description: |
         Retrieves the list of application email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -299,7 +299,7 @@ paths:
         Another application email template with the same locale should not already exist in the
         respective email template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_create` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -343,7 +343,7 @@ paths:
       description: |
         Retrieves the organization email template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -374,7 +374,7 @@ paths:
       description: |
         Replaces the organization email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_update` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -406,7 +406,7 @@ paths:
       description: |
         Removes an organization email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -433,7 +433,7 @@ paths:
       description: |
         Retrieves the list of system default email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -465,7 +465,7 @@ paths:
       description: |
         Retrieves the system default email template that matches the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -496,7 +496,7 @@ paths:
       description: |
         Retrieves the application email template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -528,7 +528,7 @@ paths:
       description: |
         Replaces the application email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_update` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -561,7 +561,7 @@ paths:
       description: |
         Removes an application email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
