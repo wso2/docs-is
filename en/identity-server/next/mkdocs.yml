@@ -866,6 +866,11 @@ nav:
       - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
+      - Server management:
+          - Email templates:
+              - Email templates v1 API: apis/organization-apis/email-templates-rest-api.md
+              - Email templates v2 API: apis/organization-apis/email-templates-v2-rest-api.md
+          - Notification Templates Management APIs: apis/organization-apis/notification-templates.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
