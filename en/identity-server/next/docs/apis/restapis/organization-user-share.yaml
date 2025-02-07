@@ -1,16 +1,14 @@
 openapi: 3.0.0
 info:
-  version: v1
+  version: "v1"
   title: 'User Sharing API Definition'
   description: |-
     This API provides organization administrators with the ability to manage user access across child organizations. It supports operations to share users with specific or all child organizations, retrieve shared access details, and remove shared access as needed. The API also includes features for paginated retrieval of organizations and roles associated with shared users.
-  contact:
-    name: WSO2
-    url: 'http://wso2.com/products/identity-server/'
-    email: iam-dev@wso2.org
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
 servers:
   - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
     variables:
@@ -48,7 +46,7 @@ paths:
                         display: "My Org 1"
                         type: "organization"
                 - orgId: "a17b28ca-9f89-449c-ae27-fa955e66465f"
-                  policy: "SELECTED_ORG_ONLY"
+                  policy: "SELECTED_ORG_WITH_EXISTING_IMMEDIATE_AND_FUTURE_CHILDREN"
                   roles: []
         required: true
       responses:
@@ -70,6 +68,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/users/share' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "userCriteria": {
+                  "userIds": [
+                    "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8",
+                    "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+                  ]
+                },
+                "organizations": [
+                  {
+                    "orgId": "b028ca17-8f89-449c-ae27-fa955e66465d",
+                    "policy": "SELECTED_ORG_ONLY",
+                    "roles": [
+                      {
+                        "displayName": "role_2",
+                        "audience": {
+                          "display": "My Org 1",
+                          "type": "organization"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "orgId": "a17b28ca-9f89-449c-ae27-fa955e66465f",
+                    "policy": "SELECTED_ORG_WITH_EXISTING_IMMEDIATE_AND_FUTURE_CHILDREN",
+                    "roles": []
+                  }
+                ]
+            }'
+      x-codegen-request-body-name: body
 
   /users/share-with-all:
     post:
@@ -121,6 +155,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/users/share-all' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "userCriteria": {
+                  "userIds": [
+                    "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8",
+                    "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+                  ]
+                },
+                "policy": "ALL_EXISTING_ORGS_ONLY",
+                "roles": [
+                  {
+                    "displayName": "role_1",
+                    "audience": {
+                      "display": "My Org 1",
+                      "type": "organization"
+                    }
+                  },
+                  {
+                    "displayName": "role_2",
+                    "audience": {
+                      "display": "My App 1",
+                      "type": "application"
+                    }
+                  }
+                ]
+            }'
+      x-codegen-request-body-name: body
 
   /users/unshare:
     post:
@@ -166,6 +233,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/users/unshare' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "userCriteria": {
+                  "userIds": [
+                    "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8",
+                    "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+                  ]
+                },
+                "organizations": [
+                  "b028ca17-8f89-449c-ae27-fa955e66465d",
+                  "a17b28ca-9f89-449c-ae27-fa955e66465f"
+                ]
+            }'
+      x-codegen-request-body-name: body
 
   /users/unshare-with-all:
     post:
@@ -207,6 +294,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/users/unshare-all' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "userCriteria": {
+                  "userIds": [
+                    "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8",
+                    "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+                  ]
+                }
+            }'
+      x-codegen-request-body-name: body
 
   /users/{userId}/shared-organizations:
     get:
@@ -269,6 +372,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/users/{userId}/shared-organizations' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
   /users/{userId}/shared-roles:
     get:
@@ -336,9 +445,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/users/{userId}/shared-roles?orgId={orgId}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
 components:
+
+  securitySchemes:
+
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes:
+            share: internal_user_share
+            unshare: internal_user_unshare
+            view: internal_user_shared_access_view
+
   schemas:
 
     UserShareRequestBody:
