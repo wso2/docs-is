@@ -193,6 +193,7 @@ paths:
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -269,6 +270,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -346,6 +348,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -499,6 +502,7 @@ paths:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -716,6 +720,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -794,6 +799,7 @@ paths:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -884,6 +890,7 @@ paths:
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -960,6 +967,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -1129,6 +1137,14 @@ components:
       description: Application UUID.
       schema:
         type: string
+    resolveQueryParam:
+      in: query
+      name: resolve
+      required: false
+      description: Specifies whether to return resolved template/s throughout the ancestor organization hierarchy.
+      schema:
+        type: boolean
+        default: false
   responses:
     NotFound:
       description: The specified resource is not found.

@@ -319,6 +319,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
         - $ref: '#/components/parameters/sortOrderQueryParam'
@@ -554,6 +555,7 @@ paths:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
         - $ref: '#/components/parameters/sortOrderQueryParam'
@@ -698,6 +700,14 @@ components:
       description: Application UUID.
       schema:
         type: string
+    resolveQueryParam:
+      in: query
+      name: resolve
+      required: false
+      description: Specifies whether to return resolved template/s throughout the ancestor organization hierarchy.
+      schema:
+        type: boolean
+        default: false
     offsetQueryParam:
       in: query
       name: offset
