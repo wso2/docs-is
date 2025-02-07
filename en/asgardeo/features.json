@@ -39,7 +39,12 @@
         "enabled": false,
         "page": []
     },
-    
+
+    "shared_user_profile": {
+        "enabled": false,
+        "page": []
+    },
+
     "attribute_uniqueness_validation": {
         "enabled": true,
         "page": [
