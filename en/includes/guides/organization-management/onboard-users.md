@@ -167,3 +167,72 @@ If you are sending the invitation email through an external service, include thi
       "confirmationCode": "2663329b-c8c5-4c71-9500-9ea8c4e77d94"
    }'
    ```
+
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+
+## Manage shared user profiles in organizations
+
+According to your B2B requirements, a user may need to belong to more than one organization, and it’s more efficient if they don't need separate identities or accounts to move between them.
+In such scenarios, you can create the user in a common organization and share their profile with child organizations within the organizational hierarchy.
+
+{{ product_name }} supports for managing shared user profiles across multiple organizations in the hierarchy, with user attributes that can be inherited or overridden by child organizations based on defined rules.  
+
+This section provides guidance on how users can be shared across organizations and how shared user profiles can be managed, specifically regarding attribute updates and value resolving.
+
+### Methods to share users across organizations
+{{ product_name }} allows three primary methods to share users between organizations:
+
+1. Maintain organization creator in root organization
+If an admin wants to create and manage multiple organizations using a single identity, they can create the user in the root organization.
+When organization is created, the user is shared with the new child organization. Lear more about [organization admin management in root organizations]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-in-the-root-organization).
+
+2. Inviting existing users from parent organization
+Users that already exist in the parent organization can be invited to join child organizations.  
+This can be done using the [invite existing users from the parent organization]({{base_path}}/guides/organization-management/onboard-users/#invite-existing-users-from-the-parent-organization) feature in {{ product_name }}. 
+
+3. Share the users from parent organization
+{{ product_name }} supports sharing the users initiating a user sharing request from the organization where the user identity is managed.
+This can be done using the [share users from parent organization API]({{base_path}}/apis/organization-user-share-rest-api).
+
+
+### Update shared user profiles
+
+Once a user is shared with a child organization, there may be a need to update the shared user profile at the organizational level.
+When managing shared user profiles, the **Source for Attribute Value of Shared Users** property on the user attribute governs how values are resolved and whether they can be updated at the organization level.
+
+- If the attribute's **Source for Attribute Value of Shared Users** is set to **From Origin**:  
+  The value of this attribute is fixed to the defined value in user origin, and cannot be updated in the shared user profiles at the child organization level. 
+  Any changes to this attribute must be made in the parent organization’s where the user credential is maintained.
+
+- If the attribute's **Source for Attribute Value of Shared Users** is set to **From Shared Profile** or **From First Found in Hierarchy**:  
+  These attributes can be modified in the child organization’s shared profile.  
+  This flexibility allows child organizations to customize user profiles according to their specific needs while still retaining a connection to the parent organization's profile.
+
+### Resolve attribute values in shared user profiles
+
+The shared user profile resolver mechanism ensures that the attribute values in shared user profiles are resolved based on the hierarchy and the defined resolving method. This means that when a shared profile is queried or modified in a child organization, 
+the {{ product_name }} will refer to the [Source for Attribute Value of Shared Users]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes) to determine the correct value for each attribute.
+
+The shared user profile resolver takes attribute value from the selected source:
+    <table>
+        <tbody>
+            <tr>
+                <td><b>Selected Source for Attribute Value of Shared Users</b></td>
+                <td><b>Behavior</b></td>
+            </tr>
+            <tr>
+                <td>From Origin</td>
+                <td>The attribute value is inherited from the original organization which manages the user's profile.</td>
+            </tr>
+            <tr>
+                <td>From Shared Profile</td>
+                <td>The attribute value is taken from the shared user profile in the respective organization.</td>
+            </tr>   
+            <tr>
+                <td>From First Found in Hierarchy</td>
+                <td>The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute.</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endif %}
