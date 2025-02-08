@@ -282,6 +282,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionResponseList'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
         '400':
           description: Bad Request
           content:
