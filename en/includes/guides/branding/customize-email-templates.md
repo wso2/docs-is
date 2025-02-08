@@ -8,10 +8,38 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 
 {{email_template_note}}
 
-The branding variables that affect the email templates are as follows:
+{% if product_name == "Asgardeo" %}
 
 !!! note "Email branding for B2B applications"
-    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured, note that the email branding you configure for your organization (root) also applies to your organizations.
+
+    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured,
+    note that the email branding you configure for your root organization also applies to your organizations.
+
+{% elif (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
+
+!!! note "Email branding for B2B applications"
+
+    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured,
+    you can configure email branding for each organization. If you have not configured email branding for a given email
+    template type and locale in an organization, the default {{product_name}} email branding for the given email
+    template type will apply.
+
+{% else %}
+
+!!! note "Email branding for B2B applications"
+
+    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured,
+    you can configure email branding for each organization. If you have not configured email branding for a given email
+    template type and locale in an organization, the email branding of your immediate parent organization for the given
+    email template type and locale will be applied. If your parent organization has no email branding for the given
+    email template type and locale, the grandparent organization's email branding for the given email template type and 
+    locale will apply. This will continue all the way until the root organization. If the root organization has no 
+    email branding for the given email template type and locale, the default {{product_name}} email branding for the
+    given email template type will apply.
+
+{% endif %}
+
+The branding variables that affect the email templates are as follows:
 
 ![Branding email templates]({{base_path}}/assets/img/guides/branding/email-branding.png)
 

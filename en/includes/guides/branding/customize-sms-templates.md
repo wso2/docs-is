@@ -2,6 +2,28 @@
 
 The following topics explain how you can customize SMS notifications that are sent to users of your {{ product_name }} organization.
 
+{% if product_name == "Asgardeo" %}
+
+!!! note "SMS branding for B2B applications"
+
+    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured,
+    note that the sms branding you configure for your root organization also applies to your organizations.
+
+{% else %}
+
+!!! note "SMS branding for B2B applications"
+
+    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured,
+    you can configure sms branding for each organization. If you have not configured sms branding for a given sms
+    template type and locale in an organization, the sms branding of your immediate parent organization for the given
+    sms template type and locale will be applied. If your parent organization has no sms branding for the given
+    sms template type and locale, the grandparent organization's sms branding for the given sms template type and 
+    locale will apply. This will continue all the way until the root organization. If the root organization has no 
+    sms branding for the given sms template type and locale, the default {{product_name}} sms branding for the
+    given sms template type will apply.
+
+{% endif %}
+
 You can tailor the **body** of SMS notifications to your preferences by following the steps below.
 
 !!! note
