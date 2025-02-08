@@ -38,11 +38,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        x-codeSamples:
-          - lang: Curl
-            source: |
-              curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/types' \
-              -H 'Authorization: Bearer {bearer_token}'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/types' \
+            -H 'Authorization: Bearer {bearer_token}'
 
   /actions/{actionType}:
     post:
@@ -99,26 +99,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        x-codeSamples:
-          - lang: Curl
-            source: |
-              curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/{actionType}' \
-              -H 'Authorization: Bearer {bearer_token}' \
-              -H 'Content-Type: application/json' \
-              -d '{
-                  "name": "Access Token Pre Issue",
-                  "description": "This action invokes before issuing an access token.",
-                  "endpoint": {
-                      "uri": "https://myextension.com/token",
-                      "authentication": {
-                          "properties": {
-                              "username": "auth_username",
-                              "password": "auth_password"
-                          },
-                          "type": "BASIC"
-                      }
-                  }
-              }'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/{actionType}' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "name": "Access Token Pre Issue",
+                "description": "This action invokes before issuing an access token.",
+                "endpoint": {
+                    "uri": "https://myextension.com/token",
+                    "authentication": {
+                        "properties": {
+                            "username": "auth_username",
+                            "password": "auth_password"
+                        },
+                        "type": "BASIC"
+                    }
+                }
+            }'
       x-codegen-request-body-name: body
 
     get:
