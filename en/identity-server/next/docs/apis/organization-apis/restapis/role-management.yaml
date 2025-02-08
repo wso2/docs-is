@@ -88,6 +88,84 @@ paths:
             'https://localhost:9443/o/scim2/v2/Roles' \
             -H 'accept: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}'
+    post:
+      tags:
+        - Roles Endpoint
+      summary: Create Role
+      description: >
+        This API creates a role and returns the details of the created role
+        including its unique ID. These roles can only be associated with the 
+        applications which are created in the organization level. You cannot 
+        use these roles with the shared applications from the root organization.
+
+
+        <b>Scope(Permission) required:</b> `internal_org_role_mgt_create`
+      operationId: createRoleV2
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/RoleCreationObjectV2'
+      responses:
+        '201':
+          description: Valid role is created
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RolePostResponseObjectV2'
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '409':
+          description: Role already exist
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorRoleAlreadyAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/o/scim2/v2/Roles' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "schemas": [
+                "urn:ietf:params:scim:schemas:extension:2.0:Role"
+              ],
+              "displayName": "loginRole",
+              "audience": {
+                "value": "3645709f-ea8d-5595-7690-e1fa0efe3df9",
+                "type": "application"
+              },
+              "users": [
+                {
+                  "value": "008bba85-451d-414b-87de-c03b5a1f4217"
+                }
+              ],
+              "groups": [
+                {
+                  "value": "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+                }
+              ],
+              "permissions": [
+                {
+                  "value": "internal_login",
+                  "display": "Internal Login"
+                }
+              ]
+            }'
+      x-codegen-request-body-name: body
   /v2/Roles/.search:
     post:
       tags:
@@ -306,6 +384,54 @@ paths:
             ]
             }'
       x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Roles Endpoint
+      summary: Delete Role
+      description: |
+        This API deletes a particular role using its unique ID. From this 
+        operation in the organization level, you only can delete
+        the roles that are created directly in the organization level. 
+        You cannot delete the roles that are shared from the root 
+        organization.
+
+        <b>Scope(Permission) required:</b> `internal_org_role_mgt_delete`
+      operationId: deleteRoleV2
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Role is deleted
+        '401':
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Valid role is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNoRoleAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/o/scim2/v2/Roles/{role-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
     patch:
       tags:
         - Roles Endpoint
@@ -489,6 +615,66 @@ components:
             type:
               type: string
               example: organization
+        properties:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: isSharedRole
+              value:
+                type: string
+                example: 'true'
+    RoleCreationObjectV2:
+      type: object
+      required:
+        - displayName
+        - schemas
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+        displayName:
+          type: string
+          example: loginRole
+        audience:
+          type: object
+          properties:
+            value:
+              type: string
+              example: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+            type:
+              type: string
+              enum:
+                - application
+                - organization
+              example: application
+        users:
+          type: array
+          items:
+            type: object
+            example:
+              value: 008bba85-451d-414b-87de-c03b5a1f4217
+        groups:
+          type: array
+          items:
+            type: object
+            example:
+              value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+        permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                example: internal_login
+              display:
+                type: string
+                example: Internal Login
     RoleGetResponseObjectV2:
       type: object
       properties:
@@ -580,6 +766,56 @@ components:
                 type: string
               display:
                 type: string
+        properties:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: isSharedRole
+              value:
+                type: string
+                example: 'true'
+    RolePostResponseObjectV2:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: loginRole
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              example: >-
+                https://localhost:9443/scim2/v2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+            resourceType:
+              type: string
+              example: Role
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+        id:
+          type: string
+          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        audience:
+          type: object
+          properties:
+            value:
+              type: string
+              example: 3645709f-ea8d-5595-7690-e1fa0efe3df9
+            display:
+              type: string
+              example: My App
+            type:
+              type: string
+              enum:
+                - application
+                - organization
+              example: application
     RolePutRequestObjectV2:
       type: object
       properties:
@@ -833,6 +1069,22 @@ components:
         detail:
           type: string
           example: Role not found in the system.
+    ErrorRoleAlreadyAvailable:
+      type: object
+      required:
+        - status
+        - schema
+        - detail
+      properties:
+        status:
+          type: string
+          example: '409'
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: 'Role with name: Internal/loginRole already exists in the system.'
     RoleSearchErrorResponseObject:
       required:
         - itemsPerPage
