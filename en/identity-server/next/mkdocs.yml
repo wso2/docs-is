@@ -852,7 +852,9 @@ nav:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
-      - Application management API: apis/organization-apis/org-application-mgt.md
+      - Application management:
+        - Application management API (Shared Applications): apis/organization-apis/shared-application-mgt.md
+        - Application management API: apis/organization-apis/organization-application-mgt.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding management API: apis/organization-apis/org-branding-mgt.md
       - Claim management API: apis/organization-apis/org-claim-mgt.md
