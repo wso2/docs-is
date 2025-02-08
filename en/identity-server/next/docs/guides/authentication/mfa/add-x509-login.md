@@ -207,31 +207,27 @@ Follow the steps below to disable certificate validation if your {{ product_name
 
 ### Disable certificate validation in an already-started {{ product_name }} pack
 
-Follow the steps below to disable certificate validation if {{ product_name }} was started before.
+Follow the below steps to disable certificate validation if {{ product_name }} was started before.
 
-1. Log in to the {{ product_name }} Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
+You can use the [Certificate Validation Management API]({{base_path}}/apis/certificate-validation-management-rest-api/).
 
-2.  Click **Main > Registry > Browse**.  
-    ![registry](../../../assets/img/guides/authentication/mfa/registry.png){: width="300" height="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+**Disable CRL certificate validation Request**
 
-3.  Disable CRL certificate validation.
-
-    1.  Locate the CRL parameter by entering
-            `_system/governance/repository/security/certificate/validator/crlvalidator`
-            in the **Location** search box.  
-            ![location](../../../assets/img/guides/authentication/mfa/browse-registry-location.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    2.  Expand **Properties**.  
-        ![crlvalidator-properties](../../../assets/img/guides/authentication/mfa/crlvalidator-properties.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-    
-    3.  Click **Edit** pertaining to the **Enable** property.  
-        ![crlvalidator-enable-property](../../../assets/img/guides/authentication/mfa/crlvalidator-enable-property.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    4. Change the value to `false`, click **Save**.  
-        ![save-crlvalidator-disable](../../../assets/img/guides/authentication/mfa/save-crlvalidator-disable.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    5. Similarly, disable OCSP certificate validation in the `_system/governance/repository/security/certificate/validator/ocspvalidator`
-        registry parameter.
+!!! abstract ""
+    **Sample request**
+    ```
+    curl -k -X POST https://localhost:9443api/server/v1/certificate-validation/revocation-validators/{validator-name} -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"enable": false, "priority": 1, "fullChainValidation": true, "retryCount": 2}'
+    ```
+    ---
+    **Sample response**
+    ```
+    {
+        "enable": false,
+        "priority": 1,
+        "fullChainValidation": true,
+        "retryCount": 2
+    }
+    ```
 
 ## Configure the Authentication Endpoint
 

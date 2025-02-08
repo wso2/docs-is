@@ -791,6 +791,7 @@ nav:
       - App-native authentication API: apis/app-native-authentication-api.md
       - Authentication Data API: apis/use-the-authentication-rest-apis.md
       - Authenticators API: apis/authenticators-rest-api.md
+      - Certificate Validation Management API: apis/certificate-validation-management-rest-api.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
       - Email templates APIs:
@@ -856,6 +857,7 @@ nav:
         - Application management API (Shared Applications): apis/organization-apis/shared-application-mgt.md
         - Application management API: apis/organization-apis/organization-application-mgt.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
+      - Certificate Validation Management API: apis/organization-apis/certificate-validation-management-rest-api.md
       - Branding management API: apis/organization-apis/org-branding-mgt.md
       - Claim management API: apis/organization-apis/org-claim-mgt.md
       - Email templates APIs:
