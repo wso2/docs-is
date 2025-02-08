@@ -793,6 +793,9 @@ nav:
       - Authenticators API: apis/authenticators-rest-api.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
+      - Email templates APIs:
+        - Email templates v1 API: apis/email-templates-rest-api.md
+        - Email templates v2 API: apis/email-templates-v2-rest-api.md
       - Extension management API: apis/extension-mgt-rest-api.md
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
@@ -801,6 +804,7 @@ nav:
       - Notification sender management:
         - Notification sender configurations: apis/notification-sender.md
         - Notification sender API: apis/notification-sender-rest-api.md
+      - Notification Templates Management API: apis/notification-templates.md
       - Organization discovery API: apis/organization-discovery-rest-api.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
@@ -821,10 +825,6 @@ nav:
         - Consent management:
           - Overview: apis/use-the-consent-management-rest-apis.md
           - Consent management API: apis/consent-management-api-definition.md
-        - Email templates:
-          - Email templates v1 API: apis/email-templates-rest-api.md
-          - Email templates v2 API: apis/email-templates-v2-rest-api.md
-        - Notification Templates Management APIs: apis/notification-templates.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
@@ -856,10 +856,14 @@ nav:
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding management API: apis/organization-apis/org-branding-mgt.md
       - Claim management API: apis/organization-apis/org-claim-mgt.md
+      - Email templates APIs:
+        - Email templates v1 API: apis/organization-apis/email-templates-rest-api.md
+        - Email templates v2 API: apis/organization-apis/email-templates-v2-rest-api.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
+      - Notification Templates Management API: apis/organization-apis/notification-templates.md
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md

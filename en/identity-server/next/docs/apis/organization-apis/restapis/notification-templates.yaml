@@ -3,7 +3,7 @@ info:
   title: "WSO2 Identity Server - Notification Templates API"
   version: 1.0.0
   description: >-
-    This is the RESTful API for managing notification templates in the WSO2 Identity
+    This is the RESTful API for managing notification templates of Organizations in the WSO2 Identity
     Server. This API allows adding, retrieving, replacing, and removing notification
     templates and template types.
 tags:
@@ -23,7 +23,6 @@ tags:
     description: A system default template of a specific type and a language.
 security:
   - OAuth2: []
-  - BasicAuth: []
 paths:
   /notification/email/template-types:
     get:
@@ -34,9 +33,9 @@ paths:
       description: |
         Retrieves all the email template types in the system. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
+      
 
-         
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -58,9 +57,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     post:
       tags:
         - Email Template Types
@@ -72,7 +71,7 @@ paths:
 
         * Attribute _**displayName**_ of the template type should be unique. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       requestBody:
         content:
@@ -106,9 +105,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "displayName": "NewEmailTemplateType",
@@ -122,7 +121,7 @@ paths:
       description: |
         Retrieves the email template type in the system identified by the template-type-id. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
       
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -147,9 +146,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     delete:
       tags:
         - Email Template Types
@@ -160,7 +159,7 @@ paths:
         from the system. <br>
         *Note : System resources are not eligible for deletion. Attempting to delete a system resource will result in a 403 Forbidden error.* <br>
         
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -181,9 +180,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   '/notification/reset-template-type':
     post:
       tags:
@@ -194,7 +193,7 @@ paths:
         Resets an existing template type by deleting all its **user defined** templates
         from the system. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       requestBody:
         content:
@@ -216,9 +215,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/notification/reset-template-type' \
+            'https://localhost:9443/o/api/server/v1/notification/reset-template-type' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "templateTypeId": "YWNjb3VudGNvbmZpcm1hdGlvbg",
@@ -233,7 +232,7 @@ paths:
       description: |
         Retrieves the list of organization email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -261,9 +260,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     post:
       tags:
         - Email Templates
@@ -273,7 +272,7 @@ paths:
         Another organization email template with the same locale should not already exist in the
         respective email template type. <br>
 
-         <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+         <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -311,9 +310,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "contentType": "text/html",
@@ -331,7 +330,7 @@ paths:
       description: |
         Retrieves the list of application email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -360,9 +359,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     post:
       tags:
         - Application Email Templates
@@ -372,7 +371,7 @@ paths:
         Another application email template with the same locale should not already exist in the
         respective email template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -411,9 +410,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "contentType": "text/html",
@@ -431,7 +430,7 @@ paths:
       description: |
         Retrieves the organization email template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -458,9 +457,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     put:
       tags:
         - Email Templates
@@ -469,7 +468,7 @@ paths:
       description: |
         Replaces the organization email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -497,9 +496,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "contentType": "text/html",
@@ -515,7 +514,7 @@ paths:
       description: |
         Removes an organization email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -537,9 +536,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   '/notification/email/template-types/{template-type-id}/system-templates':
     get:
       tags:
@@ -549,7 +548,7 @@ paths:
       description: |
         Retrieves the list of system default email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -576,9 +575,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/system-templates' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/system-templates' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   '/notification/email/template-types/{template-type-id}/system-templates/{locale}':
     get:
       tags:
@@ -588,7 +587,7 @@ paths:
       description: |
         Retrieves the system default email template that matches the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -614,9 +613,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/system-templates/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/system-templates/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   '/notification/email/template-types/{template-type-id}/app-templates/{app-uuid}/{locale}':
     get:
       tags:
@@ -626,7 +625,7 @@ paths:
       description: |
         Retrieves the application email template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -654,9 +653,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     put:
       tags:
         - Application Email Templates
@@ -665,7 +664,7 @@ paths:
       description: |
         Replaces the application email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -694,9 +693,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "contentType": "text/html",
@@ -712,7 +711,7 @@ paths:
       description: |
         Removes an application email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -735,9 +734,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   /notification/sms/template-types:
     get:
       tags:
@@ -747,7 +746,7 @@ paths:
       description: |
         Retrieves all the SMS template types in the system. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       responses:
         '200':
@@ -770,9 +769,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     post:
       tags:
         - SMS Template Types
@@ -784,7 +783,7 @@ paths:
 
         * Attribute _**displayName**_ of the template type should be unique. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_create`
 
       requestBody:
         content:
@@ -818,9 +817,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "displayName": "NewSMSTemplateType",
@@ -834,7 +833,7 @@ paths:
       description: |
         Retrieves the SMS template type in the system identified by the template-type-id. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -859,9 +858,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     delete:
       tags:
         - SMS Template Types
@@ -872,7 +871,7 @@ paths:
         from the system. <br>
         *Note : System resources are not eligible for deletion. Attempting to delete a system resource will result in a 403 Forbidden error.* <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -893,9 +892,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   '/notification/sms/template-types/{template-type-id}/app-templates/{app-uuid}':
     get:
       tags:
@@ -905,7 +904,7 @@ paths:
       description: |
         Retrieves the list of application SMS templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -934,9 +933,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     post:
       tags:
         - Application SMS Templates
@@ -946,7 +945,7 @@ paths:
         Another application SMS template with the same locale should not already exist in the
         respective SMS template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_create`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -985,9 +984,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "body": "SMS Body",
@@ -1002,7 +1001,7 @@ paths:
       description: |
         Retrieves the application SMS template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1030,9 +1029,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     put:
       tags:
         - Application SMS Templates
@@ -1041,7 +1040,7 @@ paths:
       description: |
         Replaces the application SMS template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1070,9 +1069,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "body": "SMS Body"
@@ -1085,7 +1084,7 @@ paths:
       description: |
         Removes a SMS template identified by the template-type-id and the locale. <br>
 
-          <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+          <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1108,9 +1107,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   '/notification/sms/template-types/{template-type-id}/org-templates':
     get:
       tags:
@@ -1120,7 +1119,7 @@ paths:
       description: |
         Retrieves the list of organization SMS templates under the provided templalte type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1148,9 +1147,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     post:
       tags:
         - SMS Templates
@@ -1160,7 +1159,7 @@ paths:
         Another organization SMS template with the same locale should not already exist in the
         respective SMS template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_create`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1198,9 +1197,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "body": "SMS Body",
@@ -1215,7 +1214,7 @@ paths:
       description: |
         Retrieves the organization SMS template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1242,9 +1241,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
     put:
       tags:
         - SMS Templates
@@ -1253,7 +1252,7 @@ paths:
       description: |
         Replaces the organization SMS template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1281,9 +1280,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "body": "SMS Body"
@@ -1296,7 +1295,7 @@ paths:
       description: |
         Removes an organization SMS template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1318,9 +1317,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   '/notification/sms/template-types/{template-type-id}/system-templates':
     get:
       tags:
@@ -1330,7 +1329,7 @@ paths:
       description: |
         Retrieves the list of system default SMS templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1357,9 +1356,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/system-templates' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/system-templates' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
   '/notification/sms/template-types/{template-type-id}/system-templates/{locale}':
     get:
       tags:
@@ -1369,7 +1368,7 @@ paths:
       description: |
         Retrieves the system default SMS template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_org_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -1395,13 +1394,13 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/system-templates/en_US' \
+            'https://localhost:9443/o/api/server/v1/notification/sms/template-types/U01TT1RQ/system-templates/en_US' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization:  Bearer {bearer_token}'
 
 servers:
   # Added by API Auto Mocking Plugin
-  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
+  - url: 'https://localhost:9443/t/{tenant-domain}/o/api/server/v1'
     variables:
       tenant-domain:
         default: unknown
@@ -1480,7 +1479,11 @@ components:
         authorizationCode:
           authorizationUrl: 'https://localhost:9443/oauth2/authorize'
           tokenUrl: 'https://localhost:9443/oauth2/token'
-          scopes: {}
+          scopes:
+            view: internal_org_template_mgt_view
+            create: internal_org_template_mgt_create
+            update: internal_org_template_mgt_update
+            delete: internal_org_template_mgt_delete
   schemas:
     TemplateType:
       type: object
@@ -1494,7 +1497,7 @@ components:
           description: Display name of the template type.
         self:
           type: string
-          example: /t/{tenant-domain}/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg
+          example: /t/{tenant-domain}/o/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg
           description: Location of the created/updated resource.
     TemplateTypeOverview:
       type: object
@@ -1582,7 +1585,7 @@ components:
             Locale of the template.
         self:
           type: string
-          example: /t/{tenant-domain}/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/{{org|app|system}}templates/en_US
+          example: /t/{tenant-domain}/o/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/{{org|app|system}}templates/en_US
           description: Location of the created/updated resource. resource.
     SimpleTemplateTypeID:
       type: object
