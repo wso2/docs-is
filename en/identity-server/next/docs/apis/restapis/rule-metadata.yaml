@@ -37,7 +37,7 @@ paths:
         description: |
           Specifies the flow to retrieve rule metadata. This ensures that the metadata returned is relevant to the given flow.
 
-          Note: At present, only the 'preIssueAccessToken' flow is supported.
+          Note: At present, only the 'preIssueAccessToken' and 'preUpdatePassword' flows are supported.
         required: true
         style: form
         explode: true
@@ -45,7 +45,7 @@ paths:
           type: string
           enum:
           - preIssueAccessToken
-          - prePasswordUpdate
+          - preUpdatePassword
           - preProfileUpdate
           - preLogin
           - postLogin
@@ -106,32 +106,12 @@ paths:
                         displayName: client credentials
                       - name: urn:ietf:params:oauth:grant-type:token-exchange
                         displayName: token exchange
-                prePasswordUpdate:
-                  summary: Sample response for pre-password update flow
+                preUpdatePassword:
+                  summary: Sample response for pre-update password flow
                   value:
-                  - field:
-                      name: initiator
-                      displayName: initiator
-                    operators:
-                    - name: equals
-                      displayName: equals
-                    - name: notEquals
-                      displayName: not equals
-                    value:
-                      inputType: options
-                      valueType: string
-                      values:
-                      - name: user
-                        displayName: user
-                      - name: admin
-                        displayName: admin
-                      - name: application
-                        displayName: application
                   - field:
                       name: flow
                       displayName: flow
-                      dependentFileds:
-                      - initiator
                     operators:
                     - name: equals
                       displayName: equals
@@ -141,10 +121,18 @@ paths:
                       inputType: options
                       valueType: string
                       values:
-                      - name: reset
-                        displayName: reset
-                      - name: update
-                        displayName: update
+                      - name: adminInitiatedPasswordReset
+                        displayName: Admin initiated password reset
+                      - name: adminInitiatedPasswordUpdate
+                        displayName: Admin initiated password update
+                      - name: adminInitiatedUserInviteToSetPassword
+                        displayName: Admin initiated user invite to set password
+                      - name: applicationInitiatedPasswordUpdate
+                        displayName: Application initiated password update
+                      - name: userInitiatedPasswordReset
+                        displayName: User initiated password reset
+                      - name: userInitiatedPasswordUpdate
+                        displayName: User initiated password update                        
                 inLogin:
                   summary: Sample response for login flow
                   value:

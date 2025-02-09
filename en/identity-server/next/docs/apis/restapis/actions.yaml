@@ -35,6 +35,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionTypesResponse'
+              example:
+                - type: PRE_ISSUE_ACCESS_TOKEN
+                  displayName: Pre Issue Access Token
+                  description: This action invokes before issuing an access token.
+                  count: 1
+                  self: "/api/server/v1/actions/preIssueAccessToken"
+                - type: PRE_UPDATE_PASSWORD
+                  displayName: Pre Update Password
+                  description: This action invokes before updating a user password.
+                  count: 1
+                  self: "/api/server/v1/actions/preUpdatePassword"
         '401':
           description: Unauthorized
         '403':
@@ -75,6 +86,66 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ActionModel'
+            examples:
+              preIssueAccessToken:
+                summary: Sample payload for pre issue access token action
+                value:
+                  name: Access Token Pre Issue
+                  description: This action invokes before issuing an access token.
+                  endpoint:
+                    uri: https://myextension.com/token
+                    authentication:
+                      properties:
+                        username: auth_username
+                        password: auth_password
+                      type: BASIC
+                  rule:
+                    condition: OR
+                    rules:
+                    - condition: AND
+                      expressions:
+                      - field: application
+                        operator: equals
+                        value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                      - field: grantType
+                        operator: notEquals
+                        value: authorization_code
+                    - condition: AND
+                      expressions:
+                      - field: grantType
+                        operator: equals
+                        value: client_credentials
+              preUpdatePassword:
+                summary: Sample payload for pre update password action
+                value:
+                  name: Password Update Action
+                  description: This action invokes before updating a user password.
+                  endpoint:
+                    uri: https://myextension.com/pre-update-password
+                    authentication:
+                      properties:
+                        header: x-api-key
+                        value: e12595c1-1435-4bf2-94e8-445135ab505a
+                      type: API_KEY
+                  passwordSharing:
+                    format: SHA256_HASHED
+                    certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                  rule:
+                    condition: OR
+                    rules:
+                    - condition: AND
+                      expressions:
+                      - field: flow
+                        operator: equals
+                        value: adminInitiatedPasswordReset
+                      - field: flow
+                        operator: notEquals
+                        value: adminInitiatedPasswordUpdate
+                    - condition: AND
+                      expressions:
+                      - field: flow
+                        operator: equals
+                        value: userInitiatedPasswordReset
         description: This represents the information of the action to be created.
         required: true
       responses:
@@ -84,6 +155,64 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/token
+                      authentication:
+                        type: BASIC
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: application
+                          operator: equals
+                          value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                        - field: grantType
+                          operator: notEquals
+                          value: authorization_code
+                      - condition: AND
+                        expressions:
+                        - field: grantType
+                          operator: equals
+                          value: client_credentials
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/pre-update-password
+                      authentication:
+                        type: API_KEY
+                    passwordSharing:
+                      format: SHA256_HASHED
+                      certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: adminInitiatedPasswordReset
+                        - field: flow
+                          operator: notEquals
+                          value: adminInitiatedPasswordUpdate
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: userInitiatedPasswordReset
         '400':
           description: Bad Request
           content:
@@ -106,27 +235,49 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        x-codeSamples:
-          - lang: Curl
-            source: |
-              curl --location 'https://localhost:9443/api/server/v1/actions/{actionType}' \
-              -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-              -H 'Content-Type: application/json' \
-              -d '{
-                  "name": "Access Token Pre Issue",
-                  "description": "This is the configuration of pre-action for issuing access token.",
-                  "endpoint": {
-                      "uri": "https://myextension.com/token",
-                      "authentication": {
-                          "properties": {
-                              "username": "auth_username",
-                              "password": "auth_password"
-                          },
-                          "type": "BASIC"
-                      }
-                  }
-              }'
-        x-codegen-request-body-name: body
+      x-codeSamples:
+        - lang: Curl - preIssueAccessToken
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/preIssueAccessToken' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "name": "Access Token Pre Issue",
+                "description": "This is the configuration of pre-action for issuing access token.",
+                "endpoint": {
+                    "uri": "https://myextension.com/token",
+                    "authentication": {
+                        "properties": {
+                            "username": "auth_username",
+                            "password": "auth_password"
+                        },
+                        "type": "BASIC"
+                    }
+                }
+            }'
+        - lang: Curl - preUpdatePassword
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/preUpdatePassword' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "name": "Password Update Action",
+                "description": "This action invokes before updating a user password.",
+                "endpoint": {
+                    "uri": "https://myextension.com/pre-update-password",
+                    "authentication": {
+                        "properties": {
+                            "header": "x-api-key",
+                            "value": "e12595c1-1435-4bf2-94e8-445135ab505a"
+                        },
+                        "type": "API_KEY"
+                    }
+                },
+                "passwordSharing": {
+                    "format": "SHA256_HASHED"
+                }
+            }'
+      x-codegen-request-body-name: body
 
     get:
       tags:
@@ -153,6 +304,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionResponseList'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
         '400':
           description: Bad Request
           content:
@@ -219,6 +395,66 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/token
+                      authentication:
+                        type: BASIC
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: application
+                          operator: equals
+                          value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                        - field: grantType
+                          operator: notEquals
+                          value: authorization_code
+                      - condition: AND
+                        expressions:
+                        - field: grantType
+                          operator: equals
+                          value: client_credentials
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/pre-update-password
+                      authentication:
+                        type: API_KEY
+                    passwordSharing:
+                      format: SHA256_HASHED
+                      certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: adminInitiatedPasswordReset
+                        - field: flow
+                          operator: notEquals
+                          value: adminInitiatedPasswordUpdate
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: userInitiatedPasswordReset
         '400':
           description: Bad Request
           content:
@@ -281,6 +517,53 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ActionUpdateModel'
+            examples:
+              preIssueAccessToken:
+                summary: Sample payload for pre issue access token action update
+                value:
+                  name: Updated Access Token Pre Issue
+                  description: This action invokes before issuing an access token.
+                  endpoint:
+                    uri: https://myextension.com/external/token
+                    authentication:
+                      properties:
+                        token: 346dfbb5-6a8c-447a-9aaa-88fa2dd95962
+                      type: BEARER
+                  rule:
+                    condition: OR
+                    rules:
+                    - condition: AND
+                      expressions:
+                      - field: application
+                        operator: equals
+                        value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                      - field: grantType
+                        operator: notEquals
+                        value: password
+              preUpdatePassword:
+                summary: Sample payload for pre update password action update
+                value:
+                  name: Updated Password Update Action
+                  description: This action invokes before updating a user password.
+                  endpoint:
+                    uri: https://myextension.com/external/pre-update-password
+                    authentication:
+                      properties: {}
+                      type: NONE
+                  passwordSharing:
+                    format: PLAIN_TEXT
+                    certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                  rule:
+                    condition: OR
+                    rules:
+                    - condition: AND
+                      expressions:
+                      - field: flow
+                        operator: equals
+                        value: userInitiatedPasswordReset
+                      - field: flow
+                        operator: notEquals
+                        value: adminInitiatedPasswordUpdate
         description: This represents the action to be updated.
         required: true
       responses:
@@ -290,6 +573,54 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Updated Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/external/token
+                      authentication:
+                        type: BEARER
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: application
+                          operator: equals
+                          value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                        - field: grantType
+                          operator: notEquals
+                          value: password
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Updated Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/external/pre-update-password
+                      authentication:
+                        type: NONE
+                    passwordSharing:
+                      format: PLAIN_TEXT
+                      certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: userInitiatedPasswordReset
+                        - field: flow
+                          operator: notEquals
+                          value: adminInitiatedPasswordUpdate
         '400':
           description: Bad Request
           content:
@@ -319,7 +650,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-codeSamples:
-        - lang: Curl
+        - lang: Curl - preIssueAccessToken
           source: |
             curl --location --request PATCH 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}' \
             -H 'Content-Type: application/json' \
@@ -337,6 +668,26 @@ paths:
                             "value": "sample_value"
                         }
                     }
+                }
+            }'
+        - lang: Curl - preUpdatePassword
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/actions/preUpdatePassword/{actionId}' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "name": "Updated Password Update Action",
+                "description": "This is the configuration of pre-action for updating password",
+                "endpoint": {
+                    "uri": "http://myextensions.com/external/pre-update-password",
+                    "authentication": {
+                        "type": "NONE",
+                        "properties": {}
+                    }
+                },
+                "passwordSharing": {
+                    "format": "PLAIN_TEXT"
                 }
             }'
       x-codegen-request-body-name: body
@@ -428,6 +779,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionBasicResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
         '400':
           description: Bad Request
           content:
@@ -494,16 +870,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionBasicResponse'
-              example:
-                id: "24f64d17-9824-4e28-8413-de45728d8e84"
-                type: "PRE_ISSUE_ACCESS_TOKEN"
-                name: "Access Token Pre Issue"
-                description: "This action is executed before issuing an access token."
-                status: "INACTIVE"
-                links:
-                  - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
-                    method: GET
-                    rel: self
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: INACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: INACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
         '400':
           description: Bad Request
           content:
