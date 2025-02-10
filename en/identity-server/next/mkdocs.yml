@@ -608,7 +608,7 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
-      - Customize:
+      - Customizations:
           - Customize branding:
             - Branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
@@ -617,12 +617,12 @@ nav:
             - Customize email templates: guides/branding/customize-email-templates.md
             - Customize SMS templates: guides/branding/customize-sms-templates.md
             - Localization support: guides/branding/localization.md
-          - Extend with actions:
-            - Understanding actions: guides/customize/actions/understanding-actions.md
-            - Setting up actions: guides/customize/actions/setting-up-actions.md
-            - Action types: 
-              - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
-              - Pre update password action: guides/customize/actions/pre-update-password-action.md
+          - Extend with service extensions:
+            - Understanding service extensions: guides/service-extensions/understanding-service-extensions.md
+            - Pre-flow extensions (Actions):
+              - Setting up an action: guides/service-extensions/pre-flow-extensions/setting-up-actions.md
+              - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
+              - Pre update password action: guides/service-extensions/pre-flow-extensions/pre-update-password-action.md
       - Analytics:
         - ELK Analytics:
           - Elk analytics: guides/analytics/elk-analytics/index.md
