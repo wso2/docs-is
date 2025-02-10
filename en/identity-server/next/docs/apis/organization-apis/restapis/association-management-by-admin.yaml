@@ -14,7 +14,6 @@ servers:
         default: carbon.super
 security:
   - OAuth2: []
-  - BasicAuth: []
 tags:
   - name: admin
     description: |
