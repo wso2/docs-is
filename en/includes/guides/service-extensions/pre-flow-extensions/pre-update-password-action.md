@@ -229,16 +229,16 @@ The response can have three possible states: <code>SUCCESS</code>, <code>FAILED<
 
 <code>SUCCESS</code>: Indicates that the request was processed successfully, and password update is allowed.
 
-<code>FAILED</code>: Represents a selective failure within the password update flow due to password validation logic or business rules enforced by your external service. A 400 (Client Error) response is returned to the application, incorporating the failure message provided by your external service. 
+<code>FAILED</code>: Represents a selective failure within the password update flow due to password validation logic or business rules enforced by your external service. A <code>400 (Client Error)</code> response is returned to the application, incorporating the failure message provided by your external service. 
 
-<code>ERROR</code>: Indicates a processing failure, typically caused by server-side issues. A 500 (Server Error) response is returned to the application.
+<code>ERROR</code>: Indicates a processing failure, typically caused by server-side issues. A <code>500 (Server Error)</code> response is returned to the application.
 
 
 #### Response for SUCCESS state:
 
 When the external service responds with a 200 status code and a SUCCESS state, it indicates that the request was processed correctly and password update is allowed. 
 
-Http Status Code: 200
+Http Status Code: <code>200</code>
 
 <table>
 <thead>
@@ -274,7 +274,7 @@ When the external service returns a 200 OK status code with a <code>FAILED</code
 
 The response body must be a JSON object containing the following properties:
 
-Http Status Code: 200
+Http Status Code: <code>200</code>
 
 <table>
 <thead>
@@ -335,7 +335,7 @@ Content-Type: application/json
 
 When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
 
-Http Status Code: 400, 401 or 500
+Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 
 <table>
 <thead>

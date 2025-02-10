@@ -214,9 +214,15 @@ Your service must respond to the request from {{product_name}} with a JSON paylo
 ### Time out and retry
 
 {% if product_name == "WSO2 Identity Server" %}
-When {{product_name}} calls an external service, it enforces a default read timeout of five seconds and a connection timeout of two seconds. 
+{{product_name}} enforces default timeout limits when calling external services:
+
+- Connection timeout: 2 seconds
+- Read timeout: 5 seconds
 {%else %}
-When {{product_name}} calls an external service, it enforces a default read timeout of three seconds and a connection timeout of two seconds. 
+{{product_name}} enforces default timeout limits when calling external services:
+
+- Connection timeout: 2 seconds
+- Read timeout: 3 seconds
 {%endif %}
 {{product_name}} will attempt at most one retry for the following HTTP status codes received from your service:
 
@@ -354,7 +360,7 @@ diagnostic_log_mode = "full"
 ```
 
 !!!note
-`[server]` is already defined in the `deployment.toml` file. So you just need to add the value.
+    `[server]` is already defined in the `deployment.toml` file. So you just need to add the value.
 
 Additionally, you may use system debug logs to capture similar context information mentioned above. You can enable it component wise by following the steps described [here.]({{base_path}}/deploy/monitor/monitor-logs/#enable-logs-for-a-component)
 
@@ -368,7 +374,7 @@ loggers = org-wso2-carbon-identity-action-execution
 ```
 
 !!!note
-It is highly recommended to disable both diagnostic logs and system debug logs once troubleshooting is completed as it may expose sensitive information included in responses and requests.
+    It is highly recommended to disable both diagnostic logs and system debug logs once troubleshooting is completed as it may expose sensitive information included in responses and requests.
 
 {%else %}
 You may view the diagnostics logs under the logs tab in Asgardeo. [Refer here]({{base_path}}/guides/asgardeo-logs/diagnostic-logs/) to learn more about diagnostic logs in Asgardeo.
