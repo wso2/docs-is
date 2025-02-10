@@ -23,7 +23,10 @@ paths:
   /certificate-validation/revocation-validators:
     get:
       summary: Get all certificate validator configurations
-      description: 'List all certificate validator configurations \n\n <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view` \n\n'
+      description: |
+        List all certificate validator configurations.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view`
       operationId: getCertificateRevocationValidators
       tags:
         - Certificate Revocation Validators
@@ -55,7 +58,10 @@ paths:
   /certificate-validation/revocation-validators/{validatorName}:
     get:
       summary: Get a specific certificate validator configurations
-      description: 'Get certificate validator configuration specified by the name \n\n <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view` \n\n'
+      description: |
+        Get certificate validator configuration specified by the name.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view`
       operationId: getCertificateRevocationValidator
       tags:
         - Certificate Revocation Validators
@@ -102,7 +108,10 @@ paths:
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       summary: Update the certificate validator configurations
-      description: 'Patch certificate validator specified by the name. \n\n <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_update` \n\n'
+      description: |
+        Patch certificate validator specified by the name.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_update`
       operationId: updateCertificateRevocationValidator
       tags:
         - Certificate Revocation Validators
@@ -157,7 +166,10 @@ paths:
   /certificate-validation/ca:
     get:
       summary: Get all ca certificates
-      description: 'List all ca certificates \n\n <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view` \n\n'
+      description: |
+        List all ca certificates.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view`
       operationId: getCACertificates
       tags:
         - Certificate Authority Certificates
@@ -185,7 +197,10 @@ paths:
               -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       summary: Add a new ca certificate
-      description: 'Add a new ca certificate \n\n <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_create` \n\n'
+      description: |
+        Add a new ca certificate.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_create`
       operationId: addCACertificate
       tags:
         - Certificate Authority Certificates
@@ -230,7 +245,10 @@ paths:
   /certificate-validation/ca/{certificate-id}:
     get:
       summary: Get a ca certificate by certificate id
-      description: 'Get ca certificate specified by the certificate id \n\n <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view` \n\n'
+      description: |
+        Get ca certificate specified by the certificate id.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view`
       operationId: getCACertificateById
       tags:
         - Certificate Authority Certificates
@@ -280,7 +298,10 @@ paths:
               }'
     put:
       summary: Update a ca certificate by certificate id
-      description: 'Patch ca certificate specified by the certificate id. \n\n <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_update` \n\n'
+      description: |
+        Patch ca certificate specified by the certificate id.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_update`
       operationId: updateCACertificateById
       tags:
         - Certificate Authority Certificates
@@ -331,7 +352,10 @@ paths:
         x-codegen-request-body-name: body
     delete:
       summary: Delete a ca certificate by id
-      description: 'Delete ca certificate specified by the certificate id \n\n <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_delete` \n\n'
+      description: |
+        Delete ca certificate specified by the certificate id.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_delete`
       operationId: deleteCACertificateById
       tags:
         - Certificate Authority Certificates
