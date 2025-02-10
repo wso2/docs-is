@@ -196,6 +196,13 @@ The key encryption algorithm you select specifies the asymmetric encryption algo
 
 Specifies whether to include the user's attributes in the SAML assertions as part of the attribute statement. You can configure user attributes by navigating to **User Attributes** section in the application.
 
+#### Attribute name format
+
+The attribute name format specifies the type of attribute names used in the attribute statement of SAML assertions. The following are the attribute name format types supported by {{ product_name }}.
+
+- `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
+- `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`
+
 <br>
 
 ### Single Logout Profile
