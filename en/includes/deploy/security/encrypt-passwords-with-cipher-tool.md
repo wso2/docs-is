@@ -198,25 +198,25 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
 
     === "JKS"
 
-    ```toml
-    [keystore.internal]
-    file_name = "internal.jks"
-    type = "JKS"
-    alias = "new_alias"
-    password = "$secret{keystore_password}"
-    key_password = "$secret{keystore_password}"
-    ```
+        ```toml
+        [keystore.internal]
+        file_name = "internal.jks"
+        type = "JKS"
+        alias = "new_alias"
+        password = "$secret{keystore_password}"
+        key_password = "$secret{keystore_password}"
+        ```
 
     === "PKCS12"
 
-    ```toml
-    [keystore.internal]
-    file_name = "internal.p12"
-    type = "PKCS12"
-    alias = "new_alias"
-    password = "$secret{keystore_password}"
-    key_password = "$secret{keystore_password}"
-    ```
+        ```toml
+        [keystore.internal]
+        file_name = "internal.p12"
+        type = "PKCS12"
+        alias = "new_alias"
+        password = "$secret{keystore_password}"
+        key_password = "$secret{keystore_password}"
+        ```
 
 3. Navigate to the `<IS_HOME>/bin/` directory on the command prompt, where the cipher tool scripts reside.
 
