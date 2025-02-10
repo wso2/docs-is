@@ -179,16 +179,35 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
     === "Symmetric encryption"
 
         ```bash
-        keytool -genseckey -alias new_alias -keyalg AES -keysize 256 -keystore internal.p12 -storepass password -keypass password
+        keytool -genseckey -alias new_alias -keyalg AES -keysize 256 -keystore internal.p12 -storetype PKCS12 -storepass password -keypass password
         ```
     
-    === "Asymmetric encryption"
+    === "Asymmetric encryption (JKS)"
 
         ```bash
         keytool -genkeypair -alias new_alias -keyalg RSA -keystore wso2carbon.jks -storepass password -keypass password
         ```
 
+    === "Asymmetric encryption (PKCS12)"
+
+        ```bash
+        keytool -genkeypair -alias new_alias -keyalg RSA -keystore wso2carbon.p12 -storetype PKCS12 -storepass password -keypass password
+        ```
+
 2. Update the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory to reflect the new key or secret alias:
+
+    === "JKS"
+
+    ```toml
+    [keystore.internal]
+    file_name = "internal.jks"
+    type = "JKS"
+    alias = "new_alias"
+    password = "$secret{keystore_password}"
+    key_password = "$secret{keystore_password}"
+    ```
+
+    === "PKCS12"
 
     ```toml
     [keystore.internal]
