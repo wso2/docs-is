@@ -1,15 +1,85 @@
-# Understanding actions
+# Understanding service extensions
 
-Actions allow you to customize specific flows of {{product_name}} by integrating custom code hosted in an external web service. When {{product_name}} initiates a flow, it calls an endpoint provided by the web service and executes the custom code synchronously, as part of the flow. This flexibility enables you to extend and modify a flow's behavior to meet your unique requirements.
+Service extensions allow you to customize specific flows of {{product_name}} by integrating custom code hosted in an external web service. When {{product_name}} initiates a flow, it calls an endpoint provided by the web service and executes the custom code synchronously, as part of the flow. This flexibility enables you to extend and modify a flow's behavior to meet your unique requirements.
 
-## Explore action types
+## Types of service extensions
 
-The capabilities of an action are determined by its execution point within the {{product_name}} runtime.
+Service extensions in {{product_name}} can be broadly categorized into two main types:
 
-{{product_name}} defines several types of actions, each tailored to customize a specific flow within the product. While all action types use the same general syntax for requests and responses exchanged between {{product_name}} and the external web service, they differ in the specifics of the JSON objects involved. When implementing your external service, you must develop your code according to the REST API contract associated with the type of action you are using. The following flows support customization with custom code.
+1. **In-Flow Extensions**:
 
-!!! note
-    Currently, the product supports only the <code>pre issue access token</code> trigger. The other action types listed below are planned for inclusion by early December 2024.
+    These extensions operate within the authentication or registration flow itself.
+    
+    E.g., Create a custom authenticator as an external web service that integrates with a third-party identity provider or implements unique authentication logic and engage that within the login flow for an application.
+
+2. **Pre-Flow Extensions (Actions)**:
+    
+    These extensions execute specific actions before a particular event or flow within {{product_name}}.
+    E.g.,
+
+      - **Pre-issue access token**:
+          - Triggered before an access token is issued.
+          - Allows you to modify claims, perform additional checks, or log relevant information.
+      - **Pre-password update**:
+          - Triggered before a user's password is updated.
+          - Enables you to enforce password complexity rules, notify administrators, or perform other custom logic.
+      - **Pre-profile update**:
+          - Triggered before a user's profile is updated.
+          - Allows you to validate profile data, synchronize with external systems, or trigger notifications.
+
+{% if product_name == "WSO2 Identity Server" %}
+These extension types provide powerful mechanisms to tailor {{product_name}} to your specific requirements and integrate it seamlessly with your existing systems and processes without deploying custom code to the product, extending product internal architecture.
+{%else %}
+These extension types provide powerful mechanisms to tailor {{product_name}} to your specific requirements and integrate it seamlessly with your existing systems and processes.
+{%endif %}
+
+All these extension types use a consistent general syntax for requests and responses exchanged between {{product_name}} and the external web service, they differ in the specifics of the JSON objects involved. When implementing your external service, you must develop your code according to the REST API contract associated with the type of action you are using.
+
+{% if product_name == "WSO2 Identity Server" %}
+The following table lists the extensions currently supported by the product.
+
+<table>
+<thead>
+<tr class="header">
+<th>Flow</th>
+<th>Trigger</th>
+<th>Example use cases</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Login</td>
+<td>Authenticate</td>
+<td>
+<ul>
+<li><p>Call an external service to authenticate the user.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>Token management</td>
+<td>Pre issue access token</td>
+<td>
+<ul>
+<li><p>Prevent tokens from being issued based on policy or change permissions, scopes.</p></li>
+<li><p>Add custom claims to access tokens.</p></li>
+<li><p>Change the access token and refresh token validity based on a rule.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>Password update</td>
+<td>Pre password update</td>
+<td>
+<ul>
+<li><p>Integrate with credential intelligence services to verify the security of password, or check against allowed lists.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+{%else %}
+The following table lists the currently supported extensions and those in the roadmap for future availability.
 
 <table>
 <thead>
@@ -24,12 +94,10 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Login</td>
 <td>Authenticate</td>
-<td>Early November 2024</td>
+<td>End February 2025</td>
 <td>
 <ul>
 <li><p>Call an external service to authenticate the user.</p></li>
-<li><p>Make access decisions based on a risk factor reading obtained from a third party risk engine, or data/grants read from an external service (elevate access, suspend, etc).</p></li>
-<li><p>Prompt for additional inputs required by business systems to verify access.</p></li>
 </ul>
 </td>
 </tr>
@@ -48,7 +116,7 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Registration</td>
 <td>Pre registration</td>
-<td>Early December 2024</td>
+<td>Early May 2025</td>
 <td>
 <ul>
 <li><p>Deny registration by location.</p></li>
@@ -61,10 +129,9 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="even">
 <td>Password update</td>
 <td>Pre password update</td>
-<td>Early November 2024</td>
+<td>Early access (beta)</td>
 <td>
 <ul>
-<li><p>Challenge with an additional verification factor before allowing to update password.</p></li>
 <li><p>Integrate with credential intelligence services to verify the security of password, or check against allowed lists.</p></li>
 </ul>
 </td>
@@ -72,10 +139,9 @@ The capabilities of an action are determined by its execution point within the {
 <tr class="odd">
 <td>Profile update</td>
 <td>Pre profile update</td>
-<td>Early December 2024</td>
+<td>Early April 2025</td>
 <td>
 <ul>
-<li><p>Challenge with an additional verification factor before allowing to update sensitive attributes.</p></li>
 <li><p>Redirect to a third party service for verification.</p></li>
 <li><p>Verify for sanctioned countries, initiate screening processes.</p></li>
 </ul>
@@ -83,18 +149,19 @@ The capabilities of an action are determined by its execution point within the {
 </tr>
 </tbody>
 </table>
+{%endif %}
 
-## How actions work
+## How service extensions work
 
-Each type of action is executed at a specific extension point within a particular runtime flow of {{product_name}}. When an action is triggered, {{product_name}} calls your external service and waits for a response. Upon receiving the response, {{product_name}} performs any specified operations and continues with the flow.
+Each type of action is executed at a specific extension point within a particular runtime flow of {{product_name}}. When an extension is triggered, {{product_name}} calls your external service and waits for a response. Upon receiving the response, {{product_name}} performs any specified operations if applicable and continues with the flow.
 
 The following diagram illustrates the sequence of these steps:
 
 ![how-actions-work]({{base_path}}/assets/img/guides/actions/how-actions-work.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
-### Request from {{product_name}} 
+### Request from {{product_name}}
 
-{{product_name}} sends an HTTPS POST request to your external web service with a JSON payload that includes data relevant to the flow that triggered the action. The request consists of the following components:
+{{product_name}} sends an HTTPS POST request to your external web service with a JSON payload that includes data relevant to the flow that triggered the extension. The request consists of the following components:
 
 <table>
 <thead>
@@ -105,27 +172,33 @@ The following diagram illustrates the sequence of these steps:
 </thead>
 <tbody>
 <tr class="odd">
-        <td>flowId</td>
-        <td>
-        <p>A unique correlation identifier for the flow (e.g., a login process involving input collection, authentication, and two-factor authentication) initiated and executed by {{product_name}}.
-        <div class="admonition note">
-            <p class="admonition-title">note</p>
-            Currently, not all actions incorporate a flowId. The presence of a flowId depends on the type of action and the executed flow.
-        </div>
-        </p>
+<td>flowId</td>
+<td>
+<p>A unique correlation identifier for the flow (e.g., a login process involving input collection, authentication, and two-factor authentication) initiated and executed by {{product_name}}.
+<div class="admonition note">
+<p class="admonition-title">note</p>
+Currently, not all extensions incorporate a flowId. The presence of a flowId depends on the type of extension and the executed flow.
+</div>
+</p>
 </td>
 </tr>
 <tr class="even">
 <td>requestId</td>
-<td><p>A unique correlation identifier that associates the request received by {{product_name}}.</p></td>
+<td>
+<p>A unique correlation identifier that associates the request received by {{product_name}}.</p>
+<div class="admonition note">
+<p class="admonition-title">note</p>
+Currently, not all extensions incorporate a requestId.
+</div>
+</td>
 </tr>
 <tr class="odd">
 <td>actionType</td>
-<td><p>Indicates the execution point within the {{product_name}} runtime where your external service is called. Refer to <a href="#explore-action-types">Explore Action Types</a> for a list of supported trigger points.</p></td>
+<td><p>Indicates the execution point within the {{product_name}} runtime where your external service is called. Refer to <a href="#types-of-service-extensions">Types of service extensions</a> for a list of supported trigger points.</p></td>
 </tr>
 <tr class="even">
 <td>event</td>
-<td><p>Contains context information necessary for your external service to perform state or flow-changing operations. The structure of the event data depends on the type of action.</p></td>
+<td><p>Contains context information necessary for your external service to perform state or flow-changing operations. The structure of the event data depends on the type of extension.</p></td>
 </tr>
 <tr class="odd">
 <td>allowedOperations</td>
@@ -136,11 +209,22 @@ The following diagram illustrates the sequence of these steps:
 
 ### Responses {{product_name}} expects
 
-Your service must handle the action by responding to the request from {{product_name}}. The JSON payload of your response may include different action statuses and can contain an operations object to indicate state or flow changes. The specifics of these statuses and operations depend on the action type.
+Your service must respond to the request from {{product_name}} with a JSON payload that includes an action status. Depending on the extension type, the payload may also include an operations object to indicate state or flow changes, or a data object to provide data for use within the flow. The specific statuses, operations, and data formats depend on the extension type.
 
 ### Time out and retry
 
-When {{product_name}} calls an external service, it enforces a default read timeout of five seconds and a connection timeout of two seconds. {{product_name}} will attempt at most one retry for the following HTTP status codes received from your service:
+{% if product_name == "WSO2 Identity Server" %}
+{{product_name}} enforces default timeout limits when calling external services:
+
+- Connection timeout: 2 seconds
+- Read timeout: 5 seconds
+{%else %}
+{{product_name}} enforces default timeout limits when calling external services:
+
+- Connection timeout: 2 seconds
+- Read timeout: 3 seconds
+{%endif %}
+{{product_name}} will attempt at most one retry for the following HTTP status codes received from your service:
 
 <table>
 <thead>
@@ -173,12 +257,11 @@ If the error response includes an acceptable payload, it is treated as an error 
 </tbody>
 </table>
 
-{% if product_name == "WSO2 Identity Server" %}
-!!! note
-    Refer to [Fine-tune HTTP client connections]({{base_path}}/guides/customize/actions/setting-up-actions/#configuring-http-client-connections) for details on adjusting timeouts, connection pooling, and retries.
-{%endif %}
-
 Requests will not be retried if the external service responds with HTTP status codes 200 (OK), 400 (Bad Request), 401 (Unauthorized), or any other codes not listed above as retry scenarios.
+
+{% if product_name == "WSO2 Identity Server" %}
+{% include "../../../identity-server/next/docs/includes/http-client-connections.md" %}
+{% endif %}
 
 ### Troubleshooting
 
@@ -187,6 +270,7 @@ You can use diagnostic logs to capture detailed information during the troublesh
 Shown below is an example of a diagnostic log generated during the pre-issue access token action flow, while sending a request from {{product_name}} to the external endpoint.
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ```json
 {
   "logId": "582befe9-6114-4362-8fd4-05496e639fb8",
@@ -208,6 +292,7 @@ Shown below is an example of a diagnostic log generated during the pre-issue acc
   "logDetailLevel": "APPLICATION"
 }
 ```
+
 {%else %}
 
 ![Asgardeo logs]({{base_path}}/assets/img/guides/actions/action-diagnostics-logs-in-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

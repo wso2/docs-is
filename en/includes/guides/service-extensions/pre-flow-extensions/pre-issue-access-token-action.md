@@ -13,7 +13,7 @@ You can use this functionality to:
 Once an access token is modified, the changes are persisted as transactional data (for the period access token is active, until it is purged from the underlying data store). In subsequent flows, the modified access token is made available to applications, resource servers, and any actions engaged in later flows. For example, if an access token is modified during the authorization code flow, the same modified access token is used in the refresh token flow.
 
 !!! note
-    Currently, this action can only be applied at the root organization level and is available exclusively for JWT tokens. It supports the following grant types: authorization code, client credentials, password, and refresh token.
+    Currently, this action can only be applied at the root organization level and is available exclusively for <code>JWT</code> tokens. It supports the following grant types: <code>authorization code</code>, <code>client credentials</code>, <code>password</code>, and <code>refresh token</code>.
 
 ## How pre-issue access token action works
 
@@ -342,15 +342,15 @@ The response can have three possible states: <code>SUCCESS</code>, <code>FAILED<
 
 <code>SUCCESS</code>: Indicates that the request was processed successfully, including any state changes or modifications that need to be applied.
 
-<code>FAILED</code>: Represents a selective failure within the token flow due to validation logic or business rules enforced by your external service. A 400 (Client Error) response is returned to the application, incorporating the failure message provided by your external service. It is your responsibility to supply an OAuth 2.0-compliant failure message when extending the flow.
+<code>FAILED</code>: Represents a selective failure within the token flow due to validation logic or business rules enforced by your external service. A <code>400 (Client Error)</code> response is returned to the application, incorporating the failure message provided by your external service. It is your responsibility to supply an OAuth 2.0-compliant failure message when extending the flow.
 
-<code>ERROR</code>: Indicates a processing failure, typically caused by server-side issues. A 500 (Server Error) response is returned to the application.
+<code>ERROR</code>: Indicates a processing failure, typically caused by server-side issues. A <code>500 (Server Error)</code> response is returned to the application.
 
 #### Response for SUCCESS state:
 
 When the external service responds with a 200 status code and a <code>SUCCESS</code> state, it indicates that the request was processed correctly and that any requested modifications to the access token or associated data have been completed. The response should include details about these modifications, typically in the form of an <code>operations</code> object that outlines the changes made to the token's claims, scopes, or other relevant attributes.
 
-Http Status Code: 200
+Http Status Code: <code>200</code>
 
 <table>
 <thead>
@@ -381,7 +381,7 @@ When the external service returns a 200 OK status code with a <code>FAILED</code
 
 The response body must be a JSON object containing the following properties:
 
-Http Status Code: 200
+Http Status Code: <code>200</code>
 
 <table>
 <thead>
@@ -438,7 +438,7 @@ Content-Type: application/json
 
 When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
 
-Http Status Code: 400, 401 or 500
+Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 
 <table>
 <thead>
