@@ -10,32 +10,27 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 
 {% if product_name == "Asgardeo" %}
 
-!!! note "Email branding for B2B applications"
+!!! note "Email templates for B2B applications"
 
-    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured,
-    note that the email branding you configure for your root organization also applies to your organizations.
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    these organizations automatically inherit the email templates of the root organization.
 
 {% elif (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
 
-!!! note "Email branding for B2B applications"
+!!! note "Email templates for B2B applications"
 
-    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured,
-    you can configure email branding for each organization. If you have not configured email branding for a given email
-    template type and locale in an organization, the default {{product_name}} email branding for the given email
-    template type will apply.
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    you can customize email templates to fit the branding needs of each organization. If you do not customize a
+    specific email template, the default email template will be applied.
 
 {% else %}
 
-!!! note "Email branding for B2B applications"
+!!! note "Email templates for B2B applications"
 
-    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured,
-    you can configure email branding for each organization. If you have not configured email branding for a given email
-    template type and locale in an organization, the email branding of your immediate parent organization for the given
-    email template type and locale will be applied. If your parent organization has no email branding for the given
-    email template type and locale, the grandparent organization's email branding for the given email template type and 
-    locale will apply. This will continue all the way until the root organization. If the root organization has no 
-    email branding for the given email template type and locale, the default {{product_name}} email branding for the
-    given email template type will apply.
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    you can customize email templates to fit the branding needs of each organization. If you do not customize a specific
+    template, the email template will be inherited from the closest ancestor organization with defined email template.
+    If no ancestor has defined email template, the default email template will be applied.
 
 {% endif %}
 
