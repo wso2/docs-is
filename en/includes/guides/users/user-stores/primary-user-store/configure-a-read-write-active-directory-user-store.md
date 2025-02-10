@@ -88,7 +88,7 @@ configurations.
       - `http://wso2.org/claims/verifiedAddresses`
       - `http://wso2.org/claims/mobileNumbers`
       - `http://wso2.org/claims/verifiedMobileNumbers`
-      {% if not is_version == "7.0.0" %}
+      {% endif %}
     
     Refer to the [Update Attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) 
     to learn more on updating attribute mappings.  For `created` and `modified` claims, it is recommended to use the 
