@@ -57,13 +57,5 @@
         "page": [
             "guides/users/attributes/configure-unique-attributes.md"
         ]
-    },
-
-    "pre-update-password-action": {
-        "enabled": false,
-        "page": [
-            "references/actions/pre-update-password-action/api-contract.md",
-            "guides/customize/actions/pre-update-password-action.md"
-        ]
     }
 }
