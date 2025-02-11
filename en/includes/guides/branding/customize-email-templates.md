@@ -28,9 +28,9 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 !!! note "Email templates for B2B applications"
 
     If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
-    you can customize email templates to fit the branding needs of each organization. If you do not customize a specific
-    template, the email template will be inherited from the closest ancestor organization with defined email template.
-    If no ancestor has defined email template, the default email template will be applied.
+    you can customize email templates to fit the branding needs of each organization. If you do not customize an 
+    email template for an organization, it will inherit the design from the closest ancestor organization with a customized email template.
+    If no ancestor has customized the particular email template, the default email template will be applied.
 
 {% endif %}
 

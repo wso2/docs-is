@@ -14,9 +14,9 @@ The following topics explain how you can customize SMS notifications that are se
 !!! note "SMS templates for B2B applications"
 
     If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
-    you can customize sms templates to fit the branding needs of each organization. If you do not customize a specific
-    template, the sms template will be inherited from the closest ancestor organization with defined sms template.
-    If no ancestor has defined sms template, the default sms template will be applied.
+    you can customize sms templates to fit the branding needs of each organization. If you do not customize an 
+    sms template for an organization, it will be inherit the design from the closest ancestor organization with a customized sms template.
+    If no ancestor has customized the particular sms template, the default sms template will be applied.
 
 {% endif %}
 
