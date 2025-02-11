@@ -2,6 +2,8 @@
 
 Organization administrators can add users to their organization using the following methods.
 
+- Onboard users from
+
 !!! note "Before you begin"
 
     - Make sure you have created an organization in {{product_name}} and onboarded an administrator. See how to [create an organization]({{base_path}}/guides/organization-management/) and [onboard admins]({{base_path}}/guides/organization-management/onboard-org-admins/).
