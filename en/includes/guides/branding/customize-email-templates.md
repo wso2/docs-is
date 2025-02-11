@@ -8,10 +8,34 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 
 {{email_template_note}}
 
-The branding variables that affect the email templates are as follows:
+{% if product_name == "Asgardeo" %}
 
-!!! note "Email branding for B2B applications"
-    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured, note that the email branding you configure for your organization (root) also applies to your organizations.
+!!! note "Email templates for B2B applications"
+
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    these organizations automatically inherit the email templates of the root organization.
+
+{% elif (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
+
+!!! note "Email templates for B2B applications"
+
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    you can customize email templates to fit the branding needs of each organization. If you do not customize a
+    specific email template, the default email template will be applied.
+
+{% else %}
+
+!!! note "Email templates for B2B applications"
+
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    you can customize email templates to fit the branding needs of each organization. If you do not customize an 
+    email template for an organization, it will inherit the design from the closest ancestor organization with a
+    customized email template. If no ancestor has customized the particular email template, the default email template
+    will be applied.
+
+{% endif %}
+
+The branding variables that affect the email templates are as follows:
 
 ![Branding email templates]({{base_path}}/assets/img/guides/branding/email-branding.png)
 
