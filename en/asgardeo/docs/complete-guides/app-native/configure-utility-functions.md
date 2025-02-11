@@ -29,7 +29,7 @@ const getEnvVariables = () => {
     const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
     const clientSecret = process.env.NEXT_PUBLIC_CLIENT_SECRET;
 
-    if (!organizationName || !scope || !clientId || !redirectUri) {
+    if (!organizationName || !scope || !clientId || !clientSecret || !redirectUri) {
         throw new Error("Missing required environment variables");
     }
 

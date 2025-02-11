@@ -37,7 +37,6 @@ Once the application is created, navigate to the `Protocol` tab and add the foll
 
 ```shell
 http://localhost:3000/api/auth/callback/google
-http://localhost:3000
 ```
 
 Then configure `http://localhost:3000` as the `Allowed origin` and click on the `Update` button to save the changes.
