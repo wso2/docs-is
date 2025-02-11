@@ -29,8 +29,9 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 
     If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
     you can customize email templates to fit the branding needs of each organization. If you do not customize an 
-    email template for an organization, it will inherit the design from the closest ancestor organization with a customized email template.
-    If no ancestor has customized the particular email template, the default email template will be applied.
+    email template for an organization, it will inherit the design from the closest ancestor organization with a
+    customized email template. If no ancestor has customized the particular email template, the default email template
+    will be applied.
 
 {% endif %}
 
