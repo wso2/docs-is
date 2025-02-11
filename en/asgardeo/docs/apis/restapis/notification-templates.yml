@@ -1,0 +1,1310 @@
+openapi: 3.0.0
+info:
+  title: "Asgardeo - Notification Templates API"
+  version: 1.0.0
+  description: >-
+    This is the RESTful API for managing notification templates in the WSO2 Identity
+    Server. This API allows adding, retrieving, replacing, and removing notification
+    templates and template types.
+tags:
+  - name: Email Template Types
+    description: An email template type can have multiple email templates for different languages.
+  - name: Email Templates
+    description: An email template of a specific type and a language.
+  - name: Application Email Templates
+    description: An application email template of a specific type and a language.
+  - name: SMS Template Types
+    description: A SMS template type can have multiple SMS templates for different languages.
+  - name: SMS Templates
+    description: A SMS template of a specific type and a language.
+  - name: Application SMS Templates
+    description: An application email template of a specific type and a language.
+  - name: System Templates
+    description: A system default template of a specific type and a language.
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /notification/email/template-types:
+    get:
+      tags:
+        - Email Template Types
+      summary: Retrieves all the email template types.
+      operationId: getAllEmailTemplateTypes
+      description: |
+        Retrieves all the email template types in the system. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+
+         
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TemplateTypeWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Email Template Types
+      summary: Adds a new email template type.
+      operationId: addEmailTemplateType
+      description: |
+        Adds a new email template type to the system. An email template type can have any number of 
+        organization or application email templates. <br>
+
+        * Attribute _**displayName**_ of the template type should be unique. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create` / `internal_template_mgt_update`
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateTypeOverview'
+        description: Email template type to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            self:
+              description: Location of the newly created email template type.
+              schema:
+                type: string
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/TemplateTypeWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/email/template-types/{template-type-id}':
+    get:
+      tags:
+        - Email Template Types
+      summary: Retrieves the email template type corresponding to the template type id.
+      operationId: getEmailTemplateType
+      description: |
+        Retrieves the email template type in the system identified by the template-type-id. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+      
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/TemplateTypeWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - Email Template Types
+      summary: Removes an email template type.
+      operationId: deleteEmailTemplateType
+      description: |
+        Removes an existing email template type with all its email templates
+        from the system. <br>
+        *Note : System resources are not eligible for deletion. Attempting to delete a system resource will result in a 403 Forbidden error.* <br>
+        
+        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/reset-template-type':
+    post:
+      tags:
+        - Functions
+      summary: Resets an template type.
+      operationId: resetTemplateType
+      description: |
+        Resets an existing template type by deleting all its **user defined** templates
+        from the system. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimpleTemplateTypeID'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/email/template-types/{template-type-id}/org-templates':
+    get:
+      tags:
+        - Email Templates
+      summary: Retrieves the list of organization email templates under the provided template type.
+      operationId: getAllOrgTemplatesOfEmailTemplateType
+      description: |
+        Retrieves the list of organization email templates under the provided template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Email Templates
+      summary: Adds a new organization email template to an existing email template type.
+      operationId: addOrgEmailTemplate
+      description: |
+        Another organization email template with the same locale should not already exist in the
+        respective email template type. <br>
+
+         <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateWithID'
+        description: Email template to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            Location:
+              description: Location of the newly created email template.
+              schema:
+                type: string
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/email/template-types/{template-type-id}/app-templates/{app-uuid}':
+    get:
+      tags:
+        - Application Email Templates
+      summary: Retrieves the list of application email templates under the provided template type.
+      operationId: getAllAppTemplatesOfEmailTemplateType
+      description: |
+        Retrieves the list of application email templates under the provided template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Application Email Templates
+      summary: Adds a new application email template to an existing email template type.
+      operationId: addAppEmailTemplate
+      description: |
+        Another application email template with the same locale should not already exist in the
+        respective email template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create` / `internal_template_mgt_update`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateWithID'
+        description: Email template to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            Location:
+              description: Location of the newly created email template.
+              schema:
+                type: string
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/email/template-types/{template-type-id}/org-templates/{locale}':
+    get:
+      tags:
+        - Email Templates
+      summary: Retrieves a single organization email template.
+      operationId: getOrgEmailTemplate
+      description: |
+        Retrieves the organization email template that matches to the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EmailTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+        - Email Templates
+      summary: Replaces an existing organization email template.
+      operationId: updateOrgEmailTemplate
+      description: |
+        Replaces the organization email template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_update` / `internal_template_mgt_update`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplate'
+        description: Updated email template for the template type.
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - Email Templates
+      summary: Removes an organization email template.
+      operationId: deleteOrgEmailTemplate
+      description: |
+        Removes an organization email template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/email/template-types/{template-type-id}/system-templates':
+    get:
+      tags:
+        - System Templates
+      summary: Retrieves the system email templates of template type.
+      operationId: getAllSystemTemplatesOfEmailTemplateType
+      description: |
+        Retrieves the list of system default email templates under the provided template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/email/template-types/{template-type-id}/system-templates/{locale}':
+    get:
+      tags:
+        - System Templates
+      summary: Retrieves the default email template for given type and locale.
+      operationId: getSystemEmailTemplate
+      description: |
+        Retrieves the system default email template that matches the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EmailTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/email/template-types/{template-type-id}/app-templates/{app-uuid}/{locale}':
+    get:
+      tags:
+        - Application Email Templates
+      summary: Retrieves a single email template of application.
+      operationId: getAppEmailTemplate
+      description: |
+        Retrieves the application email template that matches to the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EmailTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+        - Application Email Templates
+      summary: Replaces an existing application email template.
+      operationId: updateAppEmailTemplate
+      description: |
+        Replaces the application email template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_update` / `internal_template_mgt_update`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplate'
+        description: Email templates for the template type.
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - Application Email Templates
+      summary: Removes an application email template.
+      operationId: deleteAppEmailTemplate
+      description: |
+        Removes an application email template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /notification/sms/template-types:
+    get:
+      tags:
+        - SMS Template Types
+      summary: Retrieves all the SMS template types.
+      operationId: getAllSMSTemplateTypes
+      description: |
+        Retrieves all the SMS template types in the system. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TemplateTypeWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - SMS Template Types
+      summary: Adds a new SMS template type.
+      operationId: addSMSTemplateType
+      description: |
+        Adds a new SMS template type to the system. A SMS template type can have any number of 
+        organization or application SMS templates. <br>
+
+        * Attribute _**displayName**_ of the template type should be unique. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateTypeOverview'
+        description: SMS template type to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            self:
+              description: Location of the newly created SMS template type.
+              schema:
+                type: string
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/TemplateTypeWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/sms/template-types/{template-type-id}':
+    get:
+      tags:
+        - SMS Template Types
+      summary: Retrieves the SMS template type corresponding to the template type id.
+      operationId: getSMSTemplateType
+      description: |
+        Retrieves the SMS template type in the system identified by the template-type-id. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/TemplateTypeWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - SMS Template Types
+      summary: Removes a SMS template type.
+      operationId: deleteSMSTemplateType
+      description: |
+        Removes an existing SMS template type with all its SMS templates
+        from the system. <br>
+        *Note : System resources are not eligible for deletion. Attempting to delete a system resource will result in a 403 Forbidden error.* <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/sms/template-types/{template-type-id}/app-templates/{app-uuid}':
+    get:
+      tags:
+        - Application SMS Templates
+      summary: Retrieves the list of application SMS templates under the provided template type.
+      operationId: getAllAppTemplatesOfSMSTemplateType
+      description: |
+        Retrieves the list of application SMS templates under the provided template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Application SMS Templates
+      summary: Adds a new application SMS template to an existing SMS template type.
+      operationId: addAppSMSTemplate
+      description: |
+        Another application SMS template with the same locale should not already exist in the
+        respective SMS template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSTemplateWithID'
+        description: SMS template to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            Location:
+              description: Location of the newly created SMS template.
+              schema:
+                type: string
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/sms/template-types/{template-type-id}/app-templates/{app-uuid}/{locale}':
+    get:
+      tags:
+        - Application SMS Templates
+      summary: Retrieves a single SMS template of application.
+      operationId: getAppSMSTemplate
+      description: |
+        Retrieves the application SMS template that matches to the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SMSTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+        - Application SMS Templates
+      summary: Replaces an existing application SMS template.
+      operationId: updateAppSMSTemplate
+      description: |
+        Replaces the application SMS template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSTemplate'
+        description: Application SMS template for the template type and locale.
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - Application SMS Templates
+      summary: Removes a SMS template.
+      operationId: deleteAppSMSTemplate
+      description: |
+        Removes a SMS template identified by the template-type-id and the locale. <br>
+
+          <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/sms/template-types/{template-type-id}/org-templates':
+    get:
+      tags:
+        - SMS Templates
+      summary: Retrieves the list of organization SMS templates under the provided template type.
+      operationId: getAllOrgTemplatesOfSMSTemplateType
+      description: |
+        Retrieves the list of organization SMS templates under the provided templalte type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - SMS Templates
+      summary: Adds a new organization SMS template to an existing SMS template type.
+      operationId: addOrgSMSTemplate
+      description: |
+        Another organization SMS template with the same locale should not already exist in the
+        respective SMS template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_create`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSTemplateWithID'
+        description: SMS template to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            Location:
+              description: Location of the newly created SMS template.
+              schema:
+                type: string
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/sms/template-types/{template-type-id}/org-templates/{locale}':
+    get:
+      tags:
+        - SMS Templates
+      summary: Retrieves a single organization SMS template.
+      operationId: getOrgSMSTemplate
+      description: |
+        Retrieves the organization SMS template that matches to the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SMSTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+        - SMS Templates
+      summary: Replaces an existing organization SMS template.
+      operationId: updateOrgSMSTemplate
+      description: |
+        Replaces the organization SMS template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSTemplate'
+        description: Updated SMS template for the template type.
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - SMS Templates
+      summary: Removes an organization SMS template.
+      operationId: deleteOrgSMSTemplate
+      description: |
+        Removes an organization SMS template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/sms/template-types/{template-type-id}/system-templates':
+    get:
+      tags:
+        - System Templates
+      summary: Retrieves the list of system SMS templates with the template type id.
+      operationId: getAllSystemTemplatesOfSMSTemplateType
+      description: |
+        Retrieves the list of system default SMS templates under the provided template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  '/notification/sms/template-types/{template-type-id}/system-templates/{locale}':
+    get:
+      tags:
+        - System Templates
+      summary: Retrieves the default organization SMS template.
+      operationId: getSystemSMSTemplate
+      description: |
+        Retrieves the system default SMS template that matches to the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SMSTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+servers:
+  # Added by API Auto Mocking Plugin
+  - url: 'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: unknown
+
+components:
+  parameters:
+    templateTypeIdPathParam:
+      in: path
+      name: template-type-id
+      required: true
+      description: Template Type ID.
+      schema:
+        type: string
+    localePathParam:
+      in: path
+      name: locale
+      required: true
+      description: This should be a valid locale.
+      schema:
+        type: string
+    appUuidPathParam:
+      in: path
+      name: app-uuid
+      required: true
+      description: Application UUID.
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: The specified resource is not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized.
+    Forbidden:
+      description: Forbidden.
+    ServerError:
+      description: Internal Server Error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Invalid input request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Item Already Exists.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Deleted:
+      description: Item/s Deleted.
+    Updated:
+      description: Item Updated.
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://api.asgardeo.io/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/oauth2/token'
+          scopes: {}
+  schemas:
+    TemplateType:
+      type: object
+      required:
+        - displayName
+        - self
+      properties:
+        displayName:
+          type: string
+          example: Account Confirmation
+          description: Display name of the template type.
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg
+          description: Location of the created/updated resource.
+    TemplateTypeOverview:
+      type: object
+      required:
+        - displayName
+      properties:
+        displayName:
+          type: string
+          example: Account Confirmation
+          description: Display name of the template type.
+    TemplateTypeWithID:
+      allOf:
+        - $ref: '#/components/schemas/TemplateType'
+        - required:
+            - id
+          properties:
+            id:
+              type: string
+              example: YWNjb3VudGNvbmZpcm1hdGlvbg
+              description: Unique ID of the template type.
+    EmailTemplate:
+      type: object
+      required:
+        - contentType
+        - subject
+        - body
+      properties:
+        contentType:
+          type: string
+          example: text/html
+          description: Content type of the email template.
+        subject:
+          type: string
+          example: WSO2 - Account Confirmation
+          description: The subject of the email.
+        body:
+          type: string
+          example: HTML Body
+          description: The body of the email.
+        footer:
+          type: string
+          example: WSO2 Identity Server Team
+          description: The footer of the email.
+    EmailTemplateWithID:
+      allOf:
+        - $ref: '#/components/schemas/EmailTemplate'
+        - required:
+            - locale
+          properties:
+            locale:
+              type: string
+              example: en_US
+              description: >-
+                Locale of the email template.
+    SMSTemplate:
+      type: object
+      required:
+        - body
+      properties:
+        body:
+          type: string
+          example: SMS Body
+          description: The body of the SMS.
+    SMSTemplateWithID:
+      allOf:
+        - $ref: '#/components/schemas/SMSTemplate'
+        - required:
+            - locale
+          properties:
+            locale:
+              type: string
+              example: en_US
+              description: >-
+                Locale of the SMS template.
+    SimpleTemplate:
+      type: object
+      required:
+        - locale
+        - self
+      properties:
+        locale:
+          type: string
+          example: en_US
+          description: >-
+            Locale of the template.
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v1/notification/{{email|sms}}/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/{{org|app|system}}templates/en_US
+          description: Location of the created/updated resource. resource.
+    SimpleTemplateTypeID:
+      type: object
+      required:
+        - templateTypeId
+        - channel
+      properties:
+        templateTypeId:
+          type: string
+          example: YWNjb3VudGNvbmZpcm1hdGlvbg
+          description: Unique ID of the template type.
+        channel:
+          type: string
+          example: EMAIL
+          description: Notification channel of the template type (SMS or EMAIL).
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: NTM-50000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: TR0001

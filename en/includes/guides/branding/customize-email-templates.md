@@ -8,10 +8,34 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 
 {{email_template_note}}
 
-The branding variables that affect the email templates are as follows:
+{% if product_name == "Asgardeo" %}
 
-!!! note "Email branding for B2B applications"
-    If you have [organizations]({{base_path}}/guides/organization-management/manage-organizations/) configured, note that the email branding you configure for your organization (root) also applies to your organizations.
+!!! note "Email templates for B2B applications"
+
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    these organizations automatically inherit the email templates of the root organization.
+
+{% elif (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
+
+!!! note "Email templates for B2B applications"
+
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    you can customize email templates to fit the branding needs of each organization. If you do not customize a
+    specific email template, the default email template will be applied.
+
+{% else %}
+
+!!! note "Email templates for B2B applications"
+
+    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
+    you can customize email templates to fit the branding needs of each organization. If you do not customize an 
+    email template for an organization, it will inherit the design from the closest ancestor organization with a
+    customized email template. If no ancestor has customized the particular email template, the default email template
+    will be applied.
+
+{% endif %}
+
+The branding variables that affect the email templates are as follows:
 
 ![Branding email templates]({{base_path}}/assets/img/guides/branding/email-branding.png)
 
@@ -95,13 +119,13 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 !!! warning "Apply changes to user profiles"
     To apply these changes to each user's profile in your organization:
 
-    1. Display the `local` attribute on the user's profile. Learn more on [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
+    1. Display the `local` attribute on the user's profile. Learn how to do so in [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
 
-    2. Update the `local` attribute value with the [required locale code]({{base_path}}/guides/branding/{{ localization_doc_path }}/#supported-languages).
+    2. Update the `local` attribute value with the [required locale code]({{base_path}}/guides/branding/{{ localization_doc_path }}/#supported-languages). The value should be updated by,
 
-        - If the admin onboards the user to the organization, the admin is responsible for updating the locale code.
+        - the admin, if the admin onboards the user to the organization.
 
-        - If the user self-registers, they should update the locale code by themselves at the time of registration.
+        - the user, if the user self-registers to the organization.
 
 Alternatively, you can customize the content of email templates using the [Email Templates API]({{base_path}}/apis/{{ email_templates_api_path }}/) provided by {{ product_name }}.
 

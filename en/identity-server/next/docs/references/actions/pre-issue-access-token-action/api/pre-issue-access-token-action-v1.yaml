@@ -5,7 +5,7 @@ info:
   version: v1
   contact:
     name: WSO2
-    url: 'https://wso2.com/products/identity-server/'
+    url: 'https://wso2.com/identity-server/'
   license:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'

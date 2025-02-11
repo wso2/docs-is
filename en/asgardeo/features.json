@@ -1,4 +1,20 @@
 {
+    "operational-policies": {
+        "enabled": false,
+        "page": [
+            "references/operational-policies.md"
+        ]
+    },
+    
+    "sms-templates": {
+        "enabled": false,
+        "page": [
+            "guides/branding/customize-sms-templates.md",
+            "apis/notification-templates.md",
+            "references/sms-templates.md"
+        ]
+    },
+    
     "sift_fraud_detection": {
         "enabled": true,
         "page": [
@@ -24,6 +40,16 @@
             "guides/authentication/sso-integrations/add-zoom-template.md",
             "guides/authentication/sso-integrations/add-slack-template.md"
         ]
+    },
+
+    "password_expiry_time": {
+        "enabled": false,
+        "page": []
+    },
+
+    "shared_user_profile": {
+        "enabled": false,
+        "page": []
     },
 
     "attribute_uniqueness_validation": {

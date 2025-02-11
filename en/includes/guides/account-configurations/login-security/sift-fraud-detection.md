@@ -13,7 +13,7 @@ You need to have an already configured Sift environment and have access to the S
 Follow the steps below to register Sift in Asgardeo.
 
 1. On the Asgardeo Console, go to **Login and Registration**.
-2. Under **Login Security**, select **Sift Connector**.
+2. Under **Login Security**, select **Fraud Detection**.
 3. Enter the API key for the Sift platform and click **Update**.
 
 ## Enable Sift fraud detection in applications
@@ -119,12 +119,12 @@ Follow the steps given below to try it out:
 
 ### Enable Logging
 
-Including `"isLoggingEnabled": true` as an additional parameter in the functions activates logging for Sift fraud detection. When used with `getSiftRiskScoreForLogin`, it logs the payload sent to Sift and the risk score returned by Sift, and when applied to `publishLoginEventToSift`, it logs the payload sent to Sift.
+Including `"loggingEnabled": true` as an additional parameter in the functions activates logging for Sift fraud detection. When used with `getSiftRiskScoreForLogin`, it logs the payload sent to Sift and the risk score returned by Sift, and when applied to `publishLoginEventToSift`, it logs the payload sent to Sift.
 
 ```javascript
 var additionalParams = {
     ---
-    "$isLoggingEnabled": true
+    "$loggingEnabled": true
     ---
 }
 ```

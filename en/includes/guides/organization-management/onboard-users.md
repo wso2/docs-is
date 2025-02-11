@@ -2,6 +2,8 @@
 
 Organization administrators can add users to their organization using the following methods.
 
+- Onboard users from
+
 !!! note "Before you begin"
 
     - Make sure you have created an organization in {{product_name}} and onboarded an administrator. See how to [create an organization]({{base_path}}/guides/organization-management/) and [onboard admins]({{base_path}}/guides/organization-management/onboard-org-admins/).
@@ -14,13 +16,21 @@ Organization administrators can use the Console to create users in the organizat
 - To add a single user, follow this [guide]({{base_path}}/guides/users/manage-users/#onboard-single-user).
 - To add multiple users, follow this [guide]({{base_path}}/guides/users/manage-users/#onboard-multiple-users).
 
-{% if is_version != "7.0.0" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 ## Onboard users from a secondary user store
 
 Organization administrators can configure multiple secondary user stores for the organization. Once configured, users from the secondary user stores can log into the organization and perform operations permitted by the roles assigned to them.
 
+{% if product_name == "Asgardeo" %}
+
+- To connect a secondary user store, follow this [guide]({{base_path}}/guides/users/user-stores/configure-a-user-store/).
+
+{% else %}
+
 - To connect a secondary user store, follow this [guide]({{base_path}}/guides/users/user-stores/configure-secondary-user-stores/).
+
+{% endif %}
 
 {% endif %}
 

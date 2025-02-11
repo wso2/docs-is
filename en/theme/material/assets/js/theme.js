@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023-2024, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2023-2025, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -17,6 +17,8 @@
  */
 
 const dropdown = document.querySelector('.md-header__version-select-dropdown');
+const activeNavItems =
+  document.querySelectorAll('.md-nav__list > .md-nav__item.md-nav__item--active.md-nav__item--nested');
 
 if (dropdown) {
   // Add a click event listener to the document
@@ -37,7 +39,7 @@ if (dropdown) {
   });
 }
 
-// Add a class to tasb that has multiple child elements rather than a code block
+// Add a class to content tabs that has multiple child elements rather than a code block
 document.querySelectorAll('.tabbed-content').forEach(tabbedContent => {
   const tabbedBlocks = Array.from(tabbedContent.querySelectorAll('.tabbed-block'));
   
@@ -49,4 +51,29 @@ document.querySelectorAll('.tabbed-content').forEach(tabbedContent => {
   if (shouldAddClass) {
     tabbedContent.classList.add('tab_with_no_code');
   }
+});
+
+// Toggle active state of nested nav items
+if (activeNavItems) {
+  activeNavItems.forEach((item) => {
+    const checkbox = item.querySelector('input[type="checkbox"].md-nav__toggle.md-toggle');
+    
+    if (checkbox) {
+      checkbox.checked = true;
+    }
+  });
+}
+
+// Set last vsited valid page in session storage
+window.addEventListener("DOMContentLoaded", function () {
+  fetch(window.location.href, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    if (response.status !== 404) {
+      sessionStorage.setItem("lastValidPage", window.location.href);
+    }
+  });
 });

@@ -9,3 +9,7 @@ Role Based Access Control (RBAC) lets organizations grant limited access to its 
 ## User impersonation
 
 User impersonation involves granting temporary access to another user's account. Learn how to implement it in [User impersonation]({{base_path}}/guides/authorization/user-impersonation/).
+
+## Rich authorization requests
+
+Rich Authorization Requests (RAR) (RFC 9396) enhance authorization mechanisms by allowing clients to specify fine-grained authorization details. Learn how to use it in [Rich Authorization Requests]({{base_path}}/guides/authorization/rich-authorization-requests/).

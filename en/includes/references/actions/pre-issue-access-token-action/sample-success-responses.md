@@ -1,6 +1,6 @@
 # Sample success responses for pre-issue access token action
 
-In this section, you'll find examples of success responses for various scenarios involving access token modifications. These samples demonstrate how to structure your responses based on different types of operations, ensuring that your external service interacts correctly with {{product_name}} during the [pre-issue access token action]({{base_path}}/guides/customize/actions/pre-issue-access-token-action/).
+In this section, you'll find examples of success responses for various scenarios involving access token modifications. These samples demonstrate how to structure your responses based on different types of operations, ensuring that your external service interacts correctly with {{product_name}} during the [pre-issue access token action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action/).
 
 ## Adding a custom claim to the access token
 

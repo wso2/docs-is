@@ -1,6 +1,6 @@
-## Fine-tune HTTP client connections
+#### Configuring HTTP Client Timeout and Retry Settings
 
-To fine-tune connections initiated by WSO2 Identity Server to external services, you may add the following configurations to the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory 
+To configure the timeout periods and retry counts for HTTP client connections initiated by WSO2 Identity Server to external services, add the following configurations to the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory:
 
 <table>
 <thead>
@@ -30,7 +30,7 @@ To fine-tune connections initiated by WSO2 Identity Server to external services,
 </tr>
 <tr class="odd">
 <td>http_client.retry_count</td>
-<td><p>Number of retry attempts made in case of a failure. Refer to the <a href="{{base_path}}/guides/customize/actions/understanding-actions/#time-out-and-retry">list of http codes</a> that trigger retries.</p></td>
+<td><p>Number of retry attempts made in case of a failure. Refer to the <a href="{{base_path}}/guides/service-extensions/understanding-service-extensions/#time-out-and-retry">list of http codes</a> that trigger retries.</p></td>
 </tr>
 </tbody>
 </table>

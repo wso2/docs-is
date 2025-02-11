@@ -1088,6 +1088,14 @@ components:
             - WITHIN_USERSTORE
             - ACROSS_USERSTORES
           example: "NONE"
+        sharedProfileValueResolvingMethod:
+          type: string
+          description: Specifies claim value resolving method for shared user profile.
+          enum:
+            - FromOrigin
+            - FromSharedProfile
+            - FromFirstFoundInHierarchy
+          example: "FromOrigin"
         attributeMapping:
           type: array
           description: Userstore attribute mappings.
@@ -1152,6 +1160,14 @@ components:
             - WITHIN_USERSTORE
             - ACROSS_USERSTORES
           example: "NONE"
+        sharedProfileValueResolvingMethod:
+          type: string
+          description: Specifies claim value resolving method for shared user profile.
+          enum:
+            - FromOrigin
+            - FromSharedProfile
+            - FromFirstFoundInHierarchy
+          example: "FromOrigin"
         attributeMapping:
           type: array
           description: Userstore attribute mappings.
