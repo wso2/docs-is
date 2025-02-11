@@ -11,17 +11,8 @@
 
 WSO2 Identity Server provides default keystore and truststore files:
 
-{% if is_version == "7.0.0" %}
-
-- `wso2carbon.jks`: The default keystore that includes a private key and a self-signed certificate.
-- `client-truststore.jks`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.jks.
-
-{% else %}
-
-- `wso2carbon.p12`: The default keystore that includes a private key and a self-signed certificate.
-- `client-truststore.p12`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.jks.
-
-{% endif %}
+- `wso2carbon.{{default_keystore_ext}}`: The default keystore that includes a private key and a self-signed certificate.
+- `client-truststore.{{default_keystore_ext}}`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.{{default_keystore_ext}}.
 
 These files are originally located in the `<IS_HOME>/repository/resources/security` folder. The file settings can be configured by specifying them in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder as follows.
 
@@ -162,44 +153,25 @@ To add a key,
     === "Format"
 
         ```bash
-        keytool -genkey -alias <PUBLIC_CERTIFICATE_ALIAS> -keyalg RSA -keysize 2048 -keystore <KEYSTORE_NAME> -dname "CN=<<Common Name>>,OU=<<Organization Unit>>,O=<<Organization>>,L=<<Locality>>,S=<<StateofProvice Name>>,C=<<Country Name>>"-storepass <KEYSTORE_PASSWORD> -keypass <PRIVATE_KEY_PASSWORD>
+        keytool -genkey -alias <public_certificate_alias> -keyalg RSA -keysize 2048 -keystore <keystore_name> -storetype <keystore_type> -dname "CN=<<Common Name>>,OU=<<Organization Unit>>,O=<<Organization>>,L=<<Locality>>,S=<<StateofProvice Name>>,C=<<Country Name>>"-storepass <keystore_password> -keypass <private_key_password>
         ```
 
-    === "Sample keytool command"
+    === "Sample command (JKS)"
 
         ``` bash
         keytool -genkey -alias newkey -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=localhost, OU=IT,O={{base_path}},L=SL,S=WS,C=LK" -storepass wso2carbon -keypass wso2carbon
+        ```
+
+    === "Sample command (PKCS12)"
+
+        ``` bash
+        keytool -genkey -alias newkey -keyalg RSA -keysize 2048 -keystore wso2carbon.p12 -storetype PKCS12 -dname "CN=localhost, OU=IT,O={{base_path}},L=SL,S=WS,C=LK" -storepass wso2carbon -keypass wso2carbon
         ```
 
     !!! tip  
         If you are planning to delete the newly added keys in the future, it is recommended to maintain separate keystores for internal and external encryption purposes.
 
 This newly added key can be used for different purposes.
-
-!!! abstract ""
-    **Example**
-
-    Follow the instructions given below to set the newly added key as the primary encrypting and signing key:
-
-    1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
-
-    {% if is_version == "7.0.0" %}
-
-    2. Update the `alias` parameter under the `[keystore.primary]` element with the new keystore `alias`.
-            
-        ```toml
-        [keystore.primary]
-        alias= "newKey"
-        ```
-    {% else %}
-
-    2. Update the `alias` parameter under the `[keystore.tls]` element with the new keystore `alias`.
-            
-        ```toml
-        [keystore.tls]
-        alias= "newKey"
-        ```
-    {% endif %}
 
 {% if not is_version == "7.0.0" %}
 
