@@ -592,6 +592,18 @@ nav:
       - Accessing protected API : complete-guides/javascript/accessing-protected-api.md
       - Manage tokens in JavaScript : complete-guides/javascript/manage-tokens-in-apps.md
       - Next Steps: complete-guides/javascript/next-steps.md
+    - App-Native:
+      - Introduction: complete-guides/app-native/introduction.md
+      - Prerequisites: complete-guides/app-native/prerequisites.md
+      - Register an application: complete-guides/app-native/register-an-application.md
+      - Create an app for app-native authentication: complete-guides/app-native/create-app.md
+      - Configure Provider: complete-guides/app-native/configure-provider.md
+      - Configure utility functions for app-native authentication: complete-guides/app-native/configure-utility-functions.md
+      - Add login and logout: complete-guides/app-native/add-login-and-logout.md
+      - Add MFA using app-native APIs: complete-guides/app-native/add-mfa.md
+      - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
+      - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
+      - Next Steps: complete-guides/app-native/next-steps.md
   - Best Practice Guides:
     - Frontend Security:
       - Introduction: complete-guides/fesecurity/introduction.md
@@ -606,18 +618,6 @@ nav:
       - Cross-Site Scripting (XSS): complete-guides/fesecurity/xss.md
       - Cross-Site Request Forgery (CSRF): complete-guides/fesecurity/csrf.md
       - Next Steps: complete-guides/fesecurity/next-steps.md
-  - App-Native Guide:
-      - Introduction: complete-guides/app-native/introduction.md
-      - Prerequisites: complete-guides/app-native/prerequisites.md
-      - Register an application: complete-guides/app-native/register-an-application.md
-      - Create an app for app-native authentication: complete-guides/app-native/create-app.md
-      - Configure Provider: complete-guides/app-native/configure-provider.md
-      - Configure utility functions for app-native authentication: complete-guides/app-native/configure-utility-functions.md
-      - Add login and logout: complete-guides/app-native/add-login-and-logout.md
-      - Add MFA using app-native APIs : complete-guides/app-native/add-mfa.md
-      - Add Social Login using app-native APIs : complete-guides/app-native/add-social-login.md
-      - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
-      - Next Steps: complete-guides/app-native/next-steps.md
 not_in_nav: |
   /page-not-found.md
   /get-started/explore-asgardeo.md
