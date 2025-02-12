@@ -20,16 +20,17 @@ Once Email OTP is added to the login flow as the second factor, we can proceed t
 
 We will now read the Email OTP property value via the `getEnvVariables` function in the `authUtils.tsx` file under the `/src/utils` directory. Navigate to this function and add the following lines.
 
-```shell title="authUtils.tsx" hl_lines="7 9 18"
+```shell title="authUtils.tsx" hl_lines="8 10 20"
 const getEnvVariables = () => {
     
     const organizationName = process.env.NEXT_PUBLIC_ORGANIZATION_NAME;
     const scope = process.env.NEXT_PUBLIC_SCOPE;
     const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI;
     const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
+    const clientSecret = process.env.NEXT_PUBLIC_CLIENT_SECRET;
     const emailOtpAuthenticatorId = process.env.NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID;
 
-    if (!organizationName || !scope || !clientId || !redirectUri || !emailOtpAuthenticatorId) {
+    if (!organizationName || !scope || !clientId || !clientSecret || !redirectUri || !emailOtpAuthenticatorId) {
         throw new Error("Missing required environment variables");
     }
 
@@ -38,6 +39,7 @@ const getEnvVariables = () => {
         scope,
         redirectUri,
         clientId,
+        clientSecret,
         emailOtpAuthenticatorId,
     };
 };
