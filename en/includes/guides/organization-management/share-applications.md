@@ -86,7 +86,7 @@ The My Account portal is the self-service portal provided by {{product_name}} fo
 Once shared, the My Account portal will be available for organization users through the following link:
 
 ``` bash
-{{root_org_url}}/o/{organization-id}/myaccount
+{{root_org_url}}/o/{organization-id}{{myaccount_path}}
 ```
 
 !!! note
