@@ -68,6 +68,18 @@ As the next step, add following entries to the `.env` or `.env.local` file, and 
     NEXT_PUBLIC_GOOGLE_REDIRECT_URI="http://localhost:3000/api/auth/callback/google"
 ```
 
+!!! note
+
+    We utilize `http://localhost:3000` as the application hostname and port for this guide as those are the default values that Next.js use. If you are already running a process on port 3000 and if you observe the Next.js application created in `Step 4` runs on a different hostname/port combination, please make sure to update the following in the `.env` or `.env.local` file with the correct hostname and port values:
+    
+    - `NEXT_PUBLIC_REDIRECT_URI`
+    - `NEXT_PUBLIC_GOOGLE_REDIRECT_URI`
+    
+    Then make sure to update the following URLs in the `Protocol` tab in your **Asgardeo** application that we configured in `Step 3` of this guide to reflect the correct hostname and port values.
+        
+    - `Authorized redirect URLs`
+    - `Allowed origins`
+
 ## Create the auth.tsx Configuration File
 
 We need to create a configuration file for Auth.js. This is where you define the behavior of the library, including custom authentication logic, specifying adapters, token handling, and more. In this file, you'll pass all the necessary options to the framework-specific initialization function and export route handlers like sign in, sign out, and any additional methods you need.
