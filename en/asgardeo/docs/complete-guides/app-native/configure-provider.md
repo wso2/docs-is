@@ -70,7 +70,7 @@ As the next step, add following entries to the `.env` or `.env.local` file, and 
 
 !!! note
 
-    We utilize `http://localhost:3000` as the application hostname and port for this guide as those are the default values that Next.js use. If you are already running a process on port 3000 and if you observe the Next.js application created in `Step 4`  runs on a different hostname/port combination, please make sure to update the following in the `.env` or `.env.local` file with the correct hostname and port values:
+    We utilize `http://localhost:3000` as the application hostname and port for this guide as those are the default values that Next.js use. If you are already running a process on port 3000 and if you observe the Next.js application created in `Step 4` runs on a different hostname/port combination, please make sure to update the following in the `.env` or `.env.local` file with the correct hostname and port values:
     
     - `NEXT_PUBLIC_REDIRECT_URI`
     - `NEXT_PUBLIC_GOOGLE_REDIRECT_URI`
