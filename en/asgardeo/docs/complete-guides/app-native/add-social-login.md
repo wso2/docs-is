@@ -10,7 +10,7 @@ First, follow the guidance provided in our [documentation](https://wso2.com/asga
 
 !!! note
 
-    Make sure to set the following values instead of the ones suggested in the [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/).
+    Make sure to set the following values instead of the ones suggested in the [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/). This is required since we are using app-native authentication and require the application to handle the callback from Google first before redirecting to the Asgardeo APIs.
     
     - `Authorized JavaScript origins`: **http://localhost:3000**
     - `Authorized Redirect URI`:  **http://localhost:3000/api/auth/callback/google** 
