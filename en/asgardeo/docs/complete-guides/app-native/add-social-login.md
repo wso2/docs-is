@@ -6,7 +6,16 @@ read_time: 5 min
 
 To enable social login in your app, you need to register your application with the social login provider and configure the necessary settings. This step will walk you through the process of adding social login to your app using the app-native authentication APIs in {{product_name}}. For the purpose of this guide we will use Google as the social login option.
 
-First, follow the guidance provided in our [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/) to configure Google as a connection in Asgardeo. Note that you will require access to the Google Developer Console for this task.
+First, follow the guidance provided in our [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/) to configure Google as a connection in Asgardeo. 
+
+!!! note
+
+    Make sure to set the following values instead of the ones suggested in the [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/).
+    
+    - `Authorized JavaScript origins`: **http://localhost:3000**
+    - `Authorized Redirect URI`:  **http://localhost:3000/api/auth/callback/google** 
+    
+    They should contain the relevant hostname/port combination instead of the suggested value in that documentation (i.e. not `https://api.asgardeo.io/t/{organization_name}/commonauth`). Note that you will require access to the Google Developer Console for this task.
 
 Let's now set up Google as an option as the first authentication step in your Asgardeo application as given below.
 
