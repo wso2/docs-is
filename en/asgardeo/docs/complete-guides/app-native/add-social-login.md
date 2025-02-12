@@ -6,16 +6,12 @@ read_time: 5 min
 
 To enable social login in your app, you need to register your application with the social login provider and configure the necessary settings. This step will walk you through the process of adding social login to your app using the app-native authentication APIs in {{product_name}}. For the purpose of this guide we will use Google as the social login option.
 
-First, follow the guidance provided in our [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/) to configure Google as a connection in Asgardeo. 
+First, follow the guidance provided in our [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/) to configure Google as a connection in Asgardeo while taking a note of the values to be configured as provided below. 
 
-!!! note
+- **Authorized JavaScript origins**: `http://localhost:3000`
+- **Authorized Redirect URI**:  `http://localhost:3000/api/auth/callback/google`
 
-    Make sure to set the following values instead of the ones suggested in the [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/). This is required since we are using app-native authentication and require the application to handle the callback from Google first before redirecting to the Asgardeo APIs.
-    
-    - `Authorized JavaScript origins`: **http://localhost:3000**
-    - `Authorized Redirect URI`:  **http://localhost:3000/api/auth/callback/google** 
-    
-    They should contain the relevant hostname/port combination instead of the suggested value in that documentation (i.e. not `https://api.asgardeo.io/t/{organization_name}/commonauth`). Note that you will require access to the Google Developer Console for this task.
+We need to configure the above values (make sure they contain the hostname/port combination utilized in your application) instead of the values suggested in the documentation because we are using app-native authentication and require the application to handle the callback from Google first before redirecting to the Asgardeo APIs.
 
 Let's now set up Google as an option as the first authentication step in your Asgardeo application as given below.
 
