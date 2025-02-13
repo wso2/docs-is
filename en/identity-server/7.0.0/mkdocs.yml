@@ -32,7 +32,7 @@ plugins:
       separator: "[^\\w._]+"
       lang: ['en']
       prebuild_index: true
-      ngram_length: 3
+      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - redirects:
