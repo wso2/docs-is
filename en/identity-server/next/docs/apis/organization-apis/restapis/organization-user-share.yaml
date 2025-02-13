@@ -323,7 +323,7 @@ paths:
         - User Accessible Organizations
       summary: Get organizations a user has access to
       description: |
-        This API retrieves the list of organizations where the specified user has shared access. Supports pagination and filtering. 
+        This API retrieves the list of organizations where the specified user has shared access.
 
         <b>Scope(Permission) required:</b> `internal_org_user_shared_access_view`
       parameters:
