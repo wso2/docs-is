@@ -392,7 +392,7 @@ paths:
         - User Accessible Roles
       summary: Get roles assigned to a user in an organization
       description: |
-        This API fetches the roles assigned to the specified user within a particular organization. Supports pagination, filtering, and recursion. </br>
+        This API fetches the roles assigned to the specified user within a particular organization. </br>
         Note that the roles returned are only the roles assigned by the organization that initially shared the user.
         Any additional roles assigned to the user from the shared organizations are not included in this response.
 
