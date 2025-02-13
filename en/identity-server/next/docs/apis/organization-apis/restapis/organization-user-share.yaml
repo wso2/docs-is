@@ -194,12 +194,14 @@ paths:
         - User Sharing
       summary: Unshare a user from specific organizations
       description: |
-        With this API, the parent org admin can unshare a shared user in the parent organization from a selected list of sub-organizations. Note that unsharing can only be done from the same organization that shared the user.
-        In a scenario where a user has been shared with a selected sub-organization and its child organizations when that particular organization is later selected to share the user from, it will only share the user from that organization but not its child organizations. If you want to unshare the user from all child organizations of the selected sub-organization, their organization IDs must be explicitly provided in the request payload.
-
-
-        This API removes shared access for one or more users from specified organizations.
+        The parent organization admins can use this API to unshare a shared user from a selected list of organizations.
         The payload includes the list of user IDs and the organizations from which the users should be unshared.
+
+        Note the following details:
+        - unsharing can only be done from the same organization that initially shared the user.
+        - if you have shared a user with an organization and its children, unsharing the user from that 
+          organization will not unshare the user from the child organizations.
+          You must explicitly delcare all the organization IDs from which the user should be removed.
         
         <b>Scope(Permission) required:</b> `internal_org_user_unshare`
       operationId: processUserUnsharing
@@ -264,6 +266,7 @@ paths:
       summary: Remove a user's shared access
       description: |
         This API removes all shared access for one or more users, unsharing them from all organizations.
+        Note that unsharing can only be done from the same organization that initially shared the user.
         
         <b>Scope(Permission) required:</b> `internal_org_user_unshare`
       operationId: removeUserSharing
@@ -320,7 +323,7 @@ paths:
         - User Accessible Organizations
       summary: Get organizations a user has access to
       description: |
-        This API retrieves the list of organizations where the specified user has shared access, with support for pagination and filtering.
+        This API retrieves the list of organizations where the specified user has shared access. Supports pagination and filtering. 
 
         <b>Scope(Permission) required:</b> `internal_org_user_shared_access_view`
       parameters:
@@ -388,7 +391,9 @@ paths:
         - User Accessible Roles
       summary: Get roles assigned to a user in an organization
       description: |
-        This API fetches the roles assigned to the specified user within a particular organization, with support for pagination, filtering, and recursion.
+        This API fetches the roles assigned to the specified user within a particular organization. Supports pagination, filtering, and recursion. </br>
+        Note that the roles returned are only the roles assigned by the organization that initially shared the user.
+        Any additional roles assigned to the user from the shared organizations are not included in this response.
 
         <b>Scope(Permission) required:</b> `internal_org_user_shared_access_view`
       parameters:
@@ -570,8 +575,8 @@ components:
                   Share the resource with all current organizations and automatically include any organizations created in the future.
                   - <code>IMMEDIATE_EXISTING_ORGS_ONLY</code>:</br>
                   Share the resource only with immediate child organizations that exist when the policy is applied. Future immediate child organizations are **not** included.
-                  - <code>SIMMEDIATE_EXISTING_AND_FUTURE_ORGS</code>: </br>
-                  Share the resource with immediate existing child organizations and automatically include any immediate child organizations created in the future.   
+                  - <code>IMMEDIATE_EXISTING_AND_FUTURE_ORGS</code>: </br>
+                  Share the resource with immediate existing child organizations and automatically include any immediate child organizations created in the future. 
         roles:
           type: array
           description: A list of roles shared across all organizations.
