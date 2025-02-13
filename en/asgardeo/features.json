@@ -1,13 +1,13 @@
 {
     "operational-policies": {
-        "enabled": false,
+        "enabled": true,
         "page": [
             "references/operational-policies.md"
         ]
     },
     
     "sms-templates": {
-        "enabled": false,
+        "enabled": true,
         "page": [
             "guides/branding/customize-sms-templates.md",
             "apis/notification-templates.md",
