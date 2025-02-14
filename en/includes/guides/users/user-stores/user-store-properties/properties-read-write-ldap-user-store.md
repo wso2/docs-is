@@ -45,7 +45,7 @@ Following are the minimum user store properties that are needed to be provided t
 <a href="ldaps://10.100.1.102:639">ldaps://10.100.1.102:639</a><br />
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
-Need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
+Need to import the certificate of user store to the client-truststore.{{default_keystore_ext}} of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
 <a href="{{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
