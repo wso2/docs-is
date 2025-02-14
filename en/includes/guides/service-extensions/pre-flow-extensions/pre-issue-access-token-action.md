@@ -19,7 +19,7 @@ Once an access token is modified, the changes are persisted as transactional dat
 
 When a pre-issue access token action is configured with your external service endpoint, {{product_name}} will call your service and wait for a response whenever a token request is received. Upon receiving the response, {{product_name}} will apply any modifications to the access token as specified in the response and then continue with the flow.
 
-The [pre-issue access token API contract]({{base_path}}/references/actions/pre-issue-access-token-action/api-contract/) defines the request and response structures that your service must implement.
+The [pre-issue access token API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract/) defines the request and response structures that your service must implement.
 
 ### Request from {{product_name}}
 
@@ -334,7 +334,7 @@ Content-Type: application/json
 
 ### Expected Response from External Service:
 
-When {{product_name}} invokes your external service as part of the pre-issue access token action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/actions/pre-issue-access-token-action/api-contract/) here.
+When {{product_name}} invokes your external service as part of the pre-issue access token action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract/) here.
 
 This response plays a crucial role in determining how the access token is ultimately issued or modified. Here’s a breakdown of the expected response:
 
@@ -373,7 +373,7 @@ Http Status Code: <code>200</code>
 </table>
 
 !!! tip
-    Refer the [sample responses for successful access token updates]({{base_path}}/references/actions/pre-issue-access-token-action/sample-success-responses/) to learn how to construct success responses for different scenarios.
+    Refer the [sample responses for successful access token updates]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses/) to learn how to construct success responses for different scenarios.
 
 #### Response for FAILED state:
 

@@ -17,7 +17,7 @@ This action is triggered during following flows that incorporate password update
 
 When a pre-update password action is configured with your external service endpoint, {{product_name}} will call your service and wait for a response whenever a password update action is triggered. Upon receiving the response, {{product_name}} will either return a client error, server error or execute based on the response received.
 
-The [pre-update password API contract]({{base_path}}/references/actions/pre-update-password-action/api-contract/) defines the request and response structures that your service must implement.
+The [pre-update password API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract/) defines the request and response structures that your service must implement.
 
 ### Request from {{product_name}}
 
@@ -220,7 +220,7 @@ Content-Type: application/json
 
 ### Expected Response from External Service:
 
-When {{product_name}} invokes your external service as part of the pre-password update action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/actions/pre-update-password-action/api-contract/) here.
+When {{product_name}} invokes your external service as part of the pre-password update action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract/) here.
 
 This response plays a crucial role in determining whether password update is allowed or not.
 Here’s a breakdown of the expected response:
