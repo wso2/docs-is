@@ -187,7 +187,7 @@ Upon successful execution of the cURL the user will receive an email to reset th
 
 ## Lock a user account
 
-When you lock a user's account, the user will no longer be able to access any applications or the My Account portal.
+To temporarily prevent a user from logging into applications or the self-service My Account portal, you can lock the user's account.
 
 To lock a user account:
 
@@ -204,23 +204,15 @@ To lock a user account:
 
 ![Account lock reason]({{base_path}}/assets/img/guides/users/lock-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Disable users
+## Disable a user account
 
-When you disable a user's account, the user will no longer be able to access any applications or the My Account portal. Account disablement is a more permanent
-and a long-term action than locking an account.
+Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
 
-### Enable account disabling
+!!! note "Enable account disabling"
+    
+    Account disabling is not an option available for a users' accounts by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
 
-Before you disable a user account, you need to enable the account disabling feature.
-
-To enable the account disabling feature:
-
-1. On the {{product_name}} Console, go to **Login and Registration** > **Account Disable** section.
-    ![Account Disable Feature]({{base_path}}/assets/img/guides/users/account-disable-connector.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-2. Click **Enable account disabling** to enable the account disabling feature.
-    ![Account Disable Settings]({{base_path}}/assets/img/guides/users/account-disable-setting.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-### Disable a user account
+To disable a user account,
 
 1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
 2. In the **Danger Zone**, turn the **Disable user** toggle on to disable the user's profile. Turn it off to enable it.
