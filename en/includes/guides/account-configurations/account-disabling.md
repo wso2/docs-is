@@ -1,6 +1,6 @@
 # Enable account disabling
 
-For scenarios such as a user being inactive for an extended period or leavei your organization, you can disable the user's account instead of permanently deleting it. This allows you to retain the user's information and activity history while preventing the user from logging into applications or to the self-service My Account portal.
+For scenarios such as a user being inactive for an extended period or leaving your organization, you can disable the user's account instead of permanently deleting it. This allows you to retain the user's information and activity history while preventing the user from logging into applications or to the self-service My Account portal.
 
 This option is intended for a more permanent solution and should not be used for temporarily locking user accounts. For temporary restrictions, use the user locking option available in each user profile. See [lock users]({{base_path}}/guides/users/manage-users/#lock-a-user-account) for more details.
 
