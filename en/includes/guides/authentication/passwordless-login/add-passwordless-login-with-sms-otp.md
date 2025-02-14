@@ -49,7 +49,7 @@ To update the default SMS OTP settings:
 
 ## Configuring SMS Providers
 
-Configurations related to SMS providers are located under the **Email & SMS** section On the {{ product_name }} Console.
+Configurations related to SMS providers are located under the **{{ notification_tab_name }}** section On the {{ product_name }} Console.
 
 ### Supported Providers
 
