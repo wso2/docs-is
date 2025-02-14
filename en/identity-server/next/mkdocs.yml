@@ -915,6 +915,9 @@ nav:
       - Email templates: references/email-templates.md
       - SMS templates: references/sms-templates.md
     - Service extensions:
+      - In-flow extensions:
+        - Custom authentication:
+          - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
       - Pre-flow extensions (Actions):
         - Pre issue access token action: 
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
