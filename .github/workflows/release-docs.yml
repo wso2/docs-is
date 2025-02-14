@@ -1,7 +1,7 @@
 name: Asgardeo Docs Release
 
 concurrency:
-  group: pr-builder-${{ github.event.pull_request.number }}
+  group: doc-release
   cancel-in-progress: true
 
 on:
