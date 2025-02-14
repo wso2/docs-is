@@ -7,7 +7,7 @@ This guide provides a step-by-step approach to setting up actions in {{product_n
 Ensure that you have:
 
 - Access to the {{product_name}} console.
-- A web service or endpoint ready to handle requests.
+- Facility to implement a web service or endpoint accessible to {{product_name}}.
 
 ## Create the external service
 
