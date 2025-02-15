@@ -1,5 +1,9 @@
 name: Asgardeo Docs Release
 
+concurrency:
+  group: doc-release
+  cancel-in-progress: true
+
 on:
   push:
     branches:
