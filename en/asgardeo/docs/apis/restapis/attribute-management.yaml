@@ -1080,6 +1080,14 @@ components:
           description: Specifies if the claim will be prompted during user registration
             and displayed on the user profile.
           example: true
+        uniquenessScope:
+          type: string
+          description: Specifies the scope of uniqueness validation for the claim value.
+          enum:
+            - NONE
+            - WITHIN_USERSTORE
+            - ACROSS_USERSTORES
+          example: "NONE"
         sharedProfileValueResolvingMethod:
           type: string
           description: Specifies claim value resolving method for shared user profile.
@@ -1144,6 +1152,14 @@ components:
           description: Specifies if the claim will be prompted during user registration
             and displayed on the user profile.
           example: true
+        uniquenessScope:
+          type: string
+          description: Specifies the scope of uniqueness validation for the claim value.
+          enum:
+            - NONE
+            - WITHIN_USERSTORE
+            - ACROSS_USERSTORES
+          example: "NONE"
         sharedProfileValueResolvingMethod:
           type: string
           description: Specifies claim value resolving method for shared user profile.
