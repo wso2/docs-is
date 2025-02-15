@@ -2,7 +2,7 @@
 
 If your organization users need access to organizations lower in the hierarchy without creating accounts for each and every organization, you can simply share these user profiles with those organizations. This is ideal when a user needs access to multiple organizations while maintaining a single identity. It also reduces the overhead of managing the user's profile across multiple organizations.
 
-## Mathods to share profiles
+## Methods to share profiles
 
 There are three ways how user profiles are shared between organizations:
 
