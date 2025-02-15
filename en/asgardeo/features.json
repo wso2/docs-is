@@ -57,5 +57,13 @@
         "page": [
             "guides/users/attributes/configure-unique-attributes.md"
         ]
+    },
+
+    "custom-authentication-service-extension": {
+        "enabled": false,
+        "page": [
+            "guides/service-extensions/in-flow-extensions/custom-authentication.md",
+            "references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md"
+        ]
     }
 }

@@ -623,6 +623,8 @@ nav:
             - Localization support: guides/branding/localization.md
           - Extend with service extensions:
             - Understanding service extensions: guides/service-extensions/understanding-service-extensions.md
+            - In-flow extensions:
+              - Custom authentication: guides/service-extensions/in-flow-extensions/custom-authentication.md
             - Pre-flow extensions (Actions):
               - Setting up an action: guides/service-extensions/pre-flow-extensions/setting-up-actions.md
               - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
