@@ -242,7 +242,7 @@ If {{product_name}} is already started, use the [Certificate Validation Manageme
 === "Sample request"
 
     ```
-    curl -k -X POST https://localhost:9443api/server/v1/certificate-validation/revocation-validators/{validator-name}v\
+    curl -k -X PUT https://localhost:9443/t/{tenant-domain}/api/server/v1/certificate-validation/revocation-validators/{validator-name}\
     -H "accept: application/json" \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
