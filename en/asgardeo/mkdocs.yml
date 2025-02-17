@@ -317,6 +317,11 @@ nav:
           - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
+          - Verify changes when updating attributes:
+            - Configure verification settings: guides/users/attributes/user-attribute-change-verification.md
+            - Try it out:
+              - Email address update verification: guides/users/attributes/email-verification-on-update.md
+              - Mobile number update verification: guides/users/attributes/mobile-verification-on-update.md
         - Manage user stores:
           - Manage user stores: guides/users/user-stores/index.md
           - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
