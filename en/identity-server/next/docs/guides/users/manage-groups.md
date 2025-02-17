@@ -24,7 +24,11 @@ Let's look at how administrators can onboard groups from the WSO2 Identity Serve
 
     ![create-new-group-form]({{base_path}}/assets/img/guides/groups/create-new-group-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Click **Finish**.
+3. Click **Next** and in the next step, you can assign roles to the group (optional).
+
+    ![assign-roles-to-group-view]({{base_path}}/assets/img/guides/groups/assign-roles-to-group-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+4. Click **Finish**.
 
 ## Assign users to groups
 Users can be assigned to groups. Admins can allow/restrict access to resources based on the groups.
@@ -51,9 +55,7 @@ To remove users from a group:
 
     ![remove-user-from-group-view]({{base_path}}/assets/img/guides/groups/remove-user-from-group-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Click **Edit** icon.
-5. Clear the checkbox for the user(s) you want to remove.
-6. Click **Save**.
+4. Click **Delete** icon of the user(s) you want to remove.
 
 ## Delete a group
 An administrator can delete groups via the WSO2 Identity Server Console.
