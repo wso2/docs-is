@@ -140,7 +140,7 @@ The class encapsulates key user attributes such as:
 - Name
 - UserName
 
-These attributes are derived from claims associated with the authenticated user's `ClaimsPrincipal`. You need to ensure that additional attributes such as `UserName` are configured as “Requested” in the Attributes tab of the application created in Asgardeo.
+These attributes are derived from claims associated with the authenticated user's `ClaimsPrincipal`. You need to ensure that additional attributes such as `UserName` are configured as `Requested` in the Attributes tab of the application created in Asgardeo.
 
 Create a file named `UserInfo.cs` in the root directory using the following command.
 
@@ -342,7 +342,7 @@ This code block uses the `AuthorizeView` component, which is part of Blazor's bu
 
 We can now configure the `Program.cs` file to enable the authentication functionality.
 
-We will be adding OpenID Connect functionality to the `AuthenticationBuilder` using the `AddOpenIdConnect` method, so let's make sure the following package is installed in the project directory based on the version of .NET you are using (in this case, it is 8.0):
+We will be adding OpenID Connect functionality to the `AuthenticationBuilder` using the `AddOpenIdConnect` method, so let's make sure the following package is installed in the project directory based on the version of .NET you are using (in this case, it is 8.0.0):
 
 ```bash
 dotnet add package Microsoft.AspNetCore.Authentication.OpenIdConnect --version 8.0.0
@@ -533,7 +533,6 @@ builder.Services.AddAuthentication(ASGARDEO_OIDC_SCHEME)
     oidcOptions.TokenValidationParameters.RoleClaimType = "roles";
     oidcOptions.MetadataAddress = Environment.GetEnvironmentVariable("METADATA_ADDRESS");
     oidcOptions.SaveTokens = true;
-    oidcOptions.Scope.Add("internal_login");
 })
 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
 

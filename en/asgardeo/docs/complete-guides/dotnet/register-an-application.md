@@ -33,7 +33,11 @@ Next, complete the wizard popup by providing a suitable name, a suitable protoco
 
     The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use `https://localhost:5001/signin-oidc` and `https://localhost:5001/signout-callback-oidc`. You would need to allow CORS for these URLs accordingly (which will be prompted).
 
+Once the application is created, let's configure the `Allowed origins` with the following URL:
 
+```shell
+https://localhost:5001
+```
 
 You will need the following information available in the `Quick Start` tab of your application or the `Protocol` tab to configure in the .NET application.
 
@@ -51,6 +55,5 @@ Additionally, please take a note of the following endpoints that are available i
 - Logout
 
 ![Info Page]({{base_path}}/complete-guides/dotnet/assets/img/image4.png){: width="800" style="display: block; margin: 0;"}
-
 
 In this step, we have registered our .NET app as an application in the Asgardeo console and generated the required metadata. Next, we will create a .NET Blazor Web Application.
