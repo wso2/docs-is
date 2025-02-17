@@ -701,7 +701,7 @@ components:
               rolesRef:
                 type: string
                 description: URL reference to retrieve paginated roles for the shared user in this organization
-                example: "/api/server/v1/users/{userId}/shared-roles?orgId=b028ca17-8f89-449c-ae27-fa955e66465d&after=&before=&limit=2&filter=&recursive=false"
+                example: "/api/server/v1/users/{userId}/shared-roles?orgId={orgId}"
 
     UserSharedRolesResponse:
       type: object
