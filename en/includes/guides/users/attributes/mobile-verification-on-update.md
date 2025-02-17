@@ -316,6 +316,10 @@ When going through the mobile number verification process, users can enter the S
 
 Alternatively, the validation-code API can be used to submit the SMS OTP as shown below.
 
+### By a non-privileged user
+
+Users can verify the SMS OTP by executing the following API request.
+
 !!! abstract ""
 
     === "Request format"
@@ -341,7 +345,39 @@ Alternatively, the validation-code API can be used to submit the SMS OTP as show
     ---
     **Response**
     ```
-    "HTTP/1.1 202 Accepted"
+    "HTTP/1.1 200 Accepted"
+    ```
+
+### By a privileged user
+
+Privileged users can verify the SMS OTP on behalf of a user by executing the following API request.
+
+!!! abstract ""
+
+    === "Request format"
+    
+        ```curl
+        curl -v -k -X POST https://localhost:9443/api/identity/user/v1.0/validate-code 
+        -H "Authorization: <Base64(username:password)>" 
+        -H "Content-Type: application/json" \
+        -d '{ "code": "<validation_code>",
+              "properties": []
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -v -k -X POST https://localhost:9443/api/identity/user/v1.0/validate-code 
+        -H "Authorization: Ym9iOmJvYjEyMw==" 
+        -H "Content-Type: application/json" \
+        -d '{ "code": "1234",
+              "properties": []
+            }' 
+        ```
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 200 Accepted"
     ```
 
 ## Resend the verification code
@@ -354,7 +390,7 @@ Alternatively, the resend-code API can be used to resend the SMS OTP as shown be
 
 ### By a non-privileged user
 
-The following command can be used by users themselves to receive a new SMS OTP.
+Users can request a new SMS OTP by using the following API request.
 
 !!! abstract ""
 
@@ -396,7 +432,7 @@ The following command can be used by users themselves to receive a new SMS OTP.
 
 ### By a privileged user
 
-The following command can be used by privileged users to send an SMS OTP on behalf of a user.
+Privileged users can resend an SMS OTP on behalf of a user using the following API request.
 
 !!! abstract ""
 
