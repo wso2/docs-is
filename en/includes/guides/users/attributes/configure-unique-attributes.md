@@ -1,8 +1,8 @@
 # Configure unique attributes
 
-User attributes can be configured to be unique. This setting determines the scope within which users must have a unique value for a given attribute.
+Attributes are pieces of user information. While users can have the same value for a given user attribute (e.g. Country), there can be attributes (e.g. employee ID) for which user must have a unique values. This guide explains how you can set a uniqueness check for attributes to prevent duplicate values.
 
-Follow the steps below to configure the uniqueness of user attributes:
+Follow the steps below to set the uniqueness for a user attribute:
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to see the list of attributes.
@@ -20,14 +20,12 @@ Follow the steps below to configure the uniqueness of user attributes:
 You can now verify the functionality by attempting to add users with an existing attribute value or updating the user attribute value of an existing user.
 
 {% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
-!!! note
-    To disable the attribute uniqueness validation feature:
-    
-    1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder.
-    2. Add the following configurations:
-        ```toml
-        [identity_mgt.user_claim_update.uniqueness]
-        enable = false
-        ```
-    3. Restart {{product_name}} to apply the changes.
+!!! note "Disable uniqueness validation"
+
+    To disable the uniqueness check for user attributes, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart {{product_name}}.
+
+    ```toml
+    [identity_mgt.user_claim_update.uniqueness]
+    enable = false
+    ```
 {% endif %}
