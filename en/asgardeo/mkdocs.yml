@@ -531,7 +531,6 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
-<<<<<<< HEAD
   - Technology Guides:
     - React:
       - Introduction: complete-guides/react/introduction.md
