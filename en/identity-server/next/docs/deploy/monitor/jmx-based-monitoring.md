@@ -6,17 +6,15 @@
   
 
 ## Configuring JMX in WSO2 Identity Server
-JMX  can be enabled separately for the various datasources that are used by WSO2 IS. Once JMX is enabled, you can log in to the JConsole tool and monitor your WSO2 IS instance as explained in the [Monitoring WSO2 Identity Server with JConsole](#monitoring-wso2-identity-server-with-jconsole) section.
+JMX  can be enabled separately for the various datasources that are used by WSO2 IS. Once JMX is enabled, you can log in to the JConsole tool and monitor your WSO2 IS instance as explained in the [Monitor WSO2 Identity Server with JConsole](#monitor-wso2-identity-server-with-jconsole) section.
 
 ### Configuring JMX ports for the server
 
-The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory) as shown below. If required, you can update these default values.
+The default JMX ports, namely the `RMIRegistryPort` and the `RMIServerPort`, are configured as `9999` and `1111` by default. If required, you can update these default values in the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory) as shown below.
 
 ``` toml
 [monitoring.jmx]
 rmi_registry_port = "9999"
-
-[monitoring.jmx]
 rmi_server_port = "11111"
 ```
 
@@ -35,14 +33,13 @@ You can enable JMX for a datasource by adding the `jmxEnabled` as `true` element
 
 !!! abstract "For IDENTITY_DB"
     ``` toml
-    [database.identity_db.pool_options]
-    jmxEnabled = true
+    [database.identity_db]
+    jmx_enable = true
     ```
 
 !!! abstract "For SHARED_DB"
     ``` toml
     [database.shared_db]
-    ...
     jmx_enable = true
     ```
 
@@ -56,13 +53,15 @@ Jconsole is a JMX-compliant monitoring tool which comes with the Java Developmen
 1. Open a command prompt and navigate to the `<IS_HOME>/bin` directory.
 2. Execute the WSO2 IS startup script and start the server.
 
-    ```shell tab="Linux"
-    wso2server.sh
-    ```
+    === "Linux"
+        ``` shell 
+        wso2server.sh
+        ```
 
-    ```shell tab="Windows"
-    wso2server.bat 
-    ```
+    === "Windows"
+        ``` shell 
+        wso2server.bat
+        ```
 
     !!! tip
         If JMX is enabled, the `JMX server URL` will be published on the console when the server starts as shown below.
@@ -70,6 +69,8 @@ Jconsole is a JMX-compliant monitoring tool which comes with the Java Developmen
         ``` shell
         INFO {org.wso2.carbon.core.init.CarbonServerManager} -  JMX Service URL  : service:jmx:rmi://<your-ip>:11111/jndi/rmi://<your-ip>:9999/jmxrmi
         ```
+
+### Connect to JConsole
 
 Once WSO2 Identity Server has started, you can start the `JConsole` tool as follows.
 
@@ -109,7 +110,7 @@ Once WSO2 Identity Server has started, you can start the `JConsole` tool as foll
 
     - **Overview**:
 
-        ![Jconsole overview tab]({{base_path}}/assets/img/setup/monitor/oracle-overview.png)
+        ![Jconsole overview tab]({{base_path}}/assets/img/setup/monitor/overview.png)
 
     - **Memory**:
 
@@ -133,7 +134,7 @@ Once WSO2 Identity Server has started, you can start the `JConsole` tool as foll
 
 ### Use the ServerAdmin MBean
 
-When you go to the **MBeans** tab in the JConsole, the **ServerAdmin** MBean will be listed under the **&org.wso2.carbon** domain as shown below.  
+When you go to the **MBeans** tab in the JConsole, the **ServerAdmin** MBean will be listed under the **org.wso2.carbon** domain as shown below.  
 
 ![Mbeans tab]({{base_path}}/assets/img/setup/monitor/admin-mbean.png)
 
@@ -163,28 +164,6 @@ The **ServerAdmin** MBean has the following operations:
   
 ![ServerAdmin]({{base_path}}/assets/img/setup/monitor/server-admin.png)
 
-### Use the ServiceAdmin MBean
-
-This MBean is used for administering services deployed in WSO2 IS.
-Its attributes are as follows:
-
-| Attribute | Description    |
-|-----------|----------------|
-| `NumberOfActiveServices`   | The number of services which can currently serve requests    |
-| `NumberOfInactiveServices` | The number of services which have been disabled by an administrator |
-| `NumberOfFaultyServices`   | The number of services which are faulty  |
-
-![ServiceAdmin MBean attributes]({{base_path}}/assets/img/setup/monitor/use-serviceadmin.png)
-
-The operations available in the ServiceAdmin MBean:
-
-| Operation | Description  |
-|-----------|--------------|
-| **startService** [p1:string] | The p1 parameter is the service name. You can activate a service using this operation.           |
-| **stopService** [p1:string] | The p1 parameter is the service name. You can deactivate/disable a service using this operation. |
-
-![ServiceAdmin MBean operations]({{base_path}}/assets/img/setup/monitor/serviceadmin-mbean.png)
-
 ### Use the StatisticsAdmin MBean
 
 This MBean is used for monitoring system and server statistics. Its attributes are as follows.
@@ -194,9 +173,9 @@ This MBean is used for monitoring system and server statistics. Its attributes a
 | `AvgSystemResponseTime` | This is the average response time for all the services deployed in the system. The beginning of the measurement is the time at which the server started. |
 | `MaxSystemResponseTime` | This is the maximum response time for all the services deployed in the system. The beginning of the measurement is the time at which the server started. |
 | `MinSystemResponseTime` | This is the minimum time for all the services deployed in the system. The beginning of the measurement is the time at which the server started.          |
-| `SystemFaultCount`    | The total number of faults that occurred in the system since the server was started                                                             |
-| `SystemRequestCount`    | The total number of requests that has been served by the system since the server was started                                                    |
-| `SystemResponseCount`   | The total number of responses that have been sent by the system since the server was started                                                      |
+| `SystemFaultCount`    | The total number of faults that occurred in the system since the server was started.                                                             |
+| `SystemRequestCount`    | The total number of requests that has been served by the system since the server was started.                                                    |
+| `SystemResponseCount`   | The total number of responses that have been sent by the system since the server was started.                                                      |
 
 ![StatisticsAdmin attributes]({{base_path}}/assets/img/setup/monitor/statisticsadmin.png)
 
@@ -204,9 +183,9 @@ Operations available in the **Statistics** MBean:
 
 | Operation | Description   |
 |-----------|---------------|
-| `getServiceRequestCount` (p1:string)   The p1 parameter is the service name. You can get the total number of requests received by this service since the time it was deployed, using this operation.  |
-| `getServiceResponseCount` (p1:string) | The p1 parameter is the service name. You can get the total number of responses sent by this service since the time it was deployed, using this operation.    |
-| `getServiceFaultCount` (p1:string)    | The p1 parameter is the service name. You can get the total number of fault responses sent by this service since the time it was deployed, using this operation.  |
+| `getServiceRequestCount` (p1:string) |  The p1 parameter is the service name. You can get the total number of requests received by this service since the time it was deployed using this operation.  |
+| `getServiceResponseCount` (p1:string) | The p1 parameter is the service name. You can get the total number of responses sent by this service since the time it was deployed using this operation.    |
+| `getServiceFaultCount` (p1:string)    | The p1 parameter is the service name. You can get the total number of fault responses sent by this service since the time it was deployed using this operation.  |
 | `getMaxServiceResponseTime` (p1:string)   | The p1 parameter is the service name. You can get the maximum response time of this service since deployment. |
 | `getMinServiceResponseTime` (p1:string)   | The p1 parameter is the service name. You can get the minimum response time of this service since deployment. |
 | `getAvgServiceResponseTime` (p1:string)   | The p1 parameter is the service name. You can get the average response time of this service since deployment. |
@@ -236,11 +215,22 @@ See the [performance tuning guide]({{base_path}}/deploy/performance/performance-
 
 Follow the steps below to use Jolokia to monitor WSO2 IS.
 
-1. Download [Jolokia OSGi Agent](https://jolokia.org/download.html). (These instructions are tested with the Jolokia OSGI Agent version 1.3.6 by downloading the `jolokia-osgi-1.3.6.jar` file.)
+1. Download the [Jolokia OSGi Agent](https://mvnrepository.com/artifact/org.jolokia/jolokia-osgi/1.7.2). (These instructions are tested with the Jolokia OSGI Agent version 1.7.2 by downloading the `jolokia-osgi-1.7.2.jar` file.)
 
 2. Add it to the `<IS-HOME>/repository/components/dropins/` directory.
 
-3. Start WSO2 Identity Server.
+3. Add the following configurations to the `deployment.toml` file in the `<IS-HOME>/repository/conf/` directory.
+
+    ``` toml
+    [[resource.access_control]]
+    context="/jolokia(.*)"
+    http_method = "all"
+    secure=false
+    ```
+
+    For additional access control configurations, see the [Secure Resources]({{base_path}}/apis//#secure-resources) section for APIs.
+
+4. Start WSO2 Identity Server.
 
 Once the server starts, you can read MBeans using Jolokia APIs.
 
@@ -249,4 +239,4 @@ Following are a few examples.
 - List all available MBeans: `http://localhost:9763/jolokia/list` (Change the appropriate hostname and port accordingly)
 - Reading Heap Memory: `http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage`
 
-For more information on the JMX MBeans that are available in WSO2 Identity Server, see [Monitoring WSO2 IS with JConsole](#monitor-wso2-identity-server-with-jconsole).
+For more information on the JMX MBeans that are available in WSO2 Identity Server, see [Monitor WSO2 Identity Server with JConsole](#monitor-wso2-identity-server-with-jconsole).
