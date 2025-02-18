@@ -30,10 +30,13 @@ This in turn allows for the following benefits:
 
 ## Creating a New Project via the Command Line
 
-Alternatively, if you prefer creating the application via the command line, you can use the following command:
+Alternatively, if you prefer creating the application via the command line, you can use the following commands:
 
 ```bash
 dotnet new blazor -o asgardeo-dotnet
+```
+
+```bash
 cd asgardeo-dotnet
 ```
 
@@ -62,6 +65,26 @@ Based on the configurations in your `/Properties/launchSettings.json` file, you 
 Now listening on: http://localhost:5001
 `
 
+!!! note "Note"
+
+    The port number may vary based on the configurations in the `Properties/launchSettings.json` file. If this is the case, please make sure to update the Asgardeo application accordingly that was created in the previous step. Otherwise, you can utilize the following configurations in the `Properties/launchSettings.json` file.
+
+    ```json
+    {
+      "$schema": "https://json.schemastore.org/launchsettings.json",
+      "profiles": {
+        "https": {
+          "commandName": "Project",
+          "dotnetRunMessages": true,
+          "launchBrowser": true,
+          "applicationUrl": "https://localhost:5001;http://localhost:5000",
+          "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+          }
+        }
+      }
+    }
+    ```
 ![Run .NET app]({{base_path}}/complete-guides/dotnet/assets/img/image5.png){: width="800" style="display: block; margin: 0;"}
 
 You should now see the default Blazor Web App template running in your browser as shown above. Next we will look into configuring the authentication properties.

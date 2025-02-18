@@ -150,7 +150,10 @@ else
 In order to redirect unauthorized users to the login page, we will create a Razor component named `RedirectToLogin.razor` under the `/Components` directory using the following commands.
 
 ```shell
-cd /Components
+cd Components
+```
+
+```shell
 dotnet new razorcomponent -n RedirectToLogin
 ```
 

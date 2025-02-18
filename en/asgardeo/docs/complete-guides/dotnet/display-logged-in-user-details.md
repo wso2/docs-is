@@ -17,8 +17,8 @@ At the current state of the application, the user's name is not displayed on the
 
 1. Log in to the {{product_name}} console and select the application you created.
 2. Go to the **User Attributes** tab.
-3. Select the **given_name** and **family_name** attributes.
-4. Click Update to save the changes.
+3. Select the **given_name** and **family_name** attributes under the **Profile** section.
+4. Click **Update** to save the changes.
 
 ![User Attributes]({{base_path}}/complete-guides/dotnet/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
 

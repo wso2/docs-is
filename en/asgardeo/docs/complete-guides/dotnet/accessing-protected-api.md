@@ -22,7 +22,7 @@ The goal is to create a page that:
 
 We will use the `/scim2/Me` endpoint as the protected endpoint in this guide. In Asgardeo, the SCIM2 REST API implements the SCIM 2.0 Protocol according to the SCIM 2.0 specification. The `/scim2/Me` endpoint returns the user details of the currently authenticated user.
 
-To access this endpoint, define it under `environmentVariables` in the `launchSettings.json` file as follows. Make sure to replace the `org` placeholder with the correct organization name.
+To access this endpoint, define it under `environmentVariables` in the `Properties/launchSettings.json` file as follows. Make sure to replace the `org` placeholder with the correct organization name.
 
 ```csharp hl_lines="20" title="launchSettings.json"
 {
@@ -280,7 +280,7 @@ Then include the following content.
 
 In the above code, we utilize the `OnInitializedAsync` method to retrieve the `HttpContext` from the `HttpContextAccessor` that we added in the `Program.cs` file in a previous step. Then, we invoke the `callApi` function if the access token is successfully extracted from it. The response is formatted using the `FormatJson` method before being displayed on the page. The `[Authorize]` attribute is also used to ensure that only authenticated users can access this page.
 
-Additionally, we need to navigate to the `NavMenu.razor` file and add the `Scim2Me` page as a menu item.
+Additionally, we need to navigate to the `Components/Layout/NavMenu.razor` file and add the `Scim2Me` page as a menu item.
 
 ```csharp title="NavMenu.razor" hl_lines="38-42"
 @using Microsoft.AspNetCore.Components.Authorization
