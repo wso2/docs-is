@@ -2,7 +2,7 @@ name: Asgardeo Docs Release
 
 concurrency:
   group: doc-release
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 on:
   push:
