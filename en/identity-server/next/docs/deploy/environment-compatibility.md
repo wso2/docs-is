@@ -1,10 +1,10 @@
 # Environment Compatibility
 
-This doc covers the compaitibility information of WSO2 Identity Server with different environments.
+This document provides compatibility details for WSO2 Identity Server across various environments.
 
-## Tested operating systems and JDKs
+## Tested JDKs and operating systems
 
-As WSO2 Identity Server is a Java application, you can generally run it on most operating systems. Following are the operating systems and JDKs that WSO2 Identity Server is tested with:
+WSO2 Identity Server, being a Java application, is compatible with most operating systems. Below are the operating systems and JDK versions that have been tested for compatibility.
 
 <table>
 	<tr>
@@ -14,6 +14,7 @@ As WSO2 Identity Server is a Java application, you can generally run it on most 
 				<li>Temurin OpenJDK 11</li>
 				<li>Temurin OpenJDK 17</li>
 				<li>Temurin OpenJDK 21</li>
+				<li>Oracle JDK 21</li>
 			</ul>
 		</td>
 	</tr>
@@ -21,14 +22,10 @@ As WSO2 Identity Server is a Java application, you can generally run it on most 
 		<th>Tested Operating Systems</th>
 		<td>
 			<ul>
-				<li>Ubuntu 20.04</li>
-				<li>CentOS 7</li>
-				<li>Windows Server 2016</li>
+				<li>Ubuntu 24.04 (x86_64, ARM64)</li>
+				<li>Rocky Linux 9.4</li>
+				<li>Windows Server 2025</li>
 				<li>Windows Server 2012 R2</li>
-				<li>Windows 10</li>
-				<li>Windows 11</li>
-				<li>macOS x86_64</li>
-				<li>macOS M1</li>
 			</ul>
 		</td>
 	</tr>
@@ -36,9 +33,9 @@ As WSO2 Identity Server is a Java application, you can generally run it on most 
 
 ## Tested DBMSs
 
-WSO2 Identity Server supports the following DBMSs:
+WSO2 Identity Server is compatible with the following database management systems (DBMSs):
 
-- MySQL 8.0
+- MySQL 8.4
 
 	!!! warning
 		To use MySQL 8.0, you need to create the database with charset latin1 as shown below:
@@ -47,30 +44,26 @@ WSO2 Identity Server supports the following DBMSs:
 		create database regdb
 		character set latin1;
 		```
-
-- MySQL 5.7
-- Oracle 19C
-- Oracle SE2-19.0
-- Microsoft SQL Server 2019
-- SQLServer-SE-14.00
-- DB2 v11.5
-- Postgres 10.19
-- Postgres 13.7
-- Postgres 14
+- Oracle RAC 23ai
+- Oracle 23ai
+- Microsoft SQL Server 2022
+- Postgres 17
+- Maria DB 11.4
+- DB2 11.5
 - Embedded H2
 
 ## Tested web browsers
 
 Following is a list of web browsers tested with WSO2 Identity Server:
 
-- Chrome 104.0.5112.79 (Official Build) (arm64)
-- Firefox 91
-- Microsoft Edge 104.0.1293.54 (Official Build) (arm64)
-- Safari 15.2 (17612.3.6.1.6)
+- Chrome 129
+- Firefox 130
+- Microsoft Edge 127
+- Safari 17
 
 ## Tested LDAPs
 
 Following is a list of LDAPs tested with WSO2 Identity Server:
 
-- Open LDAP 2.4.28
-- Microsoft Active Directory Windows 2012
+- Open LDAP 2.6
+- Microsoft Active Directory Windows 2025
