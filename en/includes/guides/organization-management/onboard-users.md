@@ -2,6 +2,8 @@
 
 Organization administrators can add users to their organization using the following methods.
 
+- Onboard users from
+
 !!! note "Before you begin"
 
     - Make sure you have created an organization in {{product_name}} and onboarded an administrator. See how to [create an organization]({{base_path}}/guides/organization-management/) and [onboard admins]({{base_path}}/guides/organization-management/onboard-org-admins/).
@@ -14,13 +16,21 @@ Organization administrators can use the Console to create users in the organizat
 - To add a single user, follow this [guide]({{base_path}}/guides/users/manage-users/#onboard-single-user).
 - To add multiple users, follow this [guide]({{base_path}}/guides/users/manage-users/#onboard-multiple-users).
 
-{% if is_version != "7.0.0" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 ## Onboard users from a secondary user store
 
 Organization administrators can configure multiple secondary user stores for the organization. Once configured, users from the secondary user stores can log into the organization and perform operations permitted by the roles assigned to them.
 
+{% if product_name == "Asgardeo" %}
+
+- To connect a secondary user store, follow this [guide]({{base_path}}/guides/users/user-stores/configure-a-user-store/).
+
+{% else %}
+
 - To connect a secondary user store, follow this [guide]({{base_path}}/guides/users/user-stores/configure-secondary-user-stores/).
+
+{% endif %}
 
 {% endif %}
 
@@ -38,7 +48,7 @@ In order to invite users from the parent organization, get to know the usernames
 
 If a user of the organization with {{ product_name }} Console access needs to invite a user from the parent organization, follow the steps below.
 
-1. Login to your organization using the link `https://{{host_name}}/t/{root-organization-name}/o/{organization-id}{{console_path}}`.
+1. Login to your organization using the link `https://{{console_host_name}}/t/{root-organization-name}/o/{organization-id}{{console_path}}`.
 2. Go to **User Management > Users** and click **Add user**. From there, select **Invite Parent User**.
 3. Enter the usernames of the user that you want to invite to the organization. You can enter multiple usernames by pressing enter after each username input.
 4. Select the groups that you want to assign to the invited users.

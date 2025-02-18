@@ -638,6 +638,17 @@ components:
             type:
               type: string
               example: application
+        properties:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: isSharedRole
+              value:
+                type: string
+                example: 'false'
     RoleCreationObjectV2:
       type: object
       required:
@@ -661,7 +672,7 @@ components:
             type:
               type: string
               enum:
-                - applciation
+                - application
                 - organization
               example: application
         users:
@@ -779,6 +790,17 @@ components:
           example:
             - value: 3645709f-ea8d-5595-7690-e1fa0efe3df9
               display: My App
+        properties:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: isSharedRole
+              value:
+                type: string
+                example: 'false'
     RolePostResponseObjectV2:
       type: object
       properties:

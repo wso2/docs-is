@@ -22,6 +22,8 @@ site_url: https://is.docs.wso2.com/en/next
 extra:
   base_path: /en/next
   is_version: next
+  default_keystore_type: PKCS12
+  default_keystore_ext: p12
 
 hooks:
   - hooks.py
@@ -32,7 +34,7 @@ plugins:
       separator: "[^\\w._]+"
       lang: ['en']
       prebuild_index: true
-      ngram_length: 3
+      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -494,6 +496,7 @@ nav:
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
         - User Impersonation: guides/authorization/user-impersonation.md
+        - Rich Authorization Requests: guides/authorization/rich-authorization-requests.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
         - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md
@@ -574,6 +577,7 @@ nav:
           - Username recovery: guides/account-configurations/account-recovery/username-recovery.md
           - Admin Initiated Password Reset: guides/account-configurations/account-recovery/admin-initiated-password-reset.md
         - Notification settings: guides/account-configurations/notification-settings.md
+        - Account disabling: guides/account-configurations/account-disabling.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -596,18 +600,23 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
+          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
-          - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-          - Share applications: guides/organization-management/share-applications.md
+          - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
+          - Share applications with organizations: guides/organization-management/share-applications.md
+          - Application Management:
+            - Share applications: guides/organization-management/share-applications.md
+            - Organization applications: guides/organization-management/organization-applications.md
+          - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
           - Onboard admins: 
             - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
           - Onboard users: guides/organization-management/onboard-users.md
-          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+          - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
-      - Customize:
+      - Customizations:
           - Customize branding:
             - Branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
@@ -616,12 +625,14 @@ nav:
             - Customize email templates: guides/branding/customize-email-templates.md
             - Customize SMS templates: guides/branding/customize-sms-templates.md
             - Localization support: guides/branding/localization.md
-          - Extend with actions:
-            - Understanding actions: guides/customize/actions/understanding-actions.md
-            - Setting up actions: guides/customize/actions/setting-up-actions.md
-            - Action types: 
-              - Pre issue access token action: guides/customize/actions/pre-issue-access-token-action.md
-              - Pre update password action: guides/customize/actions/pre-update-password-action.md
+          - Extend with service extensions:
+            - Understanding service extensions: guides/service-extensions/understanding-service-extensions.md
+            - In-flow extensions:
+              - Custom authentication: guides/service-extensions/in-flow-extensions/custom-authentication.md
+            - Pre-flow extensions (Actions):
+              - Setting up an action: guides/service-extensions/pre-flow-extensions/setting-up-actions.md
+              - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
+              - Pre update password action: guides/service-extensions/pre-flow-extensions/pre-update-password-action.md
       - Analytics:
         - ELK Analytics:
           - Elk analytics: guides/analytics/elk-analytics/index.md
@@ -790,8 +801,12 @@ nav:
       - App-native authentication API: apis/app-native-authentication-api.md
       - Authentication Data API: apis/use-the-authentication-rest-apis.md
       - Authenticators API: apis/authenticators-rest-api.md
+      - Certificate Validation Management API: apis/certificate-validation-management-rest-api.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
+      - Email templates APIs:
+        - Email templates v1 API: apis/email-templates-rest-api.md
+        - Email templates v2 API: apis/email-templates-v2-rest-api.md
       - Extension management API: apis/extension-mgt-rest-api.md
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
@@ -800,6 +815,7 @@ nav:
       - Notification sender management:
         - Notification sender configurations: apis/notification-sender.md
         - Notification sender API: apis/notification-sender-rest-api.md
+      - Notification Templates Management API: apis/notification-templates.md
       - Organization discovery API: apis/organization-discovery-rest-api.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
@@ -820,10 +836,6 @@ nav:
         - Consent management:
           - Overview: apis/use-the-consent-management-rest-apis.md
           - Consent management API: apis/consent-management-api-definition.md
-        - Email templates:
-          - Email templates v1 API: apis/email-templates-rest-api.md
-          - Email templates v2 API: apis/email-templates-v2-rest-api.md
-        - Notification Templates Management APIs: apis/notification-templates.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
@@ -845,18 +857,27 @@ nav:
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
         - User Account Association API: apis/association-rest-api.md
         - Identity verification API: apis/admin-identity-verification.md
+      - User sharing management API: apis/organization-user-share-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
-      - Application management API: apis/organization-apis/org-application-mgt.md
+      - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
+      - Application management:
+        - Application management API (Shared Applications): apis/organization-apis/shared-application-mgt.md
+        - Application management API: apis/organization-apis/organization-application-mgt.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
+      - Certificate Validation Management API: apis/organization-apis/certificate-validation-management-rest-api.md
       - Branding management API: apis/organization-apis/org-branding-mgt.md
       - Claim management API: apis/organization-apis/org-claim-mgt.md
+      - Email templates APIs:
+        - Email templates v1 API: apis/organization-apis/email-templates-rest-api.md
+        - Email templates v2 API: apis/organization-apis/email-templates-v2-rest-api.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
+      - Notification Templates Management API: apis/organization-apis/notification-templates.md
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
@@ -868,6 +889,7 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
+      - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
@@ -901,12 +923,16 @@ nav:
     - Notification templates:
       - Email templates: references/email-templates.md
       - SMS templates: references/sms-templates.md
-    - Actions:
-      - Pre issue access token action: 
-        - API contract to implement: references/actions/pre-issue-access-token-action/api-contract.md
-        - Sample success reponses: references/actions/pre-issue-access-token-action/sample-success-responses.md
-      - Pre update password action: 
-        - API contract to implement: references/actions/pre-update-password-action/api-contract.md
+    - Service extensions:
+      - In-flow extensions:
+        - Custom authentication:
+          - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
+      - Pre-flow extensions (Actions):
+        - Pre issue access token action: 
+          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
+          - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
+        - Pre update password action: 
+          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract.md
     - Architecture: references/architecture.md
     - IS extensions:
       - references/extend/index.md

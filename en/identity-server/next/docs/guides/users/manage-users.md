@@ -32,7 +32,7 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
     - **Invite user to set their own password:**
 
         - **Invite via email:** If this option is selected, an email with a confirmation link will be sent to the provided email address. The user can use this link to set up a new password.
-        
+
             !!! note
                   You need to enable the **Invite user to set password** feature if you haven't done so already to use this option. Learn how to [configure invite user to set password]({{base_path}}/guides/account-configurations/user-onboarding/invite-user-to-set-password/).
 
@@ -140,10 +140,10 @@ To reset the password:
 
 2. Select a method to reset the user password:
 
-    - **Set a new password for the user:**  
+    - **Set a new password for the user:**
         If this option is selected, the owner or an administrator can set a new password for the user.
 
-    - **Invite user to reset the password:**  
+    - **Invite user to reset the password:**
         If this option is selected, a password reset request can be sent to the user using one of the password recovery methods you have enabled for the organization.
 
         !!! note
@@ -187,13 +187,13 @@ Upon successful execution of the cURL the user will receive an email to reset th
 
 ## Lock a user account
 
-When you lock a user's account, the user will no longer be able to access any applications or the My Account portal.
+To temporarily prevent a user from logging into applications or the self-service My Account portal, you can lock the user's account.
 
 To lock a user account:
 
 1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
 2. In the **Danger Zone**, turn the **Lock user** toggle on to lock the user's profile. Turn it off to unlock it.
-  
+
     ![Lock user]({{base_path}}/assets/img/guides/users/lock-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Select the checkbox to confirm your action.
@@ -203,6 +203,29 @@ To lock a user account:
     When a user account is locked, the reason for the account lock will be displayed in the user's profile.
 
 ![Account lock reason]({{base_path}}/assets/img/guides/users/lock-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Disable a user account
+
+Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
+
+!!! note "Enable account disabling"
+    
+    Account disabling is not an option available for a users' accounts by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
+
+To disable a user account,
+
+1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
+2. In the **Danger Zone**, turn the **Disable user** toggle on to disable the user's profile. Turn it off to enable it.
+
+    ![Disable User Account]({{base_path}}/assets/img/guides/users/user-account-disable.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Select the checkbox to confirm your action.
+4. Click **Confirm**.
+
+!!! note
+    When a user account is disabled, the follwing message will be displayed in the user's profile.
+
+![Account disable reason]({{base_path}}/assets/img/guides/users/account-disable-text.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Delete a user
 A user account can be deleted by administrators. Once an account is deleted, the action is irreversible.

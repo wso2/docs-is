@@ -31,3 +31,10 @@ Provide users with options to recover their access credentials, ensuring they ca
 - [Username Recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/)
 - [Admin Initiated Password Reset]({{base_path}}/guides/account-configurations/account-recovery/admin-initiated-password-reset/)
 {% endif %}
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
+## Account management
+Enable additional options for managing user accounts.
+
+- [Account disabling]({{base_path}}/guides/account-configurations/account-disabling/)
+{% endif %}

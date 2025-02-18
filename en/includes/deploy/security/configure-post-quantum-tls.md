@@ -1,6 +1,12 @@
 # Configure Post-Quantum TLS
 
+{% if is_version == "7.0.0" %}
+To overcome the quantum threat on traditional cryptographic techniques, WSO2 Identity Server integrates post-quantum cryptography with the current traditional methods. Specifically, it adopts the [X25519+Kyber](https://datatracker.ietf.org/doc/draft-tls-westerbaan-xyber768d00/) key agreement algorithm for inbound TLS communications, ensuring robust protection against quantum threats. To configure TLS with post-quantum security, WSO2 Identity Server should be configured to utilize OpenSSL 3.x as the JSSE provider, along with [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
+
+{% else %}
 To overcome the quantum threat on traditional cryptographic techniques, {{product_name}} integrates post-quantum cryptography with the current traditional methods. Specifically, it adopts the [X25519MLKEM768](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) key agreement algorithm for inbound TLS communications, ensuring robust protection against quantum threats. To configure TLS with post-quantum security, {{product_name}} should be configured to utilize OpenSSL 3.x as the JSSE provider, along with [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
+
+{% endif %}
 
 Post-quantum TLS is **disabled** by default on {{product_name}}.
 
@@ -114,13 +120,13 @@ The following dependencies are required during build-time.
     In Debian-based Linux:
 
     ```bash
-    apt-get install make cmake wget tar gcc
+    apt-get install make cmake wget tar gcc git python3 autoconf libtool-bin
     ```
 
     In Red Hat Linux distributions:
 
     ```bash
-    yum install make cmake wget tar gcc perl
+    yum install make cmake wget tar gcc perl git python3 autoconf libtool
     ```
 
 === "MacOS"
@@ -128,7 +134,7 @@ The following dependencies are required during build-time.
     On macOS, you can use Homebrew to install dependencies.
 
     ```bash
-    brew install wget cmake
+    brew install wget cmake git python3 autoconf libtool
     ```
 
 #### Runtime dependencies
@@ -149,6 +155,17 @@ Follow the instructions given below to install the required runtime dependencies
 
 1. Shut down the {{product_name}} instance if it's running.
 2. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
+   
+    {% if is_version == "7.0.0" %}
+    ``` toml
+    [transport.https.openssl]
+    enabled = true
+    named_groups="x25519_kyber768:x25519"
+    [transport.https.sslHostConfig.properties]
+    protocols="TLSv1+TLSv1.1+TLSv1.2+TLSv1.3"
+    ```
+
+    {% else %}
     ``` toml
     [transport.https.openssl]
     enabled = true
@@ -157,6 +174,7 @@ Follow the instructions given below to install the required runtime dependencies
     [transport.https.sslHostConfig.properties]
     protocols="TLSv1+TLSv1.1+TLSv1.2+TLSv1.3"
     ```
+    {% endif %}
 3. Restart {{product_name}}.
 
 

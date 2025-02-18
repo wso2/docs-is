@@ -1,4 +1,4 @@
-# Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+# Copyright (c) 2023-2025, WSO2 LLC. (https://www.wso2.com).
 #
 # WSO2 LLC. licenses this file to you under the Apache License,
 # Version 2.0 (the "License"); you may not use this file except
@@ -22,6 +22,8 @@ site_url: https://is.docs.wso2.com/en/7.0.0
 extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
+  default_keystore_type: JKS
+  default_keystore_ext: jks
 
 hooks:
   - hooks.py
@@ -32,7 +34,7 @@ plugins:
       separator: "[^\\w._]+"
       lang: ['en']
       prebuild_index: true
-      ngram_length: 3
+      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -354,7 +356,7 @@ nav:
         - Try for a sample app: get-started/try-samples/index.md
         - Single Page apps:
           - React: get-started/try-samples/qsg-spa-react.md
-          - JavaScript: get-started/try-samples/qsg-spa-javascript.md
+          - Javascript: get-started/try-samples/qsg-spa-javascript.md
         - Web apps:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
@@ -368,6 +370,9 @@ nav:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
     - About this release: get-started/about-this-release.md
+  - Quickstarts:
+    - React Quickstart: quick-starts/react.md
+    - Angular Quickstart:  quick-starts/angular.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
@@ -892,22 +897,19 @@ nav:
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
-  - React Guide:
-    - Introduction: complete-guides/react/introduction.md
-    - Prerequisite: complete-guides/react/prerequisite.md
-    - Configure an application: complete-guides/react/register-an-application.md
-    - Create a React app: complete-guides/react/create-a-react-app.md
-    - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
-    - Add login and logout: complete-guides/react/add-login-and-logout.md
-    - Display user details: complete-guides/react/display-logged-in-user-details.md
-    - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
-    - Accessing protected API : complete-guides/react/accessing-protected-api.md
-    - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
-    - Next Steps: complete-guides/react/next-steps.md
-  - Quick Starts:
-    - React Quickstart: quick-starts/react.md
-    - Angular Quickstart:  quick-starts/angular.md
-
+  - Technology Guides:
+    - React:
+      - Introduction: complete-guides/react/introduction.md
+      - Prerequisite: complete-guides/react/prerequisite.md
+      - Configure an application: complete-guides/react/register-an-application.md
+      - Create a React app: complete-guides/react/create-a-react-app.md
+      - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+      - Add login and logout: complete-guides/react/add-login-and-logout.md
+      - Display user details: complete-guides/react/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
+      - Accessing protected API : complete-guides/react/accessing-protected-api.md
+      - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
+      - Next Steps: complete-guides/react/next-steps.md
 
 not_in_nav: |
   /page-not-found.md

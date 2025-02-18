@@ -34,7 +34,7 @@ paths:
       description: |
         Retrieves all the email template types in the system. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
          
       responses:
@@ -54,6 +54,13 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Email Template Types
@@ -65,7 +72,7 @@ paths:
 
         * Attribute _**displayName**_ of the template type should be unique. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_create` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
 
       requestBody:
         content:
@@ -95,6 +102,17 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "displayName": "NewEmailTemplateType",
+            }'
   '/notification/email/template-types/{template-type-id}':
     get:
       tags:
@@ -104,7 +122,7 @@ paths:
       description: |
         Retrieves the email template type in the system identified by the template-type-id. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
       
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -125,6 +143,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
       tags:
         - Email Template Types
@@ -135,7 +160,7 @@ paths:
         from the system. <br>
         *Note : System resources are not eligible for deletion. Attempting to delete a system resource will result in a 403 Forbidden error.* <br>
         
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -152,6 +177,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/notification/reset-template-type':
     post:
       tags:
@@ -180,6 +212,18 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/notification/reset-template-type' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "templateTypeId": "YWNjb3VudGNvbmZpcm1hdGlvbg",
+            "channel": "EMAIL"
+            }'
   '/notification/email/template-types/{template-type-id}/org-templates':
     get:
       tags:
@@ -189,10 +233,11 @@ paths:
       description: |
         Retrieves the list of organization email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -212,6 +257,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Email Templates
@@ -221,7 +273,7 @@ paths:
         Another organization email template with the same locale should not already exist in the
         respective email template type. <br>
 
-         <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+         <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -255,6 +307,21 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "contentType": "text/html",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Identity Server Team",
+            "locale": "en_US"
+            }'
   '/notification/email/template-types/{template-type-id}/app-templates/{app-uuid}':
     get:
       tags:
@@ -264,11 +331,12 @@ paths:
       description: |
         Retrieves the list of application email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -288,6 +356,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Application Email Templates
@@ -297,7 +372,7 @@ paths:
         Another application email template with the same locale should not already exist in the
         respective email template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_create` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -332,6 +407,21 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "contentType": "text/html",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Identity Server Team",
+            "locale": "en_US"
+            }'
   '/notification/email/template-types/{template-type-id}/org-templates/{locale}':
     get:
       tags:
@@ -341,11 +431,12 @@ paths:
       description: |
         Retrieves the organization email template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -363,6 +454,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Email Templates
@@ -371,7 +469,7 @@ paths:
       description: |
         Replaces the organization email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_update` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -395,6 +493,20 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "contentType": "text/html",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Identity Server Team"
+            }'
     delete:
       tags:
         - Email Templates
@@ -403,7 +515,7 @@ paths:
       description: |
         Removes an organization email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -421,6 +533,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/notification/email/template-types/{template-type-id}/system-templates':
     get:
       tags:
@@ -430,7 +549,7 @@ paths:
       description: |
         Retrieves the list of system default email templates under the provided template type. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -453,6 +572,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/system-templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/notification/email/template-types/{template-type-id}/system-templates/{locale}':
     get:
       tags:
@@ -462,7 +588,7 @@ paths:
       description: |
         Retrieves the system default email template that matches the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -484,6 +610,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/system-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/notification/email/template-types/{template-type-id}/app-templates/{app-uuid}/{locale}':
     get:
       tags:
@@ -493,12 +626,13 @@ paths:
       description: |
         Retrieves the application email template that matches to the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_view` / `internal_template_mgt_view`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_view`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -516,6 +650,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Application Email Templates
@@ -524,7 +665,7 @@ paths:
       description: |
         Replaces the application email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_update` / `internal_template_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_update`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -549,6 +690,20 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "contentType": "text/html",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Identity Server Team"
+            }'
     delete:
       tags:
         - Application Email Templates
@@ -557,7 +712,7 @@ paths:
       description: |
         Removes an application email template identified by the template-type-id and the locale. <br>
 
-        <b>Scope(Permission) required:</b> `internal_email_mgt_delete` / `internal_template_mgt_delete`
+        <b>Scope(Permission) required:</b> `internal_template_mgt_delete`
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -576,6 +731,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/notification/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /notification/sms/template-types:
     get:
       tags:
@@ -604,6 +766,13 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - SMS Template Types
@@ -645,6 +814,17 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "displayName": "NewSMSTemplateType",
+            }'
   '/notification/sms/template-types/{template-type-id}':
     get:
       tags:
@@ -675,6 +855,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     delete:
       tags:
         - SMS Template Types
@@ -702,6 +889,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/notification/sms/template-types/{template-type-id}/app-templates/{app-uuid}':
     get:
       tags:
@@ -716,6 +910,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -735,6 +930,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Application SMS Templates
@@ -779,6 +981,18 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "body": "SMS Body",
+            "locale": "en_US"
+            }'
   '/notification/sms/template-types/{template-type-id}/app-templates/{app-uuid}/{locale}':
     get:
       tags:
@@ -794,6 +1008,7 @@ paths:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/appUuidPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -811,6 +1026,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - Application SMS Templates
@@ -844,6 +1066,17 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "body": "SMS Body"
+            }'
     delete:
       tags:
         - Application SMS Templates
@@ -871,6 +1104,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/app-templates/963563da-375a-4214-9391-d2e7b02a4172/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/notification/sms/template-types/{template-type-id}/org-templates':
     get:
       tags:
@@ -884,6 +1124,7 @@ paths:
 
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -903,6 +1144,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - SMS Templates
@@ -946,6 +1194,18 @@ paths:
           $ref: '#/components/responses/Conflict'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "body": "SMS Body",
+            "locale": "en_US"
+            }'
   '/notification/sms/template-types/{template-type-id}/org-templates/{locale}':
     get:
       tags:
@@ -960,6 +1220,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -977,6 +1238,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
         - SMS Templates
@@ -1009,6 +1277,17 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "body": "SMS Body"
+            }'
     delete:
       tags:
         - SMS Templates
@@ -1035,6 +1314,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/org-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/notification/sms/template-types/{template-type-id}/system-templates':
     get:
       tags:
@@ -1067,6 +1353,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/system-templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   '/notification/sms/template-types/{template-type-id}/system-templates/{locale}':
     get:
       tags:
@@ -1098,6 +1391,13 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/notification/sms/template-types/U01TT1RQ/system-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
 servers:
   # Added by API Auto Mocking Plugin
@@ -1129,6 +1429,14 @@ components:
       description: Application UUID.
       schema:
         type: string
+    resolveQueryParam:
+      in: query
+      name: resolve
+      required: false
+      description: Specifies whether to return resolved template/s throughout the ancestor organization hierarchy.
+      schema:
+        type: boolean
+        default: false
   responses:
     NotFound:
       description: The specified resource is not found.
