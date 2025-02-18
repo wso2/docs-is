@@ -551,9 +551,9 @@ nav:
       - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
       - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
       - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
-      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
       - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
-      - Accessing protected API: complete-guides/dotnet/accessing-protected-api.md
+      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
+      - Accessing protected API: complete-guides/dotnet/protected-api.md
       - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
       - Next Steps: complete-guides/dotnet/next-steps.md
     - Node.js:
