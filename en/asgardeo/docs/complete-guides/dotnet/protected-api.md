@@ -22,10 +22,12 @@ The goal is to create a page that:
 
 We will use the `/scim2/Me` endpoint as the protected endpoint in this guide. In Asgardeo, the SCIM2 REST API implements the SCIM 2.0 Protocol according to the SCIM 2.0 specification. The `/scim2/Me` endpoint returns the user details of the currently authenticated user.
 
-To access this endpoint, define it under `environmentVariables` in the `launchSettings.json` file as follows. Make sure to replace the `org` placeholder with the correct organization name.
+To access this endpoint, define it under `environmentVariables` in the `Properties/launchSettings.json` file as follows. Make sure to replace the `org` placeholder with the correct organization name.
 
-```csharp hl_lines="18" title="launchSettings.json"
-"profiles": {
+```csharp hl_lines="20" title="launchSettings.json"
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
     "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
@@ -34,17 +36,18 @@ To access this endpoint, define it under `environmentVariables` in the `launchSe
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "AUTHORIZATION_ENDPOINT": "https://api.asgardeo.io/t/sanjula/oauth2/authorize",
-        "TOKEN_ENDPOINT": "https://api.asgardeo.io/t/sanjula/oauth2/token",
-        "JWKS_URI": "https://api.asgardeo.io/t/sanjula/oauth2/jwks",
-        "LOGOUT_URI": "https://api.asgardeo.io/t/sanjula/oidc/logout",
-        "AUTHORITY": "https://api.asgardeo.io/t/sanjula/",
-        "CLIENT_ID": "7Nr4bQdLbmvkf8umwn0PaMt0SAsa",
-        "CLIENT_SECRET": "FrfV4YEn8WHQUIbHcIMA6NTtf4ugERw6fCa6fXMsZgga",
-        "METADATA_ADDRESS": "https://api.asgardeo.io/t/sanjula/oauth2/token/.well-known/openid-configuration",
-        "SCIM2_ME_ENDPOINT": "https://api.asgardeo.io/t/sanjula/scim2/Me"
+        "AUTHORIZATION_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/authorize",
+        "TOKEN_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/token",
+        "JWKS_URI": "https://api.asgardeo.io/t/<org>/oauth2/jwks",
+        "LOGOUT_URI": "https://api.asgardeo.io/t/<org>/oidc/logout",
+        "AUTHORITY": "https://api.asgardeo.io/t/<org>/",
+        "CLIENT_ID": "<client_id>",
+        "CLIENT_SECRET": "<client_secret>",
+        "METADATA_ADDRESS": "https://api.asgardeo.io/t/<org>/oauth2/token/.well-known/openid-configuration"
+        "SCIM2_ME_ENDPOINT": "https://api.asgardeo.io/t/<org>/scim2/Me"
       }
     },
+  }
 }
 ```
 
@@ -52,17 +55,130 @@ To invoke the `/scim2/Me` endpoint, the `internal_login` scope must be present i
 
 To check the current scopes being requested upon login, analyze the `scope` parameter in the request payload of the initial authorization request during login.
 
-![Default scopes]({{base_path}}/complete-guides/dotnet/assets/img/image8.png){: width="800" style="display: block; margin: 0;"}
+![Default scopes]({{base_path}}/complete-guides/dotnet/assets/img/image12.png){: width="800" style="display: block; margin: 0;"}
 
-By default, the requested scopes are `openid` and `profile`. To add the `internal_login` scope, navigate to the `Program.cs` file and insert the following within the `oidcOptions` configurations in the `AddOpenIdConnect` method:
+By default, the requested scopes are `openid` and `profile`. To add the `internal_login` scope, navigate to the `Program.cs` file and insert this scope within the `oidcOptions` configurations in the `AddOpenIdConnect` method as highlighted below:
 
-```csharp title="Program.cs"
-oidcOptions.Scope.Add("internal_login");
+```csharp title="Program.cs" hl_lines="73"
+using asgardeo_dotnet.Components;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.IdentityModel.JsonWebTokens;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Microsoft.AspNetCore.Components.Authorization;
+using asgardeo_dotnet;
+
+var builder = WebApplication.CreateBuilder(args);
+
+HttpClient httpClient;
+if (Environment.GetEnvironmentVariable("HTTPCLIENT_VALIDATE_EXTERNAL_CERTIFICATES") == "false")
+{
+    var handler = new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+    };
+    httpClient = new HttpClient(handler);
+}
+else
+{
+    httpClient = new HttpClient();
+}
+
+builder.Services.AddSingleton(httpClient);
+
+JsonWebKeySet FetchJwks(string url)
+{
+    var result = httpClient.GetAsync(url).Result;
+    if (!result.IsSuccessStatusCode || result.Content is null)
+    {
+        throw new Exception(
+            $"Getting token issuers (WSO2) JWKS from {url} failed. Status code {result.StatusCode}");
+    }
+
+    var jwks = result.Content.ReadAsStringAsync().Result;
+    return new JsonWebKeySet(jwks);
+}
+
+const string ASGARDEO_OIDC_SCHEME = "AsgardeoOidc";
+
+builder.Services.AddAuthentication(ASGARDEO_OIDC_SCHEME)
+.AddOpenIdConnect(ASGARDEO_OIDC_SCHEME, oidcOptions =>
+{
+    oidcOptions.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
+    oidcOptions.Configuration = new ()
+    {
+        Issuer = Environment.GetEnvironmentVariable("TOKEN_ENDPOINT"),
+        AuthorizationEndpoint = Environment.GetEnvironmentVariable("AUTHORIZATION_ENDPOINT"),
+        TokenEndpoint = Environment.GetEnvironmentVariable("TOKEN_ENDPOINT"),
+        JwksUri = Environment.GetEnvironmentVariable("JWKS_URI"),
+        JsonWebKeySet = FetchJwks(Environment.GetEnvironmentVariable("JWKS_URI")!),
+        EndSessionEndpoint = Environment.GetEnvironmentVariable("LOGOUT_URI"),
+    };
+    foreach (var key in oidcOptions.Configuration.JsonWebKeySet.GetSigningKeys())
+    {
+        oidcOptions.Configuration.SigningKeys.Add(key);
+    }
+
+    oidcOptions.Authority = Environment.GetEnvironmentVariable("AUTHORITY");
+
+    oidcOptions.ClientId = Environment.GetEnvironmentVariable("CLIENT_ID");
+    oidcOptions.ClientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
+
+    oidcOptions.ResponseType = OpenIdConnectResponseType.Code;
+
+    oidcOptions.MapInboundClaims = false;
+    oidcOptions.TokenValidationParameters.NameClaimType = JwtRegisteredClaimNames.Name;
+    oidcOptions.TokenValidationParameters.RoleClaimType = "roles";
+    oidcOptions.MetadataAddress = Environment.GetEnvironmentVariable("METADATA_ADDRESS");
+    oidcOptions.SaveTokens = true;
+    oidcOptions.Scope.Add("internal_login");
+})
+.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
+
+builder.Services.AddAuthorization();
+builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddScoped<AuthenticationStateProvider, PersistingAuthenticationStateProvider>();
+builder.Services.AddHttpContextAccessor();
+
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+
+
+app.UseAntiforgery();
+
+app.MapStaticAssets();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
+
+app.MapGroup("/authentication").MapLoginAndLogout();
+
+app.Run();
+
 ```
 
 Since we are utilizing the `SaveTokens` option to persist tokens for a given session, we can use `HttpContext` to retrieve the access token, provided the user is already authenticated. This can be ensured by using the `[Authorize]` attribute.
 
-Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` directory and include the following content.
+Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` directory using the following command.
+
+```shell
+touch Components/Pages/Scim2Me.razor
+```
+
+Then include the following content.
 
 ```csharp title="Scim2Me.razor"
 @page "/scim2-me"
@@ -164,18 +280,59 @@ Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` direct
 
 In the above code, we utilize the `OnInitializedAsync` method to retrieve the `HttpContext` from the `HttpContextAccessor` that we added in the `Program.cs` file in a previous step. Then, we invoke the `callApi` function if the access token is successfully extracted from it. The response is formatted using the `FormatJson` method before being displayed on the page. The `[Authorize]` attribute is also used to ensure that only authenticated users can access this page.
 
-Additionally, we need to navigate to the `NavMenu.razor` file and add the `Scim2Me` page as a menu item.
+Additionally, we need to navigate to the `Components/Layout/NavMenu.razor` file and add the `Scim2Me` page as a menu item.
 
-```html title="NavMenu.razor"
-<div class="nav-item px-3">
-    <NavLink class="nav-link" href="scim2-me">
-        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Protected API
-    </NavLink>
+```csharp title="NavMenu.razor" hl_lines="38-42"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">asgardeo-dotnet</a>
+    </div>
 </div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="nav flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <AuthorizeView>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="counter">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="weather">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="user-claims">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> User Claims
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="scim2-me">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Protected API
+                </NavLink>
+            </div>
+        </AuthorizeView>
+    </nav>
+</div>
+
 ```
 
 Now starting the application and clicking on the `Protected API` menu item after authentication will invoke the protected API with the token containing the required scopes and return a response as shown below.
 
-![Protected API]({{base_path}}/complete-guides/dotnet/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
+![Protected API]({{base_path}}/complete-guides/dotnet/assets/img/image13.png){: width="800" style="display: block; margin: 0;"}
 
 In this guide, we successfully implemented a secure API call from a .NET Blazor Web application using the access token. This ensures that the application can securely interact with the backend API, respecting the scopes and permissions granted during authentication. We will look into how we can manage tokens in .NET applications, especially for Blazor Web applications in the next step.

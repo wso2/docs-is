@@ -13,63 +13,119 @@ In this guide, we will display user information in two different places:
 
 ### Displaying User Info on the Home Page
 
-Let's first navigate to the `Home.razor` file under the `/Components/Pages` directory and add the following code including the imports inside the C# section (i.e., Razor syntax: `@code`).
+At the current state of the application, the user's name is not displayed on the home page. To display the user's details, such as first name and last name, we need to ensure that these claim values are returned in the ID token issued by Asgardeo as follows.
 
-```csharp title="Home.razor"
+1. Log in to the {{product_name}} console and select the application you created.
+2. Go to the **User Attributes** tab.
+3. Select the **given_name** and **family_name** attributes under the **Profile** section.
+4. Click **Update** to save the changes.
+
+![User Attributes]({{base_path}}/complete-guides/dotnet/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
+
+
+Now that we have updated the application, we can navigate to the `Home.razor` file under the `/Components/Pages` directory and add the following code.
+
+```csharp title="Home.razor" hl_lines="5-6 10-20 29 42-46 57-66"
+@page "/"
+@implements IDisposable
+@inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Components.Authorization
 @using System.Security.Claims
 @using Microsoft.AspNetCore.Authorization
 
-private IEnumerable<Claim> claims = [];
+<PageTitle>Home</PageTitle>
 
-[CascadingParameter]
-private Task<AuthenticationState>? AuthState { get; set; }
-
-protected override async Task OnInitializedAsync()
-{
-    if (AuthState == null)
-    {
-        return;
-    }
-
-    var authState = await AuthState;
-    claims = authState.User.Claims;
-}
-```
-
-This code retrieves the authentication state and obtains the user claims from it to display in the HTML section of the Razor file.
-
-Next, add the following in the HTML section of the file. This will retrieve the user attribute “name” from the list of claims and display a greeting with the given details if the user is logged in.
-
-```csharp title="Home.razor"
 @if (claims.Any())
 {
-    @foreach (var claim in claims)
+    givenName = claims.FirstOrDefault(c => c.Type == "given_name")?.Value;
+    lastName = claims.FirstOrDefault(c => c.Type == "family_name")?.Value;
+
+    if (!string.IsNullOrEmpty(givenName) && !string.IsNullOrEmpty(lastName))
     {
-        @if (claim.Type == "name") 
-        {
-            <h1>Welcome @claim.Value!</h1>
-            <p>You can now access the Counter, Weather, and User Claims tab.</p>
-        }
+        <h1>Welcome @($"{givenName} {lastName}")!</h1>
+        <p>You can now access the Counter, Weather, and User Claims tab.</p>
     }
 }
+
+<div class="nav-item px-3">
+    <AuthorizeView>
+        <Authorized>
+            <form action="authentication/logout" method="post">
+                <AntiforgeryToken />
+                <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                <button type="submit" class="btn btn-primary">
+                    <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Logout @($"{givenName} {lastName}")
+                </button>
+            </form>
+        </Authorized>
+        <NotAuthorized>
+            <button type="submit" class="btn btn-primary" onclick="window.location.href='/authentication/login';">
+                <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Login
+            </button>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+@code {
+    private string? currentUrl;
+    private string? givenName;
+    private string? lastName;
+
+    private IEnumerable<Claim> claims = [];
+
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthState { get; set; }
+
+    protected override void OnInitialized()
+    {
+        currentUrl = Navigation.Uri;
+        Navigation.LocationChanged += OnLocationChanged;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthState == null)
+        {
+            return;
+        }
+
+        var authState = await AuthState;
+        claims = authState.User.Claims;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = Navigation.Uri;
+        StateHasChanged();
+    }
+
+    public void Dispose() => Navigation.LocationChanged -= OnLocationChanged;
+}
+
 ```
 
-It is also possible to retrieve properties such as the name of the user from the context. In this case, we will display the user's name in the logout button by adding `@context.User.Identity?.Name` to the logout button as highlighted below.
+The following are the changes that are made in the above code.
 
-```html title="Home.razor" hl_lines="6"
-<form action="authentication/logout" method="post">
-    <AntiforgeryToken />
-    <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-    <button type="submit" class="btn btn-primary">
-        <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Logout
-        @context.User.Identity?.Name
-    </button>
-</form>
-```
+- Import necessary namespaces for authentication and authorization, enabling the use of authentication state and claims (ClaimsPrincipal).
+- Implement user-specific content rendering by checking if the user has claims and displaying a personalized welcome message when the `given_name` and `family_name` claims are found.
+- Adds an authentication-based logout button inside an `<AuthorizeView>` component, ensuring that authenticated users see the logout option while unauthenticated users see a login button.
+- Initialize `currentUrl` with the current navigation URI and subscribes to `LocationChanged` to update `currentUrl` dynamically when the route changes.
+- Implement authentication state retrieval inside `OnInitializedAsync()`, assigning user claims from the authentication state, ensuring proper authorization-based UI updates.
+- Define `givenName` and `lastName` variables to store the user's first and last names, respectively, retrieved from the claims.
+
+Once the above changes are applied, you will be able to see the user's name displayed on the home page after logging in.
+
+![Display logged-in user name in home page]({{base_path}}/complete-guides/dotnet/assets/img/image10.png){: width="800" style="display: block; margin: 0;"}
 
 ### Listing User Claims
 
-Next, create a new page named `UserClaims.razor` and add the following code to display the user claims.
+To list down the user claims retrieved from the ID token, let's first create a new page named `UserClaims.razor` using the following commands.
+
+```shell
+touch Components/Pages/UserClaims.razor
+```
+
+Then add the following code to display the user claims.
 
 ```csharp title="UserClaims.razor"
 @page "/user-claims"
@@ -109,6 +165,55 @@ Next, create a new page named `UserClaims.razor` and add the following code to d
 }
 ```
 
-The C# code block is similar to the one used in `Home.razor`. The HTML above will list all of the user’s claims retrieved from the ID token, looping through the list one by one.
+The above code block is similar to the one used in `Home.razor`. The HTML above will list all of the user’s claims retrieved from the ID token, looping through the list one by one.
 
-In this step we have successfully displayed the logged-in user details on the home page and listed the user claims in a separate page. In the next steps we will secure routes within the app.
+Let's now add a navigation link to the `UserClaims` page in the `NavMenu.razor` file under the `/Components/Layout` directory.
+
+```csharp title="NavMenu.razor" hl_lines="32-36"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">asgardeo-dotnet</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="nav flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <AuthorizeView>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="counter">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="weather">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="user-claims">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> User Claims
+                </NavLink>
+            </div>
+        </AuthorizeView>
+    </nav>
+</div>
+
+```
+
+You can now run the application, login and then navigate to the `User Claims` page to view the user claims.
+
+![User Claims page]({{base_path}}/complete-guides/dotnet/assets/img/image11.png){: width="800" style="display: block; margin: 0;"}
+
+In this step we have successfully displayed the logged-in user details on the home page and listed the user claims in a separate page. In the next step we will implement the functionality to access a protected API using the access token obtained during the authentication process.
