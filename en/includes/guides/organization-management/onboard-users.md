@@ -56,7 +56,9 @@ If a user of the organization with {{ product_name }} Console access needs to in
 6. The invited users will receive an email notification with the invitation link which they can click to accept.
 
     !!! note
-        If you are part of an organization hierarchy, you cannot directly invite users from other ancestors except for your parent organization.
+        - If you are part of an organization hierarchy, you cannot directly invite users from other ancestors except for your parent organization.
+        - The "Invite Parent User" option available in the {{ product_name }} Console supports inviting users only from the {{ default_userstore }} user store of the parent organization. 
+          To invite a user from a different user store, you can use the [invite parent user API]({{base_path}}/apis/organization-apis/organization-user-invitation/#tag/Parent-Organization-User-Invitation/operation/invitationTriggerPost) specifying the user store domain in `userDomain` request body parameter.
 
 If a user, who is a member of both the organization and parent organization, wishes to invite more members from the parent organization, follow the steps below.
 
