@@ -119,6 +119,6 @@ The {{product_name}} 7.1.0 runtime has been tested with the following LDAPs:
 	</tr>
 	<tr>
 		<td>Microsoft Active Directory Windows</td>
-		<td>2025</td>
+		<td>2022</td>
 	</tr>
 </table>
