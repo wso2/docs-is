@@ -228,7 +228,7 @@ Follow the steps below to use Jolokia to monitor WSO2 IS.
     secure=false
     ```
 
-    For additional access control configurations, see the [Secure Resources]({{base_path}}/apis//#secure-resources) section for APIs.
+    For additional access control configurations, see the [Secure Resources]({{base_path}}/apis/#secure-resources) section for APIs.
 
 4. Start WSO2 Identity Server.
 
