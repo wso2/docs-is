@@ -1,14 +1,14 @@
 # Produt compatibility
 
-This document provides compatibility details for WSO2 Identity Server 7.1 across various environments.
+This document provides compatibility details for WSO2 Identity Server 7.1.0 across various environments.
 
 ## {{product_name}} runtime compatibility 
 
-Given below is the tested compatibility of the runtime of {{product_name}} 7.1.
+Given below is the tested compatibility of the runtime of {{product_name}} 7.1.0.
 
 ### Tested operating systems
 
-WSO2 Identity Server, being a Java application, is compatible with most operating systems. Listed below are the operating systems that have been tested with the {{product_name}} 7.1 runtime.
+WSO2 Identity Server, being a Java application, is compatible with most operating systems. Listed below are the operating systems that have been tested with the {{product_name}} 7.1.0 runtime.
 
 <table>
 	<th>Operating System</th>
@@ -19,11 +19,11 @@ WSO2 Identity Server, being a Java application, is compatible with most operatin
 	</tr>
 	<tr>
 		<td>Rocky Linux</td>
-		<td>9.4</td>
+		<td>9.3</td>
 	</tr>
 	<tr>
 		<td>Windows Server</td>
-		<td>2025</td>
+		<td>2024, 2016</td>
 	</tr>
 </table>
 
@@ -36,7 +36,7 @@ The {{product_name}} runtime has been tested with the following JDKs:
 	<th>Versions</th>
 	<tr>
 		<td>Temurin OpenJDK</td>
-		<td>11, 17, 21</td>
+		<td>21, 17, 11</td>
 	</tr>
 	<tr>
 		<td>Oracle JDK</td>
@@ -53,19 +53,19 @@ The {{product_name}} runtime has been tested with the following database managem
 	<th>Versions</th>
 	<tr>
 		<td>MySQL</td>
-		<td>8.4</td>
+		<td>8.0.4, 5.7</td>
 	</tr>
 	<tr>
 		<td>Oracle RAC</td>
-		<td>23ai</td>
+		<td>23ai, 19c</td>
 	</tr>
 	<tr>
 		<td>Oracle</td>
-		<td>23ai</td>
+		<td>23ai, 21c, 19c</td>
 	</tr>
 	<tr>
 		<td>Microsoft SQL Server</td>
-		<td>2022</td>
+		<td>2022, 2019, 2017</td>
 	</tr>
 	<tr>
 		<td>Postgres</td>
@@ -93,15 +93,15 @@ The {{product_name}} runtime has been tested with the following browsers:
 		<td>129</td>
 	</tr>
 	<tr>
-		<td>Oracle RAC</td>
+		<td>Firefox</td>
 		<td>130</td>
 	</tr>
 	<tr>
-		<td>Oracle</td>
+		<td>Microsoft Edge</td>
 		<td>127</td>
 	</tr>
 	<tr>
-		<td>Microsoft SQL Server</td>
+		<td>Safari</td>
 		<td>17</td>
 	</tr>
 </table>
