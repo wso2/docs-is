@@ -172,8 +172,8 @@ paths:
             },
             "inboundProtocolConfiguration": {
               "oidc": {
-                "clientId": "string",
-                "clientSecret": "string",
+                "clientId": "fd52e37f-1b8b-44f5-ad1a-5d846ad03b18",
+                "clientSecret": "RwrNGNNf9dkqJh6NSCqfXj1h6DrmNdNfpzNfJms4jC4a",
                 "grantTypes": [
                   "client_credentials",
                   "password"
@@ -204,8 +204,7 @@ paths:
                   }
                 },
                 "scopeValidators": [
-                  "Role based scope validator",
-                  "XACML Scope Validator"
+                  "Role based scope validator"
                 ]
               }
             }
@@ -794,8 +793,8 @@ paths:
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
-            "clientId": "string",
-            "clientSecret": "string",
+            "clientId": "fd52e37f-1b8b-44f5-ad1a-5d846ad03b18",
+            "clientSecret": "RwrNGNNf9dkqJh6NSCqfXj1h6DrmNdNfpzNfJms4jC4a",
             "grantTypes": [
               "client_credentials",
               "password"
@@ -826,8 +825,7 @@ paths:
               }
             },
             "scopeValidators": [
-              "Role based scope validator",
-              "XACML Scope Validator"
+              "Role based scope validator"
             ]
             }'
       requestBody:
@@ -1190,7 +1188,7 @@ components:
           example: 'https://example.com/logo/my-logo.png'
         clientId:
           type: string
-          example: 'SmrrDNXRYf1lMmDlnleeHTuXx_Ea'
+          example: 'fd52e37f-1b8b-44f5-ad1a-5d846ad03b18'
         realm:
           type: string
           example: 'PassiveSTSSampleApp'
@@ -1261,7 +1259,7 @@ components:
           example: 'https://example.com/logo/my-logo.png'
         clientId:
           type: string
-          example: 'SmrrDNXRYf1lMmDlnleeHTuXx_Ea'
+          example: 'fd52e37f-1b8b-44f5-ad1a-5d846ad03b18'
         isManagementApp:
           type: boolean
           example: false
