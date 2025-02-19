@@ -29,7 +29,7 @@ WSO2 Identity Server, being a Java application, is compatible with most operatin
 
 ### Tested JDKs
 
-The {{product_name}} runtime has been tested with the following JDKs:
+The {{product_name}} 7.1.0 runtime has been tested with the following JDKs:
 
 <table>
 	<th>JDKs</th>
@@ -46,7 +46,7 @@ The {{product_name}} runtime has been tested with the following JDKs:
 
 ## Tested DBMSs
 
-The {{product_name}} runtime has been tested with the following database management systems (DBMSs):
+The {{product_name}} 7.1.0 runtime has been tested with the following database management systems (DBMSs):
 
 <table>
 	<th>DBMS</th>
@@ -69,7 +69,7 @@ The {{product_name}} runtime has been tested with the following database managem
 	</tr>
 	<tr>
 		<td>Postgres</td>
-		<td>17</td>
+		<td>17.2, 16.6, 15.10</td>
 	</tr>
 	<tr>
 		<td>Maria DB</td>
@@ -83,7 +83,7 @@ The {{product_name}} runtime has been tested with the following database managem
 
 ## Tested web browsers
 
-The {{product_name}} runtime has been tested with the following browsers:
+The {{product_name}} 7.1.0 runtime has been tested with the following browsers:
 
 <table>
 	<th>Browser</th>
@@ -108,7 +108,7 @@ The {{product_name}} runtime has been tested with the following browsers:
 
 ## Tested LDAPs
 
-The {{product_name}} runtime has been tested with the following LDAPs:
+The {{product_name}} 7.1.0 runtime has been tested with the following LDAPs:
 
 <table>
 	<th>LDAP</th>
