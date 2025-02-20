@@ -208,13 +208,16 @@ Follow the steps below to download and run the `travelocity.com` application:
 1. Initiate IdP-initiated SSO using the following command. You will be redirected to the login screen of the `travelocity.com` application.
 
     === "URL format"
-    ```bash
-    https://localhost:9443/samlsso?spEntityID=<service_provider_entity_ID>
-    ```
+
+        ```bash
+        https://localhost:9444/samlsso?spEntityID=<service_provider_entity_ID>
+        ```
+    
     === "Example"
-    ```bash
-    https://localhost:9444/samlsso?spEntityID=Internal
-    ```
+
+        ```bash
+        https://localhost:9444/samlsso?spEntityID=Internal
+        ```
 
 2. Click **Login with External**. You will be redirected to the login screen of the external IdP.
 
