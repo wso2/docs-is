@@ -1,4 +1,4 @@
-# Configure federated IdP-Initiated Single Sign-On (SSO)
+# Configure SAML federated IdP-Initiated Single Sign-On (SSO)
 
 Single Sign On (SSO) is an authentication process which allows users to log in once and gain access to an organization's applications without having to authenticate to each individual application.
 
@@ -35,7 +35,7 @@ Before you begin, be sure to set up the following:
 
 The `travelocity.com` application should reside in the internal IdP. Follow the steps below in the internal IdP to register it as an application.
 
-1. On the {{product_name}} Console, go to **Applications**.
+1. On the {{product_name}} (which is running on 9443 port) Console, go to **Applications**.
 
 2. Click on **New Application** and select **Standard-Based Application**.
 
@@ -82,7 +82,7 @@ The external IdP needs to be registered as a connector in the internal IdP. This
 
 To do so, follow the steps below in the internal IdP.
 
-1. On the {{product_name}} Console, go to **Connections**.
+1. On the {{product_name}} (which is running on 9443 port) Console, go to **Connections**.
 
 2. Click **New Connection** > **Standard-Based IdP**
 
@@ -136,7 +136,7 @@ The internal IdP needs to be registered as an application in the external IdP. T
 
 To do so, follow the steps below in the external IdP.
 
-1. On the {{product_name}} Console, go to **Applications**.
+1. On the {{product_name}} (which is running on 9444 port) Console, go to **Applications**.
 
 2. Click on **New Application** and select **Standard-Based Application**.
 
@@ -158,7 +158,7 @@ To do so, follow the steps below in the external IdP.
         <tr>
             <td>Assertion consumer service URLs</td>
             <td>This is the URL that consumes the assertion sent by the IdP.</td>
-            <td><code>https://localhost:9443/commonauth</code></td>
+            <td><code>https://localhost:9443/samlsso?spEntityID=travelocity.com</code></td>
         </tr>
     </table>
 
@@ -187,11 +187,19 @@ Follow the steps below to download and run the `travelocity.com` application:
 2. Copy the `travelocity.war` file into `<WEBAPPS>`.
 
     !!! note
-        In order to be consistent with the configurations above, be sure to rename the file as `travelocity.com.war`.
+        In order to be consistent with the configurations above,
+
+        - Rename the `travelocity.war` file as `travelocity.com.war`.
+
+        - Change the following configs in the `<WEBAPPS>/travelocity.com/WEB-INF/classes/travelocity.properties`.
+        ```properties
+        SAML2.EnableSLO=false
+        SAML2.EnableResponseSigning=false
+        ```
 
 3. Restart the Tomcat server.
 
-### Sign in with the IdP-initiated flow
+### Sign in with the Federated IdP-initiated flow
 
 !!! note "Before your begin"
 
@@ -205,7 +213,7 @@ Follow the steps below to download and run the `travelocity.com` application:
     ```
     === "Example"
     ```bash
-    https://localhost:9443/samlsso?spEntityID=travelocity.com
+    https://localhost:9444/samlsso?spEntityID=Internal
     ```
 
 2. Click **Login with External**. You will be redirected to the login screen of the external IdP.
