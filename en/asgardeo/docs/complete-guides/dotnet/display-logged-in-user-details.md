@@ -190,18 +190,6 @@ Let's now add a navigation link to the `UserClaims` page in the `NavMenu.razor` 
 
         <AuthorizeView>
             <div class="nav-item px-3">
-                <NavLink class="nav-link" href="counter">
-                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="weather">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
                 <NavLink class="nav-link" href="user-claims">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> User Claims
                 </NavLink>
@@ -211,6 +199,9 @@ Let's now add a navigation link to the `UserClaims` page in the `NavMenu.razor` 
 </div>
 
 ```
+
+
+In the above code, we have used the `AuthorizeView` component to conditionally display UI elements based on the user's authentication and authorization state. This can be used to control access to specific sections of your Blazor UI. In this case, we want to protect the User Claims page.
 
 You can now run the application, login and then navigate to the `User Claims` page to view the user claims.
 

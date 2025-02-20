@@ -8,64 +8,11 @@ In this guide, we will go through how the login and logout functionality will be
 
 Several classes are required to handle tasks such as:
 
-- Persisting the authentication state.
 - Building the route for both login and logout.
 - Maintaining the authenticated user information.
+- Persisting the authentication state.
 
-## Authentication State Management
 
-Let's create a file named `PersistingAuthenticationStateProvider.cs` in the root directory using the below command. 
-
-```shell
-touch PersistingAuthenticationStateProvider.cs
-```
-
-We will be extending the `AuthenticationStateProvider` class to manage the authentication state for the Blazor Web Application. This will ensure that:
-
-- The authentication state is persisted across interactions.
-- The authentication state is rehydrated correctly.
-
-This approach is particularly useful in scenarios where the application depends on server-side data persistence for authentication state. You can utilize the following code which performs the above tasks.
-
-```csharp title="PersistingAuthenticationStateProvider.cs"
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
-
-namespace asgardeo_dotnet;
-
-internal sealed class PersistingAuthenticationStateProvider : AuthenticationStateProvider, IHostEnvironmentAuthenticationStateProvider, IDisposable
-{
-    private readonly PersistentComponentState persistentComponentState;
-    private readonly PersistingComponentStateSubscription subscription;
-    private Task<AuthenticationState>? authenticationStateTask;
-
-    public PersistingAuthenticationStateProvider(PersistentComponentState state)
-    {
-        persistentComponentState = state;
-        subscription = state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
-    }
-
-    public override Task<AuthenticationState> GetAuthenticationStateAsync() => authenticationStateTask ??
-            throw new InvalidOperationException($"Do not call {nameof(GetAuthenticationStateAsync)} outside of the DI scope for a Razor component.");
-
-    public void SetAuthenticationState(Task<AuthenticationState> task)
-    {
-        authenticationStateTask = task;
-    }
-
-    private async Task OnPersistingAsync()
-    {
-        var authenticationState = await GetAuthenticationStateAsync();
-        var principal = authenticationState.User;
-    }
-
-    public void Dispose()
-    {
-        subscription.Dispose();
-    }
-}
-```
 
 ## Login and Logout Route Builder
 
@@ -188,7 +135,20 @@ public sealed class UserInfo
 }
 ```
 
-Once this is done, navigate to the `PersistingAuthenticationStateProvider.cs` file and add the following code lines in order to persist the user details into the `PersistentComponentState`.
+## Authentication State Management
+
+Let's create a file named `PersistingAuthenticationStateProvider.cs` in the root directory using the below command. 
+
+```shell
+touch PersistingAuthenticationStateProvider.cs
+```
+
+We will be extending the `AuthenticationStateProvider` class to manage the authentication state for the Blazor Web Application. This will ensure that:
+
+- The authentication state is persisted across interactions.
+- The authentication state is rehydrated correctly.
+
+This approach is particularly useful in scenarios where the application depends on server-side data persistence for authentication state. You can utilize the following code which performs the above tasks. Additionally, as you can notice in the highlighted code below we have used `UserInfo` in the `PersistingAuthenticationStateProvider' class.  
 
 ```csharp title="PersistingAuthenticationStateProvider.cs" hl_lines="32-35"
 using Microsoft.AspNetCore.Components;
@@ -239,19 +199,15 @@ internal sealed class PersistingAuthenticationStateProvider : AuthenticationStat
 
 The classes implemented up to now lay the foundation for the home page where we will be adding the login and logout buttons.
 
-Navigate to the `Home.razor` file under the `/Components/Pages` directory and add the following code.
+Navigate to the `Home.razor` file under the `/Components/Pages` directory and replace the existing content with the following given code.
 
-```csharp title="Home.razor" hl_lines="2 3 4 12-28"
+```csharp title="Home.razor" 
 @page "/"
 @implements IDisposable
 @inject NavigationManager Navigation
 @using Microsoft.AspNetCore.Components.Authorization
 
 <PageTitle>Home</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
 
 @code {
 private string? currentUrl;
@@ -276,13 +232,6 @@ The above code implements the `IDisposable` interface to manage lifecycle events
 
 The current URL (`currentUrl`) is tracked by subscribing to the `LocationChanged` event from `NavigationManager`. When the URL changes, it updates `currentUrl` and triggers a re-render using `StateHasChanged()`, while the `Dispose` method unsubscribes from `LocationChanged`.
 
-Let's remove the following default code from the `Home.razor` file:
-
-```html title="Home.razor"
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-```
 
 Next, let's add the login and logout buttons to the `Home.razor` page as follows.
 
@@ -341,66 +290,11 @@ This code block uses the `AuthorizeView` component, which is part of Blazor's bu
 
 ## Configure Authentication in Program.cs
 
-We can now configure the `Program.cs` file to enable the authentication functionality.
+We can now configure the `Program.cs` file to enable the authentication functionality. We will be using OpenID Connect functionality to the `AuthenticationBuilder` using the `AddOpenIdConnect` method, in the previous step we have installed required packages. 
 
-We will be adding OpenID Connect functionality to the `AuthenticationBuilder` using the `AddOpenIdConnect` method, so let's make sure the following package is installed in the project directory based on the version of .NET you are using (in this case, it is 8.0.0):
+Then add the following code, which will create a new instance of an `HttpClient`, which we will be using to retrieve the `JsonWebKeySet` from Asgardeo, and `FetchJwks` method which will perform the invocation of the endpoint passed as a parameter in order to parse the `JsonWebKeySet` class in the `Microsoft.IdentityModel.Tokens` namespace.
 
-```bash
-dotnet add package Microsoft.AspNetCore.Authentication.OpenIdConnect --version 8.0.0
-```
-
-Then add the following code, which will create a new instance of an `HttpClient`, which we will be using to retrieve the `JsonWebKeySet` from Asgardeo.
-
-```csharp title="Program.cs" hl_lines="5-19"
-using asgardeo_dotnet.Components;
-
-var builder = WebApplication.CreateBuilder(args);
-
-HttpClient httpClient;
-if (Environment.GetEnvironmentVariable("HTTPCLIENT_VALIDATE_EXTERNAL_CERTIFICATES") == "false")
-{
-    var handler = new HttpClientHandler
-    {
-        ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-    };
-    httpClient = new HttpClient(handler);
-}
-else
-{
-    httpClient = new HttpClient();
-}
-
-builder.Services.AddSingleton(httpClient);
-
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-
-
-app.UseAntiforgery();
-
-app.MapStaticAssets();
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
-
-app.Run();
-```
-
-Add the below `FetchJwks` method which will perform the invocation of the endpoint passed as a parameter in order to parse the `JsonWebKeySet` class in the `Microsoft.IdentityModel.Tokens` namespace .
-
-```csharp title="Program.cs" hl_lines="2 22-33"
+```csharp title="Program.cs" hl_lines="6-20 2 22-33"
 using asgardeo_dotnet.Components;
 using Microsoft.IdentityModel.Tokens;
 

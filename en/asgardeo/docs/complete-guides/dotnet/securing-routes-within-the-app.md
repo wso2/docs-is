@@ -8,9 +8,7 @@ In a .NET Blazor Web Application, handling and securing routes is an important a
 
 Blazor uses the `RouteView` component and a built-in routing system to manage navigation within the application. Routes are defined using the `@page` directive at the top of a Razor component (.razor file). You can also navigate to different routes programmatically using the `NavigationManager` service, which we will also cover in this guide when securing the routes.
 
-Blazor provides the `AuthorizeView` component to conditionally display UI elements based on the user's authentication and authorization state. This can be used to control access to specific sections of your Blazor UI. In this case, we want to protect the User Claims page, in addition to the `Counter` and `Weather` pages (both of which are present out-of-the-box).
-
-Let’s first navigate to the `NavMenu.razor` file under the `/Components/Layout` directory and add the `AuthorizeView` component to encapsulate the `Counter` and `Weather` components. Then we can add the User Claims menu item as well.
+Let’s first navigate to the `NavMenu.razor` file under the `/Components/Layout` directory and replace the content with following code to remove the existing components.
 
 ```html title="NavMenu.razor" hl_lines="1 19-31"
 @using Microsoft.AspNetCore.Components.Authorization
@@ -30,121 +28,8 @@ Let’s first navigate to the `NavMenu.razor` file under the `/Components/Layout
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </NavLink>
         </div>
-
-        <AuthorizeView>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="counter">
-                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="weather">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-                </NavLink>
-            </div>
-        </AuthorizeView>
     </nav>
 </div>
-```
-
-We will be using the `Authorize` attribute to protect the routes for the above three pages so that only authenticated users can access them. If an unauthorized user attempts to access these routes, they should be redirected to the login page of the Identity Provider.
-
-First, add the `Authorize` attribute to the `Counter.razor` and `Weather.razor` pages as shown below.
-
-```csharp title="Counter.razor" hl_lines="5"
-@page "/counter"
-@rendermode InteractiveServer
-
-@using Microsoft.AspNetCore.Authorization
-@attribute [Authorize]
-
-<PageTitle>Counter</PageTitle>
-
-<h1>Counter</h1>
-
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-
-@code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
-}
-```
-
-```csharp title="Weather.razor" hl_lines="5"
-@page "/weather"
-@attribute [StreamRendering]
-
-@using Microsoft.AspNetCore.Authorization
-@attribute [Authorize]
-
-<PageTitle>Weather</PageTitle>
-
-<h1>Weather</h1>
-
-<p>This component demonstrates showing data.</p>
-
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th aria-label="Temperature in Celsius">Temp. (C)</th>
-                <th aria-label="Temperature in Farenheit">Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-
-@code {
-    private WeatherForecast[]? forecasts;
-
-    protected override async Task OnInitializedAsync()
-    {
-        // Simulate asynchronous loading to demonstrate streaming rendering
-        await Task.Delay(500);
-
-        var startDate = DateOnly.FromDateTime(DateTime.Now);
-        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = startDate.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = summaries[Random.Shared.Next(summaries.Length)]
-        }).ToArray();
-    }
-
-    private class WeatherForecast
-    {
-        public DateOnly Date { get; set; }
-        public int TemperatureC { get; set; }
-        public string? Summary { get; set; }
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-    }
-}
 ```
 
 In order to redirect unauthorized users to the login page, we will create a Razor component named `RedirectToLogin.razor` under the `/Components` directory using the following commands.

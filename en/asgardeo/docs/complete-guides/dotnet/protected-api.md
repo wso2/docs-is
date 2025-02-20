@@ -170,7 +170,7 @@ app.Run();
 
 ```
 
-Since we are utilizing the `SaveTokens` option to persist tokens for a given session, we can use `HttpContext` to retrieve the access token, provided the user is already authenticated. This can be ensured by using the `[Authorize]` attribute.
+Since we are utilizing the `SaveTokens` option to persist tokens for a given session, we can use `HttpContext` to retrieve the access token, provided the user is already authenticated. This can be ensured by using the `[Authorize]` attribute. The `[Authorize]` attribute protects the routes by only allowing authenticated users to access them. If an unauthorized user attempts to access these routes, they should be redirected to the login page of the Identity Provider.
 
 Let’s create a file named `Scim2Me.razor` under the `/Components/Pages` directory using the following command.
 
@@ -302,18 +302,6 @@ Additionally, we need to navigate to the `Components/Layout/NavMenu.razor` file 
         </div>
 
         <AuthorizeView>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="counter">
-                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="weather">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-                </NavLink>
-            </div>
-
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="user-claims">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> User Claims
