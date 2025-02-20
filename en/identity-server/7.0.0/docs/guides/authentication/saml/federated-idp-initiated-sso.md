@@ -1,1 +1,1 @@
-{% include "../../../../../../includes/guides/authentication/saml/federated-idp-initiated-sso.md" %}
+{% include "../../../../../../includes/guides/authentication/saml/saml-federated-idp-initiated-sso.md" %}
