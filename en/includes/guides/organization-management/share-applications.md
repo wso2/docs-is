@@ -91,7 +91,9 @@ Once shared, the My Account portal will be available for organization users thro
 
 !!! note
 
-    Learn more about the [My Account portal]({{base_path}}/guides/user-self-service/configure-self-service-portal/)
+    - Learn more about the [My Account portal]({{base_path}}/guides/user-self-service/configure-self-service-portal/)
+    - If you decide not to share the My Account portal with customer/partner organizations, 
+      ensure to update the My Account reference links in email templates and configure access URLs for your B2B applications to display as the back navigation URL for users after password reset flows.
 
 To share the My Account portal with organizations,
 
