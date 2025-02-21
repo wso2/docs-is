@@ -112,10 +112,7 @@ extra:
     - title: Technology Guides
       options:
         - divider
-        - hide-sub-nav
     - title: Best Practice Guides
-      options:
-        - hide-sub-nav
 
   # If the nav_override section is a child of expanded_nav. Add +1 to the level value
   nav_overrides:
