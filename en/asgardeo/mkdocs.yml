@@ -184,6 +184,7 @@ nav:
       - Javascript Quickstart: quick-starts/javascript.md
       - Next.js Quickstart:  quick-starts/nextjs.md
       - Spring Boot Quickstart:  quick-starts/springboot.md
+  # TODO: Enable the following sections after the preoper content is added
   # - Design login:
   #   - Style login flow: guides/branding/branding-ai.md
   #   - Customize login flow: guides/authentication/login-flow-ai.md
