@@ -28,7 +28,7 @@
 .md-nav__item > .guide-page-number {
     vertical-align: top;
     display: inline-block;
-    margin-top: 13px;
+    margin-top: 15px;
     margin-right: 0;
     background: var(--md-default-fg-color--light);
     color: var(--md-default-bg-color);
@@ -51,12 +51,12 @@
     background: var(--md-typeset-a-color);
 }
 
-.md-nav__item.md-nav__item--nested > .md-nav__link {
-    display: flex;
-}
-
 .md-nav__go-back {
     display: none;
+}
+
+.md-nav__item.md-nav__item--nested > .md-nav__link {
+    display: flex;
 }
 
 @media screen and (min-width: 76.25em) {
@@ -106,12 +106,24 @@
  
     .md-nav__go-back > a > .icon {
         width: 12px;
-        padding-top: 3px;
         margin-right: 8px;
     }
 
-    nav.md-nav.md-nav--primary.md-nav--lifted > ul.md-nav__list > li.md-nav__item.md-nav__item--active > nav.md-nav > ul.md-nav__list > li.md-nav__item.md-nav__item--nested:not(.md-nav__item--active) {
+    nav.md-nav.md-nav--primary.md-nav--lifted > ul.md-nav__list > li.md-nav__item.md-nav__item--active > nav.md-nav > ul.md-nav__list > li.md-nav__item.md-nav__item--nested:not(.md-nav__item--active),
+    nav.md-nav.md-nav--primary.md-nav--lifted > ul.md-nav__list > li.md-nav__item.md-nav__item--active > nav.md-nav > ul.md-nav__list > li.md-nav__item.md-nav__item--active > nav.md-nav > ul.md-nav__list > li.md-nav__item.md-nav__item--nested:not(.md-nav__item--active) {
         display: none;
+    }
+
+    .md-nav__item.md-nav__item--nested > .md-nav__link {
+        display: none;
+    }
+
+    .md-nav--lifted .md-nav__item.md-nav__item--nested.md-nav__item--active.md-nav--has-icon nav.md-nav > ul.md-nav__list:not(.guide-page-list) > li.md-nav__item {
+        padding-left: 0;
+    }
+
+    .md-nav__item {
+        margin-top: 0 !important;
     }
 }
 

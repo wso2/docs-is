@@ -345,7 +345,7 @@ plugins:
 nav:
   - Home:
     - Home: index.md
-  - Get Started:
+  - Get started:
     - Introduction: get-started/quick-start-guide.md
     - Quick Setup: get-started/quick-set-up.md
     - Start integrating apps:
@@ -781,7 +781,7 @@ nav:
         - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
         - Work with product observability: deploy/monitor/work-with-product-observability.md
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
-  - Integrations:
+  - SDKs:
     - Integrate WSO2 IS into your application: integrations/index.md
   - APIs:
     - APIs: apis/index.md
