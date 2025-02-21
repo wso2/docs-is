@@ -64,7 +64,7 @@ If you need to enable Right-to-Left (RTL) support for a language in authenticati
 3. Add the ,rtl suffix to the language entry in the file. For example, to enable RTL for Arabic, update the entry as follows:
 
     ```text
-    lang.switch.ar_AR=ar,Arabic - العربية,rtl
+    lang.switch.ar_AE=ar,Arabic - العربية,rtl
     ```
 
 4. Save the file and restart the server for the changes to take effect.

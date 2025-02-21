@@ -482,6 +482,7 @@ nav:
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+            - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
       - Authorization:
         - Authorization: guides/authorization/index.md
         - API authorization:

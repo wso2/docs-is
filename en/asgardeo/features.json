@@ -43,7 +43,7 @@
     },
 
     "password_expiry_time": {
-        "enabled": false,
+        "enabled": true,
         "page": []
     },
 
