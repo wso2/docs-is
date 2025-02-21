@@ -31,8 +31,8 @@
     --md-border-radius-2x: 12px;
     --md-default-box-shadow:  0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
     --md-box-shadow-2: 0 12px 32px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .08);
-    --md-sidebar-width: 14.5rem;
-    --md-sidebar-hide-width: -14.5rem;
+    --md-sidebar-width: 15.2rem;
+    --md-sidebar-hide-width: -15.2rem;
 }
 
 :root,

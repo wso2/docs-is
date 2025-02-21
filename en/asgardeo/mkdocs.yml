@@ -185,10 +185,10 @@ nav:
       - Next.js Quickstart:  quick-starts/nextjs.md
       - Spring Boot Quickstart:  quick-starts/springboot.md
   # TODO: Enable the following sections after the preoper content is added
-  # - Design login:
+  # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
   #   - Customize login flow: guides/authentication/login-flow-ai.md
-  - Guides: 
+  - Guides:
       - Guides - Overview: guides/index.md
       - Applications:
           - Applications: guides/applications/index.md
@@ -553,42 +553,6 @@ nav:
       - Accessing protected API : complete-guides/react/accessing-protected-api.md
       - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
       - Next Steps: complete-guides/react/next-steps.md
-    - .NET:
-      - Introduction: complete-guides/dotnet/introduction.md
-      - Prerequisites: complete-guides/dotnet/prerequisites.md
-      - Register an application: complete-guides/dotnet/register-an-application.md
-      - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
-      - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
-      - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
-      - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
-      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
-      - Accessing protected API: complete-guides/dotnet/protected-api.md
-      - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
-      - Next Steps: complete-guides/dotnet/next-steps.md
-    - Node.js:
-      - Introduction: complete-guides/nodejs/introduction.md
-      - Prerequisite: complete-guides/nodejs/prerequisite.md
-      - Configure an application: complete-guides/nodejs/register-an-application.md
-      - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
-      - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
-      - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
-      - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
-      - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
-      - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
-      - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
-      - Next Steps: complete-guides/nodejs/next-steps.md
-    - Angular:
-      - Introduction: complete-guides/angular/introduction.md
-      - Prerequisite: complete-guides/angular/prerequisite.md
-      - Register an application: complete-guides/angular/register-an-application.md
-      - Create a Angular app: complete-guides/angular/create-app.md
-      - Configure Asgardeo provider: complete-guides/angular/install-asgardeo-sdk.md
-      - Add login and logout: complete-guides/angular/add-login-and-logout.md
-      - Display user details: complete-guides/angular/display-logged-in-user-details.md
-      - Securing Routes: complete-guides/angular/securing-routes-within-the-app.md
-      - Accessing protected API : complete-guides/angular/accessing-protected-api.md
-      - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
-      - Next Steps: complete-guides/angular/next-steps.md
     - Next.js:
       - Redirect-Based:
         - Introduction: complete-guides/nextjs/introduction.md
@@ -614,6 +578,30 @@ nav:
         - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
         - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
         - Next Steps: complete-guides/app-native/next-steps.md
+    - Node.js:
+      - Introduction: complete-guides/nodejs/introduction.md
+      - Prerequisite: complete-guides/nodejs/prerequisite.md
+      - Configure an application: complete-guides/nodejs/register-an-application.md
+      - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
+      - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
+      - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+      - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
+      - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
+      - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
+      - Next Steps: complete-guides/nodejs/next-steps.md
+    - Angular:
+      - Introduction: complete-guides/angular/introduction.md
+      - Prerequisite: complete-guides/angular/prerequisite.md
+      - Register an application: complete-guides/angular/register-an-application.md
+      - Create a Angular app: complete-guides/angular/create-app.md
+      - Configure Asgardeo provider: complete-guides/angular/install-asgardeo-sdk.md
+      - Add login and logout: complete-guides/angular/add-login-and-logout.md
+      - Display user details: complete-guides/angular/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/angular/securing-routes-within-the-app.md
+      - Accessing protected API : complete-guides/angular/accessing-protected-api.md
+      - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
+      - Next Steps: complete-guides/angular/next-steps.md
     - Javascript:
       - Introduction: complete-guides/javascript/introduction.md
       - Prerequisite: complete-guides/javascript/prerequisite.md
@@ -625,6 +613,18 @@ nav:
       - Accessing protected API : complete-guides/javascript/accessing-protected-api.md
       - Manage tokens in JavaScript : complete-guides/javascript/manage-tokens-in-apps.md
       - Next Steps: complete-guides/javascript/next-steps.md
+    - .NET:
+      - Introduction: complete-guides/dotnet/introduction.md
+      - Prerequisites: complete-guides/dotnet/prerequisites.md
+      - Register an application: complete-guides/dotnet/register-an-application.md
+      - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
+      - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
+      - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
+      - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
+      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
+      - Accessing protected API: complete-guides/dotnet/protected-api.md
+      - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
+      - Next Steps: complete-guides/dotnet/next-steps.md
   - Best Practice Guides:
     - Frontend Security:
       - Introduction: complete-guides/fesecurity/introduction.md
