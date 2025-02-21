@@ -145,7 +145,7 @@ extra:
       level: 2
 
   nav_chip:
-    Design login:
+    Design login flow:
       type: ai
       level: 1
 
@@ -159,7 +159,7 @@ extra:
     Connect Your App:
       icon: octicons/plug-16
       level: 1
-    Design login:
+    Design login flow:
       icon: octicons/paintbrush-16
       level: 1
     Guides:
