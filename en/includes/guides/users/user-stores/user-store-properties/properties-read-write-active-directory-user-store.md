@@ -401,5 +401,13 @@ Default: not configured</td>
 conversion when reading from/writing to a user store.
 <p>Default: not configured</p></td>
 </tr>
+<tr class="odd">
+<td>BulkImportSupported</td>
+<td>properties.</br>BulkImportSupported</td>
+<td>BulkImportSupported</td>
+<td>Enables bulk import support for the user store.<br/>
+<p>Default : true </p>
+</td>
+</tr>
 </tbody>
 </table>
