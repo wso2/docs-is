@@ -238,7 +238,7 @@ The following attributes are used for this purpose:
 - Mobile Numbers
 - Verified Mobile Numbers
 
-### Enable/Disable Multiple Emails and Mobile Numbers Feature
+### Enable/Disable multiple emails and mobile numbers feature
 
 {% if product_name == "Asgardeo" %}
 Unless you have configured remote user stores, the email address/mobile number-related attributes are already enabled to new and existing organizations.
