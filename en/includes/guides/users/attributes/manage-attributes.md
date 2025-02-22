@@ -238,9 +238,12 @@ The following attributes are used for this purpose:
 - Mobile Numbers
 - Verified Mobile Numbers
 
-### Enable/Disable these attributes for users
+### Enable/Disable Multiple Emails and Mobile Numbers Feature
 
-Unless you have configured {{ 'secondary' if product_name == 'WSO2 Identity Server' else 'remote' }} user stores, the email address/mobile number-related attributes are already enabled to new and existing organizations. To manually enable/disable these attributes, follow the steps below:
+{% if product_name == "Asgardeo" %}
+Unless you have configured remote user stores, the email address/mobile number-related attributes are already enabled to new and existing organizations.
+{% endif %}
+To manually enable or disable this feature, **you must update all related attributes** by following these steps:
 
 1. On the {{ product_name }} Console, navigate to **User Attributes and Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
