@@ -554,6 +554,19 @@ nav:
       - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
       - Next Steps: complete-guides/react/next-steps.md
     - Next.js:
+      - B2B:
+        - Introduction: complete-guides/nextjs-b2b/introduction.md
+        - Prerequisite: complete-guides/nextjs-b2b/prerequisite.md
+        - Register an application: complete-guides/nextjs-b2b/register-an-application.md
+        - Give access to APIs and create Roles: complete-guides/nextjs-b2b/give-access-to-apis-and-create-roles.md
+        - Allow required grant types: complete-guides/nextjs-b2b/allow-required-grant-types.md
+        - Create a Next.js app: complete-guides/nextjs-b2b/create-app.md
+        - Configure Asgardeo provider: complete-guides/nextjs-b2b/configure-asgardeo-provider.md
+        - Add user sign up: complete-guides/nextjs-b2b/add-user-sign-up.md
+        - Add login and logout: complete-guides/nextjs-b2b/add-login-and-logout.md
+        - Manage teams: complete-guides/nextjs-b2b/manage-teams.md
+        - Switch to a team: complete-guides/nextjs-b2b/switch-to-a-team.md
+        - Manage team members: complete-guides/nextjs-b2b/manage-team-members.md
       - Redirect-Based:
         - Introduction: complete-guides/nextjs/introduction.md
         - Prerequisite: complete-guides/nextjs/prerequisite.md
