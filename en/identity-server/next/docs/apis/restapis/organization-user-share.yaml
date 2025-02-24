@@ -210,7 +210,7 @@ paths:
         - unsharing can only be done from the same organization that initially shared the user.
         - if you have shared a user with an organization and its children, unsharing the user from that 
           organization will not unshare the user from the child organizations.
-          You must explicitly delcare all the organization IDs from which the user should be removed.
+          You must explicitly declare all the organization IDs from which the user should be removed.
 
         <b>Scope(Permission) required:</b> `internal_user_unshare`
       operationId: processUserUnsharing
