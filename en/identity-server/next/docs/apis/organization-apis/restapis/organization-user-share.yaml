@@ -25,8 +25,8 @@ paths:
         This API shares one or more users across specified organizations, assigning roles based on the provided policy. The policy defines the sharing scope for each organization, including whether access extends to child organizations.
         
         > **Important** </br>
-        > If you switch a user from a general sharing policy to a selective one or vice versa, changing it directly might cause access issues. To keep things clear and consistent, first, unshare the user from all organizations, then share them again with the desired organization(s) under the new policy/policies. </br> 
-        > Suppose this step is overlooked and unexpected behavior in user sharing is noticed when new organizations are created. In that case, you can use the `/o/users/unshare-with-all` API to reset shared access before setting up a new user sharing.
+        > If you switch a user from a general sharing policy to a selective sharing policy or vice versa, without unsharing a user, it can lead to access issues. To ensure a smooth transition, first unshare the user from all organizations and share them again with the desired organization(s) under the updated policy. </br> 
+        > If you overlook this step and notice unexpected user-sharing behavior when new organizations are created, use the `/users/unshare-with-all` API to reset access before applying the new sharing policy.
         
         <b>Scope(Permission) required:</b> `internal_org_user_share`
       operationId: processUserSharing
@@ -117,8 +117,8 @@ paths:
         This API shares users across all organizations, applying the provided roles to each organization. The policy determines the scope of sharing, including whether it applies to all current organizations or future organizations as well.
         
         > **Important** </br>
-        > If you switch a user from a general sharing policy to a selective one or vice versa, changing it directly might cause access issues. To keep things clear and consistent, first, unshare the user from all organizations, then share them again with the desired organization(s) under the new policy/policies. </br> 
-        > Suppose this step is overlooked and unexpected behavior in user sharing is noticed when new organizations are created. In that case, you can use the `/o/users/unshare-with-all` API to reset shared access before setting up a new user sharing.
+        > If you switch a user from a general sharing policy to a selective sharing policy or vice versa, without unsharing a user, it can lead to access issues. To ensure a smooth transition, first unshare the user from all organizations and share them again with the desired organization(s) under the updated policy. </br> 
+        > If you overlook this step and notice unexpected user-sharing behavior when new organizations are created, use the `/users/unshare-with-all` API to reset access before applying the new sharing policy.
         
         <b>Scope(Permission) required:</b> `internal_org_user_share`
       operationId: processUserSharingAll
