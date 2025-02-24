@@ -2,15 +2,6 @@
 
 The following topics explain how you can customize SMS notifications that are sent to users of your {{ product_name }} organization.
 
-{% if product_name == "Asgardeo" %}
-
-!!! note "SMS templates for B2B applications"
-
-    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
-    these organizations automatically inherit the sms templates of the root organization.
-
-{% else %}
-
 !!! note "SMS templates for B2B applications"
 
     If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
@@ -18,8 +9,6 @@ The following topics explain how you can customize SMS notifications that are se
     sms template for an organization, it will be inherit the design from the closest ancestor organization with
     a customized sms template. If no ancestor has customized the particular sms template, the default sms template
     will be applied.
-
-{% endif %}
 
 You can tailor the **body** of SMS notifications to your preferences by following the steps below.
 
