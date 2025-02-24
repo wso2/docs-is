@@ -373,6 +373,7 @@ nav:
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
         - Onboard users: guides/organization-management/onboard-users.md
+        - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
