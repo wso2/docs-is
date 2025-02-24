@@ -49,6 +49,10 @@ Attributes in your organization are mapped to the following SCIM 2.0 schema mapp
         ```
     {% endif %}
 
+{% if immutable_claims_note %}
+{{immutable_claims_note}}
+{% endif %}
+
 ## View SCIM 2.0 attributes
 To view the SCIM 2 attributes mapped to user attributes in your organization:
 

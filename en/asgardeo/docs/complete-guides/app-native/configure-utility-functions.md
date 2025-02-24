@@ -12,17 +12,24 @@ We will be utilizing the Asgardeo app-native authentication APIs available in th
 mkdir -p src/utils
 ```
 
-Create a new file named `authUtils.tsx` inside the utils directory. This file will contain functions for handling authentication requests.
+Create a new file named `authUtils.tsx` inside the utils directory using the following command.
+
+```shell
+touch src/utils/authUtils.tsx
+```
+
+This file will contain functions for handling authentication requests. Let's go ahead and add the following code to this file.
 
 ```shell title="authUtils.tsx"
 const getEnvVariables = () => {
-    
+
     const organizationName = process.env.NEXT_PUBLIC_ORGANIZATION_NAME;
     const scope = process.env.NEXT_PUBLIC_SCOPE;
     const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI;
     const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
+    const clientSecret = process.env.NEXT_PUBLIC_CLIENT_SECRET;
 
-    if (!organizationName || !scope || !clientId || !redirectUri) {
+    if (!organizationName || !scope || !clientId || !clientSecret || !redirectUri) {
         throw new Error("Missing required environment variables");
     }
 
@@ -31,6 +38,7 @@ const getEnvVariables = () => {
         scope,
         redirectUri,
         clientId,
+        clientSecret,
     };
 };
 
@@ -68,7 +76,7 @@ export const basicAuthentication = async (flowId: string, email: string, passwor
 
 export const initRequest = async (redirectUri: string) => {
 
-    const { organizationName, scope, clientId } = getEnvVariables();
+    const { organizationName, scope, clientId, clientSecret } = getEnvVariables();
 
     // Construct the OAuth2 authorization URL
     const authUrl = `https://api.asgardeo.io/t/${organizationName}/oauth2/authorize?` +
@@ -79,12 +87,16 @@ export const initRequest = async (redirectUri: string) => {
         `response_mode=direct`;
 
     try {
+        // Encode client ID and client secret in base64
+        const credentials = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+
         // Step 1: Get the authorization code from the initial OAuth2 authorization request
         const authorizeResponse = await fetch(authUrl, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Accept": "application/json",
+                "Authorization": `Basic ${credentials}`,
             },
         });
 
@@ -97,47 +109,53 @@ export const initRequest = async (redirectUri: string) => {
     }
 };
 
-export const fetchOAuth2Token = async ( authCode: string, redirectUri: string) => {
-    const { organizationName, clientId } = getEnvVariables();
+export const fetchOAuth2Token = async (authCode: string, redirectUri: string) => {
+    const { organizationName, clientId, clientSecret } = getEnvVariables();
     const tokenUrl = `https://api.asgardeo.io/t/${organizationName}/oauth2/token`;
     const tokenRequestBody = new URLSearchParams({
-      client_id: clientId,
-      code: authCode,
-      grant_type: "authorization_code",
-      redirect_uri: redirectUri,
+        client_id: clientId,
+        code: authCode,
+        grant_type: "authorization_code",
+        redirect_uri: redirectUri,
     });
-  
+
+    // Encode client ID and client secret in base64
+    const credentials = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+
     try {
-      const tokenResponse = await fetch(tokenUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: tokenRequestBody.toString(),
-      });
-  
-      const tokenData = await tokenResponse.json();
-  
-      if (tokenData.id_token) {
-        // Decode the ID token (JWT) to retrieve user details
-        const decodedToken = JSON.parse(Buffer.from(tokenData.id_token.split('.')[1], 'base64').toString());
-  
-        // Assuming the decoded JWT contains these fields
-        return {
-          id: decodedToken.sub,
-          name: decodedToken.name,
-          email: decodedToken.email,
-          given_name: decodedToken.given_name,
-          family_name: decodedToken.family_name,
-          id_token: tokenData.id_token, // Store the ID token for later use
-        };
-      }
-      return null; // Flow incomplete or failed
+        const tokenResponse = await fetch(tokenUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": `Basic ${credentials}`,
+            },
+            body: tokenRequestBody.toString(),
+        });
+
+        const tokenData = await tokenResponse.json();
+        console.log("OAuth2 Token Data:", tokenData);
+
+        if (tokenData.id_token) {
+            // Decode the ID token (JWT) to retrieve user details
+            const decodedToken = JSON.parse(Buffer.from(tokenData.id_token.split('.')[1], 'base64').toString());
+
+            // Assuming the decoded JWT contains these fields
+            return {
+                id: decodedToken.sub,
+                name: decodedToken.name,
+                email: decodedToken.email,
+                given_name: decodedToken.given_name,
+                family_name: decodedToken.family_name,
+                id_token: tokenData.id_token, // Store the ID token for later use
+            };
+        }
+
+        return null; // Flow incomplete or failed
     } catch (error) {
-      console.error("OAuth2 Authorization failed:", error);
-      throw new Error('OAuth2 Authorization failed');
+        console.error("OAuth2 Authorization failed:", error);
+        throw new Error('OAuth2 Authorization failed');
     }
-  };
+};
 ```
 
 The following functions are defined in the `authUtils.tsx` file:
@@ -147,7 +165,13 @@ The following functions are defined in the `authUtils.tsx` file:
 - `initRequest` - This function sends an init request to the Asgardeo `/oauth2/authorize` API to initiate the authentication flow. 
 - `fetchOAuth2Token` - Invokes the Asgardeo `/oauth2/token` API to fetch an OAuth2 token using the authorization code retrieved previously.
 
-In this guide, we will also be implementing a custom `logoutFromAsgardeo` function which we will use to trigger a logout request to Asgardeo when the user logs out from your Next.js app using the previously issued id_token as the hint. Create a file named `logoutUtils.tsx` in the `/src/utils` directory and add the following code.
+In this guide, we will also be implementing a custom `logoutFromAsgardeo` function which we will use to trigger a logout request to Asgardeo when the user logs out from your Next.js app using the previously issued id_token as the hint. Create a file named `logoutUtils.tsx` in the `/src/utils` directory using the following command.
+
+```shell
+touch src/utils/logoutUtils.tsx
+```
+
+Now we can add the following code.
 
 ```shell title="logoutUtils.tsx"
 export const logoutFromAsgardeo = async (idToken: string) => {

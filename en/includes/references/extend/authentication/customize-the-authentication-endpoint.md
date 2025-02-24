@@ -90,9 +90,9 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
     tenant_list_enabled="false"
     hostname_verification_enabled="true"
     mutual_ssl_username="admin"
-    client_keystore="wso2carbon.jks"
+    client_keystore="wso2carbon.{{default_keystore_ext}}"
     carbon_security_keystore_password="wso2carbon"
-    client_truststore="client-truststore.jks"
+    client_truststore="client-truststore.{{default_keystore_ext}}"
     carbon_security_truststore_password="wso2carbon"
     identity_server_service_url="https://localhost:9443"
     username_header="UserName"
@@ -116,9 +116,9 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
         mutualSSLManagerEnabled=true
         hostname.verification.enabled=true
         mutual.ssl.username=admin
-        client.keyStore=./repository/resources/security/wso2carbon.jks
+        client.keyStore=./repository/resources/security/wso2carbon.{{default_keystore_ext}}
         Carbon.Security.KeyStore.Password=wso2carbon
-        client.trustStore=./repository/resources/security/client-truststore.jks
+        client.trustStore=./repository/resources/security/client-truststore.{{default_keystore_ext}}
         Carbon.Security.TrustStore.Password=wso2carbon
         identity.server.serviceURL=https://localhost:9443/services/
         username.header=UserName
@@ -146,13 +146,13 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
     === "Export to client truststore"
 
         ``` java
-        keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.jks -storepass  wso2carbon
+        keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.{{default_keystore_ext}} -storetype {{default_keystore_type}} -storepass  wso2carbon
         ```
 
     === "Import to WSO2 Identity Server truststore"
     
         ``` java
-        keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.jks -storepass wso2carbon
+        keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.{{default_keystore_ext}} -storetype {{default_keystore_type}} -storepass wso2carbon
         ```
 
     !!! note

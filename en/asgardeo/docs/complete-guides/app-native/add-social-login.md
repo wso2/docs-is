@@ -6,7 +6,22 @@ read_time: 5 min
 
 To enable social login in your app, you need to register your application with the social login provider and configure the necessary settings. This step will walk you through the process of adding social login to your app using the app-native authentication APIs in {{product_name}}. For the purpose of this guide we will use Google as the social login option.
 
-First, let's set up Google as an option as the first authentication step in your Asgardeo application as mentioned in the [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/). Once this is added to the login flow as one of the first factor options, we can proceed to integrate it into our Next.js application.
+First, follow the guidance provided in our [documentation](https://wso2.com/asgardeo/docs/guides/authentication/social-login/add-google-login/) to configure Google as a connection in Asgardeo while taking a note of the values to be configured as provided below. 
+
+- **Authorized JavaScript origins**: `http://localhost:3000`
+- **Authorized Redirect URI**:  `http://localhost:3000/api/auth/callback/google`
+
+We need to configure the above values (make sure they contain the hostname/port combination utilized in your application) instead of the values suggested in the documentation because we are using app-native authentication and require the application to handle the callback from Google first before redirecting to the Asgardeo APIs.
+
+Let's now set up Google as an option as the first authentication step in your Asgardeo application as given below.
+
+- Navigate to the Asgardeo Console and select your application under the **Applications** tab.
+- Click on the **Login Flow** tab.
+- Click on the **Add Sign In Option** button as shown below and add the Google connection from the popup prompt.
+  ![Visual Editor]({{base_path}}/complete-guides/app-native/assets/img/image14.png){: width="800" style="display: block; margin: 0;"}
+- Click on the **Update** button to save the changes.
+
+Once this is added to the login flow as one of the first factor options, we can proceed to integrate it into our Next.js application.
 
 When there are multiple authentication options in a given authentication step, it is required to invoke a separate `/oauth2/authn` API call to retrieve additional details about a given authenticator as mentioned in the [documentation](https://wso2.com/asgardeo/docs/references/app-native-authentication/).
 
@@ -44,7 +59,13 @@ export const selectAuthenticator = async (flowId: string, authenticatorId: strin
 };
 ```
 
-Next, create a file named `cookieUtils.tsx` in the `/src/utils` directory. This file will contain a function invoked for managing cookies, especially the `flowId` attribute utilized in the Asgardeo app-native authentication APIs in your Next.js app.
+Next, create a file named `cookieUtils.tsx` in the `/src/utils` directory using the following command.
+
+```shell
+touch src/utils/cookieUtils.tsx
+```
+
+This file will contain a function invoked for managing cookies, especially the `flowId` attribute utilized in the Asgardeo app-native authentication APIs in your Next.js app.
 
 ```shell title="cookieUtils.tsx"
 export const setFlowIdCookie = async (flowId: string) => {
@@ -77,7 +98,13 @@ We should also implement the API endpoint that sets the `flowId` cookie. Create 
 mkdir -p src/app/api/set-flowid
 ```
 
-Create a new file named `route.tsx` and add the following code snippet.
+Create a new file named `route.tsx` using the command given below.
+
+```shell
+touch src/app/api/set-flowid/route.tsx
+```
+
+Now add the following code snippet.
 
 ```shell title="set-flowid.tsx"
 import { NextRequest, NextResponse } from 'next/server';
@@ -98,7 +125,13 @@ export async function POST(req: NextRequest) {
 
 Now that the utility functions are added, we can proceed to create a component for the social login button component for Google.
 
-Create a new file named `SignInWithGoogle.tsx` in the `/src/components` directory and add the following code snippet.
+Create a new file named `SignInWithGoogle.tsx` in the `/src/components` directory using the following command.
+
+```shell
+touch src/components/SignInWithGoogle.tsx
+```
+
+Then add the following code snippet.
 
 ```shell title="SignInWithGoogle.tsx"
 import { useRouter } from 'next/navigation';
@@ -229,7 +262,13 @@ Since we need to do additional processing after the Google sign-in, we need to h
 mkdir -p src/app/api/auth/callback/google
 ```
 
-Create a file named `route.tsx` and add the following code snippet.
+Create a file named `route.tsx` using the following command
+
+```shell
+touch src/app/api/auth/callback/google/route.tsx
+```
+
+Add the following code snippet.
 
 ```shell title="route.tsx"
 import { NextRequest, NextResponse } from 'next/server';
@@ -423,7 +462,13 @@ const options: NextAuthConfig = {
 export const { handlers, signIn, signOut, auth } = NextAuth(options);
 ```
 
-In order to retrieve the `code` and `state` parameters that are returned to the callback by Google, we can utilize the middleware function in Auth.js so that we can extract these parameters from the request and modify the response with cookies set to the respective values. Create a new file named `middleware.tsx` under the `/src` directory and add the following.
+In order to retrieve the `code` and `state` parameters that are returned to the callback by Google, we can utilize the middleware function in Auth.js so that we can extract these parameters from the request and modify the response with cookies set to the respective values. Create a new file named `middleware.tsx` under the `/src` directory using the following command.
+
+```shell
+touch src/middleware.tsx
+```
+
+Now add the following.
 
 ```shell title="middleware.tsx"
 import { NextRequest, NextResponse } from 'next/server';
@@ -556,6 +601,6 @@ const EmailOTP = () => {
 export default EmailOTP;
 ```
 
-You should now be able to successfully sign in with Google in your Next.js application. The user will be redirected to the Google sign-in page, and upon successful sign-in, the user will be redirected back to the application to complete the second authentication step (i.e. in this case email OTP) before being redirected to the home page.
+You should now be able to successfully sign in with Google in your Next.js application. After clicking on the `Sign In With Google` button, the user will be redirected to the Google sign-in page, and upon successful sign-in, the user will be redirected back to the application to complete the second authentication step (i.e. in this case email OTP) before being redirected to the home page. After signing in you should be able to see the relevant user's first and last name along with the `Sign Out` button.
 
-![Sign In With Google Button]({{base_path}}/complete-guides/app-native/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
+![Sign In With Google Button]({{base_path}}/complete-guides/app-native/assets/img/image15.png){: width="800" style="display: block; margin: 0;"}

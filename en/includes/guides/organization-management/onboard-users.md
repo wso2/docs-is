@@ -2,6 +2,8 @@
 
 Organization administrators can add users to their organization using the following methods.
 
+- Onboard users from
+
 !!! note "Before you begin"
 
     - Make sure you have created an organization in {{product_name}} and onboarded an administrator. See how to [create an organization]({{base_path}}/guides/organization-management/) and [onboard admins]({{base_path}}/guides/organization-management/onboard-org-admins/).
@@ -46,7 +48,7 @@ In order to invite users from the parent organization, get to know the usernames
 
 If a user of the organization with {{ product_name }} Console access needs to invite a user from the parent organization, follow the steps below.
 
-1. Login to your organization using the link `https://{{host_name}}/t/{root-organization-name}/o/{organization-id}{{console_path}}`.
+1. Login to your organization using the link `https://{{console_host_name}}/t/{root-organization-name}/o/{organization-id}{{console_path}}`.
 2. Go to **User Management > Users** and click **Add user**. From there, select **Invite Parent User**.
 3. Enter the usernames of the user that you want to invite to the organization. You can enter multiple usernames by pressing enter after each username input.
 4. Select the groups that you want to assign to the invited users.
@@ -54,7 +56,8 @@ If a user of the organization with {{ product_name }} Console access needs to in
 6. The invited users will receive an email notification with the invitation link which they can click to accept.
 
     !!! note
-        If you are part of an organization hierarchy, you cannot directly invite users from other ancestors except for your parent organization.
+        - You can only invite users from your immediate parent organization.
+        - {{product_name}} Console allows you to invite users from the {{default_userstore}} user store of your immediate parent. To invite a user from a different user store, use the [invite parent user API]({{base_path}}/apis/organization-apis/organization-user-invitation/#tag/Parent-Organization-User-Invitation/operation/invitationTriggerPost).
 
 If a user, who is a member of both the organization and parent organization, wishes to invite more members from the parent organization, follow the steps below.
 

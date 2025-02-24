@@ -6,22 +6,31 @@ read_time: 5 min
 
 Multi-factor authentication (MFA) is a security mechanism that requires users to provide two or more forms of verification before granting access to an application. This adds an extra layer of security to your application and helps protect sensitive data from unauthorized access.
 
-In this guide, we will look into enabling Email OTP as an MFA factor in your Next.js application. Email OTP is a simple and effective MFA method that sends a one-time passcode to the user's email address, which they must enter to complete the login process.
+In this guide, we will look into enabling Email OTP as an MFA factor in your Next.js application. Email OTP is a simple and effective MFA method that sends a one-time passcode to the user's email address, which they must enter to complete the login process. You can configure SMTP settings in the Asgardeo Console by navigating to the **Email & SMS** tab > **Email Provider** section, but for this guide we will be using the default Asgardeo SMTP settings available out of the box.
 
-First, let's set up Email OTP as an MFA factor in your Asgardeo account as the second authentication step in the application created in step 3 as mentioned in the [documentation](https://wso2.com/asgardeo/docs/guides/authentication/passwordless-login/add-passwordless-login-with-email-otp/#enable-email-otp-login-for-an-app). Once Email OTP is added to the login flow as the second factor, we can proceed to integrate it into our Next.js application.
+First, let's set up Email OTP as an MFA factor by following the steps given below.
 
-We will now read this property value from the `getEnvVariables` function in the `authUtils.tsx` file under the `/src/utils` directory. Navigate to this function and add the following lines.
+- Navigate to the Asgardeo Console and select your application under the **Applications** tab.
+- Click on the **Login Flow** tab.
+- Click on either the **+** button in the Visual Editor and select **Email OTP** from the pop-up prompt or click on **Username & Password -> Email OTP** button under the **Predefined Flows > Basic Login Flows > Add Multi-factor Login** section.
+  ![Visual Editor]({{base_path}}/complete-guides/app-native/assets/img/image12.png){: width="800" style="display: block; margin: 0;"}
+- Click on the **Update** button to save the changes.
 
-```shell title="authUtils.tsx" hl_lines="7 9 18"
+Once Email OTP is added to the login flow as the second factor, we can proceed to integrate it into our Next.js application.
+
+We will now read the Email OTP property value via the `getEnvVariables` function in the `authUtils.tsx` file under the `/src/utils` directory. Navigate to this function and add the following lines.
+
+```shell title="authUtils.tsx" hl_lines="8 10 20"
 const getEnvVariables = () => {
     
     const organizationName = process.env.NEXT_PUBLIC_ORGANIZATION_NAME;
     const scope = process.env.NEXT_PUBLIC_SCOPE;
     const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI;
     const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
+    const clientSecret = process.env.NEXT_PUBLIC_CLIENT_SECRET;
     const emailOtpAuthenticatorId = process.env.NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID;
 
-    if (!organizationName || !scope || !clientId || !redirectUri || !emailOtpAuthenticatorId) {
+    if (!organizationName || !scope || !clientId || !clientSecret || !redirectUri || !emailOtpAuthenticatorId) {
         throw new Error("Missing required environment variables");
     }
 
@@ -30,6 +39,7 @@ const getEnvVariables = () => {
         scope,
         redirectUri,
         clientId,
+        clientSecret,
         emailOtpAuthenticatorId,
     };
 };
@@ -76,13 +86,19 @@ export const authenticateWithEmailOtp = async (flowId: string, emailOtp: string)
 };
 ```
 
-With this function in place, we can create the page that the users will land on to enter the OTP code that they received via email. Create a new directory named `emailotp` under `/src/app/auth`
+With this function in place, we can create the page that the users will land on to enter the OTP code that they received via email. Create a new directory named `emailotp` under `/src/app/auth` directory.
 
 ```shell
 mkdir -p src/app/auth/emailotp
 ```
 
-Create a new file named `page.tsx` in it. Then add the following code:
+Create a new file named `page.tsx` using the following command.
+
+```shell
+touch src/app/auth/emailotp/page.tsx
+```
+
+Then add the following code:
 
 ```shell title="page.tsx"
 "use client"
@@ -264,4 +280,4 @@ export default UsernamePasswordForm;
 
 You can now test the Email OTP MFA factor in your Next.js application. When a user logs in with their email and password, they will be redirected to the Email OTP page to enter the OTP code sent to their email address. Upon successful verification, the user will be redirected to the home page.
 
-![Email OTP Page]({{base_path}}/complete-guides/app-native/assets/img/image8.png){: width="800" style="display: block; margin: 0;"}
+![Email OTP Page]({{base_path}}/complete-guides/app-native/assets/img/image13.png){: width="800" style="display: block; margin: 0;"}

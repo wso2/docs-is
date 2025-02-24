@@ -2,9 +2,9 @@ Follow the steps given below to enable **Push Notification** login for your appl
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Select the application to which you wish to add Passkey.
+2. Select the application to which you wish to add Push Notification.
 
-3. Go to the **Login Flow** tab of the application and add Passkey from your preferred editor:
+3. Go to the **Login Flow** tab of the application and add Push Notification from your preferred editor:
 
     {% if product_name == 'Asgardeo' %}
     

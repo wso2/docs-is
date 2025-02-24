@@ -194,8 +194,14 @@ paths:
         - User Sharing
       summary: Unshare a user from specific organizations
       description: |
-        This API removes shared access for one or more users from specified organizations.
+        The parent organization admins can use this API to unshare a shared user from a selected list of organizations.
         The payload includes the list of user IDs and the organizations from which the users should be unshared.
+
+        Note the following details:
+        - unsharing can only be done from the same organization that initially shared the user.
+        - if you have shared a user with an organization and its children, unsharing the user from that 
+          organization will not unshare the user from the child organizations.
+          You must explicitly delcare all the organization IDs from which the user should be removed.
         
         <b>Scope(Permission) required:</b> `internal_org_user_unshare`
       operationId: processUserUnsharing
@@ -260,6 +266,7 @@ paths:
       summary: Remove a user's shared access
       description: |
         This API removes all shared access for one or more users, unsharing them from all organizations.
+        Note that unsharing can only be done from the same organization that initially shared the user.
         
         <b>Scope(Permission) required:</b> `internal_org_user_unshare`
       operationId: removeUserSharing
@@ -316,7 +323,7 @@ paths:
         - User Accessible Organizations
       summary: Get organizations a user has access to
       description: |
-        This API retrieves the list of organizations where the specified user has shared access, with support for pagination and filtering.
+        This API retrieves the list of organizations where the specified user has shared access.
 
         <b>Scope(Permission) required:</b> `internal_org_user_shared_access_view`
       parameters:
@@ -384,7 +391,9 @@ paths:
         - User Accessible Roles
       summary: Get roles assigned to a user in an organization
       description: |
-        This API fetches the roles assigned to the specified user within a particular organization, with support for pagination, filtering, and recursion.
+        This API fetches the roles assigned to the specified user within a particular organization. </br>
+        Note that the roles returned are only the roles assigned by the organization that initially shared the user.
+        Any additional roles assigned to the user from the shared organizations are not included in this response.
 
         <b>Scope(Permission) required:</b> `internal_org_user_shared_access_view`
       parameters:
@@ -501,11 +510,19 @@ components:
                 description: The ID of the organization to share the users with.
               policy:
                 type: string
-                description: The scope of sharing for this organization.
-                enum: ["SELECTED_ORG_ONLY", "SELECTED_ORG_WITH_ALL_EXISTING_CHILDREN_ONLY",
-                       "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN",
-                       "SELECTED_ORG_WITH_EXISTING_IMMEDIATE_CHILDREN_ONLY",
-                       "SELECTED_ORG_WITH_EXISTING_IMMEDIATE_AND_FUTURE_CHILDREN", "NO_ORG"]
+                description: |
+                  The scope of sharing for this organization. Possible values are:
+      
+                  - <code>SELECTED_ORG_ONLY</code>:</br>
+                  Share the resource only with the selected organization.
+                  - <code>SELECTED_ORG_WITH_ALL_EXISTING_CHILDREN_ONLY</code>:</br>
+                  Share with the selected organization and all its existing child organizations. New child organizations created after the policy is applied will **not** be included.
+                  - <code>SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN</code>:</br>
+                  Share with the selected organization, all its current child organizations, and automatically include any future child organizations created later.
+                  - <code>SELECTED_ORG_WITH_EXISTING_IMMEDIATE_CHILDREN_ONLY</code>: </br>
+                  Share only with the selected organization’s immediate existing child organizations. Future immediate children are **not** included.
+                  - <code>SELECTED_ORG_WITH_EXISTING_IMMEDIATE_AND_FUTURE_CHILDREN</code>:</br>
+                  Share with the selected organization’s immediate existing child organizations and automatically include any immediate child organizations created in the future.
               roles:
                 type: array
                 description: A list of roles to be shared with the organization.
@@ -549,8 +566,17 @@ components:
                 description: The ID of a user to be shared.
         policy:
           type: string
-          description: A policy to specify the sharing scope.
-          enum: ["ALL_EXISTING_ORGS_ONLY", "ALL_EXISTING_AND_FUTURE_ORGS", "IMMEDIATE_EXISTING_ORGS_ONLY", "IMMEDIATE_EXISTING_AND_FUTURE_ORGS"]
+          description: |
+                  The scope of sharing for this organization. Possible values are:
+      
+                  - <code>ALL_EXISTING_ORGS_ONLY</code>:</br>
+                  Share the resource with all organizations that exist at the time the policy is applied. New organizations created after the policy is applied will **not** be included.
+                  - <code>ALL_EXISTING_AND_FUTURE_ORGS</code>:</br>
+                  Share the resource with all current organizations and automatically include any organizations created in the future.
+                  - <code>IMMEDIATE_EXISTING_ORGS_ONLY</code>:</br>
+                  Share the resource only with immediate child organizations that exist when the policy is applied. Future immediate child organizations are **not** included.
+                  - <code>IMMEDIATE_EXISTING_AND_FUTURE_ORGS</code>: </br>
+                  Share the resource with immediate existing child organizations and automatically include any immediate child organizations created in the future. 
         roles:
           type: array
           description: A list of roles shared across all organizations.
@@ -671,8 +697,7 @@ components:
               rolesRef:
                 type: string
                 description: URL reference to retrieve paginated roles for the shared user in this organization
-                example: "/o/api/server/v1/users/{userId}/shared-roles?orgId=b028ca17-8f89-449c-ae27-fa955e66465d
-                &after=&before=&limit=2&filter=&recursive=false"
+                example: "/o/api/server/v1/users/{userId}/shared-roles?orgId={orgId}"
 
     UserSharedRolesResponse:
       type: object

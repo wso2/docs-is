@@ -13,7 +13,13 @@ The `next-auth.d.ts` file is used to extend and customize the TypeScript types p
 mkdir src/app/types
 ```
 
-Now create a file named `next-auth.d.ts` under the `/src/app/types` directory and add the following code to extend the User interface with additional properties.
+Now create a file named `next-auth.d.ts` under the `/src/app/types` directory using the following commands
+
+```shell
+touch src/app/types/next-auth.d.ts
+```
+
+Then add the following code to extend the User interface with additional properties.
 
 ```typescript title="next-auth.d.ts"
 import { User as NextAuthUser } from "next-auth";
@@ -64,7 +70,13 @@ Create a directory named `components` under the `/src` directory to store the co
 mkdir src/components
 ```
 
-Now create a file named `Home.tsx` and add the following code.
+Now create a file named `Home.tsx`.
+
+```shell
+touch src/components/Home.tsx
+```
+
+Then add the following code.
 
 ```shell title="Home.tsx"
 
@@ -112,9 +124,9 @@ export default HomeComponent;
 
 In the above code snippet, we have used the `useSession()` hook from the `next-auth/react` package to access the user session data. The `session` object contains the user's information, such as the user's name, email, and other details. We have used this information to display a welcome message to the user when they are logged in. If the user is not logged in, a "Sign In" button is displayed, which redirects the user to the sign-in page when clicked.
 
-Also notice the Link component from the `next/link` package, which is used to navigate to the sign-in page using the route `/auth/signin` (which we will be looking into later in this guide) when the "Sign In" button is clicked.
+Also notice the Link component from the `next/link` package, which is used to navigate to the sign-in page using the route `/auth/signin` (which we will be looking into later in this guide) when the `Sign In` button is clicked.
 
-Since we are using the `useSession()` hook, we need to ensure that the `SessionProvider` is available at the root level of the application. To do this, we need to update the `layout.tsx` file under the `/src/app` directory.
+Since we are using the `useSession()` hook, we need to ensure that the `SessionProvider` is available at the root level of the application. To do this, we need to update the `layout.tsx` file under the `/src/app` directory as follows.
 
 ```shell title="layout.tsx" hl_lines="4 31 33"
 import type { Metadata } from "next";
@@ -156,7 +168,13 @@ export default function RootLayout({
 }
 ```
 
-Let's create a sign-out button component to allow users to sign out of the application. Create a file named `SignOutButton.tsx` under the `/src/components` directory and add the following code.
+Let's create a sign-out button component to allow users to sign out of the application. Create a file named `SignOutButton.tsx` under the `/src/components` directory using the following command.
+
+```shell
+touch src/components/SignOutButton.tsx
+```
+
+Then add the following code.
 
 ```shell title="SignOutButton.tsx"
 "use client";
@@ -257,13 +275,19 @@ export default async function Home() {
 }
 ```
 
-You will now see the `Sign In` button on the home page when you run the application. Clicking this button will show you a 404 not found page as we have not told the application what to do when a user is redirected to `/auth/signin`.
+You will now see the `Sign In` button on the home page when you run the application using `npm run dev`. Clicking this button will show you a 404 not found page as we have not told the application what to do when a user is redirected to `/auth/signin`.
 
-![Sign In Button]({{base_path}}/complete-guides/app-native/assets/img/image6.png){: width="800" style="display: block; margin: 0;"}
+![Sign In Button]({{base_path}}/complete-guides/app-native/assets/img/image10.png){: width="800" style="display: block; margin: 0;"}
 
 In order to handle the sign-in process, we will create a login form where the user can provide their username and password in order to authenticate via Asgardeo app-native authentication APIs.
 
-First, let's create a new file named `FormContainer.tsx` under the `/src/components` directory and add the following code. This will contain a basic `div` element with a border that we can utilize for any form in the application.
+First, let's create a new file named `FormContainer.tsx` under the `/src/components` directory using the following command
+
+```shell
+touch src/components/FormContainer.tsx
+```
+
+Then add the following code. This will contain a basic `div` element with a border that we can utilize for any form in the application.
 
 ```shell title="FormContainer.tsx"
 import React from 'react';
@@ -283,7 +307,13 @@ const FormContainer: React.FC<FormContainerProps> = ({ children }) => {
 export default FormContainer;
 ```
 
-We will now create a component for the submit button. Create a file named `SubmitButton.tsx` under the `/src/components` directory and add the following code.
+We will now create a component for the submit button. Create a file named `SubmitButton.tsx` under the `/src/components` directory using the following command.
+
+```shell
+touch src/components/SubmitButton.tsx
+```
+
+Now add the following code.
 
 ```shell title="SubmitButton.tsx"
 import React from 'react';
@@ -305,7 +335,13 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ label }) => {
 export default SubmitButton;
 ```
 
-Now let's create a login form component for the user to enter their username and password. Create a file named `UserNamePasswordForm.tsx` under the `/src/components` directory and add the following code.
+Now let's create a login form component for the user to enter their username and password. Create a file named `UserNamePasswordForm.tsx` under the `/src/components` directory with the following command.
+
+```shell
+touch src/components/UsernamePasswordForm.tsx
+```
+
+Add the following code to the created file.
 
 ```shell title="UsernamePasswordForm.tsx"
 import React, { useState, FormEvent } from 'react';
@@ -401,7 +437,13 @@ Now let's create the API callback handler for the `/auth/signin` route. Create a
 mkdir -p src/app/auth/signin
 ```
 
-Create a file named `page.tsx` in this directory and add the following code.
+Create a file named `page.tsx` in this directory using the following command.
+
+```shell
+touch src/app/auth/signin/page.tsx
+```
+
+Then add the following code.
 
 ```shell title="page.tsx"
 "use client"
@@ -462,7 +504,13 @@ Next, we need to create a custom sign-out route to handle the sign-out process. 
 mkdir -p src/app/auth/signout
 ```
 
-Create a file named `route.tsx` in this directory, and add the following code.
+Create a file named `route.tsx` in this directory using the command given below.
+
+```shell
+touch src/app/auth/signout/route.tsx
+```
+
+Now add the following code.
 
 ```shell title="route.tsx"
 import { NextRequest, NextResponse } from 'next/server';
@@ -598,4 +646,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth(options);
 
 Now you can run the server via the `npm run dev` command and navigate to [http://localhost:3000](http://localhost:3000){:target="_blank"} to see the home page. Click the `Sign In` button to navigate to the login form where you can enter your username and password to authenticate.
 
-![Sign In Page]({{base_path}}/complete-guides/app-native/assets/img/image7.png){: width="800" style="display: block; margin: 0;"}
+![Sign In Page]({{base_path}}/complete-guides/app-native/assets/img/image11.png){: width="800" style="display: block; margin: 0;"}

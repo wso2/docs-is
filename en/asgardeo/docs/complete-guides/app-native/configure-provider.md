@@ -44,11 +44,7 @@ In this guide, we will be working with 3 different authenticators in Asgardeo. T
 
 The above authenticators will help cover integrating basic authentication, MFA factors, and also social login scenarios into your application via app-native authentication APIs provided by Asgardeo.
 
-We first need to retrieve the authenticator IDs for the above authenticators from Asgardeo.
-
 The first two authenticators are local authenticators, whereas Google is a federated authenticator.
-
-In order to identify the list of all authenticators that are present, you can utilize the [/authenticators API](https://wso2.com/asgardeo/docs/apis/authenticators/#tag/Authenticators/paths/~1authenticators/get).
 
 In this guide, since we know what the authenticators will be for the given Asgardeo application, and to simplify the implementation of the application as much as possible, we will maintain the authenticator IDs in the `.env.local` file and utilize them instead of relying on API responses.
 
@@ -58,18 +54,31 @@ The `authenticatorId` is built up of a base64 encoded value of the authenticator
 - `email-otp-authenticator:LOCAL`
 - `GoogleOIDCAuthenticator:Google`
 
-As the next step, add following entries to the .env or .env.local file, and make sure to replace the placeholders in the following code with the Client ID, and Client Secret values you copied during in **Step-3** the application registration in the Asgardeo console and the base64 encoded values of the authenticator IDs as mentioned above.
+As the next step, add following entries to the `.env` or `.env.local` file, and make sure to replace the placeholders in the following code with the Client ID, and Client Secret values you copied during in **Step-3** the application registration in the Asgardeo console and the base64 encoded values of the authenticator IDs as mentioned above.
 
 ```sh title=".env.local"
     NEXT_PUBLIC_ORGANIZATION_NAME="<org_name>"
     NEXT_PUBLIC_CLIENT_ID="<client_id>"
+    NEXT_PUBLIC_CLIENT_SECRET="<client_secret>"
     NEXT_PUBLIC_SCOPE="openid profile"
     NEXT_PUBLIC_REDIRECT_URI="http://localhost:3000"
-    NEXT_PUBLIC_BASIC_AUTHENTICATOR_ID="<base64_encoded_basic_authenticator_id>"
-    NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID="<base64_encoded_email_otp_authenticator_id>"
-    NEXT_PUBLIC_GOOGLE_AUTHENTICATOR_ID="<base64_encoded_google_authenticator_id>"
+    NEXT_PUBLIC_BASIC_AUTHENTICATOR_ID="QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM"
+    NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID="ZW1haWwtb3RwLWF1dGhlbnRpY2F0b3I6TE9DQUw"
+    NEXT_PUBLIC_GOOGLE_AUTHENTICATOR_ID="R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xl"
     NEXT_PUBLIC_GOOGLE_REDIRECT_URI="http://localhost:3000/api/auth/callback/google"
 ```
+
+!!! note
+
+    We utilize `http://localhost:3000` as the application hostname and port for this guide as those are the default values that Next.js use. If you are already running a process on port 3000 and if you observe the Next.js application created in `Step 4` runs on a different hostname/port combination, please make sure to update the following in the `.env` or `.env.local` file with the correct hostname and port values:
+    
+    - `NEXT_PUBLIC_REDIRECT_URI`
+    - `NEXT_PUBLIC_GOOGLE_REDIRECT_URI`
+    
+    Then make sure to update the following URLs in the `Protocol` tab in your **Asgardeo** application that we configured in `Step 3` of this guide to reflect the correct hostname and port values.
+        
+    - `Authorized redirect URLs`
+    - `Allowed origins`
 
 ## Create the auth.tsx Configuration File
 
@@ -120,7 +129,7 @@ touch src/app/api/auth/\[...nextauth\]/route.ts
 
 !!! Note
 
-    The directory `src/app/api/auth/[...nextauth]/route.ts` in a Next.js project is used to define a dynamic API route for handling authentication. The `[...nextauth]` is a catch-all route that processes multiple authentication-related requests such as sign-in, sign-out, and session management. The route.ts file specifies the logic for these operations, typically by exporting handlers for HTTP methods like GET and POST. This setup centralizes authentication logic, supports OAuth providers like Google or GitHub, and integrates seamlessly into Next.js applications for secure and scalable authentication workflows.
+    The directory `src/app/api/auth/[...nextauth]/route.ts` in a Next.js project is used to define a dynamic API route for handling authentication. The `[...nextauth]` is a catch-all route that processes multiple authentication-related requests such as sign-in, sign-out, and session management. The `route.ts` file specifies the logic for these operations, typically by exporting handlers for HTTP methods like GET and POST. This setup centralizes authentication logic, supports OAuth providers like Google or GitHub, and integrates seamlessly into Next.js applications for secure and scalable authentication workflows.
 
 
 Then add the following code into `src/app/api/auth/[...nextauth]/route.ts` file.

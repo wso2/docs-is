@@ -1,6 +1,13 @@
 {
+    "operational-policies": {
+        "enabled": true,
+        "page": [
+            "references/operational-policies.md"
+        ]
+    },
+    
     "sms-templates": {
-        "enabled": false,
+        "enabled": true,
         "page": [
             "guides/branding/customize-sms-templates.md",
             "apis/notification-templates.md",
@@ -36,7 +43,7 @@
     },
 
     "password_expiry_time": {
-        "enabled": false,
+        "enabled": true,
         "page": []
     },
 
@@ -52,11 +59,11 @@
         ]
     },
 
-    "pre-update-password-action": {
+    "custom-authentication-service-extension": {
         "enabled": false,
         "page": [
-            "references/actions/pre-update-password-action/api-contract.md",
-            "guides/customize/actions/pre-update-password-action.md"
+            "guides/service-extensions/in-flow-extensions/custom-authentication.md",
+            "references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md"
         ]
     }
 }

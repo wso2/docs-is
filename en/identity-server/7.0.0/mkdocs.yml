@@ -22,6 +22,8 @@ site_url: https://is.docs.wso2.com/en/7.0.0
 extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
+  default_keystore_type: JKS
+  default_keystore_ext: jks
 
 hooks:
   - hooks.py
@@ -32,7 +34,7 @@ plugins:
       separator: "[^\\w._]+"
       lang: ['en']
       prebuild_index: true
-      ngram_length: 3
+      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -345,7 +347,7 @@ plugins:
 nav:
   - Home:
     - Home: index.md
-  - Get Started:
+  - Get started:
     - Introduction: get-started/quick-start-guide.md
     - Quick Setup: get-started/quick-set-up.md
     - Start integrating apps:
@@ -368,9 +370,9 @@ nav:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
     - About this release: get-started/about-this-release.md
-  - Quickstarts:
-    - React Quickstart: quick-starts/react.md
-    - Angular Quickstart:  quick-starts/angular.md
+    - Connect/Build your app:
+      - React Quickstart: quick-starts/react.md
+      - Angular Quickstart:  quick-starts/angular.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
@@ -480,6 +482,7 @@ nav:
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+            - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
       - Authorization:
         - Authorization: guides/authorization/index.md
         - API authorization:
@@ -730,9 +733,10 @@ nav:
             - Log masking with Log4j: deploy/monitor/log4j-mask-sensitive-information-in-logs.md
           - Log claims in audit logs: deploy/monitor/log-claims-in-audit-logs.md
         - Monitor server health: deploy/monitor/monitor-server-health.md
+        - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
         - Work with product observability: deploy/monitor/work-with-product-observability.md
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
-  - Integrations:
+  - SDKs:
     - Integrate WSO2 IS into your application: integrations/index.md
   - APIs:
     - APIs: apis/index.md

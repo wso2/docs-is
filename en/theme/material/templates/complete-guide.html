@@ -127,8 +127,8 @@
   <script>
 
     const nav = document.querySelector('.md-nav.md-nav--primary.md-nav--lifted');
-    const pages =
-      document.querySelector('li.md-nav__item--active.md-nav__item--nested li.md-nav__item--active ul.md-nav__list');
+    const expandedNavSections = nav.querySelectorAll('.md-nav__item.md-nav__item--active > nav.md-nav[aria-expanded="true"]');
+    const pages = expandedNavSections[expandedNavSections.length - 1].querySelector('ul.md-nav__list');
 
     document.addEventListener("DOMContentLoaded", function () {
         const lastValidPage = sessionStorage.getItem("lastValidPage");
@@ -155,6 +155,8 @@
 
     // Initialize the section count
     let sectionCountw = 1;
+
+    pages.classList.add('guide-page-list');
 
     // Loop through each child element
     Array.from(pages.children).forEach(child => {

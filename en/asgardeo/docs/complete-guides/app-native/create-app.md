@@ -23,7 +23,7 @@ npx create-next-app@latest --typescript asgardeo-nextjs
 
 Once this command is executed, you will be prompted with various configuration options for your application. We will use the default options to keep the configurations as simple as possible. If everything goes smoothly, your terminal output should resemble the following.
 
-![Create Next.js app]({{base_path}}/complete-guides/app-native/assets/img/image4.png){: width="800" style="display: block; margin: 0;"}
+![Create Next.js app]({{base_path}}/complete-guides/app-native/assets/img/image8.png){: width="800" style="display: block; margin: 0;"}
 
 !!! note
 
@@ -49,6 +49,6 @@ npm run dev
 
 This will start the Next.js development server, typically at [http://localhost:3000](http://localhost:3000){:target="_blank"}, and you should see the default Next.js starter page. Confirm that everything is set up correctly by checking for the terminal output indicating that the server is running.
 
-![Navigate to localhost]({{base_path}}/complete-guides/app-native/assets/img/image5.png){: width="800" style="display: block; margin: 0;"}
+![Navigate to localhost]({{base_path}}/complete-guides/app-native/assets/img/image9.png){: width="800" style="display: block; margin: 0;"}
 
 At this point, you have a simple yet fully functional Next.js app. Now, it's time to integrate user authentication within the application. For this guide, we will be using the Auth.js library, which provides a simple and secure way to handle authentication in Next.js apps.  

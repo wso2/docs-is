@@ -16,6 +16,27 @@
  * under the License.
 -->
 
+{% macro nav_icon(icon) %}
+  <span class="icon">
+    {% if icon.endswith(".svg") or icon.endswith(".png") %}
+      {% include icon %}
+    {% else %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    {% endif %}
+  </span>
+{% endmacro %}
+
+{% macro nav_chip(type) %}
+  {% if type == "ai" %}
+    <span class="chip chip-ai">
+      <span class="icon" title="Powered with AI">{% include "assets/libs/custom-icons/sparkles-fill.svg" %}</span> 
+      <span class="text">Powered with AI</span>
+    </span>
+  {% else %}
+    <span class="chip">New</span>
+  {% endif %}
+{% endmacro %}
+
 <!-- Wrap everything with a macro to reduce file roundtrips (see #2213) -->
 {% macro render(nav_item, path, level, parent_title=None) %}
 
@@ -28,8 +49,31 @@
 
   {% set current_title = nav_item.title %}
 
-  <!-- Set icons -->
-  {% set icon = config.extra.nav_icons[nav_item.title] if nav_item.title in config.extra.nav_icons else None %}
+  <!-- Set nav icon -->
+  {% set icon = None %}
+
+  {% if config.extra.nav_icons and nav_item.title in config.extra.nav_icons %}
+    {% set nav_item_icon = config.extra.nav_icons[nav_item.title] %}
+
+    {% if 'level' not in nav_item_icon or nav_item_icon.level == level %}
+      {% set icon = config.extra.nav_icons[nav_item.title].icon %}
+    {% endif %}
+  {% endif %}
+
+  <!-- Set nav chip -->
+  {% set has_nav_item_chip = false %}
+
+  {% if config.extra.nav_chip and nav_item.title in config.extra.nav_chip %}
+    {% set nav_item_chip = config.extra.nav_chip[nav_item.title] %}
+
+    {% if 'type' in nav_item_chip %}
+      {% set chip_type = nav_item_chip.type %}
+    {% endif %}
+
+    {% if 'level' not in nav_item_chip or nav_item_chip.level == level %}
+      {% set has_nav_item_chip = true %}
+    {% endif %}
+  {% endif %}
 
   <!-- Create new map with expanded_nav titles -->
   {% set expanded_nav_titles = config.extra.expanded_navs | map(attribute='title') | list %}
@@ -49,32 +93,34 @@
     {% endif %}
 
     <!-- Pre-filter the relevant nav entry -->
-    {% set matched_nav = config.extra.expanded_navs | selectattr("title", "equalto", nav_item.title) | first %}
+    {% set matched_expanded_nav = config.extra.expanded_navs | selectattr("title", "equalto", nav_item.title) | first %}
 
-    {% if matched_nav is defined and matched_nav.options is defined %}
-      {% if "divider" in matched_nav.options %}
+    {% if matched_expanded_nav is defined and matched_expanded_nav.options is defined %}
+      {% if "divider" in matched_expanded_nav.options %}
         <hr class="md-nav--expanded-section-divider" />
       {% endif %}
       
-      {% if "verticle-line" in matched_nav.options %}
+      {% if "verticle-line" in matched_expanded_nav.options %}
         {% set class = class ~ " md-nav--expanded-section-verticle-line" %}
       {% endif %}
     {% endif %}
 
     <!-- Set css class if there is an icon -->
-    {% set has_icon = "md-nav--has-icon" if icon %}
+    {% set has_icon_class = "md-nav--has-icon" if icon %}
 
-    <!-- Hide sub navigation if parent section is an expanded section have the hide-sub-nav config  -->
-    {% set matched_parent_nav = config.extra.expanded_navs | selectattr("title", "equalto", parent_title) | list %}
+    <!-- Override navigation if configured  -->
+    {% if config.extra.nav_overrides and nav_item.title in config.extra.nav_overrides %}
+      {% set override_nav = config.extra.nav_overrides[nav_item.title] %}
 
-    {% if matched_parent_nav and matched_parent_nav[0].nav_overrides is defined and current_title in matched_parent_nav[0].nav_overrides %}
-        {% set nav_override_link = matched_parent_nav[0].nav_overrides[current_title] %}
+      {% if 'level' not in override_nav or override_nav.level == level %}
+        {% set nav_override_link = config.extra.nav_overrides[nav_item.title].link %}
         {% set override_sub_nav = "md-nav--override-sub-nav" %}
         {% set hide_sub_nav = "md-nav--hide-sub-nav" %}
+      {% endif %}
     {% endif %}
 
     <!-- Render item with nested items -->
-    <li class="{{ class }} md-nav__item--nested {{ has_icon }}">
+    <li class="{{ class }} md-nav__item--nested {{ has_icon_class }}">
       {% set expanded = "navigation.expand" in features %}
       {% set active = nav_item.active or expanded %}
 
@@ -112,16 +158,13 @@
         >
           <span>
             {% if icon %}
-              <span class="icon">
-                {% if icon.startswith("custom/") %}
-                  {% include "assets/libs/" ~ icon ~ ".svg" %}
-                {% else %}
-                  {% include ".icons/" ~ icon ~ ".svg" %}
-                {% endif %}
-              </span>
+              {{ nav_icon(icon) }}
               {{ "&nbsp;" + nav_item.title }}
             {% else %}
               {{ nav_item.title }}
+            {% endif %}
+            {% if has_nav_item_chip %}
+              {{ nav_chip("ai") }}
             {% endif %}
           </span>
           {% if not disabled %}
@@ -137,15 +180,12 @@
           <a href="{{ index.url | url }}">
             <span>
               {% if icon %}
-                <span class="icon">
-                  {% if icon.startswith("custom/") %}
-                    {% include "assets/libs/" ~ icon ~ ".svg" %}
-                  {% else %}
-                    {% include ".icons/" ~ icon ~ ".svg" %}
-                  {% endif %}
-                </span>
+                {{ nav_icon(icon) }}
               {% endif %}
               {{ nav_item.title }}
+              {% if has_nav_item_chip %}
+                {{ nav_chip("ai") }}
+              {% endif %}
             </span>
           </a>
 
@@ -189,15 +229,12 @@
         <a href="{{ nav_override_link | url }}">
           <span>
             {% if icon %}
-              <span class="icon">
-                {% if icon.startswith("custom/") %}
-                  {% include "assets/libs/" ~ icon ~ ".svg" %}
-                {% else %}
-                  {% include ".icons/" ~ icon ~ ".svg" %}
-                {% endif %}
-              </span>
+              {{ nav_icon(icon) }}
             {% endif %}
             {{ nav_item.title }}
+            {% if has_nav_item_chip %}
+              {{ nav_chip("ai") }}
+            {% endif %}
           </span>
         </a>
       </div>
@@ -236,15 +273,12 @@
       >
         <span>
           {% if icon %}
-            <span class="icon">
-              {% if icon.startswith("custom/") %}
-                {% include "assets/libs/" ~ icon ~ ".svg" %}
-              {% else %}
-                {% include ".icons/" ~ icon ~ ".svg" %}
-              {% endif %}
-            </span>
+            {{ nav_icon(icon) }}
           {% endif %}
           {{ nav_item.title }}
+          {% if has_nav_item_chip %}
+            {{ nav_chip("ai") }}
+          {% endif %}
         </span>
         {% if nav_item.meta and nav_item.meta.read_time %}
             <span class="md-nav__link-read_time">
@@ -266,15 +300,12 @@
       <a href="{{ nav_item.url | url }}" class="md-nav__link">
         <span>
           {% if icon %}
-            <span class="icon">
-              {% if icon.startswith("custom/") %}
-                {% include "assets/libs/" ~ icon ~ ".svg" %}
-              {% else %}
-                {% include ".icons/" ~ icon ~ ".svg" %}
-              {% endif %}
-            </span>
+            {{ nav_icon(icon) }}
           {% endif %}
           {{ nav_item.title }}
+          {% if has_nav_item_chip %}
+            {{ nav_chip("ai") }}
+          {% endif %}
         </span>
         {% if nav_item.meta and nav_item.meta.read_time %}
             <span class="md-nav__link-read_time">

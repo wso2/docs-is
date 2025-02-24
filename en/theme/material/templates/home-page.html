@@ -16,6 +16,14 @@
  * under the License.
 -->
 
+{% macro home_card_icon(icon) %}
+  {% if icon.endswith(".svg") or icon.endswith(".png") %}
+    {% include icon %}
+  {% else %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  {% endif %}
+{% endmacro %}
+
 {% extends "base.html" %}
 
 {% block styles %}
@@ -57,7 +65,7 @@
 
                   <div class="{{ header_icon_class }}">
                     {% if column.icon %}
-                      {% include column.icon %}
+                      {{ home_card_icon(column.icon) }}
                     {% else %}
                       {% include "assets/libs/oxygen-ui-icons/1.7.3/star-16.svg" %}
                     {% endif %}
