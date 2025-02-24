@@ -3,7 +3,7 @@ name: Asgardeo Docs Release
 on:
   push:
     branches:
-      - master
+      - hotfix-v0.0.388-prod
     paths-ignore:
       - 'VERSION'  # This will ignore changes only to the VERSION file.
   workflow_dispatch:
@@ -20,7 +20,7 @@ env:  # Global environment variables
   GIT_ORG_NAME: ${{ secrets.GIT_ORG_NAME }}
   GIT_REPO_NAME: ${{ secrets.GIT_REPO_NAME }}
   GIT_BRANCH_NAME: ${{ secrets.GIT_BRANCH_NAME }}
-  IS_HOTFIX: 'false'
+  IS_HOTFIX: 'true'
 
 jobs:
   release-asgardeo-docs:
