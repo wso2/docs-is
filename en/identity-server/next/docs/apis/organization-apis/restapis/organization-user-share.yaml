@@ -26,7 +26,7 @@ paths:
         
         > **Important** </br>
         > If you switch a user from a general sharing policy to a selective sharing policy or vice versa, without unsharing a user, it can lead to access issues. To ensure a smooth transition, first unshare the user from all organizations and share them again with the desired organization(s) under the updated policy. </br> 
-        > If you overlook this step and notice unexpected user-sharing behavior when new organizations are created, use the `/users/unshare-with-all` API to reset access before applying the new sharing policy.
+        > If you overlook this step and notice unexpected user-sharing behavior when new organizations are created, use the `/o/users/unshare-with-all` API to reset access before applying the new sharing policy.
         
         <b>Scope(Permission) required:</b> `internal_org_user_share`
       operationId: processUserSharing
@@ -118,7 +118,7 @@ paths:
         
         > **Important** </br>
         > If you switch a user from a general sharing policy to a selective sharing policy or vice versa, without unsharing a user, it can lead to access issues. To ensure a smooth transition, first unshare the user from all organizations and share them again with the desired organization(s) under the updated policy. </br> 
-        > If you overlook this step and notice unexpected user-sharing behavior when new organizations are created, use the `/users/unshare-with-all` API to reset access before applying the new sharing policy.
+        > If you overlook this step and notice unexpected user-sharing behavior when new organizations are created, use the `/o/users/unshare-with-all` API to reset access before applying the new sharing policy.
         
         <b>Scope(Permission) required:</b> `internal_org_user_share`
       operationId: processUserSharingAll
