@@ -144,7 +144,7 @@ paths:
 
         <b>Scope(Permission) required:</b> `internal_org_api_resource_view`
       parameters:
-        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/scopeFilter'
       responses:
         200:
           description: OK
@@ -258,6 +258,16 @@ components:
       schema:
         type: string
       example: identifier+eq+greetings
+
+    scopeFilter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Condition to filter the retrieval of scopes by name. Supports 'sw', 'co', 'ew' and 'eq' operations.
+      schema:
+        type: string
+      example: name+co+greetings
 
     collectionFilter:
       name: filter
