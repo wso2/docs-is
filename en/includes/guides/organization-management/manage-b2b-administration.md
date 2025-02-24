@@ -44,14 +44,14 @@ You may facilitate this using the [application management API]({{base_path}}/api
 {{ product_name }} Console can also function as an administration portal for your B2B application which is accessible through the following URL:
 
 ```
-https://<hostname>:<port>/t/<root organization name>/o/<organization id>/console
+https://{{ console_hostname }}/t/<root organization name>/o/<organization id>/{{ console_app_path }}
 ```
 
 However, the following limitations apply.
 <ul>
     <li>The Console is not customizable.</li>
     <li>The Console will not reflect the branding customizations of your organization.</li>
-    <li>The login flow of the Console does not adhere to the customizations done for the application. (You may change the login flow for the Console under <b>Console settings</b> \>  <b>Login Flow</b>.)</li>
+    <li>The login flow of the Console does not adhere to the customizations done for the application. (You may change the login flow for the Console under <b>Console settings</b> >  <b>Login Flow</b>.)</li>
     <li>The Console access is governed by separate roles and are not linked to your B2B application roles.</li>
 </ul>  
 
