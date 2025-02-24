@@ -1,10 +1,18 @@
 ---
 template: templates/complete-guide.html
-heading: Add user sign up to your app
+heading: Add user sign up
 read_time: 2 min
 ---
 
-In this step, we implement user sign-up in Asgardeo using SCIM APIs and OAuth 2.0 Client Credentials Flow. The implementation consists of the following key steps:
+In this step, we implement user sign up using SCIM APIs and OAuth 2.0 Client Credentials Flow. The implementation includes user creation, role assignment, and error handling.
+
+Key steps of the sign up flow:
+
+![Sign up]({{base_path}}/complete-guides/nextjs-b2b/assets/img/image16.png){: width="400" style="display: block; margin: auto;"}
+
+You can create a new API route at `app/api/signup/route.ts` to handle user registration and create helper functions to manage user creation, role assignment, and API interactions with Asgardeo. This route handles the complete sign-up flow, from validating user input to creating new users or updating existing ones with appropriate roles required to access the app.
+
+Follow the steps below:
 
 1. Extract User Input
 
@@ -58,98 +66,209 @@ In this step, we implement user sign-up in Asgardeo using SCIM APIs and OAuth 2.
     const accessToken = tokenData?.access_token;
     ```
 
-3. Create User in Root Organization
-
-    Using the obtained access token, we make a SCIM API request to create the user in the root organization where the application is created.
-
-    ```javascript
-    const userResponse = await fetch(
-        `${process.env.ASGARDEO_BASE_URL}/scim2/Users`,
-        {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                emails: [{ primary: true, value: email }],
-                name: { familyName: lastName, givenName: firstName },
-                password: password,
-                userName: `DEFAULT/${email}`,
-            }),
-        }
-    );
-    ```
-
-    Extract the user ID to retrieve the application ID.
-
-4. Retrieve Application ID
+3. Retrieve Application ID
 
     To assign the user to a role, we first need the Application ID. We fetch it using the application name.
 
     ```javascript
-    const getAppResponse = await fetch(
+    const appId = await getAppId(accessToken);
+    if (!appId) {
+        return Response.json(
+            { error: "Failed to fetch application details" },
+            { status: 500 }
+        );
+    }
+    ```
+
+4. Retrieve Role ID
+
+    Using the App ID, we fetch the Role ID associated with the application.
+
+    ```javascript
+    const roleId = await getRoleId(accessToken, appId);
+    if (!roleId) {
+        return Response.json(
+            { error: "Failed to fetch role details" },
+            { status: 500 }
+        );
+    }
+    ```
+
+5. Check Existing User
+
+    Before creating a new user, we check if the user already exists.
+
+    ```javascript
+    const existingUser = await getUser(accessToken, email);
+    if (existingUser) {
+        const isAdmin = existingUser?.roles?.includes(
+            process.env.B2B_ADMIN_ROLE_NAME!
+        );
+        
+        if (isAdmin) {
+            return Response.json(
+                { error: "User already exists and has admin role" },
+                { status: 400 }
+            );
+        }
+    }
+    ```
+
+6. Create User or Assign Role
+
+    If the user doesn't exist, create them. Otherwise, assign the role to the existing user.
+
+    ```javascript
+    if (!existingUser) {
+        // Create new user
+        const userId = await createUser(
+            accessToken,
+            email,
+            firstName,
+            lastName,
+            password
+        );
+        
+        if (!userId) {
+            return Response.json(
+                { error: "User creation failed" },
+                { status: 500 }
+            );
+        }
+
+        // Assign role to new user
+        if (await assignUserRole(accessToken, roleId, userId)) {
+            return Response.json(
+                { message: "User registered successfully!" },
+                { status: 200 }
+            );
+        }
+    } else {
+        // Assign role to existing user
+        if (await assignUserRole(accessToken, roleId, existingUser.id)) {
+            return Response.json(
+                { message: "User role assigned successfully!" },
+                { status: 200 }
+            );
+        }
+    }
+    ```
+
+**Helper functions required for the above implementation:**
+
+```javascript
+// Get Application ID
+async function getAppId(accessToken: string): Promise<string | null> {
+    const response = await fetch(
         `${process.env.ASGARDEO_BASE_URL}/api/server/v1/applications?filter=name%20eq%20${process.env.APP_NAME}`,
         {
             method: "GET",
             headers: { Authorization: `Bearer ${accessToken}` },
         }
     );
-    ```
 
-    If successful, we extract the application ID.
+    if (!response.ok) return null;
 
-5. Retrieve Role ID
+    const data = await response.json();
+    return data?.applications[0]?.id || null;
+}
 
-    Now, we fetch the Role ID associated with the application.
-
-    ```javascript
-    const getRolesResponse = await fetch(
+// Get Role ID
+async function getRoleId(accessToken: string, appId: string): Promise<string | null> {
+    const response = await fetch(
         `${process.env.ASGARDEO_BASE_URL}/scim2/v2/Roles?filter=displayName%20eq%20${encodeURIComponent(process.env.B2B_ADMIN_ROLE_NAME!)}%20and%20audience.value%20eq%20${appId}`,
         {
             method: "GET",
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-                "Content-Type": "application/json",
+            headers: { 
+                Authorization: `Bearer ${accessToken}`, 
+                "Content-Type": "application/json" 
             },
         }
     );
-    ```
 
-    If successful, extract the role ID.
+    if (!response.ok) return null;
 
-6. Assign Role to User
+    const data = await response.json();
+    return data?.Resources?.[0]?.id || null;
+}
 
-    We now assign the retrieved role to the newly created user via a PATCH request.
-
-    ```javascript
-    const assignRoleResponse = await fetch(
-        `${process.env.ASGARDEO_BASE_URL}/scim2/v2/Roles/${roleId}`,
+// Check if user exists
+async function getUser(accessToken: string, email: string): Promise<any | null> {
+    const response = await fetch(
+        `${process.env.ASGARDEO_BASE_URL}/scim2/Users?filter=emails eq "${email}"`,
         {
-            method: "PATCH",
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-                "Content-Type": "application/json",
+            method: "GET",
+            headers: { 
+                Authorization: `Bearer ${accessToken}`, 
+                "Content-Type": "application/json" 
             },
-            body: JSON.stringify({
-                Operations: [
-                    {
-                        op: "add",
-                        path: "users",
-                        value: [{ value: userId }],
-                    },
-                ],
-            }),
         }
     );
-    ```
 
-    Finally, if all steps succeed, we return a success message and use that in the client side.
+    if (!response.ok) return null;
 
-    !!! Info
-        - SCIM API Documentation: Refer to the Asgardeo SCIM API documentation for more details: [Managing Users with SCIM]({{base_path}}/guides/users/manage-users/)
-        - OAuth 2.0 Token Generation: Read more on OAuth 2.0 Client Credentials Grant in Asgardeo: [Obtaining Tokens]({{base_path}}/references/grant-types/#client-credentials-grant)
-        - Role Management: Learn about assigning roles using Asgardeo: [Managing Roles]({{base_path}}/guides/users/manage-roles/)
+    const data = await response.json();
+    return data?.totalResults > 0 ? data?.Resources[0] : null;
+}
 
-    !!! Note
-        Refer to Step 1 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app) for the complete implementation.
+// Create user
+export async function createUser(
+  accessToken: string,
+  email: string,
+  firstName: string,
+  lastName: string,
+  password: string
+): Promise<string | null> {
+  const response = await fetch(`${process.env.ASGARDEO_BASE_URL}/scim2/Users`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      emails: [{ primary: true, value: email }],
+      name: { familyName: lastName, givenName: firstName },
+      password: password,
+      userName: `DEFAULT/${email}`,
+    }),
+  });
+
+  if (!response.ok) return null;
+
+  const data = await response.json();
+  return data?.id || null;
+}
+
+// Assign role to user
+export async function assignRole(accessToken: string, roleId: string, userId: string) {
+    const response = await fetch(
+      `${process.env.ASGARDEO_BASE_URL}/o/scim2/v2/Roles/${roleId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Operations: [{ op: "add", path: "users", value: [{ value: userId }] }],
+        }),
+      }
+    );
+  
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+  
+    return response.json();
+}
+```
+
+Finally, if all steps succeed, we return a success message and use that in the client side.
+
+!!! Info
+    - SCIM API Documentation: Refer to the Asgardeo SCIM API documentation for more details: [Managing Users with SCIM]({{base_path}}/guides/users/manage-users/)
+    - OAuth 2.0 Token Generation: Read more on OAuth 2.0 Client Credentials Grant in Asgardeo: [Obtaining Tokens]({{base_path}}/references/grant-types/#client-credentials-grant)
+    - Role Management: Learn about assigning roles using Asgardeo: [Managing Roles]({{base_path}}/guides/users/manage-roles/)
+
+!!! Note
+    Refer to Step 1 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app) for the complete implementation.
