@@ -48,9 +48,9 @@ extra:
         icon_color: icon-color-1
         list_items:
           - title: Create your Asgardeo account
-            url: Get Started|Create your Asgardeo account
+            url: Get started|Create your Asgardeo account
           - title: Try login with Asgardeo
-            url: Get Started|Try login with Asgardeo
+            url: Get started|Try login with sample
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
@@ -71,7 +71,7 @@ extra:
           - title: API authorization
             url: Guides|Authorization|Authorization
           - title: Branding
-            url: Guides|Customize|Customize branding|Customize branding
+            url: Guides|Customizations|Customize branding|Customize branding
           - title: User management
             url: Guides|User management|User management
           - title: User self-service
@@ -88,7 +88,7 @@ extra:
           - title: Tutorials
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
-            url: Integrations|Integrate Asgardeo into your application
+            url: SDKs|Integrate Asgardeo into your application
 
 watch:
   - ../theme/material
