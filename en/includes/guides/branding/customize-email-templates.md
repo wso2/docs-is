@@ -8,14 +8,7 @@ Once you publish your [branding preferences]({{base_path}}/guides/branding/confi
 
 {{email_template_note}}
 
-{% if product_name == "Asgardeo" %}
-
-!!! note "Email templates for B2B applications"
-
-    If you have set up [organizations]({{base_path}}/guides/organization-management/manage-organizations/),
-    these organizations automatically inherit the email templates of the root organization.
-
-{% elif (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
+{% if (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
 
 !!! note "Email templates for B2B applications"
 
