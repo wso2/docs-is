@@ -464,6 +464,7 @@ nav:
       - User sessions:
         - Session management API: apis/session.md
         - Session extension API: apis/extend-sessions.md
+      - User sharing management API: apis/organization-user-share-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
     - Organization APIs:
@@ -487,6 +488,7 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk.md
+      - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
       - SCIM 2.0 Me API: apis/scim2-me.md
