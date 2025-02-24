@@ -26,7 +26,7 @@ paths:
         
         > **Important** </br>
         > If you switch a user from a general sharing policy to a selective one or vice versa, changing it directly might cause access issues. To keep things clear and consistent, first, unshare the user from all organizations, then share them again with the desired organization(s) under the new policy/policies. </br> 
-        > Suppose this step is overlooked and unexpected behavior in user sharing is noticed when new organizations are created. In that case, you can use the `/users/unshare-all` API to reset shared access before setting up a new user sharing.
+        > Suppose this step is overlooked and unexpected behavior in user sharing is noticed when new organizations are created. In that case, you can use the [`/o/users/unshare-with-all`](https://is.docs.wso2.com/en/next/apis/organization-apis/organization-user-share/#tag/User-Sharing/operation/removeUserSharing) API to reset shared access before setting up a new user sharing.
         
         <b>Scope(Permission) required:</b> `internal_org_user_share`
       operationId: processUserSharing
@@ -118,7 +118,7 @@ paths:
         
         > **Important** </br>
         > If you switch a user from a general sharing policy to a selective one or vice versa, changing it directly might cause access issues. To keep things clear and consistent, first, unshare the user from all organizations, then share them again with the desired organization(s) under the new policy/policies. </br> 
-        > Suppose this step is overlooked and unexpected behavior in user sharing is noticed when new organizations are created. In that case, you can use the `/users/unshare-all` API to reset shared access before setting up a new user sharing.
+        > Suppose this step is overlooked and unexpected behavior in user sharing is noticed when new organizations are created. In that case, you can use the [`/o/users/unshare-with-all`](https://is.docs.wso2.com/en/next/apis/organization-apis/organization-user-share/#tag/User-Sharing/operation/removeUserSharing) API to reset shared access before setting up a new user sharing.
         
         <b>Scope(Permission) required:</b> `internal_org_user_share`
       operationId: processUserSharingAll
