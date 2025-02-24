@@ -49,13 +49,13 @@ extra:
         icon_color: icon-color-1
         list_items:
           - title: Introduction
-            url: Get Started|Introduction
+            url: Get started|Introduction
           - title: Quick Setup
-            url: Get Started|Quickstart|Quick Setup
+            url: Get started|Quick Setup
           - title: Start Integrating Apps
-            url: Get Started|Start integrating apps|Start integrating apps
+            url: Get started|Start integrating apps|Start integrating apps
           - title: About this release
-            url: Get Started|About this release
+            url: Get started|About this release
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
@@ -74,9 +74,9 @@ extra:
           - title: APIs
             url: APIs|APIs
           - title: Sample Apps
-            url: Get Started|Start integrating apps|Try for a sample app|Try for a sample app
+            url: Get started|Start integrating apps|Try for a sample app|Try for a sample app
           - title: SDKs and Integrations
-            url: Integrations|Integrate WSO2 IS into your application
+            url: SDKs|Integrate WSO2 IS into your application
       - title: Setup
         icon: octicons/gear-16
         icon_color: icon-color-1
