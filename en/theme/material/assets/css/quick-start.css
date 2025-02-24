@@ -129,7 +129,7 @@ ul.tick-list > li:before {
     top: .95rem;
     left: 0;
     width: 0;
-    height: calc(100% - 20px);
+    height: calc(100% - 12px);
     border-left: 1px solid var(--md-default-fg-color);
 }
 

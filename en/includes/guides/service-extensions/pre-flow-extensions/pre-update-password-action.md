@@ -195,7 +195,7 @@ Content-Type: application/json
   "event": {
     "tenant": {
       "id": "1",
-      "name": “example.com"
+      "name": "example.com"
     },
     "user": {
       "id": "8eebb941-51e1-4d13-9d5a-81da190383ae",
@@ -326,7 +326,7 @@ Content-Type: application/json
         "urn:ietf:params:scim:api:messages:2.0:Error"
     ],
     "scimType": "invalidValue",
-    "detail": "Error while updating attributes of user. The provided password is compromised. Provide something different.",
+    "detail": "The provided password is compromised. Provide something different.",
     "status": "400"
 }
 ```

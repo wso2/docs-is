@@ -106,6 +106,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    max-width: 45%;
 }
 
 .md-list-item>a {
