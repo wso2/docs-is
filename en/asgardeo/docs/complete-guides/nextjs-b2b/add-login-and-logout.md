@@ -4,14 +4,22 @@ heading: Add login and logout
 read_time: 2 min
 ---
 
-Now, let’s implement sign in and sign out functionality to the app. In this app, we are using the signIn method to initiate a sign in flow or send the user to the sign in page and the `useSession` hook that gives you access to the logged in user's session data and lets you modify it.
+## Implement sign in
 
-```javascript
+Now, let's implement sign in functionality to the app. We'll use Auth.js's `signIn` method to initiate the authentication flow with Asgardeo and the `useSession` hook to manage the user's session state in the client-side. The `useSession` hook provides access to the logged-in user's session data and allows us to check the authentication status.
+
+Create or update your home component (or the component where you want to add the sign-in button) at `app/home.tsx` to handle user authentication:
+
+```javascript title="components/Home.tsx"
+"use client"
+
 import { signIn, useSession } from "next-auth/react";
 
 export default function Home() {
+ //Get session data
  const { data: session } = useSession();
 
+ // Render sign-in button if no active session
  return (
     { !session ? (
       <Box mt={3} textAlign="center">
@@ -31,7 +39,7 @@ export default function Home() {
 }
 ```
 
-### Access logged user's information
+## Access logged user's information
 
 To access and display logged-in user details in the app using auth.js, use the JWT callback function. This function is triggered whenever a JWT is created or updated (e.g. at sign-in), allowing you to retrieve and manipulate user information from the ID token provided by Asgardeo.
 
@@ -66,7 +74,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
 Then, update your component with the following highlighted line to display the username of logged in user.
 
-```javascript hl_lines="3"
+```javascript hl_lines="3" title="components/Home.tsx"
 <>
   <p> You are now signed in!</p>
   <p> hello {session.user?.email}</p>
@@ -76,7 +84,7 @@ Then, update your component with the following highlighted line to display the u
 !!! Info
      Read more on [getting user attributes in your app]({{base_path}}/authentication/user-attributes/enable-attributes-for-oidc-app/).
 
-### Access logged user's permissions
+## Access logged user's permissions
 
 User permissions (scopes) are retrieved using OAuth2 token introspection for opaque tokens and stored in the session. If a JWT is used instead, the scopes can be extracted by decoding the token directly.
 
@@ -114,7 +122,8 @@ async session({ session, token }) {
 Introspect token sample method:
 
 
-```javascript
+```javascript title="app/auth-utils"
+// Helper function to introspect the token
 export async function introspectToken(accessToken: string) {
     const clientId = process.env.AUTH_ASGARDEO_ID;
     const clientSecret = process.env.AUTH_ASGARDEO_SECRET;
@@ -150,10 +159,24 @@ export async function introspectToken(accessToken: string) {
 !!! Note
      Read more on [token introspection]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens).
 
+## Implement Sign out
 
-### Implementing Sign Out Functionality
+In this step, we implement secure sign-out functionality using Asgardeo's logout endpoint. This ensures proper termination of both the local session and the Asgardeo session.
 
-Asgardeo’s logout endpoint is used to terminate the user session at Asgardeo and to log the user out. When a user is successfully logged out, the user is redirected to the post_logout_redirect_uri sent in the logout request.
+### Create API route
+
+Create a new API route at `app/api/auth/sign-out/route.ts` to handle the sign-out process:
+
+```javascript title="app/api/auth/sign-out/route.ts"
+import { auth } from "@app/auth";
+import { NextResponse } from "next/server";
+
+export async function POST() {
+    // Implementation
+}
+```
+
+Asgardeo’s logout endpoint is used to terminate the user session at Asgardeo and to log the user out. When a user is successfully logged out, the user is redirected to the `post_logout_redirect_uri` sent in the logout request.
 
 Logout endpoint with sample request:
 
@@ -164,20 +187,22 @@ curl -X POST "https://api.asgardeo.io/t/{ORG_NAME}/oidc/logout" \
 --data-urlencode "state=<STATE>"
 ```
 
-#### Server-Side Sign out Implementation
+### Implementation
 
-In Next.js API routes, the logout process could be handled as follows:
+In Next.js API routes, the logout process can be handled as follows:
 
 ```javascript title="app/api/auth/sign-out/route.ts"
-import { auth } from "@app/auth";
-import { NextResponse } from "next/server";
-
-export async function POST() {
   try {
+    // Get the current session using Auth.js
      const session = await auth();
 
      if (session) {
+        // Construct the Asgardeo logout URL with required parameters:
+        // - id_token_hint: Required for OIDC back-channel logout
+        // - post_logout_redirect_uri: Where to redirect after logout
         const logoutUrl = `${process.env.ASGARDEO_LOGOUT_URL}?id_token_hint=${session.id_token}&post_logout_redirect_uri=${process.env.HOSTED_URL}`;
+
+        // Return the logout URL to be used by the client
         return NextResponse.json({ logoutUrl });
      } else {
         return new NextResponse("No active session found", { status: 400 });
@@ -186,12 +211,11 @@ export async function POST() {
      console.error(error);
      return new NextResponse("Error logging out", { status: 500 });
   }
-}
 ```
 
-Client-side logout trigger:
+We can create a logout trigger in the client-side component (e.g., Navbar.tsx) as follows:
 
-```javascript
+```javascript title="components/Navbar.tsx"
 const handleSignOut = async () => {
   try {
      const res = await fetch("/api/auth/sign-out", {

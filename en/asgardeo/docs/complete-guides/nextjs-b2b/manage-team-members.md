@@ -4,6 +4,8 @@ heading: Manage team members
 read_time: 2 min
 ---
 
+In this step, we implement team member management functionality using Asgardeo's SCIM APIs. This includes inviting new members to teams and adding existing team members.
+
 ## Invite members
 
 This invite-member flow integrates seamlessly with Asgardeo B2B to handle both new and existing users. The flow is efficient in checking whether a user exists and proceeding accordingly. You can easily extend this flow by adding more properties or integrating additional business logic depending on your requirements.
@@ -18,11 +20,26 @@ The implementation in the app handles two scenarios:
 
 ![Members flow]({{base_path}}/complete-guides/nextjs-b2b/assets/img/image14.png){: width="350" style="display: block; margin: auto;"}
 
+### Create API route
+
+Create a new API route at `app/api/app/api/invite-member/route.ts/route.ts` to handle inviting members to teams:
+
+```javascript title="app/api/invite-member/route.ts"
+import { auth } from "@/app/auth"
+import { Session } from "@auth/core/types"
+
+export async function POST(req: Request) {
+    // Implementation
+}
+```
+
+### Implementation
+
 1. Extract User Input
 
     First, we extract the invited user’s details (email, role) from the request body. If any required field is missing, we return a 400 Bad Request error.
 
-    ```javascript
+    ```javascript title="app/api/invite-member/route.ts"
     const { email, selectedRoleId } = await req.json();
     if (!email || !selectedRoleId) {
         return Response.json(
@@ -36,7 +53,7 @@ The implementation in the app handles two scenarios:
 
     We send a GET request to check whether the user already exists.
 
-    ```javascript
+    ```javascript title="app/api/invite-member/route.ts"
     const checkUserResponse = await fetch(
         `${process.env.NEXT_PUBLIC_ASGARDEO_BASE_URL}/scim2/Users?filter=emails eq "${email}"`,
         {
@@ -53,7 +70,7 @@ The implementation in the app handles two scenarios:
 
     If the user does not exist, you invite them using the Ask Password Flow:
 
-    ```javascript
+    ```javascript title="app/api/invite-member/route.ts"
     const inviteUserResponse = await fetch(
         `${process.env.NEXT_PUBLIC_ASGARDEO_BASE_URL}/scim2/Users`,
         {
@@ -77,7 +94,7 @@ The implementation in the app handles two scenarios:
 
     If the user already exists, you invite them using a different API endpoint designed for existing users.
 
-    ```javascript
+    ```javascript title="app/api/invite-member/route.ts"
     const inviteUserResponse = await fetch(
         `${process.env.NEXT_PUBLIC_ASGARDEO_BASE_URL}/o/api/server/v1/guests/invite`,
         {
@@ -102,7 +119,7 @@ The implementation in the app handles two scenarios:
 
     After successfully sending the invitation to either a new or existing user, you return a success message with the data of the invitation which can be accessed in the client-side components.
 
-    ```javascript
+    ```javascript title="app/api/invite-member/route.ts"
     return Response.json(
         { message: "User invited successfully!", data: inviteUserData },
         { status: 200 }
@@ -111,18 +128,30 @@ The implementation in the app handles two scenarios:
 
     Once the user is invited, they should get an invitation to join the team as follows.
 
-![Member invite]({{base_path}}/complete-guides/nextjs-b2b/assets/img/image15.png){: width="550" style="display: block; margin: 0;"}
+    ![Member invite]({{base_path}}/complete-guides/nextjs-b2b/assets/img/image15.png){: width="550" style="display: block; margin: 0;"}
 
 ## Get the list of users in your team
 
-We can use the SCIM2 users API endpoint to fetch all users that belong to a team.
+Let's look at how to fetch all users that belong to a switched team.
 
-Use the following server-side code to retrieve the users:
+### Create API route
+
+Create a new API route at `app/api/app/api/get-users/route.ts` to fetch team members:
 
 ```javascript title="app/api/get-users/route.ts"
-import { Session } from "@auth/core/types";
-import { auth } from "@/app/auth";
+import { auth } from "@/app/auth"
+import { Session } from "@auth/core/types"
 
+export async function GET() {
+    // Implementation
+}
+```
+
+### Implementation
+
+We can use the SCIM2 users API endpoint to fetch all users that belong to a team.
+
+```javascript title="app/api/get-users/route.ts"
 export async function GET() {
     const session: Session | null = await auth();
 

@@ -21,9 +21,11 @@ npx create-next-app@latest --typescript asgardeo-nextjs-b2b-sample-app
 Once this command is executed, you will be prompted with various configuration options for your application. We will use the default options to keep the configurations as simple as possible.
 
 !!! note
-
     Since we are using the default options, we are working with the **app router** instead of the **pages router**.
-    
+    For more information about API routes in Next.js App Router:
+    - [Route Handlers in App Router](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)
+    - [Route Handler Examples](https://github.com/vercel/next.js/tree/canary/examples/app-dir-route-handlers)
+    - [Server Actions vs Route Handlers](https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations#when-to-use-server-actions-vs-route-handlers)
 
 Once the application is created, install the dependencies using the following command.
 

@@ -4,21 +4,37 @@ heading: Manage teams
 read_time: 2 min
 ---
 
-Once a user signs up and then logs in, they should be able to create teams.
+In this step, we implement team management functionality using Asgardeo's Organization Management APIs. Teams in this application are represented as sub-organizations within Asgardeo's organizational hierarchy, allowing for structured access control and resource management.
 
 ## Adding a team
 
 In the Teamspace application, adding a new team involves creating a sub-organization within the existing organizational hierarchy. This process is facilitated through Asgardeo's Organization Management APIs, enabling dynamic management of organizational structures.
 
+### Create API route
+
+Create a new file, `app/api/add-organization/route.ts` to handle team creation operations.
+
+```javascript title="app/api/add-organization/route.ts"
+export async function POST(req: Request) {
+    // Implementation for creating teams
+}
+```
+
+### Implementation
+
 1. Get an Access Token from the root organization (refer user sign up section)
 
     In the sample app, this token is retrieved and stored in the session as `session.rootOrgToken`.
+
+    ```javascript title="app/api/add-organization/route.ts"
+     const accessToken = session?.rootOrgToken as string;
+     ```
 
 2. Check if the Organization (Team) Exists
 
     Before creating a new team, verify whether an organization with the desired name already exists to prevent duplicates.
 
-    ```javascript
+    ```javascript title="app/api/add-organization/route.ts"
     const checkOrgResponse = await fetch(
         `${process.env.NEXT_PUBLIC_ASGARDEO_ORG_URL}/api/server/v1/organizations/check-name`,
         {
@@ -36,7 +52,7 @@ In the Teamspace application, adding a new team involves creating a sub-organiza
 
     If the team does not exist, proceed to create it. Ensure to include relevant attributes, such as the creator's ID and username. If the team exists use the organization ID from the checkOrgResponse as follows.
 
-    ```javascript
+    ```javascript title="app/api/add-organization/route.ts"
     let orgId;
 
     if (!orgExists) {
@@ -84,7 +100,7 @@ In the Teamspace application, adding a new team involves creating a sub-organiza
     !!! Info
         Read more on [accessing organization APIs]({{base_path}}/apis/organization-apis/authentication/).
 
-    ```javascript
+    ```javascript title="app/api/add-organization/route.ts"
     // Switch to the new organization's context
     const authHeader = Buffer.from(
         `${process.env.NEXT_PUBLIC_AUTH_ASGARDEO_ID}:${process.env.NEXT_PUBLIC_AUTH_ASGARDEO_SECRET}`
@@ -120,7 +136,7 @@ In the Teamspace application, adding a new team involves creating a sub-organiza
 
     To grant the user administrative privileges in the new team, assign the appropriate roles. This involves retrieving the role ID and updating the user's roles accordingly.
 
-    ```javascript
+    ```javascript title="app/api/add-organization/route.ts"
     // Retrieve the application ID
     const getAppResponse = await fetch(
         `${process.env.NEXT_PUBLIC_ASGARDEO_ORG_URL}/o/api/server/v1/applications?filter=name%20eq%20${process.env.NEXT_PUBLIC_APP_NAME}`,
@@ -166,7 +182,7 @@ In the Teamspace application, adding a new team involves creating a sub-organiza
 
     Once we have the role ID, we need to update the user’s role membership. This is done using the SCIM API in Asgardeo.
 
-    ```javascript
+    ```javascript title="app/api/add-organization/route.ts"
     // Assign role to the user
     const assignRoleResponse = await fetch(
         `${process.env.NEXT_PUBLIC_ASGARDEO_ORG_URL}/o/scim2/v2/Roles/${roleId}`,
@@ -194,6 +210,18 @@ In the Teamspace application, adding a new team involves creating a sub-organiza
     ```
 
 ## View created teams
+
+### Create API route
+
+Create a new file, `app/api/organization/route.ts` for fetching teams.
+
+```javascript title="app/api/organization/route.ts"
+export async function GET() {
+    // Implementation
+}
+```
+
+### Implementation
 
 We can use the organizations API endpoint to retrieve all organizations a user has access to.
 

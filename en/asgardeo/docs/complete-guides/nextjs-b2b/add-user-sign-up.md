@@ -10,15 +10,32 @@ Key steps of the sign up flow:
 
 ![Sign up]({{base_path}}/complete-guides/nextjs-b2b/assets/img/image16.png){: width="400" style="display: block; margin: auto;"}
 
-You can create a new API route at `app/api/signup/route.ts` to handle user registration and create helper functions to manage user creation, role assignment, and API interactions with Asgardeo. This route handles the complete sign-up flow, from validating user input to creating new users or updating existing ones with appropriate roles required to access the app.
+### Create API route
 
-Follow the steps below:
+Next.js provides a file-based routing mechanism for API endpoints in the `app` directory. When you create a file called `route.ts` inside the `app` directory, Next.js automatically creates an API endpoint at that path. 
+
+!!! Info
+    For more information about API routes in Next.js, refer to the [Route Handlers documentation](https://nextjs.org/docs/app/building-your-application/routing/route-handlers).
+
+You can create a new API route at `app/api/signup/route.ts` to handle user registration and create helper functions to manage user creation, role assignment, and API interactions with Asgardeo. This route handles the complete sign-up flow, from validating user input to creating new users or updating existing ones with appropriate roles. The implementation should be placed in the `POST` method of this route file.
+
+```javascript title="app/api/sign-up/route.ts"
+// Add helper function imports
+
+export async function POST(req: Request) {
+    // implementation
+}
+```
+
+### Implementation
+
+Now that you have created your API route, follow the steps below to implement the sign-up functionality in the `POST` method handler. After implementing the main flow, we'll create the helper functions needed for managing user creation, role assignment, and API interactions with Asgardeo:
 
 1. Extract User Input
 
     First, we extract user details (email, password, firstName, and lastName) from the request body. If any required field is missing, we return a 400 Bad Request error.
 
-    ```javascript
+    ```javascript title="app/api/sign-up/route.ts"
     const { email, password, firstName, lastName } = await req.json();
 
     if (!email || !password || !firstName || !lastName) {
@@ -33,7 +50,7 @@ Follow the steps below:
 
     To interact with Asgardeo's SCIM API, we need an OAuth 2.0 access token. We obtain this using the Client Credentials grant type.
 
-    ```javascript
+    ```javascript title="app/api/sign-up/route.ts"
     const tokenResponse = await fetch(
         process.env.AUTH_ASGARDEO_ISSUER,
         {
@@ -51,7 +68,7 @@ Follow the steps below:
 
     If the token request fails, we return an error.
 
-    ```javascript
+    ```javascript title="app/api/sign-up/route.ts"
     if (!tokenResponse.ok) {
         throw new Error(
             `HTTP error! status: ${tokenResponse.status}`
@@ -61,7 +78,7 @@ Follow the steps below:
 
     Once successful, we extract the access token:
 
-    ```javascript
+    ```javascript title="app/api/sign-up/route.ts"
     const tokenData = await tokenResponse.json();
     const accessToken = tokenData?.access_token;
     ```
@@ -70,7 +87,7 @@ Follow the steps below:
 
     To assign the user to a role, we first need the Application ID. We fetch it using the application name.
 
-    ```javascript
+    ```javascript title="app/api/sign-up/route.ts"
     const appId = await getAppId(accessToken);
     if (!appId) {
         return Response.json(
@@ -84,7 +101,7 @@ Follow the steps below:
 
     Using the App ID, we fetch the Role ID associated with the application.
 
-    ```javascript
+    ```javascript title="app/api/sign-up/route.ts"
     const roleId = await getRoleId(accessToken, appId);
     if (!roleId) {
         return Response.json(
@@ -98,7 +115,7 @@ Follow the steps below:
 
     Before creating a new user, we check if the user already exists.
 
-    ```javascript
+    ```javascript title="app/api/sign-up/route.ts"
     const existingUser = await getUser(accessToken, email);
     if (existingUser) {
         const isAdmin = existingUser?.roles?.includes(
@@ -118,7 +135,7 @@ Follow the steps below:
 
     If the user doesn't exist, create them. Otherwise, assign the role to the existing user.
 
-    ```javascript
+    ```javascript title="app/api/sign-up/route.ts"
     if (!existingUser) {
         // Create new user
         const userId = await createUser(
@@ -156,7 +173,9 @@ Follow the steps below:
 
 **Helper functions required for the above implementation:**
 
-```javascript
+!!! Note - You can create these functions inside `app/api/services/` path.
+
+```javascript title="app/api/services/appService.ts"
 // Get Application ID
 async function getAppId(accessToken: string): Promise<string | null> {
     const response = await fetch(
@@ -172,7 +191,9 @@ async function getAppId(accessToken: string): Promise<string | null> {
     const data = await response.json();
     return data?.applications[0]?.id || null;
 }
+```
 
+```javascript title="app/api/services/roleService.ts"
 // Get Role ID
 async function getRoleId(accessToken: string, appId: string): Promise<string | null> {
     const response = await fetch(
@@ -191,7 +212,9 @@ async function getRoleId(accessToken: string, appId: string): Promise<string | n
     const data = await response.json();
     return data?.Resources?.[0]?.id || null;
 }
+```
 
+```javascript title="app/api/services/userService.ts"
 // Check if user exists
 async function getUser(accessToken: string, email: string): Promise<any | null> {
     const response = await fetch(
@@ -210,6 +233,7 @@ async function getUser(accessToken: string, email: string): Promise<any | null> 
     const data = await response.json();
     return data?.totalResults > 0 ? data?.Resources[0] : null;
 }
+
 
 // Create user
 export async function createUser(
@@ -238,7 +262,9 @@ export async function createUser(
   const data = await response.json();
   return data?.id || null;
 }
+```
 
+```javascript title="app/api/services/roleService.ts"
 // Assign role to user
 export async function assignRole(accessToken: string, roleId: string, userId: string) {
     const response = await fetch(
