@@ -73,7 +73,7 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 
 ### Additional enhancements
 
-
+- **Seamless Third-Party SSO Integration with Ready-to-Use Templates** - 
 
 
 
