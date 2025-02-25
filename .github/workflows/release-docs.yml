@@ -160,6 +160,7 @@ jobs:
           echo "${{ env.NEW_VERSION }}" > VERSION
           git add VERSION
           git commit -m "Increment release version to ${{ env.NEW_VERSION }}"
+          git pull "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" master
           git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" master
 
       - name: Update Downstream Repository Version
