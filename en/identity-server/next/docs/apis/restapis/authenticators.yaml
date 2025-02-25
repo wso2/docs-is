@@ -103,7 +103,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/authenticators/meta/tags' \
+            curl --location 'https://localhost:9443/api/server/v1/authenticators/{authenticator-id}/connected-apps' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /authenticators/meta/tags:
@@ -135,7 +135,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/authenticators/{authenticator-id}/connected-apps' \
+            curl --location 'https://localhost:9443/api/server/v1/authenticators/meta/tags' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
