@@ -1,17 +1,17 @@
 ---
 template: templates/complete-guide.html
 heading: Manage team members
-read_time: 2 min
+read_time: 10 min
 ---
 
-In this step, we implement team member management functionality using Asgardeo's SCIM APIs. This includes inviting new members to teams and adding existing team members.
+In this step, we implement team member management functionality into Teamspace using Asgardeo's SCIM APIs. This includes inviting new members to teams and adding existing team members.
 
 ## Invite members
 
-This invite-member flow integrates seamlessly with Asgardeo B2B to handle both new and existing users. The flow is efficient in checking whether a user exists and proceeding accordingly. You can easily extend this flow by adding more properties or integrating additional business logic depending on your requirements.
+This invite-member flow handles both new and existing users. The flow is efficient in checking whether a user exists and proceeding accordingly. You can easily extend this flow by adding more properties or integrating additional business logic depending on your requirements.
 
 !!! note
-    Read more on [inviting users from parent organization.]({{base_path}}/guides/organization-management/invite-parent-organization-users/)
+    Read more on [inviting users from parent organization.]({{base_path}}/guides/organization-management/invite-parent-organization-users/){:target="\_blank"}
 
 The implementation in the app handles two scenarios:
 
@@ -22,7 +22,7 @@ The implementation in the app handles two scenarios:
 
 ### Create API route
 
-Create a new API route at `app/api/app/api/invite-member/route.ts/route.ts` to handle inviting members to teams:
+Create a new API route at `app/api/invite-member/route.ts` to handle inviting members to teams:
 
 ```javascript title="app/api/invite-member/route.ts"
 import { auth } from "@/app/auth"
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     }
     ```
 
-2. Check if User Exists
+2. Check if user exists
 
     We send a GET request to check whether the user already exists.
 
@@ -66,7 +66,7 @@ export async function POST(req: Request) {
     );
     ```
 
-3. User Invitation for New Users
+3. User invitation for new users
 
     If the user does not exist, you invite them using the Ask Password Flow:
 
@@ -90,7 +90,7 @@ export async function POST(req: Request) {
 
     If the invitation request is successful, the user will be invited to set the password for their created account via email.
 
-4. User Invitation for Existing Users
+4. User invitation for existing users
 
     If the user already exists, you invite them using a different API endpoint designed for existing users.
 
@@ -129,6 +129,162 @@ export async function POST(req: Request) {
     Once the user is invited, they should get an invitation to join the team as follows.
 
     ![Member invite]({{base_path}}/complete-guides/nextjs-b2b/assets/img/image15.png){: width="550" style="display: block; margin: 0;"}
+
+### Get roles
+
+#### Create API route
+
+Create a new API route at `app/api/get-roles/route.ts` to fetch the roles we created in **step 4**
+
+```javascript title="app/api/get-roles/route.ts"
+import { auth } from "@/app/auth"
+import { Session } from "@auth/core/types"
+
+export async function POST(req: Request) {
+    // Implementation
+}
+```
+
+#### Implementation
+
+The implementation involves two main steps: first retrieving your application ID, then using that ID to fetch the roles associated with your application.
+
+1. Get the application ID
+
+    Before fetching roles, you need to retrieve your application ID using the application name:
+
+    ```javascript
+
+    // Get Application ID
+    const getAppResponse = await fetch(
+    `${process.env.ASGARDEO_BASE_URL}/o/api/server/v1/applications?filter=name%20eq%20${process.env.APP_NAME}`,
+    {
+        method: "GET",
+        headers: {
+        Authorization: `Bearer ${session.user.access_token}`,
+        },
+    }
+    );
+
+    if (!getAppResponse.ok) {
+    throw new Error(`HTTP error! Status: ${getAppResponse.status}`);
+    }
+
+    const data = await getAppResponse.json();
+    const appId = data?.applications[0]?.id;
+
+    ```
+
+2. Fetch roles
+
+    The SCIM2 Roles API endpoint (`/scim2/v2/Roles`) allows you to query roles based on various filters. In this case, we're filtering by `audience.value` to get only the roles associated with our specific application.
+
+    Use the application ID as the audience value and fetch the roles as follows:
+
+    ```javascript
+
+    // Fetch roles
+    const getRolesResponse = await fetch(
+    `${process.env.ASGARDEO_BASE_URL}/o/scim2/v2/Roles?filter=audience.value%20eq%20${appId}`,
+    {
+        method: "GET",
+        headers: {
+        Authorization: `Bearer ${session.user.access_token}`,
+        "Content-Type": "application/json",
+        },
+    }
+    );
+
+    if (!getRolesResponse.ok) {
+    throw new Error(`HTTP error! Status: ${getRolesResponse.status}`);
+    }
+
+    const rolesData = await getRolesResponse.json();
+    ```
+
+    Finally, return the roles data to the client:
+
+    ```javascript
+    return Response.json({ roles: rolesData.Resources || [] }, { status: 200 });
+    ```
+
+The roles returned by this endpoint include all the information needed for role assignment, including the role ID, display name, and other attributes. This data can be used in your invite member form to allow users to select which role to assign to new team members.
+
+### Component implementation
+
+To implement the team member invitation functionality in your application's UI, you'll need to create a component that allows users to invite new members by email and select their role. Below is an implementation of the `InviteMemberForm` component:
+
+```javascript title="InviteMemberForm"
+"use client";
+
+export default function InviteMemberForm() {
+
+//Fetch roles
+useEffect(() => {
+  async function fetchRoles() {
+    // Call the API endpoint we created to fetch roles.
+    const response = await fetch("/api/get-roles");
+
+    if (response.ok) {
+      // set roles.
+    }
+  }
+
+  fetchRoles();
+}, []);
+
+// Handle form submission to invite a team member
+async function handleSubmit(event) {
+
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  // Set form data...
+  
+  // Call the API route to invite the member
+  const response = await fetch("/api/invite-member", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, selectedRoleId: roleId }),
+  });
+
+  if (response.ok) {
+    // Handle success
+  }
+}
+
+  return (
+    <div>
+      <h2>Invite Team Member</h2>
+      
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="Email Address"
+          />
+        </div>
+        
+        <div>
+          <label htmlFor="roleId">Role</label>
+          <select id="roleId" name="roleId" required>
+              roles.map((role) => (
+                <option key={role.id} value={role.id}>
+                  {role.displayName}
+                </option>
+              ))
+          </select>
+        </div>
+        
+        <button type="submit">Invite</button>
+      </form>
+    </div>
+  );
+}
+```
 
 ## Get the list of users in your team
 
@@ -180,9 +336,55 @@ export async function GET() {
 }
 ```
 
+### Component implementation
+
+To display the current team members, you can create a `TeamMembers` component that fetches and displays the list of members in the current team:
+
+```javascript title="TeamMembers.tsx"
+"use client";
+
+export default function TeamMembers() {
+
+  useEffect(() => {
+    async function fetchMembers() {
+      try {
+        const response = await fetch("/api/get-users");
+        const data = await response.json();
+        
+        if (response.ok) {
+          // Set members
+        }
+    }
+
+    fetchMembers();
+  }, []);
+
+  return (
+    <div className="team-members">
+      <h2>Team Members</h2>
+      
+      {members.length === 0 ? (
+        <p>No members in this team yet.</p>
+      ) : (
+        <ul className="member-list">
+          {members.map((member) => (
+            <li key={member.id} className="member-item">
+              <div className="member-info">
+                <h3>{member.userName}</h3>
+              </div>
+              <div className="member-role">
+                {member.roles?.[0]?.display || "No Role"}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+```
+
 !!! note
-    Refer to Step 5 of the GitHub [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app) for the complete implementation.
+    Refer to Step 5 of the GitHub [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation.
 
-With this guide, you've learnt to build a B2B application in Next.js that integrates with Asgardeo for authentication, team management, and organization switching. 
-
-By following these steps, your app now supports secure user sign-up, login, and seamless team transitions. You can further enhance it by adding [branding]({{base_path}}/guides/branding/configure-ui-branding/) to the UI, or integrating additional Asgardeo features to match your business needs. 🚀
+With this guide, you've learnt to built a Next.js team management app with Asgardeo for authentication, team management, and team switching. Enhance it further by adding [branding]({{base_path}}/guides/branding/configure-ui-branding/){:target="\_blank"} or integrating more Asgardeo features to fit your needs. 🚀

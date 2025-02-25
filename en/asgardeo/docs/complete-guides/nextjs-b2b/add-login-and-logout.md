@@ -1,12 +1,12 @@
 ---
 template: templates/complete-guide.html
 heading: Add login and logout
-read_time: 2 min
+read_time: 10 min
 ---
 
-## Implement sign in
+## Implement log in
 
-Now, let's implement sign in functionality to the app. We'll use Auth.js's `signIn` method to initiate the authentication flow with Asgardeo and the `useSession` hook to manage the user's session state in the client-side. The `useSession` hook provides access to the logged-in user's session data and allows us to check the authentication status.
+Now, let's implement log in functionality to the app. We'll use Auth.js's `signIn` method to initiate the authentication flow with Asgardeo and the `useSession` hook to manage the user's session state in the client-side. The `useSession` hook provides access to the logged-in user's session data and allows us to check the authentication status.
 
 Create or update your home component (or the component where you want to add the sign-in button) at `app/home.tsx` to handle user authentication:
 
@@ -43,9 +43,9 @@ export default function Home() {
 
 To access and display logged-in user details in the app using auth.js, use the JWT callback function. This function is triggered whenever a JWT is created or updated (e.g. at sign-in), allowing you to retrieve and manipulate user information from the ID token provided by Asgardeo.
 
-Modify the auth.ts file as below to see logged in user details.
+Update the `auth.ts` file as below.
 
-```javascript title="auth.ts"
+```javascript title="auth.ts" hl_lines="8-23"
 import NextAuth from "next-auth"
 import Asgardeo from "next-auth/providers/asgardeo"
 
@@ -72,7 +72,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 })
 ```
 
-Then, update your component with the following highlighted line to display the username of logged in user.
+Then, update your Home component as follows to display the username of logged in user.
 
 ```javascript hl_lines="3" title="components/Home.tsx"
 <>
@@ -89,11 +89,11 @@ Then, update your component with the following highlighted line to display the u
 User permissions (scopes) are retrieved using OAuth2 token introspection for opaque tokens and stored in the session. If a JWT is used instead, the scopes can be extracted by decoding the token directly.
 
 !!! Note
-     To check the access token type your app is using, go to the Asgardeo Console > Select your application > Go to the “Protocol” tab and scroll down to check the Access Token type.
+     To check the access token type Teamspace is using, go to the Asgardeo Console > Select your Teamspace application > Go to the “Protocol” tab and scroll down to check the Access Token type.
 
      ![Token type]({{base_path}}/complete-guides/nextjs-b2b/assets/img/image12.png){: width="700" style="display: block; margin: 0;"}
 
-In the sample app, during session creation, introspectToken function is called to verify the token and fetch its associated scopes.
+In Teamspace, during session creation, introspectToken function is called to verify the token and fetch its associated scopes.
 
 The retrieved scopes are stored in `session.scopes`.
 
@@ -157,11 +157,11 @@ export async function introspectToken(accessToken: string) {
 ```
 
 !!! Note
-     Read more on [token introspection]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens).
+     Read more on [token introspection.]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens){:target="\_blank"}
 
-## Implement Sign out
+## Implement log out
 
-In this step, we implement secure sign-out functionality using Asgardeo's logout endpoint. This ensures proper termination of both the local session and the Asgardeo session.
+In this step, we implement secure log out functionality using Asgardeo's logout endpoint. This ensures proper termination of both the local session and the Asgardeo session.
 
 ### Create API route
 
@@ -236,7 +236,7 @@ const handleSignOut = async () => {
 ```
 
 !!! Info
-     Read more on [adding logout to an application.]({{base_path}}/guides/authentication/oidc/add-logout/)
+     Read more on [adding logout to an application.]({{base_path}}/guides/authentication/oidc/add-logout/){:target="\_blank"}
 
 !!! Note
-     Refer to Step 2 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app) for the complete implementation.
+     Refer to Step 2 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation.

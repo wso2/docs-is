@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Add user sign up
-read_time: 2 min
+read_time: 10 min
 ---
 
 In this step, we implement user sign up using SCIM APIs and OAuth 2.0 Client Credentials Flow. The implementation includes user creation, role assignment, and error handling.
@@ -10,32 +10,27 @@ Key steps of the sign up flow:
 
 ![Sign up]({{base_path}}/complete-guides/nextjs-b2b/assets/img/image16.png){: width="400" style="display: block; margin: auto;"}
 
-### Create API route
-
-Next.js provides a file-based routing mechanism for API endpoints in the `app` directory. When you create a file called `route.ts` inside the `app` directory, Next.js automatically creates an API endpoint at that path. 
-
-!!! Info
-    For more information about API routes in Next.js, refer to the [Route Handlers documentation](https://nextjs.org/docs/app/building-your-application/routing/route-handlers).
+## Create API route
 
 You can create a new API route at `app/api/signup/route.ts` to handle user registration and create helper functions to manage user creation, role assignment, and API interactions with Asgardeo. This route handles the complete sign-up flow, from validating user input to creating new users or updating existing ones with appropriate roles. The implementation should be placed in the `POST` method of this route file.
 
 ```javascript title="app/api/sign-up/route.ts"
-// Add helper function imports
+// Add imports (e.g., helper functions)
 
 export async function POST(req: Request) {
     // implementation
 }
 ```
 
-### Implementation
+## Implementation
 
 Now that you have created your API route, follow the steps below to implement the sign-up functionality in the `POST` method handler. After implementing the main flow, we'll create the helper functions needed for managing user creation, role assignment, and API interactions with Asgardeo:
 
-1. Extract User Input
+1. Extract user input
 
     First, we extract user details (email, password, firstName, and lastName) from the request body. If any required field is missing, we return a 400 Bad Request error.
 
-    ```javascript title="app/api/sign-up/route.ts"
+    ```javascript title="app/api/signup/route.ts"
     const { email, password, firstName, lastName } = await req.json();
 
     if (!email || !password || !firstName || !lastName) {
@@ -46,7 +41,7 @@ Now that you have created your API route, follow the steps below to implement th
     }
     ```
 
-2. Get an Access Token from the root organization
+2. Get an access token from the root organization
 
     To interact with Asgardeo's SCIM API, we need an OAuth 2.0 access token. We obtain this using the Client Credentials grant type.
 
@@ -119,7 +114,7 @@ Now that you have created your API route, follow the steps below to implement th
     const existingUser = await getUser(accessToken, email);
     if (existingUser) {
         const isAdmin = existingUser?.roles?.includes(
-            process.env.B2B_ADMIN_ROLE_NAME!
+            process.env.ADMIN_ROLE_NAME!
         );
         
         if (isAdmin) {
@@ -173,7 +168,7 @@ Now that you have created your API route, follow the steps below to implement th
 
 **Helper functions required for the above implementation:**
 
-!!! Note - You can create these functions inside `app/api/services/` path.
+You can create these functions inside `app/api/services/` path.
 
 ```javascript title="app/api/services/appService.ts"
 // Get Application ID
@@ -197,7 +192,7 @@ async function getAppId(accessToken: string): Promise<string | null> {
 // Get Role ID
 async function getRoleId(accessToken: string, appId: string): Promise<string | null> {
     const response = await fetch(
-        `${process.env.ASGARDEO_BASE_URL}/scim2/v2/Roles?filter=displayName%20eq%20${encodeURIComponent(process.env.B2B_ADMIN_ROLE_NAME!)}%20and%20audience.value%20eq%20${appId}`,
+        `${process.env.ASGARDEO_BASE_URL}/scim2/v2/Roles?filter=displayName%20eq%20${encodeURIComponent(process.env.ADMIN_ROLE_NAME!)}%20and%20audience.value%20eq%20${appId}`,
         {
             method: "GET",
             headers: { 
@@ -289,12 +284,56 @@ export async function assignRole(accessToken: string, roleId: string, userId: st
 }
 ```
 
-Finally, if all steps succeed, we return a success message and use that in the client side.
+Finally, if all steps succeed, we return a success message and use that in the sign up form component.
+
+## Implement sign up form component
+
+To complete the sign-up flow, we need to create a sign-up form component that will call the API route we created at `app/api/signup/route.ts`. Below is an example implementation of the `SignUpForm` client-side component:
+
+```javascript title="components/SignUpForm.tsx"
+"use client";
+
+export default function SignUpForm() {
+    async function handleSignUp(formData: FormData) {
+        // Call API route using fetch
+        const res = await fetch("/api/signup", {
+            method: "POST",
+            body: formData,
+        });
+        // Handle response
+        if (res.ok) {
+            // Handle successful sign-up
+            console.log("User registered successfully!");
+        } else {
+            // Handle errors
+            const errorData = await res.json();
+            console.error("Error:", errorData.error);
+        }
+    }
+
+    return (
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            handleSignUp(formData);
+        }}>
+            {/* Sign up form content */}
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <input type="text" name="firstName" placeholder="First Name" required />
+            <input type="text" name="lastName" placeholder="Last Name" required />
+            <button type="submit">Sign Up</button>
+        </form>
+    );
+}
+```
+
+This component includes a form with fields for email, password, first name, and last name. When the form is submitted, it calls the `handleSignUp` function, which sends the form data to the API route for processing.
 
 !!! Info
-    - SCIM API Documentation: Refer to the Asgardeo SCIM API documentation for more details: [Managing Users with SCIM]({{base_path}}/guides/users/manage-users/)
-    - OAuth 2.0 Token Generation: Read more on OAuth 2.0 Client Credentials Grant in Asgardeo: [Obtaining Tokens]({{base_path}}/references/grant-types/#client-credentials-grant)
-    - Role Management: Learn about assigning roles using Asgardeo: [Managing Roles]({{base_path}}/guides/users/manage-roles/)
+    Read more on:
+    - [Managing Users with SCIM]({{base_path}}/guides/users/manage-users/){:target="\_blank"}
+    - [OAuth 2.0 Client Credentials Grant]({{base_path}}/references/grant-types/#client-credentials-grant){:target="\_blank"}
 
 !!! Note
-    Refer to Step 1 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app) for the complete implementation.
+    Refer to Step 1 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation.

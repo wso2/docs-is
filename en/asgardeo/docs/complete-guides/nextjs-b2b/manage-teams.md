@@ -1,14 +1,21 @@
 ---
 template: templates/complete-guide.html
 heading: Manage teams
-read_time: 2 min
+read_time: 15 min
 ---
 
-In this step, we implement team management functionality using Asgardeo's Organization Management APIs. Teams in this application are represented as sub-organizations within Asgardeo's organizational hierarchy, allowing for structured access control and resource management.
+In this step, we implement team management functionality including adding and listing teams.
 
 ## Adding a team
 
-In the Teamspace application, adding a new team involves creating a sub-organization within the existing organizational hierarchy. This process is facilitated through Asgardeo's Organization Management APIs, enabling dynamic management of organizational structures.
+In Teamspace, adding a new team means creating an organization within Asgardeo. This implementation follows Asgardeo's **self-service approach**, which empowers users to create and manage their own organizations.
+
+This approach allows users in the root organization to create teams and onboard team administrators without requiring intervention from the root organization's administrators. This is facilitated through Teamspace, which acts as a self-service portal built using Asgardeo APIs. This reduces administrative overhead and improves scalability by allowing teams to be managed independently.
+
+In this step, let's see how to make Teamspace a self-service portal and implement the functionality to create new teams and assign the creator as the team administrator.
+
+!!! Info
+    Read more on the [self-service approach]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#self-service-approach){:target="\_blank"} and [maintaining admins in root organization]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-in-the-root-organization){:target="\_blank"} in the Asgardeo documentation.
 
 ### Create API route
 
@@ -22,17 +29,33 @@ export async function POST(req: Request) {
 
 ### Implementation
 
-1. Get an Access Token from the root organization (refer user sign up section)
+1. Extract user input
 
-    In the sample app, this token is retrieved and stored in the session as `session.rootOrgToken`.
+    First, we extract team details (team name, description) from the request body. If any required field is missing, we return a 400 Bad Request error.
 
     ```javascript title="app/api/add-organization/route.ts"
-     const accessToken = session?.rootOrgToken as string;
-     ```
+    const { teamName, description } = await req.json();
 
-2. Check if the Organization (Team) Exists
+    if (!teamName) {
+        return Response.json(
+            { error: "Missing required fields" },
+            { status: 400 }
+        );
+    }
+    ```
 
-    Before creating a new team, verify whether an organization with the desired name already exists to prevent duplicates.
+2. Get an access token from the root organization (refer user sign up in **step 7**)
+
+    !!! Note
+        In the app, this token is retrieved and stored in the session as `session.rootOrgToken`.
+
+    ```javascript title="app/api/add-organization/route.ts"
+    const accessToken = session?.rootOrgToken as string;
+    ```
+
+3. Check if the team exists
+
+    Before creating a new team, verify whether a team with the desired name already exists to prevent duplicates.
 
     ```javascript title="app/api/add-organization/route.ts"
     const checkOrgResponse = await fetch(
@@ -48,9 +71,9 @@ export async function POST(req: Request) {
     );
     ```
 
-3. Create the team if it doesn’t exist
+4. Create the team if it doesn’t exist
 
-    If the team does not exist, proceed to create it. Ensure to include relevant attributes, such as the creator's ID and username. If the team exists use the organization ID from the checkOrgResponse as follows.
+    If the team does not exist, proceed to create it. Ensure to include relevant attributes, such as the creator's ID and username. If the team exists use the organization ID from the `checkOrgResponse` as follows.
 
     ```javascript title="app/api/add-organization/route.ts"
     let orgId;
@@ -93,15 +116,11 @@ export async function POST(req: Request) {
     }
     ```
 
-4. Switch to the New Organization Context
+5. Switch to the new team context
 
-    After creating the organization, switch the context to the new organization to perform further actions, such as assigning roles. This involves obtaining an access token scoped to the new organization using the Organization Switch grant type.
-
-    !!! Info
-        Read more on [accessing organization APIs]({{base_path}}/apis/organization-apis/authentication/).
+    After creating the team, get an access token for the created team by exchanging the access token obtained for the root organization. Use credentials of the shared OAuth2 application to execute the command.
 
     ```javascript title="app/api/add-organization/route.ts"
-    // Switch to the new organization's context
     const authHeader = Buffer.from(
         `${process.env.NEXT_PUBLIC_AUTH_ASGARDEO_ID}:${process.env.NEXT_PUBLIC_AUTH_ASGARDEO_SECRET}`
     ).toString("base64");
@@ -132,14 +151,41 @@ export async function POST(req: Request) {
     const orgAccessToken = orgTokenData.access_token;
     ```
 
-5. Assign roles to the user in the new organization
+6. A shadow user account is created in the new organization for the organization creator. Get the shadow account's user id as follows:
 
-    To grant the user administrative privileges in the new team, assign the appropriate roles. This involves retrieving the role ID and updating the user's roles accordingly.
+    ```javascript title="app/api/add-organization/route.ts"
+    const response = await fetch(
+        `${
+        process.env.ASGARDEO_BASE_URL
+        }/o/scim2/Users?filter=userName%20eq%20${encodeURIComponent(session.user.email)}`,
+        {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${orgAccessToken}`,
+            "Content-Type": "application/json",
+        },
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const shadowUserId = data.Resources[0]?.id;
+
+    ```
+
+7. Assign administrator role to the shadow account's user id or the team creator. 
+
+    To grant the user administrative privileges in the newly created team, you need to retrieve the administrator role (TEAM_ADMIN) ID for Teamspace and then update the users of the role to include the creator/user.
+
+    This process involves first, querying for the role ID using the application ID and role name, then updating the role's membership.
 
     ```javascript title="app/api/add-organization/route.ts"
     // Retrieve the application ID
     const getAppResponse = await fetch(
-        `${process.env.NEXT_PUBLIC_ASGARDEO_ORG_URL}/o/api/server/v1/applications?filter=name%20eq%20${process.env.NEXT_PUBLIC_APP_NAME}`,
+        `${process.env.NEXT_PUBLIC_ASGARDEO_ORG_URL}/o/api/server/v1/applications?filter=name%20eq%20${process.env.APP_NAME}`,
         {
             method: "GET",
             headers: {
@@ -157,7 +203,7 @@ export async function POST(req: Request) {
 
     // Retrieve the role ID
     const getRolesResponse = await fetch(
-        `${process.env.NEXT_PUBLIC_ASGARDEO_ORG_URL}/o/scim2/v2/Roles?filter=displayName%20eq%20${encodeURIComponent(process.env.NEXT_PUBLIC_B2B_ADMIN_ROLE_NAME)}%20and%20audience.value%20eq%20${appId}`,
+        `${process.env.NEXT_PUBLIC_ASGARDEO_ORG_URL}/o/scim2/v2/Roles?filter=displayName%20eq%20${encodeURIComponent(process.env.ADMIN_ROLE_NAME)}%20and%20audience.value%20eq%20${appId}`,
         {
             method: "GET",
             headers: {
@@ -197,7 +243,7 @@ export async function POST(req: Request) {
                     {
                         op: "add",
                         path: "members",
-                        value: [{ value: userId }],
+                        value: [{ value: shadowUserId }],
                     },
                 ],
             }),
@@ -209,13 +255,62 @@ export async function POST(req: Request) {
     }
     ```
 
+!!! Note
+    You can move the functions as helper functions to a different folder and simplify your route file as we did in user sign up in **step 7**.
+
+### Implement team creation form component
+
+To interact with the team creation API routes we created, we need client-side components that allow users to create teams. Below is a sample component with the usage of our API routes:
+
+```javascript title="components/AddTeam.tsx"
+"use client";
+
+export default function CreateTeamForm() {
+    async function handleCreateTeam(formData: FormData) {
+        try {
+            // Call the API route we created at app/api/add-organization/route.ts
+            const response = await fetch("/api/add-organization", {
+                method: "POST",
+                body: formData,
+            });
+
+            // Handle response
+            if (response.ok) {
+                console.log("Team created successfully!");
+            } else {
+                // Handle errors
+                const errorData = await response.json();
+                console.error("Error:", errorData.error);
+            }
+        } catch (error) {
+            console.error("Error creating team:", error);
+        }
+    }
+
+    return (
+        <form
+            onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                handleCreateTeam(formData);
+            }}
+        >
+            {/* Team creation form content */}
+            <input type="text" name="Name" placeholder="Name" required />
+            <input type="text" name="Description" placeholder="Description" />
+            <button type="submit">Add Team</button>
+        </form>
+    );
+}
+```
+
 ## View created teams
 
 ### Create API route
 
-Create a new file, `app/api/organization/route.ts` for fetching teams.
+Create a new file, `app/api/get-organizations/route.ts` for fetching teams.
 
-```javascript title="app/api/organization/route.ts"
+```javascript title="app/api/get-organization/route.ts"
 export async function GET() {
     // Implementation
 }
@@ -225,7 +320,7 @@ export async function GET() {
 
 We can use the organizations API endpoint to retrieve all organizations a user has access to.
 
-```javascript title="app/api/organizations/route.ts"
+```javascript title="app/api/get-organization/route.ts"
 import { auth } from "@/app/auth"
 import { Session } from "@auth/core/types"
 
@@ -266,5 +361,50 @@ export async function GET() {
 }
 ```
 
+### Implement team listing in component
+
+To interact with the team listing API routes we created, we need client-side components that allow users to view created teams. Below is a sample component with the usage of our API routes:
+
+```javascript title="components/TeamList.tsx"
+"use client";
+
+export default function TeamList() {
+  const [teams, setTeams] = useState([]);
+
+  useEffect(() => {
+    // Fetch teams when component mounts
+    async function fetchTeams() {
+      // Call the API route we created at app/api/get-organizations/route.ts
+      const response = await fetch("/api/get-organizations");
+      const data = await response.json();
+      
+      // Update state with fetched teams
+      setTeams(data.organizations || []);
+    }
+    
+    fetchTeams();
+  }, []);
+
+  return (
+    <div className="team-list">
+      <h2>Your Teams</h2>
+      
+      {teams.length === 0 ? (
+        <p>No teams found. Create your first team!</p>
+      ) : (
+        <ul>
+          {teams.map((team) => (
+            <li key={team.id}>
+              <h3>{team.name}</h3>
+              {team.description && <p>{team.description}</p>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+```
+
 !!! Note
-    Refer to Step 3 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app) for the complete implementation.
+    Refer to Step 3 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation.
