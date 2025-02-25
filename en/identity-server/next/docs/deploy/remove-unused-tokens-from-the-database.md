@@ -1,1 +1,1 @@
-{% include "./../../../../includes/deploy/remove-unused-tokens-from-the-database.md" %}
+{% include "../../../../includes/deploy/remove-unused-tokens-from-the-database.md" %}

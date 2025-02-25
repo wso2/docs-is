@@ -29,7 +29,7 @@ method.
     ```toml
     [oauth.token_cleanup]
     enable = false
-    
+
     ```
 
 2. Select the token cleanup script that is relevant to your database type from the list given below and run it on your database. This takes a backup of the
@@ -39,7 +39,7 @@ method.
       - [MySQL](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/token-cleanup/)
       - [Oracle](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/token-cleanup/)
       - [PostgreSQL 9.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-9x/token-cleanup/)
-      - [PostgreSQL 11.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/token-cleanup/)
+      - [PostgreSQL 11.X to 12.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/token-cleanup/)
 
 3. Once the cleanup is over, start WSO2 Identity Server pointing to
    the cleaned-up database. You can also schedule a cleanup task that will be automatically run
