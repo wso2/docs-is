@@ -96,7 +96,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Uniqueness Validation</b></td>
-                <td>Select one of the following scopes to control how uniqueness is validated for this attribute:
+                <td>Select one of the following scopes to validate attribute uniqueness:
                     <ul>
                         <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
                         <li><b>Within User Store:</b> Users within the same user store cannot have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
