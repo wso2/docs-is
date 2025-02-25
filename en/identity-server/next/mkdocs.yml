@@ -904,7 +904,6 @@ nav:
         - Identity Verification: apis/user-identity-verification.md
   - References:
     - References: references/index.md
-    - About this release: references/about-this-release.md
     - Feature deprecation: references/wso2-identity-server-feature-deprecation.md
     - User management:
       - User roles: references/user-management/user-roles.md
