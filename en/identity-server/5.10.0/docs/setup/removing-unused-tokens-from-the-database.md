@@ -29,7 +29,7 @@ method.
     ```toml
     [oauth.token_cleanup]
     enable = false
-
+    
     ```
 
 2. Select the token cleanup script that is relevant to your database type from the list given below and run it on your database. This takes a backup of the
