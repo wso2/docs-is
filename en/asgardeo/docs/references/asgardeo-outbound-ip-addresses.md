@@ -51,5 +51,3 @@ Asgardeo uses the following outbound IP addresses for its production environment
 - If you have firewalls or network security policies in place, ensure these IPs are allowlisted to maintain seamless connectivity.
 
 - Disaster Recovery regions are only activated in the event of a failure in the primary region.
-
-If you have any questions regarding Asgardeo's network infrastructure, contact [Asgardeo support](https://wso2.com/contact/){: target="_blank"}.
