@@ -1,13 +1,13 @@
 ---
 template: templates/complete-guide.html
-heading: Building a B2B Team Management Application with Next.js and Asgardeo
+heading: A Guide to Building a B2B Team Management App with Next.js and Asgardeo
 read_time: 2 mins
 ---
 ## Introduction
 
 In today's business landscape, organizations need efficient ways to manage their teams, control access to resources, and handle user permissions across different organizational units. Building a B2B application that handles these requirements securely and efficiently can be challenging.
 
-This guide demonstrates how to build a comprehensive B2B team management application using **Next.js** and **Asgardeo**. The application enables users to create and switch into teams, send user invitations, and manage access levels, all while maintaining security best practices.
+This guide demonstrates how to build a B2B team management application using **Next.js** and **Asgardeo**. The application enables users to create and switch into teams, send user invitations, and manage access levels, all while maintaining security best practices.
 
 ## Learning Objectives
 
