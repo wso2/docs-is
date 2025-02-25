@@ -502,6 +502,7 @@ nav:
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md
+    - Asgardeo outbound IP addresses: references/asgardeo-outbound-ip-addresses.md
     - Asgardeo user roles: references/user-management/user-roles.md
     - App configurations:
       - App configurations: references/app-settings/index.md
