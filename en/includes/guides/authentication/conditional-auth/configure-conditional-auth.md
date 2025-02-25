@@ -24,6 +24,14 @@ There are two ways to add a conditional authentication script:
 - Use a [predefined template]({{base_path}}/guides/authentication/conditional-auth/#script-templates).
 - Write a [new conditional auth script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
+!!! warning "Before you proceed"
+
+    When working with conditional authentication scripts, <b>never log secrets</b> or <b>sensitive information</b> within your authentication flows.
+
+{% endif %}
+
 ## Add a secret to the script
 Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process.
 
@@ -37,13 +45,7 @@ You can securely store these secret values on the {{ product_name }} Console and
 
 {% endif %}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
-!!! warning "Before you proceed"
-
-    When working with conditional authentication scripts, <b>never log secrets</b> or sensitive information within your authentication flows.
-
-{% endif %}
 
 ### Create a new secret
 
