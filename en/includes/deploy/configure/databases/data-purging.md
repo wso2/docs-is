@@ -2,7 +2,7 @@
 
 You can perform data purging by clearing the session data using the script given below. WSO2 Identity Server stores session data for authentication purposes. As the volume of the data stored grows over time, the authentication operations may also eventually consume more time. It is highly recommended to perform data purging on production servers to mitigate this.
 
-For more information about session persistence, see [Authentication Session Persistence]({{base_path}}/guides/login/authentication-session-persistence).
+For more information about session persistence, see [Authentication Session Persistence]({{base_path}}/deploy/configure/session-persistence).
 
 !!! tip
     It is recommended to run these steps at a time when the server traffic is low. Especially if you are running this in the production environment for the first time, since the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 
@@ -25,7 +25,12 @@ For more information about session persistence, see [Authentication Session Pers
         This script clears session data after 2 hours of expiry.
 
     !!! info
-        - The database scripts for [DB2](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/db2/sessiondata-cleanup/), [MSSQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mssql/sessiondata-cleanup/), [MySQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/sessiondata-cleanup/), [Oracle](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/sessiondata-cleanup/), [PostgreSQL 9.X](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-9x/sessiondata-cleanup/) and [PostgreSQL 11.X to 13.X](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/sessiondata-cleanup/), can be found embedded with the name itself.
+        - The database scripts for [DB2](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/db2/sessiondata-cleanup/){:target="_blank"}, 
+        [MSSQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mssql/sessiondata-cleanup/){:target="_blank"}, 
+        [MySQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/sessiondata-cleanup/){:target="_blank"}, 
+        [Oracle](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/sessiondata-cleanup/){:target="_blank"}, 
+        [PostgreSQL 9.X](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-9x/sessiondata-cleanup/){:target="_blank"} and 
+        [PostgreSQL 11.X to 13.X](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/sessiondata-cleanup/){:target="_blank"}, can be found embedded with the name itself.
         - You can change the session cleanup task in the stored procedure according to your DB policies. You can clean the session data either based on the session created time or the session expiry time. By default, the session created time is used.
         - A sample script is given below, which will clear the session data based on the `EXPIRY_TIME`.
           ``` 
@@ -38,7 +43,8 @@ For more information about session persistence, see [Authentication Session Pers
 
     ??? example "Click to view an example"
 
-        ``` sql tab="MySQL"
+        === "MySQL"
+        ``` sql 
         USE `WSO2_USER_DB`;
         DROP EVENT IF EXISTS cleanup_session_data_event;
         CREATE EVENT cleanup_tokens_event
