@@ -126,8 +126,6 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 
 - **Application-Level Support for Configuring OIDC Hybrid Flow** - WSO2 Identity Server now enables configuring OIDC Hybrid Flow at the application level, offering greater flexibility and control. Previously, hybrid flow configuration was restricted to the server level. With this enhancement, administrators can define the allowed response types for the OIDC hybrid flow directly within each application. For security reasons, the hybrid flow is disabled by default for newly created applications. However, it can be enabled on a per-application basis, allowing administrators to select the required hybrid flow response types as needed. Learn more about the [OIDC hybrid flow]({{base_path}}/guides/authentication/oidc/implement-oidc-hybrid-flow/).
 
-
-
 ## Deprecated features
 
 In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
