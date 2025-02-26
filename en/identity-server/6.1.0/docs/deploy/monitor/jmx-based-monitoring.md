@@ -31,18 +31,26 @@ rmi_server_start = true
 
 You can enable JMX for a datasource by adding the `jmxEnabled` as `true` element to the datasource configuration. For example, to enable JMX for the default Carbon datasources, add the following property to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory).
 
-!!! abstract "For IDENTITY_DB"
-    ``` toml
-    [database.identity_db.pool_options]
-    jmxEnabled = true
-    ```
-
 !!! abstract "For SHARED_DB"
     ``` toml
     [database.shared_db]
     jmx_enable = true
     ```
 
+!!! abstract "For IDENTITY_DB"
+    ``` toml
+    [database.identity_db.pool_options]
+    jmxEnabled = true
+    ```
+    
+    If you have a paid subscription, you do not have to use the pool options configuration as shown above. You may instead use the following configurations similar to the other datasources such as the shared database by applying update level 223 for WSO2 Identity Server 6.1.0 using the WSO2 Update Tool. For more information on updating WSO2 Identity Server using the WSO2 Update Tool, see [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview/).
+
+    If you do not have a paid subscription, you can use this configuration with the next version of WSO2 Identity Server onwards when it is released.
+
+    ``` toml
+    [database.identity_db]
+    jmx_enable = true
+    ```
 
 ## Monitor WSO2 Identity Server with JConsole
 
