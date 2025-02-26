@@ -488,6 +488,7 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk.md
+        - User Account Association API: apis/organization-apis/org-association-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
