@@ -6,6 +6,12 @@
 
 WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
+### General enhancements
+
+**Java 21 runtime support** - WSO2 Identity Server 7.1.0 Java 21 runtime compatibility and BouncyCastle keystore integration, enhancing security and performance. Java 21, the latest LTS version, ensures long-term support and stability, while replacing the JDK keystore with BouncyCastle strengthens cryptographic operations. Extensive performance testing confirms improved efficiency with JDK 21 compared to JDK 11, delivering a more optimized runtime environment.
+
+**Tenant management UI** - WSO2 Identity Server 7.1.0 introduces the Tenant Management UI, enabling streamlined multi-tenancy administration. By default, the server is configured with a single root organization, `carbon.super`. With the necessary permissions, administrators can now create and manage multiple root organizations, maintaining isolated user bases within a single server or cluster. This capability is now accessible through the new Console, simplifying tenant management.
+
 ### AI-powered enhancements
 
 WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, bringing automation and intelligence to identity and access management. These features simplify authentication sequence configuration and branding customization through natural language-driven inputs, reducing manual effort and minimizing errors. By leveraging AI, administrators can create seamless, adaptive authentication experiences with greater efficiency.
@@ -25,6 +31,75 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 - **OAuth 2.0 Rich Authorization Requests** –  Adds support for the OAuth 2.0 Rich Authorization Requests (RFC 9396) specification, allowing more granular authorization beyond traditional scopes. The `authorization_details` field is now supported in authorization requests, token requests, and introspection responses. Supported authorization details types are discoverable via the `.well-known` metadata endpoint, and additional types can be integrated using Java extensions.
 
 - **PKCE Support in OIDC Federated Login** –  Enhances security in the OIDC federated login flow by introducing Proof Key for Code Exchange (PKCE). This prevents authorization code interception attacks by securing backchannel communication during authentication.
+
+- **Seamless Third-Party SSO Integration with Ready-to-Use Templates** - WSO2 Identity Server now includes built-in support for third-party Single Sign-On (SSO) configurations, streamlining the integration process with popular enterprise applications. This enhancement introduces ready-to-use SSO templates, similar to our existing application templates, reducing manual configuration and providing step-by-step guidance for vendor-side setup. With this release, administrators can seamlessly integrate Identity Server with leading service providers using the following pre-configured SSO templates:
+
+    - Google Workspace
+    - Microsoft 365
+    - Salesforce
+    - Zoom
+    - Slack
+
+    Learn more about [SSO integrations]({{base_path}}/guides/authentication/sso-integrations/).
+
+### OAuth and OpenID Connect
+
+- **Removal of Username Attribute from Application Access Token Introspection Response** - We have removed the username attribute from the introspection response of an application access token. Previously, the introspection response included the username attribute. To align with industry standards, this field has been removed as part of a new enhancement. This change applies to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in the [application access token response]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#application-access-token-response).
+
+- **Change in `sub` Attribute Value for Application Access Tokens** - We have updated the `sub` attribute value of application access tokens from the application owner's UUID to the client ID. Previously, the `sub` attribute was set to the UUID of the application owner. With this enhancement, the value has been updated to the client ID to align with industry standards.This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in [subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute).
+
+- **JWT Access Token Attributes Configuration** - WSO2 Identity Server 7.1.0 introduces an updated approach to handling JWT access token attributes. With this enhancement, user attributes configured in the **User Attributes** section will no longer be automatically included as access token attributes. Instead, the **Access Token** section now provides an option to explicitly select which attributes should be included in the token. The selected attributes will be added to the JWT access token without requiring explicit requests. This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in [OIDC configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token).
+
+- **Application-Level JTI Reuse Configuration for Private Key JWT Authentication** - WSO2 Identity Server now supports configuring JTI (JSON Web Token ID) reuse at the application level when **Private Key JWT** is used as the client authentication mechanism. Previously, JTI reuse was managed as an organization-level property. With this enhancement, administrators can configure JTI reuse per application, providing greater flexibility and control. By default, applications will inherit the existing organization-level configuration unless explicitly modified. Learn more about [Private key JWT reuse]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/#private-key-jwt-reuse-optional).
+
+- **Application-Level Support for Configuring OIDC Hybrid Flow** - WSO2 Identity Server now enables configuring OIDC Hybrid Flow at the application level, offering greater flexibility and control. Previously, hybrid flow configuration was restricted to the server level. With this enhancement, administrators can define the allowed response types for the OIDC hybrid flow directly within each application. For security reasons, the hybrid flow is disabled by default for newly created applications. However, it can be enabled on a per-application basis, allowing administrators to select the required hybrid flow response types as needed. Learn more about the [OIDC hybrid flow]({{base_path}}/guides/authentication/oidc/implement-oidc-hybrid-flow/).
+
+- **Pre-Issue Access Token Service Extension** - WSO2 Identity Server now supports executing custom logic before issuing an access token, providing greater flexibility in the OAuth2 token issuance process. This enhancement allows administrators to modify scopes, audience values, and user attributes, add custom claims, and adjust the token’s validity period. By integrating this functionality, organizations can enforce additional security checks or customize token contents to align with specific requirements. Learn more about the [pre-issue access token action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action/).
+
+### Adaptive authentication
+
+- **GraalJS as the New Scripting Engine for Adaptive Authentication** - WSO2 Identity Server now leverages GraalJS as the default execution engine for adaptive authentication scripts, replacing OpenJDK Nashorn. This upgrade enhances script execution speed and security. GraalJS supports ECMAScript 12 (ES12), introducing significant improvements over the previously supported ES5 in Nashorn. With this enhancement, developers can utilize modern JavaScript features, improving flexibility, performance, and maintainability in adaptive authentication flows.
+
+- **Enhancements to `httpGet` and `httpPost` in Conditional Authentication Scripts** - WSO2 Identity Server introduces several enhancements to the `httpGet` and `httpPost` functions in conditional authentication scripts. With this improvement, users can now invoke APIs secured with various authentication methods, including basic authentication, API key, bearer token, and client credentials grant, with just a few simple steps. By specifying the authentication type, endpoints, and secrets, administrators can seamlessly and securely integrate external APIs into their conditional authentication workflows. Learn more about the [httpGet]({{base_path}}/references/conditional-auth/api-reference/#http-get) and [httpPost]({{base_path}}/references/conditional-auth/api-reference/#http-post) functions.
+
+- **Secret Management for Conditional Authentication Scripts** - WSO2 Identity Server now provides a secure way to store and retrieve secret values for use in conditional authentication scripts. Administrators can securely store secrets in the WSO2 Identity Server Console and reference them when needed. Previously stored secrets can be accessed in authentication scripts using the secrets.{secret_name} syntax. For example:
+
+    ```js
+    var secretValue = secrets.secretName;
+    ```
+
+    This feature enhances the security and flexibility of authentication workflows by allowing sensitive values to be managed securely within scripts. Learn more about [secrets]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script).
+
+### Risk-Based Authentication
+
+- **iProov as an MFA Option** - WSO2 Identity Server now supports iProov as a Multifactor Authentication (MFA) option, enabling seamless integration of secure facial biometrics into your authentication flows. Learn more about the [iProov connector](https://store.wso2.com/connector/identity-outbound-auth-iproov){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md){: target="_blank"}
+
+- **Sift fraud detection** - WSO2 Identity Server now supports Sift fraud detection integration, enabling real-time detection and prevention of fraudulent logins. By leveraging Sift’s risk scoring capabilities within the conditional authentication framework, organizations can enhance security without compromising user experience. Learn more about the [Sift connector](https://store.wso2.com/connector/identity-fraud-detection-sift){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-fraud-detection-sift/blob/main/docs/config.md){: target="_blank"}.
+
+### User profiles and attributes
+
+- **Toggle Descriptive Message for Unavailable Usernames in Self-Registration** - WSO2 Identity Server now supports toggling the display of a descriptive message when a username is unavailable during the self-registration account verification process. When enabled, users will see a message on the registration page if their selected username is already taken. This option is enabled by default to maintain the previous behavior but can be disabled if needed. Learn more about it in [self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/#enabledisable-self-registration).
+
+- **Support for Attribute-Wise Uniqueness Validation Configuration** - WSO2 Identity Server now supports attribute-wise uniqueness validation configuration, allowing administrators to define uniqueness constraints for attributes directly within the General tab. A new dropdown menu provides three options:
+    - *None* – No uniqueness validation.
+    - *Within User Store* – Ensures uniqueness within a specific user store.
+    - *Across User Stores* – Enforces uniqueness across all user stores.
+
+    Learn more about [configuring unique attributes]({{base_path}}/guides/users/attributes/configure-unique-attributes/).
+
+- **Distinct Attribute Profiles for Different User Flows** - WSO2 Identity Server now supports distinct attribute profiles for different user flows, allowing administrators to define how attributes are displayed and managed across various scenarios. Administrators can configure attributes to be `visible`, `required`, or `read-only` for:
+
+    - *Administrator Console* – Control which attributes are accessible to administrators.
+    - *End-User Profile* – Define how attributes appear in the My Account portal.
+    - *Self-Registration* – Customize attribute fields for new user sign-ups.
+     
+    Learn more about it in [configuring attributes]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
+
+- **Username recovery support for SMS channel** - WSO2 Identity Server now extends username recovery support to the SMS channel, in addition to the previously supported email-based recovery. Administrators can now enable or disable recovery channels based on organizational preferences and offer users a choice between SMS and email for username recovery. Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
+
+- **Username Recovery When Email Address Is Not Unique** - WSO2 Identity Server now supports username recovery even when the provided email address is associated with multiple user accounts. Previously, username recovery was only possible when the provided attributes uniquely identified a user. With this enhancement, users with non-unique email addresses can still recover their usernames. Administrators can enable or disable this behavior based on organizational requirements. Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
+
+- **Support for Multiple Email Addresses & Phone Numbers Per User** - WSO2 Identity Server now supports multiple email addresses and phone numbers per user, allowing users to register multiple contact points in their profiles. Users can designate a primary email and phone number, which will be used for notifications and OTPs. If verification is enabled, only verified contact details can be set as primary, ensuring security and reliability in communication. Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
 
 ### B2B identity and access management
 
@@ -57,78 +132,14 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 
 - **On-Demand Silent Password Migration** - WSO2 Identity Server now supports on-demand silent password migration, enabling seamless password migration from an existing system without user disruption. During login, user credentials are verified against the existing system, and passwords are securely migrated to the Identity Server. This process leverages a conditional authentication script and external REST services to authenticate users and transfer credentials without requiring additional user action. Learn more about [on-demand silent password migration]({{base_path}}/guides/users/migrate-users/migrate-passwords/).
 
-- **Support for Attribute-Wise Uniqueness Validation Configuration** - WSO2 Identity Server now supports attribute-wise uniqueness validation configuration, allowing administrators to define uniqueness constraints for attributes directly within the General tab. A new dropdown menu provides three options:
-    - *None* – No uniqueness validation.
-    - *Within User Store* – Ensures uniqueness within a specific user store.
-    - *Across User Stores* – Enforces uniqueness across all user stores.
-
-    Learn more about [configuring unique attributes]({{base_path}}/guides/users/attributes/configure-unique-attributes/).
 
 ### User experience and customization
 
 - **Application-specific branding** - WSO2 Identity Server now supports application-specific branding, allowing businesses to customize branding for individual applications directly through the Console. Previously, branding was limited to the organization level, making it challenging to manage distinct branding across multiple applications. With this enhancement, enterprises can deliver a personalized user experience by defining unique branding for each application's login portal and user interface. In B2B scenarios, if an application lacks specific branding, it will inherit branding from the organization, parent organization, or default to WSO2 Identity Server branding, ensuring both flexibility and consistency. Learn more about it in [Configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/).
 
-- **Right-to-Left (RTL) Language Support** - WSO2 Identity Server now supports Right-to-Left (RTL) language rendering in login and recovery portals, enhancing accessibility for users of languages such as Arabic, Hebrew, and Persian. This improvement ensures that text alignment, layouts, and UI elements adapt seamlessly to RTL scripts, providing an optimized and intuitive user experience. Learn more about [RTL language support]({{base_path}}/guides/branding/localization/#right-to-left-rtl-language-support).
-
-- **Support for Multiple Email Addresses & Phone Numbers Per User** - WSO2 Identity Server now supports multiple email addresses and phone numbers per user, allowing users to register multiple contact points in their profiles. Users can designate a primary email and phone number, which will be used for notifications and OTPs. If verification is enabled, only verified contact details can be set as primary, ensuring security and reliability in communication. Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
-
-- **Distinct Attribute Profiles for Different User Flows** - WSO2 Identity Server now supports distinct attribute profiles for different user flows, allowing administrators to define how attributes are displayed and managed across various scenarios. Administrators can configure attributes to be `visible`, `required`, or `read-only` for:
-
-    - *Administrator Console* – Control which attributes are accessible to administrators.
-    - *End-User Profile* – Define how attributes appear in the My Account portal.
-    - *Self-Registration* – Customize attribute fields for new user sign-ups.
-     
-    Learn more about it in [configuring attributes]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
-
-### Identity Verification & Risk-Based Authentication
-
-- **iProov as an MFA Option** - WSO2 Identity Server now supports iProov as a Multifactor Authentication (MFA) option, enabling seamless integration of secure facial biometrics into your authentication flows. Learn more about the [iProov connector](https://store.wso2.com/connector/identity-outbound-auth-iproov){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md){: target="_blank"}
-
-- **Sift fraud detection** - WSO2 Identity Server now supports Sift fraud detection integration, enabling real-time detection and prevention of fraudulent logins. By leveraging Sift’s risk scoring capabilities within the conditional authentication framework, organizations can enhance security without compromising user experience. Learn more about the [Sift connector](https://store.wso2.com/connector/identity-fraud-detection-sift){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-fraud-detection-sift/blob/main/docs/config.md){: target="_blank"}.
-
-- **Username recovery support for SMS channel** - WSO2 Identity Server now extends username recovery support to the SMS channel, in addition to the previously supported email-based recovery. Administrators can now enable or disable recovery channels based on organizational preferences and offer users a choice between SMS and email for username recovery. Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
-
-- **Username Recovery When Email Address Is Not Unique** - WSO2 Identity Server now supports username recovery even when the provided email address is associated with multiple user accounts. Previously, username recovery was only possible when the provided attributes uniquely identified a user. With this enhancement, users with non-unique email addresses can still recover their usernames. Administrators can enable or disable this behavior based on organizational requirements. Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
-
-### Additional enhancements
-
-- **Seamless Third-Party SSO Integration with Ready-to-Use Templates** - WSO2 Identity Server now includes built-in support for third-party Single Sign-On (SSO) configurations, streamlining the integration process with popular enterprise applications. This enhancement introduces ready-to-use SSO templates, similar to our existing application templates, reducing manual configuration and providing step-by-step guidance for vendor-side setup. With this release, administrators can seamlessly integrate Identity Server with leading service providers using the following pre-configured SSO templates:
-
-    - Google Workspace
-    - Microsoft 365
-    - Salesforce
-    - Zoom
-    - Slack
-
-    Learn more about [SSO integrations]({{base_path}}/guides/authentication/sso-integrations/).
-
 - **SMS Template Management UI** - WSO2 Identity Server now introduces a dedicated Email Template Management UI, enabling administrators to easily create, customize, and localize email templates for user notifications.
 
-- **Enhancements to `httpGet` and `httpPost` in Conditional Authentication Scripts** - WSO2 Identity Server introduces several enhancements to the `httpGet` and `httpPost` functions in conditional authentication scripts. With this improvement, users can now invoke APIs secured with various authentication methods, including basic authentication, API key, bearer token, and client credentials grant, with just a few simple steps. By specifying the authentication type, endpoints, and secrets, administrators can seamlessly and securely integrate external APIs into their conditional authentication workflows. Learn more about the [httpGet]({{base_path}}/references/conditional-auth/api-reference/#http-get) and [httpPost]({{base_path}}/references/conditional-auth/api-reference/#http-post) functions.
-
-- **Secret Management for Conditional Authentication Scripts** - WSO2 Identity Server now provides a secure way to store and retrieve secret values for use in conditional authentication scripts. Administrators can securely store secrets in the WSO2 Identity Server Console and reference them when needed. Previously stored secrets can be accessed in authentication scripts using the secrets.{secret_name} syntax. For example:
-
-    ```js
-    var secretValue = secrets.secretName;
-    ```
-
-    This feature enhances the security and flexibility of authentication workflows by allowing sensitive values to be managed securely within scripts. Learn more about [secrets]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script).
-
-- **Toggle Descriptive Message for Unavailable Usernames in Self-Registration** - WSO2 Identity Server now supports toggling the display of a descriptive message when a username is unavailable during the self-registration account verification process. When enabled, users will see a message on the registration page if their selected username is already taken. This option is enabled by default to maintain the previous behavior but can be disabled if needed. Learn more about it in [self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/#enabledisable-self-registration).
-
-- **Removal of Username Attribute from Application Access Token Introspection Response** - We have removed the username attribute from the introspection response of an application access token. Previously, the introspection response included the username attribute. To align with industry standards, this field has been removed as part of a new enhancement. This change applies to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in the [application access token response]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#application-access-token-response).
-
-- **Change in `sub` Attribute Value for Application Access Tokens** - We have updated the `sub` attribute value of application access tokens from the application owner's UUID to the client ID. Previously, the `sub` attribute was set to the UUID of the application owner. With this enhancement, the value has been updated to the client ID to align with industry standards.This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in [subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute).
-
-- **JWT Access Token Attributes Configuration** - WSO2 Identity Server 7.1.0 introduces an updated approach to handling JWT access token attributes. With this enhancement, user attributes configured in the **User Attributes** section will no longer be automatically included as access token attributes. Instead, the **Access Token** section now provides an option to explicitly select which attributes should be included in the token. The selected attributes will be added to the JWT access token without requiring explicit requests. This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in [OIDC configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token).
-
-- **Application-Level JTI Reuse Configuration for Private Key JWT Authentication** - WSO2 Identity Server now supports configuring JTI (JSON Web Token ID) reuse at the application level when **Private Key JWT** is used as the client authentication mechanism. Previously, JTI reuse was managed as an organization-level property. With this enhancement, administrators can configure JTI reuse per application, providing greater flexibility and control. By default, applications will inherit the existing organization-level configuration unless explicitly modified. Learn more about [Private key JWT reuse]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/#private-key-jwt-reuse-optional).
-
-- **GraalJS as the New Scripting Engine for Adaptive Authentication** - WSO2 Identity Server now leverages GraalJS as the default execution engine for adaptive authentication scripts, replacing OpenJDK Nashorn. This upgrade enhances script execution speed and security. GraalJS supports ECMAScript 12 (ES12), introducing significant improvements over the previously supported ES5 in Nashorn. With this enhancement, developers can utilize modern JavaScript features, improving flexibility, performance, and maintainability in adaptive authentication flows.
-
-- **Application-Level Support for Configuring OIDC Hybrid Flow** - WSO2 Identity Server now enables configuring OIDC Hybrid Flow at the application level, offering greater flexibility and control. Previously, hybrid flow configuration was restricted to the server level. With this enhancement, administrators can define the allowed response types for the OIDC hybrid flow directly within each application. For security reasons, the hybrid flow is disabled by default for newly created applications. However, it can be enabled on a per-application basis, allowing administrators to select the required hybrid flow response types as needed. Learn more about the [OIDC hybrid flow]({{base_path}}/guides/authentication/oidc/implement-oidc-hybrid-flow/).
-
-- **Pre-Issue Access Token Service Extension** - WSO2 Identity Server now supports executing custom logic before issuing an access token, providing greater flexibility in the OAuth2 token issuance process. This enhancement allows administrators to modify scopes, audience values, and user attributes, add custom claims, and adjust the token’s validity period. By integrating this functionality, organizations can enforce additional security checks or customize token contents to align with specific requirements. Learn more about the [pre-issue access token action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action/).
+- **Right-to-Left (RTL) Language Support** - WSO2 Identity Server now supports Right-to-Left (RTL) language rendering in login and recovery portals, enhancing accessibility for users of languages such as Arabic, Hebrew, and Persian. This improvement ensures that text alignment, layouts, and UI elements adapt seamlessly to RTL scripts, providing an optimized and intuitive user experience. Learn more about [RTL language support]({{base_path}}/guides/branding/localization/#right-to-left-rtl-language-support).
 
 ## Deprecated features
 
