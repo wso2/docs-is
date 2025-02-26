@@ -7,9 +7,9 @@ The Admin Advisory Banner feature in {{ product_name }} enhances security by dis
 
 Follow the steps below to configure the Admin Advisory Banner:
 
-1. Navigate to the {{ product_name }} Console.
-2. Go to the **Server** section to click the **Admin Advisory Banner** settings.
-3. Toggle the **Enabled** switch to activate or deactivate the advisory banner.
+1. On the {{ product_name }} Console, click the **Root Organization** dropdown at the top and click **Manage Root Organizations**.
+2. Click on the gear icon to enter the system settings.
+3. Select the **Admin Advisory Banner** tab and turn the **Enabled** toggle on/off to activate/deactivate the advisory banner.
 4. Enter the desired warning message in the **Banner content** text box. This message will be displayed on the login page to warn administrators about monitoring policies.
 5. Click the **Update** button to save the changes and implement the banner with the specified message.
 

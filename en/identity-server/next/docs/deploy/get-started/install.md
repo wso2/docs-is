@@ -372,7 +372,7 @@ Extract the WSO2 product that you want to run as a Linux service and set the env
     esac
     ```
 
-    ??? note "Example startup script written for WSO2 Identity Server 7.0.0"
+    ??? note "Example startup script written for WSO2 Identity Server {{is_version}}"
         ``` bash
         #! /bin/sh
         ### BEGIN INIT INFO
@@ -384,7 +384,7 @@ Extract the WSO2 product that you want to run as a Linux service and set the env
         # Short-Description: starts the wso2 identity server
         ### END INIT INFO
         export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-        export CARBON_HOME="/home/ubuntu/wso2is-7.0.0"
+        export CARBON_HOME="/home/ubuntu/wso2is-{{is_version}}"
 
         startcmd="${CARBON_HOME}""/bin/wso2server.sh start > /dev/null &"
         restartcmd="${CARBON_HOME}""/bin/wso2server.sh restart > /dev/null &"
@@ -579,7 +579,7 @@ Copy the `wrapper.conf` file found in the `<IS_HOME>/bin/yajsw/` directory and p
 
 #### Set up `carbon_home`
 
-Extract the Carbon-based product that you want to run as a Windows service, and then set the Windows environment variable `carbon_home` to the directory from which you extracted the product. For example, if you want to run WSO2 Identity Server as a Windows service, you would set `carbon_home` to the extracted `wso2is-7.0.0` directory.
+Extract the Carbon-based product that you want to run as a Windows service, and then set the Windows environment variable `carbon_home` to the directory from which you extracted the product. For example, if you want to run WSO2 Identity Server as a Windows service, you would set `carbon_home` to the extracted `wso2is-{{is_version}}` directory.
 
 #### Run the product in console mode
 

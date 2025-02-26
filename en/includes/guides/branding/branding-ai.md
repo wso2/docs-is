@@ -10,7 +10,7 @@ By leveraging AI Branding, you can ensure that your the user prompted pages not 
 {% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 !!! note "Enable AI-powered features"
 
-    To enable AI-powered features, {{product_name}} requires a subscription key from the [WSO2 AI subscription portal](https://ai-subscriptions.wso2.com/){target="_blank"}. See the [guide]({{base_path}}/get-started/subscribe-for-ai-features/) for step by step instructions.
+    To enable AI-powered features, {{product_name}} requires a subscription key from the [WSO2 AI subscription portal](https://ai-subscriptions.wso2.com/){target="_blank"}. See the [guide]({{base_path}}/get-started/subscribe-to-ai-features/) for step by step instructions.
 
 {% endif %}
 
