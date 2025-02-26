@@ -43,9 +43,7 @@ You can enable JMX for a datasource by adding the `jmxEnabled` as `true` element
     jmxEnabled = true
     ```
     
-    If you have a paid subscription, you do not have to use the pool options configuration as shown above. You may instead use the following configurations similar to the other datasources such as the shared database by applying update level 223 for WSO2 Identity Server 6.1.0 using the WSO2 Update Tool. For more information on updating WSO2 Identity Server using the WSO2 Update Tool, see [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview/).
-
-    If you do not have a paid subscription, you can use this configuration with the next version of WSO2 Identity Server onwards when it is released.
+    If you have a paid subscription, you do not have to use the pool options configuration as shown above. You may instead use the following configurations similar to the other datasources such as the shared database by applying update level 223 for WSO2 Identity Server 6.1.0 using the WSO2 Update Tool. For more information on updating WSO2 Identity Server using the WSO2 Update Tool, see [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview/). If you do not have a paid subscription, you can use this configuration with version 7.1.0 of WSO2 Identity Server once released.
 
     ``` toml
     [database.identity_db]
