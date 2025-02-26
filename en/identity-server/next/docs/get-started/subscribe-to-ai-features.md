@@ -1,4 +1,4 @@
-# Subscribe for AI features
+# Subscribe to AI features
 
 {{product_name}} brings AI-powered simplicity to your application setup, making it faster and smarter. With intuitive, text-driven intelligent features, you can streamline complex tasks effortlessly. Currently, {{product_name}} offers the following AI-driven capabilities:
 
