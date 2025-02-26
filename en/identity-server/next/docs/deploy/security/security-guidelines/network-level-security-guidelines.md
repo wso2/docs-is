@@ -35,13 +35,13 @@ Firmware updates for your network devices should be applied regularly.
 
 Access to the  `/console`, `/services` and `/carbon` contexts should be blocked from the DMZ level, i.e., from the proxy server, load balancer, and/or firewall.
 
-- The `/console` context is used in WSO2 Identity Server to expose the management Console. The Management Console is a user interface for performing administrative operations of the product.
+- The `/console` context is used in WSO2 Identity Server to expose the Console. The Console is a user interface for performing administrative operations of the product.
 
 - The `/services` context is used in WSO2 Identity Server to expose admin services. These admin services are used for performing administrative operations using SOAP requests.
 
-- The `/carbon` context is used in WSO2 Identity Server to expose the Management Console. The Management Console is a user interface for performing some of the administrative operations of a product.
+- The `/carbon` context is used in WSO2 Identity Server to expose the legacy management console and offers some limited administrative functions.
 
-- In addition to the `/services` and `/carbon` contexts, be sure to expose only the required applications in your product to users beyond the DMZ level in your network.
+- In addition to the `/carbon`, `/services` and `/carbon` contexts, be sure to expose only the required applications in your product to users beyond the DMZ level in your network.
 
 !!! tip
     It is recommended to identify and use components listed under the allowlist when allowing access to resources in your product from the DMZ level.
