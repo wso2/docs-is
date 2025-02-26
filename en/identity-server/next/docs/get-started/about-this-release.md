@@ -20,6 +20,8 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 
 - **User Impersonation** – Allows authorized administrators or support personnel to access user accounts securely for troubleshooting and customer support without requiring the user's credentials. Learn more about [User Impersonation]({{base_path}}/guides/authorization/user-impersonation/).
 
+- **Custom Authentication Service Extension** - Enables the extension of authentication functionality in WSO2 Identity Server by implementing custom authentication services. This provides greater flexibility in handling diverse authentication requirements beyond built-in authenticators.
+
 - **OAuth 2.0 Rich Authorization Requests** –  Adds support for the OAuth 2.0 Rich Authorization Requests (RFC 9396) specification, allowing more granular authorization beyond traditional scopes. The `authorization_details` field is now supported in authorization requests, token requests, and introspection responses. Supported authorization details types are discoverable via the `.well-known` metadata endpoint, and additional types can be integrated using Java extensions.
 
 - **PKCE Support in OIDC Federated Login** –  Enhances security in the OIDC federated login flow by introducing Proof Key for Code Exchange (PKCE). This prevents authorization code interception attacks by securing backchannel communication during authentication.
@@ -125,6 +127,8 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 - **GraalJS as the New Scripting Engine for Adaptive Authentication** - WSO2 Identity Server now leverages GraalJS as the default execution engine for adaptive authentication scripts, replacing OpenJDK Nashorn. This upgrade enhances script execution speed and security. GraalJS supports ECMAScript 12 (ES12), introducing significant improvements over the previously supported ES5 in Nashorn. With this enhancement, developers can utilize modern JavaScript features, improving flexibility, performance, and maintainability in adaptive authentication flows.
 
 - **Application-Level Support for Configuring OIDC Hybrid Flow** - WSO2 Identity Server now enables configuring OIDC Hybrid Flow at the application level, offering greater flexibility and control. Previously, hybrid flow configuration was restricted to the server level. With this enhancement, administrators can define the allowed response types for the OIDC hybrid flow directly within each application. For security reasons, the hybrid flow is disabled by default for newly created applications. However, it can be enabled on a per-application basis, allowing administrators to select the required hybrid flow response types as needed. Learn more about the [OIDC hybrid flow]({{base_path}}/guides/authentication/oidc/implement-oidc-hybrid-flow/).
+
+- **Pre-Issue Access Token Service Extension** - WSO2 Identity Server now supports executing custom logic before issuing an access token, providing greater flexibility in the OAuth2 token issuance process. This enhancement allows administrators to modify scopes, audience values, and user attributes, add custom claims, and adjust the token’s validity period. By integrating this functionality, organizations can enforce additional security checks or customize token contents to align with specific requirements. Learn more about the [pre-issue access token action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action/).
 
 ## Deprecated features
 
