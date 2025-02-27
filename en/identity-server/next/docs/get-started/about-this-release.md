@@ -44,11 +44,11 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 
 ### OAuth and OpenID Connect
 
-- **Username Attribute Removed from Application Access Token Introspection Response** - The username attribute is no longer included in the introspection response of an application access token. Previously, the introspection response included the username attribute. To align with industry standards, this field has been removed as part of a new enhancement. This change applies to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in the [application access token response]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#application-access-token-response).
+- **Username Attribute Removed from Application Access Token Introspection Response** - Previously, the access token introspection response included the username attribute. To align with industry standards, this field has now been removed as part of a new enhancement. This change applies to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in the [application access token response]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#application-access-token-response).
 
-- **Updated `sub` Attribute Value for Application Access Tokens** - The `sub` attribute of application access tokens now uses the client ID of the application instead of the application owner's UUID. Previously, the `sub` attribute was set to the UUID of the application owner. With this enhancement, the value has been updated to the client ID to align with industry standards.This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in [subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute).
+- **Updated `sub` Attribute Value for Application Access Tokens** - Previously, the `sub` attribute was set to the UUID of the application owner. With this enhancement, the value has now been updated to the application's client ID to align with industry standards.This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in [subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute).
 
-- **JWT Access Token Attributes Configuration** - Updates the approach to handling JWT access token attributes. With this enhancement, user attributes configured in the **User Attributes** section will no longer be automatically included as access token attributes. Instead, the **Access Token** section now provides an option to explicitly select which attributes should be included in the token. The selected attributes will be added to the JWT access token without requiring explicit requests. This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in [OIDC configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token).
+- **JWT Access Token Attributes Configuration** - With this enhancement, user attributes configured in the **User Attributes** section will no longer be automatically included as access token attributes. Instead, the **Access Token** section now provides an option to explicitly select which attributes should be included in the token. The selected attributes will be added to the JWT access token without requiring explicit requests. This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings. Learn more about it in [OIDC configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token).
 
 - **Application-Level JTI Reuse Configuration for Private Key JWT Authentication** - Supports configuring JTI (JSON Web Token ID) reuse at the application level when **Private Key JWT** is used as the client authentication mechanism. Previously, JTI reuse was managed as an organization-level property. With this enhancement, administrators can configure JTI reuse per application, providing greater flexibility and control. By default, applications will inherit the existing organization-level configuration unless explicitly modified. Learn more about [Private key JWT reuse]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/#private-key-jwt-reuse-optional).
 
@@ -60,9 +60,9 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 
 - **GraalJS as the New Scripting Engine for Adaptive Authentication** - GraalJS is now the default execution engine for adaptive authentication scripts, replacing OpenJDK Nashorn. This upgrade enhances script execution speed and security. GraalJS supports ECMAScript 12 (ES12), introducing significant improvements over the previously supported ES5 in Nashorn. With this enhancement, developers can utilize modern JavaScript features, improving flexibility, performance, and maintainability in adaptive authentication flows.
 
-- **Enhancements to `httpGet` and `httpPost` in Conditional Authentication Scripts** - Enhances the `httpGet` and `httpPost` functions in conditional authentication scripts. With this improvement, users can now invoke APIs secured with various authentication methods, including basic authentication, API key, bearer token, and client credentials grant, with just a few simple steps. By specifying the authentication type, endpoints, and secrets, administrators can seamlessly and securely integrate external APIs into their conditional authentication workflows. Learn more about the [httpGet]({{base_path}}/references/conditional-auth/api-reference/#http-get) and [httpPost]({{base_path}}/references/conditional-auth/api-reference/#http-post) functions.
+- **Enhancements to `httpGet` and `httpPost` in Conditional Authentication Scripts** - Enhances the `httpGet` and `httpPost` functions in conditional authentication scripts to let users invoke APIs secured with various authentication methods, including basic authentication, API key, bearer token, and client credentials grant, with just a few simple steps. By specifying the authentication type, endpoints, and secrets, administrators can seamlessly and securely integrate external APIs into their conditional authentication workflows. Learn more about the [httpGet]({{base_path}}/references/conditional-auth/api-reference/#http-get) and [httpPost]({{base_path}}/references/conditional-auth/api-reference/#http-post) functions.
 
-- **Secret Management for Conditional Authentication Scripts** - Provides a secure way to store and retrieve secret values for use in conditional authentication scripts. Administrators can securely store secrets in the WSO2 Identity Server Console and reference them when needed. Previously stored secrets can be accessed in authentication scripts using the secrets.{secret_name} syntax. For example:
+- **Secret Management for Conditional Authentication Scripts** - Administrators can now securely store secrets in the WSO2 Identity Server Console and reference them when needed in conditional authentication scripts. Previously stored secrets can be accessed in authentication scripts using the secrets.{secret_name} syntax. For example:
 
     ```js
     var secretValue = secrets.secretName;
@@ -72,9 +72,9 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 
 ### Risk-Based Authentication
 
-- **iProov as an MFA Option** - Add support for iProov as a Multifactor Authentication (MFA) option, enabling seamless integration of secure facial biometrics into your authentication flows. Learn more about the [iProov connector](https://store.wso2.com/connector/identity-outbound-auth-iproov){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md){: target="_blank"}
+- **iProov as an MFA Option** - Supports iProov as a Multifactor Authentication (MFA) option, enabling seamless integration of secure facial biometrics into your authentication flows. Learn more about the [iProov connector](https://store.wso2.com/connector/identity-outbound-auth-iproov){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md){: target="_blank"}
 
-- **Sift fraud detection** - Add support for Sift fraud detection integration, enabling real-time detection and prevention of fraudulent logins. By leveraging Sift’s risk scoring capabilities within the conditional authentication framework, organizations can enhance security without compromising user experience. Learn more about the [Sift connector](https://store.wso2.com/connector/identity-fraud-detection-sift){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-fraud-detection-sift/blob/main/docs/config.md){: target="_blank"}.
+- **Sift fraud detection** - Supports Sift fraud detection integration, enabling real-time detection and prevention of fraudulent logins. By leveraging Sift’s risk scoring capabilities within the conditional authentication framework, organizations can enhance security without compromising user experience. Learn more about the [Sift connector](https://store.wso2.com/connector/identity-fraud-detection-sift){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-fraud-detection-sift/blob/main/docs/config.md){: target="_blank"}.
 
 ### User profiles and attributes
 
@@ -100,6 +100,8 @@ WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, brin
 - **Username Recovery When Email Address Is Not Unique** - Supports username recovery even when the provided email address is associated with multiple user accounts. Previously, username recovery was only possible when the provided attributes uniquely identified a user. With this enhancement, users with non-unique email addresses can still recover their usernames. Administrators can enable or disable this behavior based on organizational requirements. Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
 
 - **Support for Multiple Email Addresses & Phone Numbers Per User** - Supports multiple email addresses and phone numbers per user, allowing users to register multiple contact points in their profiles. Users can designate a primary email and phone number, which will be used for notifications and OTPs. If verification is enabled, only verified contact details can be set as primary, ensuring security and reliability in communication. Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
+
+- **Introduction of System Schema and an Updated Custom Schema** - SCIM2 schemas have been restructured to improve compliance with RFC 7643 and maintain consistency. Previously, product-defined SCIM attributes were incorrectly placed within the enterprise user schema, which should remain unchanged per SCIM specifications. Product-defined SCIM attributes are now maintained in a dedicated system schema and a new custom schema has been introduced for user-defined attributes.
 
 ### B2B identity and access management
 
@@ -153,6 +155,17 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
     
     - **Recommended action** - If you still require XACML functionality, you can integrate the [XACML connector](https://store.wso2.com/connector/identity-application-authz-xacml){: target="_blank"} into {{product_name}}. Learn more about it in the [documentation](https://github.com/wso2-extensions/identity-application-authz-xacml/blob/master/README.md){: target="_blank"}.
          
+- **loginContext API** -  The loginContext API, previously used to check for valid sessions, has been deprecated in WSO2 Identity Server 7.1.
+
+    - **Recommended action** - To check for an active session, use the `/api/identity/auth/v1.1/data/` API instead.
+
+- **LDAP-based multi-attribute login** - WSO2 Identity Server 7.1 has deprecated the LDAP-based multi-attribute login feature.
+
+    - **Recommedned action** - If you need to enable multi-attribute login, follow instructions in [multi-attribute login]({{base_path}}/guides/authentication/multi-attribute-login/) to set it up with {{product_name}} 7.1.0.
+
+
+
+
 
 ## Fixed issues
 
