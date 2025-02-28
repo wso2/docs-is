@@ -345,7 +345,7 @@ To add the custom attribute, follow the steps in [add custom attributes]({{base_
 
 ![add-user-certificate-attribute]({{base_path}}/assets/img/guides/authentication/mfa/add-user-certificate-attribute.png){: width="600" style="display: block; border: 0.3px solid lightgrey;"}
 
-This will also generate the **OpenID Connect** and **SCIM 2.0** protocol mappings. If you store the certificate as a user attribute, you must adjust the column size of the VALUE column in the UM_USER_ATTRIBUTES table to accommodate the certificate data.
+This will also generate the **OpenID Connect** and **SCIM 2.0** protocol mappings. If you store the certificate as a user attribute, you must adjust the column size of the `VALUE` column in the `UM_USER_ATTRIBUTES` table to accommodate the certificate data.
 
 ## Step 7: Import certificate to browser
 
