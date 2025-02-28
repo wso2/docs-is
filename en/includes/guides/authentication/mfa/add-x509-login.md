@@ -349,7 +349,7 @@ This will also generate the **OpenID Connect** and **SCIM 2.0** protocol mapping
 
 ## Step 7: Import certificate to browser
 
-To use the certificate for authentication, import it into your browser's certificate store:
+To use the X.509 certificate for authentication, you must first import it into your browser's certificate store. To do so:
 
 1. Open your browser's settings and navigate to the certificate management section.
 
