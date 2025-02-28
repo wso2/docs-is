@@ -6,7 +6,7 @@ This document explains the steps to configure WSO2 Identity Server to send notif
 
 2. Idle user accounts
 
-The WSO2 Identity Server 7.0.0 provides API support to fetch the user IDs for individuals falling under these categories. By configuring an external scheduler task, you can retrieve the list of users and send notifications through the preferred channel.
+The WSO2 Identity Server provides API support to fetch the user IDs for individuals falling under these categories. By configuring an external scheduler task, you can retrieve the list of users and send notifications through the preferred channel.
 
 This tutorial illustrates how to send email notifications daily for users whose passwords will expire in 3 days with the [Azure Function App](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python){:target="_blank"}.
 
