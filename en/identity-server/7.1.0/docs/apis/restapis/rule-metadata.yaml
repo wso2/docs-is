@@ -1,0 +1,366 @@
+openapi: 3.0.1
+info:
+  title: WSO2 Identity Server Rule Metadata REST API
+  description: "The Rule Metadata API provides the essential metadata required to configure rules dynamically based on the flow context. \nThe metadata retrieved by this API is designed to support rule configuration in the user interface (UI) by delivering information about each configurable field, the set of applicable comparison operators (e.g., equals, contains) for each field, and lists of possible values or options for fields.\n"
+  contact:
+    name: WSO2
+    url: https://wso2.com/identity-and-access-management/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1
+servers:
+- url: "https://{server-url}/t/{tenant-domain}/api/server/v1"
+  variables:
+    tenant-domain:
+      default: carbon.super
+    server-url:
+      default: localhost:9443
+security:
+- OAuth2: []
+- BasicAuth: []
+paths:
+  /rules/metadata:
+    get:
+      tags:
+      - Metadata
+      summary: Get metadata for rule configuration.
+      description: |+
+        This API provides a list of fields, associated metadata, and applicable operators for each field based on the specified flow type. This information is used to populate the UI for rule configuration.
+
+         <b>Scope (Permission) required:</b> ``internal_rule_metadata_view``
+
+      operationId: getExpressionMeta
+      parameters:
+      - name: flow
+        in: query
+        description: |
+          Specifies the flow to retrieve rule metadata. This ensures that the metadata returned is relevant to the given flow.
+
+          Note: At present, only the 'preIssueAccessToken' and 'preUpdatePassword' flows are supported.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          enum:
+          - preIssueAccessToken
+          - preUpdatePassword
+          - preProfileUpdate
+          - preLogin
+          - postLogin
+          - inLogin
+          - preRegistration
+          - inRegistration
+          - inPasswordExpiry
+      responses:
+        "200":
+          description: Applicable fields and operators
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExpressionMeta'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre-issue access token flow
+                  value:
+                  - field:
+                      name: application
+                      displayName: application
+                    operators:
+                    - name: equals
+                      displayName: equals
+                    - name: notEquals
+                      displayName: not equals
+                    value:
+                      inputType: options
+                      valueType: reference
+                      valueReferenceAttribute: id
+                      valueDisplayAttribute: name
+                      links:
+                      - href: /applications?offset=0&limit=10
+                        method: GET
+                        rel: values
+                      - href: /applications?filter=name+eq+*&limit=10
+                        method: GET
+                        rel: filter
+                  - field:
+                      name: grantType
+                      displayName: grant type
+                    operators:
+                    - name: equals
+                      displayName: equals
+                    - name: notEquals
+                      displayName: not equals
+                    value:
+                      inputType: options
+                      valueType: string
+                      values:
+                      - name: authorization_code
+                        displayName: authorization code
+                      - name: password
+                        displayName: password
+                      - name: refresh_token
+                        displayName: refresh token
+                      - name: client_credentials
+                        displayName: client credentials
+                      - name: urn:ietf:params:oauth:grant-type:token-exchange
+                        displayName: token exchange
+                preUpdatePassword:
+                  summary: Sample response for pre-update password flow
+                  value:
+                  - field:
+                      name: flow
+                      displayName: flow
+                    operators:
+                    - name: equals
+                      displayName: equals
+                    - name: notEquals
+                      displayName: not equals
+                    value:
+                      inputType: options
+                      valueType: string
+                      values:
+                      - name: adminInitiatedPasswordReset
+                        displayName: Admin initiated password reset
+                      - name: adminInitiatedPasswordUpdate
+                        displayName: Admin initiated password update
+                      - name: adminInitiatedUserInviteToSetPassword
+                        displayName: Admin initiated user invite to set password
+                      - name: applicationInitiatedPasswordUpdate
+                        displayName: Application initiated password update
+                      - name: userInitiatedPasswordReset
+                        displayName: User initiated password reset
+                      - name: userInitiatedPasswordUpdate
+                        displayName: User initiated password update                        
+                inLogin:
+                  summary: Sample response for login flow
+                  value:
+                  - field:
+                      name: role
+                      displayName: user.role
+                    operators:
+                    - name: equals
+                      displayName: equals
+                    - name: notEquals
+                      displayName: not equals
+                    value:
+                      inputType: options
+                      valueType: reference
+                      valueReferenceAttribute: id
+                      valueDisplayAttribute: name
+                      links:
+                      - href: /scim2/Roles?offset=0&limit=10
+                        method: GET
+                        rel: values
+                      - href: /scim2/Roles?filter=name+eq+*&limit=10
+                        method: GET
+                        rel: filter
+                  - field:
+                      name: group
+                      displayName: user.group
+                    operators:
+                    - name: equals
+                      displayName: equals
+                    - name: notEquals
+                      displayName: not equals
+                    value:
+                      inputType: options
+                      valueType: reference
+                      valueReferenceAttribute: id
+                      valueDisplayAttribute: name
+                      links:
+                      - href: /scim2/Groups?offset=0&limit=10
+                        method: GET
+                        rel: values
+                      - href: /scim2/Groups?filter=name+eq+*&limit=10
+                        method: GET
+                        rel: filter
+                  - field:
+                      name: email
+                      displayName: user.email
+                    operators:
+                    - name: equals
+                      displayName: equals
+                    - name: notEquals
+                      displayName: not equals
+                    - name: startsWith
+                      displayName: starts with
+                    - name: endsWith
+                      displayName: ends with
+                    - name: contains
+                      displayName: contains
+                    value:
+                      inputType: input
+                      valueType: string
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+      - lang: Curl
+        source: |
+          curl --location 'https://localhost:9443/api/server/v1/rules/metadata?flow=preIssueAccessToken' \
+            --header 'Authorization: Basic YWRtaW46YWRtaW4='
+components:
+  schemas:
+    ExpressionMeta:
+      type: array
+      description: Represents the metadata for rule expressions. It includes field definitions and associated operators.
+      items:
+        $ref: '#/components/schemas/FieldDefinition'
+    FieldDefinition:
+      type: object
+      properties:
+        field:
+          $ref: '#/components/schemas/Field'
+        operators:
+          type: array
+          description: |
+            Specifies the list of valid operators that can be applied to this field in rule expressions. Each operator defines a comparison or matching condition (e.g., \"equals\", \"contains\", \"greaterThan\") that determines how the field's value will be evaluated within a rule.
+          items:
+            $ref: '#/components/schemas/Operator'
+        value:
+          $ref: '#/components/schemas/Value'
+    Field:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the field. This is an immutable attribute and uniquely identifies the field allowed in the rule.
+          example: role
+        displayName:
+          type: string
+          description: Display name of the field. Use as a user friendly label of the field to show in UI.
+          example: user.role
+        dependantFields:
+          type: array
+          description: Lists the names of fields on which this field depends for its display or selection in the next expression.
+          example: []
+          items:
+            type: string
+    Value:
+      type: object
+      properties:
+        inputType:
+          type: string
+          description: |
+            Defines how the field should be presented and populated in the rule configuration UI. This property indicates whether the field allows direct user input or if the values are selected from predefined options. Possible types include:
+
+              - "input": Allows for direct user entry, such as text or numeric input.
+              - "options": Provides a list of selectable values, often fetched from an external data source, enabling users to pick from predefined choices.
+          enum:
+          - input
+          - options
+        valueType:
+          type: string
+          description: |
+            Specifies the expected data type for the field’s value within a rule expression. This property defines how the field's value should be interpreted when used in rule conditions. Possible types include:
+              - "string": Text value.
+              - "number": Numerical value.
+              - "boolean": True or false.
+              - "date": Date value.
+              - "reference": A reference to an external identifier, often used with options-type fields to indicate that the value is an ID or a unique attribute from related data."
+          enum:
+          - string
+          - number
+          - boolean
+          - date
+          - reference
+        valueReferenceAttribute:
+          type: string
+          description: "The key attribute in the options data (e.g., 'id') used to represent the option's selected value in rule expressions. Only available when 'valueType' is 'reference'."
+          example: id
+        valueDisplayAttribute:
+          type: string
+          description: "The attribute to show as the label for each option in the dropdown (e.g., 'name') when listing options. Only available when 'valueType' is 'reference'."
+          example: name
+        links:
+          type: array
+          description: Endpoints to retrieve or search for options dynamically. Included only when 'valueType' is 'reference'.
+          example:
+          - href: /scim2/roles?offset=0&limit=10
+            method: GET
+            rel: values
+          - href: /scim2/roles/.search
+            method: GET
+            rel: filter
+          items:
+            $ref: '#/components/schemas/Link'
+        values:
+          type: array
+          description: "List of selectable values for options fields when 'valueType' is 'string', 'number', 'boolean', or 'date'."
+          items:
+            $ref: '#/components/schemas/ValueObject'
+    Operator:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the operator. The immutable identifier of the operator referenced within the rule expression.
+        displayName:
+          type: string
+          description: Display name of the operator. Use as a user friendly label of the operator to show in UI.
+    ValueObject:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name that uniquely identifies the option.
+        displayName:
+          type: string
+          description: The display name for the option.
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Url of the endpoint.
+        method:
+          type: string
+          description: Http method.
+          enum:
+          - GET
+        rel:
+          type: string
+          description: Indicates the endpoint’s relation to retrieving or filtering field values.
+          enum:
+          - values
+          - filter
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+          example: RMS-00000
+        message:
+          type: string
+          description: Error message.
+          example: Some error message.
+        description:
+          type: string
+          description: Detailed error description.
+          example: Some error description.
+        traceId:
+          type: string
+          description: Trace identifier to refer at troubleshooting logs to troubleshoot the problem.
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes:
+            read: internal_rule_metadata_view

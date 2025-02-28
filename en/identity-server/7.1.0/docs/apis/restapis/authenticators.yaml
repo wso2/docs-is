@@ -1,0 +1,342 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: 'Authenticators API'
+  description: 'This document specifies a **Authenticators RESTful API** for **WSO2 Identity Server**'
+
+servers:
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /authenticators:
+    get:
+      tags:
+        - Authenticators
+      summary: List all authenticators in the server
+      description: |
+        List all authenticators in the server.
+        
+        <b>Scope(Permission) required:</b> `internal_authenticator_view`
+      parameters:
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authenticators'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/authenticators' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /authenticators/{authenticator-id}/connected-apps:
+    get:
+      tags:
+        - Connected apps of local authenticators
+      summary: Get connected apps by authenticator ID
+      operationId: getConnectedAppsOfLocalAuthenticator
+      description: |
+        By passing in the appropriate authenticator ID, you can retrieve connected app details.
+        
+        <b>Scope(Permission) required:</b> `internal_authenticator_view`
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - name: authenticator-id
+          in: path
+          description: ID of an authenticator
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectedApps'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/authenticators/{authenticator-id}/connected-apps' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /authenticators/meta/tags:
+    get:
+      tags:
+        - Authenticators
+      summary: List all authenticator tags
+      description: |
+        List all authenticator tags.
+        
+        <b>Scope(Permission) required:</b> `internal_authenticator_view`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tags'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/authenticators/meta/tags' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+
+components:
+  parameters:
+    filterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description: |
+        Condition to filter the retrieval of records.
+        Only supports filtering based on the 'tag' and 'name' attribute.
+        For local authenticators and request path authenticators, the 'displayName' is considered as the 'name' attribute during filtering.
+        The 'name' attribute only supports 'eq' and 'sw operations. Filtering with multiple 'name' attributes is not supported.
+        The 'tag' attribute only supports 'eq' operation. Filtering with multiple 'tag' attributes is supported with only 'or' as the complex query operation.
+        E.g. /configs/authenticators?filter=name+sw+fi+and+(tag+eq+2FA+or+tag+eq+MFA)
+
+      schema:
+        type: string
+    limitQueryParam:
+      in: query
+      name: limit
+      description: >
+        Maximum number of records to return. _<b>This option is not yet
+        supported.<b>_
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    offsetQueryParam:
+      in: query
+      name: offset
+      description: >
+        Number of records to skip for pagination. _<b>This option is not yet
+        supported.<b>_
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: AUT-00000
+          description: An error code.
+        message:
+          type: string
+          example: Some Error Message
+          description: An error message.
+        description:
+          type: string
+          example: Some Error Description
+          description: An error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+          description: An error trace identifier.
+    Tags:
+      type: array
+      description: The list of tags available for authenticators.
+      items:
+        type: string
+      example: [2FA, MFA]
+    Authenticators:
+      type: array
+      items:
+        $ref: '#/components/schemas/Authenticator'
+    Authenticator:
+      type: object
+      properties:
+        id:
+          type: string
+          example: QmFzaWNBdXRoZW50aWNhdG9y
+        name:
+          type: string
+          example: BasicAuthenticator
+        displayName:
+          type: string
+          example: basic
+        isEnabled:
+          type: boolean
+          example: true
+        type:
+          type: string
+          enum:
+            - LOCAL
+            - FEDERATED
+        image:
+          type: string
+          example: basic-authenticator-logo-url
+        description:
+          type: string
+          example: The basic authenticator.
+        tags:
+          type: array
+          items:
+            type: string
+          example: [2FA, MFA]
+        self:
+          type: string
+          example: /t/carbon.super/api/server/v1/configs/authenticators/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+    ConnectedApps:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          example: 10
+        startIndex:
+          type: integer
+          example: 1
+        count:
+          type: integer
+          example: 10
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            [
+              {
+                "href": "authenticator/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=50&limit=10",
+                "rel": "next"
+              },  {
+              "href": "authenticator/provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=30&limit=10",
+              "rel": "previous"
+            }
+            ]
+        connectedApps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectedApp'
+    ConnectedApp:
+      type: object
+      properties:
+        appId:
+          type: string
+          example: app-id
+        self:
+          type: string
+          example: /t/org/api/server/v1/applications/c74d74b2-cb62-4abd-ad66-6c45daeb561c
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Path to the target resource.
+          example: >-
+            '/t/carbon.super/api/server/v1/authenticators/394b8adcce24c64a8a09a8d80abf8c337bd253de'
+        rel:
+          type: string
+          description: Describes how the current context is related to the target resource.
+          example: authenticators
+      readOnly: true
+  #-----------------------------------------------------
+  # Descriptions of Authenticators API responses.
+  #-----------------------------------------------------
+  responses:
+    BadRequest:
+      description: Invalid input in the request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Requested resource is not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication information is missing or invalid.
+    Forbidden:
+      description: Access forbidden.
+    ServerError:
+      description: Internal server error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+  #-----------------------------------------------------
+  # Applicable authentication mechanisms.
+  #-----------------------------------------------------
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}

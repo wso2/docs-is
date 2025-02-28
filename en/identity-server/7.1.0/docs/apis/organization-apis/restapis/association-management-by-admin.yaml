@@ -1,0 +1,425 @@
+openapi: 3.0.1
+info:
+  title: User Account Association API
+  description: |
+    This document specifies a **User Account Association Management RESTful API** for **WSO2 Identity Server**.
+    The APIs provide the capability for privileged users to retrieve/delete associated local/federated accounts of other users.
+  version: v1
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/o/api/users/v1
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+tags:
+  - name: admin
+    description: |
+      Operations available for privileged users, to be invoked on behalf of another user.
+paths:
+  /{user-id}/associations:
+    get:
+      tags:
+        - admin
+      summary: Get user's associations
+      description: |
+        This API is used to retrieve the associations of the user.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_user_association_view`
+      parameters:
+        - name: user-id
+          in: path
+          description: user id
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized request
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/associations' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer <token>'
+    delete:
+      tags:
+        - admin
+      summary: Delete user's all user associations
+      description: |
+        This API is used to delete all associations of the user.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_user_association_delete`
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized request
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/associations' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer <token>'
+  /{user-id}/federated-associations:
+    get:
+      tags:
+        - admin
+      summary: Get user's federated associations
+      description: |
+        This API is used to retrieve the federated associations of the user.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_user_association_view`
+      parameters:
+        - name: user-id
+          in: path
+          description: user id
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FederatedAssociation'
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized request
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/federated-associations' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer <token>'
+    post:
+      tags:
+        - admin
+      summary: Create federated user association
+      description: |
+        This API allows administrators to explicitly associate a local user with a federated identity. <br>
+          <b>Scope(Permission) required:</b> `internal_org_user_association_create`
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          description: user id
+          type: string
+        - name: association
+          in: body
+          description: User details to be associated.
+          required: true
+          schema:
+            $ref: '#/definitions/FederatedAssociationRequest'
+      responses:
+        201:
+          description: Successfully created
+          schema:
+            $ref: '#/definitions/FederatedAssociation'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        403:
+          description: Resource Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/federated-associations' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer <token>' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "idp": "exampleIdP",
+              "federatedUserId": "john@example.com"
+            }'
+    delete:
+      tags:
+        - admin
+      summary: Delete user's all user-federated associations
+      description: |
+        This API is used to delete all federated associations of the user.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_user_association_delete`
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized request
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/{user-id}/federated-associations' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer <token>'
+  /{user-id}/federated-associations/{id}:
+    delete:
+      tags:
+        - admin
+      summary: Delete the user's federated association
+      description: |
+        This API is used to delete a federated association of the user.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_user_association_delete`
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: No content
+          content: {}
+        401:
+          description: Unauthorized request
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/<tenant_domain>/o/api/users/v1/user-id/federated-associations/federated-association-id' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer <token>'
+components:
+  schemas:
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: some_error_code
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: Some Correlation for Error Instance
+    User:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: 23e22434234234329jj9iin
+        username:
+          type: string
+          example: john
+        userStoreDomain:
+          type: string
+          example: PRIMARY
+        tenantDomain:
+          type: string
+          example: carbon.super
+        firstName:
+          type: string
+          example: john
+        lastName:
+          type: string
+          example: doe
+        email:
+          type: string
+          example: john.doe@wso2.com
+    FederatedAssociation:
+      type: object
+      properties:
+        id:
+          type: string
+          example: eeqweisfhkdfik
+        idp:
+          $ref: '#/components/schemas/Idp'
+        federatedUserId:
+          type: string
+          example: john@google.com
+    Idp:
+      type: object
+      properties:
+        id:
+          type: string
+          example: eeqweisfhkdfikaefcqwesfceqwqas
+        name:
+          type: string
+          example: google.com
+        displayName:
+          type: string
+          example: Google
+        imageUrl:
+          type: string
+          example: https://is.example.com/sample.jpg
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+          example: test-key
+        value:
+          type: string
+          example: test-value
+    AssociationUserRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: john
+        password:
+          type: string
+          example: userpassword
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    FederatedAssociationRequest:
+      type: object
+      properties:
+        idp:
+          type: string
+          example: exampleIdP
+          description: Name of the IdP
+        federatedUserId:
+          type: string
+          example: john@example.com
+          description: User identifier in the federated IdP
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}
