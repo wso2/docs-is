@@ -62,33 +62,29 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
     
     Learn more about [User Impersonation]({{base_path}}/guides/authorization/user-impersonation/).
 
----
+- **Enhanced security and cryptographic capabilities**
 
-### Enhanced security and cryptographic capabilities
+    - **Post-Quantum TLS Support** 
 
-- **Post-Quantum TLS Support** 
+        WSO2 Identity Server now supports the X25519MLKEM768 hybrid key exchange mechanism, enhancing TLS (Transport Layer Security) security against quantum computing threats.
 
-    WSO2 Identity Server now supports the X25519MLKEM768 hybrid key exchange mechanism, enhancing TLS (Transport Layer Security) security against quantum computing threats.
+        This feature integrates X25519MLKEM768, a hybrid key exchange algorithm that combines the classical X25519 elliptic curve key exchange with ML-KEM-768 (Kyber-768), a post-quantum cryptographic algorithm. By supporting this mechanism, WSO2 Identity Server can establish secure TLS connections with clients that implement X25519MLKEM768, ensuring resilience against both classical and quantum-based attacks.
 
-    This feature integrates X25519MLKEM768, a hybrid key exchange algorithm that combines the classical X25519 elliptic curve key exchange with ML-KEM-768 (Kyber-768), a post-quantum cryptographic algorithm. By supporting this mechanism, WSO2 Identity Server can establish secure TLS connections with clients that implement X25519MLKEM768, ensuring resilience against both classical and quantum-based attacks.
+        Learn more about [configuring post-quantum TLS]({{base_path}}/deploy/security/configure-post-quantum-tls/).
 
-    Learn more about [configuring post-quantum TLS]({{base_path}}/deploy/security/configure-post-quantum-tls/).
+    - **AES-256 Support for Data Encryption**
 
-- **AES-256 Support for Data Encryption**
-
-    WSO2 Identity Server now supports AES-128, AES-192, and AES-256 encryption algorithms for internal data encryption. This enhancement provides greater flexibility in selecting encryption strength based on security and compliance requirements. 
+        WSO2 Identity Server now supports AES-128, AES-192, and AES-256 encryption algorithms for internal data encryption. This enhancement provides greater flexibility in selecting encryption strength based on security and compliance requirements. 
     
-    Learn more in [symmetric encryption]({{base_path}}/deploy/security/symmetric-encryption/).
+        Learn more in [symmetric encryption]({{base_path}}/deploy/security/symmetric-encryption/).
 
-- **AES Encryption & Key Rotation Support for Cipher Tool** 
+    - **AES Encryption & Key Rotation Support for Cipher Tool** 
 
-    WSO2 Identity Server now supports AES-based symmetric encryption in Secure Vault, complementing the existing keystore-based asymmetric encryption. Encryption is performed using an AES secret stored in the internal keystore, enhancing security and flexibility.
+        WSO2 Identity Server now supports AES-based symmetric encryption in Secure Vault, complementing the existing keystore-based asymmetric encryption. Encryption is performed using an AES secret stored in the internal keystore, enhancing security and flexibility.
     
-    Additionally, Cipher Tool now supports key rotation, enabling seamless transitions between symmetric and asymmetric encryption or updating keys within the same encryption mode.
+        Additionally, Cipher Tool now supports key rotation, enabling seamless transitions between symmetric and asymmetric encryption or updating keys within the same encryption mode.
     
-    Learn more about [encrypting passwords with the Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool/).
-
----
+        Learn more about [encrypting passwords with the Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool/).
 
 - **OAuth 2.0 Rich Authorization Requests**
 
@@ -126,60 +122,57 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
     
     Learn more about [secrets]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script).
 
----
 
-### Enhanced organization management capabilities
+- **Enhanced organization management capabilities**
 
-- **B2B Organization Filtering & Discovery Improvements**
+    - **B2B Organization Filtering & Discovery Improvements**
 
-    Supports organization filtering using meta attributes, expanding beyond standard filters like name, ID, and parent organization. This enhancement enables more precise and flexible organization searches, improving management and discovery across complex organizational structures.
+        Supports organization filtering using meta attributes, expanding beyond standard filters like name, ID, and parent organization. This enhancement enables more precise and flexible organization searches, improving management and discovery across complex organizational structures.
     
-    Learn more about [searching for organizations]({{base_path}}/guides/organization-management/manage-organizations/#search-an-organization).
+        Learn more about [searching for organizations]({{base_path}}/guides/organization-management/manage-organizations/#search-an-organization).
 
 
-- **Multiple Secondary User Store Configuration for Child Organizations**
+    - **Multiple Secondary User Store Configuration for Child Organizations**
 
-    Extends support for configuring secondary user stores to child organizations, in addition to the previously supported root organizations. With this enhancement, each organization in a hierarchical structure can have its own dedicated user store, enabling independent management of users and groups.
+        Extends support for configuring secondary user stores to child organizations, in addition to the previously supported root organizations. With this enhancement, each organization in a hierarchical structure can have its own dedicated user store, enabling independent management of users and groups.
     
-    Learn more about it in [onboarding users]({{base_path}}/guides/organization-management/onboard-users/#onboard-users-from-a-secondary-user-store) documentation.
+        Learn more about it in [onboarding users]({{base_path}}/guides/organization-management/onboard-users/#onboard-users-from-a-secondary-user-store) documentation.
 
-- **Create OAuth 2.0 Applications directly within Organizations**
+    - **Create OAuth 2.0 Applications directly within Organizations**
 
-    Supports creating OAuth2 applications directly within organizations using the application management API. To complement this, role management capability is also extended to organizations. Additionally, API resources registered at the root organization level are now inherited by organizations.
+        Supports creating OAuth2 applications directly within organizations using the application management API. To complement this, role management capability is also extended to organizations. Additionally, API resources registered at the root organization level are now inherited by organizations.
     
-    Learn more about [creating applications in organizations]({{base_path}}/guides/organization-management/organization-applications/).
+        Learn more about [creating applications in organizations]({{base_path}}/guides/organization-management/organization-applications/).
 
-- **Email Domain-Based Organization Discovery for Self-Registration**
+    - **Email Domain-Based Organization Discovery for Self-Registration**
 
-    Supports email domain-based organization discovery for self-registration. When enabled, users can enter an email address with a domain associated with a specific organization. The system then automatically identifies the corresponding organization, allowing users to seamlessly self-register within it.
+        Supports email domain-based organization discovery for self-registration. When enabled, users can enter an email address with a domain associated with a specific organization. The system then automatically identifies the corresponding organization, allowing users to seamlessly self-register within it.
     
-    Learn more about [email domain based organization discovery]({{base_path}}/guides/organization-management/email-domain-based-organization-discovery/).
+        Learn more about [email domain based organization discovery]({{base_path}}/guides/organization-management/email-domain-based-organization-discovery/).
 
-- **Support for `login_hint` Parameter in Organization Discovery**
+    - **Support for `login_hint` Parameter in Organization Discovery**
     
-    Supports using the `login_hint` query parameter as an organization discovery hint in B2B scenarios. When a user’s email is provided in the `login_hint`, the system can automatically route them to their organization’s login page, streamlining authentication.
+        Supports using the `login_hint` query parameter as an organization discovery hint in B2B scenarios. When a user’s email is provided in the `login_hint`, the system can automatically route them to their organization’s login page, streamlining authentication.
     
-    Learn more about it in [email-domain based organization discovery]({{base_path}}/guides/organization-management/email-domain-based-organization-discovery/).
+        Learn more about it in [email-domain based organization discovery]({{base_path}}/guides/organization-management/email-domain-based-organization-discovery/).
 
-- **Email and SMS Template Inheritance with Override Capability for Child Organizations**
+    - **Email and SMS Template Inheritance with Override Capability for Child Organizations**
 
-    Introduces enhanced functionality for managing email and SMS templates across organizations. This feature enables child organizations to inherit email and SMS templates from a parent or ancestor organization while allowing them to override specific content as needed. This ensures that child organizations can maintain unique communication while preserving a consistent base template defined at the parent level.
+        Introduces enhanced functionality for managing email and SMS templates across organizations. This feature enables child organizations to inherit email and SMS templates from a parent or ancestor organization while allowing them to override specific content as needed. This ensures that child organizations can maintain unique communication while preserving a consistent base template defined at the parent level.
     
-    Learn more about it in [email branding]({{base_path}}/guides/branding/customize-email-templates/) and [SMS branding]({{base_path}}/guides/branding/customize-sms-templates/).
+        Learn more about it in [email branding]({{base_path}}/guides/branding/customize-email-templates/) and [SMS branding]({{base_path}}/guides/branding/customize-sms-templates/).
 
-- **Update and Resolve Shared User Profiles Across Organization Hierarchies**
+    - **Update and Resolve Shared User Profiles Across Organization Hierarchies**
     
-    Improves the management of shared user profiles across multiple organizations. Previously, shared users had a single profile that couldn't be customized per organization. Now, administrators can update and resolve shared user profile attributes based on the organization hierarchy, providing greater flexibility and control over user data at different organizational levels.
+        Improves the management of shared user profiles across multiple organizations. Previously, shared users had a single profile that couldn't be customized per organization. Now, administrators can update and resolve shared user profile attributes based on the organization hierarchy, providing greater flexibility and control over user data at different organizational levels.
 
-    Learn more about [shared user profiles]({{base_path}}/guides/organization-management/share-user-profiles/).
+        Learn more about [shared user profiles]({{base_path}}/guides/organization-management/share-user-profiles/).
 
-- **Share Users Across Organization Hierarchy with Role Assignment**
+    - **Share Users Across Organization Hierarchy with Role Assignment**
 
-    Introduces the ability to share users across an organization hierarchy with role assignment. This feature allows administrators to share user profiles from a parent organization to child organizations while assigning specific roles during the process. Multiple sharing policies are now supported, providing greater flexibility. Administrators can choose to share users with all existing and future child organizations or selectively share users with specific organizations as needed. This enhancement simplifies user management by enabling centralized control over user roles and access across the organization hierarchy, improving both efficiency and security.
+        Introduces the ability to share users across an organization hierarchy with role assignment. This feature allows administrators to share user profiles from a parent organization to child organizations while assigning specific roles during the process. Multiple sharing policies are now supported, providing greater flexibility. Administrators can choose to share users with all existing and future child organizations or selectively share users with specific organizations as needed. This enhancement simplifies user management by enabling centralized control over user roles and access across the organization hierarchy, improving both efficiency and security.
     
-    Learn more about the [User Sharing API]({{base_path}}/apis/organization-user-share-rest-api/).
-
----
+        Learn more about the [User Sharing API]({{base_path}}/apis/organization-user-share-rest-api/).
 
 - **Application-specific branding**
     
@@ -210,23 +203,19 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
     Learn more about [configuring unique attributes]({{base_path}}/guides/users/attributes/configure-unique-attributes/).
 
----
+- **Username recovery enhancements**
 
-### Username recovery enhancements
+    - **Username recovery support for SMS channel**
 
-- **Username recovery support for SMS channel**
-
-    Extends username recovery support to the SMS channel, in addition to the previously supported email-based recovery. Administrators can now enable or disable recovery channels based on organizational preferences and offer users a choice between SMS and email for username recovery.
+        Extends username recovery support to the SMS channel, in addition to the previously supported email-based recovery. Administrators can now enable or disable recovery channels based on organizational preferences and offer users a choice between SMS and email for username recovery.
     
-    Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
+        Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
 
-- **Username Recovery When Email Address Is Not Unique**
+    - **Username Recovery When Email Address Is Not Unique**
 
-    Supports username recovery even when the provided email address is associated with multiple user accounts. Previously, username recovery was only possible when the provided attributes uniquely identified a user. With this enhancement, users with non-unique email addresses can still recover their usernames. Administrators can enable or disable this behavior based on organizational requirements.
+        Supports username recovery even when the provided email address is associated with multiple user accounts. Previously, username recovery was only possible when the provided attributes uniquely identified a user. With this enhancement, users with non-unique email addresses can still recover their usernames. Administrators can enable or disable this behavior based on organizational requirements.
     
-    Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
-
----
+        Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
 
 - **On-Demand Silent Password Migration**
 
