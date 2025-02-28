@@ -314,45 +314,48 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
     With WSO2 Identity Server 7.1, the Carbon Registry, previously used as a data repository, has been deprecated. Registry dependencies have been removed from the WSO2 Identity Server, and the registry core is planned for removal in a future release, streamlining the system and reducing legacy components.
 
-## Deprecated connectors
+## Deprecated and retired connectors
 
-- Github
+??? note "Deprecated connectors"
 
-## Retired connectos
+    - Github
 
-- JWT SSO Inbound Authenticator
-- Nuxeo
-- SAML Authenticator
-- SCIM 2.0 Inbound Provisioning Connector
-- Mobile Connect
-- Pinterest Authenticator
-- FIDO Authenticator
-- X509
-- SCIM Provisioning Connector
-- Salesforce Provisioning Connector
-- SPML Provisioning Connector
-- Google Provisioning Connector
-- Inwebo
-- RSA
-- Passive-STS Federated Authenticator
-- OpenID Connect Authenticator
-- Yahoo Authenticator
-- Google Authenticator
-- Facebook Authenticator
-- JWT
-- Token2
-- Basecamp
-- Foursquare
-- Twitter
-- MailChimp
-- Office365
-- MePIN
-- Dropbox
-- Yammer
-- EmailOTP
-- Bitly
-- SMSOTP
-- TOTP
+
+??? note "Retired connectors"
+
+    - JWT SSO Inbound Authenticator
+    - Nuxeo
+    - SAML Authenticator
+    - SCIM 2.0 Inbound Provisioning Connector
+    - Mobile Connect
+    - Pinterest Authenticator
+    - FIDO Authenticator
+    - X509
+    - SCIM Provisioning Connector
+    - Salesforce Provisioning Connector
+    - SPML Provisioning Connector
+    - Google Provisioning Connector
+    - Inwebo
+    - RSA
+    - Passive-STS Federated Authenticator
+    - OpenID Connect Authenticator
+    - Yahoo Authenticator
+    - Google Authenticator
+    - Facebook Authenticator
+    - JWT
+    - Token2
+    - Basecamp
+    - Foursquare
+    - Twitter
+    - MailChimp
+    - Office365
+    - MePIN
+    - Dropbox
+    - Yammer
+    - EmailOTP
+    - Bitly
+    - SMSOTP
+    - TOTP
 
 ## Fixed issues
 
