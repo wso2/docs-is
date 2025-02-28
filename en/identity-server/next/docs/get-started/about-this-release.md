@@ -12,7 +12,7 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
     This feature enhances security by reducing reliance on passwords and SMS-based OTPs, which are vulnerable to phishing and interception. Organizations can seamlessly integrate push authentication into existing authentication flows, improving user experience while strengthening protection against unauthorized access.
 
-    Learn more about [Push Notification-Based Authentication]({{base_path}}/guides/authentication/mfa/add-push-auth-login/).
+    Learn more about [push notification-based authentication]({{base_path}}/guides/authentication/mfa/add-push-auth-login/).
 
 - **AI-powered development**
 
@@ -60,7 +60,7 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
     Administrators can enable user impersonation within the same organization to streamline issue resolution and enhance support processes.
     
-    Learn more about [User Impersonation]({{base_path}}/guides/authorization/user-impersonation/).
+    Learn more about [user impersonation]({{base_path}}/guides/authorization/user-impersonation/).
 
 - **Enhanced security and cryptographic capabilities**
 
@@ -251,6 +251,8 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
     
     Introduces a dedicated SMS Template Management UI, allowing administrators to create, customize, and localize SMS notifications to align with their organization's branding and communication needs. This enhancement enables per-tenant customization through the management console or APIs, ensuring a more personalized and engaging user experience.
 
+    Learn more about [customizing SMS templates]({{base_path}}/guides/branding/customize-sms-templates/).
+
 - **Java 21 runtime support**
 
     WSO2 Identity Server 7.1.0 is now compatible with Java 21 runtime compatibility and BouncyCastle keystore integration, enhancing security and performance. Java 21, the latest LTS version, ensures long-term support and stability, while replacing the JDK keystore with BouncyCastle strengthens cryptographic operations. Extensive performance testing confirms improved efficiency with JDK 21 compared to JDK 11, delivering a more optimized runtime environment.
@@ -258,6 +260,8 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 - **Tenant management UI**
     
     The new Tenant Management UI in WSO2 Identity Server 7.1.0 simplifies multi-tenancy administration, providing a more efficient management experience. By default, the server is configured with a single root organization, `carbon.super`. With the necessary permissions, administrators can now create and manage multiple root organizations, maintaining isolated user bases within a single server or cluster. This capability is now accessible through the new Console, simplifying tenant management.
+
+    Learn more about [tenant management]({{base_path}}/guides/multitenancy/manage-tenants/).
 
 - **JWT Access Token Attributes Configuration**
     
@@ -270,10 +274,6 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
     Supports multiple email addresses and phone numbers per user, allowing users to register multiple contact points in their profiles. Users can designate a primary email and phone number, which will be used for notifications and OTPs. If verification is enabled, only verified contact details can be set as primary, ensuring security and reliability in communication.
     
     Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
-
-- **PKCE Support in OIDC Federated Login**
-
-    Enhances security in the OIDC federated login flow by introducing Proof Key for Code Exchange (PKCE). This prevents authorization code interception attacks by securing backchannel communication during authentication.
 
 ## Deprecated features
 
@@ -296,6 +296,13 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
     The loginContext API, previously used to check for valid sessions, has been deprecated in WSO2 Identity Server 7.1.
 
     **Recommended action** - To check for an active session, use the `/api/identity/auth/v1.1/data/` API instead.
+
+- **Email template management API V1 & V2**
+
+    The Email Template Management API, previously used to manage organization and application-level email templates, has been deprecated.
+
+    **Recommended action** - Use the Notification Templates API instead. Learn more about the [notification template management API]({{base_path}}/apis/notification-templates/).
+
 
 - **LDAP-based multi-attribute login**
     
