@@ -155,7 +155,7 @@ In this step, we will generate a client certificate that will be used to authent
     keytool -importcert -alias localcrt -file demoCA/newcerts/01.pem -keystore localcrt.jks -storepass localpwd -noprompt
     ```
 
-6. Use the commands below to convert the `.crt` file into the PKCS12 format, which is used for importing certificates into browsers:
+6. Use the command below to convert the `.crt` file into the PKCS12 format, which is used for importing certificates into browsers:
 
     ``` shell
     keytool -importkeystore -srckeystore localcrt.jks -destkeystore localhost.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass localpwd -deststorepass browserpwd -srcalias localcrt -destalias browserKey -srckeypass localpwd -destkeypass browserpwd -noprompt
