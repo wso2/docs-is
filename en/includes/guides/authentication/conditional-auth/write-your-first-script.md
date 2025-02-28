@@ -2,10 +2,10 @@
 
 Follow this guide to write a conditional authentication script from scratch and to understand its internals.
 
-!!! note "Note"
+!!! note
+    - **ECMAScript Compliance**: Adaptive scripts currently comply with ECMAScript 2022 (ES13). 
     - **Limitations**: Adaptive scripts do not support loops, `Log.warn` logs, or stringifying Java objects using 
     `JSON.stringify()`.
-    - **ECMAScript Compliance**: Adaptive scripts currently comply with ECMAScript 2022 (ES13). 
 
 ## Scenario
 
