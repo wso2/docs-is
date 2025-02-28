@@ -75,10 +75,12 @@ To do so,
 ## Step 2: Create a client certificate
 
 In this step, we will generate a client certificate that will be used to authenticate to {{product_name}}. This involves:
-- Creating a keystore that holds the client’s private key and certificate.
-- Generating a Certificate Signing Request (CSR) to obtain a signed certificate from the CA.
-- Importing the signed certificate and CA certificate into the keystore.
 
+!!! abstract ""
+
+    - Creating a keystore that holds the client’s private key and certificate.
+    - Generating a Certificate Signing Request (CSR) to obtain a signed certificate from the CA.
+    - Importing the signed certificate and CA certificate into the keystore.
 
 1. Generate a keystore that contains the private key and public certificate. The following command creates a new keystore (localcrt.jks) and generates a new RSA key pair with a validity of 10 years (3650 days).
 
@@ -91,14 +93,26 @@ In this step, we will generate a client certificate that will be used to authent
     !!! tip
         For `What is your first and last name?`, provide a name without spaces. 
 
-    This command will create a keystore with the following details: 
+    This command will create a keystore with the following details:
 
-    ``` text
-    Keystore name: localcrt.jks
-    Alias of public certificate: localcrt
-    Keystore password: localpwd
-    Private key password: localpwd (this is required to be the same as keystore password)
-    ```
+    <table>
+        <tr>
+            <td>Keystore name</td>
+            <td>localcrt.jks</td>
+        </tr>
+        <tr>
+            <td>Alias of public certificate</td>
+            <td>localcrt</td>
+        </tr>
+        <tr>
+            <td>Alias of public certificate</td>
+            <td>localpwd</td>
+        </tr>
+        <tr>
+            <td>Private key password</td>
+            <td>localpwd (this is required to be the same as keystore password)</td>
+        </tr>
+    </table>
 
 2. Next, generate a Certificate Signing Request (CSR) using the keystore you just created. The CSR will be submitted to the CA, which will sign it, proving that the certificate is trusted.
 
