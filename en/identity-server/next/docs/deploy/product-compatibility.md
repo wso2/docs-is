@@ -25,6 +25,10 @@ WSO2 Identity Server, being a Java application, is compatible with most operatin
 		<td>Windows Server</td>
 		<td>2024, 2016</td>
 	</tr>
+	<tr>
+		<td>RHEL</td>
+		<td>9.5</td>
+	</tr>
 </table>
 
 ### Tested JDKs
@@ -44,9 +48,11 @@ The {{product_name}} 7.1.0 runtime has been tested with the following JDKs:
 	</tr>
 </table>
 
-!!! note
+!!! note "IWA limitation on ARM64"
 
-	WSO2 Identity Server does not support NTLM-based Integrated Windows Authentication (IWA) when running on an ARM-based JDK. NTLM authentication relies on Windows-specific native libraries (SSPI APIs), which are unavailable on ARM architectures. If you need IWA on an ARM-based deployment, use Kerberos authentication instead of NTLM.
+	WSO2 Identity Server does not support NTLM-based Integrated Windows Authentication (IWA) on ARM-based JDKs. This is because NTLM relies on Windows-specific native libraries (SSPI APIs), which are unavailable on ARM architectures. 
+
+    If you need IWA on an ARM64 deployment, use Kerberos authentication instead of NTLM.
 
 
 ## Tested DBMSs
