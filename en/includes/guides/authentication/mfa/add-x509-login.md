@@ -147,7 +147,7 @@ In this step, we will generate a client certificate that will be used to authent
 
     This creates a signed certificate called `localcrt.crt` that is valid for a specified period that is denoted by the `startdate` and `enddate`.
 
-5. The next step is to import the CA and signed certificate into the keystore using the following commands.
+5. The next step is to import the CA and the signed certificates into the keystore using the following commands.
 
     ```shell
     keytool -importcert -alias rootCA -file rootCA.crt -keystore localcrt.jks -storepass localpwd -noprompt
