@@ -37,7 +37,7 @@ Before installing any WSO2 Identity Server, it is necessary to have the appropri
         <th><p>Operating Systems/ Databases/ Userstores</p></th>
         <td><div class="content-wrapper">
         <ul>
-        <li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 17 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 17.</strong> .</li>
+        <li>WSO2 Identity Server requires JDK compliant with Java 11, Java 17 or Java 21. This will run on most common platforms that <strong>support Java 11, Java 17 or Java 21.</strong> .</li>
         <li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. <!--For more information, see <a href="{{base_path}}/deploy/work-with-databases">Working with Databases</a>-->.</li>
         <li>WSO2 Identity Server supports using any of the following as a user store :
         <ul>
