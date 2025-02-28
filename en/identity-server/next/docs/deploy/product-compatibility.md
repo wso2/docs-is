@@ -44,6 +44,11 @@ The {{product_name}} 7.1.0 runtime has been tested with the following JDKs:
 	</tr>
 </table>
 
+!!! note
+
+	WSO2 Identity Server does not support NTLM-based Integrated Windows Authentication (IWA) when running on an ARM-based JDK. NTLM authentication relies on Windows-specific native libraries (SSPI APIs), which are unavailable on ARM architectures. If you need IWA on an ARM-based deployment, use Kerberos authentication instead of NTLM.
+
+
 ## Tested DBMSs
 
 The {{product_name}} 7.1.0 runtime has been tested with the following database management systems (DBMSs):
