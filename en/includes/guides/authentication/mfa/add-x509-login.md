@@ -355,7 +355,7 @@ To use the X.509 certificate for authentication, you must first import it into y
 
 2. Look for options related to Privacy & Security or Certificates.
 3. Locate the option to Import a certificate.
-4. Select the `localhost.p12` file and follow the prompts. You may be asked to enter the password (browserpwd) used when creating the .p12 file.
+4. Select the `localhost.p12` file and follow the prompts. You may be asked to enter the password (browser password) used when creating the .p12 file.
 5. Once imported, ensure the certificate is recognized and available for authentication.
 
 For specific instructions, refer to your browser’s documentation on managing client certificates.
