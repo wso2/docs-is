@@ -16,14 +16,6 @@ Make sure you have the following before starting this guide.
 
 - A Kubernetes [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/deploy/){:target="_blank"}.
 
-## Add the WSO2 Helm chart repository
-
-Before installing {{product_name}}, add the WSO2 Helm chart repository and update it to fetch the latest charts.
-
-```shell
-helm repo add wso2 https://helm.wso2.com && helm repo update
-```
-
 ## Set up environment variables
 
 Define environment variables for the Kubernetes namespace and Helm release name.
@@ -51,37 +43,44 @@ kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
 There are two ways to install the {{product_name}} Helm chart. The Helm chart source code can be found in the [kubernets-is repository](https://github.com/wso2/kubernetes-is/tree/master){:target=" _blank"}.
 
 ### Option 1: Install the chart from the Helm repository
+1. Add the WSO2 Helm chart repository
 
-Use the following command to install {{product_name}} from the official WSO2 Helm repository:
+    Before installing {{product_name}}, add the WSO2 Helm chart repository and update it to fetch the latest charts.
+
+    ```shell
+    helm repo add wso2 https://helm.wso2.com && helm repo update
+    ```
+
+2. Install the Helm chart from the Helm repository.
 {% if is_version == "7.0.0" %}
-```shell
-helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-2 \
--n "$NAMESPACE" \
---set deployment.image.registry="wso2" \
---set deployment.image.repository="wso2is" \
---set deployment.image.tag="{{is_version}}" \
---set deployment.apparmor.enabled="false"
-```
-{% else %}
-```shell
-helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-1 \
--n "$NAMESPACE" \
---set deployment.image.registry="wso2" \
---set deployment.image.repository="wso2is" \
---set deployment.image.tag="{{is_version}}" \
---set deployment.apparmor.enabled="false"
-```
+    ```shell
+    helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-2 \
+    -n "$NAMESPACE" \
+    --set deployment.image.registry="wso2" \
+    --set deployment.image.repository="wso2is" \
+    --set deployment.image.tag="{{is_version}}" \
+    --set deployment.apparmor.enabled="false"
+    ```
+    {% else %}
+    ```shell
+    helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-1 \
+    -n "$NAMESPACE" \
+    --set deployment.image.registry="wso2" \
+    --set deployment.image.repository="wso2is" \
+    --set deployment.image.tag="{{is_version}}" \
+    --set deployment.apparmor.enabled="false"
+    ```
 {% endif %}
 
-!!! note "Get the latest helm chart version"
-        To find the latest version, you can use the [WSO2 Identity Server Artifact Hub](https://artifacthub.io/packages/helm/wso2/identity-server){: target="_blank"}.
-
-        Set `--version` with the version of WSO2 Identity Server Helm Chart you want to deploy.
-
-{% if is_version == "7.0.0" %}
-!!! note 
-    The steps in this guide are applicable from Helm Chart version `7.0.0-2` onwards.
-{% endif %}
+    !!! note "Get the latest helm chart version"
+            To find the latest version, you can use the [WSO2 Identity Server Artifact Hub](https://artifacthub.io/packages/helm/wso2/identity-server){: target="_blank"}.
+    
+            Set `--version` with the version of WSO2 Identity Server Helm chart you want to deploy.
+    
+    {% if is_version == "7.0.0" %}
+    !!! note 
+        The steps in this guide are applicable from Helm chart version `7.0.0-2` onwards.
+    {% endif %}
 
 ### Option 2: Install the Chart from source
 
@@ -107,13 +106,13 @@ If you prefer to build the chart from the source, follow the steps below:
     --set deployment.apparmor.enabled="false"
     ```
 
-!!! note "Use a custom docker image"
-
-    The below commands use the publicly released [WSO2 Identity Server Docker image](https://hub.docker.com/r/wso2/wso2is). To use a custom docker image, update the registry, repository, and tag accordingly. You can also specify an image digest instead of a tag as shown below:
-
-    ```shell
-    --set deployment.image.digest=<digest> 
-    ```
+    !!! note "Use a custom docker image"
+    
+        The above commands use the publicly released [WSO2 Identity Server Docker image](https://hub.docker.com/r/wso2/wso2is). To use a custom docker image, update the registry, repository, and tag accordingly. You can also specify an image digest instead of a tag as shown below:
+    
+        ```shell
+        --set deployment.image.digest=<digest> 
+        ```
 
 ## (Optional) Configure resource limits
 
