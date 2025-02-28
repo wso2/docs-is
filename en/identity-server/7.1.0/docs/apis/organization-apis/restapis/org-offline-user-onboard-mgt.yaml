@@ -1,0 +1,109 @@
+openapi: 3.0.0
+info:
+  version: v1
+  title:  Offline User Onboard Management API
+  description: >-
+    This document specifies an **Organization level Offline user onboard management RESTFull API** for
+    **WSO2 Identity Server**.
+
+paths:
+  '/offline-invite-link':
+    post:
+      tags:
+        - Temporary Link
+      summary: Generates a random link that can be used to set a new password
+      description: |
+        'Generates a random and secured one time link that can be used to set a new password for a user onboarded to the organization'
+        
+        <b>Scope(Permission) required:</b> `internal_org_offline_invite`
+      operationId: generateLink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvitationRequest'
+        description: This represents the invitation request.
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/users/v1/offline-invite-link' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: text/plain' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+                "username": "johnDoe",
+                "userstore": "PRIMARY"
+            }'
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/o/api/users/v1'
+    variables:
+      serverUrl:
+        default: "localhost:9443"
+      tenantDomain:
+        default: "carbon.super"
+
+security:
+  - OAuth2: []
+components:
+  schemas:
+    InvitationRequest:
+      type: object
+      required:
+        - username
+        - userstore
+      properties:
+        username:
+          type: string
+          description: Exisiting user's username
+          example: "johnDoe"
+        userstore:
+          type: string
+          description: User's userstore domain
+          example: "PRIMARY"
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "Some_error_code"
+        message:
+          type: string
+          example: "Some error message."
+        description:
+          type: string
+          example: "Some error description."
+        traceId:
+          type: string
+          example: "Some Correlation for Error Instance"
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'http://localhost:9443/oauth2/token'
+          scopes: {}
