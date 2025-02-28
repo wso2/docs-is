@@ -73,7 +73,7 @@ To add a new secret:
     === "Visual Editor"
         Switch to the **Visual Editor** tab, expand the **Script Editor** and click **Add Secret**.
 
-        ![Add secret to script using the visual editor]({{base_path}}//assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0;"}
+        ![Add secret to script using the visual editor]({{base_path}}/assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0;"}
 
     ---
 
