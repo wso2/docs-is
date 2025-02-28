@@ -30,8 +30,9 @@ Define environment variables for the Kubernetes namespace and Helm release name.
 
 ```shell
 export NAMESPACE=<Kubernetes Namespace to deploy the resources>
-export RELEASE_NAME=<Helm release name for the deployment>
+export RELEASE_NAME=<Helm release name of the deployment>
 ```
+
 !!! note
 
     - Replace <Kubernetes Namespace to deploy the resources> with the namespace where WSO2 Identity Server should be deployed.
@@ -42,7 +43,7 @@ export RELEASE_NAME=<Helm release name for the deployment>
 Ensure that the specified namespace exists or create a new one using the following command.
 
 ```shell
-kubectl get namespace ${NAMESPACE} || kubectl create namespace ${NAMESPACE}
+kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
 ```
 
 ## Install the Helm chart
@@ -52,15 +53,35 @@ There are two ways to install the {{product_name}} Helm chart. The Helm chart so
 ### Option 1: Install the chart from the Helm repository
 
 Use the following command to install {{product_name}} from the official WSO2 Helm repository:
-
+{% if is_version == "7.0.0" %}
 ```shell
-helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-1 \
--n "${NAMESPACE}" \
+helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-2 \
+-n "$NAMESPACE" \
 --set deployment.image.registry="wso2" \
 --set deployment.image.repository="wso2is" \
 --set deployment.image.tag="{{is_version}}" \
 --set deployment.apparmor.enabled="false"
 ```
+{% else %}
+```shell
+helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-1 \
+-n "$NAMESPACE" \
+--set deployment.image.registry="wso2" \
+--set deployment.image.repository="wso2is" \
+--set deployment.image.tag="{{is_version}}" \
+--set deployment.apparmor.enabled="false"
+```
+{% endif %}
+
+!!! note "Get the latest helm chart version"
+        To find the latest version, you can use the [WSO2 Identity Server Artifact Hub](https://artifacthub.io/packages/helm/wso2/identity-server){: target="_blank"}.
+
+        Set `--version` with the version of WSO2 Identity Server Helm Chart you want to deploy.
+
+{% if is_version == "7.0.0" %}
+!!! note 
+    The steps in this guide are applicable from Helm Chart version `7.0.0-2` onwards.
+{% endif %}
 
 ### Option 2: Install the Chart from source
 
@@ -79,7 +100,7 @@ If you prefer to build the chart from the source, follow the steps below:
 2. Install the Helm chart from the cloned repository:
 
     ```shell
-    helm install "$RELEASE_NAME" -n "${NAMESPACE}" . \
+    helm install "$RELEASE_NAME" -n "$NAMESPACE" . \
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
     --set deployment.image.tag="{{is_version}}" \
