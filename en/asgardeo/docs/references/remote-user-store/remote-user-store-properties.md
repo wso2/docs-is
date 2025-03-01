@@ -4,7 +4,7 @@ The following table provides descriptions of the key properties to apply in <cod
 
 !!! tip
 
-    Asgardeo now offers an optimized remote user store connection designed for high scalability and performance. Currently this version only allows connecting a read-only user store with the remote user authentication.
+    Asgardeo now offers an optimized remote user store connection designed for high scalability and performance. Currently this version only allows connecting a read-only user store with the remote user authentication and attribute retrieval.
 
     The new connection is continuously evolving to support more use cases in the future. For extended capabilities like read-write user stores, the classic remote user store remains available.
 
@@ -21,7 +21,7 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td colspan="3" style="text-align: center;"><b>System configurations</b></td>
             </tr>
             <tr>
-                <td><code>idle_connections</code></td>
+                <td><code>idle_connections</code><br>(optional)</td>
                 <td>
                     Number of connections the remote agent opens with the server. 
                     <br>The default is 10. Max allowed is 50.
@@ -29,7 +29,7 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td>`idle_connections = 10`</td>
             </tr>
             <tr>
-                <td><code>connection_retry_count</code></td>
+                <td><code>connection_retry_count</code><br>(optional)</td>
                 <td>
                     The number of times the system retries a connection when an attempt fails.
                     <br>Set -1 to try indefinitely.
@@ -37,15 +37,15 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td>`connection_retry_count = 5`</td>
             </tr>
             <tr>
-                <td><code>connection_retry_interval</code></td>
+                <td><code>connection_retry_interval</code><br>(optional)</td>
                 <td>The interval (in seconds) between consecutive connection retry attempts.</td>
                 <td>`connection_retry_interval = 5`</td>
             </tr>
             <tr>
-                <td><code>periodic_ping_interval</code></td>
+                <td><code>periodic_ping_interval</code><br>(optional)</td>
                 <td>
                     The interval (in seconds) at which the agent sends a heartbeat or ping request to ensure the connection remains active. 
-                    <br>The default is 10. Set -1 to disable.
+                    <br>The default is 10.
                 </td>
                 <td>`periodic_ping_interval = 10`</td>
             </tr>
@@ -82,7 +82,7 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td>`connection_password = "password"`</td>
             </tr>
             <tr>
-                <td><code>connection_timeout</code></td>
+                <td><code>connection_timeout</code><br>(optional)</td>
                 <td>
                     Timeout in making the initial user store connection. This is configured in milliseconds. 
                     <br>The default is 5000.
@@ -90,7 +90,7 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td>`connection_timeout = 5000`</td>
             </tr>
             <tr>
-                <td><code>connection_retry_count</code></td>
+                <td><code>connection_retry_count</code><br>(optional)</td>
                 <td>
                     The maximum number of retries for establishing the connection to the user store if the first attempt fails. 
                     <br>Set -1 to try indefinitely.
@@ -98,12 +98,12 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td>`connection_retry_count = -1`</td>
             </tr>
             <tr>
-                <td><code>connection_pool_size</code></td>
+                <td><code>connection_pool_size</code><br>(optional)</td>
                 <td>The number of connections to be created in the user store connection pool. <br>The default is 10.</td>
                 <td>`connection_pool_size = 10`</td>
             </tr>
             <tr>
-                <td><code>max_result_size</code></td>
+                <td><code>max_result_size</code><br>(optional)</td>
                 <td>
                     The maximum number of entries that can be returned in a single search result. 
                     Set 0 or remove the config to try indefinitely.
@@ -111,7 +111,7 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td>`max_result_size = 100`</td>
             </tr>
             <tr>
-                <td><code>request_timeout</code></td>
+                <td><code>request_timeout</code><br>(optional)</td>
                 <td>
                     The timeout (in seconds) for a user store request to return the result. 
                     Set 0 or remove the config to wait indefinitely.
@@ -119,12 +119,12 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td>`request_timeout = 15`</td>
             </tr>
             <tr>
-                <td><code>enable_tls</code></td>
+                <td><code>enable_tls</code><br>(optional)</td>
                 <td>Whether TLS (Transport Layer Security) should be used for secure connections to the user store.</td>
                 <td>`enable_tls = true`</td>
             </tr>
             <tr>
-                <td><code>use_start_tls</code></td>
+                <td><code>use_start_tls</code><br>(optional)</td>
                 <td>
                     Whether the connection should be upgraded to TLS using the STARTTLS command. 
                     <br>This configuration requires setting `enable_tls` to `false`.
@@ -132,28 +132,28 @@ The following table provides descriptions of the key properties to apply in <cod
                 <td>`use_start_tls = true`</td>
             </tr>
             <tr>
-                <td><code>tls_cert_paths</code></td>
+                <td><code>tls_cert_paths</code><br>(optional)</td>
                 <td>List of absolute paths to the user store certificates.</td>
                 <td>`tls_cert_paths = ["path/to/the/cert.pem"]`</td>
             </tr>
             <tr>
-                <td><code>server_name</code></td>
+                <td><code>server_name</code><br>(optional)</td>
                 <td>
-                    (Optional) <br>Server name in the user store certificate. Requires only when the 
+                    Server name in the user store certificate. Requires only when the 
                     certificate is issued for a different cn.
                 </td>
                 <td>`server_name = "ldap.wso2.com"`</td>
             </tr>
             <tr>
-                <td><code>ca_cert_paths</code></td>
+                <td><code>ca_cert_paths</code><br>(optional)</td>
                 <td>
-                    (Optional) <br>Paths to the CA (Certificate Authority) certificates for verifying the 
+                    Paths to the CA (Certificate Authority) certificates for verifying the 
                     user store certificate. Requires only when the user store is using an unknown CA.
                 </td>
                 <td>`ca_cert_paths = ["path/to/the/ca-certificates.crt"]`</td>
             </tr>
             <tr>
-                <td><code>skip_server_cert_verification</code></td>
+                <td><code>skip_server_cert_verification</code><br>(optional)</td>
                 <td>
                     Whether to skip verifying the server's certificate during connection establishment. 
                     <br>The default value is `false`.

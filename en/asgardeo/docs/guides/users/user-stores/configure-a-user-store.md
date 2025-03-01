@@ -2,7 +2,7 @@
 
 !!! tip
 
-    Asgardeo now offers an optimized remote user store connection designed for high scalability and performance. Currently this version only allows connecting a read-only user store with the remote user authentication.
+    Asgardeo now offers an optimized remote user store connection designed for high scalability and performance. Currently this version only allows connecting a read-only user store with the remote user authentication and attribute retrieval.
 
     The new connection is continuously evolving to support more use cases in the future. For extended capabilities like read-write user stores, the classic remote user store remains available.
 
@@ -74,7 +74,7 @@ Follow the guide below to set up a remote user store in Asgardeo.
             <tr>
                 <td><b>Port</b></td>
                 <td>443</td>
-                <td>9005</td>
+                <td>443</td>
             </tr>
         </table>
 
@@ -87,7 +87,7 @@ To configure a remote user store for your organization:
 
     ![Register remote user store to Asgardeo]({{base_path}}/assets/img/guides/user-stores/register-user-store-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. If your use case doesn't align with the optimized user store connection, click **Classic User Store Connection** text.
+3. If your use case doesn't align with the optimized user store connection, click **Classic User Store Connection** instead.
 
 4. Enter the following details about the user store.
     <table>
@@ -101,7 +101,7 @@ To configure a remote user store for your organization:
         </tr>
         <tr>
             <td><b>Remote user store type</b></td>
-            <td>Select your user store type</td>
+            <td>Select your user store type.</td>
         </tr>
         <tr>
             <td><b>Access type</b><br>(Only for classic user stores)</td>
@@ -135,7 +135,7 @@ To configure a remote user store for your organization:
             <td colspan="2" style="text-align: center;"><b>Group attributes</b></td>
         </tr>
         <tr>
-            <td><b>Read groups</b></td>
+            <td><b>Read groups</b> <br>(Not required for classic user stores)</td>
             <td>Enable to retrieve groups from the user store.</td>
         </tr>
         <tr>
@@ -152,13 +152,11 @@ To configure a remote user store for your organization:
 
         - **Username** and **User Id** attributes need to be mapped correctly for proper authentication. **Group name** and **Group Id** attributes require to be mapped correctly when the **Read groups** is enabled.
         {% if multi_valued_attributes %}
-        - Additionally, for Non-JDBC user stores, ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in the [Assign multiple email addresses and mobile numbers to 
+        - Additionally, ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in [Assign multiple email addresses and mobile numbers to 
         a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) section.
         {% endif %}
 
 6. Click **Finish** to complete the registration.
-
-5. Click **Finish** to complete the registration.
 
 ## Set up the remote user store
 
@@ -222,6 +220,7 @@ To assemble and configure the user store agent bundle:
             group_entry_object_class = "groupOfNames"
             group_search_filter = "(&(objectClass=groupOfNames)(?=?))"
             group_list_filter = "(objectClass=groupOfNames)"
+            group_id_attribute = "uid"
             group_name_attribute = "cn"
             membership_attribute = "member"
             ```
@@ -241,7 +240,7 @@ To assemble and configure the user store agent bundle:
             token = "<token>"
             ```
 
-            The installation token can be encrypted using the provided cipher tool. See how to [configure secrets in the agent configuration file]({{base_path}}/references/remote-user-store/advanced-configurations#configure-secrets-in-agent-configuration-file/).
+            The installation token can be encrypted using the provided cipher tool. See how to [configure secrets in the agent configuration file]({{base_path}}/guides/users/user-stores/advanced-configurations-for-the-agent/#configuring-secrets-in-the-agent-configuration-file).
 
         2. Configure the token as an environment variable
 
@@ -255,7 +254,7 @@ To assemble and configure the user store agent bundle:
 
             - Copy the installation token and save it in a safe location. You won't be able to see it again!
             - Your token is your responsibility. Choose the right method that fits your deployment and securely store the token.
-            - This token has no expiry time, but in case you lose or forget it, you can [regenerate the token]({{base_path}}/guides/users/user-stores/update-user-stores/#regenerate-the-installation-token).
+            - This token has no expiry time, but in case you lose or forget it, you can [regenerate the token]({{base_path}}/guides/users/user-stores/update-user-stores/#regenerate-an-installation-token).
     
     5. To start the user store agent, navigate to its root directory and run one of the following commands based on your operating system:
 
@@ -330,48 +329,26 @@ To assemble and configure the user store agent bundle:
 
         Enter the installation token generated in the previous step when prompted.
 
-        ??? note "(Optional) Run the user store agent as a background process"
-            1. Create a file named `accessToken` in the root directory of the agent.
-            2. Add the installation token obtained from the previous step.
-            3. Run the user store agent.
+    ??? note "(Optional) Run the user store agent as a background process"
+        1. Create a file named `accessToken` in the root directory of the agent.
+        2. Add the installation token obtained from the previous step.
+        3. Run the user store agent.
 
-                - **Linux/Unix:**
+            - **Linux/Unix:**
 
-                    ``` bash
-                    sh wso2agent.sh start
-                    ```
-                
-                - **Windows:**
+                ``` bash
+                sh wso2agent.sh start
+                ```
+            
+            - **Windows:**
 
-                    ``` bash
-                    wso2agent.bat start
-                    ```
-
-## Deployment best practices
-
-- **Secure the installation token**: Store the installation token securely and avoid sharing it with unauthorized users. Select the most suitable method to store the token based on your deployment environment. If you're using a containerized secured environment, you can go ahead with the environment variable method. For other instances such as virtual machines, store the token in the agent configuration file and encrypt it using the provided cipher tool.
-- **Encrypt sensitive information**: Encrypt sensitive information such as user store credentials in the agent configuration file. Use the provided cipher tool to encrypt the secrets and configure them in the agent configuration file.
-- **Deploy in a local network**: Deploy the agent in a local network where the actual user store resides and allow only the outbound traffic to the Asgardeo server. If required, you can also configure secure communication between the agent and the user store by configuring ldap over ssl (i.e. ldaps).
-- **Monitor the agent**: Monitor the agent to ensure that it is running without any issues. You can configure a monitoring job by utilizing the Asgardeo remote user store API to check the status of the agent. Following is a sample curl command to check the status of the agent.
-
-    === "Optimized Agent"
-
-        ```bash
-        curl --location 'https://api.asgardeo.io/t/{organization-name}/api/remote-userstore/v1/connection/{user-store-id}' \
-        --header 'Accept: application/json' \
-        --header 'Authorization: Bearer {bearer_token}'
-        ```
-
-    === "Classic Agent"
-
-        ```bash
-        curl --location 'https://api.asgardeo.io/t/{organization-name}/api/onprem-userstore/v1/connection/{user-store-id}' \
-        --header 'Accept: application/json' \
-        --header 'Authorization: Bearer {bearer_token}'
-        ```
+                ``` bash
+                wso2agent.bat start
+                ```
 
 ## What's Next
 
 - [Configure high availability for a remote user store]({{base_path}}/guides/users/user-stores/configure-high-availability/)
 - [Manage remote user stores in Asgardeo]({{base_path}}/guides/users/user-stores/update-user-stores/)
+- [Deployment best practices for the remote agent]({{base_path}}/guides/users/user-stores/deployment-best-practices/)
 - [Advanced configuration for the remote agent]({{base_path}}/guides/users/user-stores/advanced-configurations-for-the-agent/)
