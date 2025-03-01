@@ -29,7 +29,7 @@ To register the app:
         </tr>
         <tr>
             <td>Authorized redirect URLs</td>
-            <td>The URL to which the authorization code is sent to upon user authentication and where the user is redirected to upon logout.</td>
+            <td>The URL to which the authorization code is sent to upon user authentication and where the user is redirected to upon logout. If wildcard support is necessary, ensure it is limited to well-defined patterns and implemented securely to meet your specific requirements.</td>
         </tr>
         <tr>
             <td>Allow sharing with organizations</td>

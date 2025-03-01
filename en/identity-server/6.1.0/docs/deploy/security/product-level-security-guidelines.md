@@ -360,6 +360,9 @@ Follow the steps below to change the default credentials.
 
 For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
 
+!!! note
+        The recommended **callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product. You can find the specific instructions through following sections.
+
 - [Password Recovery](../../../guides/password-mgt/recover-password/#enable-password-recovery-via-email)
 - [Username Recovery](../../../guides/identity-lifecycles/recover-username/#enable-username-recovery)
 - [Self User Registration](../../../guides/identity-lifecycles/self-registration-workflow/)

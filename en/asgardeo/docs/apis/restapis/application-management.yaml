@@ -3798,6 +3798,13 @@ components:
           type: boolean
           default: false
           description: Specifies whether or not to include user attributes in the SAML response.
+        nameFormat:
+          type: string
+          default: urn:oasis:names:tc:SAML:2.0:attrname-format:basic
+          enum: 
+            - urn:oasis:names:tc:SAML:2.0:attrname-format:basic
+            - urn:oasis:names:tc:SAML:2.0:attrname-format:uri
+          description: Specifies the type of attribute names used in the attribute statement of SAML assertions.
 
     SingleLogoutProfile:
       type: object

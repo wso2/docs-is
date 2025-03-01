@@ -146,15 +146,15 @@ Administrators can reset a user's password or initiate the password reset proces
 To reset the password:
 
 1. Click **Reset password** at the bottom of the user's profile.
-  
+
     ![Reset User Password]({{base_path}}/assets/img/guides/users/reset-password.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Select a method to reset the user password:
 
-    - **Invite user to set their own password:**  
-        If this option is selected, a password reset request can be sent to the user via email. The user can then use the instructions in the email to reset the password.  
+    - **Invite user to set their own password:**
+        If this option is selected, a password reset request can be sent to the user via email. The user can then use the instructions in the email to reset the password.
 
-    - **Set a temporary password for the user:**  
+    - **Set a temporary password for the user:**
         If this option is selected, the owner or an administrator can set a temporary password for the user.
 
     ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -195,20 +195,45 @@ Upon successful execution of the cURL the user will recieve an email to reset th
 
 ## Lock a user account
 
-When you lock a user's account, the user will no longer be able to access any applications or the My Account portal.
+To temporarily prevent a user from logging into applications or the self-service My Account portal, you can lock their account.
 
 To lock a user account:
 
-1. On the {{ product_name }} Console, go to **User Management** > **Users** and select the user.
-2. Enable the **Lock user** toggle at the bottom of the user's profile.
-  
+1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
+2. In the **Danger Zone**, turn the **Lock user** toggle on to lock the user's profile. Turn it off to unlock it.
+
     ![Lock user]({{base_path}}/assets/img/guides/users/lock-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Enable the checkbox to confirm your action.
+3. Select the checkbox to confirm your action.
 4. Click **Confirm**.
 
 !!! note
-    You can unlock the user account again using the **Lock user** toggle explained above.
+    When a user account is locked, the reason for the account lock will be displayed in the user's profile.
+
+![Account lock reason]({{base_path}}/assets/img/guides/users/lock-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Disable a user account
+
+Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
+
+!!! note "Enable account disabling"
+    
+    Account disabling is not an option available for a user's account by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
+
+To disable a user account,
+
+1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
+2. In the **Danger Zone**, turn the **Disable user** toggle on to disable the user's profile. Turn it off to enable it.
+
+    ![Disable User Account]({{base_path}}/assets/img/guides/users/user-account-disable.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Select the checkbox to confirm your action.
+4. Click **Confirm**.
+
+!!! note
+    When a user account is disabled, the follwing message will be displayed in the user's profile.
+
+![Account disable reason]({{base_path}}/assets/img/guides/users/account-disable-text.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Delete a user
 A user account can be deleted by administrators. Once an account is deleted, the action is irreversible.

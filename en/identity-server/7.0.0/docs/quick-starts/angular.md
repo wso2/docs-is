@@ -11,11 +11,10 @@ prerequisites:
   - About 15 minutes
   - <a href="{{ base_path }}/get-started/quick-set-up/">Set-up WSO2 Identity Server</a>
   - Install a JS package manager
-  - Install <a href="https://angular.dev/tools/cli/setup-local" target="_blank">Angular CLI <a>
+  - Install <a href="https://angular.dev/tools/cli/setup-local" target="_blank">Angular CLI</a>
   - A favorite text editor or IDE
-source_code: <a href="" target="_blank" class="github-icon">Angular App Sample</a>
-
-whats_next:
+# source_code: <a href="" target="_blank" class="github-icon">Angular App Sample</a>
+# whats_next:
 #   - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
 #   - Try out {{product_name}} user onboarding complete guide for React
 #   - Read security best practices for React app guide
@@ -43,14 +42,11 @@ whats_next:
 
 ## Create an Angular app 
 
-Create an Angular app using Angular CLI.  
-
-
-
+Create an Angular app using Angular CLI.
 
 ``` bash
 
-    ng new wso2is-angular
+ng new wso2is-angular
 ```
 
 !!! tip "Tip"
@@ -58,27 +54,19 @@ Create an Angular app using Angular CLI.
     === "npm"
 
         ``` bash
-
-            npm install -g @angular/cli@17
-
+        npm install -g @angular/cli@17
         ```
     === "yarn"
 
         ``` bash
-
-            yarn global add @angular/cli@17
-
+        yarn global add @angular/cli@17
         ```
 
     === "pnpm"
 
         ``` bash
-
-            pnpm add -g @angular/cli@17
-            
+        pnpm add -g @angular/cli@17
         ```
-
-
 
 ## Install angular-oauth2-oidc
 
@@ -87,30 +75,20 @@ The [Angular OAuth2 OIDC SDK](https://www.npmjs.com/package/angular-oauth2-oidc)
 === "npm"
 
     ``` bash
-
     npm install angular-oauth2-oidc
-
     ```
 
 === "yarn"
 
     ``` bash
-
     yarn add angular-oauth2-oidc
-
     ```
 
 === "pnpm"
 
     ``` bash
-
     pnpm add angular-oauth2-oidc
-
     ```
-
-&nbsp;
-&nbsp;
-&nbsp;
 
 ## Configure `AuthConfig` in your app
 
@@ -161,7 +139,6 @@ export const appConfig: ApplicationConfig = {
   }
   ]
 };
-
 
 ```
 
@@ -221,10 +198,6 @@ Next, replace the existing content of the `app.component.html` file with followi
 
 ```
 
-
-
-
-
 Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
 
 !!! Important
@@ -259,5 +232,3 @@ Modify the `app.component.html` file with the following code.
 <button *ngIf="isAuthorized" (click)="logout()">Logout</button>
 
 ```
-
-

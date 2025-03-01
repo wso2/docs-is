@@ -126,7 +126,7 @@ Note the following details in the response payload:
     {
         "display": "selfsignup",
         "value": "a85d4baf-2e7a-37b1-a722-d4d427039736",
-        "$ref": "https://{{ host_name }}{{ organization_path_param }}/scim2/v2/Roles/16ba9acb-fa30-42ef-8e25-29b557862124",
+        "$ref": "https://{{ host_name }}{{ organization_path_param }}/scim2/v2/Roles/a85d4baf-2e7a-37b1-a722-d4d427039736",
         "audienceValue": "<organization id>",
         "audienceType": "organization",
         "audienceDisplay": "<organization name>"

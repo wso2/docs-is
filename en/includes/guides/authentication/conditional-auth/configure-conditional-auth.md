@@ -1,6 +1,13 @@
 # Configure conditional authentication
 
-Given below are the high-level steps for enabling conditional authentication in your application.
+Given below are the high-level steps for enabling conditional authentication in your applications.
+
+!!! note
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+    - **ECMAScript Compliance**: Adaptive scripts currently comply with ECMAScript 2022 (ES13). 
+    {% endif %}
+    - **Limitations**: Adaptive scripts do not support loops, `Log.warn` logs, or stringifying Java objects using 
+    `JSON.stringify()`.
 
 ## Prerequisites
 
@@ -24,12 +31,28 @@ There are two ways to add a conditional authentication script:
 - Use a [predefined template]({{base_path}}/guides/authentication/conditional-auth/#script-templates).
 - Write a [new conditional auth script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 
-## Add a secret to the script
-Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process. You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for `callChoreo()` conditional authentication function.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 !!! warning "Before you proceed"
 
-    When working with conditional authentication scripts, <b>never log secrets</b> or sensitive information within your authentication flows.
+    When working with conditional authentication scripts, <b>never log secrets</b> or <b>sensitive information</b> within your authentication flows.
+
+{% endif %}
+
+## Add a secret to the script
+Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process.
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
+You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for conditional authentication script.
+
+{% else %}
+
+You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for `callChoreo()` conditional authentication function.
+
+{% endif %}
+
+
 
 ### Create a new secret
 
@@ -50,7 +73,7 @@ To add a new secret:
     === "Visual Editor"
         Switch to the **Visual Editor** tab, expand the **Script Editor** and click **Add Secret**.
 
-        ![Add secret to script using the visual editor]({{base_path}}//assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0;"}
+        ![Add secret to script using the visual editor]({{base_path}}/assets/img/guides/secret/add-secret-to-script-using-visual-editor.png){: width="600" style="display: block; margin: 0;"}
 
     ---
 
@@ -81,6 +104,8 @@ To add a new secret:
 
 6. Click **Finish** to complete the creation.
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
 ### Use secret in the script
 
 You may refer to the previously added secrets in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you may use:
@@ -90,6 +115,8 @@ var secretValue = secrets.secretName;
 ```
 
 This allows you to securely access secret values within your authentication scripts, enhancing the security and flexibility of your authentication process.
+
+{% endif %}
 
 ### Delete an existing secret
 

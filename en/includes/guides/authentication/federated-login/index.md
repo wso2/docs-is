@@ -39,6 +39,10 @@ You can register an external IdP in {{product_name}} by creating a connection. {
       <img src="{{base_path}}/assets/img/logo/microsoft-logo.svg" alt="Microsoft IWA" /></br>
       <span>IWA</span>
     </a>
+    <a href="{{base_path}}/guides/authentication/enterprise-login/add-ad-fs-login" class="card square">
+      <img src="{{base_path}}/assets/img/logo/microsoft-logo.svg" alt="Microsoft AD FS" /></br>
+      <span>AD FS</span>
+    </a>
     <a href="{{base_path}}/guides/authentication/social-login/add-x-login/" class="card square">
       <img src="{{base_path}}/assets/img/logo/x-logo.svg#only-light" alt="X" /></br>
       <img src="{{base_path}}/assets/img/logo/x-logo-dark.svg#only-dark" alt="X" /></br>

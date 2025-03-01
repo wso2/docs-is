@@ -115,7 +115,7 @@ Prepare the JSON payload required by the authorization server for client authent
 }
 ```
 
-Once you have created the payload, generate a signature for it using the client application's private key. This JWT is known as the **client_assetion**.
+Once you have created the payload, generate a signature for it using the client application's private key. This JWT is known as the **client_assertion**.
 
 ## Get the access token
 

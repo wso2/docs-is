@@ -1,19 +1,64 @@
 {
-    "asgardeo_logs": {
+    "operational-policies": {
         "enabled": true,
         "page": [
-            "guides/asgardeo-logs/index.md",
-            "guides/asgardeo-logs/diagnostic-logs.md",
-            "guides/asgardeo-logs/audit-logs.md"
+            "references/operational-policies.md"
+        ]
+    },
+    
+    "sms-templates": {
+        "enabled": true,
+        "page": [
+            "guides/branding/customize-sms-templates.md",
+            "apis/notification-templates.md",
+            "references/sms-templates.md"
+        ]
+    },
+    
+    "sift_fraud_detection": {
+        "enabled": true,
+        "page": [
+            "guides/account-configurations/login-security/sift-fraud-detection.md"
         ]
     },
 
-    "applications": {
+    "default_roles": {
         "enabled": true,
         "page": [
-            "guides/applications/register-single-page-app.md",
-            "guides/applications/register-oidc-web-app.md",
-            "guides/applications/register-saml-web-app.md"
+        ]
+    },
+
+    "multi_valued_attributes": {
+        "enabled": true,
+        "page": [
+        ]
+    },
+
+    "sso_integrations_zoom_slack": {
+        "enabled": true,
+        "page": [
+            "guides/authentication/sso-integrations/add-zoom-template.md",
+            "guides/authentication/sso-integrations/add-slack-template.md"
+        ]
+    },
+
+    "password_expiry_time": {
+        "enabled": true,
+        "page": []
+    },
+
+    "attribute_uniqueness_validation": {
+        "enabled": true,
+        "page": [
+            "guides/users/attributes/configure-unique-attributes.md"
+        ]
+    },
+
+    "custom-authentication-service-extension": {
+        "enabled": false,
+        "page": [
+            "guides/service-extensions/in-flow-extensions/custom-authentication.md",
+            "references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md"
         ]
     }
 }

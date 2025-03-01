@@ -4,7 +4,7 @@ Users may recover a forgotten password from an application sign-in page by follo
 
 !!! note "Before you begin"
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0" ) %}
 
     Administrators should [enable password recovery]({{base_path}}/guides/user-accounts/password-recovery/) for users of the organization.
 
@@ -27,7 +27,7 @@ To reset the password, the user should follow these steps.
 
 2. Click **Forgot password?**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0" ) %}
 
 3. Follow one of the following methods based on the password recovery option configured for your organization.
 

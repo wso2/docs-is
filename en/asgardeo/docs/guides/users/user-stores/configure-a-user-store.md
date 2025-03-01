@@ -123,12 +123,12 @@ To configure a remote user store for your organization:
             <td colspan="2" style="text-align: center;"><b>User attributes</b></td>
         </tr>
         <tr>
-            <td><b>Username mapping</b></td>
+            <td><b>Username</b></td>
             <td>This attribute is used as the user identifier. Provide an attribute that identifies users in your on-premise user store. 
             <br>For the best experience, use a username that satisfies validation rules in the [Username validation]({{base_path}}/guides/user-accounts/account-login/username-validation/) section.</td>
         </tr>
         <tr>
-            <td><b>User Id mapping</b></td>
+            <td><b>User Id</b></td>
             <td>This attribute is used to uniquely identify a user entry. Provide an attribute that uniquely identifies a user entry in your user store.</td>
         </tr>
         <tr>
@@ -151,9 +151,14 @@ To configure a remote user store for your organization:
     !!! warning
 
         - **Username** and **User Id** attributes need to be mapped correctly for proper authentication. **Group name** and **Group Id** attributes require to be mapped correctly when the **Read groups** is enabled.
-        - Additionally, ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in the [Assign multiple email addresses and mobile numbers to a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) section.
+        {% if multi_valued_attributes %}
+        - Additionally, for Non-JDBC user stores, ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in the [Assign multiple email addresses and mobile numbers to 
+        a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) section.
+        {% endif %}
 
 6. Click **Finish** to complete the registration.
+
+5. Click **Finish** to complete the registration.
 
 ## Set up the remote user store
 

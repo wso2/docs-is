@@ -1,0 +1,888 @@
+openapi: 3.0.0
+info:
+  version: v2
+  title: WSO2 Identity Server - Email Template API
+  description: 'This is the RESTful API for managing email templates in WSO2 Identity Server. This API allows adding, retrieving, replacing, and removing email templates and template types.'
+tags:
+  - name: Email Template Types
+    description: An email template type can have multiple email templates for different languages.
+  - name: Email Templates
+    description: An email template of a specific type and a language.
+  - name: Application Email Templates
+    description: |
+      An application-specific email template of a specific type and a language.
+
+      Application-specific email templates are triggered whenever the user interacts with applications that use the default WSO2 Identity Server UI. However, if the user interacts directly with APIs, application-specific email templates are supported by the following APIs:
+
+      - User creation with SCIM2 APIs
+      - Locking/Unlocking accounts with SCIM2 APIs
+      - Password recovery API
+      - Email verification flows
+      - Resend email flows
+
+      Note: To ensure application-specific branding is applied during the above API interactions, they must be invoked using an access token issued specifically for the application. If an access token generated from admin credentials is used instead, the branding will default to organization-specific settings.
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /email/template-types:
+    get:
+      tags:
+        - Email Template Types
+      summary: Retrieves all the email template types.
+      operationId: getAllEmailTemplateTypes
+      description: |
+        Retrieves all the email template types in the system. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailTemplateType'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - Email Template Types
+      summary: Adds a new email template type.
+      operationId: addEmailTemplateType
+      description: |
+        Adds a new email template type to the system. An email template type can have any number of 
+        organization or application email templates. <br>
+
+        * Attribute _**displayName**_ of the template type should be unique. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateTypeOverview'
+            examples:
+              Example 1:
+                value:
+                  displayName: Account Confirmation
+                  templates:
+                    - contentType: text/html
+                      subject: WSO2 - Account Confirmation
+                      body: HTML Body
+                      footer: WSO2 Identity Server Team
+                      id: en_US
+        description: Email template type to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            self:
+              description: Location of the newly created email template type.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateType'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/email/template-types' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "displayName": "Account Confirmation",
+            "templates": [
+              {
+                "contentType": "text/html",
+                "subject": "WSO2 - Account Confirmation",
+                "body": "HTML Body",
+                "footer": "WSO2 Identity Server Team",
+                "id": "en_US"
+              }
+            ]
+            }'
+  '/email/template-types/{template-type-id}':
+    get:
+      tags:
+        - Email Template Types
+      summary: Retrieves the email template type corresponding to the template type id.
+      operationId: getEmailTemplateType
+      description: |
+        Retrieves the email template type in the system identified by the template-type-id. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateTypeWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+    delete:
+      tags:
+        - Email Template Types
+      summary: Removes an email template type.
+      operationId: deleteEmailTemplateType
+      description: |
+        Removes an existing email template type with all its email templates
+        from the system. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_delete`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+  '/email/template-types/{template-type-id}/org-templates':
+    get:
+      tags:
+        - Email Templates
+      summary: Retrieves the list of email templates in the template type id.
+      operationId: getOrgTemplatesListOfEmailTemplateType
+      description: |
+        Retrieves the list of email templates in the template type id. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleEmailTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - Email Templates
+      summary: Adds a new email template to an existing email template type.
+      operationId: addOrgEmailTemplate
+      description: |
+        Another email template with the same locale should not already exist in the
+        respective email template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateWithID'
+            examples:
+              Example 1:
+                value:
+                  contentType: text/html; charset=UTF-8
+                  subject: Confirm your account
+                  body: ssd
+                  locale: en_US
+        description: Email template to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            Location:
+              description: Location of the newly created email template.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleEmailTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "contentType": "text/html; charset=UTF-8",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Identity Server Team",
+            "locale": "en_US"
+            }'
+  '/email/template-types/{template-type-id}/app-templates/{app-uuid}':
+    get:
+      tags:
+        - Application Email Templates
+      summary: Retrieves the list of application email templates in the template type id.
+      operationId: getAppTemplatesListOfEmailTemplateType
+      description: |
+        Retrieves the list of application email templates in the template type id. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleEmailTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/351262e3-1331-498a-bf2b-344b451ebb3a' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - Application Email Templates
+      summary: Adds a new application email template to an existing email template type.
+      operationId: addAppEmailTemplate
+      description: |
+        Another application email template with the same locale should not already exist in the
+        respective email template type. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_create`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateWithID'
+            examples:
+              Example 1:
+                value:
+                  contentType: text/html
+                  subject: WSO2 - Account Confirmation
+                  body: HTML Body
+                  footer: WSO2 Identity Server Team
+                  locale: en_US
+        description: Email template to be added.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            Location:
+              description: Location of the newly created email template.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleEmailTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/351262e3-1331-498a-bf2b-344b451ebb3a' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "contentType": "text/html; charset=UTF-8",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Identity Server Team",
+            "locale": "en_US"
+            }'
+  '/email/template-types/{template-type-id}/org-templates/{locale}':
+    get:
+      tags:
+        - Email Templates
+      summary: Retrieves a single email template.
+      operationId: getOrgEmailTemplate
+      description: |
+        Retrieves the email template that matches to the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+    put:
+      tags:
+        - Email Templates
+      summary: Replaces an existing email template.
+      operationId: updateOrgEmailTemplate
+      description: |
+        Replaces the email template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_update`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateWithID'
+            examples:
+              Example 1:
+                value:
+                  contentType: text/html
+                  subject: WSO2 - Account Confirmation
+                  body: HTML Body
+                  footer: WSO2 Identity Server Team
+                  locale: en_US
+        description: Email templates for the template type.
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "contentType": "text/html; charset=UTF-8",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Identity Server Team",
+            "locale": "en_US"
+            }'
+    delete:
+      tags:
+        - Email Templates
+      summary: Removes an email template.
+      operationId: deleteOrgEmailTemplate
+      description: |
+        Removes an email template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_delete`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/org-templates/en_US' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+  '/email/template-types/{template-type-id}/app-templates/{app-uuid}/{locale}':
+    get:
+      tags:
+        - Application Email Templates
+      summary: Retrieves a single email template of application.
+      operationId: getAppEmailTemplate
+      description: |
+        Retrieves the application email template that matches to the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+        - $ref: '#/components/parameters/resolveQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Search results matching the given criteria.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/351262e3-1331-498a-bf2b-344b451ebb3a/en_US' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+    put:
+      tags:
+        - Application Email Templates
+      summary: Replaces an existing application email template.
+      operationId: updateAppEmailTemplate
+      description: |
+        Replaces the application email template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_update`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateWithID'
+            examples:
+              Example 1:
+                value:
+                  contentType: text/html
+                  subject: WSO2 - Account Confirmation
+                  body: HTML Body
+                  footer: WSO2 Identity Server Team
+                  locale: en_US
+        description: Email templates for the template type.
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/351262e3-1331-498a-bf2b-344b451ebb3a/en_US' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "contentType": "text/html; charset=UTF-8",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Identity Server Team",
+            "locale": "en_US"
+            }'
+    delete:
+      tags:
+        - Application Email Templates
+      summary: Removes an email template.
+      operationId: deleteAppEmailTemplate
+      description: |
+        Removes an email template identified by the template-type-id and the locale. <br>
+
+        <b>Scope(Permission) required:</b> `internal_email_mgt_delete`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/appUuidPathParam'
+        - $ref: '#/components/parameters/localePathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-extension-1:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/carbon.super/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/app-templates/351262e3-1331-498a-bf2b-344b451ebb3a/en_US' \
+          '-H ''accept': application/json' \
+          '-H ''Authorization': Basic YWRtaW46YWRtaW4='
+servers:
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v2'
+    variables:
+      tenant-domain:
+        default: carbon.super
+components:
+  parameters:
+    templateTypeIdPathParam:
+      in: path
+      name: template-type-id
+      required: true
+      description: Email Template Type ID.
+      schema:
+        type: string
+    localePathParam:
+      in: path
+      name: locale
+      required: true
+      description: This should be a valid locale.
+      schema:
+        type: string
+    appUuidPathParam:
+      in: path
+      name: app-uuid
+      required: true
+      description: Application UUID.
+      schema:
+        type: string
+    resolveQueryParam:
+      in: query
+      name: resolve
+      required: false
+      description: Specifies whether to return resolved template/s throughout the ancestor organization hierarchy.
+      schema:
+        type: boolean
+        default: false
+    offsetQueryParam:
+      in: query
+      name: offset
+      description: Number of records to skip for pagination. _<b>This option is not yet supported.<b>_
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    limitQueryParam:
+      in: query
+      name: limit
+      description: Maximum number of records to return. _<b>This option is not yet supported.<b>_
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    sortOrderQueryParam:
+      in: query
+      name: sortOrder
+      required: false
+      description: Define the order in which the retrieved records should be sorted. _<b>This option is not yet supported.<b>_
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
+    sortByQueryParam:
+      in: query
+      name: sortBy
+      required: false
+      description: Attribute by which the retrieved records should be sorted. _<b>This option is not yet supported.<b>_
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: The specified resource is not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized.
+    Forbidden:
+      description: Forbidden.
+    ServerError:
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Invalid input request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Item Already Exists.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Deleted:
+      description: Item Deleted.
+    Updated:
+      description: Item Updated.
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
+  schemas:
+    EmailTemplateType:
+      type: object
+      required:
+        - displayName
+        - self
+      properties:
+        displayName:
+          type: string
+          example: Account Confirmation
+          description: Display name of the email template type.
+        self:
+          type: string
+          example: '/t/{tenant-domain}/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg'
+          description: Location of the created/updated resource.
+    EmailTemplateTypeOverview:
+      type: object
+      required:
+        - displayName
+      properties:
+        displayName:
+          type: string
+          example: Account Confirmation
+          description: Display name of the email template type.
+        templates:
+          type: array
+          x-stoplight:
+            id: eck0ai8hprq6s
+          items:
+            $ref: '#/components/schemas/EmailTemplate'
+    EmailTemplateTypeWithID:
+      allOf:
+        - $ref: '#/components/schemas/EmailTemplateType'
+        - required:
+            - id
+          properties:
+            id:
+              type: string
+              example: YWNjb3VudGNvbmZpcm1hdGlvbg
+              description: Unique ID of the email template type.
+    EmailTemplateWithID:
+      allOf:
+        - $ref: '#/components/schemas/EmailTemplate'
+        - type: array
+          items:
+            $ref: '#/components/schemas/EmailTemplateTypeWithID'
+    EmailTemplate:
+      type: object
+      required:
+        - contentType
+        - subject
+        - body
+      properties:
+        contentType:
+          type: string
+          example: text/html
+          description: Content type of the email template.
+        subject:
+          type: string
+          example: WSO2 - Account Confirmation
+          description: The subject of the email.
+        body:
+          type: string
+          example: HTML Body
+          description: The body of the email.
+        footer:
+          type: string
+          example: WSO2 Identity Server Team
+          description: The footer of the email.
+    SimpleEmailTemplate:
+      type: object
+      required:
+        - locale
+        - self
+      properties:
+        locale:
+          type: string
+          example: en_US
+          description: Locale of the email template.
+        self:
+          type: string
+          example: '/t/{tenant-domain}/api/server/v2/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/templates/en_US'
+          description: Location of the created/updated resource.
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: ET0001
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: TR0001

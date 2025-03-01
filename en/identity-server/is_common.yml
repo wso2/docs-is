@@ -34,7 +34,7 @@ watch:
 extra:
   product: is
   product_name: *site_name
-  nav_list:
+  explicit_tab_list:
     - Home
     - Get Started
     - Guides
@@ -45,19 +45,19 @@ extra:
   home_page_cards:
     - section:
       - title: Get Started
-        icon: assets/libs/oxygen-ui-icons/1.7.3/bolt-16.svg
+        icon: octicons/rocket-16
         icon_color: icon-color-1
         list_items:
           - title: Introduction
-            url: Get Started|Introduction
+            url: Get started|Introduction
           - title: Quick Setup
-            url: Get Started|Quickstart|Quick Setup
+            url: Get started|Quick Setup
           - title: Start Integrating Apps
-            url: Get Started|Start integrating apps|Start integrating apps
+            url: Get started|Start integrating apps|Start integrating apps
           - title: About this release
-            url: Get Started|About this release
+            url: Get started|About this release
       - title: Community and Support
-        icon: assets/libs/oxygen-ui-icons/1.7.3/lightbulb-on-16.svg
+        icon: octicons/light-bulb-16
         icon_color: icon-color-2
         list_items:
           - title: Contributing to the Project
@@ -68,17 +68,17 @@ extra:
             url: https://wso2.com/subscription/
     - section:
       - title: Developer Resources
-        icon: assets/libs/oxygen-ui-icons/1.7.3/user-gear-16.svg
+        icon: octicons/tools-16
         icon_color: icon-color-3
         list_items:
           - title: APIs
             url: APIs|APIs
           - title: Sample Apps
-            url: Get Started|Start integrating apps|Try for a sample app|Try for a sample app
+            url: Get started|Start integrating apps|Try for a sample app|Try for a sample app
           - title: SDKs and Integrations
-            url: Integrations|Integrate WSO2 IS into your application
+            url: SDKs|Integrate WSO2 IS into your application
       - title: Setup
-        icon: assets/libs/oxygen-ui-icons/1.7.3/verticle-filter-bars-16.svg
+        icon: octicons/gear-16
         icon_color: icon-color-1
         list_items:
           - title: Install
@@ -95,7 +95,7 @@ extra:
             url: Setup|Upgrade WSO2 Identity Server
     - section:
       - title: Guides
-        icon: assets/libs/oxygen-ui-icons/1.7.3/document-16.svg
+        icon: octicons/book-16
         icon_color: icon-color-4
         list_items:
           - title: Applications
@@ -113,13 +113,17 @@ extra:
           - title: Organizations
             url: Guides|Organizations|Organizations
   versions:
-    current: 7.0.0
+    current: 7.1.0
     list:
+      - 7.1.0
       - 7.0.0
       - 6.1.0
       - 6.0.0
     doc: https://is.docs.wso2.com/en/versions
     all:
+      - name: 7.1.0
+        doc: https://is.docs.wso2.com/en/7.1.0
+        notes: https://is.docs.wso2.com/en/7.1.0/get-started/about-this-release
       - name: 7.0.0
         doc: https://is.docs.wso2.com/en/7.0.0
         notes: https://is.docs.wso2.com/en/7.0.0/references/about-this-release

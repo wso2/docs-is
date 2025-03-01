@@ -51,9 +51,7 @@ To remove users from groups:
 
     ![remove-user-from-group-view]({{base_path}}/assets/img/guides/groups/remove-user-from-group-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Click the **Edit** icon.
-5. Unselect the checkbox for the users you wish to remove.
-6. Click **Save**.
+4. Click **Delete** icon of the user(s) you want to remove.
 
 ## Assign groups to application roles
 
