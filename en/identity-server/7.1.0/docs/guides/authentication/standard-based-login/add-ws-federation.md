@@ -1,0 +1,1 @@
+{% include "../../../../../../includes/guides/authentication/standard-based-login/add-ws-federation.md" %}
