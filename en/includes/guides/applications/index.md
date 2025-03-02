@@ -39,6 +39,24 @@ Machine-to-Machine (M2M) applications, are designed for automated communication 
 - [Register a machine-to-machine application]({{base_path}}/guides/applications/register-machine-to-machine-app/)
 {% endif %}
 
+## Make an application discoverable
+
+You can allow users to discover applications on their own through the **My Account** portal.
+
+To enable application discovery:
+
+1. On the {{product_name}} Console, navigate to **Applications**.
+2. Select the application you want users in the organization to discover and go to the **General** tab. (This option is not available for M2M applications.)
+3. Scroll down to the **Discoverable application** section.
+4. Check the **Enable** checkbox and configure an access URL to make the application discoverable to everyone in the organization.
+5. To limit discoverability to specific users, select **Only a selected group of users can discover this application** under **Discoverable Groups**.
+6. Choose the user groups from each User Store and click on **Update** button.
+7. The application will then be discoverable only to users in the selected groups.
+
+    ![Make an application discoverable]({{base_path}}/assets/img/guides/applications/discover-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+To learn how users can discover applications through the **My Account** portal, see [Discover applications]({{base_path}}/guides/user-self-service/discover-applications/).
+
 ## Enable/Disable an application
 
 If your application is undergoing maintenance or should be made temporarily unavailable for any reason, you can disable it and re-enable it when ready.
