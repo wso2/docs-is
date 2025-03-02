@@ -74,6 +74,10 @@ components:
   schemas:
     Event:
       type: object
+      required:
+        - request
+        - tenant
+        - accessToken
       properties:
         request:
           $ref: '#/components/schemas/Request'
@@ -90,6 +94,9 @@ components:
       description: Defines the context data related to the pre issue access token event that needs to be shared with the custom service to process and execute.
     Request:
       type: object
+      required:
+        - grantType
+        - clientId
       properties:
         grantType:
           type: string
@@ -123,6 +130,9 @@ components:
         All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc..
     Tenant:
       type: object
+      required:
+        - id
+        - name
       properties:
         id:
           type: string
@@ -137,6 +147,8 @@ components:
       description: This property represents the tenant under which the token request is being processed. 
     User:
       type: object
+      required:
+        - id
       properties:
         id:
           type: string
@@ -145,6 +157,9 @@ components:
       description: Contains information about the authenticated user associated with the token request.
     Organization:
       type: object
+      required:
+        - id
+        - name
       properties:
         id:
           type: string
@@ -157,6 +172,9 @@ components:
       description: Refers to the organization to which the user belongs. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.
     UserStore:
       type: object
+      required:
+        - id
+        - name
       properties:
         id:
           type: string
@@ -169,7 +187,16 @@ components:
       description: Indicates the user store in which the user's data is being managed. 
     AccessToken:
       type: object
+      required:
+        - tokenType
+        - claims
       properties:
+        tokenType:
+          type: string
+          example: HASH
+          enum:
+            - JWT
+          description: Defines the type of token.
         claims:
           type: array
           items:
@@ -224,28 +251,11 @@ components:
         - $ref: '#/components/schemas/addOperation'
         - $ref: '#/components/schemas/replaceOperation'
         - $ref: '#/components/schemas/removeOperation'
-    AllowedOperation:
-      type: object
-      properties:
-        op:
-          type: string
-          enum:
-            - add
-            - replace
-            - remove
-        paths:
-          type: array
-          items:
-            type: string
-      description: Defines the operation
-      discriminator:
-        propertyName: op
-        mapping:
-          add: addOperation
-          replace: replaceOperation
-          remove: removeOperation
     addOperation:
       type: object
+      required:
+        - op
+        - paths
       properties:
         op:
           type: string
@@ -259,11 +269,16 @@ components:
           items:
             type: string
       description: Defines the add operation.
-      allOf:
-      - $ref: '#/components/schemas/AllowedOperation'
     replaceOperation:
       type: object
+      required:
+        - op
+        - paths
       properties:
+        op:
+          type: string
+          enum:
+            - replace
         paths:
           type: array
           items:
@@ -272,11 +287,16 @@ components:
             - /accessToken/claims
             - /accessToken/scopes
       description: Defines the replace operation.
-      allOf:
-      - $ref: '#/components/schemas/AllowedOperation'
     removeOperation:
       type: object
+      required:
+        - op
+        - paths
       properties:
+        op:
+          type: string
+          enum:
+            - remove
         paths:
           type: array
           items:
@@ -285,10 +305,10 @@ components:
             - /accessToken/claims
             - /accessToken/scopes
       description: Defines the remove operation.
-      allOf:
-      - $ref: '#/components/schemas/AllowedOperation'
     SuccessResponse:
       type: object
+      required:
+        - actionStatus
       properties:
         actionStatus:
           type: string
@@ -296,11 +316,19 @@ components:
           - SUCCESS
         operations:
           type: array
+          description: Defines the set of operations that your external service is requesting to perform on the access token's claims and scopes.
           items:
-            $ref: '#/components/schemas/Operations'
+            anyOf:
+            - $ref: '#/components/schemas/addOperationResponse'
+            - $ref: '#/components/schemas/replaceOperationResponse'
+            - $ref: '#/components/schemas/removeOperationResponse'
       description: Defines the success response.
     FailedResponse:
       type: object
+      required:
+        - actionStatus
+        - failureReason
+        - failureDescription
       properties:
         actionStatus:
           type: string
@@ -315,6 +343,10 @@ components:
           description: Offers a detailed explanation of the failure.
     ErrorResponse:
       type: object
+      required:
+        - actionStatus
+        - errorMessage
+        - errorDescription
       properties:
         actionStatus:
           type: string
@@ -328,14 +360,22 @@ components:
           type: string
           description: A detailed description of the error.
       description: |
-         When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
+        When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
     RequestBody:
       type: object
+      required:
+        - actionType
+        - event
+        - allowedOperations
       properties:
+        flowId:
+          type: string
+          description: A unique identifier that associates with the token issuing flow in WSO2 Identity Server.
+          example: Ec1wMjmiG8
         requestId:
           type: string
           description: A unique correlation identifier that associates with the token request received by WSO2 Identity Server.
-          example: Ec1wMjmiG8
+          example: 6783a180f817075313ea3fb01d79c221
         actionType:
           type: string
           enum:
@@ -347,6 +387,9 @@ components:
           $ref: '#/components/schemas/AllowedOperations'
     RequestHeaders:
       type: object
+      required:
+        - name
+        - values
       properties:
         name:
           type: string
@@ -359,6 +402,9 @@ components:
             - "example.com"
     RequestParams:
       type: object
+      required:
+        - name
+        - values
       properties:
         name:
           type: string
@@ -383,15 +429,83 @@ components:
             - type: array
               items:
                 type: string
-    Operations:
+    addOperationResponse:
       type: object
+      required:
+        - op
+        - path
+        - value
       properties:
         op:
           type: string
+          enum:
+            - add
         path:
           type: string
+          example:
+            - /accessToken/claims/-
+            - /accessToken/scopes/0
+          description: Defines the path for the add operation. Should be one from the allowed paths of `add` operation in the allowedOperations.
+        value:
+          oneOf:
+            - type: string
+            - $ref: '#/components/schemas/CustomValue'
+          description: Defines the value for the add operation.
+      description: Defines the add operation.
+    replaceOperationResponse:
+      type: object
+      required:
+        - op
+        - path
+        - value
+      properties:
+        op:
+          type: string
+          enum:
+            - replace
+        path:
+          type: string
+          example: 
+            - /accessToken/claims/1
+            - /accessToken/scopes/-
+          description: Defines the path for the replace operation. Should be one from the allowed paths of `replace` operation in the allowedOperations. 
         value:
           type: string
+          description: Defines the value for the replace operation.
+      description: Defines the replace operation.
+    removeOperationResponse:
+      type: object
+      required:
+        - op
+        - path
+      properties:
+        op:
+          type: string
+          enum:
+            - remove
+        path:
+          type: string
+          example: 
+            - /accessToken/claims/0
+            - /accessToken/scopes/1
+          description: Defines the path for the remove operation. Should be one from the allowed paths of `remove` operation in the allowedOperations.
+      description: Defines the remove operation.
+    CustomValue:
+      type: object
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+        value:
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string  
   securitySchemes:
     BasicAuth:
       type: http
