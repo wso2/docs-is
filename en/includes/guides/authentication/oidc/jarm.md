@@ -7,7 +7,7 @@ The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification]
 Below is a sample authorization request sent to the authorization endpoint of the WSO2 Identity Server.
 
 ```bash
-https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?
+https://{{host_name}}/oauth2/authorize?
 prompt=login
 &scope=openid
 &redirect_uri=https://<CLIENT_HOST>/redirects/redirect1
