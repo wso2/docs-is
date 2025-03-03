@@ -41,7 +41,7 @@ Machine-to-Machine (M2M) applications, are designed for automated communication 
 
 ## Make an application discoverable
 
-You can allow users to discover applications on their own through the **My Account** portal.
+You can allow users to discover applications on their own through the **My Account** portal, where they can navigate to the configured access URL.
 
 To enable application discovery:
 
