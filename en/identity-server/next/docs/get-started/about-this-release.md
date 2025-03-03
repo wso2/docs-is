@@ -287,7 +287,7 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
 - **Built-in support for XACML**
     
-    WSO2 Identity Server has deprecated built-in XACML support.
+    WSO2 Identity Server has extracted out as a connector built-in XACML support.
     
     **Recommended action** - If you still require XACML functionality, you can integrate the [XACML connector](https://store.wso2.com/connector/identity-application-authz-xacml){: target="_blank"} into {{product_name}}. Learn more about it in the [documentation](https://github.com/wso2-extensions/identity-application-authz-xacml/blob/master/README.md){: target="_blank"}.
          
