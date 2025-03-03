@@ -194,7 +194,7 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
     
     Learn more about [rule-based password expiration]({{base_path}}/guides/account-configurations/login-security/password-validation/#rule-based-password-expiration).
 
-- **Support for Attribute-Wise Uniqueness Validation Configuration**
+- **Support for preservation of uniqueness of Attributes on Profile Creation and Updates**
     
     Supports attribute-wise uniqueness validation configuration, allowing administrators to define uniqueness constraints for attributes directly within the General tab. A new dropdown menu provides three options:
     - *None* – No uniqueness validation.
