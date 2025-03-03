@@ -1,0 +1,469 @@
+openapi: 3.0.1
+info:
+  title: OAuth2 Authorized Apps API
+  description: This is the RESTful API for managing OAuth2 Authorized Apps.
+
+    <br><br>Through this API, authenticated users can view and revoke the OAuth2/OIDC applications for which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
+
+    <br><br>Additionally, privileged users can view and revoke other users' authorized apps using the API.
+    
+    <br><br>`Warning` <br> This API version will be deprecated in future versions of WSO2 IS. You can use [OAuth2 Authorized Apps API Definition - v2]({{base_path}}/apis/authorized-apps-v2-rest-api/) instead."
+  version: v1
+servers:
+- url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
+security:
+- OAuth2: []
+- BasicAuth: []
+tags:
+- name: me
+  description: Operations for the authenticated user.
+- name: admin
+  description: Operations available for privileged users, to be invoked on behalf of another user.
+paths:
+  /{user-id}/authorized-apps:
+    get:
+      tags:
+      - admin
+      summary: List authorized applications of a user
+      description: |
+        List approved OAuth applications for a given user.
+      operationId: listUserAuthorizedApps
+      parameters:
+      - name: user-id
+        in: path
+        description: username of the user
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Search results matching criteria
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuthorizedApp'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/{user-id}/authorized-apps' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    delete:
+      tags:
+      - admin
+      summary: Remove all authorized applications of a user
+      description: |
+        Removes authorization from all OAuth apps of a given user
+      operationId: deleteUserAuthorizedApps
+      parameters:
+      - name: user-id
+        in: path
+        description: username of the user
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: Item Deleted
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/{user-id}/authorized-apps' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+
+  /{user-id}/authorized-apps/{application-id}:
+    get:
+      tags:
+      - admin
+      summary: Retrieve authorized app by app ID for a user
+      description: |
+        Retrieve authorized OAuth apps by an app ID for a given user
+      operationId: listUserAuthorizedAppsByAppId
+      parameters:
+      - name: user-id
+        in: path
+        description: username of the user
+        required: true
+        schema:
+          type: string
+      - name: application-id
+        in: path
+        description: Application ID
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: search results matching criteria
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthorizedApp'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource was not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/{user-id}/authorized-apps/{app-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    delete:
+      tags:
+      - admin
+      summary: Removes challenge question answers
+      description: |
+        Removes authorized OAuth apps by an app ID for a given user
+      operationId: deleteUserAuthorizedAppsByAppId
+      parameters:
+      - name: user-id
+        in: path
+        description: username of the user
+        required: true
+        schema:
+          type: string
+      - name: application-id
+        in: path
+        description: Application ID
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: Item Deleted
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource was not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/{user-id}/authorized-apps/{app-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /me/authorized-apps:
+    get:
+      tags:
+      - me
+      summary: List authorized applications for the authenticated user
+      description: Lists approved OAuth applications of the authenticated user<br>
+        <b>Permission required:</b> None <br> 
+        <b>Scope required:</b> `internal_login`
+      operationId: listLoggedInUserAuthorizedApps
+      responses:
+        200:
+          description: search results matching criteria
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuthorizedApp'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/me/authorized-apps' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    delete:
+      tags:
+      - me
+      summary: Remove authorized applications for the authenticated user
+      description: Removes approved OAuth applications of the authenticated user<br>
+        <b>Permission required:</b> None <br> 
+        <b>Scope required:</b> `internal_login`
+      operationId: deleteLoggedInUserAuthorizedApps
+      responses:
+        204:
+          description: Item Deleted
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/me/authorized-apps' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /me/authorized-apps/{application-id}:
+    get:
+      tags:
+      - me
+      summary: Retrieve authorized app by app ID for the authenticated user
+      description: Retrieves authorized OAuth app by an app ID for the authenticated user.<br> 
+        <b>Permission required:</b> None <br> 
+        <b>Scope required:</b> `internal_login`
+      operationId: getLoggedInUserAuthorizedAppByAppId
+      parameters:
+      - name: application-id
+        in: path
+        description: Application ID
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: search results matching criteria
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthorizedApp'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource was not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/me/authorized-apps/{app-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    delete:
+      tags:
+      - me
+      summary: Remove the authorized app by app ID for the authenticated user
+      description: Removes authorized OAuth app by an app ID for the authenticated user.<br> <b>Permission required:</b> None <br> <b>Scope required:</b> `internal_login`
+      operationId: deleteLoggedInUserAuthorizedAppByAppId
+      parameters:
+      - name: application-id
+        in: path
+        description: Application ID
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: Item Deleted
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: The specified resource was not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/me/authorized-apps/{app-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+components:
+  schemas:
+    AuthorizedApp:
+      required:
+      - appId
+      - clientId
+      type: object
+      properties:
+        appId:
+          type: string
+          example: FooApp
+        clientId:
+          type: string
+          example: 7y7zPj4wDX3nRtfPKrmt8Auke44a
+    Error:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: some_error_code
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: Some Correlation for Error Instance
+  responses:
+    Conflict:
+      description: Element Already Exists
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Created:
+      description: Item Created
+      content: {}
+    Deleted:
+      description: Item Deleted
+      content: {}
+    Forbidden:
+      description: Resource Forbidden
+      content: {}
+    InvalidInput:
+      description: Invalid input, request invalid
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    OK:
+      description: OK
+      content: {}
+    ServerError:
+      description: Internal Server Error
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+      content: {}
+  parameters:
+    usernamePathParams:
+      name: user-id
+      in: path
+      description: username of the user
+      required: true
+      schema:
+        type: string
+    applicationNamePathParam:
+      name: application-id
+      in: path
+      description: Application ID
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information

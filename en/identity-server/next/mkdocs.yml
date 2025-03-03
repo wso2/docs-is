@@ -340,12 +340,13 @@ plugins:
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
         'guides/authorization/impersonation/user-impersonation.md': 'guides/authorization/user-impersonation.md'
+        'get-started/subscribe-for-ai-features.md': 'get-started/subscribe-to-ai-features.md'
 
 # Navigation
 nav:
   - Home:
     - Home: index.md
-  - Get Started:
+  - Get started:
     - Introduction: get-started/quick-start-guide.md
     - Quick Setup: get-started/quick-set-up.md
     - Start integrating apps:
@@ -367,7 +368,7 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
-    - Subscribe for AI features: get-started/subscribe-for-ai-features.md
+    - Subscribe to AI features: get-started/subscribe-to-ai-features.md
     - About this release: get-started/about-this-release.md
   - Guides: 
       - Guides: guides/index.md
@@ -491,6 +492,7 @@ nav:
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+            - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
       - Authorization:
         - Authorization: guides/authorization/index.md
         - API authorization:
@@ -740,14 +742,13 @@ nav:
         - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
-        - Enable adaptive authentication: deploy/enable-adaptive-authentication.md
         - Configure Hazelcast: deploy/configure-hazelcast.md
         - Backup and recovery recommendations: deploy/backup-and-recovery-recommendations.md
         - Troubleshoot in production environments: deploy/monitor/troubleshoot-in-production-environments.md
         - Performance:
           - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure cache layers: deploy/performance/configure-cache-layers.md
-        - Environment compatibility: deploy/environment-compatibility.md
+        - Product compatibility: deploy/product-compatibility.md
         - Promote configurations across environments: deploy/promote-configurations.md
         - Disaster recovery:
           - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
@@ -780,7 +781,7 @@ nav:
         - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
         - Work with product observability: deploy/monitor/work-with-product-observability.md
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
-  - Integrations:
+  - SDKs:
     - Integrate WSO2 IS into your application: integrations/index.md
   - APIs:
     - APIs: apis/index.md
@@ -890,6 +891,7 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
+        - User Account Association API: apis/organization-apis/org-association-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
@@ -903,7 +905,6 @@ nav:
         - Identity Verification: apis/user-identity-verification.md
   - References:
     - References: references/index.md
-    - About this release: references/about-this-release.md
     - Feature deprecation: references/wso2-identity-server-feature-deprecation.md
     - User management:
       - User roles: references/user-management/user-roles.md

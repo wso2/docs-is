@@ -44,15 +44,15 @@ extra:
   home_page_cards:
     - section:
       - title: Get Started
-        icon: assets/libs/oxygen-ui-icons/1.7.3/bolt-16.svg
+        icon: octicons/rocket-16
         icon_color: icon-color-1
         list_items:
           - title: Create your Asgardeo account
-            url: Get Started|Create your Asgardeo account
+            url: Get started|Create your Asgardeo account
           - title: Try login with Asgardeo
-            url: Get Started|Try login with Asgardeo
+            url: Get started|Try login with sample
       - title: Community and Support
-        icon: assets/libs/oxygen-ui-icons/1.7.3/lightbulb-on-16.svg
+        icon: octicons/light-bulb-16
         icon_color: icon-color-2
         list_items:
           - title: Community Help
@@ -61,7 +61,7 @@ extra:
             url: https://wso2.com/asgardeo/pricing/
     - section:
       - title: Guides
-        icon: assets/libs/oxygen-ui-icons/1.7.3/document-16.svg
+        icon: octicons/book-16
         icon_color: icon-color-4
         list_items:
           - title: Applications
@@ -71,7 +71,7 @@ extra:
           - title: API authorization
             url: Guides|Authorization|Authorization
           - title: Branding
-            url: Guides|Customize|Customize branding|Customize branding
+            url: Guides|Customizations|Customize branding|Customize branding
           - title: User management
             url: Guides|User management|User management
           - title: User self-service
@@ -80,7 +80,7 @@ extra:
             url: Guides|Organizations|Organizations
     - section:
       - title: Developer Resources
-        icon: assets/libs/oxygen-ui-icons/1.7.3/user-gear-16.svg
+        icon: octicons/tools-16
         icon_color: icon-color-3
         list_items:
           - title: APIs
@@ -88,7 +88,7 @@ extra:
           - title: Tutorials
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
-            url: Integrations|Integrate Asgardeo into your application
+            url: SDKs|Integrate Asgardeo into your application
 
 watch:
   - ../theme/material
@@ -156,10 +156,10 @@ not_in_nav: |
 nav:
   - Home:
     - Home: index.md
-  - Get Started:
+  - Get started:
     - Get Started - Overview: get-started/index.md
     - Create your Asgardeo account: get-started/create-asgardeo-account.md
-    - Try login with Asgardeo: get-started/try-it-application.md
+    - Try login with sample: get-started/try-it-application.md
     - Start integrating Asgardeo into apps:
       - Start integrating Asgardeo into apps: get-started/start-integrating-apps/index.md
       - Try for a sample app:
@@ -178,13 +178,17 @@ nav:
         - Web apps:
           - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
-  - Quickstarts:
-    - React Quickstart: quick-starts/react.md
-    - Angular Quickstart:  quick-starts/angular.md
-    - Javascript Quickstart: quick-starts/javascript.md
-    - Next.js Quickstart:  quick-starts/nextjs.md
-    - Spring Boot Quickstart:  quick-starts/springboot.md
-  - Guides: 
+    - Connect/Build your app:
+      - React Quickstart: quick-starts/react.md
+      - Angular Quickstart:  quick-starts/angular.md
+      - Javascript Quickstart: quick-starts/javascript.md
+      - Next.js Quickstart:  quick-starts/nextjs.md
+      - Spring Boot Quickstart:  quick-starts/springboot.md
+  # TODO: Enable the following sections after the preoper content is added
+  # - Design login flow:
+  #   - Style login flow: guides/branding/branding-ai.md
+  #   - Customize login flow: guides/authentication/login-flow-ai.md
+  - Guides:
       - Guides - Overview: guides/index.md
       - Applications:
           - Applications: guides/applications/index.md
@@ -373,6 +377,7 @@ nav:
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
         - Onboard users: guides/organization-management/onboard-users.md
+        - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
@@ -421,7 +426,7 @@ nav:
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
-  - Integrations:
+  - SDKs:
     - Integrate Asgardeo into your application: integrations/index.md
   - APIs:
     - APIs - Overview: apis/index.md
@@ -463,6 +468,7 @@ nav:
       - User sessions:
         - Session management API: apis/session.md
         - Session extension API: apis/extend-sessions.md
+      - User sharing management API: apis/organization-user-share-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
     - Organization APIs:
@@ -486,6 +492,8 @@ nav:
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk.md
+        - User Account Association API: apis/organization-apis/org-association-rest-api.md
+      - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
       - SCIM 2.0 Me API: apis/scim2-me.md
@@ -499,6 +507,7 @@ nav:
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md
+    - Asgardeo outbound IP addresses: references/asgardeo-outbound-ip-addresses.md
     - Asgardeo user roles: references/user-management/user-roles.md
     - App configurations:
       - App configurations: references/app-settings/index.md
@@ -556,18 +565,43 @@ nav:
       - Accessing protected API : complete-guides/react/accessing-protected-api.md
       - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
       - Next Steps: complete-guides/react/next-steps.md
-    - .NET:
-      - Introduction: complete-guides/dotnet/introduction.md
-      - Prerequisites: complete-guides/dotnet/prerequisites.md
-      - Register an application: complete-guides/dotnet/register-an-application.md
-      - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
-      - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
-      - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
-      - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
-      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
-      - Accessing protected API: complete-guides/dotnet/protected-api.md
-      - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
-      - Next Steps: complete-guides/dotnet/next-steps.md
+    - Next.js:
+      - B2B:
+        - Introduction: complete-guides/nextjs-b2b/introduction.md
+        - Prerequisites: complete-guides/nextjs-b2b/prerequisite.md
+        - Register an application: complete-guides/nextjs-b2b/register-an-application.md
+        - Give access to APIs and create roles: complete-guides/nextjs-b2b/give-access-to-apis-and-create-roles.md
+        - Create a Next.js app: complete-guides/nextjs-b2b/create-app.md
+        - Configure app for login: complete-guides/nextjs-b2b/configure-app-for-login.md
+        - Add user sign up: complete-guides/nextjs-b2b/add-user-sign-up.md
+        - Add login and logout: complete-guides/nextjs-b2b/add-login-and-logout.md
+        - Manage teams: complete-guides/nextjs-b2b/manage-teams.md
+        - Switch to a team: complete-guides/nextjs-b2b/switch-to-a-team.md
+        - Manage team members: complete-guides/nextjs-b2b/manage-team-members.md
+      - Redirect-Based:
+        - Introduction: complete-guides/nextjs/introduction.md
+        - Prerequisite: complete-guides/nextjs/prerequisite.md
+        - Register an application: complete-guides/nextjs/register-an-application.md
+        - Create a Next.js app: complete-guides/nextjs/create-app.md
+        - Configure Asgardeo provider: complete-guides/nextjs/install-asgardeo-sdk.md
+        - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
+        - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
+        - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
+        - Accessing protected API : complete-guides/nextjs/accessing-protected-api.md
+        - Manage tokens in Next.js : complete-guides/nextjs/manage-tokens-in-apps.md
+        - Next Steps: complete-guides/nextjs/next-steps.md
+      - App-Native:
+        - Introduction: complete-guides/app-native/introduction.md
+        - Prerequisites: complete-guides/app-native/prerequisites.md
+        - Register an application: complete-guides/app-native/register-an-application.md
+        - Create an app for app-native authentication: complete-guides/app-native/create-app.md
+        - Configure Provider: complete-guides/app-native/configure-provider.md
+        - Configure utility functions for app-native authentication: complete-guides/app-native/configure-utility-functions.md
+        - Add login and logout: complete-guides/app-native/add-login-and-logout.md
+        - Add MFA using app-native APIs: complete-guides/app-native/add-mfa.md
+        - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
+        - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
+        - Next Steps: complete-guides/app-native/next-steps.md
     - Node.js:
       - Introduction: complete-guides/nodejs/introduction.md
       - Prerequisite: complete-guides/nodejs/prerequisite.md
@@ -592,18 +626,6 @@ nav:
       - Accessing protected API : complete-guides/angular/accessing-protected-api.md
       - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
       - Next Steps: complete-guides/angular/next-steps.md
-    - Next.js:
-      - Introduction: complete-guides/nextjs/introduction.md
-      - Prerequisite: complete-guides/nextjs/prerequisite.md
-      - Register an application: complete-guides/nextjs/register-an-application.md
-      - Create a Next.js app: complete-guides/nextjs/create-app.md
-      - Configure Asgardeo provider: complete-guides/nextjs/install-asgardeo-sdk.md
-      - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
-      - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
-      - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
-      - Accessing protected API : complete-guides/nextjs/accessing-protected-api.md
-      - Manage tokens in Next.js : complete-guides/nextjs/manage-tokens-in-apps.md
-      - Next Steps: complete-guides/nextjs/next-steps.md
     - Javascript:
       - Introduction: complete-guides/javascript/introduction.md
       - Prerequisite: complete-guides/javascript/prerequisite.md
@@ -615,18 +637,18 @@ nav:
       - Accessing protected API : complete-guides/javascript/accessing-protected-api.md
       - Manage tokens in JavaScript : complete-guides/javascript/manage-tokens-in-apps.md
       - Next Steps: complete-guides/javascript/next-steps.md
-    - App-Native:
-      - Introduction: complete-guides/app-native/introduction.md
-      - Prerequisites: complete-guides/app-native/prerequisites.md
-      - Register an application: complete-guides/app-native/register-an-application.md
-      - Create an app for app-native authentication: complete-guides/app-native/create-app.md
-      - Configure Provider: complete-guides/app-native/configure-provider.md
-      - Configure utility functions for app-native authentication: complete-guides/app-native/configure-utility-functions.md
-      - Add login and logout: complete-guides/app-native/add-login-and-logout.md
-      - Add MFA using app-native APIs: complete-guides/app-native/add-mfa.md
-      - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
-      - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
-      - Next Steps: complete-guides/app-native/next-steps.md
+    - .NET:
+      - Introduction: complete-guides/dotnet/introduction.md
+      - Prerequisites: complete-guides/dotnet/prerequisites.md
+      - Register an application: complete-guides/dotnet/register-an-application.md
+      - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
+      - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
+      - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
+      - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
+      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
+      - Accessing protected API: complete-guides/dotnet/protected-api.md
+      - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
+      - Next Steps: complete-guides/dotnet/next-steps.md
   - Best Practice Guides:
     - Frontend Security:
       - Introduction: complete-guides/fesecurity/introduction.md

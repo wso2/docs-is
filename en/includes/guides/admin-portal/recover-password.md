@@ -10,7 +10,7 @@ To recover your password:
 
 2. Click **Forgot password?**.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0" ) %}
 3. Follow one of the following methods based on the password recovery option configured for your organization.
 
     !!! note
@@ -33,7 +33,7 @@ To recover your password:
 
 {% endif %}
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0" ) %}
 4. Confirm password reset request.
     - If the **Email Link** option was chosen in the previous step, open the email you received and click **Reset Password**.
         ![Reset password email]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

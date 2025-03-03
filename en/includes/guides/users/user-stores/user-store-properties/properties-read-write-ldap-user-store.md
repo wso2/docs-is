@@ -381,5 +381,13 @@ will be terminated.
 <p>Sample: 20</p>
 </td>
 </tr>
+<tr class="odd">
+<td>BulkImportSupported</td>
+<td>properties.</br>BulkImportSupported</td>
+<td>BulkImportSupported</td>
+<td>Enables bulk import support for the user store.<br/>
+<p>Default : true </p>
+</td>
+</tr>
 </tbody>
 </table>

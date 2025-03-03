@@ -1,274 +1,368 @@
 # About this Release
 
-WSO2 Identity Server 7.0.0 is the latest WSO2 Identity Server (WSO2 IS) release and is the successor of WSO2 Identity Server 6.1.0.
+{{product_name}} 7.1.0 is the latest release, succeeding WSO2 Identity Server 7.0.0, with enhanced features, improvements, and fixes.
 
 ## What's new in this release?
 
-WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
+WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
-- **Refreshing Look and Feel for the Console UI**
+- **Push Notification-Based Authentication**
 
-    The console has received a major upgrade with our brand-new, lightning-fast [Oxygen UI](https://wso2.github.io/oxygen-ui/){:target="_blank"}! The beta console UI, accessible via `https://<hostname>:<port>/console`, introduced in version 5.11.0, is now available for production usage for administrative and developer tasks.
+    WSO2 Identity Server now supports Push Notification-Based Authentication, enabling a faster and more secure login experience. Instead of manually entering passwords or one-time codes, users can authenticate by approving a push notification on their mobile device.
 
-    With this upgrade, concepts such as service providers, identity providers, inbound/outbound authentication, previously utilized in the Carbon-based management console, have evolved into 'applications' and 'connections', respectively. WSO2 Identity Server 7.0.0 introduces application templates for Single Page Applications (SPAs), web applications with server-side rendering, mobile applications, and machine-to-machine (M2M) applications. It also offers a variety of authentication options, including social login, multi-factor authentication (MFA), passwordless authentication, etc., which can be selected from the available connections.
+    This feature enhances security by reducing reliance on passwords and SMS-based OTPs, which are vulnerable to phishing and interception. Organizations can seamlessly integrate push authentication into existing authentication flows, improving user experience while strengthening protection against unauthorized access.
 
-    [Learn more]({{base_path}}/guides/your-is/manage-console-access/)
+    Learn more about [push notification-based authentication]({{base_path}}/guides/authentication/mfa/add-push-auth-login/).
 
-- **Productized Support for B2B CIAM Use Cases**
+- **AI-powered development**
 
-    WSO2 Identity Server now enables secure access for your B2B business customers with flexible organization management capabilities. B2B CIAM is the identity foundation that helps organizations that work with business customers, franchises, distributors and suppliers get their apps and services to market quickly and securely.
+    WSO2 Identity Server 7.1.0 introduces **AI LoginFlow** and **AI Branding**, bringing automation and intelligence to identity and access management. Previously, administrators had to manually configure authentication sequences and customize login pages, a process that was often time-consuming and prone to errors. With AI LoginFlow and AI Branding, WSO2 Identity Server 7.1.0 leverages AI-driven natural language inputs to simplify these tasks, reducing manual effort while minimizing configuration errors. These features enhance both user and administrator experiences by streamlining authentication setup and branding customization.
 
-    **Key Highlights:**
-  
-    - Onboard enterprise IDP, or invite users to register at organizations
-    - Configure varied login options for organizations
-    - Hierarchical organization management
-    - Delegated administration
-    - Different branding for organizations
-    - Resolve organization at login as the user inputs the organization name, based on the user’s email domain mapped for a particular organization or based on a query or path parameter in the URL
-  
-    [Learn more]({{base_path}}/guides/organization-management/)
+    - **AI LoginFlow** - Lets administrators define authentication flows using natural language, simplifying complex configurations and reducing setup effort. Learn more about [AI LoginFlow]({{base_path}}/guides/authentication/login-flow-ai/).
 
-- **Authentication API for App-Native Authentication**
+    - **AI Branding** - Allows administrators to customize login pages using natural language, making it easy to create designs that match their organization's identity. Learn more about [AI Branding]({{base_path}}/guides/branding/branding-ai/).
 
-    This release introduces an API-based authentication capability, allowing developers to implement complete authentication workflows within their applications, focusing on enhanced user experience.
-  
-    **Key Highlights:**
-  
-    - A flexible API containing all necessary details to render UIs inside the application itself
-    - Support for handling authentication orchestration logic at the WSO2 Identity Server  without taking that overhead to the application (e.g: Based on the device the user logs in to the app, prompt the second factor)
-    - APIs based on OAuth 2.0/Open ID Connect standards, requiring no browser support
-    - Ensures identity and proof of possession of the client in handling authentication credentials
+- **Custom Authentication Service Extension**
+    
+    Administrators can now extend authentication capabilities by implementing custom authentication services. This enhancement offers greater flexibility in addressing diverse authentication requirements beyond the built-in authenticators.
 
-    [Learn more]({{base_path}}/guides/authentication/add-application-native-login/)
+- **Pre-Issue Access Token Service Extension** 
+    
+    Supports executing custom logic before issuing an access token, providing greater flexibility in the OAuth2 token issuance process. This enhancement allows administrators to,
+    
+    - Add, modify, or remove scopes.
+    - Add, modify, or remove audience values. 
+    - Modify or remove user attributes incorporated into the access token.
+    - Add custom claims (only string, number, boolean, and string type arrays are allowed).
+    - Update the validity period of the access token.
 
-- **OAuth 2.0 Specifications**
+    By integrating this functionality, organizations can enforce additional security checks or customize token contents to align with specific requirements.
+    
+    Learn more about the [pre-issue access token action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action/).
 
-    WSO2 Identity Server now supports the following OAuth 2.0 specifications, designed for protecting APIs exposing high-value and sensitive data:
-  
-    - [JWT Secured Authorization Response Mode](https://openid.net/specs/oauth-v2-jarm.html){:target="_blank"}
-    - [Pushed Authorization Requests](https://www.rfc-editor.org/rfc/rfc9126.html){:target="_blank"}
+- **Pre-update password service extension**
 
-- **Compliance with FAPI 1.0 Profiles**
+    Enables password validation during various password update flows. This can be achieved by integrating with credential intelligence services (such as `Have I Been Pwned` or `SpyCloud`) to check for compromised passwords or by enforcing allowed/disallowed password policies. This action is triggered in the following password update flows:
 
-    WSO2 IS is now compliant with FAPI 1.0 [Baseline](https://openid.net/specs/openid-financial-api-part-1-1_0.html){:target="_blank"} and [Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){:target="_blank"} profiles, ensuring secure and compliant financial services operations.
+    - Self-Service Password Reset – The user initiates a password reset via the "Forgot Password" option and completes the recovery process.
+    - Profile Update – The user updates their password through a self-service portal, such as the My Account application.
+    - Admin-Initiated Password Reset – An administrator forces a password reset, requiring the user to set a new password.
+    - Admin-Initiated User Invitation – An administrator invites a new user by resetting the password. The user then sets a new password as part of the registration flow.
+    - Direct Admin Update – An administrator directly updates a user's password.
 
-    **Key Highlights:**
-  
-    - Create FAPI compliant applications from DCR. This validates FAPI enforcements a FAPI compliant application should have like Software Statement Assertions(SSA) validation that ensures the third party is trusted with the regulatory body of the region
-    - Support for certificate bound access tokens.
-    - Support for pairwise subject identifiers
-    - Enforcing request object validations for FAPI compliance
-        - Mandate sending a request object in the authorization request passed via the request or request_uri parameter.
-        - Mandatory request object parameter validations (scope, redirect_uri, nonce)
-        - Request object signing algorithm restriction (PS256, ES256)
-    - Mandate PKCE for PAR
-    - Enforce nbf & exp claim validations
-    - Enforcing FAPI allowed client authentication methods and signature algorithms
+    Learn more about [pre-update password action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-update-password-action/).
 
-- **First-Class Support for Securing API Resources**
+- **User Impersonation**
 
-    Comprehensive support for API Authorization via RBAC is now available, allowing easy representation, subscription, and role-based access control for API resources.
+    User impersonation allows authorized personnel, such as support staff, to temporarily access another user's account without requiring their login credentials. This capability is crucial for troubleshooting, testing, and resolving user-reported issues efficiently.
 
-    **Key Highlights:**
-  
-    - Easily represent API Resources and scopes associated with your applications.
-    - Seamlessly subscribe API Resources to applications.
-    - Define roles collecting API scopes.
-    - Enable RBAC when authorizing APIs.
-    - Role assignment for users and groups connected from various sources (from user stores, from external IdPs)
-    - Role-Based scope validation during token issuing.
+    Business users can report issues through various channels, such as support tickets or direct communication with the support desk. Support personnel can then impersonate the affected user to investigate the reported issue, understand the actual flow, and gather additional information for further troubleshooting.
 
-    [Learn more]({{base_path}}/guides/authorization/api-authorization/api-authorization/)
+    Administrators can enable user impersonation within the same organization to streamline issue resolution and enhance support processes.
+    
+    Learn more about [user impersonation]({{base_path}}/guides/authorization/user-impersonation/).
 
-- **Command line utility to manage Identity Server configurations in CI/CD workflows**
+- **Enhanced security and cryptographic capabilities**
 
-    Efficiently manage WSO2 Identity Server configurations across CI/CD workflows with a command-line utility, designed to promote configurations from development to higher environments seamlessly.
-  
-    [Learn more]({{base_path}}/deploy/promote-configurations/)
+    - **Post-Quantum TLS Support** 
 
-- **FIPS 140-2 Compliance**
+        WSO2 Identity Server now supports the X25519MLKEM768 hybrid key exchange mechanism, enhancing TLS (Transport Layer Security) security against quantum computing threats.
 
-    WSO2 Identity Server is now FIPS compliant.FIPS (Federal Information Processing Standard) is a standard created by the National Institute of Standards and Technology’s (NIST’s) Computer Security Division. FIPS established a data security and computer system standard that organizations must adhere to per the Federal Information Security Management Act of 2002 (FISMA). Compliance in the Identity Server helps your deployment to be compliant and certified for FIPS.
+        This feature integrates X25519MLKEM768, a hybrid key exchange algorithm that combines the classical X25519 elliptic curve key exchange with ML-KEM-768 (Kyber-768), a post-quantum cryptographic algorithm. By supporting this mechanism, WSO2 Identity Server can establish secure TLS connections with clients that implement X25519MLKEM768, ensuring resilience against both classical and quantum-based attacks.
 
-    [Learn more]({{base_path}}/deploy/enable-fips-for-is/)
+        Learn more about [configuring post-quantum TLS]({{base_path}}/deploy/security/configure-post-quantum-tls/).
 
-- **HYPR for Passwordless and Biometric Authentication**
+    - **AES-256 Support for Data Encryption**
 
-    WSO2 Identity Server now offers the HYPR connector as an authentication option for applications, enabling passwordless and biometric authentication to enhance security and user experience. It is available as a IS 7.0.0 compatible connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/9fae98d3-26a6-4b1f-a356-f58b08d060ed){:target="_blank"}.
-  
-    [Learn more](https://github.com/wso2-extensions/identity-outbound-auth-hypr){:target="_blank"}
+        WSO2 Identity Server now supports AES-128, AES-192, and AES-256 encryption algorithms for internal data encryption. This enhancement provides greater flexibility in selecting encryption strength based on security and compliance requirements. 
+    
+        Learn more in [symmetric encryption]({{base_path}}/deploy/security/symmetric-encryption/).
 
-- **Branding and i18n Support**
+    - **AES Encryption & Key Rotation Support for Cipher Tool** 
 
-    Easily brand and localize end-user facing UIs and email templates for a consistent and unified user experience.
-  
-    [Learn more]({{base_path}}/guides/branding/)
+        WSO2 Identity Server now supports AES-based symmetric encryption in Secure Vault, complementing the existing keystore-based asymmetric encryption. Encryption is performed using an AES secret stored in the internal keystore, enhancing security and flexibility.
+    
+        Additionally, Cipher Tool now supports key rotation, enabling seamless transitions between symmetric and asymmetric encryption or updating keys within the same encryption mode.
+    
+        Learn more about [encrypting passwords with the Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool/).
 
-- **Email and SMS OTP for Passwordless Login**
+- **OAuth 2.0 Rich Authorization Requests**
 
-    Enhanced email and SMS OTP authentication options are now available for passwordless login, with a simplified configuration process.
+    Adds support for the OAuth 2.0 Rich Authorization Requests (RFC 9396) specification, allowing more granular authorization beyond traditional scopes. The `authorization_details` field is now supported in authorization requests, token requests, and introspection responses. Supported authorization details types are discoverable via the `.well-known` metadata endpoint, and additional types can be integrated using Java extensions.
 
-    **Key Highlights:**
-  
-    - This release contains a new implementation of email and SMS OTP authenticators, removing the requirement to configure an identity provider and simplifying the configurations.
-    - New implementation also enables using email and SMS OTP as passwordless login options
-    - Previous implementations of email and SMS OTP authenticators are now deprecated.
+    Learn more about [rich authorization requests]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar)
 
-    [Learn more]({{base_path}}/guides/authentication/passwordless-login/)
+- **iProov as an MFA Option** 
+    
+    WSO2 Identity Server now supports iProov as a Multifactor Authentication (MFA) option, enabling seamless integration of secure facial biometrics into your authentication flows.
+    
+    Learn more about the [iProov connector](https://store.wso2.com/connector/identity-outbound-auth-iproov){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md){: target="_blank"}.
 
-- **Idle Account Identification API**
+- **Sift fraud detection** 
 
-    An API is now available to identify and manage idle user accounts, supporting notifications, locks, or deletions based on inactivity.
-  
-    [Learn more]({{base_path}}/apis/idle-accounts-identification-rest-api/)
+    WSO2 Identity Server now supports Sift fraud detection integration, enabling real-time detection and prevention of fraudulent logins. By leveraging Sift’s risk scoring capabilities within the conditional authentication framework, organizations can enhance security without compromising user experience.
+    
+    Learn more about the [Sift connector](https://store.wso2.com/connector/identity-fraud-detection-sift){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-fraud-detection-sift/blob/main/docs/config.md){: target="_blank"}.
 
-- **Client-Id for OIDC RP-Initiated Logout**
+- **Onfido Identity Verification**
 
-    Support for sending the `client_id` to perform the logout request, providing flexibility in logout requests for relying parties.
+    WSO2 Identity Server now supports Onfido identity verification, enabling organizations to validate user identities in real time using trusted legal documents, such as passports, driving license and national IDs. By leveraging Onfido’s advanced document verification technology, organizations can enhance fraud prevention and ensure regulatory compliance.
 
-    [Learn more]({{base_path}}/guides/authentication/oidc/add-logout/)
+    Learn more about the [Onfido connector](https://store.wso2.com/connector/identity-verification-onfido){: target="_blank"} in the [documentation](https://github.com/wso2-extensions/identity-verification-onfido/blob/main/docs/config.md){: target="_blank"}.
 
-- **Email Magic Link Login from Different Browsers**
+- **Secret Management for Conditional Authentication Scripts**
 
-    The email magic link authenticator now supports logging in from a different browser, enhancing flexibility and user experience.
-  
-    [Learn more]({{base_path}}/guides/authentication/passwordless-login/add-passwordless-login-with-magic-link/)
+    Administrators can now securely store secrets in the WSO2 Identity Server Console and reference them when needed in conditional authentication scripts. Previously stored secrets can be accessed in authentication scripts using the secrets.{secret_name} syntax. For example:
 
-## What has changed in this release?
+    ```js
+    var secretValue = secrets.secretName;
+    ```
 
-If you are moving to WSO2 Identity Server 7.0.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 7.0.0.
+    This feature enhances the security and flexibility of authentication workflows by allowing sensitive values to be managed securely within scripts.
+    
+    Learn more about [secrets]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script).
 
-Learn more about [upgrading to WSO2 IS 7.0.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
+
+- **Enhanced organization management capabilities**
+
+    - **B2B Organization Filtering & Discovery Improvements**
+
+        Supports organization filtering using meta attributes, expanding beyond standard filters like name, ID, and parent organization. This enhancement enables more precise and flexible organization searches, improving management and discovery across complex organizational structures.
+    
+        Learn more about [searching for organizations]({{base_path}}/guides/organization-management/manage-organizations/#search-an-organization).
+
+
+    - **Multiple Secondary User Store Configuration for Child Organizations**
+
+        Extends support for configuring secondary user stores to child organizations, in addition to the previously supported root organizations. With this enhancement, each organization in a hierarchical structure can have its own dedicated user store, enabling independent management of users and groups.
+    
+        Learn more about it in [onboarding users]({{base_path}}/guides/organization-management/onboard-users/#onboard-users-from-a-secondary-user-store) documentation.
+
+    - **Create OAuth 2.0 Applications directly within Organizations**
+
+        Supports creating OAuth2 applications directly within organizations using the application management API. To complement this, role management capability is also extended to organizations. Additionally, API resources registered at the root organization level are now inherited by organizations.
+    
+        Learn more about [creating applications in organizations]({{base_path}}/guides/organization-management/organization-applications/).
+
+    - **Email Domain-Based Organization Discovery for Self-Registration**
+
+        Supports email domain-based organization discovery for self-registration. When enabled, users can enter an email address with a domain associated with a specific organization. The system then automatically identifies the corresponding organization, allowing users to seamlessly self-register within it.
+    
+        Learn more about [email domain based organization discovery]({{base_path}}/guides/organization-management/email-domain-based-organization-discovery/).
+
+    - **Support for `login_hint` Parameter in Organization Discovery**
+    
+        Supports using the `login_hint` query parameter as an organization discovery hint in B2B scenarios. When a user’s email is provided in the `login_hint`, the system can automatically route them to their organization’s login page, streamlining authentication.
+    
+        Learn more about it in [email-domain based organization discovery]({{base_path}}/guides/organization-management/email-domain-based-organization-discovery/).
+
+    - **Email and SMS Template Inheritance with Override Capability for Child Organizations**
+
+        Introduces enhanced functionality for managing email and SMS templates across organizations. This feature enables child organizations to inherit email and SMS templates from a parent or ancestor organization while allowing them to override specific content as needed. This ensures that child organizations can maintain unique communication while preserving a consistent base template defined at the parent level.
+    
+        Learn more about it in [email branding]({{base_path}}/guides/branding/customize-email-templates/) and [SMS branding]({{base_path}}/guides/branding/customize-sms-templates/).
+
+    - **Update and Resolve Shared User Profiles Across Organization Hierarchies**
+    
+        Improves the management of shared user profiles across multiple organizations. Previously, shared users had a single profile that couldn't be customized per organization. Now, administrators can update and resolve shared user profile attributes based on the organization hierarchy, providing greater flexibility and control over user data at different organizational levels.
+
+        Learn more about [shared user profiles]({{base_path}}/guides/organization-management/share-user-profiles/).
+
+    - **Share Users Across Organization Hierarchy with Role Assignment**
+
+        Introduces the ability to share users across an organization hierarchy with role assignment. This feature allows administrators to share user profiles from a parent organization to child organizations while assigning specific roles during the process. Multiple sharing policies are now supported, providing greater flexibility. Administrators can choose to share users with all existing and future child organizations or selectively share users with specific organizations as needed. This enhancement simplifies user management by enabling centralized control over user roles and access across the organization hierarchy, improving both efficiency and security.
+    
+        Learn more about the [User Sharing API]({{base_path}}/apis/organization-user-share-rest-api/).
+
+- **Application-specific branding**
+    
+    Supports application-specific branding, allowing businesses to customize branding for individual applications directly through the Console. Previously, branding was limited to the organization level, making it challenging to manage distinct branding across multiple applications. With this enhancement, enterprises can deliver a personalized user experience by defining unique branding for each application's login portal and user interface. In B2B scenarios, if an application lacks specific branding, it will inherit branding from the organization, parent organization, or default to WSO2 Identity Server branding, ensuring both flexibility and consistency.
+    
+    Learn more about it in [Configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/).
+
+- **Right-to-Left (RTL) Language Support**
+
+    WSO2 Identity Server now supports Right-to-Left (RTL) language rendering in login and account recovery portals, enhancing accessibility for users of Arabic, Hebrew, Persian, and other RTL languages.
+
+    This update ensures a seamless experience by automatically adapting UI components to RTL layouts, improving usability for users in the Middle East, North Africa, and other RTL language regions. By making authentication experiences more inclusive and user-friendly, this enhancement strengthens WSO2 Identity Server’s global reach.
+    
+    Learn more about [RTL language support]({{base_path}}/guides/branding/localization/#right-to-left-rtl-language-support).
+
+- **Rule-Based Password Expiration**
+    
+    Supports rule-based password expiration, allowing administrators to define custom expiration policies based on user roles and groups. This feature provides flexibility in enforcing or bypassing password expiration based on specific conditions, ensuring better alignment with organizational security requirements. Additionally, rule prioritization helps resolve conflicts and streamline password management.
+    
+    Learn more about [rule-based password expiration]({{base_path}}/guides/account-configurations/login-security/password-validation/#rule-based-password-expiration).
+
+- **Support for Attribute-Wise Uniqueness Validation Configuration**
+    
+    Supports attribute-wise uniqueness validation configuration, allowing administrators to define uniqueness constraints for attributes directly within the General tab. A new dropdown menu provides three options:
+    - *None* – No uniqueness validation.
+    - *Within User Store* – Ensures uniqueness within a specific user store.
+    - *Across User Stores* – Enforces uniqueness across all user stores.
+
+    Learn more about [configuring unique attributes]({{base_path}}/guides/users/attributes/configure-unique-attributes/).
+
+- **Username recovery enhancements**
+
+    - **Username recovery support for SMS channel**
+
+        Extends username recovery support to the SMS channel, in addition to the previously supported email-based recovery. Administrators can now enable or disable recovery channels based on organizational preferences and offer users a choice between SMS and email for username recovery.
+    
+        Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
+
+    - **Username Recovery When Email Address Is Not Unique**
+
+        Supports username recovery even when the provided email address is associated with multiple user accounts. Previously, username recovery was only possible when the provided attributes uniquely identified a user. With this enhancement, users with non-unique email addresses can still recover their usernames. Administrators can enable or disable this behavior based on organizational requirements.
+    
+        Learn more about it in [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery/).
+
+- **On-Demand Silent Password Migration**
+
+    Supports on-demand silent password migration, enabling seamless password migration from an existing system without user disruption. During login, user credentials are verified against the existing system, and passwords are securely migrated to the Identity Server. This process leverages a conditional authentication script and external REST services to authenticate users and transfer credentials without requiring additional user action. 
+    
+    Learn more about [on-demand silent password migration]({{base_path}}/guides/users/migrate-users/migrate-passwords/).
+
+- **Notification Template Management API**
+
+    WSO2 Identity Server now supports managing both Email and SMS notification templates through the Notification Template Management API. Previously, API support was limited to email templates, but with this update, organizations can manage both email and SMS templates seamlessly using the same API, improving flexibility and consistency in notification management.
+
+    Learn more about the [notification template management API]({{base_path}}/apis/notification-templates/).
+
+- **Certificate Validation Management API**
+
+    WSO2 Identity Server introduces the Certificate Validation Management API to eliminate registry dependencies for managing X.509 authenticator validators and certificate configurations. This new RESTful API enables seamless management of certificate validation configurations, improving flexibility and ease of integration.
+
+    Learn more about the [Certificate Validation Management REST API]({{base_path}}/apis/certificate-validation-management-rest-api/).
+
+- **Seamless Third-Party SSO Integration with Ready-to-Use Templates**
+
+    Adds built-in support for third-party Single Sign-On (SSO) configurations, streamlining the integration process with popular enterprise applications. This enhancement introduces ready-to-use SSO templates, similar to our existing application templates, reducing manual configuration and providing step-by-step guidance for vendor-side setup. With this release, administrators can seamlessly integrate Identity Server with leading service providers using the following pre-configured SSO templates:
+
+    - Google Workspace
+    - Microsoft 365
+    - Salesforce
+    - Zoom
+    - Slack
+
+    Learn more about [SSO integrations]({{base_path}}/guides/authentication/sso-integrations/).
+
+- **SMS Template Management UI**
+    
+    Introduces a dedicated SMS Template Management UI, allowing administrators to create, customize, and localize SMS notifications to align with their organization's branding and communication needs. This enhancement enables per-tenant customization through the management console or APIs, ensuring a more personalized and engaging user experience.
+
+    Learn more about [customizing SMS templates]({{base_path}}/guides/branding/customize-sms-templates/).
+
+- **Java 21 runtime support**
+
+    WSO2 Identity Server 7.1.0 is now compatible with Java 21 runtime compatibility and BouncyCastle keystore integration, enhancing security and performance. Java 21, the latest LTS version, ensures long-term support and stability, while replacing the JDK keystore with BouncyCastle strengthens cryptographic operations. Extensive performance testing confirms improved efficiency with JDK 21 compared to JDK 11, delivering a more optimized runtime environment.
+
+- **Tenant management UI**
+    
+    The new Tenant Management UI in WSO2 Identity Server 7.1.0 simplifies multi-tenancy administration, providing a more efficient management experience. By default, the server is configured with a single root organization, `carbon.super`. With the necessary permissions, administrators can now create and manage multiple root organizations, maintaining isolated user bases within a single server or cluster. This capability is now accessible through the new Console, simplifying tenant management.
+
+    Learn more about [tenant management]({{base_path}}/guides/multitenancy/manage-tenants/).
+
+- **JWT Access Token Attributes Configuration**
+    
+    With this enhancement, user attributes configured in the **User Attributes** section will no longer be automatically included as access token attributes. Instead, the **Access Token** section now provides an option to explicitly select which attributes should be included in the token. The selected attributes will be added to the JWT access token without requiring explicit requests. This change applies only to newly created applications by default. For existing applications, the updated behavior can be enabled by updating the application settings.
+    
+    Learn more about it in [OIDC configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token).
+
+- **Support for Multiple Email Addresses & Phone Numbers Per User**
+
+    Supports multiple email addresses and phone numbers per user, allowing users to register multiple contact points in their profiles. Users can designate a primary email and phone number, which will be used for notifications and OTPs. If verification is enabled, only verified contact details can be set as primary, ensuring security and reliability in communication.
+    
+    Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
 
 ## Deprecated features
 
-In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several features to streamline operations, enhance security, and improve the user experience. These changes are part of our ongoing efforts to keep our platform robust and forward-compatible. Below, you will find details on the deprecated features and the recommended actions for users. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
+In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
 
-- **Management Console**
-
-    The Management Console has been deprecated in favor of the new Console UI, which offers a refreshed look and feel.
-
-    It is now only available for a subset of features which are still not available in the new console. This includes XACML policy administration and editor, workflow configurations, key store management, registry configurations, tenant management, consent purpose management, and function libraries.
-  
-    **Recommendation**: Transition to the new [Console UI]({{base_path}}/guides/your-is/manage-console-access/) for all functionality other than what’s made default available in the carbon-based management console.
-
-- **Identity Provider Based Email and SMS OTP Implementation**
-
-    To simplify configurations, the previous implementation is deprecated in favor of new Email and SMS OTP authenticators.
-  
-    **Recommendation**: Adopt the new [Email]({{base_path}}/guides/authentication/mfa/add-emailotp-login/) and [SMS OTP]({{base_path}}/guides/authentication/mfa/add-smsotp-login/) implementation.
-
-- **Password Expiry Connector**
-
-    An in-built password expiry feature at the organization level now replaces the need for a separate authenticator in the login flow.
-  
-    **Recommendation**: Utilize the in-built [password expiry]({{base_path}}/guides/account-configurations/login-security/password-validation/) feature.
-
-- **Userstore Level Password Patterns**
-
-    Managing password patterns at the userstore level has been deprecated due to its complexity, moving to a tenant-level configuration.
-  
-    **Recommendation**: Implement tenant-level [password patterns]({{base_path}}/guides/account-configurations/login-security/password-validation/).
-
-- **Account recovery with challenge questions**
-
-    With the trend in the industry in moving away from the challenge question based account recovery use cases, this feature is deprecated and removed from the default distribution as a connector.
-
-    **Recommendation**: Move to stronger account recovery options. The product capability is made available as a connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/1f79b51f-acae-4365-83ab-a2f1a6b690f9){:target="_blank"} for use during the transition.
-
-- **Lite User Registration**
-
-    This feature is deprecated as it does not align with the primary purpose of creating user accounts in the WSO2 Identity Server.
-
-- **Idle Account Notification and Suspension**
-
-    This feature is recommended to be managed with an external scheduler due to its complexity in a multi-node setup.
-  
-    **Recommendation**: Integrate with an external scheduler like [Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows){:target="_blank"} or [Choreo scheduled integration](https://wso2.com/choreo/docs/develop-components/develop-integrations/develop-a-scheduled-task/){:target="_blank"}.
-
-- **User Account Recovery v1 API**
-
-    Deprecated in favor of a more user-friendly v2 API.
-  
-    **Recommendation**: Use [User Account Recovery v2 API]({{base_path}}/apis/user-account-recovery-v2-rest-api/).
-
-- **Consent Purpose Management and Prompting Consents at Sign-Up**
-
-    The consent management purpose which can be attached at sign up is an incomplete implementation. We are moving out from providing this capability and planning to improve the product to provide OOTB capability to update marketing systems or consent and preference management systems on consent collected at registration. For example, collect ToS, privacy policy, and any marketing-related consents at registration and update respective systems that manage consent policies and challenge back to the user to collect consents if new policy versions are rolled out.
+- **Password Expiring User Identification Rest API**
     
-    WSO2 Identity Server will keep supporting consent management requirements in the following scenarios where a user will interact with a third-party application and will improve in associated use cases towards the direction of [open data ecosystems](https://openid.net/final-version-of-open-banking-and-open-data-ready-to-cross-borders-whitepaper-published/){:target="_blank"}.
+    With the introduction of rule-based password expiration, administrators can now define password expiration rules based on user roles and groups, offering more granular control over password policies. As part of this enhancement, As part of this enhancement, the Password Expiring User Identification REST API has been deprecated and WSO2 Identity Server now exposes the `passwordExpiryTime` attribute directly through the SCIM2/Users API.
+
+    **Recommended action** - Use the SCIM2 API to retrieve password expiration details directly via the `passwordExpiryTime` attribute.
+
+- **Built-in support for XACML**
     
-    - In requirements where the user is sharing PII with third-party apps
-    - In requirements where the user has to knowingly authorize third-party apps to access his/her data based on OAuth 2.0 scopes defined.
+    WSO2 Identity Server has extracted out as a connector built-in XACML support.
+    
+    **Recommended action** - If you still require XACML functionality, you can integrate the [XACML connector](https://store.wso2.com/connector/identity-application-authz-xacml){: target="_blank"} into {{product_name}}. Learn more about it in the [documentation](https://github.com/wso2-extensions/identity-application-authz-xacml/blob/master/README.md){: target="_blank"}.
+         
+- **loginContext API**
+    
+    The loginContext API, previously used to check for valid sessions, has been deprecated in WSO2 Identity Server 7.1.
 
-- **SaaS Application Configuration**
+    **Recommended action** - To check for an active session, use the `/api/identity/auth/v1.1/data/` API instead.
 
-    Deprecated due to the introduction of productized B2B capabilities.
-  
-    **Recommendation**: Leverage productized [B2B capabilities]({{base_path}}/guides/organization-management/).
+- **Email template management API V1 & V2**
 
-- **Request Path Authentication**
+    The Email Template Management API, previously used to manage organization and application-level email templates, has been deprecated.
 
-    Deprecated in favor of API-based authentication.
-  
-    **Recommendation**: Implement [app-native authentication]({{base_path}}/guides/authentication/add-application-native-login/) through the Authentication API.
+    **Recommended action** - Use the Notification Templates API instead. Learn more about the [notification template management API]({{base_path}}/apis/notification-templates/).
 
-- **Multiple Inbound Protocols in a Single Application**
 
-    Only a single inbound authentication protocol configuration is supported going forward.
-  
-    **Recommendation**: Use multiple applications for different protocols.
+- **LDAP-based multi-attribute login**
+    
+    WSO2 Identity Server 7.1 has deprecated the LDAP-based multi-attribute login feature.
 
-- **Multiple Authenticators in a Single Connection**
+    **Recommedned action** - If you need to enable multi-attribute login, follow instructions in [multi-attribute login]({{base_path}}/guides/authentication/multi-attribute-login/) to set it up with {{product_name}} 7.1.0.
 
-    Deprecated in favor of a single authenticator configuration per connection.
-  
-    **Recommendation**: Employ multiple connections for different authenticator configurations.
+- **Carbon Registry**
 
-- **Product Profile Support**
+    With WSO2 Identity Server 7.1, the Carbon Registry, previously used as a data repository, has been deprecated. Registry dependencies have been removed from the WSO2 Identity Server, and the registry core is planned for removal in a future release, streamlining the system and reducing legacy components.
 
-    "is", "worker", and "workflow" profiles are deprecated.
-  
-    **Recommendation**: Default to the standard product profile.
+## Deprecated and retired connectors
 
-- **Unused Claim Dialects**
+??? note "Deprecated connectors"
 
-    Below claim dialects are now deprecated and removed from the product. However they will continue to be available in the already created tenants if you are migrating from a previous release.
-      
-    - Attribute Exchange Schema 
-    - eIDAS
+    - Github
 
-- **scim2/Roles API**
 
-    We have enhanced the permission assignment of roles to include permissions of both Identity Server system APIs and business application APIs which are denoted as scopes.
+??? note "Retired connectors"
 
-    Further, In the prior versions of Identity Server, role management was limited to the organization level. In this release, roles can be created for both application-level and organization-level purposes.
-
-    **Recommendation**: Use [scim2/v2/Roles API]({{base_path}}/apis/roles-v2-rest-api/).
-
-- **Authentication Endpoint URL Branding**
-
-    Deprecated in favor of using a load balancer for URL rewriting.
-  
-    **Recommendation**: Use a load balancer to rewrite the URL.
-
-- **Configuration to Control Request Parameters to the Authentication Endpoint**
-
-    The configuration `[authentication.endpoint.query_params]` which is used to control the request parameters going to the authentication endpoint previously is now deprecated.
-  
-    **Recommendation**: Use `[authentication.endpoint.redirect_params]` configuration.
-
-- **Microprofile JWT 1.0**
-
-    This specification focused on providing role-based access control for microservices which is now deprecated in favor of API Authorization via RBAC capabilities.
-  
-    **Recommendation**: Adopt [API Authorization]({{base_path}}/guides/authorization/api-authorization/api-authorization/) via RBAC.
+    - JWT SSO Inbound Authenticator
+    - Nuxeo
+    - SAML Authenticator
+    - SCIM 2.0 Inbound Provisioning Connector
+    - Mobile Connect
+    - Pinterest Authenticator
+    - FIDO Authenticator
+    - X509
+    - SCIM Provisioning Connector
+    - Salesforce Provisioning Connector
+    - SPML Provisioning Connector
+    - Google Provisioning Connector
+    - Inwebo
+    - RSA
+    - Passive-STS Federated Authenticator
+    - OpenID Connect Authenticator
+    - Yahoo Authenticator
+    - Google Authenticator
+    - Facebook Authenticator
+    - JWT
+    - Token2
+    - Basecamp
+    - Foursquare
+    - Twitter
+    - MailChimp
+    - Office365
+    - MePIN
+    - Dropbox
+    - Yammer
+    - EmailOTP
+    - Bitly
+    - SMSOTP
+    - TOTP
 
 ## Fixed issues
 
-For a complete list of issues fixed in this release, see [WSO2 IS 7.0.0 - Fixed Issues](https://github.com/wso2/product-is/issues?q=label%3AFixed%2F7.0.0+is%3Aclosed){:target="_blank"}.
+For a complete list of issues fixed in this release, see [WSO2 IS 7.1.0 - Fixed Issues](https://github.com/wso2/product-is/issues?q=state%3Aclosed%20project%3Awso2%2F113){:target="_blank"}.
 
 ## Known issues
 
 For a complete list of open issues related to the WSO2 Identity Server, see [WSO2 IS - Open Issues](https://github.com/wso2/product-is/issues){:target="_blank"}.
+
+

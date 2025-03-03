@@ -70,7 +70,6 @@ To configure properties of user attributes:
 
 4. In the **General** tab, update the following values.
 
-    {% if shared_user_profile %}
     <table>
        <tbody>
             <tr>
@@ -95,26 +94,18 @@ To configure properties of user attributes:
                 </ul>
                 At the moment, you can only configure this option for custom attributes.
             </tr>
-     </tbody>
-    </table>
-    {% else %}
-    <table>
-       <tbody>
             <tr>
-                <td><b>Attribute Display Name</b></td>
-                <td>Update the display name of the attribute that will show in user profiles.</td>
-            </tr>
-            <tr>
-                <td><b>Description</b></td>
-                <td>Update the description for the attribute.</td>
-            </tr>
-            <tr>
-                <td><b>Regular expression</b></td>
-                <td>The attribute value will be validated against the regex pattern specified here.</td>
+                <td><b>Uniqueness Validation</b></td>
+                <td>Select one of the following scopes to validate attribute uniqueness:
+                    <ul>
+                        <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
+                        <li><b>Within User Store:</b> Users within the same user store cannot have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
+                        <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
+                    </ul>
+                </td>
             </tr>
      </tbody>
     </table>
-    {% endif %}
 
 5. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
@@ -238,9 +229,12 @@ The following attributes are used for this purpose:
 - Mobile Numbers
 - Verified Mobile Numbers
 
-### Enable/Disable these attributes for users
+### Enable/Disable multiple emails and mobile numbers feature
 
-Unless you have configured {{ 'secondary' if product_name == 'WSO2 Identity Server' else 'remote' }} user stores, the email address/mobile number-related attributes are already enabled to new and existing organizations. To manually enable/disable these attributes, follow the steps below:
+{% if product_name == "Asgardeo" %}
+Unless you have configured remote user stores, the email address/mobile number-related attributes are already enabled to new and existing organizations.
+{% endif %}
+To manually enable or disable this feature, **you must update all related attributes** by following these steps:
 
 1. On the {{ product_name }} Console, navigate to **User Attributes and Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.

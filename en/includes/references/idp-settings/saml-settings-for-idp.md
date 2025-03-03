@@ -81,6 +81,10 @@ Specifies whether the transport mechanism should be included in the small authen
 
 To specify an attribute from the SAML 2.0 assertion as the user identifier, configure the subject attribute from the attributes section.
 
+### Enable assertion signing
+
+Specifies whether the SAML Assertion element should be signed.
+
 ### Additional query parameters
 
 {{ product_name }} supports sending additional information to your SAML external IdP in the form of query params in the login request.

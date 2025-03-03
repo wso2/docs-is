@@ -20,10 +20,10 @@ Service extensions in {{product_name}} can be broadly categorized into two main 
       - **Pre-issue access token**:
           - Triggered before an access token is issued.
           - Allows you to modify claims, perform additional checks, or log relevant information.
-      - **Pre-password update**:
+      - **Pre-update password**:
           - Triggered before a user's password is updated.
           - Enables you to enforce password complexity rules, notify administrators, or perform other custom logic.
-      - **Pre-profile update**:
+      - **Pre-update profile**:
           - Triggered before a user's profile is updated.
           - Allows you to validate profile data, synchronize with external systems, or trigger notifications.
 

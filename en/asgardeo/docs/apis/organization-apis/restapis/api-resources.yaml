@@ -48,7 +48,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/api-resources' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/api-resources' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
   /api-resources/{apiResourceId}:
@@ -137,7 +137,7 @@ paths:
 
         <b>Scope(Permission) required:</b> `internal_org_api_resource_view`
       parameters:
-        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/scopeFilter'
       responses:
         200:
           description: OK
@@ -252,6 +252,16 @@ components:
         type: string
       example: identifier+eq+greetings
 
+    scopeFilter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Condition to filter the retrieval of scopes by name. Supports 'sw', 'co', 'ew' and 'eq' operations.
+      schema:
+        type: string
+      example: name+co+greetings
+
     collectionFilter:
       name: filter
       in: query
@@ -334,7 +344,7 @@ components:
             $ref: '#/components/schemas/Property'
         self:
           type: string
-          example: /api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+          example: /o/api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
 
     APIResourceResponse:
       type: object
@@ -376,7 +386,7 @@ components:
             $ref: '#/components/schemas/Property'
         self:
           type: string
-          example: /api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+          example: /o/api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
 
     APIResourceCreationModel:
       type: object
@@ -439,7 +449,7 @@ components:
           example: before
         href:
           type: string
-          example: /api/server/v1/api-resources?after=NDoy
+          example: /o/api/server/v1/api-resources?after=NDoy
 
     APIResourceListResponse:
       type: object
@@ -494,7 +504,7 @@ components:
           $ref: '#/components/schemas/APIResourceMap'
         self:
           type: string
-          example: /api/server/v1/api-resource-collections/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+          example: /o/api/server/v1/api-resource-collections/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
 
     APIResourceCollectionListResponse:
       type: object
@@ -517,14 +527,14 @@ components:
               "name": "applications",
               "displayName": "Applications",
               "type": "tenant",
-              "self": "/api/server/v1/api-resource-collections/YXBwbGljYXRpb25z"
+              "self": "/o/api/server/v1/api-resource-collections/YXBwbGljYXRpb25z"
             },
             {
               "id": "b3JnX2VtYWlsVGVtcGxhdGVz",
               "name": "org_emailTemplates",
               "displayName": "Email Templates",
               "type": "organization",
-              "self": "/api/server/v1/api-resource-collections/b3JnX2VtYWlsVGVtcGxhdGVz"
+              "self": "/o/api/server/v1/api-resource-collections/b3JnX2VtYWlsVGVtcGxhdGVz"
             }
           ]
         }
@@ -557,7 +567,7 @@ components:
             $ref: '#/components/schemas/ScopeGetModel'
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+          example: /o/api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
 
     APIResourceCollectionResponse:
       type: object
