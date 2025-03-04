@@ -151,8 +151,11 @@ _A sample userinfo response is given below:_
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 3. Scroll down and under **Linked Accounts**, select **Prioritize local account attributes**.
-
+{% else %}
+3. Scroll down and under **Linked Accounts**, select **Validate linked local account**.
+{% endif %}
     ![Prioritize local account attributes]({{base_path}}/assets/img/guides/applications/attributes/oidc/prioritize-local-account-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Once enabled, the tokens issued from this application during federated authentication with an [external identity provider]({{base_path}}/guides/authentication/#supported-external-idps) will contain the attributes of the local account which is linked with the entity identified by the subject claim of the token issued by the external identity provider.

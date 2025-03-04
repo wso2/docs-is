@@ -1,0 +1,583 @@
+openapi: 3.0.1
+info:
+  title: OAuth2 Dynamic Client Registration Endpoint
+  description: |
+    This document specifies an OAuth2 Dynamic Client Registration Endpoint for WSO2 Identity Server.
+  version: 1.1.0
+servers:
+- url: https:/{serverUrl}/api/identity/oauth2/dcr/v1.1
+  variables:
+    serverUrl:
+      default: localhost:9443
+security:
+- OAuth2: []
+- BasicAuth: []
+paths:
+  /register:
+    get:
+      tags:
+      - OAuth2 DCR
+      summary: |
+        Get OAuth2 application information
+      description: |
+        This API is used to get/retrieve an OAuth2 application by client_name.
+      operationId: getApplicationByName
+      parameters:
+      - name: client_name
+        in: query
+        description: Unique identifier of the OAuth2 client application.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully Retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/application'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/identity/oauth2/dcr/v1.1/register?client_name={client-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register?client_name=application_owner_application_1"
+      x-wso2-response: |
+        "HTTP/1.1 200 OK"
+        { "client_id": "s6BhdRkqt3",
+        "client_secret":"ZJYCqe3GGRvdrudKyZS0XhGv_Z45DuKhCUk0gBR1vZk",
+        "client_secret_expires_at": 1577858400,
+        "redirect_uris":["https://client.example.org/callback"],
+        "client_name":"application_owner_application_1",
+        "grant_types": ["password"]}
+    post:
+      tags:
+      - OAuth2 DCR
+      summary: |
+        Registers an OAuth2 application
+      description: "This API is used to create an OAuth2 application. If your want\
+        \ to create your application to use the implicit or authorization_code \n\
+        grant types, you need to provide the redirect_uris field in your request.\
+        \ If you are using any other grant type, \nsuch as password, you don't need\
+        \ to send the redirect_uri field in the request. Check the sample request\
+        \ given below.\n"
+      operationId: registerApplication
+      requestBody:
+        description: Application information to register.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/registrationRequest'
+        required: true
+      responses:
+        201:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/application'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/identity/oauth2/dcr/v1.1/register' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "redirect_uris": [
+              "string"
+            ],
+            "client_name": "string",
+            "client_id": "string",
+            "client_secret": "string",
+            "grant_types": [
+              "string"
+            ],
+            "jwks_uri": "string",
+            "url": "string",
+            "ext_param_client_id": "string",
+            "ext_param_client_secret": "string",
+            "contacts": [
+              "string"
+            ],
+            "post_logout_redirect_uris": [
+              "string"
+            ],
+            "request_uris": [
+              "string"
+            ],
+            "ext_param_sp_template": "string",
+            "backchannel_logout_uri": "string",
+            "backchannel_logout_session_required": true
+            }'                      
+      x-wso2-request: |
+        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H
+        "Content-Type: application/json" -d '{
+          "redirect_uris":[""],
+          "client_name": "application_1",
+          "grant_types": ["password"] }'
+        "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register"
+      x-wso2-response: |
+        "HTTP/1.1 201 Created"
+        { "client_id": "s6BhdRkqt3",
+        "client_secret":"ZJYCqe3GGRvdrudKyZS0XhGv_Z45DuKhCUk0gBR1vZk",
+        "client_secret_expires_at": 1577858400,
+        "redirect_uris":[""],
+        "grant_types": ["password"],
+        "client_name":"application_1" }
+      x-codegen-request-body-name: registrationRequest
+  /register/{client_id}:
+    get:
+      tags:
+      - OAuth2 DCR
+      summary: |
+        Get OAuth2 application information
+      description: |
+        This API is used to get/retrieve an OAuth2 application by client_id.
+      operationId: getApplication
+      parameters:
+      - name: client_id
+        in: path
+        description: Unique identifier of the OAuth2 client application.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully Retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/application'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/{client-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                      
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/s6BhdRkqt3"
+      x-wso2-response: |
+        "HTTP/1.1 200 OK"
+        { "client_id": "s6BhdRkqt3",
+        "client_secret":"ZJYCqe3GGRvdrudKyZS0XhGv_Z45DuKhCUk0gBR1vZk",
+        "client_secret_expires_at": 1577858400,
+        "redirect_uris":["https://client.example.org/callback"],
+        "grant_types": ["password"],
+        "client_name":"application_owner_application_1" }
+    put:
+      tags:
+      - OAuth2 DCR
+      summary: |
+        Updates an OAuth2 application
+      description: |
+        This API is used to update an OAuth2 application.
+      operationId: updateApplication
+      parameters:
+      - name: client_id
+        in: path
+        description: Unique identifier for the OAuth2 client application.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Application information to update.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateRequest'
+        required: true
+      responses:
+        200:
+          description: Successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/application'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/{client-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "redirect_uris": [
+              "string"
+            ],
+            "client_name": "string",
+            "client_id": "string",
+            "client_secret": "string",
+            "grant_types": [
+              "string"
+            ],
+            "backchannel_logout_uri": "string",
+            "backchannel_logout_session_required": true
+            }'                       
+      x-wso2-request: |
+        curl -X PUT -H "Authorization: Basic YWRtaW46YWRtaW4=" -H
+        "Content-Type: application/json" -d '{
+          "redirect_uris":["https://client.example.org/callback"],
+          "client_name": "application_1",
+          "grant_types": ["password"] }'
+        "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register"
+      x-wso2-response: |
+        "HTTP/1.1 200 OK"
+        { "client_id": "s6BhdRkqt3",
+        "client_secret":"ZJYCqe3GGRvdrudKyZS0XhGv_Z45DuKhCUk0gBR1vZk",
+        "client_secret_expires_at": 1577858400,
+        "redirect_uris":["https://client.example.org/callback"],
+        "grant_types": ["password"],
+        "client_name":"application_owner_application_1" }
+      x-codegen-request-body-name: updateRequest
+    delete:
+      tags:
+      - OAuth2 DCR
+      summary: |
+        Delete OAuth2 application
+      description: |
+        This API is used to delete an OAuth2 application by client_id.
+      operationId: deleteApplication
+      parameters:
+      - name: client_id
+        in: path
+        description: Unique identifier of the OAuth2 client application.
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: Successfully deleted
+          content: {}
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/{client-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                      
+      x-wso2-request: |
+        curl -X DELETE -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/s6BhdRkqt3"
+      x-wso2-response: |
+        "HTTP/1.1 204 No Content"
+components:
+  schemas:
+    registrationRequest:
+      required:
+      - client_name
+      - redirect_uris
+      type: object
+      properties:
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        client_name:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        grant_types:
+          type: array
+          items:
+            type: string
+        jwks_uri:
+          type: string
+        url:
+          type: string
+        ext_param_client_id:
+          type: string
+        ext_param_client_secret:
+          type: string
+        contacts:
+          type: array
+          items:
+            type: string
+        post_logout_redirect_uris:
+          type: array
+          items:
+            type: string
+        request_uris:
+          type: array
+          items:
+            type: string
+        ext_param_sp_template:
+          type: string
+        backchannel_logout_uri:
+          type: string
+        backchannel_logout_session_required:
+          type: boolean
+        ext_application_display_name:
+          type: string
+        token_type_extension:
+          type: string
+        ext_application_owner:
+          type: string
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+        ext_pkce_mandatory:
+          type: boolean
+        ext_pkce_support_plain:
+          type: boolean
+        ext_public_client:
+          type: boolean
+        token_endpoint_auth_method:
+          type: string
+        token_endpoint_auth_signing_alg:
+          type: string
+        sector_identifier_uri:
+          type: string
+        id_token_signed_response_alg:
+          type: string
+        id_token_encrypted_response_alg:
+          type: string
+        id_token_encrypted_response_enc:
+          type: string
+        software_statement:
+          type: string
+        request_object_signing_alg:
+          type: string
+        tls_client_auth_subject_dn:
+          type: string
+        require_signed_request_object:
+          type: boolean
+        require_pushed_authorization_requests:
+          type: boolean
+        tls_client_certificate_bound_access_tokens:
+          type: boolean
+        subject_type:
+          type: string
+        request_object_encryption_alg:
+          type: string
+        request_object_encryption_enc:
+          type: string
+        ext_allowed_audience:
+          type: string
+    updateRequest:
+      type: object
+      properties:
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        client_name:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        grant_types:
+          type: array
+          items:
+            type: string
+        backchannel_logout_uri:
+          type: string
+        backchannel_logout_session_required:
+          type: boolean
+        ext_application_display_name:
+          type: string
+        token_type_extension:
+          type: string
+        ext_application_owner:
+          type: string
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+        ext_pkce_mandatory:
+          type: boolean
+        ext_pkce_support_plain:
+          type: boolean
+        ext_public_client:
+          type: boolean
+        token_endpoint_auth_method:
+          type: string
+        token_endpoint_auth_signing_alg:
+          type: string
+        sector_identifier_uri:
+          type: string
+        id_token_signed_response_alg:
+          type: string
+        id_token_encrypted_response_alg:
+          type: string
+        id_token_encrypted_response_enc:
+          type: string
+        software_statement:
+          type: string
+        request_object_signing_alg:
+          type: string
+        tls_client_auth_subject_dn:
+            type: string
+        require_signed_request_object:
+          type: boolean
+        require_pushed_authorization_requests:
+          type: boolean
+        tls_client_certificate_bound_access_tokens:
+          type: boolean
+        subject_type:
+          type: string
+        request_object_encryption_alg:
+          type: string
+        request_object_encryption_enc:
+          type: string
+        ext_allowed_audience:
+          type: string
+    application:
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        client_secret_expires_at:
+          type: integer
+          format: int64
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        grant_types:
+          type: array
+          items:
+            type: string
+        client_name:
+          type: string
+        ext_application_owner:
+          type: string
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+        ext_pkce_mandatory:
+          type: boolean
+        ext_pkce_support_plain:
+          type: boolean
+        ext_public_client:
+          type: boolean
+        ext_allowed_audience:
+          type: string
+    error:
+      type: object
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+        traceId:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}
