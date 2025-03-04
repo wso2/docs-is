@@ -1306,7 +1306,7 @@ components:
           type: array
           items:
             type: string
-          example: [ 2FA,MFA ]
+          example: [2FA,MFA]
           readOnly: true
         properties:
           type: array

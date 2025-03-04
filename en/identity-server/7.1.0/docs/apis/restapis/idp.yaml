@@ -3439,30 +3439,6 @@ components:
             properties:
               - key: "somePropertyKey"
                 value: "somePropertyValue"
-    UserDefinedAuthenticatorExample:
-      summary: "Response for user defined authenticator"
-      value:
-        authenticatorId: "Y3VzdG9tQXV0aGVudGljYXRvcg"
-        name: "customAuthenticator"
-        definedBy: "SYSTEM"
-        default: true
-        endpoint:
-          uri: "https://abc.com/token"
-          authentication:
-            type: "BASIC"
-            properties:
-              username: "auth_username"
-              password: "auth_password"
-    SystemDefinedAuthenticatorExample:
-      summary: "Response for system defined authenticators"
-      value:
-        authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
-        definedBy: "USER"
-        isEnabled: "true"
-        isDefault: true
-        properties:
-          - key: "somePropertyKey"
-            value: "somePropertyValue"
     IdentityProviderWithUserDefinedAuthenticator:
       summary: "Request for identity provider with user defined authenticator"
       value:

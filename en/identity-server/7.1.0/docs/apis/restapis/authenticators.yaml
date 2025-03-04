@@ -146,8 +146,8 @@ paths:
         Create a new user defined local authenticator.
       description: |
         This API provides the capability to create a new user defined local authenticator. 
+        
         <b>Scope(Permission) required:</b> `internal_custom_authenticator_create`
-      operationId: addUserDefinedLocalAuthenticator
       responses:
         '201':
           description: Successful response
@@ -186,11 +186,8 @@ paths:
         Update a user defined local authenticator.
       description: |
         This API provides the capability to update a user defined local authenticator configurations. <br>
-        <b>Permission required:</b> <br>
-            * /permission/admin/manage/custom_authenticator/update <br>
-        <b>Scope required:</b> <br>
-            * internal_custom_authenticator_update <br>
-      operationId: updateUserDefinedLocalAuthenticator
+
+        <b>Scope(Permission) required:</b> `internal_custom_authenticator_update`
       parameters:
         - name: authenticator-id
           in: path
@@ -209,13 +206,13 @@ paths:
                 UserDefinedAuthenticatorExample:
                   summary: "Response for user defined authenticator"
                   value:
-                    id: "Y3VzdG9tQXV0aGVudGljYXRvcg"
-                    name: "customAuthenticator"
+                    id: "custom-authenticator"
+                    name: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I="
                     displayName: "Custom auth"
-                    definedBy: "SYSTEM"
+                    definedBy: "USER"
                     type: "LOCAL"
                     isEnabled: true
-                    tags: [ MFA ]
+                    tags: [ MFA, Custom ]
                     endpoint:
                       uri: "https://abc.com/token"
                       authentication:
@@ -223,19 +220,6 @@ paths:
                         properties:
                           username: "auth_username"
                           password: "auth_password"
-                SystemDefinedAuthenticatorExample:
-                  summary: "Response for system defined authenticators"
-                  value:
-                    id: "QmFzaWNBdXRoZW50aWNhdG9y"
-                    name: "BasicAuthenticator"
-                    displayName: "basic"
-                    definedBy: "USER"
-                    type: "LOCAL"
-                    isEnabled: true
-                    tags: [ Custom, 2FA ]
-                    properties:
-                      - key: "somePropertyKey"
-                        value: "somePropertyValue"
         '400':
           description: Bad Request
           content:
