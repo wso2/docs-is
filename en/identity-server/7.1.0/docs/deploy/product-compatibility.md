@@ -1,4 +1,4 @@
-# Produt compatibility
+# Product compatibility
 
 This document provides compatibility details for WSO2 Identity Server 7.1.0 across various environments.
 
