@@ -113,7 +113,7 @@ extra:
           - title: Organizations
             url: Guides|Organizations|Organizations
   versions:
-    current: 7.1.0
+    current: 7.0.0
     list:
       - 7.1.0
       - 7.0.0
