@@ -384,12 +384,12 @@ components:
       type: object
       required:
         - name
-        - values
+        - value
       properties:
         name:
           type: string
           example: "Host"
-        values:
+        value:
           type: array
           items:
             type: string
@@ -399,13 +399,13 @@ components:
       type: object
       required:
         - name
-        - values
+        - value
       properties:
         name:
           type: string
           example: 
             device
-        values:
+        value:
           type: array
           items:
             type: string
