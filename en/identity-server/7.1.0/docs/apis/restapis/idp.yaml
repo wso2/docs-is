@@ -231,6 +231,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/IdentityProviderPOSTRequest'
+            examples:
+              identityProviderWithSystemDefinedAuthenticator:
+                $ref: '#/components/examples/IdentityProviderWithSystemDefinedAuthenticator'
+              identityProviderWithUserDefineAuthenticator:
+                $ref: '#/components/examples/IdentityProviderWithUserDefinedAuthenticator'
           application/xml:
             schema:
               $ref: '#/components/schemas/IdentityProviderPOSTRequest'
@@ -949,6 +954,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/FederatedAuthenticatorRequest'
+            examples:
+              systemDefinedAuthenticatorsExample:
+                $ref: '#/components/examples/SystemDefinedAuthenticatorsListPUTExample'
+              userDefinedAuthenticators:
+                $ref: '#/components/examples/UserDefinedAuthenticatorsListPUTExample'
         description: This represents the federated authenticators to be updated
         required: true
   /identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}:
@@ -981,6 +991,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FederatedAuthenticator'
+              examples:
+                systemDefinedAuthenticatorsExample:
+                  $ref: '#/components/examples/SystemDefinedAuthenticatorExample'
+                userDefinedAuthenticators:
+                  $ref: '#/components/examples/UserDefinedAuthenticatorExample'
         '400':
           description: Bad Request
           content:
@@ -1045,6 +1060,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FederatedAuthenticator'
+              examples:
+                systemDefinedAuthenticatorsExample:
+                  $ref: '#/components/examples/SystemDefinedAuthenticatorExample'
+                userDefinedAuthenticators:
+                  $ref: '#/components/examples/UserDefinedAuthenticatorExample'
         '400':
           description: Bad Request
           content:
@@ -1090,6 +1110,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/FederatedAuthenticatorPUTRequest'
+            examples:
+              systemDefinedAuthenticatorsExample:
+                $ref: '#/components/examples/SystemDefinedAuthenticatorPUTExample'
+              userDefinedAuthenticators:
+                $ref: '#/components/examples/UserDefinedAuthenticatorPUTExample'
         description: This represents the federated authenticator to be updated
         required: true
   '/identity-providers/{identity-provider-id}/provisioning':
@@ -2781,6 +2806,17 @@ components:
         name:
           type: string
           example: SAML2Authenticator
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
+        tags:
+          type: array
+          items:
+            type: string
+          example: [Social Login,OIDC]
+          readOnly: true
         self:
           type: string
           example: /api/server/v1/identity-providers/meta/federated-authenticators/U0FNTFNTT0F1dGhlbnRpY2F0b3I
@@ -2796,6 +2832,17 @@ components:
         displayName:
           type: string
           example: 'SAML2 Web SSO Configuration'
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
+        tags:
+          type: array
+          items:
+            type: string
+          example: [Social Login,OIDC]
+          readOnly: true
         properties:
           type: array
           items:
@@ -2835,13 +2882,57 @@ components:
           type: boolean
           default: false
           example: true
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
         isDefault:
           type: boolean
           default: false
+        tags:
+          type: array
+          items:
+            type: string
+          example: [Social Login,OIDC]
+          readOnly: true
         properties:
           type: array
           items:
             $ref: '#/components/schemas/Property'
+        endpoint:
+          $ref: '#/components/schemas/Endpoint'
+    Endpoint:
+      type: object
+      required:
+        - uri
+        - authentication
+      properties:
+        uri:
+          type: string
+          example: https://abc.com/token
+          pattern: '^https?://.+'
+        authentication:
+          $ref: '#/components/schemas/AuthenticationType'
+    AuthenticationType:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum:
+            - NONE
+            - BEARER
+            - API_KEY
+            - BASIC
+          example: BASIC
+        properties:
+          type: object
+          additionalProperties: true
+          example:
+            username: "auth_username"
+            password: "auth_password"
     FederatedAuthenticatorPUTRequest:
       type: object
       properties:
@@ -2861,10 +2952,17 @@ components:
           type: boolean
           default: false
           example: false
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
         properties:
           type: array
           items:
             $ref: '#/components/schemas/Property'
+        endpoint:
+          $ref: '#/components/schemas/Endpoint'
     FederatedAuthenticatorListResponse:
       type: object
       properties:
@@ -2888,6 +2986,17 @@ components:
           type: boolean
           default: false
           example: true
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
+        tags:
+          type: array
+          items:
+            type: string
+          example: [Social Login,OIDC]
+          readOnly: true
         self:
           type: string
           example: /api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y
@@ -3281,3 +3390,190 @@ components:
           type: string
           format: binary
           description: file to upload
+  examples:
+    UserDefinedAuthenticatorPUTExample:
+      summary: "Put request for user defined authenticators"
+      value:
+        authenticatorId: "Y3VzdG9tQXV0aGVudGljYXRvcg"
+        name: "customAuthenticator"
+        default: true
+        endpoint:
+          uri: "https://abc.com/token"
+          authentication:
+            type: "BASIC"
+            properties:
+              username: "auth_username"
+              password: "auth_password"
+    SystemDefinedAuthenticatorPUTExample:
+      summary: "Put request for system defined authenticators"
+      value:
+        authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+        isEnabled:  "true"
+        isDefault:  true
+        properties:
+          - key: "somePropertyKey"
+            value: "somePropertyValue"
+    UserDefinedAuthenticatorsListPUTExample:
+      summary: "Put request for user defined authenticators list"
+      value:
+        defaultAuthenticatorId: "Y3VzdG9tQXV0aGVudGljYXRvcg"
+        authenticators:
+          - authenticatorId: "Y3VzdG9tQXV0aGVudGljYXRvcg"
+            name: "customAuthenticator"
+            default: true
+            endpoint:
+              uri: "https://abc.com/token"
+              authentication:
+                type: "BASIC"
+                properties:
+                  username: "auth_username"
+                  password: "auth_password"
+    SystemDefinedAuthenticatorsListPUTExample:
+      summary: "Put request for system defined authenticators list"
+      value:
+        defaultAuthenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+        authenticators:
+          - authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+            isEnabled:  "true"
+            isDefault:  true
+            properties:
+              - key: "somePropertyKey"
+                value: "somePropertyValue"
+    UserDefinedAuthenticatorExample:
+      summary: "Response for user defined authenticator"
+      value:
+        authenticatorId: "Y3VzdG9tQXV0aGVudGljYXRvcg"
+        name: "customAuthenticator"
+        definedBy: "SYSTEM"
+        default: true
+        endpoint:
+          uri: "https://abc.com/token"
+          authentication:
+            type: "BASIC"
+            properties:
+              username: "auth_username"
+              password: "auth_password"
+    SystemDefinedAuthenticatorExample:
+      summary: "Response for system defined authenticators"
+      value:
+        authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+        definedBy: "USER"
+        isEnabled: "true"
+        isDefault: true
+        properties:
+          - key: "somePropertyKey"
+            value: "somePropertyValue"
+    IdentityProviderWithUserDefinedAuthenticator:
+      summary: "Request for identity provider with user defined authenticator"
+      value:
+        name: "google"
+        description: "IdP for Google Federation"
+        image: "google-logo-url"
+        templateId: "8ea23303-49c0-4253-b81f-82c0fe6fb4a0"
+        isPrimary: false
+        isFederationHub: false
+        homeRealmIdentifier: "localhost"
+        certificate:
+          certificates:
+            - "string"
+          jwksUri: "https://localhost:9444/oauth2/jwks"
+        alias: "https://localhost:9444/oauth2/token"
+        idpIssuerName: "https://www.idp.com"
+        claims:
+          userIdClaim:
+            uri: "http://wso2.org/claims/username"
+          roleClaim:
+            uri: "http://wso2.org/claims/username"
+          mappings:
+            - idpClaim: "country"
+              localClaim:
+                uri: "http://wso2.org/claims/username"
+          provisioningClaims:
+            - claim:
+                uri: "http://wso2.org/claims/username"
+              defaultValue: "sathya"
+        roles:
+          mappings:
+            - idpRole: "google-manager"
+              localRole: "manager"
+          outboundProvisioningRoles:
+            - "manager"
+            - "hr-admin"
+        groups:
+          - name: "google-admin"
+            id: "6b1f8513-3de0-4f28-9cad-b7400dbc94ae"
+        federatedAuthenticators:
+          defaultAuthenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+          authenticators:
+            - authenticatorId: "Y3VzdG9tQXV0aGVudGljYXRvcg"
+              isEnabled: true
+              isDefault: false
+              endpoint:
+                uri: "https://abc.com/token"
+                authentication:
+                  type: "BASIC"
+                  properties:
+                    username: "auth_username"
+                    password: "auth_password"
+        provisioning:
+          jit:
+            isEnabled: true
+            scheme: "PROVISION_SILENTLY"
+            userstore: "PRIMARY"
+            associateLocalUser: true
+            attributeSyncMethod: "OVERRIDE_ALL"
+          outboundConnectors:
+            defaultConnectorId: "U0NJTQ"
+            connectors:
+              - connectorId: "U0NJTQ"
+                isEnabled: true
+                isDefault: false
+                blockingEnabled: false
+                rulesEnabled: false
+                properties:
+                  - key: "somePropertyKey"
+                    value: "somePropertyValue"
+        implicitAssociation:
+          isEnabled: false
+          lookupAttribute:
+            - "email"
+    IdentityProviderWithSystemDefinedAuthenticator:
+      summary: "Request for identity provider with system defined authenticator"
+      value:
+        name: "Custom IDP"
+        description: "IDP with custom federated authenticator"
+        image: "https://custom-authenticator-logo-url"
+        templateId: "8ea23303-49c0-4253-b81f-82c0fe6fb4a0"
+        isPrimary: false
+        isFederationHub: false
+        homeRealmIdentifier: ""
+        certificate:
+          certificates:
+            - ""
+          jwksUri: ""
+        claims:
+          userIdClaim:
+            uri: ""
+          roleClaim:
+            uri: ""
+          mappings: []
+          provisioningClaims: []
+        roles:
+          mappings: [ ]
+          outboundProvisioningRoles: [ ]
+        federatedAuthenticators:
+          defaultAuthenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+          authenticators:
+            - authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+              isEnabled: true
+              isDefault: false
+              properties:
+                - key: "somePropertyKey"
+                  value: "somePropertyValue"
+        provisioning:
+          jit:
+            isEnabled: true
+            scheme: "PROVISION_SILENTLY"
+            userstore: "PRIMARY"
+            associateLocalUser: true
+            attributeSyncMethod: "OVERRIDE_ALL"
