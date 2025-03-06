@@ -18,4 +18,4 @@ The below given diagram illustrates the basic flow of Push Notification-Based Au
 ![Push Notification-Based Authentication Flow]({{base_path}}/assets/img/guides/mfa/push/push-authentication-sequence.jpg)
 
 !!! note
-    Learn how to [implement Push Notification-Based Authentication in {{product_name}}](../../guides/authentication/mfa/add-push-auth-login.md).
+    Learn how to [implement Push Notification-Based Authentication in {{product_name}}]({{push_mfa_doc_path}}).

@@ -154,7 +154,7 @@ The application goes through the following steps to complete app-native authenti
     === "Request"
     
         ```bash
-        curl --location 'https://localhost:9443/push-auth/check-status?pushAuthId=92e0d286-e24b-471e-a2cf-6ba3a969a982' 
+        curl --location '{{check_status_endpoint}}push-auth/check-status?pushAuthId=92e0d286-e24b-471e-a2cf-6ba3a969a982' 
         ```
     
     === "Response"
