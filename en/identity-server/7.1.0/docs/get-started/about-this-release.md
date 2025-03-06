@@ -314,6 +314,14 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
     With WSO2 Identity Server 7.1, the Carbon Registry, previously used as a data repository, has been deprecated. Registry dependencies have been removed from the WSO2 Identity Server, and the registry core is planned for removal in a future release, streamlining the system and reducing legacy components.
 
+## Retired features
+
+- **Oauth 1.0**
+
+    With {{product_name}} 7.1.0, we have retired OAuth 1.0. This feature has been fully removed and will not receive updates or support in the future.
+
+    **Recommended action** - Migrate to OAuth 2.0, which provides enhanced security, improved flexibility, and is the industry standard for authentication and authorization.
+
 ## Deprecated and retired connectors
 
 ??? note "Deprecated connectors"
