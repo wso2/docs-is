@@ -4,7 +4,7 @@
 
 !!! note "What are carbon logs?"
 
-   Carbon logs, written to the `<IS_HOME>/repository/logs/wso2carbon.log` file, capture all log entries related to the product's management features. Learn more about {{product_name}} logs in the [monitor logs]({{base_path}}/deploy/monitor/monitor-logs/) documentation.
+    Carbon logs, written to the `<IS_HOME>/repository/logs/wso2carbon.log` file, capture all log entries related to the product's management features. Learn more about {{product_name}} logs in the [monitor logs]({{base_path}}/deploy/monitor/monitor-logs/) documentation.
     
 
 ## Install Fluent Bit
@@ -19,11 +19,13 @@ Once you have finished installing Fluent Bit, follow the next section for instru
 
 ## Install OpenSearch
 
-By sending {{product_name}} carbon logs to OpenSearch, you can efficiently store, search, and analyze log data for better insights. To install,
+By sending {{product_name}} carbon logs to OpenSearch, you can efficiently store, search, and analyze log data for better insights.
 
-- **OpenSearch cluster**, follow the [OpenSearch installation guide](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/index){: target="_blank"}.
+To install,
 
-- **OpenSearch dashboards**, follow the [OpenSearch dashboard installation guide](https://opensearch.org/docs/latest/install-and-configure/install-dashboards/index/){: target="_blank"}.
+- the **OpenSearch cluster**, follow the [OpenSearch installation guide](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/index){: target="_blank"}.
+
+- the **OpenSearch dashboards**, follow the [OpenSearch dashboard installation guide](https://opensearch.org/docs/latest/install-and-configure/install-dashboards/index/){: target="_blank"}.
 
 !!! note "Important"
     
@@ -35,7 +37,7 @@ By sending {{product_name}} carbon logs to OpenSearch, you can efficiently store
 
 ## Configure Fluent Bit
 
-After installing Fluent Bit and OpenSearch, create a Fluent Bit configuration file with the following attributes to direct {{product_name}} carbon logs to the OpenSearch cluster.
+After installing Fluent Bit and OpenSearch, create a Fluent Bit configuration file (`flunet-bit.conf`) with the following attributes to direct {{product_name}} carbon logs to the OpenSearch cluster. You can attach this configuration file when running Fluent Bit later.
 
 !!! note
     In the configurations below, update **Path**, **DB** and **HTTP_Passwd** attributes to meet your requirements. Learn more about [configuring Fluent Bit](http://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file){: target="_blank"}.
@@ -88,11 +90,11 @@ Trace_Error         On
 
 ```
 
-# View logs from OpenSearch dashboard
+## View logs from OpenSearch dashboard
 
-Now that you have installed and condigured Fluent Bit and OpenSearch, the following guide explains how you can view carbon logs from the OpenSearch dashboard.
+Now that you have installed and configured Fluent Bit and OpenSearch, the following guide explains how you can view carbon logs from the OpenSearch dashboard.
 
-1. Start the OpenSearch cluster and dashboards. Once started you can access the Opensearch dashboard at http://0.0.0.0:5601.
+1. Start the OpenSearch cluster and dashboards. Once started you can access the Opensearch dashboard at `http://0.0.0.0:5601`.
 
 2. Start Fluent Bit using the following command:
 
