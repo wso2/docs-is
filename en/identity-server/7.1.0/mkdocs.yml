@@ -644,6 +644,7 @@ nav:
           - ELK Alerts: guides/analytics/elk-analytics/elk-alert-types.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
         - A/B Testing: guides/analytics/ab-testing.md
+        - OpenSearch: guides/analytics/opensearch.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
