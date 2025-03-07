@@ -30,6 +30,7 @@ The remote user store agent is built-in with a secure vault implementation that 
     === "Optimized Agent"
 
         Both the cipher tool and agent need to be configured with an encryption key to use the secrets. To do so, configure the following environment variable with your encryption key.
+        Note that the encryption key should be a 32-character string.
 
         ```bash
         export ENCRYPTION_KEY=51e6a32d699c43f7cbd7c62ba999c64a
