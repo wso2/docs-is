@@ -1,4 +1,4 @@
-# Configure clock tolerance for MyAccount and Console
+# Configure clock tolerance for My Account and Console
 
 The `clockTolerance` parameter can be configured for both the Console and the My Account portal to manage slight clock mismatches between {{product_name}} and clients. This setting helps avoid issues in scenarios where the system’s time is not perfectly aligned.
 
