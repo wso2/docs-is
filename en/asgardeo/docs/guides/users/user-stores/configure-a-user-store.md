@@ -6,13 +6,15 @@ Asgardeo allows you to connect a remote user store and onboard users and groups 
 
 Asgardeo supports the following user store connections.
 
-### Optimized user store connection
+### Optimized user store connection (recommended)
 
-Asgardeo has introduced **optimized user store connections**, designed for high scalability and performance. While, at the moment, it only supports **read-only** user stores, this connection is continuously evolving and will support more use cases in the future. If your organization only needs to authenticate users and retrieve attributes without modifying them, the optimized user store connection is the recommended choice. 
+Asgardeo has introduced **optimized user store connections**, designed for high scalability and performance. At the moment, it supports **read-only** user stores and can be used to authenticate users and retrieve attributes. This connection is continuously evolving and will support a wide range of use cases in the future.
+
+If this connection's capabilities meet your organization's requirements, we highly recommend that you use the optimized connection instead of the classic connection.
 
 ### Classic user store connection
 
-If, at the moment, the optimized user store connection does not meet your requirements, you can use the **classic user store connection**, which provides full management capabilities. The classic connection supports both **read/write** and **read-only** user stores, allowing organizations to modify and delete user data. While it offers greater flexibility for integrations, it may not be as performant as the optimized connection.
+The optimized user store connection is the recommended choice, though its capabilities are limited at the moment. If your organization's requirements exceed the capabilities offered by the optimized connection, you can use the **classic user store connection**. The classic connection supports both **read/write** and **read-only** user stores, and offers full management capabilities. While a classic connection offers more capabilities, it may not be as performant as the optimized connection.
 
 !!! note "Switch connections from classic to optimized"
 
