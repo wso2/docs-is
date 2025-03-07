@@ -1,28 +1,32 @@
 # Advanced configuration for the remote agent
 
-## Configuring secrets in the agent configuration file
+This guide covers advanced configuration options for the remote agent.
 
-The remote user store agent is built-in with a secure vault implementation that allows parsing plain text passwords as encrypted secrets. The downloaded agent zip file contains a `ciphertool` that can be used to encrypt the secrets defined in the deployment.toml file. To encrypt secrets in the agent configuration file:
+## Configure secrets
 
-1. Add the following [secrets] configurations to the bottom of the deployment.toml file. Secrets can be listed with any alias and the value should be enclosed within double quotes and square brackets.
+The remote user store agent is built-in with a secure vault implementation that allows parsing plain text passwords as encrypted secrets. The downloaded agent zip file contains a `ciphertool` that can be used to encrypt the secrets defined in the `deployment.toml` file. To encrypt secrets in the agent configuration file:
 
-    ```toml
-    [secrets]
-    secret_alias = ["secret_value"]
-    ```
+1. Add the following [secrets] configurations to the bottom of the `deployment.toml` file. Secrets can be listed with any alias and the value should be enclosed within double quotes and square brackets.
 
-    For example:
+    === "Configuration format"
+        
+        ```toml
+        [secrets]
+        secret_alias = "[secret_value]"
+        ```
 
-    ```toml
-    [secrets]
-    connection_password = "[adminpassword]"
-    ```
+    === "Example"
 
-2. The encrypted secrets can be used for the configurations by using the `$secret{alias}` format.
+        ```toml
+        [secrets]
+        connection_password = "[adminpassword]"
+        ```
+
+2. You can use the encrypted secrets for configurations using the `$secret{alias}` format.
 
     ```toml
     [user_store]
-    connection_password = "$secret{connection_password}"
+    connection_password = "$secret{secret_alias}"
     ```
 
 3. Configure and run the cipher tool to encrypt the secrets in the deployment.toml file.
@@ -37,13 +41,13 @@ The remote user store agent is built-in with a secure vault implementation that 
 
         Open a terminal and run the following command to encrypt the secrets.
 
-        - **Linux/Unix:**
+        === "Linux/Unix"
 
             ```bash
             ./ciphertool <path/to/the/deployment/toml/file>
             ```
 
-        - **Windows:**
+        === "Windows"
 
             ```bash
             ciphertool <path/to/the/deployment/toml/file>
@@ -57,13 +61,13 @@ The remote user store agent is built-in with a secure vault implementation that 
 
         The classic agent's internal keystore is used to encrypt and decrypt the secrets. To encrypt the secrets, open a terminal and run the following command.
 
-        - **Linux/Unix:**
+        === "Linux/Unix"
 
             ```bash
             ./ciphertool.sh -Dconfigure
             ```
 
-        - **Windows:**
+        === "Windows"
 
             ```bash
             ciphertool.bat -Dconfigure
@@ -80,7 +84,7 @@ The remote user store agent is built-in with a secure vault implementation that 
     connection_password = "xxxxxxx"
     ```
 
-## Configuring remote agent logs
+## Configure remote agent logs
 
 The remote agent provides flexible options for configuring logs such as altering the log level. This helps with debugging and monitoring the agent's operations effectively.
 
