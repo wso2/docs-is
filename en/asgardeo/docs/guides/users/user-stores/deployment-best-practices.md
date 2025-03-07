@@ -1,6 +1,6 @@
 # Deployment best practices for the remote agent
 
-Deploying the remote agent efficiently is crucial for ensuring a stable and secure connection between Asgardeo and your on-premise user store. A well-configured deployment enhances performance, reliability, and security while minimizing downtime and maintenance efforts.
+Deploying the remote agent efficiently is crucial for ensuring a stable and secure connection between Asgardeo and your on-premise user store. Follow these best practices to enhance security and monitoring.
 
 ### Secure the installation token
 
