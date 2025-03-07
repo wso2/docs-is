@@ -1,36 +1,34 @@
 # Connect a remote user store
 
-Asgardeo allows you to connect a remote user store and onboard users and groups from it. The user store connection can either be with read-only or read/write permissions. Administrators can then start managing access to business applications in Asgardeo for these users and groups. This guide explains the different user store connections available in Asgardeo and how you can set up one for your organization.
+Asgardeo allows you to connect a remote user store and onboard users and groups from it. The user store connection can either be with read-only or read/write permissions. Administrators can then start managing access to business applications in Asgardeo for these users and groups. This guide explains how you can set up a remote user store for your Asgardeo organization.
 
-## Types of user store connections
+## User store connections
 
-Asgardeo offers two types of user store connections aimed at providing different capabilities.
-
-### Classic user store connection
-
-The classic user store connection has the widest range of management capabilities. It supports **read/write** and **read-only** user stores. If your organization requires full management capabilities over user data including modifying and deleting users, this is the recommended choice. This option provides more flexibility for integrations but might not be as performant as the optimized connection.
-
-!!! note "Switch from read-only to read/write"
-    
-    If you have connected a classic user store before 7th February 2023, you will only have **read-only** access for the user store. If you need **read/write** access for your user store in Asgardeo,
-
-    1. Delete the existing remote user store.
-    2. [Register a classic user store](#register-a-remote-user-store) again with Read/Write access type. Make sure to select the classic user store path.
-    3. [Set up the remote user store](#set-up-the-remote-user-store) with the latest user store agent.
+Asgardeo supports the following user store connections.
 
 ### Optimized user store connection
 
-Optimized user store connection is the latest offering from Asgardeo and it is designed to prioritize high scalability and performance. Currently, it supports **read-only** access, making it ideal for organizations that only need to authenticate users and retrieve user attributes without modifying them. If your use case aligns with these requirements, the optimized user store connection is the recommended choice.
+Asgardeo has introduced **optimized user store connections**, designed for high scalability and performance. While, at the moment, it only supports **read-only** user stores, this connection is continuously evolving and will support more use cases in the future. If your organization only needs to authenticate users and retrieve attributes without modifying them, the optimized user store connection is the recommended choice. 
 
-This user store connection is continuously evolving and it will support more use cases in the future.
+### Classic user store connection
 
-!!! note "Switch from classic to optimized"
+If, at the moment, the optimized user store connection does not meet your requirements, you can use the **classic user store connection**, which provides full management capabilities. The classic connection supports both **read/write** and **read-only** user stores, allowing organizations to modify and delete user data. While it offers greater flexibility for integrations, it may not be as performant as the optimized connection.
+
+!!! note "Switch connections from classic to optimized"
 
     If you have already connected a classic user store and would like to explore the new connection,
 
     1. Delete the existing remote user store.
     2. [Register a remote user store](#register-a-remote-user-store) again.
     3. [Set up the remote user store](#set-up-the-remote-user-store) with the new user store agent.
+
+!!! note "Switch classic connections from read-only to read/write"
+    
+    If you have connected a classic user store before 7th February 2023, you will only have **read-only** access for the user store. If you need **read/write** access for your user store in Asgardeo,
+
+    1. Delete the existing remote user store.
+    2. [Register a classic user store](#register-a-remote-user-store) again with Read/Write access type. Make sure to select the classic user store path.
+    3. [Set up the remote user store](#set-up-the-remote-user-store) with the latest user store agent.
 
 ## Register and configure a user store in Asgardeo
 
