@@ -316,7 +316,7 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
 ## Retired features
 
-- **Oauth 1.0**
+- **OAuth 1.0**
 
     With {{product_name}} 7.1.0, we have retired OAuth 1.0. This feature has been fully removed and will not receive updates or support in the future.
 
