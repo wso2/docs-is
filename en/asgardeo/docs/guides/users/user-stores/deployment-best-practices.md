@@ -1,5 +1,7 @@
 # Deployment best practices for the remote agent
 
+Deploying the remote agent efficiently is crucial for ensuring a stable and secure connection between Asgardeo and your on-premise user store. Follow these best practices to enhance security and monitoring.
+
 ### Secure the installation token
 
 Store the installation token securely and avoid sharing it with unauthorized users. Select the most suitable method to store the token based on your deployment environment. If you're using a containerized secured environment, you can go ahead with the environment variable method. For other instances such as virtual machines, store the token in the agent configuration file and encrypt it using the provided cipher tool.

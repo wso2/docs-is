@@ -1,10 +1,22 @@
 # Connect a remote user store
 
-!!! tip
+Asgardeo allows you to connect a remote user store and onboard users and groups from it. The user store connection can either be with read-only or read/write permissions. Administrators can then start managing access to business applications in Asgardeo for these users and groups. This guide explains how you can set up a remote user store for your Asgardeo organization.
 
-    Asgardeo now offers an optimized remote user store connection designed for high scalability and performance. Currently this version only allows connecting a read-only user store with the remote user authentication and attribute retrieval.
+## User store connections
 
-    The new connection is continuously evolving to support more use cases in the future. For extended capabilities like read-write user stores, the classic remote user store remains available.
+Asgardeo supports the following user store connections.
+
+### Optimized user store connection (recommended)
+
+Asgardeo has introduced **optimized user store connections**, designed for high scalability and performance. At the moment, it supports **read-only** user stores and can be used to authenticate users and retrieve attributes. This connection is continuously evolving and will support a wide range of use cases in the future.
+
+If this connection's capabilities meet your organization's requirements, we highly recommend that you use the optimized connection instead of the classic connection.
+
+### Classic user store connection
+
+The optimized user store connection is the recommended choice, though its capabilities are limited at the moment. If your organization's requirements exceed the capabilities offered by the optimized connection, you can use the **classic user store connection**. The classic connection supports both **read/write** and **read-only** user stores, and offers full management capabilities. While a classic connection offers more capabilities, it may not be as performant as the optimized connection.
+
+!!! note "Switch connections from classic to optimized"
 
     If you have already connected a classic user store and would like to explore the new connection,
 
@@ -12,33 +24,33 @@
     2. [Register a remote user store](#register-a-remote-user-store) again.
     3. [Set up the remote user store](#set-up-the-remote-user-store) with the new user store agent.
 
-!!! note
-    If you have connected a classic user store before 7th February 2023, you will have Read-Only access for the user store.
-    If you need Read-Write access for your user store on Asgardeo,
+!!! note "Switch classic connections from read-only to read/write"
+    
+    If you have connected a classic user store before 7th February 2023, you will only have **read-only** access for the user store. If you need **read/write** access for your user store in Asgardeo,
 
     1. Delete the existing remote user store.
     2. [Register a classic user store](#register-a-remote-user-store) again with Read/Write access type. Make sure to select the classic user store path.
     3. [Set up the remote user store](#set-up-the-remote-user-store) with the latest user store agent.
 
-You can connect your on-premise user store to Asgardeo and onboard users and groups from it. You can connect a user store to Asgardeo with read-only or read/write privileges.
+## Register and configure a user store in Asgardeo
 
-Administrators can manage access to business applications and manage users and groups based on the access type of the user store.
+The following guides explain how you can register and set up a remote user store for your Asgardeo organization.
 
-Follow the guide below to set up a remote user store in Asgardeo.
+### Prerequisites
 
-## Prerequisites
+Ensure your system has the following before you proceed.
 
 - An on-premise user store. Currently, Asgardeo supports:
 
     - Lightweight Directory Access Protocol (LDAP)
     - Active Directory (AD)
 
-- If using a classic user store, to run the user store agent, you need to have:
+- If using a classic user store, to run the user store agent:
    
-    - JAVA 8 or JAVA 11 installed locally
-    - JAVA_HOME configured correctly
+    - Install JAVA 8 or JAVA 11.
+    - Configure `JAVA_HOME`.
 
-??? note "Requirements"
+??? note "System requirements"
     - Recommended hardware requirements
         <table>
             <tr>
@@ -78,7 +90,8 @@ Follow the guide below to set up a remote user store in Asgardeo.
             </tr>
         </table>
 
-## Register a remote user store
+### Register a remote user store
+
 To configure a remote user store for your organization:
 
 1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores**.
@@ -87,7 +100,7 @@ To configure a remote user store for your organization:
 
     ![Register remote user store to Asgardeo]({{base_path}}/assets/img/guides/user-stores/register-user-store-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. If your use case doesn't align with the optimized user store connection, click **Classic User Store Connection** instead.
+3. If the [optimized connection](#optimized-user-store-connection) supports your use case, this is the recommended choice. If not, click **Classic User Store Connection** instead.
 
 4. Enter the following details about the user store.
     <table>
@@ -150,41 +163,39 @@ To configure a remote user store for your organization:
 
     !!! warning
 
-        - **Username** and **User Id** attributes need to be mapped correctly for proper authentication. **Group name** and **Group Id** attributes require to be mapped correctly when the **Read groups** is enabled.
+        - Map the **Username** and **User Id** attributes correctly for successful user authentication. If you have enabled **Read groups**, make sure to correctly map the **Group name** and **Group Id** attributes.
         {% if multi_valued_attributes %}
-        - Additionally, ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in [Assign multiple email addresses and mobile numbers to 
-        a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) section.
+        - Additionally, to allow multiple email addresses and mobile numbers attributes for users, follow instructions in [Assign multiple email addresses and mobile numbers to 
+        a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
         {% endif %}
 
 6. Click **Finish** to complete the registration.
 
-## Set up the remote user store
+### Set up the remote user store
 
-After registering the user store, you'll be redirected to the **Setup Guide** of the user store agent.
-
-To assemble and configure the user store agent bundle:
+After registering the user store, you'll be redirected to the **Setup Guide** of the user store agent. To assemble and configure the user store agent bundle, follow the steps below for the appropriate agent.
 
 === "Optimized Agent"
 
-    1. Download the user store agent according to your Operating System.
+    1. Download the user store agent according to your operating system.
 
-    2. Optionally verify the integrity of the downloaded file with the following steps.
+        ??? note "(Optiomal) Verify the integrity of the downloaded file"
 
-        - **Linux/Unix:**
+            === "Linux/Unix"
 
-            Copy the displayed hash value and run the following command in the same directory where the zip file is downloaded.
+                Copy the displayed hash value and run the following command in the same directory where you downloaded the zip file.
 
-            ```bash
-            echo "<hash_value>  remoteagent_linux.zip" | sha256sum -c
-            ```
+                ```bash
+                echo "<hash_value>  remoteagent_linux.zip" | sha256sum -c
+                ```
         
-        - **Windows:**
+            === "Windows"
 
-            Run the following command in a Command prompt in the same directory where the zip file is downloaded and compare the output hash value with the displayed one in the console.
+                Run the following command in a command prompt in the same directory where you downloaded the zip file and compare the output hash value with the one displayed in the console.
 
-            ```bash
-            CertUtil -hashfile remoteagent_windows.zip SHA256
-            ```
+                ```bash
+                CertUtil -hashfile remoteagent_windows.zip SHA256
+                ```
     
     3. Configure the properties and connection details of the on-premise user store by following these steps:
 
@@ -258,13 +269,13 @@ To assemble and configure the user store agent bundle:
     
     5. To start the user store agent, navigate to its root directory and run one of the following commands based on your operating system:
 
-        - **Linux/Unix:**
+        === "Linux/Unix"
 
             ```bash
             ./remoteagent
             ```
         
-        - **Windows:**
+        === "Windows"
 
             ```bash
             remoteagent
@@ -315,13 +326,13 @@ To assemble and configure the user store agent bundle:
 
     4. To start the user store agent, navigate to its root directory and run one of the following commands based on your operating system:
 
-        - **Linux/Unix:**
+        === "Linux/Unix"
 
             ```bash
             sh wso2agent.sh
             ```
 
-        - **Windows:**
+        === "Windows"
 
             ```bash
             wso2agent.bat -- run
@@ -334,13 +345,13 @@ To assemble and configure the user store agent bundle:
         2. Add the installation token obtained from the previous step.
         3. Run the user store agent.
 
-            - **Linux/Unix:**
+            === "Linux/Unix"
 
                 ``` bash
                 sh wso2agent.sh start
                 ```
             
-            - **Windows:**
+            === "Windows"
 
                 ``` bash
                 wso2agent.bat start
