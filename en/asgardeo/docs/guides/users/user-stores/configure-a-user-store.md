@@ -179,7 +179,7 @@ After registering the user store, you'll be redirected to the **Setup Guide** of
 
     1. Download the user store agent according to your operating system.
 
-        ??? note "(Optiomal) Verify the integrity of the downloaded file"
+        ??? note "(Optional) Verify the integrity of the downloaded file"
 
             === "Linux/Unix"
 
