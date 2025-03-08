@@ -1,8 +1,6 @@
-# Configure high availability for a remote user store
+# Configure high availability
 
-It is recommended to maintain high availability for your remote user store in Asgardeo as it includes user information that must be available at all times.
-
-To maintain high availability for the remote user store, you need to connect a second user store agent.
+Remote user stores must be highly available to ensure continuous access to critical user information. To maintain high availability, we highly recommend you to follow this guide and connect a second user store agent.
 
 ## Prerequisites
 
@@ -22,16 +20,40 @@ To connect a second user store agent:
     !!! note
         An installation token can only be used to connect to one user store agent. You cannot use the same installation token to run a second agent.
 
-5. Run a second user store agent by navigating to its root directory and by using one of the following commands based on your operating system:
+5. Run a second user store agent by navigating to its root directory. Use one of the commands below.
 
-    === "Linux/OSx"
-        ``` json 
-        sh wso2agent.sh
-        ```
+    === "Optimized Agent"
 
-    === "Windows"
-        ``` json 
-        wso2agent.bat
-        ```
+        Run the command corresponding to your operating system. Make sure to configure the installation token similarly to the primary agent.
 
-    Enter the second installation token generated in the previous step when prompted.
+        === "Linux/Unix"
+
+            ```bash
+            ./remoteagent
+            ```
+        
+        === "Windows"
+
+            ```bash
+            remoteagent
+            ```
+        
+        
+
+    === "Classic Agent"
+
+        Run the command corresponding to your operating system. When prompted, enter the second installation token generated in the previous step.
+
+        === "Linux/Unix"
+
+            ```bash
+            sh wso2agent.sh
+            ```
+
+        === "Windows"
+
+            ```bash
+            wso2agent.bat
+            ```
+
+        

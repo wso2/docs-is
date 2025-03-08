@@ -331,6 +331,8 @@ nav:
           - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
           - Configure high availability: guides/users/user-stores/configure-high-availability.md
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
+          - Deployment best practices: guides/users/user-stores/deployment-best-practices.md
+          - Advanced configuration for the agent: guides/users/user-stores/advanced-configurations-for-the-agent.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
@@ -515,7 +517,7 @@ nav:
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
     - Conditional authentication:
       - Conditional auth - API: references/conditional-auth/api-reference.md
-    - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
+    - Remote agent properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
     - SMS templates: references/sms-templates.md
