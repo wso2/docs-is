@@ -14,7 +14,7 @@ If this connection's capabilities meet your organization's requirements, we high
 
 ### Classic user store connection
 
-The optimized user store connection is the recommended choice, though its capabilities are limited at the moment. If your organization's requirements exceed the capabilities offered by the optimized connection, you can use the **classic user store connection**. The classic connection supports both **read/write** and **read-only** user stores, and offers full management capabilities. While a classic connection offers more capabilities, it may not be as performant as the optimized connection.
+The optimized user store connection is the recommended choice, though its capabilities are limited at the moment. If your organization's requirements exceed the capabilities offered by the optimized connection, you can use the **classic user store connection**. The classic connection supports both **read/write** and **read-only** user stores, and offers full management capabilities. While the classic connection offers more capabilities, it may not be as performant as the optimized connection.
 
 !!! note "Switch connections from classic to optimized"
 
