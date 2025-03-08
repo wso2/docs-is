@@ -13,8 +13,8 @@ Given below are the high-level steps for enabling conditional authentication in 
 
 [Register your application]({{base_path}}/guides/authentication/add-login-to-apps/) on the {{product_name}} Console.
 
-{% if product_name == "Asgardeo" %}
-{% else %}
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
 !!! warning "Before you proceed (only for JDK 17)"
 
     If your system operates on JDK 17, refer to [Enable adaptive authentication]({{base_path}}/deploy/enable-adaptive-authentication/) to deploy WSO2 Identity Server with conditional authentication.
