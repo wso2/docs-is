@@ -96,16 +96,11 @@ The request from {{product_name}} includes following in the JSON request payload
 </td>
 </tr>
 <tr class="odd">
-<td>event.organization</td>
-<td><p>This property refers to the organization to which the user belongs. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.</p>
-</td>
-</tr>
-<tr class="even">
 <td>event.initiatorType</td>
 <td><p>This property indicates whether the password update was initiated by an administrator, a user, or an application. Refer <a href="#initatorType-and-action">initiatorType and action properties in request</a> section for details.</p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>event.action</td>
 <td><p>This property indicates whether the password update was initiated over a password reset flow, update flow, or an invite flow. Refer <a href="#initatorType-and-action">initiatorType and action properties in request</a> section for details.</p>
 </td>

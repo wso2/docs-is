@@ -244,7 +244,7 @@ components:
           type: string
           description: Defines the name of the organization.
           example: sub1.bar.com
-      description: Metadata of the organization the user belongs to. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.
+      description: Metadata of the organization the user is trying to log into. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.
       
     UserStoreInEvent:
       type: object
