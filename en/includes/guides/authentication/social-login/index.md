@@ -32,5 +32,11 @@
       <span>X</span>
     </a>
     {% endif %}
+    {% if product_name == "Asgardeo" %}
+    <a href="{{base_path}}/guides/authentication/social-login/add-linkedin-login/" class="card square">
+      <img src="{{base_path}}/assets/img/logo/linkedin-logo.svg" alt="LinkedIn" />
+      <span>LinkedIn</span>
+    </a>
+    {% endif %}
   </div>
 </div>
