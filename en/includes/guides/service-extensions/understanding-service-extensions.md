@@ -379,3 +379,12 @@ loggers = org-wso2-carbon-identity-action-execution
 {%else %}
 You may view the diagnostics logs under the logs tab in Asgardeo. [Refer here]({{base_path}}/guides/asgardeo-logs/diagnostic-logs/) to learn more about diagnostic logs in Asgardeo.
 {%endif %}
+
+
+## Extension implementation best practices
+
+### Security basics
+- Avoid including sensitive information or personally identifiable information (PII) in URLs, error/failure messages, or descriptions.
+- It is strictly recommended to use HTTPS for external service endpoint in production. The HTTP should be used only for testing purposes.
+- The `None` authentication type is intended for testing purposes only. It is recommended to implement a proper authentication mechanism for external service endpoint.
+- Always use HTTPS for redirects and API calls to ensure secure communication.
