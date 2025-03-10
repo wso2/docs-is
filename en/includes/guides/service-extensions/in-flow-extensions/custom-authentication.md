@@ -264,7 +264,7 @@ E.g.,
 </tr>
 <tr class="even">
 <td>event.organization</td>
-<td><p>This property refers to the organization to which the authenticating user belongs. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.</p>
+<td><p>This property refers to the organization to which the authenticating user is trying to log into. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.</p>
 </td>
 </tr>
 <tr class="odd">

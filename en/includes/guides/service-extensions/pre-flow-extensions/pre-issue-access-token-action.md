@@ -109,11 +109,6 @@ All request parameters are not incorporated, specially sensitive parameters like
 </td>
 </tr>
 <tr class="odd">
-<td>event.organization</td>
-<td><p>This property refers to the organization to which the user belongs. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.</p>
-</td>
-</tr>
-<tr class="even">
 <td>event.accessToken</td>
 <td><p>This property represents the access token that is about to be issued. It contains claims and scopes, of the access token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
 .</p>
