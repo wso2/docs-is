@@ -44,7 +44,7 @@ extra:
     - References
   
   versions:
-    current: 7.0.0
+    current: 7.1.0
     list:
       - 7.1.0
       - 7.0.0
