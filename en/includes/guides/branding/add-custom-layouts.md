@@ -171,13 +171,13 @@ To add a custom layout to the login page:
 
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/carbon.super/` and follow the instructions provided below:
 
-    1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/identity-server/7.0.0/docs/assets/code-samples/body.html){target="_blank"} into the `body.html` file.
+    1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/body.html){target="_blank"} into the `body.html` file.
 
-    2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/identity-server/7.0.0/docs/assets/code-samples/style.css){target="_blank"}  into the `styles.css` file.
+    2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/style.css){target="_blank"}  into the `styles.css` file.
 
-    3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/tree/master/en/identity-server/7.0.0/docs/assets/code-samples/script.js){target="_blank"} file  into the `script.js` file.
+    3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/script.js){target="_blank"} file  into the `script.js` file.
 
-    4. Copy the [illustration.svg file](https://github.com/wso2/docs-is/tree/master/en/identity-server/7.0.0/docs/assets/code-samples/illustration.svg){target="_blank"} into the `assets` folder.
+    4. Copy the [illustration.svg file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/illustration.svg){target="_blank"} into the `assets` folder.
 
     !!! note
         To update the header and the footer, use the [Branding UI]({{base_path}}/guides/branding/configure-ui-branding/#update-branding).
