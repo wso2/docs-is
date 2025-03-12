@@ -19,7 +19,7 @@ In order for an overall authentication attempt to be marked successful, all its 
 
 ## Analyze Local Login Attempts
 
-The **Local** Auth Type displays statistics related to local authentication, i.e an authentication attempt carried out via a local identity provider.
+The **Resident** Auth Type displays statistics related to local authentication, i.e an authentication attempt carried out via a local identity provider such as username & password.
 
 An authentication sequence with a local identity provider is considered a single local authentication
 attempt regardless of the number of steps carried out.
@@ -31,7 +31,7 @@ local authentication failure.
 
 **Federated** Auth Type displays statistics related to federated authentication, i.e an authentication attempt carried out via a federated identity provider.
 
-A fedrated authentication attempt encompasses a single federated step. If there are multiple constituent steps, each federated authentication step is considered separately.
+A federated authentication attempt encompasses a single federated step. If there are multiple constituent steps, each federated authentication step is considered separately.
 
 A failed federated authentication attempt is marked a failure only if a failed response is received from a federated identity provider.
 
