@@ -1,13 +1,16 @@
 openapi: 3.0.0
 info:
   title: Notification Senders API
-  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **Asgardeo**
+  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **Asgardeo** organizations.
+               To access the notification sender organization APIs in Asgardeo, you need to first get an access token from your organization.
   version: "v1"
 servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
+  - url: https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1
     variables:
       serverUrl:
-        default: api.asgardeo.io
+        default: https://api.asgardeo.io/t/{root-organization-name}/o/
+      root-organization-name:
+        default: "{root-organization-name}"
 security:
   - OAuth2: []
 paths:
@@ -60,7 +63,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/email' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
     post:
@@ -129,7 +132,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/email' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
@@ -203,7 +206,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/email/{email-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email/{email-sender-name}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
     put:
@@ -277,7 +280,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/email/{email-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email/{email-sender-name}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
@@ -346,7 +349,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/email/{email-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email/{email-sender-name}' \
             -H 'accept: */*' \
             -H 'Authorization: Bearer {bearer_token}'                  
   /notification-senders/sms:
@@ -398,7 +401,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/sms' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'                  
     post:
@@ -473,7 +476,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/sms' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
@@ -554,7 +557,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms/{sms-sender-name}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'                 
     put:
@@ -634,7 +637,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms/{sms-sender-name}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
@@ -710,7 +713,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms/{sms-sender-name}' \
             -H 'accept: */*' \
             -H 'Authorization: Bearer {bearer_token}'                 
   /notification-senders/push:
@@ -762,7 +765,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/push' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
     post:
@@ -830,7 +833,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/push' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
@@ -902,7 +905,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/push/{push-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push/{push-sender-name}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
     put:
@@ -975,7 +978,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/push/{push-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push/{push-sender-name}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
@@ -1042,7 +1045,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1/notification-senders/push/{push-sender-name}' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push/{push-sender-name}' \
             -H 'accept: */*' \
             -H 'Authorization: Bearer {bearer_token}'
 components:
@@ -1355,6 +1358,6 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://api.asgardeo.io/t/{tenant-domain}/oauth2/authorize
-          tokenUrl: https://api.asgardeo.io/t/{tenant-domain}/oauth2/token
+          authorizationUrl: https://api.asgardeo.io/t/{root-organization-name}/o/oauth2/authorize
+          tokenUrl: https://api.asgardeo.io/t/{root-organization-name}/o/oauth2/token
           scopes: {}
