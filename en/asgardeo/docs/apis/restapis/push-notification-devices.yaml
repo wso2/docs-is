@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: "v1"
   title: 'Push Notification Device Management API'
-  description: 'This is the RESTful API for managing devices used for the push notification feature by the users in WSO2 Identity Server.'
+  description: 'This is the RESTful API for managing devices used for the push notification feature by the users in Asgardeo.'
 servers:
   - url: 'https://api.asgardeo.io/t/{tenant-domain}/api/users/v1/me/push'
 tags:
@@ -192,7 +192,7 @@ components:
         host:
           description: Host
           type: string
-          example: https://localhost:9443
+          example: https://api.asgardeo.io/
         tenantDomain:
           description: Tenant domain
           type: string

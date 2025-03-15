@@ -487,6 +487,7 @@ nav:
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle account identification API: apis/organization-apis/org-idle-account-identification.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
+      - Notification sender API: apis/organization-apis/notification-sender-rest-api.md
       - Offline user onboard management API: apis/organization-apis/organization-discovery.md
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
