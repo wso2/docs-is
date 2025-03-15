@@ -1,16 +1,18 @@
-* [Run the project locally](#run-the-project-locally)
-  + [With Python Virtual Environments](#with-python-virtual-environments)
-  + [With Devcontainers](#with-devcontainers)
-* [Contribute to documentation](#contribute-to-documentation)
-* [Survey On Open Source Community Communication](#survey-on-open-source-community-communication)
-* [License](#license)
-
 # WSO2 Identity Server and Asgardeo Documentation
 
 This is the WSO2 Identity Server and Asgardeo documentation repository. This repository is open source and we welcome your contributions!
 
 - WSO2 Identity Server Docs: [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
 - Asgardeo Docs: [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
+
+## Table of Content
+
+* [Run the project locally](#run-the-project-locally)
+  + [With Python Virtual Environments](#with-python-virtual-environments)
+  + [With Devcontainers](#with-devcontainers)
+* [Contribute to documentation](#contribute-to-documentation)
+* [Survey On Open Source Community Communication](#survey-on-open-source-community-communication)
+* [License](#license)
 
 ## Run the project locally
 
