@@ -6,7 +6,7 @@ read_time: 5 min
 
 Multi-factor authentication (MFA) is a security mechanism that requires users to provide two or more forms of verification before granting access to an application. This adds an extra layer of security to your application and helps protect sensitive data from unauthorized access.
 
-In this guide, we will look into enabling Email OTP as an MFA factor in your Next.js application. Email OTP is a simple and effective MFA method that sends a one-time passcode to the user's email address, which they must enter to complete the login process. You can configure SMTP settings in the Asgardeo Console by navigating to the **Email & SMS** tab > **Email Provider** section, but for this guide we will be using the default Asgardeo SMTP settings available out of the box.
+In this guide, we will look into enabling Email OTP as an MFA factor in your Next.js application. Email OTP is a simple and effective MFA method that sends a one-time passcode to the user's email address, which they must enter to complete the login process. You can configure SMTP settings in the Asgardeo Console by navigating to the **Notification Channels** tab > **Email Provider** section, but for this guide we will be using the default Asgardeo SMTP settings available out of the box.
 
 First, let's set up Email OTP as an MFA factor by following the steps given below.
 
