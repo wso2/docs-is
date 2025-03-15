@@ -22,7 +22,7 @@ paths:
       description: |
         This API provides the capability to retrieve the list of email senders. <br>
         
-        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getEmailSenders
       responses:
         "200":
@@ -71,9 +71,9 @@ paths:
         - Email Senders
       summary: Create an email sender
       description: |
-        This API provides the capability to create an email sender.\n\nIf the 'name' is not not defined, 'EmailPublisher' is taken as the default name. <br>
+        This API provides the capability to create an email sender.\n\nIf the 'name' is not defined, 'EmailPublisher' is taken as the default name. <br>
         
-        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
       operationId: createEmailSender
       requestBody:
         content:
@@ -156,7 +156,7 @@ paths:
         This API provides the capability to retrieve an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
         
-        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getEmailSender
       parameters:
         - name: sender-name
@@ -217,7 +217,7 @@ paths:
         This API provides the capability to update an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
 
-        <b>Scope(Permission) required:</b> `internal_notification_senders_update`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
       operationId: updateEmailSender
       parameters:
         - name: sender-name
@@ -303,7 +303,7 @@ paths:
         This API provides the capability to delete an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
         
-        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
       operationId: deleteEmailSender
       parameters:
         - name: sender-name
@@ -360,7 +360,7 @@ paths:
       description: |
         This API provides the capability to retrieve a list of SMS notification senders.<br>
         
-        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getSMSSenders
       responses:
         "200":
@@ -410,9 +410,9 @@ paths:
       summary: Create a SMS sender
       description: |
         This API provides the capability to create a SMS sender.
-        If the 'name' is not not defined, 'SMSPublisher' is taken as the default name.<br>
+        If the 'name' is not defined, 'SMSPublisher' is taken as the default name.<br>
         
-        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
       operationId: createSMSSender
       requestBody:
         content:
@@ -507,7 +507,7 @@ paths:
         This API provides the capability to retrieve a SMS notification sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
         
-        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getSMSSender
       parameters:
         - name: sender-name
@@ -569,7 +569,7 @@ paths:
         The URL encoded SMS sender name is used as sender-name.<br>
         
         
-        <b>Scope(Permission) required:</b> `internal_notification_senders_update`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
       operationId: updateSMSSender
       parameters:
         - name: sender-name
@@ -667,7 +667,7 @@ paths:
         This API provides the capability to delete a SMS sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
 
-        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
       operationId: deleteSMSSender
       parameters:
         - name: sender-name
@@ -724,7 +724,7 @@ paths:
       description: |
         This API provides the capability to retrieve the list of push notification senders. <br>
 
-        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getPushSenders
       responses:
         "200":
@@ -774,9 +774,9 @@ paths:
       summary: Create a push notification sender
       description: |
         This API provides the capability to create a push notification sender.
-        If the 'name' is not not defined, 'PushPublisher' is taken as the default name.<br>
+        If the 'name' is not defined, 'PushPublisher' is taken as the default name.<br>
 
-        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
       operationId: createSMSSender
       requestBody:
         content:
@@ -855,7 +855,7 @@ paths:
         This API provides the capability to retrieve a push notification sender by name.
         The URL encoded push sender name is used as sender-name.<br>
 
-        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getPushSender
       parameters:
         - name: sender-name
@@ -917,7 +917,7 @@ paths:
         The URL encoded push notification sender name is used as sender-name.<br>
 
 
-        <b>Scope(Permission) required:</b> `internal_notification_senders_update`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
       operationId: updatePushSender
       parameters:
         - name: sender-name
@@ -999,7 +999,7 @@ paths:
         This API provides the capability to delete a push notification sender by name.
         The URL encoded push notification sender name is used as sender-name.<br>
 
-        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
       operationId: deletePushSender
       parameters:
         - name: sender-name
@@ -1358,6 +1358,6 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://localhost:9443/t/{root-organization-name}/o/oauth2/authorize
-          tokenUrl: https://localhost:9443/t/{root-organization-name}/o/oauth2/token
+          authorizationUrl: https://localhost:9443/t/{root-organization-name}/oauth2/authorize
+          tokenUrl: https://localhost:9443/t/{root-organization-name}/oauth2/token
           scopes: {}
