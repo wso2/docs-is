@@ -412,6 +412,7 @@ plugins:
         'guides/authorization/impersonation/user-impersonation.md': 'guides/authorization/user-impersonation.md'
         'get-started/subscribe-for-ai-features.md': 'get-started/subscribe-to-ai-features.md'
         'deploy/environment-compatibility.md': 'deploy/product-compatibility.md'
+        'references/about-this-release.md': 'get-started/about-this-release.md'
 
 # Navigation
 nav:
