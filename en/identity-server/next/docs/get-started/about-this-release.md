@@ -324,7 +324,7 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
         2. Excluding the username from the introspection response for application tokens
             - Previous Behavior: The introspection response included the username.
 
-    With Identity Server 7.1, these configurations will be deprecated, as backward compatibility is now handled through the application outdated feature.
+    With Identity Server 7.1, these configurations will be deprecated, as backward compatibility is now handled through the application versioning feature. Any application version higher than v0.0.0 will behave as if both configurations are set to true.
 
 ## Deprecated and retired connectors
 
