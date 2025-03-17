@@ -978,6 +978,7 @@ nav:
   - References:
     - References: references/index.md
     - Feature deprecation: references/wso2-identity-server-feature-deprecation.md
+    - Connectors: references/connectors.md
     - User management:
       - User roles: references/user-management/user-roles.md
       - Track user deletion: references/user-management/track-deletion.md
