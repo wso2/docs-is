@@ -314,6 +314,18 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
     With WSO2 Identity Server 7.1, the Carbon Registry, previously used as a data repository, has been deprecated. Registry dependencies have been removed from the WSO2 Identity Server, and the registry core is planned for removal in a future release, streamlining the system and reducing legacy components.
 
+## Deprecated configurations
+
+- **use_client_id_as_sub_claim_for_app_tokens & remove_username_from_introspection_response_for_app_tokens**
+
+    These configurations were introduced in Identity Server 7.0 to ensure backward compatibility for the following features:
+        1. Setting the sub attribute of an application token as the client ID
+            - Previous Behavior: The sub attribute was set to the application owner's UUID.
+        2. Excluding the username from the introspection response for application tokens
+            - Previous Behavior: The introspection response included the username.
+
+    With Identity Server 7.1, these configurations will be deprecated, as backward compatibility is now handled through the application versioning feature. Any application version higher than v0.0.0 will behave as if both configurations are set to true.
+
 ## Deprecated and retired connectors
 
 ??? note "Deprecated connectors"
