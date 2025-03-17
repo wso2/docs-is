@@ -19,9 +19,9 @@ Once you have finished installing Fluent Bit, follow the next section for instru
 
 ## Install OpenSearch
 
-By sending {{product_name}} carbon logs to OpenSearch, you can efficiently store, search, and analyze log data for better insights.
+If you already have OpenSearch installed in your system, you may skip this step. If not, follow the guides below to install it.
 
-To install,
+By sending {{product_name}} carbon logs to OpenSearch, you can efficiently store, search, and analyze log data for better insights. To install,
 
 - the **OpenSearch cluster**, follow the [OpenSearch installation guide](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/index){: target="_blank"}.
 
