@@ -73,7 +73,7 @@ Alert dashboards display long sessions and suspicious login alerts. Follow the s
 2. Open the **kibana.yml** file found in the `<KIBANA_HOME>/config` directory.
 3. Copy the generated keys and paste them at the bottom of the **kibana.yml** file.
 4. Restart Kibana.
-3. Download the following [file]({{base_path}}/assets/img/elk-analytics/kibana-8-x-alerts.ndjson).
+3. Download the following [file](https://github.com/wso2-extensions/identity-elk-integration/blob/main/kibana/saved-objects/kibana-8-x-alerts.ndjson){: target="_blank"}.
 4. Log in to Kibana and under **Stack Management** > **Kibana**, click **Saved Objects**.
 5. Click **Import**, add the downloaded file as an import object, and click **Import**.
 6. Navigate to the **Dashboard** section to view the created **Alert** Dashboard.
