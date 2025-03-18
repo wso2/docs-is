@@ -62,6 +62,20 @@ Refer to the following table for more information on rule parameters.
     </tr>
 </table>
 
+### Try it out
+
+1. Create a role named `Manager` and assign it to a user whose password was not recently updated.
+
+2. Create a password expiration rule with the following parameters:
+    - Attribute: Roles
+    - Values: Manager
+    - Operator: Apply
+    - Expiration (days): 1
+
+3. Upon logging in, the user will be redirected to the password reset page.
+
+![Reset Password]({{base_path}}/assets/img/guides/organization/account-security/password-validation/reset-password.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 {% if password_expiry_time and (product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")) %}
 
 !!! abstract "Retrieve password expiry time of users"
