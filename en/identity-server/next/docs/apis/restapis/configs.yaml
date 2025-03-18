@@ -295,27 +295,24 @@ paths:
                     definedBy: "SYSTEM"
                     type: "LOCAL"
                     isEnabled: true
-                    tags: [ 2FA ]
+                    tags: [ "Username&Password" ]
                     properties:
                       - key: "somePropertyKey"
                         value: "somePropertyValue"
                 UserDefinedAuthenticatorExample:
                   summary: "Response for user defined authenticator"
                   value:
-                    id: "Y3VzdG9tLUFCQ19hdXRoZW50aWNhdG9y"
-                    name: "custom-ABC_authenticator"
-                    displayName: "ABC Custom auth"
+                    id: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+                    name: "custom-authenticator"
+                    displayName: "Custom Local Authenticator"
                     definedBy: "USER"
                     type: "LOCAL"
                     isEnabled: true
-                    tags: [ Custom ]
+                    tags: [ "Custom" ]
                     endpoint:
                       uri: "https://abc.com/authenticate"
                       authentication:
                         type: "BASIC"
-                        properties:
-                          username: "auth_username"
-                          password: "auth_password"
         '400':
           description: Bad Request
           content:
@@ -1241,7 +1238,7 @@ components:
           example: basic
         description:
           type: string
-          example: "Description for user defined local authenticator configuration."
+          example: "Description for federated authenticator configuration."
         image:
           type: string
           example: "https://example.com/logo/my-logo.png"
@@ -1283,7 +1280,7 @@ components:
           example: basic
         description:
           type: string
-          example: "Description for user defined local authenticator configuration."
+          example: "Description for federated authenticator configuration."
         image:
           type: string
           example: "https://example.com/logo/my-logo.png"

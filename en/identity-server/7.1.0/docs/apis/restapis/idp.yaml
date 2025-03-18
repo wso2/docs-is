@@ -3412,7 +3412,7 @@ components:
           description: file to upload
   examples:
     UserDefinedAuthenticatorPUTRequestExample:
-      summary: "Put request for user defined authenticators"
+      summary: Put request for user defined authenticators
       value:
         authenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
         name: "custom-authenticator"

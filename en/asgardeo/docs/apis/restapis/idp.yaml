@@ -85,6 +85,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdentityProviderResponse'
+              examples:
+                identityProviderWithSystemDefinedAuthenticator:
+                  $ref: '#/components/examples/SystemDefinedIdentityProviderResponseExample'
+                identityProviderWithUserDefineAuthenticator:
+                  $ref: '#/components/examples/UserDefinedIdentityProviderResponseExample'
             application/xml:
               schema:
                 $ref: '#/components/schemas/IdentityProviderResponse'
@@ -221,12 +226,17 @@ paths:
               }
             }
             }'
-                          
+
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/IdentityProviderPOSTRequest'
+            examples:
+              identityProviderWithSystemDefinedAuthenticator:
+                $ref: '#/components/examples/IdentityProviderWithSystemDefinedAuthenticatorPOSTRequestExample'
+              identityProviderWithUserDefineAuthenticator:
+                $ref: '#/components/examples/IdentityProviderWithUserDefinedAuthenticatorPOSTRequestExample'
           application/xml:
             schema:
               $ref: '#/components/schemas/IdentityProviderPOSTRequest'
@@ -277,7 +287,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/meta/federated-authenticators' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                   
+            -H 'Authorization: Bearer {bearer_token}'                
   /identity-providers/meta/federated-authenticators/{federated-authenticator-id}:
     get:
       tags:
@@ -448,6 +458,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdentityProviderResponse'
+              examples:
+                identityProviderWithSystemDefinedAuthenticator:
+                  $ref: '#/components/examples/SystemDefinedIdentityProviderResponseExample'
+                identityProviderWithUserDefineAuthenticator:
+                  $ref: '#/components/examples/UserDefinedIdentityProviderResponseExample'
             application/xml:
               schema:
                 $ref: '#/components/schemas/IdentityProviderResponse'
@@ -544,7 +559,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '[
             {
               "operation": "REPLACE",
@@ -605,6 +620,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}?force=false' \
             -H 'accept: */*' \
             -H 'Authorization: Bearer {bearer_token}'                
+
   /identity-providers/{identity-provider-id}/federated-authenticators:
     get:
       tags:
@@ -627,6 +643,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
+              examples:
+                systemDefinedAuthenticatorsExample:
+                  $ref: '#/components/examples/SystemDefinedAuthenticatorListResponseExample'
+                userDefinedAuthenticators:
+                  $ref: '#/components/examples/UserDefinedAuthenticatorListResponseExample'
         '400':
           description: Bad Request
           content:
@@ -677,6 +698,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
+              examples:
+                systemDefinedAuthenticatorsExample:
+                  $ref: '#/components/examples/SystemDefinedAuthenticatorListResponseExample'
+                userDefinedAuthenticators:
+                  $ref: '#/components/examples/UserDefinedAuthenticatorListResponseExample'
         '400':
           description: Bad Request
           content:
@@ -706,7 +732,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '{
             "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
             "authenticators": [
@@ -722,12 +748,17 @@ paths:
                 ]
               }
             ]
-            }'                
+            }'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/FederatedAuthenticatorRequest'
+            examples:
+              systemDefinedAuthenticatorsExample:
+                $ref: '#/components/examples/SystemDefinedAuthenticatorsListPUTRequestExample'
+              userDefinedAuthenticators:
+                $ref: '#/components/examples/UserDefinedAuthenticatorsListPUTRequestExample'
         description: This represents the federated authenticators to be updated
         required: true
   '/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}':
@@ -758,6 +789,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FederatedAuthenticator'
+              examples:
+                systemDefinedAuthenticatorsExample:
+                  $ref: '#/components/examples/SystemDefinedAuthenticatorResponseExample'
+                userDefinedAuthenticators:
+                  $ref: '#/components/examples/UserDefinedAuthenticatorResponseExample'
         '400':
           description: Bad Request
           content:
@@ -819,6 +855,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FederatedAuthenticator'
+              examples:
+                systemDefinedAuthenticatorsExample:
+                  $ref: '#/components/examples/SystemDefinedAuthenticatorResponseExample'
+                userDefinedAuthenticators:
+                  $ref: '#/components/examples/UserDefinedAuthenticatorResponseExample'
         '400':
           description: Bad Request
           content:
@@ -848,7 +889,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '{
             "isEnabled": true,
             "isDefault": false,
@@ -858,12 +899,17 @@ paths:
                 "value": "somePropertyValue"
               }
             ]
-            }'                
+            }'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/FederatedAuthenticatorPUTRequest'
+            examples:
+              systemDefinedAuthenticatorsExample:
+                $ref: '#/components/examples/SystemDefinedAuthenticatorPUTRequestExample'
+              userDefinedAuthenticators:
+                $ref: '#/components/examples/UserDefinedAuthenticatorPUTRequestExample'
         description: This represents the federated authenticator to be updated
         required: true
   '/identity-providers/{identity-provider-id}/provisioning':
@@ -1018,7 +1064,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '{
             "defaultConnectorId": "U0NJTQ",
             "connectors": [
@@ -1036,7 +1082,7 @@ paths:
                 ]
               }
             ]
-            }'                
+            }'
       requestBody:
         content:
           application/json:
@@ -1162,7 +1208,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/identity-provider-id/provisioning/outbound-connectors/outbound-provisioning-connector-id' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '{
             "isEnabled": true,
             "isDefault": false,
@@ -1288,7 +1334,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/claims' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '{
             "userIdClaim": {
               "uri": "http://wso2.org/claims/username"
@@ -1312,7 +1358,7 @@ paths:
                 "defaultValue": "sathya"
               }
             ]
-            }'                
+            }'
       requestBody:
         content:
           application/json:
@@ -1426,7 +1472,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/roles' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '{
             "mappings": [
               {
@@ -1438,7 +1484,7 @@ paths:
               "manager",
               "hr-admin"
             ]
-            }'               
+            }'
       requestBody:
         content:
           application/json:
@@ -1552,7 +1598,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '{
             "isEnabled": true,
             "scheme": "PROVISION_SILENTLY",
@@ -1560,7 +1606,7 @@ paths:
             "associateLocalUser": true,
             "attributeSyncMethod": "OVERRIDE_ALL"
             }'
-                           
+
       requestBody:
         content:
           application/json:
@@ -1728,7 +1774,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '{
             "name": "google",
             "description": "Trusted Token Issuer",
@@ -1766,7 +1812,7 @@ paths:
                 }
               ]
             }
-            }'               
+            }'
       requestBody:
         content:
           application/json:
@@ -1893,14 +1939,14 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/{trusted-token-issuer-id}' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Authorization: Bearer {bearer_token}'                 \
             -d '[
             {
               "operation": "REPLACE",
               "path": "/homeRealmIdentifier",
               "value": "google"
             }
-            ]'             
+            ]'                
       requestBody:
         content:
           application/json:
@@ -1953,7 +1999,7 @@ paths:
             curl -X 'DELETE' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/t{rusted-token-issuer-id}?force=false' \
             -H 'accept: */*' \
-            -H 'Authorization: Bearer {bearer_token}'
+            -H 'Authorization: Bearer {bearer_token}'                
   '/identity-providers/{identity-provider-id}/implicit-association':
     get:
       tags:
@@ -2008,12 +2054,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
         x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --request GET \
-            --url https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/implicit-association \
-            --header 'Accept: application/json, application/xml' \
-            --header 'Authorization: Bearer {bearer-token}'
+          - lang: Curl
+            source: |
+              curl --request GET \
+              --url https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/implicit-association \
+              --header 'Accept: application/json, application/xml' \
+              --header 'Authorization: Bearer {bearer-token}'
     put:
       tags:
         - Implicit Association
@@ -2077,7 +2123,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ImplicitAssociationPutRequest'
         description: This represents the implicit association configs to be updated.
-        required: true                
+        required: true
 components:
   parameters:
     limitQueryParam:
@@ -2245,7 +2291,7 @@ components:
         $ref: '#/components/schemas/Patch'
     Patch:
       description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root level attributes of
-       an identity provider.
+        an identity provider.
       required:
         - operation
         - path
@@ -2391,13 +2437,13 @@ components:
             $ref: '#/components/schemas/Link'
           example:
             [
-                {
-                    "href": "identity-provider?offset=50&limit=10",
-                    "rel": "next",
-                },  {
-                    "href": "identity-provider?offset=30&limit=10",
-                    "rel": "previous",
-                }
+              {
+                "href": "identity-provider?offset=50&limit=10",
+                "rel": "next",
+              },  {
+              "href": "identity-provider?offset=30&limit=10",
+              "rel": "previous",
+            }
             ]
         identityProviders:
           type: array
@@ -2884,13 +2930,13 @@ components:
             $ref: '#/components/schemas/Link'
           example:
             [
-                {
-                    "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=50&limit=10",
-                    "rel": "next"
-                },  {
-                    "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=30&limit=10",
-                    "rel": "previous"
-                }
+              {
+                "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=50&limit=10",
+                "rel": "next"
+              },  {
+              "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=30&limit=10",
+              "rel": "previous"
+            }
             ]
         connectedApps:
           type: array
@@ -2925,10 +2971,10 @@ components:
             $ref: '#/components/schemas/Link'
           example:
             [
-            {
-              "href": "identity-provider/templates?offset=50&limit=10",
-              "rel": "next",
-            },  {
+              {
+                "href": "identity-provider/templates?offset=50&limit=10",
+                "rel": "next",
+              },  {
               "href": "identity-provider/templates?offset=30&limit=10",
               "rel": "previous",
             }
@@ -3106,3 +3152,336 @@ components:
     Attributes:
       type: string
       example: 'http://wso2.org/claims/emailaddress'
+  examples:
+    UserDefinedAuthenticatorPUTRequestExample:
+      summary: Put request for user defined authenticators
+      value:
+        authenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+        name: "custom-authenticator"
+        default: true
+        definedBy: "USER"
+        endpoint:
+          uri: "https://abc.com/token"
+          authentication:
+            type: "BASIC"
+            properties:
+              username: "auth_username"
+              password: "auth_password"
+    SystemDefinedAuthenticatorPUTRequestExample:
+      summary: "Put request for system defined authenticators"
+      value:
+        authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+        isEnabled: true
+        isDefault: true
+        properties:
+          - key: "somePropertyKey"
+            value: "somePropertyValue"
+    UserDefinedAuthenticatorsListPUTRequestExample:
+      summary: "Put request for user defined authenticators list"
+      value:
+        defaultAuthenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+        authenticators:
+          - authenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+            name: "custom-authenticator"
+            default: true
+            definedBy: "USER"
+            endpoint:
+              uri: "https://abc.com/token"
+              authentication:
+                type: "BASIC"
+                properties:
+                  username: "auth_username"
+                  password: "auth_password"
+    SystemDefinedAuthenticatorsListPUTRequestExample:
+      summary: "Put request for system defined authenticators list"
+      value:
+        defaultAuthenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+        authenticators:
+          - authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+            isEnabled: true
+            isDefault: true
+            properties:
+              - key: "somePropertyKey"
+                value: "somePropertyValue"
+    IdentityProviderWithSystemDefinedAuthenticatorPOSTRequestExample:
+      summary: "POST request for an identity provider with a system defined authenticator"
+      value:
+        name: "google"
+        description: "IdP for Google Federation"
+        image: "google-logo-url"
+        templateId: "8ea23303-49c0-4253-b81f-82c0fe6fb4a0"
+        isPrimary: false
+        isFederationHub: false
+        homeRealmIdentifier: "localhost"
+        certificate:
+          certificates:
+            - "string"
+          jwksUri: "https://api.asgardeo.io/t/{org-name}/oauth2/jwks"
+        alias: "https://api.asgardeo.io/t/{org-name}/oauth2/token"
+        idpIssuerName: "https://www.idp.com"
+        claims:
+          userIdClaim:
+            uri: "http://wso2.org/claims/username"
+          roleClaim:
+            uri: "http://wso2.org/claims/username"
+          mappings:
+            - idpClaim: "country"
+              localClaim:
+                uri: "http://wso2.org/claims/username"
+          provisioningClaims:
+            - claim:
+                uri: "http://wso2.org/claims/username"
+              defaultValue: "sathya"
+        roles:
+          mappings:
+            - idpRole: "google-manager"
+              localRole: "manager"
+          outboundProvisioningRoles:
+            - "manager"
+            - "hr-admin"
+        groups:
+          - name: "google-admin"
+            id: "6b1f8513-3de0-4f28-9cad-b7400dbc94ae"
+        federatedAuthenticators:
+          defaultAuthenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+          authenticators:
+            - authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+              isEnabled: true
+              isDefault: true
+              properties:
+                - key: "somePropertyKey"
+                  value: "somePropertyValue"
+        provisioning:
+          jit:
+            isEnabled: true
+            scheme: "PROVISION_SILENTLY"
+            userstore: "PRIMARY"
+            associateLocalUser: true
+            attributeSyncMethod: "OVERRIDE_ALL"
+          outboundConnectors:
+            defaultConnectorId: "U0NJTQ"
+            connectors:
+              - connectorId: "U0NJTQ"
+                isEnabled: true
+                isDefault: true
+                blockingEnabled: false
+                rulesEnabled: false
+                properties:
+                  - key: "somePropertyKey"
+                    value: "somePropertyValue"
+        implicitAssociation:
+          isEnabled: false
+          lookupAttribute:
+            - "email"
+    IdentityProviderWithUserDefinedAuthenticatorPOSTRequestExample:
+      summary: "POST request for an identity provider with a user defined authenticator"
+      value:
+        name: "Custom IDP"
+        description: "IDP with custom federated authenticator"
+        image: "https://custom-authenticator-logo-url"
+        templateId: "external-custom-authenticator"
+        isPrimary: false
+        isFederationHub: false
+        homeRealmIdentifier: ""
+        certificate:
+          certificates:
+            - ""
+          jwksUri: ""
+        claims:
+          userIdClaim:
+            uri: "http://wso2.org/claims/username"
+          roleClaim:
+            uri: ""
+          mappings: [ ]
+          provisioningClaims: [ ]
+        roles:
+          mappings: [ ]
+          outboundProvisioningRoles: [ ]
+        federatedAuthenticators:
+          defaultAuthenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+          authenticators:
+            - authenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+              isEnabled: true
+              isDefault: true
+              definedBy: "USER"
+              endpoint:
+                uri: "https://abc.com/token"
+                authentication:
+                  type: "BASIC"
+                  properties:
+                    username: "auth_username"
+                    password: "auth_password"
+        provisioning:
+          jit:
+            isEnabled: true
+            scheme: "PROVISION_SILENTLY"
+            userstore: "PRIMARY"
+            associateLocalUser: true
+            attributeSyncMethod: "OVERRIDE_ALL"
+    SystemDefinedIdentityProviderResponseExample:
+      summary: "Response for identity provider creation with system defined authenticator"
+      value:
+        id: "123e4567-e89b-12d3-a456-556642440000"
+        name: "google"
+        description: "string"
+        isEnabled: true
+        isPrimary: false
+        image: "google-logo-url"
+        isFederationHub: false
+        homeRealmIdentifier: "localhost"
+        certificate:
+          certificates:
+            - "string"
+          jwksUri: "https://api.asgardeo.io/t/{org-name}/oauth2/jwks"
+        alias: "https://api.asgardeo.io/t/{org-name}/oauth2/token"
+        claims:
+          userIdClaim:
+            id: "aHR0cDovL3dzbzIub3JnL2NsYWltcy91c2VybmFtZQ"
+            uri: "http://wso2.org/claims/username"
+            displayName: "Username"
+          roleClaim:
+            id: "aHR0cDovL3dzbzIub3JnL2NsYWltcy91c2VybmFtZQ"
+            uri: "http://wso2.org/claims/username"
+            displayName: "Username"
+          mappings:
+            - idpClaim: "country"
+              localClaim:
+                id: "aHR0cDovL3dzbzIub3JnL2NsYWltcy91c2VybmFtZQ"
+                uri: "http://wso2.org/claims/username"
+                displayName: "Username"
+          provisioningClaims:
+            - claim:
+                id: "aHR0cDovL3dzbzIub3JnL2NsYWltcy91c2VybmFtZQ"
+                uri: "http://wso2.org/claims/username"
+                displayName: "Username"
+              defaultValue: "sathya"
+        roles:
+          mappings:
+            - idpRole: "google-manager"
+              localRole: "manager"
+          outboundProvisioningRoles:
+            - "manager"
+            - "hr-admin"
+        federatedAuthenticators:
+          defaultAuthenticatorId: "U0FNTFNTT0F1dGhlbnRpY2F0b3I"
+          authenticators:
+            - authenticatorId: "U0FNTFNTT0F1dGhlbnRpY2F0b3I"
+              name: "SAML2Authenticator"
+              isEnabled: true
+              definedBy: "SYSTEM"
+              tags:
+                - "Social Login"
+                - "OIDC"
+              self: "/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y"
+        provisioning:
+          jit:
+            isEnabled: true
+            scheme: "PROMPT_USERNAME_PASSWORD_CONSENT"
+            userstore: "PRIMARY"
+            associateLocalUser: true
+            attributeSyncMethod: "OVERRIDE_ALL"
+          outboundConnectors:
+            defaultConnectorId: "U0NJTQ"
+            connectors:
+              - connectorId: "U0NJTQ"
+                name: "SCIM"
+                isEnabled: true
+                self: "/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/provisioning/outbound-connectors/U0NJTQ"
+    UserDefinedIdentityProviderResponseExample:
+      summary: "Response for identity provider creation with user defined authenticator"
+      value:
+        name: "Custom IDP"
+        description: "IDP with custom federated authenticator"
+        image: "https://custom-authenticator-logo-url"
+        templateId: "external-custom-authenticator"
+        isEnabled: true
+        isPrimary: false
+        isFederationHub: false
+        homeRealmIdentifier: ""
+        alias: ""
+        idpIssuerName: ""
+        claims:
+          userIdClaim:
+            id: "aHR0cDovL3dzbzIub3JnL2NsYWltcy91c2VybmFtZQ"
+            uri: "http://wso2.org/claims/username"
+            displayName: "Username"
+          roleClaim:
+            uri: ""
+          mappings: [ ]
+          provisioningClaims: [ ]
+        roles:
+          mappings: [ ]
+        groups: [ ]
+        federatedAuthenticators:
+          defaultAuthenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+          authenticators:
+            - authenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+              name: "custom-authenticator"
+              isEnabled: true
+              definedBy: "USER"
+              tags:
+                - "Custom"
+              self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+        provisioning:
+          jit:
+            isEnabled: true
+            scheme: "PROVISION_SILENTLY"
+            userstore: "DEFAULT"
+            associateLocalUser: false
+            attributeSyncMethod: "OVERRIDE_ALL"
+          outboundConnectors:
+            connectors: [ ]
+        implicitAssociation:
+          isEnabled: false
+          lookupAttribute: [ ]
+    SystemDefinedAuthenticatorResponseExample:
+      summary: "System defined federated authenticator"
+      value:
+        authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+        isEnabled: true
+        isDefault: true
+        definedBy: "SYSTEM"
+        tags:
+          - "Social Login"
+          - "OIDC"
+        properties:
+          - key: "somePropertyKey"
+            value: "somePropertyValue"
+    UserDefinedAuthenticatorResponseExample:
+      summary: "User defined federated authenticator"
+      value:
+        authenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+        isEnabled: true
+        isDefault: true
+        definedBy: "USER"
+        tags:
+          - "Custom"
+        endpoint:
+          uri: "https://abc.com/token"
+          authentication:
+            type: "BASIC"
+    SystemDefinedAuthenticatorListResponseExample:
+      summary: "List of authenticators with system defined authenticator"
+      value:
+        defaultAuthenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+        authenticators:
+          - authenticatorId: "U0FNTDJBdXRoZW50aWNhdG9y"
+            isEnabled: true
+            isDefault: true
+            definedBy: "SYSTEM"
+            tags:
+              - "Social Login"
+              - "OIDC"
+            self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y"
+    UserDefinedAuthenticatorListResponseExample:
+      summary: "List of authenticators with user defined authenticator"
+      value:
+        defaultAuthenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+        authenticators:
+          - authenticatorId: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+            name: "custom-authenticator"
+            isEnabled: true
+            definedBy: "USER"
+            tags:
+              - "Custom"
+            self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
