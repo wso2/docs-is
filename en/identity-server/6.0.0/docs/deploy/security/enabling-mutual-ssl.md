@@ -56,7 +56,7 @@ at how it works:
     If not add the following configuration to ` <IS_HOME>/repository/conf/deployment.toml       `
     
     ```toml
-    [transport.https.sslHostConfig.certificate.properties]
+    [transport.https.sslHostConfig.properties]
     certificateVerification = "want"
     ```
     
