@@ -6,11 +6,11 @@ The **My Account** application can be configured by modifying the `deployment.to
 [myaccount]
 app_base_name = "myaccount"
 client_id = "MY_ACCOUNT"
-login_callback_path = "/login"
-logout_callback_path = "/login"
+login_callback_path = ""
+logout_callback_path = ""
 
 route_paths.home = "/overview"
-route_paths.login = "/login"
+route_paths.login = ""
 route_paths.logout = "/logout"
 
 product_version.configs.versionOverride = ""
@@ -20,8 +20,8 @@ ui.announcements = []
 ui.app_copyright = "WSO2 Identity Server"
 ui.app_title = "My Account | WSO2 Identity Server"
 ui.app_name = "My Account"
-ui.app_logo_path = "/assets/images/logo.svg"
-ui.product_name = "Identity Server"
+ui.app_logo_path = "/assets/images/branding/logo.svg"
+ui.product_name = "WSO2 Identity Server"
 theme = "default"
 
 applications.enabled = true
@@ -53,7 +53,7 @@ personal_info.scopes.update = []
 personal_info.scopes.delete = []
 
 security.enabled = true
-security.disabled_features = []
+security.disabled_features = ["security.loginVerifyData.typingDNA"]
 security.scopes.create = []
 security.scopes.read = []
 security.scopes.update = []
