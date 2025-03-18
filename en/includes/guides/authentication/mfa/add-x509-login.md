@@ -161,15 +161,19 @@ In this step, we will generate a client certificate that will be used to authent
 
     This creates a signed certificate called `localcrt.crt` that is valid for a specified period that is denoted by the `startdate` and `enddate`.
 
-5. The next step is to import the CA and the signed certificates into the keystore using the following commands.
+5. Import the CA into the keystore using the following command.
 
     ```shell
     keytool -importcert -alias rootCA -file rootCA.crt -keystore localcrt.jks -storepass localpwd -noprompt
+    ```
 
+6. Import the signed certificate into the keystore using the following command.
+
+    ```shell
     keytool -importcert -alias localcrt -file demoCA/newcerts/01.pem -keystore localcrt.jks -storepass localpwd -noprompt
     ```
 
-6. Use the command below to convert the `.crt` file into the PKCS12 format, which is used for importing certificates into browsers:
+7. Use the command below to convert the `.crt` file into the PKCS12 format, which is used for importing certificates into browsers:
 
     ``` shell
     keytool -importkeystore -srckeystore localcrt.jks -destkeystore localhost.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass localpwd -deststorepass browserpwd -srcalias localcrt -destalias browserKey -srckeypass localpwd -destkeypass browserpwd -noprompt
@@ -177,11 +181,15 @@ In this step, we will generate a client certificate that will be used to authent
 
     Make sure to use the same password you used when creating the keystore for the `srcstorepass` in the above step. Now you have the `localhost.p12` file that you can import into your browser as explained in the [import certificate](#import-certificate) section.
 
-7. Next, create a new trust store and import the server certificate into the trust store using the following commands:
+8. Create a new trust store using the following command.
 
     ```shell
     keytool -import -keystore cacerts.jks -storepass cacertspassword -alias rootCA -file rootCA.crt -noprompt
+    ```
 
+9. Next, import the server certificate into the trust store using the following commands:
+
+    ```shell
     keytool -importcert -alias localcrt -file localcrt.crt -keystore cacerts.jks -storepass cacertspassword -noprompt
     ```
         
@@ -229,7 +237,11 @@ Follow the steps below to configure X.509 certificate-based authentication in {{
     
         3.   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
 
-## Step 4: Disable certificate validation
+## Step 4: (Optional) Disable certificate validation
+
+!!! note
+    
+    This step is only required if you are testing unsecure scenarios such as with a self-signed certificate. 
 
 Disabling certificate validation is necessary as {{product_name}} attempts to validate certificates against external Certificate Revocation Lists (CRL) or Online Certificate Status Protocol (OCSP) responders. Since self-signed certificates do not have a publicly accessible CA for revocation checks, enabling these validations will cause authentication failures.
 
@@ -247,7 +259,7 @@ Follow the steps below to disable certificate validation if your {{ product_name
     crl_validator_enabled = false
     ```
     
-    !!! infox
+    !!! note
         - CRL is a list of digital certificates that have been revoked by the issuing CA.
         - OCSP is an internet protocol that is used for obtaining the revocation status of an X509 digital certificate using the certificate serial number.
 
@@ -307,11 +319,11 @@ If {{product_name}} is already started, use the [Certificate Validation Manageme
 
 {% endif %}
 
-## Step 5: Configure the Authentication Endpoint
+## Step 5: (Optional) Configure additional settings
 
-Follow the steps below to configure the authentication endpoint for X.509 certificate authentication in {{ product_name }}.
+The following are additional settings that you may configure for X.509 certificate authentication in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-1.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configurations.
+1. Add the following to configure the authentication endpoint for X.509 certificate authentication:
 
     ``` toml
     [authentication.authenticator.x509_certificate.parameters]
@@ -332,14 +344,14 @@ Follow the steps below to configure the authentication endpoint for X.509 certif
         When X.509 authentication is used as the second authentication step, the system validates whether the certificate is linked to the user authenticated in the first step. This is done by comparing the `username` parameter with the corresponding attribute in the certificate.  When X509 authentication is configured as the first step, this certificate attribute will be treated as the authenticated user
         subject identifier.
     
-2.  If you want to store X.509 certificates as user claims, add the following property to the same file:
+2.  If you want to store X.509 certificates as user attributes, add the following property:
 
     ``` toml
     [authentication.authenticator.x509_certificate.parameters]
     setClaimURI = "http://wso2.org/claims/userCertificate"
     ```
 
-4.  To enable automatic self-registration for users who authenticate with an X.509 certificate, add the following property to the same file:
+4.  To enable automatic self-registration for users who authenticate with an X.509 certificate, add the following property:
 
     ``` toml 
     [authentication.authenticator.x509_certificate.parameters]
@@ -348,7 +360,11 @@ Follow the steps below to configure the authentication endpoint for X.509 certif
 
 5. Restart {{product_name}} to apply the changes.
 
-## Step 6: Add an attribute mapping for the certificate
+## Step 6: (Optional) Add an attribute mapping for the certificate
+
+!!! note
+
+    This step is only required if you enabled storing X.509 certificates as a user attribute in step 5 above.
 
 If you have enabled storing X.509 certificates as a user attribute, {{product_name}} will save the certificate as a user attribute and validate it against the certificate presented in the authentication request.
 
