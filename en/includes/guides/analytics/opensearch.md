@@ -1,4 +1,4 @@
-# Send carbon log data to OpenSearch
+# Analyze carbon logs with OpenSearch
 
 {{product_name}} supports integrating with log management and analytics solutions to enhance observability and monitoring. This guide walks you through setting up {{product_name}} to send carbon logs to OpenSearch using Fluent Bit.
 
