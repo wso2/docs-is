@@ -212,7 +212,7 @@ To delete an attribute:
 
 By default, identity claim values are stored in the JDBC datasource configured in the `deployment.toml` file. If required, you can configure WSO2 Identity Server to store the claim values in another user store as well.
 
-1.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore` property value to `IdentityDataStoreService`. This service, functioning as an OSGi service, is dedicated to accessing IdentityDataStores.
+1.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore` property value to `IdentityDataStoreService`. This service, functioning as an OSGi service, is dedicated to accessing Identity data stores.
 
 ```
 [identity_datastore]
