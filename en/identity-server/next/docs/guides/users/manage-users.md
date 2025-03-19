@@ -68,7 +68,7 @@ In addition to adding a single user, you can onboard multiple users at once, eit
 #### Add multiple users using a CSV file
 
 !!! Info
-    The default limit for maximum number of users that can be added using a CSV file is set to 100. To modify this limit, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+    The default limit for maximum number of users that can be added per request using a CSV file is set to 100. To modify this limit, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ```
     [console.bulk_user_import]
