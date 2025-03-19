@@ -6,18 +6,18 @@ In contrast to the usual one-way SSL authentication where a client
 verifies the identity of the server, in mutual SSL the server validates
 the identity of the client so that both parties trust each other. This
 builds a system that has a very tight security and avoids any requests
-made to the client to provide the username/password, as long as the
+made from the client to provide the username/password, as long as the
 server is aware of the certificates that belong to the client.
 
-Before the process begins the client and servers certificates are stored
-in there relevant `          keystores         ` . In the case of JAVA
-they are `          jks         ` files. Let's take a look at where the
+Before the process begins, the client and servers certificates are stored
+in there relevant `keystores` . In the case of JAVA
+they are `jks` files. Let's take a look at where the
 JKS files are saved:
 
 -   WSO2 Identity Server certificates are stored in the
-    `           <IS-HOME>/repository/resources/security/wso2carbon.jks          ` file.
+    `<IS-HOME>/repository/resources/security/wso2carbon.jks` file.
 -   Server side certificates are stored in the
-    `           <IS-HOME>/repository/resources/security/clienttruststore.jks          ` file.
+    `<IS-HOME>/repository/resources/security/clienttruststore.jks` file.
 
 These certificates are signed and issued by a certificate authority that
 allows both the client and server to communicate freely. Now let's look
@@ -28,7 +28,7 @@ at how it works:
 1.  The Client attempts to access a protected resource and the SSL/TSL
     handshake process begins.
 2.  The Server presents its certificate, which is the
-    `           server.crt          ` according to our example as shown
+    `server.crt` according to our example as shown
     above.
 3.  The Client takes this certificate and asks the certificate issued
     authority for the authenticity and validity of the certificate.
@@ -42,10 +42,10 @@ at how it works:
 ### Enabling Mutual SSL in the WSO2 IS
 
 1.  Open the
-    `           <IS_HOME>/repository/conf/tomcat/catalina-server.xml         `
-    file and ensure that the `           certificateVerification          ` attribute
-    in the `          SSLHostConfig         ` tag under `https` connector is set to 
-    `           want          ` as shown below. This is done to
+    `<IS_HOME>/repository/conf/tomcat/catalina-server.xml`
+    file and ensure that the `certificateVerification` attribute
+    in the `SSLHostConfig` tag under `https` connector is set to 
+    `want` as shown below. This is done to
     disable the certificate authentication on certain occasions (like
     when working on mobile apps). This makes two-way SSL authentication
     optional. Set the value as `require` to make two-way SSL authentication mandatory.
@@ -53,16 +53,15 @@ at how it works:
     ``` java
     certificateVerification="want"
     ```
-    If not add the following configuration to ` <IS_HOME>/repository/conf/deployment.toml       `
+    If not add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`
     
     ```toml
     [transport.https.sslHostConfig.properties]
     certificateVerification = "want"
     ```
-    
 
 2.  Open the
-    `           deployment.toml          `
+    `deployment.toml`
     file and add the following configuration to enable the
     Mutual SSL Authenticator.
 
