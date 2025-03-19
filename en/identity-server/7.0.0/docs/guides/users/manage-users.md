@@ -67,6 +67,9 @@ In addition to adding a single user, you can onboard multiple users at once, eit
 
 #### Add multiple users using a CSV file
 
+!!! Info
+    A maximum of 100 users can be added per attempt when using a CSV file.
+
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
 2. Click on the **Add User** button and select **Multiple Users** option.
 3. Switch to the **File Based** tab.
