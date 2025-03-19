@@ -220,7 +220,7 @@ datastore_type = "<Name of the identityDataStore class>"
 ```
 
 !!! Note
-    The class name configuration for the identity data store has been separated from the listener configurations. If you're using a custom `data store` class, it's crucial to update your `deployment.toml` file to reflect this choice. This update ensures that your custom class will override the default configuration.
+    The class name configuration for the identity data store has been separated from the listener configurations. If you're using a custom data store class, it's crucial to update your `deployment.toml` file to reflect this choice. This update ensures that your custom class will override the default configuration.
 
     To either maintain the previous behavior or use your custom data store, simply follow these steps and update your deployment.toml:
 
