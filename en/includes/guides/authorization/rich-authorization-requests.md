@@ -15,45 +15,115 @@ This involves registering an authorization details types using the [API Resource
 The following request registers a new authorization details types named `payment_initiation` for a Payments API 
 and the response contains details of the newly registered API resource and its authorization details types.
 
-Sample request
+=== "Sample request (/api-resources)"
 
-```curl
-curl --location 'https://<serverUrl>/api/server/v1/api-resources' \
---header 'accept: application/json' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic YWRtaW46YWRtaW4=' \
---data '{"name":"Payments API","identifier":"payments_api","description":"Payments API representation","requiresAuthorization":true,"authorizationDetailsTypes":[{"type":"payment_initiation","name":"Payment Initiations Type","description":"Payment initiation authorization details type","schema":{"type":"object","required":["type","actions","locations","instructedAmount"],"properties":{"locations":{"type":"array","items":{"type":"string","format":"uri"}},"instructedAmount":{"type":"object","properties":{"currency":{"type":"string","minLength":3},"amount":{"type":"string"}}},"type":{"type":"string","enum":["payment_initiation"]},"creditorName":{"type":"string"},"actions":{"type":"array","items":{"type":"string","enum":["initiate","status","cancel"]}},"creditorAccount":{"type":"object"}}}}]}'
-```
-Sample response
+    ```curl
+    curl --location 'https://localhost:9443/api/server/v1/api-resources' \
+    --header 'accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+    --data '{"name":"Payments API","identifier":"payments_api","description":"Payments API representation","requiresAuthorization":true,"authorizationDetailsTypes":[{"type":"payment_initiation","name":"Payment Initiations Type","description":"Payment initiation authorization details type","schema":{"type":"object","required":["type","actions","locations","instructedAmount"],"properties":{"locations":{"type":"array","items":{"type":"string","format":"uri"}},"instructedAmount":{"type":"object","properties":{"currency":{"type":"string","minLength":3},"amount":{"type":"string"}}},"type":{"type":"string","enum":["payment_initiation"]},"creditorName":{"type":"string"},"actions":{"type":"array","items":{"type":"string","enum":["initiate","status","cancel"]}},"creditorAccount":{"type":"object"}}}}]}'
+    ```
 
-```json
-{"id":"ae1c234f-6497-42f5-8bbd-b4a7e2237807","name":"Payments API","identifier":"payments_api","description":"Payments API representation","requiresAuthorization":true,"type":"BUSINESS","authorizationDetailsTypes":[{"id":"e2134d3b-9efc-454c-8fcc-985c414bf6cb","type":"payment_initiation","name":"Payment Initiations Type","description":"Payment initiation authorization details type","schema":{"type":"object","required":["type","actions","locations","instructedAmount"],"properties":{"locations":{"type":"array","items":{"type":"string","format":"uri"}},"instructedAmount":{"type":"object","properties":{"currency":{"type":"string","minLength":3},"amount":{"type":"string"}}},"type":{"type":"string","enum":["payment_initiation"]},"creditorName":{"type":"string"},"actions":{"type":"array","items":{"type":"string","enum":["initiate","status","cancel"]}},"creditorAccount":{"type":"object"}}}}],"properties":[]}
-```
+=== "Sample response (/api-resources)"
+
+    ```json
+    {
+      "id": "ae1c234f-6497-42f5-8bbd-b4a7e2237807",
+      "name": "Payments API",
+      "identifier": "payments_api",
+      "description": "Payments API representation",
+      "requiresAuthorization": true,
+      "type": "BUSINESS",
+      "authorizationDetailsTypes": [
+        {
+          "id": "e2134d3b-9efc-454c-8fcc-985c414bf6cb",
+          "type": "payment_initiation",
+          "name": "Payment Initiations Type",
+          "description": "Payment initiation authorization details type",
+          "schema": {
+            "type": "object",
+            "required": [
+              "type",
+              "actions",
+              "locations",
+              "instructedAmount"
+            ],
+            "properties": {
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "instructedAmount": {
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string",
+                    "minLength": 3
+                  },
+                  "amount": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "payment_initiation"
+                ]
+              },
+              "creditorName": {
+                "type": "string"
+              },
+              "actions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "initiate",
+                    "status",
+                    "cancel"
+                  ]
+                }
+              },
+              "creditorAccount": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      ],
+      "properties": []
+    }
+    ```
 
 Once registered, to retrieve the supported authorization details types, invoke the discovery endpoint of {{product_name}}. 
 The response confirms that the `payment_initiation` authorization details type is registered and available for use.
 
-Sample request
+=== "Sample request (/openid-configuration)"
 
-```curl
-curl --location 'https://<serverUrl>/oauth2/token/.well-known/openid-configuration'
-```
+    ```curl
+    curl --location 'https://localhost:9443/oauth2/token/.well-known/openid-configuration'
+    ```
 
-Sample response
+=== "Sample response (/openid-configuration)"
 
-```json
-{
-    "introspection_endpoint" : "https://localhost:9443/oauth2/introspect",
-    "end_session_endpoint" : "https://localhost:9443/oidc/logout",
-    "registration_endpoint" : "https://localhost:9443/api/identity/oauth2/dcr/v1.0/register",
-    "token_endpoint" : "https://localhost:9443/oauth2/token",
-    "jwks_uri" : "https://localhost:9443/oauth2/jwks",
-    "revocation_endpoint" : "https://localhost:9443/oauth2/revoke",
-    "authorization_endpoint" : "https://localhost:9443/oauth2/authorize",
-    "issuer" : "https://localhost:9443/oauth2/token",
-    "authorization_details_types_supported": ["payment_initiation"]
-}
-```
+    ```json
+    {
+        "introspection_endpoint" : "https://localhost:9443/oauth2/introspect",
+        "end_session_endpoint" : "https://localhost:9443/oidc/logout",
+        "registration_endpoint" : "https://localhost:9443/api/identity/oauth2/dcr/v1.0/register",
+        "token_endpoint" : "https://localhost:9443/oauth2/token",
+        "jwks_uri" : "https://localhost:9443/oauth2/jwks",
+        "revocation_endpoint" : "https://localhost:9443/oauth2/revoke",
+        "authorization_endpoint" : "https://localhost:9443/oauth2/authorize",
+        "issuer" : "https://localhost:9443/oauth2/token",
+        "authorization_details_types_supported": ["payment_initiation"]
+    }
+    ```
 
 ### Step 2: Authorize an API resource for an application
 
@@ -68,7 +138,7 @@ Sample request
 This request associates the `payment_initiation` authorization details type with the specified application.
 
 ```curl
-curl --location 'https://<serverUrl>/api/server/v1/applications/<applicationID>/authorized-apis' \
+curl --location 'https://localhost:9443/api/server/v1/applications/<applicationID>/authorized-apis' \
 --header 'accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -119,36 +189,89 @@ Once authorization details are configured, an application can request an access 
 This request includes the url-encoded `payment_initiation` authorization details type and the response includes an 
 access token with the requested authorization details.
 
-Sample request
+=== "Sample request (/token)"
 
-```curl
-curl --location 'https://<serverUrl>/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Authorization: Basic PGNsaWVudElEPjo8Y2xpZW50U2VjcmV0Pg==' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'authorization_details=%5B%7B%22type%22%3A%22payment_initiation%22%2C%22actions%22%3A%5B%22initiate%22%5D%2C%22locations%22%3A%5B%22https%3A%2F%2Fexample.com%2Fpayments1%22%5D%2C%22instructedAmount%22%3A%7B%22currency%22%3A%22USD%22%2C%22amount%22%3A%223000.00%22%7D%2C%22creditorName%22%3A%22Merchant%20A%22%2C%22creditorAccount%22%3A%7B%22iban%22%3A%22%22%7D%7D%5D'
-```
+    ```bash
+    curl --location 'https://localhost:9443/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic PGNsaWVudElEPjo8Y2xpZW50U2VjcmV0Pg==' \
+    --data-urlencode 'grant_type=client_credentials' \
+    --data-urlencode 'authorization_details=%5B%7B%22type%22%3A%22payment_initiation%22%2C%22actions%22%3A%5B%22initiate%22%5D%2C%22locations%22%3A%5B%22https%3A%2F%2Fexample.com%2Fpayments1%22%5D%2C%22instructedAmount%22%3A%7B%22currency%22%3A%22USD%22%2C%22amount%22%3A%223000.00%22%7D%2C%22creditorName%22%3A%22Merchant%20A%22%2C%22creditorAccount%22%3A%7B%22iban%22%3A%22%22%7D%7D%5D'
+    ```
 
-Sample response
+=== "Sample response (/token)"
 
-```json
-{"access_token":"9d1e9829-c4f3-3f39-b02c-84298ace1710","authorization_details":[{"locations":["https://example.com/payments1"],"instructedAmount":{"currency":"USD","amount":"3000.00"},"type":"payment_initiation","creditorName":"Merchant A","actions":["initiate"],"creditorAccount":{"iban":"c6142dc9-588c-49ec-8341-1b157c441d02"}}],"token_type":"Bearer","expires_in":3600}
-```
+    ```json
+    {
+      "access_token": "9d1e9829-c4f3-3f39-b02c-84298ace1710",
+      "authorization_details": [
+        {
+          "locations": [
+            "https://example.com/payments1"
+          ],
+          "instructedAmount": {
+            "currency": "USD",
+            "amount": "3000.00"
+          },
+          "type": "payment_initiation",
+          "creditorName": "Merchant A",
+          "actions": [
+            "initiate"
+          ],
+          "creditorAccount": {
+            "iban": "c6142dc9-588c-49ec-8341-1b157c441d02"
+          }
+        }
+      ],
+      "token_type": "Bearer",
+      "expires_in": 3600
+    }
+    ```
 
-### validate the access token
+### Validate the access token
 
 To verify if an access token is valid and check its associated authorization details, invoke the token introspection endpoint.
 If the token is active, the response will include its associated authorization details.
 
-```curl
-curl --location 'https://<serverUrl>/oauth2/introspect' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Authorization: Basic YWRtaW46YWRtaW4=' \
---data-urlencode 'token=9d1e9829-c4f3-3f39-b02c-84298ace1710'
-```
+=== "Sample request (/introspect)"
 
-Sample response
+    ```curl
+    curl --location 'https://localhost:9443/oauth2/introspect' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+    --data-urlencode 'token=9d1e9829-c4f3-3f39-b02c-84298ace1710'
+    ```
 
-```json
-{"aut":"APPLICATION_USER","aud":"gSrJzfo6HGdrmWMBEXUzzy14TQQa","nbf":1737884044,"authorization_details":[{"locations":["https://example.com/payments1"],"instructedAmount":{"currency":"USD","amount":"3000.00"},"type":"payment_initiation","creditorName":"Merchant A","actions":["initiate"],"creditorAccount":{"iban":"c6142dc9-588c-49ec-8341-1b157c441d02"}}],"active":true,"token_type":"Bearer","exp":1737887644,"iat":1737884044,"client_id":"gSrJzfo6HGdrmWMBEXUzzy14TQQa"}
-```
+=== "Sample response (/introspect)"
+
+    ```json
+    {
+      "aut": "APPLICATION_USER",
+      "aud": "gSrJzfo6HGdrmWMBEXUzzy14TQQa",
+      "nbf": 1737884044,
+      "authorization_details": [
+        {
+          "locations": [
+            "https://example.com/payments1"
+          ],
+          "instructedAmount": {
+            "currency": "USD",
+            "amount": "3000.00"
+          },
+          "type": "payment_initiation",
+          "creditorName": "Merchant A",
+          "actions": [
+            "initiate"
+          ],
+          "creditorAccount": {
+            "iban": "c6142dc9-588c-49ec-8341-1b157c441d02"
+          }
+        }
+      ],
+      "active": true,
+      "token_type": "Bearer",
+      "exp": 1737887644,
+      "iat": 1737884044,
+      "client_id": "gSrJzfo6HGdrmWMBEXUzzy14TQQa"
+    }
+    ```
