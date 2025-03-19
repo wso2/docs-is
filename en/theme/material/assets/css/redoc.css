@@ -107,8 +107,10 @@
 .api-content i,
 .api-content h5 > span,
 .api-content table ul li,
+.api-content table caption,
+.api-content div > ul,
 .api-content table ul li::marker {
-    color: var(--md-default-fg-color--light) !important;
+    color: var(--md-default-fg-color) !important;
 }
 
 .api-content h5~svg > polygon {

@@ -101,7 +101,7 @@ Data of your end users are only stored in the regional datacenter you selected w
 
 ### 3.4 Data sharing
 
-Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities (currently includes the USA, Sri Lanka, and Brazil) can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional datacenter that you have selected.
+Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional datacenter that you have selected.
 
 Therefore, note that your organization–level logs may include personal information (such as the IP addresses and email addresses) of your end users.
 
@@ -219,7 +219,7 @@ For any questions or support related to load testing, customers can contact Asga
 
 Asgardeo endpoints are subjected to rate limits to maintain smooth and reliable processing of requests, preventing system failures and slowdowns. These rate limits are applied globally across all tiers of Asgardeo subscriptions. Rate limits are calculated on a per IP address basis. Exceeding the rate limit results in a 429 `Too Many Requests` error code.
 
-Refer (Asgardeo rate limits)[https://wso2.com/asgardeo/docs/references/rate-limits/]  for more information regarding the rate limits.
+Refer [Asgardeo rate limits](https://wso2.com/asgardeo/docs/references/rate-limits/) for more information regarding the rate limits.
 
 ### 6.2 Entity limit
 
@@ -230,12 +230,9 @@ Asgardeo is free of charge but it constrains certain entities with limiting the 
 
 [https://wso2.com/asgardeo/pricing/](https://wso2.com/asgardeo/pricing/){target="_blank"} provides the details on the entity limits and by upgrading the tier or by contacting asgardeo support to increase the limit on certain entities.
 
-### 6.3  Header limits 
-
-- Nginx header limit 
-- Header size: P2 Incident - INC0023214
-
 ## 7. Billing
+
+Organization owners can access the billing portal from the **Asgardeo Console** by clicking the profile picture in the top right corner and selecting **Billing Portal**.
 
 ### 7.1 Billing cycle
 Asgardeo organization owners can choose to be billed monthly or annually for your subscription. However, note that the monthly active users (MAUs) count that exceeds the allowed limit is always charged monthly. Billing cycles start on the 1st day of every month. Depending on the day of the month in which you subscribe, you will be charged a prorated fee for the first month.
@@ -248,9 +245,7 @@ Refer this guideline below for more on [subscription](https://wso2.com/asgardeo/
 
 ### 7.3 Subscription Upgrade
 
-Asgardeo organization owners have the capability to upgrade the tier their organization has subscribed to. This can be done by navigating to **Asgardeo Console** > **Billing Portal** > **Subscription** and upgrade after selecting the new subscription plan.
-
-This [document](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/){target="_blank"} provides more insight on how to upgrade tiers. 
+Asgardeo organization owners can upgrade the curent tier of their organizations using the billing portal accessible from the **Asgardeo Console**. This [document](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/){target="_blank"} provides more insight on how to upgrade tiers. 
 
 ### 7.4 Subscription Downgrade
 
@@ -262,11 +257,11 @@ Asgardeo organization owners have the capability to view the invoices for the pa
 
 ## 8. Support
 
-Asgardeo provides support services to ensure the smooth operation of your organization's identity and access management needs. The level of support varies based on the subscription tier.
+Asgardeo provides support services to ensure the smooth operation of your organization's identity and access management needs. The level of support varies based on the subscription tier. The support portal is accessible from the [https://cloud-support.wso2.com/](https://cloud-support.wso2.com/) URL.
 
 ### 8.1 Support tiers
 
-Asgardeo offers multiple support tiers, including community support for free-tier users and premium support for paid subscribers. Premium support provides faster response times, prioritized issue resolution, and access to dedicated support engineers.
+Asgardeo offers multiple support tiers, including community support for free-tier users and Commercial support for paid subscribers. Commercial support provides faster response times, prioritized issue resolution, and access to dedicated support engineers.
 
 ### 8.2 Support channels
 

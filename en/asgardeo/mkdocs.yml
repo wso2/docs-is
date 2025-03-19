@@ -220,6 +220,7 @@ nav:
             - Add login with HYPR: guides/authentication/passwordless-login/add-passwordless-login-with-hypr.md
             - Add login with Email OTP: guides/authentication/passwordless-login/add-passwordless-login-with-email-otp.md
             - Add login with SMS OTP: guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp.md
+            - Add login with Push Notification: guides/authentication/passwordless-login/add-passwordless-login-with-push-notification.md
           - Enable user attributes:
             - Enable user attributes: guides/authentication/user-attributes/index.md
             - Enable attributes for OIDC apps: guides/authentication/user-attributes/enable-attributes-for-oidc-app.md
@@ -234,6 +235,7 @@ nav:
               - Add Google login: guides/authentication/social-login/add-google-login.md
               - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
               - Add Apple login: guides/authentication/social-login/add-apple-login.md
+              - Add LinkedIn login: guides/authentication/social-login/add-linkedin-login.md
             - Add decentralized login:
               - Add decentralized login: guides/authentication/decentralized-login/index.md
               - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
@@ -247,6 +249,7 @@ nav:
             - Add TOTP: guides/authentication/mfa/add-totp-login.md
             - Add Email OTP: guides/authentication/mfa/add-emailotp-login.md
             - Add SMS OTP: guides/authentication/mfa/add-smsotp-login.md
+            - Add Push Notification: guides/authentication/mfa/add-push-auth-login.md
             - Add Passkey: guides/authentication/mfa/add-passkey-login.md
             - Add iProov: guides/authentication/mfa/add-iproov-login.md
             - Add Duo: guides/authentication/mfa/add-duo-login.md
@@ -267,6 +270,7 @@ nav:
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
             - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+            - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
             - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - App-native authentication:
@@ -331,6 +335,8 @@ nav:
           - Connect a remote user store: guides/users/user-stores/configure-a-user-store.md
           - Configure high availability: guides/users/user-stores/configure-high-availability.md
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
+          - Deployment best practices: guides/users/user-stores/deployment-best-practices.md
+          - Advanced configuration for the agent: guides/users/user-stores/advanced-configurations-for-the-agent.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
@@ -358,6 +364,7 @@ nav:
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
           - Register passkeys: guides/user-self-service/register-passkey.md
+          - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
@@ -441,6 +448,7 @@ nav:
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
       - Idle account identification API: apis/idle-account-identification.md
+      - Notification sender API: apis/notification-sender-rest-api.md
       - Notification templates management API: apis/notification-templates.md
       - OAuth Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
       - Organization discovery API: apis/organization-discovery.md
@@ -497,6 +505,7 @@ nav:
       - Export user information API: apis/register-mfa/export-user-info.md
       - Password recovery API: apis/register-mfa/password-recovery.md
       - TOTP API: apis/register-mfa/totp.md
+      - Push Notification Device API: apis/push-notification-device-rest-api.md
       - User account associations API: apis/association-management-by-user.md
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
@@ -515,7 +524,7 @@ nav:
       - SAML configurations: references/idp-settings/saml-settings-for-idp.md
     - Conditional authentication:
       - Conditional auth - API: references/conditional-auth/api-reference.md
-    - Remote user store properties: references/remote-user-store/remote-user-store-properties.md
+    - Remote agent properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
     - SMS templates: references/sms-templates.md
@@ -537,6 +546,8 @@ nav:
       - Security check: references/production-checklist/security-check.md
       - Best practices: references/production-checklist/best-practices.md
     - Asgardeo rate limits: references/rate-limits.md
+    - Tutorials:
+      - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
     - IAM concepts:
       - OAuth2 grant types: references/grant-types.md
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
@@ -545,6 +556,7 @@ nav:
         - Client-request: references/token-binding/client-request.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
+      - Push Notification based authentication: references/push-notification-based-authentication.md
   - Technology Guides:
     - React:
       - Introduction: complete-guides/react/introduction.md
