@@ -38,8 +38,8 @@ Alternatively, you may update the email address via a PATCH operation to the [SC
 
     === "Request format"
         ```
-        curl -v -k --user <username>:<password> -X PATCH 
-        https://localhost:9443/scim2/Users/<user_ID> \
+        curl -v -k -X PATCH 
+        https://{{ host_name }}/scim2/Users/<user_ID> \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], 
             "Operations":[{
@@ -49,12 +49,13 @@ Alternatively, you may update the email address via a PATCH operation to the [SC
                 }]
             }' \
         --header "Content-Type:application/json" 
+        --header "Authorization: Bearer <access_token>"
         ```
     === "Sample request"
 
         ```curl
-        curl -v -k --user admin:admin -X PATCH 
-        https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
+        curl -X PATCH 
+        https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
@@ -64,6 +65,7 @@ Alternatively, you may update the email address via a PATCH operation to the [SC
                 }]
             }' \
         --header "Content-Type:application/json"
+        --header "Authorization: Bearer <access_token>"
         ```
     ---
     **Sample Response**
@@ -75,7 +77,7 @@ Alternatively, you may update the email address via a PATCH operation to the [SC
         ],
         "meta":{
             "created":"2020-01-07T09:32:18",
-            "location":"https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21",
+            "location":"https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21",
             "lastModified":"2020-01-07T14:18:49",
             "resourceType":"User"
         },
@@ -135,8 +137,8 @@ Alternatively, you may update the email addresses via a PATCH operation to the [
     === "Request format"
     
         ```curl
-        curl -v -k --user [username]:[password] -X PATCH 
-        https://localhost:9443/scim2/Users/<user_ID> \
+        curl -X PATCH 
+        https://{{ host_name }}/scim2/Users/<user_ID> \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
@@ -144,13 +146,14 @@ Alternatively, you may update the email addresses via a PATCH operation to the [
                 "value":{"urn:scim:wso2:schema": {"verifiedEmailAddresses": <list_of_email_addresses>}}
                 }]
             }' 
-        --header "Content-Type:application/json" 
+        --header "Content-Type:application/json"
+        --header "Authorization: Bearer <access_token>"
         ```
     === "Sample request"
 
         ```curl
-        curl -v -k --user bob:pass123 -X PATCH 
-        https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
+        curl -X PATCH 
+        https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
@@ -158,7 +161,8 @@ Alternatively, you may update the email addresses via a PATCH operation to the [
                 "value":{"urn:scim:wso2:schema": {"verifiedEmailAddresses": "kimjackson@gmail.com,kim.jackson.new@gmail.com"}}
                 }]
             }' 
-        --header "Content-Type:application/json" 
+        --header "Content-Type:application/json"
+        --header "Authorization: Bearer <access_token>"
         ```
     ---
     
@@ -170,7 +174,7 @@ Alternatively, you may update the email addresses via a PATCH operation to the [
         ],
         "meta":{
             "created":"2020-01-07T09:32:18",
-            "location":"https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21",
+            "location":"https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21",
             "lastModified":"2020-01-07T14:18:49",
             "resourceType":"User"
         },
@@ -212,13 +216,13 @@ Upon receiving the response outlined above, the user will receive an email notif
 Run the following curl command in case you want to resend the email verification.
 
 !!! abstract ""
-    
+
     === "Request format"
-    
+
         ```curl
-        curl -k -v -X POST https://localhost:9443/api/identity/user/v1.0/resend-code 
-        -H "Authorization: Basic Base64(<username>:<password>)" 
-        -H "Content-Type: application/json" \ 
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/resend-code
+        -H "Authorization: Bearer <access_token>"
+        -H "Content-Type: application/json" \
         -d '{
             "user": {
                 "username": <USERNAME>,
@@ -233,8 +237,8 @@ Run the following curl command in case you want to resend the email verification
     === "Sample request"
 
         ```
-        curl -k -v -X POST https://localhost:9443/api/identity/user/v1.0/resend-code 
-        -H "Authorization: Basic YWRtaW46YWRtaW4=" 
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/resend-code 
+        -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{
             "user": {

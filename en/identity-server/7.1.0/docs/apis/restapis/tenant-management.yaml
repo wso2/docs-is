@@ -1,0 +1,969 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: Tenant Management API
+  description: >-
+    This is the RESTful API for managing Tenants in the WSO2 Identity Server.
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /tenants:
+    get:
+      tags:
+        - Tenants
+      summary: Retrieve all tenants
+      operationId: retrieveTenants
+      description: |
+        Retrieve all tenants in the system.
+
+        <b>Scope(Permission) required:</b>`internal_list_tenants`
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/TenantsListResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/tenants' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - Tenants
+      summary: Add tenant
+      operationId: addTenant
+      description: |
+        This API provides the capability to create new tenants.
+
+        <b>Scope(Permission) required:</b> `internal_list_tenants`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantModel'
+        description: This represents the tenant to be created.
+        required: true
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            location:
+              description: Location of the newly created tenant
+              schema:
+                type: string
+        '206':
+          $ref: '#/components/responses/PartialContent'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/tenants' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "domain": "wso2.com",
+            "owners": [
+              {
+                "username": "kim",
+                "password": "kim123",
+                "email": "kim@wso2.com",
+                "firstname": "kim",
+                "lastname": "kim",
+                "provisioningMethod": "inline-password",
+                "additionalClaims": [
+                  {
+                    "claim": "http://wso2.org/claims/telephone",
+                    "value": "+94 562 8723"
+                  }
+                ]
+              }
+            ]
+            }'  
+  /channel-verified-tenants:
+    post:
+      tags:
+        - Tenants
+      summary: Add channel verified tenant
+      operationId: addChannelVerifiedTenant
+      description: |
+        This API provides the capability to create new channel verified tenants.
+
+        <b>Scope(Permission) required:</b> `internal_list_tenants`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChannelVerifiedTenantModel'
+        description: This represents the tenant to be created.
+        required: true
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            location:
+              description: Location of the newly created tenant
+              schema:
+                type: string
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/channel-verified-tenants' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "domain": "wso2.com",
+            "code": "3723dghdg32yt236734563236",
+            "purpose": {
+              "name": "Personal",
+              "attributes": [
+                {
+                  "key": "Organization Name",
+                  "value": "WSO2"
+                }
+              ]
+            },
+            "owners": [
+              {
+                "username": "kim",
+                "password": "kim123",
+                "email": "kim@wso2.com",
+                "firstname": "kim",
+                "lastname": "kim",
+                "provisioningMethod": "inline-password",
+                "additionalClaims": [
+                  {
+                    "claim": "http://wso2.org/claims/telephone",
+                    "value": "+94 562 8723"
+                  }
+                ]
+              }
+            ]
+            }'          
+  /tenants/{tenant-id}:
+    get:
+      tags:
+        - Tenants
+      summary: Retrieve tenant by tenant ID
+      operationId: getTenant
+      description: |
+        Retrieve tenant using the tenant ID.
+
+        <b>Scope(Permission) required:</b> `internal_list_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantIdPathParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/TenantResponseModel'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='           
+  /tenants/domain/{tenant-domain}:
+    get:
+      tags:
+        - Tenants
+      summary: Get tenant by domain
+      operationId: getTenantByDomain
+      description: |
+        Get the tenant using domain.
+
+        <b>Scope(Permission) required:</b> `internal_list_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantDomainPathParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/TenantResponseModel'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/tenants/domain/{tenant-domain}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='  
+    head:
+      tags:
+        - Tenants
+      summary: Check domain existence
+      operationId: isDomainExist
+      description: |
+        Check the tenant existence using domain.
+
+        <b>Scope(Permission) required:</b> `internal_list_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantDomainPathParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceExist'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'HEAD' \
+            'https://localhost:9443/api/server/v1/tenants/domain/{tenant-domain}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' 
+  /tenants/{tenant-id}/lifecycle-status:
+    put:
+      tags:
+        - Tenants
+      summary: Activate or deactivate tenant
+      operationId: updateTenantStatus
+      description: |
+        This API activates/deactivates the specified tenant.
+
+        <b>Scope(Permission) required:</b> `internal_modify_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantPutModel'
+        description: This represents the tenant to be updated.
+        required: true
+      responses:
+        '200' :
+          description: Successfully updated
+          headers:
+            Location:
+              description: Location of the updated tenant.
+              schema:
+                type: string
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}/lifecycle-status' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "activated": false
+            }'          
+  /tenants/{tenant-id}/owners:
+    get:
+      tags:
+        - Tenants
+      summary: Retrieve tenant's owners
+      operationId: getOwners
+      description: |
+        Retrieve owners of the tenant which are identified by the provided tenant id.
+
+        <b>Scope(Permission) required:</b> `internal_list_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantIdPathParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OwnerResponse'
+
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}/owners' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='           
+  '/tenants/{tenant-id}/owners/{owner-id}':
+    get:
+      tags:
+        - Tenants
+      summary: Retrieve tenant owner.
+      operationId: getOwner
+      description: |
+        Retrieve the tenant owner identified by the provided tenant id and owner id.
+
+        <b>Scope(Permission) required:</b> `internal_list_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantIdPathParam'
+        - $ref: '#/components/parameters/ownerIdPathParam'
+        - $ref: '#/components/parameters/additionalClaimsQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/OwnerInfoResponse'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}/owners/{owner-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' 
+    put:
+      tags:
+        - Tenants
+      summary: Update tenant owner.
+      operationId: updateOwner
+      description: |
+        This API provides the capability to update the tenant owner.
+
+        <b>Scope(Permission) required:</b> `internal_modify_tenants`
+      parameters:
+        - $ref: '#/components/parameters/tenantIdPathParam'
+        - $ref: '#/components/parameters/ownerIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OwnerPutModel'
+        description: This represents the tenant owner to be updated.
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '206':
+          $ref: '#/components/responses/PartialContent'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/tenants/{tenant-id}/owners/{owner-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "password": "kim123",
+            "email": "kim@wso2.com",
+            "firstname": "kim",
+            "lastname": "kim",
+            "additionalClaims": [
+              {
+                "claim": "http://wso2.org/claims/telephone",
+                "value": "+94 562 8723"
+              }
+            ]
+            }' 
+  '/tenants/{tenant-id}/metadata':
+      delete:
+        tags:
+          - Tenants
+        summary: |
+          Delete tenant's metadata by ID
+        operationId: deleteTenantMetadata
+        description: |
+          This API provides the capability to delete the tenant meta data(tenant specific data like tenant domain,
+          tenant owner details). <br>
+            <b>Scope(Permission) required:</b> `internal_modify_tenants`
+        parameters:
+          - $ref: '#/components/parameters/tenantIdPathParam'
+        responses:
+          '204':
+            description: Successfully Deleted
+          '400':
+            description: Bad Request
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+          '401':
+            description: Unauthorized
+          '403':
+            description: Forbidden
+          '404':
+            description: Not Found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+          '500':
+            description: Server Error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl -X 'DELETE' \
+              'https://localhost:9443/api/server/v1/tenants/{tenant-id}/metadata' \
+              -H 'accept: */*' \
+              -H 'Authorization: Basic YWRtaW46YWRtaW4='
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+
+components:
+  parameters:
+    tenantIdPathParam:
+      in: path
+      name: tenant-id
+      required: true
+      description: tenant id
+      schema:
+        type: string
+    ownerIdPathParam:
+      in: path
+      name: owner-id
+      required: true
+      description: owner id
+      schema:
+        type: string
+    tenantDomainPathParam:
+      in: path
+      name: tenant-domain
+      required: true
+      description: tenant domain
+      schema:
+        type: string
+    offsetQueryParam:
+      in: query
+      name: offset
+      description: >-
+        Number of records to skip for pagination.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    limitQueryParam:
+      in: query
+      name: limit
+      description: >-
+        Maximum number of records to return.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    sortOrderQueryParam:
+      in: query
+      name: sortOrder
+      required: false
+      description: >-
+        Define the order in which the retrieved tenants should be sorted.
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
+    sortByQueryParam:
+      in: query
+      name: sortBy
+      required: false
+      description: >-
+        Attribute by which the retrieved records should be sorted. Currently sorting through <b>domainName</b> only
+        supported.
+      schema:
+        type: string
+    filterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description: >
+        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew' and 'eq' operations.
+        Currently, filtering is supported only by the <b>domainName</b>.
+        E.g. /tenants?filter=domainName+sw+wso2.
+      schema:
+        type: string
+    additionalClaimsQueryParam:
+      in: query
+      name: additionalClaims
+      required: false
+      description: >-
+        Define set of additional user claims (as comma separated) to be returned.
+      schema:
+        type: string
+        example: http://wso2.org/claims/telephone
+  responses:
+    NotFound:
+      description: The specified resource is not found
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+    Forbidden:
+      description: Resource Forbidden
+    ResourceExist:
+      description: Requested Resource Exists
+    ServerError:
+      description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    PartialContent:
+      description: Partial Content
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Invalid Input Request
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Element Already Exists
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Deleted:
+      description: No Content
+    Updated:
+      description: Successful
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
+  schemas:
+    TenantModel:
+      type: object
+      required:
+        - domain
+        - owners
+      properties:
+        domain:
+          type: string
+          example: wso2.com
+          description: Tenant domain of the tenant.
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/Owner'
+
+    ChannelVerifiedTenantModel:
+      type: object
+      required:
+        - domain
+        - owners
+        - code
+      properties:
+        domain:
+          type: string
+          example: wso2.com
+          description: Tenant domain of the tenant.
+        code:
+          type: string
+          example: 3723dghdg32yt236734563236
+          description: Tenant domain of the tenant.
+        purpose:
+          $ref: '#/components/schemas/Purpose'
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/Owner'
+
+    TenantListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "123e4567-e89b-12d3-a456-556642440000"
+          description: tenant id of the tenant owner.
+        domain:
+          type: string
+          example: abc.com
+          description: Tenant domain of the tenant.
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/OwnerResponse'
+        createdDate:
+          type: string
+          example: "2020-03-03T17:04:06.570+05:30"
+          readOnly: true
+          description: Tenant created time.
+        lifecycleStatus:
+          $ref: '#/components/schemas/LifeCycleStatus'
+        region:
+          type: string
+          example: "USA"
+          readOnly: true
+          description: Region of the tenant.
+
+    TenantsListResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          example: 10
+        startIndex:
+          type: integer
+          example: 1
+        count:
+          type: integer
+          example: 10
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            [
+                {
+                    "href": "/api/server/v1/tenants?offset=50&limit=10",
+                    "rel": "next",
+                },  {
+                    "href": "/api/server/v1/tenants?offset=30&limit=10",
+                    "rel": "previous",
+                }
+            ]
+        tenants:
+          type: array
+          items:
+            $ref: '#/components/schemas/TenantListItem'
+
+    TenantResponseModel:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "123e4567-e89b-12d3-a456-556642440000"
+          description: tenant id of the tenant owner.
+        domain:
+          type: string
+          example: abc.com
+          description: Tenant domain of the tenant.
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/OwnerResponse'
+        createdDate:
+          type: string
+          example: "2020-06-19T17:36:46.271Z"
+          readOnly: true
+          description: Tenant created time in ISO-8601 format.
+        lifecycleStatus:
+          $ref: '#/components/schemas/LifeCycleStatus'
+        region:
+          type: string
+          example: "USA"
+          readOnly: true
+          description: Region of the tenant.
+
+    TenantPutModel:
+      type: object
+      required:
+        - lifecycleStatus
+      properties:
+        activated:
+          type: boolean
+          example: false
+          description: Active status of the tenant.
+
+    Owner:
+      type: object
+      required:
+        - username
+        - email
+        - provisioningMethod
+      properties:
+        username:
+          type: string
+          example: kim
+          description: Username for the tenant owner.
+        password:
+          type: string
+          example: kim123
+          description: Password of the owner.
+        email:
+          type: string
+          example: kim@wso2.com
+          description: Email address of the owner.
+        firstname:
+          type: string
+          example: kim
+          description: First name of the owner.
+        lastname:
+          type: string
+          example: kim
+          description: Last name of the owner.
+        provisioningMethod:
+          type: string
+          example: inline-password
+          description: If the provisioning method is inline-password then a valid password should be sent in the request body, if the provisioning method is invite-via-email then password doesn't need to be send through request body, instead an emai link will be sent to the given email address to set the password.
+        additionalClaims:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalClaims'
+
+    OwnerPutModel:
+      type: object
+      required:
+        - email
+        - firstname
+        - lastname
+      properties:
+        email:
+          type: string
+          example: kim@wso2.com
+          description: Email address of the owner.
+        password:
+          type: string
+          example: kim123
+          description: Password of the owner.
+        firstname:
+          type: string
+          example: kim
+          description: First name of the owner.
+        lastname:
+          type: string
+          example: kim
+          description: Last name of the owner.
+        additionalClaims:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalClaims'
+
+    OwnerInfoResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "4875-jhgr-454hb"
+          description: id of the tenant owner.
+        username:
+          type: string
+          example: kim
+          description: Username for the tenant owner.
+        email:
+          type: string
+          example: kim@wso2.com
+          description: Email address of the owner.
+        firstname:
+          type: string
+          example: kim
+          description: First name of the owner.
+        lastname:
+          type: string
+          example: kim
+          description: Last name of the owner.
+        additionalClaims:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalClaims'
+
+    OwnerResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "4875-jhgr-454hb"
+          description: id of the tenant owner.
+        username:
+          type: string
+          example: "kim"
+          description: user name of the tenant owner.
+
+    AdditionalClaims:
+      type: object
+      properties:
+        claim:
+          type: string
+          example: "http://wso2.org/claims/telephone"
+          description: Claim uri.
+        value:
+          type: string
+          example: "+94 562 8723"
+          description: Mobile number of the tenant owner.
+
+    Attribute:
+      type: object
+      properties:
+        key:
+          type: string
+          example: "Organization Name"
+          description: Name of the organization.
+        value:
+          type: string
+          example: "WSO2"
+          description: Name of the organization.
+
+    Purpose:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: Personal
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attribute'
+
+    LifeCycleStatus:
+      type: object
+      properties:
+        activated:
+          type: boolean
+          example: true
+          description: Status of the tenant life cycle
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Path to the target resource.
+          example: >-
+            '/api/server/v1/tenants/394b8adcce24c64a8a09a8d80abf8c337bd253de'
+        rel:
+          type: string
+          description: Describes how the current context is related to the target resource
+          example: tenants
+      readOnly: true
+
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: ETM10001
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: 3erfee-232-efewv-2321-43ferfe24r

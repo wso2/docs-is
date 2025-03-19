@@ -1,4 +1,4 @@
-# Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+# Copyright (c) 2023-2025, WSO2 LLC. (https://www.wso2.com).
 #
 # WSO2 LLC. licenses this file to you under the Apache License,
 # Version 2.0 (the "License"); you may not use this file except
@@ -24,8 +24,6 @@ theme:
   font: false
   toc: false
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.indexes
     - navigation.path
     - navigation.top
@@ -103,6 +101,116 @@ extra:
   material:
     jinja2content: true
   generator: false
+  isolated_templates:
+    - templates/complete-guide.html
+
+  expanded_navs:
+    - title: Guides
+      options:
+        - divider
+        - verticle-line
+    - title: Technology Guides
+      options:
+        - divider
+    - title: Best Practice Guides
+
+  # If the nav_override section is a child of expanded_nav. Add +1 to the level value
+  nav_overrides:
+    React:
+      link: complete-guides/react/introduction
+      level: 2
+    Node.js:
+      link: complete-guides/nodejs/introduction
+      level: 2
+    Angular:
+      link: complete-guides/angular/introduction
+      level: 2
+    Node.js:
+      link: complete-guides/nodejs/introduction
+      level: 2
+    .NET:
+      link: complete-guides/dotnet/introduction
+      level: 2
+    Javascript:
+      link: complete-guides/javascript/introduction
+      level: 2
+    Redirect-Based:
+      link: complete-guides/nextjs/introduction
+      level: 3
+    App-Native:
+      link: complete-guides/app-native/introduction
+      level: 3
+    Frontend Security:
+      link: complete-guides/fesecurity/introduction
+      level: 2
+
+  nav_chip:
+    Design login flow:
+      type: ai
+      level: 1
+
+  nav_icons:
+    Home:
+      icon: octicons/home-16
+      level: 1
+    Get started:
+      icon: octicons/rocket-16
+      level: 1
+    Connect Your App:
+      icon: octicons/plug-16
+      level: 1
+    Design login flow:
+      icon: octicons/paintbrush-16
+      level: 1
+    Guides:
+      icon: octicons/book-16
+      level: 1
+    Tutorials:
+      icon: octicons/mortar-board-16
+      level: 1
+    Setup:
+      icon: octicons/gear-16
+      level: 1
+    SDKs:
+      icon: octicons/package-16
+      level: 1
+    APIs:
+      icon: octicons/code-16
+      level: 1
+    References:
+      icon: octicons/link-external-16
+      level: 1
+    React:
+      icon: fontawesome/brands/react
+      level: 2
+    .NET:
+      icon: assets/libs/custom-icons/dotnet.svg
+      level: 2
+    Node.js:
+      icon: fontawesome/brands/node-js
+      level: 2
+    Next.js:
+      icon: assets/libs/custom-icons/nextjs.svg
+      level: 2
+    Angular:
+      icon: fontawesome/brands/angular
+      level: 2
+    Javascript:
+      icon: fontawesome/brands/js
+      level: 2
+    React Quickstart:
+      icon: fontawesome/brands/react
+    Angular Quickstart:
+      icon: fontawesome/brands/angular
+    Javascript Quickstart:
+      icon: fontawesome/brands/js
+    Next.js Quickstart:
+      icon: assets/libs/custom-icons/nextjs.svg
+    Spring Boot Quickstart:
+      icon: assets/libs/custom-icons/spring-boot.svg
+    Frontend Security:
+      icon: fontawesome/solid/user-shield
+
   integrations:
     - name: Auth React SDK
       icon: assets/img/logo/react-logo.svg

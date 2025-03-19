@@ -1,6 +1,13 @@
 {
+    "operational-policies": {
+        "enabled": true,
+        "page": [
+            "references/operational-policies.md"
+        ]
+    },
+    
     "sms-templates": {
-        "enabled": false,
+        "enabled": true,
         "page": [
             "guides/branding/customize-sms-templates.md",
             "apis/notification-templates.md",
@@ -33,6 +40,11 @@
             "guides/authentication/sso-integrations/add-zoom-template.md",
             "guides/authentication/sso-integrations/add-slack-template.md"
         ]
+    },
+
+    "password_expiry_time": {
+        "enabled": true,
+        "page": []
     },
 
     "attribute_uniqueness_validation": {

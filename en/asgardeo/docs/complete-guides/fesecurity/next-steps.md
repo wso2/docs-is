@@ -22,8 +22,8 @@ Now that your React application is secured with authentication features integrat
 
 !!! tip "Tip"  
     
-    If you're a **Angular developer**, check out these guides to learn how to easily add user login functionality to your React applications. 
+    If you're an **Angular developer**, check out these guides to learn how to easily add user login functionality to your Angular applications. 
     
-    - [{{product_name}} React Quickstart Guide]({{base_path}}/quick-starts/angular/)
+    - [{{product_name}} Angular Quickstart Guide]({{base_path}}/quick-starts/angular/)
 
-    - [{{product_name}} React Complete Guide]({{base_path}}/complete-guides/angular/introduction/)
+    - [{{product_name}} Angular Complete Guide]({{base_path}}/complete-guides/angular/introduction/)

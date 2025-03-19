@@ -2,6 +2,13 @@
 
 Follow this guide to write a conditional authentication script from scratch and to understand its internals.
 
+!!! note
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+    - **ECMAScript Compliance**: Adaptive scripts currently comply with ECMAScript 2022 (ES13). 
+    {% endif %}
+    - **Limitations**: Adaptive scripts do not support loops, `Log.warn` logs, or stringifying Java objects using 
+    `JSON.stringify()`.
+
 ## Scenario
 
 Let's consider the following simplified set of requirements for your business application:

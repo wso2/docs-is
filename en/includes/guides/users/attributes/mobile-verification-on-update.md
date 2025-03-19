@@ -142,8 +142,8 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
     
     === "Request format"
         ```
-        curl -v -k --user <username>:<password> -X PATCH 
-        https://localhost:9443/scim2/Users/<user_ID> \
+        curl -X PATCH 
+        https://{{ host_name }}/scim2/Users/<user_ID> \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], 
             "Operations":[{
@@ -152,13 +152,14 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
                     { "mobileNumbers":[{"type":"mobile", "value":<new_mobile>}]}
                 }]
             }' \
-        --header "Content-Type:application/json" 
+        --header "Content-Type:application/json"
+        --header "Authorization: Bearer <access_token>"
         ```
     === "Sample request"
 
         ```curl
-        curl -v -k --user admin:admin -X PATCH 
-        https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
+        curl -X PATCH 
+        https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
@@ -168,6 +169,7 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
                 }]
             }' \
         --header "Content-Type:application/json"
+        --header "Authorization: Bearer <access_token>"
         ```
     ---
     **Sample Response**
@@ -177,7 +179,7 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
             "bobsmith@abc.com"
         ],
         "meta": {
-            "location": "https://localhost:9443/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
+            "location": "https://{{ host_name_example }}/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
             "lastModified": "2020-10-12T13:35:24.579Z",
             "resourceType": "User"
         },
@@ -235,8 +237,8 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
     === "Request format"
     
         ```curl
-        curl -v -k --user [username]:[password] -X PATCH 
-        https://localhost:9443/scim2/Users/<user_ID> \
+        curl -X PATCH 
+        https://{{ host_name }}/scim2/Users/<user_ID> \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
@@ -244,13 +246,14 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
                 "value":{"urn:scim:wso2:schema": {"verifiedMobileNumbers": <list_of_mobile_numbers>}}
                 }]
             }' 
-        --header "Content-Type:application/json" 
+        --header "Content-Type:application/json"
+        --header "Authorization: Bearer <access_token>"
         ```
     === "Sample request"
 
         ```curl
-        curl -v -k --user bob:pass123 -X PATCH 
-        https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
+        curl -X PATCH 
+        https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
@@ -258,7 +261,8 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
                 "value":{"urn:scim:wso2:schema": {"verifiedMobileNumbers": "0111111111,0123456789"}}
                 }]
             }' 
-        --header "Content-Type:application/json" 
+        --header "Content-Type:application/json"
+        --header "Authorization: Bearer <access_token>"
         ```
 
     ---
@@ -269,7 +273,7 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
             "bobsmith@abc.com"
         ],
         "meta": {
-            "location": "https://localhost:9443/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
+            "location": "https://{{ host_name_example }}/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
             "lastModified": "2020-10-12T13:35:24.579Z",
             "resourceType": "User"
         },
@@ -307,7 +311,7 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
     ```
 
 Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their updated mobile number. Once verified, the `verifiedMobileNumbers` claim (http://wso2.org/claims/verifiedMobileNumbers) will be updated to reflect the new mobile number.
- 
+
 ## Validate the verification code
 
 When going through the mobile number verification process, users can enter the SMS OTP in the provided prompt and click **Verify** to verify the mobile number.
@@ -316,13 +320,19 @@ When going through the mobile number verification process, users can enter the S
 
 Alternatively, the validation-code API can be used to submit the SMS OTP as shown below.
 
+{% if product_name == "WSO2 Identity Server" %}
+### By a non-privileged user
+
+Users can verify the SMS OTP by executing the following API request.
+{% endif %}
+
 !!! abstract ""
 
     === "Request format"
-    
+
         ```curl
-        curl -v -k -X POST https://localhost:9443/api/identity/user/v1.0/me/validate-code 
-        -H "Authorization: <Base64(username:password)>" 
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/me/validate-code 
+        -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "code": "<validation_code>",
               "properties": []
@@ -331,8 +341,8 @@ Alternatively, the validation-code API can be used to submit the SMS OTP as show
     === "Sample request"
 
         ```curl
-        curl -v -k -X POST https://localhost:9443/api/identity/user/v1.0/me/validate-code 
-        -H "Authorization: Ym9iOmJvYjEyMw==" 
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/me/validate-code 
+        -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "code": "1234",
               "properties": []
@@ -341,8 +351,42 @@ Alternatively, the validation-code API can be used to submit the SMS OTP as show
     ---
     **Response**
     ```
-    "HTTP/1.1 202 Accepted"
+    "HTTP/1.1 200 Accepted"
     ```
+
+{% if product_name == "WSO2 Identity Server" %}
+### By a privileged user
+
+Privileged users can verify the SMS OTP on behalf of a user by executing the following API request.
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/validate-code
+        -H "Authorization: Bearer <access_token>"
+        -H "Content-Type: application/json" \
+        -d '{ "code": "<validation_code>",
+              "properties": []
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -v -k -X POST https://{{ host_name_example }}/api/identity/user/v1.0/validate-code 
+        -H "Authorization: Bearer <access_token>"
+        -H "Content-Type: application/json" \
+        -d '{ "code": "1234",
+              "properties": []
+            }' 
+        ```
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 200 Accepted"
+    ```
+{% endif %}
 
 ## Resend the verification code
 
@@ -352,17 +396,19 @@ Users can request for a new SMS OTP code by simply clicking the `Resend verifica
 
 Alternatively, the resend-code API can be used to resend the SMS OTP as shown below.
 
+{% if product_name == "WSO2 Identity Server" %}
 ### By a non-privileged user
 
-The following command can be used by users themselves to receive a new SMS OTP.
+Users can request a new SMS OTP by using the following API request.
+{% endif %}
 
 !!! abstract ""
 
     === "Request format"
     
         ```curl
-        curl -X POST https://localhost:9443/api/identity/user/v1.0/me/resend-code 
-        -H "Authorization: <Base64(username:password)>" 
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/me/resend-code 
+        -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "properties": [{
                 "key": "RecoveryScenario", 
@@ -373,8 +419,8 @@ The following command can be used by users themselves to receive a new SMS OTP.
     === "Sample request"
 
         ```curl
-        curl -X POST https://localhost:9443/api/identity/user/v1.0/me/resend-code 
-        -H "Authorization: Ym9iOmJvYjEyMw==" 
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/me/resend-code 
+        -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "properties": [{
                 "key": "RecoveryScenario", 
@@ -394,17 +440,18 @@ The following command can be used by users themselves to receive a new SMS OTP.
     "HTTP/1.1 201 Created"
     ```
 
+{% if product_name == "WSO2 Identity Server" %}
 ### By a privileged user
 
-The following command can be used by privileged users to send an SMS OTP on behalf of a user.
+Privileged users can resend an SMS OTP on behalf of a user using the following API request.
 
 !!! abstract ""
 
     === "Request format"
-    
+
         ```curl
-        curl -X POST https://localhost:9443/api/identity/user/v1.0/resend-code 
-        -H "Authorization: <Base64(username:password)>" 
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/resend-code 
+        -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ 
               "user": {
@@ -420,8 +467,8 @@ The following command can be used by privileged users to send an SMS OTP on beha
     === "Sample request"
 
         ```curl
-        curl -X POST https://localhost:9443/api/identity/user/v1.0/resend-code 
-        -H "Authorization: YWRtaW46YWRtaW4=" 
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/resend-code
+        -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ 
               "user": {
@@ -445,4 +492,4 @@ The following command can be used by privileged users to send an SMS OTP on beha
     ```
     "HTTP/1.1 201 Created"
     ```
-
+{% endif %}

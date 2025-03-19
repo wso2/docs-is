@@ -36,10 +36,10 @@ To register an app on Facebook:
 
 8. Under **Facebook Login** > **Quickstart**, click **Go to quickstart**.
 
-9. Select **Web** as the platform for this app and provide the following **Site URL** with your organization name and click **Save**.
+9. Select **Web** as the platform for this app and provide the following **Site URL** and click **Save**.
 
-    ```bash no-line-numbers
-    https://api.asgardeo.io/t/<organization_name>
+    ```bash
+    {{ product_url_format }}
     ```
 
 10. Return to the **Use cases** > **Customize** section and under **Facebook login** > **Settings**, click **Go to settings**.
@@ -47,7 +47,7 @@ To register an app on Facebook:
 11. Add the following as the **Valid OAuth Redirect URIs** and click **Save changes**.
 
     ```bash
-    {{ product_url_format }}
+    {{ product_url_format }}/commonauth
     ```
 
 12. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.

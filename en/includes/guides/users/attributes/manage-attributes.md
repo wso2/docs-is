@@ -53,7 +53,7 @@ Apart from the default attributes, you may define your own custom attributes by 
 
 4. Click **Finish**.
 
-{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+{% if is_version != "7.0.0" %}
 
 ## Configure attributes
 
@@ -85,14 +85,24 @@ To configure properties of user attributes:
                 <td>The attribute value will be validated against the regex pattern specified here.</td>
             </tr>
             <tr>
-                <td><b>Shared Profile Value Resolving Method</b></td>
-                <td>For user profiles shared across multiple organizations, this method determines how {{product_name}} resolves the value of the user's attribute for each shared profile. </br>
+                <td><b>Select Source for Attribute Value of Shared Users</b></td>
+                <td>When a user's profile is shared across multiple organizations, the value of this attribute will be taken from the selected source.</br>
                 <ul>
-                    <li><b>From Origin:</b> Attribute value is inherited from the original organization which manages the user's profile.</li>
-                    <li><b>From Shared Profile:</b> Organizations receiving the shared user profile can set their own values for the user's attribute.</li>
-                    <li><b>From First Found in Hierarchy:</b>  The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
+                    <li><b>From Origin:</b> The attribute  value is inherited from the original organization which manages the user's profile.</li>
+                    <li><b>From Shared Profile:</b>  The attribute value is taken from the shared user profile in the respective organization.</li>
+                    <li><b>From First Found in Hierarchy:</b> The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
                 </ul>
                 At the moment, you can only configure this option for custom attributes.
+            </tr>
+            <tr>
+                <td><b>Uniqueness Validation</b></td>
+                <td>Select one of the following scopes to validate attribute uniqueness:
+                    <ul>
+                        <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
+                        <li><b>Within User Store:</b> Users within the same user store cannot have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
+                        <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
+                    </ul>
+                </td>
             </tr>
      </tbody>
     </table>
@@ -255,9 +265,12 @@ The following attributes are used for this purpose:
 - Mobile Numbers
 - Verified Mobile Numbers
 
-### Enable/Disable these attributes for users
+### Enable/Disable multiple emails and mobile numbers feature
 
-Unless you have configured {{ 'secondary' if product_name == 'WSO2 Identity Server' else 'remote' }} user stores, the email address/mobile number-related attributes are already enabled to new and existing organizations. To manually enable/disable these attributes, follow the steps below:
+{% if product_name == "Asgardeo" %}
+Unless you have configured remote user stores, the email address/mobile number-related attributes are already enabled to new and existing organizations.
+{% endif %}
+To manually enable or disable this feature, **you must update all related attributes** by following these steps:
 
 1. On the {{ product_name }} Console, navigate to **User Attributes and Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.

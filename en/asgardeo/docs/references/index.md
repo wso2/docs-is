@@ -14,7 +14,7 @@ See the topics in this section for references that will help you while working w
 
 - The [API references]({{base_path}}/references/conditional-auth/api-reference/) you need for writing conditional authentication scripts.
 
-- [Remote user store properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) you need for configuring Asgardeo user store agent.
+- [Remote agent properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) you need for configuring Asgardeo user store agent.
 
 - [Email templates]({{base_path}}/references/email-templates/) in Asgardeo.
 

@@ -114,5 +114,8 @@ Here {{ product_name }} sends the fixed query param to the external identity pro
         ```
         <br>
 
+## Enable PKCE
+Specifies that PKCE should be used for client authentication.
+
 ### Enable HTTP basic auth for client authentication
 Specify whether to enable HTTP basic authentication for the token request. Otherwise, client credentials are sent in the request body instead of the HTTP header.

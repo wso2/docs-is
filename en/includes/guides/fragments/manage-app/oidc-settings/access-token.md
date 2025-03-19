@@ -32,6 +32,9 @@
 
 For **JWT** access tokens, this feature enables you to specify which user attributes are included in the access token. As a result, when a user logs in to an application, only the chosen attributes are shared, providing enhanced security and flexibility.
 
+!!! note 
+    All configured user attributes are included in the access token, regardless of the requested scopes.
+
 ![Access-Token-Attributes]({{base_path}}/assets/img/guides/authorization/access-token/access-token-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% endif %}
