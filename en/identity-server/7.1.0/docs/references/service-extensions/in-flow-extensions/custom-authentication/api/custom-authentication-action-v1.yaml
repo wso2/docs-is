@@ -439,7 +439,7 @@ components:
           description: Claim uri defined in the 'http://wso2.org/claims' dialect
         value:
           type: object
-          description: Claim value. If the claim is a multi-valued claim, it should be a list of strings; otherwise, it should be a string.
+          description: Claim value. If the claim is multi-valued, it should be a list of strings (the `MultiAttributeSeparator` is not allowed in claim values). Otherwise, it should be a single string.
       description: User claims retrieved during authentication.
       
     UserStoreInUserData:
