@@ -28,6 +28,49 @@ To do so,
 
 {% else %}
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.2.0" ) %}
+
+You may enable self-service password recovery for users so that they may reset their forgotten passwords right from the login page. Users can click the `Forgot password?` option and either receive an Email Link/OTP or a SMS OTP to reset the password.
+
+To do so,
+
+1. On the {{product_name}} Console, go to **Login & Registration**.
+2. Under **Account Recovery**, click on **Password Recovery**.
+4. Select both **Email** and **SMS OTP** or one of the options to enable them for your organization.
+  
+    ![Password Recovery Configuration]({{base_path}}/assets/img/guides/organization/account-recovery/password-recovery/configure-password-recovery.png){: width="800" style="display: block; margin: 0;"}
+
+5. Configure the corresponding settings.
+    <table>
+        <tbody>
+            <tr>
+                <td><h3>Email Link/OTP</h3></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Notify on successful recovery</b></td>
+                <td>Specifies whether to notify the user via an email when password recovery is successful.</td>
+            </tr>
+            <tr>
+                <td><b>Recovery link expiry time</b></td>
+                <td>Specifies the duration (in minutes) after which the email link/OTP will expire.</td>
+            </tr>
+        </tbody>
+    <table>
+        <tbody>
+            <tr>
+                <td><h3>SMS OTP</h3></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Password recovery OTP expiry time</b></td>
+                <td>Specifies the duration (in minutes) after which the OTP code sent through SMS will expire.</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% elif product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version == "7.1.0" ) %}
+
 You may enable self-service password recovery for users so that they may reset their forgotten passwords right from the login page. Users can click the `Forgot password?` option and either receive an email or a mobile OTP to reset the password.
 
 To do so,
@@ -68,6 +111,7 @@ To do so,
             </tr>
         </tbody>
     </table>
+{% endif %}
 
 6. Configure the following settings if you wish to customize the OTP pattern.
     
