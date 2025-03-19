@@ -1,25 +1,18 @@
 openapi: 3.0.0
 info:
-  title: WSO2 Identity Server - Notification Senders API Definition
-  description: This document specifies a **RESTful API** for **WSO2 Identity Server Notification Senders**
-  contact:
-    name: WSO2
-    url: http://wso2.com/products/identity-server/
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Notification Senders API
+  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **Asgardeo** organizations.
+               To access the notification sender organization APIs in Asgardeo, you need to first get an access token from your organization.
   version: "v1"
 servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
+  - url: https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1
     variables:
       serverUrl:
-        default: localhost:9443
-      tenantDomain:
-        default: carbon.super
+        default: https://api.asgardeo.io/t/{root-organization-name}/o/
+      root-organization-name:
+        default: "{root-organization-name}"
 security:
   - OAuth2: []
-  - BasicAuth: []
 paths:
   /notification-senders/email:
     get:
@@ -28,10 +21,8 @@ paths:
       summary: Get a list of email senders
       description: |
         This API provides the capability to retrieve the list of email senders. <br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getEmailSenders
       responses:
         "200":
@@ -68,16 +59,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
         - Email Senders
       summary: Create an email sender
       description: |
         This API provides the capability to create an email sender.\n\nIf the 'name' is not defined, 'EmailPublisher' is taken as the default name. <br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/add <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_add
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
       operationId: createEmailSender
       requestBody:
         content:
@@ -132,6 +128,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "fromAddress": "iam@gmail.com",
+            "userName": "iam",
+            "password": "iam123",
+            "properties": [
+              {
+                "key": "mail.smtp.starttls.enable",
+                "value": true
+              }
+            ]
+            }'                  
   /notification-senders/email/{sender-name}:
     get:
       tags:
@@ -140,10 +155,8 @@ paths:
       description: |
         This API provides the capability to retrieve an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getEmailSender
       parameters:
         - name: sender-name
@@ -189,6 +202,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email/{email-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Email Senders
@@ -196,10 +216,8 @@ paths:
       description: |
         This API provides the capability to update an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/update <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_update
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
       operationId: updateEmailSender
       parameters:
         - name: sender-name
@@ -258,6 +276,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email/{email-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "fromAddress": "iam@gmail.com",
+            "userName": "iam",
+            "password": "iam123",
+            "properties": [
+              {
+                "key": "mail.smtp.starttls.enable",
+                "value": true
+              }
+            ]
+            }'                 
     delete:
       tags:
         - Email Senders
@@ -265,10 +302,8 @@ paths:
       description: |
         This API provides the capability to delete an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/delete <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_delete
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
       operationId: deleteEmailSender
       parameters:
         - name: sender-name
@@ -310,6 +345,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/email/{email-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                  
   /notification-senders/sms:
     get:
       tags:
@@ -317,10 +359,8 @@ paths:
       summary: Get a list of SMS senders
       description: |
         This API provides the capability to retrieve a list of SMS notification senders.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getSMSSenders
       responses:
         "200":
@@ -357,6 +397,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                  
     post:
       tags:
         - SMS Senders
@@ -364,10 +411,8 @@ paths:
       description: |
         This API provides the capability to create a SMS sender.
         If the 'name' is not defined, 'SMSPublisher' is taken as the default name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/add <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_add
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
       operationId: createSMSSender
       requestBody:
         content:
@@ -427,6 +472,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "NEXMO",
+            "providerURL": "https://rest.nexmo.com/sms/json",
+            "key": "123**45",
+            "secret": "5tg**ssd",
+            "sender": "+94 775563324",
+            "type": "json",
+            "properties": [
+              {
+                "key": "body.scope",
+                "value": "internal"
+              },
+              {
+                "key": "http.headers",
+                "value": "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+              }
+            ]
+            }'                 
   /notification-senders/sms/{sender-name}:
     get:
       tags:
@@ -435,10 +506,8 @@ paths:
       description: |
         This API provides the capability to retrieve a SMS notification sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
       operationId: getSMSSender
       parameters:
         - name: sender-name
@@ -484,6 +553,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                 
     put:
       tags:
         - SMS Senders
@@ -491,10 +567,9 @@ paths:
       description: |
         This API provides the capability to update a SMS Sender.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/update <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_update
+        
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
       operationId: updateSMSSender
       parameters:
         - name: sender-name
@@ -558,6 +633,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "NEXMO",
+            "providerURL": "https://rest.nexmo.com/sms/json",
+            "key": "123**45",
+            "secret": "5tg**ssd",
+            "sender": "+94 775563324",
+            "type": "json",
+            "properties": [
+              {
+                "key": "body.scope",
+                "value": "internal"
+              },
+              {
+                "key": "http.headers",
+                "value": "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+              }
+            ]
+            }'                 
     delete:
       tags:
         - SMS Senders
@@ -565,10 +666,8 @@ paths:
       description: |
         This API provides the capability to delete a SMS sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/delete <br>
-          <b>Scope required:</b> <br>
-            * internal_config_mgt_delete
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
       operationId: deleteSMSSender
       parameters:
         - name: sender-name
@@ -610,6 +709,345 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                 
+  /notification-senders/push:
+    get:
+      tags:
+        - Push Senders
+      summary: Get a list of push notification senders
+      description: |
+        This API provides the capability to retrieve the list of push notification senders. <br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
+      operationId: getPushSenders
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushProviderList'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    post:
+      tags:
+        - Push Senders
+      summary: Create a push notification sender
+      description: |
+        This API provides the capability to create a push notification sender.
+        If the 'name' is not defined, 'PushPublisher' is taken as the default name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
+      operationId: createSMSSender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushSenderAdd'
+            example:
+              provider: FCM
+              properties:
+                - key: serviceAccountContent
+                  value: "base64EncodedServiceAccountJsonString"
+      responses:
+        "201":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "FCM",
+            "properties": [
+              {
+                "key": "serviceAccountContent",
+                "value": "base64EncodedServiceAccountJsonString"
+              }
+            ]
+            }'
+  /notification-senders/push/{sender-name}:
+    get:
+      tags:
+        - Push Senders
+      summary: Get a push sender by name
+      description: |
+        This API provides the capability to retrieve a push notification sender by name.
+        The URL encoded push sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
+      operationId: getPushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push/{push-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    put:
+      tags:
+        - Push Senders
+      summary: Update a push notification sender
+      description: |
+        This API provides the capability to update a push notification sender.
+        The URL encoded push notification sender name is used as sender-name.<br>
+
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
+      operationId: updatePushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push notification sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushSenderUpdateRequest'
+            example:
+              provider: FCM
+              properties:
+                - key: serviceAccountContent
+                  value: "base64EncodedServiceAccountJsonString"
+        required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push/{push-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "FCM",
+            "properties": [
+              {
+                "key": "serviceAccountContent",
+                "value": "base64EncodedServiceAccountJsonString"
+              }
+            ]
+            }'
+    delete:
+      tags:
+        - Push Senders
+      summary: Delete a push notification sender by name
+      description: |
+        This API provides the capability to delete a push notification sender by name.
+        The URL encoded push notification sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
+      operationId: deletePushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push notification sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1/notification-senders/push/{push-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   schemas:
     Error:
@@ -693,6 +1131,25 @@ components:
               value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
           items:
             $ref: '#/components/schemas/Properties'
+    PushSenderAdd:
+      required:
+        - provider
+        - properties
+      type: object
+      properties:
+        name:
+          type: string
+          example: PushPublisher
+        provider:
+          type: string
+          example: fcm
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: jsonString
+          items:
+            $ref: '#/components/schemas/Properties'
     EmailSender:
       required:
         - fromAddress
@@ -764,6 +1221,24 @@ components:
               value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
           items:
             $ref: '#/components/schemas/Properties'
+    PushSender:
+      required:
+        - provider
+        - name
+      properties:
+        name:
+          type: string
+          example: PushPublisher
+        provider:
+          type: string
+          example: fcm
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: "jsonString"
+          items:
+            $ref: '#/components/schemas/Properties'
     EmailSenderUpdateRequest:
       required:
         - fromAddress
@@ -827,6 +1302,21 @@ components:
               value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
           items:
             $ref: '#/components/schemas/Properties'
+    PushSenderUpdateRequest:
+      required:
+        - provider
+        - properties
+      type: object
+      properties:
+        provider:
+          type: string
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: "jsonString"
+          items:
+            $ref: '#/components/schemas/Properties'
     Properties:
       required:
         - key
@@ -848,6 +1338,10 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/SMSSender'
+    PushProviderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PushSender'
   parameters:
     typeQueryParam:
       name: type
@@ -860,13 +1354,10 @@ components:
       schema:
         type: string
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth2/authorize
-          tokenUrl: https://localhost:9443/oauth2/token
+          authorizationUrl: https://api.asgardeo.io/t/{root-organization-name}/oauth2/authorize
+          tokenUrl: https://api.asgardeo.io/t/{root-organization-name}/oauth2/token
           scopes: {}
