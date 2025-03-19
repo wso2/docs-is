@@ -442,6 +442,7 @@ nav:
         - Enable HTTP Strict Transport Security (HSTS) Headers: deploy/security/enable-hsts.md
         - Configure Transport Level Security: deploy/security/configure-transport-level-security.md
         - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
+        - Enable Mutual SSL: deploy/security/enabling-mutual-ssl.md
         - Security Guidelines:
           - Overview: deploy/security/security-guidelines-for-production-deployment.md
           - Product-Level: deploy/security/product-level-security-guidelines.md
