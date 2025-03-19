@@ -3679,7 +3679,7 @@ components:
               definedBy: "USER"
               tags:
                 - "Custom"
-              self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+              self: "/t/carbon.super/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
         provisioning:
           jit:
             isEnabled: true
@@ -3730,7 +3730,7 @@ components:
             tags:
               - "Social Login"
               - "OIDC"
-            self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y"
+            self: "/t/carbon.super/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y"
     UserDefinedAuthenticatorListResponseExample:
         summary: "List of authenticators with user defined authenticator"
         value:
@@ -3742,4 +3742,4 @@ components:
               definedBy: "USER"
               tags:
                 - "Custom"
-              self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+              self: "/t/carbon.super/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"

@@ -226,7 +226,6 @@ paths:
               }
             }
             }'
-
       requestBody:
         content:
           application/json:
@@ -559,7 +558,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '[
             {
               "operation": "REPLACE",
@@ -619,8 +618,7 @@ paths:
             curl -X 'DELETE' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}?force=false' \
             -H 'accept: */*' \
-            -H 'Authorization: Bearer {bearer_token}'                
-
+            -H 'Authorization: Bearer {bearer_token}'
   /identity-providers/{identity-provider-id}/federated-authenticators:
     get:
       tags:
@@ -732,7 +730,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "defaultAuthenticatorId": "U0FNTDJBdXRoZW50aWNhdG9y",
             "authenticators": [
@@ -822,7 +820,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Federated Authenticators
@@ -889,7 +887,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "isEnabled": true,
             "isDefault": false,
@@ -962,7 +960,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
   /identity-providers/{identity-provider-id}/provisioning/outbound-connectors:
     get:
       tags:
@@ -1013,7 +1011,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Provisioning
@@ -1064,7 +1062,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "defaultConnectorId": "U0NJTQ",
             "connectors": [
@@ -1146,7 +1144,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Provisioning
@@ -1208,7 +1206,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/identity-provider-id/provisioning/outbound-connectors/outbound-provisioning-connector-id' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "isEnabled": true,
             "isDefault": false,
@@ -1278,7 +1276,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/claims' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Claims
@@ -1334,7 +1332,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/claims' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "userIdClaim": {
               "uri": "http://wso2.org/claims/username"
@@ -1416,7 +1414,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/identity-provider-id/roles' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Roles
@@ -1472,7 +1470,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/roles' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "mappings": [
               {
@@ -1542,7 +1540,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Provisioning
@@ -1598,7 +1596,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/provisioning/jit' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "isEnabled": true,
             "scheme": "PROVISION_SILENTLY",
@@ -1666,7 +1664,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/connected-apps' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
   '/trusted-token-issuers':
     get:
       tags:
@@ -1713,7 +1711,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     post:
       tags:
         - Trusted Token Issuers
@@ -1774,7 +1772,7 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
             "name": "google",
             "description": "Trusted Token Issuer",
@@ -1883,7 +1881,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/{trusted-token-issuer-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
     patch:
       tags:
         - Trusted Token Issuers
@@ -1939,14 +1937,14 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/{trusted-token-issuer-id}' \
             -H 'accept: application/json' \
             -H 'Content-Type: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                 \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '[
             {
               "operation": "REPLACE",
               "path": "/homeRealmIdentifier",
               "value": "google"
             }
-            ]'                
+            ]'
       requestBody:
         content:
           application/json:
@@ -1999,7 +1997,7 @@ paths:
             curl -X 'DELETE' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/t{rusted-token-issuer-id}?force=false' \
             -H 'accept: */*' \
-            -H 'Authorization: Bearer {bearer_token}'                
+            -H 'Authorization: Bearer {bearer_token}'
   '/identity-providers/{identity-provider-id}/implicit-association':
     get:
       tags:
@@ -2054,12 +2052,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
         x-codeSamples:
-          - lang: Curl
-            source: |
-              curl --request GET \
-              --url https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/implicit-association \
-              --header 'Accept: application/json, application/xml' \
-              --header 'Authorization: Bearer {bearer-token}'
+        - lang: Curl
+          source: |
+            curl --request GET \
+            --url https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-providers/{identity-provider-id}/implicit-association \
+            --header 'Accept: application/json, application/xml' \
+            --header 'Authorization: Bearer {bearer-token}'
     put:
       tags:
         - Implicit Association
@@ -2437,13 +2435,13 @@ components:
             $ref: '#/components/schemas/Link'
           example:
             [
-              {
-                "href": "identity-provider?offset=50&limit=10",
-                "rel": "next",
-              },  {
-              "href": "identity-provider?offset=30&limit=10",
-              "rel": "previous",
-            }
+                {
+                    "href": "identity-provider?offset=50&limit=10",
+                    "rel": "next",
+                },  {
+                    "href": "identity-provider?offset=30&limit=10",
+                    "rel": "previous",
+                }
             ]
         identityProviders:
           type: array
@@ -2930,13 +2928,13 @@ components:
             $ref: '#/components/schemas/Link'
           example:
             [
-              {
-                "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=50&limit=10",
-                "rel": "next"
-              },  {
-              "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=30&limit=10",
-              "rel": "previous"
-            }
+                {
+                    "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=50&limit=10",
+                    "rel": "next"
+                },  {
+                    "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=30&limit=10",
+                    "rel": "previous"
+                }
             ]
         connectedApps:
           type: array
@@ -2971,10 +2969,10 @@ components:
             $ref: '#/components/schemas/Link'
           example:
             [
-              {
-                "href": "identity-provider/templates?offset=50&limit=10",
-                "rel": "next",
-              },  {
+            {
+              "href": "identity-provider/templates?offset=50&limit=10",
+              "rel": "next",
+            },  {
               "href": "identity-provider/templates?offset=30&limit=10",
               "rel": "previous",
             }
@@ -3421,7 +3419,7 @@ components:
               definedBy: "USER"
               tags:
                 - "Custom"
-              self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+              self: "/t/{organization-name}/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
         provisioning:
           jit:
             isEnabled: true
@@ -3472,7 +3470,7 @@ components:
             tags:
               - "Social Login"
               - "OIDC"
-            self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y"
+            self: "/t/{organization-name}/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y"
     UserDefinedAuthenticatorListResponseExample:
       summary: "List of authenticators with user defined authenticator"
       value:
@@ -3484,4 +3482,4 @@ components:
             definedBy: "USER"
             tags:
               - "Custom"
-            self: "/t/testin/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+            self: "/t/{organization-name}/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
