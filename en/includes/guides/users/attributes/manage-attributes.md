@@ -217,6 +217,42 @@ To delete an attribute:
 
     Only custom attributes can be deleted.
 
+{% if product_name == "WSO2 Identity Server" %}
+## Manage Identity Attributes
+
+By default, identity claim values are stored in the JDBC datasource configured in the `deployment.toml` file. If required, you can configure WSO2 Identity Server to store the claim values in another user store as well.
+
+1.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore` property value to `IdentityDataStoreService`. This service, functioning as an OSGi service, is dedicated to accessing Identity data stores.
+
+```
+[identity_datastore]
+datastore_type = "<Name of the identityDataStore class>"
+```
+
+!!! Note
+    The class name configuration for the identity data store has been separated from the listener configurations. If you're using a custom data store class, it's crucial to update your `deployment.toml` file to reflect this choice. This update ensures that your custom class will override the default configuration.
+
+    To either maintain the previous behavior or use your custom data store, simply follow these steps and update your deployment.toml:
+
+    By making this configuration adjustment, you can ensure that your system aligns with your preferred data store class, whether it's the previous default or a custom class you've implemented. This helps you tailor the system to your specific needs.
+
+2.  Map the identity claims mentioned below to attributes in the underlying user store. 
+
+    !!! info
+        Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).
+
+    -   `http://wso2.org/claims/identity/accountLocked`: This claim is
+        used to store the status of the user's account, i.e., if it is
+        locked or not.
+
+    -   `http://wso2.org/claims/identity/unlockTime`: This is used to
+        store the timestamp that the user's account is unlocked.
+
+    -   `http://wso2.org/claims/identity/failedLoginAttempts`: This is
+        used to track the number of consecutive failed login attempts.
+        It is based on this that the account is locked.
+{% endif %}
+
 {% if multi_valued_attributes %}
 ## Assign multiple email addresses and mobile numbers to a user
 
