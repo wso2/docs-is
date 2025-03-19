@@ -207,6 +207,7 @@ To delete an attribute:
 
     Only custom attributes can be deleted.
 
+{% if product_name == "WSO2 Identity Server" %}
 ## Manage Identity Attributes
 
 By default, identity claim values are stored in the JDBC datasource configured in the `deployment.toml` file. If required, you can configure WSO2 IS to store the claim values in another user store as well.
@@ -240,6 +241,7 @@ datastore_type = "<Name of the identityDataStore class>"
     -   `http://wso2.org/claims/identity/failedLoginAttempts`: This is
         used to track the number of consecutive failed login attempts.
         It is based on this that the account is locked.
+{% endif %}
 
 {% if multi_valued_attributes %}
 ## Assign multiple email addresses and mobile numbers to a user
