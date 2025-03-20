@@ -356,7 +356,7 @@ Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 </tbody>
 </table>
 
-If the external service returns an error response (either defined or undefined) or fails to respond entirely, it will be treated as an error in executing the action. In any of these cases, the application that initiated the token request will receive a 500 Internal Server Error.
+If the external service returns an error response (either defined or undefined) or fails to respond entirely, it will be treated as an error in executing the action. In any of these cases, the application that initiated the password update request will receive a 500 Internal Server Error.
 
 Below is an example of an error response returned by the service implementing the pre-update password action.
 
