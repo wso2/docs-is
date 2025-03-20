@@ -94,7 +94,7 @@ The following table lists the currently supported extensions and those in the ro
 <tr class="odd">
 <td>Login</td>
 <td>Authenticate</td>
-<td>End February 2025</td>
+<td>Early access (beta)</td>
 <td>
 <ul>
 <li><p>Call an external service to authenticate the user.</p></li>
@@ -139,10 +139,10 @@ The following table lists the currently supported extensions and those in the ro
 <tr class="odd">
 <td>Profile update</td>
 <td>Pre profile update</td>
-<td>Early April 2025</td>
+<td>Early access (beta)</td>
 <td>
 <ul>
-<li><p>Redirect to a third party service for verification.</p></li>
+<li><p>Automated verification of user attributes.</p></li>
 <li><p>Verify for sanctioned countries, initiate screening processes.</p></li>
 </ul>
 </td>
