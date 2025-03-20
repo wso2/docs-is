@@ -5,4 +5,4 @@
 {% include "../../../includes/references/app-native-authentication.md" %}
 {% include "../../../includes/references/push-notification-app-native-reference.md" %}
 {% set session_control_scenario_id = "7" %}
-{% include "../../../../includes/references/concurrent-session-based-access-control-app-native-reference.md" %}
+{% include "../../../includes/references/concurrent-session-based-access-control-app-native-reference.md" %}
