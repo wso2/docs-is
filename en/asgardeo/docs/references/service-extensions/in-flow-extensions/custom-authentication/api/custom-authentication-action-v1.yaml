@@ -83,9 +83,8 @@ paths:
                           value: johnd@gmail.com
                         - uri: http://wso2.org/claims/emailaddress
                           value: johnd@gmail.com
-                        - uri: http://wso2.org/claims/multiValuedClaim
-                          value: [ "value1", "value2" ]
-               
+                        - uri: http://wso2.org/claims/emailAddresses
+                          value: [ "johnd@gmail.com", "deo@gmail.com" ]
                 SuccessStatusInternalUserAuthenticator:
                   summary: SUCCESS status response from authenticators implementing 'Internal User Authentication' type.
                   value:
@@ -98,8 +97,8 @@ paths:
                           value: johnd@gmail.com
                         - uri: http://wso2.org/claims/emailaddress
                           value: johnd@gmail.com
-                        - uri: http://wso2.org/claims/multiValuedClaim
-                          value: [ "value1", "value2" ]
+                        - uri: http://wso2.org/claims/emailAddresses
+                          value: [ "johnd@gmail.com", "deo@gmail.com" ]
                         userStore:
                           id: UFJJTUFSWQ==
                           name: PRIMARY
@@ -433,7 +432,7 @@ components:
           description: Claim uri defined in the 'http://wso2.org/claims' dialect
         value:
           type: object
-          description: Claim value. If the claim is multi-valued, it should be a list of strings (the `,` is not allowed in claim values). Otherwise, it should be a single string.
+          description: Claim value. If the claim is multi-valued, it should be a list of strings (Note the ',' is not allowed in claim values as it is used internally to process data). Otherwise, it should be a single string.
       description: User claims retrieved during authentication.
       
     UserStoreInUserData:
