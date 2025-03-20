@@ -1,70 +1,73 @@
-# Enabling Mutual SSL
+# Enable mutual SSL
 
-### How it works
+Mutual SSL is a security mechanism where both the client and server authenticate each other using digital certificates. Unlike traditional SSL, which only verifies the server’s identity, mutual SSL requires both parties to present certificates issued by a trusted Certificate Authority (CA). This ensures a highly secure connection and often eliminates the need for username/password authentication, as the client is authenticated based on its certificate.
 
-In contrast to the usual one-way SSL authentication where a client
-verifies the identity of the server, in mutual SSL the server validates
-the identity of the client so that both parties trust each other. This
-builds a system that has a very tight security and avoids any requests
-made to the client to provide the username/password, as long as the
-server is aware of the certificates that belong to the client.
+## How it works
 
-Before the process begins the client and servers certificates are stored
-in there relevant `          keystores         ` . In the case of JAVA
-they are `          jks         ` files. Let's take a look at where the
-JKS files are saved:
+Let's take a look at how mutual SSL works with clients and {{product_name}}. The relevant digital certificates are stored in the following `keystores`.
 
--   WSO2 Identity Server certificates are stored in the
-    `           <IS-HOME>/repository/resources/security/wso2carbon.jks          ` file.
--   Server side certificates are stored in the
-    `           <IS-HOME>/repository/resources/security/clienttruststore.jks          ` file.
+{% if is_version == "7.0.0" %}
 
-These certificates are signed and issued by a certificate authority that
-allows both the client and server to communicate freely. Now let's look
-at how it works:
+-   {{product_name}} server certificates are stored in,</br>
 
-![Certificate exchange flow](../../assets/img/deploy/security/certificate-exchange-flow.jpg) 
+    `<IS-HOME>/repository/resources/security/wso2carbon.jks`
 
-1.  The Client attempts to access a protected resource and the SSL/TSL
+
+-   The trusted client certificates are stored in,</br>
+        `<IS-HOME>/repository/resources/security/clienttruststore.jks`
+
+{% else %}
+
+-   {{product_name}} server certificates are stored in,</br>
+
+    `<IS-HOME>/repository/resources/security/wso2carbon.p12`
+
+
+-   The trusted client certificates are stored in,</br>
+    `<IS-HOME>/repository/resources/security/clienttruststore.p12`
+
+{% endif %} 
+
+!!! note
+
+    Learn more about {{product_name}}'s [keystores and truststores]({{base_path}}/deploy/security/keystores/).
+
+These certificates are signed and issued by a certificate authority that allows both the client and server to communicate freely. Now let's look at how it works:
+
+
+![Certificate exchange flow]({{base_path}}/assets/img/deploy/security/mutual-ssl.png) 
+
+1.  The client attempts to access a protected resource and the SSL/TSL
     handshake process begins.
-2.  The Server presents its certificate, which is the
-    `           server.crt          ` according to our example as shown
-    above.
-3.  The Client takes this certificate and asks the certificate issued
-    authority for the authenticity and validity of the certificate.
-4.  If the certificate is valid, the client will also provide its
-    certificate to the server.
-5.  The Server takes this certificate and asks the certificate issued
-    authority for the authenticity and validity of the certificate.
-6.  The Client is granted access to the resource it was trying to access
-    earlier.
+2.  The server presents its certificate,`Server.crt`, according to the above example.
+3.  The client takes this certificate and requests the CA for authenticity and validity of the certificate.
+4.  If the certificate is valid, the client will provide its certificate, `Client.crt`, to the server.
+5.  The Server takes this certificate and requests the CA for authenticity and validity of the certificate.
+6.  If the certificate is valid, the server grants the client access to the resource.
 
-### Enabling Mutual SSL in the WSO2 IS
+## Enable Mutual SSL in {{product_name}}
 
-1.  Open the
-    `           <IS_HOME>/repository/conf/tomcat/catalina-server.xml         `
-    file and ensure that the `           certificateVerification          ` attribute
-    in the `          SSLHostConfig         ` tag under `https` connector is set to 
-    `           want          ` as shown below. This is done to
-    disable the certificate authentication on certain occasions (like
-    when working on mobile apps). This makes two-way SSL authentication
-    optional. Set the value as `require` to make two-way SSL authentication mandatory.
+To enable mutual SSL,
+
+1.  Open the `<IS_HOME>/repository/conf/tomcat/catalina-server.xml` file and find the  `certificateVerification` attribute within the `SSLHostConfig` tag under the `https` connector. Make sure the value of it is set to `want`
 
     ``` java
     certificateVerification="want"
     ```
-    If not add the following configuration to ` <IS_HOME>/repository/conf/deployment.toml       `
+
+    !!! tip "Why?" 
+
+        This configuration is set to `want` in order to make certificate authentication disabled for some scenarios (such as for mobile apps), essentially making two-way SSL authentication optional. You can set the value to `require` to make it mandatory.
+
+    
+    Alternatively, you can add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
     
     ```toml
     [transport.https.sslHostConfig.properties]
     certificateVerification = "want"
     ```
-    
 
-2.  Open the
-    `           deployment.toml          `
-    file and add the following configuration to enable the
-    Mutual SSL Authenticator.
+2.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to enable the mutual SSL authenticator.
 
     ``` toml
     [admin_console.authenticator.mutual_ssl_authenticator]
@@ -74,23 +77,37 @@ at how it works:
     WhiteList = ""
     ```
 
-3.  For mutual SSL authentication, the public certificate of the WSO2
-    Identity Server has to be imported to the truststore of the client
-    and the public certificate of the client has to be imported to the
-    client-truststore of Identity Server.
+3.  For mutual SSL authentication to succeed, import the public certificate of {{product_name}} to the client's truststore and import the public certificate of the client to {{product_name}}'s truststore. Consider the following example scenario.
 
-    !!! example "Sample commands"
+    !!! abstract ""
 
-        The following two commands are examples if you are using the
-        keystore and client-truststore of the Identity Server itself for the
-        client. This is executed from the
-        `<IS_HOME>/repository/resources/security`
-        directory.
+        If both the client and {{product_name}} use {{product_name}}'s keystore and truststore for authentication, {{product_name}}'s certificate must also be present in the truststore. This ensures that the client can verify and trust {{product_name}} during the authentication process. To do this, execute the following commands from the `<IS_HOME>/repository/resources/security` directory.
 
-        ``` java
-        keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.jks -storepass wso2carbon
-        ```
+        {% if is_version == "7.0.0" %}
 
-        ``` java
-        keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.jks -storepass wso2carbon
-        ```
+        1. Extract the public certificate of {{product_name}} using the following command.
+
+            ```shell
+            keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.jks -storepass wso2carbon
+            ```
+
+        2. Import the public certificate to the truststore using the following command.
+
+            ```shell
+            keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore  client-truststore.jks -storepass wso2carbon
+            ```
+    
+        {% else %}
+
+        1. Extract the public certificate of {{product_name}} using the following command.
+
+           ```shell
+           keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.p12 -storepass wso2carbon
+           ```
+
+        2. Import the public certificate to the truststore using the following command.
+
+           ```shell
+           keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore  client-truststore.p12 -storepass wso2carbon
+           ```
+        {% endif %}
