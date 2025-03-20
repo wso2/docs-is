@@ -743,6 +743,7 @@ nav:
           - Set passwords using environment variables/system properties: deploy/security/set-passwords-using-environment-variables-or-system-properties.md
         - Enable HTTP Strict Transport Security (HSTS) headers: deploy/security/enable-hsts.md
         - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
+        - Enable Mutual SSL: deploy/security/enable-mutual-ssl.md
         - Enable FIPS 140-2-compliant mode: deploy/security/enable-fips-for-is.md
         - Security guidelines:
           - Security guidelines: deploy/security/security-guidelines/index.md
