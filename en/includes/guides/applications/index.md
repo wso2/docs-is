@@ -41,7 +41,7 @@ Machine-to-Machine (M2M) applications, are designed for automated communication 
 
 ## Make an application discoverable
 
-Making an application discoverable allows it to appear in users' **My Account** portal. This enables users to access the application directly from their portal by clicking on it, which redirects them to the application's configured access URL.
+Discoverable applications appear in the users' [My Account portal]({{base_path}}/guides/user-self-service/configure-self-service-portal/), making it easy for users to see and access the applications that they can use. When users click on an application, they get redirected to the application's access URL.
 
 To enable application discovery:
 
