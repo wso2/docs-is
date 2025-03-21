@@ -48,12 +48,14 @@ To enable application discovery:
 1. On the {{product_name}} Console, navigate to **Applications**.
 2. Select the application you want users in the organization to discover and go to the **General** tab. (This option is not available for M2M applications.)
 3. Scroll down to the **Discoverable application** section.
-4. Check the **Enable** checkbox and configure an access URL to make the application discoverable to everyone in the organization.
+4. Select the checkbox to enable and configure an access URL to make the application discoverable to everyone in the organization.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1") %}
 5. To limit discoverability to specific users, select **Only a selected group of users can discover this application** under **Discoverable Groups**.
-6. Choose the user groups from each User Store and click on **Update** button.
+6. Choose the user groups from each user store and click on **Update** button.
 7. The application will then be discoverable only to users in the selected groups.
 
     ![Make an application discoverable]({{base_path}}/assets/img/guides/applications/discover-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% endif %}
 
 To learn how users can discover applications through the **My Account** portal, see [Discover applications]({{base_path}}/guides/user-self-service/discover-applications/).
 
