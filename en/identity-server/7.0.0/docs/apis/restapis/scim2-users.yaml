@@ -779,19 +779,18 @@ components:
       properties:
         schemas:
           type: object
-          items:
-            type: string
-            examples:
+          properties: {}
+          examples:
+            -
               - urn:ietf:params:scim:api:messages:2.0:SearchRequest
         attributes:
-          type: array
+          type: object
           description: SCIM defined attributes parameter.
-          items:
-            type: string
-            examples:
-              -
-                - name.familyName
-                - userName
+          properties: {}
+          examples:
+            -
+              - name.familyName
+              - userName
         filter:
           type: string
           description: The expression used for filtering. Supported filters are <code>ew</code>, <code>eq</code>, <code>co</code>, <code>sw</code>, and <code>and</code>.
@@ -801,7 +800,7 @@ components:
           type: string
           description: The name of the user store where filtering needs to be applied.
           examples:
-            - DEFAULT
+            - PRIMARY
         startIndex:
           type: integer
           format: int32

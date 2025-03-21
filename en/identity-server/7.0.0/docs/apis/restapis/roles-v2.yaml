@@ -582,6 +582,7 @@ components:
       properties:
         schemas:
           type: object
+          properties: {}
           examples:
             - urn:ietf:params:scim:api:messages:2.0:SearchRequest
         startIndex:

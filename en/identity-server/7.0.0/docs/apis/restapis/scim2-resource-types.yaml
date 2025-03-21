@@ -56,7 +56,7 @@ components:
         endpoint:
           type: string
           examples:
-            - Users
+            - /Users
         meta:
           type: object
           properties:
