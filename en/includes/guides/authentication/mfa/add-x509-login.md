@@ -1,157 +1,213 @@
-# Configure X509 Certificate Authenticator
+# Configure X.509 certificate authenticator
 
-This page guides you through configuring the X509 certificate authenticator with {{ product_name }}.
+This guide walks you through configuring the X.509 certificate authenticator in {{product_name}}, helping you set up secure certificate-based authentication for your users.
 
-!!!note
+X.509 is a widely recognized standard within Public Key Infrastructure (PKI) that defines the format for public key certificates. These certificates are typically issued by trusted Certificate Authorities (CAs) and serve as a means of securely identifying users or systems. During the authentication process, the user (or client) presents their X.509 certificate to the authentication server, which then validates the certificate by checking the digital signature of the CA to confirm the certificate’s authenticity.
+
+!!! note
     You need to create the necessary certificates and truststores before you start configuring the x509 
-    authenticator on {{ product_name }}.
+    authenticator on {{ product_name }}. Refer to [Keystores and Truststores]({{base_path}}/deploy/security/keystores/) for more information.
 
-X509 authentication requires the client to possess a Public Key Certificate (PKC). To create a sample certificate 
-and create your own Certificate Authority to sign the certificates, follow the give steps below: 
+## Step 1: Create a self-signed certificate authority (CA)
 
-1. Create the private RSA key using the following command.
+To issue and sign client certificates, you first need to create a self-signed CA certificate. This CA will be trusted by {{product_name}} and used to validate client certificates presented during authentication.
+
+To do so,
+
+1. Generate a private key. The following command generates a private RSA key with a key size of 2048 bits.
 
     ``` shell
     openssl genrsa -out rootCA.key 2048
     ```
-    For this example, we have used the key size as `2048`, you can specify the key size as you wish.
+    In this example, the key size is 2048 bits, but you can adjust it according to your security requirements.
 
-2. Based on this key you can now generate an actual certificate which is valid for 10 years using the following command:
+2. Using the private key, generate a self-signed certificate. The following command generates a self-signed certificate that is valid for 10 years (3650 days).
 
     ```
     openssl req -new -x509 -days 3650 -key rootCA.key -out rootCA.crt
     ```
 
-3. You are prompted to provide the following details, and the details you provide are incorporated into the 
-    certificate request. An example is given below.
+3. When prompted, provide the necessary details. Below is an example of the input values:
 
     ```text
-    - Country Name (2 letter code) [AU]: SL
-    - State or Province Name (full name) [Some-State]: Western
-    - Locality Name (eg, city) [ ]: Colombo
-    - Organization Name (eg, company) [Internet Widgits Pty Ltd]: WSO2
-    - Organizational Unit Name (eg, section) [ ]: QA
-    - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com
-    - Email Address [ ]: kim@wso2.com
+    Country Name (2 letter code) [AU]: SL
+    State or Province Name (full name) [Some-State]: Western
+    Locality Name (eg, city) [ ]: Colombo
+    Organization Name (eg, company) [Internet Widgits Pty Ltd]: WSO2
+    Organizational Unit Name (eg, section) [ ]: QA
+    Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com
+    Email Address [ ]: kim@wso2.com
     ```
 
-4. An OpenSSL CA requires new files and supporting directories. Therefore, create a new directory.
-    Create the directory structure according to your `openssl.conf` format.
+    Once you have gone through these steps, you now have a private key (rootCA.key) and a self-signed certificate (rootCA.crt).
+
+4. To manage certificates effectively, OpenSSL requires a specific directory structure. Create it as follows:
 
     ``` shell
     mkdir -p demoCA/newcerts
     ```
-    
-5. You also need some initial files inside your CA directory structure.
-    
+
+5. Create the necessary files as follows:
+
     ``` shell
     touch demoCA/index.txt
     echo '01' > demoCA/serial
     ```
 
-6. For the JVM to trust your certificate, import your certificate into your JVM truststore. 
-    You can use the following command by updating the values for `<path_to_the_jvm_truststore>` and `<password_of_the_truststore>`.
+6. To enable X.509 certificate-based authentication, {{product_name}} must trust certificates issued by this CA. Use the following command to import the CA certificate (rootCA.crt) into the truststore of {{product_name}}.
 
     ``` shell
-    keytool -import -noprompt -trustcacerts -alias rootCA -file rootCA.crt -keystore <path_to_the_jvm_keystore> -storepass <password_of_the_keystore>
+    keytool -import -noprompt -trustcacerts -alias rootCA -file rootCA.crt -keystore <path_to_the_client_truststore> -storepass <password_of_the_truststore>
     ```
 
-    !!! info "Got the 'permission denied' error?"
-        Note that when adding the certificate to the JVM trust store you may get the permission denied error. Running this command as an 
-        administrator resolves this permission issue.
-        
-        For example, if you are a Mac user, you can use sudo in front of this command to fix the permission issue.  
+    !!! note "Default truststore values"
+        If you are using the default values,
+        <ul>
+            <li>truststore path is <code>&lt;IS_HOME&gt;/repository/resources/security/client-truststore.p12</code></li>
+            <li>password is <code>wso2carbon</code></li>
+        </ul>
+        Refer to [manage keystores]({{base_path}}/deploy/security/keystores/configure-keystores/) to learn how to change default keystores and truststores.
 
-7. Create the server certificate. To create the server certificate, follow the steps give below:
 
-    1. Create the keystore that includes the private key by executing the following command:
+    !!! tip "Got the 'permission denied' error?"
+        If you get a permission denied error, run this command as an administrator to resolve the issue.
 
-        ``` shell
-        keytool -genkey -v -alias localcrt -keyalg RSA -validity 3650 -keystore localcrt.jks -storepass localpwd -keypass localpwd
+## Step 2: Create a client certificate
+
+In this step, we will generate a client certificate that will be used to authenticate to {{product_name}}. This involves:
+
+!!! abstract ""
+
+    - Creating a keystore that holds the client’s private key and certificate.
+    - Generating a Certificate Signing Request (CSR) to obtain a signed certificate from the CA.
+    - Importing the signed certificate and CA certificate into the keystore.
+
+1. Generate a keystore that contains the private key and public certificate. The following command creates a new keystore (localcrt.jks) and generates a new RSA key pair with a validity of 10 years (3650 days).
+
+    ``` shell
+    keytool -genkey -v -alias localcrt -keyalg RSA -validity 3650 -keystore localcrt.jks -storepass localpwd -keypass localpwd
+    ```
+
+    Enter the necessary details to create the keystore.
+
+    !!! tip
+        For `What is your first and last name?`, provide a name without spaces. 
+
+    This command will create a keystore with the following details:
+
+    <table>
+        <tr>
+            <td>Keystore name</td>
+            <td>localcrt.jks</td>
+        </tr>
+        <tr>
+            <td>Alias of public certificate</td>
+            <td>localcrt</td>
+        </tr>
+        <tr>
+            <td>Alias of public certificate</td>
+            <td>localpwd</td>
+        </tr>
+        <tr>
+            <td>Private key password</td>
+            <td>localpwd (this is required to be the same as keystore password)</td>
+        </tr>
+    </table>
+
+2. Next, generate a Certificate Signing Request (CSR) using the keystore you just created. The CSR will be submitted to the CA, which will sign it, proving that the certificate is trusted.
+
+    ``` shell
+    keytool -certreq -alias localcrt -file localcrt.csr -keystore localcrt.jks -storepass localpwd
+    ```
+
+3. To ensure {{product_name}} does not accept revoked certificates when using X.509 certificate-based authentication, configure OpenSSL to check for Certificate Revocation List (CRL) or use Online Certificate Status Protocol (OCSP). To do so,
+
+    1.  Open either of the following files in your openssl installation.
+        -  `validation.cnf`
+        -  `openssl.cnf`
+
+        ??? note "Location of the configuration files"
+            The location of the configuration file depends on the operating system and the openssl installation method.
+
+            - For Linux, 
+                - `/etc/ssl/openssl.cnf`
+                - `/usr/lib/ssl/openssl.cnf`
+            
+            - For MacOS, 
+                - `/opt/homebrew/etc/openssl@<version>/openssl.cnf`
+                - `/System/Library/OpenSSL/openssl.cnf` (System-wide, read-only file. Take a copy of it and avoid editing directly.)
+
+            - For Windows,
+                - `C:\Program Files\OpenSSL-Win64\bin\openssl.cnf`
+                - `C:\Program Files (x86)\GnuWin32\share\openssl.cnf`
+            
+            If you do not have permission to modify the system-wide configuration file, create a custom configuration file (e.g., validation.cnf) in your working directory.
+
+    2.  Set the following properties under `x509_extensions`.
+
+        ``` java
+        crlDistributionPoints = URI:http://pki.google.com/GIAG2.crl
+        authorityInfoAccess = OCSP;URI: http://clients1.google.com/ocsp
         ```
-
-        You will be prompted to enter the following details before creating the keystore.
-
-        !!! tip
-            You are prompted for details after executing the above command. For "What is your first and last name?" 
-            you need to give a name without space(e.g., wso2). 
-
-        This command will create a keystore with the following details: 
-
-        ``` text
-        - Keystore name: localcrt.jks
-        - Alias of public certificate: localcrt
-        - Keystore password: localpwd
-        - Private key password: localpwd (this is required to be the same as keystore password)
-        ```
-
-    2. Execute the following command to generate the certificate signing request(CSR) using the generated keystore file.
-
-        ``` shell
-        keytool -certreq -alias localcrt -file localcrt.csr -keystore localcrt.jks -storepass localpwd
-        ```
-
-    3. To enable CRL or OCSP based certificate revocation validation, configure the necessary openSSL extension configurations.
-        
-        1.  Open either of the following files.
-            -  `validation.cnf`
-            -  `/usr/lib/ssl/openssl.cnf`
-
-        2.  Set the following properties under `x509\_extensions`.
-
-            ``` java
-            crlDistributionPoints = URI:http://pki.google.com/GIAG2.crl
-            authorityInfoAccess = OCSP;URI: http://clients1.google.com/ocsp
-            ```
     
-    4. Once it is done, sign the CSR, which requires the CA root key.
+4. Once it is done, sign the CSR using the root CA key generated in Step 1 above.
 
-        ``` shell
-        openssl ca -batch -startdate 150813080000Z -enddate 250813090000Z -keyfile rootCA2.key -cert rootCA2.crt -policy 
-        policy_anything -config {File_Path}/openssl.cnf -notext -out localcrt.crt -infiles localcrt.csr
-        ```
+    ```shell
+    openssl ca -batch -startdate 150813080000Z -enddate 250813090000Z -keyfile rootCA.key -cert rootCA.crt -policy policy_anything -config <custom_config_location> -notext -out localcrt.crt -infiles localcrt.csr
+    ```
 
-        This creates a signed certificate called `localcrt.crt` that is valid for a specified period that is denoted by the `startdate` and `enddate`.
+    !!! note
+        The `-config` flag is only needed if you are using a custom configuration file.
 
-    5. The next step is to import the CA and signed certificate into the keystore.
+    This creates a signed certificate called `localcrt.crt` that is valid for a specified period that is denoted by the `startdate` and `enddate`.
 
-        ``` shell
-        keytool -importcert -alias rootCA -file rootCA.crt -keystore localcrt.jks -storepass localpwd -noprompt
+5. Import the CA into the keystore using the following command.
+
+    ```shell
+    keytool -importcert -alias rootCA -file rootCA.crt -keystore localcrt.jks -storepass localpwd -noprompt
+    ```
+
+6. Import the signed certificate into the keystore using the following command.
+
+    ```shell
+    keytool -importcert -alias localcrt -file demoCA/newcerts/01.pem -keystore localcrt.jks -storepass localpwd -noprompt
+    ```
+
+7. Use the command below to convert the `.crt` file into the PKCS12 format, which is used for importing certificates into browsers:
+
+    ``` shell
+    keytool -importkeystore -srckeystore localcrt.jks -destkeystore localhost.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass localpwd -deststorepass browserpwd -srcalias localcrt -destalias browserKey -srckeypass localpwd -destkeypass browserpwd -noprompt
+    ```
+
+    Make sure to use the same password you used when creating the keystore for the `srcstorepass` in the above step. Now you have the `localhost.p12` file that you can import into your browser as explained in the [import certificate](#import-certificate) section.
+
+8. Create a new trust store using the following command.
+
+    ```shell
+    keytool -import -keystore cacerts.jks -storepass cacertspassword -alias rootCA -file rootCA.crt -noprompt
+    ```
+
+9. Next, import the server certificate into the trust store using the following commands:
+
+    ```shell
+    keytool -importcert -alias localcrt -file localcrt.crt -keystore cacerts.jks -storepass cacertspassword -noprompt
+    ```
         
-        keytool -importcert -alias localcrt -file demoCA/newcerts/01.pem -keystore localcrt.jks -storepass localpwd -noprompt
-        ```
+    !!! tip "Understanding CN in LDAP and Active Directory"  
     
-    6. Now, get the `pkcs12` out of `.crt` file using the command given below as it is been used to import certificates to the browser.
+        In an LDAP directory, user objects typically have a **CN (Common Name)** attribute, which serves as a unique identifier for users. The CN is a part of the **Distinguished Name (DN)** and is used to reference user entries within the directory.  
 
-        ``` shell
-        keytool -importkeystore -srckeystore localcrt.jks -destkeystore localhost.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass 
-        localpwd -deststorepass browserpwd -srcalias localcrt -destalias browserKey -srckeypass localpwd -destkeypass browserpwd -noprompt
-        ```
+        While LDAP supports multiple naming attributes, Active Directory primarily uses **CN** along with two other object designators for identifying user objects. This is important for authentication mechanisms, such as **X.509 certificate-based authentication**, where the CN in a certificate must match the CN in the directory for proper user mapping.
 
-        Make sure to use the same password you used when creating the keystore for the `srcstorepass` in the above step. Now you have 
-        the `localhost.p12` file that you can import into your browser as explained in the [import certificate](#import-certificate) section.
+Once you have done the above steps, you now have the keystore (`localcrt.jks`), truststore (`cacerts.jks`), and pkcs12 (`localhost.p12`) files that you need to use later on in this guide.
 
-    7. Next, create a new trust store and import the server certificate into the trust store using the following commands:
+## Step 3: Configure X.509 certificate-based authentication in {{product_name}}
 
-        ``` shell
-        keytool -import -keystore cacerts.jks -storepass cacertspassword -alias rootCA -file rootCA.crt -noprompt
-        keytool -importcert -alias localcrt -file localcrt.crt -keystore cacerts.jks -storepass cacertspassword -noprompt
-        ```
-        
-        !!! tip "CN"
-            The User objects in the LDAP directory hierarchy have designators that start with CN, meaning Common Name. The CN designator 
-            applies to all but a few object types. Active Directory only uses two other object designators (although LDAP defines several).
-
-Once you have done the above steps, you have the keystore (`localcrt.jks`), truststore (`cacerts.jks`), and pkcs12 (`localhost.p12`) files 
-that you need to use later on in this guide.
-
-## Configure the X509 certificate for the app
+Follow the steps below to configure X.509 certificate-based authentication in {{product_name}}.
 
 1.  Download [{{ product_name }}](http://wso2.com/products/identity-server/).
 
-2.  Replace your keystore file path, keystore password, trust store file path and trust store password (you can use the keystore and
-    truststore, which you created in the [Work with Certificates](#work-with-certificates) section) in the following configuration and add it to the
-    `<IS_HOME>/repository/conf/deployment.toml` file.
+2.  Update the `<IS_HOME>/repository/conf/deployment.toml` file with the keystore and truststore details. Replace the placeholders with the actual paths and passwords of the keystore and truststore you created in step 3.
 
     ``` toml 
     [custom_transport.x509.properties]
@@ -170,22 +226,24 @@ that you need to use later on in this guide.
     ssl_protocol = "TLS"
     ```
 
-    !!! note
+    !!! Important 
     
-        1.  The `clientAuth` attribute causes the Tomcat to require the client with providing a certificate that can be configured as follows.
+        1.   To function properly, this connector should come first in the order. Otherwise, when mutual SSL takes place, the already existing connector (9443) will be picked up and the certificate will not be retrieved correctly.
+
+        2.  The `clientAuth` attribute causes the Tomcat to require the client with providing a certificate that can be configured as follows.
             -   `true` : valid client certificate required for a connection to succeed
             -   `want` : use a certificate if available, but still connect if no certificate is available
             -   `false` : no client certificate is required or validated
     
-        2.   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
+        3.   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
 
-## Disable certificate validation
+## Step 4: (Optional) Disable certificate validation
 
-The location that is used to disable certificate validation depends on whether {{ product_name }} was started at least once or not.
+!!! note
+    
+    This step is only required if you are testing unsecure scenarios such as with a self-signed certificate. 
 
--   If you have never started {{ product_name }} before, the configurations should be made on the `deployment.toml` file.
-
--   If you have started {{ product_name }} at least once, the configurations should be made on the registry parameters.
+Disabling certificate validation is necessary as {{product_name}} attempts to validate certificates against external Certificate Revocation Lists (CRL) or Online Certificate Status Protocol (OCSP) responders. Since self-signed certificates do not have a publicly accessible CA for revocation checks, enabling these validations will cause authentication failures.
 
 ### Disable certificate validation in an unstarted {{ product_name }} pack
 
@@ -201,7 +259,7 @@ Follow the steps below to disable certificate validation if your {{ product_name
     crl_validator_enabled = false
     ```
     
-    !!! infox
+    !!! note
         - CRL is a list of digital certificates that have been revoked by the issuing CA.
         - OCSP is an internet protocol that is used for obtaining the revocation status of an X509 digital certificate using the certificate serial number.
 
@@ -261,11 +319,11 @@ If {{product_name}} is already started, use the [Certificate Validation Manageme
 
 {% endif %}
 
-## Configure the Authentication Endpoint
+## Step 5: (Optional) Configure additional settings
 
-1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
+The following are additional settings that you may configure for X.509 certificate authentication in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-2.  Add the following configuration to the file.
+1. Add the following to configure the authentication endpoint for X.509 certificate authentication:
 
     ``` toml
     [authentication.authenticator.x509_certificate.parameters]
@@ -275,119 +333,87 @@ If {{product_name}} is already started, use the [Certificate Validation Manageme
     username= "CN"
     ```
 
-    !!! info
-        - `name` : This attribute identifies the authenticator that is configured as the second authentication step. 
-        - `enable`: This attribute, when set to true makes the authenticator capable of being involved in the authentication process. 
-        - `AuthenticationEndpoint` : This is the URL with the port that is secured with the certificate, 
-            e.g., `https://localhost:8443/x509-certificate-servlet`. 
-            This value will be taken to extract the certificate from the browser by redirecting the user to the specified endpoint. 
-            Update this based on your host name.
-        - `username` : This attribute value will be taken as the authenticated user subject identifier. Update this
-             with any of the certificate attributes, e.g., CN and Email.
+    !!! info "Configuration details"
+        - `name` : Identifies the authenticator. 
+        - `enable`: Enables X.509 certificate authentication.
+        - `AuthenticationEndpoint` : Specifies the URL where the certificate is retrieved from the browser. Update this based on your hostname.
+        - `username` : Defines the certificate attribute used as the authenticated user’s identifier (e.g., CN, Email).
 
     !!! note
-        When X509 authentication is configured as the second authentication
-        step, the certificate will be validated to check whether it is
-        associated with the authenticated user in the first authentication
-        step. For that, the `username` parameter will
-        be used. For that, the authenticated user name considered in the
-        first authentication step will be validated with the certificate
-        attribute in this property.
-    
-        When X509 authentication is configured as the first step, this
-        certificate attribute will be treated as the authenticated user
+
+        When X.509 authentication is used as the second authentication step, the system validates whether the certificate is linked to the user authenticated in the first step. This is done by comparing the `username` parameter with the corresponding attribute in the certificate.  When X509 authentication is configured as the first step, this certificate attribute will be treated as the authenticated user
         subject identifier.
     
-3.  If you are using a user property to store X509 certificate, add the following parameter.
+2.  If you want to store X.509 certificates as user attributes, add the following property:
 
     ``` toml
     [authentication.authenticator.x509_certificate.parameters]
     setClaimURI = "http://wso2.org/claims/userCertificate"
     ```
 
-4.  To enable storing the X509 certificate as a user claim, add the following parameter.
+4.  To enable automatic self-registration for users who authenticate with an X.509 certificate, add the following property:
 
     ``` toml 
     [authentication.authenticator.x509_certificate.parameters]
     EnforceSelfRegistration = true
     ```
 
-5. Restart the server to apply the changes.
+5. Restart {{product_name}} to apply the changes.
 
-## Add a claim mapping for the certificate
+## Step 6: (Optional) Add an attribute mapping for the certificate
 
-If storing the certificate as a user claim is enabled, the X509 certificate will be stored as a user claim and verified with the
-retrieved certificate from the request.
+!!! note
 
-To add the custom attribute, follow the [Add custom attributes](../../../guides/users/attributes/manage-attributes.md/#add-custom-attributes) steps 
-and use the following details for the claim addition.
+    This step is only required if you enabled storing X.509 certificates as a user attribute in step 5 above.
 
-``` text
+If you have enabled storing X.509 certificates as a user attribute, {{product_name}} will save the certificate as a user attribute and validate it against the certificate presented in the authentication request.
+
+To add the custom attribute, follow the steps in [add custom attributes]({{base_path}}/guides/users/attributes/manage-attributes.md/#add-custom-attributes) and use the following details.
+
 - Attribute name : userCertificate
 - Attribute Display Name : User Certificate
-```
-![add-user-certificate-attribute](../../../assets/img/guides/authentication/mfa/add-user-certificate-attribute.png){: width="600" style="display: block; border: 0.3px solid lightgrey;"}
 
-This will create the **OpenID Connect** and **SCIM 2.0** protocol mappings as well. When storing the certificate in a user attribute, you will 
-need to update the column size of the `VALUE` column of the `UM_USER_ATTRIBUTES` table to a suitable value.
+![add-user-certificate-attribute]({{base_path}}/assets/img/guides/authentication/mfa/add-user-certificate-attribute.png){: width="600" style="display: block; border: 0.3px solid lightgrey;"}
 
-## Import certificate
+This will also generate the **OpenID Connect** and **SCIM 2.0** protocol mappings. If you store the certificate as a user attribute, you must adjust the column size of the `VALUE` column in the `UM_USER_ATTRIBUTES` table to accommodate the certificate data.
 
--   **Chrome**
-    1.  In your browser, go to **Settings** > **Privacy and security** > **Manage certificates** > **Your certificates**.
-    
-        ![manage-cert-chrome](../../../assets/img/guides/authentication/mfa/manage-certificates-chrome.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+## Step 7: Import certificate to browser
 
-    2.  Click on **Import,** select the **localhost.p12** file, and then
-    click **Open**. Note that you may have to enter the password that
-    you used to generate the p12 file, (browserpwd) to open it.
-    
-        ![import-cert-chrome](../../../assets/img/guides/authentication/mfa/import-certificate-chrome.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+To use the X.509 certificate for authentication, you must first import it into your browser's certificate store. To do so:
 
--   **Firefox**
-    1.  Click on the menu option on the right of the screen and select
-        **Settings**.  
-    
-        ![settings-firefox](../../../assets/img/guides/authentication/mfa/settings-firefox.png){: width="300" height="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+1. Open your browser's settings and navigate to the certificate management section.
 
-    2.  Click **Privacy & Security** in the left navigation and scroll down to
-        the **Certificates** section. Click **View Certificates**.  
-        
-        ![view-certificates](../../../assets/img/guides/authentication/mfa/view-certificates-firefox.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+2. Look for options related to Privacy & Security or Certificates.
+3. Locate the option to Import a certificate.
+4. Select the `localhost.p12` file and follow the prompts. You may be asked to enter the password (browser password) used when creating the .p12 file.
+5. Once imported, ensure the certificate is recognized and available for authentication.
 
-    3.  Go to **Your Certificates** in the window that appears, click **Import**.  
+For specific instructions, refer to your browser’s documentation on managing client certificates.
 
-        ![import-firefox](../../../assets/img/guides/authentication/mfa/import-certificated-firefox.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+## Step 8: Enable X.509 authenticator for your application
 
-    4.  Select the **localhost.p12** file, and then click **Open**. Note
-        that you may have to enter the password that you used to generate
-        the p12 file, (browserpwd) to open it.
+!!! note "Before you begin"
 
-## Register an app
+    To enable X.509 certificate-based authentication for your application, you first need to register your application in {{product_name}}. If you have not done already, refer to [Applications]({{base_path}}/guides/applications/) for instructions.
 
-The next step is to configure the application.
+To enable the x.509 authenticator for your application,
 
-1. Go to Console and create an application by following the steps in [Web applications](../../../guides/applications/index.md#web-applications)
+1. On the {{product_name}} Console, go to **Applications** and select your application.
 
-2. Go to **Login Flow** of the created app, select **Start with default configuration** option.
-
-    ![app-login-flow](../../../assets/img/guides/authentication/mfa/app-login-flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-3. Remove the default **Username & Password** authenticator, add **X509 Certificate** and **Update**.
+2. In the **Login Flow** tab of your application, click **Add Sign In Option** and select **X509 Certificate**.
 
     ![add-x509-authenticator](../../../assets/img/guides/authentication/mfa/add-x509-authenticator.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Finally, click on **Update** to finish the application configurations.
+4. Click **Update** to save the changes.
 
-## Onboard a user
+## Step 9: Onboard a user
 
-A user for the corresponding certificate should be available in the system to perform the authentication. Follow the given instructions 
-in [Onboard single user](../../users/manage-users.md/#onboard-single-user) to onboard a user with the username `wso2is.com` (This is the CN of the created certificate above).
+Create a user in {{product_name}} with the same username as the `CN` of the created certificate above. See [Onboard users]({{base_path}}/guides/users/manage-users/#onboard-users) for instructions.
 
 ## Try it out
 
 Try to login to the application you have configured. You will be prompted to send the certificate.
 
-![send-certificate](../../../assets/img/guides/authentication/mfa/certificate-send.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![send-certificate]({{base_path}}/assets/img/guides/authentication/mfa/certificate-send.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Once the authentication is successful, you will be redirected to the configured callback location of the application.
