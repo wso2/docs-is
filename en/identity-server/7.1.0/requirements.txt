@@ -1,5 +1,5 @@
 mkdocs==1.5.3
-Pygments==2.14.0
+Pygments==2.15.0
 pymdown-extensions==10.3.1
 mkdocs-minify-plugin==0.6.2
 mkdocs-markdownextradata-plugin==0.2.5
