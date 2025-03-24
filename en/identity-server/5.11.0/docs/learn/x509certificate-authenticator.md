@@ -40,9 +40,7 @@ To create a sample certificate and create your own Certificate Authority to sign
     - Locality Name (eg, city) [ ]: Colombo
     - Organization Name (eg, company) [Internet Widgits Pty Ltd]: WSO2
     - Organizational Unit Name (eg, section) [ ]: QA
-    - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com 
-        !!! note
-            Note that the **CN** value has to be the same as the **user name** of the user that will try to log in in the future.
+    - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com
     - Email Address [ ]: kim@wso2.com
 
 4.  An OpenSSL CA requires new files and supporting directories. Therefore, create a new directory.
@@ -79,8 +77,11 @@ To create a sample certificate and create your own Certificate Authority to sign
         ```
 
         !!! tip
-            You are prompted for details after executing the above command. For "What is your first and last name?" you need to give a name without space(e.g., wso2). 
-
+            You are prompted for details after executing the above command. For "What is your first and last name?" you need to give a name without space(e.g., wso2).
+        
+        !!! note
+            Note that the **CN** value has to be the same as the **user name** of the user that will try to log in in the future.
+   
         This command will create a keystore with the following details: 
             - **Keystore name:** localcrt.jks
             - **Alias of public certificate:** localcrt
