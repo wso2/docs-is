@@ -75,13 +75,17 @@ Follow the steps below to enable product observability.
 2.  To set the `           -DenableCorrelationLogs          ` property
     to `           true          `, execute the following command.
 
-    ```tab="Mac OS/Linux"
-    sh wso2server.sh -DenableCorrelationLogs=true start
-    ```
+    - Mac OS/Linux,
+
+        ```
+        sh wso2server.sh -DenableCorrelationLogs=true start
+        ```
     
-    ```tab="Windows"
-    wso2server.bat -DenableCorrelationLogs=true start
-    ```
+    - Windows,
+        
+        ```
+        wso2server.bat -DenableCorrelationLogs=true start
+        ```
 
     !!! note    
         By default, this property is set to `           false          ` .
