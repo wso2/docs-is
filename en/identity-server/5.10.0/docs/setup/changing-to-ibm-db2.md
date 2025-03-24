@@ -127,8 +127,6 @@ Following are the basic configurations and their descriptions.
 
 Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
 
-Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
-
 -	`WSO2_IDENTITY_DB` related configurations that should be added to the `deployment.toml` file.
 
 	``` toml
