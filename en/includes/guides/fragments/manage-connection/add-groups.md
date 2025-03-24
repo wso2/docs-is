@@ -22,7 +22,7 @@ Follow the steps below to map attributes of {{product_name}} with that of a conn
 
     ![Submit attribute mappings]({{base_path}}/assets/img/guides/idp/group-mapping/submit-attribute-mappings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### Add groups to connection
+### Add groups to connections
 
 Follow the steps below to add the groups from your connection to {{ product_name }}:
 
