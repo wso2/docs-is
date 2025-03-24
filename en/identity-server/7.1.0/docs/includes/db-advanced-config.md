@@ -8,7 +8,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	maxWait = "360000"
 	minIdle ="5"
 	testOnBorrow = true
-	validationQuery = "SELECT 1 FROM sysibm.sysdummy1"
+	validationQuery = "SELECT 1"
 	validationInterval="30000"
 	defaultAutoCommit=false
 	commitOnReturn=true
@@ -22,7 +22,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	maxWait = "360000"
 	minIdle ="5"
 	testOnBorrow = true
-	validationQuery = "SELECT 1 FROM sysibm.sysdummy1"
+	validationQuery = "SELECT 1"
 	validationInterval="30000"
 	defaultAutoCommit=false
 	commitOnReturn=true
