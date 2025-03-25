@@ -195,7 +195,7 @@ nav:
           - Log in with Facebook: guides/identity-federation/facebook.md
           - Log in with Google: guides/identity-federation/google.md
           - Log in with Twitter: guides/identity-federation/twitter.md
-          - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
+          - Log in with Microsoft Login: guides/identity-federation/microsoft-login.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
           - Log in with Apple: guides/identity-federation/apple.md
       - Access Delegation:
