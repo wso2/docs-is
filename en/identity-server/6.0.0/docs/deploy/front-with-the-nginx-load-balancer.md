@@ -34,6 +34,11 @@ collectively as "Nginx".)
     /etc/nginx/conf.d ` directory and add the following configurations
     into it. 
 
+    !!! info
+         For NGINX Open Source, the location depends on the installation method and OS. Common locations include `/usr/local/nginx/conf`, `/etc/nginx`, or `/usr/local/etc/nginx`.
+
+         _See [NGINX docs](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) for details._
+
     ??? abstract "Click here to view a generic Nginx configuration"
 
         ```java tab="HTTP configuration"
@@ -135,11 +140,21 @@ collectively as "Nginx".)
         }
         ```
 
+    !!! warning "Security Notice"
+         While HTTP (port 80) is demonstrated here for completeness, it is not recommended for use in production environments due to security concerns.
+         Instead, configure HTTPS (port 443) to ensure all communication is encrypted.
+         If HTTP must be enabled, it is advisable to use it only for redirection to HTTPS, not for transmitting sensitive data.
+
 3.  Now that you've configured HTTP requests, you must also configure
     HTTPS requests. Configure Nginx to direct the HTTPS requests to the
     two worker nodes via the HTTPS 443 port using ` https://is.wso2.com/` . To do this, create a VHost file ( ` is.https.conf ` ) in the `
     /etc/nginx/conf.d ` directory and add the following configurations
     into it.
+
+    !!! info
+         For NGINX Open Source, the location depends on the installation method and OS. Common locations include `/usr/local/nginx/conf`, `/etc/nginx`, or `/usr/local/etc/nginx`.
+
+         _See [NGINX docs](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) for details._
 
     !!! note
     

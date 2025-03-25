@@ -22,6 +22,11 @@ Use the following steps to configure [NGINX Plus](https://www.nginx.com/products
 1. Install Nginx (NGINX Plus or Nginx community) in a server configured in your cluster.
 2. Configure Nginx to direct the HTTP requests to the two worker nodes via the HTTP 80 port using the `http://is.wso2.com/>`. To do this, create a VHost file ( ` is.http.conf ` ) in the `/etc/nginx/conf.d` directory and add the following configurations into it.
 
+    !!! info
+         For NGINX Open Source, the location depends on the installation method and OS. Common locations include `/usr/local/nginx/conf`, `/etc/nginx`, or `/usr/local/etc/nginx`.
+
+         _See [NGINX docs](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) for details._
+
     ??? abstract "Click here to view a generic Nginx configuration"
 
         ```java
@@ -123,7 +128,17 @@ Use the following steps to configure [NGINX Plus](https://www.nginx.com/products
         }
         ```
 
+    !!! warning "Security Notice"
+         While HTTP (port 80) is demonstrated here for completeness, it is not recommended for use in production environments due to security concerns.
+         Instead, configure HTTPS (port 443) to ensure all communication is encrypted.
+         If HTTP must be enabled, it is advisable to use it only for redirection to HTTPS, not for transmitting sensitive data.
+
 3. Now that you've configured HTTP requests, you must also configure HTTPS requests. Configure Nginx to direct the HTTPS requests to the two worker nodes via the HTTPS 443 port using `https://is.wso2.com/`. To do this, create a VHost file ( ` is.https.conf ` ) in the `/etc/nginx/conf.d` directory and add the following configurations into it.
+
+    !!! info
+         For NGINX Open Source, the location depends on the installation method and OS. Common locations include `/usr/local/nginx/conf`, `/etc/nginx`, or `/usr/local/etc/nginx`.
+
+         _See [NGINX docs](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) for details._
 
     !!! note
         The configurations for the Nginx community version and NGINX Plus are different here since the community version does not support the `sticky` directive.
