@@ -195,7 +195,7 @@ nav:
           - Log in with Facebook: guides/identity-federation/facebook.md
           - Log in with Google: guides/identity-federation/google.md
           - Log in with Twitter: guides/identity-federation/twitter.md
-          - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
+          - Log in with Microsoft login: guides/identity-federation/microsoft-login.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
           - Log in with Apple: guides/identity-federation/apple.md
       - Access Delegation:
@@ -936,7 +936,7 @@ plugins:
               'learn/configuring-facebook.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/facebook/'
               'learn/configuring-yahoo.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-google.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/google/'
-              'learn/configuring-microsoft-windows-live.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/microsoft-live/'
+              'learn/configuring-microsoft-windows-live.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/microsoft-login/'
               'learn/configuring-iwa-on-linux.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/iwa-kerberos/'
               'learn/configuring-ad-fs-as-a-federated-authenticator.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-ad-fs-as-a-federated-authenticator/'
               'learn/configuring-twitter.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/twitter/'
