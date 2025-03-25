@@ -28,7 +28,6 @@ sh wso2server.sh
 
 Once the server is up, log in to the Management Console using the new super admin credentials.
 
-
 ### Step 3
 Use the new super admin account to:
 
@@ -39,17 +38,16 @@ Use the new super admin account to:
 > 🔒 Users assigned the `Internal/system` role are not subject to account locking policies.
 
 ### Step 4
-Once the original account is recovered:
+Once the original account is recovered,
 
 1. Revert the changes in `deployment.toml`.
-2. Restart the server again.
+2. Restart the server.
+3. Then either use the previous super admin user or utilize the new super admin user.
 
----
+!!! warning
+    **Do not attempt direct DB updates** in a production environment to unlock a user unless instructed by WSO2 support.
+    
+!!! note "Important Notes"
+    - The temporary super admin account is created only when `create_admin_account = true`. After the recovery process, this account will not be automatically removed and must be deleted manually if no longer needed.
+    - Ensure that at least one super admin account is always accessible to avoid such situations.
 
-## ⚠️ Important Notes
-
-- **Do not attempt direct DB updates** in a production environment to unlock a user unless instructed by WSO2 support.
-- The temporary super admin account is created only when `create_admin_account = true`. After recovery, it is recommended to disable this by setting the value to `false`.
-- Ensure that at least one super admin account is always accessible to avoid such situations.
-
----
