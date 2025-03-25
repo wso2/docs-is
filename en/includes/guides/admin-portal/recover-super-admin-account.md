@@ -17,7 +17,8 @@ password = "Temp@1234"
 create_admin_account = true
 ```
 
-> 💡 The above configuration will create a new super admin user named `temporary-admin` on server startup.
+!!! info
+    The above configuration will create a new super admin user named `temporary-admin` on server startup.
 
 ### Step 2
 Restart {{ product_name }} to apply the configuration changes and create the new admin account.
@@ -35,7 +36,8 @@ Use the new super admin account to:
 - Reset the password if necessary.
 - Assign the **Internal/system** role to prevent future lockouts (optional).
 
-> 🔒 Users assigned the `Internal/system` role are not subject to account locking policies.
+!!! tip
+    Users assigned the `Internal/system` role are not subject to account locking policies.
 
 ### Step 4
 Once the original account is recovered,
