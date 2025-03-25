@@ -65,7 +65,7 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
     clientAuth="want"
     ```
 
-3. Download the Mutual TLS Client Authenticator v2.0.3 connector from [here](https://store.wso2.com/store/assets/isconnector/details/bab13ed8-5835-480f-92be-fdd5ee900970).  
+3. Download the Mutual TLS Client Authenticator v2.0.3 connector from [here](https://store.wso2.com/connector/identity-oauth-clientauth-mutualtls).  
 
 4. Copy the OSGi bundle to the `<IS_HOME>/repository/components/dropins` directory.
 

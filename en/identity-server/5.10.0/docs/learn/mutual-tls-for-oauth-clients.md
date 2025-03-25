@@ -78,7 +78,7 @@ with a sample.
         ```
 
 3.  Download Mutual TLS Client Authenticator v2.0.3 connector from
-    [here](https://store.wso2.com/store/assets/isconnector/details/bab13ed8-5835-480f-92be-fdd5ee900970)
+    [here](https://store.wso2.com/connector/identity-oauth-clientauth-mutualtls)
     .  
     Note that an OSGI bundle (
     `          org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls-<VERSION>.jar         `
