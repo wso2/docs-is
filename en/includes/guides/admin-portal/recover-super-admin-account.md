@@ -34,10 +34,10 @@ Use the new super admin account to:
 
 - Unlock the original super admin account.
 - Reset the password if necessary.
-- Assign the **Internal/system** role to prevent future lockouts (optional).
+- Assign the **system** role to prevent future lockouts (optional).
 
 !!! tip
-    Users assigned the `Internal/system` role are not subject to account locking policies.
+    Users assigned the `system` role are not subject to account locking policies.
 
 ### Step 4
 Once the original account is recovered,
