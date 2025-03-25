@@ -1,18 +1,16 @@
-# Configuring Microsoft Login
+# Configuring Microsoft login
 
-Microsoft Login can be used as a federated authenticator in the
+Microsoft login can be used as a federated authenticator in the
 Identity Server. Do the following to configure the Identity Server to
 authenticate users using their Microsoft accounts.
 
-# Configure Microsoft Live as a federated authenticator
+# Configure Microsoft login as a federated authenticator
 
-Microsoft Login can be used as a federated authenticator in the
+Microsoft login can be used as a federated authenticator in the
 Identity Server.
 
 Follow the steps given below to configure WSO2 Identity Server to
 authenticate users with their Microsoft accounts.
-
-Follow this guide for instructions.
 
 ## Register WSO2 Identity Server on Microsoft
 
@@ -96,17 +94,15 @@ Now, let's generate a client secret for the application.
     
 4.  Fill in the following fields where relevant.  
     Prior to configuring, you need to have an application created in
-    Windows live. See [Configuring your
-    app](https://msdn.microsoft.com/en-us/library/hh826541.aspx) to
-    create an application in Windows Live.
+    Microsoft login.
 
     | Field         | Description                                                                                                                                                                                                                | Sample value                                                                                                                                                     |
     |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Enable        | Selecting this option enables Microsoft to be used as an authenticator for users provisioned to the Identity Server.                                                                                                       | Selected                                                                                                                                                         |
     | Default       | Selecting the **Default** check box signifies that Microsoft is the main/default form of authentication. This removes the selection made for any other **Default** checkboxes for other authenticators.                    | Selected                                                                                                                                                         |
-    | Client Secret | This is the password from the Microsoft Live application. Click the **Show** button to view the value you enter.                                                                                                           | 12ffb4dfb2fed67a00846b42126991f8                                                                                                                                 |
+    | Client Secret | This is the password from the Microsoft login application. Click the **Show** button to view the value you enter.                                                                                                           | 12ffb4dfb2fed67a00846b42126991f8                                                                                                                                 |
     | Callback URL  | This is the URL to which the browser should be redirected after the authentication is successful. It should have this format: `                               https://(host-name):(port)/acs                             ` | [https://localhost:9443/commonauth](https://www.google.com/url?q=https%3A%2F%2Flocalhost%3A9443%2Fcommonauth&sa=D&sntz=1&usg=AFQjCNG7dB10sZ-F07Du9Q5fT-mVDMfobg) |
-    | Client Id     | This is the username from the Microsoft Live application.                                                                                                                                                                  | 1421263438188909                                                                                                                                                 |
+    | Client Id     | This is the username from the Microsoft login application.                                                                                                                                                                  | 1421263438188909                                                                                                                                                 |
 
 !!! info "Related Topics"
 

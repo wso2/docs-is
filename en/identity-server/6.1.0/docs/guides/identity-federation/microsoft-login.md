@@ -1,12 +1,10 @@
-# Configure Microsoft Login as a federated authenticator
+# Configure Microsoft login as a federated authenticator
 
-Microsoft Login can be used as a federated authenticator in the
+Microsoft login can be used as a federated authenticator in the
 Identity Server.
 
 Follow the steps given below to configure WSO2 Identity Server to
 authenticate users with their Microsoft accounts.
-
-Follow this guide for instructions.
 
 ## Register WSO2 Identity Server on Microsoft
 
