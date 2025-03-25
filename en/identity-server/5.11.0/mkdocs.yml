@@ -721,6 +721,7 @@ nav:
       - 'Configuring Cache Layers': setup/configuring-cache-layers.md
     - 'Security':
         - 'Maintaining Logins and Passwords': setup/maintaining-logins-and-passwords.md
+        - 'Recover Super Admin Account': setup/recover-super-admin-account.md
         - 'Securing Passwords in Configuration Files':
             - 'Encrypting Passwords with Cipher Tool': setup/encrypting-passwords-with-cipher-tool.md
             - 'Resolving Encrypted Passwords': setup/resolving-encrypted-passwords.md
