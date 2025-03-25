@@ -1,6 +1,6 @@
 # Integrate Asgardeo with your React SPA
 
-Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [Asgardeo React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README/).
+Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [Asgardeo React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README.md).
 
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm) in your local environment.
