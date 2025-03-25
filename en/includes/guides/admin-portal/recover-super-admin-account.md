@@ -41,14 +41,8 @@ Use the new super admin account to:
 ### Step 4
 Once the original account is recovered:
 
-1. Revert the changes in `deployment.toml`:
-   ```toml
-   [super_admin]
-   username = "admin"
-   password = "Admin@123"
-   create_admin_account = false
-   ```
-2. Restart the server again to remove the temporary super admin configuration.
+1. Revert the changes in `deployment.toml`.
+2. Restart the server again.
 
 ---
 
