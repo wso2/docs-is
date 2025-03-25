@@ -723,6 +723,7 @@ nav:
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
         - Recover your username: guides/your-is/recover-username.md
+        - Recover super admin account: guides/your-is/recover-super-admin-account.md
       - Multitenancy:
         - Multitenancy: guides/multitenancy/index.md
         - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
