@@ -582,9 +582,9 @@ components:
       properties:
         schemas:
           type: object
-          properties: {}
           examples:
-            - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+            -
+              - urn:ietf:params:scim:api:messages:2.0:SearchRequest
         startIndex:
           type: integer
           examples:
@@ -681,7 +681,7 @@ components:
             type:
               type: string
               enum:
-                - applciation
+                - application
                 - organization
               examples:
                 - application

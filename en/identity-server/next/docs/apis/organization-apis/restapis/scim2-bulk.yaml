@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: SCIM 2.0 Bulk API
   description: |
@@ -94,12 +94,14 @@ components:
       properties:
         failOnErrors:
           type: integer
-          example: 1
+          examples:
+            - 1
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:BulkRequest
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:BulkRequest
         Operations:
           type: array
           items:
@@ -109,13 +111,16 @@ components:
       properties:
         method:
           type: string
-          example: POST
+          examples:
+            - POST
         path:
           type: string
-          example: /Users
+          examples:
+            - /Users
         bulkId:
           type: string
-          example: ytrewq
+          examples:
+            - ytrewq
         data:
           type: object
           properties:
@@ -123,13 +128,16 @@ components:
               type: array
               items:
                 type: string
-                example: urn:ietf:params:scim:schemas:core:2.0:User
+                examples:
+                  - urn:ietf:params:scim:schemas:core:2.0:User
             username:
               type: string
-              example: jesse
+              examples:
+                - jesse
             password:
               type: string
-              example: jesspass
+              examples:
+                - jesspass
     BulkUserResponseObject:
       type: object
       properties:
@@ -137,7 +145,8 @@ components:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:BulkResponse
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:BulkResponse
         Operations:
           $ref: '#/components/schemas/OperationObBulk'
     OperationObBulk:
@@ -145,19 +154,23 @@ components:
       properties:
         bulkId:
           type: string
-          example: qwerty
+          examples:
+            - qwerty
         method:
           type: string
-          example: POST
+          examples:
+            - POST
         location:
           type: string
-          example: https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1
+          examples:
+            - https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1
         status:
           type: object
           properties:
             code:
               type: string
-              example: "201"
+              examples:
+                - "201"
     ErrorUnauthorized:
       required:
         - status
@@ -165,13 +178,16 @@ components:
       properties:
         status:
           type: string
-          example: "401"
+          examples:
+            - "401"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Unauthorized
+          examples:
+            - Unauthorized
     ErrorForbidden:
       required:
         - status
@@ -179,13 +195,16 @@ components:
       properties:
         status:
           type: string
-          example: "403"
+          examples:
+            - "403"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Forbidden
+          examples:
+            - Forbidden
   securitySchemes:
     OAuth2:
       type: oauth2
