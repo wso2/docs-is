@@ -32,7 +32,7 @@ collectively as "Nginx".)
     /etc/nginx/conf.d ` directory and add the following configurations
     into it. 
 
-    !!! info
+    !!! note
          For NGINX Open Source, the location depends on the installation method and OS. Common locations include `/usr/local/nginx/conf`, `/etc/nginx`, or `/usr/local/etc/nginx`.
 
          _See [NGINX docs](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) for details._
@@ -150,12 +150,10 @@ collectively as "Nginx".)
     /etc/nginx/conf.d ` directory and add the following configurations
     into it.
 
-    !!! info
+    !!! note
          For NGINX Open Source, the location depends on the installation method and OS. Common locations include `/usr/local/nginx/conf`, `/etc/nginx`, or `/usr/local/etc/nginx`.
 
          _See [NGINX docs](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) for details._
-
-    !!! note
     
         The configurations for nginx community version and NGINX
         Plus are different here since the community version does not support
