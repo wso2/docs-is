@@ -77,17 +77,7 @@ with a sample.
         clientAuth="want"
         ```
 
-3.  Download Mutual TLS Client Authenticator v2.0.3 connector from
-    [here](https://store.wso2.com/connector/identity-oauth-clientauth-mutualtls)
-    .  
-    Note that an OSGI bundle (
-    `          org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls-<VERSION>.jar         `
-    ) gets downloaded.
-4.  Copy the OSGI bundle to the
-    `           <IS_HOME>/repository/components/dropins          `
-    directory.
-
-5.  Open the `           deployment.toml         ` file in the
+2.  Open the `           deployment.toml         ` file in the
     `           <IS_HOME>/repository/conf/          ` directory
     and add the following configuration.
 
@@ -100,7 +90,7 @@ with a sample.
     enable = true
     ```
 
-6.  In order for mutual TLS authentication to work, the public
+3.  In order for mutual TLS authentication to work, the public
     certificates of the client application and authorization server
     (WSO2 Identity Server) should be imported to each other's
     truststores.
@@ -192,7 +182,7 @@ with a sample.
 
     6.  Click **Update**.
 
-7.  Restart WSO2 Identity Server.
+4.  Restart WSO2 Identity Server.
 
 ### Testing the Sample
 
