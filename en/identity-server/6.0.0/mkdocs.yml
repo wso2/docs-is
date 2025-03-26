@@ -252,6 +252,7 @@ nav:
           - Lock Accounts by Failed Login Attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
           - Lock Accounts by Failed OTP Attempts: guides/identity-lifecycles/lock-accounts-by-failed-otp-attempts.md
           - Lock Accounts per User: guides/tenants/account-locking-per-user.md
+          - Recover Super Admin Account: guides/identity-lifecycles/recover-super-admin-account.md
           - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md

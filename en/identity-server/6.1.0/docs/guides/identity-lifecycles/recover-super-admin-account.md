@@ -16,14 +16,14 @@ create_admin_account = true
 ```
 
 !!! info
-    The above configuration will create a new super admin user named `temporary-admin` on server startup.
+The above configuration will create a new super admin user named `temporary-admin` on server startup.
 
 ## Step 2: Restart {{product_name}}
 
-For your new configurations to apply, restart {{ product_name }} using the appropriate command. 
+For your new configurations to apply, restart {{ product_name }} using the appropriate command.
 
 === "Linux/MacOS"
-    
+
     ```bash
     sh wso2server.sh
     ```
@@ -44,8 +44,8 @@ Once the server starts, log in to the Console using the new super admin credenti
 - [Reset the password]({{base_path}}/guides/users/manage-users/#reset-the-users-password) if necessary.
 - Optionally, you can [assign the system role]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role) to the original super admin account to prevent future lockouts.
 
-    !!! tip
-        
+  !!! tip
+
         Users assigned the `system` role are not subject to account locking policies.
 
 
@@ -58,7 +58,7 @@ Once you recover the original account, you can continue using it as the super ad
 2. Restart {{product_name}}.
 3. Log in to the Console and if necessary, [delete the temporary account]({{base_path}}/guides/users/manage-users/#delete-a-user) you created earlier.
 
-    !!! note "Temporary super admin accounts"
+   !!! note "Temporary super admin accounts"
 
         - A temporary super admin account gets created only when you set `create_admin_account = true`. Once the recovery is complete, this temporary super admin account does not get deleted automatically.
 
