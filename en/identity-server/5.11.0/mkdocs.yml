@@ -215,7 +215,7 @@ nav:
           - 'Configuring Facebook': learn/configuring-facebook.md
           - 'Configuring Yahoo': learn/configuring-yahoo.md
           - 'Configuring Google': learn/configuring-google.md
-          - 'Configuring Microsoft Windows Live': learn/configuring-microsoft-windows-live.md
+          - 'Configuring Microsoft login': learn/configuring-microsoft-login.md
           - 'Configuring IWA on Linux': learn/configuring-iwa-on-linux.md
           - 'Configuring AD FS as a Federated Authenticator': learn/configuring-ad-fs-as-a-federated-authenticator.md
           - 'Configuring Twitter': learn/configuring-twitter.md

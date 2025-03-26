@@ -168,7 +168,7 @@ plugins:
         'guides/identity-federation/facebook.md': 'guides/authentication/social-login/add-facebook-login.md'
         'guides/identity-federation/google.md': 'guides/authentication/social-login/add-google-login.md'
         'guides/identity-federation/twitter.md': 'guides/authentication/social-login/add-x-login.md'  # Assuming no direct match, redirected to a placeholder
-        'guides/identity-federation/microsoft-live.md': 'guides/authentication/social-login/add-microsoft-login.md'
+        'guides/identity-federation/microsoft-login.md': 'guides/authentication/social-login/add-microsoft-login.md'
         'guides/identity-federation/iwa-kerberos.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/identity-federation/apple.md': 'guides/authentication/social-login/add-apple-login.md'
 
