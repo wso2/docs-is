@@ -65,9 +65,3 @@ Once you recover the original account, you can continue using it as the super ad
         - If you no longer need this account, you must go to the Console and delete this user manually.
 
         - To prevent being locked out, make sure that at least one super admin account is always accessible before deleting any admin accounts.
-
-!!! warning "Important"
-    Unless specifically instructed by WSO2 support, **Do not attempt direct database updates in a production environment** to unlock a user account.
-    
-
-
