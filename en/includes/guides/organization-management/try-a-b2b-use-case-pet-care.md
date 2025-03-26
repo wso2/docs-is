@@ -19,7 +19,7 @@ The following guide is a complete end-to-end use case on how to manage B2B (Busi
     - **Doctors** can manage appointments, view pet information, update medical records, and communicate with pet owners.  
     - **Pet Owners** can book appointments, manage their pets' profiles, and view their appointment history.
 
-  This role-based experience ensures all users access the same application, but only see the features relevant to them.
+    ![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/pet-care-organization-scenario.png){: width="700" style="display: block; margin: 0;"}
 
 The following guides explain how Pet Care can use {{ product_name }} to implement the above scenario.
 
