@@ -30,9 +30,9 @@ To do so,
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.2.0" ) %}
 
-You may enable self-service password recovery for users so that they may reset their forgotten passwords right from the login page. Users can click the `Forgot password?` option and either receive an Email Link/OTP or a SMS OTP to reset the password.
+You may enable self-service password recovery for users so that they may reset their forgotten passwords right from the login page. Users can click the `Forgot password?` option and choose to recieve either a Link or an OTP via Email or SMS to reset the password.
 
-To do so,
+To configure password recovery options,
 
 1. On the {{product_name}} Console, go to **Login & Registration**.
 2. Under **Account Recovery**, click on **Password Recovery**.
