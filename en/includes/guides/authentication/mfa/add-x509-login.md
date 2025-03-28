@@ -2,13 +2,13 @@
 
 This guide walks you through configuring the X.509 certificate authenticator in {{product_name}}, helping you set up secure certificate-based authentication for your users.
 
-X.509 is a widely recognized standard within Public Key Infrastructure (PKI) that defines the format for public key certificates. These certificates are typically issued by trusted Certificate Authorities (CAs) and serve as a means of securely identifying users or systems. During the authentication process, the user (or client) presents their X.509 certificate to the authentication server, which then validates the certificate by checking the digital signature of the CA to confirm the certificate’s authenticity.
+X.509 is a widely recognized standard within Public Key Infrastructure (PKI) that defines the format for public key certificates. These certificates are typically issued by trusted Certificate Authorities (CAs) and serve as a means of securely identifying users or systems. During the authentication process, the user (or client) presents their X.509 certificate to the authentication server, which then validates the certificate by checking the digital signature of the CA.
 
-!!! note
+!!! note "Before you begin"
     You need to create the necessary certificates and truststores before you start configuring the x509 
     authenticator on {{ product_name }}. Refer to [Keystores and Truststores]({{base_path}}/deploy/security/keystores/) for more information.
 
-## Step 1: Create a self-signed certificate authority (CA)
+## Step 1: Create a self-signed Certificate Authority (CA)
 
 To issue and sign client certificates, you first need to create a self-signed CA certificate. This CA will be trusted by {{product_name}} and used to validate client certificates presented during authentication.
 
@@ -91,7 +91,7 @@ In this step, we will generate a client certificate that will be used to authent
     Enter the necessary details to create the keystore.
 
     !!! tip
-        For `What is your first and last name?`, provide a name without spaces. 
+        For What is your first and last name?, provide a name without spaces. 
 
     This command will create a keystore with the following details:
 
@@ -114,13 +114,13 @@ In this step, we will generate a client certificate that will be used to authent
         </tr>
     </table>
 
-2. Next, generate a Certificate Signing Request (CSR) using the keystore you just created. The CSR will be submitted to the CA, which will sign it, proving that the certificate is trusted.
+2. Next, generate a Certificate Signing Request (CSR) using the keystore you just created.
 
     ``` shell
     keytool -certreq -alias localcrt -file localcrt.csr -keystore localcrt.jks -storepass localpwd
     ```
 
-3. To ensure {{product_name}} does not accept revoked certificates when using X.509 certificate-based authentication, configure OpenSSL to check for Certificate Revocation List (CRL) or use Online Certificate Status Protocol (OCSP). To do so,
+3. Configure OpenSSL with Certificate Revocation List (CRL) or use Online Certificate Status Protocol (OCSP) URI to embed revocation-related information into the client certificate. To do so,
 
     1.  Open either of the following files in your openssl installation.
         -  `validation.cnf`
