@@ -463,6 +463,7 @@ components:
       required:
         - organizationId
         - organizationName
+        - orgHandle
         - attributes
       properties:
         organizationId:
@@ -473,6 +474,10 @@ components:
           type: string
           description: The name of the organization.
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          description: The handle of the organization.
+          example: 'abcbuilders'
         attributes:
           type: array
           items:
