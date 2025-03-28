@@ -46,6 +46,8 @@ The following is a comprehensive list of email templates that are available in {
         <tr>
             <td>PasswordReset<br/><br/>
                 resendPasswordReset<br/><br/>
+                PasswordResetOTP<br/><br/>
+                resendPasswordResetOTP<br/><br/>
                 AdminForcedPasswordReset<br/><br/>
                 resendAdminForcedPasswordReset<br/><br/>
             </td>
