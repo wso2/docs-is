@@ -7,7 +7,6 @@ Vue.js is a progressive JavaScript framework designed for building modern single
 
 Implementing login functionality in your Vue app is essential for managing user access, personalizing user experiences, and securing the app. It enhances user experience, protects user data, boosts engagement, and ensures regulatory compliance.
 
-
 ## Learning objectives 
 
 This guide will walk you through everything you need to know about securing Vue apps, including implementing user login in your Vue app, integrating it with an Identity Provider (IdP) to make the login process simple and secure, and general guidelines to protect your end users. It also covers how to make secure API calls to an OAuth2-protected API within your Vue app.
@@ -26,7 +25,7 @@ In this guide, you will:
 
 !!! tip "Tip"
     
-    This guide takes approximately 60 minutes to complete and covers everything required to add user login and secure your Vue apps. If you’re looking for a shorter guide, try the [Vue Quick Start guide](https://is.docs.wso2.com/en/latest/quick-starts/vue/){:target="_blank"}, which takes around 15 minutes to complete.
+    This guide covers everything required to add user login and secure your Vue apps. If you’re looking for a shorter guide, try the [Vue Quick Start guide](https://is.docs.wso2.com/en/latest/quick-starts/vue/){:target="_blank"}, which takes around 15 minutes to complete.
 
 
 !!! tip "Tip"

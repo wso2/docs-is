@@ -1,7 +1,7 @@
 ---
 template: templates/complete-guide.html
 heading: Register an application in Asgardeo
-read_time: 2 min
+read_time: 1 min
 ---
 
 First unless you already have done that, you need to create an organization in {{product_name}} and register your application as a single page application.

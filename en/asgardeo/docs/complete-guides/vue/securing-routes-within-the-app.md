@@ -6,51 +6,101 @@ read_time: 2 min
 
 In a Vue app, routes define the paths within the application that users can navigate to, linking URLs to specific components. Securing routes is essential to protect sensitive data, prevent unauthorized access, and ensure that only authenticated users can access certain parts of the application. In this section, let’s look at how we can secure routes using Asgardeo Vue SDK.
 
-The Asgardeo SDK provides multiple approaches to secure routes in your application. Here we will demonstrate how to secure routes in a single-page Vue app using [Vue Router](https://router.vuejs.org/){:target="\_blank"}, the most popular routing library for Vue.
+The Asgardeo SDK provides multiple approaches to secure routes in your application. Here we will demonstrate how to secure routes in a single-page Vue app using [Vue Router](https://router.vuejs.org/){:target="\_blank"}, the official routing library for Vue.
 
-## Using `authGuard`
+## Securing Routes with `beforeEnter`
 
-The Asgardeo Vue SDK provides a built-in `authGuard` function that ensures only authenticated users can access certain routes. This eliminates the need for developers to manually create authentication guards.
+You can secure routes using the `beforeEnter` navigation guard, ensuring that only authenticated users can access specific routes.
 
 ### Example Implementation
 
-Simply use `authGuard` in your Vue Router configuration:
+Below is an example of securing routes using `beforeEnter` with Asgardeo Vue SDK:
 
-```javascript
-import { createRouter, createWebHistory } from "vue-router";
-import { authGuard } from "@asgardeo/vue";
-import Home from "./views/Home.vue";
-import Login from "./views/Login.vue";
+```typescript
+import { useAsgardeo, type AuthStateInterface } from "@asgardeo/vue";
+import {
+  createRouter,
+  createWebHistory,
+  type RouteLocationNormalized,
+  type NavigationGuardNext,
+  type Router,
+} from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import LandingView from "@/views/LandingView.vue";
+import { watch } from "vue";
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-    beforeEnter: authGuard, // Protect this route
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login,
-  },
-];
+const router: Router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      component: LandingView,
+      name: "landing",
+      path: "/",
+    },
+    {
+      beforeEnter: async (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
+        const { state, isAuthenticated, signIn } = useAsgardeo();
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
+        // Wait for loading to complete if still in progress
+        if (state.isLoading) {
+          await waitForAsgardeoLoaded(state);
+        }
+
+        try {
+          const auth = await isAuthenticated();
+          if (!auth) {
+            await signIn();
+            return false; // Prevent navigation until sign-in completes
+          }
+          return true;
+        } catch {
+          return false; // Prevent navigation on error
+        }
+      },
+      component: HomeView,
+      name: "home",
+      path: "/home",
+    },
+  ],
 });
+
+/**
+ * Wait for Asgardeo loading state to complete before proceeding
+ * @param state - The Asgardeo state containing isLoading property
+ * @returns A promise that resolves when loading is complete
+ */
+async function waitForAsgardeoLoaded(state: AuthStateInterface) {
+  return new Promise<void>((resolve) => {
+    // If already not loading, resolve immediately
+    if (!state.isLoading) {
+      resolve();
+      return;
+    }
+
+    // Watch for changes in loading state
+    const unwatch = watch(
+      () => state.isLoading,
+      (isLoading) => {
+        if (!isLoading) {
+          unwatch();
+          resolve();
+        }
+      },
+    );
+  });
+}
 
 export default router;
 ```
 
 ## How it Works
 
-1. `authGuard` is provided by the Asgardeo Vue SDK and handles authentication checks.
-2. If the user is authenticated, navigation proceeds.
-3. If the user is not authenticated, they are redirected to the login page (`/login`).
+1. `beforeEnter` is used as a navigation guard on protected routes.
+2. It checks the Asgardeo authentication state before allowing access.
+3. If the user is not authenticated, they are redirected to the login flow.
+4. The `waitForAsgardeoLoaded` function ensures that authentication state is checked only after Asgardeo has completed loading.
 
-This approach simplifies route protection in your Vue application while leveraging Asgardeo Vue SDK’s built-in capabilities.
+This method provides a flexible and robust way to protect routes while leveraging Asgardeo Vue SDK’s capabilities.
 
 Next, we will explore how to access a protected API from our Vue app, a common requirement for SPAs.
 
