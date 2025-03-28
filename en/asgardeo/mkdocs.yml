@@ -635,6 +635,18 @@ nav:
       - Accessing protected API : complete-guides/angular/accessing-protected-api.md
       - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
       - Next Steps: complete-guides/angular/next-steps.md
+    - Vue:
+      - Introduction: complete-guides/vue/introduction.md
+      - Prerequisite: complete-guides/vue/prerequisite.md
+      - Configure an application: complete-guides/vue/register-an-application.md
+      - Create a Vue app: complete-guides/vue/create-a-vue-app.md
+      - Configure Asgardeo SDK: complete-guides/vue/install-asgardeo-sdk.md
+      - Add login and logout: complete-guides/vue/add-login-and-logout.md
+      - Display user details: complete-guides/vue/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/vue/securing-routes-within-the-app.md
+      - Accessing protected API: complete-guides/vue/accessing-protected-api.md
+      - Manage tokens in Vue: complete-guides/vue/manage-tokens-in-Vue-apps.md
+      - Next Steps: complete-guides/vue/next-steps.md
     - Javascript:
       - Introduction: complete-guides/javascript/introduction.md
       - Prerequisite: complete-guides/javascript/prerequisite.md
