@@ -1,6 +1,6 @@
 # Rich Authorization Requests
 
-Rich Authorization Requests (RAR) (RFC 9396) enhance authorization mechanisms by allowing clients to specify fine-grained authorization details in a structured format. 
+Rich Authorization Requests (RAR) ([RFC 9396](https://datatracker.ietf.org/doc/html/rfc9396){:target="_blank"}) enhance authorization mechanisms by allowing clients to specify fine-grained authorization details in a structured format. 
 This guide outlines how to configure your application for RAR, authorize API resources, customize authorization validation, and obtain tokens with authorization details.
 
 ## Configuring your application for RAR
@@ -12,8 +12,9 @@ Before using RAR, you need to define the authorization details types that your a
 This involves registering an authorization details types using the [API Resource Management Rest API]({{base_path}}/apis/api-resource-management-rest-api/).
 (The `authorizationDetailsTypes` field in the request payload follows the JSON Schema Draft 2020-12 standard.)
 
-The following request registers a new authorization details types named `payment_initiation` for a Payments API 
+The following sample request registers a new authorization details types named `payment_initiation` for a Payments API 
 and the response contains details of the newly registered API resource and its authorization details types.
+This payload's schema can be referenced as a representation of [Figure 1](https://datatracker.ietf.org/doc/html/rfc9396#figure-1) in the RAR specification.
 
 === "Sample request (/api-resources)"
 
@@ -133,19 +134,25 @@ To allow an application to use an API resource with a specific authorization det
 - You need to set the role audience for the created application. [Set the role audience for apps]({{base_path}}/guides/authorization/api-authorization/api-authorization/#set-the-role-audience-for-apps)
 - You can use [Authorized APIs]({{base_path}}/apis/application-rest-api/#tag/Authorized-APIs) to authorize the previously created api resource to the application with authorization details types as shown below.
 
-Sample request
+The following request associates the `payment_initiation` authorization details type with the specified application.
 
-This request associates the `payment_initiation` authorization details type with the specified application.
+=== "Sample request (/authorized-apis)"
 
-```curl
-curl --location 'https://localhost:9443/api/server/v1/applications/<applicationID>/authorized-apis' \
---header 'accept: application/json' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic YWRtaW46YWRtaW4=' \
---data '{"id":"<apiResourceID>","policyIdentifier":"RBAC","authorizationDetailsTypes":["payment_initiation"]}'
-```
+    ```curl
+    curl -i --location 'https://localhost:9443/api/server/v1/applications/<applicationID>/authorized-apis' \
+    --header 'accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+    --data '{"id":"<apiResourceID>","policyIdentifier":"RBAC","authorizationDetailsTypes":["payment_initiation"]}'
+    ```
 
-### Step 3: Customize authorization details validation
+=== "Sample response (/authorized-apis)"
+    
+    ```curl
+    HTTP/1.1 200 OK
+    ```
+
+### Step 3: (Optional) Customize authorization details validation
 
 By default, {{product_name}} validates authorization details against the registered authorization details type schema. 
 However, if additional validation is required, you can extend the `org.wso2.carbon.identity.oauth2.rar.core.AuthorizationDetailsProcessor` 
@@ -180,13 +187,99 @@ AuthorizationDetail enrich(AuthorizationDetailsContext authorizationDetailsConte
 providing additional context or information that may be necessary for informed consent. This may include adding more descriptive
 information, default values, or other relevant details that are crucial for the user to understand the authorization request fully.
 
+For example, the authorization details displayed in the consent UI can be customized by setting a descriptive sentence as the `description` field of the authorization details instance.
+
+??? note "Click to view a sample authorization details processor implementation"
+    
+    ```java
+    import org.wso2.carbon.identity.oauth.rar.exception.AuthorizationDetailsProcessingException;
+    import org.wso2.carbon.identity.oauth.rar.model.AuthorizationDetail;
+    import org.wso2.carbon.identity.oauth.rar.model.AuthorizationDetails;
+    import org.wso2.carbon.identity.oauth.rar.model.ValidationResult;
+    import org.wso2.carbon.identity.oauth2.IdentityOAuth2ServerException;
+    import org.wso2.carbon.identity.oauth2.rar.core.AuthorizationDetailsProcessor;
+    import org.wso2.carbon.identity.oauth2.rar.model.AuthorizationDetailsContext;
+    
+    public class SampleAuthorizationDetailsProcessor implements AuthorizationDetailsProcessor {
+    
+        /**
+         * Checks if the authorization details contain at least one valid location that includes "/payments".
+         * If a valid location is found, the authorization is considered valid.
+         * Otherwise, validation fails with an error message.
+         */
+        @Override
+        public ValidationResult validate(final AuthorizationDetailsContext authorizationDetailsContext)
+                throws AuthorizationDetailsProcessingException, IdentityOAuth2ServerException {
+    
+            final boolean isLocationValid = authorizationDetailsContext.getAuthorizationDetail()
+                    .getLocations().stream().anyMatch(url -> url.contains("/payments"));
+    
+            return isLocationValid ? ValidationResult.valid() : ValidationResult.invalid("Invalid location found!");
+        }
+    
+        /**
+         * Returns the authorization details type handled by this processor.
+         * The returned type must match the registered authorization details type.
+         * In this example, it is "payment_initiation".
+         */
+        @Override
+        public String getType() {
+            return "payment_initiation";
+        }
+    
+        /**
+         * Checks if the amount requested by the client is within the limits of the user’s 
+         * previously approved authorization details.
+         */
+        @Override
+        public boolean isEqualOrSubset(final AuthorizationDetail authorizationDetail,
+                                       final AuthorizationDetails existingAuthorizationDetails) {
+    
+            final long existingAmount = getExistingAmount(existingAuthorizationDetails);
+            final long requestingAmount = getRequestingAmount(authorizationDetail);
+    
+            return requestingAmount <= existingAmount;
+        }
+    
+        /**
+         * Enriches the authorization details with additional contextual information.
+         *
+         * Retrieves the creditor’s account information for the authenticated user,
+         * generates a human-readable description of the authorization request,
+         * and sets these values in the authorization details instance.
+         * The enriched details are displayed in the consent UI to provide clarity to the user.
+         */
+        @Override
+        public AuthorizationDetail enrich(final AuthorizationDetailsContext authorizationDetailsContext) {
+    
+            AuthorizationDetail authorizationDetail = authorizationDetailsContext.getAuthorizationDetail();
+    
+            // Fetch the creditor account associated with the authenticated user
+            final String creditorAccount = getCreditorAccountByUserID(authorizationDetailsContext.getAuthenticatedUser().getUserId());
+            setCreditorAccountToAuthorizationDetail(authorizationDetail, creditorAccount);
+    
+            // Generate a user-friendly description for the consent UI
+            final long requestingAmount = getRequestingAmount(authorizationDetail);
+            final String requestingCurrency = getRequestingCurrency(authorizationDetail);
+            final String description = String.format("A %d %s payment on account %s", requestingAmount, requestingCurrency, creditorAccount);
+            authorizationDetail.setDescription(description); // A 3000 USD payment on account c6142dc9-588c-49ec-8341-1b157c441d02
+    
+            return authorizationDetail;
+        }
+    }
+    ```
+
 ## Get tokens with authorization details
 
 Once authorization details are configured, an application can request an access token containing the required details.
 
 ### Sample client credentials grant flow
 
-This request includes the url-encoded `payment_initiation` authorization details type and the response includes an 
+The following diagram shows how a sample client credentials grant flow works with rich authorization requests.
+
+![RAR client credentials grant]({{base_path}}/assets/img/guides/authorization/rich-authorization-requests/rar-client-credentials-is.png)
+
+The request payload includes the url-encoded `payment_initiation` authorization details type and the response includes an 
 access token with the requested authorization details.
 
 === "Sample request (/token)"
@@ -227,6 +320,8 @@ access token with the requested authorization details.
       "expires_in": 3600
     }
     ```
+
+The client application can now retrieve the user's payment information from the resource server by including the obtained access token in the request.
 
 ### Validate the access token
 

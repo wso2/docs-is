@@ -13,5 +13,5 @@ User impersonation involves granting temporary access to another user's account.
 {% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 ## Rich authorization requests
 
-Rich Authorization Requests (RAR) (RFC 9396) enhance authorization mechanisms by allowing clients to specify fine-grained authorization details. Learn how to use it in [Rich Authorization Requests]({{base_path}}/guides/authorization/rich-authorization-requests/).
+Rich Authorization Requests (RAR) ([RFC 9396](https://datatracker.ietf.org/doc/html/rfc9396){:target="_blank"}) enhance authorization mechanisms by allowing clients to specify fine-grained authorization details. Learn how to use it in [Rich Authorization Requests]({{base_path}}/guides/authorization/rich-authorization-requests/).
 {% endif %}
