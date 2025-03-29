@@ -1,11 +1,9 @@
-name: Asgardeo Docs Release
+name: Docs Release
 
 on:
   push:
     branches:
       - master
-    paths-ignore:
-      - 'VERSION'  # This will ignore changes only to the VERSION file.
   workflow_dispatch:
     inputs:
       version:
@@ -44,7 +42,7 @@ jobs:
 
       - name: Get the current version
         run: |
-          echo "CURRENT_VERSION=$(cat VERSION)" >> $GITHUB_ENV
+          echo "CURRENT_VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
       - name: Increment version
         run: |
@@ -153,14 +151,6 @@ jobs:
           asset_path: ./asgardeo-docs-${{ env.NEW_VERSION }}-prod.zip
           asset_name: asgardeo-docs-${{ env.NEW_VERSION }}-prod.zip
           asset_content_type: application/zip
-
-      - name: Commit and push new version
-        if: ${{ env.IS_HOTFIX == 'false' }}  
-        run: |
-          echo "${{ env.NEW_VERSION }}" > VERSION
-          git add VERSION
-          git commit -m "Increment release version to ${{ env.NEW_VERSION }}"
-          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" master
 
       - name: Update Downstream Repository Version
         if: ${{ env.IS_HOTFIX == 'false' }}
