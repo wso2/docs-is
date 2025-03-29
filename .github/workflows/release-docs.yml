@@ -168,7 +168,7 @@ jobs:
           CURRENT_VERSION_LINE=$(grep "$VERSION_LINE_PREFIX" "$VERSION_FILE_PATH")
 
           # Replacing the current version line with the new version line
-          sed -i 's|'"${CURRENT_VERSION_LINE}"'|  GITHUB_RELEASE_TAG: v'"${{ env.NEW_VERSION }}"'|' "$VERSION_FILE_PATH"
+          sed -i 's|'"${CURRENT_VERSION_LINE}"'|  GITHUB_RELEASE_TAG: '"${{ env.NEW_VERSION }}"'|' "$VERSION_FILE_PATH"
 
           # Verifying if the file has changed, and if so, committing and pushing it
           if git status --porcelain; then
