@@ -113,17 +113,17 @@ jobs:
         run: |
           git config user.name $GIT_USERNAME
           git config user.email $GIT_USER_EMAIL
-          git tag "v${{ env.NEW_VERSION }}"
-          git tag "v${{ env.NEW_VERSION }}-prod"
-          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "v${{ env.NEW_VERSION }}"
-          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "v${{ env.NEW_VERSION }}-prod"
+          git tag "${{ env.NEW_VERSION }}"
+          git tag "${{ env.NEW_VERSION }}-prod"
+          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "${{ env.NEW_VERSION }}"
+          git push "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com/${{ github.repository }}" "${{ env.NEW_VERSION }}-prod"
 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: v${{ env.NEW_VERSION }}
-          release_name: Asgardeo Docs - v${{ env.NEW_VERSION }}
+          tag_name: ${{ env.NEW_VERSION }}
+          release_name: Asgardeo Docs - ${{ env.NEW_VERSION }}
           draft: false
           prerelease: ${{ env.IS_HOTFIX == 'true' }}
       
@@ -131,8 +131,8 @@ jobs:
         id: create_prod_release
         uses: actions/create-release@v1
         with:
-          tag_name: v${{ env.NEW_VERSION }}-prod
-          release_name: Asgardeo Docs - v${{ env.NEW_VERSION }}-prod
+          tag_name: ${{ env.NEW_VERSION }}-prod
+          release_name: Asgardeo Docs - ${{ env.NEW_VERSION }}-prod
           draft: false
           prerelease: ${{ env.IS_HOTFIX == 'true' }}
 
