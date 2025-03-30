@@ -24,10 +24,10 @@ To reset the password, the user should follow these steps.
 3. Follow one of the following methods based on the password recovery option configured for your organization.
 
     !!! note
-        {% if product_name == "WSO2 Identity Server" and is_version != "7.1.0" %}
-        - Setting your email address and mobile number is mandatory to use the email link and SMS OTP recovery methods respectively.
-        {% else %}
+        {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
         - Setting your email address and mobile number is mandatory to use the email link/OTP and SMS OTP recovery methods respectively.
+        {% else %}
+        - Setting your email address and mobile number is mandatory to use the email link and SMS OTP recovery methods respectively.
         {% endif %}
 
         - If the organization has configured both options for password recovery, select your preferred method and click **Proceed**.

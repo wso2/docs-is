@@ -46,8 +46,10 @@ The following is a comprehensive list of email templates that are available in {
         <tr>
             <td>PasswordReset<br/><br/>
                 resendPasswordReset<br/><br/>
+                {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.2.0" ) %}
                 PasswordResetOTP<br/><br/>
                 resendPasswordResetOTP<br/><br/>
+                {% endif %}
                 AdminForcedPasswordReset<br/><br/>
                 resendAdminForcedPasswordReset<br/><br/>
             </td>
