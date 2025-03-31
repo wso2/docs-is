@@ -4,24 +4,18 @@ The following guide is a complete end-to-end use case on how to manage B2B (Busi
 
 ## Scenario
 
-- You are an administrator of the **Pet Care** application, a platform that offers specialized digital services to support veterinary institutions.
+- Happy Tails Veterinary Clinic is a veterinary institution that wants a unified platform to perform its internal operations, such as managing doctors and staff, and external operations, such as scheduling appointments and facilitating doctor channeling for pet owners.
 
-- **Happy Tails** Veterinary Clinic is a veterinary institution that wants a unified platform to streamline its internal operations and customer services. This includes administrative tasks like managing doctors and staff, as well as customer-facing services such as scheduling appointments and facilitating doctor channeling for pet owners.
+- To meet these needs, Happy Tails uses the **Pet Care** application which has integrated {{product_name}} to fulfill its identity and access management needs.
 
-- To meet these needs, Happy Tails adopts the **Pet Care** application as their digital platform for day-to-day business operations.
-
-- Behind the scenes, the Pet Care application uses {{ product_name }} to simplify identity and access management.
-
-- Pet Care shares the following platform with Happy Tails Veterinary Clinic:
-
-  - **Pet Care Application** – A unified platform that supports different user experiences based on roles.  
-    - **Administrators** can manage users, assign roles, configure enterprise Identity Providers (IdPs), and customize login flows for their organization.  
+- **Pet Care** application supports personalized experiences based on the role assigned to the user.
+     - **Administrators** can manage users, assign roles, configure enterprise Identity Providers (IdPs), and customize login flows for their organization.  
     - **Doctors** can manage appointments, view pet information, update medical records, and communicate with pet owners.  
     - **Pet Owners** can book appointments, manage their pets' profiles, and view their appointment history.
 
-    ![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/pet-care-organization-scenario.png){: width="700" style="display: block; margin: 0;"}
+    ![Organization login scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/pet-care-organization-scenario.png){: width="500" style="display: block; margin: 0;"}
 
-The following guides explain how Pet Care can use {{ product_name }} to implement the above scenario.
+As an administrator of **Pet Care**, you are tasked with implementing this scenario. The following guides explain how you can use {{ product_name }} to achieve this.
 
 {% if product_name == "Asgardeo" %}
 ## Prerequisites
@@ -31,17 +25,87 @@ You should [create a root organization]({{base_path}}/guides/{{root_org_descript
 
 ## Onboard the organization
 
-Pet Care, as the service provider, functions as the root organization. Happy Tails Veterinary Clinic should be set up as a child organization under Pet Care.
+**Pet Care**, as the service provider, is the root organization of this business. **Happy Tails**, as a customer of Pet Care, is a child organization of Pet Care.
 
-Follow the [create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) guide and create an organization under the name `Happy Tails`.
+Follow the [create an organization]({{base_path}}/guides/organization-management/manage-organizations/#create-an-organization) guide and create this organization hierarchy.
+
+## Create the API resources
+
+**Pet Care** application uses many API resources for its functionality. Users, based on the role, should be able to perform various actions on these API resources as permitted by the role. To provide correct access control to these API resources, we need to first define these API resources and actions in {{product_name}}.
+
+!!! note
+    
+    Learn more about [API authentization]({{base_path}}/guides/authorization/api-authorization/api-authorization/).
+
+To do so,
+
+1. On the {{product_name}} Console, go to **API Authorization**.
+
+2. Click **New API Resource** and add the following API resources and permissions (scopes).
+
+    <table>
+      <tr>
+        <th>Display Name</th>
+        <th>Identifier</th>
+        <th>Permissions (Scopes)</th>
+      </tr>
+      <tr>
+        <td>Channel Service</td>
+        <td><code>http://localhost:9091</code></td>
+        <td>
+          <ul>
+            <li>list_doctors</li>
+            <li>create_doctor</li>
+            <li>view_doctor</li>
+            <li>update_doctor</li>
+            <li>delete_doctor</li>
+            <li>list_bookings</li>
+            <li>view_appointment</li>
+            <li>view_profile</li>
+            <li>create_bookings</li>
+            <li>view_booking</li>
+            <li>update_booking</li>
+            <li>delete_booking</li>
+            <li>view_org_info</li>
+            <li>update_org_info</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Pet Management Service</td>
+        <td><code>http://localhost:9092</code></td>
+        <td>
+          <ul>
+            <li>list_pets</li>
+            <li>create_pet</li>
+            <li>view_pet</li>
+            <li>update_pet</li>
+            <li>delete_pet</li>
+            <li>view_user_settings</li>
+            <li>update_user_settings</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Personalization Service</td>
+        <td><code>http://localhost:9093</code></td>
+        <td>
+          <ul>
+            <li>create_branding</li>
+            <li>update_branding</li>
+            <li>delete_branding</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
 
 ## Register the application
 
-The next step is to configure the applications that need to be shared with your child organizations.
-
-Follow the steps given below to register the Pet Care application with {{ product_name }}.
+The next step is to integrate the Pet Care application with {{product_name}}. To do so,
 
 ### Step 1: Register the application
+
+To register the application,
 
 1. Log in to the root organization.
 
@@ -62,7 +126,7 @@ Follow the steps given below to register the Pet Care application with {{ produc
         </tr>
         <tr>
             <th>Authorized redirect URLs</th>
-            <td>The URLs to which the authorization code is sent upon authentication and where the user is redirected upon logout.</br>
+            <td>{{product_name}} sends the authorization code to this URL and once users logout, they will be redirected to this URL.</br>
                 <code>http://localhost:3002/api/auth/callback/wso2isAdmin</code>
                 <code>http://localhost:3002</code>
             </td>
@@ -71,19 +135,15 @@ Follow the steps given below to register the Pet Care application with {{ produc
 
 ### Step 2: Share the application with organizations
 
-Share the <b>Pet Care App</b> with the `Happy Tails Veterinary Clinic` organization. See instructions on how to [share applications with organizations]({{base_path}}/guides/organization-management/share-applications/).
+When you share an application with your child organizations, **Sign In with SSO** appears as a login option in the application. Child organization users can then use this option to successfully log in to the application.
 
-!!! note
+Follow the instructions in [share applications with organizations]({{base_path}}/guides/organization-management/share-applications/) and share the application with the **Happy Tails** organization.
 
-    When the application is shared with at least one organization, **Sign In with SSO** will be added as a login option in the application login screen, which organization users can use to log in.
+### Step 3: Configure the application
 
-### Step 3: Configure the application on {{ product_name }}
+The following configurations are essential for the application to work seamlessly with child organization logins. You can find these settings by navigating to the **Applications** section and selecting the registered application.
 
-To configure the registered application on {{ product_name }}:
-
-On the {{ product_name }} Console, go to **Applications** and select the application you registered.
-
-**Protocol Configurations**
+#### Protocol Configurations
 
 1. Go to the **Protocol** tab of the application, and configure the following values.
 
@@ -123,15 +183,13 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
         </tr>
     </table>
 
-    Take note of the `client_id` and `client_secret` generated for your application.
+2. Click **Update** and take note of the `client_id` and `client_secret` generated for your application.
 
-2. Click **Update** to save your configurations.
+#### User Attribute Configurations
 
-**User Attribute Configurations**
+1. Go to the **User Attributes** tab of the application.
 
-1. Go to the **User Attributes** tab of the **Pet Care App**.
-
-2. Mark the following attributes as **mandatory**:
+2. Mark the following attributes as **mandatory** so that users are required to have values for them. If not, users are asked to enter the values during log in:
 
     - `Email`  
     - `First Name`  
@@ -140,85 +198,28 @@ On the {{ product_name }} Console, go to **Applications** and select the applica
 
 3. Click **Update** to save the changes.
 
-**Create Custom API Resources**
+**Authorize API Resources**
 
-Before proceeding with API authorization, you need to create the required business API resources.
+In this step, we will provide access for the application to consume API resources. This includes the custom API resources we defined above and other standard API that is required for the functionality of the application. 
 
-1. Navigate to the **API Resources** section in the {{ product_name }} Console.
+1. Go to the **API Authorization** tab of the application.
 
-2. Click on **New API Resource** and create the following resources:
+2. Click on **Authorize an API Resource**.
 
-<table>
-  <tr>
-    <th>Display Name</th>
-    <th>Identifier</th>
-    <th>Permissions</th>
-  </tr>
-  <tr>
-    <td>Channel Service</td>
-    <td><code>http://localhost:9091</code></td>
-    <td>
-      <ul>
-        <li>list_doctors</li>
-        <li>create_doctor</li>
-        <li>view_doctor</li>
-        <li>update_doctor</li>
-        <li>delete_doctor</li>
-        <li>list_bookings</li>
-        <li>view_appointment</li>
-        <li>view_profile</li>
-        <li>create_bookings</li>
-        <li>view_booking</li>
-        <li>update_booking</li>
-        <li>delete_booking</li>
-        <li>view_org_info</li>
-        <li>update_org_info</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Pet Management Service</td>
-    <td><code>http://localhost:9092</code></td>
-    <td>
-      <ul>
-        <li>list_pets</li>
-        <li>create_pet</li>
-        <li>view_pet</li>
-        <li>update_pet</li>
-        <li>delete_pet</li>
-        <li>view_user_settings</li>
-        <li>update_user_settings</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Personalization Service</td>
-    <td><code>http://localhost:9093</code></td>
-    <td>
-      <ul>
-        <li>create_branding</li>
-        <li>update_branding</li>
-        <li>delete_branding</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+3. Authorize the application to consume all the API resources and permissions that we defined in the [Create the API resources](#create-the-api-resources) step.
 
-After creating these API resources, proceed to authorize them for the application in the next step.
+4. Additionally, authorize the application to consume the following standard APIs and all of the corresponding permissions (scopes).
 
-**API Authorization**
+    !!! note "Important"
 
-1. Navigate to the **API Authorization** tab of the application.
+        Standard APIs come in two types: 
+        
+        - **Management APIs** govern B2C use cases.
+        - **Organization APIs** govern B2B use cases.
+        
+        Be sure to select the corresponding **organization API** for the following APIs. Refer to the [API documentation](https://is.docs.wso2.com/en/latest/apis/) for more details.
 
-2. Click on **+ Authorize an API Resource**.
-
-3. Authorize the following API resources for the application. Select **all available scopes** for each API.
-
-    !!! note
-        When subscribing or authorizing APIs, make sure to select **Organizational APIs** — not **Management APIs**.  
-        Refer to the [API documentation](https://is.docs.wso2.com/en/latest/apis/) for more details.
-
-    <table>
+     <table>
         <tr>
             <th>API Resource</th>
             <th>Endpoint</th>
@@ -265,104 +266,111 @@ After creating these API resources, proceed to authorize them for the applicatio
         </tr>
     </table>
 
-4. After authorizing all the required APIs, click **Update** to save your changes.
 
 **Role Configurations**
 
-1. Navigate to the **Roles** tab in the Pet Care application.
+The application should support three distinct roles: **Administrator**, **Doctor**, and **Pet Owner**. Each role will have different levels of access to API resources, ensuring that each user receives a personalized user experience tailored to their specific use cases.
 
-2. Select **Application** as Role Audience and click **+ New Role**.
+!!! note
+    
+    Learn more about roles in [manage roles]({{base_path}}/guides/users/manage-roles/).
+
+To create these roles,
+
+1. Navigate to the **Roles** tab of the application.
+
+2. Select the **Role Audience** as **Application** and click **New Role**.
 
     ![Create Application Roles - Initial view]({{base_path}}/assets/img/guides/organization/manage-organizations/create-roles.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Create the following application roles:
+3. Create the following application roles and assign the corresponding permissions (scopes):
 
-<table>
-  <tr>
-    <th>Role Name</th>
-    <th>API Resource</th>
-    <th>Authorized Scopes</th>
-  </tr>
+    <table>
+      <tr>
+        <th>Role Name</th>
+        <th>API Resource</th>
+        <th>Authorized Scopes</th>
+      </tr>
 
-  <tr>
-    <td rowspan="9"><code>pet-care-admin</code></td>
-    <td>SCIM2 Users API</td>
-    <td>All Scopes</td>
-  </tr>
-  <tr><td>SCIM2 Roles API</td><td>All Scopes</td></tr>
-  <tr><td>SCIM2 Groups API</td><td>All Scopes</td></tr>
-  <tr><td>Identity Provider Management API</td><td>All Scopes</td></tr>
-  <tr><td>Application Management API</td><td>All Scopes</td></tr>
-  <tr><td>Claim Management API</td><td>All Scopes</td></tr>
-  <tr><td>Branding Preference Management API</td><td>All Scopes</td></tr>
-  <tr>
-    <td>Channel Service API</td>
-    <td>
-      <ul>
-        <li>list_doctors</li>
-        <li>view_org_info</li>
-        <li>update_org_info</li>
-        <li>create_doctor</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Personalization Service API</td>
-    <td>
-      <ul>
-        <li>create_branding</li>
-        <li>update_branding</li>
-        <li>delete_branding</li>
-      </ul>
-    </td>
-  </tr>
+      <tr>
+        <td rowspan="9"><code>pet-care-admin</code></td>
+        <td>SCIM2 Users API</td>
+        <td>All Scopes</td>
+      </tr>
+      <tr><td>SCIM2 Roles API</td><td>All Scopes</td></tr>
+      <tr><td>SCIM2 Groups API</td><td>All Scopes</td></tr>
+      <tr><td>Identity Provider Management API</td><td>All Scopes</td></tr>
+      <tr><td>Application Management API</td><td>All Scopes</td></tr>
+      <tr><td>Claim Management API</td><td>All Scopes</td></tr>
+      <tr><td>Branding Preference Management API</td><td>All Scopes</td></tr>
+      <tr>
+        <td>Channel Service API</td>
+        <td>
+          <ul>
+            <li>list_doctors</li>
+            <li>view_org_info</li>
+            <li>update_org_info</li>
+            <li>create_doctor</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Personalization Service API</td>
+        <td>
+          <ul>
+            <li>create_branding</li>
+            <li>update_branding</li>
+            <li>delete_branding</li>
+          </ul>
+        </td>
+      </tr>
 
-  <tr>
-    <td rowspan="2"><code>pet-care-doctor</code></td>
-    <td>Channel Service API</td>
-    <td>
-      <ul>
-        <li>view_profile</li>
-        <li>list_bookings</li>
-        <li>view_doctor</li>
-        <li>update_doctor</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Pet Management Service API</td>
-    <td>
-      <ul>
-        <li>list_pets</li>
-      </ul>
-    </td>
-  </tr>
+      <tr>
+        <td rowspan="2"><code>pet-care-doctor</code></td>
+        <td>Channel Service API</td>
+        <td>
+          <ul>
+            <li>view_profile</li>
+            <li>list_bookings</li>
+            <li>view_doctor</li>
+            <li>update_doctor</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Pet Management Service API</td>
+        <td>
+          <ul>
+            <li>list_pets</li>
+          </ul>
+        </td>
+      </tr>
 
-  <tr>
-    <td rowspan="2"><code>pet-care-pet-owner</code></td>
-    <td>Channel Service API</td>
-    <td>
-      <ul>
-        <li>list_bookings</li>
-        <li>list_doctors</li>
-        <li>view_doctor</li>
-        <li>create_bookings</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Pet Management Service API</td>
-    <td>
-      <ul>
-        <li>create_pet</li>
-        <li>view_pet</li>
-        <li>list_pets</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+      <tr>
+        <td rowspan="2"><code>pet-care-pet-owner</code></td>
+        <td>Channel Service API</td>
+        <td>
+          <ul>
+            <li>list_bookings</li>
+            <li>list_doctors</li>
+            <li>view_doctor</li>
+            <li>create_bookings</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Pet Management Service API</td>
+        <td>
+          <ul>
+            <li>create_pet</li>
+            <li>view_pet</li>
+            <li>list_pets</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
 
-4. After entering the role name and assigning the appropriate API resources and scopes, click **Create**.
+4. After entering the role names and assigning the appropriate API resources and scopes, click **Create**.
 
     ![Create Application Roles]({{base_path}}/assets/img/guides/organization/manage-organizations/application-role-api-resources.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -370,19 +378,17 @@ After creating these API resources, proceed to authorize them for the applicatio
 
     ![Created Application Role]({{base_path}}/assets/img/guides/organization/manage-organizations/pet-care-application-roles.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### Step 4: Create a Sub-organization Admin User and Assign Role
+### Step 4: Create a user and assign the administrator role
 
-After configuring roles, the next step is to create an administrator account for the sub-organization and assign them the `pet-care-admin` role.
+Now that we have configured the application and have shared the application with the **Happy Tails** organization, it is time for us to create an administrator for the **Happy Tails** child organization. This administrator is responsible for managing the **Happy Tails** organization.
 
-#### 1. Switch to the Sub-organization
+To do so,
 
-In the {{ product_name }} Console, switch from the root organization (**Pet Care**) to the sub-organization (**Happy Tails**).
+1. On the {{product_name}} Console, navigate to **Organizations** and switch to the **Happy Tails** organization.
 
-#### 2. Create the Admin User
+2. On the organization Console, navigate to **User Management > Users**.
 
-1. Navigate to **User Management > Users**.
-2. Click on **+ Add User**.
-3. Fill in the user details:
+3. Click **Add User** and create a user.
 
     - **Username:** `admin@cityvet.com`  
     - **Email:** `admin@cityvet.com`  
@@ -390,24 +396,21 @@ In the {{ product_name }} Console, switch from the root organization (**Pet Care
 
 4. Click **Create**.
 
-#### 3. Assign the Role to the User
+5. From the organization Console, navigate to **User Management > Roles**.
 
-1. Navigate to **User Management > Roles**.
-2. Find the `pet-care-admin` role in the list and click on it.
-3. Go to the **Users** tab.
-4. Click **+ Assign Users**, then search for and select `admin@cityvet.com`.
-5. Click **Assign**.
+6. Click on the `pet-care-admin` administrator role you created earlier and go to its **Users** tab.
 
-Now, `admin@cityvet.com` has the `pet-care-admin` role and can log in to the **Pet Care Admin Portal** to manage their organization's users, applications, and configurations.
+7. Click **Assign Users**, select the created user and click **Assign**.
 
-### Step 5: Configure Branding in the Sub-organization
+Now that we assigned the `pet-care-admin` role to the `admin@cityvet.com` user, this user can log in to the **Pet Care** admin portal and manage the Happy Tails organization's users, applications, and configurations.
 
-Once the application is registered and shared, you can customize the branding to reflect your organization’s identity.
+### Step 5: Configure Branding for the organization
 
-To configure branding for the sub-organization:
+The Happy Tails organization administrator can now customize the login screens of the organization to align with the Pet Care application's theme.
 
-1. Switch to the **sub-organization** (e.g., **Happy Tails Veterinary Clinic**) in the {{ product_name }} Console.
-2. Navigate to **Branding > Styles & Text**.
+To do so,
+
+1. On the **Happy Tails** organization's Console, navigate to **Branding > Styles & Text**.
 3. Go to the **Design** tab.
 4. Expand the **Images** section and set the following:
 
@@ -426,73 +429,65 @@ To configure branding for the sub-organization:
 
 This customizes the login and self-service UIs to match the Pet Care application's branding.
 
-
 ## Set up the client applications
 
 !!! note "Before you begin"
     - Install [Ballerina 2201.5.0](https://dist.ballerina.io/downloads/2201.5.0/ballerina-2201.5.0-swan-lake-macos-arm-x64.pkg)  
-    - Install Node.js v16 LTS (Tested with v16.13.0)  
-    - Clone the [samples-is GitHub repository](https://github.com/wso2/samples-is)  
-    - The Pet Care sample will be available under the `petcare-sample` directory.
+    - Install Node.js v16 LTS (Tested with v16.13.0)
 
-### Step 1: Deploy the API Services
+### Step 1: Clone the repository
 
-Run the following services in separate terminals:
+Clone the samples-is [GitHub repository](https://github.com/wso2/samples-is) to your local machine. The Pet Care sample application is available under the `petcare-sample` directory.
 
-1. **Channel Service**  
-    Navigate to:
-    ```
-    <SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/apis/ballerina/channel-service
-    ```
-    Start the service:
+### Step 2: Deploy the API Services
+
+Let's now run each of the services of the Pet Care application. In each of the commands below, `<SAMPLES_HOME>` refers to the root directory of the cloned repository.
+
+To do so, run each of the following services in a separate terminal:
+
+1. To start the **Channel Service**, navigate to the `<SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/apis/ballerina/channel-service` directory and run,
+
     ```bash
     bal run
     ```
 
-2. **Pet Management Service**  
-    Navigate to:
-    ```
-    <SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/apis/ballerina/pet-management-service
-    ```
-    Start the service:
+2. To start the **Pet Management Service**, navigate to the `<SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/apis/ballerina/pet-management-service` directory and run,
+
     ```bash
     bal run
     ```
 
-3. **Personalization Service**  
-    Navigate to:
-    ```
-    <SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/apis/ballerina/personalization-service
-    ```
-    Start the service:
+3. To start the **Personalization Service**, navigate to the  `<SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/apis/ballerina/personalization-service` directory and run,
+
     ```bash
     bal run
     ```
 
 !!! note
-    By default, the services store data in-memory. You can connect them to a MySQL database.  
+    
+    By default, the services store data in memory. Alternatively, you can connect them to a MySQL database. To do so, 
+    
     - Create a `Config.toml` file in the root folder of each service.  
-    - Add the following DB configurations:
+    
+    - Add the following DB configurations to each of the files:
 
-    ```toml
-    dbHost = "<DB_HOST>" 
-    dbUsername = "<DB_USERNAME>" 
-    dbPassword = "<DB_USER_PASSWORD>" 
-    dbDatabase = "<DB_NAME>" 
-    dbPort = "<DB_PORT>"
-    ```
+        ```toml
+        dbHost = "<DB_HOST>" 
+        dbUsername = "<DB_USERNAME>" 
+        dbPassword = "<DB_USER_PASSWORD>" 
+        dbDatabase = "<DB_NAME>" 
+        dbPort = "<DB_PORT>"
+        ```
 
-    - SQL schemas are available at:  
-      `<SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/dbscripts`
+    The SQL schemas are available at: `<SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/dbscripts`
 
-### Step 2: Set Up the Frontend Application
+### Step 3: Set Up the Frontend Application
 
-1. Navigate to:
-    ```
-    <SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/web/nextjs/apps/business-admin-app
-    ```
+To set up the frontend application,
 
-2. Create a `.env` file and add the following environment variables:
+1. Navigate to the `<SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/web/nextjs/apps/business-admin-app` directory.
+
+2. Create a `.env` file and add the following environment variables to it:
 
     ```env
     NEXTAUTH_URL=http://localhost:3002
@@ -508,14 +503,11 @@ Run the following services in separate terminals:
     NODE_TLS_REJECT_UNAUTHORIZED=0
     ```
 
----
+### Step 4: Start the Application
 
-### Step 3: Start the Application
+To start the application,
 
-1. Navigate to the frontend root directory:
-    ```
-    <SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/web/nextjs
-    ```
+1. Navigate to `<SAMPLES_HOME>/petcare-sample/b2b/web-app/petvet/web/nextjs` directory which is the root directory of the frontend application.
 
 2. Run the following commands:
 
@@ -530,17 +522,16 @@ Run the following services in separate terminals:
 3. Visit the application at [http://localhost:3002](http://localhost:3002)
 
 !!! tip
-    To directly access the sub-organization login, visit:  
+    Use the following URL to directly access the login page of an organization.:  
     `http://localhost:3002?orgId=<suborg_Id>`
 
 ## Try it out
 
-The following sections explain how users from a sub-organization — such as administrators, doctors, and pet owners — log in to the **Pet Care** application.  
-All users access the same application, and pages are dynamically shown based on their roles.
+The following sections show how the application log in experience looks like and how the experience changes for users logging in with each of the three roles of the application; administrators, doctors, and pet owners.
 
-### Try out Sign In with SSO
+### Try out sign-in with SSO
 
-Follow the steps below to see how organization login works for a user in the **Happy Tails Veterinary Clinic** organization when accessing the **Pet Care Services App**.
+Follow the steps below to see how organization login works for a user in the **Happy Tails** organization when accessing the **Pet Care** application.
 
 1. Open the application by copying the following URL to your browser:  
    `http://localhost:3002/`
@@ -551,22 +542,21 @@ Follow the steps below to see how organization login works for a user in the **H
 
 3. Click **Sign In with SSO** to specify the organization to which you are signing in.
 
-4. Enter **Happy Tails Veterinary Clinic** as the organization name and click **Submit**.
+4. Enter **Happy Tails** as the organization name and click **Submit**.
 
     ![Sign in with SSO]({{base_path}}/assets/img/guides/organization/manage-organizations/sign-in-with-sso.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Enter the username and password of a user onboarded to Happy Tails (e.g., `admin@cityvet.com` or a doctor/pet owner you created).
 
-6. Click **Sign In** and approve the requested permissions.
+6. Click **Sign In** and provide the necessary consent.
 
-    You have successfully logged into the **Pet Care Services App** as a user of the **Happy Tails** organization.
+You have now successfully logged into the **Pet Care** application as a user of the **Happy Tails** organization.
 
 ### Try out the administration features
 
-If you log in as an admin user (e.g., `admin@cityvet.com`):
-You will have access to administration features such as:
+When a user assigned to the `pet-care-admin` role logs in, the user has access to administration features such as.
 
-- **Dashboard**: View a summary of organization activity and key metrics.
+- **Dashboard**: View a summary of the organization activity and key metrics.
 - **Manage Doctors**: Onboard, view, and update doctor profiles.
 - **Manage Users**: Add, remove, or update users across roles (doctors, pet owners, etc.).
 - **Manage Roles**: View and assign predefined application roles like `pet-care-admin`, `pet-care-doctor`, and `pet-care-pet-owner`.
@@ -582,17 +572,17 @@ You will have access to administration features such as:
 
 ### Try out the doctor experience
 
-When a user with the `pet-care-doctor` role logs in, they will see pages relevant to their day-to-day veterinary work. These include:
+When a user with the `pet-care-doctor` role logs in, the user can access pages relevant to the daily veterinary tasks. These include:
 
 - **Profile**: View and update personal details and specialty.
-- **Appointments**: See upcoming appointments and manage their schedule.
-- **Assigned Pets**: Access a list of pets under their care, along with medical notes and visit history.
+- **Appointments**: See upcoming appointments and manage personal schedule.
+- **Assigned Pets**: Access a list of pets under the user's care, along with each pet's medical history and notes.
 
-Doctors can view and manage information related to their appointments and the pets they treat. They don’t have access to administrative features like user management or branding configurations.
+Doctors can view and manage information related to their appointments and the pets they treat. They don’t have access to administrative features such as user management or branding configurations.
 
 ### Try out the pet owner experience
 
-Users with the `pet-care-pet-owner` role — typically customers of the veterinary clinic — have access to pet-related services such as:
+Users with the `pet-care-pet-owner` role, typically customers of the veterinary clinic, have access to pet-related services such as:
 
 - **Book Appointment**: Find available doctors and schedule appointments for their pets.
 - **My Pets**: Add, view, and manage details about their pets, including breed, age, and health records.
