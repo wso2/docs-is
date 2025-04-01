@@ -65,11 +65,7 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
     clientAuth="want"
     ```
 
-3. Download the Mutual TLS Client Authenticator v2.0.3 connector from [here](https://store.wso2.com/store/assets/isconnector/details/bab13ed8-5835-480f-92be-fdd5ee900970).  
-
-4. Copy the OSGi bundle to the `<IS_HOME>/repository/components/dropins` directory.
-
-5. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the following configuration.
+3. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the following configuration.
 
     ``` toml
     [[event_listener]]
@@ -80,7 +76,7 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
     enable = true
     ```
 
-6. For mutual TLS authentication to work, the public certificates of the client application and authorization server (WSO2 Identity Server) should be imported to each other's trust stores.
+4. For mutual TLS authentication to work, the public certificates of the client application and authorization server  (WSO2 Identity Server) should be imported to each other's trust stores.
 
     For demonstration purposes, let's assume that both the authorization server's truststore (`WSO2_TRUSTSTORE`) and the client's truststore (`CLIENT_TRUSTSTORE`) are in WSO2 Identity Server.
 
@@ -155,7 +151,7 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
 
     6. Click **Update**.
 
-7. Restart the Identity Server.
+5. Restart the Identity Server.
 
 ### Configure the authenticator artifacts
 

@@ -160,11 +160,11 @@ registration API endpoint with a **tenanted path** or an **organization path**.
 
 If response contains the **tenant domain**, that means it is a **root organization user**. Hence, the registration API should be invoked with the **tenanted path** as shown below.
 
-    https://localhost:9443/t/{tenant-domain}/api/users/v1/me/push/devices/
+    {{baseUrl}}/t/{tenant-domain}/api/users/v1/me/push/devices/
 
 If response contains the **organization ID**, that means it is an **organization user**, the registration API should be invoked with the **organization path**.
 
-    https://localhost:9443/o/{organization-id}/api/users/v1/me/push/devices/
+    {{baseUrl}}/o/{organization-id}/api/users/v1/me/push/devices/
 
 The below given is a sample request payload to be sent to the registration API.
 
@@ -310,11 +310,11 @@ According to the stored user information, the push authenticator app should cond
 
 If the user information contains the **tenant domain**, the authentication API should be invoked with the **tenanted path** as shown below.
 
-    https://localhost:9443/t/{tenant-domain}/push-auth/authenticate
+    {{baseUrl}}/t/{tenant-domain}/push-auth/authenticate
 
 If the user information contains the **organization ID**, the authentication API should be invoked with the **organization path**.
 
-    https://localhost:9443/o/{organization-id}/push-auth/authenticate
+    {{baseUrl}}/o/{organization-id}/push-auth/authenticate
 
 The below given is a sample request payload to be sent to the authentication API.
 

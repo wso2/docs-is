@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: SCIM 2.0 Service Provider Configuration Retrieval API
   description: |
@@ -48,36 +48,37 @@ components:
   schemas:
     SPConfigResponse:
       type: object
-      example:
-        patch:
-          supported: true
-        filter:
-          maxResults: 200
-          supported: true
-        documentationUri: http://example.com/help/scim.html
-        authenticationSchemes:
-          - name: OAuth Bearer Token
-            description: Authentication scheme using the OAuth Bearer Token Standard
-            specUri: http://www.rfc-editor.org/info/rfc6750
-            type: oauthbearertoken
-            primary: true
-          - name: HTTP Basic
-            description: Authentication scheme using the HTTP Basic Standard
-            specUri: http://www.rfc-editor.org/info/rfc2617
-            type: httpbasic
-            primary: false
-        schemas:
-          - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
-        etag:
-          supported: false
-        sort:
-          supported: false
-        bulk:
-          maxPayloadSize: 1048576
-          maxOperations: 1000
-          supported: true
-        changePassword:
-          supported: false
+      examples:
+        -
+          patch:
+            supported: true
+          filter:
+            maxResults: 200
+            supported: true
+          documentationUri: http://example.com/help/scim.html
+          authenticationSchemes:
+            - name: OAuth Bearer Token
+              description: Authentication scheme using the OAuth Bearer Token Standard
+              specUri: http://www.rfc-editor.org/info/rfc6750
+              type: oauthbearertoken
+              primary: true
+            - name: HTTP Basic
+              description: Authentication scheme using the HTTP Basic Standard
+              specUri: http://www.rfc-editor.org/info/rfc2617
+              type: httpbasic
+              primary: false
+          schemas:
+            - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+          etag:
+            supported: false
+          sort:
+            supported: false
+          bulk:
+            maxPayloadSize: 1048576
+            maxOperations: 1000
+            supported: true
+          changePassword:
+            supported: false
     ErrorUnauthorized:
       required:
         - status
@@ -85,13 +86,16 @@ components:
       properties:
         status:
           type: string
-          example: "401"
+          examples:
+            - "401"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Unauthorized
+          examples:
+            - Unauthorized
   securitySchemes:
     BasicAuth:
       type: http

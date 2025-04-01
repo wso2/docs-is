@@ -168,7 +168,7 @@ plugins:
         'guides/identity-federation/facebook.md': 'guides/authentication/social-login/add-facebook-login.md'
         'guides/identity-federation/google.md': 'guides/authentication/social-login/add-google-login.md'
         'guides/identity-federation/twitter.md': 'guides/authentication/social-login/add-x-login.md'  # Assuming no direct match, redirected to a placeholder
-        'guides/identity-federation/microsoft-live.md': 'guides/authentication/social-login/add-microsoft-login.md'
+        'guides/identity-federation/microsoft-login.md': 'guides/authentication/social-login/add-microsoft-login.md'
         'guides/identity-federation/iwa-kerberos.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/identity-federation/apple.md': 'guides/authentication/social-login/add-apple-login.md'
 
@@ -680,6 +680,7 @@ nav:
         - Manage Console access: guides/your-is/manage-console-access.md
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
+        - Recover super admin account: guides/your-is/recover-super-admin-account.md
       - Multitenancy:
         - Multitenancy: guides/multitenancy/index.md
         - Manage tenants: guides/multitenancy/manage-tenants.md
@@ -743,6 +744,7 @@ nav:
           - Set passwords using environment variables/system properties: deploy/security/set-passwords-using-environment-variables-or-system-properties.md
         - Enable HTTP Strict Transport Security (HSTS) headers: deploy/security/enable-hsts.md
         - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
+        - Enable Mutual SSL: deploy/security/enable-mutual-ssl.md
         - Enable FIPS 140-2-compliant mode: deploy/security/enable-fips-for-is.md
         - Security guidelines:
           - Security guidelines: deploy/security/security-guidelines/index.md
@@ -752,7 +754,6 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
           - Keystores:

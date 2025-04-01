@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "devDependencies": {
-    "axios": "^1.7.7",
+    "axios": "^1.8.2",
     "markdown-link-check": "^3.12.2",
     "ora": "^8.1.0",
     "puppeteer": "^23.4.1"

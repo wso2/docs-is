@@ -1,0 +1,1 @@
+{% include "../../../../../includes/guides/analytics/opensearch.md" %}

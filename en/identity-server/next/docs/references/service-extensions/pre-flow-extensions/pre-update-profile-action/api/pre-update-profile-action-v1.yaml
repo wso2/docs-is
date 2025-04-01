@@ -1,0 +1,302 @@
+openapi: 3.0.1
+info:
+  title: API contract for pre update profile action
+  description: This API specifies the REST API contract for a service that extends the profile update flow in WSO2 Identity Server.
+  contact:
+    name: WSO2
+    url: https://wso2.com/products/identity-server/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1
+security:
+- BasicAuth: []
+- BearerAuth: []
+- ApiKeyAuth: []
+- OAuth2: []
+paths:
+  /:
+    post:
+      summary: handle pre-update profile events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBody'
+        required: true
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - $ref: '#/components/schemas/FailureResponse'
+              examples:
+                successExample:
+                  summary: Success response
+                  value:
+                    actionStatus: SUCCESS
+                failedExample:
+                  summary: Failed response
+                  value:
+                    actionStatus: FAILED
+                    failureReason: invalid_input
+                    failureDescription: Provided user attributes are invalid.
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                actionStatus: ERROR
+                errorMessage: invalid_profile_update
+                errorDescription: Profile update request is invalid.
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                actionStatus: ERROR
+                errorMessage: server_error
+                errorDescription: Failed to process the response
+components:
+  schemas:
+    RequestBody:
+      required:
+      - actionType
+      - event
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: A unique identifier that associates with the profile update flow in WSO2 Identity Server.
+          example: 8ebcc8cef3244fe8b3409110bee5ef16
+        requestId:
+          type: string
+          description: A unique correlation identifier that associates with the profile update request received by WSO2 Identity Server.
+          example: 6783a180f817075313ea3fb01d79c221
+        actionType:
+          type: string
+          description: Specifies the action being triggered, which in this case is PRE_UPDATE_PROFILE
+          enum:
+          - PRE_UPDATE_PROFILE
+        event:
+          $ref: '#/components/schemas/Event'
+    Event:
+      required:
+      - initiatorType
+      - action
+      - request
+      - tenant
+      - user
+      - userStore
+      type: object
+      properties:
+        initiatorType:
+          type: string
+          enum:
+          - USER
+          - ADMIN
+          - APPLICATION
+          description: This indicates whether the profile update was initiated by an admin, a user, or an application.
+          example: USER
+        action:
+          type: string
+          enum:
+          - UPDATE
+          description: This indicates whether the profile update was initiated over a update flow.
+        request:
+          $ref: '#/components/schemas/Request'
+        tenant:
+          $ref: '#/components/schemas/Tenant'
+        user:
+          $ref: '#/components/schemas/User'
+        userStore:
+          $ref: '#/components/schemas/UserStore'
+      description: Defines the context data related to the pre-profile update event that needs to be shared with the external service to process and execute.
+    Request:
+      required:
+      - claims
+      type: object
+      properties:
+        claims:
+          type: array
+          description: Defines the list of updating user attributes.
+          items:
+            $ref: '#/components/schemas/ClaimInRequest'
+          example: 
+            - uri: http://wso2.org/claims/mobile
+              value: "0112345456"
+            - uri: http://wso2.org/claims/emailAddresses
+              value: ["bob@work.example.com", "bob@personal.example.com"]
+      description: Defines the profile update request context
+    ClaimInRequest:
+      required:
+      - uri
+      - value
+      type: object
+      properties:
+        uri:
+          type: string
+          description: Identifier of the user claim being updated. Claim uri is defined in the 'http://wso2.org/claims' dialect.
+          example: http://wso2.org/claims/emailaddress
+        value:
+          type: object
+          description: Updating value of the user claim in profile update request. If the claim is multi-valued as defined in the claim metadata configured in WSO2 Identity Server, value is an array of strings. Otherwise, it is a single string value.
+          example: bob@newdomain.com
+      description: Defines the user claims the user updates during profile update flow.
+    Tenant:
+      required:
+      - id
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique numeric identifier of the tenant.
+          example: "2"
+        name:
+          type: string
+          description: The domain name of the tenant.
+          example: bar.com
+      description: This property represents the tenant under which the profile update request is being processed.
+    User:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Defines the unique identifier of the user
+          example: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClaimsOfUser'
+          description: Additional user claims configured in the pre update profile action to be shared with the external service at a profile update event.
+          example:
+          - uri: http://wso2.org/claims/identity/accountLocked
+            value: "false"
+          - uri: http://wso2.org/claims/username
+            value: "bob@aol.com"
+          - uri: http://wso2.org/claims/verifiedEmailAddresses
+            value: ["bob@work.example.com"]
+          - uri: http://wso2.org/claims/emailAddresses
+            value: ["bob@work.example.com"]
+            updatingValue: ["bob@work.example.com", "bob@personal.example.com"]
+        groups:
+          type: array
+          description: Groups of the user
+          example:
+          - employee
+          items:
+            type: string
+      description: Contains information about the user associated with the profile update request, including updated user claims.
+    ClaimsOfUser:
+      required:
+      - uri
+      - value
+      type: object
+      properties:
+        uri:
+          type: string
+          description: Identifier of the user claim being shared. Claim uri is defined in the 'http://wso2.org/claims' dialect.
+          example: http://wso2.org/claims/emailaddress
+        value:
+          type: object
+          description: Value of the user claim in current profile. If the claim is multi-valued as defined in the claim metadata configured in WSO2 Identity Server, value is an array of strings. Otherwise, it is a single string value.
+          example: bob@olddomain.com
+        updatingvalue:
+          type: object
+          description: Updating value of the user claim within profile update flow. If the claim is multi-valued as defined in the claim metadata configured in WSO2 Identity Server, value is an array of strings. Otherwise, it is a single string value.
+          example: bob@newdomain.com
+      description: Defines the user claims that are configured to be shared with the external service during profile update flow.
+    UserStore:
+      required:
+      - id
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the user store.
+          example: UFJJTUFSWQ==
+        name:
+          type: string
+          description: User store name used to identify the user store in configuration settings, user interfaces, and administrative tasks.
+          example: PRIMARY
+      description: Indicates the user store in which the user's data is being managed.
+    SuccessResponse:
+      required:
+      - actionStatus
+      type: object
+      properties:
+        actionStatus:
+          type: string
+          description: Defines the action status
+          enum:
+          - SUCCESS
+      description: This defines an example for a SUCCESS response without any operations. This will instruct only to procceed the profile update flow
+    FailureResponse:
+      required:
+      - actionStatus
+      - failureDescription
+      - failureReason
+      type: object
+      properties:
+        actionStatus:
+          type: string
+          description: Indicates the outcome of the request. For an failure operation, this should be set to FAILED.
+          enum:
+          - FAILED
+        failureReason:
+          type: string
+          description: The failure message.
+        failureDescription:
+          type: string
+          description: A detailed description of the failure.
+      description: When the external service responds with a FAILED state, it can return an HTTP status code of 200 indicating that the expected validations are not met. \\n\\nIf the defined failed response is received it will be handled and used to indicate the failure in UI.
+    ErrorResponse:
+      required:
+      - actionStatus
+      - error
+      - errorDescription
+      type: object
+      properties:
+        actionStatus:
+          type: string
+          description: Indicates the outcome of the request. For an error operation, this should be set to ERROR.
+          enum:
+          - ERROR
+        errorMessage:
+          type: string
+          description: The error code
+          enum:
+          - server_error
+        errorDescription:
+          type: string
+          description: A detailed description of the error.
+      description: When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401 or 500, indicating that the expected validations are not met or there is an issue processing the request.
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-Key
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://example.com/oauth/token
+          scopes:
+            process: process request generate response

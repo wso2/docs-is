@@ -136,7 +136,7 @@ Follow the guides mentioned below to install the ELK components.
      - wso2-iam-session-raw*
      - wso2-iam-session-time-series*
 
-5. Download the artifact file [here]({{base_path}}/assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
+5. Download the artifact file [here](https://github.com/wso2-extensions/identity-elk-integration/blob/main/kibana/saved-objects/kibana-8-x-auth-and-session.ndjson){: target="_blank"}.
 
 6. Under **Stack Management** > **Kibana**, click **Saved Objects**.
 
