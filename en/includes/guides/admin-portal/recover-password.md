@@ -10,7 +10,7 @@ To recover your password:
 
 2. Click **Forgot password?**.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.2.0" ) %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 3. Follow one of the following methods based on the password recovery option configured for your organization.
 
     !!! note

@@ -24,7 +24,7 @@ To reset the password, the user should follow these steps.
 3. Follow one of the following methods based on the password recovery option configured for your organization.
 
     !!! note
-        {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
+        {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
         - Setting your email address and mobile number is mandatory to use the email link/OTP and SMS OTP recovery methods respectively.
         {% else %}
         - Setting your email address and mobile number is mandatory to use the email link and SMS OTP recovery methods respectively.
@@ -35,7 +35,7 @@ To reset the password, the user should follow these steps.
     - If you have enabled email link recovery, enter your username and click **Send Reset Link**. An email notification will be sent to your email address.
         ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-email-only.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.2.0") %}
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
     - If you have enabled email OTP recovery, enter your username and click **Send Email OTP**. An OTP code will be sent to your registered email address.
         ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-email-otp.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     {% endif %}
@@ -47,7 +47,7 @@ To reset the password, the user should follow these steps.
     - If the **Email Link** option was chosen in the previous step, open the email you received and click **Reset Password**.
         ![Reset password email]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.2.0") %}
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
 
       - If the **EMAIL OTP** option was chosen in the previous step, enter the OTP code sent to your email and click **Continue**.
             ![Reset password email OTP]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email-otp.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
