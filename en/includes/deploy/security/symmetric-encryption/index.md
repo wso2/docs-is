@@ -58,12 +58,12 @@ For other types of encryption, [asymmetric encryption]({{base_path}}/deploy/secu
 
 For enhanced security, it is recommended to generate your own secret key for symmetric key encryption in {{product_name}}.
 
+{% if is_version == "7.0.0" %}
+
 !!! warning
-    All configuration changes should be applied before starting {{product_name}} for the first time. Otherwise, a [key rotation]({{base_path}}/deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation) will be required.
+    All configuration changes should be applied before starting {{product_name}} for the first time.
 
 To do so,
-
-{% if is_version == "7.0.0" %}
 
 1. Generate a unique 128-bit secret key. If you use OpenSSL, the command will be as follows:
 
@@ -82,6 +82,11 @@ To do so,
 
         It is advised to encrypt the symmetric encryption key with a cipher tool as mentioned [here]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 {% else %}
+
+!!! warning
+    All configuration changes should be applied before starting {{product_name}} for the first time. Otherwise, a [key rotation]({{base_path}}/deploy/security/symmetric-encryption/data-encryption-keyrotation) will be required.
+
+To do so,
 
 1. Generate a unique 256-bit secret key. If you use OpenSSL, the command will be as follows:
 
