@@ -26,7 +26,7 @@ You are tasked with delegating access to the application so that users are given
 
 Create a simple issue management REST API which provides create, view, update and delete operations to issues.
 
-You can find a sample implementation in the following [repository](https://github.com/ThaminduR/issue-management-api).
+You can find a sample implementation in the following [repository](https://github.com/asgardeo-samples/asgardeo-java-samples).
 
 <!-- To use the above implementation, clone the repository and configure the values in the src/main/resources/application.properties. You can configure these values after the following steps.  -->
 
