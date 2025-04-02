@@ -46,6 +46,11 @@ paths:
                   description: This action invokes before updating a user password.
                   count: 1
                   self: "/api/server/v1/actions/preUpdatePassword"
+                - type: PRE_UPDATE_PROFILE
+                  displayName: Pre Update Profile
+                  description: This action invokes before updating a user profile.
+                  count: 1
+                  self: "/api/server/v1/actions/preUpdateProfile"
         '401':
           description: Unauthorized
         '403':
@@ -146,6 +151,21 @@ paths:
                       - field: flow
                         operator: equals
                         value: userInitiatedPasswordReset
+              preUpdateProfile:
+                summary: Sample payload for pre update profile action
+                value:
+                  name: Profile Update Action
+                  description: This action invokes before updating a user profile.
+                  endpoint:
+                    uri: https://myextension.com/pre-update-profile
+                    authentication:
+                      properties:
+                        header: x-api-key
+                        value: e12595c1-1435-4bf2-94e8-445135ab505a
+                      type: API_KEY
+                  attributes:
+                    - http://wso2.org/claims/givenname
+                    - http://wso2.org/claims/dob
         description: This represents the information of the action to be created.
         required: true
       responses:
@@ -162,7 +182,7 @@ paths:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
                     name: Access Token Pre Issue
                     description: This action invokes before issuing an access token.
-                    status: ACTIVE
+                    status: INACTIVE
                     endpoint:
                       uri: https://myextension.com/token
                       authentication:
@@ -189,7 +209,7 @@ paths:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
                     name: Password Update Action
                     description: This action invokes before updating a user password.
-                    status: ACTIVE
+                    status: INACTIVE
                     endpoint:
                       uri: https://myextension.com/pre-update-password
                       authentication:
@@ -213,6 +233,20 @@ paths:
                         - field: flow
                           operator: equals
                           value: userInitiatedPasswordReset
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: INACTIVE
+                    endpoint:
+                      uri: https://myextension.com/pre-update-password
+                      authentication:
+                        type: API_KEY
+                    attributes:
+                      - http://wso2.org/claims/givenname
+                      - http://wso2.org/claims/dob
         '400':
           description: Bad Request
           content:
@@ -277,6 +311,26 @@ paths:
                     "format": "SHA256_HASHED"
                 }
             }'
+        - lang: Curl - preUpdateProfile
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/preUpdateProfile' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "name": "Profile Update Action",
+                "description": "This action invokes before updating a user profile.",
+                "endpoint": {
+                    "uri": "https://myextension.com/pre-update-profile",
+                    "authentication": {
+                        "properties": {
+                            "header": "x-api-key",
+                            "value": "e12595c1-1435-4bf2-94e8-445135ab505a"
+                        },
+                        "type": "API_KEY"
+                    }
+                },
+                "attributes": ["http://wso2.org/claims/givenname", "http://wso2.org/claims/dob"]
+            }'
       x-codegen-request-body-name: body
 
     get:
@@ -329,6 +383,18 @@ paths:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
                       rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: ACTIVE
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
@@ -455,6 +521,21 @@ paths:
                         - field: flow
                           operator: equals
                           value: userInitiatedPasswordReset
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PROFILE
+                    name: Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/pre-update-profile
+                      authentication:
+                        type: API_KEY
+                    attributes:
+                      - http://wso2.org/claims/givenname
+                      - http://wso2.org/claims/dob
         '400':
           description: Bad Request
           content:
@@ -564,6 +645,18 @@ paths:
                       - field: flow
                         operator: notEquals
                         value: adminInitiatedPasswordUpdate
+              preUpdateProfile:
+                summary: Sample payload for pre update profile action update
+                value:
+                  name: Updated Profile Update Action
+                  description: This action invokes before updating a user profile.
+                  endpoint:
+                    uri: https://myextension.com/external/pre-update-profile
+                    authentication:
+                      properties: {}
+                      type: NONE
+                  attributes:
+                    - http://wso2.org/claims/dob
         description: This represents the action to be updated.
         required: true
       responses:
@@ -621,6 +714,19 @@ paths:
                         - field: flow
                           operator: notEquals
                           value: adminInitiatedPasswordUpdate
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action update
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Updated Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/external/pre-update-profile
+                      authentication:
+                        type: NONE
+                    attributes:
+                      - http://wso2.org/claims/dob
         '400':
           description: Bad Request
           content:
@@ -689,6 +795,24 @@ paths:
                 "passwordSharing": {
                     "format": "PLAIN_TEXT"
                 }
+            }'
+        - lang: Curl - preUpdateProfile
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/actions/preUpdateProfile/{actionId}' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "name": "Updated Profile Update Action",
+                "description": "This is the configuration of pre-action for updating profile",
+                "endpoint": {
+                    "uri": "http://myextensions.com/external/pre-update-profile",
+                    "authentication": {
+                        "type": "NONE",
+                        "properties": {}
+                    }
+                },
+                "attributes": ["http://wso2.org/claims/dob"]
             }'
       x-codegen-request-body-name: body
 
@@ -804,6 +928,18 @@ paths:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
                       rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: ACTIVE
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
@@ -895,6 +1031,18 @@ paths:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
                       rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: INACTIVE
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
