@@ -65,9 +65,7 @@ Update the `key` value with the new key, and set the current key as the `old_key
 [encryption]
 old_key = "03BAFEB27A8E871CAD83C5CD4E771DAB"
 key = "D13E3B2EA4C42EB4A23FD110FACB72A596ECD84ECD5297A13065F1877393ECCF"
-enable_key_id = true
 ```
 
 !!! note
-    - The `key` will be used to encrypt/decrypt new data while the `old_key` will be used to decrypt the existing data.
-    - Once `enable_key_id` is set to `true`, it should not be changed to `false` as it will cause data decryption issues.
+    The `key` will be used to encrypt/decrypt new data while the `old_key` will be used to decrypt the existing data.
