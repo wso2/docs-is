@@ -241,7 +241,7 @@ paths:
                     description: This action invokes before updating a user profile.
                     status: INACTIVE
                     endpoint:
-                      uri: https://myextension.com/pre-update-password
+                      uri: https://myextension.com/pre-update-profile
                       authentication:
                         type: API_KEY
                     attributes:
