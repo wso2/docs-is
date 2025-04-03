@@ -139,6 +139,7 @@ plugins:
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
+        'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -480,7 +481,9 @@ nav:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
-      - Application management API: apis/organization-apis/org-application-management.md
+      - Application management API: 
+        - Application management API (Shared Applications): apis/organization-apis/shared-application-management.md
+        - Application management API: apis/organization-apis/organization-application-mgt.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding API: apis/organization-apis/org-branding-management.md
       - Claim management API: apis/organization-apis/org-claim-management.md
