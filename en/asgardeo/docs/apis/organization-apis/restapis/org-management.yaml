@@ -593,9 +593,6 @@ components:
         name:
           type: string
           example: "ABC Builders"
-        orgHandle:
-          type: string
-          example: "abcbuilders"
         description:
           type: string
           example: "Building constructions"
@@ -632,9 +629,6 @@ components:
         name:
           type: string
           example: "ABCD Builders"
-        orgHandle:
-          type: string
-          example: "abcbuilders"
         description:
           type: string
           example: "Building constructions company"
@@ -707,7 +701,6 @@ components:
       required:
         - id
         - name
-        - orgHandle
         - status
         - ref
       properties:
@@ -717,9 +710,6 @@ components:
         name:
           type: string
           example: 'ABC Builders'
-        orgHandle:
-          type: string
-          example: 'abcbuilders'
         status:
           type: string
           enum: [ ACTIVE, DISABLED ]
@@ -736,7 +726,6 @@ components:
       required:
         - id
         - name
-        - orgHandle
         - status
         - created
         - lastModified
@@ -748,9 +737,6 @@ components:
         name:
           type: string
           example: 'ABC Builders'
-        orgHandle:
-          type: string
-          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -781,7 +767,6 @@ components:
       required:
         - id
         - name
-        - orgHandle
         - status
         - created
         - lastModified
@@ -793,9 +778,6 @@ components:
         name:
           type: string
           example: 'ABC Builders'
-        orgHandle:
-          type: string
-          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -914,7 +896,6 @@ components:
       required:
         - id
         - name
-        - orgHandle
         - status
         - created
         - lastModified
@@ -926,9 +907,6 @@ components:
         name:
           type: string
           example: 'ABC Builders'
-        orgHandle:
-          type: string
-          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
