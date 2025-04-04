@@ -38,9 +38,47 @@ Ensure that the specified namespace exists or create a new one using the followi
 kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
 ```
 
+## Create a Kubernetes TLS secret 
+
+For this you need possess the SSL certificate and the key.
+
+```shell
+kubectl create secret tls is-tls \
+--cert=path/to/cert/file \
+--key=path/to/key/file \
+-n $NAMESPACE
+```
+
+!!! note
+
+    - Ensure that "localhost" is included as a Subject Alternative Name (SAN) when generating the public key certificate.
+    - When generating the keystore, use the default password "wso2carbon".
+
+## Create a Kubernetes secret for Java Keystore files
+
+The deployment requires four Java keystore files:
+
+- **Internal keystore (internal.p12):** Used for encrypting/decrypting internal data.
+- **Primary keystore (primary.p12):** Certificates used for signing messages that are communicated with external parties (such as SAML, OIDC id_token signing).
+- **TLS keystore (tls.p12):** Used for TLS communication.
+- **Client truststore (client-truststore.p12):** Certificates of trusted third parties.
+
+```shell
+kubectl create secret generic keystores \
+--from-file=internal.p12 \
+--from-file=primary.p12 \
+--from-file=tls.p12 \
+--from-file=client-truststore.p12 \
+-n $NAMESPACE
+```
+
+!!! note
+
+    - Make sure to import the public key certificate into the truststore (client-truststore.p12).
+
 ## Install the Helm chart
 
-There are two ways to install the {{product_name}} Helm chart. The Helm chart source code can be found in the [kubernets-is repository](https://github.com/wso2/kubernetes-is/tree/master){:target=" _blank"}.
+There are two ways to install the {{product_name}} using the Helm chart. The Helm chart source code can be found in the [kubernetes-is repository](https://github.com/wso2/kubernetes-is/tree/master){:target=" _blank"}.
 
 ### Option 1: Install the chart from the Helm repository
 1. Add the WSO2 Helm chart repository
@@ -54,21 +92,23 @@ There are two ways to install the {{product_name}} Helm chart. The Helm chart so
 2. Install the Helm chart from the Helm repository.
 {% if is_version == "7.0.0" %}
     ```shell
-    helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-2 \
-    -n "$NAMESPACE" \
+    helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-2 \
+    -n $NAMESPACE \
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
     --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false"
+    --set deployment.apparmor.enabled="false" \
+    --set deployment.externalJKS.enabled="true"
     ```
     {% else %}
     ```shell
-    helm install "$RELEASE_NAME" wso2/identity-server --version {{is_version}}-1 \
-    -n "$NAMESPACE" \
+    helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-1 \
+    -n $NAMESPACE \
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
     --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false"
+    --set deployment.apparmor.enabled="false" \
+    --set deployment.externalJKS.enabled="true"
     ```
 {% endif %}
 
@@ -99,11 +139,12 @@ If you prefer to build the chart from the source, follow the steps below:
 2. Install the Helm chart from the cloned repository:
 
     ```shell
-    helm install "$RELEASE_NAME" -n "$NAMESPACE" . \
+    helm install $RELEASE_NAME -n $NAMESPACE . \
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
     --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false"
+    --set deployment.apparmor.enabled="false" \
+    --set deployment.externalJKS.enabled="true"
     ```
 
     !!! note "Use a custom docker image"
@@ -113,6 +154,24 @@ If you prefer to build the chart from the source, follow the steps below:
         ```shell
         --set deployment.image.digest=<digest> 
         ```
+
+## (Optional) Change of Keystore passwords
+
+We recommend generating the keystore using the default password "wso2carbon". However, if you have used a different password, update the following configurations accordingly:
+
+```shell
+--set deploymentToml.keystore.internal.fileName="internal.p12" \
+--set deploymentToml.keystore.internal.password="<value>" \
+--set deploymentToml.keystore.internal.keyPassword="<value>" \
+--set deploymentToml.keystore.primary.fileName="primary.p12" \
+--set deploymentToml.keystore.primary.password="<value>" \
+--set deploymentToml.keystore.primary.keyPassword="<value>" \
+--set deploymentToml.keystore.tls.fileName="tls.p12" \
+--set deploymentToml.keystore.tls.password="<value>" \
+--set deploymentToml.keystore.tls.keyPassword="<value>" \
+--set deploymentToml.truststore.fileName="client-truststore.p12" \
+--set deploymentToml.truststore.password="<value>"
+```
 
 ## (Optional) Configure resource limits
 
@@ -156,7 +215,7 @@ If your Kubernetes cluster has limited resources, you can adjust these values wh
 After deploying WSO2 Identity Server, you need to find its external IP address to access it outside the cluster. Run the following command to list the Ingress resources in your namespace:
 
 ```shell
-kubectl get ing -n "$NAMESPACE"
+kubectl get ing -n $NAMESPACE
 ```
 
 The output will contain the following columns:
