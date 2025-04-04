@@ -29,7 +29,7 @@ The following is an example OIDC back-channel logout token.
 {
 "iss": "https://api.asgardeo.io/t/<org_name>/oauth2/token",
 "sub": "aa21e449-****-****-****-****a6a3961f",
-"aud": "w_Hwp05dFRwcRs_WFHv9SNwpflAa",
+"aud": "w_Hwp05dF****_****9SNwpflAa",
 "iat": 1609911868,
 "exp": 1609911988,
 "jti": "16159e3e-****-****-****-b0782ab33d58",
