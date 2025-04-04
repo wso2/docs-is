@@ -20,3 +20,24 @@ The underlying message flow of OpenID Connect (OIDC) back-channel logout is as f
     ![Enable login attempts security]({{base_path}}/assets/img/guides/authentication/add-back-channel-logout.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Update** to save your configurations.
+
+## Validate the OIDC back-channel logout token
+
+The following is an example OIDC back-channel logout token.
+
+``` json
+{
+"iss": "https://api.asgardeo.io/t/<org_name>/oauth2/token",
+"sub": "aa21e449-****-****-****-****a6a3961f",
+"aud": "w_Hwp05dFRwcRs_WFHv9SNwpflAa",
+"iat": 1609911868,
+"exp": 1609911988,
+"jti": "16159e3e-****-****-****-b0782ab33d58",
+"sid": "15043ffc-****-****-****-9b107f7da38c",
+"events": {
+   "http://schemas.openid.net/event/backchannel-logout": {}
+   }
+}
+```
+
+Logout token validation is done according to the [OIDC back-channel logout specification](https://openid.net/specs/openid-connect-backchannel-1_0.html#Validation) for the token signature and the `iss`, `aud`, `iat`, `sub`, `sid`, `events`, and `nonce` claims.
