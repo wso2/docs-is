@@ -4,15 +4,7 @@ Users may recover a forgotten password from an application sign-in page by follo
 
 !!! note "Before you begin"
 
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0" ) %}
-
-    Administrators should [enable password recovery]({{base_path}}/guides/user-accounts/password-recovery/) for users of the organization.
-
-    {% else %}
-
     Administrators should [enable password recovery]({{base_path}}/guides/account-configurations/account-recovery/password-recovery/) for users of the organization.
-
-    {% endif %}
 
 ## Recover a forgotten password
 
@@ -31,23 +23,56 @@ To reset the password, the user should follow these steps.
 
 3. Follow one of the following methods based on the password recovery option configured for your organization.
 
-    !!! note
+    === "Email link"
 
-        - Setting your email address and mobile number is mandatory to use the email link and SMS OTP recovery methods respectively.
-
-        - If the organization has configured both options for password recovery, select your preferred method and click **Proceed**.
-
-    - If you have enabled email link recovery, enter your username and click **Send Reset Link**. An email notification will be sent to your email address.
+        Enter your username and click **Send Reset Link**. An email notification will be sent to your email address.
         ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-email-only.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    - If you have enabled SMS OTP recovery, enter your username and click **Send SMS OTP**. An OTP code will be sent to your registered mobile number.
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+
+    === "Email OTP"
+
+        Enter your username and click **Send Email OTP**. An OTP code will be sent to your registered email address.
+        ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-email-otp.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    
+    {% endif %}
+
+    === "SMS OTP"
+
+        Enter your username and click **Send SMS OTP**. An OTP code will be sent to your registered mobile number.
         ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-sms-only.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+    !!! note
+        {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+        - Setting an email address is required for email link and email OTP recovery methods, while setting a mobile number is required for SMS OTP recovery.
+        {% else %}
+        - Setting your email address and mobile number is mandatory to use the email link and SMS OTP recovery methods respectively.
+        {% endif %}
+
+        - If the organization has configured multiple options for password recovery, select your preferred method and click **Proceed**.
+
+
 4. Confirm password reset request.
-    - If the **Email Link** option was chosen in the previous step, open the email you received and click **Reset Password**.
+
+    === "Email link"
+
+        Open the email you received and click **Reset Password**.
         ![Reset password email]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    - If SMS OTP option was chosen in the previous step, enter the OTP code sent to your mobile and click **Continue**.
+    
+
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+
+    === "Email OTP"
+
+        Enter the OTP code sent to your email and click **Continue**.
+        ![Reset password email OTP]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-email-otp.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    {% endif %}
+
+    === "SMS OTP" 
+
+        Enter the OTP code sent to your mobile and click **Continue**.
         ![Reset password SMS OTP]({{base_path}}/assets/img/guides/organization/self-service/customer/reset-password-sms-otp.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% else %}
