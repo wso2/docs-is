@@ -6,7 +6,7 @@ Follow the steps below to configure attribute change verification settings:
 
 1. On the {{product_name}} Console, go to **User Attributes & Stores** > **Attributes**.
 
-2. Under **Manage Attributes**, click on **User Attribute Change Verification**.
+2. Under **Manage Attributes**, click on {% if product_name == "Asgardeo" %} **Attribute Update Verification Settings** {% else %} **Attribute Update Settings** {% endif %}.
 
 3. Configure the following properties:
 
