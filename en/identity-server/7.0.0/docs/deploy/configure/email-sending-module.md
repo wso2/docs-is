@@ -47,11 +47,11 @@ Follow the steps given below to enable the email sender globally for all tenants
       </tr>
       <tr>
         <td><code>enable_start_tls</code></td>
-        <td>If true, this enables using the <code>STARTTLS</code> command (if enabled before issuing any login commands. Note that an appropriate trust store must be configured so that the client will trust the server's certificate. Defaults to <code>false</code>.</td>
+        <td>If true, this enables using the <code>STARTTLS</code> command (if enabled before issuing any login commands. Note that an appropriate trust store must be configured so that the client will trust the server's certificate. Defaults to <code>true</code>.</td>
       </tr>
       <tr>
         <td><code>enable_authentication</code></td>
-        <td>If true, attempt to authenticate the user using the AUTH command. Defaults to <code>false</code>.</td>
+        <td>If true, attempt to authenticate the user using the AUTH command. Defaults to <code>true</code>.</td>
       </tr>
       <tr>
         <td><code>signature</code></td>
