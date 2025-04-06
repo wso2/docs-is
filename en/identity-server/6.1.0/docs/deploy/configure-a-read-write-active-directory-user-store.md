@@ -95,39 +95,6 @@ connection_name = "cn=admin,ou=system"
 connection_password = "admin"
 ```
 
-!!! note
-Starting from update level 6.1.0.185, the following userstore properties have
-been introduced to support the circuit breaker for userstores. This feature is enabled
-by default to ignore unavailable userstores, ensuring smooth operations in the Identity Server.
-<table>
-<thead>
-<tr class="header">
-<th>Property Id</th>
-<th>Primary userstore Property</th>
-<th>Secondary userstore Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>ConnectionRetryCount</td>
-<td>connection_retry_count</td>
-<td>ConnectionRetryCount</td>
-<td>Specifies the connection retry counts to retry establishing the connection<br />
-<br />
-<p>Default : 2</p></td>
-</tr>
-<tr class="even">
-<td>ConnectionRetryDelayInMilliSeconds</td>
-<td>connection_retry_delay_in_milli_seconds</td>
-<td>ConnectionRetryDelayInMilliSeconds</td>
-<td>Specifies the connection retry delay in milliseconds to wait until re-establishing the connection<br />
-<br />
-<p>Default : 12000</p></td>
-</tr>
-</tbody>
-</table>
-
 In addition to the above, please make sure that you import the Active Directory user store public certificate to the 
 WSO2 Identity Server’s client trust store. To perform this, you need to navigate to the 
 `<IS_HOME>repository/resources/security` directory and execute the following command to import the certificate to 

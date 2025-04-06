@@ -14,20 +14,20 @@ configured under these two types.
 ![user-store-types](../assets/img/using-wso2-identity-server/user-store-types.png) 
 
 !!! info
-Starting from update level <update_level>, the circuit breaker for userstores is
-introduced to ignore unavailable userstores, ensuring smooth operations
-in the Identity Server. If it is necessary to enable this behavior,
-add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+Starting from update level 5.10.0.320,inaccessible userstores are ignored by default, 
+ensuring smooth operations in the Identity Server and is enabled by default. 
+If it is required to disable this behavior, add the following configuration to the 
+`<IS_HOME>/repository/conf/deployment.toml` file:
 ```
-[user_store]
-enable_circuit_breaker_for_user_stores=true
+[user_store_commons]
+enable_circuit_breaker_for_user_stores=false
 ```
 !!! info
-Additionally, the following properties have been introduced to support the circuit
-breaker, specifying the maximum values for re-establishing the connection as a
+Additionally, the following properties have been introduced to support this behavior,
+specifying the maximum values for re-establishing the connection as a
 server-wide configuration:
 ```
-[user_store]
+[user_store_commons]
 maxConnectionRetryCount=2
 maxConnectionRetryDelayInMilliSeconds=12000
 ```

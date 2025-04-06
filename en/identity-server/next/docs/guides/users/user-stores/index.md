@@ -12,6 +12,22 @@ configured under these two types.
 
 ![user-store-types]({{base_path}}/assets/img/guides/user-stores/user-store-types.png){: width="600" style="display: block; margin: 0;"}
 
+!!! info
+Inaccessible userstores are ignored by default during the authentication flow. If it is required to disable this behavior,
+add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+```
+[user_store_commons]
+enable_circuit_breaker_for_user_stores=false
+```
+!!! info
+Additionally, the following properties are introduced to support this behaviour,
+specifying the maximum connection retry count & minimum connection retry delay values
+for re-establishing the connection as a server-wide configuration:
+```
+[user_store_commons]
+maxConnectionRetryCount=2
+minConnectionRetryDelayInMilliSeconds=60000
+```
 ---
 
 ## Primary user store (Mandatory)
